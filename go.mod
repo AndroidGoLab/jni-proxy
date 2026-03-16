@@ -4,18 +4,8 @@ go 1.24.0
 
 toolchain go1.24.2
 
-// NOTE: This module depends on github.com/AndroidGoLab/jni, which is
-// resolved via a go.work file pointing to a local checkout. Once the jni
-// module is published with the correct module path, add it here as a require.
-//
-// Example go.work:
-//   go 1.24.0
-//   use (
-//     .
-//     ../jni
-//   )
-
 require (
+	github.com/AndroidGoLab/jni v0.0.3
 	github.com/spf13/cobra v1.10.2
 	github.com/stretchr/testify v1.11.1
 	google.golang.org/grpc v1.79.2
