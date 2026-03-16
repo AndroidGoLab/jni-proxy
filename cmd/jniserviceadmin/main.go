@@ -58,9 +58,9 @@ var clientsListCmd = &cobra.Command{
 		}
 
 		w := tabwriter.NewWriter(os.Stdout, 0, 4, 2, ' ', 0)
-		fmt.Fprintln(w, "CLIENT_ID\tFINGERPRINT\tREGISTERED_AT")
+		_, _ = fmt.Fprintln(w, "CLIENT_ID\tFINGERPRINT\tREGISTERED_AT")
 		for _, c := range clients {
-			fmt.Fprintf(w, "%s\t%s\t%s\n", c.ClientID, c.Fingerprint, c.RegisteredAt.Format("2006-01-02T15:04:05Z"))
+			_, _ = fmt.Fprintf(w, "%s\t%s\t%s\n", c.ClientID, c.Fingerprint, c.RegisteredAt.Format("2006-01-02T15:04:05Z"))
 		}
 		return w.Flush()
 	},
@@ -75,7 +75,7 @@ var clientsRevokeCmd = &cobra.Command{
 		if err := store.RevokeClient(clientID); err != nil {
 			return err
 		}
-		fmt.Fprintf(os.Stdout, "Revoked client %q and all associated grants.\n", clientID)
+		_, _ = fmt.Fprintf(os.Stdout, "Revoked client %q and all associated grants.\n", clientID)
 		return nil
 	},
 }
@@ -101,9 +101,9 @@ var grantsListCmd = &cobra.Command{
 		}
 
 		w := tabwriter.NewWriter(os.Stdout, 0, 4, 2, ' ', 0)
-		fmt.Fprintln(w, "CLIENT_ID\tMETHOD_PATTERN\tGRANTED_AT\tGRANTED_BY")
+		_, _ = fmt.Fprintln(w, "CLIENT_ID\tMETHOD_PATTERN\tGRANTED_AT\tGRANTED_BY")
 		for _, g := range grants {
-			fmt.Fprintf(w, "%s\t%s\t%s\t%s\n", g.ClientID, g.MethodPattern, g.GrantedAt.Format("2006-01-02T15:04:05Z"), g.GrantedBy)
+			_, _ = fmt.Fprintf(w, "%s\t%s\t%s\t%s\n", g.ClientID, g.MethodPattern, g.GrantedAt.Format("2006-01-02T15:04:05Z"), g.GrantedBy)
 		}
 		return w.Flush()
 	},
@@ -119,7 +119,7 @@ var grantsApproveCmd = &cobra.Command{
 		if err := store.Grant(clientID, pattern, "cli:admin"); err != nil {
 			return err
 		}
-		fmt.Fprintf(os.Stdout, "Granted %q to client %q.\n", pattern, clientID)
+		_, _ = fmt.Fprintf(os.Stdout, "Granted %q to client %q.\n", pattern, clientID)
 		return nil
 	},
 }
@@ -134,7 +134,7 @@ var grantsRevokeCmd = &cobra.Command{
 		if err := store.Revoke(clientID, pattern); err != nil {
 			return err
 		}
-		fmt.Fprintf(os.Stdout, "Revoked %q from client %q.\n", pattern, clientID)
+		_, _ = fmt.Fprintf(os.Stdout, "Revoked %q from client %q.\n", pattern, clientID)
 		return nil
 	},
 }
@@ -156,9 +156,9 @@ var requestsListCmd = &cobra.Command{
 		}
 
 		w := tabwriter.NewWriter(os.Stdout, 0, 4, 2, ' ', 0)
-		fmt.Fprintln(w, "ID\tCLIENT_ID\tMETHODS\tREQUESTED_AT")
+		_, _ = fmt.Fprintln(w, "ID\tCLIENT_ID\tMETHODS\tREQUESTED_AT")
 		for _, r := range requests {
-			fmt.Fprintf(w, "%d\t%s\t%s\t%s\n", r.ID, r.ClientID, strings.Join(r.Methods, ","), r.RequestedAt.Format("2006-01-02T15:04:05Z"))
+			_, _ = fmt.Fprintf(w, "%d\t%s\t%s\t%s\n", r.ID, r.ClientID, strings.Join(r.Methods, ","), r.RequestedAt.Format("2006-01-02T15:04:05Z"))
 		}
 		return w.Flush()
 	},
@@ -176,7 +176,7 @@ var requestsApproveCmd = &cobra.Command{
 		if err := store.ApproveRequest(id, "cli:admin"); err != nil {
 			return err
 		}
-		fmt.Fprintf(os.Stdout, "Approved request %d.\n", id)
+		_, _ = fmt.Fprintf(os.Stdout, "Approved request %d.\n", id)
 		return nil
 	},
 }
@@ -193,7 +193,7 @@ var requestsDenyCmd = &cobra.Command{
 		if err := store.DenyRequest(id); err != nil {
 			return err
 		}
-		fmt.Fprintf(os.Stdout, "Denied request %d.\n", id)
+		_, _ = fmt.Fprintf(os.Stdout, "Denied request %d.\n", id)
 		return nil
 	},
 }

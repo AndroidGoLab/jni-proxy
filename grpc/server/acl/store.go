@@ -119,7 +119,7 @@ func (s *Store) ListClients() ([]ClientInfo, error) {
 	if err != nil {
 		return nil, fmt.Errorf("querying clients: %w", err)
 	}
-	defer rows.Close()
+	defer func() { _ = rows.Close() }()
 
 	var clients []ClientInfo
 	for rows.Next() {
@@ -210,7 +210,7 @@ func (s *Store) ListGrants(clientID string) ([]GrantInfo, error) {
 	if err != nil {
 		return nil, fmt.Errorf("querying grants: %w", err)
 	}
-	defer rows.Close()
+	defer func() { _ = rows.Close() }()
 
 	var grants []GrantInfo
 	for rows.Next() {
@@ -246,7 +246,7 @@ func (s *Store) IsMethodAllowed(
 	if err != nil {
 		return false, fmt.Errorf("querying grants for %q: %w", clientID, err)
 	}
-	defer rows.Close()
+	defer func() { _ = rows.Close() }()
 
 	for rows.Next() {
 		var pattern string
@@ -313,7 +313,7 @@ func (s *Store) ListPendingRequests() ([]RequestInfo, error) {
 	if err != nil {
 		return nil, fmt.Errorf("querying pending requests: %w", err)
 	}
-	defer rows.Close()
+	defer func() { _ = rows.Close() }()
 
 	var requests []RequestInfo
 	for rows.Next() {

@@ -49,8 +49,8 @@ The resulting M4A is written to stdout or a file.`,
 			return err
 		}
 
-		switch {
-		case output == "-" || output == "":
+		switch output {
+		case "-", "":
 			_, err := os.Stdout.Write(data)
 			return err
 		default:
