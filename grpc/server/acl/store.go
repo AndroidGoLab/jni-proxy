@@ -198,8 +198,8 @@ func (s *Store) ListGrants(clientID string) ([]GrantInfo, error) {
 		rows *sql.Rows
 		err  error
 	)
-	switch {
-	case clientID == "":
+	switch clientID {
+	case "":
 		rows, err = s.db.Query(`SELECT client_id, method_pattern, granted_at, granted_by FROM grants`)
 	default:
 		rows, err = s.db.Query(

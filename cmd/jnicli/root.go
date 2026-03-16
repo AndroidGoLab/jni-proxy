@@ -9,7 +9,6 @@ import (
 	"time"
 
 	"github.com/spf13/cobra"
-	"github.com/AndroidGoLab/jni-proxy/grpc/client"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/credentials"
 )
@@ -26,7 +25,6 @@ var (
 )
 
 var grpcConn *grpc.ClientConn
-var grpcClient *client.Client
 
 var rootCmd = &cobra.Command{
 	Use:   "jnicli",
@@ -68,7 +66,6 @@ var rootCmd = &cobra.Command{
 			return fmt.Errorf("connect to %s: %w", flagAddr, err)
 		}
 		grpcConn = conn
-		grpcClient = client.NewClient(conn)
 		return nil
 	},
 	PersistentPostRunE: func(cmd *cobra.Command, args []string) error {

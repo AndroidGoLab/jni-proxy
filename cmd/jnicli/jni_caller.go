@@ -223,12 +223,3 @@ func intVal(v int32) *pb.JValue {
 	return &pb.JValue{Value: &pb.JValue_I{I: v}}
 }
 
-// longVal is a shorthand for creating a JValue with a long.
-func longVal(v int64) *pb.JValue {
-	return &pb.JValue{Value: &pb.JValue_J{J: v}}
-}
-
-// boolVal is a shorthand for creating a JValue with a boolean.
-func boolVal(v bool) *pb.JValue {
-	return &pb.JValue{Value: &pb.JValue_Z{Z: v}}
-}
