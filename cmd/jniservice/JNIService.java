@@ -2,19 +2,19 @@
 //
 // Run via app_process on an Android device:
 //
-//   app_process -Djava.class.path=/data/local/tmp/jniservice.dex \
-//       /data/local/tmp JNIService
+//   LD_LIBRARY_PATH=/path/to/dir app_process \
+//       -Djava.class.path=/path/to/dir/jniservice.dex /path/to/dir JNIService
 //
 // Configuration is via environment variables (set before invoking app_process):
 //
-//   JNISERVICE_PORT   — TCP port (default 50051)
-//   JNISERVICE_LISTEN — listen address (default 0.0.0.0)
-//   JNISERVICE_TOKEN  — bearer token for auth (empty = no auth)
+//   JNISERVICE_PORT     — TCP port (default 50051)
+//   JNISERVICE_LISTEN   — listen address (default 127.0.0.1)
+//   JNISERVICE_DATA_DIR — writable directory for CA, ACL db, etc.
 public class JNIService {
     public static void main(String[] args) {
         System.err.println("jniservice: loading shared library");
         try {
-            System.load("/data/local/tmp/libjniservice.so");
+            System.loadLibrary("jniservice");
         } catch (Throwable t) {
             System.err.println("jniservice: load failed: " + t);
             System.exit(1);

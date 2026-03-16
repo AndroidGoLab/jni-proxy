@@ -118,7 +118,7 @@ func TestE2E_Auth_GrantAndAllow(t *testing.T) {
 
 	dbPath := os.Getenv("JNISERVICE_DB")
 	if dbPath == "" {
-		dbPath = "/data/local/tmp/jniservice.db"
+		dbPath = "/data/adb/jniservice/data/acl.db"
 	}
 	adminBin := os.Getenv("JNISERVICEADMIN_BIN")
 	if adminBin == "" {
@@ -164,7 +164,7 @@ func TestE2E_Auth_ListPermissions(t *testing.T) {
 
 	dbPath := os.Getenv("JNISERVICE_DB")
 	if dbPath == "" {
-		dbPath = "/data/local/tmp/jniservice.db"
+		dbPath = "/data/adb/jniservice/data/acl.db"
 	}
 	adminBin := os.Getenv("JNISERVICEADMIN_BIN")
 	if adminBin == "" {

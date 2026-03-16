@@ -90,10 +90,10 @@ adb shell su -c "magisk --install-module /sdcard/jniservice-magisk-arm64-v8a.zip
 adb reboot                                             # starts on next boot
 ```
 
-Configuration: create `/data/local/tmp/jniservice.env` on the device:
+Configuration (optional): create `jniservice.env` in the Magisk module directory:
 ```bash
 JNISERVICE_PORT=50051
-JNISERVICE_TOKEN=my-secret-token
+JNISERVICE_LISTEN=0.0.0.0
 ```
 
 ### Non-rooted devices (APK)
@@ -109,6 +109,12 @@ Open "jniservice" from the launcher once to start the service and register the b
 
 ### Connecting
 
+On the device itself:
+```bash
+jnicli --addr localhost:50051 --insecure jni get-version
+```
+
+From another machine (via adb port forwarding):
 ```bash
 adb forward tcp:50051 tcp:50051
 jnicli --addr localhost:50051 --insecure jni get-version

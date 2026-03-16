@@ -56,7 +56,7 @@ endif
 ADB ?= $(ANDROID_SDK)/platform-tools/adb
 PORT ?= 50051
 HOST_PORT ?= $(PORT)
-REMOTE_DIR := /data/local/tmp
+REMOTE_DIR := /data/adb/jniservice
 
 deploy: push start-server forward
 
@@ -68,11 +68,15 @@ push:
 	esac; \
 	echo "Device arch: $$ARCH -> GOARCH=$$GOARCH ABI=$$ABI"; \
 	$(MAKE) dist-jniservice dist-dex DIST_GOARCH=$$GOARCH && \
+	$(ADB) shell "mkdir -p $(REMOTE_DIR)" && \
 	$(ADB) push build/libjniservice-$$ABI.so $(REMOTE_DIR)/libjniservice.so && \
 	$(ADB) push build/classes.dex $(REMOTE_DIR)/jniservice.dex
 
 start-server: stop-server
-	$(ADB) shell "JNISERVICE_PORT=$(PORT) app_process \
+	$(ADB) shell "JNISERVICE_PORT=$(PORT) \
+		JNISERVICE_DATA_DIR=$(REMOTE_DIR)/data \
+		LD_LIBRARY_PATH=$(REMOTE_DIR) \
+		app_process \
 		-Djava.class.path=$(REMOTE_DIR)/jniservice.dex \
 		$(REMOTE_DIR) JNIService" &
 	@echo "Waiting for jniservice to start..."

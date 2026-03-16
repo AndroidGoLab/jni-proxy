@@ -11,7 +11,7 @@
 // Configuration is via environment variables:
 //
 //	JNISERVICE_PORT   TCP port (default "50051")
-//	JNISERVICE_LISTEN Listen address (default "0.0.0.0")
+//	JNISERVICE_LISTEN Listen address (default "127.0.0.1")
 package main
 
 /*
@@ -144,13 +144,13 @@ func runServer(cvm *C.JavaVM) {
 	appContextHandle := initAndroidContext(vm, handles)
 
 	// Determine data directory. Try the APK's files dir first (writable by the
-	// app process), fall back to /data/local/tmp (writable by shell user in
-	// app_process mode).
+	// app process), fall back to /data/adb/jniservice (writable by root in
+	// app_process/Magisk mode). JNISERVICE_DATA_DIR env var overrides both.
 	dataDir := os.Getenv("JNISERVICE_DATA_DIR")
 	if dataDir == "" {
 		candidates := []string{
 			"/data/data/center.dx.jni.jniservice/files/jniservice",
-			"/data/local/tmp/jniservice",
+			"/data/adb/jniservice",
 		}
 		for _, dir := range candidates {
 			if err := os.MkdirAll(dir, 0700); err == nil {

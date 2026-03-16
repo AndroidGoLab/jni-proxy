@@ -74,7 +74,7 @@ func TestMain(m *testing.M) {
 //     directly on the host.
 //
 //   - ADB mode: JNISERVICEADMIN_ADB_BIN is set to the device-side path
-//     of jniserviceadmin (e.g. /data/local/tmp/jniserviceadmin). The
+//     of jniserviceadmin (e.g. /data/adb/jniservice/dataadmin). The
 //     admin tool is invoked via "adb shell" on the device. JNISERVICE_DB
 //     defaults to the device-side path.
 func grantTestPermissions(cn string) error {
@@ -94,7 +94,7 @@ func grantTestPermissions(cn string) error {
 func grantViaHostAdmin(adminBin, cn string) error {
 	dbPath := os.Getenv("JNISERVICE_DB")
 	if dbPath == "" {
-		dbPath = "/data/local/tmp/jniservice/acl.db"
+		dbPath = "/data/adb/jniservice/data/acl.db"
 	}
 
 	cmd := exec.Command(adminBin, "--db", dbPath, "grants", "approve", cn, "/*")
@@ -109,7 +109,7 @@ func grantViaHostAdmin(adminBin, cn string) error {
 func grantViaADB(adbAdminPath, cn string) error {
 	dbPath := os.Getenv("JNISERVICE_DB")
 	if dbPath == "" {
-		dbPath = "/data/local/tmp/jniservice/acl.db"
+		dbPath = "/data/adb/jniservice/data/acl.db"
 	}
 
 	adbEnv := os.Getenv("ADB")
@@ -131,14 +131,14 @@ func grantViaADB(adbAdminPath, cn string) error {
 	scriptFile.Close()
 
 	// Push script to device.
-	pushArgs := append(adbParts[1:], "push", scriptFile.Name(), "/data/local/tmp/e2e-grant.sh")
+	pushArgs := append(adbParts[1:], "push", scriptFile.Name(), "/data/adb/jniservice/e2e-grant.sh")
 	pushCmd := exec.Command(adbParts[0], pushArgs...)
 	if out, err := pushCmd.CombinedOutput(); err != nil {
 		return fmt.Errorf("pushing grant script: %v\n%s", err, out)
 	}
 
 	// Run script via su.
-	runArgs := append(adbParts[1:], "shell", "su", "-c", "sh /data/local/tmp/e2e-grant.sh")
+	runArgs := append(adbParts[1:], "shell", "su", "-c", "sh /data/adb/jniservice/e2e-grant.sh")
 	cmd := exec.Command(adbParts[0], runArgs...)
 	out, err := cmd.CombinedOutput()
 	if err != nil {

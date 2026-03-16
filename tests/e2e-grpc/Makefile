@@ -13,7 +13,7 @@ ADB ?= $(ANDROID_SDK)/platform-tools/adb
 CC_ARM64 := $(NDK)/toolchains/llvm/prebuilt/linux-x86_64/bin/aarch64-linux-android$(API_LEVEL)-clang
 CC_X86 := $(NDK)/toolchains/llvm/prebuilt/linux-x86_64/bin/x86_64-linux-android$(API_LEVEL)-clang
 ARCH ?= $(shell $(ADB) shell getprop ro.product.cpu.abi 2>/dev/null)
-REMOTE_DIR := /data/local/tmp
+REMOTE_DIR := /data/adb/jniservice
 REMOTE_ACL_DB ?= $(REMOTE_DIR)/jniservice/acl.db
 PORT ?= 50051
 HOST_PORT ?= $(PORT)
@@ -56,6 +56,7 @@ build-android:
 
 # Push artifacts to the device.
 push: build-android
+	$(ADB) shell "mkdir -p $(REMOTE_DIR)"
 	$(ADB) push build/jnicli $(REMOTE_DIR)/jnicli
 	$(ADB) shell chmod +x $(REMOTE_DIR)/jnicli
 	$(ADB) push build/libjniservice.so $(REMOTE_DIR)/libjniservice.so
@@ -63,6 +64,7 @@ push: build-android
 
 # Push jniserviceadmin to the device.
 push-admin: build-admin
+	$(ADB) shell "mkdir -p $(REMOTE_DIR)"
 	$(ADB) push build/jniserviceadmin $(REMOTE_DIR)/jniserviceadmin
 	$(ADB) shell chmod +x $(REMOTE_DIR)/jniserviceadmin
 
@@ -71,7 +73,10 @@ deploy: push start-server forward
 
 # Start the gRPC server on the device (kills any old instance first).
 start-server: stop-server
-	$(ADB) shell "JNISERVICE_PORT=$(PORT) app_process \
+	$(ADB) shell "JNISERVICE_PORT=$(PORT) \
+		JNISERVICE_DATA_DIR=$(REMOTE_DIR)/data \
+		LD_LIBRARY_PATH=$(REMOTE_DIR) \
+		app_process \
 		-Djava.class.path=$(REMOTE_DIR)/jniservice.dex \
 		$(REMOTE_DIR) JNIService" &
 	@echo "Waiting for jniservice to start..."

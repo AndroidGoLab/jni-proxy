@@ -8,7 +8,6 @@ import (
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/credentials"
-	"google.golang.org/grpc/metadata"
 	"google.golang.org/grpc/peer"
 	"google.golang.org/grpc/status"
 )
@@ -16,33 +15,6 @@ import (
 // Authorizer checks whether a gRPC call is allowed.
 type Authorizer interface {
 	Authorize(ctx context.Context, fullMethod string) error
-}
-
-// NoAuth allows all requests.
-type NoAuth struct{}
-
-// Authorize always returns nil (all requests are allowed).
-func (NoAuth) Authorize(context.Context, string) error { return nil }
-
-// TokenAuth checks for a bearer token in gRPC metadata.
-type TokenAuth struct {
-	Token string
-}
-
-// Authorize validates that the incoming context carries a matching bearer token.
-func (a TokenAuth) Authorize(ctx context.Context, _ string) error {
-	md, ok := metadata.FromIncomingContext(ctx)
-	if !ok {
-		return status.Error(codes.Unauthenticated, "missing metadata")
-	}
-	tokens := md.Get("authorization")
-	if len(tokens) == 0 {
-		return status.Error(codes.Unauthenticated, "missing authorization")
-	}
-	if tokens[0] != "Bearer "+a.Token {
-		return status.Error(codes.PermissionDenied, "invalid token")
-	}
-	return nil
 }
 
 // ACLAuth checks client identity from mTLS peer cert and verifies
