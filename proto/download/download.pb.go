@@ -2747,8 +2747,8 @@ const file_proto_download_download_proto_rawDesc = "" +
 	"\x1eSetVisibleInDownloadsUiRequest\x12\x12\n" +
 	"\x04arg0\x18\x01 \x01(\bR\x04arg0\"9\n" +
 	"\x1fSetVisibleInDownloadsUiResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result2\xef\a\n" +
-	"\x16DownloadManagerService\x12h\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result2\xe7\a\n" +
+	"\x0eManagerService\x12h\n" +
 	"\x15AddCompletedDownload7\x12&.download.AddCompletedDownload7Request\x1a'.download.AddCompletedDownload7Response\x12n\n" +
 	"\x17AddCompletedDownload9_1\x12(.download.AddCompletedDownload9_1Request\x1a).download.AddCompletedDownload9_1Response\x12>\n" +
 	"\aEnqueue\x12\x18.download.EnqueueRequest\x1a\x19.download.EnqueueResponse\x12}\n" +
@@ -2758,11 +2758,11 @@ const file_proto_download_download_proto_rawDesc = "" +
 	"\x05Query\x12\x16.download.QueryRequest\x1a\x17.download.QueryResponse\x12;\n" +
 	"\x06Remove\x12\x17.download.RemoveRequest\x1a\x18.download.RemoveResponse\x12h\n" +
 	"\x15GetMaxBytesOverMobile\x12&.download.GetMaxBytesOverMobileRequest\x1a'.download.GetMaxBytesOverMobileResponse\x12\x89\x01\n" +
-	" GetRecommendedMaxBytesOverMobile\x121.download.GetRecommendedMaxBytesOverMobileRequest\x1a2.download.GetRecommendedMaxBytesOverMobileResponse2\xcd\x01\n" +
-	"\x1bDownloadManagerQueryService\x12P\n" +
+	" GetRecommendedMaxBytesOverMobile\x121.download.GetRecommendedMaxBytesOverMobileRequest\x1a2.download.GetRecommendedMaxBytesOverMobileResponse2\xc5\x01\n" +
+	"\x13ManagerQueryService\x12P\n" +
 	"\rSetFilterById\x12\x1e.download.SetFilterByIdRequest\x1a\x1f.download.SetFilterByIdResponse\x12\\\n" +
-	"\x11SetFilterByStatus\x12\".download.SetFilterByStatusRequest\x1a#.download.SetFilterByStatusResponse2\xc1\r\n" +
-	"\x1dDownloadManagerRequestService\x12Y\n" +
+	"\x11SetFilterByStatus\x12\".download.SetFilterByStatusRequest\x1a#.download.SetFilterByStatusResponse2\xb9\r\n" +
+	"\x15ManagerRequestService\x12Y\n" +
 	"\x10AddRequestHeader\x12!.download.AddRequestHeaderRequest\x1a\".download.AddRequestHeaderResponse\x12z\n" +
 	"\x1bAllowScanningByMediaScanner\x12,.download.AllowScanningByMediaScannerRequest\x1a-.download.AllowScanningByMediaScannerResponse\x12k\n" +
 	"\x16SetAllowedNetworkTypes\x12'.download.SetAllowedNetworkTypesRequest\x1a(.download.SetAllowedNetworkTypesResponse\x12h\n" +
@@ -2778,7 +2778,7 @@ const file_proto_download_download_proto_rawDesc = "" +
 	"\x15SetRequiresDeviceIdle\x12&.download.SetRequiresDeviceIdleRequest\x1a'.download.SetRequiresDeviceIdleResponse\x12w\n" +
 	"\x1aSetShowRunningNotification\x12+.download.SetShowRunningNotificationRequest\x1a,.download.SetShowRunningNotificationResponse\x12A\n" +
 	"\bSetTitle\x12\x19.download.SetTitleRequest\x1a\x1a.download.SetTitleResponse\x12n\n" +
-	"\x17SetVisibleInDownloadsUi\x12(.download.SetVisibleInDownloadsUiRequest\x1a).download.SetVisibleInDownloadsUiResponseB+Z)github.com/AndroidGoLab/jni-proxy/proto/downloadb\x06proto3"
+	"\x17SetVisibleInDownloadsUi\x12(.download.SetVisibleInDownloadsUiRequest\x1a).download.SetVisibleInDownloadsUiResponseB2Z0github.com/AndroidGoLab/jni-proxy/proto/downloadb\x06proto3"
 
 var (
 	file_proto_download_download_proto_rawDescOnce sync.Once
@@ -2852,62 +2852,62 @@ var file_proto_download_download_proto_goTypes = []any{
 	(*SetVisibleInDownloadsUiResponse)(nil),           // 55: download.SetVisibleInDownloadsUiResponse
 }
 var file_proto_download_download_proto_depIdxs = []int32{
-	0,  // 0: download.DownloadManagerService.AddCompletedDownload7:input_type -> download.AddCompletedDownload7Request
-	2,  // 1: download.DownloadManagerService.AddCompletedDownload9_1:input_type -> download.AddCompletedDownload9_1Request
-	4,  // 2: download.DownloadManagerService.Enqueue:input_type -> download.EnqueueRequest
-	6,  // 3: download.DownloadManagerService.GetMimeTypeForDownloadedFile:input_type -> download.GetMimeTypeForDownloadedFileRequest
-	8,  // 4: download.DownloadManagerService.GetUriForDownloadedFile:input_type -> download.GetUriForDownloadedFileRequest
-	10, // 5: download.DownloadManagerService.OpenDownloadedFile:input_type -> download.OpenDownloadedFileRequest
-	12, // 6: download.DownloadManagerService.Query:input_type -> download.QueryRequest
-	14, // 7: download.DownloadManagerService.Remove:input_type -> download.RemoveRequest
-	16, // 8: download.DownloadManagerService.GetMaxBytesOverMobile:input_type -> download.GetMaxBytesOverMobileRequest
-	18, // 9: download.DownloadManagerService.GetRecommendedMaxBytesOverMobile:input_type -> download.GetRecommendedMaxBytesOverMobileRequest
-	20, // 10: download.DownloadManagerQueryService.SetFilterById:input_type -> download.SetFilterByIdRequest
-	22, // 11: download.DownloadManagerQueryService.SetFilterByStatus:input_type -> download.SetFilterByStatusRequest
-	24, // 12: download.DownloadManagerRequestService.AddRequestHeader:input_type -> download.AddRequestHeaderRequest
-	26, // 13: download.DownloadManagerRequestService.AllowScanningByMediaScanner:input_type -> download.AllowScanningByMediaScannerRequest
-	28, // 14: download.DownloadManagerRequestService.SetAllowedNetworkTypes:input_type -> download.SetAllowedNetworkTypesRequest
-	30, // 15: download.DownloadManagerRequestService.SetAllowedOverMetered:input_type -> download.SetAllowedOverMeteredRequest
-	32, // 16: download.DownloadManagerRequestService.SetAllowedOverRoaming:input_type -> download.SetAllowedOverRoamingRequest
-	34, // 17: download.DownloadManagerRequestService.SetDescription:input_type -> download.SetDescriptionRequest
-	36, // 18: download.DownloadManagerRequestService.SetDestinationInExternalFilesDir:input_type -> download.SetDestinationInExternalFilesDirRequest
-	38, // 19: download.DownloadManagerRequestService.SetDestinationInExternalPublicDir:input_type -> download.SetDestinationInExternalPublicDirRequest
-	40, // 20: download.DownloadManagerRequestService.SetDestinationUri:input_type -> download.SetDestinationUriRequest
-	42, // 21: download.DownloadManagerRequestService.SetMimeType:input_type -> download.SetMimeTypeRequest
-	44, // 22: download.DownloadManagerRequestService.SetNotificationVisibility:input_type -> download.SetNotificationVisibilityRequest
-	46, // 23: download.DownloadManagerRequestService.SetRequiresCharging:input_type -> download.SetRequiresChargingRequest
-	48, // 24: download.DownloadManagerRequestService.SetRequiresDeviceIdle:input_type -> download.SetRequiresDeviceIdleRequest
-	50, // 25: download.DownloadManagerRequestService.SetShowRunningNotification:input_type -> download.SetShowRunningNotificationRequest
-	52, // 26: download.DownloadManagerRequestService.SetTitle:input_type -> download.SetTitleRequest
-	54, // 27: download.DownloadManagerRequestService.SetVisibleInDownloadsUi:input_type -> download.SetVisibleInDownloadsUiRequest
-	1,  // 28: download.DownloadManagerService.AddCompletedDownload7:output_type -> download.AddCompletedDownload7Response
-	3,  // 29: download.DownloadManagerService.AddCompletedDownload9_1:output_type -> download.AddCompletedDownload9_1Response
-	5,  // 30: download.DownloadManagerService.Enqueue:output_type -> download.EnqueueResponse
-	7,  // 31: download.DownloadManagerService.GetMimeTypeForDownloadedFile:output_type -> download.GetMimeTypeForDownloadedFileResponse
-	9,  // 32: download.DownloadManagerService.GetUriForDownloadedFile:output_type -> download.GetUriForDownloadedFileResponse
-	11, // 33: download.DownloadManagerService.OpenDownloadedFile:output_type -> download.OpenDownloadedFileResponse
-	13, // 34: download.DownloadManagerService.Query:output_type -> download.QueryResponse
-	15, // 35: download.DownloadManagerService.Remove:output_type -> download.RemoveResponse
-	17, // 36: download.DownloadManagerService.GetMaxBytesOverMobile:output_type -> download.GetMaxBytesOverMobileResponse
-	19, // 37: download.DownloadManagerService.GetRecommendedMaxBytesOverMobile:output_type -> download.GetRecommendedMaxBytesOverMobileResponse
-	21, // 38: download.DownloadManagerQueryService.SetFilterById:output_type -> download.SetFilterByIdResponse
-	23, // 39: download.DownloadManagerQueryService.SetFilterByStatus:output_type -> download.SetFilterByStatusResponse
-	25, // 40: download.DownloadManagerRequestService.AddRequestHeader:output_type -> download.AddRequestHeaderResponse
-	27, // 41: download.DownloadManagerRequestService.AllowScanningByMediaScanner:output_type -> download.AllowScanningByMediaScannerResponse
-	29, // 42: download.DownloadManagerRequestService.SetAllowedNetworkTypes:output_type -> download.SetAllowedNetworkTypesResponse
-	31, // 43: download.DownloadManagerRequestService.SetAllowedOverMetered:output_type -> download.SetAllowedOverMeteredResponse
-	33, // 44: download.DownloadManagerRequestService.SetAllowedOverRoaming:output_type -> download.SetAllowedOverRoamingResponse
-	35, // 45: download.DownloadManagerRequestService.SetDescription:output_type -> download.SetDescriptionResponse
-	37, // 46: download.DownloadManagerRequestService.SetDestinationInExternalFilesDir:output_type -> download.SetDestinationInExternalFilesDirResponse
-	39, // 47: download.DownloadManagerRequestService.SetDestinationInExternalPublicDir:output_type -> download.SetDestinationInExternalPublicDirResponse
-	41, // 48: download.DownloadManagerRequestService.SetDestinationUri:output_type -> download.SetDestinationUriResponse
-	43, // 49: download.DownloadManagerRequestService.SetMimeType:output_type -> download.SetMimeTypeResponse
-	45, // 50: download.DownloadManagerRequestService.SetNotificationVisibility:output_type -> download.SetNotificationVisibilityResponse
-	47, // 51: download.DownloadManagerRequestService.SetRequiresCharging:output_type -> download.SetRequiresChargingResponse
-	49, // 52: download.DownloadManagerRequestService.SetRequiresDeviceIdle:output_type -> download.SetRequiresDeviceIdleResponse
-	51, // 53: download.DownloadManagerRequestService.SetShowRunningNotification:output_type -> download.SetShowRunningNotificationResponse
-	53, // 54: download.DownloadManagerRequestService.SetTitle:output_type -> download.SetTitleResponse
-	55, // 55: download.DownloadManagerRequestService.SetVisibleInDownloadsUi:output_type -> download.SetVisibleInDownloadsUiResponse
+	0,  // 0: download.ManagerService.AddCompletedDownload7:input_type -> download.AddCompletedDownload7Request
+	2,  // 1: download.ManagerService.AddCompletedDownload9_1:input_type -> download.AddCompletedDownload9_1Request
+	4,  // 2: download.ManagerService.Enqueue:input_type -> download.EnqueueRequest
+	6,  // 3: download.ManagerService.GetMimeTypeForDownloadedFile:input_type -> download.GetMimeTypeForDownloadedFileRequest
+	8,  // 4: download.ManagerService.GetUriForDownloadedFile:input_type -> download.GetUriForDownloadedFileRequest
+	10, // 5: download.ManagerService.OpenDownloadedFile:input_type -> download.OpenDownloadedFileRequest
+	12, // 6: download.ManagerService.Query:input_type -> download.QueryRequest
+	14, // 7: download.ManagerService.Remove:input_type -> download.RemoveRequest
+	16, // 8: download.ManagerService.GetMaxBytesOverMobile:input_type -> download.GetMaxBytesOverMobileRequest
+	18, // 9: download.ManagerService.GetRecommendedMaxBytesOverMobile:input_type -> download.GetRecommendedMaxBytesOverMobileRequest
+	20, // 10: download.ManagerQueryService.SetFilterById:input_type -> download.SetFilterByIdRequest
+	22, // 11: download.ManagerQueryService.SetFilterByStatus:input_type -> download.SetFilterByStatusRequest
+	24, // 12: download.ManagerRequestService.AddRequestHeader:input_type -> download.AddRequestHeaderRequest
+	26, // 13: download.ManagerRequestService.AllowScanningByMediaScanner:input_type -> download.AllowScanningByMediaScannerRequest
+	28, // 14: download.ManagerRequestService.SetAllowedNetworkTypes:input_type -> download.SetAllowedNetworkTypesRequest
+	30, // 15: download.ManagerRequestService.SetAllowedOverMetered:input_type -> download.SetAllowedOverMeteredRequest
+	32, // 16: download.ManagerRequestService.SetAllowedOverRoaming:input_type -> download.SetAllowedOverRoamingRequest
+	34, // 17: download.ManagerRequestService.SetDescription:input_type -> download.SetDescriptionRequest
+	36, // 18: download.ManagerRequestService.SetDestinationInExternalFilesDir:input_type -> download.SetDestinationInExternalFilesDirRequest
+	38, // 19: download.ManagerRequestService.SetDestinationInExternalPublicDir:input_type -> download.SetDestinationInExternalPublicDirRequest
+	40, // 20: download.ManagerRequestService.SetDestinationUri:input_type -> download.SetDestinationUriRequest
+	42, // 21: download.ManagerRequestService.SetMimeType:input_type -> download.SetMimeTypeRequest
+	44, // 22: download.ManagerRequestService.SetNotificationVisibility:input_type -> download.SetNotificationVisibilityRequest
+	46, // 23: download.ManagerRequestService.SetRequiresCharging:input_type -> download.SetRequiresChargingRequest
+	48, // 24: download.ManagerRequestService.SetRequiresDeviceIdle:input_type -> download.SetRequiresDeviceIdleRequest
+	50, // 25: download.ManagerRequestService.SetShowRunningNotification:input_type -> download.SetShowRunningNotificationRequest
+	52, // 26: download.ManagerRequestService.SetTitle:input_type -> download.SetTitleRequest
+	54, // 27: download.ManagerRequestService.SetVisibleInDownloadsUi:input_type -> download.SetVisibleInDownloadsUiRequest
+	1,  // 28: download.ManagerService.AddCompletedDownload7:output_type -> download.AddCompletedDownload7Response
+	3,  // 29: download.ManagerService.AddCompletedDownload9_1:output_type -> download.AddCompletedDownload9_1Response
+	5,  // 30: download.ManagerService.Enqueue:output_type -> download.EnqueueResponse
+	7,  // 31: download.ManagerService.GetMimeTypeForDownloadedFile:output_type -> download.GetMimeTypeForDownloadedFileResponse
+	9,  // 32: download.ManagerService.GetUriForDownloadedFile:output_type -> download.GetUriForDownloadedFileResponse
+	11, // 33: download.ManagerService.OpenDownloadedFile:output_type -> download.OpenDownloadedFileResponse
+	13, // 34: download.ManagerService.Query:output_type -> download.QueryResponse
+	15, // 35: download.ManagerService.Remove:output_type -> download.RemoveResponse
+	17, // 36: download.ManagerService.GetMaxBytesOverMobile:output_type -> download.GetMaxBytesOverMobileResponse
+	19, // 37: download.ManagerService.GetRecommendedMaxBytesOverMobile:output_type -> download.GetRecommendedMaxBytesOverMobileResponse
+	21, // 38: download.ManagerQueryService.SetFilterById:output_type -> download.SetFilterByIdResponse
+	23, // 39: download.ManagerQueryService.SetFilterByStatus:output_type -> download.SetFilterByStatusResponse
+	25, // 40: download.ManagerRequestService.AddRequestHeader:output_type -> download.AddRequestHeaderResponse
+	27, // 41: download.ManagerRequestService.AllowScanningByMediaScanner:output_type -> download.AllowScanningByMediaScannerResponse
+	29, // 42: download.ManagerRequestService.SetAllowedNetworkTypes:output_type -> download.SetAllowedNetworkTypesResponse
+	31, // 43: download.ManagerRequestService.SetAllowedOverMetered:output_type -> download.SetAllowedOverMeteredResponse
+	33, // 44: download.ManagerRequestService.SetAllowedOverRoaming:output_type -> download.SetAllowedOverRoamingResponse
+	35, // 45: download.ManagerRequestService.SetDescription:output_type -> download.SetDescriptionResponse
+	37, // 46: download.ManagerRequestService.SetDestinationInExternalFilesDir:output_type -> download.SetDestinationInExternalFilesDirResponse
+	39, // 47: download.ManagerRequestService.SetDestinationInExternalPublicDir:output_type -> download.SetDestinationInExternalPublicDirResponse
+	41, // 48: download.ManagerRequestService.SetDestinationUri:output_type -> download.SetDestinationUriResponse
+	43, // 49: download.ManagerRequestService.SetMimeType:output_type -> download.SetMimeTypeResponse
+	45, // 50: download.ManagerRequestService.SetNotificationVisibility:output_type -> download.SetNotificationVisibilityResponse
+	47, // 51: download.ManagerRequestService.SetRequiresCharging:output_type -> download.SetRequiresChargingResponse
+	49, // 52: download.ManagerRequestService.SetRequiresDeviceIdle:output_type -> download.SetRequiresDeviceIdleResponse
+	51, // 53: download.ManagerRequestService.SetShowRunningNotification:output_type -> download.SetShowRunningNotificationResponse
+	53, // 54: download.ManagerRequestService.SetTitle:output_type -> download.SetTitleResponse
+	55, // 55: download.ManagerRequestService.SetVisibleInDownloadsUi:output_type -> download.SetVisibleInDownloadsUiResponse
 	28, // [28:56] is the sub-list for method output_type
 	0,  // [0:28] is the sub-list for method input_type
 	0,  // [0:0] is the sub-list for extension type_name

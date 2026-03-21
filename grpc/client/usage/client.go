@@ -9,17 +9,17 @@ import (
 	"google.golang.org/grpc"
 )
 
-// Client wraps the gRPC UsageStatsManagerService client.
+// Client wraps the gRPC StatsManagerService client.
 type Client struct {
 	cc  grpc.ClientConnInterface
-	svc pb.UsageStatsManagerServiceClient
+	svc pb.StatsManagerServiceClient
 }
 
 // NewClient creates a new usage client.
 func NewClient(cc grpc.ClientConnInterface) *Client {
 	return &Client{
 		cc:  cc,
-		svc: pb.NewUsageStatsManagerServiceClient(cc),
+		svc: pb.NewStatsManagerServiceClient(cc),
 	}
 }
 

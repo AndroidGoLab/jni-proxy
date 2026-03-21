@@ -7,23 +7,23 @@ import (
 
 	"github.com/AndroidGoLab/jni"
 
-	"github.com/AndroidGoLab/jni/app"
-	jnipkg "github.com/AndroidGoLab/jni/app/notification"
 	"github.com/AndroidGoLab/jni-proxy/handlestore"
 	pb "github.com/AndroidGoLab/jni-proxy/proto/notification"
+	"github.com/AndroidGoLab/jni/app"
+	jnipkg "github.com/AndroidGoLab/jni/app/notification"
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"
 )
 
-// NotificationManagerServer implements pb.NotificationManagerServiceServer.
-type NotificationManagerServer struct {
-	pb.UnimplementedNotificationManagerServiceServer
+// ManagerServer implements pb.ManagerServiceServer.
+type ManagerServer struct {
+	pb.UnimplementedManagerServiceServer
 	Ctx     *app.Context
 	Handles *handlestore.HandleStore
 }
 
-func (s *NotificationManagerServer) AddAutomaticZenRule(_ context.Context, req *pb.AddAutomaticZenRuleRequest) (*pb.AddAutomaticZenRuleResponse, error) {
-	mgr, err := jnipkg.NewnotificationManager(s.Ctx)
+func (s *ManagerServer) AddAutomaticZenRule(_ context.Context, req *pb.AddAutomaticZenRuleRequest) (*pb.AddAutomaticZenRuleResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -36,8 +36,8 @@ func (s *NotificationManagerServer) AddAutomaticZenRule(_ context.Context, req *
 	return &pb.AddAutomaticZenRuleResponse{Result: result}, nil
 }
 
-func (s *NotificationManagerServer) AreAutomaticZenRulesUserManaged(_ context.Context, req *pb.AreAutomaticZenRulesUserManagedRequest) (*pb.AreAutomaticZenRulesUserManagedResponse, error) {
-	mgr, err := jnipkg.NewnotificationManager(s.Ctx)
+func (s *ManagerServer) AreAutomaticZenRulesUserManaged(_ context.Context, req *pb.AreAutomaticZenRulesUserManagedRequest) (*pb.AreAutomaticZenRulesUserManagedResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -50,8 +50,8 @@ func (s *NotificationManagerServer) AreAutomaticZenRulesUserManaged(_ context.Co
 	return &pb.AreAutomaticZenRulesUserManagedResponse{Result: result}, nil
 }
 
-func (s *NotificationManagerServer) AreBubblesAllowed(_ context.Context, req *pb.AreBubblesAllowedRequest) (*pb.AreBubblesAllowedResponse, error) {
-	mgr, err := jnipkg.NewnotificationManager(s.Ctx)
+func (s *ManagerServer) AreBubblesAllowed(_ context.Context, req *pb.AreBubblesAllowedRequest) (*pb.AreBubblesAllowedResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -64,8 +64,8 @@ func (s *NotificationManagerServer) AreBubblesAllowed(_ context.Context, req *pb
 	return &pb.AreBubblesAllowedResponse{Result: result}, nil
 }
 
-func (s *NotificationManagerServer) AreBubblesEnabled(_ context.Context, req *pb.AreBubblesEnabledRequest) (*pb.AreBubblesEnabledResponse, error) {
-	mgr, err := jnipkg.NewnotificationManager(s.Ctx)
+func (s *ManagerServer) AreBubblesEnabled(_ context.Context, req *pb.AreBubblesEnabledRequest) (*pb.AreBubblesEnabledResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -78,8 +78,8 @@ func (s *NotificationManagerServer) AreBubblesEnabled(_ context.Context, req *pb
 	return &pb.AreBubblesEnabledResponse{Result: result}, nil
 }
 
-func (s *NotificationManagerServer) AreNotificationsEnabled(_ context.Context, req *pb.AreNotificationsEnabledRequest) (*pb.AreNotificationsEnabledResponse, error) {
-	mgr, err := jnipkg.NewnotificationManager(s.Ctx)
+func (s *ManagerServer) AreNotificationsEnabled(_ context.Context, req *pb.AreNotificationsEnabledRequest) (*pb.AreNotificationsEnabledResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -92,8 +92,8 @@ func (s *NotificationManagerServer) AreNotificationsEnabled(_ context.Context, r
 	return &pb.AreNotificationsEnabledResponse{Result: result}, nil
 }
 
-func (s *NotificationManagerServer) AreNotificationsPaused(_ context.Context, req *pb.AreNotificationsPausedRequest) (*pb.AreNotificationsPausedResponse, error) {
-	mgr, err := jnipkg.NewnotificationManager(s.Ctx)
+func (s *ManagerServer) AreNotificationsPaused(_ context.Context, req *pb.AreNotificationsPausedRequest) (*pb.AreNotificationsPausedResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -106,8 +106,8 @@ func (s *NotificationManagerServer) AreNotificationsPaused(_ context.Context, re
 	return &pb.AreNotificationsPausedResponse{Result: result}, nil
 }
 
-func (s *NotificationManagerServer) CanNotifyAsPackage(_ context.Context, req *pb.CanNotifyAsPackageRequest) (*pb.CanNotifyAsPackageResponse, error) {
-	mgr, err := jnipkg.NewnotificationManager(s.Ctx)
+func (s *ManagerServer) CanNotifyAsPackage(_ context.Context, req *pb.CanNotifyAsPackageRequest) (*pb.CanNotifyAsPackageResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -120,8 +120,8 @@ func (s *NotificationManagerServer) CanNotifyAsPackage(_ context.Context, req *p
 	return &pb.CanNotifyAsPackageResponse{Result: result}, nil
 }
 
-func (s *NotificationManagerServer) CanPostPromotedNotifications(_ context.Context, req *pb.CanPostPromotedNotificationsRequest) (*pb.CanPostPromotedNotificationsResponse, error) {
-	mgr, err := jnipkg.NewnotificationManager(s.Ctx)
+func (s *ManagerServer) CanPostPromotedNotifications(_ context.Context, req *pb.CanPostPromotedNotificationsRequest) (*pb.CanPostPromotedNotificationsResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -134,8 +134,8 @@ func (s *NotificationManagerServer) CanPostPromotedNotifications(_ context.Conte
 	return &pb.CanPostPromotedNotificationsResponse{Result: result}, nil
 }
 
-func (s *NotificationManagerServer) CanUseFullScreenIntent(_ context.Context, req *pb.CanUseFullScreenIntentRequest) (*pb.CanUseFullScreenIntentResponse, error) {
-	mgr, err := jnipkg.NewnotificationManager(s.Ctx)
+func (s *ManagerServer) CanUseFullScreenIntent(_ context.Context, req *pb.CanUseFullScreenIntentRequest) (*pb.CanUseFullScreenIntentResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -148,8 +148,8 @@ func (s *NotificationManagerServer) CanUseFullScreenIntent(_ context.Context, re
 	return &pb.CanUseFullScreenIntentResponse{Result: result}, nil
 }
 
-func (s *NotificationManagerServer) Cancel1(_ context.Context, req *pb.Cancel1Request) (*pb.Cancel1Response, error) {
-	mgr, err := jnipkg.NewnotificationManager(s.Ctx)
+func (s *ManagerServer) Cancel1(_ context.Context, req *pb.Cancel1Request) (*pb.Cancel1Response, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -161,8 +161,8 @@ func (s *NotificationManagerServer) Cancel1(_ context.Context, req *pb.Cancel1Re
 	return &pb.Cancel1Response{}, nil
 }
 
-func (s *NotificationManagerServer) Cancel2_1(_ context.Context, req *pb.Cancel2_1Request) (*pb.Cancel2_1Response, error) {
-	mgr, err := jnipkg.NewnotificationManager(s.Ctx)
+func (s *ManagerServer) Cancel2_1(_ context.Context, req *pb.Cancel2_1Request) (*pb.Cancel2_1Response, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -174,8 +174,8 @@ func (s *NotificationManagerServer) Cancel2_1(_ context.Context, req *pb.Cancel2
 	return &pb.Cancel2_1Response{}, nil
 }
 
-func (s *NotificationManagerServer) CancelAll(_ context.Context, req *pb.CancelAllRequest) (*pb.CancelAllResponse, error) {
-	mgr, err := jnipkg.NewnotificationManager(s.Ctx)
+func (s *ManagerServer) CancelAll(_ context.Context, req *pb.CancelAllRequest) (*pb.CancelAllResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -187,8 +187,8 @@ func (s *NotificationManagerServer) CancelAll(_ context.Context, req *pb.CancelA
 	return &pb.CancelAllResponse{}, nil
 }
 
-func (s *NotificationManagerServer) CancelAsPackage(_ context.Context, req *pb.CancelAsPackageRequest) (*pb.CancelAsPackageResponse, error) {
-	mgr, err := jnipkg.NewnotificationManager(s.Ctx)
+func (s *ManagerServer) CancelAsPackage(_ context.Context, req *pb.CancelAsPackageRequest) (*pb.CancelAsPackageResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -200,8 +200,8 @@ func (s *NotificationManagerServer) CancelAsPackage(_ context.Context, req *pb.C
 	return &pb.CancelAsPackageResponse{}, nil
 }
 
-func (s *NotificationManagerServer) CreateNotificationChannel(_ context.Context, req *pb.CreateNotificationChannelRequest) (*pb.CreateNotificationChannelResponse, error) {
-	mgr, err := jnipkg.NewnotificationManager(s.Ctx)
+func (s *ManagerServer) CreateNotificationChannel(_ context.Context, req *pb.CreateNotificationChannelRequest) (*pb.CreateNotificationChannelResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -213,8 +213,8 @@ func (s *NotificationManagerServer) CreateNotificationChannel(_ context.Context,
 	return &pb.CreateNotificationChannelResponse{}, nil
 }
 
-func (s *NotificationManagerServer) CreateNotificationChannelGroup(_ context.Context, req *pb.CreateNotificationChannelGroupRequest) (*pb.CreateNotificationChannelGroupResponse, error) {
-	mgr, err := jnipkg.NewnotificationManager(s.Ctx)
+func (s *ManagerServer) CreateNotificationChannelGroup(_ context.Context, req *pb.CreateNotificationChannelGroupRequest) (*pb.CreateNotificationChannelGroupResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -226,8 +226,8 @@ func (s *NotificationManagerServer) CreateNotificationChannelGroup(_ context.Con
 	return &pb.CreateNotificationChannelGroupResponse{}, nil
 }
 
-func (s *NotificationManagerServer) CreateNotificationChannelGroups(_ context.Context, req *pb.CreateNotificationChannelGroupsRequest) (*pb.CreateNotificationChannelGroupsResponse, error) {
-	mgr, err := jnipkg.NewnotificationManager(s.Ctx)
+func (s *ManagerServer) CreateNotificationChannelGroups(_ context.Context, req *pb.CreateNotificationChannelGroupsRequest) (*pb.CreateNotificationChannelGroupsResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -239,8 +239,8 @@ func (s *NotificationManagerServer) CreateNotificationChannelGroups(_ context.Co
 	return &pb.CreateNotificationChannelGroupsResponse{}, nil
 }
 
-func (s *NotificationManagerServer) CreateNotificationChannels(_ context.Context, req *pb.CreateNotificationChannelsRequest) (*pb.CreateNotificationChannelsResponse, error) {
-	mgr, err := jnipkg.NewnotificationManager(s.Ctx)
+func (s *ManagerServer) CreateNotificationChannels(_ context.Context, req *pb.CreateNotificationChannelsRequest) (*pb.CreateNotificationChannelsResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -252,8 +252,8 @@ func (s *NotificationManagerServer) CreateNotificationChannels(_ context.Context
 	return &pb.CreateNotificationChannelsResponse{}, nil
 }
 
-func (s *NotificationManagerServer) DeleteNotificationChannel(_ context.Context, req *pb.DeleteNotificationChannelRequest) (*pb.DeleteNotificationChannelResponse, error) {
-	mgr, err := jnipkg.NewnotificationManager(s.Ctx)
+func (s *ManagerServer) DeleteNotificationChannel(_ context.Context, req *pb.DeleteNotificationChannelRequest) (*pb.DeleteNotificationChannelResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -265,8 +265,8 @@ func (s *NotificationManagerServer) DeleteNotificationChannel(_ context.Context,
 	return &pb.DeleteNotificationChannelResponse{}, nil
 }
 
-func (s *NotificationManagerServer) DeleteNotificationChannelGroup(_ context.Context, req *pb.DeleteNotificationChannelGroupRequest) (*pb.DeleteNotificationChannelGroupResponse, error) {
-	mgr, err := jnipkg.NewnotificationManager(s.Ctx)
+func (s *ManagerServer) DeleteNotificationChannelGroup(_ context.Context, req *pb.DeleteNotificationChannelGroupRequest) (*pb.DeleteNotificationChannelGroupResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -278,8 +278,8 @@ func (s *NotificationManagerServer) DeleteNotificationChannelGroup(_ context.Con
 	return &pb.DeleteNotificationChannelGroupResponse{}, nil
 }
 
-func (s *NotificationManagerServer) GetActiveNotifications(_ context.Context, req *pb.GetActiveNotificationsRequest) (*pb.GetActiveNotificationsResponse, error) {
-	mgr, err := jnipkg.NewnotificationManager(s.Ctx)
+func (s *ManagerServer) GetActiveNotifications(_ context.Context, req *pb.GetActiveNotificationsRequest) (*pb.GetActiveNotificationsResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -301,8 +301,8 @@ func (s *NotificationManagerServer) GetActiveNotifications(_ context.Context, re
 	return &pb.GetActiveNotificationsResponse{Result: handle}, nil
 }
 
-func (s *NotificationManagerServer) GetAutomaticZenRule(_ context.Context, req *pb.GetAutomaticZenRuleRequest) (*pb.GetAutomaticZenRuleResponse, error) {
-	mgr, err := jnipkg.NewnotificationManager(s.Ctx)
+func (s *ManagerServer) GetAutomaticZenRule(_ context.Context, req *pb.GetAutomaticZenRuleRequest) (*pb.GetAutomaticZenRuleResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -324,8 +324,8 @@ func (s *NotificationManagerServer) GetAutomaticZenRule(_ context.Context, req *
 	return &pb.GetAutomaticZenRuleResponse{Result: handle}, nil
 }
 
-func (s *NotificationManagerServer) GetAutomaticZenRuleState(_ context.Context, req *pb.GetAutomaticZenRuleStateRequest) (*pb.GetAutomaticZenRuleStateResponse, error) {
-	mgr, err := jnipkg.NewnotificationManager(s.Ctx)
+func (s *ManagerServer) GetAutomaticZenRuleState(_ context.Context, req *pb.GetAutomaticZenRuleStateRequest) (*pb.GetAutomaticZenRuleStateResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -338,8 +338,8 @@ func (s *NotificationManagerServer) GetAutomaticZenRuleState(_ context.Context, 
 	return &pb.GetAutomaticZenRuleStateResponse{Result: result}, nil
 }
 
-func (s *NotificationManagerServer) GetBubblePreference(_ context.Context, req *pb.GetBubblePreferenceRequest) (*pb.GetBubblePreferenceResponse, error) {
-	mgr, err := jnipkg.NewnotificationManager(s.Ctx)
+func (s *ManagerServer) GetBubblePreference(_ context.Context, req *pb.GetBubblePreferenceRequest) (*pb.GetBubblePreferenceResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -352,8 +352,8 @@ func (s *NotificationManagerServer) GetBubblePreference(_ context.Context, req *
 	return &pb.GetBubblePreferenceResponse{Result: result}, nil
 }
 
-func (s *NotificationManagerServer) GetConsolidatedNotificationPolicy(_ context.Context, req *pb.GetConsolidatedNotificationPolicyRequest) (*pb.GetConsolidatedNotificationPolicyResponse, error) {
-	mgr, err := jnipkg.NewnotificationManager(s.Ctx)
+func (s *ManagerServer) GetConsolidatedNotificationPolicy(_ context.Context, req *pb.GetConsolidatedNotificationPolicyRequest) (*pb.GetConsolidatedNotificationPolicyResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -375,8 +375,22 @@ func (s *NotificationManagerServer) GetConsolidatedNotificationPolicy(_ context.
 	return &pb.GetConsolidatedNotificationPolicyResponse{Result: handle}, nil
 }
 
-func (s *NotificationManagerServer) GetImportance(_ context.Context, req *pb.GetImportanceRequest) (*pb.GetImportanceResponse, error) {
-	mgr, err := jnipkg.NewnotificationManager(s.Ctx)
+func (s *ManagerServer) GetCurrentInterruptionFilter(_ context.Context, req *pb.GetCurrentInterruptionFilterRequest) (*pb.GetCurrentInterruptionFilterResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
+	}
+	defer mgr.Close()
+
+	result, err := mgr.GetCurrentInterruptionFilter()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetCurrentInterruptionFilterResponse{Result: result}, nil
+}
+
+func (s *ManagerServer) GetImportance(_ context.Context, req *pb.GetImportanceRequest) (*pb.GetImportanceResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -389,8 +403,8 @@ func (s *NotificationManagerServer) GetImportance(_ context.Context, req *pb.Get
 	return &pb.GetImportanceResponse{Result: result}, nil
 }
 
-func (s *NotificationManagerServer) GetNotificationChannel1(_ context.Context, req *pb.GetNotificationChannel1Request) (*pb.GetNotificationChannel1Response, error) {
-	mgr, err := jnipkg.NewnotificationManager(s.Ctx)
+func (s *ManagerServer) GetNotificationChannel1(_ context.Context, req *pb.GetNotificationChannel1Request) (*pb.GetNotificationChannel1Response, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -412,8 +426,8 @@ func (s *NotificationManagerServer) GetNotificationChannel1(_ context.Context, r
 	return &pb.GetNotificationChannel1Response{Result: handle}, nil
 }
 
-func (s *NotificationManagerServer) GetNotificationChannel2_1(_ context.Context, req *pb.GetNotificationChannel2_1Request) (*pb.GetNotificationChannel2_1Response, error) {
-	mgr, err := jnipkg.NewnotificationManager(s.Ctx)
+func (s *ManagerServer) GetNotificationChannel2_1(_ context.Context, req *pb.GetNotificationChannel2_1Request) (*pb.GetNotificationChannel2_1Response, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -435,8 +449,8 @@ func (s *NotificationManagerServer) GetNotificationChannel2_1(_ context.Context,
 	return &pb.GetNotificationChannel2_1Response{Result: handle}, nil
 }
 
-func (s *NotificationManagerServer) GetNotificationChannelGroup(_ context.Context, req *pb.GetNotificationChannelGroupRequest) (*pb.GetNotificationChannelGroupResponse, error) {
-	mgr, err := jnipkg.NewnotificationManager(s.Ctx)
+func (s *ManagerServer) GetNotificationChannelGroup(_ context.Context, req *pb.GetNotificationChannelGroupRequest) (*pb.GetNotificationChannelGroupResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -458,8 +472,8 @@ func (s *NotificationManagerServer) GetNotificationChannelGroup(_ context.Contex
 	return &pb.GetNotificationChannelGroupResponse{Result: handle}, nil
 }
 
-func (s *NotificationManagerServer) GetNotificationChannelGroups(_ context.Context, req *pb.GetNotificationChannelGroupsRequest) (*pb.GetNotificationChannelGroupsResponse, error) {
-	mgr, err := jnipkg.NewnotificationManager(s.Ctx)
+func (s *ManagerServer) GetNotificationChannelGroups(_ context.Context, req *pb.GetNotificationChannelGroupsRequest) (*pb.GetNotificationChannelGroupsResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -481,8 +495,8 @@ func (s *NotificationManagerServer) GetNotificationChannelGroups(_ context.Conte
 	return &pb.GetNotificationChannelGroupsResponse{Result: handle}, nil
 }
 
-func (s *NotificationManagerServer) GetNotificationChannels(_ context.Context, req *pb.GetNotificationChannelsRequest) (*pb.GetNotificationChannelsResponse, error) {
-	mgr, err := jnipkg.NewnotificationManager(s.Ctx)
+func (s *ManagerServer) GetNotificationChannels(_ context.Context, req *pb.GetNotificationChannelsRequest) (*pb.GetNotificationChannelsResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -504,8 +518,8 @@ func (s *NotificationManagerServer) GetNotificationChannels(_ context.Context, r
 	return &pb.GetNotificationChannelsResponse{Result: handle}, nil
 }
 
-func (s *NotificationManagerServer) GetNotificationDelegate(_ context.Context, req *pb.GetNotificationDelegateRequest) (*pb.GetNotificationDelegateResponse, error) {
-	mgr, err := jnipkg.NewnotificationManager(s.Ctx)
+func (s *ManagerServer) GetNotificationDelegate(_ context.Context, req *pb.GetNotificationDelegateRequest) (*pb.GetNotificationDelegateResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -518,8 +532,8 @@ func (s *NotificationManagerServer) GetNotificationDelegate(_ context.Context, r
 	return &pb.GetNotificationDelegateResponse{Result: result}, nil
 }
 
-func (s *NotificationManagerServer) GetNotificationPolicy(_ context.Context, req *pb.GetNotificationPolicyRequest) (*pb.GetNotificationPolicyResponse, error) {
-	mgr, err := jnipkg.NewnotificationManager(s.Ctx)
+func (s *ManagerServer) GetNotificationPolicy(_ context.Context, req *pb.GetNotificationPolicyRequest) (*pb.GetNotificationPolicyResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -541,8 +555,8 @@ func (s *NotificationManagerServer) GetNotificationPolicy(_ context.Context, req
 	return &pb.GetNotificationPolicyResponse{Result: handle}, nil
 }
 
-func (s *NotificationManagerServer) IsNotificationListenerAccessGranted(_ context.Context, req *pb.IsNotificationListenerAccessGrantedRequest) (*pb.IsNotificationListenerAccessGrantedResponse, error) {
-	mgr, err := jnipkg.NewnotificationManager(s.Ctx)
+func (s *ManagerServer) IsNotificationListenerAccessGranted(_ context.Context, req *pb.IsNotificationListenerAccessGrantedRequest) (*pb.IsNotificationListenerAccessGrantedResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -555,8 +569,8 @@ func (s *NotificationManagerServer) IsNotificationListenerAccessGranted(_ contex
 	return &pb.IsNotificationListenerAccessGrantedResponse{Result: result}, nil
 }
 
-func (s *NotificationManagerServer) IsNotificationPolicyAccessGranted(_ context.Context, req *pb.IsNotificationPolicyAccessGrantedRequest) (*pb.IsNotificationPolicyAccessGrantedResponse, error) {
-	mgr, err := jnipkg.NewnotificationManager(s.Ctx)
+func (s *ManagerServer) IsNotificationPolicyAccessGranted(_ context.Context, req *pb.IsNotificationPolicyAccessGrantedRequest) (*pb.IsNotificationPolicyAccessGrantedResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -569,8 +583,8 @@ func (s *NotificationManagerServer) IsNotificationPolicyAccessGranted(_ context.
 	return &pb.IsNotificationPolicyAccessGrantedResponse{Result: result}, nil
 }
 
-func (s *NotificationManagerServer) MatchesCallFilter(_ context.Context, req *pb.MatchesCallFilterRequest) (*pb.MatchesCallFilterResponse, error) {
-	mgr, err := jnipkg.NewnotificationManager(s.Ctx)
+func (s *ManagerServer) MatchesCallFilter(_ context.Context, req *pb.MatchesCallFilterRequest) (*pb.MatchesCallFilterResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -583,8 +597,8 @@ func (s *NotificationManagerServer) MatchesCallFilter(_ context.Context, req *pb
 	return &pb.MatchesCallFilterResponse{Result: result}, nil
 }
 
-func (s *NotificationManagerServer) Notify2(_ context.Context, req *pb.Notify2Request) (*pb.Notify2Response, error) {
-	mgr, err := jnipkg.NewnotificationManager(s.Ctx)
+func (s *ManagerServer) Notify2(_ context.Context, req *pb.Notify2Request) (*pb.Notify2Response, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -596,8 +610,8 @@ func (s *NotificationManagerServer) Notify2(_ context.Context, req *pb.Notify2Re
 	return &pb.Notify2Response{}, nil
 }
 
-func (s *NotificationManagerServer) Notify3_1(_ context.Context, req *pb.Notify3_1Request) (*pb.Notify3_1Response, error) {
-	mgr, err := jnipkg.NewnotificationManager(s.Ctx)
+func (s *ManagerServer) Notify3_1(_ context.Context, req *pb.Notify3_1Request) (*pb.Notify3_1Response, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -609,8 +623,8 @@ func (s *NotificationManagerServer) Notify3_1(_ context.Context, req *pb.Notify3
 	return &pb.Notify3_1Response{}, nil
 }
 
-func (s *NotificationManagerServer) NotifyAsPackage(_ context.Context, req *pb.NotifyAsPackageRequest) (*pb.NotifyAsPackageResponse, error) {
-	mgr, err := jnipkg.NewnotificationManager(s.Ctx)
+func (s *ManagerServer) NotifyAsPackage(_ context.Context, req *pb.NotifyAsPackageRequest) (*pb.NotifyAsPackageResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -622,8 +636,8 @@ func (s *NotificationManagerServer) NotifyAsPackage(_ context.Context, req *pb.N
 	return &pb.NotifyAsPackageResponse{}, nil
 }
 
-func (s *NotificationManagerServer) RemoveAutomaticZenRule(_ context.Context, req *pb.RemoveAutomaticZenRuleRequest) (*pb.RemoveAutomaticZenRuleResponse, error) {
-	mgr, err := jnipkg.NewnotificationManager(s.Ctx)
+func (s *ManagerServer) RemoveAutomaticZenRule(_ context.Context, req *pb.RemoveAutomaticZenRuleRequest) (*pb.RemoveAutomaticZenRuleResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -636,8 +650,8 @@ func (s *NotificationManagerServer) RemoveAutomaticZenRule(_ context.Context, re
 	return &pb.RemoveAutomaticZenRuleResponse{Result: result}, nil
 }
 
-func (s *NotificationManagerServer) SetAutomaticZenRuleState(_ context.Context, req *pb.SetAutomaticZenRuleStateRequest) (*pb.SetAutomaticZenRuleStateResponse, error) {
-	mgr, err := jnipkg.NewnotificationManager(s.Ctx)
+func (s *ManagerServer) SetAutomaticZenRuleState(_ context.Context, req *pb.SetAutomaticZenRuleStateRequest) (*pb.SetAutomaticZenRuleStateResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -649,8 +663,21 @@ func (s *NotificationManagerServer) SetAutomaticZenRuleState(_ context.Context, 
 	return &pb.SetAutomaticZenRuleStateResponse{}, nil
 }
 
-func (s *NotificationManagerServer) SetNotificationDelegate(_ context.Context, req *pb.SetNotificationDelegateRequest) (*pb.SetNotificationDelegateResponse, error) {
-	mgr, err := jnipkg.NewnotificationManager(s.Ctx)
+func (s *ManagerServer) SetInterruptionFilter(_ context.Context, req *pb.SetInterruptionFilterRequest) (*pb.SetInterruptionFilterResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
+	}
+	defer mgr.Close()
+
+	if err := mgr.SetInterruptionFilter(req.GetArg0()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.SetInterruptionFilterResponse{}, nil
+}
+
+func (s *ManagerServer) SetNotificationDelegate(_ context.Context, req *pb.SetNotificationDelegateRequest) (*pb.SetNotificationDelegateResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -662,8 +689,8 @@ func (s *NotificationManagerServer) SetNotificationDelegate(_ context.Context, r
 	return &pb.SetNotificationDelegateResponse{}, nil
 }
 
-func (s *NotificationManagerServer) SetNotificationPolicy(_ context.Context, req *pb.SetNotificationPolicyRequest) (*pb.SetNotificationPolicyResponse, error) {
-	mgr, err := jnipkg.NewnotificationManager(s.Ctx)
+func (s *ManagerServer) SetNotificationPolicy(_ context.Context, req *pb.SetNotificationPolicyRequest) (*pb.SetNotificationPolicyResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -675,8 +702,8 @@ func (s *NotificationManagerServer) SetNotificationPolicy(_ context.Context, req
 	return &pb.SetNotificationPolicyResponse{}, nil
 }
 
-func (s *NotificationManagerServer) ShouldHideSilentStatusBarIcons(_ context.Context, req *pb.ShouldHideSilentStatusBarIconsRequest) (*pb.ShouldHideSilentStatusBarIconsResponse, error) {
-	mgr, err := jnipkg.NewnotificationManager(s.Ctx)
+func (s *ManagerServer) ShouldHideSilentStatusBarIcons(_ context.Context, req *pb.ShouldHideSilentStatusBarIconsRequest) (*pb.ShouldHideSilentStatusBarIconsResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -689,8 +716,8 @@ func (s *NotificationManagerServer) ShouldHideSilentStatusBarIcons(_ context.Con
 	return &pb.ShouldHideSilentStatusBarIconsResponse{Result: result}, nil
 }
 
-func (s *NotificationManagerServer) UpdateAutomaticZenRule(_ context.Context, req *pb.UpdateAutomaticZenRuleRequest) (*pb.UpdateAutomaticZenRuleResponse, error) {
-	mgr, err := jnipkg.NewnotificationManager(s.Ctx)
+func (s *ManagerServer) UpdateAutomaticZenRule(_ context.Context, req *pb.UpdateAutomaticZenRuleRequest) (*pb.UpdateAutomaticZenRuleResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}

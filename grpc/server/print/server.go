@@ -7,23 +7,23 @@ import (
 
 	"github.com/AndroidGoLab/jni"
 
-	"github.com/AndroidGoLab/jni/app"
 	"github.com/AndroidGoLab/jni-proxy/handlestore"
-	jnipkg "github.com/AndroidGoLab/jni/print"
 	pb "github.com/AndroidGoLab/jni-proxy/proto/print"
+	"github.com/AndroidGoLab/jni/app"
+	jnipkg "github.com/AndroidGoLab/jni/print"
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"
 )
 
-// PrintManagerServer implements pb.PrintManagerServiceServer.
-type PrintManagerServer struct {
-	pb.UnimplementedPrintManagerServiceServer
+// ManagerServer implements pb.ManagerServiceServer.
+type ManagerServer struct {
+	pb.UnimplementedManagerServiceServer
 	Ctx     *app.Context
 	Handles *handlestore.HandleStore
 }
 
-func (s *PrintManagerServer) GetPrintJobs(_ context.Context, req *pb.GetPrintJobsRequest) (*pb.GetPrintJobsResponse, error) {
-	mgr, err := jnipkg.NewprintManager(s.Ctx)
+func (s *ManagerServer) GetPrintJobs(_ context.Context, req *pb.GetPrintJobsRequest) (*pb.GetPrintJobsResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -45,8 +45,8 @@ func (s *PrintManagerServer) GetPrintJobs(_ context.Context, req *pb.GetPrintJob
 	return &pb.GetPrintJobsResponse{Result: handle}, nil
 }
 
-func (s *PrintManagerServer) IsPrintServiceEnabled(_ context.Context, req *pb.IsPrintServiceEnabledRequest) (*pb.IsPrintServiceEnabledResponse, error) {
-	mgr, err := jnipkg.NewprintManager(s.Ctx)
+func (s *ManagerServer) IsPrintServiceEnabled(_ context.Context, req *pb.IsPrintServiceEnabledRequest) (*pb.IsPrintServiceEnabledResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -59,8 +59,8 @@ func (s *PrintManagerServer) IsPrintServiceEnabled(_ context.Context, req *pb.Is
 	return &pb.IsPrintServiceEnabledResponse{Result: result}, nil
 }
 
-func (s *PrintManagerServer) Print(_ context.Context, req *pb.PrintRequest) (*pb.PrintResponse, error) {
-	mgr, err := jnipkg.NewprintManager(s.Ctx)
+func (s *ManagerServer) Print(_ context.Context, req *pb.PrintRequest) (*pb.PrintResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}

@@ -6,145 +6,19 @@ package location;
 
 option go_package = "github.com/AndroidGoLab/jni-proxy/proto/location";
 
-message DescribeContentsRequest {
-}
-
-message DescribeContentsResponse {
-  int32 result = 1;
-}
-
-message EqualsRequest {
-  int64 arg0 = 1;
-}
-
-message EqualsResponse {
-  bool result = 1;
-}
-
-message GetAzimuthDegreesRequest {
-  int32 arg0 = 1;
-}
-
-message GetAzimuthDegreesResponse {
-  float result = 1;
-}
-
-message GetBasebandCn0DbHzRequest {
-  int32 arg0 = 1;
-}
-
-message GetBasebandCn0DbHzResponse {
-  float result = 1;
-}
-
-message GetCarrierFrequencyHzRequest {
-  int32 arg0 = 1;
-}
-
-message GetCarrierFrequencyHzResponse {
-  float result = 1;
-}
-
-message GetCn0DbHzRequest {
-  int32 arg0 = 1;
-}
-
-message GetCn0DbHzResponse {
-  float result = 1;
-}
-
-message GetConstellationTypeRequest {
-  int32 arg0 = 1;
-}
-
-message GetConstellationTypeResponse {
-  int32 result = 1;
-}
-
-message GetElevationDegreesRequest {
-  int32 arg0 = 1;
-}
-
-message GetElevationDegreesResponse {
-  float result = 1;
-}
-
-message GetSatelliteCountRequest {
-}
-
-message GetSatelliteCountResponse {
-  int32 result = 1;
-}
-
-message GetSvidRequest {
-  int32 arg0 = 1;
-}
-
-message GetSvidResponse {
-  int32 result = 1;
-}
-
-message HasAlmanacDataRequest {
-  int32 arg0 = 1;
-}
-
-message HasAlmanacDataResponse {
-  bool result = 1;
-}
-
-message HasBasebandCn0DbHzRequest {
-  int32 arg0 = 1;
-}
-
-message HasBasebandCn0DbHzResponse {
-  bool result = 1;
-}
-
-message HasCarrierFrequencyHzRequest {
-  int32 arg0 = 1;
-}
-
-message HasCarrierFrequencyHzResponse {
-  bool result = 1;
-}
-
-message HasEphemerisDataRequest {
-  int32 arg0 = 1;
-}
-
-message HasEphemerisDataResponse {
-  bool result = 1;
-}
-
-message HashCodeRequest {
-}
-
-message HashCodeResponse {
-  int32 result = 1;
-}
-
-message UsedInFixRequest {
-  int32 arg0 = 1;
-}
-
-message UsedInFixResponse {
-  bool result = 1;
-}
-
-message WriteToParcelRequest {
-  int64 arg0 = 1;
-  int32 arg1 = 2;
-}
-
-message WriteToParcelResponse {
-}
-
 message BearingToRequest {
   int64 arg0 = 1;
 }
 
 message BearingToResponse {
   float result = 1;
+}
+
+message DescribeContentsRequest {
+}
+
+message DescribeContentsResponse {
+  int32 result = 1;
 }
 
 message DistanceToRequest {
@@ -161,6 +35,14 @@ message DumpRequest {
 }
 
 message DumpResponse {
+}
+
+message EqualsRequest {
+  int64 arg0 = 1;
+}
+
+message EqualsResponse {
+  bool result = 1;
 }
 
 message GetAccuracyRequest {
@@ -365,6 +247,13 @@ message HasVerticalAccuracyRequest {
 
 message HasVerticalAccuracyResponse {
   bool result = 1;
+}
+
+message HashCodeRequest {
+}
+
+message HashCodeResponse {
+  int32 result = 1;
 }
 
 message IsCompleteRequest {
@@ -587,6 +476,14 @@ message ToStringResponse {
   string result = 1;
 }
 
+message WriteToParcelRequest {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message WriteToParcelResponse {
+}
+
 message Convert2Request {
   double arg0 = 1;
   int32 arg1 = 2;
@@ -794,11 +691,11 @@ message GetLastKnownLocationResponse {
   int64 result = 1;
 }
 
-message LocationManagerGetProviderRequest {
+message ManagerGetProviderRequest {
   string arg0 = 1;
 }
 
-message LocationManagerGetProviderResponse {
+message ManagerGetProviderResponse {
   int64 result = 1;
 }
 
@@ -1178,24 +1075,107 @@ message UnregisterGnssStatusCallbackRequest {
 message UnregisterGnssStatusCallbackResponse {
 }
 
-service GnssStatusService {
-  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
-  rpc Equals (EqualsRequest) returns (EqualsResponse);
-  rpc GetAzimuthDegrees (GetAzimuthDegreesRequest) returns (GetAzimuthDegreesResponse);
-  rpc GetBasebandCn0DbHz (GetBasebandCn0DbHzRequest) returns (GetBasebandCn0DbHzResponse);
-  rpc GetCarrierFrequencyHz (GetCarrierFrequencyHzRequest) returns (GetCarrierFrequencyHzResponse);
-  rpc GetCn0DbHz (GetCn0DbHzRequest) returns (GetCn0DbHzResponse);
-  rpc GetConstellationType (GetConstellationTypeRequest) returns (GetConstellationTypeResponse);
-  rpc GetElevationDegrees (GetElevationDegreesRequest) returns (GetElevationDegreesResponse);
-  rpc GetSatelliteCount (GetSatelliteCountRequest) returns (GetSatelliteCountResponse);
-  rpc GetSvid (GetSvidRequest) returns (GetSvidResponse);
-  rpc HasAlmanacData (HasAlmanacDataRequest) returns (HasAlmanacDataResponse);
-  rpc HasBasebandCn0DbHz (HasBasebandCn0DbHzRequest) returns (HasBasebandCn0DbHzResponse);
-  rpc HasCarrierFrequencyHz (HasCarrierFrequencyHzRequest) returns (HasCarrierFrequencyHzResponse);
-  rpc HasEphemerisData (HasEphemerisDataRequest) returns (HasEphemerisDataResponse);
-  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
-  rpc UsedInFix (UsedInFixRequest) returns (UsedInFixResponse);
-  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+message GetAzimuthDegreesRequest {
+  int32 arg0 = 1;
+}
+
+message GetAzimuthDegreesResponse {
+  float result = 1;
+}
+
+message GetBasebandCn0DbHzRequest {
+  int32 arg0 = 1;
+}
+
+message GetBasebandCn0DbHzResponse {
+  float result = 1;
+}
+
+message GetCarrierFrequencyHzRequest {
+  int32 arg0 = 1;
+}
+
+message GetCarrierFrequencyHzResponse {
+  float result = 1;
+}
+
+message GetCn0DbHzRequest {
+  int32 arg0 = 1;
+}
+
+message GetCn0DbHzResponse {
+  float result = 1;
+}
+
+message GetConstellationTypeRequest {
+  int32 arg0 = 1;
+}
+
+message GetConstellationTypeResponse {
+  int32 result = 1;
+}
+
+message GetElevationDegreesRequest {
+  int32 arg0 = 1;
+}
+
+message GetElevationDegreesResponse {
+  float result = 1;
+}
+
+message GetSatelliteCountRequest {
+}
+
+message GetSatelliteCountResponse {
+  int32 result = 1;
+}
+
+message GetSvidRequest {
+  int32 arg0 = 1;
+}
+
+message GetSvidResponse {
+  int32 result = 1;
+}
+
+message HasAlmanacDataRequest {
+  int32 arg0 = 1;
+}
+
+message HasAlmanacDataResponse {
+  bool result = 1;
+}
+
+message HasBasebandCn0DbHzRequest {
+  int32 arg0 = 1;
+}
+
+message HasBasebandCn0DbHzResponse {
+  bool result = 1;
+}
+
+message HasCarrierFrequencyHzRequest {
+  int32 arg0 = 1;
+}
+
+message HasCarrierFrequencyHzResponse {
+  bool result = 1;
+}
+
+message HasEphemerisDataRequest {
+  int32 arg0 = 1;
+}
+
+message HasEphemerisDataResponse {
+  bool result = 1;
+}
+
+message UsedInFixRequest {
+  int32 arg0 = 1;
+}
+
+message UsedInFixResponse {
+  bool result = 1;
 }
 
 service LocationService {
@@ -1273,7 +1253,7 @@ service LocationService {
   rpc DistanceBetween (DistanceBetweenRequest) returns (DistanceBetweenResponse);
 }
 
-service LocationManagerService {
+service ManagerService {
   rpc AddGpsStatusListener (AddGpsStatusListenerRequest) returns (AddGpsStatusListenerResponse);
   rpc AddNmeaListener1 (AddNmeaListener1Request) returns (AddNmeaListener1Response);
   rpc AddNmeaListener1_1 (AddNmeaListener1_1Request) returns (AddNmeaListener1_1Response);
@@ -1295,7 +1275,7 @@ service LocationManagerService {
   rpc GetGnssYearOfHardware (GetGnssYearOfHardwareRequest) returns (GetGnssYearOfHardwareResponse);
   rpc GetGpsStatus (GetGpsStatusRequest) returns (GetGpsStatusResponse);
   rpc GetLastKnownLocation (GetLastKnownLocationRequest) returns (GetLastKnownLocationResponse);
-  rpc GetProvider (LocationManagerGetProviderRequest) returns (LocationManagerGetProviderResponse);
+  rpc GetProvider (ManagerGetProviderRequest) returns (ManagerGetProviderResponse);
   rpc GetProviderProperties (GetProviderPropertiesRequest) returns (GetProviderPropertiesResponse);
   rpc GetProviders2 (GetProviders2Request) returns (GetProviders2Response);
   rpc GetProviders1_1 (GetProviders1_1Request) returns (GetProviders1_1Response);
@@ -1340,4 +1320,24 @@ service LocationManagerService {
   rpc UnregisterGnssMeasurementsCallback (UnregisterGnssMeasurementsCallbackRequest) returns (UnregisterGnssMeasurementsCallbackResponse);
   rpc UnregisterGnssNavigationMessageCallback (UnregisterGnssNavigationMessageCallbackRequest) returns (UnregisterGnssNavigationMessageCallbackResponse);
   rpc UnregisterGnssStatusCallback (UnregisterGnssStatusCallbackRequest) returns (UnregisterGnssStatusCallbackResponse);
+}
+
+service GnssStatusService {
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetAzimuthDegrees (GetAzimuthDegreesRequest) returns (GetAzimuthDegreesResponse);
+  rpc GetBasebandCn0DbHz (GetBasebandCn0DbHzRequest) returns (GetBasebandCn0DbHzResponse);
+  rpc GetCarrierFrequencyHz (GetCarrierFrequencyHzRequest) returns (GetCarrierFrequencyHzResponse);
+  rpc GetCn0DbHz (GetCn0DbHzRequest) returns (GetCn0DbHzResponse);
+  rpc GetConstellationType (GetConstellationTypeRequest) returns (GetConstellationTypeResponse);
+  rpc GetElevationDegrees (GetElevationDegreesRequest) returns (GetElevationDegreesResponse);
+  rpc GetSatelliteCount (GetSatelliteCountRequest) returns (GetSatelliteCountResponse);
+  rpc GetSvid (GetSvidRequest) returns (GetSvidResponse);
+  rpc HasAlmanacData (HasAlmanacDataRequest) returns (HasAlmanacDataResponse);
+  rpc HasBasebandCn0DbHz (HasBasebandCn0DbHzRequest) returns (HasBasebandCn0DbHzResponse);
+  rpc HasCarrierFrequencyHz (HasCarrierFrequencyHzRequest) returns (HasCarrierFrequencyHzResponse);
+  rpc HasEphemerisData (HasEphemerisDataRequest) returns (HasEphemerisDataResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+  rpc UsedInFix (UsedInFixRequest) returns (UsedInFixResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
 }

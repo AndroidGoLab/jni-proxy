@@ -7,10 +7,10 @@ import (
 
 	"github.com/AndroidGoLab/jni"
 
-	"github.com/AndroidGoLab/jni/app"
 	"github.com/AndroidGoLab/jni-proxy/handlestore"
-	jnipkg "github.com/AndroidGoLab/jni/net"
 	pb "github.com/AndroidGoLab/jni-proxy/proto/net"
+	"github.com/AndroidGoLab/jni/app"
+	jnipkg "github.com/AndroidGoLab/jni/net"
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"
 )
@@ -23,7 +23,7 @@ type ConnectivityManagerServer struct {
 }
 
 func (s *ConnectivityManagerServer) AddDefaultNetworkActiveListener(_ context.Context, req *pb.AddDefaultNetworkActiveListenerRequest) (*pb.AddDefaultNetworkActiveListenerResponse, error) {
-	mgr, err := jnipkg.NewconnectivityManager(s.Ctx)
+	mgr, err := jnipkg.NewConnectivityManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -36,7 +36,7 @@ func (s *ConnectivityManagerServer) AddDefaultNetworkActiveListener(_ context.Co
 }
 
 func (s *ConnectivityManagerServer) BindProcessToNetwork(_ context.Context, req *pb.BindProcessToNetworkRequest) (*pb.BindProcessToNetworkResponse, error) {
-	mgr, err := jnipkg.NewconnectivityManager(s.Ctx)
+	mgr, err := jnipkg.NewConnectivityManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -50,7 +50,7 @@ func (s *ConnectivityManagerServer) BindProcessToNetwork(_ context.Context, req 
 }
 
 func (s *ConnectivityManagerServer) CreateSocketKeepalive(_ context.Context, req *pb.CreateSocketKeepaliveRequest) (*pb.CreateSocketKeepaliveResponse, error) {
-	mgr, err := jnipkg.NewconnectivityManager(s.Ctx)
+	mgr, err := jnipkg.NewConnectivityManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -73,7 +73,7 @@ func (s *ConnectivityManagerServer) CreateSocketKeepalive(_ context.Context, req
 }
 
 func (s *ConnectivityManagerServer) GetActiveNetwork(_ context.Context, req *pb.GetActiveNetworkRequest) (*pb.GetActiveNetworkResponse, error) {
-	mgr, err := jnipkg.NewconnectivityManager(s.Ctx)
+	mgr, err := jnipkg.NewConnectivityManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -96,7 +96,7 @@ func (s *ConnectivityManagerServer) GetActiveNetwork(_ context.Context, req *pb.
 }
 
 func (s *ConnectivityManagerServer) GetActiveNetworkInfo(_ context.Context, req *pb.GetActiveNetworkInfoRequest) (*pb.GetActiveNetworkInfoResponse, error) {
-	mgr, err := jnipkg.NewconnectivityManager(s.Ctx)
+	mgr, err := jnipkg.NewConnectivityManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -119,7 +119,7 @@ func (s *ConnectivityManagerServer) GetActiveNetworkInfo(_ context.Context, req 
 }
 
 func (s *ConnectivityManagerServer) GetAllNetworkInfo(_ context.Context, req *pb.GetAllNetworkInfoRequest) (*pb.GetAllNetworkInfoResponse, error) {
-	mgr, err := jnipkg.NewconnectivityManager(s.Ctx)
+	mgr, err := jnipkg.NewConnectivityManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -142,7 +142,7 @@ func (s *ConnectivityManagerServer) GetAllNetworkInfo(_ context.Context, req *pb
 }
 
 func (s *ConnectivityManagerServer) GetAllNetworks(_ context.Context, req *pb.GetAllNetworksRequest) (*pb.GetAllNetworksResponse, error) {
-	mgr, err := jnipkg.NewconnectivityManager(s.Ctx)
+	mgr, err := jnipkg.NewConnectivityManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -165,7 +165,7 @@ func (s *ConnectivityManagerServer) GetAllNetworks(_ context.Context, req *pb.Ge
 }
 
 func (s *ConnectivityManagerServer) GetBackgroundDataSetting(_ context.Context, req *pb.GetBackgroundDataSettingRequest) (*pb.GetBackgroundDataSettingResponse, error) {
-	mgr, err := jnipkg.NewconnectivityManager(s.Ctx)
+	mgr, err := jnipkg.NewConnectivityManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -179,7 +179,7 @@ func (s *ConnectivityManagerServer) GetBackgroundDataSetting(_ context.Context, 
 }
 
 func (s *ConnectivityManagerServer) GetBoundNetworkForProcess(_ context.Context, req *pb.GetBoundNetworkForProcessRequest) (*pb.GetBoundNetworkForProcessResponse, error) {
-	mgr, err := jnipkg.NewconnectivityManager(s.Ctx)
+	mgr, err := jnipkg.NewConnectivityManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -202,7 +202,7 @@ func (s *ConnectivityManagerServer) GetBoundNetworkForProcess(_ context.Context,
 }
 
 func (s *ConnectivityManagerServer) GetConnectionOwnerUid(_ context.Context, req *pb.GetConnectionOwnerUidRequest) (*pb.GetConnectionOwnerUidResponse, error) {
-	mgr, err := jnipkg.NewconnectivityManager(s.Ctx)
+	mgr, err := jnipkg.NewConnectivityManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -216,7 +216,7 @@ func (s *ConnectivityManagerServer) GetConnectionOwnerUid(_ context.Context, req
 }
 
 func (s *ConnectivityManagerServer) GetDefaultProxy(_ context.Context, req *pb.GetDefaultProxyRequest) (*pb.GetDefaultProxyResponse, error) {
-	mgr, err := jnipkg.NewconnectivityManager(s.Ctx)
+	mgr, err := jnipkg.NewConnectivityManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -239,7 +239,7 @@ func (s *ConnectivityManagerServer) GetDefaultProxy(_ context.Context, req *pb.G
 }
 
 func (s *ConnectivityManagerServer) GetLinkProperties(_ context.Context, req *pb.GetLinkPropertiesRequest) (*pb.GetLinkPropertiesResponse, error) {
-	mgr, err := jnipkg.NewconnectivityManager(s.Ctx)
+	mgr, err := jnipkg.NewConnectivityManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -262,7 +262,7 @@ func (s *ConnectivityManagerServer) GetLinkProperties(_ context.Context, req *pb
 }
 
 func (s *ConnectivityManagerServer) GetMultipathPreference(_ context.Context, req *pb.GetMultipathPreferenceRequest) (*pb.GetMultipathPreferenceResponse, error) {
-	mgr, err := jnipkg.NewconnectivityManager(s.Ctx)
+	mgr, err := jnipkg.NewConnectivityManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -276,7 +276,7 @@ func (s *ConnectivityManagerServer) GetMultipathPreference(_ context.Context, re
 }
 
 func (s *ConnectivityManagerServer) GetNetworkCapabilities(_ context.Context, req *pb.GetNetworkCapabilitiesRequest) (*pb.GetNetworkCapabilitiesResponse, error) {
-	mgr, err := jnipkg.NewconnectivityManager(s.Ctx)
+	mgr, err := jnipkg.NewConnectivityManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -299,7 +299,7 @@ func (s *ConnectivityManagerServer) GetNetworkCapabilities(_ context.Context, re
 }
 
 func (s *ConnectivityManagerServer) GetNetworkInfo1(_ context.Context, req *pb.GetNetworkInfo1Request) (*pb.GetNetworkInfo1Response, error) {
-	mgr, err := jnipkg.NewconnectivityManager(s.Ctx)
+	mgr, err := jnipkg.NewConnectivityManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -322,7 +322,7 @@ func (s *ConnectivityManagerServer) GetNetworkInfo1(_ context.Context, req *pb.G
 }
 
 func (s *ConnectivityManagerServer) GetNetworkInfo1_1(_ context.Context, req *pb.GetNetworkInfo1_1Request) (*pb.GetNetworkInfo1_1Response, error) {
-	mgr, err := jnipkg.NewconnectivityManager(s.Ctx)
+	mgr, err := jnipkg.NewConnectivityManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -345,7 +345,7 @@ func (s *ConnectivityManagerServer) GetNetworkInfo1_1(_ context.Context, req *pb
 }
 
 func (s *ConnectivityManagerServer) GetNetworkPreference(_ context.Context, req *pb.GetNetworkPreferenceRequest) (*pb.GetNetworkPreferenceResponse, error) {
-	mgr, err := jnipkg.NewconnectivityManager(s.Ctx)
+	mgr, err := jnipkg.NewConnectivityManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -359,7 +359,7 @@ func (s *ConnectivityManagerServer) GetNetworkPreference(_ context.Context, req 
 }
 
 func (s *ConnectivityManagerServer) GetNetworkWatchlistConfigHash(_ context.Context, req *pb.GetNetworkWatchlistConfigHashRequest) (*pb.GetNetworkWatchlistConfigHashResponse, error) {
-	mgr, err := jnipkg.NewconnectivityManager(s.Ctx)
+	mgr, err := jnipkg.NewConnectivityManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -382,7 +382,7 @@ func (s *ConnectivityManagerServer) GetNetworkWatchlistConfigHash(_ context.Cont
 }
 
 func (s *ConnectivityManagerServer) GetRestrictBackgroundStatus(_ context.Context, req *pb.GetRestrictBackgroundStatusRequest) (*pb.GetRestrictBackgroundStatusResponse, error) {
-	mgr, err := jnipkg.NewconnectivityManager(s.Ctx)
+	mgr, err := jnipkg.NewConnectivityManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -396,7 +396,7 @@ func (s *ConnectivityManagerServer) GetRestrictBackgroundStatus(_ context.Contex
 }
 
 func (s *ConnectivityManagerServer) IsActiveNetworkMetered(_ context.Context, req *pb.IsActiveNetworkMeteredRequest) (*pb.IsActiveNetworkMeteredResponse, error) {
-	mgr, err := jnipkg.NewconnectivityManager(s.Ctx)
+	mgr, err := jnipkg.NewConnectivityManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -410,7 +410,7 @@ func (s *ConnectivityManagerServer) IsActiveNetworkMetered(_ context.Context, re
 }
 
 func (s *ConnectivityManagerServer) IsDefaultNetworkActive(_ context.Context, req *pb.IsDefaultNetworkActiveRequest) (*pb.IsDefaultNetworkActiveResponse, error) {
-	mgr, err := jnipkg.NewconnectivityManager(s.Ctx)
+	mgr, err := jnipkg.NewConnectivityManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -424,7 +424,7 @@ func (s *ConnectivityManagerServer) IsDefaultNetworkActive(_ context.Context, re
 }
 
 func (s *ConnectivityManagerServer) RegisterDefaultNetworkCallback(_ context.Context, req *pb.RegisterDefaultNetworkCallbackRequest) (*pb.RegisterDefaultNetworkCallbackResponse, error) {
-	mgr, err := jnipkg.NewconnectivityManager(s.Ctx)
+	mgr, err := jnipkg.NewConnectivityManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -437,7 +437,7 @@ func (s *ConnectivityManagerServer) RegisterDefaultNetworkCallback(_ context.Con
 }
 
 func (s *ConnectivityManagerServer) RegisterNetworkCallback2(_ context.Context, req *pb.RegisterNetworkCallback2Request) (*pb.RegisterNetworkCallback2Response, error) {
-	mgr, err := jnipkg.NewconnectivityManager(s.Ctx)
+	mgr, err := jnipkg.NewConnectivityManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -450,7 +450,7 @@ func (s *ConnectivityManagerServer) RegisterNetworkCallback2(_ context.Context, 
 }
 
 func (s *ConnectivityManagerServer) RegisterNetworkCallback2_1(_ context.Context, req *pb.RegisterNetworkCallback2_1Request) (*pb.RegisterNetworkCallback2_1Response, error) {
-	mgr, err := jnipkg.NewconnectivityManager(s.Ctx)
+	mgr, err := jnipkg.NewConnectivityManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -463,7 +463,7 @@ func (s *ConnectivityManagerServer) RegisterNetworkCallback2_1(_ context.Context
 }
 
 func (s *ConnectivityManagerServer) ReleaseNetworkRequest(_ context.Context, req *pb.ReleaseNetworkRequestRequest) (*pb.ReleaseNetworkRequestResponse, error) {
-	mgr, err := jnipkg.NewconnectivityManager(s.Ctx)
+	mgr, err := jnipkg.NewConnectivityManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -476,7 +476,7 @@ func (s *ConnectivityManagerServer) ReleaseNetworkRequest(_ context.Context, req
 }
 
 func (s *ConnectivityManagerServer) RemoveDefaultNetworkActiveListener(_ context.Context, req *pb.RemoveDefaultNetworkActiveListenerRequest) (*pb.RemoveDefaultNetworkActiveListenerResponse, error) {
-	mgr, err := jnipkg.NewconnectivityManager(s.Ctx)
+	mgr, err := jnipkg.NewConnectivityManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -489,7 +489,7 @@ func (s *ConnectivityManagerServer) RemoveDefaultNetworkActiveListener(_ context
 }
 
 func (s *ConnectivityManagerServer) ReportBadNetwork(_ context.Context, req *pb.ReportBadNetworkRequest) (*pb.ReportBadNetworkResponse, error) {
-	mgr, err := jnipkg.NewconnectivityManager(s.Ctx)
+	mgr, err := jnipkg.NewConnectivityManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -502,7 +502,7 @@ func (s *ConnectivityManagerServer) ReportBadNetwork(_ context.Context, req *pb.
 }
 
 func (s *ConnectivityManagerServer) ReportNetworkConnectivity(_ context.Context, req *pb.ReportNetworkConnectivityRequest) (*pb.ReportNetworkConnectivityResponse, error) {
-	mgr, err := jnipkg.NewconnectivityManager(s.Ctx)
+	mgr, err := jnipkg.NewConnectivityManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -515,7 +515,7 @@ func (s *ConnectivityManagerServer) ReportNetworkConnectivity(_ context.Context,
 }
 
 func (s *ConnectivityManagerServer) RequestBandwidthUpdate(_ context.Context, req *pb.RequestBandwidthUpdateRequest) (*pb.RequestBandwidthUpdateResponse, error) {
-	mgr, err := jnipkg.NewconnectivityManager(s.Ctx)
+	mgr, err := jnipkg.NewConnectivityManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -529,7 +529,7 @@ func (s *ConnectivityManagerServer) RequestBandwidthUpdate(_ context.Context, re
 }
 
 func (s *ConnectivityManagerServer) RequestNetwork2(_ context.Context, req *pb.RequestNetwork2Request) (*pb.RequestNetwork2Response, error) {
-	mgr, err := jnipkg.NewconnectivityManager(s.Ctx)
+	mgr, err := jnipkg.NewConnectivityManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -542,7 +542,7 @@ func (s *ConnectivityManagerServer) RequestNetwork2(_ context.Context, req *pb.R
 }
 
 func (s *ConnectivityManagerServer) RequestNetwork2_1(_ context.Context, req *pb.RequestNetwork2_1Request) (*pb.RequestNetwork2_1Response, error) {
-	mgr, err := jnipkg.NewconnectivityManager(s.Ctx)
+	mgr, err := jnipkg.NewConnectivityManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -555,7 +555,7 @@ func (s *ConnectivityManagerServer) RequestNetwork2_1(_ context.Context, req *pb
 }
 
 func (s *ConnectivityManagerServer) RequestNetwork3_2(_ context.Context, req *pb.RequestNetwork3_2Request) (*pb.RequestNetwork3_2Response, error) {
-	mgr, err := jnipkg.NewconnectivityManager(s.Ctx)
+	mgr, err := jnipkg.NewConnectivityManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -568,7 +568,7 @@ func (s *ConnectivityManagerServer) RequestNetwork3_2(_ context.Context, req *pb
 }
 
 func (s *ConnectivityManagerServer) SetNetworkPreference(_ context.Context, req *pb.SetNetworkPreferenceRequest) (*pb.SetNetworkPreferenceResponse, error) {
-	mgr, err := jnipkg.NewconnectivityManager(s.Ctx)
+	mgr, err := jnipkg.NewConnectivityManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -581,7 +581,7 @@ func (s *ConnectivityManagerServer) SetNetworkPreference(_ context.Context, req 
 }
 
 func (s *ConnectivityManagerServer) UnregisterNetworkCallback1(_ context.Context, req *pb.UnregisterNetworkCallback1Request) (*pb.UnregisterNetworkCallback1Response, error) {
-	mgr, err := jnipkg.NewconnectivityManager(s.Ctx)
+	mgr, err := jnipkg.NewConnectivityManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -594,7 +594,7 @@ func (s *ConnectivityManagerServer) UnregisterNetworkCallback1(_ context.Context
 }
 
 func (s *ConnectivityManagerServer) UnregisterNetworkCallback1_1(_ context.Context, req *pb.UnregisterNetworkCallback1_1Request) (*pb.UnregisterNetworkCallback1_1Response, error) {
-	mgr, err := jnipkg.NewconnectivityManager(s.Ctx)
+	mgr, err := jnipkg.NewConnectivityManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -607,7 +607,7 @@ func (s *ConnectivityManagerServer) UnregisterNetworkCallback1_1(_ context.Conte
 }
 
 func (s *ConnectivityManagerServer) GetProcessDefaultNetwork(_ context.Context, req *pb.GetProcessDefaultNetworkRequest) (*pb.GetProcessDefaultNetworkResponse, error) {
-	mgr, err := jnipkg.NewconnectivityManager(s.Ctx)
+	mgr, err := jnipkg.NewConnectivityManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -630,7 +630,7 @@ func (s *ConnectivityManagerServer) GetProcessDefaultNetwork(_ context.Context, 
 }
 
 func (s *ConnectivityManagerServer) IsNetworkTypeValid(_ context.Context, req *pb.IsNetworkTypeValidRequest) (*pb.IsNetworkTypeValidResponse, error) {
-	mgr, err := jnipkg.NewconnectivityManager(s.Ctx)
+	mgr, err := jnipkg.NewConnectivityManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -644,7 +644,7 @@ func (s *ConnectivityManagerServer) IsNetworkTypeValid(_ context.Context, req *p
 }
 
 func (s *ConnectivityManagerServer) SetProcessDefaultNetwork(_ context.Context, req *pb.SetProcessDefaultNetworkRequest) (*pb.SetProcessDefaultNetworkResponse, error) {
-	mgr, err := jnipkg.NewconnectivityManager(s.Ctx)
+	mgr, err := jnipkg.NewConnectivityManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}

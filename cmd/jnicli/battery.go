@@ -3,8 +3,8 @@
 package main
 
 import (
-	"github.com/spf13/cobra"
 	pb "github.com/AndroidGoLab/jni-proxy/proto/battery"
+	"github.com/spf13/cobra"
 )
 
 var batteryCmd = &cobra.Command{
@@ -12,18 +12,18 @@ var batteryCmd = &cobra.Command{
 	Short: "battery service operations",
 }
 
-var batteryBatteryManagerCmd = &cobra.Command{
-	Use:   "battery-manager",
-	Short: "BatteryManagerService operations",
+var batteryManagerCmd = &cobra.Command{
+	Use:   "manager",
+	Short: "ManagerService operations",
 }
 
-var batteryBatteryManagerComputeChargeTimeRemainingCmd = &cobra.Command{
+var batteryManagerComputeChargeTimeRemainingCmd = &cobra.Command{
 	Use:   "compute-charge-time-remaining",
 	Short: "ComputeChargeTimeRemaining RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewBatteryManagerServiceClient(grpcConn)
+		client := pb.NewManagerServiceClient(grpcConn)
 		req := &pb.ComputeChargeTimeRemainingRequest{}
 		resp, err := client.ComputeChargeTimeRemaining(ctx, req)
 		if err != nil {
@@ -33,13 +33,13 @@ var batteryBatteryManagerComputeChargeTimeRemainingCmd = &cobra.Command{
 	},
 }
 
-var batteryBatteryManagerGetIntPropertyCmd = &cobra.Command{
+var batteryManagerGetIntPropertyCmd = &cobra.Command{
 	Use:   "get-int-property",
 	Short: "GetIntProperty RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewBatteryManagerServiceClient(grpcConn)
+		client := pb.NewManagerServiceClient(grpcConn)
 		req := &pb.GetIntPropertyRequest{}
 		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
 			req.Arg0 = v
@@ -52,13 +52,13 @@ var batteryBatteryManagerGetIntPropertyCmd = &cobra.Command{
 	},
 }
 
-var batteryBatteryManagerGetLongPropertyCmd = &cobra.Command{
+var batteryManagerGetLongPropertyCmd = &cobra.Command{
 	Use:   "get-long-property",
 	Short: "GetLongProperty RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewBatteryManagerServiceClient(grpcConn)
+		client := pb.NewManagerServiceClient(grpcConn)
 		req := &pb.GetLongPropertyRequest{}
 		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
 			req.Arg0 = v
@@ -71,13 +71,13 @@ var batteryBatteryManagerGetLongPropertyCmd = &cobra.Command{
 	},
 }
 
-var batteryBatteryManagerGetStringPropertyCmd = &cobra.Command{
+var batteryManagerGetStringPropertyCmd = &cobra.Command{
 	Use:   "get-string-property",
 	Short: "GetStringProperty RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewBatteryManagerServiceClient(grpcConn)
+		client := pb.NewManagerServiceClient(grpcConn)
 		req := &pb.GetStringPropertyRequest{}
 		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
 			req.Arg0 = v
@@ -90,13 +90,13 @@ var batteryBatteryManagerGetStringPropertyCmd = &cobra.Command{
 	},
 }
 
-var batteryBatteryManagerIsChargingCmd = &cobra.Command{
+var batteryManagerIsChargingCmd = &cobra.Command{
 	Use:   "is-charging",
 	Short: "IsCharging RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewBatteryManagerServiceClient(grpcConn)
+		client := pb.NewManagerServiceClient(grpcConn)
 		req := &pb.IsChargingRequest{}
 		resp, err := client.IsCharging(ctx, req)
 		if err != nil {
@@ -107,14 +107,14 @@ var batteryBatteryManagerIsChargingCmd = &cobra.Command{
 }
 
 func init() {
-	batteryBatteryManagerCmd.AddCommand(batteryBatteryManagerComputeChargeTimeRemainingCmd)
-	batteryBatteryManagerGetIntPropertyCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	batteryBatteryManagerCmd.AddCommand(batteryBatteryManagerGetIntPropertyCmd)
-	batteryBatteryManagerGetLongPropertyCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	batteryBatteryManagerCmd.AddCommand(batteryBatteryManagerGetLongPropertyCmd)
-	batteryBatteryManagerGetStringPropertyCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	batteryBatteryManagerCmd.AddCommand(batteryBatteryManagerGetStringPropertyCmd)
-	batteryBatteryManagerCmd.AddCommand(batteryBatteryManagerIsChargingCmd)
-	batteryCmd.AddCommand(batteryBatteryManagerCmd)
+	batteryManagerCmd.AddCommand(batteryManagerComputeChargeTimeRemainingCmd)
+	batteryManagerGetIntPropertyCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	batteryManagerCmd.AddCommand(batteryManagerGetIntPropertyCmd)
+	batteryManagerGetLongPropertyCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	batteryManagerCmd.AddCommand(batteryManagerGetLongPropertyCmd)
+	batteryManagerGetStringPropertyCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	batteryManagerCmd.AddCommand(batteryManagerGetStringPropertyCmd)
+	batteryManagerCmd.AddCommand(batteryManagerIsChargingCmd)
+	batteryCmd.AddCommand(batteryManagerCmd)
 	rootCmd.AddCommand(batteryCmd)
 }

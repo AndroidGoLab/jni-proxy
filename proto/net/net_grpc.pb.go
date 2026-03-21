@@ -1530,29 +1530,29 @@ var ConnectivityManagerService_ServiceDesc = grpc.ServiceDesc{
 }
 
 const (
-	NetworkCapabilitiesService_DescribeContents_FullMethodName               = "/net.NetworkCapabilitiesService/DescribeContents"
-	NetworkCapabilitiesService_Equals_FullMethodName                         = "/net.NetworkCapabilitiesService/Equals"
-	NetworkCapabilitiesService_GetCapabilities_FullMethodName                = "/net.NetworkCapabilitiesService/GetCapabilities"
-	NetworkCapabilitiesService_GetEnterpriseIds_FullMethodName               = "/net.NetworkCapabilitiesService/GetEnterpriseIds"
-	NetworkCapabilitiesService_GetLinkDownstreamBandwidthKbps_FullMethodName = "/net.NetworkCapabilitiesService/GetLinkDownstreamBandwidthKbps"
-	NetworkCapabilitiesService_GetLinkUpstreamBandwidthKbps_FullMethodName   = "/net.NetworkCapabilitiesService/GetLinkUpstreamBandwidthKbps"
-	NetworkCapabilitiesService_GetNetworkSpecifier_FullMethodName            = "/net.NetworkCapabilitiesService/GetNetworkSpecifier"
-	NetworkCapabilitiesService_GetOwnerUid_FullMethodName                    = "/net.NetworkCapabilitiesService/GetOwnerUid"
-	NetworkCapabilitiesService_GetSignalStrength_FullMethodName              = "/net.NetworkCapabilitiesService/GetSignalStrength"
-	NetworkCapabilitiesService_GetSubscriptionIds_FullMethodName             = "/net.NetworkCapabilitiesService/GetSubscriptionIds"
-	NetworkCapabilitiesService_GetTransportInfo_FullMethodName               = "/net.NetworkCapabilitiesService/GetTransportInfo"
-	NetworkCapabilitiesService_HasCapability_FullMethodName                  = "/net.NetworkCapabilitiesService/HasCapability"
-	NetworkCapabilitiesService_HasEnterpriseId_FullMethodName                = "/net.NetworkCapabilitiesService/HasEnterpriseId"
-	NetworkCapabilitiesService_HasTransport_FullMethodName                   = "/net.NetworkCapabilitiesService/HasTransport"
-	NetworkCapabilitiesService_HashCode_FullMethodName                       = "/net.NetworkCapabilitiesService/HashCode"
-	NetworkCapabilitiesService_ToString_FullMethodName                       = "/net.NetworkCapabilitiesService/ToString"
-	NetworkCapabilitiesService_WriteToParcel_FullMethodName                  = "/net.NetworkCapabilitiesService/WriteToParcel"
+	WorkCapabilitiesService_DescribeContents_FullMethodName               = "/net.WorkCapabilitiesService/DescribeContents"
+	WorkCapabilitiesService_Equals_FullMethodName                         = "/net.WorkCapabilitiesService/Equals"
+	WorkCapabilitiesService_GetCapabilities_FullMethodName                = "/net.WorkCapabilitiesService/GetCapabilities"
+	WorkCapabilitiesService_GetEnterpriseIds_FullMethodName               = "/net.WorkCapabilitiesService/GetEnterpriseIds"
+	WorkCapabilitiesService_GetLinkDownstreamBandwidthKbps_FullMethodName = "/net.WorkCapabilitiesService/GetLinkDownstreamBandwidthKbps"
+	WorkCapabilitiesService_GetLinkUpstreamBandwidthKbps_FullMethodName   = "/net.WorkCapabilitiesService/GetLinkUpstreamBandwidthKbps"
+	WorkCapabilitiesService_GetNetworkSpecifier_FullMethodName            = "/net.WorkCapabilitiesService/GetNetworkSpecifier"
+	WorkCapabilitiesService_GetOwnerUid_FullMethodName                    = "/net.WorkCapabilitiesService/GetOwnerUid"
+	WorkCapabilitiesService_GetSignalStrength_FullMethodName              = "/net.WorkCapabilitiesService/GetSignalStrength"
+	WorkCapabilitiesService_GetSubscriptionIds_FullMethodName             = "/net.WorkCapabilitiesService/GetSubscriptionIds"
+	WorkCapabilitiesService_GetTransportInfo_FullMethodName               = "/net.WorkCapabilitiesService/GetTransportInfo"
+	WorkCapabilitiesService_HasCapability_FullMethodName                  = "/net.WorkCapabilitiesService/HasCapability"
+	WorkCapabilitiesService_HasEnterpriseId_FullMethodName                = "/net.WorkCapabilitiesService/HasEnterpriseId"
+	WorkCapabilitiesService_HasTransport_FullMethodName                   = "/net.WorkCapabilitiesService/HasTransport"
+	WorkCapabilitiesService_HashCode_FullMethodName                       = "/net.WorkCapabilitiesService/HashCode"
+	WorkCapabilitiesService_ToString_FullMethodName                       = "/net.WorkCapabilitiesService/ToString"
+	WorkCapabilitiesService_WriteToParcel_FullMethodName                  = "/net.WorkCapabilitiesService/WriteToParcel"
 )
 
-// NetworkCapabilitiesServiceClient is the client API for NetworkCapabilitiesService service.
+// WorkCapabilitiesServiceClient is the client API for WorkCapabilitiesService service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type NetworkCapabilitiesServiceClient interface {
+type WorkCapabilitiesServiceClient interface {
 	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
 	Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
 	GetCapabilities(ctx context.Context, in *GetCapabilitiesRequest, opts ...grpc.CallOption) (*GetCapabilitiesResponse, error)
@@ -1572,188 +1572,188 @@ type NetworkCapabilitiesServiceClient interface {
 	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
 }
 
-type networkCapabilitiesServiceClient struct {
+type workCapabilitiesServiceClient struct {
 	cc grpc.ClientConnInterface
 }
 
-func NewNetworkCapabilitiesServiceClient(cc grpc.ClientConnInterface) NetworkCapabilitiesServiceClient {
-	return &networkCapabilitiesServiceClient{cc}
+func NewWorkCapabilitiesServiceClient(cc grpc.ClientConnInterface) WorkCapabilitiesServiceClient {
+	return &workCapabilitiesServiceClient{cc}
 }
 
-func (c *networkCapabilitiesServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
+func (c *workCapabilitiesServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(DescribeContentsResponse)
-	err := c.cc.Invoke(ctx, NetworkCapabilitiesService_DescribeContents_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, WorkCapabilitiesService_DescribeContents_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *networkCapabilitiesServiceClient) Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error) {
+func (c *workCapabilitiesServiceClient) Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(EqualsResponse)
-	err := c.cc.Invoke(ctx, NetworkCapabilitiesService_Equals_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, WorkCapabilitiesService_Equals_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *networkCapabilitiesServiceClient) GetCapabilities(ctx context.Context, in *GetCapabilitiesRequest, opts ...grpc.CallOption) (*GetCapabilitiesResponse, error) {
+func (c *workCapabilitiesServiceClient) GetCapabilities(ctx context.Context, in *GetCapabilitiesRequest, opts ...grpc.CallOption) (*GetCapabilitiesResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(GetCapabilitiesResponse)
-	err := c.cc.Invoke(ctx, NetworkCapabilitiesService_GetCapabilities_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, WorkCapabilitiesService_GetCapabilities_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *networkCapabilitiesServiceClient) GetEnterpriseIds(ctx context.Context, in *GetEnterpriseIdsRequest, opts ...grpc.CallOption) (*GetEnterpriseIdsResponse, error) {
+func (c *workCapabilitiesServiceClient) GetEnterpriseIds(ctx context.Context, in *GetEnterpriseIdsRequest, opts ...grpc.CallOption) (*GetEnterpriseIdsResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(GetEnterpriseIdsResponse)
-	err := c.cc.Invoke(ctx, NetworkCapabilitiesService_GetEnterpriseIds_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, WorkCapabilitiesService_GetEnterpriseIds_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *networkCapabilitiesServiceClient) GetLinkDownstreamBandwidthKbps(ctx context.Context, in *GetLinkDownstreamBandwidthKbpsRequest, opts ...grpc.CallOption) (*GetLinkDownstreamBandwidthKbpsResponse, error) {
+func (c *workCapabilitiesServiceClient) GetLinkDownstreamBandwidthKbps(ctx context.Context, in *GetLinkDownstreamBandwidthKbpsRequest, opts ...grpc.CallOption) (*GetLinkDownstreamBandwidthKbpsResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(GetLinkDownstreamBandwidthKbpsResponse)
-	err := c.cc.Invoke(ctx, NetworkCapabilitiesService_GetLinkDownstreamBandwidthKbps_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, WorkCapabilitiesService_GetLinkDownstreamBandwidthKbps_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *networkCapabilitiesServiceClient) GetLinkUpstreamBandwidthKbps(ctx context.Context, in *GetLinkUpstreamBandwidthKbpsRequest, opts ...grpc.CallOption) (*GetLinkUpstreamBandwidthKbpsResponse, error) {
+func (c *workCapabilitiesServiceClient) GetLinkUpstreamBandwidthKbps(ctx context.Context, in *GetLinkUpstreamBandwidthKbpsRequest, opts ...grpc.CallOption) (*GetLinkUpstreamBandwidthKbpsResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(GetLinkUpstreamBandwidthKbpsResponse)
-	err := c.cc.Invoke(ctx, NetworkCapabilitiesService_GetLinkUpstreamBandwidthKbps_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, WorkCapabilitiesService_GetLinkUpstreamBandwidthKbps_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *networkCapabilitiesServiceClient) GetNetworkSpecifier(ctx context.Context, in *GetNetworkSpecifierRequest, opts ...grpc.CallOption) (*GetNetworkSpecifierResponse, error) {
+func (c *workCapabilitiesServiceClient) GetNetworkSpecifier(ctx context.Context, in *GetNetworkSpecifierRequest, opts ...grpc.CallOption) (*GetNetworkSpecifierResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(GetNetworkSpecifierResponse)
-	err := c.cc.Invoke(ctx, NetworkCapabilitiesService_GetNetworkSpecifier_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, WorkCapabilitiesService_GetNetworkSpecifier_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *networkCapabilitiesServiceClient) GetOwnerUid(ctx context.Context, in *GetOwnerUidRequest, opts ...grpc.CallOption) (*GetOwnerUidResponse, error) {
+func (c *workCapabilitiesServiceClient) GetOwnerUid(ctx context.Context, in *GetOwnerUidRequest, opts ...grpc.CallOption) (*GetOwnerUidResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(GetOwnerUidResponse)
-	err := c.cc.Invoke(ctx, NetworkCapabilitiesService_GetOwnerUid_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, WorkCapabilitiesService_GetOwnerUid_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *networkCapabilitiesServiceClient) GetSignalStrength(ctx context.Context, in *GetSignalStrengthRequest, opts ...grpc.CallOption) (*GetSignalStrengthResponse, error) {
+func (c *workCapabilitiesServiceClient) GetSignalStrength(ctx context.Context, in *GetSignalStrengthRequest, opts ...grpc.CallOption) (*GetSignalStrengthResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(GetSignalStrengthResponse)
-	err := c.cc.Invoke(ctx, NetworkCapabilitiesService_GetSignalStrength_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, WorkCapabilitiesService_GetSignalStrength_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *networkCapabilitiesServiceClient) GetSubscriptionIds(ctx context.Context, in *GetSubscriptionIdsRequest, opts ...grpc.CallOption) (*GetSubscriptionIdsResponse, error) {
+func (c *workCapabilitiesServiceClient) GetSubscriptionIds(ctx context.Context, in *GetSubscriptionIdsRequest, opts ...grpc.CallOption) (*GetSubscriptionIdsResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(GetSubscriptionIdsResponse)
-	err := c.cc.Invoke(ctx, NetworkCapabilitiesService_GetSubscriptionIds_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, WorkCapabilitiesService_GetSubscriptionIds_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *networkCapabilitiesServiceClient) GetTransportInfo(ctx context.Context, in *GetTransportInfoRequest, opts ...grpc.CallOption) (*GetTransportInfoResponse, error) {
+func (c *workCapabilitiesServiceClient) GetTransportInfo(ctx context.Context, in *GetTransportInfoRequest, opts ...grpc.CallOption) (*GetTransportInfoResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(GetTransportInfoResponse)
-	err := c.cc.Invoke(ctx, NetworkCapabilitiesService_GetTransportInfo_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, WorkCapabilitiesService_GetTransportInfo_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *networkCapabilitiesServiceClient) HasCapability(ctx context.Context, in *HasCapabilityRequest, opts ...grpc.CallOption) (*HasCapabilityResponse, error) {
+func (c *workCapabilitiesServiceClient) HasCapability(ctx context.Context, in *HasCapabilityRequest, opts ...grpc.CallOption) (*HasCapabilityResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(HasCapabilityResponse)
-	err := c.cc.Invoke(ctx, NetworkCapabilitiesService_HasCapability_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, WorkCapabilitiesService_HasCapability_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *networkCapabilitiesServiceClient) HasEnterpriseId(ctx context.Context, in *HasEnterpriseIdRequest, opts ...grpc.CallOption) (*HasEnterpriseIdResponse, error) {
+func (c *workCapabilitiesServiceClient) HasEnterpriseId(ctx context.Context, in *HasEnterpriseIdRequest, opts ...grpc.CallOption) (*HasEnterpriseIdResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(HasEnterpriseIdResponse)
-	err := c.cc.Invoke(ctx, NetworkCapabilitiesService_HasEnterpriseId_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, WorkCapabilitiesService_HasEnterpriseId_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *networkCapabilitiesServiceClient) HasTransport(ctx context.Context, in *HasTransportRequest, opts ...grpc.CallOption) (*HasTransportResponse, error) {
+func (c *workCapabilitiesServiceClient) HasTransport(ctx context.Context, in *HasTransportRequest, opts ...grpc.CallOption) (*HasTransportResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(HasTransportResponse)
-	err := c.cc.Invoke(ctx, NetworkCapabilitiesService_HasTransport_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, WorkCapabilitiesService_HasTransport_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *networkCapabilitiesServiceClient) HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
+func (c *workCapabilitiesServiceClient) HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(HashCodeResponse)
-	err := c.cc.Invoke(ctx, NetworkCapabilitiesService_HashCode_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, WorkCapabilitiesService_HashCode_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *networkCapabilitiesServiceClient) ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
+func (c *workCapabilitiesServiceClient) ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(ToStringResponse)
-	err := c.cc.Invoke(ctx, NetworkCapabilitiesService_ToString_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, WorkCapabilitiesService_ToString_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *networkCapabilitiesServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
+func (c *workCapabilitiesServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(WriteToParcelResponse)
-	err := c.cc.Invoke(ctx, NetworkCapabilitiesService_WriteToParcel_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, WorkCapabilitiesService_WriteToParcel_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-// NetworkCapabilitiesServiceServer is the server API for NetworkCapabilitiesService service.
-// All implementations must embed UnimplementedNetworkCapabilitiesServiceServer
+// WorkCapabilitiesServiceServer is the server API for WorkCapabilitiesService service.
+// All implementations must embed UnimplementedWorkCapabilitiesServiceServer
 // for forward compatibility.
-type NetworkCapabilitiesServiceServer interface {
+type WorkCapabilitiesServiceServer interface {
 	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
 	Equals(context.Context, *EqualsRequest) (*EqualsResponse, error)
 	GetCapabilities(context.Context, *GetCapabilitiesRequest) (*GetCapabilitiesResponse, error)
@@ -1771,469 +1771,469 @@ type NetworkCapabilitiesServiceServer interface {
 	HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error)
 	ToString(context.Context, *ToStringRequest) (*ToStringResponse, error)
 	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
-	mustEmbedUnimplementedNetworkCapabilitiesServiceServer()
+	mustEmbedUnimplementedWorkCapabilitiesServiceServer()
 }
 
-// UnimplementedNetworkCapabilitiesServiceServer must be embedded to have
+// UnimplementedWorkCapabilitiesServiceServer must be embedded to have
 // forward compatible implementations.
 //
 // NOTE: this should be embedded by value instead of pointer to avoid a nil
 // pointer dereference when methods are called.
-type UnimplementedNetworkCapabilitiesServiceServer struct{}
+type UnimplementedWorkCapabilitiesServiceServer struct{}
 
-func (UnimplementedNetworkCapabilitiesServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
+func (UnimplementedWorkCapabilitiesServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
 }
-func (UnimplementedNetworkCapabilitiesServiceServer) Equals(context.Context, *EqualsRequest) (*EqualsResponse, error) {
+func (UnimplementedWorkCapabilitiesServiceServer) Equals(context.Context, *EqualsRequest) (*EqualsResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method Equals not implemented")
 }
-func (UnimplementedNetworkCapabilitiesServiceServer) GetCapabilities(context.Context, *GetCapabilitiesRequest) (*GetCapabilitiesResponse, error) {
+func (UnimplementedWorkCapabilitiesServiceServer) GetCapabilities(context.Context, *GetCapabilitiesRequest) (*GetCapabilitiesResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetCapabilities not implemented")
 }
-func (UnimplementedNetworkCapabilitiesServiceServer) GetEnterpriseIds(context.Context, *GetEnterpriseIdsRequest) (*GetEnterpriseIdsResponse, error) {
+func (UnimplementedWorkCapabilitiesServiceServer) GetEnterpriseIds(context.Context, *GetEnterpriseIdsRequest) (*GetEnterpriseIdsResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetEnterpriseIds not implemented")
 }
-func (UnimplementedNetworkCapabilitiesServiceServer) GetLinkDownstreamBandwidthKbps(context.Context, *GetLinkDownstreamBandwidthKbpsRequest) (*GetLinkDownstreamBandwidthKbpsResponse, error) {
+func (UnimplementedWorkCapabilitiesServiceServer) GetLinkDownstreamBandwidthKbps(context.Context, *GetLinkDownstreamBandwidthKbpsRequest) (*GetLinkDownstreamBandwidthKbpsResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetLinkDownstreamBandwidthKbps not implemented")
 }
-func (UnimplementedNetworkCapabilitiesServiceServer) GetLinkUpstreamBandwidthKbps(context.Context, *GetLinkUpstreamBandwidthKbpsRequest) (*GetLinkUpstreamBandwidthKbpsResponse, error) {
+func (UnimplementedWorkCapabilitiesServiceServer) GetLinkUpstreamBandwidthKbps(context.Context, *GetLinkUpstreamBandwidthKbpsRequest) (*GetLinkUpstreamBandwidthKbpsResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetLinkUpstreamBandwidthKbps not implemented")
 }
-func (UnimplementedNetworkCapabilitiesServiceServer) GetNetworkSpecifier(context.Context, *GetNetworkSpecifierRequest) (*GetNetworkSpecifierResponse, error) {
+func (UnimplementedWorkCapabilitiesServiceServer) GetNetworkSpecifier(context.Context, *GetNetworkSpecifierRequest) (*GetNetworkSpecifierResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetNetworkSpecifier not implemented")
 }
-func (UnimplementedNetworkCapabilitiesServiceServer) GetOwnerUid(context.Context, *GetOwnerUidRequest) (*GetOwnerUidResponse, error) {
+func (UnimplementedWorkCapabilitiesServiceServer) GetOwnerUid(context.Context, *GetOwnerUidRequest) (*GetOwnerUidResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetOwnerUid not implemented")
 }
-func (UnimplementedNetworkCapabilitiesServiceServer) GetSignalStrength(context.Context, *GetSignalStrengthRequest) (*GetSignalStrengthResponse, error) {
+func (UnimplementedWorkCapabilitiesServiceServer) GetSignalStrength(context.Context, *GetSignalStrengthRequest) (*GetSignalStrengthResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetSignalStrength not implemented")
 }
-func (UnimplementedNetworkCapabilitiesServiceServer) GetSubscriptionIds(context.Context, *GetSubscriptionIdsRequest) (*GetSubscriptionIdsResponse, error) {
+func (UnimplementedWorkCapabilitiesServiceServer) GetSubscriptionIds(context.Context, *GetSubscriptionIdsRequest) (*GetSubscriptionIdsResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetSubscriptionIds not implemented")
 }
-func (UnimplementedNetworkCapabilitiesServiceServer) GetTransportInfo(context.Context, *GetTransportInfoRequest) (*GetTransportInfoResponse, error) {
+func (UnimplementedWorkCapabilitiesServiceServer) GetTransportInfo(context.Context, *GetTransportInfoRequest) (*GetTransportInfoResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetTransportInfo not implemented")
 }
-func (UnimplementedNetworkCapabilitiesServiceServer) HasCapability(context.Context, *HasCapabilityRequest) (*HasCapabilityResponse, error) {
+func (UnimplementedWorkCapabilitiesServiceServer) HasCapability(context.Context, *HasCapabilityRequest) (*HasCapabilityResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method HasCapability not implemented")
 }
-func (UnimplementedNetworkCapabilitiesServiceServer) HasEnterpriseId(context.Context, *HasEnterpriseIdRequest) (*HasEnterpriseIdResponse, error) {
+func (UnimplementedWorkCapabilitiesServiceServer) HasEnterpriseId(context.Context, *HasEnterpriseIdRequest) (*HasEnterpriseIdResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method HasEnterpriseId not implemented")
 }
-func (UnimplementedNetworkCapabilitiesServiceServer) HasTransport(context.Context, *HasTransportRequest) (*HasTransportResponse, error) {
+func (UnimplementedWorkCapabilitiesServiceServer) HasTransport(context.Context, *HasTransportRequest) (*HasTransportResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method HasTransport not implemented")
 }
-func (UnimplementedNetworkCapabilitiesServiceServer) HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error) {
+func (UnimplementedWorkCapabilitiesServiceServer) HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method HashCode not implemented")
 }
-func (UnimplementedNetworkCapabilitiesServiceServer) ToString(context.Context, *ToStringRequest) (*ToStringResponse, error) {
+func (UnimplementedWorkCapabilitiesServiceServer) ToString(context.Context, *ToStringRequest) (*ToStringResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
 }
-func (UnimplementedNetworkCapabilitiesServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
+func (UnimplementedWorkCapabilitiesServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
 }
-func (UnimplementedNetworkCapabilitiesServiceServer) mustEmbedUnimplementedNetworkCapabilitiesServiceServer() {
+func (UnimplementedWorkCapabilitiesServiceServer) mustEmbedUnimplementedWorkCapabilitiesServiceServer() {
 }
-func (UnimplementedNetworkCapabilitiesServiceServer) testEmbeddedByValue() {}
+func (UnimplementedWorkCapabilitiesServiceServer) testEmbeddedByValue() {}
 
-// UnsafeNetworkCapabilitiesServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to NetworkCapabilitiesServiceServer will
+// UnsafeWorkCapabilitiesServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to WorkCapabilitiesServiceServer will
 // result in compilation errors.
-type UnsafeNetworkCapabilitiesServiceServer interface {
-	mustEmbedUnimplementedNetworkCapabilitiesServiceServer()
+type UnsafeWorkCapabilitiesServiceServer interface {
+	mustEmbedUnimplementedWorkCapabilitiesServiceServer()
 }
 
-func RegisterNetworkCapabilitiesServiceServer(s grpc.ServiceRegistrar, srv NetworkCapabilitiesServiceServer) {
-	// If the following call panics, it indicates UnimplementedNetworkCapabilitiesServiceServer was
+func RegisterWorkCapabilitiesServiceServer(s grpc.ServiceRegistrar, srv WorkCapabilitiesServiceServer) {
+	// If the following call panics, it indicates UnimplementedWorkCapabilitiesServiceServer was
 	// embedded by pointer and is nil.  This will cause panics if an
 	// unimplemented method is ever invoked, so we test this at initialization
 	// time to prevent it from happening at runtime later due to I/O.
 	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
 		t.testEmbeddedByValue()
 	}
-	s.RegisterService(&NetworkCapabilitiesService_ServiceDesc, srv)
+	s.RegisterService(&WorkCapabilitiesService_ServiceDesc, srv)
 }
 
-func _NetworkCapabilitiesService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _WorkCapabilitiesService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(DescribeContentsRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(NetworkCapabilitiesServiceServer).DescribeContents(ctx, in)
+		return srv.(WorkCapabilitiesServiceServer).DescribeContents(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: NetworkCapabilitiesService_DescribeContents_FullMethodName,
+		FullMethod: WorkCapabilitiesService_DescribeContents_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(NetworkCapabilitiesServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
+		return srv.(WorkCapabilitiesServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _NetworkCapabilitiesService_Equals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _WorkCapabilitiesService_Equals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(EqualsRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(NetworkCapabilitiesServiceServer).Equals(ctx, in)
+		return srv.(WorkCapabilitiesServiceServer).Equals(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: NetworkCapabilitiesService_Equals_FullMethodName,
+		FullMethod: WorkCapabilitiesService_Equals_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(NetworkCapabilitiesServiceServer).Equals(ctx, req.(*EqualsRequest))
+		return srv.(WorkCapabilitiesServiceServer).Equals(ctx, req.(*EqualsRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _NetworkCapabilitiesService_GetCapabilities_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _WorkCapabilitiesService_GetCapabilities_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(GetCapabilitiesRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(NetworkCapabilitiesServiceServer).GetCapabilities(ctx, in)
+		return srv.(WorkCapabilitiesServiceServer).GetCapabilities(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: NetworkCapabilitiesService_GetCapabilities_FullMethodName,
+		FullMethod: WorkCapabilitiesService_GetCapabilities_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(NetworkCapabilitiesServiceServer).GetCapabilities(ctx, req.(*GetCapabilitiesRequest))
+		return srv.(WorkCapabilitiesServiceServer).GetCapabilities(ctx, req.(*GetCapabilitiesRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _NetworkCapabilitiesService_GetEnterpriseIds_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _WorkCapabilitiesService_GetEnterpriseIds_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(GetEnterpriseIdsRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(NetworkCapabilitiesServiceServer).GetEnterpriseIds(ctx, in)
+		return srv.(WorkCapabilitiesServiceServer).GetEnterpriseIds(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: NetworkCapabilitiesService_GetEnterpriseIds_FullMethodName,
+		FullMethod: WorkCapabilitiesService_GetEnterpriseIds_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(NetworkCapabilitiesServiceServer).GetEnterpriseIds(ctx, req.(*GetEnterpriseIdsRequest))
+		return srv.(WorkCapabilitiesServiceServer).GetEnterpriseIds(ctx, req.(*GetEnterpriseIdsRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _NetworkCapabilitiesService_GetLinkDownstreamBandwidthKbps_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _WorkCapabilitiesService_GetLinkDownstreamBandwidthKbps_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(GetLinkDownstreamBandwidthKbpsRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(NetworkCapabilitiesServiceServer).GetLinkDownstreamBandwidthKbps(ctx, in)
+		return srv.(WorkCapabilitiesServiceServer).GetLinkDownstreamBandwidthKbps(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: NetworkCapabilitiesService_GetLinkDownstreamBandwidthKbps_FullMethodName,
+		FullMethod: WorkCapabilitiesService_GetLinkDownstreamBandwidthKbps_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(NetworkCapabilitiesServiceServer).GetLinkDownstreamBandwidthKbps(ctx, req.(*GetLinkDownstreamBandwidthKbpsRequest))
+		return srv.(WorkCapabilitiesServiceServer).GetLinkDownstreamBandwidthKbps(ctx, req.(*GetLinkDownstreamBandwidthKbpsRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _NetworkCapabilitiesService_GetLinkUpstreamBandwidthKbps_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _WorkCapabilitiesService_GetLinkUpstreamBandwidthKbps_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(GetLinkUpstreamBandwidthKbpsRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(NetworkCapabilitiesServiceServer).GetLinkUpstreamBandwidthKbps(ctx, in)
+		return srv.(WorkCapabilitiesServiceServer).GetLinkUpstreamBandwidthKbps(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: NetworkCapabilitiesService_GetLinkUpstreamBandwidthKbps_FullMethodName,
+		FullMethod: WorkCapabilitiesService_GetLinkUpstreamBandwidthKbps_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(NetworkCapabilitiesServiceServer).GetLinkUpstreamBandwidthKbps(ctx, req.(*GetLinkUpstreamBandwidthKbpsRequest))
+		return srv.(WorkCapabilitiesServiceServer).GetLinkUpstreamBandwidthKbps(ctx, req.(*GetLinkUpstreamBandwidthKbpsRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _NetworkCapabilitiesService_GetNetworkSpecifier_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _WorkCapabilitiesService_GetNetworkSpecifier_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(GetNetworkSpecifierRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(NetworkCapabilitiesServiceServer).GetNetworkSpecifier(ctx, in)
+		return srv.(WorkCapabilitiesServiceServer).GetNetworkSpecifier(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: NetworkCapabilitiesService_GetNetworkSpecifier_FullMethodName,
+		FullMethod: WorkCapabilitiesService_GetNetworkSpecifier_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(NetworkCapabilitiesServiceServer).GetNetworkSpecifier(ctx, req.(*GetNetworkSpecifierRequest))
+		return srv.(WorkCapabilitiesServiceServer).GetNetworkSpecifier(ctx, req.(*GetNetworkSpecifierRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _NetworkCapabilitiesService_GetOwnerUid_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _WorkCapabilitiesService_GetOwnerUid_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(GetOwnerUidRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(NetworkCapabilitiesServiceServer).GetOwnerUid(ctx, in)
+		return srv.(WorkCapabilitiesServiceServer).GetOwnerUid(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: NetworkCapabilitiesService_GetOwnerUid_FullMethodName,
+		FullMethod: WorkCapabilitiesService_GetOwnerUid_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(NetworkCapabilitiesServiceServer).GetOwnerUid(ctx, req.(*GetOwnerUidRequest))
+		return srv.(WorkCapabilitiesServiceServer).GetOwnerUid(ctx, req.(*GetOwnerUidRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _NetworkCapabilitiesService_GetSignalStrength_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _WorkCapabilitiesService_GetSignalStrength_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(GetSignalStrengthRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(NetworkCapabilitiesServiceServer).GetSignalStrength(ctx, in)
+		return srv.(WorkCapabilitiesServiceServer).GetSignalStrength(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: NetworkCapabilitiesService_GetSignalStrength_FullMethodName,
+		FullMethod: WorkCapabilitiesService_GetSignalStrength_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(NetworkCapabilitiesServiceServer).GetSignalStrength(ctx, req.(*GetSignalStrengthRequest))
+		return srv.(WorkCapabilitiesServiceServer).GetSignalStrength(ctx, req.(*GetSignalStrengthRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _NetworkCapabilitiesService_GetSubscriptionIds_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _WorkCapabilitiesService_GetSubscriptionIds_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(GetSubscriptionIdsRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(NetworkCapabilitiesServiceServer).GetSubscriptionIds(ctx, in)
+		return srv.(WorkCapabilitiesServiceServer).GetSubscriptionIds(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: NetworkCapabilitiesService_GetSubscriptionIds_FullMethodName,
+		FullMethod: WorkCapabilitiesService_GetSubscriptionIds_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(NetworkCapabilitiesServiceServer).GetSubscriptionIds(ctx, req.(*GetSubscriptionIdsRequest))
+		return srv.(WorkCapabilitiesServiceServer).GetSubscriptionIds(ctx, req.(*GetSubscriptionIdsRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _NetworkCapabilitiesService_GetTransportInfo_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _WorkCapabilitiesService_GetTransportInfo_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(GetTransportInfoRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(NetworkCapabilitiesServiceServer).GetTransportInfo(ctx, in)
+		return srv.(WorkCapabilitiesServiceServer).GetTransportInfo(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: NetworkCapabilitiesService_GetTransportInfo_FullMethodName,
+		FullMethod: WorkCapabilitiesService_GetTransportInfo_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(NetworkCapabilitiesServiceServer).GetTransportInfo(ctx, req.(*GetTransportInfoRequest))
+		return srv.(WorkCapabilitiesServiceServer).GetTransportInfo(ctx, req.(*GetTransportInfoRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _NetworkCapabilitiesService_HasCapability_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _WorkCapabilitiesService_HasCapability_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(HasCapabilityRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(NetworkCapabilitiesServiceServer).HasCapability(ctx, in)
+		return srv.(WorkCapabilitiesServiceServer).HasCapability(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: NetworkCapabilitiesService_HasCapability_FullMethodName,
+		FullMethod: WorkCapabilitiesService_HasCapability_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(NetworkCapabilitiesServiceServer).HasCapability(ctx, req.(*HasCapabilityRequest))
+		return srv.(WorkCapabilitiesServiceServer).HasCapability(ctx, req.(*HasCapabilityRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _NetworkCapabilitiesService_HasEnterpriseId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _WorkCapabilitiesService_HasEnterpriseId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(HasEnterpriseIdRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(NetworkCapabilitiesServiceServer).HasEnterpriseId(ctx, in)
+		return srv.(WorkCapabilitiesServiceServer).HasEnterpriseId(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: NetworkCapabilitiesService_HasEnterpriseId_FullMethodName,
+		FullMethod: WorkCapabilitiesService_HasEnterpriseId_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(NetworkCapabilitiesServiceServer).HasEnterpriseId(ctx, req.(*HasEnterpriseIdRequest))
+		return srv.(WorkCapabilitiesServiceServer).HasEnterpriseId(ctx, req.(*HasEnterpriseIdRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _NetworkCapabilitiesService_HasTransport_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _WorkCapabilitiesService_HasTransport_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(HasTransportRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(NetworkCapabilitiesServiceServer).HasTransport(ctx, in)
+		return srv.(WorkCapabilitiesServiceServer).HasTransport(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: NetworkCapabilitiesService_HasTransport_FullMethodName,
+		FullMethod: WorkCapabilitiesService_HasTransport_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(NetworkCapabilitiesServiceServer).HasTransport(ctx, req.(*HasTransportRequest))
+		return srv.(WorkCapabilitiesServiceServer).HasTransport(ctx, req.(*HasTransportRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _NetworkCapabilitiesService_HashCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _WorkCapabilitiesService_HashCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(HashCodeRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(NetworkCapabilitiesServiceServer).HashCode(ctx, in)
+		return srv.(WorkCapabilitiesServiceServer).HashCode(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: NetworkCapabilitiesService_HashCode_FullMethodName,
+		FullMethod: WorkCapabilitiesService_HashCode_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(NetworkCapabilitiesServiceServer).HashCode(ctx, req.(*HashCodeRequest))
+		return srv.(WorkCapabilitiesServiceServer).HashCode(ctx, req.(*HashCodeRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _NetworkCapabilitiesService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _WorkCapabilitiesService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(ToStringRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(NetworkCapabilitiesServiceServer).ToString(ctx, in)
+		return srv.(WorkCapabilitiesServiceServer).ToString(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: NetworkCapabilitiesService_ToString_FullMethodName,
+		FullMethod: WorkCapabilitiesService_ToString_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(NetworkCapabilitiesServiceServer).ToString(ctx, req.(*ToStringRequest))
+		return srv.(WorkCapabilitiesServiceServer).ToString(ctx, req.(*ToStringRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _NetworkCapabilitiesService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _WorkCapabilitiesService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(WriteToParcelRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(NetworkCapabilitiesServiceServer).WriteToParcel(ctx, in)
+		return srv.(WorkCapabilitiesServiceServer).WriteToParcel(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: NetworkCapabilitiesService_WriteToParcel_FullMethodName,
+		FullMethod: WorkCapabilitiesService_WriteToParcel_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(NetworkCapabilitiesServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
+		return srv.(WorkCapabilitiesServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-// NetworkCapabilitiesService_ServiceDesc is the grpc.ServiceDesc for NetworkCapabilitiesService service.
+// WorkCapabilitiesService_ServiceDesc is the grpc.ServiceDesc for WorkCapabilitiesService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
-var NetworkCapabilitiesService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "net.NetworkCapabilitiesService",
-	HandlerType: (*NetworkCapabilitiesServiceServer)(nil),
+var WorkCapabilitiesService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "net.WorkCapabilitiesService",
+	HandlerType: (*WorkCapabilitiesServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
 			MethodName: "DescribeContents",
-			Handler:    _NetworkCapabilitiesService_DescribeContents_Handler,
+			Handler:    _WorkCapabilitiesService_DescribeContents_Handler,
 		},
 		{
 			MethodName: "Equals",
-			Handler:    _NetworkCapabilitiesService_Equals_Handler,
+			Handler:    _WorkCapabilitiesService_Equals_Handler,
 		},
 		{
 			MethodName: "GetCapabilities",
-			Handler:    _NetworkCapabilitiesService_GetCapabilities_Handler,
+			Handler:    _WorkCapabilitiesService_GetCapabilities_Handler,
 		},
 		{
 			MethodName: "GetEnterpriseIds",
-			Handler:    _NetworkCapabilitiesService_GetEnterpriseIds_Handler,
+			Handler:    _WorkCapabilitiesService_GetEnterpriseIds_Handler,
 		},
 		{
 			MethodName: "GetLinkDownstreamBandwidthKbps",
-			Handler:    _NetworkCapabilitiesService_GetLinkDownstreamBandwidthKbps_Handler,
+			Handler:    _WorkCapabilitiesService_GetLinkDownstreamBandwidthKbps_Handler,
 		},
 		{
 			MethodName: "GetLinkUpstreamBandwidthKbps",
-			Handler:    _NetworkCapabilitiesService_GetLinkUpstreamBandwidthKbps_Handler,
+			Handler:    _WorkCapabilitiesService_GetLinkUpstreamBandwidthKbps_Handler,
 		},
 		{
 			MethodName: "GetNetworkSpecifier",
-			Handler:    _NetworkCapabilitiesService_GetNetworkSpecifier_Handler,
+			Handler:    _WorkCapabilitiesService_GetNetworkSpecifier_Handler,
 		},
 		{
 			MethodName: "GetOwnerUid",
-			Handler:    _NetworkCapabilitiesService_GetOwnerUid_Handler,
+			Handler:    _WorkCapabilitiesService_GetOwnerUid_Handler,
 		},
 		{
 			MethodName: "GetSignalStrength",
-			Handler:    _NetworkCapabilitiesService_GetSignalStrength_Handler,
+			Handler:    _WorkCapabilitiesService_GetSignalStrength_Handler,
 		},
 		{
 			MethodName: "GetSubscriptionIds",
-			Handler:    _NetworkCapabilitiesService_GetSubscriptionIds_Handler,
+			Handler:    _WorkCapabilitiesService_GetSubscriptionIds_Handler,
 		},
 		{
 			MethodName: "GetTransportInfo",
-			Handler:    _NetworkCapabilitiesService_GetTransportInfo_Handler,
+			Handler:    _WorkCapabilitiesService_GetTransportInfo_Handler,
 		},
 		{
 			MethodName: "HasCapability",
-			Handler:    _NetworkCapabilitiesService_HasCapability_Handler,
+			Handler:    _WorkCapabilitiesService_HasCapability_Handler,
 		},
 		{
 			MethodName: "HasEnterpriseId",
-			Handler:    _NetworkCapabilitiesService_HasEnterpriseId_Handler,
+			Handler:    _WorkCapabilitiesService_HasEnterpriseId_Handler,
 		},
 		{
 			MethodName: "HasTransport",
-			Handler:    _NetworkCapabilitiesService_HasTransport_Handler,
+			Handler:    _WorkCapabilitiesService_HasTransport_Handler,
 		},
 		{
 			MethodName: "HashCode",
-			Handler:    _NetworkCapabilitiesService_HashCode_Handler,
+			Handler:    _WorkCapabilitiesService_HashCode_Handler,
 		},
 		{
 			MethodName: "ToString",
-			Handler:    _NetworkCapabilitiesService_ToString_Handler,
+			Handler:    _WorkCapabilitiesService_ToString_Handler,
 		},
 		{
 			MethodName: "WriteToParcel",
-			Handler:    _NetworkCapabilitiesService_WriteToParcel_Handler,
+			Handler:    _WorkCapabilitiesService_WriteToParcel_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

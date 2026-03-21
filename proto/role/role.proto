@@ -30,7 +30,7 @@ message IsRoleHeldResponse {
   bool result = 1;
 }
 
-service RoleManagerService {
+service ManagerService {
   rpc CreateRequestRoleIntent (CreateRequestRoleIntentRequest) returns (CreateRequestRoleIntentResponse);
   rpc IsRoleAvailable (IsRoleAvailableRequest) returns (IsRoleAvailableResponse);
   rpc IsRoleHeld (IsRoleHeldRequest) returns (IsRoleHeldResponse);

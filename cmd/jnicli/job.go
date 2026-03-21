@@ -3,8 +3,8 @@
 package main
 
 import (
-	"github.com/spf13/cobra"
 	pb "github.com/AndroidGoLab/jni-proxy/proto/job"
+	"github.com/spf13/cobra"
 )
 
 var jobCmd = &cobra.Command{
@@ -12,18 +12,258 @@ var jobCmd = &cobra.Command{
 	Short: "job service operations",
 }
 
-var jobJobInfoCmd = &cobra.Command{
-	Use:   "job-info",
-	Short: "JobInfoService operations",
+var jobSchedulerCmd = &cobra.Command{
+	Use:   "scheduler",
+	Short: "SchedulerService operations",
 }
 
-var jobJobInfoDescribeContentsCmd = &cobra.Command{
+var jobSchedulerCanRunUserInitiatedJobsCmd = &cobra.Command{
+	Use:   "can-run-user-initiated-jobs",
+	Short: "CanRunUserInitiatedJobs RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSchedulerServiceClient(grpcConn)
+		req := &pb.CanRunUserInitiatedJobsRequest{}
+		resp, err := client.CanRunUserInitiatedJobs(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var jobSchedulerCancelCmd = &cobra.Command{
+	Use:   "cancel",
+	Short: "Cancel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSchedulerServiceClient(grpcConn)
+		req := &pb.CancelRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Cancel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var jobSchedulerCancelAllCmd = &cobra.Command{
+	Use:   "cancel-all",
+	Short: "CancelAll RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSchedulerServiceClient(grpcConn)
+		req := &pb.CancelAllRequest{}
+		resp, err := client.CancelAll(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var jobSchedulerCancelInAllNamespacesCmd = &cobra.Command{
+	Use:   "cancel-in-all-namespaces",
+	Short: "CancelInAllNamespaces RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSchedulerServiceClient(grpcConn)
+		req := &pb.CancelInAllNamespacesRequest{}
+		resp, err := client.CancelInAllNamespaces(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var jobSchedulerEnqueueCmd = &cobra.Command{
+	Use:   "enqueue",
+	Short: "Enqueue RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSchedulerServiceClient(grpcConn)
+		req := &pb.EnqueueRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.Enqueue(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var jobSchedulerForNamespaceCmd = &cobra.Command{
+	Use:   "for-namespace",
+	Short: "ForNamespace RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSchedulerServiceClient(grpcConn)
+		req := &pb.ForNamespaceRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.ForNamespace(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var jobSchedulerGetAllPendingJobsCmd = &cobra.Command{
+	Use:   "get-all-pending-jobs",
+	Short: "GetAllPendingJobs RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSchedulerServiceClient(grpcConn)
+		req := &pb.GetAllPendingJobsRequest{}
+		resp, err := client.GetAllPendingJobs(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var jobSchedulerGetNamespaceCmd = &cobra.Command{
+	Use:   "get-namespace",
+	Short: "GetNamespace RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSchedulerServiceClient(grpcConn)
+		req := &pb.GetNamespaceRequest{}
+		resp, err := client.GetNamespace(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var jobSchedulerGetPendingJobCmd = &cobra.Command{
+	Use:   "get-pending-job",
+	Short: "GetPendingJob RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSchedulerServiceClient(grpcConn)
+		req := &pb.GetPendingJobRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetPendingJob(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var jobSchedulerGetPendingJobReasonCmd = &cobra.Command{
+	Use:   "get-pending-job-reason",
+	Short: "GetPendingJobReason RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSchedulerServiceClient(grpcConn)
+		req := &pb.GetPendingJobReasonRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetPendingJobReason(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var jobSchedulerGetPendingJobReasonsCmd = &cobra.Command{
+	Use:   "get-pending-job-reasons",
+	Short: "GetPendingJobReasons RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSchedulerServiceClient(grpcConn)
+		req := &pb.GetPendingJobReasonsRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetPendingJobReasons(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var jobSchedulerGetPendingJobReasonsHistoryCmd = &cobra.Command{
+	Use:   "get-pending-job-reasons-history",
+	Short: "GetPendingJobReasonsHistory RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSchedulerServiceClient(grpcConn)
+		req := &pb.GetPendingJobReasonsHistoryRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetPendingJobReasonsHistory(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var jobSchedulerScheduleCmd = &cobra.Command{
+	Use:   "schedule",
+	Short: "Schedule RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSchedulerServiceClient(grpcConn)
+		req := &pb.ScheduleRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Schedule(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var jobInfoCmd = &cobra.Command{
+	Use:   "info",
+	Short: "InfoService operations",
+}
+
+var jobInfoDescribeContentsCmd = &cobra.Command{
 	Use:   "describe-contents",
 	Short: "DescribeContents RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewJobInfoServiceClient(grpcConn)
+		client := pb.NewInfoServiceClient(grpcConn)
 		req := &pb.DescribeContentsRequest{}
 		resp, err := client.DescribeContents(ctx, req)
 		if err != nil {
@@ -33,13 +273,13 @@ var jobJobInfoDescribeContentsCmd = &cobra.Command{
 	},
 }
 
-var jobJobInfoEqualsCmd = &cobra.Command{
+var jobInfoEqualsCmd = &cobra.Command{
 	Use:   "equals",
 	Short: "Equals RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewJobInfoServiceClient(grpcConn)
+		client := pb.NewInfoServiceClient(grpcConn)
 		req := &pb.EqualsRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
@@ -52,13 +292,13 @@ var jobJobInfoEqualsCmd = &cobra.Command{
 	},
 }
 
-var jobJobInfoGetBackoffPolicyCmd = &cobra.Command{
+var jobInfoGetBackoffPolicyCmd = &cobra.Command{
 	Use:   "get-backoff-policy",
 	Short: "GetBackoffPolicy RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewJobInfoServiceClient(grpcConn)
+		client := pb.NewInfoServiceClient(grpcConn)
 		req := &pb.GetBackoffPolicyRequest{}
 		resp, err := client.GetBackoffPolicy(ctx, req)
 		if err != nil {
@@ -68,13 +308,13 @@ var jobJobInfoGetBackoffPolicyCmd = &cobra.Command{
 	},
 }
 
-var jobJobInfoGetClipDataCmd = &cobra.Command{
+var jobInfoGetClipDataCmd = &cobra.Command{
 	Use:   "get-clip-data",
 	Short: "GetClipData RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewJobInfoServiceClient(grpcConn)
+		client := pb.NewInfoServiceClient(grpcConn)
 		req := &pb.GetClipDataRequest{}
 		resp, err := client.GetClipData(ctx, req)
 		if err != nil {
@@ -84,13 +324,13 @@ var jobJobInfoGetClipDataCmd = &cobra.Command{
 	},
 }
 
-var jobJobInfoGetClipGrantFlagsCmd = &cobra.Command{
+var jobInfoGetClipGrantFlagsCmd = &cobra.Command{
 	Use:   "get-clip-grant-flags",
 	Short: "GetClipGrantFlags RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewJobInfoServiceClient(grpcConn)
+		client := pb.NewInfoServiceClient(grpcConn)
 		req := &pb.GetClipGrantFlagsRequest{}
 		resp, err := client.GetClipGrantFlags(ctx, req)
 		if err != nil {
@@ -100,13 +340,13 @@ var jobJobInfoGetClipGrantFlagsCmd = &cobra.Command{
 	},
 }
 
-var jobJobInfoGetDebugTagsCmd = &cobra.Command{
+var jobInfoGetDebugTagsCmd = &cobra.Command{
 	Use:   "get-debug-tags",
 	Short: "GetDebugTags RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewJobInfoServiceClient(grpcConn)
+		client := pb.NewInfoServiceClient(grpcConn)
 		req := &pb.GetDebugTagsRequest{}
 		resp, err := client.GetDebugTags(ctx, req)
 		if err != nil {
@@ -116,13 +356,13 @@ var jobJobInfoGetDebugTagsCmd = &cobra.Command{
 	},
 }
 
-var jobJobInfoGetEstimatedNetworkDownloadBytesCmd = &cobra.Command{
+var jobInfoGetEstimatedNetworkDownloadBytesCmd = &cobra.Command{
 	Use:   "get-estimated-network-download-bytes",
 	Short: "GetEstimatedNetworkDownloadBytes RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewJobInfoServiceClient(grpcConn)
+		client := pb.NewInfoServiceClient(grpcConn)
 		req := &pb.GetEstimatedNetworkDownloadBytesRequest{}
 		resp, err := client.GetEstimatedNetworkDownloadBytes(ctx, req)
 		if err != nil {
@@ -132,13 +372,13 @@ var jobJobInfoGetEstimatedNetworkDownloadBytesCmd = &cobra.Command{
 	},
 }
 
-var jobJobInfoGetEstimatedNetworkUploadBytesCmd = &cobra.Command{
+var jobInfoGetEstimatedNetworkUploadBytesCmd = &cobra.Command{
 	Use:   "get-estimated-network-upload-bytes",
 	Short: "GetEstimatedNetworkUploadBytes RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewJobInfoServiceClient(grpcConn)
+		client := pb.NewInfoServiceClient(grpcConn)
 		req := &pb.GetEstimatedNetworkUploadBytesRequest{}
 		resp, err := client.GetEstimatedNetworkUploadBytes(ctx, req)
 		if err != nil {
@@ -148,13 +388,13 @@ var jobJobInfoGetEstimatedNetworkUploadBytesCmd = &cobra.Command{
 	},
 }
 
-var jobJobInfoGetExtrasCmd = &cobra.Command{
+var jobInfoGetExtrasCmd = &cobra.Command{
 	Use:   "get-extras",
 	Short: "GetExtras RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewJobInfoServiceClient(grpcConn)
+		client := pb.NewInfoServiceClient(grpcConn)
 		req := &pb.GetExtrasRequest{}
 		resp, err := client.GetExtras(ctx, req)
 		if err != nil {
@@ -164,13 +404,13 @@ var jobJobInfoGetExtrasCmd = &cobra.Command{
 	},
 }
 
-var jobJobInfoGetFlexMillisCmd = &cobra.Command{
+var jobInfoGetFlexMillisCmd = &cobra.Command{
 	Use:   "get-flex-millis",
 	Short: "GetFlexMillis RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewJobInfoServiceClient(grpcConn)
+		client := pb.NewInfoServiceClient(grpcConn)
 		req := &pb.GetFlexMillisRequest{}
 		resp, err := client.GetFlexMillis(ctx, req)
 		if err != nil {
@@ -180,13 +420,13 @@ var jobJobInfoGetFlexMillisCmd = &cobra.Command{
 	},
 }
 
-var jobJobInfoGetIdCmd = &cobra.Command{
+var jobInfoGetIdCmd = &cobra.Command{
 	Use:   "get-id",
 	Short: "GetId RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewJobInfoServiceClient(grpcConn)
+		client := pb.NewInfoServiceClient(grpcConn)
 		req := &pb.GetIdRequest{}
 		resp, err := client.GetId(ctx, req)
 		if err != nil {
@@ -196,13 +436,13 @@ var jobJobInfoGetIdCmd = &cobra.Command{
 	},
 }
 
-var jobJobInfoGetInitialBackoffMillisCmd = &cobra.Command{
+var jobInfoGetInitialBackoffMillisCmd = &cobra.Command{
 	Use:   "get-initial-backoff-millis",
 	Short: "GetInitialBackoffMillis RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewJobInfoServiceClient(grpcConn)
+		client := pb.NewInfoServiceClient(grpcConn)
 		req := &pb.GetInitialBackoffMillisRequest{}
 		resp, err := client.GetInitialBackoffMillis(ctx, req)
 		if err != nil {
@@ -212,13 +452,13 @@ var jobJobInfoGetInitialBackoffMillisCmd = &cobra.Command{
 	},
 }
 
-var jobJobInfoGetIntervalMillisCmd = &cobra.Command{
+var jobInfoGetIntervalMillisCmd = &cobra.Command{
 	Use:   "get-interval-millis",
 	Short: "GetIntervalMillis RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewJobInfoServiceClient(grpcConn)
+		client := pb.NewInfoServiceClient(grpcConn)
 		req := &pb.GetIntervalMillisRequest{}
 		resp, err := client.GetIntervalMillis(ctx, req)
 		if err != nil {
@@ -228,13 +468,13 @@ var jobJobInfoGetIntervalMillisCmd = &cobra.Command{
 	},
 }
 
-var jobJobInfoGetMaxExecutionDelayMillisCmd = &cobra.Command{
+var jobInfoGetMaxExecutionDelayMillisCmd = &cobra.Command{
 	Use:   "get-max-execution-delay-millis",
 	Short: "GetMaxExecutionDelayMillis RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewJobInfoServiceClient(grpcConn)
+		client := pb.NewInfoServiceClient(grpcConn)
 		req := &pb.GetMaxExecutionDelayMillisRequest{}
 		resp, err := client.GetMaxExecutionDelayMillis(ctx, req)
 		if err != nil {
@@ -244,13 +484,13 @@ var jobJobInfoGetMaxExecutionDelayMillisCmd = &cobra.Command{
 	},
 }
 
-var jobJobInfoGetMinLatencyMillisCmd = &cobra.Command{
+var jobInfoGetMinLatencyMillisCmd = &cobra.Command{
 	Use:   "get-min-latency-millis",
 	Short: "GetMinLatencyMillis RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewJobInfoServiceClient(grpcConn)
+		client := pb.NewInfoServiceClient(grpcConn)
 		req := &pb.GetMinLatencyMillisRequest{}
 		resp, err := client.GetMinLatencyMillis(ctx, req)
 		if err != nil {
@@ -260,13 +500,13 @@ var jobJobInfoGetMinLatencyMillisCmd = &cobra.Command{
 	},
 }
 
-var jobJobInfoGetMinimumNetworkChunkBytesCmd = &cobra.Command{
+var jobInfoGetMinimumNetworkChunkBytesCmd = &cobra.Command{
 	Use:   "get-minimum-network-chunk-bytes",
 	Short: "GetMinimumNetworkChunkBytes RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewJobInfoServiceClient(grpcConn)
+		client := pb.NewInfoServiceClient(grpcConn)
 		req := &pb.GetMinimumNetworkChunkBytesRequest{}
 		resp, err := client.GetMinimumNetworkChunkBytes(ctx, req)
 		if err != nil {
@@ -276,13 +516,13 @@ var jobJobInfoGetMinimumNetworkChunkBytesCmd = &cobra.Command{
 	},
 }
 
-var jobJobInfoGetNetworkTypeCmd = &cobra.Command{
+var jobInfoGetNetworkTypeCmd = &cobra.Command{
 	Use:   "get-network-type",
 	Short: "GetNetworkType RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewJobInfoServiceClient(grpcConn)
+		client := pb.NewInfoServiceClient(grpcConn)
 		req := &pb.GetNetworkTypeRequest{}
 		resp, err := client.GetNetworkType(ctx, req)
 		if err != nil {
@@ -292,13 +532,13 @@ var jobJobInfoGetNetworkTypeCmd = &cobra.Command{
 	},
 }
 
-var jobJobInfoGetPriorityCmd = &cobra.Command{
+var jobInfoGetPriorityCmd = &cobra.Command{
 	Use:   "get-priority",
 	Short: "GetPriority RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewJobInfoServiceClient(grpcConn)
+		client := pb.NewInfoServiceClient(grpcConn)
 		req := &pb.GetPriorityRequest{}
 		resp, err := client.GetPriority(ctx, req)
 		if err != nil {
@@ -308,13 +548,13 @@ var jobJobInfoGetPriorityCmd = &cobra.Command{
 	},
 }
 
-var jobJobInfoGetRequiredNetworkCmd = &cobra.Command{
+var jobInfoGetRequiredNetworkCmd = &cobra.Command{
 	Use:   "get-required-network",
 	Short: "GetRequiredNetwork RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewJobInfoServiceClient(grpcConn)
+		client := pb.NewInfoServiceClient(grpcConn)
 		req := &pb.GetRequiredNetworkRequest{}
 		resp, err := client.GetRequiredNetwork(ctx, req)
 		if err != nil {
@@ -324,13 +564,13 @@ var jobJobInfoGetRequiredNetworkCmd = &cobra.Command{
 	},
 }
 
-var jobJobInfoGetServiceCmd = &cobra.Command{
+var jobInfoGetServiceCmd = &cobra.Command{
 	Use:   "get-service",
 	Short: "GetService RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewJobInfoServiceClient(grpcConn)
+		client := pb.NewInfoServiceClient(grpcConn)
 		req := &pb.GetServiceRequest{}
 		resp, err := client.GetService(ctx, req)
 		if err != nil {
@@ -340,13 +580,13 @@ var jobJobInfoGetServiceCmd = &cobra.Command{
 	},
 }
 
-var jobJobInfoGetTraceTagCmd = &cobra.Command{
+var jobInfoGetTraceTagCmd = &cobra.Command{
 	Use:   "get-trace-tag",
 	Short: "GetTraceTag RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewJobInfoServiceClient(grpcConn)
+		client := pb.NewInfoServiceClient(grpcConn)
 		req := &pb.GetTraceTagRequest{}
 		resp, err := client.GetTraceTag(ctx, req)
 		if err != nil {
@@ -356,13 +596,13 @@ var jobJobInfoGetTraceTagCmd = &cobra.Command{
 	},
 }
 
-var jobJobInfoGetTransientExtrasCmd = &cobra.Command{
+var jobInfoGetTransientExtrasCmd = &cobra.Command{
 	Use:   "get-transient-extras",
 	Short: "GetTransientExtras RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewJobInfoServiceClient(grpcConn)
+		client := pb.NewInfoServiceClient(grpcConn)
 		req := &pb.GetTransientExtrasRequest{}
 		resp, err := client.GetTransientExtras(ctx, req)
 		if err != nil {
@@ -372,13 +612,13 @@ var jobJobInfoGetTransientExtrasCmd = &cobra.Command{
 	},
 }
 
-var jobJobInfoGetTriggerContentMaxDelayCmd = &cobra.Command{
+var jobInfoGetTriggerContentMaxDelayCmd = &cobra.Command{
 	Use:   "get-trigger-content-max-delay",
 	Short: "GetTriggerContentMaxDelay RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewJobInfoServiceClient(grpcConn)
+		client := pb.NewInfoServiceClient(grpcConn)
 		req := &pb.GetTriggerContentMaxDelayRequest{}
 		resp, err := client.GetTriggerContentMaxDelay(ctx, req)
 		if err != nil {
@@ -388,13 +628,13 @@ var jobJobInfoGetTriggerContentMaxDelayCmd = &cobra.Command{
 	},
 }
 
-var jobJobInfoGetTriggerContentUpdateDelayCmd = &cobra.Command{
+var jobInfoGetTriggerContentUpdateDelayCmd = &cobra.Command{
 	Use:   "get-trigger-content-update-delay",
 	Short: "GetTriggerContentUpdateDelay RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewJobInfoServiceClient(grpcConn)
+		client := pb.NewInfoServiceClient(grpcConn)
 		req := &pb.GetTriggerContentUpdateDelayRequest{}
 		resp, err := client.GetTriggerContentUpdateDelay(ctx, req)
 		if err != nil {
@@ -404,13 +644,13 @@ var jobJobInfoGetTriggerContentUpdateDelayCmd = &cobra.Command{
 	},
 }
 
-var jobJobInfoGetTriggerContentUrisCmd = &cobra.Command{
+var jobInfoGetTriggerContentUrisCmd = &cobra.Command{
 	Use:   "get-trigger-content-uris",
 	Short: "GetTriggerContentUris RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewJobInfoServiceClient(grpcConn)
+		client := pb.NewInfoServiceClient(grpcConn)
 		req := &pb.GetTriggerContentUrisRequest{}
 		resp, err := client.GetTriggerContentUris(ctx, req)
 		if err != nil {
@@ -420,13 +660,13 @@ var jobJobInfoGetTriggerContentUrisCmd = &cobra.Command{
 	},
 }
 
-var jobJobInfoHashCodeCmd = &cobra.Command{
+var jobInfoHashCodeCmd = &cobra.Command{
 	Use:   "hash-code",
 	Short: "HashCode RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewJobInfoServiceClient(grpcConn)
+		client := pb.NewInfoServiceClient(grpcConn)
 		req := &pb.HashCodeRequest{}
 		resp, err := client.HashCode(ctx, req)
 		if err != nil {
@@ -436,13 +676,13 @@ var jobJobInfoHashCodeCmd = &cobra.Command{
 	},
 }
 
-var jobJobInfoIsExpeditedCmd = &cobra.Command{
+var jobInfoIsExpeditedCmd = &cobra.Command{
 	Use:   "is-expedited",
 	Short: "IsExpedited RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewJobInfoServiceClient(grpcConn)
+		client := pb.NewInfoServiceClient(grpcConn)
 		req := &pb.IsExpeditedRequest{}
 		resp, err := client.IsExpedited(ctx, req)
 		if err != nil {
@@ -452,13 +692,13 @@ var jobJobInfoIsExpeditedCmd = &cobra.Command{
 	},
 }
 
-var jobJobInfoIsImportantWhileForegroundCmd = &cobra.Command{
+var jobInfoIsImportantWhileForegroundCmd = &cobra.Command{
 	Use:   "is-important-while-foreground",
 	Short: "IsImportantWhileForeground RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewJobInfoServiceClient(grpcConn)
+		client := pb.NewInfoServiceClient(grpcConn)
 		req := &pb.IsImportantWhileForegroundRequest{}
 		resp, err := client.IsImportantWhileForeground(ctx, req)
 		if err != nil {
@@ -468,13 +708,13 @@ var jobJobInfoIsImportantWhileForegroundCmd = &cobra.Command{
 	},
 }
 
-var jobJobInfoIsPeriodicCmd = &cobra.Command{
+var jobInfoIsPeriodicCmd = &cobra.Command{
 	Use:   "is-periodic",
 	Short: "IsPeriodic RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewJobInfoServiceClient(grpcConn)
+		client := pb.NewInfoServiceClient(grpcConn)
 		req := &pb.IsPeriodicRequest{}
 		resp, err := client.IsPeriodic(ctx, req)
 		if err != nil {
@@ -484,13 +724,13 @@ var jobJobInfoIsPeriodicCmd = &cobra.Command{
 	},
 }
 
-var jobJobInfoIsPersistedCmd = &cobra.Command{
+var jobInfoIsPersistedCmd = &cobra.Command{
 	Use:   "is-persisted",
 	Short: "IsPersisted RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewJobInfoServiceClient(grpcConn)
+		client := pb.NewInfoServiceClient(grpcConn)
 		req := &pb.IsPersistedRequest{}
 		resp, err := client.IsPersisted(ctx, req)
 		if err != nil {
@@ -500,13 +740,13 @@ var jobJobInfoIsPersistedCmd = &cobra.Command{
 	},
 }
 
-var jobJobInfoIsPrefetchCmd = &cobra.Command{
+var jobInfoIsPrefetchCmd = &cobra.Command{
 	Use:   "is-prefetch",
 	Short: "IsPrefetch RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewJobInfoServiceClient(grpcConn)
+		client := pb.NewInfoServiceClient(grpcConn)
 		req := &pb.IsPrefetchRequest{}
 		resp, err := client.IsPrefetch(ctx, req)
 		if err != nil {
@@ -516,13 +756,13 @@ var jobJobInfoIsPrefetchCmd = &cobra.Command{
 	},
 }
 
-var jobJobInfoIsRequireBatteryNotLowCmd = &cobra.Command{
+var jobInfoIsRequireBatteryNotLowCmd = &cobra.Command{
 	Use:   "is-require-battery-not-low",
 	Short: "IsRequireBatteryNotLow RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewJobInfoServiceClient(grpcConn)
+		client := pb.NewInfoServiceClient(grpcConn)
 		req := &pb.IsRequireBatteryNotLowRequest{}
 		resp, err := client.IsRequireBatteryNotLow(ctx, req)
 		if err != nil {
@@ -532,13 +772,13 @@ var jobJobInfoIsRequireBatteryNotLowCmd = &cobra.Command{
 	},
 }
 
-var jobJobInfoIsRequireChargingCmd = &cobra.Command{
+var jobInfoIsRequireChargingCmd = &cobra.Command{
 	Use:   "is-require-charging",
 	Short: "IsRequireCharging RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewJobInfoServiceClient(grpcConn)
+		client := pb.NewInfoServiceClient(grpcConn)
 		req := &pb.IsRequireChargingRequest{}
 		resp, err := client.IsRequireCharging(ctx, req)
 		if err != nil {
@@ -548,13 +788,13 @@ var jobJobInfoIsRequireChargingCmd = &cobra.Command{
 	},
 }
 
-var jobJobInfoIsRequireDeviceIdleCmd = &cobra.Command{
+var jobInfoIsRequireDeviceIdleCmd = &cobra.Command{
 	Use:   "is-require-device-idle",
 	Short: "IsRequireDeviceIdle RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewJobInfoServiceClient(grpcConn)
+		client := pb.NewInfoServiceClient(grpcConn)
 		req := &pb.IsRequireDeviceIdleRequest{}
 		resp, err := client.IsRequireDeviceIdle(ctx, req)
 		if err != nil {
@@ -564,13 +804,13 @@ var jobJobInfoIsRequireDeviceIdleCmd = &cobra.Command{
 	},
 }
 
-var jobJobInfoIsRequireStorageNotLowCmd = &cobra.Command{
+var jobInfoIsRequireStorageNotLowCmd = &cobra.Command{
 	Use:   "is-require-storage-not-low",
 	Short: "IsRequireStorageNotLow RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewJobInfoServiceClient(grpcConn)
+		client := pb.NewInfoServiceClient(grpcConn)
 		req := &pb.IsRequireStorageNotLowRequest{}
 		resp, err := client.IsRequireStorageNotLow(ctx, req)
 		if err != nil {
@@ -580,13 +820,13 @@ var jobJobInfoIsRequireStorageNotLowCmd = &cobra.Command{
 	},
 }
 
-var jobJobInfoIsUserInitiatedCmd = &cobra.Command{
+var jobInfoIsUserInitiatedCmd = &cobra.Command{
 	Use:   "is-user-initiated",
 	Short: "IsUserInitiated RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewJobInfoServiceClient(grpcConn)
+		client := pb.NewInfoServiceClient(grpcConn)
 		req := &pb.IsUserInitiatedRequest{}
 		resp, err := client.IsUserInitiated(ctx, req)
 		if err != nil {
@@ -596,13 +836,13 @@ var jobJobInfoIsUserInitiatedCmd = &cobra.Command{
 	},
 }
 
-var jobJobInfoToStringCmd = &cobra.Command{
+var jobInfoToStringCmd = &cobra.Command{
 	Use:   "to-string",
 	Short: "ToString RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewJobInfoServiceClient(grpcConn)
+		client := pb.NewInfoServiceClient(grpcConn)
 		req := &pb.ToStringRequest{}
 		resp, err := client.ToString(ctx, req)
 		if err != nil {
@@ -612,13 +852,13 @@ var jobJobInfoToStringCmd = &cobra.Command{
 	},
 }
 
-var jobJobInfoWriteToParcelCmd = &cobra.Command{
+var jobInfoWriteToParcelCmd = &cobra.Command{
 	Use:   "write-to-parcel",
 	Short: "WriteToParcel RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewJobInfoServiceClient(grpcConn)
+		client := pb.NewInfoServiceClient(grpcConn)
 		req := &pb.WriteToParcelRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
@@ -634,18 +874,50 @@ var jobJobInfoWriteToParcelCmd = &cobra.Command{
 	},
 }
 
-var jobJobInfoBuilderCmd = &cobra.Command{
-	Use:   "job-info-builder",
-	Short: "JobInfoBuilderService operations",
+var jobInfoGetMinFlexMillisCmd = &cobra.Command{
+	Use:   "get-min-flex-millis",
+	Short: "GetMinFlexMillis RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInfoServiceClient(grpcConn)
+		req := &pb.GetMinFlexMillisRequest{}
+		resp, err := client.GetMinFlexMillis(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
 }
 
-var jobJobInfoBuilderAddDebugTagCmd = &cobra.Command{
+var jobInfoGetMinPeriodMillisCmd = &cobra.Command{
+	Use:   "get-min-period-millis",
+	Short: "GetMinPeriodMillis RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInfoServiceClient(grpcConn)
+		req := &pb.GetMinPeriodMillisRequest{}
+		resp, err := client.GetMinPeriodMillis(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var jobInfoBuilderCmd = &cobra.Command{
+	Use:   "info-builder",
+	Short: "InfoBuilderService operations",
+}
+
+var jobInfoBuilderAddDebugTagCmd = &cobra.Command{
 	Use:   "add-debug-tag",
 	Short: "AddDebugTag RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewJobInfoBuilderServiceClient(grpcConn)
+		client := pb.NewInfoBuilderServiceClient(grpcConn)
 		req := &pb.AddDebugTagRequest{}
 		if v, err := cmd.Flags().GetString("arg0"); err == nil {
 			req.Arg0 = v
@@ -658,13 +930,13 @@ var jobJobInfoBuilderAddDebugTagCmd = &cobra.Command{
 	},
 }
 
-var jobJobInfoBuilderAddTriggerContentUriCmd = &cobra.Command{
+var jobInfoBuilderAddTriggerContentUriCmd = &cobra.Command{
 	Use:   "add-trigger-content-uri",
 	Short: "AddTriggerContentUri RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewJobInfoBuilderServiceClient(grpcConn)
+		client := pb.NewInfoBuilderServiceClient(grpcConn)
 		req := &pb.AddTriggerContentUriRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
@@ -677,13 +949,13 @@ var jobJobInfoBuilderAddTriggerContentUriCmd = &cobra.Command{
 	},
 }
 
-var jobJobInfoBuilderBuildCmd = &cobra.Command{
+var jobInfoBuilderBuildCmd = &cobra.Command{
 	Use:   "build",
 	Short: "Build RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewJobInfoBuilderServiceClient(grpcConn)
+		client := pb.NewInfoBuilderServiceClient(grpcConn)
 		req := &pb.BuildRequest{}
 		resp, err := client.Build(ctx, req)
 		if err != nil {
@@ -693,13 +965,13 @@ var jobJobInfoBuilderBuildCmd = &cobra.Command{
 	},
 }
 
-var jobJobInfoBuilderRemoveDebugTagCmd = &cobra.Command{
+var jobInfoBuilderRemoveDebugTagCmd = &cobra.Command{
 	Use:   "remove-debug-tag",
 	Short: "RemoveDebugTag RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewJobInfoBuilderServiceClient(grpcConn)
+		client := pb.NewInfoBuilderServiceClient(grpcConn)
 		req := &pb.RemoveDebugTagRequest{}
 		if v, err := cmd.Flags().GetString("arg0"); err == nil {
 			req.Arg0 = v
@@ -712,13 +984,13 @@ var jobJobInfoBuilderRemoveDebugTagCmd = &cobra.Command{
 	},
 }
 
-var jobJobInfoBuilderSetBackoffCriteriaCmd = &cobra.Command{
+var jobInfoBuilderSetBackoffCriteriaCmd = &cobra.Command{
 	Use:   "set-backoff-criteria",
 	Short: "SetBackoffCriteria RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewJobInfoBuilderServiceClient(grpcConn)
+		client := pb.NewInfoBuilderServiceClient(grpcConn)
 		req := &pb.SetBackoffCriteriaRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
@@ -734,13 +1006,13 @@ var jobJobInfoBuilderSetBackoffCriteriaCmd = &cobra.Command{
 	},
 }
 
-var jobJobInfoBuilderSetClipDataCmd = &cobra.Command{
+var jobInfoBuilderSetClipDataCmd = &cobra.Command{
 	Use:   "set-clip-data",
 	Short: "SetClipData RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewJobInfoBuilderServiceClient(grpcConn)
+		client := pb.NewInfoBuilderServiceClient(grpcConn)
 		req := &pb.SetClipDataRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
@@ -756,13 +1028,13 @@ var jobJobInfoBuilderSetClipDataCmd = &cobra.Command{
 	},
 }
 
-var jobJobInfoBuilderSetEstimatedNetworkBytesCmd = &cobra.Command{
+var jobInfoBuilderSetEstimatedNetworkBytesCmd = &cobra.Command{
 	Use:   "set-estimated-network-bytes",
 	Short: "SetEstimatedNetworkBytes RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewJobInfoBuilderServiceClient(grpcConn)
+		client := pb.NewInfoBuilderServiceClient(grpcConn)
 		req := &pb.SetEstimatedNetworkBytesRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
@@ -778,13 +1050,13 @@ var jobJobInfoBuilderSetEstimatedNetworkBytesCmd = &cobra.Command{
 	},
 }
 
-var jobJobInfoBuilderSetExpeditedCmd = &cobra.Command{
+var jobInfoBuilderSetExpeditedCmd = &cobra.Command{
 	Use:   "set-expedited",
 	Short: "SetExpedited RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewJobInfoBuilderServiceClient(grpcConn)
+		client := pb.NewInfoBuilderServiceClient(grpcConn)
 		req := &pb.SetExpeditedRequest{}
 		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
 			req.Arg0 = v
@@ -797,13 +1069,13 @@ var jobJobInfoBuilderSetExpeditedCmd = &cobra.Command{
 	},
 }
 
-var jobJobInfoBuilderSetExtrasCmd = &cobra.Command{
+var jobInfoBuilderSetExtrasCmd = &cobra.Command{
 	Use:   "set-extras",
 	Short: "SetExtras RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewJobInfoBuilderServiceClient(grpcConn)
+		client := pb.NewInfoBuilderServiceClient(grpcConn)
 		req := &pb.SetExtrasRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
@@ -816,13 +1088,13 @@ var jobJobInfoBuilderSetExtrasCmd = &cobra.Command{
 	},
 }
 
-var jobJobInfoBuilderSetImportantWhileForegroundCmd = &cobra.Command{
+var jobInfoBuilderSetImportantWhileForegroundCmd = &cobra.Command{
 	Use:   "set-important-while-foreground",
 	Short: "SetImportantWhileForeground RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewJobInfoBuilderServiceClient(grpcConn)
+		client := pb.NewInfoBuilderServiceClient(grpcConn)
 		req := &pb.SetImportantWhileForegroundRequest{}
 		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
 			req.Arg0 = v
@@ -835,13 +1107,13 @@ var jobJobInfoBuilderSetImportantWhileForegroundCmd = &cobra.Command{
 	},
 }
 
-var jobJobInfoBuilderSetMinimumLatencyCmd = &cobra.Command{
+var jobInfoBuilderSetMinimumLatencyCmd = &cobra.Command{
 	Use:   "set-minimum-latency",
 	Short: "SetMinimumLatency RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewJobInfoBuilderServiceClient(grpcConn)
+		client := pb.NewInfoBuilderServiceClient(grpcConn)
 		req := &pb.SetMinimumLatencyRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
@@ -854,13 +1126,13 @@ var jobJobInfoBuilderSetMinimumLatencyCmd = &cobra.Command{
 	},
 }
 
-var jobJobInfoBuilderSetMinimumNetworkChunkBytesCmd = &cobra.Command{
+var jobInfoBuilderSetMinimumNetworkChunkBytesCmd = &cobra.Command{
 	Use:   "set-minimum-network-chunk-bytes",
 	Short: "SetMinimumNetworkChunkBytes RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewJobInfoBuilderServiceClient(grpcConn)
+		client := pb.NewInfoBuilderServiceClient(grpcConn)
 		req := &pb.SetMinimumNetworkChunkBytesRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
@@ -873,13 +1145,13 @@ var jobJobInfoBuilderSetMinimumNetworkChunkBytesCmd = &cobra.Command{
 	},
 }
 
-var jobJobInfoBuilderSetOverrideDeadlineCmd = &cobra.Command{
+var jobInfoBuilderSetOverrideDeadlineCmd = &cobra.Command{
 	Use:   "set-override-deadline",
 	Short: "SetOverrideDeadline RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewJobInfoBuilderServiceClient(grpcConn)
+		client := pb.NewInfoBuilderServiceClient(grpcConn)
 		req := &pb.SetOverrideDeadlineRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
@@ -892,13 +1164,13 @@ var jobJobInfoBuilderSetOverrideDeadlineCmd = &cobra.Command{
 	},
 }
 
-var jobJobInfoBuilderSetPeriodic1Cmd = &cobra.Command{
+var jobInfoBuilderSetPeriodic1Cmd = &cobra.Command{
 	Use:   "set-periodic1",
 	Short: "SetPeriodic1 RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewJobInfoBuilderServiceClient(grpcConn)
+		client := pb.NewInfoBuilderServiceClient(grpcConn)
 		req := &pb.SetPeriodic1Request{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
@@ -911,13 +1183,13 @@ var jobJobInfoBuilderSetPeriodic1Cmd = &cobra.Command{
 	},
 }
 
-var jobJobInfoBuilderSetPeriodic2_1Cmd = &cobra.Command{
+var jobInfoBuilderSetPeriodic2_1Cmd = &cobra.Command{
 	Use:   "set-periodic2_1",
 	Short: "SetPeriodic2_1 RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewJobInfoBuilderServiceClient(grpcConn)
+		client := pb.NewInfoBuilderServiceClient(grpcConn)
 		req := &pb.SetPeriodic2_1Request{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
@@ -933,13 +1205,13 @@ var jobJobInfoBuilderSetPeriodic2_1Cmd = &cobra.Command{
 	},
 }
 
-var jobJobInfoBuilderSetPersistedCmd = &cobra.Command{
+var jobInfoBuilderSetPersistedCmd = &cobra.Command{
 	Use:   "set-persisted",
 	Short: "SetPersisted RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewJobInfoBuilderServiceClient(grpcConn)
+		client := pb.NewInfoBuilderServiceClient(grpcConn)
 		req := &pb.SetPersistedRequest{}
 		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
 			req.Arg0 = v
@@ -952,13 +1224,13 @@ var jobJobInfoBuilderSetPersistedCmd = &cobra.Command{
 	},
 }
 
-var jobJobInfoBuilderSetPrefetchCmd = &cobra.Command{
+var jobInfoBuilderSetPrefetchCmd = &cobra.Command{
 	Use:   "set-prefetch",
 	Short: "SetPrefetch RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewJobInfoBuilderServiceClient(grpcConn)
+		client := pb.NewInfoBuilderServiceClient(grpcConn)
 		req := &pb.SetPrefetchRequest{}
 		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
 			req.Arg0 = v
@@ -971,13 +1243,13 @@ var jobJobInfoBuilderSetPrefetchCmd = &cobra.Command{
 	},
 }
 
-var jobJobInfoBuilderSetPriorityCmd = &cobra.Command{
+var jobInfoBuilderSetPriorityCmd = &cobra.Command{
 	Use:   "set-priority",
 	Short: "SetPriority RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewJobInfoBuilderServiceClient(grpcConn)
+		client := pb.NewInfoBuilderServiceClient(grpcConn)
 		req := &pb.SetPriorityRequest{}
 		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
 			req.Arg0 = v
@@ -990,13 +1262,13 @@ var jobJobInfoBuilderSetPriorityCmd = &cobra.Command{
 	},
 }
 
-var jobJobInfoBuilderSetRequiredNetworkCmd = &cobra.Command{
+var jobInfoBuilderSetRequiredNetworkCmd = &cobra.Command{
 	Use:   "set-required-network",
 	Short: "SetRequiredNetwork RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewJobInfoBuilderServiceClient(grpcConn)
+		client := pb.NewInfoBuilderServiceClient(grpcConn)
 		req := &pb.SetRequiredNetworkRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
@@ -1009,13 +1281,13 @@ var jobJobInfoBuilderSetRequiredNetworkCmd = &cobra.Command{
 	},
 }
 
-var jobJobInfoBuilderSetRequiredNetworkTypeCmd = &cobra.Command{
+var jobInfoBuilderSetRequiredNetworkTypeCmd = &cobra.Command{
 	Use:   "set-required-network-type",
 	Short: "SetRequiredNetworkType RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewJobInfoBuilderServiceClient(grpcConn)
+		client := pb.NewInfoBuilderServiceClient(grpcConn)
 		req := &pb.SetRequiredNetworkTypeRequest{}
 		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
 			req.Arg0 = v
@@ -1028,13 +1300,13 @@ var jobJobInfoBuilderSetRequiredNetworkTypeCmd = &cobra.Command{
 	},
 }
 
-var jobJobInfoBuilderSetRequiresBatteryNotLowCmd = &cobra.Command{
+var jobInfoBuilderSetRequiresBatteryNotLowCmd = &cobra.Command{
 	Use:   "set-requires-battery-not-low",
 	Short: "SetRequiresBatteryNotLow RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewJobInfoBuilderServiceClient(grpcConn)
+		client := pb.NewInfoBuilderServiceClient(grpcConn)
 		req := &pb.SetRequiresBatteryNotLowRequest{}
 		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
 			req.Arg0 = v
@@ -1047,13 +1319,13 @@ var jobJobInfoBuilderSetRequiresBatteryNotLowCmd = &cobra.Command{
 	},
 }
 
-var jobJobInfoBuilderSetRequiresChargingCmd = &cobra.Command{
+var jobInfoBuilderSetRequiresChargingCmd = &cobra.Command{
 	Use:   "set-requires-charging",
 	Short: "SetRequiresCharging RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewJobInfoBuilderServiceClient(grpcConn)
+		client := pb.NewInfoBuilderServiceClient(grpcConn)
 		req := &pb.SetRequiresChargingRequest{}
 		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
 			req.Arg0 = v
@@ -1066,13 +1338,13 @@ var jobJobInfoBuilderSetRequiresChargingCmd = &cobra.Command{
 	},
 }
 
-var jobJobInfoBuilderSetRequiresDeviceIdleCmd = &cobra.Command{
+var jobInfoBuilderSetRequiresDeviceIdleCmd = &cobra.Command{
 	Use:   "set-requires-device-idle",
 	Short: "SetRequiresDeviceIdle RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewJobInfoBuilderServiceClient(grpcConn)
+		client := pb.NewInfoBuilderServiceClient(grpcConn)
 		req := &pb.SetRequiresDeviceIdleRequest{}
 		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
 			req.Arg0 = v
@@ -1085,13 +1357,13 @@ var jobJobInfoBuilderSetRequiresDeviceIdleCmd = &cobra.Command{
 	},
 }
 
-var jobJobInfoBuilderSetRequiresStorageNotLowCmd = &cobra.Command{
+var jobInfoBuilderSetRequiresStorageNotLowCmd = &cobra.Command{
 	Use:   "set-requires-storage-not-low",
 	Short: "SetRequiresStorageNotLow RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewJobInfoBuilderServiceClient(grpcConn)
+		client := pb.NewInfoBuilderServiceClient(grpcConn)
 		req := &pb.SetRequiresStorageNotLowRequest{}
 		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
 			req.Arg0 = v
@@ -1104,13 +1376,13 @@ var jobJobInfoBuilderSetRequiresStorageNotLowCmd = &cobra.Command{
 	},
 }
 
-var jobJobInfoBuilderSetTraceTagCmd = &cobra.Command{
+var jobInfoBuilderSetTraceTagCmd = &cobra.Command{
 	Use:   "set-trace-tag",
 	Short: "SetTraceTag RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewJobInfoBuilderServiceClient(grpcConn)
+		client := pb.NewInfoBuilderServiceClient(grpcConn)
 		req := &pb.SetTraceTagRequest{}
 		if v, err := cmd.Flags().GetString("arg0"); err == nil {
 			req.Arg0 = v
@@ -1123,13 +1395,13 @@ var jobJobInfoBuilderSetTraceTagCmd = &cobra.Command{
 	},
 }
 
-var jobJobInfoBuilderSetTransientExtrasCmd = &cobra.Command{
+var jobInfoBuilderSetTransientExtrasCmd = &cobra.Command{
 	Use:   "set-transient-extras",
 	Short: "SetTransientExtras RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewJobInfoBuilderServiceClient(grpcConn)
+		client := pb.NewInfoBuilderServiceClient(grpcConn)
 		req := &pb.SetTransientExtrasRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
@@ -1142,13 +1414,13 @@ var jobJobInfoBuilderSetTransientExtrasCmd = &cobra.Command{
 	},
 }
 
-var jobJobInfoBuilderSetTriggerContentMaxDelayCmd = &cobra.Command{
+var jobInfoBuilderSetTriggerContentMaxDelayCmd = &cobra.Command{
 	Use:   "set-trigger-content-max-delay",
 	Short: "SetTriggerContentMaxDelay RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewJobInfoBuilderServiceClient(grpcConn)
+		client := pb.NewInfoBuilderServiceClient(grpcConn)
 		req := &pb.SetTriggerContentMaxDelayRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
@@ -1161,13 +1433,13 @@ var jobJobInfoBuilderSetTriggerContentMaxDelayCmd = &cobra.Command{
 	},
 }
 
-var jobJobInfoBuilderSetTriggerContentUpdateDelayCmd = &cobra.Command{
+var jobInfoBuilderSetTriggerContentUpdateDelayCmd = &cobra.Command{
 	Use:   "set-trigger-content-update-delay",
 	Short: "SetTriggerContentUpdateDelay RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewJobInfoBuilderServiceClient(grpcConn)
+		client := pb.NewInfoBuilderServiceClient(grpcConn)
 		req := &pb.SetTriggerContentUpdateDelayRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
@@ -1180,13 +1452,13 @@ var jobJobInfoBuilderSetTriggerContentUpdateDelayCmd = &cobra.Command{
 	},
 }
 
-var jobJobInfoBuilderSetUserInitiatedCmd = &cobra.Command{
+var jobInfoBuilderSetUserInitiatedCmd = &cobra.Command{
 	Use:   "set-user-initiated",
 	Short: "SetUserInitiated RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewJobInfoBuilderServiceClient(grpcConn)
+		client := pb.NewInfoBuilderServiceClient(grpcConn)
 		req := &pb.SetUserInitiatedRequest{}
 		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
 			req.Arg0 = v
@@ -1199,251 +1471,135 @@ var jobJobInfoBuilderSetUserInitiatedCmd = &cobra.Command{
 	},
 }
 
-var jobJobSchedulerCmd = &cobra.Command{
-	Use:   "job-scheduler",
-	Short: "JobSchedulerService operations",
-}
-
-var jobJobSchedulerCanRunUserInitiatedJobsCmd = &cobra.Command{
-	Use:   "can-run-user-initiated-jobs",
-	Short: "CanRunUserInitiatedJobs RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewJobSchedulerServiceClient(grpcConn)
-		req := &pb.CanRunUserInitiatedJobsRequest{}
-		resp, err := client.CanRunUserInitiatedJobs(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var jobJobSchedulerCancelInAllNamespacesCmd = &cobra.Command{
-	Use:   "cancel-in-all-namespaces",
-	Short: "CancelInAllNamespaces RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewJobSchedulerServiceClient(grpcConn)
-		req := &pb.CancelInAllNamespacesRequest{}
-		resp, err := client.CancelInAllNamespaces(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var jobJobSchedulerForNamespaceCmd = &cobra.Command{
-	Use:   "for-namespace",
-	Short: "ForNamespace RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewJobSchedulerServiceClient(grpcConn)
-		req := &pb.ForNamespaceRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.ForNamespace(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var jobJobSchedulerGetNamespaceCmd = &cobra.Command{
-	Use:   "get-namespace",
-	Short: "GetNamespace RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewJobSchedulerServiceClient(grpcConn)
-		req := &pb.GetNamespaceRequest{}
-		resp, err := client.GetNamespace(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var jobJobSchedulerGetPendingJobReasonCmd = &cobra.Command{
-	Use:   "get-pending-job-reason",
-	Short: "GetPendingJobReason RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewJobSchedulerServiceClient(grpcConn)
-		req := &pb.GetPendingJobReasonRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.GetPendingJobReason(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var jobJobSchedulerGetPendingJobReasonsCmd = &cobra.Command{
-	Use:   "get-pending-job-reasons",
-	Short: "GetPendingJobReasons RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewJobSchedulerServiceClient(grpcConn)
-		req := &pb.GetPendingJobReasonsRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.GetPendingJobReasons(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var jobJobSchedulerGetPendingJobReasonsHistoryCmd = &cobra.Command{
-	Use:   "get-pending-job-reasons-history",
-	Short: "GetPendingJobReasonsHistory RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewJobSchedulerServiceClient(grpcConn)
-		req := &pb.GetPendingJobReasonsHistoryRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.GetPendingJobReasonsHistory(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
 func init() {
-	jobJobInfoCmd.AddCommand(jobJobInfoDescribeContentsCmd)
-	jobJobInfoEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	jobJobInfoCmd.AddCommand(jobJobInfoEqualsCmd)
-	jobJobInfoCmd.AddCommand(jobJobInfoGetBackoffPolicyCmd)
-	jobJobInfoCmd.AddCommand(jobJobInfoGetClipDataCmd)
-	jobJobInfoCmd.AddCommand(jobJobInfoGetClipGrantFlagsCmd)
-	jobJobInfoCmd.AddCommand(jobJobInfoGetDebugTagsCmd)
-	jobJobInfoCmd.AddCommand(jobJobInfoGetEstimatedNetworkDownloadBytesCmd)
-	jobJobInfoCmd.AddCommand(jobJobInfoGetEstimatedNetworkUploadBytesCmd)
-	jobJobInfoCmd.AddCommand(jobJobInfoGetExtrasCmd)
-	jobJobInfoCmd.AddCommand(jobJobInfoGetFlexMillisCmd)
-	jobJobInfoCmd.AddCommand(jobJobInfoGetIdCmd)
-	jobJobInfoCmd.AddCommand(jobJobInfoGetInitialBackoffMillisCmd)
-	jobJobInfoCmd.AddCommand(jobJobInfoGetIntervalMillisCmd)
-	jobJobInfoCmd.AddCommand(jobJobInfoGetMaxExecutionDelayMillisCmd)
-	jobJobInfoCmd.AddCommand(jobJobInfoGetMinLatencyMillisCmd)
-	jobJobInfoCmd.AddCommand(jobJobInfoGetMinimumNetworkChunkBytesCmd)
-	jobJobInfoCmd.AddCommand(jobJobInfoGetNetworkTypeCmd)
-	jobJobInfoCmd.AddCommand(jobJobInfoGetPriorityCmd)
-	jobJobInfoCmd.AddCommand(jobJobInfoGetRequiredNetworkCmd)
-	jobJobInfoCmd.AddCommand(jobJobInfoGetServiceCmd)
-	jobJobInfoCmd.AddCommand(jobJobInfoGetTraceTagCmd)
-	jobJobInfoCmd.AddCommand(jobJobInfoGetTransientExtrasCmd)
-	jobJobInfoCmd.AddCommand(jobJobInfoGetTriggerContentMaxDelayCmd)
-	jobJobInfoCmd.AddCommand(jobJobInfoGetTriggerContentUpdateDelayCmd)
-	jobJobInfoCmd.AddCommand(jobJobInfoGetTriggerContentUrisCmd)
-	jobJobInfoCmd.AddCommand(jobJobInfoHashCodeCmd)
-	jobJobInfoCmd.AddCommand(jobJobInfoIsExpeditedCmd)
-	jobJobInfoCmd.AddCommand(jobJobInfoIsImportantWhileForegroundCmd)
-	jobJobInfoCmd.AddCommand(jobJobInfoIsPeriodicCmd)
-	jobJobInfoCmd.AddCommand(jobJobInfoIsPersistedCmd)
-	jobJobInfoCmd.AddCommand(jobJobInfoIsPrefetchCmd)
-	jobJobInfoCmd.AddCommand(jobJobInfoIsRequireBatteryNotLowCmd)
-	jobJobInfoCmd.AddCommand(jobJobInfoIsRequireChargingCmd)
-	jobJobInfoCmd.AddCommand(jobJobInfoIsRequireDeviceIdleCmd)
-	jobJobInfoCmd.AddCommand(jobJobInfoIsRequireStorageNotLowCmd)
-	jobJobInfoCmd.AddCommand(jobJobInfoIsUserInitiatedCmd)
-	jobJobInfoCmd.AddCommand(jobJobInfoToStringCmd)
-	jobJobInfoWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	jobJobInfoWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	jobJobInfoCmd.AddCommand(jobJobInfoWriteToParcelCmd)
-	jobCmd.AddCommand(jobJobInfoCmd)
-	jobJobInfoBuilderAddDebugTagCmd.Flags().String("arg0", "", "arg0 (string)")
-	jobJobInfoBuilderCmd.AddCommand(jobJobInfoBuilderAddDebugTagCmd)
-	jobJobInfoBuilderAddTriggerContentUriCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	jobJobInfoBuilderCmd.AddCommand(jobJobInfoBuilderAddTriggerContentUriCmd)
-	jobJobInfoBuilderCmd.AddCommand(jobJobInfoBuilderBuildCmd)
-	jobJobInfoBuilderRemoveDebugTagCmd.Flags().String("arg0", "", "arg0 (string)")
-	jobJobInfoBuilderCmd.AddCommand(jobJobInfoBuilderRemoveDebugTagCmd)
-	jobJobInfoBuilderSetBackoffCriteriaCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	jobJobInfoBuilderSetBackoffCriteriaCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	jobJobInfoBuilderCmd.AddCommand(jobJobInfoBuilderSetBackoffCriteriaCmd)
-	jobJobInfoBuilderSetClipDataCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	jobJobInfoBuilderSetClipDataCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	jobJobInfoBuilderCmd.AddCommand(jobJobInfoBuilderSetClipDataCmd)
-	jobJobInfoBuilderSetEstimatedNetworkBytesCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	jobJobInfoBuilderSetEstimatedNetworkBytesCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	jobJobInfoBuilderCmd.AddCommand(jobJobInfoBuilderSetEstimatedNetworkBytesCmd)
-	jobJobInfoBuilderSetExpeditedCmd.Flags().Bool("arg0", false, "arg0 (bool)")
-	jobJobInfoBuilderCmd.AddCommand(jobJobInfoBuilderSetExpeditedCmd)
-	jobJobInfoBuilderSetExtrasCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	jobJobInfoBuilderCmd.AddCommand(jobJobInfoBuilderSetExtrasCmd)
-	jobJobInfoBuilderSetImportantWhileForegroundCmd.Flags().Bool("arg0", false, "arg0 (bool)")
-	jobJobInfoBuilderCmd.AddCommand(jobJobInfoBuilderSetImportantWhileForegroundCmd)
-	jobJobInfoBuilderSetMinimumLatencyCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	jobJobInfoBuilderCmd.AddCommand(jobJobInfoBuilderSetMinimumLatencyCmd)
-	jobJobInfoBuilderSetMinimumNetworkChunkBytesCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	jobJobInfoBuilderCmd.AddCommand(jobJobInfoBuilderSetMinimumNetworkChunkBytesCmd)
-	jobJobInfoBuilderSetOverrideDeadlineCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	jobJobInfoBuilderCmd.AddCommand(jobJobInfoBuilderSetOverrideDeadlineCmd)
-	jobJobInfoBuilderSetPeriodic1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	jobJobInfoBuilderCmd.AddCommand(jobJobInfoBuilderSetPeriodic1Cmd)
-	jobJobInfoBuilderSetPeriodic2_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	jobJobInfoBuilderSetPeriodic2_1Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	jobJobInfoBuilderCmd.AddCommand(jobJobInfoBuilderSetPeriodic2_1Cmd)
-	jobJobInfoBuilderSetPersistedCmd.Flags().Bool("arg0", false, "arg0 (bool)")
-	jobJobInfoBuilderCmd.AddCommand(jobJobInfoBuilderSetPersistedCmd)
-	jobJobInfoBuilderSetPrefetchCmd.Flags().Bool("arg0", false, "arg0 (bool)")
-	jobJobInfoBuilderCmd.AddCommand(jobJobInfoBuilderSetPrefetchCmd)
-	jobJobInfoBuilderSetPriorityCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	jobJobInfoBuilderCmd.AddCommand(jobJobInfoBuilderSetPriorityCmd)
-	jobJobInfoBuilderSetRequiredNetworkCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	jobJobInfoBuilderCmd.AddCommand(jobJobInfoBuilderSetRequiredNetworkCmd)
-	jobJobInfoBuilderSetRequiredNetworkTypeCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	jobJobInfoBuilderCmd.AddCommand(jobJobInfoBuilderSetRequiredNetworkTypeCmd)
-	jobJobInfoBuilderSetRequiresBatteryNotLowCmd.Flags().Bool("arg0", false, "arg0 (bool)")
-	jobJobInfoBuilderCmd.AddCommand(jobJobInfoBuilderSetRequiresBatteryNotLowCmd)
-	jobJobInfoBuilderSetRequiresChargingCmd.Flags().Bool("arg0", false, "arg0 (bool)")
-	jobJobInfoBuilderCmd.AddCommand(jobJobInfoBuilderSetRequiresChargingCmd)
-	jobJobInfoBuilderSetRequiresDeviceIdleCmd.Flags().Bool("arg0", false, "arg0 (bool)")
-	jobJobInfoBuilderCmd.AddCommand(jobJobInfoBuilderSetRequiresDeviceIdleCmd)
-	jobJobInfoBuilderSetRequiresStorageNotLowCmd.Flags().Bool("arg0", false, "arg0 (bool)")
-	jobJobInfoBuilderCmd.AddCommand(jobJobInfoBuilderSetRequiresStorageNotLowCmd)
-	jobJobInfoBuilderSetTraceTagCmd.Flags().String("arg0", "", "arg0 (string)")
-	jobJobInfoBuilderCmd.AddCommand(jobJobInfoBuilderSetTraceTagCmd)
-	jobJobInfoBuilderSetTransientExtrasCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	jobJobInfoBuilderCmd.AddCommand(jobJobInfoBuilderSetTransientExtrasCmd)
-	jobJobInfoBuilderSetTriggerContentMaxDelayCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	jobJobInfoBuilderCmd.AddCommand(jobJobInfoBuilderSetTriggerContentMaxDelayCmd)
-	jobJobInfoBuilderSetTriggerContentUpdateDelayCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	jobJobInfoBuilderCmd.AddCommand(jobJobInfoBuilderSetTriggerContentUpdateDelayCmd)
-	jobJobInfoBuilderSetUserInitiatedCmd.Flags().Bool("arg0", false, "arg0 (bool)")
-	jobJobInfoBuilderCmd.AddCommand(jobJobInfoBuilderSetUserInitiatedCmd)
-	jobCmd.AddCommand(jobJobInfoBuilderCmd)
-	jobJobSchedulerCmd.AddCommand(jobJobSchedulerCanRunUserInitiatedJobsCmd)
-	jobJobSchedulerCmd.AddCommand(jobJobSchedulerCancelInAllNamespacesCmd)
-	jobJobSchedulerForNamespaceCmd.Flags().String("arg0", "", "arg0 (string)")
-	jobJobSchedulerCmd.AddCommand(jobJobSchedulerForNamespaceCmd)
-	jobJobSchedulerCmd.AddCommand(jobJobSchedulerGetNamespaceCmd)
-	jobJobSchedulerGetPendingJobReasonCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	jobJobSchedulerCmd.AddCommand(jobJobSchedulerGetPendingJobReasonCmd)
-	jobJobSchedulerGetPendingJobReasonsCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	jobJobSchedulerCmd.AddCommand(jobJobSchedulerGetPendingJobReasonsCmd)
-	jobJobSchedulerGetPendingJobReasonsHistoryCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	jobJobSchedulerCmd.AddCommand(jobJobSchedulerGetPendingJobReasonsHistoryCmd)
-	jobCmd.AddCommand(jobJobSchedulerCmd)
+	jobSchedulerCmd.AddCommand(jobSchedulerCanRunUserInitiatedJobsCmd)
+	jobSchedulerCancelCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	jobSchedulerCmd.AddCommand(jobSchedulerCancelCmd)
+	jobSchedulerCmd.AddCommand(jobSchedulerCancelAllCmd)
+	jobSchedulerCmd.AddCommand(jobSchedulerCancelInAllNamespacesCmd)
+	jobSchedulerEnqueueCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	jobSchedulerEnqueueCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	jobSchedulerCmd.AddCommand(jobSchedulerEnqueueCmd)
+	jobSchedulerForNamespaceCmd.Flags().String("arg0", "", "arg0 (string)")
+	jobSchedulerCmd.AddCommand(jobSchedulerForNamespaceCmd)
+	jobSchedulerCmd.AddCommand(jobSchedulerGetAllPendingJobsCmd)
+	jobSchedulerCmd.AddCommand(jobSchedulerGetNamespaceCmd)
+	jobSchedulerGetPendingJobCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	jobSchedulerCmd.AddCommand(jobSchedulerGetPendingJobCmd)
+	jobSchedulerGetPendingJobReasonCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	jobSchedulerCmd.AddCommand(jobSchedulerGetPendingJobReasonCmd)
+	jobSchedulerGetPendingJobReasonsCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	jobSchedulerCmd.AddCommand(jobSchedulerGetPendingJobReasonsCmd)
+	jobSchedulerGetPendingJobReasonsHistoryCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	jobSchedulerCmd.AddCommand(jobSchedulerGetPendingJobReasonsHistoryCmd)
+	jobSchedulerScheduleCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	jobSchedulerCmd.AddCommand(jobSchedulerScheduleCmd)
+	jobCmd.AddCommand(jobSchedulerCmd)
+	jobInfoCmd.AddCommand(jobInfoDescribeContentsCmd)
+	jobInfoEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	jobInfoCmd.AddCommand(jobInfoEqualsCmd)
+	jobInfoCmd.AddCommand(jobInfoGetBackoffPolicyCmd)
+	jobInfoCmd.AddCommand(jobInfoGetClipDataCmd)
+	jobInfoCmd.AddCommand(jobInfoGetClipGrantFlagsCmd)
+	jobInfoCmd.AddCommand(jobInfoGetDebugTagsCmd)
+	jobInfoCmd.AddCommand(jobInfoGetEstimatedNetworkDownloadBytesCmd)
+	jobInfoCmd.AddCommand(jobInfoGetEstimatedNetworkUploadBytesCmd)
+	jobInfoCmd.AddCommand(jobInfoGetExtrasCmd)
+	jobInfoCmd.AddCommand(jobInfoGetFlexMillisCmd)
+	jobInfoCmd.AddCommand(jobInfoGetIdCmd)
+	jobInfoCmd.AddCommand(jobInfoGetInitialBackoffMillisCmd)
+	jobInfoCmd.AddCommand(jobInfoGetIntervalMillisCmd)
+	jobInfoCmd.AddCommand(jobInfoGetMaxExecutionDelayMillisCmd)
+	jobInfoCmd.AddCommand(jobInfoGetMinLatencyMillisCmd)
+	jobInfoCmd.AddCommand(jobInfoGetMinimumNetworkChunkBytesCmd)
+	jobInfoCmd.AddCommand(jobInfoGetNetworkTypeCmd)
+	jobInfoCmd.AddCommand(jobInfoGetPriorityCmd)
+	jobInfoCmd.AddCommand(jobInfoGetRequiredNetworkCmd)
+	jobInfoCmd.AddCommand(jobInfoGetServiceCmd)
+	jobInfoCmd.AddCommand(jobInfoGetTraceTagCmd)
+	jobInfoCmd.AddCommand(jobInfoGetTransientExtrasCmd)
+	jobInfoCmd.AddCommand(jobInfoGetTriggerContentMaxDelayCmd)
+	jobInfoCmd.AddCommand(jobInfoGetTriggerContentUpdateDelayCmd)
+	jobInfoCmd.AddCommand(jobInfoGetTriggerContentUrisCmd)
+	jobInfoCmd.AddCommand(jobInfoHashCodeCmd)
+	jobInfoCmd.AddCommand(jobInfoIsExpeditedCmd)
+	jobInfoCmd.AddCommand(jobInfoIsImportantWhileForegroundCmd)
+	jobInfoCmd.AddCommand(jobInfoIsPeriodicCmd)
+	jobInfoCmd.AddCommand(jobInfoIsPersistedCmd)
+	jobInfoCmd.AddCommand(jobInfoIsPrefetchCmd)
+	jobInfoCmd.AddCommand(jobInfoIsRequireBatteryNotLowCmd)
+	jobInfoCmd.AddCommand(jobInfoIsRequireChargingCmd)
+	jobInfoCmd.AddCommand(jobInfoIsRequireDeviceIdleCmd)
+	jobInfoCmd.AddCommand(jobInfoIsRequireStorageNotLowCmd)
+	jobInfoCmd.AddCommand(jobInfoIsUserInitiatedCmd)
+	jobInfoCmd.AddCommand(jobInfoToStringCmd)
+	jobInfoWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	jobInfoWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	jobInfoCmd.AddCommand(jobInfoWriteToParcelCmd)
+	jobInfoCmd.AddCommand(jobInfoGetMinFlexMillisCmd)
+	jobInfoCmd.AddCommand(jobInfoGetMinPeriodMillisCmd)
+	jobCmd.AddCommand(jobInfoCmd)
+	jobInfoBuilderAddDebugTagCmd.Flags().String("arg0", "", "arg0 (string)")
+	jobInfoBuilderCmd.AddCommand(jobInfoBuilderAddDebugTagCmd)
+	jobInfoBuilderAddTriggerContentUriCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	jobInfoBuilderCmd.AddCommand(jobInfoBuilderAddTriggerContentUriCmd)
+	jobInfoBuilderCmd.AddCommand(jobInfoBuilderBuildCmd)
+	jobInfoBuilderRemoveDebugTagCmd.Flags().String("arg0", "", "arg0 (string)")
+	jobInfoBuilderCmd.AddCommand(jobInfoBuilderRemoveDebugTagCmd)
+	jobInfoBuilderSetBackoffCriteriaCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	jobInfoBuilderSetBackoffCriteriaCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	jobInfoBuilderCmd.AddCommand(jobInfoBuilderSetBackoffCriteriaCmd)
+	jobInfoBuilderSetClipDataCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	jobInfoBuilderSetClipDataCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	jobInfoBuilderCmd.AddCommand(jobInfoBuilderSetClipDataCmd)
+	jobInfoBuilderSetEstimatedNetworkBytesCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	jobInfoBuilderSetEstimatedNetworkBytesCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	jobInfoBuilderCmd.AddCommand(jobInfoBuilderSetEstimatedNetworkBytesCmd)
+	jobInfoBuilderSetExpeditedCmd.Flags().Bool("arg0", false, "arg0 (bool)")
+	jobInfoBuilderCmd.AddCommand(jobInfoBuilderSetExpeditedCmd)
+	jobInfoBuilderSetExtrasCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	jobInfoBuilderCmd.AddCommand(jobInfoBuilderSetExtrasCmd)
+	jobInfoBuilderSetImportantWhileForegroundCmd.Flags().Bool("arg0", false, "arg0 (bool)")
+	jobInfoBuilderCmd.AddCommand(jobInfoBuilderSetImportantWhileForegroundCmd)
+	jobInfoBuilderSetMinimumLatencyCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	jobInfoBuilderCmd.AddCommand(jobInfoBuilderSetMinimumLatencyCmd)
+	jobInfoBuilderSetMinimumNetworkChunkBytesCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	jobInfoBuilderCmd.AddCommand(jobInfoBuilderSetMinimumNetworkChunkBytesCmd)
+	jobInfoBuilderSetOverrideDeadlineCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	jobInfoBuilderCmd.AddCommand(jobInfoBuilderSetOverrideDeadlineCmd)
+	jobInfoBuilderSetPeriodic1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	jobInfoBuilderCmd.AddCommand(jobInfoBuilderSetPeriodic1Cmd)
+	jobInfoBuilderSetPeriodic2_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	jobInfoBuilderSetPeriodic2_1Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	jobInfoBuilderCmd.AddCommand(jobInfoBuilderSetPeriodic2_1Cmd)
+	jobInfoBuilderSetPersistedCmd.Flags().Bool("arg0", false, "arg0 (bool)")
+	jobInfoBuilderCmd.AddCommand(jobInfoBuilderSetPersistedCmd)
+	jobInfoBuilderSetPrefetchCmd.Flags().Bool("arg0", false, "arg0 (bool)")
+	jobInfoBuilderCmd.AddCommand(jobInfoBuilderSetPrefetchCmd)
+	jobInfoBuilderSetPriorityCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	jobInfoBuilderCmd.AddCommand(jobInfoBuilderSetPriorityCmd)
+	jobInfoBuilderSetRequiredNetworkCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	jobInfoBuilderCmd.AddCommand(jobInfoBuilderSetRequiredNetworkCmd)
+	jobInfoBuilderSetRequiredNetworkTypeCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	jobInfoBuilderCmd.AddCommand(jobInfoBuilderSetRequiredNetworkTypeCmd)
+	jobInfoBuilderSetRequiresBatteryNotLowCmd.Flags().Bool("arg0", false, "arg0 (bool)")
+	jobInfoBuilderCmd.AddCommand(jobInfoBuilderSetRequiresBatteryNotLowCmd)
+	jobInfoBuilderSetRequiresChargingCmd.Flags().Bool("arg0", false, "arg0 (bool)")
+	jobInfoBuilderCmd.AddCommand(jobInfoBuilderSetRequiresChargingCmd)
+	jobInfoBuilderSetRequiresDeviceIdleCmd.Flags().Bool("arg0", false, "arg0 (bool)")
+	jobInfoBuilderCmd.AddCommand(jobInfoBuilderSetRequiresDeviceIdleCmd)
+	jobInfoBuilderSetRequiresStorageNotLowCmd.Flags().Bool("arg0", false, "arg0 (bool)")
+	jobInfoBuilderCmd.AddCommand(jobInfoBuilderSetRequiresStorageNotLowCmd)
+	jobInfoBuilderSetTraceTagCmd.Flags().String("arg0", "", "arg0 (string)")
+	jobInfoBuilderCmd.AddCommand(jobInfoBuilderSetTraceTagCmd)
+	jobInfoBuilderSetTransientExtrasCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	jobInfoBuilderCmd.AddCommand(jobInfoBuilderSetTransientExtrasCmd)
+	jobInfoBuilderSetTriggerContentMaxDelayCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	jobInfoBuilderCmd.AddCommand(jobInfoBuilderSetTriggerContentMaxDelayCmd)
+	jobInfoBuilderSetTriggerContentUpdateDelayCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	jobInfoBuilderCmd.AddCommand(jobInfoBuilderSetTriggerContentUpdateDelayCmd)
+	jobInfoBuilderSetUserInitiatedCmd.Flags().Bool("arg0", false, "arg0 (bool)")
+	jobInfoBuilderCmd.AddCommand(jobInfoBuilderSetUserInitiatedCmd)
+	jobCmd.AddCommand(jobInfoBuilderCmd)
 	rootCmd.AddCommand(jobCmd)
 }

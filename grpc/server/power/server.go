@@ -7,23 +7,23 @@ import (
 
 	"github.com/AndroidGoLab/jni"
 
-	"github.com/AndroidGoLab/jni/app"
 	"github.com/AndroidGoLab/jni-proxy/handlestore"
-	jnipkg "github.com/AndroidGoLab/jni/os/power"
 	pb "github.com/AndroidGoLab/jni-proxy/proto/power"
+	"github.com/AndroidGoLab/jni/app"
+	jnipkg "github.com/AndroidGoLab/jni/os/power"
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"
 )
 
-// PowerManagerServer implements pb.PowerManagerServiceServer.
-type PowerManagerServer struct {
-	pb.UnimplementedPowerManagerServiceServer
+// ManagerServer implements pb.ManagerServiceServer.
+type ManagerServer struct {
+	pb.UnimplementedManagerServiceServer
 	Ctx     *app.Context
 	Handles *handlestore.HandleStore
 }
 
-func (s *PowerManagerServer) AddThermalHeadroomListener1(_ context.Context, req *pb.AddThermalHeadroomListener1Request) (*pb.AddThermalHeadroomListener1Response, error) {
-	mgr, err := jnipkg.NewpowerManager(s.Ctx)
+func (s *ManagerServer) AddThermalHeadroomListener1(_ context.Context, req *pb.AddThermalHeadroomListener1Request) (*pb.AddThermalHeadroomListener1Response, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -35,8 +35,8 @@ func (s *PowerManagerServer) AddThermalHeadroomListener1(_ context.Context, req 
 	return &pb.AddThermalHeadroomListener1Response{}, nil
 }
 
-func (s *PowerManagerServer) AddThermalHeadroomListener2_1(_ context.Context, req *pb.AddThermalHeadroomListener2_1Request) (*pb.AddThermalHeadroomListener2_1Response, error) {
-	mgr, err := jnipkg.NewpowerManager(s.Ctx)
+func (s *ManagerServer) AddThermalHeadroomListener2_1(_ context.Context, req *pb.AddThermalHeadroomListener2_1Request) (*pb.AddThermalHeadroomListener2_1Response, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -48,8 +48,8 @@ func (s *PowerManagerServer) AddThermalHeadroomListener2_1(_ context.Context, re
 	return &pb.AddThermalHeadroomListener2_1Response{}, nil
 }
 
-func (s *PowerManagerServer) AddThermalStatusListener1(_ context.Context, req *pb.AddThermalStatusListener1Request) (*pb.AddThermalStatusListener1Response, error) {
-	mgr, err := jnipkg.NewpowerManager(s.Ctx)
+func (s *ManagerServer) AddThermalStatusListener1(_ context.Context, req *pb.AddThermalStatusListener1Request) (*pb.AddThermalStatusListener1Response, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -61,8 +61,8 @@ func (s *PowerManagerServer) AddThermalStatusListener1(_ context.Context, req *p
 	return &pb.AddThermalStatusListener1Response{}, nil
 }
 
-func (s *PowerManagerServer) AddThermalStatusListener2_1(_ context.Context, req *pb.AddThermalStatusListener2_1Request) (*pb.AddThermalStatusListener2_1Response, error) {
-	mgr, err := jnipkg.NewpowerManager(s.Ctx)
+func (s *ManagerServer) AddThermalStatusListener2_1(_ context.Context, req *pb.AddThermalStatusListener2_1Request) (*pb.AddThermalStatusListener2_1Response, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -74,8 +74,8 @@ func (s *PowerManagerServer) AddThermalStatusListener2_1(_ context.Context, req 
 	return &pb.AddThermalStatusListener2_1Response{}, nil
 }
 
-func (s *PowerManagerServer) GetBatteryDischargePrediction(_ context.Context, req *pb.GetBatteryDischargePredictionRequest) (*pb.GetBatteryDischargePredictionResponse, error) {
-	mgr, err := jnipkg.NewpowerManager(s.Ctx)
+func (s *ManagerServer) GetBatteryDischargePrediction(_ context.Context, req *pb.GetBatteryDischargePredictionRequest) (*pb.GetBatteryDischargePredictionResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -97,8 +97,8 @@ func (s *PowerManagerServer) GetBatteryDischargePrediction(_ context.Context, re
 	return &pb.GetBatteryDischargePredictionResponse{Result: handle}, nil
 }
 
-func (s *PowerManagerServer) GetCurrentThermalStatus(_ context.Context, req *pb.GetCurrentThermalStatusRequest) (*pb.GetCurrentThermalStatusResponse, error) {
-	mgr, err := jnipkg.NewpowerManager(s.Ctx)
+func (s *ManagerServer) GetCurrentThermalStatus(_ context.Context, req *pb.GetCurrentThermalStatusRequest) (*pb.GetCurrentThermalStatusResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -111,8 +111,8 @@ func (s *PowerManagerServer) GetCurrentThermalStatus(_ context.Context, req *pb.
 	return &pb.GetCurrentThermalStatusResponse{Result: result}, nil
 }
 
-func (s *PowerManagerServer) GetLocationPowerSaveMode(_ context.Context, req *pb.GetLocationPowerSaveModeRequest) (*pb.GetLocationPowerSaveModeResponse, error) {
-	mgr, err := jnipkg.NewpowerManager(s.Ctx)
+func (s *ManagerServer) GetLocationPowerSaveMode(_ context.Context, req *pb.GetLocationPowerSaveModeRequest) (*pb.GetLocationPowerSaveModeResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -125,8 +125,8 @@ func (s *PowerManagerServer) GetLocationPowerSaveMode(_ context.Context, req *pb
 	return &pb.GetLocationPowerSaveModeResponse{Result: result}, nil
 }
 
-func (s *PowerManagerServer) GetThermalHeadroom(_ context.Context, req *pb.GetThermalHeadroomRequest) (*pb.GetThermalHeadroomResponse, error) {
-	mgr, err := jnipkg.NewpowerManager(s.Ctx)
+func (s *ManagerServer) GetThermalHeadroom(_ context.Context, req *pb.GetThermalHeadroomRequest) (*pb.GetThermalHeadroomResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -139,8 +139,8 @@ func (s *PowerManagerServer) GetThermalHeadroom(_ context.Context, req *pb.GetTh
 	return &pb.GetThermalHeadroomResponse{Result: result}, nil
 }
 
-func (s *PowerManagerServer) IsAllowedInLowPowerStandby1(_ context.Context, req *pb.IsAllowedInLowPowerStandby1Request) (*pb.IsAllowedInLowPowerStandby1Response, error) {
-	mgr, err := jnipkg.NewpowerManager(s.Ctx)
+func (s *ManagerServer) IsAllowedInLowPowerStandby1(_ context.Context, req *pb.IsAllowedInLowPowerStandby1Request) (*pb.IsAllowedInLowPowerStandby1Response, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -153,8 +153,8 @@ func (s *PowerManagerServer) IsAllowedInLowPowerStandby1(_ context.Context, req 
 	return &pb.IsAllowedInLowPowerStandby1Response{Result: result}, nil
 }
 
-func (s *PowerManagerServer) IsAllowedInLowPowerStandby1_1(_ context.Context, req *pb.IsAllowedInLowPowerStandby1_1Request) (*pb.IsAllowedInLowPowerStandby1_1Response, error) {
-	mgr, err := jnipkg.NewpowerManager(s.Ctx)
+func (s *ManagerServer) IsAllowedInLowPowerStandby1_1(_ context.Context, req *pb.IsAllowedInLowPowerStandby1_1Request) (*pb.IsAllowedInLowPowerStandby1_1Response, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -167,8 +167,8 @@ func (s *PowerManagerServer) IsAllowedInLowPowerStandby1_1(_ context.Context, re
 	return &pb.IsAllowedInLowPowerStandby1_1Response{Result: result}, nil
 }
 
-func (s *PowerManagerServer) IsBatteryDischargePredictionPersonalized(_ context.Context, req *pb.IsBatteryDischargePredictionPersonalizedRequest) (*pb.IsBatteryDischargePredictionPersonalizedResponse, error) {
-	mgr, err := jnipkg.NewpowerManager(s.Ctx)
+func (s *ManagerServer) IsBatteryDischargePredictionPersonalized(_ context.Context, req *pb.IsBatteryDischargePredictionPersonalizedRequest) (*pb.IsBatteryDischargePredictionPersonalizedResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -181,8 +181,8 @@ func (s *PowerManagerServer) IsBatteryDischargePredictionPersonalized(_ context.
 	return &pb.IsBatteryDischargePredictionPersonalizedResponse{Result: result}, nil
 }
 
-func (s *PowerManagerServer) IsDeviceIdleMode(_ context.Context, req *pb.IsDeviceIdleModeRequest) (*pb.IsDeviceIdleModeResponse, error) {
-	mgr, err := jnipkg.NewpowerManager(s.Ctx)
+func (s *ManagerServer) IsDeviceIdleMode(_ context.Context, req *pb.IsDeviceIdleModeRequest) (*pb.IsDeviceIdleModeResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -195,8 +195,8 @@ func (s *PowerManagerServer) IsDeviceIdleMode(_ context.Context, req *pb.IsDevic
 	return &pb.IsDeviceIdleModeResponse{Result: result}, nil
 }
 
-func (s *PowerManagerServer) IsDeviceLightIdleMode(_ context.Context, req *pb.IsDeviceLightIdleModeRequest) (*pb.IsDeviceLightIdleModeResponse, error) {
-	mgr, err := jnipkg.NewpowerManager(s.Ctx)
+func (s *ManagerServer) IsDeviceLightIdleMode(_ context.Context, req *pb.IsDeviceLightIdleModeRequest) (*pb.IsDeviceLightIdleModeResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -209,8 +209,8 @@ func (s *PowerManagerServer) IsDeviceLightIdleMode(_ context.Context, req *pb.Is
 	return &pb.IsDeviceLightIdleModeResponse{Result: result}, nil
 }
 
-func (s *PowerManagerServer) IsExemptFromLowPowerStandby(_ context.Context, req *pb.IsExemptFromLowPowerStandbyRequest) (*pb.IsExemptFromLowPowerStandbyResponse, error) {
-	mgr, err := jnipkg.NewpowerManager(s.Ctx)
+func (s *ManagerServer) IsExemptFromLowPowerStandby(_ context.Context, req *pb.IsExemptFromLowPowerStandbyRequest) (*pb.IsExemptFromLowPowerStandbyResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -223,8 +223,8 @@ func (s *PowerManagerServer) IsExemptFromLowPowerStandby(_ context.Context, req 
 	return &pb.IsExemptFromLowPowerStandbyResponse{Result: result}, nil
 }
 
-func (s *PowerManagerServer) IsIgnoringBatteryOptimizations(_ context.Context, req *pb.IsIgnoringBatteryOptimizationsRequest) (*pb.IsIgnoringBatteryOptimizationsResponse, error) {
-	mgr, err := jnipkg.NewpowerManager(s.Ctx)
+func (s *ManagerServer) IsIgnoringBatteryOptimizations(_ context.Context, req *pb.IsIgnoringBatteryOptimizationsRequest) (*pb.IsIgnoringBatteryOptimizationsResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -237,8 +237,8 @@ func (s *PowerManagerServer) IsIgnoringBatteryOptimizations(_ context.Context, r
 	return &pb.IsIgnoringBatteryOptimizationsResponse{Result: result}, nil
 }
 
-func (s *PowerManagerServer) IsInteractive(_ context.Context, req *pb.IsInteractiveRequest) (*pb.IsInteractiveResponse, error) {
-	mgr, err := jnipkg.NewpowerManager(s.Ctx)
+func (s *ManagerServer) IsInteractive(_ context.Context, req *pb.IsInteractiveRequest) (*pb.IsInteractiveResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -251,8 +251,8 @@ func (s *PowerManagerServer) IsInteractive(_ context.Context, req *pb.IsInteract
 	return &pb.IsInteractiveResponse{Result: result}, nil
 }
 
-func (s *PowerManagerServer) IsLowPowerStandbyEnabled(_ context.Context, req *pb.IsLowPowerStandbyEnabledRequest) (*pb.IsLowPowerStandbyEnabledResponse, error) {
-	mgr, err := jnipkg.NewpowerManager(s.Ctx)
+func (s *ManagerServer) IsLowPowerStandbyEnabled(_ context.Context, req *pb.IsLowPowerStandbyEnabledRequest) (*pb.IsLowPowerStandbyEnabledResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -265,8 +265,8 @@ func (s *PowerManagerServer) IsLowPowerStandbyEnabled(_ context.Context, req *pb
 	return &pb.IsLowPowerStandbyEnabledResponse{Result: result}, nil
 }
 
-func (s *PowerManagerServer) IsPowerSaveMode(_ context.Context, req *pb.IsPowerSaveModeRequest) (*pb.IsPowerSaveModeResponse, error) {
-	mgr, err := jnipkg.NewpowerManager(s.Ctx)
+func (s *ManagerServer) IsPowerSaveMode(_ context.Context, req *pb.IsPowerSaveModeRequest) (*pb.IsPowerSaveModeResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -279,8 +279,8 @@ func (s *PowerManagerServer) IsPowerSaveMode(_ context.Context, req *pb.IsPowerS
 	return &pb.IsPowerSaveModeResponse{Result: result}, nil
 }
 
-func (s *PowerManagerServer) IsRebootingUserspaceSupported(_ context.Context, req *pb.IsRebootingUserspaceSupportedRequest) (*pb.IsRebootingUserspaceSupportedResponse, error) {
-	mgr, err := jnipkg.NewpowerManager(s.Ctx)
+func (s *ManagerServer) IsRebootingUserspaceSupported(_ context.Context, req *pb.IsRebootingUserspaceSupportedRequest) (*pb.IsRebootingUserspaceSupportedResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -293,8 +293,8 @@ func (s *PowerManagerServer) IsRebootingUserspaceSupported(_ context.Context, re
 	return &pb.IsRebootingUserspaceSupportedResponse{Result: result}, nil
 }
 
-func (s *PowerManagerServer) IsScreenOn(_ context.Context, req *pb.IsScreenOnRequest) (*pb.IsScreenOnResponse, error) {
-	mgr, err := jnipkg.NewpowerManager(s.Ctx)
+func (s *ManagerServer) IsScreenOn(_ context.Context, req *pb.IsScreenOnRequest) (*pb.IsScreenOnResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -307,8 +307,8 @@ func (s *PowerManagerServer) IsScreenOn(_ context.Context, req *pb.IsScreenOnReq
 	return &pb.IsScreenOnResponse{Result: result}, nil
 }
 
-func (s *PowerManagerServer) IsSustainedPerformanceModeSupported(_ context.Context, req *pb.IsSustainedPerformanceModeSupportedRequest) (*pb.IsSustainedPerformanceModeSupportedResponse, error) {
-	mgr, err := jnipkg.NewpowerManager(s.Ctx)
+func (s *ManagerServer) IsSustainedPerformanceModeSupported(_ context.Context, req *pb.IsSustainedPerformanceModeSupportedRequest) (*pb.IsSustainedPerformanceModeSupportedResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -321,8 +321,8 @@ func (s *PowerManagerServer) IsSustainedPerformanceModeSupported(_ context.Conte
 	return &pb.IsSustainedPerformanceModeSupportedResponse{Result: result}, nil
 }
 
-func (s *PowerManagerServer) IsWakeLockLevelSupported(_ context.Context, req *pb.IsWakeLockLevelSupportedRequest) (*pb.IsWakeLockLevelSupportedResponse, error) {
-	mgr, err := jnipkg.NewpowerManager(s.Ctx)
+func (s *ManagerServer) IsWakeLockLevelSupported(_ context.Context, req *pb.IsWakeLockLevelSupportedRequest) (*pb.IsWakeLockLevelSupportedResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -335,8 +335,8 @@ func (s *PowerManagerServer) IsWakeLockLevelSupported(_ context.Context, req *pb
 	return &pb.IsWakeLockLevelSupportedResponse{Result: result}, nil
 }
 
-func (s *PowerManagerServer) NewWakeLock(_ context.Context, req *pb.NewWakeLockRequest) (*pb.NewWakeLockResponse, error) {
-	mgr, err := jnipkg.NewpowerManager(s.Ctx)
+func (s *ManagerServer) NewWakeLock(_ context.Context, req *pb.NewWakeLockRequest) (*pb.NewWakeLockResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -358,8 +358,8 @@ func (s *PowerManagerServer) NewWakeLock(_ context.Context, req *pb.NewWakeLockR
 	return &pb.NewWakeLockResponse{Result: handle}, nil
 }
 
-func (s *PowerManagerServer) Reboot(_ context.Context, req *pb.RebootRequest) (*pb.RebootResponse, error) {
-	mgr, err := jnipkg.NewpowerManager(s.Ctx)
+func (s *ManagerServer) Reboot(_ context.Context, req *pb.RebootRequest) (*pb.RebootResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -371,8 +371,8 @@ func (s *PowerManagerServer) Reboot(_ context.Context, req *pb.RebootRequest) (*
 	return &pb.RebootResponse{}, nil
 }
 
-func (s *PowerManagerServer) RemoveThermalHeadroomListener(_ context.Context, req *pb.RemoveThermalHeadroomListenerRequest) (*pb.RemoveThermalHeadroomListenerResponse, error) {
-	mgr, err := jnipkg.NewpowerManager(s.Ctx)
+func (s *ManagerServer) RemoveThermalHeadroomListener(_ context.Context, req *pb.RemoveThermalHeadroomListenerRequest) (*pb.RemoveThermalHeadroomListenerResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -384,8 +384,8 @@ func (s *PowerManagerServer) RemoveThermalHeadroomListener(_ context.Context, re
 	return &pb.RemoveThermalHeadroomListenerResponse{}, nil
 }
 
-func (s *PowerManagerServer) RemoveThermalStatusListener(_ context.Context, req *pb.RemoveThermalStatusListenerRequest) (*pb.RemoveThermalStatusListenerResponse, error) {
-	mgr, err := jnipkg.NewpowerManager(s.Ctx)
+func (s *ManagerServer) RemoveThermalStatusListener(_ context.Context, req *pb.RemoveThermalStatusListenerRequest) (*pb.RemoveThermalStatusListenerResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}

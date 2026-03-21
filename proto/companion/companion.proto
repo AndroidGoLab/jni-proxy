@@ -166,7 +166,7 @@ message StopObservingDevicePresence1_1Request {
 message StopObservingDevicePresence1_1Response {
 }
 
-service CompanionDeviceManagerService {
+service DeviceManagerService {
   rpc Associate (AssociateRequest) returns (AssociateResponse);
   rpc AttachSystemDataTransport (AttachSystemDataTransportRequest) returns (AttachSystemDataTransportResponse);
   rpc BuildAssociationCancellationIntent (BuildAssociationCancellationIntentRequest) returns (BuildAssociationCancellationIntentResponse);

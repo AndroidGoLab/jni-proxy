@@ -6,3 +6,5 @@ cover.out
 examples/test_results/
 go.work
 go.work.sum
+jnicli
+build/

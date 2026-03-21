@@ -19,6 +19,6 @@ message StartViewCalendarEventInManagedProfileResponse {
   bool result = 1;
 }
 
-service CalendarContractService {
+service ContractService {
   rpc StartViewCalendarEventInManagedProfile (StartViewCalendarEventInManagedProfileRequest) returns (StartViewCalendarEventInManagedProfileResponse);
 }

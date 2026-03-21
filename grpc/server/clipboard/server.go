@@ -7,23 +7,23 @@ import (
 
 	"github.com/AndroidGoLab/jni"
 
-	"github.com/AndroidGoLab/jni/app"
-	jnipkg "github.com/AndroidGoLab/jni/content/clipboard"
 	"github.com/AndroidGoLab/jni-proxy/handlestore"
 	pb "github.com/AndroidGoLab/jni-proxy/proto/clipboard"
+	"github.com/AndroidGoLab/jni/app"
+	jnipkg "github.com/AndroidGoLab/jni/content/clipboard"
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"
 )
 
-// ClipboardManagerServer implements pb.ClipboardManagerServiceServer.
-type ClipboardManagerServer struct {
-	pb.UnimplementedClipboardManagerServiceServer
+// ManagerServer implements pb.ManagerServiceServer.
+type ManagerServer struct {
+	pb.UnimplementedManagerServiceServer
 	Ctx     *app.Context
 	Handles *handlestore.HandleStore
 }
 
-func (s *ClipboardManagerServer) AddPrimaryClipChangedListener(_ context.Context, req *pb.AddPrimaryClipChangedListenerRequest) (*pb.AddPrimaryClipChangedListenerResponse, error) {
-	mgr, err := jnipkg.NewclipboardManager(s.Ctx)
+func (s *ManagerServer) AddPrimaryClipChangedListener(_ context.Context, req *pb.AddPrimaryClipChangedListenerRequest) (*pb.AddPrimaryClipChangedListenerResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -35,8 +35,8 @@ func (s *ClipboardManagerServer) AddPrimaryClipChangedListener(_ context.Context
 	return &pb.AddPrimaryClipChangedListenerResponse{}, nil
 }
 
-func (s *ClipboardManagerServer) ClearPrimaryClip(_ context.Context, req *pb.ClearPrimaryClipRequest) (*pb.ClearPrimaryClipResponse, error) {
-	mgr, err := jnipkg.NewclipboardManager(s.Ctx)
+func (s *ManagerServer) ClearPrimaryClip(_ context.Context, req *pb.ClearPrimaryClipRequest) (*pb.ClearPrimaryClipResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -48,8 +48,8 @@ func (s *ClipboardManagerServer) ClearPrimaryClip(_ context.Context, req *pb.Cle
 	return &pb.ClearPrimaryClipResponse{}, nil
 }
 
-func (s *ClipboardManagerServer) GetPrimaryClip(_ context.Context, req *pb.GetPrimaryClipRequest) (*pb.GetPrimaryClipResponse, error) {
-	mgr, err := jnipkg.NewclipboardManager(s.Ctx)
+func (s *ManagerServer) GetPrimaryClip(_ context.Context, req *pb.GetPrimaryClipRequest) (*pb.GetPrimaryClipResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -71,8 +71,8 @@ func (s *ClipboardManagerServer) GetPrimaryClip(_ context.Context, req *pb.GetPr
 	return &pb.GetPrimaryClipResponse{Result: handle}, nil
 }
 
-func (s *ClipboardManagerServer) GetPrimaryClipDescription(_ context.Context, req *pb.GetPrimaryClipDescriptionRequest) (*pb.GetPrimaryClipDescriptionResponse, error) {
-	mgr, err := jnipkg.NewclipboardManager(s.Ctx)
+func (s *ManagerServer) GetPrimaryClipDescription(_ context.Context, req *pb.GetPrimaryClipDescriptionRequest) (*pb.GetPrimaryClipDescriptionResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -94,8 +94,8 @@ func (s *ClipboardManagerServer) GetPrimaryClipDescription(_ context.Context, re
 	return &pb.GetPrimaryClipDescriptionResponse{Result: handle}, nil
 }
 
-func (s *ClipboardManagerServer) GetText(_ context.Context, req *pb.GetTextRequest) (*pb.GetTextResponse, error) {
-	mgr, err := jnipkg.NewclipboardManager(s.Ctx)
+func (s *ManagerServer) GetText(_ context.Context, req *pb.GetTextRequest) (*pb.GetTextResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -108,8 +108,8 @@ func (s *ClipboardManagerServer) GetText(_ context.Context, req *pb.GetTextReque
 	return &pb.GetTextResponse{Result: result}, nil
 }
 
-func (s *ClipboardManagerServer) HasPrimaryClip(_ context.Context, req *pb.HasPrimaryClipRequest) (*pb.HasPrimaryClipResponse, error) {
-	mgr, err := jnipkg.NewclipboardManager(s.Ctx)
+func (s *ManagerServer) HasPrimaryClip(_ context.Context, req *pb.HasPrimaryClipRequest) (*pb.HasPrimaryClipResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -122,8 +122,8 @@ func (s *ClipboardManagerServer) HasPrimaryClip(_ context.Context, req *pb.HasPr
 	return &pb.HasPrimaryClipResponse{Result: result}, nil
 }
 
-func (s *ClipboardManagerServer) HasText(_ context.Context, req *pb.HasTextRequest) (*pb.HasTextResponse, error) {
-	mgr, err := jnipkg.NewclipboardManager(s.Ctx)
+func (s *ManagerServer) HasText(_ context.Context, req *pb.HasTextRequest) (*pb.HasTextResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -136,8 +136,8 @@ func (s *ClipboardManagerServer) HasText(_ context.Context, req *pb.HasTextReque
 	return &pb.HasTextResponse{Result: result}, nil
 }
 
-func (s *ClipboardManagerServer) RemovePrimaryClipChangedListener(_ context.Context, req *pb.RemovePrimaryClipChangedListenerRequest) (*pb.RemovePrimaryClipChangedListenerResponse, error) {
-	mgr, err := jnipkg.NewclipboardManager(s.Ctx)
+func (s *ManagerServer) RemovePrimaryClipChangedListener(_ context.Context, req *pb.RemovePrimaryClipChangedListenerRequest) (*pb.RemovePrimaryClipChangedListenerResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -149,8 +149,8 @@ func (s *ClipboardManagerServer) RemovePrimaryClipChangedListener(_ context.Cont
 	return &pb.RemovePrimaryClipChangedListenerResponse{}, nil
 }
 
-func (s *ClipboardManagerServer) SetPrimaryClip(_ context.Context, req *pb.SetPrimaryClipRequest) (*pb.SetPrimaryClipResponse, error) {
-	mgr, err := jnipkg.NewclipboardManager(s.Ctx)
+func (s *ManagerServer) SetPrimaryClip(_ context.Context, req *pb.SetPrimaryClipRequest) (*pb.SetPrimaryClipResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -162,8 +162,8 @@ func (s *ClipboardManagerServer) SetPrimaryClip(_ context.Context, req *pb.SetPr
 	return &pb.SetPrimaryClipResponse{}, nil
 }
 
-func (s *ClipboardManagerServer) SetText(_ context.Context, req *pb.SetTextRequest) (*pb.SetTextResponse, error) {
-	mgr, err := jnipkg.NewclipboardManager(s.Ctx)
+func (s *ManagerServer) SetText(_ context.Context, req *pb.SetTextRequest) (*pb.SetTextResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}

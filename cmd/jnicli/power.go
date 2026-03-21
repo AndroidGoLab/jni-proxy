@@ -3,8 +3,8 @@
 package main
 
 import (
-	"github.com/spf13/cobra"
 	pb "github.com/AndroidGoLab/jni-proxy/proto/power"
+	"github.com/spf13/cobra"
 )
 
 var powerCmd = &cobra.Command{
@@ -12,18 +12,18 @@ var powerCmd = &cobra.Command{
 	Short: "power service operations",
 }
 
-var powerPowerManagerCmd = &cobra.Command{
-	Use:   "power-manager",
-	Short: "PowerManagerService operations",
+var powerManagerCmd = &cobra.Command{
+	Use:   "manager",
+	Short: "ManagerService operations",
 }
 
-var powerPowerManagerAddThermalHeadroomListener1Cmd = &cobra.Command{
+var powerManagerAddThermalHeadroomListener1Cmd = &cobra.Command{
 	Use:   "add-thermal-headroom-listener1",
 	Short: "AddThermalHeadroomListener1 RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewPowerManagerServiceClient(grpcConn)
+		client := pb.NewManagerServiceClient(grpcConn)
 		req := &pb.AddThermalHeadroomListener1Request{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
@@ -36,13 +36,13 @@ var powerPowerManagerAddThermalHeadroomListener1Cmd = &cobra.Command{
 	},
 }
 
-var powerPowerManagerAddThermalHeadroomListener2_1Cmd = &cobra.Command{
+var powerManagerAddThermalHeadroomListener2_1Cmd = &cobra.Command{
 	Use:   "add-thermal-headroom-listener2_1",
 	Short: "AddThermalHeadroomListener2_1 RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewPowerManagerServiceClient(grpcConn)
+		client := pb.NewManagerServiceClient(grpcConn)
 		req := &pb.AddThermalHeadroomListener2_1Request{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
@@ -58,13 +58,13 @@ var powerPowerManagerAddThermalHeadroomListener2_1Cmd = &cobra.Command{
 	},
 }
 
-var powerPowerManagerAddThermalStatusListener1Cmd = &cobra.Command{
+var powerManagerAddThermalStatusListener1Cmd = &cobra.Command{
 	Use:   "add-thermal-status-listener1",
 	Short: "AddThermalStatusListener1 RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewPowerManagerServiceClient(grpcConn)
+		client := pb.NewManagerServiceClient(grpcConn)
 		req := &pb.AddThermalStatusListener1Request{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
@@ -77,13 +77,13 @@ var powerPowerManagerAddThermalStatusListener1Cmd = &cobra.Command{
 	},
 }
 
-var powerPowerManagerAddThermalStatusListener2_1Cmd = &cobra.Command{
+var powerManagerAddThermalStatusListener2_1Cmd = &cobra.Command{
 	Use:   "add-thermal-status-listener2_1",
 	Short: "AddThermalStatusListener2_1 RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewPowerManagerServiceClient(grpcConn)
+		client := pb.NewManagerServiceClient(grpcConn)
 		req := &pb.AddThermalStatusListener2_1Request{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
@@ -99,13 +99,13 @@ var powerPowerManagerAddThermalStatusListener2_1Cmd = &cobra.Command{
 	},
 }
 
-var powerPowerManagerGetBatteryDischargePredictionCmd = &cobra.Command{
+var powerManagerGetBatteryDischargePredictionCmd = &cobra.Command{
 	Use:   "get-battery-discharge-prediction",
 	Short: "GetBatteryDischargePrediction RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewPowerManagerServiceClient(grpcConn)
+		client := pb.NewManagerServiceClient(grpcConn)
 		req := &pb.GetBatteryDischargePredictionRequest{}
 		resp, err := client.GetBatteryDischargePrediction(ctx, req)
 		if err != nil {
@@ -115,13 +115,13 @@ var powerPowerManagerGetBatteryDischargePredictionCmd = &cobra.Command{
 	},
 }
 
-var powerPowerManagerGetCurrentThermalStatusCmd = &cobra.Command{
+var powerManagerGetCurrentThermalStatusCmd = &cobra.Command{
 	Use:   "get-current-thermal-status",
 	Short: "GetCurrentThermalStatus RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewPowerManagerServiceClient(grpcConn)
+		client := pb.NewManagerServiceClient(grpcConn)
 		req := &pb.GetCurrentThermalStatusRequest{}
 		resp, err := client.GetCurrentThermalStatus(ctx, req)
 		if err != nil {
@@ -131,13 +131,13 @@ var powerPowerManagerGetCurrentThermalStatusCmd = &cobra.Command{
 	},
 }
 
-var powerPowerManagerGetLocationPowerSaveModeCmd = &cobra.Command{
+var powerManagerGetLocationPowerSaveModeCmd = &cobra.Command{
 	Use:   "get-location-power-save-mode",
 	Short: "GetLocationPowerSaveMode RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewPowerManagerServiceClient(grpcConn)
+		client := pb.NewManagerServiceClient(grpcConn)
 		req := &pb.GetLocationPowerSaveModeRequest{}
 		resp, err := client.GetLocationPowerSaveMode(ctx, req)
 		if err != nil {
@@ -147,13 +147,13 @@ var powerPowerManagerGetLocationPowerSaveModeCmd = &cobra.Command{
 	},
 }
 
-var powerPowerManagerGetThermalHeadroomCmd = &cobra.Command{
+var powerManagerGetThermalHeadroomCmd = &cobra.Command{
 	Use:   "get-thermal-headroom",
 	Short: "GetThermalHeadroom RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewPowerManagerServiceClient(grpcConn)
+		client := pb.NewManagerServiceClient(grpcConn)
 		req := &pb.GetThermalHeadroomRequest{}
 		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
 			req.Arg0 = v
@@ -166,13 +166,13 @@ var powerPowerManagerGetThermalHeadroomCmd = &cobra.Command{
 	},
 }
 
-var powerPowerManagerIsAllowedInLowPowerStandby1Cmd = &cobra.Command{
+var powerManagerIsAllowedInLowPowerStandby1Cmd = &cobra.Command{
 	Use:   "is-allowed-in-low-power-standby1",
 	Short: "IsAllowedInLowPowerStandby1 RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewPowerManagerServiceClient(grpcConn)
+		client := pb.NewManagerServiceClient(grpcConn)
 		req := &pb.IsAllowedInLowPowerStandby1Request{}
 		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
 			req.Arg0 = v
@@ -185,13 +185,13 @@ var powerPowerManagerIsAllowedInLowPowerStandby1Cmd = &cobra.Command{
 	},
 }
 
-var powerPowerManagerIsAllowedInLowPowerStandby1_1Cmd = &cobra.Command{
+var powerManagerIsAllowedInLowPowerStandby1_1Cmd = &cobra.Command{
 	Use:   "is-allowed-in-low-power-standby1_1",
 	Short: "IsAllowedInLowPowerStandby1_1 RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewPowerManagerServiceClient(grpcConn)
+		client := pb.NewManagerServiceClient(grpcConn)
 		req := &pb.IsAllowedInLowPowerStandby1_1Request{}
 		if v, err := cmd.Flags().GetString("arg0"); err == nil {
 			req.Arg0 = v
@@ -204,13 +204,13 @@ var powerPowerManagerIsAllowedInLowPowerStandby1_1Cmd = &cobra.Command{
 	},
 }
 
-var powerPowerManagerIsBatteryDischargePredictionPersonalizedCmd = &cobra.Command{
+var powerManagerIsBatteryDischargePredictionPersonalizedCmd = &cobra.Command{
 	Use:   "is-battery-discharge-prediction-personalized",
 	Short: "IsBatteryDischargePredictionPersonalized RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewPowerManagerServiceClient(grpcConn)
+		client := pb.NewManagerServiceClient(grpcConn)
 		req := &pb.IsBatteryDischargePredictionPersonalizedRequest{}
 		resp, err := client.IsBatteryDischargePredictionPersonalized(ctx, req)
 		if err != nil {
@@ -220,13 +220,13 @@ var powerPowerManagerIsBatteryDischargePredictionPersonalizedCmd = &cobra.Comman
 	},
 }
 
-var powerPowerManagerIsDeviceIdleModeCmd = &cobra.Command{
+var powerManagerIsDeviceIdleModeCmd = &cobra.Command{
 	Use:   "is-device-idle-mode",
 	Short: "IsDeviceIdleMode RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewPowerManagerServiceClient(grpcConn)
+		client := pb.NewManagerServiceClient(grpcConn)
 		req := &pb.IsDeviceIdleModeRequest{}
 		resp, err := client.IsDeviceIdleMode(ctx, req)
 		if err != nil {
@@ -236,13 +236,13 @@ var powerPowerManagerIsDeviceIdleModeCmd = &cobra.Command{
 	},
 }
 
-var powerPowerManagerIsDeviceLightIdleModeCmd = &cobra.Command{
+var powerManagerIsDeviceLightIdleModeCmd = &cobra.Command{
 	Use:   "is-device-light-idle-mode",
 	Short: "IsDeviceLightIdleMode RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewPowerManagerServiceClient(grpcConn)
+		client := pb.NewManagerServiceClient(grpcConn)
 		req := &pb.IsDeviceLightIdleModeRequest{}
 		resp, err := client.IsDeviceLightIdleMode(ctx, req)
 		if err != nil {
@@ -252,13 +252,13 @@ var powerPowerManagerIsDeviceLightIdleModeCmd = &cobra.Command{
 	},
 }
 
-var powerPowerManagerIsExemptFromLowPowerStandbyCmd = &cobra.Command{
+var powerManagerIsExemptFromLowPowerStandbyCmd = &cobra.Command{
 	Use:   "is-exempt-from-low-power-standby",
 	Short: "IsExemptFromLowPowerStandby RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewPowerManagerServiceClient(grpcConn)
+		client := pb.NewManagerServiceClient(grpcConn)
 		req := &pb.IsExemptFromLowPowerStandbyRequest{}
 		resp, err := client.IsExemptFromLowPowerStandby(ctx, req)
 		if err != nil {
@@ -268,13 +268,13 @@ var powerPowerManagerIsExemptFromLowPowerStandbyCmd = &cobra.Command{
 	},
 }
 
-var powerPowerManagerIsIgnoringBatteryOptimizationsCmd = &cobra.Command{
+var powerManagerIsIgnoringBatteryOptimizationsCmd = &cobra.Command{
 	Use:   "is-ignoring-battery-optimizations",
 	Short: "IsIgnoringBatteryOptimizations RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewPowerManagerServiceClient(grpcConn)
+		client := pb.NewManagerServiceClient(grpcConn)
 		req := &pb.IsIgnoringBatteryOptimizationsRequest{}
 		if v, err := cmd.Flags().GetString("arg0"); err == nil {
 			req.Arg0 = v
@@ -287,13 +287,13 @@ var powerPowerManagerIsIgnoringBatteryOptimizationsCmd = &cobra.Command{
 	},
 }
 
-var powerPowerManagerIsInteractiveCmd = &cobra.Command{
+var powerManagerIsInteractiveCmd = &cobra.Command{
 	Use:   "is-interactive",
 	Short: "IsInteractive RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewPowerManagerServiceClient(grpcConn)
+		client := pb.NewManagerServiceClient(grpcConn)
 		req := &pb.IsInteractiveRequest{}
 		resp, err := client.IsInteractive(ctx, req)
 		if err != nil {
@@ -303,13 +303,13 @@ var powerPowerManagerIsInteractiveCmd = &cobra.Command{
 	},
 }
 
-var powerPowerManagerIsLowPowerStandbyEnabledCmd = &cobra.Command{
+var powerManagerIsLowPowerStandbyEnabledCmd = &cobra.Command{
 	Use:   "is-low-power-standby-enabled",
 	Short: "IsLowPowerStandbyEnabled RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewPowerManagerServiceClient(grpcConn)
+		client := pb.NewManagerServiceClient(grpcConn)
 		req := &pb.IsLowPowerStandbyEnabledRequest{}
 		resp, err := client.IsLowPowerStandbyEnabled(ctx, req)
 		if err != nil {
@@ -319,13 +319,13 @@ var powerPowerManagerIsLowPowerStandbyEnabledCmd = &cobra.Command{
 	},
 }
 
-var powerPowerManagerIsPowerSaveModeCmd = &cobra.Command{
+var powerManagerIsPowerSaveModeCmd = &cobra.Command{
 	Use:   "is-power-save-mode",
 	Short: "IsPowerSaveMode RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewPowerManagerServiceClient(grpcConn)
+		client := pb.NewManagerServiceClient(grpcConn)
 		req := &pb.IsPowerSaveModeRequest{}
 		resp, err := client.IsPowerSaveMode(ctx, req)
 		if err != nil {
@@ -335,13 +335,13 @@ var powerPowerManagerIsPowerSaveModeCmd = &cobra.Command{
 	},
 }
 
-var powerPowerManagerIsRebootingUserspaceSupportedCmd = &cobra.Command{
+var powerManagerIsRebootingUserspaceSupportedCmd = &cobra.Command{
 	Use:   "is-rebooting-userspace-supported",
 	Short: "IsRebootingUserspaceSupported RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewPowerManagerServiceClient(grpcConn)
+		client := pb.NewManagerServiceClient(grpcConn)
 		req := &pb.IsRebootingUserspaceSupportedRequest{}
 		resp, err := client.IsRebootingUserspaceSupported(ctx, req)
 		if err != nil {
@@ -351,13 +351,13 @@ var powerPowerManagerIsRebootingUserspaceSupportedCmd = &cobra.Command{
 	},
 }
 
-var powerPowerManagerIsScreenOnCmd = &cobra.Command{
+var powerManagerIsScreenOnCmd = &cobra.Command{
 	Use:   "is-screen-on",
 	Short: "IsScreenOn RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewPowerManagerServiceClient(grpcConn)
+		client := pb.NewManagerServiceClient(grpcConn)
 		req := &pb.IsScreenOnRequest{}
 		resp, err := client.IsScreenOn(ctx, req)
 		if err != nil {
@@ -367,13 +367,13 @@ var powerPowerManagerIsScreenOnCmd = &cobra.Command{
 	},
 }
 
-var powerPowerManagerIsSustainedPerformanceModeSupportedCmd = &cobra.Command{
+var powerManagerIsSustainedPerformanceModeSupportedCmd = &cobra.Command{
 	Use:   "is-sustained-performance-mode-supported",
 	Short: "IsSustainedPerformanceModeSupported RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewPowerManagerServiceClient(grpcConn)
+		client := pb.NewManagerServiceClient(grpcConn)
 		req := &pb.IsSustainedPerformanceModeSupportedRequest{}
 		resp, err := client.IsSustainedPerformanceModeSupported(ctx, req)
 		if err != nil {
@@ -383,13 +383,13 @@ var powerPowerManagerIsSustainedPerformanceModeSupportedCmd = &cobra.Command{
 	},
 }
 
-var powerPowerManagerIsWakeLockLevelSupportedCmd = &cobra.Command{
+var powerManagerIsWakeLockLevelSupportedCmd = &cobra.Command{
 	Use:   "is-wake-lock-level-supported",
 	Short: "IsWakeLockLevelSupported RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewPowerManagerServiceClient(grpcConn)
+		client := pb.NewManagerServiceClient(grpcConn)
 		req := &pb.IsWakeLockLevelSupportedRequest{}
 		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
 			req.Arg0 = v
@@ -402,13 +402,13 @@ var powerPowerManagerIsWakeLockLevelSupportedCmd = &cobra.Command{
 	},
 }
 
-var powerPowerManagerNewWakeLockCmd = &cobra.Command{
+var powerManagerNewWakeLockCmd = &cobra.Command{
 	Use:   "new-wake-lock",
 	Short: "NewWakeLock RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewPowerManagerServiceClient(grpcConn)
+		client := pb.NewManagerServiceClient(grpcConn)
 		req := &pb.NewWakeLockRequest{}
 		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
 			req.Arg0 = v
@@ -424,13 +424,13 @@ var powerPowerManagerNewWakeLockCmd = &cobra.Command{
 	},
 }
 
-var powerPowerManagerRebootCmd = &cobra.Command{
+var powerManagerRebootCmd = &cobra.Command{
 	Use:   "reboot",
 	Short: "Reboot RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewPowerManagerServiceClient(grpcConn)
+		client := pb.NewManagerServiceClient(grpcConn)
 		req := &pb.RebootRequest{}
 		if v, err := cmd.Flags().GetString("arg0"); err == nil {
 			req.Arg0 = v
@@ -443,13 +443,13 @@ var powerPowerManagerRebootCmd = &cobra.Command{
 	},
 }
 
-var powerPowerManagerRemoveThermalHeadroomListenerCmd = &cobra.Command{
+var powerManagerRemoveThermalHeadroomListenerCmd = &cobra.Command{
 	Use:   "remove-thermal-headroom-listener",
 	Short: "RemoveThermalHeadroomListener RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewPowerManagerServiceClient(grpcConn)
+		client := pb.NewManagerServiceClient(grpcConn)
 		req := &pb.RemoveThermalHeadroomListenerRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
@@ -462,13 +462,13 @@ var powerPowerManagerRemoveThermalHeadroomListenerCmd = &cobra.Command{
 	},
 }
 
-var powerPowerManagerRemoveThermalStatusListenerCmd = &cobra.Command{
+var powerManagerRemoveThermalStatusListenerCmd = &cobra.Command{
 	Use:   "remove-thermal-status-listener",
 	Short: "RemoveThermalStatusListener RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewPowerManagerServiceClient(grpcConn)
+		client := pb.NewManagerServiceClient(grpcConn)
 		req := &pb.RemoveThermalStatusListenerRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
@@ -481,18 +481,18 @@ var powerPowerManagerRemoveThermalStatusListenerCmd = &cobra.Command{
 	},
 }
 
-var powerPowerManagerWakeLockCmd = &cobra.Command{
-	Use:   "power-manager-wake-lock",
-	Short: "PowerManagerWakeLockService operations",
+var powerManagerWakeLockCmd = &cobra.Command{
+	Use:   "manager-wake-lock",
+	Short: "ManagerWakeLockService operations",
 }
 
-var powerPowerManagerWakeLockAcquire0Cmd = &cobra.Command{
+var powerManagerWakeLockAcquire0Cmd = &cobra.Command{
 	Use:   "acquire0",
 	Short: "Acquire0 RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewPowerManagerWakeLockServiceClient(grpcConn)
+		client := pb.NewManagerWakeLockServiceClient(grpcConn)
 		req := &pb.Acquire0Request{}
 		resp, err := client.Acquire0(ctx, req)
 		if err != nil {
@@ -502,13 +502,13 @@ var powerPowerManagerWakeLockAcquire0Cmd = &cobra.Command{
 	},
 }
 
-var powerPowerManagerWakeLockAcquire1_1Cmd = &cobra.Command{
+var powerManagerWakeLockAcquire1_1Cmd = &cobra.Command{
 	Use:   "acquire1_1",
 	Short: "Acquire1_1 RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewPowerManagerWakeLockServiceClient(grpcConn)
+		client := pb.NewManagerWakeLockServiceClient(grpcConn)
 		req := &pb.Acquire1_1Request{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
@@ -521,13 +521,13 @@ var powerPowerManagerWakeLockAcquire1_1Cmd = &cobra.Command{
 	},
 }
 
-var powerPowerManagerWakeLockIsHeldCmd = &cobra.Command{
+var powerManagerWakeLockIsHeldCmd = &cobra.Command{
 	Use:   "is-held",
 	Short: "IsHeld RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewPowerManagerWakeLockServiceClient(grpcConn)
+		client := pb.NewManagerWakeLockServiceClient(grpcConn)
 		req := &pb.IsHeldRequest{}
 		resp, err := client.IsHeld(ctx, req)
 		if err != nil {
@@ -537,13 +537,13 @@ var powerPowerManagerWakeLockIsHeldCmd = &cobra.Command{
 	},
 }
 
-var powerPowerManagerWakeLockRelease0Cmd = &cobra.Command{
+var powerManagerWakeLockRelease0Cmd = &cobra.Command{
 	Use:   "release0",
 	Short: "Release0 RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewPowerManagerWakeLockServiceClient(grpcConn)
+		client := pb.NewManagerWakeLockServiceClient(grpcConn)
 		req := &pb.Release0Request{}
 		resp, err := client.Release0(ctx, req)
 		if err != nil {
@@ -553,13 +553,13 @@ var powerPowerManagerWakeLockRelease0Cmd = &cobra.Command{
 	},
 }
 
-var powerPowerManagerWakeLockRelease1_1Cmd = &cobra.Command{
+var powerManagerWakeLockRelease1_1Cmd = &cobra.Command{
 	Use:   "release1_1",
 	Short: "Release1_1 RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewPowerManagerWakeLockServiceClient(grpcConn)
+		client := pb.NewManagerWakeLockServiceClient(grpcConn)
 		req := &pb.Release1_1Request{}
 		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
 			req.Arg0 = v
@@ -572,13 +572,13 @@ var powerPowerManagerWakeLockRelease1_1Cmd = &cobra.Command{
 	},
 }
 
-var powerPowerManagerWakeLockSetReferenceCountedCmd = &cobra.Command{
+var powerManagerWakeLockSetReferenceCountedCmd = &cobra.Command{
 	Use:   "set-reference-counted",
 	Short: "SetReferenceCounted RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewPowerManagerWakeLockServiceClient(grpcConn)
+		client := pb.NewManagerWakeLockServiceClient(grpcConn)
 		req := &pb.SetReferenceCountedRequest{}
 		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
 			req.Arg0 = v
@@ -591,13 +591,13 @@ var powerPowerManagerWakeLockSetReferenceCountedCmd = &cobra.Command{
 	},
 }
 
-var powerPowerManagerWakeLockSetStateListenerCmd = &cobra.Command{
+var powerManagerWakeLockSetStateListenerCmd = &cobra.Command{
 	Use:   "set-state-listener",
 	Short: "SetStateListener RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewPowerManagerWakeLockServiceClient(grpcConn)
+		client := pb.NewManagerWakeLockServiceClient(grpcConn)
 		req := &pb.SetStateListenerRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
@@ -613,13 +613,13 @@ var powerPowerManagerWakeLockSetStateListenerCmd = &cobra.Command{
 	},
 }
 
-var powerPowerManagerWakeLockSetWorkSourceCmd = &cobra.Command{
+var powerManagerWakeLockSetWorkSourceCmd = &cobra.Command{
 	Use:   "set-work-source",
 	Short: "SetWorkSource RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewPowerManagerWakeLockServiceClient(grpcConn)
+		client := pb.NewManagerWakeLockServiceClient(grpcConn)
 		req := &pb.SetWorkSourceRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
@@ -632,13 +632,13 @@ var powerPowerManagerWakeLockSetWorkSourceCmd = &cobra.Command{
 	},
 }
 
-var powerPowerManagerWakeLockToStringCmd = &cobra.Command{
+var powerManagerWakeLockToStringCmd = &cobra.Command{
 	Use:   "to-string",
 	Short: "ToString RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewPowerManagerWakeLockServiceClient(grpcConn)
+		client := pb.NewManagerWakeLockServiceClient(grpcConn)
 		req := &pb.ToStringRequest{}
 		resp, err := client.ToString(ctx, req)
 		if err != nil {
@@ -649,64 +649,64 @@ var powerPowerManagerWakeLockToStringCmd = &cobra.Command{
 }
 
 func init() {
-	powerPowerManagerAddThermalHeadroomListener1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	powerPowerManagerCmd.AddCommand(powerPowerManagerAddThermalHeadroomListener1Cmd)
-	powerPowerManagerAddThermalHeadroomListener2_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	powerPowerManagerAddThermalHeadroomListener2_1Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	powerPowerManagerCmd.AddCommand(powerPowerManagerAddThermalHeadroomListener2_1Cmd)
-	powerPowerManagerAddThermalStatusListener1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	powerPowerManagerCmd.AddCommand(powerPowerManagerAddThermalStatusListener1Cmd)
-	powerPowerManagerAddThermalStatusListener2_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	powerPowerManagerAddThermalStatusListener2_1Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	powerPowerManagerCmd.AddCommand(powerPowerManagerAddThermalStatusListener2_1Cmd)
-	powerPowerManagerCmd.AddCommand(powerPowerManagerGetBatteryDischargePredictionCmd)
-	powerPowerManagerCmd.AddCommand(powerPowerManagerGetCurrentThermalStatusCmd)
-	powerPowerManagerCmd.AddCommand(powerPowerManagerGetLocationPowerSaveModeCmd)
-	powerPowerManagerGetThermalHeadroomCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	powerPowerManagerCmd.AddCommand(powerPowerManagerGetThermalHeadroomCmd)
-	powerPowerManagerIsAllowedInLowPowerStandby1Cmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	powerPowerManagerCmd.AddCommand(powerPowerManagerIsAllowedInLowPowerStandby1Cmd)
-	powerPowerManagerIsAllowedInLowPowerStandby1_1Cmd.Flags().String("arg0", "", "arg0 (string)")
-	powerPowerManagerCmd.AddCommand(powerPowerManagerIsAllowedInLowPowerStandby1_1Cmd)
-	powerPowerManagerCmd.AddCommand(powerPowerManagerIsBatteryDischargePredictionPersonalizedCmd)
-	powerPowerManagerCmd.AddCommand(powerPowerManagerIsDeviceIdleModeCmd)
-	powerPowerManagerCmd.AddCommand(powerPowerManagerIsDeviceLightIdleModeCmd)
-	powerPowerManagerCmd.AddCommand(powerPowerManagerIsExemptFromLowPowerStandbyCmd)
-	powerPowerManagerIsIgnoringBatteryOptimizationsCmd.Flags().String("arg0", "", "arg0 (string)")
-	powerPowerManagerCmd.AddCommand(powerPowerManagerIsIgnoringBatteryOptimizationsCmd)
-	powerPowerManagerCmd.AddCommand(powerPowerManagerIsInteractiveCmd)
-	powerPowerManagerCmd.AddCommand(powerPowerManagerIsLowPowerStandbyEnabledCmd)
-	powerPowerManagerCmd.AddCommand(powerPowerManagerIsPowerSaveModeCmd)
-	powerPowerManagerCmd.AddCommand(powerPowerManagerIsRebootingUserspaceSupportedCmd)
-	powerPowerManagerCmd.AddCommand(powerPowerManagerIsScreenOnCmd)
-	powerPowerManagerCmd.AddCommand(powerPowerManagerIsSustainedPerformanceModeSupportedCmd)
-	powerPowerManagerIsWakeLockLevelSupportedCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	powerPowerManagerCmd.AddCommand(powerPowerManagerIsWakeLockLevelSupportedCmd)
-	powerPowerManagerNewWakeLockCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	powerPowerManagerNewWakeLockCmd.Flags().String("arg1", "", "arg1 (string)")
-	powerPowerManagerCmd.AddCommand(powerPowerManagerNewWakeLockCmd)
-	powerPowerManagerRebootCmd.Flags().String("arg0", "", "arg0 (string)")
-	powerPowerManagerCmd.AddCommand(powerPowerManagerRebootCmd)
-	powerPowerManagerRemoveThermalHeadroomListenerCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	powerPowerManagerCmd.AddCommand(powerPowerManagerRemoveThermalHeadroomListenerCmd)
-	powerPowerManagerRemoveThermalStatusListenerCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	powerPowerManagerCmd.AddCommand(powerPowerManagerRemoveThermalStatusListenerCmd)
-	powerCmd.AddCommand(powerPowerManagerCmd)
-	powerPowerManagerWakeLockCmd.AddCommand(powerPowerManagerWakeLockAcquire0Cmd)
-	powerPowerManagerWakeLockAcquire1_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	powerPowerManagerWakeLockCmd.AddCommand(powerPowerManagerWakeLockAcquire1_1Cmd)
-	powerPowerManagerWakeLockCmd.AddCommand(powerPowerManagerWakeLockIsHeldCmd)
-	powerPowerManagerWakeLockCmd.AddCommand(powerPowerManagerWakeLockRelease0Cmd)
-	powerPowerManagerWakeLockRelease1_1Cmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	powerPowerManagerWakeLockCmd.AddCommand(powerPowerManagerWakeLockRelease1_1Cmd)
-	powerPowerManagerWakeLockSetReferenceCountedCmd.Flags().Bool("arg0", false, "arg0 (bool)")
-	powerPowerManagerWakeLockCmd.AddCommand(powerPowerManagerWakeLockSetReferenceCountedCmd)
-	powerPowerManagerWakeLockSetStateListenerCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	powerPowerManagerWakeLockSetStateListenerCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	powerPowerManagerWakeLockCmd.AddCommand(powerPowerManagerWakeLockSetStateListenerCmd)
-	powerPowerManagerWakeLockSetWorkSourceCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	powerPowerManagerWakeLockCmd.AddCommand(powerPowerManagerWakeLockSetWorkSourceCmd)
-	powerPowerManagerWakeLockCmd.AddCommand(powerPowerManagerWakeLockToStringCmd)
-	powerCmd.AddCommand(powerPowerManagerWakeLockCmd)
+	powerManagerAddThermalHeadroomListener1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	powerManagerCmd.AddCommand(powerManagerAddThermalHeadroomListener1Cmd)
+	powerManagerAddThermalHeadroomListener2_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	powerManagerAddThermalHeadroomListener2_1Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	powerManagerCmd.AddCommand(powerManagerAddThermalHeadroomListener2_1Cmd)
+	powerManagerAddThermalStatusListener1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	powerManagerCmd.AddCommand(powerManagerAddThermalStatusListener1Cmd)
+	powerManagerAddThermalStatusListener2_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	powerManagerAddThermalStatusListener2_1Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	powerManagerCmd.AddCommand(powerManagerAddThermalStatusListener2_1Cmd)
+	powerManagerCmd.AddCommand(powerManagerGetBatteryDischargePredictionCmd)
+	powerManagerCmd.AddCommand(powerManagerGetCurrentThermalStatusCmd)
+	powerManagerCmd.AddCommand(powerManagerGetLocationPowerSaveModeCmd)
+	powerManagerGetThermalHeadroomCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	powerManagerCmd.AddCommand(powerManagerGetThermalHeadroomCmd)
+	powerManagerIsAllowedInLowPowerStandby1Cmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	powerManagerCmd.AddCommand(powerManagerIsAllowedInLowPowerStandby1Cmd)
+	powerManagerIsAllowedInLowPowerStandby1_1Cmd.Flags().String("arg0", "", "arg0 (string)")
+	powerManagerCmd.AddCommand(powerManagerIsAllowedInLowPowerStandby1_1Cmd)
+	powerManagerCmd.AddCommand(powerManagerIsBatteryDischargePredictionPersonalizedCmd)
+	powerManagerCmd.AddCommand(powerManagerIsDeviceIdleModeCmd)
+	powerManagerCmd.AddCommand(powerManagerIsDeviceLightIdleModeCmd)
+	powerManagerCmd.AddCommand(powerManagerIsExemptFromLowPowerStandbyCmd)
+	powerManagerIsIgnoringBatteryOptimizationsCmd.Flags().String("arg0", "", "arg0 (string)")
+	powerManagerCmd.AddCommand(powerManagerIsIgnoringBatteryOptimizationsCmd)
+	powerManagerCmd.AddCommand(powerManagerIsInteractiveCmd)
+	powerManagerCmd.AddCommand(powerManagerIsLowPowerStandbyEnabledCmd)
+	powerManagerCmd.AddCommand(powerManagerIsPowerSaveModeCmd)
+	powerManagerCmd.AddCommand(powerManagerIsRebootingUserspaceSupportedCmd)
+	powerManagerCmd.AddCommand(powerManagerIsScreenOnCmd)
+	powerManagerCmd.AddCommand(powerManagerIsSustainedPerformanceModeSupportedCmd)
+	powerManagerIsWakeLockLevelSupportedCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	powerManagerCmd.AddCommand(powerManagerIsWakeLockLevelSupportedCmd)
+	powerManagerNewWakeLockCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	powerManagerNewWakeLockCmd.Flags().String("arg1", "", "arg1 (string)")
+	powerManagerCmd.AddCommand(powerManagerNewWakeLockCmd)
+	powerManagerRebootCmd.Flags().String("arg0", "", "arg0 (string)")
+	powerManagerCmd.AddCommand(powerManagerRebootCmd)
+	powerManagerRemoveThermalHeadroomListenerCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	powerManagerCmd.AddCommand(powerManagerRemoveThermalHeadroomListenerCmd)
+	powerManagerRemoveThermalStatusListenerCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	powerManagerCmd.AddCommand(powerManagerRemoveThermalStatusListenerCmd)
+	powerCmd.AddCommand(powerManagerCmd)
+	powerManagerWakeLockCmd.AddCommand(powerManagerWakeLockAcquire0Cmd)
+	powerManagerWakeLockAcquire1_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	powerManagerWakeLockCmd.AddCommand(powerManagerWakeLockAcquire1_1Cmd)
+	powerManagerWakeLockCmd.AddCommand(powerManagerWakeLockIsHeldCmd)
+	powerManagerWakeLockCmd.AddCommand(powerManagerWakeLockRelease0Cmd)
+	powerManagerWakeLockRelease1_1Cmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	powerManagerWakeLockCmd.AddCommand(powerManagerWakeLockRelease1_1Cmd)
+	powerManagerWakeLockSetReferenceCountedCmd.Flags().Bool("arg0", false, "arg0 (bool)")
+	powerManagerWakeLockCmd.AddCommand(powerManagerWakeLockSetReferenceCountedCmd)
+	powerManagerWakeLockSetStateListenerCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	powerManagerWakeLockSetStateListenerCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	powerManagerWakeLockCmd.AddCommand(powerManagerWakeLockSetStateListenerCmd)
+	powerManagerWakeLockSetWorkSourceCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	powerManagerWakeLockCmd.AddCommand(powerManagerWakeLockSetWorkSourceCmd)
+	powerManagerWakeLockCmd.AddCommand(powerManagerWakeLockToStringCmd)
+	powerCmd.AddCommand(powerManagerWakeLockCmd)
 	rootCmd.AddCommand(powerCmd)
 }

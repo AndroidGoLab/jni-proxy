@@ -88,7 +88,7 @@ message RequestDismissKeyguardRequest {
 message RequestDismissKeyguardResponse {
 }
 
-service KeyguardManagerService {
+service ManagerService {
   rpc AddKeyguardLockedStateListener (AddKeyguardLockedStateListenerRequest) returns (AddKeyguardLockedStateListenerResponse);
   rpc CreateConfirmDeviceCredentialIntent (CreateConfirmDeviceCredentialIntentRequest) returns (CreateConfirmDeviceCredentialIntentResponse);
   rpc ExitKeyguardSecurely (ExitKeyguardSecurelyRequest) returns (ExitKeyguardSecurelyResponse);

@@ -7,23 +7,23 @@ import (
 
 	"github.com/AndroidGoLab/jni"
 
-	"github.com/AndroidGoLab/jni/app"
 	"github.com/AndroidGoLab/jni-proxy/handlestore"
-	jnipkg "github.com/AndroidGoLab/jni/os/keyguard"
 	pb "github.com/AndroidGoLab/jni-proxy/proto/keyguard"
+	"github.com/AndroidGoLab/jni/app"
+	jnipkg "github.com/AndroidGoLab/jni/os/keyguard"
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"
 )
 
-// KeyguardManagerServer implements pb.KeyguardManagerServiceServer.
-type KeyguardManagerServer struct {
-	pb.UnimplementedKeyguardManagerServiceServer
+// ManagerServer implements pb.ManagerServiceServer.
+type ManagerServer struct {
+	pb.UnimplementedManagerServiceServer
 	Ctx     *app.Context
 	Handles *handlestore.HandleStore
 }
 
-func (s *KeyguardManagerServer) AddKeyguardLockedStateListener(_ context.Context, req *pb.AddKeyguardLockedStateListenerRequest) (*pb.AddKeyguardLockedStateListenerResponse, error) {
-	mgr, err := jnipkg.NewkeyguardManager(s.Ctx)
+func (s *ManagerServer) AddKeyguardLockedStateListener(_ context.Context, req *pb.AddKeyguardLockedStateListenerRequest) (*pb.AddKeyguardLockedStateListenerResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -35,8 +35,8 @@ func (s *KeyguardManagerServer) AddKeyguardLockedStateListener(_ context.Context
 	return &pb.AddKeyguardLockedStateListenerResponse{}, nil
 }
 
-func (s *KeyguardManagerServer) CreateConfirmDeviceCredentialIntent(_ context.Context, req *pb.CreateConfirmDeviceCredentialIntentRequest) (*pb.CreateConfirmDeviceCredentialIntentResponse, error) {
-	mgr, err := jnipkg.NewkeyguardManager(s.Ctx)
+func (s *ManagerServer) CreateConfirmDeviceCredentialIntent(_ context.Context, req *pb.CreateConfirmDeviceCredentialIntentRequest) (*pb.CreateConfirmDeviceCredentialIntentResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -58,8 +58,8 @@ func (s *KeyguardManagerServer) CreateConfirmDeviceCredentialIntent(_ context.Co
 	return &pb.CreateConfirmDeviceCredentialIntentResponse{Result: handle}, nil
 }
 
-func (s *KeyguardManagerServer) ExitKeyguardSecurely(_ context.Context, req *pb.ExitKeyguardSecurelyRequest) (*pb.ExitKeyguardSecurelyResponse, error) {
-	mgr, err := jnipkg.NewkeyguardManager(s.Ctx)
+func (s *ManagerServer) ExitKeyguardSecurely(_ context.Context, req *pb.ExitKeyguardSecurelyRequest) (*pb.ExitKeyguardSecurelyResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -71,8 +71,8 @@ func (s *KeyguardManagerServer) ExitKeyguardSecurely(_ context.Context, req *pb.
 	return &pb.ExitKeyguardSecurelyResponse{}, nil
 }
 
-func (s *KeyguardManagerServer) InKeyguardRestrictedInputMode(_ context.Context, req *pb.InKeyguardRestrictedInputModeRequest) (*pb.InKeyguardRestrictedInputModeResponse, error) {
-	mgr, err := jnipkg.NewkeyguardManager(s.Ctx)
+func (s *ManagerServer) InKeyguardRestrictedInputMode(_ context.Context, req *pb.InKeyguardRestrictedInputModeRequest) (*pb.InKeyguardRestrictedInputModeResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -85,8 +85,8 @@ func (s *KeyguardManagerServer) InKeyguardRestrictedInputMode(_ context.Context,
 	return &pb.InKeyguardRestrictedInputModeResponse{Result: result}, nil
 }
 
-func (s *KeyguardManagerServer) IsDeviceLocked(_ context.Context, req *pb.IsDeviceLockedRequest) (*pb.IsDeviceLockedResponse, error) {
-	mgr, err := jnipkg.NewkeyguardManager(s.Ctx)
+func (s *ManagerServer) IsDeviceLocked(_ context.Context, req *pb.IsDeviceLockedRequest) (*pb.IsDeviceLockedResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -99,8 +99,8 @@ func (s *KeyguardManagerServer) IsDeviceLocked(_ context.Context, req *pb.IsDevi
 	return &pb.IsDeviceLockedResponse{Result: result}, nil
 }
 
-func (s *KeyguardManagerServer) IsDeviceSecure(_ context.Context, req *pb.IsDeviceSecureRequest) (*pb.IsDeviceSecureResponse, error) {
-	mgr, err := jnipkg.NewkeyguardManager(s.Ctx)
+func (s *ManagerServer) IsDeviceSecure(_ context.Context, req *pb.IsDeviceSecureRequest) (*pb.IsDeviceSecureResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -113,8 +113,8 @@ func (s *KeyguardManagerServer) IsDeviceSecure(_ context.Context, req *pb.IsDevi
 	return &pb.IsDeviceSecureResponse{Result: result}, nil
 }
 
-func (s *KeyguardManagerServer) IsKeyguardLocked(_ context.Context, req *pb.IsKeyguardLockedRequest) (*pb.IsKeyguardLockedResponse, error) {
-	mgr, err := jnipkg.NewkeyguardManager(s.Ctx)
+func (s *ManagerServer) IsKeyguardLocked(_ context.Context, req *pb.IsKeyguardLockedRequest) (*pb.IsKeyguardLockedResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -127,8 +127,8 @@ func (s *KeyguardManagerServer) IsKeyguardLocked(_ context.Context, req *pb.IsKe
 	return &pb.IsKeyguardLockedResponse{Result: result}, nil
 }
 
-func (s *KeyguardManagerServer) IsKeyguardSecure(_ context.Context, req *pb.IsKeyguardSecureRequest) (*pb.IsKeyguardSecureResponse, error) {
-	mgr, err := jnipkg.NewkeyguardManager(s.Ctx)
+func (s *ManagerServer) IsKeyguardSecure(_ context.Context, req *pb.IsKeyguardSecureRequest) (*pb.IsKeyguardSecureResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -141,8 +141,8 @@ func (s *KeyguardManagerServer) IsKeyguardSecure(_ context.Context, req *pb.IsKe
 	return &pb.IsKeyguardSecureResponse{Result: result}, nil
 }
 
-func (s *KeyguardManagerServer) NewKeyguardLock(_ context.Context, req *pb.NewKeyguardLockRequest) (*pb.NewKeyguardLockResponse, error) {
-	mgr, err := jnipkg.NewkeyguardManager(s.Ctx)
+func (s *ManagerServer) NewKeyguardLock(_ context.Context, req *pb.NewKeyguardLockRequest) (*pb.NewKeyguardLockResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -164,8 +164,8 @@ func (s *KeyguardManagerServer) NewKeyguardLock(_ context.Context, req *pb.NewKe
 	return &pb.NewKeyguardLockResponse{Result: handle}, nil
 }
 
-func (s *KeyguardManagerServer) RemoveKeyguardLockedStateListener(_ context.Context, req *pb.RemoveKeyguardLockedStateListenerRequest) (*pb.RemoveKeyguardLockedStateListenerResponse, error) {
-	mgr, err := jnipkg.NewkeyguardManager(s.Ctx)
+func (s *ManagerServer) RemoveKeyguardLockedStateListener(_ context.Context, req *pb.RemoveKeyguardLockedStateListenerRequest) (*pb.RemoveKeyguardLockedStateListenerResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -177,8 +177,8 @@ func (s *KeyguardManagerServer) RemoveKeyguardLockedStateListener(_ context.Cont
 	return &pb.RemoveKeyguardLockedStateListenerResponse{}, nil
 }
 
-func (s *KeyguardManagerServer) RequestDismissKeyguard(_ context.Context, req *pb.RequestDismissKeyguardRequest) (*pb.RequestDismissKeyguardResponse, error) {
-	mgr, err := jnipkg.NewkeyguardManager(s.Ctx)
+func (s *ManagerServer) RequestDismissKeyguard(_ context.Context, req *pb.RequestDismissKeyguardRequest) (*pb.RequestDismissKeyguardResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}

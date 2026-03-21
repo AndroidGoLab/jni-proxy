@@ -1895,8 +1895,8 @@ const file_proto_alarm_alarm_proto_rawDesc = "" +
 	"\x14WriteToParcelRequest\x12\x12\n" +
 	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
 	"\x04arg1\x18\x02 \x01(\x05R\x04arg1\"\x17\n" +
-	"\x15WriteToParcelResponse2\xc9\t\n" +
-	"\x13AlarmManagerService\x12e\n" +
+	"\x15WriteToParcelResponse2\xc4\t\n" +
+	"\x0eManagerService\x12e\n" +
 	"\x16CanScheduleExactAlarms\x12$.alarm.CanScheduleExactAlarmsRequest\x1a%.alarm.CanScheduleExactAlarmsResponse\x128\n" +
 	"\aCancel1\x12\x15.alarm.Cancel1Request\x1a\x16.alarm.Cancel1Response\x12>\n" +
 	"\tCancel1_1\x12\x17.alarm.Cancel1_1Request\x1a\x18.alarm.Cancel1_1Response\x12>\n" +
@@ -1913,12 +1913,12 @@ const file_proto_alarm_alarm_proto_rawDesc = "" +
 	"\vSetTimeZone\x12\x19.alarm.SetTimeZoneRequest\x1a\x1a.alarm.SetTimeZoneResponse\x12A\n" +
 	"\n" +
 	"SetWindow4\x12\x18.alarm.SetWindow4Request\x1a\x19.alarm.SetWindow4Response\x12G\n" +
-	"\fSetWindow6_1\x12\x1a.alarm.SetWindow6_1Request\x1a\x1b.alarm.SetWindow6_1Response2\xdf\x02\n" +
-	"!AlarmManagerAlarmClockInfoService\x12S\n" +
+	"\fSetWindow6_1\x12\x1a.alarm.SetWindow6_1Request\x1a\x1b.alarm.SetWindow6_1Response2\xda\x02\n" +
+	"\x1cManagerAlarmClockInfoService\x12S\n" +
 	"\x10DescribeContents\x12\x1e.alarm.DescribeContentsRequest\x1a\x1f.alarm.DescribeContentsResponse\x12J\n" +
 	"\rGetShowIntent\x12\x1b.alarm.GetShowIntentRequest\x1a\x1c.alarm.GetShowIntentResponse\x12M\n" +
 	"\x0eGetTriggerTime\x12\x1c.alarm.GetTriggerTimeRequest\x1a\x1d.alarm.GetTriggerTimeResponse\x12J\n" +
-	"\rWriteToParcel\x12\x1b.alarm.WriteToParcelRequest\x1a\x1c.alarm.WriteToParcelResponseB(Z&github.com/AndroidGoLab/jni-proxy/proto/alarmb\x06proto3"
+	"\rWriteToParcel\x12\x1b.alarm.WriteToParcelRequest\x1a\x1c.alarm.WriteToParcelResponseB/Z-github.com/AndroidGoLab/jni-proxy/proto/alarmb\x06proto3"
 
 var (
 	file_proto_alarm_alarm_proto_rawDescOnce sync.Once
@@ -1976,46 +1976,46 @@ var file_proto_alarm_alarm_proto_goTypes = []any{
 	(*WriteToParcelResponse)(nil),             // 39: alarm.WriteToParcelResponse
 }
 var file_proto_alarm_alarm_proto_depIdxs = []int32{
-	0,  // 0: alarm.AlarmManagerService.CanScheduleExactAlarms:input_type -> alarm.CanScheduleExactAlarmsRequest
-	2,  // 1: alarm.AlarmManagerService.Cancel1:input_type -> alarm.Cancel1Request
-	4,  // 2: alarm.AlarmManagerService.Cancel1_1:input_type -> alarm.Cancel1_1Request
-	6,  // 3: alarm.AlarmManagerService.CancelAll:input_type -> alarm.CancelAllRequest
-	8,  // 4: alarm.AlarmManagerService.GetNextAlarmClock:input_type -> alarm.GetNextAlarmClockRequest
-	10, // 5: alarm.AlarmManagerService.Set:input_type -> alarm.SetRequest
-	12, // 6: alarm.AlarmManagerService.SetAlarmClock:input_type -> alarm.SetAlarmClockRequest
-	14, // 7: alarm.AlarmManagerService.SetAndAllowWhileIdle:input_type -> alarm.SetAndAllowWhileIdleRequest
-	16, // 8: alarm.AlarmManagerService.SetExact:input_type -> alarm.SetExactRequest
-	18, // 9: alarm.AlarmManagerService.SetExactAndAllowWhileIdle:input_type -> alarm.SetExactAndAllowWhileIdleRequest
-	20, // 10: alarm.AlarmManagerService.SetInexactRepeating:input_type -> alarm.SetInexactRepeatingRequest
-	22, // 11: alarm.AlarmManagerService.SetRepeating:input_type -> alarm.SetRepeatingRequest
-	24, // 12: alarm.AlarmManagerService.SetTime:input_type -> alarm.SetTimeRequest
-	26, // 13: alarm.AlarmManagerService.SetTimeZone:input_type -> alarm.SetTimeZoneRequest
-	28, // 14: alarm.AlarmManagerService.SetWindow4:input_type -> alarm.SetWindow4Request
-	30, // 15: alarm.AlarmManagerService.SetWindow6_1:input_type -> alarm.SetWindow6_1Request
-	32, // 16: alarm.AlarmManagerAlarmClockInfoService.DescribeContents:input_type -> alarm.DescribeContentsRequest
-	34, // 17: alarm.AlarmManagerAlarmClockInfoService.GetShowIntent:input_type -> alarm.GetShowIntentRequest
-	36, // 18: alarm.AlarmManagerAlarmClockInfoService.GetTriggerTime:input_type -> alarm.GetTriggerTimeRequest
-	38, // 19: alarm.AlarmManagerAlarmClockInfoService.WriteToParcel:input_type -> alarm.WriteToParcelRequest
-	1,  // 20: alarm.AlarmManagerService.CanScheduleExactAlarms:output_type -> alarm.CanScheduleExactAlarmsResponse
-	3,  // 21: alarm.AlarmManagerService.Cancel1:output_type -> alarm.Cancel1Response
-	5,  // 22: alarm.AlarmManagerService.Cancel1_1:output_type -> alarm.Cancel1_1Response
-	7,  // 23: alarm.AlarmManagerService.CancelAll:output_type -> alarm.CancelAllResponse
-	9,  // 24: alarm.AlarmManagerService.GetNextAlarmClock:output_type -> alarm.GetNextAlarmClockResponse
-	11, // 25: alarm.AlarmManagerService.Set:output_type -> alarm.SetResponse
-	13, // 26: alarm.AlarmManagerService.SetAlarmClock:output_type -> alarm.SetAlarmClockResponse
-	15, // 27: alarm.AlarmManagerService.SetAndAllowWhileIdle:output_type -> alarm.SetAndAllowWhileIdleResponse
-	17, // 28: alarm.AlarmManagerService.SetExact:output_type -> alarm.SetExactResponse
-	19, // 29: alarm.AlarmManagerService.SetExactAndAllowWhileIdle:output_type -> alarm.SetExactAndAllowWhileIdleResponse
-	21, // 30: alarm.AlarmManagerService.SetInexactRepeating:output_type -> alarm.SetInexactRepeatingResponse
-	23, // 31: alarm.AlarmManagerService.SetRepeating:output_type -> alarm.SetRepeatingResponse
-	25, // 32: alarm.AlarmManagerService.SetTime:output_type -> alarm.SetTimeResponse
-	27, // 33: alarm.AlarmManagerService.SetTimeZone:output_type -> alarm.SetTimeZoneResponse
-	29, // 34: alarm.AlarmManagerService.SetWindow4:output_type -> alarm.SetWindow4Response
-	31, // 35: alarm.AlarmManagerService.SetWindow6_1:output_type -> alarm.SetWindow6_1Response
-	33, // 36: alarm.AlarmManagerAlarmClockInfoService.DescribeContents:output_type -> alarm.DescribeContentsResponse
-	35, // 37: alarm.AlarmManagerAlarmClockInfoService.GetShowIntent:output_type -> alarm.GetShowIntentResponse
-	37, // 38: alarm.AlarmManagerAlarmClockInfoService.GetTriggerTime:output_type -> alarm.GetTriggerTimeResponse
-	39, // 39: alarm.AlarmManagerAlarmClockInfoService.WriteToParcel:output_type -> alarm.WriteToParcelResponse
+	0,  // 0: alarm.ManagerService.CanScheduleExactAlarms:input_type -> alarm.CanScheduleExactAlarmsRequest
+	2,  // 1: alarm.ManagerService.Cancel1:input_type -> alarm.Cancel1Request
+	4,  // 2: alarm.ManagerService.Cancel1_1:input_type -> alarm.Cancel1_1Request
+	6,  // 3: alarm.ManagerService.CancelAll:input_type -> alarm.CancelAllRequest
+	8,  // 4: alarm.ManagerService.GetNextAlarmClock:input_type -> alarm.GetNextAlarmClockRequest
+	10, // 5: alarm.ManagerService.Set:input_type -> alarm.SetRequest
+	12, // 6: alarm.ManagerService.SetAlarmClock:input_type -> alarm.SetAlarmClockRequest
+	14, // 7: alarm.ManagerService.SetAndAllowWhileIdle:input_type -> alarm.SetAndAllowWhileIdleRequest
+	16, // 8: alarm.ManagerService.SetExact:input_type -> alarm.SetExactRequest
+	18, // 9: alarm.ManagerService.SetExactAndAllowWhileIdle:input_type -> alarm.SetExactAndAllowWhileIdleRequest
+	20, // 10: alarm.ManagerService.SetInexactRepeating:input_type -> alarm.SetInexactRepeatingRequest
+	22, // 11: alarm.ManagerService.SetRepeating:input_type -> alarm.SetRepeatingRequest
+	24, // 12: alarm.ManagerService.SetTime:input_type -> alarm.SetTimeRequest
+	26, // 13: alarm.ManagerService.SetTimeZone:input_type -> alarm.SetTimeZoneRequest
+	28, // 14: alarm.ManagerService.SetWindow4:input_type -> alarm.SetWindow4Request
+	30, // 15: alarm.ManagerService.SetWindow6_1:input_type -> alarm.SetWindow6_1Request
+	32, // 16: alarm.ManagerAlarmClockInfoService.DescribeContents:input_type -> alarm.DescribeContentsRequest
+	34, // 17: alarm.ManagerAlarmClockInfoService.GetShowIntent:input_type -> alarm.GetShowIntentRequest
+	36, // 18: alarm.ManagerAlarmClockInfoService.GetTriggerTime:input_type -> alarm.GetTriggerTimeRequest
+	38, // 19: alarm.ManagerAlarmClockInfoService.WriteToParcel:input_type -> alarm.WriteToParcelRequest
+	1,  // 20: alarm.ManagerService.CanScheduleExactAlarms:output_type -> alarm.CanScheduleExactAlarmsResponse
+	3,  // 21: alarm.ManagerService.Cancel1:output_type -> alarm.Cancel1Response
+	5,  // 22: alarm.ManagerService.Cancel1_1:output_type -> alarm.Cancel1_1Response
+	7,  // 23: alarm.ManagerService.CancelAll:output_type -> alarm.CancelAllResponse
+	9,  // 24: alarm.ManagerService.GetNextAlarmClock:output_type -> alarm.GetNextAlarmClockResponse
+	11, // 25: alarm.ManagerService.Set:output_type -> alarm.SetResponse
+	13, // 26: alarm.ManagerService.SetAlarmClock:output_type -> alarm.SetAlarmClockResponse
+	15, // 27: alarm.ManagerService.SetAndAllowWhileIdle:output_type -> alarm.SetAndAllowWhileIdleResponse
+	17, // 28: alarm.ManagerService.SetExact:output_type -> alarm.SetExactResponse
+	19, // 29: alarm.ManagerService.SetExactAndAllowWhileIdle:output_type -> alarm.SetExactAndAllowWhileIdleResponse
+	21, // 30: alarm.ManagerService.SetInexactRepeating:output_type -> alarm.SetInexactRepeatingResponse
+	23, // 31: alarm.ManagerService.SetRepeating:output_type -> alarm.SetRepeatingResponse
+	25, // 32: alarm.ManagerService.SetTime:output_type -> alarm.SetTimeResponse
+	27, // 33: alarm.ManagerService.SetTimeZone:output_type -> alarm.SetTimeZoneResponse
+	29, // 34: alarm.ManagerService.SetWindow4:output_type -> alarm.SetWindow4Response
+	31, // 35: alarm.ManagerService.SetWindow6_1:output_type -> alarm.SetWindow6_1Response
+	33, // 36: alarm.ManagerAlarmClockInfoService.DescribeContents:output_type -> alarm.DescribeContentsResponse
+	35, // 37: alarm.ManagerAlarmClockInfoService.GetShowIntent:output_type -> alarm.GetShowIntentResponse
+	37, // 38: alarm.ManagerAlarmClockInfoService.GetTriggerTime:output_type -> alarm.GetTriggerTimeResponse
+	39, // 39: alarm.ManagerAlarmClockInfoService.WriteToParcel:output_type -> alarm.WriteToParcelResponse
 	20, // [20:40] is the sub-list for method output_type
 	0,  // [0:20] is the sub-list for method input_type
 	0,  // [0:0] is the sub-list for extension type_name

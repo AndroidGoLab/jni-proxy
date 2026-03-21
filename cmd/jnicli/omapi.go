@@ -3,218 +3,13 @@
 package main
 
 import (
-	"github.com/spf13/cobra"
 	pb "github.com/AndroidGoLab/jni-proxy/proto/omapi"
+	"github.com/spf13/cobra"
 )
 
 var omapiCmd = &cobra.Command{
 	Use:   "omapi",
 	Short: "omapi service operations",
-}
-
-var omapiChannelCmd = &cobra.Command{
-	Use:   "channel",
-	Short: "ChannelService operations",
-}
-
-var omapiChannelCloseCmd = &cobra.Command{
-	Use:   "close",
-	Short: "Close RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewChannelServiceClient(grpcConn)
-		req := &pb.CloseRequest{}
-		resp, err := client.Close(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var omapiChannelGetSelectResponseCmd = &cobra.Command{
-	Use:   "get-select-response",
-	Short: "GetSelectResponse RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewChannelServiceClient(grpcConn)
-		req := &pb.GetSelectResponseRequest{}
-		resp, err := client.GetSelectResponse(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var omapiChannelGetSessionCmd = &cobra.Command{
-	Use:   "get-session",
-	Short: "GetSession RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewChannelServiceClient(grpcConn)
-		req := &pb.GetSessionRequest{}
-		resp, err := client.GetSession(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var omapiChannelIsBasicChannelCmd = &cobra.Command{
-	Use:   "is-basic-channel",
-	Short: "IsBasicChannel RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewChannelServiceClient(grpcConn)
-		req := &pb.IsBasicChannelRequest{}
-		resp, err := client.IsBasicChannel(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var omapiChannelIsOpenCmd = &cobra.Command{
-	Use:   "is-open",
-	Short: "IsOpen RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewChannelServiceClient(grpcConn)
-		req := &pb.IsOpenRequest{}
-		resp, err := client.IsOpen(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var omapiChannelSelectNextCmd = &cobra.Command{
-	Use:   "select-next",
-	Short: "SelectNext RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewChannelServiceClient(grpcConn)
-		req := &pb.SelectNextRequest{}
-		resp, err := client.SelectNext(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var omapiChannelTransmitCmd = &cobra.Command{
-	Use:   "transmit",
-	Short: "Transmit RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewChannelServiceClient(grpcConn)
-		req := &pb.TransmitRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.Transmit(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var omapiReaderCmd = &cobra.Command{
-	Use:   "reader",
-	Short: "ReaderService operations",
-}
-
-var omapiReaderCloseSessionsCmd = &cobra.Command{
-	Use:   "close-sessions",
-	Short: "CloseSessions RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewReaderServiceClient(grpcConn)
-		req := &pb.CloseSessionsRequest{}
-		resp, err := client.CloseSessions(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var omapiReaderGetNameCmd = &cobra.Command{
-	Use:   "get-name",
-	Short: "GetName RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewReaderServiceClient(grpcConn)
-		req := &pb.GetNameRequest{}
-		resp, err := client.GetName(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var omapiReaderGetSEServiceCmd = &cobra.Command{
-	Use:   "get-se-service",
-	Short: "GetSEService RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewReaderServiceClient(grpcConn)
-		req := &pb.GetSEServiceRequest{}
-		resp, err := client.GetSEService(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var omapiReaderIsSecureElementPresentCmd = &cobra.Command{
-	Use:   "is-secure-element-present",
-	Short: "IsSecureElementPresent RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewReaderServiceClient(grpcConn)
-		req := &pb.IsSecureElementPresentRequest{}
-		resp, err := client.IsSecureElementPresent(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var omapiReaderOpenSessionCmd = &cobra.Command{
-	Use:   "open-session",
-	Short: "OpenSession RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewReaderServiceClient(grpcConn)
-		req := &pb.OpenSessionRequest{}
-		resp, err := client.OpenSession(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
 }
 
 var omapiSEServiceCmd = &cobra.Command{
@@ -472,22 +267,212 @@ var omapiSessionOpenLogicalChannel2_1Cmd = &cobra.Command{
 	},
 }
 
+var omapiChannelCmd = &cobra.Command{
+	Use:   "channel",
+	Short: "ChannelService operations",
+}
+
+var omapiChannelCloseCmd = &cobra.Command{
+	Use:   "close",
+	Short: "Close RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewChannelServiceClient(grpcConn)
+		req := &pb.CloseRequest{}
+		resp, err := client.Close(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var omapiChannelGetSelectResponseCmd = &cobra.Command{
+	Use:   "get-select-response",
+	Short: "GetSelectResponse RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewChannelServiceClient(grpcConn)
+		req := &pb.GetSelectResponseRequest{}
+		resp, err := client.GetSelectResponse(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var omapiChannelGetSessionCmd = &cobra.Command{
+	Use:   "get-session",
+	Short: "GetSession RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewChannelServiceClient(grpcConn)
+		req := &pb.GetSessionRequest{}
+		resp, err := client.GetSession(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var omapiChannelIsBasicChannelCmd = &cobra.Command{
+	Use:   "is-basic-channel",
+	Short: "IsBasicChannel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewChannelServiceClient(grpcConn)
+		req := &pb.IsBasicChannelRequest{}
+		resp, err := client.IsBasicChannel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var omapiChannelIsOpenCmd = &cobra.Command{
+	Use:   "is-open",
+	Short: "IsOpen RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewChannelServiceClient(grpcConn)
+		req := &pb.IsOpenRequest{}
+		resp, err := client.IsOpen(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var omapiChannelSelectNextCmd = &cobra.Command{
+	Use:   "select-next",
+	Short: "SelectNext RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewChannelServiceClient(grpcConn)
+		req := &pb.SelectNextRequest{}
+		resp, err := client.SelectNext(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var omapiChannelTransmitCmd = &cobra.Command{
+	Use:   "transmit",
+	Short: "Transmit RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewChannelServiceClient(grpcConn)
+		req := &pb.TransmitRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Transmit(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var omapiReaderCmd = &cobra.Command{
+	Use:   "reader",
+	Short: "ReaderService operations",
+}
+
+var omapiReaderCloseSessionsCmd = &cobra.Command{
+	Use:   "close-sessions",
+	Short: "CloseSessions RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewReaderServiceClient(grpcConn)
+		req := &pb.CloseSessionsRequest{}
+		resp, err := client.CloseSessions(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var omapiReaderGetNameCmd = &cobra.Command{
+	Use:   "get-name",
+	Short: "GetName RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewReaderServiceClient(grpcConn)
+		req := &pb.GetNameRequest{}
+		resp, err := client.GetName(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var omapiReaderGetSEServiceCmd = &cobra.Command{
+	Use:   "get-se-service",
+	Short: "GetSEService RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewReaderServiceClient(grpcConn)
+		req := &pb.GetSEServiceRequest{}
+		resp, err := client.GetSEService(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var omapiReaderIsSecureElementPresentCmd = &cobra.Command{
+	Use:   "is-secure-element-present",
+	Short: "IsSecureElementPresent RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewReaderServiceClient(grpcConn)
+		req := &pb.IsSecureElementPresentRequest{}
+		resp, err := client.IsSecureElementPresent(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var omapiReaderOpenSessionCmd = &cobra.Command{
+	Use:   "open-session",
+	Short: "OpenSession RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewReaderServiceClient(grpcConn)
+		req := &pb.OpenSessionRequest{}
+		resp, err := client.OpenSession(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
 func init() {
-	omapiChannelCmd.AddCommand(omapiChannelCloseCmd)
-	omapiChannelCmd.AddCommand(omapiChannelGetSelectResponseCmd)
-	omapiChannelCmd.AddCommand(omapiChannelGetSessionCmd)
-	omapiChannelCmd.AddCommand(omapiChannelIsBasicChannelCmd)
-	omapiChannelCmd.AddCommand(omapiChannelIsOpenCmd)
-	omapiChannelCmd.AddCommand(omapiChannelSelectNextCmd)
-	omapiChannelTransmitCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	omapiChannelCmd.AddCommand(omapiChannelTransmitCmd)
-	omapiCmd.AddCommand(omapiChannelCmd)
-	omapiReaderCmd.AddCommand(omapiReaderCloseSessionsCmd)
-	omapiReaderCmd.AddCommand(omapiReaderGetNameCmd)
-	omapiReaderCmd.AddCommand(omapiReaderGetSEServiceCmd)
-	omapiReaderCmd.AddCommand(omapiReaderIsSecureElementPresentCmd)
-	omapiReaderCmd.AddCommand(omapiReaderOpenSessionCmd)
-	omapiCmd.AddCommand(omapiReaderCmd)
 	omapiSEServiceCmd.AddCommand(omapiSEServiceGetReadersCmd)
 	omapiSEServiceGetUiccReaderCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
 	omapiSEServiceCmd.AddCommand(omapiSEServiceGetUiccReaderCmd)
@@ -511,5 +496,20 @@ func init() {
 	omapiSessionOpenLogicalChannel2_1Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
 	omapiSessionCmd.AddCommand(omapiSessionOpenLogicalChannel2_1Cmd)
 	omapiCmd.AddCommand(omapiSessionCmd)
+	omapiChannelCmd.AddCommand(omapiChannelCloseCmd)
+	omapiChannelCmd.AddCommand(omapiChannelGetSelectResponseCmd)
+	omapiChannelCmd.AddCommand(omapiChannelGetSessionCmd)
+	omapiChannelCmd.AddCommand(omapiChannelIsBasicChannelCmd)
+	omapiChannelCmd.AddCommand(omapiChannelIsOpenCmd)
+	omapiChannelCmd.AddCommand(omapiChannelSelectNextCmd)
+	omapiChannelTransmitCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	omapiChannelCmd.AddCommand(omapiChannelTransmitCmd)
+	omapiCmd.AddCommand(omapiChannelCmd)
+	omapiReaderCmd.AddCommand(omapiReaderCloseSessionsCmd)
+	omapiReaderCmd.AddCommand(omapiReaderGetNameCmd)
+	omapiReaderCmd.AddCommand(omapiReaderGetSEServiceCmd)
+	omapiReaderCmd.AddCommand(omapiReaderIsSecureElementPresentCmd)
+	omapiReaderCmd.AddCommand(omapiReaderOpenSessionCmd)
+	omapiCmd.AddCommand(omapiReaderCmd)
 	rootCmd.AddCommand(omapiCmd)
 }

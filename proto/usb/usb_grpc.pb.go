@@ -21,952 +21,26 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
-	UsbInterfaceService_DescribeContents_FullMethodName     = "/usb.UsbInterfaceService/DescribeContents"
-	UsbInterfaceService_GetAlternateSetting_FullMethodName  = "/usb.UsbInterfaceService/GetAlternateSetting"
-	UsbInterfaceService_GetEndpoint_FullMethodName          = "/usb.UsbInterfaceService/GetEndpoint"
-	UsbInterfaceService_GetEndpointCount_FullMethodName     = "/usb.UsbInterfaceService/GetEndpointCount"
-	UsbInterfaceService_GetId_FullMethodName                = "/usb.UsbInterfaceService/GetId"
-	UsbInterfaceService_GetInterfaceClass_FullMethodName    = "/usb.UsbInterfaceService/GetInterfaceClass"
-	UsbInterfaceService_GetInterfaceProtocol_FullMethodName = "/usb.UsbInterfaceService/GetInterfaceProtocol"
-	UsbInterfaceService_GetInterfaceSubclass_FullMethodName = "/usb.UsbInterfaceService/GetInterfaceSubclass"
-	UsbInterfaceService_GetName_FullMethodName              = "/usb.UsbInterfaceService/GetName"
-	UsbInterfaceService_ToString_FullMethodName             = "/usb.UsbInterfaceService/ToString"
-	UsbInterfaceService_WriteToParcel_FullMethodName        = "/usb.UsbInterfaceService/WriteToParcel"
+	DeviceConnectionService_BulkTransfer4_FullMethodName      = "/usb.DeviceConnectionService/BulkTransfer4"
+	DeviceConnectionService_BulkTransfer5_1_FullMethodName    = "/usb.DeviceConnectionService/BulkTransfer5_1"
+	DeviceConnectionService_ClaimInterface_FullMethodName     = "/usb.DeviceConnectionService/ClaimInterface"
+	DeviceConnectionService_Close_FullMethodName              = "/usb.DeviceConnectionService/Close"
+	DeviceConnectionService_ControlTransfer7_FullMethodName   = "/usb.DeviceConnectionService/ControlTransfer7"
+	DeviceConnectionService_ControlTransfer8_1_FullMethodName = "/usb.DeviceConnectionService/ControlTransfer8_1"
+	DeviceConnectionService_GetFileDescriptor_FullMethodName  = "/usb.DeviceConnectionService/GetFileDescriptor"
+	DeviceConnectionService_GetRawDescriptors_FullMethodName  = "/usb.DeviceConnectionService/GetRawDescriptors"
+	DeviceConnectionService_GetSerial_FullMethodName          = "/usb.DeviceConnectionService/GetSerial"
+	DeviceConnectionService_ReleaseInterface_FullMethodName   = "/usb.DeviceConnectionService/ReleaseInterface"
+	DeviceConnectionService_RequestWait0_FullMethodName       = "/usb.DeviceConnectionService/RequestWait0"
+	DeviceConnectionService_RequestWait1_1_FullMethodName     = "/usb.DeviceConnectionService/RequestWait1_1"
+	DeviceConnectionService_SetConfiguration_FullMethodName   = "/usb.DeviceConnectionService/SetConfiguration"
+	DeviceConnectionService_SetInterface_FullMethodName       = "/usb.DeviceConnectionService/SetInterface"
 )
 
-// UsbInterfaceServiceClient is the client API for UsbInterfaceService service.
+// DeviceConnectionServiceClient is the client API for DeviceConnectionService service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type UsbInterfaceServiceClient interface {
-	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
-	GetAlternateSetting(ctx context.Context, in *GetAlternateSettingRequest, opts ...grpc.CallOption) (*GetAlternateSettingResponse, error)
-	GetEndpoint(ctx context.Context, in *GetEndpointRequest, opts ...grpc.CallOption) (*GetEndpointResponse, error)
-	GetEndpointCount(ctx context.Context, in *GetEndpointCountRequest, opts ...grpc.CallOption) (*GetEndpointCountResponse, error)
-	GetId(ctx context.Context, in *GetIdRequest, opts ...grpc.CallOption) (*GetIdResponse, error)
-	GetInterfaceClass(ctx context.Context, in *GetInterfaceClassRequest, opts ...grpc.CallOption) (*GetInterfaceClassResponse, error)
-	GetInterfaceProtocol(ctx context.Context, in *GetInterfaceProtocolRequest, opts ...grpc.CallOption) (*GetInterfaceProtocolResponse, error)
-	GetInterfaceSubclass(ctx context.Context, in *GetInterfaceSubclassRequest, opts ...grpc.CallOption) (*GetInterfaceSubclassResponse, error)
-	GetName(ctx context.Context, in *GetNameRequest, opts ...grpc.CallOption) (*GetNameResponse, error)
-	ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
-	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
-}
-
-type usbInterfaceServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewUsbInterfaceServiceClient(cc grpc.ClientConnInterface) UsbInterfaceServiceClient {
-	return &usbInterfaceServiceClient{cc}
-}
-
-func (c *usbInterfaceServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(DescribeContentsResponse)
-	err := c.cc.Invoke(ctx, UsbInterfaceService_DescribeContents_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *usbInterfaceServiceClient) GetAlternateSetting(ctx context.Context, in *GetAlternateSettingRequest, opts ...grpc.CallOption) (*GetAlternateSettingResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetAlternateSettingResponse)
-	err := c.cc.Invoke(ctx, UsbInterfaceService_GetAlternateSetting_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *usbInterfaceServiceClient) GetEndpoint(ctx context.Context, in *GetEndpointRequest, opts ...grpc.CallOption) (*GetEndpointResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetEndpointResponse)
-	err := c.cc.Invoke(ctx, UsbInterfaceService_GetEndpoint_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *usbInterfaceServiceClient) GetEndpointCount(ctx context.Context, in *GetEndpointCountRequest, opts ...grpc.CallOption) (*GetEndpointCountResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetEndpointCountResponse)
-	err := c.cc.Invoke(ctx, UsbInterfaceService_GetEndpointCount_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *usbInterfaceServiceClient) GetId(ctx context.Context, in *GetIdRequest, opts ...grpc.CallOption) (*GetIdResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetIdResponse)
-	err := c.cc.Invoke(ctx, UsbInterfaceService_GetId_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *usbInterfaceServiceClient) GetInterfaceClass(ctx context.Context, in *GetInterfaceClassRequest, opts ...grpc.CallOption) (*GetInterfaceClassResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetInterfaceClassResponse)
-	err := c.cc.Invoke(ctx, UsbInterfaceService_GetInterfaceClass_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *usbInterfaceServiceClient) GetInterfaceProtocol(ctx context.Context, in *GetInterfaceProtocolRequest, opts ...grpc.CallOption) (*GetInterfaceProtocolResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetInterfaceProtocolResponse)
-	err := c.cc.Invoke(ctx, UsbInterfaceService_GetInterfaceProtocol_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *usbInterfaceServiceClient) GetInterfaceSubclass(ctx context.Context, in *GetInterfaceSubclassRequest, opts ...grpc.CallOption) (*GetInterfaceSubclassResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetInterfaceSubclassResponse)
-	err := c.cc.Invoke(ctx, UsbInterfaceService_GetInterfaceSubclass_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *usbInterfaceServiceClient) GetName(ctx context.Context, in *GetNameRequest, opts ...grpc.CallOption) (*GetNameResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetNameResponse)
-	err := c.cc.Invoke(ctx, UsbInterfaceService_GetName_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *usbInterfaceServiceClient) ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ToStringResponse)
-	err := c.cc.Invoke(ctx, UsbInterfaceService_ToString_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *usbInterfaceServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(WriteToParcelResponse)
-	err := c.cc.Invoke(ctx, UsbInterfaceService_WriteToParcel_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// UsbInterfaceServiceServer is the server API for UsbInterfaceService service.
-// All implementations must embed UnimplementedUsbInterfaceServiceServer
-// for forward compatibility.
-type UsbInterfaceServiceServer interface {
-	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
-	GetAlternateSetting(context.Context, *GetAlternateSettingRequest) (*GetAlternateSettingResponse, error)
-	GetEndpoint(context.Context, *GetEndpointRequest) (*GetEndpointResponse, error)
-	GetEndpointCount(context.Context, *GetEndpointCountRequest) (*GetEndpointCountResponse, error)
-	GetId(context.Context, *GetIdRequest) (*GetIdResponse, error)
-	GetInterfaceClass(context.Context, *GetInterfaceClassRequest) (*GetInterfaceClassResponse, error)
-	GetInterfaceProtocol(context.Context, *GetInterfaceProtocolRequest) (*GetInterfaceProtocolResponse, error)
-	GetInterfaceSubclass(context.Context, *GetInterfaceSubclassRequest) (*GetInterfaceSubclassResponse, error)
-	GetName(context.Context, *GetNameRequest) (*GetNameResponse, error)
-	ToString(context.Context, *ToStringRequest) (*ToStringResponse, error)
-	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
-	mustEmbedUnimplementedUsbInterfaceServiceServer()
-}
-
-// UnimplementedUsbInterfaceServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedUsbInterfaceServiceServer struct{}
-
-func (UnimplementedUsbInterfaceServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
-}
-func (UnimplementedUsbInterfaceServiceServer) GetAlternateSetting(context.Context, *GetAlternateSettingRequest) (*GetAlternateSettingResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetAlternateSetting not implemented")
-}
-func (UnimplementedUsbInterfaceServiceServer) GetEndpoint(context.Context, *GetEndpointRequest) (*GetEndpointResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetEndpoint not implemented")
-}
-func (UnimplementedUsbInterfaceServiceServer) GetEndpointCount(context.Context, *GetEndpointCountRequest) (*GetEndpointCountResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetEndpointCount not implemented")
-}
-func (UnimplementedUsbInterfaceServiceServer) GetId(context.Context, *GetIdRequest) (*GetIdResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetId not implemented")
-}
-func (UnimplementedUsbInterfaceServiceServer) GetInterfaceClass(context.Context, *GetInterfaceClassRequest) (*GetInterfaceClassResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetInterfaceClass not implemented")
-}
-func (UnimplementedUsbInterfaceServiceServer) GetInterfaceProtocol(context.Context, *GetInterfaceProtocolRequest) (*GetInterfaceProtocolResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetInterfaceProtocol not implemented")
-}
-func (UnimplementedUsbInterfaceServiceServer) GetInterfaceSubclass(context.Context, *GetInterfaceSubclassRequest) (*GetInterfaceSubclassResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetInterfaceSubclass not implemented")
-}
-func (UnimplementedUsbInterfaceServiceServer) GetName(context.Context, *GetNameRequest) (*GetNameResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetName not implemented")
-}
-func (UnimplementedUsbInterfaceServiceServer) ToString(context.Context, *ToStringRequest) (*ToStringResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
-}
-func (UnimplementedUsbInterfaceServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
-}
-func (UnimplementedUsbInterfaceServiceServer) mustEmbedUnimplementedUsbInterfaceServiceServer() {}
-func (UnimplementedUsbInterfaceServiceServer) testEmbeddedByValue()                             {}
-
-// UnsafeUsbInterfaceServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to UsbInterfaceServiceServer will
-// result in compilation errors.
-type UnsafeUsbInterfaceServiceServer interface {
-	mustEmbedUnimplementedUsbInterfaceServiceServer()
-}
-
-func RegisterUsbInterfaceServiceServer(s grpc.ServiceRegistrar, srv UsbInterfaceServiceServer) {
-	// If the following call panics, it indicates UnimplementedUsbInterfaceServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&UsbInterfaceService_ServiceDesc, srv)
-}
-
-func _UsbInterfaceService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(DescribeContentsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(UsbInterfaceServiceServer).DescribeContents(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: UsbInterfaceService_DescribeContents_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(UsbInterfaceServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _UsbInterfaceService_GetAlternateSetting_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetAlternateSettingRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(UsbInterfaceServiceServer).GetAlternateSetting(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: UsbInterfaceService_GetAlternateSetting_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(UsbInterfaceServiceServer).GetAlternateSetting(ctx, req.(*GetAlternateSettingRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _UsbInterfaceService_GetEndpoint_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetEndpointRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(UsbInterfaceServiceServer).GetEndpoint(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: UsbInterfaceService_GetEndpoint_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(UsbInterfaceServiceServer).GetEndpoint(ctx, req.(*GetEndpointRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _UsbInterfaceService_GetEndpointCount_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetEndpointCountRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(UsbInterfaceServiceServer).GetEndpointCount(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: UsbInterfaceService_GetEndpointCount_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(UsbInterfaceServiceServer).GetEndpointCount(ctx, req.(*GetEndpointCountRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _UsbInterfaceService_GetId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetIdRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(UsbInterfaceServiceServer).GetId(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: UsbInterfaceService_GetId_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(UsbInterfaceServiceServer).GetId(ctx, req.(*GetIdRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _UsbInterfaceService_GetInterfaceClass_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetInterfaceClassRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(UsbInterfaceServiceServer).GetInterfaceClass(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: UsbInterfaceService_GetInterfaceClass_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(UsbInterfaceServiceServer).GetInterfaceClass(ctx, req.(*GetInterfaceClassRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _UsbInterfaceService_GetInterfaceProtocol_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetInterfaceProtocolRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(UsbInterfaceServiceServer).GetInterfaceProtocol(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: UsbInterfaceService_GetInterfaceProtocol_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(UsbInterfaceServiceServer).GetInterfaceProtocol(ctx, req.(*GetInterfaceProtocolRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _UsbInterfaceService_GetInterfaceSubclass_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetInterfaceSubclassRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(UsbInterfaceServiceServer).GetInterfaceSubclass(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: UsbInterfaceService_GetInterfaceSubclass_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(UsbInterfaceServiceServer).GetInterfaceSubclass(ctx, req.(*GetInterfaceSubclassRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _UsbInterfaceService_GetName_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetNameRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(UsbInterfaceServiceServer).GetName(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: UsbInterfaceService_GetName_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(UsbInterfaceServiceServer).GetName(ctx, req.(*GetNameRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _UsbInterfaceService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ToStringRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(UsbInterfaceServiceServer).ToString(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: UsbInterfaceService_ToString_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(UsbInterfaceServiceServer).ToString(ctx, req.(*ToStringRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _UsbInterfaceService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(WriteToParcelRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(UsbInterfaceServiceServer).WriteToParcel(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: UsbInterfaceService_WriteToParcel_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(UsbInterfaceServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// UsbInterfaceService_ServiceDesc is the grpc.ServiceDesc for UsbInterfaceService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var UsbInterfaceService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "usb.UsbInterfaceService",
-	HandlerType: (*UsbInterfaceServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "DescribeContents",
-			Handler:    _UsbInterfaceService_DescribeContents_Handler,
-		},
-		{
-			MethodName: "GetAlternateSetting",
-			Handler:    _UsbInterfaceService_GetAlternateSetting_Handler,
-		},
-		{
-			MethodName: "GetEndpoint",
-			Handler:    _UsbInterfaceService_GetEndpoint_Handler,
-		},
-		{
-			MethodName: "GetEndpointCount",
-			Handler:    _UsbInterfaceService_GetEndpointCount_Handler,
-		},
-		{
-			MethodName: "GetId",
-			Handler:    _UsbInterfaceService_GetId_Handler,
-		},
-		{
-			MethodName: "GetInterfaceClass",
-			Handler:    _UsbInterfaceService_GetInterfaceClass_Handler,
-		},
-		{
-			MethodName: "GetInterfaceProtocol",
-			Handler:    _UsbInterfaceService_GetInterfaceProtocol_Handler,
-		},
-		{
-			MethodName: "GetInterfaceSubclass",
-			Handler:    _UsbInterfaceService_GetInterfaceSubclass_Handler,
-		},
-		{
-			MethodName: "GetName",
-			Handler:    _UsbInterfaceService_GetName_Handler,
-		},
-		{
-			MethodName: "ToString",
-			Handler:    _UsbInterfaceService_ToString_Handler,
-		},
-		{
-			MethodName: "WriteToParcel",
-			Handler:    _UsbInterfaceService_WriteToParcel_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/usb/usb.proto",
-}
-
-const (
-	UsbEndpointService_DescribeContents_FullMethodName  = "/usb.UsbEndpointService/DescribeContents"
-	UsbEndpointService_GetAddress_FullMethodName        = "/usb.UsbEndpointService/GetAddress"
-	UsbEndpointService_GetAttributes_FullMethodName     = "/usb.UsbEndpointService/GetAttributes"
-	UsbEndpointService_GetDirection_FullMethodName      = "/usb.UsbEndpointService/GetDirection"
-	UsbEndpointService_GetEndpointNumber_FullMethodName = "/usb.UsbEndpointService/GetEndpointNumber"
-	UsbEndpointService_GetInterval_FullMethodName       = "/usb.UsbEndpointService/GetInterval"
-	UsbEndpointService_GetMaxPacketSize_FullMethodName  = "/usb.UsbEndpointService/GetMaxPacketSize"
-	UsbEndpointService_GetType_FullMethodName           = "/usb.UsbEndpointService/GetType"
-	UsbEndpointService_ToString_FullMethodName          = "/usb.UsbEndpointService/ToString"
-	UsbEndpointService_WriteToParcel_FullMethodName     = "/usb.UsbEndpointService/WriteToParcel"
-)
-
-// UsbEndpointServiceClient is the client API for UsbEndpointService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type UsbEndpointServiceClient interface {
-	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
-	GetAddress(ctx context.Context, in *GetAddressRequest, opts ...grpc.CallOption) (*GetAddressResponse, error)
-	GetAttributes(ctx context.Context, in *GetAttributesRequest, opts ...grpc.CallOption) (*GetAttributesResponse, error)
-	GetDirection(ctx context.Context, in *GetDirectionRequest, opts ...grpc.CallOption) (*GetDirectionResponse, error)
-	GetEndpointNumber(ctx context.Context, in *GetEndpointNumberRequest, opts ...grpc.CallOption) (*GetEndpointNumberResponse, error)
-	GetInterval(ctx context.Context, in *GetIntervalRequest, opts ...grpc.CallOption) (*GetIntervalResponse, error)
-	GetMaxPacketSize(ctx context.Context, in *GetMaxPacketSizeRequest, opts ...grpc.CallOption) (*GetMaxPacketSizeResponse, error)
-	GetType(ctx context.Context, in *GetTypeRequest, opts ...grpc.CallOption) (*GetTypeResponse, error)
-	ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
-	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
-}
-
-type usbEndpointServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewUsbEndpointServiceClient(cc grpc.ClientConnInterface) UsbEndpointServiceClient {
-	return &usbEndpointServiceClient{cc}
-}
-
-func (c *usbEndpointServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(DescribeContentsResponse)
-	err := c.cc.Invoke(ctx, UsbEndpointService_DescribeContents_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *usbEndpointServiceClient) GetAddress(ctx context.Context, in *GetAddressRequest, opts ...grpc.CallOption) (*GetAddressResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetAddressResponse)
-	err := c.cc.Invoke(ctx, UsbEndpointService_GetAddress_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *usbEndpointServiceClient) GetAttributes(ctx context.Context, in *GetAttributesRequest, opts ...grpc.CallOption) (*GetAttributesResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetAttributesResponse)
-	err := c.cc.Invoke(ctx, UsbEndpointService_GetAttributes_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *usbEndpointServiceClient) GetDirection(ctx context.Context, in *GetDirectionRequest, opts ...grpc.CallOption) (*GetDirectionResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetDirectionResponse)
-	err := c.cc.Invoke(ctx, UsbEndpointService_GetDirection_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *usbEndpointServiceClient) GetEndpointNumber(ctx context.Context, in *GetEndpointNumberRequest, opts ...grpc.CallOption) (*GetEndpointNumberResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetEndpointNumberResponse)
-	err := c.cc.Invoke(ctx, UsbEndpointService_GetEndpointNumber_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *usbEndpointServiceClient) GetInterval(ctx context.Context, in *GetIntervalRequest, opts ...grpc.CallOption) (*GetIntervalResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetIntervalResponse)
-	err := c.cc.Invoke(ctx, UsbEndpointService_GetInterval_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *usbEndpointServiceClient) GetMaxPacketSize(ctx context.Context, in *GetMaxPacketSizeRequest, opts ...grpc.CallOption) (*GetMaxPacketSizeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetMaxPacketSizeResponse)
-	err := c.cc.Invoke(ctx, UsbEndpointService_GetMaxPacketSize_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *usbEndpointServiceClient) GetType(ctx context.Context, in *GetTypeRequest, opts ...grpc.CallOption) (*GetTypeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetTypeResponse)
-	err := c.cc.Invoke(ctx, UsbEndpointService_GetType_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *usbEndpointServiceClient) ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ToStringResponse)
-	err := c.cc.Invoke(ctx, UsbEndpointService_ToString_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *usbEndpointServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(WriteToParcelResponse)
-	err := c.cc.Invoke(ctx, UsbEndpointService_WriteToParcel_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// UsbEndpointServiceServer is the server API for UsbEndpointService service.
-// All implementations must embed UnimplementedUsbEndpointServiceServer
-// for forward compatibility.
-type UsbEndpointServiceServer interface {
-	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
-	GetAddress(context.Context, *GetAddressRequest) (*GetAddressResponse, error)
-	GetAttributes(context.Context, *GetAttributesRequest) (*GetAttributesResponse, error)
-	GetDirection(context.Context, *GetDirectionRequest) (*GetDirectionResponse, error)
-	GetEndpointNumber(context.Context, *GetEndpointNumberRequest) (*GetEndpointNumberResponse, error)
-	GetInterval(context.Context, *GetIntervalRequest) (*GetIntervalResponse, error)
-	GetMaxPacketSize(context.Context, *GetMaxPacketSizeRequest) (*GetMaxPacketSizeResponse, error)
-	GetType(context.Context, *GetTypeRequest) (*GetTypeResponse, error)
-	ToString(context.Context, *ToStringRequest) (*ToStringResponse, error)
-	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
-	mustEmbedUnimplementedUsbEndpointServiceServer()
-}
-
-// UnimplementedUsbEndpointServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedUsbEndpointServiceServer struct{}
-
-func (UnimplementedUsbEndpointServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
-}
-func (UnimplementedUsbEndpointServiceServer) GetAddress(context.Context, *GetAddressRequest) (*GetAddressResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetAddress not implemented")
-}
-func (UnimplementedUsbEndpointServiceServer) GetAttributes(context.Context, *GetAttributesRequest) (*GetAttributesResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetAttributes not implemented")
-}
-func (UnimplementedUsbEndpointServiceServer) GetDirection(context.Context, *GetDirectionRequest) (*GetDirectionResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetDirection not implemented")
-}
-func (UnimplementedUsbEndpointServiceServer) GetEndpointNumber(context.Context, *GetEndpointNumberRequest) (*GetEndpointNumberResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetEndpointNumber not implemented")
-}
-func (UnimplementedUsbEndpointServiceServer) GetInterval(context.Context, *GetIntervalRequest) (*GetIntervalResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetInterval not implemented")
-}
-func (UnimplementedUsbEndpointServiceServer) GetMaxPacketSize(context.Context, *GetMaxPacketSizeRequest) (*GetMaxPacketSizeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetMaxPacketSize not implemented")
-}
-func (UnimplementedUsbEndpointServiceServer) GetType(context.Context, *GetTypeRequest) (*GetTypeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetType not implemented")
-}
-func (UnimplementedUsbEndpointServiceServer) ToString(context.Context, *ToStringRequest) (*ToStringResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
-}
-func (UnimplementedUsbEndpointServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
-}
-func (UnimplementedUsbEndpointServiceServer) mustEmbedUnimplementedUsbEndpointServiceServer() {}
-func (UnimplementedUsbEndpointServiceServer) testEmbeddedByValue()                            {}
-
-// UnsafeUsbEndpointServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to UsbEndpointServiceServer will
-// result in compilation errors.
-type UnsafeUsbEndpointServiceServer interface {
-	mustEmbedUnimplementedUsbEndpointServiceServer()
-}
-
-func RegisterUsbEndpointServiceServer(s grpc.ServiceRegistrar, srv UsbEndpointServiceServer) {
-	// If the following call panics, it indicates UnimplementedUsbEndpointServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&UsbEndpointService_ServiceDesc, srv)
-}
-
-func _UsbEndpointService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(DescribeContentsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(UsbEndpointServiceServer).DescribeContents(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: UsbEndpointService_DescribeContents_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(UsbEndpointServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _UsbEndpointService_GetAddress_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetAddressRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(UsbEndpointServiceServer).GetAddress(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: UsbEndpointService_GetAddress_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(UsbEndpointServiceServer).GetAddress(ctx, req.(*GetAddressRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _UsbEndpointService_GetAttributes_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetAttributesRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(UsbEndpointServiceServer).GetAttributes(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: UsbEndpointService_GetAttributes_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(UsbEndpointServiceServer).GetAttributes(ctx, req.(*GetAttributesRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _UsbEndpointService_GetDirection_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetDirectionRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(UsbEndpointServiceServer).GetDirection(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: UsbEndpointService_GetDirection_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(UsbEndpointServiceServer).GetDirection(ctx, req.(*GetDirectionRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _UsbEndpointService_GetEndpointNumber_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetEndpointNumberRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(UsbEndpointServiceServer).GetEndpointNumber(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: UsbEndpointService_GetEndpointNumber_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(UsbEndpointServiceServer).GetEndpointNumber(ctx, req.(*GetEndpointNumberRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _UsbEndpointService_GetInterval_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetIntervalRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(UsbEndpointServiceServer).GetInterval(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: UsbEndpointService_GetInterval_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(UsbEndpointServiceServer).GetInterval(ctx, req.(*GetIntervalRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _UsbEndpointService_GetMaxPacketSize_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetMaxPacketSizeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(UsbEndpointServiceServer).GetMaxPacketSize(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: UsbEndpointService_GetMaxPacketSize_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(UsbEndpointServiceServer).GetMaxPacketSize(ctx, req.(*GetMaxPacketSizeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _UsbEndpointService_GetType_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetTypeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(UsbEndpointServiceServer).GetType(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: UsbEndpointService_GetType_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(UsbEndpointServiceServer).GetType(ctx, req.(*GetTypeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _UsbEndpointService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ToStringRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(UsbEndpointServiceServer).ToString(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: UsbEndpointService_ToString_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(UsbEndpointServiceServer).ToString(ctx, req.(*ToStringRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _UsbEndpointService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(WriteToParcelRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(UsbEndpointServiceServer).WriteToParcel(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: UsbEndpointService_WriteToParcel_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(UsbEndpointServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// UsbEndpointService_ServiceDesc is the grpc.ServiceDesc for UsbEndpointService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var UsbEndpointService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "usb.UsbEndpointService",
-	HandlerType: (*UsbEndpointServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "DescribeContents",
-			Handler:    _UsbEndpointService_DescribeContents_Handler,
-		},
-		{
-			MethodName: "GetAddress",
-			Handler:    _UsbEndpointService_GetAddress_Handler,
-		},
-		{
-			MethodName: "GetAttributes",
-			Handler:    _UsbEndpointService_GetAttributes_Handler,
-		},
-		{
-			MethodName: "GetDirection",
-			Handler:    _UsbEndpointService_GetDirection_Handler,
-		},
-		{
-			MethodName: "GetEndpointNumber",
-			Handler:    _UsbEndpointService_GetEndpointNumber_Handler,
-		},
-		{
-			MethodName: "GetInterval",
-			Handler:    _UsbEndpointService_GetInterval_Handler,
-		},
-		{
-			MethodName: "GetMaxPacketSize",
-			Handler:    _UsbEndpointService_GetMaxPacketSize_Handler,
-		},
-		{
-			MethodName: "GetType",
-			Handler:    _UsbEndpointService_GetType_Handler,
-		},
-		{
-			MethodName: "ToString",
-			Handler:    _UsbEndpointService_ToString_Handler,
-		},
-		{
-			MethodName: "WriteToParcel",
-			Handler:    _UsbEndpointService_WriteToParcel_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/usb/usb.proto",
-}
-
-const (
-	UsbDeviceConnectionService_BulkTransfer4_FullMethodName      = "/usb.UsbDeviceConnectionService/BulkTransfer4"
-	UsbDeviceConnectionService_BulkTransfer5_1_FullMethodName    = "/usb.UsbDeviceConnectionService/BulkTransfer5_1"
-	UsbDeviceConnectionService_ClaimInterface_FullMethodName     = "/usb.UsbDeviceConnectionService/ClaimInterface"
-	UsbDeviceConnectionService_Close_FullMethodName              = "/usb.UsbDeviceConnectionService/Close"
-	UsbDeviceConnectionService_ControlTransfer7_FullMethodName   = "/usb.UsbDeviceConnectionService/ControlTransfer7"
-	UsbDeviceConnectionService_ControlTransfer8_1_FullMethodName = "/usb.UsbDeviceConnectionService/ControlTransfer8_1"
-	UsbDeviceConnectionService_GetFileDescriptor_FullMethodName  = "/usb.UsbDeviceConnectionService/GetFileDescriptor"
-	UsbDeviceConnectionService_GetRawDescriptors_FullMethodName  = "/usb.UsbDeviceConnectionService/GetRawDescriptors"
-	UsbDeviceConnectionService_GetSerial_FullMethodName          = "/usb.UsbDeviceConnectionService/GetSerial"
-	UsbDeviceConnectionService_ReleaseInterface_FullMethodName   = "/usb.UsbDeviceConnectionService/ReleaseInterface"
-	UsbDeviceConnectionService_RequestWait0_FullMethodName       = "/usb.UsbDeviceConnectionService/RequestWait0"
-	UsbDeviceConnectionService_RequestWait1_1_FullMethodName     = "/usb.UsbDeviceConnectionService/RequestWait1_1"
-	UsbDeviceConnectionService_SetConfiguration_FullMethodName   = "/usb.UsbDeviceConnectionService/SetConfiguration"
-	UsbDeviceConnectionService_SetInterface_FullMethodName       = "/usb.UsbDeviceConnectionService/SetInterface"
-)
-
-// UsbDeviceConnectionServiceClient is the client API for UsbDeviceConnectionService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type UsbDeviceConnectionServiceClient interface {
+type DeviceConnectionServiceClient interface {
 	BulkTransfer4(ctx context.Context, in *BulkTransfer4Request, opts ...grpc.CallOption) (*BulkTransfer4Response, error)
 	BulkTransfer5_1(ctx context.Context, in *BulkTransfer5_1Request, opts ...grpc.CallOption) (*BulkTransfer5_1Response, error)
 	ClaimInterface(ctx context.Context, in *ClaimInterfaceRequest, opts ...grpc.CallOption) (*ClaimInterfaceResponse, error)
@@ -983,158 +57,158 @@ type UsbDeviceConnectionServiceClient interface {
 	SetInterface(ctx context.Context, in *SetInterfaceRequest, opts ...grpc.CallOption) (*SetInterfaceResponse, error)
 }
 
-type usbDeviceConnectionServiceClient struct {
+type deviceConnectionServiceClient struct {
 	cc grpc.ClientConnInterface
 }
 
-func NewUsbDeviceConnectionServiceClient(cc grpc.ClientConnInterface) UsbDeviceConnectionServiceClient {
-	return &usbDeviceConnectionServiceClient{cc}
+func NewDeviceConnectionServiceClient(cc grpc.ClientConnInterface) DeviceConnectionServiceClient {
+	return &deviceConnectionServiceClient{cc}
 }
 
-func (c *usbDeviceConnectionServiceClient) BulkTransfer4(ctx context.Context, in *BulkTransfer4Request, opts ...grpc.CallOption) (*BulkTransfer4Response, error) {
+func (c *deviceConnectionServiceClient) BulkTransfer4(ctx context.Context, in *BulkTransfer4Request, opts ...grpc.CallOption) (*BulkTransfer4Response, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(BulkTransfer4Response)
-	err := c.cc.Invoke(ctx, UsbDeviceConnectionService_BulkTransfer4_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, DeviceConnectionService_BulkTransfer4_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *usbDeviceConnectionServiceClient) BulkTransfer5_1(ctx context.Context, in *BulkTransfer5_1Request, opts ...grpc.CallOption) (*BulkTransfer5_1Response, error) {
+func (c *deviceConnectionServiceClient) BulkTransfer5_1(ctx context.Context, in *BulkTransfer5_1Request, opts ...grpc.CallOption) (*BulkTransfer5_1Response, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(BulkTransfer5_1Response)
-	err := c.cc.Invoke(ctx, UsbDeviceConnectionService_BulkTransfer5_1_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, DeviceConnectionService_BulkTransfer5_1_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *usbDeviceConnectionServiceClient) ClaimInterface(ctx context.Context, in *ClaimInterfaceRequest, opts ...grpc.CallOption) (*ClaimInterfaceResponse, error) {
+func (c *deviceConnectionServiceClient) ClaimInterface(ctx context.Context, in *ClaimInterfaceRequest, opts ...grpc.CallOption) (*ClaimInterfaceResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(ClaimInterfaceResponse)
-	err := c.cc.Invoke(ctx, UsbDeviceConnectionService_ClaimInterface_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, DeviceConnectionService_ClaimInterface_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *usbDeviceConnectionServiceClient) Close(ctx context.Context, in *CloseRequest, opts ...grpc.CallOption) (*CloseResponse, error) {
+func (c *deviceConnectionServiceClient) Close(ctx context.Context, in *CloseRequest, opts ...grpc.CallOption) (*CloseResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(CloseResponse)
-	err := c.cc.Invoke(ctx, UsbDeviceConnectionService_Close_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, DeviceConnectionService_Close_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *usbDeviceConnectionServiceClient) ControlTransfer7(ctx context.Context, in *ControlTransfer7Request, opts ...grpc.CallOption) (*ControlTransfer7Response, error) {
+func (c *deviceConnectionServiceClient) ControlTransfer7(ctx context.Context, in *ControlTransfer7Request, opts ...grpc.CallOption) (*ControlTransfer7Response, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(ControlTransfer7Response)
-	err := c.cc.Invoke(ctx, UsbDeviceConnectionService_ControlTransfer7_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, DeviceConnectionService_ControlTransfer7_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *usbDeviceConnectionServiceClient) ControlTransfer8_1(ctx context.Context, in *ControlTransfer8_1Request, opts ...grpc.CallOption) (*ControlTransfer8_1Response, error) {
+func (c *deviceConnectionServiceClient) ControlTransfer8_1(ctx context.Context, in *ControlTransfer8_1Request, opts ...grpc.CallOption) (*ControlTransfer8_1Response, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(ControlTransfer8_1Response)
-	err := c.cc.Invoke(ctx, UsbDeviceConnectionService_ControlTransfer8_1_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, DeviceConnectionService_ControlTransfer8_1_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *usbDeviceConnectionServiceClient) GetFileDescriptor(ctx context.Context, in *GetFileDescriptorRequest, opts ...grpc.CallOption) (*GetFileDescriptorResponse, error) {
+func (c *deviceConnectionServiceClient) GetFileDescriptor(ctx context.Context, in *GetFileDescriptorRequest, opts ...grpc.CallOption) (*GetFileDescriptorResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(GetFileDescriptorResponse)
-	err := c.cc.Invoke(ctx, UsbDeviceConnectionService_GetFileDescriptor_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, DeviceConnectionService_GetFileDescriptor_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *usbDeviceConnectionServiceClient) GetRawDescriptors(ctx context.Context, in *GetRawDescriptorsRequest, opts ...grpc.CallOption) (*GetRawDescriptorsResponse, error) {
+func (c *deviceConnectionServiceClient) GetRawDescriptors(ctx context.Context, in *GetRawDescriptorsRequest, opts ...grpc.CallOption) (*GetRawDescriptorsResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(GetRawDescriptorsResponse)
-	err := c.cc.Invoke(ctx, UsbDeviceConnectionService_GetRawDescriptors_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, DeviceConnectionService_GetRawDescriptors_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *usbDeviceConnectionServiceClient) GetSerial(ctx context.Context, in *GetSerialRequest, opts ...grpc.CallOption) (*GetSerialResponse, error) {
+func (c *deviceConnectionServiceClient) GetSerial(ctx context.Context, in *GetSerialRequest, opts ...grpc.CallOption) (*GetSerialResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(GetSerialResponse)
-	err := c.cc.Invoke(ctx, UsbDeviceConnectionService_GetSerial_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, DeviceConnectionService_GetSerial_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *usbDeviceConnectionServiceClient) ReleaseInterface(ctx context.Context, in *ReleaseInterfaceRequest, opts ...grpc.CallOption) (*ReleaseInterfaceResponse, error) {
+func (c *deviceConnectionServiceClient) ReleaseInterface(ctx context.Context, in *ReleaseInterfaceRequest, opts ...grpc.CallOption) (*ReleaseInterfaceResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(ReleaseInterfaceResponse)
-	err := c.cc.Invoke(ctx, UsbDeviceConnectionService_ReleaseInterface_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, DeviceConnectionService_ReleaseInterface_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *usbDeviceConnectionServiceClient) RequestWait0(ctx context.Context, in *RequestWait0Request, opts ...grpc.CallOption) (*RequestWait0Response, error) {
+func (c *deviceConnectionServiceClient) RequestWait0(ctx context.Context, in *RequestWait0Request, opts ...grpc.CallOption) (*RequestWait0Response, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(RequestWait0Response)
-	err := c.cc.Invoke(ctx, UsbDeviceConnectionService_RequestWait0_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, DeviceConnectionService_RequestWait0_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *usbDeviceConnectionServiceClient) RequestWait1_1(ctx context.Context, in *RequestWait1_1Request, opts ...grpc.CallOption) (*RequestWait1_1Response, error) {
+func (c *deviceConnectionServiceClient) RequestWait1_1(ctx context.Context, in *RequestWait1_1Request, opts ...grpc.CallOption) (*RequestWait1_1Response, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(RequestWait1_1Response)
-	err := c.cc.Invoke(ctx, UsbDeviceConnectionService_RequestWait1_1_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, DeviceConnectionService_RequestWait1_1_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *usbDeviceConnectionServiceClient) SetConfiguration(ctx context.Context, in *SetConfigurationRequest, opts ...grpc.CallOption) (*SetConfigurationResponse, error) {
+func (c *deviceConnectionServiceClient) SetConfiguration(ctx context.Context, in *SetConfigurationRequest, opts ...grpc.CallOption) (*SetConfigurationResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(SetConfigurationResponse)
-	err := c.cc.Invoke(ctx, UsbDeviceConnectionService_SetConfiguration_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, DeviceConnectionService_SetConfiguration_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *usbDeviceConnectionServiceClient) SetInterface(ctx context.Context, in *SetInterfaceRequest, opts ...grpc.CallOption) (*SetInterfaceResponse, error) {
+func (c *deviceConnectionServiceClient) SetInterface(ctx context.Context, in *SetInterfaceRequest, opts ...grpc.CallOption) (*SetInterfaceResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(SetInterfaceResponse)
-	err := c.cc.Invoke(ctx, UsbDeviceConnectionService_SetInterface_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, DeviceConnectionService_SetInterface_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-// UsbDeviceConnectionServiceServer is the server API for UsbDeviceConnectionService service.
-// All implementations must embed UnimplementedUsbDeviceConnectionServiceServer
+// DeviceConnectionServiceServer is the server API for DeviceConnectionService service.
+// All implementations must embed UnimplementedDeviceConnectionServiceServer
 // for forward compatibility.
-type UsbDeviceConnectionServiceServer interface {
+type DeviceConnectionServiceServer interface {
 	BulkTransfer4(context.Context, *BulkTransfer4Request) (*BulkTransfer4Response, error)
 	BulkTransfer5_1(context.Context, *BulkTransfer5_1Request) (*BulkTransfer5_1Response, error)
 	ClaimInterface(context.Context, *ClaimInterfaceRequest) (*ClaimInterfaceResponse, error)
@@ -1149,394 +223,394 @@ type UsbDeviceConnectionServiceServer interface {
 	RequestWait1_1(context.Context, *RequestWait1_1Request) (*RequestWait1_1Response, error)
 	SetConfiguration(context.Context, *SetConfigurationRequest) (*SetConfigurationResponse, error)
 	SetInterface(context.Context, *SetInterfaceRequest) (*SetInterfaceResponse, error)
-	mustEmbedUnimplementedUsbDeviceConnectionServiceServer()
+	mustEmbedUnimplementedDeviceConnectionServiceServer()
 }
 
-// UnimplementedUsbDeviceConnectionServiceServer must be embedded to have
+// UnimplementedDeviceConnectionServiceServer must be embedded to have
 // forward compatible implementations.
 //
 // NOTE: this should be embedded by value instead of pointer to avoid a nil
 // pointer dereference when methods are called.
-type UnimplementedUsbDeviceConnectionServiceServer struct{}
+type UnimplementedDeviceConnectionServiceServer struct{}
 
-func (UnimplementedUsbDeviceConnectionServiceServer) BulkTransfer4(context.Context, *BulkTransfer4Request) (*BulkTransfer4Response, error) {
+func (UnimplementedDeviceConnectionServiceServer) BulkTransfer4(context.Context, *BulkTransfer4Request) (*BulkTransfer4Response, error) {
 	return nil, status.Error(codes.Unimplemented, "method BulkTransfer4 not implemented")
 }
-func (UnimplementedUsbDeviceConnectionServiceServer) BulkTransfer5_1(context.Context, *BulkTransfer5_1Request) (*BulkTransfer5_1Response, error) {
+func (UnimplementedDeviceConnectionServiceServer) BulkTransfer5_1(context.Context, *BulkTransfer5_1Request) (*BulkTransfer5_1Response, error) {
 	return nil, status.Error(codes.Unimplemented, "method BulkTransfer5_1 not implemented")
 }
-func (UnimplementedUsbDeviceConnectionServiceServer) ClaimInterface(context.Context, *ClaimInterfaceRequest) (*ClaimInterfaceResponse, error) {
+func (UnimplementedDeviceConnectionServiceServer) ClaimInterface(context.Context, *ClaimInterfaceRequest) (*ClaimInterfaceResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method ClaimInterface not implemented")
 }
-func (UnimplementedUsbDeviceConnectionServiceServer) Close(context.Context, *CloseRequest) (*CloseResponse, error) {
+func (UnimplementedDeviceConnectionServiceServer) Close(context.Context, *CloseRequest) (*CloseResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method Close not implemented")
 }
-func (UnimplementedUsbDeviceConnectionServiceServer) ControlTransfer7(context.Context, *ControlTransfer7Request) (*ControlTransfer7Response, error) {
+func (UnimplementedDeviceConnectionServiceServer) ControlTransfer7(context.Context, *ControlTransfer7Request) (*ControlTransfer7Response, error) {
 	return nil, status.Error(codes.Unimplemented, "method ControlTransfer7 not implemented")
 }
-func (UnimplementedUsbDeviceConnectionServiceServer) ControlTransfer8_1(context.Context, *ControlTransfer8_1Request) (*ControlTransfer8_1Response, error) {
+func (UnimplementedDeviceConnectionServiceServer) ControlTransfer8_1(context.Context, *ControlTransfer8_1Request) (*ControlTransfer8_1Response, error) {
 	return nil, status.Error(codes.Unimplemented, "method ControlTransfer8_1 not implemented")
 }
-func (UnimplementedUsbDeviceConnectionServiceServer) GetFileDescriptor(context.Context, *GetFileDescriptorRequest) (*GetFileDescriptorResponse, error) {
+func (UnimplementedDeviceConnectionServiceServer) GetFileDescriptor(context.Context, *GetFileDescriptorRequest) (*GetFileDescriptorResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetFileDescriptor not implemented")
 }
-func (UnimplementedUsbDeviceConnectionServiceServer) GetRawDescriptors(context.Context, *GetRawDescriptorsRequest) (*GetRawDescriptorsResponse, error) {
+func (UnimplementedDeviceConnectionServiceServer) GetRawDescriptors(context.Context, *GetRawDescriptorsRequest) (*GetRawDescriptorsResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetRawDescriptors not implemented")
 }
-func (UnimplementedUsbDeviceConnectionServiceServer) GetSerial(context.Context, *GetSerialRequest) (*GetSerialResponse, error) {
+func (UnimplementedDeviceConnectionServiceServer) GetSerial(context.Context, *GetSerialRequest) (*GetSerialResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetSerial not implemented")
 }
-func (UnimplementedUsbDeviceConnectionServiceServer) ReleaseInterface(context.Context, *ReleaseInterfaceRequest) (*ReleaseInterfaceResponse, error) {
+func (UnimplementedDeviceConnectionServiceServer) ReleaseInterface(context.Context, *ReleaseInterfaceRequest) (*ReleaseInterfaceResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method ReleaseInterface not implemented")
 }
-func (UnimplementedUsbDeviceConnectionServiceServer) RequestWait0(context.Context, *RequestWait0Request) (*RequestWait0Response, error) {
+func (UnimplementedDeviceConnectionServiceServer) RequestWait0(context.Context, *RequestWait0Request) (*RequestWait0Response, error) {
 	return nil, status.Error(codes.Unimplemented, "method RequestWait0 not implemented")
 }
-func (UnimplementedUsbDeviceConnectionServiceServer) RequestWait1_1(context.Context, *RequestWait1_1Request) (*RequestWait1_1Response, error) {
+func (UnimplementedDeviceConnectionServiceServer) RequestWait1_1(context.Context, *RequestWait1_1Request) (*RequestWait1_1Response, error) {
 	return nil, status.Error(codes.Unimplemented, "method RequestWait1_1 not implemented")
 }
-func (UnimplementedUsbDeviceConnectionServiceServer) SetConfiguration(context.Context, *SetConfigurationRequest) (*SetConfigurationResponse, error) {
+func (UnimplementedDeviceConnectionServiceServer) SetConfiguration(context.Context, *SetConfigurationRequest) (*SetConfigurationResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method SetConfiguration not implemented")
 }
-func (UnimplementedUsbDeviceConnectionServiceServer) SetInterface(context.Context, *SetInterfaceRequest) (*SetInterfaceResponse, error) {
+func (UnimplementedDeviceConnectionServiceServer) SetInterface(context.Context, *SetInterfaceRequest) (*SetInterfaceResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method SetInterface not implemented")
 }
-func (UnimplementedUsbDeviceConnectionServiceServer) mustEmbedUnimplementedUsbDeviceConnectionServiceServer() {
+func (UnimplementedDeviceConnectionServiceServer) mustEmbedUnimplementedDeviceConnectionServiceServer() {
 }
-func (UnimplementedUsbDeviceConnectionServiceServer) testEmbeddedByValue() {}
+func (UnimplementedDeviceConnectionServiceServer) testEmbeddedByValue() {}
 
-// UnsafeUsbDeviceConnectionServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to UsbDeviceConnectionServiceServer will
+// UnsafeDeviceConnectionServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to DeviceConnectionServiceServer will
 // result in compilation errors.
-type UnsafeUsbDeviceConnectionServiceServer interface {
-	mustEmbedUnimplementedUsbDeviceConnectionServiceServer()
+type UnsafeDeviceConnectionServiceServer interface {
+	mustEmbedUnimplementedDeviceConnectionServiceServer()
 }
 
-func RegisterUsbDeviceConnectionServiceServer(s grpc.ServiceRegistrar, srv UsbDeviceConnectionServiceServer) {
-	// If the following call panics, it indicates UnimplementedUsbDeviceConnectionServiceServer was
+func RegisterDeviceConnectionServiceServer(s grpc.ServiceRegistrar, srv DeviceConnectionServiceServer) {
+	// If the following call panics, it indicates UnimplementedDeviceConnectionServiceServer was
 	// embedded by pointer and is nil.  This will cause panics if an
 	// unimplemented method is ever invoked, so we test this at initialization
 	// time to prevent it from happening at runtime later due to I/O.
 	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
 		t.testEmbeddedByValue()
 	}
-	s.RegisterService(&UsbDeviceConnectionService_ServiceDesc, srv)
+	s.RegisterService(&DeviceConnectionService_ServiceDesc, srv)
 }
 
-func _UsbDeviceConnectionService_BulkTransfer4_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _DeviceConnectionService_BulkTransfer4_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(BulkTransfer4Request)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(UsbDeviceConnectionServiceServer).BulkTransfer4(ctx, in)
+		return srv.(DeviceConnectionServiceServer).BulkTransfer4(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: UsbDeviceConnectionService_BulkTransfer4_FullMethodName,
+		FullMethod: DeviceConnectionService_BulkTransfer4_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(UsbDeviceConnectionServiceServer).BulkTransfer4(ctx, req.(*BulkTransfer4Request))
+		return srv.(DeviceConnectionServiceServer).BulkTransfer4(ctx, req.(*BulkTransfer4Request))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _UsbDeviceConnectionService_BulkTransfer5_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _DeviceConnectionService_BulkTransfer5_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(BulkTransfer5_1Request)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(UsbDeviceConnectionServiceServer).BulkTransfer5_1(ctx, in)
+		return srv.(DeviceConnectionServiceServer).BulkTransfer5_1(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: UsbDeviceConnectionService_BulkTransfer5_1_FullMethodName,
+		FullMethod: DeviceConnectionService_BulkTransfer5_1_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(UsbDeviceConnectionServiceServer).BulkTransfer5_1(ctx, req.(*BulkTransfer5_1Request))
+		return srv.(DeviceConnectionServiceServer).BulkTransfer5_1(ctx, req.(*BulkTransfer5_1Request))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _UsbDeviceConnectionService_ClaimInterface_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _DeviceConnectionService_ClaimInterface_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(ClaimInterfaceRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(UsbDeviceConnectionServiceServer).ClaimInterface(ctx, in)
+		return srv.(DeviceConnectionServiceServer).ClaimInterface(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: UsbDeviceConnectionService_ClaimInterface_FullMethodName,
+		FullMethod: DeviceConnectionService_ClaimInterface_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(UsbDeviceConnectionServiceServer).ClaimInterface(ctx, req.(*ClaimInterfaceRequest))
+		return srv.(DeviceConnectionServiceServer).ClaimInterface(ctx, req.(*ClaimInterfaceRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _UsbDeviceConnectionService_Close_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _DeviceConnectionService_Close_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(CloseRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(UsbDeviceConnectionServiceServer).Close(ctx, in)
+		return srv.(DeviceConnectionServiceServer).Close(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: UsbDeviceConnectionService_Close_FullMethodName,
+		FullMethod: DeviceConnectionService_Close_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(UsbDeviceConnectionServiceServer).Close(ctx, req.(*CloseRequest))
+		return srv.(DeviceConnectionServiceServer).Close(ctx, req.(*CloseRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _UsbDeviceConnectionService_ControlTransfer7_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _DeviceConnectionService_ControlTransfer7_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(ControlTransfer7Request)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(UsbDeviceConnectionServiceServer).ControlTransfer7(ctx, in)
+		return srv.(DeviceConnectionServiceServer).ControlTransfer7(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: UsbDeviceConnectionService_ControlTransfer7_FullMethodName,
+		FullMethod: DeviceConnectionService_ControlTransfer7_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(UsbDeviceConnectionServiceServer).ControlTransfer7(ctx, req.(*ControlTransfer7Request))
+		return srv.(DeviceConnectionServiceServer).ControlTransfer7(ctx, req.(*ControlTransfer7Request))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _UsbDeviceConnectionService_ControlTransfer8_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _DeviceConnectionService_ControlTransfer8_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(ControlTransfer8_1Request)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(UsbDeviceConnectionServiceServer).ControlTransfer8_1(ctx, in)
+		return srv.(DeviceConnectionServiceServer).ControlTransfer8_1(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: UsbDeviceConnectionService_ControlTransfer8_1_FullMethodName,
+		FullMethod: DeviceConnectionService_ControlTransfer8_1_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(UsbDeviceConnectionServiceServer).ControlTransfer8_1(ctx, req.(*ControlTransfer8_1Request))
+		return srv.(DeviceConnectionServiceServer).ControlTransfer8_1(ctx, req.(*ControlTransfer8_1Request))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _UsbDeviceConnectionService_GetFileDescriptor_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _DeviceConnectionService_GetFileDescriptor_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(GetFileDescriptorRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(UsbDeviceConnectionServiceServer).GetFileDescriptor(ctx, in)
+		return srv.(DeviceConnectionServiceServer).GetFileDescriptor(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: UsbDeviceConnectionService_GetFileDescriptor_FullMethodName,
+		FullMethod: DeviceConnectionService_GetFileDescriptor_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(UsbDeviceConnectionServiceServer).GetFileDescriptor(ctx, req.(*GetFileDescriptorRequest))
+		return srv.(DeviceConnectionServiceServer).GetFileDescriptor(ctx, req.(*GetFileDescriptorRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _UsbDeviceConnectionService_GetRawDescriptors_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _DeviceConnectionService_GetRawDescriptors_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(GetRawDescriptorsRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(UsbDeviceConnectionServiceServer).GetRawDescriptors(ctx, in)
+		return srv.(DeviceConnectionServiceServer).GetRawDescriptors(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: UsbDeviceConnectionService_GetRawDescriptors_FullMethodName,
+		FullMethod: DeviceConnectionService_GetRawDescriptors_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(UsbDeviceConnectionServiceServer).GetRawDescriptors(ctx, req.(*GetRawDescriptorsRequest))
+		return srv.(DeviceConnectionServiceServer).GetRawDescriptors(ctx, req.(*GetRawDescriptorsRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _UsbDeviceConnectionService_GetSerial_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _DeviceConnectionService_GetSerial_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(GetSerialRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(UsbDeviceConnectionServiceServer).GetSerial(ctx, in)
+		return srv.(DeviceConnectionServiceServer).GetSerial(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: UsbDeviceConnectionService_GetSerial_FullMethodName,
+		FullMethod: DeviceConnectionService_GetSerial_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(UsbDeviceConnectionServiceServer).GetSerial(ctx, req.(*GetSerialRequest))
+		return srv.(DeviceConnectionServiceServer).GetSerial(ctx, req.(*GetSerialRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _UsbDeviceConnectionService_ReleaseInterface_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _DeviceConnectionService_ReleaseInterface_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(ReleaseInterfaceRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(UsbDeviceConnectionServiceServer).ReleaseInterface(ctx, in)
+		return srv.(DeviceConnectionServiceServer).ReleaseInterface(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: UsbDeviceConnectionService_ReleaseInterface_FullMethodName,
+		FullMethod: DeviceConnectionService_ReleaseInterface_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(UsbDeviceConnectionServiceServer).ReleaseInterface(ctx, req.(*ReleaseInterfaceRequest))
+		return srv.(DeviceConnectionServiceServer).ReleaseInterface(ctx, req.(*ReleaseInterfaceRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _UsbDeviceConnectionService_RequestWait0_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _DeviceConnectionService_RequestWait0_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(RequestWait0Request)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(UsbDeviceConnectionServiceServer).RequestWait0(ctx, in)
+		return srv.(DeviceConnectionServiceServer).RequestWait0(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: UsbDeviceConnectionService_RequestWait0_FullMethodName,
+		FullMethod: DeviceConnectionService_RequestWait0_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(UsbDeviceConnectionServiceServer).RequestWait0(ctx, req.(*RequestWait0Request))
+		return srv.(DeviceConnectionServiceServer).RequestWait0(ctx, req.(*RequestWait0Request))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _UsbDeviceConnectionService_RequestWait1_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _DeviceConnectionService_RequestWait1_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(RequestWait1_1Request)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(UsbDeviceConnectionServiceServer).RequestWait1_1(ctx, in)
+		return srv.(DeviceConnectionServiceServer).RequestWait1_1(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: UsbDeviceConnectionService_RequestWait1_1_FullMethodName,
+		FullMethod: DeviceConnectionService_RequestWait1_1_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(UsbDeviceConnectionServiceServer).RequestWait1_1(ctx, req.(*RequestWait1_1Request))
+		return srv.(DeviceConnectionServiceServer).RequestWait1_1(ctx, req.(*RequestWait1_1Request))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _UsbDeviceConnectionService_SetConfiguration_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _DeviceConnectionService_SetConfiguration_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(SetConfigurationRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(UsbDeviceConnectionServiceServer).SetConfiguration(ctx, in)
+		return srv.(DeviceConnectionServiceServer).SetConfiguration(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: UsbDeviceConnectionService_SetConfiguration_FullMethodName,
+		FullMethod: DeviceConnectionService_SetConfiguration_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(UsbDeviceConnectionServiceServer).SetConfiguration(ctx, req.(*SetConfigurationRequest))
+		return srv.(DeviceConnectionServiceServer).SetConfiguration(ctx, req.(*SetConfigurationRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _UsbDeviceConnectionService_SetInterface_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _DeviceConnectionService_SetInterface_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(SetInterfaceRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(UsbDeviceConnectionServiceServer).SetInterface(ctx, in)
+		return srv.(DeviceConnectionServiceServer).SetInterface(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: UsbDeviceConnectionService_SetInterface_FullMethodName,
+		FullMethod: DeviceConnectionService_SetInterface_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(UsbDeviceConnectionServiceServer).SetInterface(ctx, req.(*SetInterfaceRequest))
+		return srv.(DeviceConnectionServiceServer).SetInterface(ctx, req.(*SetInterfaceRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-// UsbDeviceConnectionService_ServiceDesc is the grpc.ServiceDesc for UsbDeviceConnectionService service.
+// DeviceConnectionService_ServiceDesc is the grpc.ServiceDesc for DeviceConnectionService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
-var UsbDeviceConnectionService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "usb.UsbDeviceConnectionService",
-	HandlerType: (*UsbDeviceConnectionServiceServer)(nil),
+var DeviceConnectionService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "usb.DeviceConnectionService",
+	HandlerType: (*DeviceConnectionServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
 			MethodName: "BulkTransfer4",
-			Handler:    _UsbDeviceConnectionService_BulkTransfer4_Handler,
+			Handler:    _DeviceConnectionService_BulkTransfer4_Handler,
 		},
 		{
 			MethodName: "BulkTransfer5_1",
-			Handler:    _UsbDeviceConnectionService_BulkTransfer5_1_Handler,
+			Handler:    _DeviceConnectionService_BulkTransfer5_1_Handler,
 		},
 		{
 			MethodName: "ClaimInterface",
-			Handler:    _UsbDeviceConnectionService_ClaimInterface_Handler,
+			Handler:    _DeviceConnectionService_ClaimInterface_Handler,
 		},
 		{
 			MethodName: "Close",
-			Handler:    _UsbDeviceConnectionService_Close_Handler,
+			Handler:    _DeviceConnectionService_Close_Handler,
 		},
 		{
 			MethodName: "ControlTransfer7",
-			Handler:    _UsbDeviceConnectionService_ControlTransfer7_Handler,
+			Handler:    _DeviceConnectionService_ControlTransfer7_Handler,
 		},
 		{
 			MethodName: "ControlTransfer8_1",
-			Handler:    _UsbDeviceConnectionService_ControlTransfer8_1_Handler,
+			Handler:    _DeviceConnectionService_ControlTransfer8_1_Handler,
 		},
 		{
 			MethodName: "GetFileDescriptor",
-			Handler:    _UsbDeviceConnectionService_GetFileDescriptor_Handler,
+			Handler:    _DeviceConnectionService_GetFileDescriptor_Handler,
 		},
 		{
 			MethodName: "GetRawDescriptors",
-			Handler:    _UsbDeviceConnectionService_GetRawDescriptors_Handler,
+			Handler:    _DeviceConnectionService_GetRawDescriptors_Handler,
 		},
 		{
 			MethodName: "GetSerial",
-			Handler:    _UsbDeviceConnectionService_GetSerial_Handler,
+			Handler:    _DeviceConnectionService_GetSerial_Handler,
 		},
 		{
 			MethodName: "ReleaseInterface",
-			Handler:    _UsbDeviceConnectionService_ReleaseInterface_Handler,
+			Handler:    _DeviceConnectionService_ReleaseInterface_Handler,
 		},
 		{
 			MethodName: "RequestWait0",
-			Handler:    _UsbDeviceConnectionService_RequestWait0_Handler,
+			Handler:    _DeviceConnectionService_RequestWait0_Handler,
 		},
 		{
 			MethodName: "RequestWait1_1",
-			Handler:    _UsbDeviceConnectionService_RequestWait1_1_Handler,
+			Handler:    _DeviceConnectionService_RequestWait1_1_Handler,
 		},
 		{
 			MethodName: "SetConfiguration",
-			Handler:    _UsbDeviceConnectionService_SetConfiguration_Handler,
+			Handler:    _DeviceConnectionService_SetConfiguration_Handler,
 		},
 		{
 			MethodName: "SetInterface",
-			Handler:    _UsbDeviceConnectionService_SetInterface_Handler,
+			Handler:    _DeviceConnectionService_SetInterface_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
@@ -1544,440 +618,34 @@ var UsbDeviceConnectionService_ServiceDesc = grpc.ServiceDesc{
 }
 
 const (
-	UsbManagerService_GetAccessoryList_FullMethodName          = "/usb.UsbManagerService/GetAccessoryList"
-	UsbManagerService_HasPermission1_FullMethodName            = "/usb.UsbManagerService/HasPermission1"
-	UsbManagerService_HasPermission1_1_FullMethodName          = "/usb.UsbManagerService/HasPermission1_1"
-	UsbManagerService_OpenAccessory_FullMethodName             = "/usb.UsbManagerService/OpenAccessory"
-	UsbManagerService_OpenAccessoryInputStream_FullMethodName  = "/usb.UsbManagerService/OpenAccessoryInputStream"
-	UsbManagerService_OpenAccessoryOutputStream_FullMethodName = "/usb.UsbManagerService/OpenAccessoryOutputStream"
-	UsbManagerService_OpenDevice_FullMethodName                = "/usb.UsbManagerService/OpenDevice"
-	UsbManagerService_RequestPermission2_FullMethodName        = "/usb.UsbManagerService/RequestPermission2"
-	UsbManagerService_RequestPermission2_1_FullMethodName      = "/usb.UsbManagerService/RequestPermission2_1"
+	DeviceService_DescribeContents_FullMethodName      = "/usb.DeviceService/DescribeContents"
+	DeviceService_Equals_FullMethodName                = "/usb.DeviceService/Equals"
+	DeviceService_GetConfiguration_FullMethodName      = "/usb.DeviceService/GetConfiguration"
+	DeviceService_GetConfigurationCount_FullMethodName = "/usb.DeviceService/GetConfigurationCount"
+	DeviceService_GetDeviceClass_FullMethodName        = "/usb.DeviceService/GetDeviceClass"
+	DeviceService_GetDeviceId0_FullMethodName          = "/usb.DeviceService/GetDeviceId0"
+	DeviceService_GetDeviceName0_FullMethodName        = "/usb.DeviceService/GetDeviceName0"
+	DeviceService_GetDeviceProtocol_FullMethodName     = "/usb.DeviceService/GetDeviceProtocol"
+	DeviceService_GetDeviceSubclass_FullMethodName     = "/usb.DeviceService/GetDeviceSubclass"
+	DeviceService_GetInterface_FullMethodName          = "/usb.DeviceService/GetInterface"
+	DeviceService_GetInterfaceCount_FullMethodName     = "/usb.DeviceService/GetInterfaceCount"
+	DeviceService_GetManufacturerName_FullMethodName   = "/usb.DeviceService/GetManufacturerName"
+	DeviceService_GetProductId_FullMethodName          = "/usb.DeviceService/GetProductId"
+	DeviceService_GetProductName_FullMethodName        = "/usb.DeviceService/GetProductName"
+	DeviceService_GetSerialNumber_FullMethodName       = "/usb.DeviceService/GetSerialNumber"
+	DeviceService_GetVendorId_FullMethodName           = "/usb.DeviceService/GetVendorId"
+	DeviceService_GetVersion_FullMethodName            = "/usb.DeviceService/GetVersion"
+	DeviceService_HashCode_FullMethodName              = "/usb.DeviceService/HashCode"
+	DeviceService_ToString_FullMethodName              = "/usb.DeviceService/ToString"
+	DeviceService_WriteToParcel_FullMethodName         = "/usb.DeviceService/WriteToParcel"
+	DeviceService_GetDeviceId1_1_FullMethodName        = "/usb.DeviceService/GetDeviceId1_1"
+	DeviceService_GetDeviceName1_1_FullMethodName      = "/usb.DeviceService/GetDeviceName1_1"
 )
 
-// UsbManagerServiceClient is the client API for UsbManagerService service.
+// DeviceServiceClient is the client API for DeviceService service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type UsbManagerServiceClient interface {
-	GetAccessoryList(ctx context.Context, in *GetAccessoryListRequest, opts ...grpc.CallOption) (*GetAccessoryListResponse, error)
-	HasPermission1(ctx context.Context, in *HasPermission1Request, opts ...grpc.CallOption) (*HasPermission1Response, error)
-	HasPermission1_1(ctx context.Context, in *HasPermission1_1Request, opts ...grpc.CallOption) (*HasPermission1_1Response, error)
-	OpenAccessory(ctx context.Context, in *OpenAccessoryRequest, opts ...grpc.CallOption) (*OpenAccessoryResponse, error)
-	OpenAccessoryInputStream(ctx context.Context, in *OpenAccessoryInputStreamRequest, opts ...grpc.CallOption) (*OpenAccessoryInputStreamResponse, error)
-	OpenAccessoryOutputStream(ctx context.Context, in *OpenAccessoryOutputStreamRequest, opts ...grpc.CallOption) (*OpenAccessoryOutputStreamResponse, error)
-	OpenDevice(ctx context.Context, in *OpenDeviceRequest, opts ...grpc.CallOption) (*OpenDeviceResponse, error)
-	RequestPermission2(ctx context.Context, in *RequestPermission2Request, opts ...grpc.CallOption) (*RequestPermission2Response, error)
-	RequestPermission2_1(ctx context.Context, in *RequestPermission2_1Request, opts ...grpc.CallOption) (*RequestPermission2_1Response, error)
-}
-
-type usbManagerServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewUsbManagerServiceClient(cc grpc.ClientConnInterface) UsbManagerServiceClient {
-	return &usbManagerServiceClient{cc}
-}
-
-func (c *usbManagerServiceClient) GetAccessoryList(ctx context.Context, in *GetAccessoryListRequest, opts ...grpc.CallOption) (*GetAccessoryListResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetAccessoryListResponse)
-	err := c.cc.Invoke(ctx, UsbManagerService_GetAccessoryList_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *usbManagerServiceClient) HasPermission1(ctx context.Context, in *HasPermission1Request, opts ...grpc.CallOption) (*HasPermission1Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(HasPermission1Response)
-	err := c.cc.Invoke(ctx, UsbManagerService_HasPermission1_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *usbManagerServiceClient) HasPermission1_1(ctx context.Context, in *HasPermission1_1Request, opts ...grpc.CallOption) (*HasPermission1_1Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(HasPermission1_1Response)
-	err := c.cc.Invoke(ctx, UsbManagerService_HasPermission1_1_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *usbManagerServiceClient) OpenAccessory(ctx context.Context, in *OpenAccessoryRequest, opts ...grpc.CallOption) (*OpenAccessoryResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(OpenAccessoryResponse)
-	err := c.cc.Invoke(ctx, UsbManagerService_OpenAccessory_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *usbManagerServiceClient) OpenAccessoryInputStream(ctx context.Context, in *OpenAccessoryInputStreamRequest, opts ...grpc.CallOption) (*OpenAccessoryInputStreamResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(OpenAccessoryInputStreamResponse)
-	err := c.cc.Invoke(ctx, UsbManagerService_OpenAccessoryInputStream_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *usbManagerServiceClient) OpenAccessoryOutputStream(ctx context.Context, in *OpenAccessoryOutputStreamRequest, opts ...grpc.CallOption) (*OpenAccessoryOutputStreamResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(OpenAccessoryOutputStreamResponse)
-	err := c.cc.Invoke(ctx, UsbManagerService_OpenAccessoryOutputStream_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *usbManagerServiceClient) OpenDevice(ctx context.Context, in *OpenDeviceRequest, opts ...grpc.CallOption) (*OpenDeviceResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(OpenDeviceResponse)
-	err := c.cc.Invoke(ctx, UsbManagerService_OpenDevice_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *usbManagerServiceClient) RequestPermission2(ctx context.Context, in *RequestPermission2Request, opts ...grpc.CallOption) (*RequestPermission2Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(RequestPermission2Response)
-	err := c.cc.Invoke(ctx, UsbManagerService_RequestPermission2_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *usbManagerServiceClient) RequestPermission2_1(ctx context.Context, in *RequestPermission2_1Request, opts ...grpc.CallOption) (*RequestPermission2_1Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(RequestPermission2_1Response)
-	err := c.cc.Invoke(ctx, UsbManagerService_RequestPermission2_1_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// UsbManagerServiceServer is the server API for UsbManagerService service.
-// All implementations must embed UnimplementedUsbManagerServiceServer
-// for forward compatibility.
-type UsbManagerServiceServer interface {
-	GetAccessoryList(context.Context, *GetAccessoryListRequest) (*GetAccessoryListResponse, error)
-	HasPermission1(context.Context, *HasPermission1Request) (*HasPermission1Response, error)
-	HasPermission1_1(context.Context, *HasPermission1_1Request) (*HasPermission1_1Response, error)
-	OpenAccessory(context.Context, *OpenAccessoryRequest) (*OpenAccessoryResponse, error)
-	OpenAccessoryInputStream(context.Context, *OpenAccessoryInputStreamRequest) (*OpenAccessoryInputStreamResponse, error)
-	OpenAccessoryOutputStream(context.Context, *OpenAccessoryOutputStreamRequest) (*OpenAccessoryOutputStreamResponse, error)
-	OpenDevice(context.Context, *OpenDeviceRequest) (*OpenDeviceResponse, error)
-	RequestPermission2(context.Context, *RequestPermission2Request) (*RequestPermission2Response, error)
-	RequestPermission2_1(context.Context, *RequestPermission2_1Request) (*RequestPermission2_1Response, error)
-	mustEmbedUnimplementedUsbManagerServiceServer()
-}
-
-// UnimplementedUsbManagerServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedUsbManagerServiceServer struct{}
-
-func (UnimplementedUsbManagerServiceServer) GetAccessoryList(context.Context, *GetAccessoryListRequest) (*GetAccessoryListResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetAccessoryList not implemented")
-}
-func (UnimplementedUsbManagerServiceServer) HasPermission1(context.Context, *HasPermission1Request) (*HasPermission1Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method HasPermission1 not implemented")
-}
-func (UnimplementedUsbManagerServiceServer) HasPermission1_1(context.Context, *HasPermission1_1Request) (*HasPermission1_1Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method HasPermission1_1 not implemented")
-}
-func (UnimplementedUsbManagerServiceServer) OpenAccessory(context.Context, *OpenAccessoryRequest) (*OpenAccessoryResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method OpenAccessory not implemented")
-}
-func (UnimplementedUsbManagerServiceServer) OpenAccessoryInputStream(context.Context, *OpenAccessoryInputStreamRequest) (*OpenAccessoryInputStreamResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method OpenAccessoryInputStream not implemented")
-}
-func (UnimplementedUsbManagerServiceServer) OpenAccessoryOutputStream(context.Context, *OpenAccessoryOutputStreamRequest) (*OpenAccessoryOutputStreamResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method OpenAccessoryOutputStream not implemented")
-}
-func (UnimplementedUsbManagerServiceServer) OpenDevice(context.Context, *OpenDeviceRequest) (*OpenDeviceResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method OpenDevice not implemented")
-}
-func (UnimplementedUsbManagerServiceServer) RequestPermission2(context.Context, *RequestPermission2Request) (*RequestPermission2Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method RequestPermission2 not implemented")
-}
-func (UnimplementedUsbManagerServiceServer) RequestPermission2_1(context.Context, *RequestPermission2_1Request) (*RequestPermission2_1Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method RequestPermission2_1 not implemented")
-}
-func (UnimplementedUsbManagerServiceServer) mustEmbedUnimplementedUsbManagerServiceServer() {}
-func (UnimplementedUsbManagerServiceServer) testEmbeddedByValue()                           {}
-
-// UnsafeUsbManagerServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to UsbManagerServiceServer will
-// result in compilation errors.
-type UnsafeUsbManagerServiceServer interface {
-	mustEmbedUnimplementedUsbManagerServiceServer()
-}
-
-func RegisterUsbManagerServiceServer(s grpc.ServiceRegistrar, srv UsbManagerServiceServer) {
-	// If the following call panics, it indicates UnimplementedUsbManagerServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&UsbManagerService_ServiceDesc, srv)
-}
-
-func _UsbManagerService_GetAccessoryList_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetAccessoryListRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(UsbManagerServiceServer).GetAccessoryList(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: UsbManagerService_GetAccessoryList_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(UsbManagerServiceServer).GetAccessoryList(ctx, req.(*GetAccessoryListRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _UsbManagerService_HasPermission1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(HasPermission1Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(UsbManagerServiceServer).HasPermission1(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: UsbManagerService_HasPermission1_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(UsbManagerServiceServer).HasPermission1(ctx, req.(*HasPermission1Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _UsbManagerService_HasPermission1_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(HasPermission1_1Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(UsbManagerServiceServer).HasPermission1_1(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: UsbManagerService_HasPermission1_1_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(UsbManagerServiceServer).HasPermission1_1(ctx, req.(*HasPermission1_1Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _UsbManagerService_OpenAccessory_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(OpenAccessoryRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(UsbManagerServiceServer).OpenAccessory(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: UsbManagerService_OpenAccessory_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(UsbManagerServiceServer).OpenAccessory(ctx, req.(*OpenAccessoryRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _UsbManagerService_OpenAccessoryInputStream_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(OpenAccessoryInputStreamRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(UsbManagerServiceServer).OpenAccessoryInputStream(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: UsbManagerService_OpenAccessoryInputStream_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(UsbManagerServiceServer).OpenAccessoryInputStream(ctx, req.(*OpenAccessoryInputStreamRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _UsbManagerService_OpenAccessoryOutputStream_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(OpenAccessoryOutputStreamRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(UsbManagerServiceServer).OpenAccessoryOutputStream(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: UsbManagerService_OpenAccessoryOutputStream_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(UsbManagerServiceServer).OpenAccessoryOutputStream(ctx, req.(*OpenAccessoryOutputStreamRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _UsbManagerService_OpenDevice_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(OpenDeviceRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(UsbManagerServiceServer).OpenDevice(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: UsbManagerService_OpenDevice_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(UsbManagerServiceServer).OpenDevice(ctx, req.(*OpenDeviceRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _UsbManagerService_RequestPermission2_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(RequestPermission2Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(UsbManagerServiceServer).RequestPermission2(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: UsbManagerService_RequestPermission2_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(UsbManagerServiceServer).RequestPermission2(ctx, req.(*RequestPermission2Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _UsbManagerService_RequestPermission2_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(RequestPermission2_1Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(UsbManagerServiceServer).RequestPermission2_1(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: UsbManagerService_RequestPermission2_1_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(UsbManagerServiceServer).RequestPermission2_1(ctx, req.(*RequestPermission2_1Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// UsbManagerService_ServiceDesc is the grpc.ServiceDesc for UsbManagerService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var UsbManagerService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "usb.UsbManagerService",
-	HandlerType: (*UsbManagerServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "GetAccessoryList",
-			Handler:    _UsbManagerService_GetAccessoryList_Handler,
-		},
-		{
-			MethodName: "HasPermission1",
-			Handler:    _UsbManagerService_HasPermission1_Handler,
-		},
-		{
-			MethodName: "HasPermission1_1",
-			Handler:    _UsbManagerService_HasPermission1_1_Handler,
-		},
-		{
-			MethodName: "OpenAccessory",
-			Handler:    _UsbManagerService_OpenAccessory_Handler,
-		},
-		{
-			MethodName: "OpenAccessoryInputStream",
-			Handler:    _UsbManagerService_OpenAccessoryInputStream_Handler,
-		},
-		{
-			MethodName: "OpenAccessoryOutputStream",
-			Handler:    _UsbManagerService_OpenAccessoryOutputStream_Handler,
-		},
-		{
-			MethodName: "OpenDevice",
-			Handler:    _UsbManagerService_OpenDevice_Handler,
-		},
-		{
-			MethodName: "RequestPermission2",
-			Handler:    _UsbManagerService_RequestPermission2_Handler,
-		},
-		{
-			MethodName: "RequestPermission2_1",
-			Handler:    _UsbManagerService_RequestPermission2_1_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/usb/usb.proto",
-}
-
-const (
-	UsbDeviceService_DescribeContents_FullMethodName      = "/usb.UsbDeviceService/DescribeContents"
-	UsbDeviceService_Equals_FullMethodName                = "/usb.UsbDeviceService/Equals"
-	UsbDeviceService_GetConfiguration_FullMethodName      = "/usb.UsbDeviceService/GetConfiguration"
-	UsbDeviceService_GetConfigurationCount_FullMethodName = "/usb.UsbDeviceService/GetConfigurationCount"
-	UsbDeviceService_GetDeviceClass_FullMethodName        = "/usb.UsbDeviceService/GetDeviceClass"
-	UsbDeviceService_GetDeviceId0_FullMethodName          = "/usb.UsbDeviceService/GetDeviceId0"
-	UsbDeviceService_GetDeviceName0_FullMethodName        = "/usb.UsbDeviceService/GetDeviceName0"
-	UsbDeviceService_GetDeviceProtocol_FullMethodName     = "/usb.UsbDeviceService/GetDeviceProtocol"
-	UsbDeviceService_GetDeviceSubclass_FullMethodName     = "/usb.UsbDeviceService/GetDeviceSubclass"
-	UsbDeviceService_GetInterface_FullMethodName          = "/usb.UsbDeviceService/GetInterface"
-	UsbDeviceService_GetInterfaceCount_FullMethodName     = "/usb.UsbDeviceService/GetInterfaceCount"
-	UsbDeviceService_GetManufacturerName_FullMethodName   = "/usb.UsbDeviceService/GetManufacturerName"
-	UsbDeviceService_GetProductId_FullMethodName          = "/usb.UsbDeviceService/GetProductId"
-	UsbDeviceService_GetProductName_FullMethodName        = "/usb.UsbDeviceService/GetProductName"
-	UsbDeviceService_GetSerialNumber_FullMethodName       = "/usb.UsbDeviceService/GetSerialNumber"
-	UsbDeviceService_GetVendorId_FullMethodName           = "/usb.UsbDeviceService/GetVendorId"
-	UsbDeviceService_GetVersion_FullMethodName            = "/usb.UsbDeviceService/GetVersion"
-	UsbDeviceService_HashCode_FullMethodName              = "/usb.UsbDeviceService/HashCode"
-	UsbDeviceService_ToString_FullMethodName              = "/usb.UsbDeviceService/ToString"
-	UsbDeviceService_WriteToParcel_FullMethodName         = "/usb.UsbDeviceService/WriteToParcel"
-	UsbDeviceService_GetDeviceId1_1_FullMethodName        = "/usb.UsbDeviceService/GetDeviceId1_1"
-	UsbDeviceService_GetDeviceName1_1_FullMethodName      = "/usb.UsbDeviceService/GetDeviceName1_1"
-)
-
-// UsbDeviceServiceClient is the client API for UsbDeviceService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type UsbDeviceServiceClient interface {
+type DeviceServiceClient interface {
 	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
 	Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
 	GetConfiguration(ctx context.Context, in *GetConfigurationRequest, opts ...grpc.CallOption) (*GetConfigurationResponse, error)
@@ -2002,238 +670,238 @@ type UsbDeviceServiceClient interface {
 	GetDeviceName1_1(ctx context.Context, in *GetDeviceName1_1Request, opts ...grpc.CallOption) (*GetDeviceName1_1Response, error)
 }
 
-type usbDeviceServiceClient struct {
+type deviceServiceClient struct {
 	cc grpc.ClientConnInterface
 }
 
-func NewUsbDeviceServiceClient(cc grpc.ClientConnInterface) UsbDeviceServiceClient {
-	return &usbDeviceServiceClient{cc}
+func NewDeviceServiceClient(cc grpc.ClientConnInterface) DeviceServiceClient {
+	return &deviceServiceClient{cc}
 }
 
-func (c *usbDeviceServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
+func (c *deviceServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(DescribeContentsResponse)
-	err := c.cc.Invoke(ctx, UsbDeviceService_DescribeContents_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, DeviceService_DescribeContents_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *usbDeviceServiceClient) Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error) {
+func (c *deviceServiceClient) Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(EqualsResponse)
-	err := c.cc.Invoke(ctx, UsbDeviceService_Equals_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, DeviceService_Equals_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *usbDeviceServiceClient) GetConfiguration(ctx context.Context, in *GetConfigurationRequest, opts ...grpc.CallOption) (*GetConfigurationResponse, error) {
+func (c *deviceServiceClient) GetConfiguration(ctx context.Context, in *GetConfigurationRequest, opts ...grpc.CallOption) (*GetConfigurationResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(GetConfigurationResponse)
-	err := c.cc.Invoke(ctx, UsbDeviceService_GetConfiguration_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, DeviceService_GetConfiguration_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *usbDeviceServiceClient) GetConfigurationCount(ctx context.Context, in *GetConfigurationCountRequest, opts ...grpc.CallOption) (*GetConfigurationCountResponse, error) {
+func (c *deviceServiceClient) GetConfigurationCount(ctx context.Context, in *GetConfigurationCountRequest, opts ...grpc.CallOption) (*GetConfigurationCountResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(GetConfigurationCountResponse)
-	err := c.cc.Invoke(ctx, UsbDeviceService_GetConfigurationCount_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, DeviceService_GetConfigurationCount_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *usbDeviceServiceClient) GetDeviceClass(ctx context.Context, in *GetDeviceClassRequest, opts ...grpc.CallOption) (*GetDeviceClassResponse, error) {
+func (c *deviceServiceClient) GetDeviceClass(ctx context.Context, in *GetDeviceClassRequest, opts ...grpc.CallOption) (*GetDeviceClassResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(GetDeviceClassResponse)
-	err := c.cc.Invoke(ctx, UsbDeviceService_GetDeviceClass_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, DeviceService_GetDeviceClass_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *usbDeviceServiceClient) GetDeviceId0(ctx context.Context, in *GetDeviceId0Request, opts ...grpc.CallOption) (*GetDeviceId0Response, error) {
+func (c *deviceServiceClient) GetDeviceId0(ctx context.Context, in *GetDeviceId0Request, opts ...grpc.CallOption) (*GetDeviceId0Response, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(GetDeviceId0Response)
-	err := c.cc.Invoke(ctx, UsbDeviceService_GetDeviceId0_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, DeviceService_GetDeviceId0_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *usbDeviceServiceClient) GetDeviceName0(ctx context.Context, in *GetDeviceName0Request, opts ...grpc.CallOption) (*GetDeviceName0Response, error) {
+func (c *deviceServiceClient) GetDeviceName0(ctx context.Context, in *GetDeviceName0Request, opts ...grpc.CallOption) (*GetDeviceName0Response, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(GetDeviceName0Response)
-	err := c.cc.Invoke(ctx, UsbDeviceService_GetDeviceName0_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, DeviceService_GetDeviceName0_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *usbDeviceServiceClient) GetDeviceProtocol(ctx context.Context, in *GetDeviceProtocolRequest, opts ...grpc.CallOption) (*GetDeviceProtocolResponse, error) {
+func (c *deviceServiceClient) GetDeviceProtocol(ctx context.Context, in *GetDeviceProtocolRequest, opts ...grpc.CallOption) (*GetDeviceProtocolResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(GetDeviceProtocolResponse)
-	err := c.cc.Invoke(ctx, UsbDeviceService_GetDeviceProtocol_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, DeviceService_GetDeviceProtocol_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *usbDeviceServiceClient) GetDeviceSubclass(ctx context.Context, in *GetDeviceSubclassRequest, opts ...grpc.CallOption) (*GetDeviceSubclassResponse, error) {
+func (c *deviceServiceClient) GetDeviceSubclass(ctx context.Context, in *GetDeviceSubclassRequest, opts ...grpc.CallOption) (*GetDeviceSubclassResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(GetDeviceSubclassResponse)
-	err := c.cc.Invoke(ctx, UsbDeviceService_GetDeviceSubclass_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, DeviceService_GetDeviceSubclass_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *usbDeviceServiceClient) GetInterface(ctx context.Context, in *GetInterfaceRequest, opts ...grpc.CallOption) (*GetInterfaceResponse, error) {
+func (c *deviceServiceClient) GetInterface(ctx context.Context, in *GetInterfaceRequest, opts ...grpc.CallOption) (*GetInterfaceResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(GetInterfaceResponse)
-	err := c.cc.Invoke(ctx, UsbDeviceService_GetInterface_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, DeviceService_GetInterface_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *usbDeviceServiceClient) GetInterfaceCount(ctx context.Context, in *GetInterfaceCountRequest, opts ...grpc.CallOption) (*GetInterfaceCountResponse, error) {
+func (c *deviceServiceClient) GetInterfaceCount(ctx context.Context, in *GetInterfaceCountRequest, opts ...grpc.CallOption) (*GetInterfaceCountResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(GetInterfaceCountResponse)
-	err := c.cc.Invoke(ctx, UsbDeviceService_GetInterfaceCount_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, DeviceService_GetInterfaceCount_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *usbDeviceServiceClient) GetManufacturerName(ctx context.Context, in *GetManufacturerNameRequest, opts ...grpc.CallOption) (*GetManufacturerNameResponse, error) {
+func (c *deviceServiceClient) GetManufacturerName(ctx context.Context, in *GetManufacturerNameRequest, opts ...grpc.CallOption) (*GetManufacturerNameResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(GetManufacturerNameResponse)
-	err := c.cc.Invoke(ctx, UsbDeviceService_GetManufacturerName_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, DeviceService_GetManufacturerName_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *usbDeviceServiceClient) GetProductId(ctx context.Context, in *GetProductIdRequest, opts ...grpc.CallOption) (*GetProductIdResponse, error) {
+func (c *deviceServiceClient) GetProductId(ctx context.Context, in *GetProductIdRequest, opts ...grpc.CallOption) (*GetProductIdResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(GetProductIdResponse)
-	err := c.cc.Invoke(ctx, UsbDeviceService_GetProductId_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, DeviceService_GetProductId_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *usbDeviceServiceClient) GetProductName(ctx context.Context, in *GetProductNameRequest, opts ...grpc.CallOption) (*GetProductNameResponse, error) {
+func (c *deviceServiceClient) GetProductName(ctx context.Context, in *GetProductNameRequest, opts ...grpc.CallOption) (*GetProductNameResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(GetProductNameResponse)
-	err := c.cc.Invoke(ctx, UsbDeviceService_GetProductName_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, DeviceService_GetProductName_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *usbDeviceServiceClient) GetSerialNumber(ctx context.Context, in *GetSerialNumberRequest, opts ...grpc.CallOption) (*GetSerialNumberResponse, error) {
+func (c *deviceServiceClient) GetSerialNumber(ctx context.Context, in *GetSerialNumberRequest, opts ...grpc.CallOption) (*GetSerialNumberResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(GetSerialNumberResponse)
-	err := c.cc.Invoke(ctx, UsbDeviceService_GetSerialNumber_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, DeviceService_GetSerialNumber_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *usbDeviceServiceClient) GetVendorId(ctx context.Context, in *GetVendorIdRequest, opts ...grpc.CallOption) (*GetVendorIdResponse, error) {
+func (c *deviceServiceClient) GetVendorId(ctx context.Context, in *GetVendorIdRequest, opts ...grpc.CallOption) (*GetVendorIdResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(GetVendorIdResponse)
-	err := c.cc.Invoke(ctx, UsbDeviceService_GetVendorId_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, DeviceService_GetVendorId_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *usbDeviceServiceClient) GetVersion(ctx context.Context, in *GetVersionRequest, opts ...grpc.CallOption) (*GetVersionResponse, error) {
+func (c *deviceServiceClient) GetVersion(ctx context.Context, in *GetVersionRequest, opts ...grpc.CallOption) (*GetVersionResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(GetVersionResponse)
-	err := c.cc.Invoke(ctx, UsbDeviceService_GetVersion_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, DeviceService_GetVersion_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *usbDeviceServiceClient) HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
+func (c *deviceServiceClient) HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(HashCodeResponse)
-	err := c.cc.Invoke(ctx, UsbDeviceService_HashCode_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, DeviceService_HashCode_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *usbDeviceServiceClient) ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
+func (c *deviceServiceClient) ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(ToStringResponse)
-	err := c.cc.Invoke(ctx, UsbDeviceService_ToString_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, DeviceService_ToString_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *usbDeviceServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
+func (c *deviceServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(WriteToParcelResponse)
-	err := c.cc.Invoke(ctx, UsbDeviceService_WriteToParcel_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, DeviceService_WriteToParcel_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *usbDeviceServiceClient) GetDeviceId1_1(ctx context.Context, in *GetDeviceId1_1Request, opts ...grpc.CallOption) (*GetDeviceId1_1Response, error) {
+func (c *deviceServiceClient) GetDeviceId1_1(ctx context.Context, in *GetDeviceId1_1Request, opts ...grpc.CallOption) (*GetDeviceId1_1Response, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(GetDeviceId1_1Response)
-	err := c.cc.Invoke(ctx, UsbDeviceService_GetDeviceId1_1_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, DeviceService_GetDeviceId1_1_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *usbDeviceServiceClient) GetDeviceName1_1(ctx context.Context, in *GetDeviceName1_1Request, opts ...grpc.CallOption) (*GetDeviceName1_1Response, error) {
+func (c *deviceServiceClient) GetDeviceName1_1(ctx context.Context, in *GetDeviceName1_1Request, opts ...grpc.CallOption) (*GetDeviceName1_1Response, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(GetDeviceName1_1Response)
-	err := c.cc.Invoke(ctx, UsbDeviceService_GetDeviceName1_1_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, DeviceService_GetDeviceName1_1_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-// UsbDeviceServiceServer is the server API for UsbDeviceService service.
-// All implementations must embed UnimplementedUsbDeviceServiceServer
+// DeviceServiceServer is the server API for DeviceService service.
+// All implementations must embed UnimplementedDeviceServiceServer
 // for forward compatibility.
-type UsbDeviceServiceServer interface {
+type DeviceServiceServer interface {
 	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
 	Equals(context.Context, *EqualsRequest) (*EqualsResponse, error)
 	GetConfiguration(context.Context, *GetConfigurationRequest) (*GetConfigurationResponse, error)
@@ -2256,593 +924,1925 @@ type UsbDeviceServiceServer interface {
 	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
 	GetDeviceId1_1(context.Context, *GetDeviceId1_1Request) (*GetDeviceId1_1Response, error)
 	GetDeviceName1_1(context.Context, *GetDeviceName1_1Request) (*GetDeviceName1_1Response, error)
-	mustEmbedUnimplementedUsbDeviceServiceServer()
+	mustEmbedUnimplementedDeviceServiceServer()
 }
 
-// UnimplementedUsbDeviceServiceServer must be embedded to have
+// UnimplementedDeviceServiceServer must be embedded to have
 // forward compatible implementations.
 //
 // NOTE: this should be embedded by value instead of pointer to avoid a nil
 // pointer dereference when methods are called.
-type UnimplementedUsbDeviceServiceServer struct{}
+type UnimplementedDeviceServiceServer struct{}
 
-func (UnimplementedUsbDeviceServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
+func (UnimplementedDeviceServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
 }
-func (UnimplementedUsbDeviceServiceServer) Equals(context.Context, *EqualsRequest) (*EqualsResponse, error) {
+func (UnimplementedDeviceServiceServer) Equals(context.Context, *EqualsRequest) (*EqualsResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method Equals not implemented")
 }
-func (UnimplementedUsbDeviceServiceServer) GetConfiguration(context.Context, *GetConfigurationRequest) (*GetConfigurationResponse, error) {
+func (UnimplementedDeviceServiceServer) GetConfiguration(context.Context, *GetConfigurationRequest) (*GetConfigurationResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetConfiguration not implemented")
 }
-func (UnimplementedUsbDeviceServiceServer) GetConfigurationCount(context.Context, *GetConfigurationCountRequest) (*GetConfigurationCountResponse, error) {
+func (UnimplementedDeviceServiceServer) GetConfigurationCount(context.Context, *GetConfigurationCountRequest) (*GetConfigurationCountResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetConfigurationCount not implemented")
 }
-func (UnimplementedUsbDeviceServiceServer) GetDeviceClass(context.Context, *GetDeviceClassRequest) (*GetDeviceClassResponse, error) {
+func (UnimplementedDeviceServiceServer) GetDeviceClass(context.Context, *GetDeviceClassRequest) (*GetDeviceClassResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetDeviceClass not implemented")
 }
-func (UnimplementedUsbDeviceServiceServer) GetDeviceId0(context.Context, *GetDeviceId0Request) (*GetDeviceId0Response, error) {
+func (UnimplementedDeviceServiceServer) GetDeviceId0(context.Context, *GetDeviceId0Request) (*GetDeviceId0Response, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetDeviceId0 not implemented")
 }
-func (UnimplementedUsbDeviceServiceServer) GetDeviceName0(context.Context, *GetDeviceName0Request) (*GetDeviceName0Response, error) {
+func (UnimplementedDeviceServiceServer) GetDeviceName0(context.Context, *GetDeviceName0Request) (*GetDeviceName0Response, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetDeviceName0 not implemented")
 }
-func (UnimplementedUsbDeviceServiceServer) GetDeviceProtocol(context.Context, *GetDeviceProtocolRequest) (*GetDeviceProtocolResponse, error) {
+func (UnimplementedDeviceServiceServer) GetDeviceProtocol(context.Context, *GetDeviceProtocolRequest) (*GetDeviceProtocolResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetDeviceProtocol not implemented")
 }
-func (UnimplementedUsbDeviceServiceServer) GetDeviceSubclass(context.Context, *GetDeviceSubclassRequest) (*GetDeviceSubclassResponse, error) {
+func (UnimplementedDeviceServiceServer) GetDeviceSubclass(context.Context, *GetDeviceSubclassRequest) (*GetDeviceSubclassResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetDeviceSubclass not implemented")
 }
-func (UnimplementedUsbDeviceServiceServer) GetInterface(context.Context, *GetInterfaceRequest) (*GetInterfaceResponse, error) {
+func (UnimplementedDeviceServiceServer) GetInterface(context.Context, *GetInterfaceRequest) (*GetInterfaceResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetInterface not implemented")
 }
-func (UnimplementedUsbDeviceServiceServer) GetInterfaceCount(context.Context, *GetInterfaceCountRequest) (*GetInterfaceCountResponse, error) {
+func (UnimplementedDeviceServiceServer) GetInterfaceCount(context.Context, *GetInterfaceCountRequest) (*GetInterfaceCountResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetInterfaceCount not implemented")
 }
-func (UnimplementedUsbDeviceServiceServer) GetManufacturerName(context.Context, *GetManufacturerNameRequest) (*GetManufacturerNameResponse, error) {
+func (UnimplementedDeviceServiceServer) GetManufacturerName(context.Context, *GetManufacturerNameRequest) (*GetManufacturerNameResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetManufacturerName not implemented")
 }
-func (UnimplementedUsbDeviceServiceServer) GetProductId(context.Context, *GetProductIdRequest) (*GetProductIdResponse, error) {
+func (UnimplementedDeviceServiceServer) GetProductId(context.Context, *GetProductIdRequest) (*GetProductIdResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetProductId not implemented")
 }
-func (UnimplementedUsbDeviceServiceServer) GetProductName(context.Context, *GetProductNameRequest) (*GetProductNameResponse, error) {
+func (UnimplementedDeviceServiceServer) GetProductName(context.Context, *GetProductNameRequest) (*GetProductNameResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetProductName not implemented")
 }
-func (UnimplementedUsbDeviceServiceServer) GetSerialNumber(context.Context, *GetSerialNumberRequest) (*GetSerialNumberResponse, error) {
+func (UnimplementedDeviceServiceServer) GetSerialNumber(context.Context, *GetSerialNumberRequest) (*GetSerialNumberResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetSerialNumber not implemented")
 }
-func (UnimplementedUsbDeviceServiceServer) GetVendorId(context.Context, *GetVendorIdRequest) (*GetVendorIdResponse, error) {
+func (UnimplementedDeviceServiceServer) GetVendorId(context.Context, *GetVendorIdRequest) (*GetVendorIdResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetVendorId not implemented")
 }
-func (UnimplementedUsbDeviceServiceServer) GetVersion(context.Context, *GetVersionRequest) (*GetVersionResponse, error) {
+func (UnimplementedDeviceServiceServer) GetVersion(context.Context, *GetVersionRequest) (*GetVersionResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetVersion not implemented")
 }
-func (UnimplementedUsbDeviceServiceServer) HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error) {
+func (UnimplementedDeviceServiceServer) HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method HashCode not implemented")
 }
-func (UnimplementedUsbDeviceServiceServer) ToString(context.Context, *ToStringRequest) (*ToStringResponse, error) {
+func (UnimplementedDeviceServiceServer) ToString(context.Context, *ToStringRequest) (*ToStringResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
 }
-func (UnimplementedUsbDeviceServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
+func (UnimplementedDeviceServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
 }
-func (UnimplementedUsbDeviceServiceServer) GetDeviceId1_1(context.Context, *GetDeviceId1_1Request) (*GetDeviceId1_1Response, error) {
+func (UnimplementedDeviceServiceServer) GetDeviceId1_1(context.Context, *GetDeviceId1_1Request) (*GetDeviceId1_1Response, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetDeviceId1_1 not implemented")
 }
-func (UnimplementedUsbDeviceServiceServer) GetDeviceName1_1(context.Context, *GetDeviceName1_1Request) (*GetDeviceName1_1Response, error) {
+func (UnimplementedDeviceServiceServer) GetDeviceName1_1(context.Context, *GetDeviceName1_1Request) (*GetDeviceName1_1Response, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetDeviceName1_1 not implemented")
 }
-func (UnimplementedUsbDeviceServiceServer) mustEmbedUnimplementedUsbDeviceServiceServer() {}
-func (UnimplementedUsbDeviceServiceServer) testEmbeddedByValue()                          {}
+func (UnimplementedDeviceServiceServer) mustEmbedUnimplementedDeviceServiceServer() {}
+func (UnimplementedDeviceServiceServer) testEmbeddedByValue()                       {}
 
-// UnsafeUsbDeviceServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to UsbDeviceServiceServer will
+// UnsafeDeviceServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to DeviceServiceServer will
 // result in compilation errors.
-type UnsafeUsbDeviceServiceServer interface {
-	mustEmbedUnimplementedUsbDeviceServiceServer()
+type UnsafeDeviceServiceServer interface {
+	mustEmbedUnimplementedDeviceServiceServer()
 }
 
-func RegisterUsbDeviceServiceServer(s grpc.ServiceRegistrar, srv UsbDeviceServiceServer) {
-	// If the following call panics, it indicates UnimplementedUsbDeviceServiceServer was
+func RegisterDeviceServiceServer(s grpc.ServiceRegistrar, srv DeviceServiceServer) {
+	// If the following call panics, it indicates UnimplementedDeviceServiceServer was
 	// embedded by pointer and is nil.  This will cause panics if an
 	// unimplemented method is ever invoked, so we test this at initialization
 	// time to prevent it from happening at runtime later due to I/O.
 	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
 		t.testEmbeddedByValue()
 	}
-	s.RegisterService(&UsbDeviceService_ServiceDesc, srv)
+	s.RegisterService(&DeviceService_ServiceDesc, srv)
 }
 
-func _UsbDeviceService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _DeviceService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(DescribeContentsRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(UsbDeviceServiceServer).DescribeContents(ctx, in)
+		return srv.(DeviceServiceServer).DescribeContents(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: UsbDeviceService_DescribeContents_FullMethodName,
+		FullMethod: DeviceService_DescribeContents_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(UsbDeviceServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
+		return srv.(DeviceServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _UsbDeviceService_Equals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _DeviceService_Equals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(EqualsRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(UsbDeviceServiceServer).Equals(ctx, in)
+		return srv.(DeviceServiceServer).Equals(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: UsbDeviceService_Equals_FullMethodName,
+		FullMethod: DeviceService_Equals_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(UsbDeviceServiceServer).Equals(ctx, req.(*EqualsRequest))
+		return srv.(DeviceServiceServer).Equals(ctx, req.(*EqualsRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _UsbDeviceService_GetConfiguration_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _DeviceService_GetConfiguration_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(GetConfigurationRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(UsbDeviceServiceServer).GetConfiguration(ctx, in)
+		return srv.(DeviceServiceServer).GetConfiguration(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: UsbDeviceService_GetConfiguration_FullMethodName,
+		FullMethod: DeviceService_GetConfiguration_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(UsbDeviceServiceServer).GetConfiguration(ctx, req.(*GetConfigurationRequest))
+		return srv.(DeviceServiceServer).GetConfiguration(ctx, req.(*GetConfigurationRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _UsbDeviceService_GetConfigurationCount_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _DeviceService_GetConfigurationCount_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(GetConfigurationCountRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(UsbDeviceServiceServer).GetConfigurationCount(ctx, in)
+		return srv.(DeviceServiceServer).GetConfigurationCount(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: UsbDeviceService_GetConfigurationCount_FullMethodName,
+		FullMethod: DeviceService_GetConfigurationCount_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(UsbDeviceServiceServer).GetConfigurationCount(ctx, req.(*GetConfigurationCountRequest))
+		return srv.(DeviceServiceServer).GetConfigurationCount(ctx, req.(*GetConfigurationCountRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _UsbDeviceService_GetDeviceClass_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _DeviceService_GetDeviceClass_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(GetDeviceClassRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(UsbDeviceServiceServer).GetDeviceClass(ctx, in)
+		return srv.(DeviceServiceServer).GetDeviceClass(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: UsbDeviceService_GetDeviceClass_FullMethodName,
+		FullMethod: DeviceService_GetDeviceClass_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(UsbDeviceServiceServer).GetDeviceClass(ctx, req.(*GetDeviceClassRequest))
+		return srv.(DeviceServiceServer).GetDeviceClass(ctx, req.(*GetDeviceClassRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _UsbDeviceService_GetDeviceId0_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _DeviceService_GetDeviceId0_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(GetDeviceId0Request)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(UsbDeviceServiceServer).GetDeviceId0(ctx, in)
+		return srv.(DeviceServiceServer).GetDeviceId0(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: UsbDeviceService_GetDeviceId0_FullMethodName,
+		FullMethod: DeviceService_GetDeviceId0_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(UsbDeviceServiceServer).GetDeviceId0(ctx, req.(*GetDeviceId0Request))
+		return srv.(DeviceServiceServer).GetDeviceId0(ctx, req.(*GetDeviceId0Request))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _UsbDeviceService_GetDeviceName0_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _DeviceService_GetDeviceName0_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(GetDeviceName0Request)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(UsbDeviceServiceServer).GetDeviceName0(ctx, in)
+		return srv.(DeviceServiceServer).GetDeviceName0(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: UsbDeviceService_GetDeviceName0_FullMethodName,
+		FullMethod: DeviceService_GetDeviceName0_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(UsbDeviceServiceServer).GetDeviceName0(ctx, req.(*GetDeviceName0Request))
+		return srv.(DeviceServiceServer).GetDeviceName0(ctx, req.(*GetDeviceName0Request))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _UsbDeviceService_GetDeviceProtocol_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _DeviceService_GetDeviceProtocol_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(GetDeviceProtocolRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(UsbDeviceServiceServer).GetDeviceProtocol(ctx, in)
+		return srv.(DeviceServiceServer).GetDeviceProtocol(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: UsbDeviceService_GetDeviceProtocol_FullMethodName,
+		FullMethod: DeviceService_GetDeviceProtocol_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(UsbDeviceServiceServer).GetDeviceProtocol(ctx, req.(*GetDeviceProtocolRequest))
+		return srv.(DeviceServiceServer).GetDeviceProtocol(ctx, req.(*GetDeviceProtocolRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _UsbDeviceService_GetDeviceSubclass_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _DeviceService_GetDeviceSubclass_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(GetDeviceSubclassRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(UsbDeviceServiceServer).GetDeviceSubclass(ctx, in)
+		return srv.(DeviceServiceServer).GetDeviceSubclass(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: UsbDeviceService_GetDeviceSubclass_FullMethodName,
+		FullMethod: DeviceService_GetDeviceSubclass_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(UsbDeviceServiceServer).GetDeviceSubclass(ctx, req.(*GetDeviceSubclassRequest))
+		return srv.(DeviceServiceServer).GetDeviceSubclass(ctx, req.(*GetDeviceSubclassRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _UsbDeviceService_GetInterface_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _DeviceService_GetInterface_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(GetInterfaceRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(UsbDeviceServiceServer).GetInterface(ctx, in)
+		return srv.(DeviceServiceServer).GetInterface(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: UsbDeviceService_GetInterface_FullMethodName,
+		FullMethod: DeviceService_GetInterface_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(UsbDeviceServiceServer).GetInterface(ctx, req.(*GetInterfaceRequest))
+		return srv.(DeviceServiceServer).GetInterface(ctx, req.(*GetInterfaceRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _UsbDeviceService_GetInterfaceCount_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _DeviceService_GetInterfaceCount_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(GetInterfaceCountRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(UsbDeviceServiceServer).GetInterfaceCount(ctx, in)
+		return srv.(DeviceServiceServer).GetInterfaceCount(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: UsbDeviceService_GetInterfaceCount_FullMethodName,
+		FullMethod: DeviceService_GetInterfaceCount_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(UsbDeviceServiceServer).GetInterfaceCount(ctx, req.(*GetInterfaceCountRequest))
+		return srv.(DeviceServiceServer).GetInterfaceCount(ctx, req.(*GetInterfaceCountRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _UsbDeviceService_GetManufacturerName_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _DeviceService_GetManufacturerName_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(GetManufacturerNameRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(UsbDeviceServiceServer).GetManufacturerName(ctx, in)
+		return srv.(DeviceServiceServer).GetManufacturerName(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: UsbDeviceService_GetManufacturerName_FullMethodName,
+		FullMethod: DeviceService_GetManufacturerName_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(UsbDeviceServiceServer).GetManufacturerName(ctx, req.(*GetManufacturerNameRequest))
+		return srv.(DeviceServiceServer).GetManufacturerName(ctx, req.(*GetManufacturerNameRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _UsbDeviceService_GetProductId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _DeviceService_GetProductId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(GetProductIdRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(UsbDeviceServiceServer).GetProductId(ctx, in)
+		return srv.(DeviceServiceServer).GetProductId(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: UsbDeviceService_GetProductId_FullMethodName,
+		FullMethod: DeviceService_GetProductId_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(UsbDeviceServiceServer).GetProductId(ctx, req.(*GetProductIdRequest))
+		return srv.(DeviceServiceServer).GetProductId(ctx, req.(*GetProductIdRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _UsbDeviceService_GetProductName_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _DeviceService_GetProductName_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(GetProductNameRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(UsbDeviceServiceServer).GetProductName(ctx, in)
+		return srv.(DeviceServiceServer).GetProductName(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: UsbDeviceService_GetProductName_FullMethodName,
+		FullMethod: DeviceService_GetProductName_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(UsbDeviceServiceServer).GetProductName(ctx, req.(*GetProductNameRequest))
+		return srv.(DeviceServiceServer).GetProductName(ctx, req.(*GetProductNameRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _UsbDeviceService_GetSerialNumber_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _DeviceService_GetSerialNumber_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(GetSerialNumberRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(UsbDeviceServiceServer).GetSerialNumber(ctx, in)
+		return srv.(DeviceServiceServer).GetSerialNumber(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: UsbDeviceService_GetSerialNumber_FullMethodName,
+		FullMethod: DeviceService_GetSerialNumber_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(UsbDeviceServiceServer).GetSerialNumber(ctx, req.(*GetSerialNumberRequest))
+		return srv.(DeviceServiceServer).GetSerialNumber(ctx, req.(*GetSerialNumberRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _UsbDeviceService_GetVendorId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _DeviceService_GetVendorId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(GetVendorIdRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(UsbDeviceServiceServer).GetVendorId(ctx, in)
+		return srv.(DeviceServiceServer).GetVendorId(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: UsbDeviceService_GetVendorId_FullMethodName,
+		FullMethod: DeviceService_GetVendorId_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(UsbDeviceServiceServer).GetVendorId(ctx, req.(*GetVendorIdRequest))
+		return srv.(DeviceServiceServer).GetVendorId(ctx, req.(*GetVendorIdRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _UsbDeviceService_GetVersion_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _DeviceService_GetVersion_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(GetVersionRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(UsbDeviceServiceServer).GetVersion(ctx, in)
+		return srv.(DeviceServiceServer).GetVersion(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: UsbDeviceService_GetVersion_FullMethodName,
+		FullMethod: DeviceService_GetVersion_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(UsbDeviceServiceServer).GetVersion(ctx, req.(*GetVersionRequest))
+		return srv.(DeviceServiceServer).GetVersion(ctx, req.(*GetVersionRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _UsbDeviceService_HashCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _DeviceService_HashCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(HashCodeRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(UsbDeviceServiceServer).HashCode(ctx, in)
+		return srv.(DeviceServiceServer).HashCode(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: UsbDeviceService_HashCode_FullMethodName,
+		FullMethod: DeviceService_HashCode_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(UsbDeviceServiceServer).HashCode(ctx, req.(*HashCodeRequest))
+		return srv.(DeviceServiceServer).HashCode(ctx, req.(*HashCodeRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _UsbDeviceService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _DeviceService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(ToStringRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(UsbDeviceServiceServer).ToString(ctx, in)
+		return srv.(DeviceServiceServer).ToString(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: UsbDeviceService_ToString_FullMethodName,
+		FullMethod: DeviceService_ToString_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(UsbDeviceServiceServer).ToString(ctx, req.(*ToStringRequest))
+		return srv.(DeviceServiceServer).ToString(ctx, req.(*ToStringRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _UsbDeviceService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _DeviceService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(WriteToParcelRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(UsbDeviceServiceServer).WriteToParcel(ctx, in)
+		return srv.(DeviceServiceServer).WriteToParcel(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: UsbDeviceService_WriteToParcel_FullMethodName,
+		FullMethod: DeviceService_WriteToParcel_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(UsbDeviceServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
+		return srv.(DeviceServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _UsbDeviceService_GetDeviceId1_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _DeviceService_GetDeviceId1_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(GetDeviceId1_1Request)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(UsbDeviceServiceServer).GetDeviceId1_1(ctx, in)
+		return srv.(DeviceServiceServer).GetDeviceId1_1(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: UsbDeviceService_GetDeviceId1_1_FullMethodName,
+		FullMethod: DeviceService_GetDeviceId1_1_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(UsbDeviceServiceServer).GetDeviceId1_1(ctx, req.(*GetDeviceId1_1Request))
+		return srv.(DeviceServiceServer).GetDeviceId1_1(ctx, req.(*GetDeviceId1_1Request))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _UsbDeviceService_GetDeviceName1_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _DeviceService_GetDeviceName1_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(GetDeviceName1_1Request)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(UsbDeviceServiceServer).GetDeviceName1_1(ctx, in)
+		return srv.(DeviceServiceServer).GetDeviceName1_1(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: UsbDeviceService_GetDeviceName1_1_FullMethodName,
+		FullMethod: DeviceService_GetDeviceName1_1_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(UsbDeviceServiceServer).GetDeviceName1_1(ctx, req.(*GetDeviceName1_1Request))
+		return srv.(DeviceServiceServer).GetDeviceName1_1(ctx, req.(*GetDeviceName1_1Request))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-// UsbDeviceService_ServiceDesc is the grpc.ServiceDesc for UsbDeviceService service.
+// DeviceService_ServiceDesc is the grpc.ServiceDesc for DeviceService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
-var UsbDeviceService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "usb.UsbDeviceService",
-	HandlerType: (*UsbDeviceServiceServer)(nil),
+var DeviceService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "usb.DeviceService",
+	HandlerType: (*DeviceServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
 			MethodName: "DescribeContents",
-			Handler:    _UsbDeviceService_DescribeContents_Handler,
+			Handler:    _DeviceService_DescribeContents_Handler,
 		},
 		{
 			MethodName: "Equals",
-			Handler:    _UsbDeviceService_Equals_Handler,
+			Handler:    _DeviceService_Equals_Handler,
 		},
 		{
 			MethodName: "GetConfiguration",
-			Handler:    _UsbDeviceService_GetConfiguration_Handler,
+			Handler:    _DeviceService_GetConfiguration_Handler,
 		},
 		{
 			MethodName: "GetConfigurationCount",
-			Handler:    _UsbDeviceService_GetConfigurationCount_Handler,
+			Handler:    _DeviceService_GetConfigurationCount_Handler,
 		},
 		{
 			MethodName: "GetDeviceClass",
-			Handler:    _UsbDeviceService_GetDeviceClass_Handler,
+			Handler:    _DeviceService_GetDeviceClass_Handler,
 		},
 		{
 			MethodName: "GetDeviceId0",
-			Handler:    _UsbDeviceService_GetDeviceId0_Handler,
+			Handler:    _DeviceService_GetDeviceId0_Handler,
 		},
 		{
 			MethodName: "GetDeviceName0",
-			Handler:    _UsbDeviceService_GetDeviceName0_Handler,
+			Handler:    _DeviceService_GetDeviceName0_Handler,
 		},
 		{
 			MethodName: "GetDeviceProtocol",
-			Handler:    _UsbDeviceService_GetDeviceProtocol_Handler,
+			Handler:    _DeviceService_GetDeviceProtocol_Handler,
 		},
 		{
 			MethodName: "GetDeviceSubclass",
-			Handler:    _UsbDeviceService_GetDeviceSubclass_Handler,
+			Handler:    _DeviceService_GetDeviceSubclass_Handler,
 		},
 		{
 			MethodName: "GetInterface",
-			Handler:    _UsbDeviceService_GetInterface_Handler,
+			Handler:    _DeviceService_GetInterface_Handler,
 		},
 		{
 			MethodName: "GetInterfaceCount",
-			Handler:    _UsbDeviceService_GetInterfaceCount_Handler,
+			Handler:    _DeviceService_GetInterfaceCount_Handler,
 		},
 		{
 			MethodName: "GetManufacturerName",
-			Handler:    _UsbDeviceService_GetManufacturerName_Handler,
+			Handler:    _DeviceService_GetManufacturerName_Handler,
 		},
 		{
 			MethodName: "GetProductId",
-			Handler:    _UsbDeviceService_GetProductId_Handler,
+			Handler:    _DeviceService_GetProductId_Handler,
 		},
 		{
 			MethodName: "GetProductName",
-			Handler:    _UsbDeviceService_GetProductName_Handler,
+			Handler:    _DeviceService_GetProductName_Handler,
 		},
 		{
 			MethodName: "GetSerialNumber",
-			Handler:    _UsbDeviceService_GetSerialNumber_Handler,
+			Handler:    _DeviceService_GetSerialNumber_Handler,
 		},
 		{
 			MethodName: "GetVendorId",
-			Handler:    _UsbDeviceService_GetVendorId_Handler,
+			Handler:    _DeviceService_GetVendorId_Handler,
 		},
 		{
 			MethodName: "GetVersion",
-			Handler:    _UsbDeviceService_GetVersion_Handler,
+			Handler:    _DeviceService_GetVersion_Handler,
 		},
 		{
 			MethodName: "HashCode",
-			Handler:    _UsbDeviceService_HashCode_Handler,
+			Handler:    _DeviceService_HashCode_Handler,
 		},
 		{
 			MethodName: "ToString",
-			Handler:    _UsbDeviceService_ToString_Handler,
+			Handler:    _DeviceService_ToString_Handler,
 		},
 		{
 			MethodName: "WriteToParcel",
-			Handler:    _UsbDeviceService_WriteToParcel_Handler,
+			Handler:    _DeviceService_WriteToParcel_Handler,
 		},
 		{
 			MethodName: "GetDeviceId1_1",
-			Handler:    _UsbDeviceService_GetDeviceId1_1_Handler,
+			Handler:    _DeviceService_GetDeviceId1_1_Handler,
 		},
 		{
 			MethodName: "GetDeviceName1_1",
-			Handler:    _UsbDeviceService_GetDeviceName1_1_Handler,
+			Handler:    _DeviceService_GetDeviceName1_1_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/usb/usb.proto",
+}
+
+const (
+	InterfaceService_DescribeContents_FullMethodName     = "/usb.InterfaceService/DescribeContents"
+	InterfaceService_GetAlternateSetting_FullMethodName  = "/usb.InterfaceService/GetAlternateSetting"
+	InterfaceService_GetEndpoint_FullMethodName          = "/usb.InterfaceService/GetEndpoint"
+	InterfaceService_GetEndpointCount_FullMethodName     = "/usb.InterfaceService/GetEndpointCount"
+	InterfaceService_GetId_FullMethodName                = "/usb.InterfaceService/GetId"
+	InterfaceService_GetInterfaceClass_FullMethodName    = "/usb.InterfaceService/GetInterfaceClass"
+	InterfaceService_GetInterfaceProtocol_FullMethodName = "/usb.InterfaceService/GetInterfaceProtocol"
+	InterfaceService_GetInterfaceSubclass_FullMethodName = "/usb.InterfaceService/GetInterfaceSubclass"
+	InterfaceService_GetName_FullMethodName              = "/usb.InterfaceService/GetName"
+	InterfaceService_ToString_FullMethodName             = "/usb.InterfaceService/ToString"
+	InterfaceService_WriteToParcel_FullMethodName        = "/usb.InterfaceService/WriteToParcel"
+)
+
+// InterfaceServiceClient is the client API for InterfaceService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type InterfaceServiceClient interface {
+	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
+	GetAlternateSetting(ctx context.Context, in *GetAlternateSettingRequest, opts ...grpc.CallOption) (*GetAlternateSettingResponse, error)
+	GetEndpoint(ctx context.Context, in *GetEndpointRequest, opts ...grpc.CallOption) (*GetEndpointResponse, error)
+	GetEndpointCount(ctx context.Context, in *GetEndpointCountRequest, opts ...grpc.CallOption) (*GetEndpointCountResponse, error)
+	GetId(ctx context.Context, in *GetIdRequest, opts ...grpc.CallOption) (*GetIdResponse, error)
+	GetInterfaceClass(ctx context.Context, in *GetInterfaceClassRequest, opts ...grpc.CallOption) (*GetInterfaceClassResponse, error)
+	GetInterfaceProtocol(ctx context.Context, in *GetInterfaceProtocolRequest, opts ...grpc.CallOption) (*GetInterfaceProtocolResponse, error)
+	GetInterfaceSubclass(ctx context.Context, in *GetInterfaceSubclassRequest, opts ...grpc.CallOption) (*GetInterfaceSubclassResponse, error)
+	GetName(ctx context.Context, in *GetNameRequest, opts ...grpc.CallOption) (*GetNameResponse, error)
+	ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
+	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
+}
+
+type interfaceServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewInterfaceServiceClient(cc grpc.ClientConnInterface) InterfaceServiceClient {
+	return &interfaceServiceClient{cc}
+}
+
+func (c *interfaceServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(DescribeContentsResponse)
+	err := c.cc.Invoke(ctx, InterfaceService_DescribeContents_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *interfaceServiceClient) GetAlternateSetting(ctx context.Context, in *GetAlternateSettingRequest, opts ...grpc.CallOption) (*GetAlternateSettingResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetAlternateSettingResponse)
+	err := c.cc.Invoke(ctx, InterfaceService_GetAlternateSetting_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *interfaceServiceClient) GetEndpoint(ctx context.Context, in *GetEndpointRequest, opts ...grpc.CallOption) (*GetEndpointResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetEndpointResponse)
+	err := c.cc.Invoke(ctx, InterfaceService_GetEndpoint_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *interfaceServiceClient) GetEndpointCount(ctx context.Context, in *GetEndpointCountRequest, opts ...grpc.CallOption) (*GetEndpointCountResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetEndpointCountResponse)
+	err := c.cc.Invoke(ctx, InterfaceService_GetEndpointCount_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *interfaceServiceClient) GetId(ctx context.Context, in *GetIdRequest, opts ...grpc.CallOption) (*GetIdResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetIdResponse)
+	err := c.cc.Invoke(ctx, InterfaceService_GetId_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *interfaceServiceClient) GetInterfaceClass(ctx context.Context, in *GetInterfaceClassRequest, opts ...grpc.CallOption) (*GetInterfaceClassResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetInterfaceClassResponse)
+	err := c.cc.Invoke(ctx, InterfaceService_GetInterfaceClass_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *interfaceServiceClient) GetInterfaceProtocol(ctx context.Context, in *GetInterfaceProtocolRequest, opts ...grpc.CallOption) (*GetInterfaceProtocolResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetInterfaceProtocolResponse)
+	err := c.cc.Invoke(ctx, InterfaceService_GetInterfaceProtocol_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *interfaceServiceClient) GetInterfaceSubclass(ctx context.Context, in *GetInterfaceSubclassRequest, opts ...grpc.CallOption) (*GetInterfaceSubclassResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetInterfaceSubclassResponse)
+	err := c.cc.Invoke(ctx, InterfaceService_GetInterfaceSubclass_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *interfaceServiceClient) GetName(ctx context.Context, in *GetNameRequest, opts ...grpc.CallOption) (*GetNameResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetNameResponse)
+	err := c.cc.Invoke(ctx, InterfaceService_GetName_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *interfaceServiceClient) ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ToStringResponse)
+	err := c.cc.Invoke(ctx, InterfaceService_ToString_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *interfaceServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(WriteToParcelResponse)
+	err := c.cc.Invoke(ctx, InterfaceService_WriteToParcel_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// InterfaceServiceServer is the server API for InterfaceService service.
+// All implementations must embed UnimplementedInterfaceServiceServer
+// for forward compatibility.
+type InterfaceServiceServer interface {
+	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
+	GetAlternateSetting(context.Context, *GetAlternateSettingRequest) (*GetAlternateSettingResponse, error)
+	GetEndpoint(context.Context, *GetEndpointRequest) (*GetEndpointResponse, error)
+	GetEndpointCount(context.Context, *GetEndpointCountRequest) (*GetEndpointCountResponse, error)
+	GetId(context.Context, *GetIdRequest) (*GetIdResponse, error)
+	GetInterfaceClass(context.Context, *GetInterfaceClassRequest) (*GetInterfaceClassResponse, error)
+	GetInterfaceProtocol(context.Context, *GetInterfaceProtocolRequest) (*GetInterfaceProtocolResponse, error)
+	GetInterfaceSubclass(context.Context, *GetInterfaceSubclassRequest) (*GetInterfaceSubclassResponse, error)
+	GetName(context.Context, *GetNameRequest) (*GetNameResponse, error)
+	ToString(context.Context, *ToStringRequest) (*ToStringResponse, error)
+	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
+	mustEmbedUnimplementedInterfaceServiceServer()
+}
+
+// UnimplementedInterfaceServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedInterfaceServiceServer struct{}
+
+func (UnimplementedInterfaceServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
+}
+func (UnimplementedInterfaceServiceServer) GetAlternateSetting(context.Context, *GetAlternateSettingRequest) (*GetAlternateSettingResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetAlternateSetting not implemented")
+}
+func (UnimplementedInterfaceServiceServer) GetEndpoint(context.Context, *GetEndpointRequest) (*GetEndpointResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetEndpoint not implemented")
+}
+func (UnimplementedInterfaceServiceServer) GetEndpointCount(context.Context, *GetEndpointCountRequest) (*GetEndpointCountResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetEndpointCount not implemented")
+}
+func (UnimplementedInterfaceServiceServer) GetId(context.Context, *GetIdRequest) (*GetIdResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetId not implemented")
+}
+func (UnimplementedInterfaceServiceServer) GetInterfaceClass(context.Context, *GetInterfaceClassRequest) (*GetInterfaceClassResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetInterfaceClass not implemented")
+}
+func (UnimplementedInterfaceServiceServer) GetInterfaceProtocol(context.Context, *GetInterfaceProtocolRequest) (*GetInterfaceProtocolResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetInterfaceProtocol not implemented")
+}
+func (UnimplementedInterfaceServiceServer) GetInterfaceSubclass(context.Context, *GetInterfaceSubclassRequest) (*GetInterfaceSubclassResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetInterfaceSubclass not implemented")
+}
+func (UnimplementedInterfaceServiceServer) GetName(context.Context, *GetNameRequest) (*GetNameResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetName not implemented")
+}
+func (UnimplementedInterfaceServiceServer) ToString(context.Context, *ToStringRequest) (*ToStringResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
+}
+func (UnimplementedInterfaceServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
+}
+func (UnimplementedInterfaceServiceServer) mustEmbedUnimplementedInterfaceServiceServer() {}
+func (UnimplementedInterfaceServiceServer) testEmbeddedByValue()                          {}
+
+// UnsafeInterfaceServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to InterfaceServiceServer will
+// result in compilation errors.
+type UnsafeInterfaceServiceServer interface {
+	mustEmbedUnimplementedInterfaceServiceServer()
+}
+
+func RegisterInterfaceServiceServer(s grpc.ServiceRegistrar, srv InterfaceServiceServer) {
+	// If the following call panics, it indicates UnimplementedInterfaceServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&InterfaceService_ServiceDesc, srv)
+}
+
+func _InterfaceService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DescribeContentsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(InterfaceServiceServer).DescribeContents(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: InterfaceService_DescribeContents_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(InterfaceServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _InterfaceService_GetAlternateSetting_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetAlternateSettingRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(InterfaceServiceServer).GetAlternateSetting(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: InterfaceService_GetAlternateSetting_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(InterfaceServiceServer).GetAlternateSetting(ctx, req.(*GetAlternateSettingRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _InterfaceService_GetEndpoint_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetEndpointRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(InterfaceServiceServer).GetEndpoint(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: InterfaceService_GetEndpoint_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(InterfaceServiceServer).GetEndpoint(ctx, req.(*GetEndpointRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _InterfaceService_GetEndpointCount_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetEndpointCountRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(InterfaceServiceServer).GetEndpointCount(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: InterfaceService_GetEndpointCount_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(InterfaceServiceServer).GetEndpointCount(ctx, req.(*GetEndpointCountRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _InterfaceService_GetId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetIdRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(InterfaceServiceServer).GetId(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: InterfaceService_GetId_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(InterfaceServiceServer).GetId(ctx, req.(*GetIdRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _InterfaceService_GetInterfaceClass_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetInterfaceClassRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(InterfaceServiceServer).GetInterfaceClass(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: InterfaceService_GetInterfaceClass_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(InterfaceServiceServer).GetInterfaceClass(ctx, req.(*GetInterfaceClassRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _InterfaceService_GetInterfaceProtocol_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetInterfaceProtocolRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(InterfaceServiceServer).GetInterfaceProtocol(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: InterfaceService_GetInterfaceProtocol_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(InterfaceServiceServer).GetInterfaceProtocol(ctx, req.(*GetInterfaceProtocolRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _InterfaceService_GetInterfaceSubclass_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetInterfaceSubclassRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(InterfaceServiceServer).GetInterfaceSubclass(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: InterfaceService_GetInterfaceSubclass_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(InterfaceServiceServer).GetInterfaceSubclass(ctx, req.(*GetInterfaceSubclassRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _InterfaceService_GetName_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetNameRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(InterfaceServiceServer).GetName(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: InterfaceService_GetName_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(InterfaceServiceServer).GetName(ctx, req.(*GetNameRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _InterfaceService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ToStringRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(InterfaceServiceServer).ToString(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: InterfaceService_ToString_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(InterfaceServiceServer).ToString(ctx, req.(*ToStringRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _InterfaceService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(WriteToParcelRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(InterfaceServiceServer).WriteToParcel(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: InterfaceService_WriteToParcel_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(InterfaceServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// InterfaceService_ServiceDesc is the grpc.ServiceDesc for InterfaceService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var InterfaceService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "usb.InterfaceService",
+	HandlerType: (*InterfaceServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "DescribeContents",
+			Handler:    _InterfaceService_DescribeContents_Handler,
+		},
+		{
+			MethodName: "GetAlternateSetting",
+			Handler:    _InterfaceService_GetAlternateSetting_Handler,
+		},
+		{
+			MethodName: "GetEndpoint",
+			Handler:    _InterfaceService_GetEndpoint_Handler,
+		},
+		{
+			MethodName: "GetEndpointCount",
+			Handler:    _InterfaceService_GetEndpointCount_Handler,
+		},
+		{
+			MethodName: "GetId",
+			Handler:    _InterfaceService_GetId_Handler,
+		},
+		{
+			MethodName: "GetInterfaceClass",
+			Handler:    _InterfaceService_GetInterfaceClass_Handler,
+		},
+		{
+			MethodName: "GetInterfaceProtocol",
+			Handler:    _InterfaceService_GetInterfaceProtocol_Handler,
+		},
+		{
+			MethodName: "GetInterfaceSubclass",
+			Handler:    _InterfaceService_GetInterfaceSubclass_Handler,
+		},
+		{
+			MethodName: "GetName",
+			Handler:    _InterfaceService_GetName_Handler,
+		},
+		{
+			MethodName: "ToString",
+			Handler:    _InterfaceService_ToString_Handler,
+		},
+		{
+			MethodName: "WriteToParcel",
+			Handler:    _InterfaceService_WriteToParcel_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/usb/usb.proto",
+}
+
+const (
+	ManagerService_GetAccessoryList_FullMethodName          = "/usb.ManagerService/GetAccessoryList"
+	ManagerService_HasPermission1_FullMethodName            = "/usb.ManagerService/HasPermission1"
+	ManagerService_HasPermission1_1_FullMethodName          = "/usb.ManagerService/HasPermission1_1"
+	ManagerService_OpenAccessory_FullMethodName             = "/usb.ManagerService/OpenAccessory"
+	ManagerService_OpenAccessoryInputStream_FullMethodName  = "/usb.ManagerService/OpenAccessoryInputStream"
+	ManagerService_OpenAccessoryOutputStream_FullMethodName = "/usb.ManagerService/OpenAccessoryOutputStream"
+	ManagerService_OpenDevice_FullMethodName                = "/usb.ManagerService/OpenDevice"
+	ManagerService_RequestPermission2_FullMethodName        = "/usb.ManagerService/RequestPermission2"
+	ManagerService_RequestPermission2_1_FullMethodName      = "/usb.ManagerService/RequestPermission2_1"
+)
+
+// ManagerServiceClient is the client API for ManagerService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type ManagerServiceClient interface {
+	GetAccessoryList(ctx context.Context, in *GetAccessoryListRequest, opts ...grpc.CallOption) (*GetAccessoryListResponse, error)
+	HasPermission1(ctx context.Context, in *HasPermission1Request, opts ...grpc.CallOption) (*HasPermission1Response, error)
+	HasPermission1_1(ctx context.Context, in *HasPermission1_1Request, opts ...grpc.CallOption) (*HasPermission1_1Response, error)
+	OpenAccessory(ctx context.Context, in *OpenAccessoryRequest, opts ...grpc.CallOption) (*OpenAccessoryResponse, error)
+	OpenAccessoryInputStream(ctx context.Context, in *OpenAccessoryInputStreamRequest, opts ...grpc.CallOption) (*OpenAccessoryInputStreamResponse, error)
+	OpenAccessoryOutputStream(ctx context.Context, in *OpenAccessoryOutputStreamRequest, opts ...grpc.CallOption) (*OpenAccessoryOutputStreamResponse, error)
+	OpenDevice(ctx context.Context, in *OpenDeviceRequest, opts ...grpc.CallOption) (*OpenDeviceResponse, error)
+	RequestPermission2(ctx context.Context, in *RequestPermission2Request, opts ...grpc.CallOption) (*RequestPermission2Response, error)
+	RequestPermission2_1(ctx context.Context, in *RequestPermission2_1Request, opts ...grpc.CallOption) (*RequestPermission2_1Response, error)
+}
+
+type managerServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewManagerServiceClient(cc grpc.ClientConnInterface) ManagerServiceClient {
+	return &managerServiceClient{cc}
+}
+
+func (c *managerServiceClient) GetAccessoryList(ctx context.Context, in *GetAccessoryListRequest, opts ...grpc.CallOption) (*GetAccessoryListResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetAccessoryListResponse)
+	err := c.cc.Invoke(ctx, ManagerService_GetAccessoryList_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *managerServiceClient) HasPermission1(ctx context.Context, in *HasPermission1Request, opts ...grpc.CallOption) (*HasPermission1Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(HasPermission1Response)
+	err := c.cc.Invoke(ctx, ManagerService_HasPermission1_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *managerServiceClient) HasPermission1_1(ctx context.Context, in *HasPermission1_1Request, opts ...grpc.CallOption) (*HasPermission1_1Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(HasPermission1_1Response)
+	err := c.cc.Invoke(ctx, ManagerService_HasPermission1_1_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *managerServiceClient) OpenAccessory(ctx context.Context, in *OpenAccessoryRequest, opts ...grpc.CallOption) (*OpenAccessoryResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OpenAccessoryResponse)
+	err := c.cc.Invoke(ctx, ManagerService_OpenAccessory_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *managerServiceClient) OpenAccessoryInputStream(ctx context.Context, in *OpenAccessoryInputStreamRequest, opts ...grpc.CallOption) (*OpenAccessoryInputStreamResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OpenAccessoryInputStreamResponse)
+	err := c.cc.Invoke(ctx, ManagerService_OpenAccessoryInputStream_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *managerServiceClient) OpenAccessoryOutputStream(ctx context.Context, in *OpenAccessoryOutputStreamRequest, opts ...grpc.CallOption) (*OpenAccessoryOutputStreamResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OpenAccessoryOutputStreamResponse)
+	err := c.cc.Invoke(ctx, ManagerService_OpenAccessoryOutputStream_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *managerServiceClient) OpenDevice(ctx context.Context, in *OpenDeviceRequest, opts ...grpc.CallOption) (*OpenDeviceResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OpenDeviceResponse)
+	err := c.cc.Invoke(ctx, ManagerService_OpenDevice_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *managerServiceClient) RequestPermission2(ctx context.Context, in *RequestPermission2Request, opts ...grpc.CallOption) (*RequestPermission2Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(RequestPermission2Response)
+	err := c.cc.Invoke(ctx, ManagerService_RequestPermission2_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *managerServiceClient) RequestPermission2_1(ctx context.Context, in *RequestPermission2_1Request, opts ...grpc.CallOption) (*RequestPermission2_1Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(RequestPermission2_1Response)
+	err := c.cc.Invoke(ctx, ManagerService_RequestPermission2_1_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// ManagerServiceServer is the server API for ManagerService service.
+// All implementations must embed UnimplementedManagerServiceServer
+// for forward compatibility.
+type ManagerServiceServer interface {
+	GetAccessoryList(context.Context, *GetAccessoryListRequest) (*GetAccessoryListResponse, error)
+	HasPermission1(context.Context, *HasPermission1Request) (*HasPermission1Response, error)
+	HasPermission1_1(context.Context, *HasPermission1_1Request) (*HasPermission1_1Response, error)
+	OpenAccessory(context.Context, *OpenAccessoryRequest) (*OpenAccessoryResponse, error)
+	OpenAccessoryInputStream(context.Context, *OpenAccessoryInputStreamRequest) (*OpenAccessoryInputStreamResponse, error)
+	OpenAccessoryOutputStream(context.Context, *OpenAccessoryOutputStreamRequest) (*OpenAccessoryOutputStreamResponse, error)
+	OpenDevice(context.Context, *OpenDeviceRequest) (*OpenDeviceResponse, error)
+	RequestPermission2(context.Context, *RequestPermission2Request) (*RequestPermission2Response, error)
+	RequestPermission2_1(context.Context, *RequestPermission2_1Request) (*RequestPermission2_1Response, error)
+	mustEmbedUnimplementedManagerServiceServer()
+}
+
+// UnimplementedManagerServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedManagerServiceServer struct{}
+
+func (UnimplementedManagerServiceServer) GetAccessoryList(context.Context, *GetAccessoryListRequest) (*GetAccessoryListResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetAccessoryList not implemented")
+}
+func (UnimplementedManagerServiceServer) HasPermission1(context.Context, *HasPermission1Request) (*HasPermission1Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method HasPermission1 not implemented")
+}
+func (UnimplementedManagerServiceServer) HasPermission1_1(context.Context, *HasPermission1_1Request) (*HasPermission1_1Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method HasPermission1_1 not implemented")
+}
+func (UnimplementedManagerServiceServer) OpenAccessory(context.Context, *OpenAccessoryRequest) (*OpenAccessoryResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OpenAccessory not implemented")
+}
+func (UnimplementedManagerServiceServer) OpenAccessoryInputStream(context.Context, *OpenAccessoryInputStreamRequest) (*OpenAccessoryInputStreamResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OpenAccessoryInputStream not implemented")
+}
+func (UnimplementedManagerServiceServer) OpenAccessoryOutputStream(context.Context, *OpenAccessoryOutputStreamRequest) (*OpenAccessoryOutputStreamResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OpenAccessoryOutputStream not implemented")
+}
+func (UnimplementedManagerServiceServer) OpenDevice(context.Context, *OpenDeviceRequest) (*OpenDeviceResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OpenDevice not implemented")
+}
+func (UnimplementedManagerServiceServer) RequestPermission2(context.Context, *RequestPermission2Request) (*RequestPermission2Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method RequestPermission2 not implemented")
+}
+func (UnimplementedManagerServiceServer) RequestPermission2_1(context.Context, *RequestPermission2_1Request) (*RequestPermission2_1Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method RequestPermission2_1 not implemented")
+}
+func (UnimplementedManagerServiceServer) mustEmbedUnimplementedManagerServiceServer() {}
+func (UnimplementedManagerServiceServer) testEmbeddedByValue()                        {}
+
+// UnsafeManagerServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to ManagerServiceServer will
+// result in compilation errors.
+type UnsafeManagerServiceServer interface {
+	mustEmbedUnimplementedManagerServiceServer()
+}
+
+func RegisterManagerServiceServer(s grpc.ServiceRegistrar, srv ManagerServiceServer) {
+	// If the following call panics, it indicates UnimplementedManagerServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&ManagerService_ServiceDesc, srv)
+}
+
+func _ManagerService_GetAccessoryList_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetAccessoryListRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ManagerServiceServer).GetAccessoryList(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ManagerService_GetAccessoryList_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ManagerServiceServer).GetAccessoryList(ctx, req.(*GetAccessoryListRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ManagerService_HasPermission1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(HasPermission1Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ManagerServiceServer).HasPermission1(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ManagerService_HasPermission1_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ManagerServiceServer).HasPermission1(ctx, req.(*HasPermission1Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ManagerService_HasPermission1_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(HasPermission1_1Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ManagerServiceServer).HasPermission1_1(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ManagerService_HasPermission1_1_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ManagerServiceServer).HasPermission1_1(ctx, req.(*HasPermission1_1Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ManagerService_OpenAccessory_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OpenAccessoryRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ManagerServiceServer).OpenAccessory(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ManagerService_OpenAccessory_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ManagerServiceServer).OpenAccessory(ctx, req.(*OpenAccessoryRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ManagerService_OpenAccessoryInputStream_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OpenAccessoryInputStreamRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ManagerServiceServer).OpenAccessoryInputStream(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ManagerService_OpenAccessoryInputStream_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ManagerServiceServer).OpenAccessoryInputStream(ctx, req.(*OpenAccessoryInputStreamRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ManagerService_OpenAccessoryOutputStream_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OpenAccessoryOutputStreamRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ManagerServiceServer).OpenAccessoryOutputStream(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ManagerService_OpenAccessoryOutputStream_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ManagerServiceServer).OpenAccessoryOutputStream(ctx, req.(*OpenAccessoryOutputStreamRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ManagerService_OpenDevice_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OpenDeviceRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ManagerServiceServer).OpenDevice(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ManagerService_OpenDevice_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ManagerServiceServer).OpenDevice(ctx, req.(*OpenDeviceRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ManagerService_RequestPermission2_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(RequestPermission2Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ManagerServiceServer).RequestPermission2(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ManagerService_RequestPermission2_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ManagerServiceServer).RequestPermission2(ctx, req.(*RequestPermission2Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ManagerService_RequestPermission2_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(RequestPermission2_1Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ManagerServiceServer).RequestPermission2_1(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ManagerService_RequestPermission2_1_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ManagerServiceServer).RequestPermission2_1(ctx, req.(*RequestPermission2_1Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// ManagerService_ServiceDesc is the grpc.ServiceDesc for ManagerService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var ManagerService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "usb.ManagerService",
+	HandlerType: (*ManagerServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "GetAccessoryList",
+			Handler:    _ManagerService_GetAccessoryList_Handler,
+		},
+		{
+			MethodName: "HasPermission1",
+			Handler:    _ManagerService_HasPermission1_Handler,
+		},
+		{
+			MethodName: "HasPermission1_1",
+			Handler:    _ManagerService_HasPermission1_1_Handler,
+		},
+		{
+			MethodName: "OpenAccessory",
+			Handler:    _ManagerService_OpenAccessory_Handler,
+		},
+		{
+			MethodName: "OpenAccessoryInputStream",
+			Handler:    _ManagerService_OpenAccessoryInputStream_Handler,
+		},
+		{
+			MethodName: "OpenAccessoryOutputStream",
+			Handler:    _ManagerService_OpenAccessoryOutputStream_Handler,
+		},
+		{
+			MethodName: "OpenDevice",
+			Handler:    _ManagerService_OpenDevice_Handler,
+		},
+		{
+			MethodName: "RequestPermission2",
+			Handler:    _ManagerService_RequestPermission2_Handler,
+		},
+		{
+			MethodName: "RequestPermission2_1",
+			Handler:    _ManagerService_RequestPermission2_1_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/usb/usb.proto",
+}
+
+const (
+	EndpointService_DescribeContents_FullMethodName  = "/usb.EndpointService/DescribeContents"
+	EndpointService_GetAddress_FullMethodName        = "/usb.EndpointService/GetAddress"
+	EndpointService_GetAttributes_FullMethodName     = "/usb.EndpointService/GetAttributes"
+	EndpointService_GetDirection_FullMethodName      = "/usb.EndpointService/GetDirection"
+	EndpointService_GetEndpointNumber_FullMethodName = "/usb.EndpointService/GetEndpointNumber"
+	EndpointService_GetInterval_FullMethodName       = "/usb.EndpointService/GetInterval"
+	EndpointService_GetMaxPacketSize_FullMethodName  = "/usb.EndpointService/GetMaxPacketSize"
+	EndpointService_GetType_FullMethodName           = "/usb.EndpointService/GetType"
+	EndpointService_ToString_FullMethodName          = "/usb.EndpointService/ToString"
+	EndpointService_WriteToParcel_FullMethodName     = "/usb.EndpointService/WriteToParcel"
+)
+
+// EndpointServiceClient is the client API for EndpointService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type EndpointServiceClient interface {
+	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
+	GetAddress(ctx context.Context, in *GetAddressRequest, opts ...grpc.CallOption) (*GetAddressResponse, error)
+	GetAttributes(ctx context.Context, in *GetAttributesRequest, opts ...grpc.CallOption) (*GetAttributesResponse, error)
+	GetDirection(ctx context.Context, in *GetDirectionRequest, opts ...grpc.CallOption) (*GetDirectionResponse, error)
+	GetEndpointNumber(ctx context.Context, in *GetEndpointNumberRequest, opts ...grpc.CallOption) (*GetEndpointNumberResponse, error)
+	GetInterval(ctx context.Context, in *GetIntervalRequest, opts ...grpc.CallOption) (*GetIntervalResponse, error)
+	GetMaxPacketSize(ctx context.Context, in *GetMaxPacketSizeRequest, opts ...grpc.CallOption) (*GetMaxPacketSizeResponse, error)
+	GetType(ctx context.Context, in *GetTypeRequest, opts ...grpc.CallOption) (*GetTypeResponse, error)
+	ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
+	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
+}
+
+type endpointServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewEndpointServiceClient(cc grpc.ClientConnInterface) EndpointServiceClient {
+	return &endpointServiceClient{cc}
+}
+
+func (c *endpointServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(DescribeContentsResponse)
+	err := c.cc.Invoke(ctx, EndpointService_DescribeContents_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *endpointServiceClient) GetAddress(ctx context.Context, in *GetAddressRequest, opts ...grpc.CallOption) (*GetAddressResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetAddressResponse)
+	err := c.cc.Invoke(ctx, EndpointService_GetAddress_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *endpointServiceClient) GetAttributes(ctx context.Context, in *GetAttributesRequest, opts ...grpc.CallOption) (*GetAttributesResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetAttributesResponse)
+	err := c.cc.Invoke(ctx, EndpointService_GetAttributes_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *endpointServiceClient) GetDirection(ctx context.Context, in *GetDirectionRequest, opts ...grpc.CallOption) (*GetDirectionResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetDirectionResponse)
+	err := c.cc.Invoke(ctx, EndpointService_GetDirection_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *endpointServiceClient) GetEndpointNumber(ctx context.Context, in *GetEndpointNumberRequest, opts ...grpc.CallOption) (*GetEndpointNumberResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetEndpointNumberResponse)
+	err := c.cc.Invoke(ctx, EndpointService_GetEndpointNumber_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *endpointServiceClient) GetInterval(ctx context.Context, in *GetIntervalRequest, opts ...grpc.CallOption) (*GetIntervalResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetIntervalResponse)
+	err := c.cc.Invoke(ctx, EndpointService_GetInterval_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *endpointServiceClient) GetMaxPacketSize(ctx context.Context, in *GetMaxPacketSizeRequest, opts ...grpc.CallOption) (*GetMaxPacketSizeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetMaxPacketSizeResponse)
+	err := c.cc.Invoke(ctx, EndpointService_GetMaxPacketSize_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *endpointServiceClient) GetType(ctx context.Context, in *GetTypeRequest, opts ...grpc.CallOption) (*GetTypeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetTypeResponse)
+	err := c.cc.Invoke(ctx, EndpointService_GetType_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *endpointServiceClient) ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ToStringResponse)
+	err := c.cc.Invoke(ctx, EndpointService_ToString_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *endpointServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(WriteToParcelResponse)
+	err := c.cc.Invoke(ctx, EndpointService_WriteToParcel_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// EndpointServiceServer is the server API for EndpointService service.
+// All implementations must embed UnimplementedEndpointServiceServer
+// for forward compatibility.
+type EndpointServiceServer interface {
+	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
+	GetAddress(context.Context, *GetAddressRequest) (*GetAddressResponse, error)
+	GetAttributes(context.Context, *GetAttributesRequest) (*GetAttributesResponse, error)
+	GetDirection(context.Context, *GetDirectionRequest) (*GetDirectionResponse, error)
+	GetEndpointNumber(context.Context, *GetEndpointNumberRequest) (*GetEndpointNumberResponse, error)
+	GetInterval(context.Context, *GetIntervalRequest) (*GetIntervalResponse, error)
+	GetMaxPacketSize(context.Context, *GetMaxPacketSizeRequest) (*GetMaxPacketSizeResponse, error)
+	GetType(context.Context, *GetTypeRequest) (*GetTypeResponse, error)
+	ToString(context.Context, *ToStringRequest) (*ToStringResponse, error)
+	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
+	mustEmbedUnimplementedEndpointServiceServer()
+}
+
+// UnimplementedEndpointServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedEndpointServiceServer struct{}
+
+func (UnimplementedEndpointServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
+}
+func (UnimplementedEndpointServiceServer) GetAddress(context.Context, *GetAddressRequest) (*GetAddressResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetAddress not implemented")
+}
+func (UnimplementedEndpointServiceServer) GetAttributes(context.Context, *GetAttributesRequest) (*GetAttributesResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetAttributes not implemented")
+}
+func (UnimplementedEndpointServiceServer) GetDirection(context.Context, *GetDirectionRequest) (*GetDirectionResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetDirection not implemented")
+}
+func (UnimplementedEndpointServiceServer) GetEndpointNumber(context.Context, *GetEndpointNumberRequest) (*GetEndpointNumberResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetEndpointNumber not implemented")
+}
+func (UnimplementedEndpointServiceServer) GetInterval(context.Context, *GetIntervalRequest) (*GetIntervalResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetInterval not implemented")
+}
+func (UnimplementedEndpointServiceServer) GetMaxPacketSize(context.Context, *GetMaxPacketSizeRequest) (*GetMaxPacketSizeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetMaxPacketSize not implemented")
+}
+func (UnimplementedEndpointServiceServer) GetType(context.Context, *GetTypeRequest) (*GetTypeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetType not implemented")
+}
+func (UnimplementedEndpointServiceServer) ToString(context.Context, *ToStringRequest) (*ToStringResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
+}
+func (UnimplementedEndpointServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
+}
+func (UnimplementedEndpointServiceServer) mustEmbedUnimplementedEndpointServiceServer() {}
+func (UnimplementedEndpointServiceServer) testEmbeddedByValue()                         {}
+
+// UnsafeEndpointServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to EndpointServiceServer will
+// result in compilation errors.
+type UnsafeEndpointServiceServer interface {
+	mustEmbedUnimplementedEndpointServiceServer()
+}
+
+func RegisterEndpointServiceServer(s grpc.ServiceRegistrar, srv EndpointServiceServer) {
+	// If the following call panics, it indicates UnimplementedEndpointServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&EndpointService_ServiceDesc, srv)
+}
+
+func _EndpointService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DescribeContentsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(EndpointServiceServer).DescribeContents(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: EndpointService_DescribeContents_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(EndpointServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _EndpointService_GetAddress_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetAddressRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(EndpointServiceServer).GetAddress(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: EndpointService_GetAddress_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(EndpointServiceServer).GetAddress(ctx, req.(*GetAddressRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _EndpointService_GetAttributes_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetAttributesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(EndpointServiceServer).GetAttributes(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: EndpointService_GetAttributes_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(EndpointServiceServer).GetAttributes(ctx, req.(*GetAttributesRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _EndpointService_GetDirection_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetDirectionRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(EndpointServiceServer).GetDirection(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: EndpointService_GetDirection_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(EndpointServiceServer).GetDirection(ctx, req.(*GetDirectionRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _EndpointService_GetEndpointNumber_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetEndpointNumberRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(EndpointServiceServer).GetEndpointNumber(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: EndpointService_GetEndpointNumber_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(EndpointServiceServer).GetEndpointNumber(ctx, req.(*GetEndpointNumberRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _EndpointService_GetInterval_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetIntervalRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(EndpointServiceServer).GetInterval(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: EndpointService_GetInterval_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(EndpointServiceServer).GetInterval(ctx, req.(*GetIntervalRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _EndpointService_GetMaxPacketSize_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetMaxPacketSizeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(EndpointServiceServer).GetMaxPacketSize(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: EndpointService_GetMaxPacketSize_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(EndpointServiceServer).GetMaxPacketSize(ctx, req.(*GetMaxPacketSizeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _EndpointService_GetType_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetTypeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(EndpointServiceServer).GetType(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: EndpointService_GetType_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(EndpointServiceServer).GetType(ctx, req.(*GetTypeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _EndpointService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ToStringRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(EndpointServiceServer).ToString(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: EndpointService_ToString_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(EndpointServiceServer).ToString(ctx, req.(*ToStringRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _EndpointService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(WriteToParcelRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(EndpointServiceServer).WriteToParcel(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: EndpointService_WriteToParcel_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(EndpointServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// EndpointService_ServiceDesc is the grpc.ServiceDesc for EndpointService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var EndpointService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "usb.EndpointService",
+	HandlerType: (*EndpointServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "DescribeContents",
+			Handler:    _EndpointService_DescribeContents_Handler,
+		},
+		{
+			MethodName: "GetAddress",
+			Handler:    _EndpointService_GetAddress_Handler,
+		},
+		{
+			MethodName: "GetAttributes",
+			Handler:    _EndpointService_GetAttributes_Handler,
+		},
+		{
+			MethodName: "GetDirection",
+			Handler:    _EndpointService_GetDirection_Handler,
+		},
+		{
+			MethodName: "GetEndpointNumber",
+			Handler:    _EndpointService_GetEndpointNumber_Handler,
+		},
+		{
+			MethodName: "GetInterval",
+			Handler:    _EndpointService_GetInterval_Handler,
+		},
+		{
+			MethodName: "GetMaxPacketSize",
+			Handler:    _EndpointService_GetMaxPacketSize_Handler,
+		},
+		{
+			MethodName: "GetType",
+			Handler:    _EndpointService_GetType_Handler,
+		},
+		{
+			MethodName: "ToString",
+			Handler:    _EndpointService_ToString_Handler,
+		},
+		{
+			MethodName: "WriteToParcel",
+			Handler:    _EndpointService_WriteToParcel_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

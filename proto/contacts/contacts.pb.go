@@ -119,9 +119,9 @@ const file_proto_contacts_contacts_proto_rawDesc = "" +
 	"\x12IsProfileIdRequest\x12\x12\n" +
 	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"-\n" +
 	"\x13IsProfileIdResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\bR\x06result2e\n" +
-	"\x17ContactsContractService\x12J\n" +
-	"\vIsProfileId\x12\x1c.contacts.IsProfileIdRequest\x1a\x1d.contacts.IsProfileIdResponseB+Z)github.com/AndroidGoLab/jni-proxy/proto/contactsb\x06proto3"
+	"\x06result\x18\x01 \x01(\bR\x06result2]\n" +
+	"\x0fContractService\x12J\n" +
+	"\vIsProfileId\x12\x1c.contacts.IsProfileIdRequest\x1a\x1d.contacts.IsProfileIdResponseB2Z0github.com/AndroidGoLab/jni-proxy/proto/contactsb\x06proto3"
 
 var (
 	file_proto_contacts_contacts_proto_rawDescOnce sync.Once
@@ -141,8 +141,8 @@ var file_proto_contacts_contacts_proto_goTypes = []any{
 	(*IsProfileIdResponse)(nil), // 1: contacts.IsProfileIdResponse
 }
 var file_proto_contacts_contacts_proto_depIdxs = []int32{
-	0, // 0: contacts.ContactsContractService.IsProfileId:input_type -> contacts.IsProfileIdRequest
-	1, // 1: contacts.ContactsContractService.IsProfileId:output_type -> contacts.IsProfileIdResponse
+	0, // 0: contacts.ContractService.IsProfileId:input_type -> contacts.IsProfileIdRequest
+	1, // 1: contacts.ContractService.IsProfileId:output_type -> contacts.IsProfileIdResponse
 	1, // [1:2] is the sub-list for method output_type
 	0, // [0:1] is the sub-list for method input_type
 	0, // [0:0] is the sub-list for extension type_name

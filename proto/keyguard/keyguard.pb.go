@@ -985,8 +985,8 @@ const file_proto_keyguard_keyguard_proto_rawDesc = "" +
 	"\x1dRequestDismissKeyguardRequest\x12\x12\n" +
 	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
 	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\" \n" +
-	"\x1eRequestDismissKeyguardResponse2\xd1\t\n" +
-	"\x16KeyguardManagerService\x12\x83\x01\n" +
+	"\x1eRequestDismissKeyguardResponse2\xc9\t\n" +
+	"\x0eManagerService\x12\x83\x01\n" +
 	"\x1eAddKeyguardLockedStateListener\x12/.keyguard.AddKeyguardLockedStateListenerRequest\x1a0.keyguard.AddKeyguardLockedStateListenerResponse\x12\x92\x01\n" +
 	"#CreateConfirmDeviceCredentialIntent\x124.keyguard.CreateConfirmDeviceCredentialIntentRequest\x1a5.keyguard.CreateConfirmDeviceCredentialIntentResponse\x12e\n" +
 	"\x14ExitKeyguardSecurely\x12%.keyguard.ExitKeyguardSecurelyRequest\x1a&.keyguard.ExitKeyguardSecurelyResponse\x12\x80\x01\n" +
@@ -997,7 +997,7 @@ const file_proto_keyguard_keyguard_proto_rawDesc = "" +
 	"\x10IsKeyguardSecure\x12!.keyguard.IsKeyguardSecureRequest\x1a\".keyguard.IsKeyguardSecureResponse\x12V\n" +
 	"\x0fNewKeyguardLock\x12 .keyguard.NewKeyguardLockRequest\x1a!.keyguard.NewKeyguardLockResponse\x12\x8c\x01\n" +
 	"!RemoveKeyguardLockedStateListener\x122.keyguard.RemoveKeyguardLockedStateListenerRequest\x1a3.keyguard.RemoveKeyguardLockedStateListenerResponse\x12k\n" +
-	"\x16RequestDismissKeyguard\x12'.keyguard.RequestDismissKeyguardRequest\x1a(.keyguard.RequestDismissKeyguardResponseB+Z)github.com/AndroidGoLab/jni-proxy/proto/keyguardb\x06proto3"
+	"\x16RequestDismissKeyguard\x12'.keyguard.RequestDismissKeyguardRequest\x1a(.keyguard.RequestDismissKeyguardResponseB2Z0github.com/AndroidGoLab/jni-proxy/proto/keyguardb\x06proto3"
 
 var (
 	file_proto_keyguard_keyguard_proto_rawDescOnce sync.Once
@@ -1037,28 +1037,28 @@ var file_proto_keyguard_keyguard_proto_goTypes = []any{
 	(*RequestDismissKeyguardResponse)(nil),              // 21: keyguard.RequestDismissKeyguardResponse
 }
 var file_proto_keyguard_keyguard_proto_depIdxs = []int32{
-	0,  // 0: keyguard.KeyguardManagerService.AddKeyguardLockedStateListener:input_type -> keyguard.AddKeyguardLockedStateListenerRequest
-	2,  // 1: keyguard.KeyguardManagerService.CreateConfirmDeviceCredentialIntent:input_type -> keyguard.CreateConfirmDeviceCredentialIntentRequest
-	4,  // 2: keyguard.KeyguardManagerService.ExitKeyguardSecurely:input_type -> keyguard.ExitKeyguardSecurelyRequest
-	6,  // 3: keyguard.KeyguardManagerService.InKeyguardRestrictedInputMode:input_type -> keyguard.InKeyguardRestrictedInputModeRequest
-	8,  // 4: keyguard.KeyguardManagerService.IsDeviceLocked:input_type -> keyguard.IsDeviceLockedRequest
-	10, // 5: keyguard.KeyguardManagerService.IsDeviceSecure:input_type -> keyguard.IsDeviceSecureRequest
-	12, // 6: keyguard.KeyguardManagerService.IsKeyguardLocked:input_type -> keyguard.IsKeyguardLockedRequest
-	14, // 7: keyguard.KeyguardManagerService.IsKeyguardSecure:input_type -> keyguard.IsKeyguardSecureRequest
-	16, // 8: keyguard.KeyguardManagerService.NewKeyguardLock:input_type -> keyguard.NewKeyguardLockRequest
-	18, // 9: keyguard.KeyguardManagerService.RemoveKeyguardLockedStateListener:input_type -> keyguard.RemoveKeyguardLockedStateListenerRequest
-	20, // 10: keyguard.KeyguardManagerService.RequestDismissKeyguard:input_type -> keyguard.RequestDismissKeyguardRequest
-	1,  // 11: keyguard.KeyguardManagerService.AddKeyguardLockedStateListener:output_type -> keyguard.AddKeyguardLockedStateListenerResponse
-	3,  // 12: keyguard.KeyguardManagerService.CreateConfirmDeviceCredentialIntent:output_type -> keyguard.CreateConfirmDeviceCredentialIntentResponse
-	5,  // 13: keyguard.KeyguardManagerService.ExitKeyguardSecurely:output_type -> keyguard.ExitKeyguardSecurelyResponse
-	7,  // 14: keyguard.KeyguardManagerService.InKeyguardRestrictedInputMode:output_type -> keyguard.InKeyguardRestrictedInputModeResponse
-	9,  // 15: keyguard.KeyguardManagerService.IsDeviceLocked:output_type -> keyguard.IsDeviceLockedResponse
-	11, // 16: keyguard.KeyguardManagerService.IsDeviceSecure:output_type -> keyguard.IsDeviceSecureResponse
-	13, // 17: keyguard.KeyguardManagerService.IsKeyguardLocked:output_type -> keyguard.IsKeyguardLockedResponse
-	15, // 18: keyguard.KeyguardManagerService.IsKeyguardSecure:output_type -> keyguard.IsKeyguardSecureResponse
-	17, // 19: keyguard.KeyguardManagerService.NewKeyguardLock:output_type -> keyguard.NewKeyguardLockResponse
-	19, // 20: keyguard.KeyguardManagerService.RemoveKeyguardLockedStateListener:output_type -> keyguard.RemoveKeyguardLockedStateListenerResponse
-	21, // 21: keyguard.KeyguardManagerService.RequestDismissKeyguard:output_type -> keyguard.RequestDismissKeyguardResponse
+	0,  // 0: keyguard.ManagerService.AddKeyguardLockedStateListener:input_type -> keyguard.AddKeyguardLockedStateListenerRequest
+	2,  // 1: keyguard.ManagerService.CreateConfirmDeviceCredentialIntent:input_type -> keyguard.CreateConfirmDeviceCredentialIntentRequest
+	4,  // 2: keyguard.ManagerService.ExitKeyguardSecurely:input_type -> keyguard.ExitKeyguardSecurelyRequest
+	6,  // 3: keyguard.ManagerService.InKeyguardRestrictedInputMode:input_type -> keyguard.InKeyguardRestrictedInputModeRequest
+	8,  // 4: keyguard.ManagerService.IsDeviceLocked:input_type -> keyguard.IsDeviceLockedRequest
+	10, // 5: keyguard.ManagerService.IsDeviceSecure:input_type -> keyguard.IsDeviceSecureRequest
+	12, // 6: keyguard.ManagerService.IsKeyguardLocked:input_type -> keyguard.IsKeyguardLockedRequest
+	14, // 7: keyguard.ManagerService.IsKeyguardSecure:input_type -> keyguard.IsKeyguardSecureRequest
+	16, // 8: keyguard.ManagerService.NewKeyguardLock:input_type -> keyguard.NewKeyguardLockRequest
+	18, // 9: keyguard.ManagerService.RemoveKeyguardLockedStateListener:input_type -> keyguard.RemoveKeyguardLockedStateListenerRequest
+	20, // 10: keyguard.ManagerService.RequestDismissKeyguard:input_type -> keyguard.RequestDismissKeyguardRequest
+	1,  // 11: keyguard.ManagerService.AddKeyguardLockedStateListener:output_type -> keyguard.AddKeyguardLockedStateListenerResponse
+	3,  // 12: keyguard.ManagerService.CreateConfirmDeviceCredentialIntent:output_type -> keyguard.CreateConfirmDeviceCredentialIntentResponse
+	5,  // 13: keyguard.ManagerService.ExitKeyguardSecurely:output_type -> keyguard.ExitKeyguardSecurelyResponse
+	7,  // 14: keyguard.ManagerService.InKeyguardRestrictedInputMode:output_type -> keyguard.InKeyguardRestrictedInputModeResponse
+	9,  // 15: keyguard.ManagerService.IsDeviceLocked:output_type -> keyguard.IsDeviceLockedResponse
+	11, // 16: keyguard.ManagerService.IsDeviceSecure:output_type -> keyguard.IsDeviceSecureResponse
+	13, // 17: keyguard.ManagerService.IsKeyguardLocked:output_type -> keyguard.IsKeyguardLockedResponse
+	15, // 18: keyguard.ManagerService.IsKeyguardSecure:output_type -> keyguard.IsKeyguardSecureResponse
+	17, // 19: keyguard.ManagerService.NewKeyguardLock:output_type -> keyguard.NewKeyguardLockResponse
+	19, // 20: keyguard.ManagerService.RemoveKeyguardLockedStateListener:output_type -> keyguard.RemoveKeyguardLockedStateListenerResponse
+	21, // 21: keyguard.ManagerService.RequestDismissKeyguard:output_type -> keyguard.RequestDismissKeyguardResponse
 	11, // [11:22] is the sub-list for method output_type
 	0,  // [0:11] is the sub-list for method input_type
 	0,  // [0:0] is the sub-list for extension type_name

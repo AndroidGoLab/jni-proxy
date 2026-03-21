@@ -261,7 +261,7 @@ message WriteToParcelRequest {
 message WriteToParcelResponse {
 }
 
-service NsdManagerService {
+service ManagerService {
   rpc DiscoverServices3 (DiscoverServices3Request) returns (DiscoverServices3Response);
   rpc DiscoverServices5_1 (DiscoverServices5_1Request) returns (DiscoverServices5_1Response);
   rpc DiscoverServices5_2 (DiscoverServices5_2Request) returns (DiscoverServices5_2Response);
@@ -277,7 +277,7 @@ service NsdManagerService {
   rpc UnregisterServiceInfoCallback (UnregisterServiceInfoCallbackRequest) returns (UnregisterServiceInfoCallbackResponse);
 }
 
-service NsdServiceInfoService {
+service ServiceInfoService {
   rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
   rpc GetHost (GetHostRequest) returns (GetHostResponse);
   rpc GetHostAddresses (GetHostAddressesRequest) returns (GetHostAddressesResponse);

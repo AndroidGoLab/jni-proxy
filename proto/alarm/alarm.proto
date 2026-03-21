@@ -169,7 +169,7 @@ message WriteToParcelRequest {
 message WriteToParcelResponse {
 }
 
-service AlarmManagerService {
+service ManagerService {
   rpc CanScheduleExactAlarms (CanScheduleExactAlarmsRequest) returns (CanScheduleExactAlarmsResponse);
   rpc Cancel1 (Cancel1Request) returns (Cancel1Response);
   rpc Cancel1_1 (Cancel1_1Request) returns (Cancel1_1Response);
@@ -188,7 +188,7 @@ service AlarmManagerService {
   rpc SetWindow6_1 (SetWindow6_1Request) returns (SetWindow6_1Response);
 }
 
-service AlarmManagerAlarmClockInfoService {
+service ManagerAlarmClockInfoService {
   rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
   rpc GetShowIntent (GetShowIntentRequest) returns (GetShowIntentResponse);
   rpc GetTriggerTime (GetTriggerTimeRequest) returns (GetTriggerTimeResponse);

@@ -7,10 +7,10 @@ import (
 
 	"github.com/AndroidGoLab/jni"
 
-	"github.com/AndroidGoLab/jni/app"
 	"github.com/AndroidGoLab/jni-proxy/handlestore"
-	jnipkg "github.com/AndroidGoLab/jni/media/audiomanager"
 	pb "github.com/AndroidGoLab/jni-proxy/proto/audiomanager"
+	"github.com/AndroidGoLab/jni/app"
+	jnipkg "github.com/AndroidGoLab/jni/media/audiomanager"
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"
 )
@@ -23,7 +23,7 @@ type AudioManagerServer struct {
 }
 
 func (s *AudioManagerServer) AbandonAudioFocus(_ context.Context, req *pb.AbandonAudioFocusRequest) (*pb.AbandonAudioFocusResponse, error) {
-	mgr, err := jnipkg.NewaudioManager(s.Ctx)
+	mgr, err := jnipkg.NewAudioManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -37,7 +37,7 @@ func (s *AudioManagerServer) AbandonAudioFocus(_ context.Context, req *pb.Abando
 }
 
 func (s *AudioManagerServer) AbandonAudioFocusRequestOp(_ context.Context, req *pb.AbandonAudioFocusRequestOpRequest) (*pb.AbandonAudioFocusRequestOpResponse, error) {
-	mgr, err := jnipkg.NewaudioManager(s.Ctx)
+	mgr, err := jnipkg.NewAudioManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -51,7 +51,7 @@ func (s *AudioManagerServer) AbandonAudioFocusRequestOp(_ context.Context, req *
 }
 
 func (s *AudioManagerServer) AddOnCommunicationDeviceChangedListener(_ context.Context, req *pb.AddOnCommunicationDeviceChangedListenerRequest) (*pb.AddOnCommunicationDeviceChangedListenerResponse, error) {
-	mgr, err := jnipkg.NewaudioManager(s.Ctx)
+	mgr, err := jnipkg.NewAudioManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -64,7 +64,7 @@ func (s *AudioManagerServer) AddOnCommunicationDeviceChangedListener(_ context.C
 }
 
 func (s *AudioManagerServer) AddOnModeChangedListener(_ context.Context, req *pb.AddOnModeChangedListenerRequest) (*pb.AddOnModeChangedListenerResponse, error) {
-	mgr, err := jnipkg.NewaudioManager(s.Ctx)
+	mgr, err := jnipkg.NewAudioManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -77,7 +77,7 @@ func (s *AudioManagerServer) AddOnModeChangedListener(_ context.Context, req *pb
 }
 
 func (s *AudioManagerServer) AddOnPreferredMixerAttributesChangedListener(_ context.Context, req *pb.AddOnPreferredMixerAttributesChangedListenerRequest) (*pb.AddOnPreferredMixerAttributesChangedListenerResponse, error) {
-	mgr, err := jnipkg.NewaudioManager(s.Ctx)
+	mgr, err := jnipkg.NewAudioManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -90,7 +90,7 @@ func (s *AudioManagerServer) AddOnPreferredMixerAttributesChangedListener(_ cont
 }
 
 func (s *AudioManagerServer) AdjustStreamVolume(_ context.Context, req *pb.AdjustStreamVolumeRequest) (*pb.AdjustStreamVolumeResponse, error) {
-	mgr, err := jnipkg.NewaudioManager(s.Ctx)
+	mgr, err := jnipkg.NewAudioManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -103,7 +103,7 @@ func (s *AudioManagerServer) AdjustStreamVolume(_ context.Context, req *pb.Adjus
 }
 
 func (s *AudioManagerServer) AdjustSuggestedStreamVolume(_ context.Context, req *pb.AdjustSuggestedStreamVolumeRequest) (*pb.AdjustSuggestedStreamVolumeResponse, error) {
-	mgr, err := jnipkg.NewaudioManager(s.Ctx)
+	mgr, err := jnipkg.NewAudioManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -116,7 +116,7 @@ func (s *AudioManagerServer) AdjustSuggestedStreamVolume(_ context.Context, req 
 }
 
 func (s *AudioManagerServer) AdjustVolume(_ context.Context, req *pb.AdjustVolumeRequest) (*pb.AdjustVolumeResponse, error) {
-	mgr, err := jnipkg.NewaudioManager(s.Ctx)
+	mgr, err := jnipkg.NewAudioManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -129,7 +129,7 @@ func (s *AudioManagerServer) AdjustVolume(_ context.Context, req *pb.AdjustVolum
 }
 
 func (s *AudioManagerServer) AdjustVolumeGroupVolume(_ context.Context, req *pb.AdjustVolumeGroupVolumeRequest) (*pb.AdjustVolumeGroupVolumeResponse, error) {
-	mgr, err := jnipkg.NewaudioManager(s.Ctx)
+	mgr, err := jnipkg.NewAudioManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -142,7 +142,7 @@ func (s *AudioManagerServer) AdjustVolumeGroupVolume(_ context.Context, req *pb.
 }
 
 func (s *AudioManagerServer) ClearCommunicationDevice(_ context.Context, req *pb.ClearCommunicationDeviceRequest) (*pb.ClearCommunicationDeviceResponse, error) {
-	mgr, err := jnipkg.NewaudioManager(s.Ctx)
+	mgr, err := jnipkg.NewAudioManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -155,7 +155,7 @@ func (s *AudioManagerServer) ClearCommunicationDevice(_ context.Context, req *pb
 }
 
 func (s *AudioManagerServer) ClearPreferredMixerAttributes(_ context.Context, req *pb.ClearPreferredMixerAttributesRequest) (*pb.ClearPreferredMixerAttributesResponse, error) {
-	mgr, err := jnipkg.NewaudioManager(s.Ctx)
+	mgr, err := jnipkg.NewAudioManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -169,7 +169,7 @@ func (s *AudioManagerServer) ClearPreferredMixerAttributes(_ context.Context, re
 }
 
 func (s *AudioManagerServer) DispatchMediaKeyEvent(_ context.Context, req *pb.DispatchMediaKeyEventRequest) (*pb.DispatchMediaKeyEventResponse, error) {
-	mgr, err := jnipkg.NewaudioManager(s.Ctx)
+	mgr, err := jnipkg.NewAudioManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -182,7 +182,7 @@ func (s *AudioManagerServer) DispatchMediaKeyEvent(_ context.Context, req *pb.Di
 }
 
 func (s *AudioManagerServer) GenerateAudioSessionId(_ context.Context, req *pb.GenerateAudioSessionIdRequest) (*pb.GenerateAudioSessionIdResponse, error) {
-	mgr, err := jnipkg.NewaudioManager(s.Ctx)
+	mgr, err := jnipkg.NewAudioManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -196,7 +196,7 @@ func (s *AudioManagerServer) GenerateAudioSessionId(_ context.Context, req *pb.G
 }
 
 func (s *AudioManagerServer) GetActivePlaybackConfigurations(_ context.Context, req *pb.GetActivePlaybackConfigurationsRequest) (*pb.GetActivePlaybackConfigurationsResponse, error) {
-	mgr, err := jnipkg.NewaudioManager(s.Ctx)
+	mgr, err := jnipkg.NewAudioManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -219,7 +219,7 @@ func (s *AudioManagerServer) GetActivePlaybackConfigurations(_ context.Context, 
 }
 
 func (s *AudioManagerServer) GetActiveRecordingConfigurations(_ context.Context, req *pb.GetActiveRecordingConfigurationsRequest) (*pb.GetActiveRecordingConfigurationsResponse, error) {
-	mgr, err := jnipkg.NewaudioManager(s.Ctx)
+	mgr, err := jnipkg.NewAudioManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -242,7 +242,7 @@ func (s *AudioManagerServer) GetActiveRecordingConfigurations(_ context.Context,
 }
 
 func (s *AudioManagerServer) GetAllowedCapturePolicy(_ context.Context, req *pb.GetAllowedCapturePolicyRequest) (*pb.GetAllowedCapturePolicyResponse, error) {
-	mgr, err := jnipkg.NewaudioManager(s.Ctx)
+	mgr, err := jnipkg.NewAudioManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -256,7 +256,7 @@ func (s *AudioManagerServer) GetAllowedCapturePolicy(_ context.Context, req *pb.
 }
 
 func (s *AudioManagerServer) GetAudioDevicesForAttributes(_ context.Context, req *pb.GetAudioDevicesForAttributesRequest) (*pb.GetAudioDevicesForAttributesResponse, error) {
-	mgr, err := jnipkg.NewaudioManager(s.Ctx)
+	mgr, err := jnipkg.NewAudioManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -279,7 +279,7 @@ func (s *AudioManagerServer) GetAudioDevicesForAttributes(_ context.Context, req
 }
 
 func (s *AudioManagerServer) GetAudioHwSyncForSession(_ context.Context, req *pb.GetAudioHwSyncForSessionRequest) (*pb.GetAudioHwSyncForSessionResponse, error) {
-	mgr, err := jnipkg.NewaudioManager(s.Ctx)
+	mgr, err := jnipkg.NewAudioManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -293,7 +293,7 @@ func (s *AudioManagerServer) GetAudioHwSyncForSession(_ context.Context, req *pb
 }
 
 func (s *AudioManagerServer) GetAvailableCommunicationDevices(_ context.Context, req *pb.GetAvailableCommunicationDevicesRequest) (*pb.GetAvailableCommunicationDevicesResponse, error) {
-	mgr, err := jnipkg.NewaudioManager(s.Ctx)
+	mgr, err := jnipkg.NewAudioManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -316,7 +316,7 @@ func (s *AudioManagerServer) GetAvailableCommunicationDevices(_ context.Context,
 }
 
 func (s *AudioManagerServer) GetCommunicationDevice(_ context.Context, req *pb.GetCommunicationDeviceRequest) (*pb.GetCommunicationDeviceResponse, error) {
-	mgr, err := jnipkg.NewaudioManager(s.Ctx)
+	mgr, err := jnipkg.NewAudioManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -339,7 +339,7 @@ func (s *AudioManagerServer) GetCommunicationDevice(_ context.Context, req *pb.G
 }
 
 func (s *AudioManagerServer) GetDevices(_ context.Context, req *pb.GetDevicesRequest) (*pb.GetDevicesResponse, error) {
-	mgr, err := jnipkg.NewaudioManager(s.Ctx)
+	mgr, err := jnipkg.NewAudioManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -362,7 +362,7 @@ func (s *AudioManagerServer) GetDevices(_ context.Context, req *pb.GetDevicesReq
 }
 
 func (s *AudioManagerServer) GetDirectProfilesForAttributes(_ context.Context, req *pb.GetDirectProfilesForAttributesRequest) (*pb.GetDirectProfilesForAttributesResponse, error) {
-	mgr, err := jnipkg.NewaudioManager(s.Ctx)
+	mgr, err := jnipkg.NewAudioManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -385,7 +385,7 @@ func (s *AudioManagerServer) GetDirectProfilesForAttributes(_ context.Context, r
 }
 
 func (s *AudioManagerServer) GetEncodedSurroundMode(_ context.Context, req *pb.GetEncodedSurroundModeRequest) (*pb.GetEncodedSurroundModeResponse, error) {
-	mgr, err := jnipkg.NewaudioManager(s.Ctx)
+	mgr, err := jnipkg.NewAudioManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -399,7 +399,7 @@ func (s *AudioManagerServer) GetEncodedSurroundMode(_ context.Context, req *pb.G
 }
 
 func (s *AudioManagerServer) GetMicrophones(_ context.Context, req *pb.GetMicrophonesRequest) (*pb.GetMicrophonesResponse, error) {
-	mgr, err := jnipkg.NewaudioManager(s.Ctx)
+	mgr, err := jnipkg.NewAudioManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -422,7 +422,7 @@ func (s *AudioManagerServer) GetMicrophones(_ context.Context, req *pb.GetMicrop
 }
 
 func (s *AudioManagerServer) GetMode(_ context.Context, req *pb.GetModeRequest) (*pb.GetModeResponse, error) {
-	mgr, err := jnipkg.NewaudioManager(s.Ctx)
+	mgr, err := jnipkg.NewAudioManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -436,7 +436,7 @@ func (s *AudioManagerServer) GetMode(_ context.Context, req *pb.GetModeRequest) 
 }
 
 func (s *AudioManagerServer) GetParameters(_ context.Context, req *pb.GetParametersRequest) (*pb.GetParametersResponse, error) {
-	mgr, err := jnipkg.NewaudioManager(s.Ctx)
+	mgr, err := jnipkg.NewAudioManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -450,7 +450,7 @@ func (s *AudioManagerServer) GetParameters(_ context.Context, req *pb.GetParamet
 }
 
 func (s *AudioManagerServer) GetPreferredMixerAttributes(_ context.Context, req *pb.GetPreferredMixerAttributesRequest) (*pb.GetPreferredMixerAttributesResponse, error) {
-	mgr, err := jnipkg.NewaudioManager(s.Ctx)
+	mgr, err := jnipkg.NewAudioManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -473,7 +473,7 @@ func (s *AudioManagerServer) GetPreferredMixerAttributes(_ context.Context, req 
 }
 
 func (s *AudioManagerServer) GetProperty(_ context.Context, req *pb.GetPropertyRequest) (*pb.GetPropertyResponse, error) {
-	mgr, err := jnipkg.NewaudioManager(s.Ctx)
+	mgr, err := jnipkg.NewAudioManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -487,7 +487,7 @@ func (s *AudioManagerServer) GetProperty(_ context.Context, req *pb.GetPropertyR
 }
 
 func (s *AudioManagerServer) GetRingerMode(_ context.Context, req *pb.GetRingerModeRequest) (*pb.GetRingerModeResponse, error) {
-	mgr, err := jnipkg.NewaudioManager(s.Ctx)
+	mgr, err := jnipkg.NewAudioManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -501,7 +501,7 @@ func (s *AudioManagerServer) GetRingerMode(_ context.Context, req *pb.GetRingerM
 }
 
 func (s *AudioManagerServer) GetRouting(_ context.Context, req *pb.GetRoutingRequest) (*pb.GetRoutingResponse, error) {
-	mgr, err := jnipkg.NewaudioManager(s.Ctx)
+	mgr, err := jnipkg.NewAudioManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -515,7 +515,7 @@ func (s *AudioManagerServer) GetRouting(_ context.Context, req *pb.GetRoutingReq
 }
 
 func (s *AudioManagerServer) GetSpatializer(_ context.Context, req *pb.GetSpatializerRequest) (*pb.GetSpatializerResponse, error) {
-	mgr, err := jnipkg.NewaudioManager(s.Ctx)
+	mgr, err := jnipkg.NewAudioManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -538,7 +538,7 @@ func (s *AudioManagerServer) GetSpatializer(_ context.Context, req *pb.GetSpatia
 }
 
 func (s *AudioManagerServer) GetStreamMaxVolume(_ context.Context, req *pb.GetStreamMaxVolumeRequest) (*pb.GetStreamMaxVolumeResponse, error) {
-	mgr, err := jnipkg.NewaudioManager(s.Ctx)
+	mgr, err := jnipkg.NewAudioManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -552,7 +552,7 @@ func (s *AudioManagerServer) GetStreamMaxVolume(_ context.Context, req *pb.GetSt
 }
 
 func (s *AudioManagerServer) GetStreamMinVolume(_ context.Context, req *pb.GetStreamMinVolumeRequest) (*pb.GetStreamMinVolumeResponse, error) {
-	mgr, err := jnipkg.NewaudioManager(s.Ctx)
+	mgr, err := jnipkg.NewAudioManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -566,7 +566,7 @@ func (s *AudioManagerServer) GetStreamMinVolume(_ context.Context, req *pb.GetSt
 }
 
 func (s *AudioManagerServer) GetStreamVolume(_ context.Context, req *pb.GetStreamVolumeRequest) (*pb.GetStreamVolumeResponse, error) {
-	mgr, err := jnipkg.NewaudioManager(s.Ctx)
+	mgr, err := jnipkg.NewAudioManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -580,7 +580,7 @@ func (s *AudioManagerServer) GetStreamVolume(_ context.Context, req *pb.GetStrea
 }
 
 func (s *AudioManagerServer) GetStreamVolumeDb(_ context.Context, req *pb.GetStreamVolumeDbRequest) (*pb.GetStreamVolumeDbResponse, error) {
-	mgr, err := jnipkg.NewaudioManager(s.Ctx)
+	mgr, err := jnipkg.NewAudioManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -594,7 +594,7 @@ func (s *AudioManagerServer) GetStreamVolumeDb(_ context.Context, req *pb.GetStr
 }
 
 func (s *AudioManagerServer) GetSupportedDeviceTypes(_ context.Context, req *pb.GetSupportedDeviceTypesRequest) (*pb.GetSupportedDeviceTypesResponse, error) {
-	mgr, err := jnipkg.NewaudioManager(s.Ctx)
+	mgr, err := jnipkg.NewAudioManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -617,7 +617,7 @@ func (s *AudioManagerServer) GetSupportedDeviceTypes(_ context.Context, req *pb.
 }
 
 func (s *AudioManagerServer) GetSupportedMixerAttributes(_ context.Context, req *pb.GetSupportedMixerAttributesRequest) (*pb.GetSupportedMixerAttributesResponse, error) {
-	mgr, err := jnipkg.NewaudioManager(s.Ctx)
+	mgr, err := jnipkg.NewAudioManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -640,7 +640,7 @@ func (s *AudioManagerServer) GetSupportedMixerAttributes(_ context.Context, req 
 }
 
 func (s *AudioManagerServer) GetVibrateSetting(_ context.Context, req *pb.GetVibrateSettingRequest) (*pb.GetVibrateSettingResponse, error) {
-	mgr, err := jnipkg.NewaudioManager(s.Ctx)
+	mgr, err := jnipkg.NewAudioManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -654,7 +654,7 @@ func (s *AudioManagerServer) GetVibrateSetting(_ context.Context, req *pb.GetVib
 }
 
 func (s *AudioManagerServer) GetVolumeGroupIdForAttributes(_ context.Context, req *pb.GetVolumeGroupIdForAttributesRequest) (*pb.GetVolumeGroupIdForAttributesResponse, error) {
-	mgr, err := jnipkg.NewaudioManager(s.Ctx)
+	mgr, err := jnipkg.NewAudioManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -668,7 +668,7 @@ func (s *AudioManagerServer) GetVolumeGroupIdForAttributes(_ context.Context, re
 }
 
 func (s *AudioManagerServer) IsBluetoothA2DpOn(_ context.Context, req *pb.IsBluetoothA2DpOnRequest) (*pb.IsBluetoothA2DpOnResponse, error) {
-	mgr, err := jnipkg.NewaudioManager(s.Ctx)
+	mgr, err := jnipkg.NewAudioManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -682,7 +682,7 @@ func (s *AudioManagerServer) IsBluetoothA2DpOn(_ context.Context, req *pb.IsBlue
 }
 
 func (s *AudioManagerServer) IsBluetoothScoAvailableOffCall(_ context.Context, req *pb.IsBluetoothScoAvailableOffCallRequest) (*pb.IsBluetoothScoAvailableOffCallResponse, error) {
-	mgr, err := jnipkg.NewaudioManager(s.Ctx)
+	mgr, err := jnipkg.NewAudioManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -696,7 +696,7 @@ func (s *AudioManagerServer) IsBluetoothScoAvailableOffCall(_ context.Context, r
 }
 
 func (s *AudioManagerServer) IsBluetoothScoOn(_ context.Context, req *pb.IsBluetoothScoOnRequest) (*pb.IsBluetoothScoOnResponse, error) {
-	mgr, err := jnipkg.NewaudioManager(s.Ctx)
+	mgr, err := jnipkg.NewAudioManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -710,7 +710,7 @@ func (s *AudioManagerServer) IsBluetoothScoOn(_ context.Context, req *pb.IsBluet
 }
 
 func (s *AudioManagerServer) IsCallScreeningModeSupported(_ context.Context, req *pb.IsCallScreeningModeSupportedRequest) (*pb.IsCallScreeningModeSupportedResponse, error) {
-	mgr, err := jnipkg.NewaudioManager(s.Ctx)
+	mgr, err := jnipkg.NewAudioManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -724,7 +724,7 @@ func (s *AudioManagerServer) IsCallScreeningModeSupported(_ context.Context, req
 }
 
 func (s *AudioManagerServer) IsMicrophoneMute(_ context.Context, req *pb.IsMicrophoneMuteRequest) (*pb.IsMicrophoneMuteResponse, error) {
-	mgr, err := jnipkg.NewaudioManager(s.Ctx)
+	mgr, err := jnipkg.NewAudioManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -738,7 +738,7 @@ func (s *AudioManagerServer) IsMicrophoneMute(_ context.Context, req *pb.IsMicro
 }
 
 func (s *AudioManagerServer) IsMusicActive(_ context.Context, req *pb.IsMusicActiveRequest) (*pb.IsMusicActiveResponse, error) {
-	mgr, err := jnipkg.NewaudioManager(s.Ctx)
+	mgr, err := jnipkg.NewAudioManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -752,7 +752,7 @@ func (s *AudioManagerServer) IsMusicActive(_ context.Context, req *pb.IsMusicAct
 }
 
 func (s *AudioManagerServer) IsRampingRingerEnabled(_ context.Context, req *pb.IsRampingRingerEnabledRequest) (*pb.IsRampingRingerEnabledResponse, error) {
-	mgr, err := jnipkg.NewaudioManager(s.Ctx)
+	mgr, err := jnipkg.NewAudioManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -766,7 +766,7 @@ func (s *AudioManagerServer) IsRampingRingerEnabled(_ context.Context, req *pb.I
 }
 
 func (s *AudioManagerServer) IsSpeakerphoneOn(_ context.Context, req *pb.IsSpeakerphoneOnRequest) (*pb.IsSpeakerphoneOnResponse, error) {
-	mgr, err := jnipkg.NewaudioManager(s.Ctx)
+	mgr, err := jnipkg.NewAudioManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -780,7 +780,7 @@ func (s *AudioManagerServer) IsSpeakerphoneOn(_ context.Context, req *pb.IsSpeak
 }
 
 func (s *AudioManagerServer) IsStreamMute(_ context.Context, req *pb.IsStreamMuteRequest) (*pb.IsStreamMuteResponse, error) {
-	mgr, err := jnipkg.NewaudioManager(s.Ctx)
+	mgr, err := jnipkg.NewAudioManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -794,7 +794,7 @@ func (s *AudioManagerServer) IsStreamMute(_ context.Context, req *pb.IsStreamMut
 }
 
 func (s *AudioManagerServer) IsSurroundFormatEnabled(_ context.Context, req *pb.IsSurroundFormatEnabledRequest) (*pb.IsSurroundFormatEnabledResponse, error) {
-	mgr, err := jnipkg.NewaudioManager(s.Ctx)
+	mgr, err := jnipkg.NewAudioManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -808,7 +808,7 @@ func (s *AudioManagerServer) IsSurroundFormatEnabled(_ context.Context, req *pb.
 }
 
 func (s *AudioManagerServer) IsVolumeFixed(_ context.Context, req *pb.IsVolumeFixedRequest) (*pb.IsVolumeFixedResponse, error) {
-	mgr, err := jnipkg.NewaudioManager(s.Ctx)
+	mgr, err := jnipkg.NewAudioManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -822,7 +822,7 @@ func (s *AudioManagerServer) IsVolumeFixed(_ context.Context, req *pb.IsVolumeFi
 }
 
 func (s *AudioManagerServer) IsVolumeGroupMuted(_ context.Context, req *pb.IsVolumeGroupMutedRequest) (*pb.IsVolumeGroupMutedResponse, error) {
-	mgr, err := jnipkg.NewaudioManager(s.Ctx)
+	mgr, err := jnipkg.NewAudioManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -836,7 +836,7 @@ func (s *AudioManagerServer) IsVolumeGroupMuted(_ context.Context, req *pb.IsVol
 }
 
 func (s *AudioManagerServer) IsWiredHeadsetOn(_ context.Context, req *pb.IsWiredHeadsetOnRequest) (*pb.IsWiredHeadsetOnResponse, error) {
-	mgr, err := jnipkg.NewaudioManager(s.Ctx)
+	mgr, err := jnipkg.NewAudioManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -850,7 +850,7 @@ func (s *AudioManagerServer) IsWiredHeadsetOn(_ context.Context, req *pb.IsWired
 }
 
 func (s *AudioManagerServer) LoadSoundEffects(_ context.Context, req *pb.LoadSoundEffectsRequest) (*pb.LoadSoundEffectsResponse, error) {
-	mgr, err := jnipkg.NewaudioManager(s.Ctx)
+	mgr, err := jnipkg.NewAudioManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -863,7 +863,7 @@ func (s *AudioManagerServer) LoadSoundEffects(_ context.Context, req *pb.LoadSou
 }
 
 func (s *AudioManagerServer) PlaySoundEffect1(_ context.Context, req *pb.PlaySoundEffect1Request) (*pb.PlaySoundEffect1Response, error) {
-	mgr, err := jnipkg.NewaudioManager(s.Ctx)
+	mgr, err := jnipkg.NewAudioManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -876,7 +876,7 @@ func (s *AudioManagerServer) PlaySoundEffect1(_ context.Context, req *pb.PlaySou
 }
 
 func (s *AudioManagerServer) PlaySoundEffect2_1(_ context.Context, req *pb.PlaySoundEffect2_1Request) (*pb.PlaySoundEffect2_1Response, error) {
-	mgr, err := jnipkg.NewaudioManager(s.Ctx)
+	mgr, err := jnipkg.NewAudioManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -889,7 +889,7 @@ func (s *AudioManagerServer) PlaySoundEffect2_1(_ context.Context, req *pb.PlayS
 }
 
 func (s *AudioManagerServer) RegisterMediaButtonEventReceiver1(_ context.Context, req *pb.RegisterMediaButtonEventReceiver1Request) (*pb.RegisterMediaButtonEventReceiver1Response, error) {
-	mgr, err := jnipkg.NewaudioManager(s.Ctx)
+	mgr, err := jnipkg.NewAudioManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -902,7 +902,7 @@ func (s *AudioManagerServer) RegisterMediaButtonEventReceiver1(_ context.Context
 }
 
 func (s *AudioManagerServer) RegisterMediaButtonEventReceiver1_1(_ context.Context, req *pb.RegisterMediaButtonEventReceiver1_1Request) (*pb.RegisterMediaButtonEventReceiver1_1Response, error) {
-	mgr, err := jnipkg.NewaudioManager(s.Ctx)
+	mgr, err := jnipkg.NewAudioManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -915,7 +915,7 @@ func (s *AudioManagerServer) RegisterMediaButtonEventReceiver1_1(_ context.Conte
 }
 
 func (s *AudioManagerServer) RegisterRemoteControlClient(_ context.Context, req *pb.RegisterRemoteControlClientRequest) (*pb.RegisterRemoteControlClientResponse, error) {
-	mgr, err := jnipkg.NewaudioManager(s.Ctx)
+	mgr, err := jnipkg.NewAudioManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -928,7 +928,7 @@ func (s *AudioManagerServer) RegisterRemoteControlClient(_ context.Context, req 
 }
 
 func (s *AudioManagerServer) RegisterRemoteController(_ context.Context, req *pb.RegisterRemoteControllerRequest) (*pb.RegisterRemoteControllerResponse, error) {
-	mgr, err := jnipkg.NewaudioManager(s.Ctx)
+	mgr, err := jnipkg.NewAudioManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -942,7 +942,7 @@ func (s *AudioManagerServer) RegisterRemoteController(_ context.Context, req *pb
 }
 
 func (s *AudioManagerServer) RemoveOnCommunicationDeviceChangedListener(_ context.Context, req *pb.RemoveOnCommunicationDeviceChangedListenerRequest) (*pb.RemoveOnCommunicationDeviceChangedListenerResponse, error) {
-	mgr, err := jnipkg.NewaudioManager(s.Ctx)
+	mgr, err := jnipkg.NewAudioManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -955,7 +955,7 @@ func (s *AudioManagerServer) RemoveOnCommunicationDeviceChangedListener(_ contex
 }
 
 func (s *AudioManagerServer) RemoveOnModeChangedListener(_ context.Context, req *pb.RemoveOnModeChangedListenerRequest) (*pb.RemoveOnModeChangedListenerResponse, error) {
-	mgr, err := jnipkg.NewaudioManager(s.Ctx)
+	mgr, err := jnipkg.NewAudioManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -968,7 +968,7 @@ func (s *AudioManagerServer) RemoveOnModeChangedListener(_ context.Context, req 
 }
 
 func (s *AudioManagerServer) RemoveOnPreferredMixerAttributesChangedListener(_ context.Context, req *pb.RemoveOnPreferredMixerAttributesChangedListenerRequest) (*pb.RemoveOnPreferredMixerAttributesChangedListenerResponse, error) {
-	mgr, err := jnipkg.NewaudioManager(s.Ctx)
+	mgr, err := jnipkg.NewAudioManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -981,7 +981,7 @@ func (s *AudioManagerServer) RemoveOnPreferredMixerAttributesChangedListener(_ c
 }
 
 func (s *AudioManagerServer) RequestAudioFocus1(_ context.Context, req *pb.RequestAudioFocus1Request) (*pb.RequestAudioFocus1Response, error) {
-	mgr, err := jnipkg.NewaudioManager(s.Ctx)
+	mgr, err := jnipkg.NewAudioManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -995,7 +995,7 @@ func (s *AudioManagerServer) RequestAudioFocus1(_ context.Context, req *pb.Reque
 }
 
 func (s *AudioManagerServer) RequestAudioFocus3_1(_ context.Context, req *pb.RequestAudioFocus3_1Request) (*pb.RequestAudioFocus3_1Response, error) {
-	mgr, err := jnipkg.NewaudioManager(s.Ctx)
+	mgr, err := jnipkg.NewAudioManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -1009,7 +1009,7 @@ func (s *AudioManagerServer) RequestAudioFocus3_1(_ context.Context, req *pb.Req
 }
 
 func (s *AudioManagerServer) SetAllowedCapturePolicy(_ context.Context, req *pb.SetAllowedCapturePolicyRequest) (*pb.SetAllowedCapturePolicyResponse, error) {
-	mgr, err := jnipkg.NewaudioManager(s.Ctx)
+	mgr, err := jnipkg.NewAudioManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -1022,7 +1022,7 @@ func (s *AudioManagerServer) SetAllowedCapturePolicy(_ context.Context, req *pb.
 }
 
 func (s *AudioManagerServer) SetBluetoothA2DpOn(_ context.Context, req *pb.SetBluetoothA2DpOnRequest) (*pb.SetBluetoothA2DpOnResponse, error) {
-	mgr, err := jnipkg.NewaudioManager(s.Ctx)
+	mgr, err := jnipkg.NewAudioManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -1035,7 +1035,7 @@ func (s *AudioManagerServer) SetBluetoothA2DpOn(_ context.Context, req *pb.SetBl
 }
 
 func (s *AudioManagerServer) SetBluetoothScoOn(_ context.Context, req *pb.SetBluetoothScoOnRequest) (*pb.SetBluetoothScoOnResponse, error) {
-	mgr, err := jnipkg.NewaudioManager(s.Ctx)
+	mgr, err := jnipkg.NewAudioManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -1048,7 +1048,7 @@ func (s *AudioManagerServer) SetBluetoothScoOn(_ context.Context, req *pb.SetBlu
 }
 
 func (s *AudioManagerServer) SetCommunicationDevice(_ context.Context, req *pb.SetCommunicationDeviceRequest) (*pb.SetCommunicationDeviceResponse, error) {
-	mgr, err := jnipkg.NewaudioManager(s.Ctx)
+	mgr, err := jnipkg.NewAudioManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -1062,7 +1062,7 @@ func (s *AudioManagerServer) SetCommunicationDevice(_ context.Context, req *pb.S
 }
 
 func (s *AudioManagerServer) SetEncodedSurroundMode(_ context.Context, req *pb.SetEncodedSurroundModeRequest) (*pb.SetEncodedSurroundModeResponse, error) {
-	mgr, err := jnipkg.NewaudioManager(s.Ctx)
+	mgr, err := jnipkg.NewAudioManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -1076,7 +1076,7 @@ func (s *AudioManagerServer) SetEncodedSurroundMode(_ context.Context, req *pb.S
 }
 
 func (s *AudioManagerServer) SetMicrophoneMute(_ context.Context, req *pb.SetMicrophoneMuteRequest) (*pb.SetMicrophoneMuteResponse, error) {
-	mgr, err := jnipkg.NewaudioManager(s.Ctx)
+	mgr, err := jnipkg.NewAudioManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -1089,7 +1089,7 @@ func (s *AudioManagerServer) SetMicrophoneMute(_ context.Context, req *pb.SetMic
 }
 
 func (s *AudioManagerServer) SetMode(_ context.Context, req *pb.SetModeRequest) (*pb.SetModeResponse, error) {
-	mgr, err := jnipkg.NewaudioManager(s.Ctx)
+	mgr, err := jnipkg.NewAudioManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -1102,7 +1102,7 @@ func (s *AudioManagerServer) SetMode(_ context.Context, req *pb.SetModeRequest) 
 }
 
 func (s *AudioManagerServer) SetParameters(_ context.Context, req *pb.SetParametersRequest) (*pb.SetParametersResponse, error) {
-	mgr, err := jnipkg.NewaudioManager(s.Ctx)
+	mgr, err := jnipkg.NewAudioManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -1115,7 +1115,7 @@ func (s *AudioManagerServer) SetParameters(_ context.Context, req *pb.SetParamet
 }
 
 func (s *AudioManagerServer) SetPreferredMixerAttributes(_ context.Context, req *pb.SetPreferredMixerAttributesRequest) (*pb.SetPreferredMixerAttributesResponse, error) {
-	mgr, err := jnipkg.NewaudioManager(s.Ctx)
+	mgr, err := jnipkg.NewAudioManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -1129,7 +1129,7 @@ func (s *AudioManagerServer) SetPreferredMixerAttributes(_ context.Context, req 
 }
 
 func (s *AudioManagerServer) SetRingerMode(_ context.Context, req *pb.SetRingerModeRequest) (*pb.SetRingerModeResponse, error) {
-	mgr, err := jnipkg.NewaudioManager(s.Ctx)
+	mgr, err := jnipkg.NewAudioManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -1142,7 +1142,7 @@ func (s *AudioManagerServer) SetRingerMode(_ context.Context, req *pb.SetRingerM
 }
 
 func (s *AudioManagerServer) SetRouting(_ context.Context, req *pb.SetRoutingRequest) (*pb.SetRoutingResponse, error) {
-	mgr, err := jnipkg.NewaudioManager(s.Ctx)
+	mgr, err := jnipkg.NewAudioManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -1155,7 +1155,7 @@ func (s *AudioManagerServer) SetRouting(_ context.Context, req *pb.SetRoutingReq
 }
 
 func (s *AudioManagerServer) SetSpeakerphoneOn(_ context.Context, req *pb.SetSpeakerphoneOnRequest) (*pb.SetSpeakerphoneOnResponse, error) {
-	mgr, err := jnipkg.NewaudioManager(s.Ctx)
+	mgr, err := jnipkg.NewAudioManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -1168,7 +1168,7 @@ func (s *AudioManagerServer) SetSpeakerphoneOn(_ context.Context, req *pb.SetSpe
 }
 
 func (s *AudioManagerServer) SetStreamMute(_ context.Context, req *pb.SetStreamMuteRequest) (*pb.SetStreamMuteResponse, error) {
-	mgr, err := jnipkg.NewaudioManager(s.Ctx)
+	mgr, err := jnipkg.NewAudioManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -1181,7 +1181,7 @@ func (s *AudioManagerServer) SetStreamMute(_ context.Context, req *pb.SetStreamM
 }
 
 func (s *AudioManagerServer) SetStreamSolo(_ context.Context, req *pb.SetStreamSoloRequest) (*pb.SetStreamSoloResponse, error) {
-	mgr, err := jnipkg.NewaudioManager(s.Ctx)
+	mgr, err := jnipkg.NewAudioManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -1194,7 +1194,7 @@ func (s *AudioManagerServer) SetStreamSolo(_ context.Context, req *pb.SetStreamS
 }
 
 func (s *AudioManagerServer) SetStreamVolume(_ context.Context, req *pb.SetStreamVolumeRequest) (*pb.SetStreamVolumeResponse, error) {
-	mgr, err := jnipkg.NewaudioManager(s.Ctx)
+	mgr, err := jnipkg.NewAudioManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -1207,7 +1207,7 @@ func (s *AudioManagerServer) SetStreamVolume(_ context.Context, req *pb.SetStrea
 }
 
 func (s *AudioManagerServer) SetSurroundFormatEnabled(_ context.Context, req *pb.SetSurroundFormatEnabledRequest) (*pb.SetSurroundFormatEnabledResponse, error) {
-	mgr, err := jnipkg.NewaudioManager(s.Ctx)
+	mgr, err := jnipkg.NewAudioManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -1221,7 +1221,7 @@ func (s *AudioManagerServer) SetSurroundFormatEnabled(_ context.Context, req *pb
 }
 
 func (s *AudioManagerServer) SetVibrateSetting(_ context.Context, req *pb.SetVibrateSettingRequest) (*pb.SetVibrateSettingResponse, error) {
-	mgr, err := jnipkg.NewaudioManager(s.Ctx)
+	mgr, err := jnipkg.NewAudioManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -1234,7 +1234,7 @@ func (s *AudioManagerServer) SetVibrateSetting(_ context.Context, req *pb.SetVib
 }
 
 func (s *AudioManagerServer) SetWiredHeadsetOn(_ context.Context, req *pb.SetWiredHeadsetOnRequest) (*pb.SetWiredHeadsetOnResponse, error) {
-	mgr, err := jnipkg.NewaudioManager(s.Ctx)
+	mgr, err := jnipkg.NewAudioManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -1247,7 +1247,7 @@ func (s *AudioManagerServer) SetWiredHeadsetOn(_ context.Context, req *pb.SetWir
 }
 
 func (s *AudioManagerServer) ShouldVibrate(_ context.Context, req *pb.ShouldVibrateRequest) (*pb.ShouldVibrateResponse, error) {
-	mgr, err := jnipkg.NewaudioManager(s.Ctx)
+	mgr, err := jnipkg.NewAudioManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -1261,7 +1261,7 @@ func (s *AudioManagerServer) ShouldVibrate(_ context.Context, req *pb.ShouldVibr
 }
 
 func (s *AudioManagerServer) StartBluetoothSco(_ context.Context, req *pb.StartBluetoothScoRequest) (*pb.StartBluetoothScoResponse, error) {
-	mgr, err := jnipkg.NewaudioManager(s.Ctx)
+	mgr, err := jnipkg.NewAudioManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -1274,7 +1274,7 @@ func (s *AudioManagerServer) StartBluetoothSco(_ context.Context, req *pb.StartB
 }
 
 func (s *AudioManagerServer) StopBluetoothSco(_ context.Context, req *pb.StopBluetoothScoRequest) (*pb.StopBluetoothScoResponse, error) {
-	mgr, err := jnipkg.NewaudioManager(s.Ctx)
+	mgr, err := jnipkg.NewAudioManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -1287,7 +1287,7 @@ func (s *AudioManagerServer) StopBluetoothSco(_ context.Context, req *pb.StopBlu
 }
 
 func (s *AudioManagerServer) UnloadSoundEffects(_ context.Context, req *pb.UnloadSoundEffectsRequest) (*pb.UnloadSoundEffectsResponse, error) {
-	mgr, err := jnipkg.NewaudioManager(s.Ctx)
+	mgr, err := jnipkg.NewAudioManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -1300,7 +1300,7 @@ func (s *AudioManagerServer) UnloadSoundEffects(_ context.Context, req *pb.Unloa
 }
 
 func (s *AudioManagerServer) UnregisterAudioDeviceCallback(_ context.Context, req *pb.UnregisterAudioDeviceCallbackRequest) (*pb.UnregisterAudioDeviceCallbackResponse, error) {
-	mgr, err := jnipkg.NewaudioManager(s.Ctx)
+	mgr, err := jnipkg.NewAudioManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -1313,7 +1313,7 @@ func (s *AudioManagerServer) UnregisterAudioDeviceCallback(_ context.Context, re
 }
 
 func (s *AudioManagerServer) UnregisterAudioPlaybackCallback(_ context.Context, req *pb.UnregisterAudioPlaybackCallbackRequest) (*pb.UnregisterAudioPlaybackCallbackResponse, error) {
-	mgr, err := jnipkg.NewaudioManager(s.Ctx)
+	mgr, err := jnipkg.NewAudioManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -1326,7 +1326,7 @@ func (s *AudioManagerServer) UnregisterAudioPlaybackCallback(_ context.Context, 
 }
 
 func (s *AudioManagerServer) UnregisterAudioRecordingCallback(_ context.Context, req *pb.UnregisterAudioRecordingCallbackRequest) (*pb.UnregisterAudioRecordingCallbackResponse, error) {
-	mgr, err := jnipkg.NewaudioManager(s.Ctx)
+	mgr, err := jnipkg.NewAudioManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -1339,7 +1339,7 @@ func (s *AudioManagerServer) UnregisterAudioRecordingCallback(_ context.Context,
 }
 
 func (s *AudioManagerServer) UnregisterMediaButtonEventReceiver1(_ context.Context, req *pb.UnregisterMediaButtonEventReceiver1Request) (*pb.UnregisterMediaButtonEventReceiver1Response, error) {
-	mgr, err := jnipkg.NewaudioManager(s.Ctx)
+	mgr, err := jnipkg.NewAudioManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -1352,7 +1352,7 @@ func (s *AudioManagerServer) UnregisterMediaButtonEventReceiver1(_ context.Conte
 }
 
 func (s *AudioManagerServer) UnregisterMediaButtonEventReceiver1_1(_ context.Context, req *pb.UnregisterMediaButtonEventReceiver1_1Request) (*pb.UnregisterMediaButtonEventReceiver1_1Response, error) {
-	mgr, err := jnipkg.NewaudioManager(s.Ctx)
+	mgr, err := jnipkg.NewAudioManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -1365,7 +1365,7 @@ func (s *AudioManagerServer) UnregisterMediaButtonEventReceiver1_1(_ context.Con
 }
 
 func (s *AudioManagerServer) UnregisterRemoteControlClient(_ context.Context, req *pb.UnregisterRemoteControlClientRequest) (*pb.UnregisterRemoteControlClientResponse, error) {
-	mgr, err := jnipkg.NewaudioManager(s.Ctx)
+	mgr, err := jnipkg.NewAudioManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -1378,7 +1378,7 @@ func (s *AudioManagerServer) UnregisterRemoteControlClient(_ context.Context, re
 }
 
 func (s *AudioManagerServer) UnregisterRemoteController(_ context.Context, req *pb.UnregisterRemoteControllerRequest) (*pb.UnregisterRemoteControllerResponse, error) {
-	mgr, err := jnipkg.NewaudioManager(s.Ctx)
+	mgr, err := jnipkg.NewAudioManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -1391,7 +1391,7 @@ func (s *AudioManagerServer) UnregisterRemoteController(_ context.Context, req *
 }
 
 func (s *AudioManagerServer) GetDirectPlaybackSupport(_ context.Context, req *pb.GetDirectPlaybackSupportRequest) (*pb.GetDirectPlaybackSupportResponse, error) {
-	mgr, err := jnipkg.NewaudioManager(s.Ctx)
+	mgr, err := jnipkg.NewAudioManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -1405,7 +1405,7 @@ func (s *AudioManagerServer) GetDirectPlaybackSupport(_ context.Context, req *pb
 }
 
 func (s *AudioManagerServer) GetPlaybackOffloadSupport(_ context.Context, req *pb.GetPlaybackOffloadSupportRequest) (*pb.GetPlaybackOffloadSupportResponse, error) {
-	mgr, err := jnipkg.NewaudioManager(s.Ctx)
+	mgr, err := jnipkg.NewAudioManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -1419,7 +1419,7 @@ func (s *AudioManagerServer) GetPlaybackOffloadSupport(_ context.Context, req *p
 }
 
 func (s *AudioManagerServer) IsHapticPlaybackSupported(_ context.Context, req *pb.IsHapticPlaybackSupportedRequest) (*pb.IsHapticPlaybackSupportedResponse, error) {
-	mgr, err := jnipkg.NewaudioManager(s.Ctx)
+	mgr, err := jnipkg.NewAudioManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -1433,7 +1433,7 @@ func (s *AudioManagerServer) IsHapticPlaybackSupported(_ context.Context, req *p
 }
 
 func (s *AudioManagerServer) IsOffloadedPlaybackSupported(_ context.Context, req *pb.IsOffloadedPlaybackSupportedRequest) (*pb.IsOffloadedPlaybackSupportedResponse, error) {
-	mgr, err := jnipkg.NewaudioManager(s.Ctx)
+	mgr, err := jnipkg.NewAudioManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}

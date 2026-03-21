@@ -23,6 +23,28 @@ func NewClient(cc grpc.ClientConnInterface) *Client {
 	}
 }
 
+// AreAllEffectsSupported calls the AreAllEffectsSupported RPC.
+func (c *Client) AreAllEffectsSupported(ctx context.Context, arg0 int64) (int32, error) {
+	resp, err := c.svc.AreAllEffectsSupported(ctx, &pb.AreAllEffectsSupportedRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// AreAllPrimitivesSupported calls the AreAllPrimitivesSupported RPC.
+func (c *Client) AreAllPrimitivesSupported(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.AreAllPrimitivesSupported(ctx, &pb.AreAllPrimitivesSupportedRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
 // AreEffectsSupported calls the AreEffectsSupported RPC.
 func (c *Client) AreEffectsSupported(ctx context.Context, arg0 int64) (int64, error) {
 	resp, err := c.svc.AreEffectsSupported(ctx, &pb.AreEffectsSupportedRequest{
@@ -52,6 +74,12 @@ func (c *Client) ArePrimitivesSupported(ctx context.Context, arg0 int64) (int64,
 		return 0, err
 	}
 	return resp.GetResult(), nil
+}
+
+// Cancel calls the Cancel RPC.
+func (c *Client) Cancel(ctx context.Context) error {
+	_, err := c.svc.Cancel(ctx, &pb.CancelRequest{})
+	return err
 }
 
 // GetEnvelopeEffectInfo calls the GetEnvelopeEffectInfo RPC.
@@ -106,6 +134,24 @@ func (c *Client) GetResonantFrequency(ctx context.Context) (float32, error) {
 	resp, err := c.svc.GetResonantFrequency(ctx, &pb.GetResonantFrequencyRequest{})
 	if err != nil {
 		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HasAmplitudeControl calls the HasAmplitudeControl RPC.
+func (c *Client) HasAmplitudeControl(ctx context.Context) (bool, error) {
+	resp, err := c.svc.HasAmplitudeControl(ctx, &pb.HasAmplitudeControlRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HasVibrator calls the HasVibrator RPC.
+func (c *Client) HasVibrator(ctx context.Context) (bool, error) {
+	resp, err := c.svc.HasVibrator(ctx, &pb.HasVibratorRequest{})
+	if err != nil {
+		return false, err
 	}
 	return resp.GetResult(), nil
 }

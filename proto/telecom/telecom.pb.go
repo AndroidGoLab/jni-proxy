@@ -3361,8 +3361,8 @@ const file_proto_telecom_telecom_proto_rawDesc = "" +
 	"\x17StartConferenceResponse\"3\n" +
 	"\x1dUnregisterPhoneAccountRequest\x12\x12\n" +
 	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\" \n" +
-	"\x1eUnregisterPhoneAccountResponse2\x92\x1e\n" +
-	"\x15TelecomManagerService\x12Q\n" +
+	"\x1eUnregisterPhoneAccountResponse2\x8b\x1e\n" +
+	"\x0eManagerService\x12Q\n" +
 	"\x0eAcceptHandover\x12\x1e.telecom.AcceptHandoverRequest\x1a\x1f.telecom.AcceptHandoverResponse\x12]\n" +
 	"\x12AcceptRingingCall0\x12\".telecom.AcceptRingingCall0Request\x1a#.telecom.AcceptRingingCall0Response\x12c\n" +
 	"\x14AcceptRingingCall1_1\x12$.telecom.AcceptRingingCall1_1Request\x1a%.telecom.AcceptRingingCall1_1Response\x12<\n" +
@@ -3401,7 +3401,7 @@ const file_proto_telecom_telecom_proto_rawDesc = "" +
 	"\x10ShowInCallScreen\x12 .telecom.ShowInCallScreenRequest\x1a!.telecom.ShowInCallScreenResponse\x12N\n" +
 	"\rSilenceRinger\x12\x1d.telecom.SilenceRingerRequest\x1a\x1e.telecom.SilenceRingerResponse\x12T\n" +
 	"\x0fStartConference\x12\x1f.telecom.StartConferenceRequest\x1a .telecom.StartConferenceResponse\x12i\n" +
-	"\x16UnregisterPhoneAccount\x12&.telecom.UnregisterPhoneAccountRequest\x1a'.telecom.UnregisterPhoneAccountResponseB*Z(github.com/AndroidGoLab/jni-proxy/proto/telecomb\x06proto3"
+	"\x16UnregisterPhoneAccount\x12&.telecom.UnregisterPhoneAccountRequest\x1a'.telecom.UnregisterPhoneAccountResponseB1Z/github.com/AndroidGoLab/jni-proxy/proto/telecomb\x06proto3"
 
 var (
 	file_proto_telecom_telecom_proto_rawDescOnce sync.Once
@@ -3495,82 +3495,82 @@ var file_proto_telecom_telecom_proto_goTypes = []any{
 	(*UnregisterPhoneAccountResponse)(nil),              // 75: telecom.UnregisterPhoneAccountResponse
 }
 var file_proto_telecom_telecom_proto_depIdxs = []int32{
-	0,  // 0: telecom.TelecomManagerService.AcceptHandover:input_type -> telecom.AcceptHandoverRequest
-	2,  // 1: telecom.TelecomManagerService.AcceptRingingCall0:input_type -> telecom.AcceptRingingCall0Request
-	4,  // 2: telecom.TelecomManagerService.AcceptRingingCall1_1:input_type -> telecom.AcceptRingingCall1_1Request
-	6,  // 3: telecom.TelecomManagerService.AddCall:input_type -> telecom.AddCallRequest
-	8,  // 4: telecom.TelecomManagerService.AddNewIncomingCall:input_type -> telecom.AddNewIncomingCallRequest
-	10, // 5: telecom.TelecomManagerService.AddNewIncomingConference:input_type -> telecom.AddNewIncomingConferenceRequest
-	12, // 6: telecom.TelecomManagerService.CancelMissedCallsNotification:input_type -> telecom.CancelMissedCallsNotificationRequest
-	14, // 7: telecom.TelecomManagerService.CreateManageBlockedNumbersIntent:input_type -> telecom.CreateManageBlockedNumbersIntentRequest
-	16, // 8: telecom.TelecomManagerService.EndCall:input_type -> telecom.EndCallRequest
-	18, // 9: telecom.TelecomManagerService.GetAdnUriForPhoneAccount:input_type -> telecom.GetAdnUriForPhoneAccountRequest
-	20, // 10: telecom.TelecomManagerService.GetCallCapablePhoneAccounts:input_type -> telecom.GetCallCapablePhoneAccountsRequest
-	22, // 11: telecom.TelecomManagerService.GetDefaultDialerPackage:input_type -> telecom.GetDefaultDialerPackageRequest
-	24, // 12: telecom.TelecomManagerService.GetDefaultOutgoingPhoneAccount:input_type -> telecom.GetDefaultOutgoingPhoneAccountRequest
-	26, // 13: telecom.TelecomManagerService.GetLine1Number:input_type -> telecom.GetLine1NumberRequest
-	28, // 14: telecom.TelecomManagerService.GetOwnSelfManagedPhoneAccounts:input_type -> telecom.GetOwnSelfManagedPhoneAccountsRequest
-	30, // 15: telecom.TelecomManagerService.GetPhoneAccount:input_type -> telecom.GetPhoneAccountRequest
-	32, // 16: telecom.TelecomManagerService.GetRegisteredPhoneAccounts:input_type -> telecom.GetRegisteredPhoneAccountsRequest
-	34, // 17: telecom.TelecomManagerService.GetSelfManagedPhoneAccounts:input_type -> telecom.GetSelfManagedPhoneAccountsRequest
-	36, // 18: telecom.TelecomManagerService.GetSimCallManager:input_type -> telecom.GetSimCallManagerRequest
-	38, // 19: telecom.TelecomManagerService.GetSimCallManagerForSubscription:input_type -> telecom.GetSimCallManagerForSubscriptionRequest
-	40, // 20: telecom.TelecomManagerService.GetSystemDialerPackage:input_type -> telecom.GetSystemDialerPackageRequest
-	42, // 21: telecom.TelecomManagerService.GetUserSelectedOutgoingPhoneAccount:input_type -> telecom.GetUserSelectedOutgoingPhoneAccountRequest
-	44, // 22: telecom.TelecomManagerService.GetVoiceMailNumber:input_type -> telecom.GetVoiceMailNumberRequest
-	46, // 23: telecom.TelecomManagerService.HandleMmi1:input_type -> telecom.HandleMmi1Request
-	48, // 24: telecom.TelecomManagerService.HandleMmi2_1:input_type -> telecom.HandleMmi2_1Request
-	50, // 25: telecom.TelecomManagerService.HasManageOngoingCallsPermission:input_type -> telecom.HasManageOngoingCallsPermissionRequest
-	52, // 26: telecom.TelecomManagerService.IsInCall:input_type -> telecom.IsInCallRequest
-	54, // 27: telecom.TelecomManagerService.IsInManagedCall:input_type -> telecom.IsInManagedCallRequest
-	56, // 28: telecom.TelecomManagerService.IsIncomingCallPermitted:input_type -> telecom.IsIncomingCallPermittedRequest
-	58, // 29: telecom.TelecomManagerService.IsOutgoingCallPermitted:input_type -> telecom.IsOutgoingCallPermittedRequest
-	60, // 30: telecom.TelecomManagerService.IsTtySupported:input_type -> telecom.IsTtySupportedRequest
-	62, // 31: telecom.TelecomManagerService.IsVoiceMailNumber:input_type -> telecom.IsVoiceMailNumberRequest
-	64, // 32: telecom.TelecomManagerService.PlaceCall:input_type -> telecom.PlaceCallRequest
-	66, // 33: telecom.TelecomManagerService.RegisterPhoneAccount:input_type -> telecom.RegisterPhoneAccountRequest
-	68, // 34: telecom.TelecomManagerService.ShowInCallScreen:input_type -> telecom.ShowInCallScreenRequest
-	70, // 35: telecom.TelecomManagerService.SilenceRinger:input_type -> telecom.SilenceRingerRequest
-	72, // 36: telecom.TelecomManagerService.StartConference:input_type -> telecom.StartConferenceRequest
-	74, // 37: telecom.TelecomManagerService.UnregisterPhoneAccount:input_type -> telecom.UnregisterPhoneAccountRequest
-	1,  // 38: telecom.TelecomManagerService.AcceptHandover:output_type -> telecom.AcceptHandoverResponse
-	3,  // 39: telecom.TelecomManagerService.AcceptRingingCall0:output_type -> telecom.AcceptRingingCall0Response
-	5,  // 40: telecom.TelecomManagerService.AcceptRingingCall1_1:output_type -> telecom.AcceptRingingCall1_1Response
-	7,  // 41: telecom.TelecomManagerService.AddCall:output_type -> telecom.AddCallResponse
-	9,  // 42: telecom.TelecomManagerService.AddNewIncomingCall:output_type -> telecom.AddNewIncomingCallResponse
-	11, // 43: telecom.TelecomManagerService.AddNewIncomingConference:output_type -> telecom.AddNewIncomingConferenceResponse
-	13, // 44: telecom.TelecomManagerService.CancelMissedCallsNotification:output_type -> telecom.CancelMissedCallsNotificationResponse
-	15, // 45: telecom.TelecomManagerService.CreateManageBlockedNumbersIntent:output_type -> telecom.CreateManageBlockedNumbersIntentResponse
-	17, // 46: telecom.TelecomManagerService.EndCall:output_type -> telecom.EndCallResponse
-	19, // 47: telecom.TelecomManagerService.GetAdnUriForPhoneAccount:output_type -> telecom.GetAdnUriForPhoneAccountResponse
-	21, // 48: telecom.TelecomManagerService.GetCallCapablePhoneAccounts:output_type -> telecom.GetCallCapablePhoneAccountsResponse
-	23, // 49: telecom.TelecomManagerService.GetDefaultDialerPackage:output_type -> telecom.GetDefaultDialerPackageResponse
-	25, // 50: telecom.TelecomManagerService.GetDefaultOutgoingPhoneAccount:output_type -> telecom.GetDefaultOutgoingPhoneAccountResponse
-	27, // 51: telecom.TelecomManagerService.GetLine1Number:output_type -> telecom.GetLine1NumberResponse
-	29, // 52: telecom.TelecomManagerService.GetOwnSelfManagedPhoneAccounts:output_type -> telecom.GetOwnSelfManagedPhoneAccountsResponse
-	31, // 53: telecom.TelecomManagerService.GetPhoneAccount:output_type -> telecom.GetPhoneAccountResponse
-	33, // 54: telecom.TelecomManagerService.GetRegisteredPhoneAccounts:output_type -> telecom.GetRegisteredPhoneAccountsResponse
-	35, // 55: telecom.TelecomManagerService.GetSelfManagedPhoneAccounts:output_type -> telecom.GetSelfManagedPhoneAccountsResponse
-	37, // 56: telecom.TelecomManagerService.GetSimCallManager:output_type -> telecom.GetSimCallManagerResponse
-	39, // 57: telecom.TelecomManagerService.GetSimCallManagerForSubscription:output_type -> telecom.GetSimCallManagerForSubscriptionResponse
-	41, // 58: telecom.TelecomManagerService.GetSystemDialerPackage:output_type -> telecom.GetSystemDialerPackageResponse
-	43, // 59: telecom.TelecomManagerService.GetUserSelectedOutgoingPhoneAccount:output_type -> telecom.GetUserSelectedOutgoingPhoneAccountResponse
-	45, // 60: telecom.TelecomManagerService.GetVoiceMailNumber:output_type -> telecom.GetVoiceMailNumberResponse
-	47, // 61: telecom.TelecomManagerService.HandleMmi1:output_type -> telecom.HandleMmi1Response
-	49, // 62: telecom.TelecomManagerService.HandleMmi2_1:output_type -> telecom.HandleMmi2_1Response
-	51, // 63: telecom.TelecomManagerService.HasManageOngoingCallsPermission:output_type -> telecom.HasManageOngoingCallsPermissionResponse
-	53, // 64: telecom.TelecomManagerService.IsInCall:output_type -> telecom.IsInCallResponse
-	55, // 65: telecom.TelecomManagerService.IsInManagedCall:output_type -> telecom.IsInManagedCallResponse
-	57, // 66: telecom.TelecomManagerService.IsIncomingCallPermitted:output_type -> telecom.IsIncomingCallPermittedResponse
-	59, // 67: telecom.TelecomManagerService.IsOutgoingCallPermitted:output_type -> telecom.IsOutgoingCallPermittedResponse
-	61, // 68: telecom.TelecomManagerService.IsTtySupported:output_type -> telecom.IsTtySupportedResponse
-	63, // 69: telecom.TelecomManagerService.IsVoiceMailNumber:output_type -> telecom.IsVoiceMailNumberResponse
-	65, // 70: telecom.TelecomManagerService.PlaceCall:output_type -> telecom.PlaceCallResponse
-	67, // 71: telecom.TelecomManagerService.RegisterPhoneAccount:output_type -> telecom.RegisterPhoneAccountResponse
-	69, // 72: telecom.TelecomManagerService.ShowInCallScreen:output_type -> telecom.ShowInCallScreenResponse
-	71, // 73: telecom.TelecomManagerService.SilenceRinger:output_type -> telecom.SilenceRingerResponse
-	73, // 74: telecom.TelecomManagerService.StartConference:output_type -> telecom.StartConferenceResponse
-	75, // 75: telecom.TelecomManagerService.UnregisterPhoneAccount:output_type -> telecom.UnregisterPhoneAccountResponse
+	0,  // 0: telecom.ManagerService.AcceptHandover:input_type -> telecom.AcceptHandoverRequest
+	2,  // 1: telecom.ManagerService.AcceptRingingCall0:input_type -> telecom.AcceptRingingCall0Request
+	4,  // 2: telecom.ManagerService.AcceptRingingCall1_1:input_type -> telecom.AcceptRingingCall1_1Request
+	6,  // 3: telecom.ManagerService.AddCall:input_type -> telecom.AddCallRequest
+	8,  // 4: telecom.ManagerService.AddNewIncomingCall:input_type -> telecom.AddNewIncomingCallRequest
+	10, // 5: telecom.ManagerService.AddNewIncomingConference:input_type -> telecom.AddNewIncomingConferenceRequest
+	12, // 6: telecom.ManagerService.CancelMissedCallsNotification:input_type -> telecom.CancelMissedCallsNotificationRequest
+	14, // 7: telecom.ManagerService.CreateManageBlockedNumbersIntent:input_type -> telecom.CreateManageBlockedNumbersIntentRequest
+	16, // 8: telecom.ManagerService.EndCall:input_type -> telecom.EndCallRequest
+	18, // 9: telecom.ManagerService.GetAdnUriForPhoneAccount:input_type -> telecom.GetAdnUriForPhoneAccountRequest
+	20, // 10: telecom.ManagerService.GetCallCapablePhoneAccounts:input_type -> telecom.GetCallCapablePhoneAccountsRequest
+	22, // 11: telecom.ManagerService.GetDefaultDialerPackage:input_type -> telecom.GetDefaultDialerPackageRequest
+	24, // 12: telecom.ManagerService.GetDefaultOutgoingPhoneAccount:input_type -> telecom.GetDefaultOutgoingPhoneAccountRequest
+	26, // 13: telecom.ManagerService.GetLine1Number:input_type -> telecom.GetLine1NumberRequest
+	28, // 14: telecom.ManagerService.GetOwnSelfManagedPhoneAccounts:input_type -> telecom.GetOwnSelfManagedPhoneAccountsRequest
+	30, // 15: telecom.ManagerService.GetPhoneAccount:input_type -> telecom.GetPhoneAccountRequest
+	32, // 16: telecom.ManagerService.GetRegisteredPhoneAccounts:input_type -> telecom.GetRegisteredPhoneAccountsRequest
+	34, // 17: telecom.ManagerService.GetSelfManagedPhoneAccounts:input_type -> telecom.GetSelfManagedPhoneAccountsRequest
+	36, // 18: telecom.ManagerService.GetSimCallManager:input_type -> telecom.GetSimCallManagerRequest
+	38, // 19: telecom.ManagerService.GetSimCallManagerForSubscription:input_type -> telecom.GetSimCallManagerForSubscriptionRequest
+	40, // 20: telecom.ManagerService.GetSystemDialerPackage:input_type -> telecom.GetSystemDialerPackageRequest
+	42, // 21: telecom.ManagerService.GetUserSelectedOutgoingPhoneAccount:input_type -> telecom.GetUserSelectedOutgoingPhoneAccountRequest
+	44, // 22: telecom.ManagerService.GetVoiceMailNumber:input_type -> telecom.GetVoiceMailNumberRequest
+	46, // 23: telecom.ManagerService.HandleMmi1:input_type -> telecom.HandleMmi1Request
+	48, // 24: telecom.ManagerService.HandleMmi2_1:input_type -> telecom.HandleMmi2_1Request
+	50, // 25: telecom.ManagerService.HasManageOngoingCallsPermission:input_type -> telecom.HasManageOngoingCallsPermissionRequest
+	52, // 26: telecom.ManagerService.IsInCall:input_type -> telecom.IsInCallRequest
+	54, // 27: telecom.ManagerService.IsInManagedCall:input_type -> telecom.IsInManagedCallRequest
+	56, // 28: telecom.ManagerService.IsIncomingCallPermitted:input_type -> telecom.IsIncomingCallPermittedRequest
+	58, // 29: telecom.ManagerService.IsOutgoingCallPermitted:input_type -> telecom.IsOutgoingCallPermittedRequest
+	60, // 30: telecom.ManagerService.IsTtySupported:input_type -> telecom.IsTtySupportedRequest
+	62, // 31: telecom.ManagerService.IsVoiceMailNumber:input_type -> telecom.IsVoiceMailNumberRequest
+	64, // 32: telecom.ManagerService.PlaceCall:input_type -> telecom.PlaceCallRequest
+	66, // 33: telecom.ManagerService.RegisterPhoneAccount:input_type -> telecom.RegisterPhoneAccountRequest
+	68, // 34: telecom.ManagerService.ShowInCallScreen:input_type -> telecom.ShowInCallScreenRequest
+	70, // 35: telecom.ManagerService.SilenceRinger:input_type -> telecom.SilenceRingerRequest
+	72, // 36: telecom.ManagerService.StartConference:input_type -> telecom.StartConferenceRequest
+	74, // 37: telecom.ManagerService.UnregisterPhoneAccount:input_type -> telecom.UnregisterPhoneAccountRequest
+	1,  // 38: telecom.ManagerService.AcceptHandover:output_type -> telecom.AcceptHandoverResponse
+	3,  // 39: telecom.ManagerService.AcceptRingingCall0:output_type -> telecom.AcceptRingingCall0Response
+	5,  // 40: telecom.ManagerService.AcceptRingingCall1_1:output_type -> telecom.AcceptRingingCall1_1Response
+	7,  // 41: telecom.ManagerService.AddCall:output_type -> telecom.AddCallResponse
+	9,  // 42: telecom.ManagerService.AddNewIncomingCall:output_type -> telecom.AddNewIncomingCallResponse
+	11, // 43: telecom.ManagerService.AddNewIncomingConference:output_type -> telecom.AddNewIncomingConferenceResponse
+	13, // 44: telecom.ManagerService.CancelMissedCallsNotification:output_type -> telecom.CancelMissedCallsNotificationResponse
+	15, // 45: telecom.ManagerService.CreateManageBlockedNumbersIntent:output_type -> telecom.CreateManageBlockedNumbersIntentResponse
+	17, // 46: telecom.ManagerService.EndCall:output_type -> telecom.EndCallResponse
+	19, // 47: telecom.ManagerService.GetAdnUriForPhoneAccount:output_type -> telecom.GetAdnUriForPhoneAccountResponse
+	21, // 48: telecom.ManagerService.GetCallCapablePhoneAccounts:output_type -> telecom.GetCallCapablePhoneAccountsResponse
+	23, // 49: telecom.ManagerService.GetDefaultDialerPackage:output_type -> telecom.GetDefaultDialerPackageResponse
+	25, // 50: telecom.ManagerService.GetDefaultOutgoingPhoneAccount:output_type -> telecom.GetDefaultOutgoingPhoneAccountResponse
+	27, // 51: telecom.ManagerService.GetLine1Number:output_type -> telecom.GetLine1NumberResponse
+	29, // 52: telecom.ManagerService.GetOwnSelfManagedPhoneAccounts:output_type -> telecom.GetOwnSelfManagedPhoneAccountsResponse
+	31, // 53: telecom.ManagerService.GetPhoneAccount:output_type -> telecom.GetPhoneAccountResponse
+	33, // 54: telecom.ManagerService.GetRegisteredPhoneAccounts:output_type -> telecom.GetRegisteredPhoneAccountsResponse
+	35, // 55: telecom.ManagerService.GetSelfManagedPhoneAccounts:output_type -> telecom.GetSelfManagedPhoneAccountsResponse
+	37, // 56: telecom.ManagerService.GetSimCallManager:output_type -> telecom.GetSimCallManagerResponse
+	39, // 57: telecom.ManagerService.GetSimCallManagerForSubscription:output_type -> telecom.GetSimCallManagerForSubscriptionResponse
+	41, // 58: telecom.ManagerService.GetSystemDialerPackage:output_type -> telecom.GetSystemDialerPackageResponse
+	43, // 59: telecom.ManagerService.GetUserSelectedOutgoingPhoneAccount:output_type -> telecom.GetUserSelectedOutgoingPhoneAccountResponse
+	45, // 60: telecom.ManagerService.GetVoiceMailNumber:output_type -> telecom.GetVoiceMailNumberResponse
+	47, // 61: telecom.ManagerService.HandleMmi1:output_type -> telecom.HandleMmi1Response
+	49, // 62: telecom.ManagerService.HandleMmi2_1:output_type -> telecom.HandleMmi2_1Response
+	51, // 63: telecom.ManagerService.HasManageOngoingCallsPermission:output_type -> telecom.HasManageOngoingCallsPermissionResponse
+	53, // 64: telecom.ManagerService.IsInCall:output_type -> telecom.IsInCallResponse
+	55, // 65: telecom.ManagerService.IsInManagedCall:output_type -> telecom.IsInManagedCallResponse
+	57, // 66: telecom.ManagerService.IsIncomingCallPermitted:output_type -> telecom.IsIncomingCallPermittedResponse
+	59, // 67: telecom.ManagerService.IsOutgoingCallPermitted:output_type -> telecom.IsOutgoingCallPermittedResponse
+	61, // 68: telecom.ManagerService.IsTtySupported:output_type -> telecom.IsTtySupportedResponse
+	63, // 69: telecom.ManagerService.IsVoiceMailNumber:output_type -> telecom.IsVoiceMailNumberResponse
+	65, // 70: telecom.ManagerService.PlaceCall:output_type -> telecom.PlaceCallResponse
+	67, // 71: telecom.ManagerService.RegisterPhoneAccount:output_type -> telecom.RegisterPhoneAccountResponse
+	69, // 72: telecom.ManagerService.ShowInCallScreen:output_type -> telecom.ShowInCallScreenResponse
+	71, // 73: telecom.ManagerService.SilenceRinger:output_type -> telecom.SilenceRingerResponse
+	73, // 74: telecom.ManagerService.StartConference:output_type -> telecom.StartConferenceResponse
+	75, // 75: telecom.ManagerService.UnregisterPhoneAccount:output_type -> telecom.UnregisterPhoneAccountResponse
 	38, // [38:76] is the sub-list for method output_type
 	0,  // [0:38] is the sub-list for method input_type
 	0,  // [0:0] is the sub-list for extension type_name

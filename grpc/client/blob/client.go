@@ -9,17 +9,17 @@ import (
 	"google.golang.org/grpc"
 )
 
-// Client wraps the gRPC BlobStoreManagerService client.
+// Client wraps the gRPC StoreManagerService client.
 type Client struct {
 	cc  grpc.ClientConnInterface
-	svc pb.BlobStoreManagerServiceClient
+	svc pb.StoreManagerServiceClient
 }
 
 // NewClient creates a new blob client.
 func NewClient(cc grpc.ClientConnInterface) *Client {
 	return &Client{
 		cc:  cc,
-		svc: pb.NewBlobStoreManagerServiceClient(cc),
+		svc: pb.NewStoreManagerServiceClient(cc),
 	}
 }
 

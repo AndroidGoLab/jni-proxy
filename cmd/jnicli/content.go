@@ -3,8 +3,8 @@
 package main
 
 import (
-	"github.com/spf13/cobra"
 	pb "github.com/AndroidGoLab/jni-proxy/proto/content"
+	"github.com/spf13/cobra"
 )
 
 var contentCmd = &cobra.Command{
@@ -15,6 +15,121 @@ var contentCmd = &cobra.Command{
 var contentBroadcastReceiverCmd = &cobra.Command{
 	Use:   "broadcast-receiver",
 	Short: "BroadcastReceiverService operations",
+}
+
+var contentBroadcastReceiverAbortBroadcastCmd = &cobra.Command{
+	Use:   "abort-broadcast",
+	Short: "AbortBroadcast RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBroadcastReceiverServiceClient(grpcConn)
+		req := &pb.AbortBroadcastRequest{}
+		resp, err := client.AbortBroadcast(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentBroadcastReceiverClearAbortBroadcastCmd = &cobra.Command{
+	Use:   "clear-abort-broadcast",
+	Short: "ClearAbortBroadcast RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBroadcastReceiverServiceClient(grpcConn)
+		req := &pb.ClearAbortBroadcastRequest{}
+		resp, err := client.ClearAbortBroadcast(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentBroadcastReceiverGetAbortBroadcastCmd = &cobra.Command{
+	Use:   "get-abort-broadcast",
+	Short: "GetAbortBroadcast RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBroadcastReceiverServiceClient(grpcConn)
+		req := &pb.GetAbortBroadcastRequest{}
+		resp, err := client.GetAbortBroadcast(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentBroadcastReceiverGetDebugUnregisterCmd = &cobra.Command{
+	Use:   "get-debug-unregister",
+	Short: "GetDebugUnregister RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBroadcastReceiverServiceClient(grpcConn)
+		req := &pb.GetDebugUnregisterRequest{}
+		resp, err := client.GetDebugUnregister(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentBroadcastReceiverGetResultCodeCmd = &cobra.Command{
+	Use:   "get-result-code",
+	Short: "GetResultCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBroadcastReceiverServiceClient(grpcConn)
+		req := &pb.GetResultCodeRequest{}
+		resp, err := client.GetResultCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentBroadcastReceiverGetResultDataCmd = &cobra.Command{
+	Use:   "get-result-data",
+	Short: "GetResultData RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBroadcastReceiverServiceClient(grpcConn)
+		req := &pb.GetResultDataRequest{}
+		resp, err := client.GetResultData(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentBroadcastReceiverGetResultExtrasCmd = &cobra.Command{
+	Use:   "get-result-extras",
+	Short: "GetResultExtras RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBroadcastReceiverServiceClient(grpcConn)
+		req := &pb.GetResultExtrasRequest{}
+		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetResultExtras(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
 }
 
 var contentBroadcastReceiverGetSentFromPackageCmd = &cobra.Command{
@@ -49,6 +164,76 @@ var contentBroadcastReceiverGetSentFromUidCmd = &cobra.Command{
 	},
 }
 
+var contentBroadcastReceiverGoAsyncCmd = &cobra.Command{
+	Use:   "go-async",
+	Short: "GoAsync RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBroadcastReceiverServiceClient(grpcConn)
+		req := &pb.GoAsyncRequest{}
+		resp, err := client.GoAsync(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentBroadcastReceiverIsInitialStickyBroadcastCmd = &cobra.Command{
+	Use:   "is-initial-sticky-broadcast",
+	Short: "IsInitialStickyBroadcast RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBroadcastReceiverServiceClient(grpcConn)
+		req := &pb.IsInitialStickyBroadcastRequest{}
+		resp, err := client.IsInitialStickyBroadcast(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentBroadcastReceiverIsOrderedBroadcastCmd = &cobra.Command{
+	Use:   "is-ordered-broadcast",
+	Short: "IsOrderedBroadcast RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBroadcastReceiverServiceClient(grpcConn)
+		req := &pb.IsOrderedBroadcastRequest{}
+		resp, err := client.IsOrderedBroadcast(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentBroadcastReceiverOnReceiveCmd = &cobra.Command{
+	Use:   "on-receive",
+	Short: "OnReceive RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBroadcastReceiverServiceClient(grpcConn)
+		req := &pb.OnReceiveRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.OnReceive(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
 var contentBroadcastReceiverPeekServiceCmd = &cobra.Command{
 	Use:   "peek-service",
 	Short: "PeekService RPC",
@@ -71,12 +256,160 @@ var contentBroadcastReceiverPeekServiceCmd = &cobra.Command{
 	},
 }
 
+var contentBroadcastReceiverSetDebugUnregisterCmd = &cobra.Command{
+	Use:   "set-debug-unregister",
+	Short: "SetDebugUnregister RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBroadcastReceiverServiceClient(grpcConn)
+		req := &pb.SetDebugUnregisterRequest{}
+		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetDebugUnregister(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentBroadcastReceiverSetOrderedHintCmd = &cobra.Command{
+	Use:   "set-ordered-hint",
+	Short: "SetOrderedHint RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBroadcastReceiverServiceClient(grpcConn)
+		req := &pb.SetOrderedHintRequest{}
+		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetOrderedHint(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentBroadcastReceiverSetResultCmd = &cobra.Command{
+	Use:   "set-result",
+	Short: "SetResult RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBroadcastReceiverServiceClient(grpcConn)
+		req := &pb.SetResultRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetString("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.SetResult(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentBroadcastReceiverSetResultCodeCmd = &cobra.Command{
+	Use:   "set-result-code",
+	Short: "SetResultCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBroadcastReceiverServiceClient(grpcConn)
+		req := &pb.SetResultCodeRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetResultCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentBroadcastReceiverSetResultDataCmd = &cobra.Command{
+	Use:   "set-result-data",
+	Short: "SetResultData RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBroadcastReceiverServiceClient(grpcConn)
+		req := &pb.SetResultDataRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetResultData(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var contentBroadcastReceiverSetResultExtrasCmd = &cobra.Command{
+	Use:   "set-result-extras",
+	Short: "SetResultExtras RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBroadcastReceiverServiceClient(grpcConn)
+		req := &pb.SetResultExtrasRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetResultExtras(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
 func init() {
+	contentBroadcastReceiverCmd.AddCommand(contentBroadcastReceiverAbortBroadcastCmd)
+	contentBroadcastReceiverCmd.AddCommand(contentBroadcastReceiverClearAbortBroadcastCmd)
+	contentBroadcastReceiverCmd.AddCommand(contentBroadcastReceiverGetAbortBroadcastCmd)
+	contentBroadcastReceiverCmd.AddCommand(contentBroadcastReceiverGetDebugUnregisterCmd)
+	contentBroadcastReceiverCmd.AddCommand(contentBroadcastReceiverGetResultCodeCmd)
+	contentBroadcastReceiverCmd.AddCommand(contentBroadcastReceiverGetResultDataCmd)
+	contentBroadcastReceiverGetResultExtrasCmd.Flags().Bool("arg0", false, "arg0 (bool)")
+	contentBroadcastReceiverCmd.AddCommand(contentBroadcastReceiverGetResultExtrasCmd)
 	contentBroadcastReceiverCmd.AddCommand(contentBroadcastReceiverGetSentFromPackageCmd)
 	contentBroadcastReceiverCmd.AddCommand(contentBroadcastReceiverGetSentFromUidCmd)
+	contentBroadcastReceiverCmd.AddCommand(contentBroadcastReceiverGoAsyncCmd)
+	contentBroadcastReceiverCmd.AddCommand(contentBroadcastReceiverIsInitialStickyBroadcastCmd)
+	contentBroadcastReceiverCmd.AddCommand(contentBroadcastReceiverIsOrderedBroadcastCmd)
+	contentBroadcastReceiverOnReceiveCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	contentBroadcastReceiverOnReceiveCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	contentBroadcastReceiverCmd.AddCommand(contentBroadcastReceiverOnReceiveCmd)
 	contentBroadcastReceiverPeekServiceCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	contentBroadcastReceiverPeekServiceCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
 	contentBroadcastReceiverCmd.AddCommand(contentBroadcastReceiverPeekServiceCmd)
+	contentBroadcastReceiverSetDebugUnregisterCmd.Flags().Bool("arg0", false, "arg0 (bool)")
+	contentBroadcastReceiverCmd.AddCommand(contentBroadcastReceiverSetDebugUnregisterCmd)
+	contentBroadcastReceiverSetOrderedHintCmd.Flags().Bool("arg0", false, "arg0 (bool)")
+	contentBroadcastReceiverCmd.AddCommand(contentBroadcastReceiverSetOrderedHintCmd)
+	contentBroadcastReceiverSetResultCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	contentBroadcastReceiverSetResultCmd.Flags().String("arg1", "", "arg1 (string)")
+	contentBroadcastReceiverSetResultCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	contentBroadcastReceiverCmd.AddCommand(contentBroadcastReceiverSetResultCmd)
+	contentBroadcastReceiverSetResultCodeCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	contentBroadcastReceiverCmd.AddCommand(contentBroadcastReceiverSetResultCodeCmd)
+	contentBroadcastReceiverSetResultDataCmd.Flags().String("arg0", "", "arg0 (string)")
+	contentBroadcastReceiverCmd.AddCommand(contentBroadcastReceiverSetResultDataCmd)
+	contentBroadcastReceiverSetResultExtrasCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	contentBroadcastReceiverCmd.AddCommand(contentBroadcastReceiverSetResultExtrasCmd)
 	contentCmd.AddCommand(contentBroadcastReceiverCmd)
 	rootCmd.AddCommand(contentCmd)
 }

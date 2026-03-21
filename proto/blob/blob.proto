@@ -92,7 +92,7 @@ message ReleaseLeaseRequest {
 message ReleaseLeaseResponse {
 }
 
-service BlobStoreManagerService {
+service StoreManagerService {
   rpc AbandonSession (AbandonSessionRequest) returns (AbandonSessionResponse);
   rpc AcquireLease2 (AcquireLease2Request) returns (AcquireLease2Response);
   rpc AcquireLease3_1 (AcquireLease3_1Request) returns (AcquireLease3_1Response);

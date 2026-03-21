@@ -3,8 +3,8 @@
 package main
 
 import (
-	"github.com/spf13/cobra"
 	pb "github.com/AndroidGoLab/jni-proxy/proto/speech"
+	"github.com/spf13/cobra"
 )
 
 var speechCmd = &cobra.Command{
@@ -859,18 +859,18 @@ var speechTextToSpeechGetMaxSpeechInputLengthCmd = &cobra.Command{
 	},
 }
 
-var speechSpeechRecognizerCmd = &cobra.Command{
-	Use:   "speech-recognizer",
-	Short: "SpeechRecognizerService operations",
+var speechRecognizerCmd = &cobra.Command{
+	Use:   "recognizer",
+	Short: "RecognizerService operations",
 }
 
-var speechSpeechRecognizerCancelCmd = &cobra.Command{
+var speechRecognizerCancelCmd = &cobra.Command{
 	Use:   "cancel",
 	Short: "Cancel RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewSpeechRecognizerServiceClient(grpcConn)
+		client := pb.NewRecognizerServiceClient(grpcConn)
 		req := &pb.CancelRequest{}
 		resp, err := client.Cancel(ctx, req)
 		if err != nil {
@@ -880,13 +880,13 @@ var speechSpeechRecognizerCancelCmd = &cobra.Command{
 	},
 }
 
-var speechSpeechRecognizerCheckRecognitionSupportCmd = &cobra.Command{
+var speechRecognizerCheckRecognitionSupportCmd = &cobra.Command{
 	Use:   "check-recognition-support",
 	Short: "CheckRecognitionSupport RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewSpeechRecognizerServiceClient(grpcConn)
+		client := pb.NewRecognizerServiceClient(grpcConn)
 		req := &pb.CheckRecognitionSupportRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
@@ -905,13 +905,13 @@ var speechSpeechRecognizerCheckRecognitionSupportCmd = &cobra.Command{
 	},
 }
 
-var speechSpeechRecognizerDestroyCmd = &cobra.Command{
+var speechRecognizerDestroyCmd = &cobra.Command{
 	Use:   "destroy",
 	Short: "Destroy RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewSpeechRecognizerServiceClient(grpcConn)
+		client := pb.NewRecognizerServiceClient(grpcConn)
 		req := &pb.DestroyRequest{}
 		resp, err := client.Destroy(ctx, req)
 		if err != nil {
@@ -921,13 +921,13 @@ var speechSpeechRecognizerDestroyCmd = &cobra.Command{
 	},
 }
 
-var speechSpeechRecognizerSetRecognitionListenerCmd = &cobra.Command{
+var speechRecognizerSetRecognitionListenerCmd = &cobra.Command{
 	Use:   "set-recognition-listener",
 	Short: "SetRecognitionListener RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewSpeechRecognizerServiceClient(grpcConn)
+		client := pb.NewRecognizerServiceClient(grpcConn)
 		req := &pb.SetRecognitionListenerRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
@@ -940,13 +940,13 @@ var speechSpeechRecognizerSetRecognitionListenerCmd = &cobra.Command{
 	},
 }
 
-var speechSpeechRecognizerStartListeningCmd = &cobra.Command{
+var speechRecognizerStartListeningCmd = &cobra.Command{
 	Use:   "start-listening",
 	Short: "StartListening RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewSpeechRecognizerServiceClient(grpcConn)
+		client := pb.NewRecognizerServiceClient(grpcConn)
 		req := &pb.StartListeningRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
@@ -959,13 +959,13 @@ var speechSpeechRecognizerStartListeningCmd = &cobra.Command{
 	},
 }
 
-var speechSpeechRecognizerStopListeningCmd = &cobra.Command{
+var speechRecognizerStopListeningCmd = &cobra.Command{
 	Use:   "stop-listening",
 	Short: "StopListening RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewSpeechRecognizerServiceClient(grpcConn)
+		client := pb.NewRecognizerServiceClient(grpcConn)
 		req := &pb.StopListeningRequest{}
 		resp, err := client.StopListening(ctx, req)
 		if err != nil {
@@ -975,13 +975,13 @@ var speechSpeechRecognizerStopListeningCmd = &cobra.Command{
 	},
 }
 
-var speechSpeechRecognizerTriggerModelDownload1Cmd = &cobra.Command{
+var speechRecognizerTriggerModelDownload1Cmd = &cobra.Command{
 	Use:   "trigger-model-download1",
 	Short: "TriggerModelDownload1 RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewSpeechRecognizerServiceClient(grpcConn)
+		client := pb.NewRecognizerServiceClient(grpcConn)
 		req := &pb.TriggerModelDownload1Request{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
@@ -994,13 +994,13 @@ var speechSpeechRecognizerTriggerModelDownload1Cmd = &cobra.Command{
 	},
 }
 
-var speechSpeechRecognizerTriggerModelDownload3_1Cmd = &cobra.Command{
+var speechRecognizerTriggerModelDownload3_1Cmd = &cobra.Command{
 	Use:   "trigger-model-download3_1",
 	Short: "TriggerModelDownload3_1 RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewSpeechRecognizerServiceClient(grpcConn)
+		client := pb.NewRecognizerServiceClient(grpcConn)
 		req := &pb.TriggerModelDownload3_1Request{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
@@ -1019,13 +1019,13 @@ var speechSpeechRecognizerTriggerModelDownload3_1Cmd = &cobra.Command{
 	},
 }
 
-var speechSpeechRecognizerCreateOnDeviceSpeechRecognizerCmd = &cobra.Command{
+var speechRecognizerCreateOnDeviceSpeechRecognizerCmd = &cobra.Command{
 	Use:   "create-on-device-speech-recognizer",
 	Short: "CreateOnDeviceSpeechRecognizer RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewSpeechRecognizerServiceClient(grpcConn)
+		client := pb.NewRecognizerServiceClient(grpcConn)
 		req := &pb.CreateOnDeviceSpeechRecognizerRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
@@ -1038,13 +1038,13 @@ var speechSpeechRecognizerCreateOnDeviceSpeechRecognizerCmd = &cobra.Command{
 	},
 }
 
-var speechSpeechRecognizerCreateSpeechRecognizer1Cmd = &cobra.Command{
+var speechRecognizerCreateSpeechRecognizer1Cmd = &cobra.Command{
 	Use:   "create-speech-recognizer1",
 	Short: "CreateSpeechRecognizer1 RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewSpeechRecognizerServiceClient(grpcConn)
+		client := pb.NewRecognizerServiceClient(grpcConn)
 		req := &pb.CreateSpeechRecognizer1Request{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
@@ -1057,13 +1057,13 @@ var speechSpeechRecognizerCreateSpeechRecognizer1Cmd = &cobra.Command{
 	},
 }
 
-var speechSpeechRecognizerCreateSpeechRecognizer2_1Cmd = &cobra.Command{
+var speechRecognizerCreateSpeechRecognizer2_1Cmd = &cobra.Command{
 	Use:   "create-speech-recognizer2_1",
 	Short: "CreateSpeechRecognizer2_1 RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewSpeechRecognizerServiceClient(grpcConn)
+		client := pb.NewRecognizerServiceClient(grpcConn)
 		req := &pb.CreateSpeechRecognizer2_1Request{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
@@ -1079,13 +1079,13 @@ var speechSpeechRecognizerCreateSpeechRecognizer2_1Cmd = &cobra.Command{
 	},
 }
 
-var speechSpeechRecognizerIsOnDeviceRecognitionAvailableCmd = &cobra.Command{
+var speechRecognizerIsOnDeviceRecognitionAvailableCmd = &cobra.Command{
 	Use:   "is-on-device-recognition-available",
 	Short: "IsOnDeviceRecognitionAvailable RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewSpeechRecognizerServiceClient(grpcConn)
+		client := pb.NewRecognizerServiceClient(grpcConn)
 		req := &pb.IsOnDeviceRecognitionAvailableRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
@@ -1098,13 +1098,13 @@ var speechSpeechRecognizerIsOnDeviceRecognitionAvailableCmd = &cobra.Command{
 	},
 }
 
-var speechSpeechRecognizerIsRecognitionAvailableCmd = &cobra.Command{
+var speechRecognizerIsRecognitionAvailableCmd = &cobra.Command{
 	Use:   "is-recognition-available",
 	Short: "IsRecognitionAvailable RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewSpeechRecognizerServiceClient(grpcConn)
+		client := pb.NewRecognizerServiceClient(grpcConn)
 		req := &pb.IsRecognitionAvailableRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
@@ -1222,34 +1222,34 @@ func init() {
 	speechTextToSpeechCmd.AddCommand(speechTextToSpeechSynthesizeToFile3_2Cmd)
 	speechTextToSpeechCmd.AddCommand(speechTextToSpeechGetMaxSpeechInputLengthCmd)
 	speechCmd.AddCommand(speechTextToSpeechCmd)
-	speechSpeechRecognizerCmd.AddCommand(speechSpeechRecognizerCancelCmd)
-	speechSpeechRecognizerCheckRecognitionSupportCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	speechSpeechRecognizerCheckRecognitionSupportCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	speechSpeechRecognizerCheckRecognitionSupportCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
-	speechSpeechRecognizerCmd.AddCommand(speechSpeechRecognizerCheckRecognitionSupportCmd)
-	speechSpeechRecognizerCmd.AddCommand(speechSpeechRecognizerDestroyCmd)
-	speechSpeechRecognizerSetRecognitionListenerCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	speechSpeechRecognizerCmd.AddCommand(speechSpeechRecognizerSetRecognitionListenerCmd)
-	speechSpeechRecognizerStartListeningCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	speechSpeechRecognizerCmd.AddCommand(speechSpeechRecognizerStartListeningCmd)
-	speechSpeechRecognizerCmd.AddCommand(speechSpeechRecognizerStopListeningCmd)
-	speechSpeechRecognizerTriggerModelDownload1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	speechSpeechRecognizerCmd.AddCommand(speechSpeechRecognizerTriggerModelDownload1Cmd)
-	speechSpeechRecognizerTriggerModelDownload3_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	speechSpeechRecognizerTriggerModelDownload3_1Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	speechSpeechRecognizerTriggerModelDownload3_1Cmd.Flags().Int64("arg2", 0, "arg2 (int64)")
-	speechSpeechRecognizerCmd.AddCommand(speechSpeechRecognizerTriggerModelDownload3_1Cmd)
-	speechSpeechRecognizerCreateOnDeviceSpeechRecognizerCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	speechSpeechRecognizerCmd.AddCommand(speechSpeechRecognizerCreateOnDeviceSpeechRecognizerCmd)
-	speechSpeechRecognizerCreateSpeechRecognizer1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	speechSpeechRecognizerCmd.AddCommand(speechSpeechRecognizerCreateSpeechRecognizer1Cmd)
-	speechSpeechRecognizerCreateSpeechRecognizer2_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	speechSpeechRecognizerCreateSpeechRecognizer2_1Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	speechSpeechRecognizerCmd.AddCommand(speechSpeechRecognizerCreateSpeechRecognizer2_1Cmd)
-	speechSpeechRecognizerIsOnDeviceRecognitionAvailableCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	speechSpeechRecognizerCmd.AddCommand(speechSpeechRecognizerIsOnDeviceRecognitionAvailableCmd)
-	speechSpeechRecognizerIsRecognitionAvailableCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	speechSpeechRecognizerCmd.AddCommand(speechSpeechRecognizerIsRecognitionAvailableCmd)
-	speechCmd.AddCommand(speechSpeechRecognizerCmd)
+	speechRecognizerCmd.AddCommand(speechRecognizerCancelCmd)
+	speechRecognizerCheckRecognitionSupportCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	speechRecognizerCheckRecognitionSupportCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	speechRecognizerCheckRecognitionSupportCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	speechRecognizerCmd.AddCommand(speechRecognizerCheckRecognitionSupportCmd)
+	speechRecognizerCmd.AddCommand(speechRecognizerDestroyCmd)
+	speechRecognizerSetRecognitionListenerCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	speechRecognizerCmd.AddCommand(speechRecognizerSetRecognitionListenerCmd)
+	speechRecognizerStartListeningCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	speechRecognizerCmd.AddCommand(speechRecognizerStartListeningCmd)
+	speechRecognizerCmd.AddCommand(speechRecognizerStopListeningCmd)
+	speechRecognizerTriggerModelDownload1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	speechRecognizerCmd.AddCommand(speechRecognizerTriggerModelDownload1Cmd)
+	speechRecognizerTriggerModelDownload3_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	speechRecognizerTriggerModelDownload3_1Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	speechRecognizerTriggerModelDownload3_1Cmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	speechRecognizerCmd.AddCommand(speechRecognizerTriggerModelDownload3_1Cmd)
+	speechRecognizerCreateOnDeviceSpeechRecognizerCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	speechRecognizerCmd.AddCommand(speechRecognizerCreateOnDeviceSpeechRecognizerCmd)
+	speechRecognizerCreateSpeechRecognizer1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	speechRecognizerCmd.AddCommand(speechRecognizerCreateSpeechRecognizer1Cmd)
+	speechRecognizerCreateSpeechRecognizer2_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	speechRecognizerCreateSpeechRecognizer2_1Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	speechRecognizerCmd.AddCommand(speechRecognizerCreateSpeechRecognizer2_1Cmd)
+	speechRecognizerIsOnDeviceRecognitionAvailableCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	speechRecognizerCmd.AddCommand(speechRecognizerIsOnDeviceRecognitionAvailableCmd)
+	speechRecognizerIsRecognitionAvailableCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	speechRecognizerCmd.AddCommand(speechRecognizerIsRecognitionAvailableCmd)
+	speechCmd.AddCommand(speechRecognizerCmd)
 	rootCmd.AddCommand(speechCmd)
 }

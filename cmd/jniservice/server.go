@@ -47,6 +47,12 @@ import (
 	"google.golang.org/grpc/credentials"
 )
 
+const (
+	maxGRPCMsgSize     = 128 * 1024 * 1024
+	serverCertValidity = 365 * 24 * time.Hour
+	flagActivityNewTask = 0x10000000
+)
+
 // globalVM, globalHandles, and globalJNIServer are set during runServer so that
 // setAppContext (called later from Java) can store the APK's Application context
 // and ClassLoader.
@@ -207,10 +213,20 @@ func runServer(cvm *C.JavaVM) {
 	auth := server.ACLAuth{Store: aclStore}
 	opts := []grpc.ServerOption{
 		grpc.Creds(credentials.NewTLS(tlsConfig)),
-		grpc.ChainUnaryInterceptor(server.UnaryAuthInterceptor(auth)),
-		grpc.ChainStreamInterceptor(server.StreamAuthInterceptor(auth)),
-		grpc.MaxRecvMsgSize(128 * 1024 * 1024), // 128 MB for large binary transfers
-		grpc.MaxSendMsgSize(128 * 1024 * 1024),
+		// Looper interceptor runs first: pins the goroutine to an OS thread
+		// and calls Looper.prepare() if needed. Services like InputMethodManager
+		// and WindowManager create Handler(Looper.myLooper()) internally, which
+		// NPEs if the thread has no Looper.
+		grpc.ChainUnaryInterceptor(
+			server.UnaryLooperInterceptor(vm),
+			server.UnaryAuthInterceptor(auth),
+		),
+		grpc.ChainStreamInterceptor(
+			server.StreamLooperInterceptor(vm),
+			server.StreamAuthInterceptor(auth),
+		),
+		grpc.MaxRecvMsgSize(maxGRPCMsgSize),
+		grpc.MaxSendMsgSize(maxGRPCMsgSize),
 	}
 	fmt.Fprintf(os.Stderr, "jniservice: mTLS enabled\n")
 
@@ -302,7 +318,7 @@ func generateServerTLS(ca *certauth.CA) (tls.Certificate, error) {
 		SerialNumber: serial,
 		Subject:      pkix.Name{CommonName: "jniservice"},
 		NotBefore:    now,
-		NotAfter:     now.Add(365 * 24 * time.Hour),
+		NotAfter:     now.Add(serverCertValidity),
 		KeyUsage:     x509.KeyUsageDigitalSignature,
 		ExtKeyUsage:  []x509.ExtKeyUsage{x509.ExtKeyUsageServerAuth},
 		// SANs so clients can verify the server cert when connecting via
@@ -383,12 +399,24 @@ func initAndroidContext(vm *jni.VM, handles *handlestore.HandleStore) int64 {
 			if err != nil {
 				return fmt.Errorf("find Looper class: %w", err)
 			}
-			prepareMID, err := env.GetStaticMethodID(looperCls, "prepare", "()V")
+			prepareMID, err := env.GetStaticMethodID(looperCls, "prepareMainLooper", "()V")
 			if err != nil {
-				return fmt.Errorf("get Looper.prepare: %w", err)
+				// Fall back to prepare() if prepareMainLooper is unavailable.
+				prepareMID, err = env.GetStaticMethodID(looperCls, "prepare", "()V")
+				if err != nil {
+					return fmt.Errorf("get Looper.prepare: %w", err)
+				}
 			}
 			if err := env.CallStaticVoidMethod(looperCls, prepareMID); err != nil {
-				return fmt.Errorf("Looper.prepare: %w", err)
+				// prepareMainLooper may throw if called twice; fall back to prepare().
+				fmt.Fprintf(os.Stderr, "jniservice: prepareMainLooper failed (%v), trying prepare()\n", err)
+				prepareFallback, err2 := env.GetStaticMethodID(looperCls, "prepare", "()V")
+				if err2 != nil {
+					return fmt.Errorf("get Looper.prepare: %w", err2)
+				}
+				if err2 := env.CallStaticVoidMethod(looperCls, prepareFallback); err2 != nil {
+					return fmt.Errorf("Looper.prepare: %w", err2)
+				}
 			}
 
 			systemMainMID, err := env.GetStaticMethodID(atCls, "systemMain", "()Landroid/app/ActivityThread;")
@@ -491,7 +519,9 @@ func launchPermissionDialog(
 	if err != nil {
 		return err
 	}
-	env.CallObjectMethod(intent, addFlagsMID, jni.IntValue(0x10000000)) // FLAG_ACTIVITY_NEW_TASK
+	// Intentionally ignoring error: addFlags is an Intent builder method
+	// where failure is non-recoverable in the dialog launch flow.
+	_, _ = env.CallObjectMethod(intent, addFlagsMID, jni.IntValue(flagActivityNewTask))
 
 	// intent.putExtra("request_id", requestID)
 	putLongMID, err := env.GetMethodID(intentCls, "putExtra",
@@ -500,7 +530,9 @@ func launchPermissionDialog(
 		return err
 	}
 	reqIDKey, _ := env.NewStringUTF("request_id")
-	env.CallObjectMethod(intent, putLongMID, jni.ObjectValue(&reqIDKey.Object), jni.LongValue(requestID))
+	// Intentionally ignoring error: putExtra is an Intent builder method
+	// where failure is non-recoverable in the dialog launch flow.
+	_, _ = env.CallObjectMethod(intent, putLongMID, jni.ObjectValue(&reqIDKey.Object), jni.LongValue(requestID))
 
 	// intent.putExtra("client_id", clientID)
 	putStringMID, err := env.GetMethodID(intentCls, "putExtra",
@@ -510,7 +542,9 @@ func launchPermissionDialog(
 	}
 	clientIDKey, _ := env.NewStringUTF("client_id")
 	clientIDVal, _ := env.NewStringUTF(clientID)
-	env.CallObjectMethod(intent, putStringMID,
+	// Intentionally ignoring error: putExtra is an Intent builder method
+	// where failure is non-recoverable in the dialog launch flow.
+	_, _ = env.CallObjectMethod(intent, putStringMID,
 		jni.ObjectValue(&clientIDKey.Object), jni.ObjectValue(&clientIDVal.Object))
 
 	// intent.putExtra("methods", joinedMethods)
@@ -523,7 +557,9 @@ func launchPermissionDialog(
 		joinedMethods += m
 	}
 	methodsVal, _ := env.NewStringUTF(joinedMethods)
-	env.CallObjectMethod(intent, putStringMID,
+	// Intentionally ignoring error: putExtra is an Intent builder method
+	// where failure is non-recoverable in the dialog launch flow.
+	_, _ = env.CallObjectMethod(intent, putStringMID,
 		jni.ObjectValue(&methodsKey.Object), jni.ObjectValue(&methodsVal.Object))
 
 	// context.startActivity(intent)

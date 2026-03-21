@@ -6,37 +6,6 @@ package biometric;
 
 option go_package = "github.com/AndroidGoLab/jni-proxy/proto/biometric";
 
-message CanAuthenticate0Request {
-}
-
-message CanAuthenticate0Response {
-  int32 result = 1;
-}
-
-message CanAuthenticate1_1Request {
-  int32 arg0 = 1;
-}
-
-message CanAuthenticate1_1Response {
-  int32 result = 1;
-}
-
-message GetLastAuthenticationTimeRequest {
-  int32 arg0 = 1;
-}
-
-message GetLastAuthenticationTimeResponse {
-  int64 result = 1;
-}
-
-message GetStringsRequest {
-  int32 arg0 = 1;
-}
-
-message GetStringsResponse {
-  int64 result = 1;
-}
-
 message Authenticate4Request {
   int64 arg0 = 1;
   int64 arg1 = 2;
@@ -223,14 +192,38 @@ message SetTitleResponse {
   int64 result = 1;
 }
 
-service BiometricManagerService {
-  rpc CanAuthenticate0 (CanAuthenticate0Request) returns (CanAuthenticate0Response);
-  rpc CanAuthenticate1_1 (CanAuthenticate1_1Request) returns (CanAuthenticate1_1Response);
-  rpc GetLastAuthenticationTime (GetLastAuthenticationTimeRequest) returns (GetLastAuthenticationTimeResponse);
-  rpc GetStrings (GetStringsRequest) returns (GetStringsResponse);
+message CanAuthenticate0Request {
 }
 
-service BiometricPromptService {
+message CanAuthenticate0Response {
+  int32 result = 1;
+}
+
+message CanAuthenticate1_1Request {
+  int32 arg0 = 1;
+}
+
+message CanAuthenticate1_1Response {
+  int32 result = 1;
+}
+
+message GetLastAuthenticationTimeRequest {
+  int32 arg0 = 1;
+}
+
+message GetLastAuthenticationTimeResponse {
+  int64 result = 1;
+}
+
+message GetStringsRequest {
+  int32 arg0 = 1;
+}
+
+message GetStringsResponse {
+  int64 result = 1;
+}
+
+service PromptService {
   rpc Authenticate4 (Authenticate4Request) returns (Authenticate4Response);
   rpc Authenticate3_1 (Authenticate3_1Request) returns (Authenticate3_1Response);
   rpc GetAllowedAuthenticators (GetAllowedAuthenticatorsRequest) returns (GetAllowedAuthenticatorsResponse);
@@ -245,7 +238,7 @@ service BiometricPromptService {
   rpc IsConfirmationRequired (IsConfirmationRequiredRequest) returns (IsConfirmationRequiredResponse);
 }
 
-service BiometricPromptBuilderService {
+service PromptBuilderService {
   rpc Build (BuildRequest) returns (BuildResponse);
   rpc SetAllowedAuthenticators (SetAllowedAuthenticatorsRequest) returns (SetAllowedAuthenticatorsResponse);
   rpc SetConfirmationRequired (SetConfirmationRequiredRequest) returns (SetConfirmationRequiredResponse);
@@ -258,4 +251,11 @@ service BiometricPromptBuilderService {
   rpc SetNegativeButton (SetNegativeButtonRequest) returns (SetNegativeButtonResponse);
   rpc SetSubtitle (SetSubtitleRequest) returns (SetSubtitleResponse);
   rpc SetTitle (SetTitleRequest) returns (SetTitleResponse);
+}
+
+service ManagerService {
+  rpc CanAuthenticate0 (CanAuthenticate0Request) returns (CanAuthenticate0Response);
+  rpc CanAuthenticate1_1 (CanAuthenticate1_1Request) returns (CanAuthenticate1_1Response);
+  rpc GetLastAuthenticationTime (GetLastAuthenticationTimeRequest) returns (GetLastAuthenticationTimeResponse);
+  rpc GetStrings (GetStringsRequest) returns (GetStringsResponse);
 }

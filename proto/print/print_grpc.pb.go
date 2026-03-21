@@ -21,202 +21,24 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
-	PrintManagerService_GetPrintJobs_FullMethodName          = "/print.PrintManagerService/GetPrintJobs"
-	PrintManagerService_IsPrintServiceEnabled_FullMethodName = "/print.PrintManagerService/IsPrintServiceEnabled"
-	PrintManagerService_Print_FullMethodName                 = "/print.PrintManagerService/Print"
+	JobService_Cancel_FullMethodName      = "/print.JobService/Cancel"
+	JobService_Equals_FullMethodName      = "/print.JobService/Equals"
+	JobService_GetId_FullMethodName       = "/print.JobService/GetId"
+	JobService_GetInfo_FullMethodName     = "/print.JobService/GetInfo"
+	JobService_HashCode_FullMethodName    = "/print.JobService/HashCode"
+	JobService_IsBlocked_FullMethodName   = "/print.JobService/IsBlocked"
+	JobService_IsCancelled_FullMethodName = "/print.JobService/IsCancelled"
+	JobService_IsCompleted_FullMethodName = "/print.JobService/IsCompleted"
+	JobService_IsFailed_FullMethodName    = "/print.JobService/IsFailed"
+	JobService_IsQueued_FullMethodName    = "/print.JobService/IsQueued"
+	JobService_IsStarted_FullMethodName   = "/print.JobService/IsStarted"
+	JobService_Restart_FullMethodName     = "/print.JobService/Restart"
 )
 
-// PrintManagerServiceClient is the client API for PrintManagerService service.
+// JobServiceClient is the client API for JobService service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type PrintManagerServiceClient interface {
-	GetPrintJobs(ctx context.Context, in *GetPrintJobsRequest, opts ...grpc.CallOption) (*GetPrintJobsResponse, error)
-	IsPrintServiceEnabled(ctx context.Context, in *IsPrintServiceEnabledRequest, opts ...grpc.CallOption) (*IsPrintServiceEnabledResponse, error)
-	Print(ctx context.Context, in *PrintRequest, opts ...grpc.CallOption) (*PrintResponse, error)
-}
-
-type printManagerServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewPrintManagerServiceClient(cc grpc.ClientConnInterface) PrintManagerServiceClient {
-	return &printManagerServiceClient{cc}
-}
-
-func (c *printManagerServiceClient) GetPrintJobs(ctx context.Context, in *GetPrintJobsRequest, opts ...grpc.CallOption) (*GetPrintJobsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetPrintJobsResponse)
-	err := c.cc.Invoke(ctx, PrintManagerService_GetPrintJobs_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *printManagerServiceClient) IsPrintServiceEnabled(ctx context.Context, in *IsPrintServiceEnabledRequest, opts ...grpc.CallOption) (*IsPrintServiceEnabledResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(IsPrintServiceEnabledResponse)
-	err := c.cc.Invoke(ctx, PrintManagerService_IsPrintServiceEnabled_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *printManagerServiceClient) Print(ctx context.Context, in *PrintRequest, opts ...grpc.CallOption) (*PrintResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(PrintResponse)
-	err := c.cc.Invoke(ctx, PrintManagerService_Print_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// PrintManagerServiceServer is the server API for PrintManagerService service.
-// All implementations must embed UnimplementedPrintManagerServiceServer
-// for forward compatibility.
-type PrintManagerServiceServer interface {
-	GetPrintJobs(context.Context, *GetPrintJobsRequest) (*GetPrintJobsResponse, error)
-	IsPrintServiceEnabled(context.Context, *IsPrintServiceEnabledRequest) (*IsPrintServiceEnabledResponse, error)
-	Print(context.Context, *PrintRequest) (*PrintResponse, error)
-	mustEmbedUnimplementedPrintManagerServiceServer()
-}
-
-// UnimplementedPrintManagerServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedPrintManagerServiceServer struct{}
-
-func (UnimplementedPrintManagerServiceServer) GetPrintJobs(context.Context, *GetPrintJobsRequest) (*GetPrintJobsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetPrintJobs not implemented")
-}
-func (UnimplementedPrintManagerServiceServer) IsPrintServiceEnabled(context.Context, *IsPrintServiceEnabledRequest) (*IsPrintServiceEnabledResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method IsPrintServiceEnabled not implemented")
-}
-func (UnimplementedPrintManagerServiceServer) Print(context.Context, *PrintRequest) (*PrintResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Print not implemented")
-}
-func (UnimplementedPrintManagerServiceServer) mustEmbedUnimplementedPrintManagerServiceServer() {}
-func (UnimplementedPrintManagerServiceServer) testEmbeddedByValue()                             {}
-
-// UnsafePrintManagerServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to PrintManagerServiceServer will
-// result in compilation errors.
-type UnsafePrintManagerServiceServer interface {
-	mustEmbedUnimplementedPrintManagerServiceServer()
-}
-
-func RegisterPrintManagerServiceServer(s grpc.ServiceRegistrar, srv PrintManagerServiceServer) {
-	// If the following call panics, it indicates UnimplementedPrintManagerServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&PrintManagerService_ServiceDesc, srv)
-}
-
-func _PrintManagerService_GetPrintJobs_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetPrintJobsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PrintManagerServiceServer).GetPrintJobs(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PrintManagerService_GetPrintJobs_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PrintManagerServiceServer).GetPrintJobs(ctx, req.(*GetPrintJobsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PrintManagerService_IsPrintServiceEnabled_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(IsPrintServiceEnabledRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PrintManagerServiceServer).IsPrintServiceEnabled(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PrintManagerService_IsPrintServiceEnabled_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PrintManagerServiceServer).IsPrintServiceEnabled(ctx, req.(*IsPrintServiceEnabledRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PrintManagerService_Print_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(PrintRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PrintManagerServiceServer).Print(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PrintManagerService_Print_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PrintManagerServiceServer).Print(ctx, req.(*PrintRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// PrintManagerService_ServiceDesc is the grpc.ServiceDesc for PrintManagerService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var PrintManagerService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "print.PrintManagerService",
-	HandlerType: (*PrintManagerServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "GetPrintJobs",
-			Handler:    _PrintManagerService_GetPrintJobs_Handler,
-		},
-		{
-			MethodName: "IsPrintServiceEnabled",
-			Handler:    _PrintManagerService_IsPrintServiceEnabled_Handler,
-		},
-		{
-			MethodName: "Print",
-			Handler:    _PrintManagerService_Print_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/print/print.proto",
-}
-
-const (
-	PrintJobService_Cancel_FullMethodName      = "/print.PrintJobService/Cancel"
-	PrintJobService_Equals_FullMethodName      = "/print.PrintJobService/Equals"
-	PrintJobService_GetId_FullMethodName       = "/print.PrintJobService/GetId"
-	PrintJobService_GetInfo_FullMethodName     = "/print.PrintJobService/GetInfo"
-	PrintJobService_HashCode_FullMethodName    = "/print.PrintJobService/HashCode"
-	PrintJobService_IsBlocked_FullMethodName   = "/print.PrintJobService/IsBlocked"
-	PrintJobService_IsCancelled_FullMethodName = "/print.PrintJobService/IsCancelled"
-	PrintJobService_IsCompleted_FullMethodName = "/print.PrintJobService/IsCompleted"
-	PrintJobService_IsFailed_FullMethodName    = "/print.PrintJobService/IsFailed"
-	PrintJobService_IsQueued_FullMethodName    = "/print.PrintJobService/IsQueued"
-	PrintJobService_IsStarted_FullMethodName   = "/print.PrintJobService/IsStarted"
-	PrintJobService_Restart_FullMethodName     = "/print.PrintJobService/Restart"
-)
-
-// PrintJobServiceClient is the client API for PrintJobService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type PrintJobServiceClient interface {
+type JobServiceClient interface {
 	Cancel(ctx context.Context, in *CancelRequest, opts ...grpc.CallOption) (*CancelResponse, error)
 	Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
 	GetId(ctx context.Context, in *GetIdRequest, opts ...grpc.CallOption) (*GetIdResponse, error)
@@ -231,138 +53,138 @@ type PrintJobServiceClient interface {
 	Restart(ctx context.Context, in *RestartRequest, opts ...grpc.CallOption) (*RestartResponse, error)
 }
 
-type printJobServiceClient struct {
+type jobServiceClient struct {
 	cc grpc.ClientConnInterface
 }
 
-func NewPrintJobServiceClient(cc grpc.ClientConnInterface) PrintJobServiceClient {
-	return &printJobServiceClient{cc}
+func NewJobServiceClient(cc grpc.ClientConnInterface) JobServiceClient {
+	return &jobServiceClient{cc}
 }
 
-func (c *printJobServiceClient) Cancel(ctx context.Context, in *CancelRequest, opts ...grpc.CallOption) (*CancelResponse, error) {
+func (c *jobServiceClient) Cancel(ctx context.Context, in *CancelRequest, opts ...grpc.CallOption) (*CancelResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(CancelResponse)
-	err := c.cc.Invoke(ctx, PrintJobService_Cancel_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, JobService_Cancel_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *printJobServiceClient) Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error) {
+func (c *jobServiceClient) Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(EqualsResponse)
-	err := c.cc.Invoke(ctx, PrintJobService_Equals_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, JobService_Equals_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *printJobServiceClient) GetId(ctx context.Context, in *GetIdRequest, opts ...grpc.CallOption) (*GetIdResponse, error) {
+func (c *jobServiceClient) GetId(ctx context.Context, in *GetIdRequest, opts ...grpc.CallOption) (*GetIdResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(GetIdResponse)
-	err := c.cc.Invoke(ctx, PrintJobService_GetId_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, JobService_GetId_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *printJobServiceClient) GetInfo(ctx context.Context, in *GetInfoRequest, opts ...grpc.CallOption) (*GetInfoResponse, error) {
+func (c *jobServiceClient) GetInfo(ctx context.Context, in *GetInfoRequest, opts ...grpc.CallOption) (*GetInfoResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(GetInfoResponse)
-	err := c.cc.Invoke(ctx, PrintJobService_GetInfo_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, JobService_GetInfo_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *printJobServiceClient) HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
+func (c *jobServiceClient) HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(HashCodeResponse)
-	err := c.cc.Invoke(ctx, PrintJobService_HashCode_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, JobService_HashCode_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *printJobServiceClient) IsBlocked(ctx context.Context, in *IsBlockedRequest, opts ...grpc.CallOption) (*IsBlockedResponse, error) {
+func (c *jobServiceClient) IsBlocked(ctx context.Context, in *IsBlockedRequest, opts ...grpc.CallOption) (*IsBlockedResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(IsBlockedResponse)
-	err := c.cc.Invoke(ctx, PrintJobService_IsBlocked_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, JobService_IsBlocked_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *printJobServiceClient) IsCancelled(ctx context.Context, in *IsCancelledRequest, opts ...grpc.CallOption) (*IsCancelledResponse, error) {
+func (c *jobServiceClient) IsCancelled(ctx context.Context, in *IsCancelledRequest, opts ...grpc.CallOption) (*IsCancelledResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(IsCancelledResponse)
-	err := c.cc.Invoke(ctx, PrintJobService_IsCancelled_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, JobService_IsCancelled_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *printJobServiceClient) IsCompleted(ctx context.Context, in *IsCompletedRequest, opts ...grpc.CallOption) (*IsCompletedResponse, error) {
+func (c *jobServiceClient) IsCompleted(ctx context.Context, in *IsCompletedRequest, opts ...grpc.CallOption) (*IsCompletedResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(IsCompletedResponse)
-	err := c.cc.Invoke(ctx, PrintJobService_IsCompleted_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, JobService_IsCompleted_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *printJobServiceClient) IsFailed(ctx context.Context, in *IsFailedRequest, opts ...grpc.CallOption) (*IsFailedResponse, error) {
+func (c *jobServiceClient) IsFailed(ctx context.Context, in *IsFailedRequest, opts ...grpc.CallOption) (*IsFailedResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(IsFailedResponse)
-	err := c.cc.Invoke(ctx, PrintJobService_IsFailed_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, JobService_IsFailed_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *printJobServiceClient) IsQueued(ctx context.Context, in *IsQueuedRequest, opts ...grpc.CallOption) (*IsQueuedResponse, error) {
+func (c *jobServiceClient) IsQueued(ctx context.Context, in *IsQueuedRequest, opts ...grpc.CallOption) (*IsQueuedResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(IsQueuedResponse)
-	err := c.cc.Invoke(ctx, PrintJobService_IsQueued_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, JobService_IsQueued_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *printJobServiceClient) IsStarted(ctx context.Context, in *IsStartedRequest, opts ...grpc.CallOption) (*IsStartedResponse, error) {
+func (c *jobServiceClient) IsStarted(ctx context.Context, in *IsStartedRequest, opts ...grpc.CallOption) (*IsStartedResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(IsStartedResponse)
-	err := c.cc.Invoke(ctx, PrintJobService_IsStarted_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, JobService_IsStarted_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *printJobServiceClient) Restart(ctx context.Context, in *RestartRequest, opts ...grpc.CallOption) (*RestartResponse, error) {
+func (c *jobServiceClient) Restart(ctx context.Context, in *RestartRequest, opts ...grpc.CallOption) (*RestartResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(RestartResponse)
-	err := c.cc.Invoke(ctx, PrintJobService_Restart_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, JobService_Restart_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-// PrintJobServiceServer is the server API for PrintJobService service.
-// All implementations must embed UnimplementedPrintJobServiceServer
+// JobServiceServer is the server API for JobService service.
+// All implementations must embed UnimplementedJobServiceServer
 // for forward compatibility.
-type PrintJobServiceServer interface {
+type JobServiceServer interface {
 	Cancel(context.Context, *CancelRequest) (*CancelResponse, error)
 	Equals(context.Context, *EqualsRequest) (*EqualsResponse, error)
 	GetId(context.Context, *GetIdRequest) (*GetIdResponse, error)
@@ -375,343 +197,343 @@ type PrintJobServiceServer interface {
 	IsQueued(context.Context, *IsQueuedRequest) (*IsQueuedResponse, error)
 	IsStarted(context.Context, *IsStartedRequest) (*IsStartedResponse, error)
 	Restart(context.Context, *RestartRequest) (*RestartResponse, error)
-	mustEmbedUnimplementedPrintJobServiceServer()
+	mustEmbedUnimplementedJobServiceServer()
 }
 
-// UnimplementedPrintJobServiceServer must be embedded to have
+// UnimplementedJobServiceServer must be embedded to have
 // forward compatible implementations.
 //
 // NOTE: this should be embedded by value instead of pointer to avoid a nil
 // pointer dereference when methods are called.
-type UnimplementedPrintJobServiceServer struct{}
+type UnimplementedJobServiceServer struct{}
 
-func (UnimplementedPrintJobServiceServer) Cancel(context.Context, *CancelRequest) (*CancelResponse, error) {
+func (UnimplementedJobServiceServer) Cancel(context.Context, *CancelRequest) (*CancelResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method Cancel not implemented")
 }
-func (UnimplementedPrintJobServiceServer) Equals(context.Context, *EqualsRequest) (*EqualsResponse, error) {
+func (UnimplementedJobServiceServer) Equals(context.Context, *EqualsRequest) (*EqualsResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method Equals not implemented")
 }
-func (UnimplementedPrintJobServiceServer) GetId(context.Context, *GetIdRequest) (*GetIdResponse, error) {
+func (UnimplementedJobServiceServer) GetId(context.Context, *GetIdRequest) (*GetIdResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetId not implemented")
 }
-func (UnimplementedPrintJobServiceServer) GetInfo(context.Context, *GetInfoRequest) (*GetInfoResponse, error) {
+func (UnimplementedJobServiceServer) GetInfo(context.Context, *GetInfoRequest) (*GetInfoResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetInfo not implemented")
 }
-func (UnimplementedPrintJobServiceServer) HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error) {
+func (UnimplementedJobServiceServer) HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method HashCode not implemented")
 }
-func (UnimplementedPrintJobServiceServer) IsBlocked(context.Context, *IsBlockedRequest) (*IsBlockedResponse, error) {
+func (UnimplementedJobServiceServer) IsBlocked(context.Context, *IsBlockedRequest) (*IsBlockedResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method IsBlocked not implemented")
 }
-func (UnimplementedPrintJobServiceServer) IsCancelled(context.Context, *IsCancelledRequest) (*IsCancelledResponse, error) {
+func (UnimplementedJobServiceServer) IsCancelled(context.Context, *IsCancelledRequest) (*IsCancelledResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method IsCancelled not implemented")
 }
-func (UnimplementedPrintJobServiceServer) IsCompleted(context.Context, *IsCompletedRequest) (*IsCompletedResponse, error) {
+func (UnimplementedJobServiceServer) IsCompleted(context.Context, *IsCompletedRequest) (*IsCompletedResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method IsCompleted not implemented")
 }
-func (UnimplementedPrintJobServiceServer) IsFailed(context.Context, *IsFailedRequest) (*IsFailedResponse, error) {
+func (UnimplementedJobServiceServer) IsFailed(context.Context, *IsFailedRequest) (*IsFailedResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method IsFailed not implemented")
 }
-func (UnimplementedPrintJobServiceServer) IsQueued(context.Context, *IsQueuedRequest) (*IsQueuedResponse, error) {
+func (UnimplementedJobServiceServer) IsQueued(context.Context, *IsQueuedRequest) (*IsQueuedResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method IsQueued not implemented")
 }
-func (UnimplementedPrintJobServiceServer) IsStarted(context.Context, *IsStartedRequest) (*IsStartedResponse, error) {
+func (UnimplementedJobServiceServer) IsStarted(context.Context, *IsStartedRequest) (*IsStartedResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method IsStarted not implemented")
 }
-func (UnimplementedPrintJobServiceServer) Restart(context.Context, *RestartRequest) (*RestartResponse, error) {
+func (UnimplementedJobServiceServer) Restart(context.Context, *RestartRequest) (*RestartResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method Restart not implemented")
 }
-func (UnimplementedPrintJobServiceServer) mustEmbedUnimplementedPrintJobServiceServer() {}
-func (UnimplementedPrintJobServiceServer) testEmbeddedByValue()                         {}
+func (UnimplementedJobServiceServer) mustEmbedUnimplementedJobServiceServer() {}
+func (UnimplementedJobServiceServer) testEmbeddedByValue()                    {}
 
-// UnsafePrintJobServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to PrintJobServiceServer will
+// UnsafeJobServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to JobServiceServer will
 // result in compilation errors.
-type UnsafePrintJobServiceServer interface {
-	mustEmbedUnimplementedPrintJobServiceServer()
+type UnsafeJobServiceServer interface {
+	mustEmbedUnimplementedJobServiceServer()
 }
 
-func RegisterPrintJobServiceServer(s grpc.ServiceRegistrar, srv PrintJobServiceServer) {
-	// If the following call panics, it indicates UnimplementedPrintJobServiceServer was
+func RegisterJobServiceServer(s grpc.ServiceRegistrar, srv JobServiceServer) {
+	// If the following call panics, it indicates UnimplementedJobServiceServer was
 	// embedded by pointer and is nil.  This will cause panics if an
 	// unimplemented method is ever invoked, so we test this at initialization
 	// time to prevent it from happening at runtime later due to I/O.
 	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
 		t.testEmbeddedByValue()
 	}
-	s.RegisterService(&PrintJobService_ServiceDesc, srv)
+	s.RegisterService(&JobService_ServiceDesc, srv)
 }
 
-func _PrintJobService_Cancel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _JobService_Cancel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(CancelRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(PrintJobServiceServer).Cancel(ctx, in)
+		return srv.(JobServiceServer).Cancel(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: PrintJobService_Cancel_FullMethodName,
+		FullMethod: JobService_Cancel_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PrintJobServiceServer).Cancel(ctx, req.(*CancelRequest))
+		return srv.(JobServiceServer).Cancel(ctx, req.(*CancelRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _PrintJobService_Equals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _JobService_Equals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(EqualsRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(PrintJobServiceServer).Equals(ctx, in)
+		return srv.(JobServiceServer).Equals(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: PrintJobService_Equals_FullMethodName,
+		FullMethod: JobService_Equals_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PrintJobServiceServer).Equals(ctx, req.(*EqualsRequest))
+		return srv.(JobServiceServer).Equals(ctx, req.(*EqualsRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _PrintJobService_GetId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _JobService_GetId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(GetIdRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(PrintJobServiceServer).GetId(ctx, in)
+		return srv.(JobServiceServer).GetId(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: PrintJobService_GetId_FullMethodName,
+		FullMethod: JobService_GetId_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PrintJobServiceServer).GetId(ctx, req.(*GetIdRequest))
+		return srv.(JobServiceServer).GetId(ctx, req.(*GetIdRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _PrintJobService_GetInfo_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _JobService_GetInfo_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(GetInfoRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(PrintJobServiceServer).GetInfo(ctx, in)
+		return srv.(JobServiceServer).GetInfo(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: PrintJobService_GetInfo_FullMethodName,
+		FullMethod: JobService_GetInfo_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PrintJobServiceServer).GetInfo(ctx, req.(*GetInfoRequest))
+		return srv.(JobServiceServer).GetInfo(ctx, req.(*GetInfoRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _PrintJobService_HashCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _JobService_HashCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(HashCodeRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(PrintJobServiceServer).HashCode(ctx, in)
+		return srv.(JobServiceServer).HashCode(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: PrintJobService_HashCode_FullMethodName,
+		FullMethod: JobService_HashCode_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PrintJobServiceServer).HashCode(ctx, req.(*HashCodeRequest))
+		return srv.(JobServiceServer).HashCode(ctx, req.(*HashCodeRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _PrintJobService_IsBlocked_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _JobService_IsBlocked_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(IsBlockedRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(PrintJobServiceServer).IsBlocked(ctx, in)
+		return srv.(JobServiceServer).IsBlocked(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: PrintJobService_IsBlocked_FullMethodName,
+		FullMethod: JobService_IsBlocked_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PrintJobServiceServer).IsBlocked(ctx, req.(*IsBlockedRequest))
+		return srv.(JobServiceServer).IsBlocked(ctx, req.(*IsBlockedRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _PrintJobService_IsCancelled_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _JobService_IsCancelled_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(IsCancelledRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(PrintJobServiceServer).IsCancelled(ctx, in)
+		return srv.(JobServiceServer).IsCancelled(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: PrintJobService_IsCancelled_FullMethodName,
+		FullMethod: JobService_IsCancelled_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PrintJobServiceServer).IsCancelled(ctx, req.(*IsCancelledRequest))
+		return srv.(JobServiceServer).IsCancelled(ctx, req.(*IsCancelledRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _PrintJobService_IsCompleted_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _JobService_IsCompleted_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(IsCompletedRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(PrintJobServiceServer).IsCompleted(ctx, in)
+		return srv.(JobServiceServer).IsCompleted(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: PrintJobService_IsCompleted_FullMethodName,
+		FullMethod: JobService_IsCompleted_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PrintJobServiceServer).IsCompleted(ctx, req.(*IsCompletedRequest))
+		return srv.(JobServiceServer).IsCompleted(ctx, req.(*IsCompletedRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _PrintJobService_IsFailed_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _JobService_IsFailed_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(IsFailedRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(PrintJobServiceServer).IsFailed(ctx, in)
+		return srv.(JobServiceServer).IsFailed(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: PrintJobService_IsFailed_FullMethodName,
+		FullMethod: JobService_IsFailed_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PrintJobServiceServer).IsFailed(ctx, req.(*IsFailedRequest))
+		return srv.(JobServiceServer).IsFailed(ctx, req.(*IsFailedRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _PrintJobService_IsQueued_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _JobService_IsQueued_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(IsQueuedRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(PrintJobServiceServer).IsQueued(ctx, in)
+		return srv.(JobServiceServer).IsQueued(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: PrintJobService_IsQueued_FullMethodName,
+		FullMethod: JobService_IsQueued_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PrintJobServiceServer).IsQueued(ctx, req.(*IsQueuedRequest))
+		return srv.(JobServiceServer).IsQueued(ctx, req.(*IsQueuedRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _PrintJobService_IsStarted_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _JobService_IsStarted_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(IsStartedRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(PrintJobServiceServer).IsStarted(ctx, in)
+		return srv.(JobServiceServer).IsStarted(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: PrintJobService_IsStarted_FullMethodName,
+		FullMethod: JobService_IsStarted_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PrintJobServiceServer).IsStarted(ctx, req.(*IsStartedRequest))
+		return srv.(JobServiceServer).IsStarted(ctx, req.(*IsStartedRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _PrintJobService_Restart_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _JobService_Restart_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(RestartRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(PrintJobServiceServer).Restart(ctx, in)
+		return srv.(JobServiceServer).Restart(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: PrintJobService_Restart_FullMethodName,
+		FullMethod: JobService_Restart_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PrintJobServiceServer).Restart(ctx, req.(*RestartRequest))
+		return srv.(JobServiceServer).Restart(ctx, req.(*RestartRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-// PrintJobService_ServiceDesc is the grpc.ServiceDesc for PrintJobService service.
+// JobService_ServiceDesc is the grpc.ServiceDesc for JobService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
-var PrintJobService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "print.PrintJobService",
-	HandlerType: (*PrintJobServiceServer)(nil),
+var JobService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "print.JobService",
+	HandlerType: (*JobServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
 			MethodName: "Cancel",
-			Handler:    _PrintJobService_Cancel_Handler,
+			Handler:    _JobService_Cancel_Handler,
 		},
 		{
 			MethodName: "Equals",
-			Handler:    _PrintJobService_Equals_Handler,
+			Handler:    _JobService_Equals_Handler,
 		},
 		{
 			MethodName: "GetId",
-			Handler:    _PrintJobService_GetId_Handler,
+			Handler:    _JobService_GetId_Handler,
 		},
 		{
 			MethodName: "GetInfo",
-			Handler:    _PrintJobService_GetInfo_Handler,
+			Handler:    _JobService_GetInfo_Handler,
 		},
 		{
 			MethodName: "HashCode",
-			Handler:    _PrintJobService_HashCode_Handler,
+			Handler:    _JobService_HashCode_Handler,
 		},
 		{
 			MethodName: "IsBlocked",
-			Handler:    _PrintJobService_IsBlocked_Handler,
+			Handler:    _JobService_IsBlocked_Handler,
 		},
 		{
 			MethodName: "IsCancelled",
-			Handler:    _PrintJobService_IsCancelled_Handler,
+			Handler:    _JobService_IsCancelled_Handler,
 		},
 		{
 			MethodName: "IsCompleted",
-			Handler:    _PrintJobService_IsCompleted_Handler,
+			Handler:    _JobService_IsCompleted_Handler,
 		},
 		{
 			MethodName: "IsFailed",
-			Handler:    _PrintJobService_IsFailed_Handler,
+			Handler:    _JobService_IsFailed_Handler,
 		},
 		{
 			MethodName: "IsQueued",
-			Handler:    _PrintJobService_IsQueued_Handler,
+			Handler:    _JobService_IsQueued_Handler,
 		},
 		{
 			MethodName: "IsStarted",
-			Handler:    _PrintJobService_IsStarted_Handler,
+			Handler:    _JobService_IsStarted_Handler,
 		},
 		{
 			MethodName: "Restart",
-			Handler:    _PrintJobService_Restart_Handler,
+			Handler:    _JobService_Restart_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
@@ -719,26 +541,26 @@ var PrintJobService_ServiceDesc = grpc.ServiceDesc{
 }
 
 const (
-	PrintJobInfoService_DescribeContents_FullMethodName        = "/print.PrintJobInfoService/DescribeContents"
-	PrintJobInfoService_GetAdvancedIntOption_FullMethodName    = "/print.PrintJobInfoService/GetAdvancedIntOption"
-	PrintJobInfoService_GetAdvancedStringOption_FullMethodName = "/print.PrintJobInfoService/GetAdvancedStringOption"
-	PrintJobInfoService_GetAttributes_FullMethodName           = "/print.PrintJobInfoService/GetAttributes"
-	PrintJobInfoService_GetCopies_FullMethodName               = "/print.PrintJobInfoService/GetCopies"
-	PrintJobInfoService_GetCreationTime_FullMethodName         = "/print.PrintJobInfoService/GetCreationTime"
-	PrintJobInfoService_GetId_FullMethodName                   = "/print.PrintJobInfoService/GetId"
-	PrintJobInfoService_GetLabel_FullMethodName                = "/print.PrintJobInfoService/GetLabel"
-	PrintJobInfoService_GetPages_FullMethodName                = "/print.PrintJobInfoService/GetPages"
-	PrintJobInfoService_GetPrinterId_FullMethodName            = "/print.PrintJobInfoService/GetPrinterId"
-	PrintJobInfoService_GetState_FullMethodName                = "/print.PrintJobInfoService/GetState"
-	PrintJobInfoService_HasAdvancedOption_FullMethodName       = "/print.PrintJobInfoService/HasAdvancedOption"
-	PrintJobInfoService_ToString_FullMethodName                = "/print.PrintJobInfoService/ToString"
-	PrintJobInfoService_WriteToParcel_FullMethodName           = "/print.PrintJobInfoService/WriteToParcel"
+	JobInfoService_DescribeContents_FullMethodName        = "/print.JobInfoService/DescribeContents"
+	JobInfoService_GetAdvancedIntOption_FullMethodName    = "/print.JobInfoService/GetAdvancedIntOption"
+	JobInfoService_GetAdvancedStringOption_FullMethodName = "/print.JobInfoService/GetAdvancedStringOption"
+	JobInfoService_GetAttributes_FullMethodName           = "/print.JobInfoService/GetAttributes"
+	JobInfoService_GetCopies_FullMethodName               = "/print.JobInfoService/GetCopies"
+	JobInfoService_GetCreationTime_FullMethodName         = "/print.JobInfoService/GetCreationTime"
+	JobInfoService_GetId_FullMethodName                   = "/print.JobInfoService/GetId"
+	JobInfoService_GetLabel_FullMethodName                = "/print.JobInfoService/GetLabel"
+	JobInfoService_GetPages_FullMethodName                = "/print.JobInfoService/GetPages"
+	JobInfoService_GetPrinterId_FullMethodName            = "/print.JobInfoService/GetPrinterId"
+	JobInfoService_GetState_FullMethodName                = "/print.JobInfoService/GetState"
+	JobInfoService_HasAdvancedOption_FullMethodName       = "/print.JobInfoService/HasAdvancedOption"
+	JobInfoService_ToString_FullMethodName                = "/print.JobInfoService/ToString"
+	JobInfoService_WriteToParcel_FullMethodName           = "/print.JobInfoService/WriteToParcel"
 )
 
-// PrintJobInfoServiceClient is the client API for PrintJobInfoService service.
+// JobInfoServiceClient is the client API for JobInfoService service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type PrintJobInfoServiceClient interface {
+type JobInfoServiceClient interface {
 	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
 	GetAdvancedIntOption(ctx context.Context, in *GetAdvancedIntOptionRequest, opts ...grpc.CallOption) (*GetAdvancedIntOptionResponse, error)
 	GetAdvancedStringOption(ctx context.Context, in *GetAdvancedStringOptionRequest, opts ...grpc.CallOption) (*GetAdvancedStringOptionResponse, error)
@@ -755,158 +577,158 @@ type PrintJobInfoServiceClient interface {
 	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
 }
 
-type printJobInfoServiceClient struct {
+type jobInfoServiceClient struct {
 	cc grpc.ClientConnInterface
 }
 
-func NewPrintJobInfoServiceClient(cc grpc.ClientConnInterface) PrintJobInfoServiceClient {
-	return &printJobInfoServiceClient{cc}
+func NewJobInfoServiceClient(cc grpc.ClientConnInterface) JobInfoServiceClient {
+	return &jobInfoServiceClient{cc}
 }
 
-func (c *printJobInfoServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
+func (c *jobInfoServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(DescribeContentsResponse)
-	err := c.cc.Invoke(ctx, PrintJobInfoService_DescribeContents_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, JobInfoService_DescribeContents_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *printJobInfoServiceClient) GetAdvancedIntOption(ctx context.Context, in *GetAdvancedIntOptionRequest, opts ...grpc.CallOption) (*GetAdvancedIntOptionResponse, error) {
+func (c *jobInfoServiceClient) GetAdvancedIntOption(ctx context.Context, in *GetAdvancedIntOptionRequest, opts ...grpc.CallOption) (*GetAdvancedIntOptionResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(GetAdvancedIntOptionResponse)
-	err := c.cc.Invoke(ctx, PrintJobInfoService_GetAdvancedIntOption_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, JobInfoService_GetAdvancedIntOption_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *printJobInfoServiceClient) GetAdvancedStringOption(ctx context.Context, in *GetAdvancedStringOptionRequest, opts ...grpc.CallOption) (*GetAdvancedStringOptionResponse, error) {
+func (c *jobInfoServiceClient) GetAdvancedStringOption(ctx context.Context, in *GetAdvancedStringOptionRequest, opts ...grpc.CallOption) (*GetAdvancedStringOptionResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(GetAdvancedStringOptionResponse)
-	err := c.cc.Invoke(ctx, PrintJobInfoService_GetAdvancedStringOption_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, JobInfoService_GetAdvancedStringOption_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *printJobInfoServiceClient) GetAttributes(ctx context.Context, in *GetAttributesRequest, opts ...grpc.CallOption) (*GetAttributesResponse, error) {
+func (c *jobInfoServiceClient) GetAttributes(ctx context.Context, in *GetAttributesRequest, opts ...grpc.CallOption) (*GetAttributesResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(GetAttributesResponse)
-	err := c.cc.Invoke(ctx, PrintJobInfoService_GetAttributes_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, JobInfoService_GetAttributes_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *printJobInfoServiceClient) GetCopies(ctx context.Context, in *GetCopiesRequest, opts ...grpc.CallOption) (*GetCopiesResponse, error) {
+func (c *jobInfoServiceClient) GetCopies(ctx context.Context, in *GetCopiesRequest, opts ...grpc.CallOption) (*GetCopiesResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(GetCopiesResponse)
-	err := c.cc.Invoke(ctx, PrintJobInfoService_GetCopies_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, JobInfoService_GetCopies_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *printJobInfoServiceClient) GetCreationTime(ctx context.Context, in *GetCreationTimeRequest, opts ...grpc.CallOption) (*GetCreationTimeResponse, error) {
+func (c *jobInfoServiceClient) GetCreationTime(ctx context.Context, in *GetCreationTimeRequest, opts ...grpc.CallOption) (*GetCreationTimeResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(GetCreationTimeResponse)
-	err := c.cc.Invoke(ctx, PrintJobInfoService_GetCreationTime_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, JobInfoService_GetCreationTime_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *printJobInfoServiceClient) GetId(ctx context.Context, in *GetIdRequest, opts ...grpc.CallOption) (*GetIdResponse, error) {
+func (c *jobInfoServiceClient) GetId(ctx context.Context, in *GetIdRequest, opts ...grpc.CallOption) (*GetIdResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(GetIdResponse)
-	err := c.cc.Invoke(ctx, PrintJobInfoService_GetId_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, JobInfoService_GetId_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *printJobInfoServiceClient) GetLabel(ctx context.Context, in *GetLabelRequest, opts ...grpc.CallOption) (*GetLabelResponse, error) {
+func (c *jobInfoServiceClient) GetLabel(ctx context.Context, in *GetLabelRequest, opts ...grpc.CallOption) (*GetLabelResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(GetLabelResponse)
-	err := c.cc.Invoke(ctx, PrintJobInfoService_GetLabel_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, JobInfoService_GetLabel_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *printJobInfoServiceClient) GetPages(ctx context.Context, in *GetPagesRequest, opts ...grpc.CallOption) (*GetPagesResponse, error) {
+func (c *jobInfoServiceClient) GetPages(ctx context.Context, in *GetPagesRequest, opts ...grpc.CallOption) (*GetPagesResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(GetPagesResponse)
-	err := c.cc.Invoke(ctx, PrintJobInfoService_GetPages_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, JobInfoService_GetPages_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *printJobInfoServiceClient) GetPrinterId(ctx context.Context, in *GetPrinterIdRequest, opts ...grpc.CallOption) (*GetPrinterIdResponse, error) {
+func (c *jobInfoServiceClient) GetPrinterId(ctx context.Context, in *GetPrinterIdRequest, opts ...grpc.CallOption) (*GetPrinterIdResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(GetPrinterIdResponse)
-	err := c.cc.Invoke(ctx, PrintJobInfoService_GetPrinterId_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, JobInfoService_GetPrinterId_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *printJobInfoServiceClient) GetState(ctx context.Context, in *GetStateRequest, opts ...grpc.CallOption) (*GetStateResponse, error) {
+func (c *jobInfoServiceClient) GetState(ctx context.Context, in *GetStateRequest, opts ...grpc.CallOption) (*GetStateResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(GetStateResponse)
-	err := c.cc.Invoke(ctx, PrintJobInfoService_GetState_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, JobInfoService_GetState_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *printJobInfoServiceClient) HasAdvancedOption(ctx context.Context, in *HasAdvancedOptionRequest, opts ...grpc.CallOption) (*HasAdvancedOptionResponse, error) {
+func (c *jobInfoServiceClient) HasAdvancedOption(ctx context.Context, in *HasAdvancedOptionRequest, opts ...grpc.CallOption) (*HasAdvancedOptionResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(HasAdvancedOptionResponse)
-	err := c.cc.Invoke(ctx, PrintJobInfoService_HasAdvancedOption_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, JobInfoService_HasAdvancedOption_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *printJobInfoServiceClient) ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
+func (c *jobInfoServiceClient) ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(ToStringResponse)
-	err := c.cc.Invoke(ctx, PrintJobInfoService_ToString_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, JobInfoService_ToString_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *printJobInfoServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
+func (c *jobInfoServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(WriteToParcelResponse)
-	err := c.cc.Invoke(ctx, PrintJobInfoService_WriteToParcel_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, JobInfoService_WriteToParcel_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-// PrintJobInfoServiceServer is the server API for PrintJobInfoService service.
-// All implementations must embed UnimplementedPrintJobInfoServiceServer
+// JobInfoServiceServer is the server API for JobInfoService service.
+// All implementations must embed UnimplementedJobInfoServiceServer
 // for forward compatibility.
-type PrintJobInfoServiceServer interface {
+type JobInfoServiceServer interface {
 	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
 	GetAdvancedIntOption(context.Context, *GetAdvancedIntOptionRequest) (*GetAdvancedIntOptionResponse, error)
 	GetAdvancedStringOption(context.Context, *GetAdvancedStringOptionRequest) (*GetAdvancedStringOptionResponse, error)
@@ -921,393 +743,571 @@ type PrintJobInfoServiceServer interface {
 	HasAdvancedOption(context.Context, *HasAdvancedOptionRequest) (*HasAdvancedOptionResponse, error)
 	ToString(context.Context, *ToStringRequest) (*ToStringResponse, error)
 	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
-	mustEmbedUnimplementedPrintJobInfoServiceServer()
+	mustEmbedUnimplementedJobInfoServiceServer()
 }
 
-// UnimplementedPrintJobInfoServiceServer must be embedded to have
+// UnimplementedJobInfoServiceServer must be embedded to have
 // forward compatible implementations.
 //
 // NOTE: this should be embedded by value instead of pointer to avoid a nil
 // pointer dereference when methods are called.
-type UnimplementedPrintJobInfoServiceServer struct{}
+type UnimplementedJobInfoServiceServer struct{}
 
-func (UnimplementedPrintJobInfoServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
+func (UnimplementedJobInfoServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
 }
-func (UnimplementedPrintJobInfoServiceServer) GetAdvancedIntOption(context.Context, *GetAdvancedIntOptionRequest) (*GetAdvancedIntOptionResponse, error) {
+func (UnimplementedJobInfoServiceServer) GetAdvancedIntOption(context.Context, *GetAdvancedIntOptionRequest) (*GetAdvancedIntOptionResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetAdvancedIntOption not implemented")
 }
-func (UnimplementedPrintJobInfoServiceServer) GetAdvancedStringOption(context.Context, *GetAdvancedStringOptionRequest) (*GetAdvancedStringOptionResponse, error) {
+func (UnimplementedJobInfoServiceServer) GetAdvancedStringOption(context.Context, *GetAdvancedStringOptionRequest) (*GetAdvancedStringOptionResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetAdvancedStringOption not implemented")
 }
-func (UnimplementedPrintJobInfoServiceServer) GetAttributes(context.Context, *GetAttributesRequest) (*GetAttributesResponse, error) {
+func (UnimplementedJobInfoServiceServer) GetAttributes(context.Context, *GetAttributesRequest) (*GetAttributesResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetAttributes not implemented")
 }
-func (UnimplementedPrintJobInfoServiceServer) GetCopies(context.Context, *GetCopiesRequest) (*GetCopiesResponse, error) {
+func (UnimplementedJobInfoServiceServer) GetCopies(context.Context, *GetCopiesRequest) (*GetCopiesResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetCopies not implemented")
 }
-func (UnimplementedPrintJobInfoServiceServer) GetCreationTime(context.Context, *GetCreationTimeRequest) (*GetCreationTimeResponse, error) {
+func (UnimplementedJobInfoServiceServer) GetCreationTime(context.Context, *GetCreationTimeRequest) (*GetCreationTimeResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetCreationTime not implemented")
 }
-func (UnimplementedPrintJobInfoServiceServer) GetId(context.Context, *GetIdRequest) (*GetIdResponse, error) {
+func (UnimplementedJobInfoServiceServer) GetId(context.Context, *GetIdRequest) (*GetIdResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetId not implemented")
 }
-func (UnimplementedPrintJobInfoServiceServer) GetLabel(context.Context, *GetLabelRequest) (*GetLabelResponse, error) {
+func (UnimplementedJobInfoServiceServer) GetLabel(context.Context, *GetLabelRequest) (*GetLabelResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetLabel not implemented")
 }
-func (UnimplementedPrintJobInfoServiceServer) GetPages(context.Context, *GetPagesRequest) (*GetPagesResponse, error) {
+func (UnimplementedJobInfoServiceServer) GetPages(context.Context, *GetPagesRequest) (*GetPagesResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetPages not implemented")
 }
-func (UnimplementedPrintJobInfoServiceServer) GetPrinterId(context.Context, *GetPrinterIdRequest) (*GetPrinterIdResponse, error) {
+func (UnimplementedJobInfoServiceServer) GetPrinterId(context.Context, *GetPrinterIdRequest) (*GetPrinterIdResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetPrinterId not implemented")
 }
-func (UnimplementedPrintJobInfoServiceServer) GetState(context.Context, *GetStateRequest) (*GetStateResponse, error) {
+func (UnimplementedJobInfoServiceServer) GetState(context.Context, *GetStateRequest) (*GetStateResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetState not implemented")
 }
-func (UnimplementedPrintJobInfoServiceServer) HasAdvancedOption(context.Context, *HasAdvancedOptionRequest) (*HasAdvancedOptionResponse, error) {
+func (UnimplementedJobInfoServiceServer) HasAdvancedOption(context.Context, *HasAdvancedOptionRequest) (*HasAdvancedOptionResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method HasAdvancedOption not implemented")
 }
-func (UnimplementedPrintJobInfoServiceServer) ToString(context.Context, *ToStringRequest) (*ToStringResponse, error) {
+func (UnimplementedJobInfoServiceServer) ToString(context.Context, *ToStringRequest) (*ToStringResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
 }
-func (UnimplementedPrintJobInfoServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
+func (UnimplementedJobInfoServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
 }
-func (UnimplementedPrintJobInfoServiceServer) mustEmbedUnimplementedPrintJobInfoServiceServer() {}
-func (UnimplementedPrintJobInfoServiceServer) testEmbeddedByValue()                             {}
+func (UnimplementedJobInfoServiceServer) mustEmbedUnimplementedJobInfoServiceServer() {}
+func (UnimplementedJobInfoServiceServer) testEmbeddedByValue()                        {}
 
-// UnsafePrintJobInfoServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to PrintJobInfoServiceServer will
+// UnsafeJobInfoServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to JobInfoServiceServer will
 // result in compilation errors.
-type UnsafePrintJobInfoServiceServer interface {
-	mustEmbedUnimplementedPrintJobInfoServiceServer()
+type UnsafeJobInfoServiceServer interface {
+	mustEmbedUnimplementedJobInfoServiceServer()
 }
 
-func RegisterPrintJobInfoServiceServer(s grpc.ServiceRegistrar, srv PrintJobInfoServiceServer) {
-	// If the following call panics, it indicates UnimplementedPrintJobInfoServiceServer was
+func RegisterJobInfoServiceServer(s grpc.ServiceRegistrar, srv JobInfoServiceServer) {
+	// If the following call panics, it indicates UnimplementedJobInfoServiceServer was
 	// embedded by pointer and is nil.  This will cause panics if an
 	// unimplemented method is ever invoked, so we test this at initialization
 	// time to prevent it from happening at runtime later due to I/O.
 	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
 		t.testEmbeddedByValue()
 	}
-	s.RegisterService(&PrintJobInfoService_ServiceDesc, srv)
+	s.RegisterService(&JobInfoService_ServiceDesc, srv)
 }
 
-func _PrintJobInfoService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _JobInfoService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(DescribeContentsRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(PrintJobInfoServiceServer).DescribeContents(ctx, in)
+		return srv.(JobInfoServiceServer).DescribeContents(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: PrintJobInfoService_DescribeContents_FullMethodName,
+		FullMethod: JobInfoService_DescribeContents_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PrintJobInfoServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
+		return srv.(JobInfoServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _PrintJobInfoService_GetAdvancedIntOption_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _JobInfoService_GetAdvancedIntOption_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(GetAdvancedIntOptionRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(PrintJobInfoServiceServer).GetAdvancedIntOption(ctx, in)
+		return srv.(JobInfoServiceServer).GetAdvancedIntOption(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: PrintJobInfoService_GetAdvancedIntOption_FullMethodName,
+		FullMethod: JobInfoService_GetAdvancedIntOption_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PrintJobInfoServiceServer).GetAdvancedIntOption(ctx, req.(*GetAdvancedIntOptionRequest))
+		return srv.(JobInfoServiceServer).GetAdvancedIntOption(ctx, req.(*GetAdvancedIntOptionRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _PrintJobInfoService_GetAdvancedStringOption_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _JobInfoService_GetAdvancedStringOption_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(GetAdvancedStringOptionRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(PrintJobInfoServiceServer).GetAdvancedStringOption(ctx, in)
+		return srv.(JobInfoServiceServer).GetAdvancedStringOption(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: PrintJobInfoService_GetAdvancedStringOption_FullMethodName,
+		FullMethod: JobInfoService_GetAdvancedStringOption_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PrintJobInfoServiceServer).GetAdvancedStringOption(ctx, req.(*GetAdvancedStringOptionRequest))
+		return srv.(JobInfoServiceServer).GetAdvancedStringOption(ctx, req.(*GetAdvancedStringOptionRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _PrintJobInfoService_GetAttributes_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _JobInfoService_GetAttributes_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(GetAttributesRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(PrintJobInfoServiceServer).GetAttributes(ctx, in)
+		return srv.(JobInfoServiceServer).GetAttributes(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: PrintJobInfoService_GetAttributes_FullMethodName,
+		FullMethod: JobInfoService_GetAttributes_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PrintJobInfoServiceServer).GetAttributes(ctx, req.(*GetAttributesRequest))
+		return srv.(JobInfoServiceServer).GetAttributes(ctx, req.(*GetAttributesRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _PrintJobInfoService_GetCopies_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _JobInfoService_GetCopies_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(GetCopiesRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(PrintJobInfoServiceServer).GetCopies(ctx, in)
+		return srv.(JobInfoServiceServer).GetCopies(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: PrintJobInfoService_GetCopies_FullMethodName,
+		FullMethod: JobInfoService_GetCopies_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PrintJobInfoServiceServer).GetCopies(ctx, req.(*GetCopiesRequest))
+		return srv.(JobInfoServiceServer).GetCopies(ctx, req.(*GetCopiesRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _PrintJobInfoService_GetCreationTime_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _JobInfoService_GetCreationTime_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(GetCreationTimeRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(PrintJobInfoServiceServer).GetCreationTime(ctx, in)
+		return srv.(JobInfoServiceServer).GetCreationTime(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: PrintJobInfoService_GetCreationTime_FullMethodName,
+		FullMethod: JobInfoService_GetCreationTime_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PrintJobInfoServiceServer).GetCreationTime(ctx, req.(*GetCreationTimeRequest))
+		return srv.(JobInfoServiceServer).GetCreationTime(ctx, req.(*GetCreationTimeRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _PrintJobInfoService_GetId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _JobInfoService_GetId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(GetIdRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(PrintJobInfoServiceServer).GetId(ctx, in)
+		return srv.(JobInfoServiceServer).GetId(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: PrintJobInfoService_GetId_FullMethodName,
+		FullMethod: JobInfoService_GetId_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PrintJobInfoServiceServer).GetId(ctx, req.(*GetIdRequest))
+		return srv.(JobInfoServiceServer).GetId(ctx, req.(*GetIdRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _PrintJobInfoService_GetLabel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _JobInfoService_GetLabel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(GetLabelRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(PrintJobInfoServiceServer).GetLabel(ctx, in)
+		return srv.(JobInfoServiceServer).GetLabel(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: PrintJobInfoService_GetLabel_FullMethodName,
+		FullMethod: JobInfoService_GetLabel_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PrintJobInfoServiceServer).GetLabel(ctx, req.(*GetLabelRequest))
+		return srv.(JobInfoServiceServer).GetLabel(ctx, req.(*GetLabelRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _PrintJobInfoService_GetPages_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _JobInfoService_GetPages_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(GetPagesRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(PrintJobInfoServiceServer).GetPages(ctx, in)
+		return srv.(JobInfoServiceServer).GetPages(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: PrintJobInfoService_GetPages_FullMethodName,
+		FullMethod: JobInfoService_GetPages_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PrintJobInfoServiceServer).GetPages(ctx, req.(*GetPagesRequest))
+		return srv.(JobInfoServiceServer).GetPages(ctx, req.(*GetPagesRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _PrintJobInfoService_GetPrinterId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _JobInfoService_GetPrinterId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(GetPrinterIdRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(PrintJobInfoServiceServer).GetPrinterId(ctx, in)
+		return srv.(JobInfoServiceServer).GetPrinterId(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: PrintJobInfoService_GetPrinterId_FullMethodName,
+		FullMethod: JobInfoService_GetPrinterId_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PrintJobInfoServiceServer).GetPrinterId(ctx, req.(*GetPrinterIdRequest))
+		return srv.(JobInfoServiceServer).GetPrinterId(ctx, req.(*GetPrinterIdRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _PrintJobInfoService_GetState_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _JobInfoService_GetState_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(GetStateRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(PrintJobInfoServiceServer).GetState(ctx, in)
+		return srv.(JobInfoServiceServer).GetState(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: PrintJobInfoService_GetState_FullMethodName,
+		FullMethod: JobInfoService_GetState_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PrintJobInfoServiceServer).GetState(ctx, req.(*GetStateRequest))
+		return srv.(JobInfoServiceServer).GetState(ctx, req.(*GetStateRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _PrintJobInfoService_HasAdvancedOption_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _JobInfoService_HasAdvancedOption_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(HasAdvancedOptionRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(PrintJobInfoServiceServer).HasAdvancedOption(ctx, in)
+		return srv.(JobInfoServiceServer).HasAdvancedOption(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: PrintJobInfoService_HasAdvancedOption_FullMethodName,
+		FullMethod: JobInfoService_HasAdvancedOption_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PrintJobInfoServiceServer).HasAdvancedOption(ctx, req.(*HasAdvancedOptionRequest))
+		return srv.(JobInfoServiceServer).HasAdvancedOption(ctx, req.(*HasAdvancedOptionRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _PrintJobInfoService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _JobInfoService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(ToStringRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(PrintJobInfoServiceServer).ToString(ctx, in)
+		return srv.(JobInfoServiceServer).ToString(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: PrintJobInfoService_ToString_FullMethodName,
+		FullMethod: JobInfoService_ToString_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PrintJobInfoServiceServer).ToString(ctx, req.(*ToStringRequest))
+		return srv.(JobInfoServiceServer).ToString(ctx, req.(*ToStringRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _PrintJobInfoService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _JobInfoService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(WriteToParcelRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(PrintJobInfoServiceServer).WriteToParcel(ctx, in)
+		return srv.(JobInfoServiceServer).WriteToParcel(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: PrintJobInfoService_WriteToParcel_FullMethodName,
+		FullMethod: JobInfoService_WriteToParcel_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PrintJobInfoServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
+		return srv.(JobInfoServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-// PrintJobInfoService_ServiceDesc is the grpc.ServiceDesc for PrintJobInfoService service.
+// JobInfoService_ServiceDesc is the grpc.ServiceDesc for JobInfoService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
-var PrintJobInfoService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "print.PrintJobInfoService",
-	HandlerType: (*PrintJobInfoServiceServer)(nil),
+var JobInfoService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "print.JobInfoService",
+	HandlerType: (*JobInfoServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
 			MethodName: "DescribeContents",
-			Handler:    _PrintJobInfoService_DescribeContents_Handler,
+			Handler:    _JobInfoService_DescribeContents_Handler,
 		},
 		{
 			MethodName: "GetAdvancedIntOption",
-			Handler:    _PrintJobInfoService_GetAdvancedIntOption_Handler,
+			Handler:    _JobInfoService_GetAdvancedIntOption_Handler,
 		},
 		{
 			MethodName: "GetAdvancedStringOption",
-			Handler:    _PrintJobInfoService_GetAdvancedStringOption_Handler,
+			Handler:    _JobInfoService_GetAdvancedStringOption_Handler,
 		},
 		{
 			MethodName: "GetAttributes",
-			Handler:    _PrintJobInfoService_GetAttributes_Handler,
+			Handler:    _JobInfoService_GetAttributes_Handler,
 		},
 		{
 			MethodName: "GetCopies",
-			Handler:    _PrintJobInfoService_GetCopies_Handler,
+			Handler:    _JobInfoService_GetCopies_Handler,
 		},
 		{
 			MethodName: "GetCreationTime",
-			Handler:    _PrintJobInfoService_GetCreationTime_Handler,
+			Handler:    _JobInfoService_GetCreationTime_Handler,
 		},
 		{
 			MethodName: "GetId",
-			Handler:    _PrintJobInfoService_GetId_Handler,
+			Handler:    _JobInfoService_GetId_Handler,
 		},
 		{
 			MethodName: "GetLabel",
-			Handler:    _PrintJobInfoService_GetLabel_Handler,
+			Handler:    _JobInfoService_GetLabel_Handler,
 		},
 		{
 			MethodName: "GetPages",
-			Handler:    _PrintJobInfoService_GetPages_Handler,
+			Handler:    _JobInfoService_GetPages_Handler,
 		},
 		{
 			MethodName: "GetPrinterId",
-			Handler:    _PrintJobInfoService_GetPrinterId_Handler,
+			Handler:    _JobInfoService_GetPrinterId_Handler,
 		},
 		{
 			MethodName: "GetState",
-			Handler:    _PrintJobInfoService_GetState_Handler,
+			Handler:    _JobInfoService_GetState_Handler,
 		},
 		{
 			MethodName: "HasAdvancedOption",
-			Handler:    _PrintJobInfoService_HasAdvancedOption_Handler,
+			Handler:    _JobInfoService_HasAdvancedOption_Handler,
 		},
 		{
 			MethodName: "ToString",
-			Handler:    _PrintJobInfoService_ToString_Handler,
+			Handler:    _JobInfoService_ToString_Handler,
 		},
 		{
 			MethodName: "WriteToParcel",
-			Handler:    _PrintJobInfoService_WriteToParcel_Handler,
+			Handler:    _JobInfoService_WriteToParcel_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/print/print.proto",
+}
+
+const (
+	ManagerService_GetPrintJobs_FullMethodName          = "/print.ManagerService/GetPrintJobs"
+	ManagerService_IsPrintServiceEnabled_FullMethodName = "/print.ManagerService/IsPrintServiceEnabled"
+	ManagerService_Print_FullMethodName                 = "/print.ManagerService/Print"
+)
+
+// ManagerServiceClient is the client API for ManagerService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type ManagerServiceClient interface {
+	GetPrintJobs(ctx context.Context, in *GetPrintJobsRequest, opts ...grpc.CallOption) (*GetPrintJobsResponse, error)
+	IsPrintServiceEnabled(ctx context.Context, in *IsPrintServiceEnabledRequest, opts ...grpc.CallOption) (*IsPrintServiceEnabledResponse, error)
+	Print(ctx context.Context, in *PrintRequest, opts ...grpc.CallOption) (*PrintResponse, error)
+}
+
+type managerServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewManagerServiceClient(cc grpc.ClientConnInterface) ManagerServiceClient {
+	return &managerServiceClient{cc}
+}
+
+func (c *managerServiceClient) GetPrintJobs(ctx context.Context, in *GetPrintJobsRequest, opts ...grpc.CallOption) (*GetPrintJobsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetPrintJobsResponse)
+	err := c.cc.Invoke(ctx, ManagerService_GetPrintJobs_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *managerServiceClient) IsPrintServiceEnabled(ctx context.Context, in *IsPrintServiceEnabledRequest, opts ...grpc.CallOption) (*IsPrintServiceEnabledResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IsPrintServiceEnabledResponse)
+	err := c.cc.Invoke(ctx, ManagerService_IsPrintServiceEnabled_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *managerServiceClient) Print(ctx context.Context, in *PrintRequest, opts ...grpc.CallOption) (*PrintResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(PrintResponse)
+	err := c.cc.Invoke(ctx, ManagerService_Print_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// ManagerServiceServer is the server API for ManagerService service.
+// All implementations must embed UnimplementedManagerServiceServer
+// for forward compatibility.
+type ManagerServiceServer interface {
+	GetPrintJobs(context.Context, *GetPrintJobsRequest) (*GetPrintJobsResponse, error)
+	IsPrintServiceEnabled(context.Context, *IsPrintServiceEnabledRequest) (*IsPrintServiceEnabledResponse, error)
+	Print(context.Context, *PrintRequest) (*PrintResponse, error)
+	mustEmbedUnimplementedManagerServiceServer()
+}
+
+// UnimplementedManagerServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedManagerServiceServer struct{}
+
+func (UnimplementedManagerServiceServer) GetPrintJobs(context.Context, *GetPrintJobsRequest) (*GetPrintJobsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetPrintJobs not implemented")
+}
+func (UnimplementedManagerServiceServer) IsPrintServiceEnabled(context.Context, *IsPrintServiceEnabledRequest) (*IsPrintServiceEnabledResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsPrintServiceEnabled not implemented")
+}
+func (UnimplementedManagerServiceServer) Print(context.Context, *PrintRequest) (*PrintResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Print not implemented")
+}
+func (UnimplementedManagerServiceServer) mustEmbedUnimplementedManagerServiceServer() {}
+func (UnimplementedManagerServiceServer) testEmbeddedByValue()                        {}
+
+// UnsafeManagerServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to ManagerServiceServer will
+// result in compilation errors.
+type UnsafeManagerServiceServer interface {
+	mustEmbedUnimplementedManagerServiceServer()
+}
+
+func RegisterManagerServiceServer(s grpc.ServiceRegistrar, srv ManagerServiceServer) {
+	// If the following call panics, it indicates UnimplementedManagerServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&ManagerService_ServiceDesc, srv)
+}
+
+func _ManagerService_GetPrintJobs_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetPrintJobsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ManagerServiceServer).GetPrintJobs(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ManagerService_GetPrintJobs_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ManagerServiceServer).GetPrintJobs(ctx, req.(*GetPrintJobsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ManagerService_IsPrintServiceEnabled_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsPrintServiceEnabledRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ManagerServiceServer).IsPrintServiceEnabled(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ManagerService_IsPrintServiceEnabled_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ManagerServiceServer).IsPrintServiceEnabled(ctx, req.(*IsPrintServiceEnabledRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ManagerService_Print_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(PrintRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ManagerServiceServer).Print(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ManagerService_Print_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ManagerServiceServer).Print(ctx, req.(*PrintRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// ManagerService_ServiceDesc is the grpc.ServiceDesc for ManagerService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var ManagerService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "print.ManagerService",
+	HandlerType: (*ManagerServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "GetPrintJobs",
+			Handler:    _ManagerService_GetPrintJobs_Handler,
+		},
+		{
+			MethodName: "IsPrintServiceEnabled",
+			Handler:    _ManagerService_IsPrintServiceEnabled_Handler,
+		},
+		{
+			MethodName: "Print",
+			Handler:    _ManagerService_Print_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

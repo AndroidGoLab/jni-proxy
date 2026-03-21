@@ -21,33 +21,33 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
-	CompanionDeviceManagerService_Associate_FullMethodName                                = "/companion.CompanionDeviceManagerService/Associate"
-	CompanionDeviceManagerService_AttachSystemDataTransport_FullMethodName                = "/companion.CompanionDeviceManagerService/AttachSystemDataTransport"
-	CompanionDeviceManagerService_BuildAssociationCancellationIntent_FullMethodName       = "/companion.CompanionDeviceManagerService/BuildAssociationCancellationIntent"
-	CompanionDeviceManagerService_BuildPermissionTransferUserConsentIntent_FullMethodName = "/companion.CompanionDeviceManagerService/BuildPermissionTransferUserConsentIntent"
-	CompanionDeviceManagerService_DetachSystemDataTransport_FullMethodName                = "/companion.CompanionDeviceManagerService/DetachSystemDataTransport"
-	CompanionDeviceManagerService_DisableSystemDataSyncForTypes_FullMethodName            = "/companion.CompanionDeviceManagerService/DisableSystemDataSyncForTypes"
-	CompanionDeviceManagerService_Disassociate1_FullMethodName                            = "/companion.CompanionDeviceManagerService/Disassociate1"
-	CompanionDeviceManagerService_Disassociate1_1_FullMethodName                          = "/companion.CompanionDeviceManagerService/Disassociate1_1"
-	CompanionDeviceManagerService_EnableSystemDataSyncForTypes_FullMethodName             = "/companion.CompanionDeviceManagerService/EnableSystemDataSyncForTypes"
-	CompanionDeviceManagerService_GetAssociations_FullMethodName                          = "/companion.CompanionDeviceManagerService/GetAssociations"
-	CompanionDeviceManagerService_GetMyAssociations_FullMethodName                        = "/companion.CompanionDeviceManagerService/GetMyAssociations"
-	CompanionDeviceManagerService_HasNotificationAccess_FullMethodName                    = "/companion.CompanionDeviceManagerService/HasNotificationAccess"
-	CompanionDeviceManagerService_IsPermissionTransferUserConsented_FullMethodName        = "/companion.CompanionDeviceManagerService/IsPermissionTransferUserConsented"
-	CompanionDeviceManagerService_RemoveBond_FullMethodName                               = "/companion.CompanionDeviceManagerService/RemoveBond"
-	CompanionDeviceManagerService_RequestNotificationAccess_FullMethodName                = "/companion.CompanionDeviceManagerService/RequestNotificationAccess"
-	CompanionDeviceManagerService_SetDeviceId_FullMethodName                              = "/companion.CompanionDeviceManagerService/SetDeviceId"
-	CompanionDeviceManagerService_StartObservingDevicePresence1_FullMethodName            = "/companion.CompanionDeviceManagerService/StartObservingDevicePresence1"
-	CompanionDeviceManagerService_StartObservingDevicePresence1_1_FullMethodName          = "/companion.CompanionDeviceManagerService/StartObservingDevicePresence1_1"
-	CompanionDeviceManagerService_StartSystemDataTransfer_FullMethodName                  = "/companion.CompanionDeviceManagerService/StartSystemDataTransfer"
-	CompanionDeviceManagerService_StopObservingDevicePresence1_FullMethodName             = "/companion.CompanionDeviceManagerService/StopObservingDevicePresence1"
-	CompanionDeviceManagerService_StopObservingDevicePresence1_1_FullMethodName           = "/companion.CompanionDeviceManagerService/StopObservingDevicePresence1_1"
+	DeviceManagerService_Associate_FullMethodName                                = "/companion.DeviceManagerService/Associate"
+	DeviceManagerService_AttachSystemDataTransport_FullMethodName                = "/companion.DeviceManagerService/AttachSystemDataTransport"
+	DeviceManagerService_BuildAssociationCancellationIntent_FullMethodName       = "/companion.DeviceManagerService/BuildAssociationCancellationIntent"
+	DeviceManagerService_BuildPermissionTransferUserConsentIntent_FullMethodName = "/companion.DeviceManagerService/BuildPermissionTransferUserConsentIntent"
+	DeviceManagerService_DetachSystemDataTransport_FullMethodName                = "/companion.DeviceManagerService/DetachSystemDataTransport"
+	DeviceManagerService_DisableSystemDataSyncForTypes_FullMethodName            = "/companion.DeviceManagerService/DisableSystemDataSyncForTypes"
+	DeviceManagerService_Disassociate1_FullMethodName                            = "/companion.DeviceManagerService/Disassociate1"
+	DeviceManagerService_Disassociate1_1_FullMethodName                          = "/companion.DeviceManagerService/Disassociate1_1"
+	DeviceManagerService_EnableSystemDataSyncForTypes_FullMethodName             = "/companion.DeviceManagerService/EnableSystemDataSyncForTypes"
+	DeviceManagerService_GetAssociations_FullMethodName                          = "/companion.DeviceManagerService/GetAssociations"
+	DeviceManagerService_GetMyAssociations_FullMethodName                        = "/companion.DeviceManagerService/GetMyAssociations"
+	DeviceManagerService_HasNotificationAccess_FullMethodName                    = "/companion.DeviceManagerService/HasNotificationAccess"
+	DeviceManagerService_IsPermissionTransferUserConsented_FullMethodName        = "/companion.DeviceManagerService/IsPermissionTransferUserConsented"
+	DeviceManagerService_RemoveBond_FullMethodName                               = "/companion.DeviceManagerService/RemoveBond"
+	DeviceManagerService_RequestNotificationAccess_FullMethodName                = "/companion.DeviceManagerService/RequestNotificationAccess"
+	DeviceManagerService_SetDeviceId_FullMethodName                              = "/companion.DeviceManagerService/SetDeviceId"
+	DeviceManagerService_StartObservingDevicePresence1_FullMethodName            = "/companion.DeviceManagerService/StartObservingDevicePresence1"
+	DeviceManagerService_StartObservingDevicePresence1_1_FullMethodName          = "/companion.DeviceManagerService/StartObservingDevicePresence1_1"
+	DeviceManagerService_StartSystemDataTransfer_FullMethodName                  = "/companion.DeviceManagerService/StartSystemDataTransfer"
+	DeviceManagerService_StopObservingDevicePresence1_FullMethodName             = "/companion.DeviceManagerService/StopObservingDevicePresence1"
+	DeviceManagerService_StopObservingDevicePresence1_1_FullMethodName           = "/companion.DeviceManagerService/StopObservingDevicePresence1_1"
 )
 
-// CompanionDeviceManagerServiceClient is the client API for CompanionDeviceManagerService service.
+// DeviceManagerServiceClient is the client API for DeviceManagerService service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type CompanionDeviceManagerServiceClient interface {
+type DeviceManagerServiceClient interface {
 	Associate(ctx context.Context, in *AssociateRequest, opts ...grpc.CallOption) (*AssociateResponse, error)
 	AttachSystemDataTransport(ctx context.Context, in *AttachSystemDataTransportRequest, opts ...grpc.CallOption) (*AttachSystemDataTransportResponse, error)
 	BuildAssociationCancellationIntent(ctx context.Context, in *BuildAssociationCancellationIntentRequest, opts ...grpc.CallOption) (*BuildAssociationCancellationIntentResponse, error)
@@ -71,228 +71,228 @@ type CompanionDeviceManagerServiceClient interface {
 	StopObservingDevicePresence1_1(ctx context.Context, in *StopObservingDevicePresence1_1Request, opts ...grpc.CallOption) (*StopObservingDevicePresence1_1Response, error)
 }
 
-type companionDeviceManagerServiceClient struct {
+type deviceManagerServiceClient struct {
 	cc grpc.ClientConnInterface
 }
 
-func NewCompanionDeviceManagerServiceClient(cc grpc.ClientConnInterface) CompanionDeviceManagerServiceClient {
-	return &companionDeviceManagerServiceClient{cc}
+func NewDeviceManagerServiceClient(cc grpc.ClientConnInterface) DeviceManagerServiceClient {
+	return &deviceManagerServiceClient{cc}
 }
 
-func (c *companionDeviceManagerServiceClient) Associate(ctx context.Context, in *AssociateRequest, opts ...grpc.CallOption) (*AssociateResponse, error) {
+func (c *deviceManagerServiceClient) Associate(ctx context.Context, in *AssociateRequest, opts ...grpc.CallOption) (*AssociateResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(AssociateResponse)
-	err := c.cc.Invoke(ctx, CompanionDeviceManagerService_Associate_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, DeviceManagerService_Associate_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *companionDeviceManagerServiceClient) AttachSystemDataTransport(ctx context.Context, in *AttachSystemDataTransportRequest, opts ...grpc.CallOption) (*AttachSystemDataTransportResponse, error) {
+func (c *deviceManagerServiceClient) AttachSystemDataTransport(ctx context.Context, in *AttachSystemDataTransportRequest, opts ...grpc.CallOption) (*AttachSystemDataTransportResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(AttachSystemDataTransportResponse)
-	err := c.cc.Invoke(ctx, CompanionDeviceManagerService_AttachSystemDataTransport_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, DeviceManagerService_AttachSystemDataTransport_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *companionDeviceManagerServiceClient) BuildAssociationCancellationIntent(ctx context.Context, in *BuildAssociationCancellationIntentRequest, opts ...grpc.CallOption) (*BuildAssociationCancellationIntentResponse, error) {
+func (c *deviceManagerServiceClient) BuildAssociationCancellationIntent(ctx context.Context, in *BuildAssociationCancellationIntentRequest, opts ...grpc.CallOption) (*BuildAssociationCancellationIntentResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(BuildAssociationCancellationIntentResponse)
-	err := c.cc.Invoke(ctx, CompanionDeviceManagerService_BuildAssociationCancellationIntent_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, DeviceManagerService_BuildAssociationCancellationIntent_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *companionDeviceManagerServiceClient) BuildPermissionTransferUserConsentIntent(ctx context.Context, in *BuildPermissionTransferUserConsentIntentRequest, opts ...grpc.CallOption) (*BuildPermissionTransferUserConsentIntentResponse, error) {
+func (c *deviceManagerServiceClient) BuildPermissionTransferUserConsentIntent(ctx context.Context, in *BuildPermissionTransferUserConsentIntentRequest, opts ...grpc.CallOption) (*BuildPermissionTransferUserConsentIntentResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(BuildPermissionTransferUserConsentIntentResponse)
-	err := c.cc.Invoke(ctx, CompanionDeviceManagerService_BuildPermissionTransferUserConsentIntent_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, DeviceManagerService_BuildPermissionTransferUserConsentIntent_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *companionDeviceManagerServiceClient) DetachSystemDataTransport(ctx context.Context, in *DetachSystemDataTransportRequest, opts ...grpc.CallOption) (*DetachSystemDataTransportResponse, error) {
+func (c *deviceManagerServiceClient) DetachSystemDataTransport(ctx context.Context, in *DetachSystemDataTransportRequest, opts ...grpc.CallOption) (*DetachSystemDataTransportResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(DetachSystemDataTransportResponse)
-	err := c.cc.Invoke(ctx, CompanionDeviceManagerService_DetachSystemDataTransport_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, DeviceManagerService_DetachSystemDataTransport_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *companionDeviceManagerServiceClient) DisableSystemDataSyncForTypes(ctx context.Context, in *DisableSystemDataSyncForTypesRequest, opts ...grpc.CallOption) (*DisableSystemDataSyncForTypesResponse, error) {
+func (c *deviceManagerServiceClient) DisableSystemDataSyncForTypes(ctx context.Context, in *DisableSystemDataSyncForTypesRequest, opts ...grpc.CallOption) (*DisableSystemDataSyncForTypesResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(DisableSystemDataSyncForTypesResponse)
-	err := c.cc.Invoke(ctx, CompanionDeviceManagerService_DisableSystemDataSyncForTypes_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, DeviceManagerService_DisableSystemDataSyncForTypes_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *companionDeviceManagerServiceClient) Disassociate1(ctx context.Context, in *Disassociate1Request, opts ...grpc.CallOption) (*Disassociate1Response, error) {
+func (c *deviceManagerServiceClient) Disassociate1(ctx context.Context, in *Disassociate1Request, opts ...grpc.CallOption) (*Disassociate1Response, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(Disassociate1Response)
-	err := c.cc.Invoke(ctx, CompanionDeviceManagerService_Disassociate1_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, DeviceManagerService_Disassociate1_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *companionDeviceManagerServiceClient) Disassociate1_1(ctx context.Context, in *Disassociate1_1Request, opts ...grpc.CallOption) (*Disassociate1_1Response, error) {
+func (c *deviceManagerServiceClient) Disassociate1_1(ctx context.Context, in *Disassociate1_1Request, opts ...grpc.CallOption) (*Disassociate1_1Response, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(Disassociate1_1Response)
-	err := c.cc.Invoke(ctx, CompanionDeviceManagerService_Disassociate1_1_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, DeviceManagerService_Disassociate1_1_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *companionDeviceManagerServiceClient) EnableSystemDataSyncForTypes(ctx context.Context, in *EnableSystemDataSyncForTypesRequest, opts ...grpc.CallOption) (*EnableSystemDataSyncForTypesResponse, error) {
+func (c *deviceManagerServiceClient) EnableSystemDataSyncForTypes(ctx context.Context, in *EnableSystemDataSyncForTypesRequest, opts ...grpc.CallOption) (*EnableSystemDataSyncForTypesResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(EnableSystemDataSyncForTypesResponse)
-	err := c.cc.Invoke(ctx, CompanionDeviceManagerService_EnableSystemDataSyncForTypes_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, DeviceManagerService_EnableSystemDataSyncForTypes_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *companionDeviceManagerServiceClient) GetAssociations(ctx context.Context, in *GetAssociationsRequest, opts ...grpc.CallOption) (*GetAssociationsResponse, error) {
+func (c *deviceManagerServiceClient) GetAssociations(ctx context.Context, in *GetAssociationsRequest, opts ...grpc.CallOption) (*GetAssociationsResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(GetAssociationsResponse)
-	err := c.cc.Invoke(ctx, CompanionDeviceManagerService_GetAssociations_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, DeviceManagerService_GetAssociations_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *companionDeviceManagerServiceClient) GetMyAssociations(ctx context.Context, in *GetMyAssociationsRequest, opts ...grpc.CallOption) (*GetMyAssociationsResponse, error) {
+func (c *deviceManagerServiceClient) GetMyAssociations(ctx context.Context, in *GetMyAssociationsRequest, opts ...grpc.CallOption) (*GetMyAssociationsResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(GetMyAssociationsResponse)
-	err := c.cc.Invoke(ctx, CompanionDeviceManagerService_GetMyAssociations_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, DeviceManagerService_GetMyAssociations_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *companionDeviceManagerServiceClient) HasNotificationAccess(ctx context.Context, in *HasNotificationAccessRequest, opts ...grpc.CallOption) (*HasNotificationAccessResponse, error) {
+func (c *deviceManagerServiceClient) HasNotificationAccess(ctx context.Context, in *HasNotificationAccessRequest, opts ...grpc.CallOption) (*HasNotificationAccessResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(HasNotificationAccessResponse)
-	err := c.cc.Invoke(ctx, CompanionDeviceManagerService_HasNotificationAccess_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, DeviceManagerService_HasNotificationAccess_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *companionDeviceManagerServiceClient) IsPermissionTransferUserConsented(ctx context.Context, in *IsPermissionTransferUserConsentedRequest, opts ...grpc.CallOption) (*IsPermissionTransferUserConsentedResponse, error) {
+func (c *deviceManagerServiceClient) IsPermissionTransferUserConsented(ctx context.Context, in *IsPermissionTransferUserConsentedRequest, opts ...grpc.CallOption) (*IsPermissionTransferUserConsentedResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(IsPermissionTransferUserConsentedResponse)
-	err := c.cc.Invoke(ctx, CompanionDeviceManagerService_IsPermissionTransferUserConsented_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, DeviceManagerService_IsPermissionTransferUserConsented_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *companionDeviceManagerServiceClient) RemoveBond(ctx context.Context, in *RemoveBondRequest, opts ...grpc.CallOption) (*RemoveBondResponse, error) {
+func (c *deviceManagerServiceClient) RemoveBond(ctx context.Context, in *RemoveBondRequest, opts ...grpc.CallOption) (*RemoveBondResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(RemoveBondResponse)
-	err := c.cc.Invoke(ctx, CompanionDeviceManagerService_RemoveBond_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, DeviceManagerService_RemoveBond_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *companionDeviceManagerServiceClient) RequestNotificationAccess(ctx context.Context, in *RequestNotificationAccessRequest, opts ...grpc.CallOption) (*RequestNotificationAccessResponse, error) {
+func (c *deviceManagerServiceClient) RequestNotificationAccess(ctx context.Context, in *RequestNotificationAccessRequest, opts ...grpc.CallOption) (*RequestNotificationAccessResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(RequestNotificationAccessResponse)
-	err := c.cc.Invoke(ctx, CompanionDeviceManagerService_RequestNotificationAccess_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, DeviceManagerService_RequestNotificationAccess_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *companionDeviceManagerServiceClient) SetDeviceId(ctx context.Context, in *SetDeviceIdRequest, opts ...grpc.CallOption) (*SetDeviceIdResponse, error) {
+func (c *deviceManagerServiceClient) SetDeviceId(ctx context.Context, in *SetDeviceIdRequest, opts ...grpc.CallOption) (*SetDeviceIdResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(SetDeviceIdResponse)
-	err := c.cc.Invoke(ctx, CompanionDeviceManagerService_SetDeviceId_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, DeviceManagerService_SetDeviceId_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *companionDeviceManagerServiceClient) StartObservingDevicePresence1(ctx context.Context, in *StartObservingDevicePresence1Request, opts ...grpc.CallOption) (*StartObservingDevicePresence1Response, error) {
+func (c *deviceManagerServiceClient) StartObservingDevicePresence1(ctx context.Context, in *StartObservingDevicePresence1Request, opts ...grpc.CallOption) (*StartObservingDevicePresence1Response, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(StartObservingDevicePresence1Response)
-	err := c.cc.Invoke(ctx, CompanionDeviceManagerService_StartObservingDevicePresence1_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, DeviceManagerService_StartObservingDevicePresence1_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *companionDeviceManagerServiceClient) StartObservingDevicePresence1_1(ctx context.Context, in *StartObservingDevicePresence1_1Request, opts ...grpc.CallOption) (*StartObservingDevicePresence1_1Response, error) {
+func (c *deviceManagerServiceClient) StartObservingDevicePresence1_1(ctx context.Context, in *StartObservingDevicePresence1_1Request, opts ...grpc.CallOption) (*StartObservingDevicePresence1_1Response, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(StartObservingDevicePresence1_1Response)
-	err := c.cc.Invoke(ctx, CompanionDeviceManagerService_StartObservingDevicePresence1_1_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, DeviceManagerService_StartObservingDevicePresence1_1_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *companionDeviceManagerServiceClient) StartSystemDataTransfer(ctx context.Context, in *StartSystemDataTransferRequest, opts ...grpc.CallOption) (*StartSystemDataTransferResponse, error) {
+func (c *deviceManagerServiceClient) StartSystemDataTransfer(ctx context.Context, in *StartSystemDataTransferRequest, opts ...grpc.CallOption) (*StartSystemDataTransferResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(StartSystemDataTransferResponse)
-	err := c.cc.Invoke(ctx, CompanionDeviceManagerService_StartSystemDataTransfer_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, DeviceManagerService_StartSystemDataTransfer_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *companionDeviceManagerServiceClient) StopObservingDevicePresence1(ctx context.Context, in *StopObservingDevicePresence1Request, opts ...grpc.CallOption) (*StopObservingDevicePresence1Response, error) {
+func (c *deviceManagerServiceClient) StopObservingDevicePresence1(ctx context.Context, in *StopObservingDevicePresence1Request, opts ...grpc.CallOption) (*StopObservingDevicePresence1Response, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(StopObservingDevicePresence1Response)
-	err := c.cc.Invoke(ctx, CompanionDeviceManagerService_StopObservingDevicePresence1_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, DeviceManagerService_StopObservingDevicePresence1_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *companionDeviceManagerServiceClient) StopObservingDevicePresence1_1(ctx context.Context, in *StopObservingDevicePresence1_1Request, opts ...grpc.CallOption) (*StopObservingDevicePresence1_1Response, error) {
+func (c *deviceManagerServiceClient) StopObservingDevicePresence1_1(ctx context.Context, in *StopObservingDevicePresence1_1Request, opts ...grpc.CallOption) (*StopObservingDevicePresence1_1Response, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(StopObservingDevicePresence1_1Response)
-	err := c.cc.Invoke(ctx, CompanionDeviceManagerService_StopObservingDevicePresence1_1_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, DeviceManagerService_StopObservingDevicePresence1_1_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-// CompanionDeviceManagerServiceServer is the server API for CompanionDeviceManagerService service.
-// All implementations must embed UnimplementedCompanionDeviceManagerServiceServer
+// DeviceManagerServiceServer is the server API for DeviceManagerService service.
+// All implementations must embed UnimplementedDeviceManagerServiceServer
 // for forward compatibility.
-type CompanionDeviceManagerServiceServer interface {
+type DeviceManagerServiceServer interface {
 	Associate(context.Context, *AssociateRequest) (*AssociateResponse, error)
 	AttachSystemDataTransport(context.Context, *AttachSystemDataTransportRequest) (*AttachSystemDataTransportResponse, error)
 	BuildAssociationCancellationIntent(context.Context, *BuildAssociationCancellationIntentRequest) (*BuildAssociationCancellationIntentResponse, error)
@@ -314,569 +314,568 @@ type CompanionDeviceManagerServiceServer interface {
 	StartSystemDataTransfer(context.Context, *StartSystemDataTransferRequest) (*StartSystemDataTransferResponse, error)
 	StopObservingDevicePresence1(context.Context, *StopObservingDevicePresence1Request) (*StopObservingDevicePresence1Response, error)
 	StopObservingDevicePresence1_1(context.Context, *StopObservingDevicePresence1_1Request) (*StopObservingDevicePresence1_1Response, error)
-	mustEmbedUnimplementedCompanionDeviceManagerServiceServer()
+	mustEmbedUnimplementedDeviceManagerServiceServer()
 }
 
-// UnimplementedCompanionDeviceManagerServiceServer must be embedded to have
+// UnimplementedDeviceManagerServiceServer must be embedded to have
 // forward compatible implementations.
 //
 // NOTE: this should be embedded by value instead of pointer to avoid a nil
 // pointer dereference when methods are called.
-type UnimplementedCompanionDeviceManagerServiceServer struct{}
+type UnimplementedDeviceManagerServiceServer struct{}
 
-func (UnimplementedCompanionDeviceManagerServiceServer) Associate(context.Context, *AssociateRequest) (*AssociateResponse, error) {
+func (UnimplementedDeviceManagerServiceServer) Associate(context.Context, *AssociateRequest) (*AssociateResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method Associate not implemented")
 }
-func (UnimplementedCompanionDeviceManagerServiceServer) AttachSystemDataTransport(context.Context, *AttachSystemDataTransportRequest) (*AttachSystemDataTransportResponse, error) {
+func (UnimplementedDeviceManagerServiceServer) AttachSystemDataTransport(context.Context, *AttachSystemDataTransportRequest) (*AttachSystemDataTransportResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method AttachSystemDataTransport not implemented")
 }
-func (UnimplementedCompanionDeviceManagerServiceServer) BuildAssociationCancellationIntent(context.Context, *BuildAssociationCancellationIntentRequest) (*BuildAssociationCancellationIntentResponse, error) {
+func (UnimplementedDeviceManagerServiceServer) BuildAssociationCancellationIntent(context.Context, *BuildAssociationCancellationIntentRequest) (*BuildAssociationCancellationIntentResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method BuildAssociationCancellationIntent not implemented")
 }
-func (UnimplementedCompanionDeviceManagerServiceServer) BuildPermissionTransferUserConsentIntent(context.Context, *BuildPermissionTransferUserConsentIntentRequest) (*BuildPermissionTransferUserConsentIntentResponse, error) {
+func (UnimplementedDeviceManagerServiceServer) BuildPermissionTransferUserConsentIntent(context.Context, *BuildPermissionTransferUserConsentIntentRequest) (*BuildPermissionTransferUserConsentIntentResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method BuildPermissionTransferUserConsentIntent not implemented")
 }
-func (UnimplementedCompanionDeviceManagerServiceServer) DetachSystemDataTransport(context.Context, *DetachSystemDataTransportRequest) (*DetachSystemDataTransportResponse, error) {
+func (UnimplementedDeviceManagerServiceServer) DetachSystemDataTransport(context.Context, *DetachSystemDataTransportRequest) (*DetachSystemDataTransportResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method DetachSystemDataTransport not implemented")
 }
-func (UnimplementedCompanionDeviceManagerServiceServer) DisableSystemDataSyncForTypes(context.Context, *DisableSystemDataSyncForTypesRequest) (*DisableSystemDataSyncForTypesResponse, error) {
+func (UnimplementedDeviceManagerServiceServer) DisableSystemDataSyncForTypes(context.Context, *DisableSystemDataSyncForTypesRequest) (*DisableSystemDataSyncForTypesResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method DisableSystemDataSyncForTypes not implemented")
 }
-func (UnimplementedCompanionDeviceManagerServiceServer) Disassociate1(context.Context, *Disassociate1Request) (*Disassociate1Response, error) {
+func (UnimplementedDeviceManagerServiceServer) Disassociate1(context.Context, *Disassociate1Request) (*Disassociate1Response, error) {
 	return nil, status.Error(codes.Unimplemented, "method Disassociate1 not implemented")
 }
-func (UnimplementedCompanionDeviceManagerServiceServer) Disassociate1_1(context.Context, *Disassociate1_1Request) (*Disassociate1_1Response, error) {
+func (UnimplementedDeviceManagerServiceServer) Disassociate1_1(context.Context, *Disassociate1_1Request) (*Disassociate1_1Response, error) {
 	return nil, status.Error(codes.Unimplemented, "method Disassociate1_1 not implemented")
 }
-func (UnimplementedCompanionDeviceManagerServiceServer) EnableSystemDataSyncForTypes(context.Context, *EnableSystemDataSyncForTypesRequest) (*EnableSystemDataSyncForTypesResponse, error) {
+func (UnimplementedDeviceManagerServiceServer) EnableSystemDataSyncForTypes(context.Context, *EnableSystemDataSyncForTypesRequest) (*EnableSystemDataSyncForTypesResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method EnableSystemDataSyncForTypes not implemented")
 }
-func (UnimplementedCompanionDeviceManagerServiceServer) GetAssociations(context.Context, *GetAssociationsRequest) (*GetAssociationsResponse, error) {
+func (UnimplementedDeviceManagerServiceServer) GetAssociations(context.Context, *GetAssociationsRequest) (*GetAssociationsResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetAssociations not implemented")
 }
-func (UnimplementedCompanionDeviceManagerServiceServer) GetMyAssociations(context.Context, *GetMyAssociationsRequest) (*GetMyAssociationsResponse, error) {
+func (UnimplementedDeviceManagerServiceServer) GetMyAssociations(context.Context, *GetMyAssociationsRequest) (*GetMyAssociationsResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetMyAssociations not implemented")
 }
-func (UnimplementedCompanionDeviceManagerServiceServer) HasNotificationAccess(context.Context, *HasNotificationAccessRequest) (*HasNotificationAccessResponse, error) {
+func (UnimplementedDeviceManagerServiceServer) HasNotificationAccess(context.Context, *HasNotificationAccessRequest) (*HasNotificationAccessResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method HasNotificationAccess not implemented")
 }
-func (UnimplementedCompanionDeviceManagerServiceServer) IsPermissionTransferUserConsented(context.Context, *IsPermissionTransferUserConsentedRequest) (*IsPermissionTransferUserConsentedResponse, error) {
+func (UnimplementedDeviceManagerServiceServer) IsPermissionTransferUserConsented(context.Context, *IsPermissionTransferUserConsentedRequest) (*IsPermissionTransferUserConsentedResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method IsPermissionTransferUserConsented not implemented")
 }
-func (UnimplementedCompanionDeviceManagerServiceServer) RemoveBond(context.Context, *RemoveBondRequest) (*RemoveBondResponse, error) {
+func (UnimplementedDeviceManagerServiceServer) RemoveBond(context.Context, *RemoveBondRequest) (*RemoveBondResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method RemoveBond not implemented")
 }
-func (UnimplementedCompanionDeviceManagerServiceServer) RequestNotificationAccess(context.Context, *RequestNotificationAccessRequest) (*RequestNotificationAccessResponse, error) {
+func (UnimplementedDeviceManagerServiceServer) RequestNotificationAccess(context.Context, *RequestNotificationAccessRequest) (*RequestNotificationAccessResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method RequestNotificationAccess not implemented")
 }
-func (UnimplementedCompanionDeviceManagerServiceServer) SetDeviceId(context.Context, *SetDeviceIdRequest) (*SetDeviceIdResponse, error) {
+func (UnimplementedDeviceManagerServiceServer) SetDeviceId(context.Context, *SetDeviceIdRequest) (*SetDeviceIdResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method SetDeviceId not implemented")
 }
-func (UnimplementedCompanionDeviceManagerServiceServer) StartObservingDevicePresence1(context.Context, *StartObservingDevicePresence1Request) (*StartObservingDevicePresence1Response, error) {
+func (UnimplementedDeviceManagerServiceServer) StartObservingDevicePresence1(context.Context, *StartObservingDevicePresence1Request) (*StartObservingDevicePresence1Response, error) {
 	return nil, status.Error(codes.Unimplemented, "method StartObservingDevicePresence1 not implemented")
 }
-func (UnimplementedCompanionDeviceManagerServiceServer) StartObservingDevicePresence1_1(context.Context, *StartObservingDevicePresence1_1Request) (*StartObservingDevicePresence1_1Response, error) {
+func (UnimplementedDeviceManagerServiceServer) StartObservingDevicePresence1_1(context.Context, *StartObservingDevicePresence1_1Request) (*StartObservingDevicePresence1_1Response, error) {
 	return nil, status.Error(codes.Unimplemented, "method StartObservingDevicePresence1_1 not implemented")
 }
-func (UnimplementedCompanionDeviceManagerServiceServer) StartSystemDataTransfer(context.Context, *StartSystemDataTransferRequest) (*StartSystemDataTransferResponse, error) {
+func (UnimplementedDeviceManagerServiceServer) StartSystemDataTransfer(context.Context, *StartSystemDataTransferRequest) (*StartSystemDataTransferResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method StartSystemDataTransfer not implemented")
 }
-func (UnimplementedCompanionDeviceManagerServiceServer) StopObservingDevicePresence1(context.Context, *StopObservingDevicePresence1Request) (*StopObservingDevicePresence1Response, error) {
+func (UnimplementedDeviceManagerServiceServer) StopObservingDevicePresence1(context.Context, *StopObservingDevicePresence1Request) (*StopObservingDevicePresence1Response, error) {
 	return nil, status.Error(codes.Unimplemented, "method StopObservingDevicePresence1 not implemented")
 }
-func (UnimplementedCompanionDeviceManagerServiceServer) StopObservingDevicePresence1_1(context.Context, *StopObservingDevicePresence1_1Request) (*StopObservingDevicePresence1_1Response, error) {
+func (UnimplementedDeviceManagerServiceServer) StopObservingDevicePresence1_1(context.Context, *StopObservingDevicePresence1_1Request) (*StopObservingDevicePresence1_1Response, error) {
 	return nil, status.Error(codes.Unimplemented, "method StopObservingDevicePresence1_1 not implemented")
 }
-func (UnimplementedCompanionDeviceManagerServiceServer) mustEmbedUnimplementedCompanionDeviceManagerServiceServer() {
-}
-func (UnimplementedCompanionDeviceManagerServiceServer) testEmbeddedByValue() {}
+func (UnimplementedDeviceManagerServiceServer) mustEmbedUnimplementedDeviceManagerServiceServer() {}
+func (UnimplementedDeviceManagerServiceServer) testEmbeddedByValue()                              {}
 
-// UnsafeCompanionDeviceManagerServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to CompanionDeviceManagerServiceServer will
+// UnsafeDeviceManagerServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to DeviceManagerServiceServer will
 // result in compilation errors.
-type UnsafeCompanionDeviceManagerServiceServer interface {
-	mustEmbedUnimplementedCompanionDeviceManagerServiceServer()
+type UnsafeDeviceManagerServiceServer interface {
+	mustEmbedUnimplementedDeviceManagerServiceServer()
 }
 
-func RegisterCompanionDeviceManagerServiceServer(s grpc.ServiceRegistrar, srv CompanionDeviceManagerServiceServer) {
-	// If the following call panics, it indicates UnimplementedCompanionDeviceManagerServiceServer was
+func RegisterDeviceManagerServiceServer(s grpc.ServiceRegistrar, srv DeviceManagerServiceServer) {
+	// If the following call panics, it indicates UnimplementedDeviceManagerServiceServer was
 	// embedded by pointer and is nil.  This will cause panics if an
 	// unimplemented method is ever invoked, so we test this at initialization
 	// time to prevent it from happening at runtime later due to I/O.
 	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
 		t.testEmbeddedByValue()
 	}
-	s.RegisterService(&CompanionDeviceManagerService_ServiceDesc, srv)
+	s.RegisterService(&DeviceManagerService_ServiceDesc, srv)
 }
 
-func _CompanionDeviceManagerService_Associate_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _DeviceManagerService_Associate_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(AssociateRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(CompanionDeviceManagerServiceServer).Associate(ctx, in)
+		return srv.(DeviceManagerServiceServer).Associate(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: CompanionDeviceManagerService_Associate_FullMethodName,
+		FullMethod: DeviceManagerService_Associate_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CompanionDeviceManagerServiceServer).Associate(ctx, req.(*AssociateRequest))
+		return srv.(DeviceManagerServiceServer).Associate(ctx, req.(*AssociateRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _CompanionDeviceManagerService_AttachSystemDataTransport_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _DeviceManagerService_AttachSystemDataTransport_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(AttachSystemDataTransportRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(CompanionDeviceManagerServiceServer).AttachSystemDataTransport(ctx, in)
+		return srv.(DeviceManagerServiceServer).AttachSystemDataTransport(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: CompanionDeviceManagerService_AttachSystemDataTransport_FullMethodName,
+		FullMethod: DeviceManagerService_AttachSystemDataTransport_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CompanionDeviceManagerServiceServer).AttachSystemDataTransport(ctx, req.(*AttachSystemDataTransportRequest))
+		return srv.(DeviceManagerServiceServer).AttachSystemDataTransport(ctx, req.(*AttachSystemDataTransportRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _CompanionDeviceManagerService_BuildAssociationCancellationIntent_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _DeviceManagerService_BuildAssociationCancellationIntent_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(BuildAssociationCancellationIntentRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(CompanionDeviceManagerServiceServer).BuildAssociationCancellationIntent(ctx, in)
+		return srv.(DeviceManagerServiceServer).BuildAssociationCancellationIntent(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: CompanionDeviceManagerService_BuildAssociationCancellationIntent_FullMethodName,
+		FullMethod: DeviceManagerService_BuildAssociationCancellationIntent_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CompanionDeviceManagerServiceServer).BuildAssociationCancellationIntent(ctx, req.(*BuildAssociationCancellationIntentRequest))
+		return srv.(DeviceManagerServiceServer).BuildAssociationCancellationIntent(ctx, req.(*BuildAssociationCancellationIntentRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _CompanionDeviceManagerService_BuildPermissionTransferUserConsentIntent_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _DeviceManagerService_BuildPermissionTransferUserConsentIntent_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(BuildPermissionTransferUserConsentIntentRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(CompanionDeviceManagerServiceServer).BuildPermissionTransferUserConsentIntent(ctx, in)
+		return srv.(DeviceManagerServiceServer).BuildPermissionTransferUserConsentIntent(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: CompanionDeviceManagerService_BuildPermissionTransferUserConsentIntent_FullMethodName,
+		FullMethod: DeviceManagerService_BuildPermissionTransferUserConsentIntent_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CompanionDeviceManagerServiceServer).BuildPermissionTransferUserConsentIntent(ctx, req.(*BuildPermissionTransferUserConsentIntentRequest))
+		return srv.(DeviceManagerServiceServer).BuildPermissionTransferUserConsentIntent(ctx, req.(*BuildPermissionTransferUserConsentIntentRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _CompanionDeviceManagerService_DetachSystemDataTransport_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _DeviceManagerService_DetachSystemDataTransport_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(DetachSystemDataTransportRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(CompanionDeviceManagerServiceServer).DetachSystemDataTransport(ctx, in)
+		return srv.(DeviceManagerServiceServer).DetachSystemDataTransport(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: CompanionDeviceManagerService_DetachSystemDataTransport_FullMethodName,
+		FullMethod: DeviceManagerService_DetachSystemDataTransport_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CompanionDeviceManagerServiceServer).DetachSystemDataTransport(ctx, req.(*DetachSystemDataTransportRequest))
+		return srv.(DeviceManagerServiceServer).DetachSystemDataTransport(ctx, req.(*DetachSystemDataTransportRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _CompanionDeviceManagerService_DisableSystemDataSyncForTypes_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _DeviceManagerService_DisableSystemDataSyncForTypes_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(DisableSystemDataSyncForTypesRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(CompanionDeviceManagerServiceServer).DisableSystemDataSyncForTypes(ctx, in)
+		return srv.(DeviceManagerServiceServer).DisableSystemDataSyncForTypes(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: CompanionDeviceManagerService_DisableSystemDataSyncForTypes_FullMethodName,
+		FullMethod: DeviceManagerService_DisableSystemDataSyncForTypes_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CompanionDeviceManagerServiceServer).DisableSystemDataSyncForTypes(ctx, req.(*DisableSystemDataSyncForTypesRequest))
+		return srv.(DeviceManagerServiceServer).DisableSystemDataSyncForTypes(ctx, req.(*DisableSystemDataSyncForTypesRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _CompanionDeviceManagerService_Disassociate1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _DeviceManagerService_Disassociate1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(Disassociate1Request)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(CompanionDeviceManagerServiceServer).Disassociate1(ctx, in)
+		return srv.(DeviceManagerServiceServer).Disassociate1(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: CompanionDeviceManagerService_Disassociate1_FullMethodName,
+		FullMethod: DeviceManagerService_Disassociate1_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CompanionDeviceManagerServiceServer).Disassociate1(ctx, req.(*Disassociate1Request))
+		return srv.(DeviceManagerServiceServer).Disassociate1(ctx, req.(*Disassociate1Request))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _CompanionDeviceManagerService_Disassociate1_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _DeviceManagerService_Disassociate1_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(Disassociate1_1Request)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(CompanionDeviceManagerServiceServer).Disassociate1_1(ctx, in)
+		return srv.(DeviceManagerServiceServer).Disassociate1_1(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: CompanionDeviceManagerService_Disassociate1_1_FullMethodName,
+		FullMethod: DeviceManagerService_Disassociate1_1_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CompanionDeviceManagerServiceServer).Disassociate1_1(ctx, req.(*Disassociate1_1Request))
+		return srv.(DeviceManagerServiceServer).Disassociate1_1(ctx, req.(*Disassociate1_1Request))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _CompanionDeviceManagerService_EnableSystemDataSyncForTypes_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _DeviceManagerService_EnableSystemDataSyncForTypes_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(EnableSystemDataSyncForTypesRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(CompanionDeviceManagerServiceServer).EnableSystemDataSyncForTypes(ctx, in)
+		return srv.(DeviceManagerServiceServer).EnableSystemDataSyncForTypes(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: CompanionDeviceManagerService_EnableSystemDataSyncForTypes_FullMethodName,
+		FullMethod: DeviceManagerService_EnableSystemDataSyncForTypes_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CompanionDeviceManagerServiceServer).EnableSystemDataSyncForTypes(ctx, req.(*EnableSystemDataSyncForTypesRequest))
+		return srv.(DeviceManagerServiceServer).EnableSystemDataSyncForTypes(ctx, req.(*EnableSystemDataSyncForTypesRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _CompanionDeviceManagerService_GetAssociations_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _DeviceManagerService_GetAssociations_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(GetAssociationsRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(CompanionDeviceManagerServiceServer).GetAssociations(ctx, in)
+		return srv.(DeviceManagerServiceServer).GetAssociations(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: CompanionDeviceManagerService_GetAssociations_FullMethodName,
+		FullMethod: DeviceManagerService_GetAssociations_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CompanionDeviceManagerServiceServer).GetAssociations(ctx, req.(*GetAssociationsRequest))
+		return srv.(DeviceManagerServiceServer).GetAssociations(ctx, req.(*GetAssociationsRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _CompanionDeviceManagerService_GetMyAssociations_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _DeviceManagerService_GetMyAssociations_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(GetMyAssociationsRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(CompanionDeviceManagerServiceServer).GetMyAssociations(ctx, in)
+		return srv.(DeviceManagerServiceServer).GetMyAssociations(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: CompanionDeviceManagerService_GetMyAssociations_FullMethodName,
+		FullMethod: DeviceManagerService_GetMyAssociations_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CompanionDeviceManagerServiceServer).GetMyAssociations(ctx, req.(*GetMyAssociationsRequest))
+		return srv.(DeviceManagerServiceServer).GetMyAssociations(ctx, req.(*GetMyAssociationsRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _CompanionDeviceManagerService_HasNotificationAccess_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _DeviceManagerService_HasNotificationAccess_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(HasNotificationAccessRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(CompanionDeviceManagerServiceServer).HasNotificationAccess(ctx, in)
+		return srv.(DeviceManagerServiceServer).HasNotificationAccess(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: CompanionDeviceManagerService_HasNotificationAccess_FullMethodName,
+		FullMethod: DeviceManagerService_HasNotificationAccess_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CompanionDeviceManagerServiceServer).HasNotificationAccess(ctx, req.(*HasNotificationAccessRequest))
+		return srv.(DeviceManagerServiceServer).HasNotificationAccess(ctx, req.(*HasNotificationAccessRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _CompanionDeviceManagerService_IsPermissionTransferUserConsented_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _DeviceManagerService_IsPermissionTransferUserConsented_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(IsPermissionTransferUserConsentedRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(CompanionDeviceManagerServiceServer).IsPermissionTransferUserConsented(ctx, in)
+		return srv.(DeviceManagerServiceServer).IsPermissionTransferUserConsented(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: CompanionDeviceManagerService_IsPermissionTransferUserConsented_FullMethodName,
+		FullMethod: DeviceManagerService_IsPermissionTransferUserConsented_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CompanionDeviceManagerServiceServer).IsPermissionTransferUserConsented(ctx, req.(*IsPermissionTransferUserConsentedRequest))
+		return srv.(DeviceManagerServiceServer).IsPermissionTransferUserConsented(ctx, req.(*IsPermissionTransferUserConsentedRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _CompanionDeviceManagerService_RemoveBond_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _DeviceManagerService_RemoveBond_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(RemoveBondRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(CompanionDeviceManagerServiceServer).RemoveBond(ctx, in)
+		return srv.(DeviceManagerServiceServer).RemoveBond(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: CompanionDeviceManagerService_RemoveBond_FullMethodName,
+		FullMethod: DeviceManagerService_RemoveBond_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CompanionDeviceManagerServiceServer).RemoveBond(ctx, req.(*RemoveBondRequest))
+		return srv.(DeviceManagerServiceServer).RemoveBond(ctx, req.(*RemoveBondRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _CompanionDeviceManagerService_RequestNotificationAccess_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _DeviceManagerService_RequestNotificationAccess_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(RequestNotificationAccessRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(CompanionDeviceManagerServiceServer).RequestNotificationAccess(ctx, in)
+		return srv.(DeviceManagerServiceServer).RequestNotificationAccess(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: CompanionDeviceManagerService_RequestNotificationAccess_FullMethodName,
+		FullMethod: DeviceManagerService_RequestNotificationAccess_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CompanionDeviceManagerServiceServer).RequestNotificationAccess(ctx, req.(*RequestNotificationAccessRequest))
+		return srv.(DeviceManagerServiceServer).RequestNotificationAccess(ctx, req.(*RequestNotificationAccessRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _CompanionDeviceManagerService_SetDeviceId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _DeviceManagerService_SetDeviceId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(SetDeviceIdRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(CompanionDeviceManagerServiceServer).SetDeviceId(ctx, in)
+		return srv.(DeviceManagerServiceServer).SetDeviceId(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: CompanionDeviceManagerService_SetDeviceId_FullMethodName,
+		FullMethod: DeviceManagerService_SetDeviceId_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CompanionDeviceManagerServiceServer).SetDeviceId(ctx, req.(*SetDeviceIdRequest))
+		return srv.(DeviceManagerServiceServer).SetDeviceId(ctx, req.(*SetDeviceIdRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _CompanionDeviceManagerService_StartObservingDevicePresence1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _DeviceManagerService_StartObservingDevicePresence1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(StartObservingDevicePresence1Request)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(CompanionDeviceManagerServiceServer).StartObservingDevicePresence1(ctx, in)
+		return srv.(DeviceManagerServiceServer).StartObservingDevicePresence1(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: CompanionDeviceManagerService_StartObservingDevicePresence1_FullMethodName,
+		FullMethod: DeviceManagerService_StartObservingDevicePresence1_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CompanionDeviceManagerServiceServer).StartObservingDevicePresence1(ctx, req.(*StartObservingDevicePresence1Request))
+		return srv.(DeviceManagerServiceServer).StartObservingDevicePresence1(ctx, req.(*StartObservingDevicePresence1Request))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _CompanionDeviceManagerService_StartObservingDevicePresence1_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _DeviceManagerService_StartObservingDevicePresence1_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(StartObservingDevicePresence1_1Request)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(CompanionDeviceManagerServiceServer).StartObservingDevicePresence1_1(ctx, in)
+		return srv.(DeviceManagerServiceServer).StartObservingDevicePresence1_1(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: CompanionDeviceManagerService_StartObservingDevicePresence1_1_FullMethodName,
+		FullMethod: DeviceManagerService_StartObservingDevicePresence1_1_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CompanionDeviceManagerServiceServer).StartObservingDevicePresence1_1(ctx, req.(*StartObservingDevicePresence1_1Request))
+		return srv.(DeviceManagerServiceServer).StartObservingDevicePresence1_1(ctx, req.(*StartObservingDevicePresence1_1Request))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _CompanionDeviceManagerService_StartSystemDataTransfer_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _DeviceManagerService_StartSystemDataTransfer_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(StartSystemDataTransferRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(CompanionDeviceManagerServiceServer).StartSystemDataTransfer(ctx, in)
+		return srv.(DeviceManagerServiceServer).StartSystemDataTransfer(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: CompanionDeviceManagerService_StartSystemDataTransfer_FullMethodName,
+		FullMethod: DeviceManagerService_StartSystemDataTransfer_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CompanionDeviceManagerServiceServer).StartSystemDataTransfer(ctx, req.(*StartSystemDataTransferRequest))
+		return srv.(DeviceManagerServiceServer).StartSystemDataTransfer(ctx, req.(*StartSystemDataTransferRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _CompanionDeviceManagerService_StopObservingDevicePresence1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _DeviceManagerService_StopObservingDevicePresence1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(StopObservingDevicePresence1Request)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(CompanionDeviceManagerServiceServer).StopObservingDevicePresence1(ctx, in)
+		return srv.(DeviceManagerServiceServer).StopObservingDevicePresence1(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: CompanionDeviceManagerService_StopObservingDevicePresence1_FullMethodName,
+		FullMethod: DeviceManagerService_StopObservingDevicePresence1_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CompanionDeviceManagerServiceServer).StopObservingDevicePresence1(ctx, req.(*StopObservingDevicePresence1Request))
+		return srv.(DeviceManagerServiceServer).StopObservingDevicePresence1(ctx, req.(*StopObservingDevicePresence1Request))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _CompanionDeviceManagerService_StopObservingDevicePresence1_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _DeviceManagerService_StopObservingDevicePresence1_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(StopObservingDevicePresence1_1Request)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(CompanionDeviceManagerServiceServer).StopObservingDevicePresence1_1(ctx, in)
+		return srv.(DeviceManagerServiceServer).StopObservingDevicePresence1_1(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: CompanionDeviceManagerService_StopObservingDevicePresence1_1_FullMethodName,
+		FullMethod: DeviceManagerService_StopObservingDevicePresence1_1_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CompanionDeviceManagerServiceServer).StopObservingDevicePresence1_1(ctx, req.(*StopObservingDevicePresence1_1Request))
+		return srv.(DeviceManagerServiceServer).StopObservingDevicePresence1_1(ctx, req.(*StopObservingDevicePresence1_1Request))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-// CompanionDeviceManagerService_ServiceDesc is the grpc.ServiceDesc for CompanionDeviceManagerService service.
+// DeviceManagerService_ServiceDesc is the grpc.ServiceDesc for DeviceManagerService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
-var CompanionDeviceManagerService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "companion.CompanionDeviceManagerService",
-	HandlerType: (*CompanionDeviceManagerServiceServer)(nil),
+var DeviceManagerService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "companion.DeviceManagerService",
+	HandlerType: (*DeviceManagerServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
 			MethodName: "Associate",
-			Handler:    _CompanionDeviceManagerService_Associate_Handler,
+			Handler:    _DeviceManagerService_Associate_Handler,
 		},
 		{
 			MethodName: "AttachSystemDataTransport",
-			Handler:    _CompanionDeviceManagerService_AttachSystemDataTransport_Handler,
+			Handler:    _DeviceManagerService_AttachSystemDataTransport_Handler,
 		},
 		{
 			MethodName: "BuildAssociationCancellationIntent",
-			Handler:    _CompanionDeviceManagerService_BuildAssociationCancellationIntent_Handler,
+			Handler:    _DeviceManagerService_BuildAssociationCancellationIntent_Handler,
 		},
 		{
 			MethodName: "BuildPermissionTransferUserConsentIntent",
-			Handler:    _CompanionDeviceManagerService_BuildPermissionTransferUserConsentIntent_Handler,
+			Handler:    _DeviceManagerService_BuildPermissionTransferUserConsentIntent_Handler,
 		},
 		{
 			MethodName: "DetachSystemDataTransport",
-			Handler:    _CompanionDeviceManagerService_DetachSystemDataTransport_Handler,
+			Handler:    _DeviceManagerService_DetachSystemDataTransport_Handler,
 		},
 		{
 			MethodName: "DisableSystemDataSyncForTypes",
-			Handler:    _CompanionDeviceManagerService_DisableSystemDataSyncForTypes_Handler,
+			Handler:    _DeviceManagerService_DisableSystemDataSyncForTypes_Handler,
 		},
 		{
 			MethodName: "Disassociate1",
-			Handler:    _CompanionDeviceManagerService_Disassociate1_Handler,
+			Handler:    _DeviceManagerService_Disassociate1_Handler,
 		},
 		{
 			MethodName: "Disassociate1_1",
-			Handler:    _CompanionDeviceManagerService_Disassociate1_1_Handler,
+			Handler:    _DeviceManagerService_Disassociate1_1_Handler,
 		},
 		{
 			MethodName: "EnableSystemDataSyncForTypes",
-			Handler:    _CompanionDeviceManagerService_EnableSystemDataSyncForTypes_Handler,
+			Handler:    _DeviceManagerService_EnableSystemDataSyncForTypes_Handler,
 		},
 		{
 			MethodName: "GetAssociations",
-			Handler:    _CompanionDeviceManagerService_GetAssociations_Handler,
+			Handler:    _DeviceManagerService_GetAssociations_Handler,
 		},
 		{
 			MethodName: "GetMyAssociations",
-			Handler:    _CompanionDeviceManagerService_GetMyAssociations_Handler,
+			Handler:    _DeviceManagerService_GetMyAssociations_Handler,
 		},
 		{
 			MethodName: "HasNotificationAccess",
-			Handler:    _CompanionDeviceManagerService_HasNotificationAccess_Handler,
+			Handler:    _DeviceManagerService_HasNotificationAccess_Handler,
 		},
 		{
 			MethodName: "IsPermissionTransferUserConsented",
-			Handler:    _CompanionDeviceManagerService_IsPermissionTransferUserConsented_Handler,
+			Handler:    _DeviceManagerService_IsPermissionTransferUserConsented_Handler,
 		},
 		{
 			MethodName: "RemoveBond",
-			Handler:    _CompanionDeviceManagerService_RemoveBond_Handler,
+			Handler:    _DeviceManagerService_RemoveBond_Handler,
 		},
 		{
 			MethodName: "RequestNotificationAccess",
-			Handler:    _CompanionDeviceManagerService_RequestNotificationAccess_Handler,
+			Handler:    _DeviceManagerService_RequestNotificationAccess_Handler,
 		},
 		{
 			MethodName: "SetDeviceId",
-			Handler:    _CompanionDeviceManagerService_SetDeviceId_Handler,
+			Handler:    _DeviceManagerService_SetDeviceId_Handler,
 		},
 		{
 			MethodName: "StartObservingDevicePresence1",
-			Handler:    _CompanionDeviceManagerService_StartObservingDevicePresence1_Handler,
+			Handler:    _DeviceManagerService_StartObservingDevicePresence1_Handler,
 		},
 		{
 			MethodName: "StartObservingDevicePresence1_1",
-			Handler:    _CompanionDeviceManagerService_StartObservingDevicePresence1_1_Handler,
+			Handler:    _DeviceManagerService_StartObservingDevicePresence1_1_Handler,
 		},
 		{
 			MethodName: "StartSystemDataTransfer",
-			Handler:    _CompanionDeviceManagerService_StartSystemDataTransfer_Handler,
+			Handler:    _DeviceManagerService_StartSystemDataTransfer_Handler,
 		},
 		{
 			MethodName: "StopObservingDevicePresence1",
-			Handler:    _CompanionDeviceManagerService_StopObservingDevicePresence1_Handler,
+			Handler:    _DeviceManagerService_StopObservingDevicePresence1_Handler,
 		},
 		{
 			MethodName: "StopObservingDevicePresence1_1",
-			Handler:    _CompanionDeviceManagerService_StopObservingDevicePresence1_1_Handler,
+			Handler:    _DeviceManagerService_StopObservingDevicePresence1_1_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

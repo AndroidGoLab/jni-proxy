@@ -21,102 +21,101 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
-	ContactsContractService_IsProfileId_FullMethodName = "/contacts.ContactsContractService/IsProfileId"
+	ContractService_IsProfileId_FullMethodName = "/contacts.ContractService/IsProfileId"
 )
 
-// ContactsContractServiceClient is the client API for ContactsContractService service.
+// ContractServiceClient is the client API for ContractService service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type ContactsContractServiceClient interface {
+type ContractServiceClient interface {
 	IsProfileId(ctx context.Context, in *IsProfileIdRequest, opts ...grpc.CallOption) (*IsProfileIdResponse, error)
 }
 
-type contactsContractServiceClient struct {
+type contractServiceClient struct {
 	cc grpc.ClientConnInterface
 }
 
-func NewContactsContractServiceClient(cc grpc.ClientConnInterface) ContactsContractServiceClient {
-	return &contactsContractServiceClient{cc}
+func NewContractServiceClient(cc grpc.ClientConnInterface) ContractServiceClient {
+	return &contractServiceClient{cc}
 }
 
-func (c *contactsContractServiceClient) IsProfileId(ctx context.Context, in *IsProfileIdRequest, opts ...grpc.CallOption) (*IsProfileIdResponse, error) {
+func (c *contractServiceClient) IsProfileId(ctx context.Context, in *IsProfileIdRequest, opts ...grpc.CallOption) (*IsProfileIdResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(IsProfileIdResponse)
-	err := c.cc.Invoke(ctx, ContactsContractService_IsProfileId_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, ContractService_IsProfileId_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-// ContactsContractServiceServer is the server API for ContactsContractService service.
-// All implementations must embed UnimplementedContactsContractServiceServer
+// ContractServiceServer is the server API for ContractService service.
+// All implementations must embed UnimplementedContractServiceServer
 // for forward compatibility.
-type ContactsContractServiceServer interface {
+type ContractServiceServer interface {
 	IsProfileId(context.Context, *IsProfileIdRequest) (*IsProfileIdResponse, error)
-	mustEmbedUnimplementedContactsContractServiceServer()
+	mustEmbedUnimplementedContractServiceServer()
 }
 
-// UnimplementedContactsContractServiceServer must be embedded to have
+// UnimplementedContractServiceServer must be embedded to have
 // forward compatible implementations.
 //
 // NOTE: this should be embedded by value instead of pointer to avoid a nil
 // pointer dereference when methods are called.
-type UnimplementedContactsContractServiceServer struct{}
+type UnimplementedContractServiceServer struct{}
 
-func (UnimplementedContactsContractServiceServer) IsProfileId(context.Context, *IsProfileIdRequest) (*IsProfileIdResponse, error) {
+func (UnimplementedContractServiceServer) IsProfileId(context.Context, *IsProfileIdRequest) (*IsProfileIdResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method IsProfileId not implemented")
 }
-func (UnimplementedContactsContractServiceServer) mustEmbedUnimplementedContactsContractServiceServer() {
-}
-func (UnimplementedContactsContractServiceServer) testEmbeddedByValue() {}
+func (UnimplementedContractServiceServer) mustEmbedUnimplementedContractServiceServer() {}
+func (UnimplementedContractServiceServer) testEmbeddedByValue()                         {}
 
-// UnsafeContactsContractServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to ContactsContractServiceServer will
+// UnsafeContractServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to ContractServiceServer will
 // result in compilation errors.
-type UnsafeContactsContractServiceServer interface {
-	mustEmbedUnimplementedContactsContractServiceServer()
+type UnsafeContractServiceServer interface {
+	mustEmbedUnimplementedContractServiceServer()
 }
 
-func RegisterContactsContractServiceServer(s grpc.ServiceRegistrar, srv ContactsContractServiceServer) {
-	// If the following call panics, it indicates UnimplementedContactsContractServiceServer was
+func RegisterContractServiceServer(s grpc.ServiceRegistrar, srv ContractServiceServer) {
+	// If the following call panics, it indicates UnimplementedContractServiceServer was
 	// embedded by pointer and is nil.  This will cause panics if an
 	// unimplemented method is ever invoked, so we test this at initialization
 	// time to prevent it from happening at runtime later due to I/O.
 	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
 		t.testEmbeddedByValue()
 	}
-	s.RegisterService(&ContactsContractService_ServiceDesc, srv)
+	s.RegisterService(&ContractService_ServiceDesc, srv)
 }
 
-func _ContactsContractService_IsProfileId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _ContractService_IsProfileId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(IsProfileIdRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(ContactsContractServiceServer).IsProfileId(ctx, in)
+		return srv.(ContractServiceServer).IsProfileId(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: ContactsContractService_IsProfileId_FullMethodName,
+		FullMethod: ContractService_IsProfileId_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ContactsContractServiceServer).IsProfileId(ctx, req.(*IsProfileIdRequest))
+		return srv.(ContractServiceServer).IsProfileId(ctx, req.(*IsProfileIdRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-// ContactsContractService_ServiceDesc is the grpc.ServiceDesc for ContactsContractService service.
+// ContractService_ServiceDesc is the grpc.ServiceDesc for ContractService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
-var ContactsContractService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "contacts.ContactsContractService",
-	HandlerType: (*ContactsContractServiceServer)(nil),
+var ContractService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "contacts.ContractService",
+	HandlerType: (*ContractServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
 			MethodName: "IsProfileId",
-			Handler:    _ContactsContractService_IsProfileId_Handler,
+			Handler:    _ContractService_IsProfileId_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

@@ -3,8 +3,8 @@
 package main
 
 import (
-	"github.com/spf13/cobra"
 	pb "github.com/AndroidGoLab/jni-proxy/proto/ringtone"
+	"github.com/spf13/cobra"
 )
 
 var ringtoneCmd = &cobra.Command{
@@ -12,18 +12,18 @@ var ringtoneCmd = &cobra.Command{
 	Short: "ringtone service operations",
 }
 
-var ringtoneRingtoneManagerCmd = &cobra.Command{
-	Use:   "ringtone-manager",
-	Short: "RingtoneManagerService operations",
+var ringtoneManagerCmd = &cobra.Command{
+	Use:   "manager",
+	Short: "ManagerService operations",
 }
 
-var ringtoneRingtoneManagerGetCursorCmd = &cobra.Command{
+var ringtoneManagerGetCursorCmd = &cobra.Command{
 	Use:   "get-cursor",
 	Short: "GetCursor RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewRingtoneManagerServiceClient(grpcConn)
+		client := pb.NewManagerServiceClient(grpcConn)
 		req := &pb.GetCursorRequest{}
 		resp, err := client.GetCursor(ctx, req)
 		if err != nil {
@@ -33,13 +33,13 @@ var ringtoneRingtoneManagerGetCursorCmd = &cobra.Command{
 	},
 }
 
-var ringtoneRingtoneManagerGetIncludeDrmCmd = &cobra.Command{
+var ringtoneManagerGetIncludeDrmCmd = &cobra.Command{
 	Use:   "get-include-drm",
 	Short: "GetIncludeDrm RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewRingtoneManagerServiceClient(grpcConn)
+		client := pb.NewManagerServiceClient(grpcConn)
 		req := &pb.GetIncludeDrmRequest{}
 		resp, err := client.GetIncludeDrm(ctx, req)
 		if err != nil {
@@ -49,13 +49,13 @@ var ringtoneRingtoneManagerGetIncludeDrmCmd = &cobra.Command{
 	},
 }
 
-var ringtoneRingtoneManagerGetRingtone1_1Cmd = &cobra.Command{
+var ringtoneManagerGetRingtone1_1Cmd = &cobra.Command{
 	Use:   "get-ringtone1_1",
 	Short: "GetRingtone1_1 RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewRingtoneManagerServiceClient(grpcConn)
+		client := pb.NewManagerServiceClient(grpcConn)
 		req := &pb.GetRingtone1_1Request{}
 		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
 			req.Arg0 = v
@@ -68,13 +68,13 @@ var ringtoneRingtoneManagerGetRingtone1_1Cmd = &cobra.Command{
 	},
 }
 
-var ringtoneRingtoneManagerGetRingtonePositionCmd = &cobra.Command{
+var ringtoneManagerGetRingtonePositionCmd = &cobra.Command{
 	Use:   "get-ringtone-position",
 	Short: "GetRingtonePosition RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewRingtoneManagerServiceClient(grpcConn)
+		client := pb.NewManagerServiceClient(grpcConn)
 		req := &pb.GetRingtonePositionRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
@@ -87,13 +87,13 @@ var ringtoneRingtoneManagerGetRingtonePositionCmd = &cobra.Command{
 	},
 }
 
-var ringtoneRingtoneManagerGetRingtoneUriCmd = &cobra.Command{
+var ringtoneManagerGetRingtoneUriCmd = &cobra.Command{
 	Use:   "get-ringtone-uri",
 	Short: "GetRingtoneUri RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewRingtoneManagerServiceClient(grpcConn)
+		client := pb.NewManagerServiceClient(grpcConn)
 		req := &pb.GetRingtoneUriRequest{}
 		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
 			req.Arg0 = v
@@ -106,13 +106,13 @@ var ringtoneRingtoneManagerGetRingtoneUriCmd = &cobra.Command{
 	},
 }
 
-var ringtoneRingtoneManagerGetStopPreviousRingtoneCmd = &cobra.Command{
+var ringtoneManagerGetStopPreviousRingtoneCmd = &cobra.Command{
 	Use:   "get-stop-previous-ringtone",
 	Short: "GetStopPreviousRingtone RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewRingtoneManagerServiceClient(grpcConn)
+		client := pb.NewManagerServiceClient(grpcConn)
 		req := &pb.GetStopPreviousRingtoneRequest{}
 		resp, err := client.GetStopPreviousRingtone(ctx, req)
 		if err != nil {
@@ -122,13 +122,13 @@ var ringtoneRingtoneManagerGetStopPreviousRingtoneCmd = &cobra.Command{
 	},
 }
 
-var ringtoneRingtoneManagerHasHapticChannels1_2Cmd = &cobra.Command{
+var ringtoneManagerHasHapticChannels1_2Cmd = &cobra.Command{
 	Use:   "has-haptic-channels1_2",
 	Short: "HasHapticChannels1_2 RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewRingtoneManagerServiceClient(grpcConn)
+		client := pb.NewManagerServiceClient(grpcConn)
 		req := &pb.HasHapticChannels1_2Request{}
 		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
 			req.Arg0 = v
@@ -141,13 +141,13 @@ var ringtoneRingtoneManagerHasHapticChannels1_2Cmd = &cobra.Command{
 	},
 }
 
-var ringtoneRingtoneManagerInferStreamTypeCmd = &cobra.Command{
+var ringtoneManagerInferStreamTypeCmd = &cobra.Command{
 	Use:   "infer-stream-type",
 	Short: "InferStreamType RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewRingtoneManagerServiceClient(grpcConn)
+		client := pb.NewManagerServiceClient(grpcConn)
 		req := &pb.InferStreamTypeRequest{}
 		resp, err := client.InferStreamType(ctx, req)
 		if err != nil {
@@ -157,13 +157,13 @@ var ringtoneRingtoneManagerInferStreamTypeCmd = &cobra.Command{
 	},
 }
 
-var ringtoneRingtoneManagerSetIncludeDrmCmd = &cobra.Command{
+var ringtoneManagerSetIncludeDrmCmd = &cobra.Command{
 	Use:   "set-include-drm",
 	Short: "SetIncludeDrm RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewRingtoneManagerServiceClient(grpcConn)
+		client := pb.NewManagerServiceClient(grpcConn)
 		req := &pb.SetIncludeDrmRequest{}
 		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
 			req.Arg0 = v
@@ -176,13 +176,13 @@ var ringtoneRingtoneManagerSetIncludeDrmCmd = &cobra.Command{
 	},
 }
 
-var ringtoneRingtoneManagerSetStopPreviousRingtoneCmd = &cobra.Command{
+var ringtoneManagerSetStopPreviousRingtoneCmd = &cobra.Command{
 	Use:   "set-stop-previous-ringtone",
 	Short: "SetStopPreviousRingtone RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewRingtoneManagerServiceClient(grpcConn)
+		client := pb.NewManagerServiceClient(grpcConn)
 		req := &pb.SetStopPreviousRingtoneRequest{}
 		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
 			req.Arg0 = v
@@ -195,13 +195,13 @@ var ringtoneRingtoneManagerSetStopPreviousRingtoneCmd = &cobra.Command{
 	},
 }
 
-var ringtoneRingtoneManagerSetTypeCmd = &cobra.Command{
+var ringtoneManagerSetTypeCmd = &cobra.Command{
 	Use:   "set-type",
 	Short: "SetType RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewRingtoneManagerServiceClient(grpcConn)
+		client := pb.NewManagerServiceClient(grpcConn)
 		req := &pb.SetTypeRequest{}
 		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
 			req.Arg0 = v
@@ -214,13 +214,13 @@ var ringtoneRingtoneManagerSetTypeCmd = &cobra.Command{
 	},
 }
 
-var ringtoneRingtoneManagerStopPreviousRingtoneCmd = &cobra.Command{
+var ringtoneManagerStopPreviousRingtoneCmd = &cobra.Command{
 	Use:   "stop-previous-ringtone",
 	Short: "StopPreviousRingtone RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewRingtoneManagerServiceClient(grpcConn)
+		client := pb.NewManagerServiceClient(grpcConn)
 		req := &pb.StopPreviousRingtoneRequest{}
 		resp, err := client.StopPreviousRingtone(ctx, req)
 		if err != nil {
@@ -230,13 +230,13 @@ var ringtoneRingtoneManagerStopPreviousRingtoneCmd = &cobra.Command{
 	},
 }
 
-var ringtoneRingtoneManagerGetActualDefaultRingtoneUriCmd = &cobra.Command{
+var ringtoneManagerGetActualDefaultRingtoneUriCmd = &cobra.Command{
 	Use:   "get-actual-default-ringtone-uri",
 	Short: "GetActualDefaultRingtoneUri RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewRingtoneManagerServiceClient(grpcConn)
+		client := pb.NewManagerServiceClient(grpcConn)
 		req := &pb.GetActualDefaultRingtoneUriRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
@@ -252,13 +252,13 @@ var ringtoneRingtoneManagerGetActualDefaultRingtoneUriCmd = &cobra.Command{
 	},
 }
 
-var ringtoneRingtoneManagerGetDefaultTypeCmd = &cobra.Command{
+var ringtoneManagerGetDefaultTypeCmd = &cobra.Command{
 	Use:   "get-default-type",
 	Short: "GetDefaultType RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewRingtoneManagerServiceClient(grpcConn)
+		client := pb.NewManagerServiceClient(grpcConn)
 		req := &pb.GetDefaultTypeRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
@@ -271,13 +271,13 @@ var ringtoneRingtoneManagerGetDefaultTypeCmd = &cobra.Command{
 	},
 }
 
-var ringtoneRingtoneManagerGetDefaultUriCmd = &cobra.Command{
+var ringtoneManagerGetDefaultUriCmd = &cobra.Command{
 	Use:   "get-default-uri",
 	Short: "GetDefaultUri RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewRingtoneManagerServiceClient(grpcConn)
+		client := pb.NewManagerServiceClient(grpcConn)
 		req := &pb.GetDefaultUriRequest{}
 		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
 			req.Arg0 = v
@@ -290,13 +290,13 @@ var ringtoneRingtoneManagerGetDefaultUriCmd = &cobra.Command{
 	},
 }
 
-var ringtoneRingtoneManagerGetRingtone2Cmd = &cobra.Command{
+var ringtoneManagerGetRingtone2Cmd = &cobra.Command{
 	Use:   "get-ringtone2",
 	Short: "GetRingtone2 RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewRingtoneManagerServiceClient(grpcConn)
+		client := pb.NewManagerServiceClient(grpcConn)
 		req := &pb.GetRingtone2Request{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
@@ -312,13 +312,13 @@ var ringtoneRingtoneManagerGetRingtone2Cmd = &cobra.Command{
 	},
 }
 
-var ringtoneRingtoneManagerGetValidRingtoneUriCmd = &cobra.Command{
+var ringtoneManagerGetValidRingtoneUriCmd = &cobra.Command{
 	Use:   "get-valid-ringtone-uri",
 	Short: "GetValidRingtoneUri RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewRingtoneManagerServiceClient(grpcConn)
+		client := pb.NewManagerServiceClient(grpcConn)
 		req := &pb.GetValidRingtoneUriRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
@@ -331,13 +331,13 @@ var ringtoneRingtoneManagerGetValidRingtoneUriCmd = &cobra.Command{
 	},
 }
 
-var ringtoneRingtoneManagerHasHapticChannels2Cmd = &cobra.Command{
+var ringtoneManagerHasHapticChannels2Cmd = &cobra.Command{
 	Use:   "has-haptic-channels2",
 	Short: "HasHapticChannels2 RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewRingtoneManagerServiceClient(grpcConn)
+		client := pb.NewManagerServiceClient(grpcConn)
 		req := &pb.HasHapticChannels2Request{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
@@ -353,13 +353,13 @@ var ringtoneRingtoneManagerHasHapticChannels2Cmd = &cobra.Command{
 	},
 }
 
-var ringtoneRingtoneManagerHasHapticChannels1_1Cmd = &cobra.Command{
+var ringtoneManagerHasHapticChannels1_1Cmd = &cobra.Command{
 	Use:   "has-haptic-channels1_1",
 	Short: "HasHapticChannels1_1 RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewRingtoneManagerServiceClient(grpcConn)
+		client := pb.NewManagerServiceClient(grpcConn)
 		req := &pb.HasHapticChannels1_1Request{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
@@ -372,13 +372,13 @@ var ringtoneRingtoneManagerHasHapticChannels1_1Cmd = &cobra.Command{
 	},
 }
 
-var ringtoneRingtoneManagerIsDefaultCmd = &cobra.Command{
+var ringtoneManagerIsDefaultCmd = &cobra.Command{
 	Use:   "is-default",
 	Short: "IsDefault RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewRingtoneManagerServiceClient(grpcConn)
+		client := pb.NewManagerServiceClient(grpcConn)
 		req := &pb.IsDefaultRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
@@ -391,13 +391,13 @@ var ringtoneRingtoneManagerIsDefaultCmd = &cobra.Command{
 	},
 }
 
-var ringtoneRingtoneManagerOpenDefaultRingtoneUriCmd = &cobra.Command{
+var ringtoneManagerOpenDefaultRingtoneUriCmd = &cobra.Command{
 	Use:   "open-default-ringtone-uri",
 	Short: "OpenDefaultRingtoneUri RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewRingtoneManagerServiceClient(grpcConn)
+		client := pb.NewManagerServiceClient(grpcConn)
 		req := &pb.OpenDefaultRingtoneUriRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
@@ -413,13 +413,13 @@ var ringtoneRingtoneManagerOpenDefaultRingtoneUriCmd = &cobra.Command{
 	},
 }
 
-var ringtoneRingtoneManagerSetActualDefaultRingtoneUriCmd = &cobra.Command{
+var ringtoneManagerSetActualDefaultRingtoneUriCmd = &cobra.Command{
 	Use:   "set-actual-default-ringtone-uri",
 	Short: "SetActualDefaultRingtoneUri RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewRingtoneManagerServiceClient(grpcConn)
+		client := pb.NewManagerServiceClient(grpcConn)
 		req := &pb.SetActualDefaultRingtoneUriRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
@@ -438,52 +438,320 @@ var ringtoneRingtoneManagerSetActualDefaultRingtoneUriCmd = &cobra.Command{
 	},
 }
 
+var ringtoneRingtoneCmd = &cobra.Command{
+	Use:   "ringtone",
+	Short: "RingtoneService operations",
+}
+
+var ringtoneRingtoneGetAudioAttributesCmd = &cobra.Command{
+	Use:   "get-audio-attributes",
+	Short: "GetAudioAttributes RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRingtoneServiceClient(grpcConn)
+		req := &pb.GetAudioAttributesRequest{}
+		resp, err := client.GetAudioAttributes(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var ringtoneRingtoneGetStreamTypeCmd = &cobra.Command{
+	Use:   "get-stream-type",
+	Short: "GetStreamType RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRingtoneServiceClient(grpcConn)
+		req := &pb.GetStreamTypeRequest{}
+		resp, err := client.GetStreamType(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var ringtoneRingtoneGetTitleCmd = &cobra.Command{
+	Use:   "get-title",
+	Short: "GetTitle RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRingtoneServiceClient(grpcConn)
+		req := &pb.GetTitleRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetTitle(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var ringtoneRingtoneGetVolumeCmd = &cobra.Command{
+	Use:   "get-volume",
+	Short: "GetVolume RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRingtoneServiceClient(grpcConn)
+		req := &pb.GetVolumeRequest{}
+		resp, err := client.GetVolume(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var ringtoneRingtoneIsHapticGeneratorEnabledCmd = &cobra.Command{
+	Use:   "is-haptic-generator-enabled",
+	Short: "IsHapticGeneratorEnabled RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRingtoneServiceClient(grpcConn)
+		req := &pb.IsHapticGeneratorEnabledRequest{}
+		resp, err := client.IsHapticGeneratorEnabled(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var ringtoneRingtoneIsLoopingCmd = &cobra.Command{
+	Use:   "is-looping",
+	Short: "IsLooping RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRingtoneServiceClient(grpcConn)
+		req := &pb.IsLoopingRequest{}
+		resp, err := client.IsLooping(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var ringtoneRingtoneIsPlayingCmd = &cobra.Command{
+	Use:   "is-playing",
+	Short: "IsPlaying RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRingtoneServiceClient(grpcConn)
+		req := &pb.IsPlayingRequest{}
+		resp, err := client.IsPlaying(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var ringtoneRingtonePlayCmd = &cobra.Command{
+	Use:   "play",
+	Short: "Play RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRingtoneServiceClient(grpcConn)
+		req := &pb.PlayRequest{}
+		resp, err := client.Play(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var ringtoneRingtoneSetAudioAttributesCmd = &cobra.Command{
+	Use:   "set-audio-attributes",
+	Short: "SetAudioAttributes RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRingtoneServiceClient(grpcConn)
+		req := &pb.SetAudioAttributesRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetAudioAttributes(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var ringtoneRingtoneSetHapticGeneratorEnabledCmd = &cobra.Command{
+	Use:   "set-haptic-generator-enabled",
+	Short: "SetHapticGeneratorEnabled RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRingtoneServiceClient(grpcConn)
+		req := &pb.SetHapticGeneratorEnabledRequest{}
+		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetHapticGeneratorEnabled(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var ringtoneRingtoneSetLoopingCmd = &cobra.Command{
+	Use:   "set-looping",
+	Short: "SetLooping RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRingtoneServiceClient(grpcConn)
+		req := &pb.SetLoopingRequest{}
+		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetLooping(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var ringtoneRingtoneSetStreamTypeCmd = &cobra.Command{
+	Use:   "set-stream-type",
+	Short: "SetStreamType RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRingtoneServiceClient(grpcConn)
+		req := &pb.SetStreamTypeRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetStreamType(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var ringtoneRingtoneSetVolumeCmd = &cobra.Command{
+	Use:   "set-volume",
+	Short: "SetVolume RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRingtoneServiceClient(grpcConn)
+		req := &pb.SetVolumeRequest{}
+		if v, err := cmd.Flags().GetFloat32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetVolume(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var ringtoneRingtoneStopCmd = &cobra.Command{
+	Use:   "stop",
+	Short: "Stop RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRingtoneServiceClient(grpcConn)
+		req := &pb.StopRequest{}
+		resp, err := client.Stop(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
 func init() {
-	ringtoneRingtoneManagerCmd.AddCommand(ringtoneRingtoneManagerGetCursorCmd)
-	ringtoneRingtoneManagerCmd.AddCommand(ringtoneRingtoneManagerGetIncludeDrmCmd)
-	ringtoneRingtoneManagerGetRingtone1_1Cmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	ringtoneRingtoneManagerCmd.AddCommand(ringtoneRingtoneManagerGetRingtone1_1Cmd)
-	ringtoneRingtoneManagerGetRingtonePositionCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	ringtoneRingtoneManagerCmd.AddCommand(ringtoneRingtoneManagerGetRingtonePositionCmd)
-	ringtoneRingtoneManagerGetRingtoneUriCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	ringtoneRingtoneManagerCmd.AddCommand(ringtoneRingtoneManagerGetRingtoneUriCmd)
-	ringtoneRingtoneManagerCmd.AddCommand(ringtoneRingtoneManagerGetStopPreviousRingtoneCmd)
-	ringtoneRingtoneManagerHasHapticChannels1_2Cmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	ringtoneRingtoneManagerCmd.AddCommand(ringtoneRingtoneManagerHasHapticChannels1_2Cmd)
-	ringtoneRingtoneManagerCmd.AddCommand(ringtoneRingtoneManagerInferStreamTypeCmd)
-	ringtoneRingtoneManagerSetIncludeDrmCmd.Flags().Bool("arg0", false, "arg0 (bool)")
-	ringtoneRingtoneManagerCmd.AddCommand(ringtoneRingtoneManagerSetIncludeDrmCmd)
-	ringtoneRingtoneManagerSetStopPreviousRingtoneCmd.Flags().Bool("arg0", false, "arg0 (bool)")
-	ringtoneRingtoneManagerCmd.AddCommand(ringtoneRingtoneManagerSetStopPreviousRingtoneCmd)
-	ringtoneRingtoneManagerSetTypeCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	ringtoneRingtoneManagerCmd.AddCommand(ringtoneRingtoneManagerSetTypeCmd)
-	ringtoneRingtoneManagerCmd.AddCommand(ringtoneRingtoneManagerStopPreviousRingtoneCmd)
-	ringtoneRingtoneManagerGetActualDefaultRingtoneUriCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	ringtoneRingtoneManagerGetActualDefaultRingtoneUriCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	ringtoneRingtoneManagerCmd.AddCommand(ringtoneRingtoneManagerGetActualDefaultRingtoneUriCmd)
-	ringtoneRingtoneManagerGetDefaultTypeCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	ringtoneRingtoneManagerCmd.AddCommand(ringtoneRingtoneManagerGetDefaultTypeCmd)
-	ringtoneRingtoneManagerGetDefaultUriCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	ringtoneRingtoneManagerCmd.AddCommand(ringtoneRingtoneManagerGetDefaultUriCmd)
-	ringtoneRingtoneManagerGetRingtone2Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	ringtoneRingtoneManagerGetRingtone2Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	ringtoneRingtoneManagerCmd.AddCommand(ringtoneRingtoneManagerGetRingtone2Cmd)
-	ringtoneRingtoneManagerGetValidRingtoneUriCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	ringtoneRingtoneManagerCmd.AddCommand(ringtoneRingtoneManagerGetValidRingtoneUriCmd)
-	ringtoneRingtoneManagerHasHapticChannels2Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	ringtoneRingtoneManagerHasHapticChannels2Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	ringtoneRingtoneManagerCmd.AddCommand(ringtoneRingtoneManagerHasHapticChannels2Cmd)
-	ringtoneRingtoneManagerHasHapticChannels1_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	ringtoneRingtoneManagerCmd.AddCommand(ringtoneRingtoneManagerHasHapticChannels1_1Cmd)
-	ringtoneRingtoneManagerIsDefaultCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	ringtoneRingtoneManagerCmd.AddCommand(ringtoneRingtoneManagerIsDefaultCmd)
-	ringtoneRingtoneManagerOpenDefaultRingtoneUriCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	ringtoneRingtoneManagerOpenDefaultRingtoneUriCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	ringtoneRingtoneManagerCmd.AddCommand(ringtoneRingtoneManagerOpenDefaultRingtoneUriCmd)
-	ringtoneRingtoneManagerSetActualDefaultRingtoneUriCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	ringtoneRingtoneManagerSetActualDefaultRingtoneUriCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	ringtoneRingtoneManagerSetActualDefaultRingtoneUriCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
-	ringtoneRingtoneManagerCmd.AddCommand(ringtoneRingtoneManagerSetActualDefaultRingtoneUriCmd)
-	ringtoneCmd.AddCommand(ringtoneRingtoneManagerCmd)
+	ringtoneManagerCmd.AddCommand(ringtoneManagerGetCursorCmd)
+	ringtoneManagerCmd.AddCommand(ringtoneManagerGetIncludeDrmCmd)
+	ringtoneManagerGetRingtone1_1Cmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	ringtoneManagerCmd.AddCommand(ringtoneManagerGetRingtone1_1Cmd)
+	ringtoneManagerGetRingtonePositionCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	ringtoneManagerCmd.AddCommand(ringtoneManagerGetRingtonePositionCmd)
+	ringtoneManagerGetRingtoneUriCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	ringtoneManagerCmd.AddCommand(ringtoneManagerGetRingtoneUriCmd)
+	ringtoneManagerCmd.AddCommand(ringtoneManagerGetStopPreviousRingtoneCmd)
+	ringtoneManagerHasHapticChannels1_2Cmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	ringtoneManagerCmd.AddCommand(ringtoneManagerHasHapticChannels1_2Cmd)
+	ringtoneManagerCmd.AddCommand(ringtoneManagerInferStreamTypeCmd)
+	ringtoneManagerSetIncludeDrmCmd.Flags().Bool("arg0", false, "arg0 (bool)")
+	ringtoneManagerCmd.AddCommand(ringtoneManagerSetIncludeDrmCmd)
+	ringtoneManagerSetStopPreviousRingtoneCmd.Flags().Bool("arg0", false, "arg0 (bool)")
+	ringtoneManagerCmd.AddCommand(ringtoneManagerSetStopPreviousRingtoneCmd)
+	ringtoneManagerSetTypeCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	ringtoneManagerCmd.AddCommand(ringtoneManagerSetTypeCmd)
+	ringtoneManagerCmd.AddCommand(ringtoneManagerStopPreviousRingtoneCmd)
+	ringtoneManagerGetActualDefaultRingtoneUriCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	ringtoneManagerGetActualDefaultRingtoneUriCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	ringtoneManagerCmd.AddCommand(ringtoneManagerGetActualDefaultRingtoneUriCmd)
+	ringtoneManagerGetDefaultTypeCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	ringtoneManagerCmd.AddCommand(ringtoneManagerGetDefaultTypeCmd)
+	ringtoneManagerGetDefaultUriCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	ringtoneManagerCmd.AddCommand(ringtoneManagerGetDefaultUriCmd)
+	ringtoneManagerGetRingtone2Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	ringtoneManagerGetRingtone2Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	ringtoneManagerCmd.AddCommand(ringtoneManagerGetRingtone2Cmd)
+	ringtoneManagerGetValidRingtoneUriCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	ringtoneManagerCmd.AddCommand(ringtoneManagerGetValidRingtoneUriCmd)
+	ringtoneManagerHasHapticChannels2Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	ringtoneManagerHasHapticChannels2Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	ringtoneManagerCmd.AddCommand(ringtoneManagerHasHapticChannels2Cmd)
+	ringtoneManagerHasHapticChannels1_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	ringtoneManagerCmd.AddCommand(ringtoneManagerHasHapticChannels1_1Cmd)
+	ringtoneManagerIsDefaultCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	ringtoneManagerCmd.AddCommand(ringtoneManagerIsDefaultCmd)
+	ringtoneManagerOpenDefaultRingtoneUriCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	ringtoneManagerOpenDefaultRingtoneUriCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	ringtoneManagerCmd.AddCommand(ringtoneManagerOpenDefaultRingtoneUriCmd)
+	ringtoneManagerSetActualDefaultRingtoneUriCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	ringtoneManagerSetActualDefaultRingtoneUriCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	ringtoneManagerSetActualDefaultRingtoneUriCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	ringtoneManagerCmd.AddCommand(ringtoneManagerSetActualDefaultRingtoneUriCmd)
+	ringtoneCmd.AddCommand(ringtoneManagerCmd)
+	ringtoneRingtoneCmd.AddCommand(ringtoneRingtoneGetAudioAttributesCmd)
+	ringtoneRingtoneCmd.AddCommand(ringtoneRingtoneGetStreamTypeCmd)
+	ringtoneRingtoneGetTitleCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	ringtoneRingtoneCmd.AddCommand(ringtoneRingtoneGetTitleCmd)
+	ringtoneRingtoneCmd.AddCommand(ringtoneRingtoneGetVolumeCmd)
+	ringtoneRingtoneCmd.AddCommand(ringtoneRingtoneIsHapticGeneratorEnabledCmd)
+	ringtoneRingtoneCmd.AddCommand(ringtoneRingtoneIsLoopingCmd)
+	ringtoneRingtoneCmd.AddCommand(ringtoneRingtoneIsPlayingCmd)
+	ringtoneRingtoneCmd.AddCommand(ringtoneRingtonePlayCmd)
+	ringtoneRingtoneSetAudioAttributesCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	ringtoneRingtoneCmd.AddCommand(ringtoneRingtoneSetAudioAttributesCmd)
+	ringtoneRingtoneSetHapticGeneratorEnabledCmd.Flags().Bool("arg0", false, "arg0 (bool)")
+	ringtoneRingtoneCmd.AddCommand(ringtoneRingtoneSetHapticGeneratorEnabledCmd)
+	ringtoneRingtoneSetLoopingCmd.Flags().Bool("arg0", false, "arg0 (bool)")
+	ringtoneRingtoneCmd.AddCommand(ringtoneRingtoneSetLoopingCmd)
+	ringtoneRingtoneSetStreamTypeCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	ringtoneRingtoneCmd.AddCommand(ringtoneRingtoneSetStreamTypeCmd)
+	ringtoneRingtoneSetVolumeCmd.Flags().Float32("arg0", 0, "arg0 (float32)")
+	ringtoneRingtoneCmd.AddCommand(ringtoneRingtoneSetVolumeCmd)
+	ringtoneRingtoneCmd.AddCommand(ringtoneRingtoneStopCmd)
+	ringtoneCmd.AddCommand(ringtoneRingtoneCmd)
 	rootCmd.AddCommand(ringtoneCmd)
 }

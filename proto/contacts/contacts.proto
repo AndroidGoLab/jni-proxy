@@ -14,6 +14,6 @@ message IsProfileIdResponse {
   bool result = 1;
 }
 
-service ContactsContractService {
+service ContractService {
   rpc IsProfileId (IsProfileIdRequest) returns (IsProfileIdResponse);
 }

@@ -3,801 +3,13 @@
 package main
 
 import (
-	"github.com/spf13/cobra"
 	pb "github.com/AndroidGoLab/jni-proxy/proto/notification"
+	"github.com/spf13/cobra"
 )
 
 var notificationCmd = &cobra.Command{
 	Use:   "notification",
 	Short: "notification service operations",
-}
-
-var notificationNotificationChannelCmd = &cobra.Command{
-	Use:   "notification-channel",
-	Short: "NotificationChannelService operations",
-}
-
-var notificationNotificationChannelCanBubbleCmd = &cobra.Command{
-	Use:   "can-bubble",
-	Short: "CanBubble RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewNotificationChannelServiceClient(grpcConn)
-		req := &pb.CanBubbleRequest{}
-		resp, err := client.CanBubble(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var notificationNotificationChannelCanBypassDndCmd = &cobra.Command{
-	Use:   "can-bypass-dnd",
-	Short: "CanBypassDnd RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewNotificationChannelServiceClient(grpcConn)
-		req := &pb.CanBypassDndRequest{}
-		resp, err := client.CanBypassDnd(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var notificationNotificationChannelCanShowBadgeCmd = &cobra.Command{
-	Use:   "can-show-badge",
-	Short: "CanShowBadge RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewNotificationChannelServiceClient(grpcConn)
-		req := &pb.CanShowBadgeRequest{}
-		resp, err := client.CanShowBadge(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var notificationNotificationChannelDescribeContentsCmd = &cobra.Command{
-	Use:   "describe-contents",
-	Short: "DescribeContents RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewNotificationChannelServiceClient(grpcConn)
-		req := &pb.DescribeContentsRequest{}
-		resp, err := client.DescribeContents(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var notificationNotificationChannelEnableLightsCmd = &cobra.Command{
-	Use:   "enable-lights",
-	Short: "EnableLights RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewNotificationChannelServiceClient(grpcConn)
-		req := &pb.EnableLightsRequest{}
-		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.EnableLights(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var notificationNotificationChannelEnableVibrationCmd = &cobra.Command{
-	Use:   "enable-vibration",
-	Short: "EnableVibration RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewNotificationChannelServiceClient(grpcConn)
-		req := &pb.EnableVibrationRequest{}
-		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.EnableVibration(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var notificationNotificationChannelEqualsCmd = &cobra.Command{
-	Use:   "equals",
-	Short: "Equals RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewNotificationChannelServiceClient(grpcConn)
-		req := &pb.EqualsRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.Equals(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var notificationNotificationChannelGetAudioAttributesCmd = &cobra.Command{
-	Use:   "get-audio-attributes",
-	Short: "GetAudioAttributes RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewNotificationChannelServiceClient(grpcConn)
-		req := &pb.GetAudioAttributesRequest{}
-		resp, err := client.GetAudioAttributes(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var notificationNotificationChannelGetConversationIdCmd = &cobra.Command{
-	Use:   "get-conversation-id",
-	Short: "GetConversationId RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewNotificationChannelServiceClient(grpcConn)
-		req := &pb.GetConversationIdRequest{}
-		resp, err := client.GetConversationId(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var notificationNotificationChannelGetDescriptionCmd = &cobra.Command{
-	Use:   "get-description",
-	Short: "GetDescription RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewNotificationChannelServiceClient(grpcConn)
-		req := &pb.GetDescriptionRequest{}
-		resp, err := client.GetDescription(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var notificationNotificationChannelGetGroupCmd = &cobra.Command{
-	Use:   "get-group",
-	Short: "GetGroup RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewNotificationChannelServiceClient(grpcConn)
-		req := &pb.GetGroupRequest{}
-		resp, err := client.GetGroup(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var notificationNotificationChannelGetIdCmd = &cobra.Command{
-	Use:   "get-id",
-	Short: "GetId RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewNotificationChannelServiceClient(grpcConn)
-		req := &pb.GetIdRequest{}
-		resp, err := client.GetId(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var notificationNotificationChannelGetImportanceCmd = &cobra.Command{
-	Use:   "get-importance",
-	Short: "GetImportance RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewNotificationChannelServiceClient(grpcConn)
-		req := &pb.GetImportanceRequest{}
-		resp, err := client.GetImportance(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var notificationNotificationChannelGetLightColorCmd = &cobra.Command{
-	Use:   "get-light-color",
-	Short: "GetLightColor RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewNotificationChannelServiceClient(grpcConn)
-		req := &pb.GetLightColorRequest{}
-		resp, err := client.GetLightColor(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var notificationNotificationChannelGetLockscreenVisibilityCmd = &cobra.Command{
-	Use:   "get-lockscreen-visibility",
-	Short: "GetLockscreenVisibility RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewNotificationChannelServiceClient(grpcConn)
-		req := &pb.GetLockscreenVisibilityRequest{}
-		resp, err := client.GetLockscreenVisibility(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var notificationNotificationChannelGetNameCmd = &cobra.Command{
-	Use:   "get-name",
-	Short: "GetName RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewNotificationChannelServiceClient(grpcConn)
-		req := &pb.GetNameRequest{}
-		resp, err := client.GetName(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var notificationNotificationChannelGetParentChannelIdCmd = &cobra.Command{
-	Use:   "get-parent-channel-id",
-	Short: "GetParentChannelId RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewNotificationChannelServiceClient(grpcConn)
-		req := &pb.GetParentChannelIdRequest{}
-		resp, err := client.GetParentChannelId(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var notificationNotificationChannelGetSoundCmd = &cobra.Command{
-	Use:   "get-sound",
-	Short: "GetSound RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewNotificationChannelServiceClient(grpcConn)
-		req := &pb.GetSoundRequest{}
-		resp, err := client.GetSound(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var notificationNotificationChannelGetVibrationEffectCmd = &cobra.Command{
-	Use:   "get-vibration-effect",
-	Short: "GetVibrationEffect RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewNotificationChannelServiceClient(grpcConn)
-		req := &pb.GetVibrationEffectRequest{}
-		resp, err := client.GetVibrationEffect(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var notificationNotificationChannelGetVibrationPatternCmd = &cobra.Command{
-	Use:   "get-vibration-pattern",
-	Short: "GetVibrationPattern RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewNotificationChannelServiceClient(grpcConn)
-		req := &pb.GetVibrationPatternRequest{}
-		resp, err := client.GetVibrationPattern(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var notificationNotificationChannelHasUserSetImportanceCmd = &cobra.Command{
-	Use:   "has-user-set-importance",
-	Short: "HasUserSetImportance RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewNotificationChannelServiceClient(grpcConn)
-		req := &pb.HasUserSetImportanceRequest{}
-		resp, err := client.HasUserSetImportance(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var notificationNotificationChannelHasUserSetSoundCmd = &cobra.Command{
-	Use:   "has-user-set-sound",
-	Short: "HasUserSetSound RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewNotificationChannelServiceClient(grpcConn)
-		req := &pb.HasUserSetSoundRequest{}
-		resp, err := client.HasUserSetSound(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var notificationNotificationChannelHashCodeCmd = &cobra.Command{
-	Use:   "hash-code",
-	Short: "HashCode RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewNotificationChannelServiceClient(grpcConn)
-		req := &pb.HashCodeRequest{}
-		resp, err := client.HashCode(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var notificationNotificationChannelIsBlockableCmd = &cobra.Command{
-	Use:   "is-blockable",
-	Short: "IsBlockable RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewNotificationChannelServiceClient(grpcConn)
-		req := &pb.IsBlockableRequest{}
-		resp, err := client.IsBlockable(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var notificationNotificationChannelIsConversationCmd = &cobra.Command{
-	Use:   "is-conversation",
-	Short: "IsConversation RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewNotificationChannelServiceClient(grpcConn)
-		req := &pb.IsConversationRequest{}
-		resp, err := client.IsConversation(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var notificationNotificationChannelIsDemotedCmd = &cobra.Command{
-	Use:   "is-demoted",
-	Short: "IsDemoted RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewNotificationChannelServiceClient(grpcConn)
-		req := &pb.IsDemotedRequest{}
-		resp, err := client.IsDemoted(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var notificationNotificationChannelIsImportantConversationCmd = &cobra.Command{
-	Use:   "is-important-conversation",
-	Short: "IsImportantConversation RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewNotificationChannelServiceClient(grpcConn)
-		req := &pb.IsImportantConversationRequest{}
-		resp, err := client.IsImportantConversation(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var notificationNotificationChannelSetAllowBubblesCmd = &cobra.Command{
-	Use:   "set-allow-bubbles",
-	Short: "SetAllowBubbles RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewNotificationChannelServiceClient(grpcConn)
-		req := &pb.SetAllowBubblesRequest{}
-		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetAllowBubbles(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var notificationNotificationChannelSetBlockableCmd = &cobra.Command{
-	Use:   "set-blockable",
-	Short: "SetBlockable RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewNotificationChannelServiceClient(grpcConn)
-		req := &pb.SetBlockableRequest{}
-		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetBlockable(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var notificationNotificationChannelSetBypassDndCmd = &cobra.Command{
-	Use:   "set-bypass-dnd",
-	Short: "SetBypassDnd RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewNotificationChannelServiceClient(grpcConn)
-		req := &pb.SetBypassDndRequest{}
-		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetBypassDnd(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var notificationNotificationChannelSetConversationIdCmd = &cobra.Command{
-	Use:   "set-conversation-id",
-	Short: "SetConversationId RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewNotificationChannelServiceClient(grpcConn)
-		req := &pb.SetConversationIdRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetString("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.SetConversationId(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var notificationNotificationChannelSetDescriptionCmd = &cobra.Command{
-	Use:   "set-description",
-	Short: "SetDescription RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewNotificationChannelServiceClient(grpcConn)
-		req := &pb.SetDescriptionRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetDescription(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var notificationNotificationChannelSetGroupCmd = &cobra.Command{
-	Use:   "set-group",
-	Short: "SetGroup RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewNotificationChannelServiceClient(grpcConn)
-		req := &pb.SetGroupRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetGroup(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var notificationNotificationChannelSetImportanceCmd = &cobra.Command{
-	Use:   "set-importance",
-	Short: "SetImportance RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewNotificationChannelServiceClient(grpcConn)
-		req := &pb.SetImportanceRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetImportance(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var notificationNotificationChannelSetLightColorCmd = &cobra.Command{
-	Use:   "set-light-color",
-	Short: "SetLightColor RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewNotificationChannelServiceClient(grpcConn)
-		req := &pb.SetLightColorRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetLightColor(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var notificationNotificationChannelSetLockscreenVisibilityCmd = &cobra.Command{
-	Use:   "set-lockscreen-visibility",
-	Short: "SetLockscreenVisibility RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewNotificationChannelServiceClient(grpcConn)
-		req := &pb.SetLockscreenVisibilityRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetLockscreenVisibility(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var notificationNotificationChannelSetNameCmd = &cobra.Command{
-	Use:   "set-name",
-	Short: "SetName RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewNotificationChannelServiceClient(grpcConn)
-		req := &pb.SetNameRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetName(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var notificationNotificationChannelSetShowBadgeCmd = &cobra.Command{
-	Use:   "set-show-badge",
-	Short: "SetShowBadge RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewNotificationChannelServiceClient(grpcConn)
-		req := &pb.SetShowBadgeRequest{}
-		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetShowBadge(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var notificationNotificationChannelSetSoundCmd = &cobra.Command{
-	Use:   "set-sound",
-	Short: "SetSound RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewNotificationChannelServiceClient(grpcConn)
-		req := &pb.SetSoundRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.SetSound(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var notificationNotificationChannelSetVibrationEffectCmd = &cobra.Command{
-	Use:   "set-vibration-effect",
-	Short: "SetVibrationEffect RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewNotificationChannelServiceClient(grpcConn)
-		req := &pb.SetVibrationEffectRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetVibrationEffect(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var notificationNotificationChannelSetVibrationPatternCmd = &cobra.Command{
-	Use:   "set-vibration-pattern",
-	Short: "SetVibrationPattern RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewNotificationChannelServiceClient(grpcConn)
-		req := &pb.SetVibrationPatternRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetVibrationPattern(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var notificationNotificationChannelShouldShowLightsCmd = &cobra.Command{
-	Use:   "should-show-lights",
-	Short: "ShouldShowLights RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewNotificationChannelServiceClient(grpcConn)
-		req := &pb.ShouldShowLightsRequest{}
-		resp, err := client.ShouldShowLights(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var notificationNotificationChannelShouldVibrateCmd = &cobra.Command{
-	Use:   "should-vibrate",
-	Short: "ShouldVibrate RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewNotificationChannelServiceClient(grpcConn)
-		req := &pb.ShouldVibrateRequest{}
-		resp, err := client.ShouldVibrate(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var notificationNotificationChannelToStringCmd = &cobra.Command{
-	Use:   "to-string",
-	Short: "ToString RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewNotificationChannelServiceClient(grpcConn)
-		req := &pb.ToStringRequest{}
-		resp, err := client.ToString(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var notificationNotificationChannelWriteToParcelCmd = &cobra.Command{
-	Use:   "write-to-parcel",
-	Short: "WriteToParcel RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewNotificationChannelServiceClient(grpcConn)
-		req := &pb.WriteToParcelRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.WriteToParcel(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
 }
 
 var notificationStatusBarNotificationCmd = &cobra.Command{
@@ -1166,18 +378,2641 @@ var notificationStatusBarNotificationClone0_1Cmd = &cobra.Command{
 	},
 }
 
-var notificationNotificationManagerCmd = &cobra.Command{
-	Use:   "notification-manager",
-	Short: "NotificationManagerService operations",
+var notificationNotificationCmd = &cobra.Command{
+	Use:   "notification",
+	Short: "NotificationService operations",
 }
 
-var notificationNotificationManagerAddAutomaticZenRuleCmd = &cobra.Command{
+var notificationNotificationClone0Cmd = &cobra.Command{
+	Use:   "clone0",
+	Short: "Clone0 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewNotificationServiceClient(grpcConn)
+		req := &pb.Clone0Request{}
+		resp, err := client.Clone0(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var notificationNotificationDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewNotificationServiceClient(grpcConn)
+		req := &pb.DescribeContentsRequest{}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var notificationNotificationGetAllowSystemGeneratedContextualActionsCmd = &cobra.Command{
+	Use:   "get-allow-system-generated-contextual-actions",
+	Short: "GetAllowSystemGeneratedContextualActions RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewNotificationServiceClient(grpcConn)
+		req := &pb.GetAllowSystemGeneratedContextualActionsRequest{}
+		resp, err := client.GetAllowSystemGeneratedContextualActions(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var notificationNotificationGetBadgeIconTypeCmd = &cobra.Command{
+	Use:   "get-badge-icon-type",
+	Short: "GetBadgeIconType RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewNotificationServiceClient(grpcConn)
+		req := &pb.GetBadgeIconTypeRequest{}
+		resp, err := client.GetBadgeIconType(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var notificationNotificationGetBubbleMetadataCmd = &cobra.Command{
+	Use:   "get-bubble-metadata",
+	Short: "GetBubbleMetadata RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewNotificationServiceClient(grpcConn)
+		req := &pb.GetBubbleMetadataRequest{}
+		resp, err := client.GetBubbleMetadata(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var notificationNotificationGetChannelIdCmd = &cobra.Command{
+	Use:   "get-channel-id",
+	Short: "GetChannelId RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewNotificationServiceClient(grpcConn)
+		req := &pb.GetChannelIdRequest{}
+		resp, err := client.GetChannelId(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var notificationNotificationGetContextualActionsCmd = &cobra.Command{
+	Use:   "get-contextual-actions",
+	Short: "GetContextualActions RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewNotificationServiceClient(grpcConn)
+		req := &pb.GetContextualActionsRequest{}
+		resp, err := client.GetContextualActions(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var notificationNotificationGetGroupCmd = &cobra.Command{
+	Use:   "get-group",
+	Short: "GetGroup RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewNotificationServiceClient(grpcConn)
+		req := &pb.GetGroupRequest{}
+		resp, err := client.GetGroup(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var notificationNotificationGetGroupAlertBehaviorCmd = &cobra.Command{
+	Use:   "get-group-alert-behavior",
+	Short: "GetGroupAlertBehavior RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewNotificationServiceClient(grpcConn)
+		req := &pb.GetGroupAlertBehaviorRequest{}
+		resp, err := client.GetGroupAlertBehavior(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var notificationNotificationGetLargeIconCmd = &cobra.Command{
+	Use:   "get-large-icon",
+	Short: "GetLargeIcon RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewNotificationServiceClient(grpcConn)
+		req := &pb.GetLargeIconRequest{}
+		resp, err := client.GetLargeIcon(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var notificationNotificationGetLocusIdCmd = &cobra.Command{
+	Use:   "get-locus-id",
+	Short: "GetLocusId RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewNotificationServiceClient(grpcConn)
+		req := &pb.GetLocusIdRequest{}
+		resp, err := client.GetLocusId(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var notificationNotificationGetSettingsTextCmd = &cobra.Command{
+	Use:   "get-settings-text",
+	Short: "GetSettingsText RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewNotificationServiceClient(grpcConn)
+		req := &pb.GetSettingsTextRequest{}
+		resp, err := client.GetSettingsText(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var notificationNotificationGetShortCriticalTextCmd = &cobra.Command{
+	Use:   "get-short-critical-text",
+	Short: "GetShortCriticalText RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewNotificationServiceClient(grpcConn)
+		req := &pb.GetShortCriticalTextRequest{}
+		resp, err := client.GetShortCriticalText(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var notificationNotificationGetShortcutIdCmd = &cobra.Command{
+	Use:   "get-shortcut-id",
+	Short: "GetShortcutId RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewNotificationServiceClient(grpcConn)
+		req := &pb.GetShortcutIdRequest{}
+		resp, err := client.GetShortcutId(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var notificationNotificationGetSmallIconCmd = &cobra.Command{
+	Use:   "get-small-icon",
+	Short: "GetSmallIcon RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewNotificationServiceClient(grpcConn)
+		req := &pb.GetSmallIconRequest{}
+		resp, err := client.GetSmallIcon(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var notificationNotificationGetSortKeyCmd = &cobra.Command{
+	Use:   "get-sort-key",
+	Short: "GetSortKey RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewNotificationServiceClient(grpcConn)
+		req := &pb.GetSortKeyRequest{}
+		resp, err := client.GetSortKey(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var notificationNotificationGetTimeoutAfterCmd = &cobra.Command{
+	Use:   "get-timeout-after",
+	Short: "GetTimeoutAfter RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewNotificationServiceClient(grpcConn)
+		req := &pb.GetTimeoutAfterRequest{}
+		resp, err := client.GetTimeoutAfter(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var notificationNotificationHasImageCmd = &cobra.Command{
+	Use:   "has-image",
+	Short: "HasImage RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewNotificationServiceClient(grpcConn)
+		req := &pb.HasImageRequest{}
+		resp, err := client.HasImage(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var notificationNotificationHasPromotableCharacteristicsCmd = &cobra.Command{
+	Use:   "has-promotable-characteristics",
+	Short: "HasPromotableCharacteristics RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewNotificationServiceClient(grpcConn)
+		req := &pb.HasPromotableCharacteristicsRequest{}
+		resp, err := client.HasPromotableCharacteristics(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var notificationNotificationToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewNotificationServiceClient(grpcConn)
+		req := &pb.ToStringRequest{}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var notificationNotificationWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewNotificationServiceClient(grpcConn)
+		req := &pb.WriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var notificationNotificationClone0_1Cmd = &cobra.Command{
+	Use:   "clone0_1",
+	Short: "Clone0_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewNotificationServiceClient(grpcConn)
+		req := &pb.Clone0_1Request{}
+		resp, err := client.Clone0_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var notificationBigTextStyleCmd = &cobra.Command{
+	Use:   "big-text-style",
+	Short: "BigTextStyleService operations",
+}
+
+var notificationBigTextStyleBigTextCmd = &cobra.Command{
+	Use:   "big-text",
+	Short: "BigText RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBigTextStyleServiceClient(grpcConn)
+		req := &pb.BigTextRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.BigText(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var notificationBigTextStyleSetBigContentTitleCmd = &cobra.Command{
+	Use:   "set-big-content-title",
+	Short: "SetBigContentTitle RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBigTextStyleServiceClient(grpcConn)
+		req := &pb.SetBigContentTitleRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetBigContentTitle(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var notificationBigTextStyleSetSummaryTextCmd = &cobra.Command{
+	Use:   "set-summary-text",
+	Short: "SetSummaryText RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBigTextStyleServiceClient(grpcConn)
+		req := &pb.SetSummaryTextRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetSummaryText(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var notificationBuilderCmd = &cobra.Command{
+	Use:   "builder",
+	Short: "BuilderService operations",
+}
+
+var notificationBuilderAddAction1Cmd = &cobra.Command{
+	Use:   "add-action1",
+	Short: "AddAction1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBuilderServiceClient(grpcConn)
+		req := &pb.AddAction1Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.AddAction1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var notificationBuilderAddAction3_1Cmd = &cobra.Command{
+	Use:   "add-action3_1",
+	Short: "AddAction3_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBuilderServiceClient(grpcConn)
+		req := &pb.AddAction3_1Request{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetString("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.AddAction3_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var notificationBuilderAddExtrasCmd = &cobra.Command{
+	Use:   "add-extras",
+	Short: "AddExtras RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBuilderServiceClient(grpcConn)
+		req := &pb.AddExtrasRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.AddExtras(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var notificationBuilderAddPerson1Cmd = &cobra.Command{
+	Use:   "add-person1",
+	Short: "AddPerson1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBuilderServiceClient(grpcConn)
+		req := &pb.AddPerson1Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.AddPerson1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var notificationBuilderAddPerson1_1Cmd = &cobra.Command{
+	Use:   "add-person1_1",
+	Short: "AddPerson1_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBuilderServiceClient(grpcConn)
+		req := &pb.AddPerson1_1Request{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.AddPerson1_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var notificationBuilderBuildCmd = &cobra.Command{
+	Use:   "build",
+	Short: "Build RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBuilderServiceClient(grpcConn)
+		req := &pb.BuildRequest{}
+		resp, err := client.Build(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var notificationBuilderCreateBigContentViewCmd = &cobra.Command{
+	Use:   "create-big-content-view",
+	Short: "CreateBigContentView RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBuilderServiceClient(grpcConn)
+		req := &pb.CreateBigContentViewRequest{}
+		resp, err := client.CreateBigContentView(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var notificationBuilderCreateContentViewCmd = &cobra.Command{
+	Use:   "create-content-view",
+	Short: "CreateContentView RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBuilderServiceClient(grpcConn)
+		req := &pb.CreateContentViewRequest{}
+		resp, err := client.CreateContentView(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var notificationBuilderCreateHeadsUpContentViewCmd = &cobra.Command{
+	Use:   "create-heads-up-content-view",
+	Short: "CreateHeadsUpContentView RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBuilderServiceClient(grpcConn)
+		req := &pb.CreateHeadsUpContentViewRequest{}
+		resp, err := client.CreateHeadsUpContentView(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var notificationBuilderExtendCmd = &cobra.Command{
+	Use:   "extend",
+	Short: "Extend RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBuilderServiceClient(grpcConn)
+		req := &pb.ExtendRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Extend(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var notificationBuilderGetExtrasCmd = &cobra.Command{
+	Use:   "get-extras",
+	Short: "GetExtras RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBuilderServiceClient(grpcConn)
+		req := &pb.GetExtrasRequest{}
+		resp, err := client.GetExtras(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var notificationBuilderGetNotificationCmd = &cobra.Command{
+	Use:   "get-notification",
+	Short: "GetNotification RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBuilderServiceClient(grpcConn)
+		req := &pb.GetNotificationRequest{}
+		resp, err := client.GetNotification(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var notificationBuilderGetStyleCmd = &cobra.Command{
+	Use:   "get-style",
+	Short: "GetStyle RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBuilderServiceClient(grpcConn)
+		req := &pb.GetStyleRequest{}
+		resp, err := client.GetStyle(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var notificationBuilderSetActionsCmd = &cobra.Command{
+	Use:   "set-actions",
+	Short: "SetActions RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBuilderServiceClient(grpcConn)
+		req := &pb.SetActionsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetActions(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var notificationBuilderSetAllowSystemGeneratedContextualActionsCmd = &cobra.Command{
+	Use:   "set-allow-system-generated-contextual-actions",
+	Short: "SetAllowSystemGeneratedContextualActions RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBuilderServiceClient(grpcConn)
+		req := &pb.SetAllowSystemGeneratedContextualActionsRequest{}
+		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetAllowSystemGeneratedContextualActions(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var notificationBuilderSetAutoCancelCmd = &cobra.Command{
+	Use:   "set-auto-cancel",
+	Short: "SetAutoCancel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBuilderServiceClient(grpcConn)
+		req := &pb.SetAutoCancelRequest{}
+		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetAutoCancel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var notificationBuilderSetBadgeIconTypeCmd = &cobra.Command{
+	Use:   "set-badge-icon-type",
+	Short: "SetBadgeIconType RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBuilderServiceClient(grpcConn)
+		req := &pb.SetBadgeIconTypeRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetBadgeIconType(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var notificationBuilderSetBubbleMetadataCmd = &cobra.Command{
+	Use:   "set-bubble-metadata",
+	Short: "SetBubbleMetadata RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBuilderServiceClient(grpcConn)
+		req := &pb.SetBubbleMetadataRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetBubbleMetadata(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var notificationBuilderSetCategoryCmd = &cobra.Command{
+	Use:   "set-category",
+	Short: "SetCategory RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBuilderServiceClient(grpcConn)
+		req := &pb.SetCategoryRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetCategory(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var notificationBuilderSetChannelIdCmd = &cobra.Command{
+	Use:   "set-channel-id",
+	Short: "SetChannelId RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBuilderServiceClient(grpcConn)
+		req := &pb.SetChannelIdRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetChannelId(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var notificationBuilderSetChronometerCountDownCmd = &cobra.Command{
+	Use:   "set-chronometer-count-down",
+	Short: "SetChronometerCountDown RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBuilderServiceClient(grpcConn)
+		req := &pb.SetChronometerCountDownRequest{}
+		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetChronometerCountDown(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var notificationBuilderSetColorCmd = &cobra.Command{
+	Use:   "set-color",
+	Short: "SetColor RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBuilderServiceClient(grpcConn)
+		req := &pb.SetColorRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetColor(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var notificationBuilderSetColorizedCmd = &cobra.Command{
+	Use:   "set-colorized",
+	Short: "SetColorized RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBuilderServiceClient(grpcConn)
+		req := &pb.SetColorizedRequest{}
+		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetColorized(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var notificationBuilderSetContentCmd = &cobra.Command{
+	Use:   "set-content",
+	Short: "SetContent RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBuilderServiceClient(grpcConn)
+		req := &pb.SetContentRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetContent(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var notificationBuilderSetContentInfoCmd = &cobra.Command{
+	Use:   "set-content-info",
+	Short: "SetContentInfo RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBuilderServiceClient(grpcConn)
+		req := &pb.SetContentInfoRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetContentInfo(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var notificationBuilderSetContentIntentCmd = &cobra.Command{
+	Use:   "set-content-intent",
+	Short: "SetContentIntent RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBuilderServiceClient(grpcConn)
+		req := &pb.SetContentIntentRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetContentIntent(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var notificationBuilderSetContentTextCmd = &cobra.Command{
+	Use:   "set-content-text",
+	Short: "SetContentText RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBuilderServiceClient(grpcConn)
+		req := &pb.SetContentTextRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetContentText(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var notificationBuilderSetContentTitleCmd = &cobra.Command{
+	Use:   "set-content-title",
+	Short: "SetContentTitle RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBuilderServiceClient(grpcConn)
+		req := &pb.SetContentTitleRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetContentTitle(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var notificationBuilderSetCustomBigContentViewCmd = &cobra.Command{
+	Use:   "set-custom-big-content-view",
+	Short: "SetCustomBigContentView RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBuilderServiceClient(grpcConn)
+		req := &pb.SetCustomBigContentViewRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetCustomBigContentView(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var notificationBuilderSetCustomContentViewCmd = &cobra.Command{
+	Use:   "set-custom-content-view",
+	Short: "SetCustomContentView RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBuilderServiceClient(grpcConn)
+		req := &pb.SetCustomContentViewRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetCustomContentView(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var notificationBuilderSetCustomHeadsUpContentViewCmd = &cobra.Command{
+	Use:   "set-custom-heads-up-content-view",
+	Short: "SetCustomHeadsUpContentView RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBuilderServiceClient(grpcConn)
+		req := &pb.SetCustomHeadsUpContentViewRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetCustomHeadsUpContentView(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var notificationBuilderSetDefaultsCmd = &cobra.Command{
+	Use:   "set-defaults",
+	Short: "SetDefaults RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBuilderServiceClient(grpcConn)
+		req := &pb.SetDefaultsRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetDefaults(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var notificationBuilderSetDeleteIntentCmd = &cobra.Command{
+	Use:   "set-delete-intent",
+	Short: "SetDeleteIntent RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBuilderServiceClient(grpcConn)
+		req := &pb.SetDeleteIntentRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetDeleteIntent(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var notificationBuilderSetExtrasCmd = &cobra.Command{
+	Use:   "set-extras",
+	Short: "SetExtras RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBuilderServiceClient(grpcConn)
+		req := &pb.SetExtrasRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetExtras(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var notificationBuilderSetFlagCmd = &cobra.Command{
+	Use:   "set-flag",
+	Short: "SetFlag RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBuilderServiceClient(grpcConn)
+		req := &pb.SetFlagRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetBool("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.SetFlag(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var notificationBuilderSetForegroundServiceBehaviorCmd = &cobra.Command{
+	Use:   "set-foreground-service-behavior",
+	Short: "SetForegroundServiceBehavior RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBuilderServiceClient(grpcConn)
+		req := &pb.SetForegroundServiceBehaviorRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetForegroundServiceBehavior(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var notificationBuilderSetFullScreenIntentCmd = &cobra.Command{
+	Use:   "set-full-screen-intent",
+	Short: "SetFullScreenIntent RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBuilderServiceClient(grpcConn)
+		req := &pb.SetFullScreenIntentRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetBool("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.SetFullScreenIntent(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var notificationBuilderSetGroupCmd = &cobra.Command{
+	Use:   "set-group",
+	Short: "SetGroup RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBuilderServiceClient(grpcConn)
+		req := &pb.SetGroupRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetGroup(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var notificationBuilderSetGroupAlertBehaviorCmd = &cobra.Command{
+	Use:   "set-group-alert-behavior",
+	Short: "SetGroupAlertBehavior RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBuilderServiceClient(grpcConn)
+		req := &pb.SetGroupAlertBehaviorRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetGroupAlertBehavior(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var notificationBuilderSetGroupSummaryCmd = &cobra.Command{
+	Use:   "set-group-summary",
+	Short: "SetGroupSummary RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBuilderServiceClient(grpcConn)
+		req := &pb.SetGroupSummaryRequest{}
+		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetGroupSummary(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var notificationBuilderSetLargeIcon1Cmd = &cobra.Command{
+	Use:   "set-large-icon1",
+	Short: "SetLargeIcon1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBuilderServiceClient(grpcConn)
+		req := &pb.SetLargeIcon1Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetLargeIcon1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var notificationBuilderSetLargeIcon1_1Cmd = &cobra.Command{
+	Use:   "set-large-icon1_1",
+	Short: "SetLargeIcon1_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBuilderServiceClient(grpcConn)
+		req := &pb.SetLargeIcon1_1Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetLargeIcon1_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var notificationBuilderSetLightsCmd = &cobra.Command{
+	Use:   "set-lights",
+	Short: "SetLights RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBuilderServiceClient(grpcConn)
+		req := &pb.SetLightsRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.SetLights(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var notificationBuilderSetLocalOnlyCmd = &cobra.Command{
+	Use:   "set-local-only",
+	Short: "SetLocalOnly RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBuilderServiceClient(grpcConn)
+		req := &pb.SetLocalOnlyRequest{}
+		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetLocalOnly(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var notificationBuilderSetLocusIdCmd = &cobra.Command{
+	Use:   "set-locus-id",
+	Short: "SetLocusId RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBuilderServiceClient(grpcConn)
+		req := &pb.SetLocusIdRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetLocusId(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var notificationBuilderSetNumberCmd = &cobra.Command{
+	Use:   "set-number",
+	Short: "SetNumber RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBuilderServiceClient(grpcConn)
+		req := &pb.SetNumberRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetNumber(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var notificationBuilderSetOngoingCmd = &cobra.Command{
+	Use:   "set-ongoing",
+	Short: "SetOngoing RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBuilderServiceClient(grpcConn)
+		req := &pb.SetOngoingRequest{}
+		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetOngoing(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var notificationBuilderSetOnlyAlertOnceCmd = &cobra.Command{
+	Use:   "set-only-alert-once",
+	Short: "SetOnlyAlertOnce RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBuilderServiceClient(grpcConn)
+		req := &pb.SetOnlyAlertOnceRequest{}
+		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetOnlyAlertOnce(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var notificationBuilderSetPriorityCmd = &cobra.Command{
+	Use:   "set-priority",
+	Short: "SetPriority RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBuilderServiceClient(grpcConn)
+		req := &pb.SetPriorityRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetPriority(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var notificationBuilderSetProgressCmd = &cobra.Command{
+	Use:   "set-progress",
+	Short: "SetProgress RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBuilderServiceClient(grpcConn)
+		req := &pb.SetProgressRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetBool("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.SetProgress(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var notificationBuilderSetPublicVersionCmd = &cobra.Command{
+	Use:   "set-public-version",
+	Short: "SetPublicVersion RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBuilderServiceClient(grpcConn)
+		req := &pb.SetPublicVersionRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetPublicVersion(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var notificationBuilderSetRemoteInputHistoryCmd = &cobra.Command{
+	Use:   "set-remote-input-history",
+	Short: "SetRemoteInputHistory RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBuilderServiceClient(grpcConn)
+		req := &pb.SetRemoteInputHistoryRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetRemoteInputHistory(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var notificationBuilderSetSettingsTextCmd = &cobra.Command{
+	Use:   "set-settings-text",
+	Short: "SetSettingsText RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBuilderServiceClient(grpcConn)
+		req := &pb.SetSettingsTextRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetSettingsText(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var notificationBuilderSetShortCriticalTextCmd = &cobra.Command{
+	Use:   "set-short-critical-text",
+	Short: "SetShortCriticalText RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBuilderServiceClient(grpcConn)
+		req := &pb.SetShortCriticalTextRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetShortCriticalText(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var notificationBuilderSetShortcutIdCmd = &cobra.Command{
+	Use:   "set-shortcut-id",
+	Short: "SetShortcutId RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBuilderServiceClient(grpcConn)
+		req := &pb.SetShortcutIdRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetShortcutId(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var notificationBuilderSetShowWhenCmd = &cobra.Command{
+	Use:   "set-show-when",
+	Short: "SetShowWhen RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBuilderServiceClient(grpcConn)
+		req := &pb.SetShowWhenRequest{}
+		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetShowWhen(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var notificationBuilderSetSmallIcon1Cmd = &cobra.Command{
+	Use:   "set-small-icon1",
+	Short: "SetSmallIcon1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBuilderServiceClient(grpcConn)
+		req := &pb.SetSmallIcon1Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetSmallIcon1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var notificationBuilderSetSmallIcon1_1Cmd = &cobra.Command{
+	Use:   "set-small-icon1_1",
+	Short: "SetSmallIcon1_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBuilderServiceClient(grpcConn)
+		req := &pb.SetSmallIcon1_1Request{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetSmallIcon1_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var notificationBuilderSetSmallIcon2_2Cmd = &cobra.Command{
+	Use:   "set-small-icon2_2",
+	Short: "SetSmallIcon2_2 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBuilderServiceClient(grpcConn)
+		req := &pb.SetSmallIcon2_2Request{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.SetSmallIcon2_2(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var notificationBuilderSetSortKeyCmd = &cobra.Command{
+	Use:   "set-sort-key",
+	Short: "SetSortKey RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBuilderServiceClient(grpcConn)
+		req := &pb.SetSortKeyRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetSortKey(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var notificationBuilderSetSound1Cmd = &cobra.Command{
+	Use:   "set-sound1",
+	Short: "SetSound1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBuilderServiceClient(grpcConn)
+		req := &pb.SetSound1Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetSound1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var notificationBuilderSetSound2_1Cmd = &cobra.Command{
+	Use:   "set-sound2_1",
+	Short: "SetSound2_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBuilderServiceClient(grpcConn)
+		req := &pb.SetSound2_1Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.SetSound2_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var notificationBuilderSetSound2_2Cmd = &cobra.Command{
+	Use:   "set-sound2_2",
+	Short: "SetSound2_2 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBuilderServiceClient(grpcConn)
+		req := &pb.SetSound2_2Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.SetSound2_2(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var notificationBuilderSetStyleCmd = &cobra.Command{
+	Use:   "set-style",
+	Short: "SetStyle RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBuilderServiceClient(grpcConn)
+		req := &pb.SetStyleRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetStyle(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var notificationBuilderSetSubTextCmd = &cobra.Command{
+	Use:   "set-sub-text",
+	Short: "SetSubText RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBuilderServiceClient(grpcConn)
+		req := &pb.SetSubTextRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetSubText(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var notificationBuilderSetTicker1Cmd = &cobra.Command{
+	Use:   "set-ticker1",
+	Short: "SetTicker1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBuilderServiceClient(grpcConn)
+		req := &pb.SetTicker1Request{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetTicker1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var notificationBuilderSetTicker2_1Cmd = &cobra.Command{
+	Use:   "set-ticker2_1",
+	Short: "SetTicker2_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBuilderServiceClient(grpcConn)
+		req := &pb.SetTicker2_1Request{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.SetTicker2_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var notificationBuilderSetTimeoutAfterCmd = &cobra.Command{
+	Use:   "set-timeout-after",
+	Short: "SetTimeoutAfter RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBuilderServiceClient(grpcConn)
+		req := &pb.SetTimeoutAfterRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetTimeoutAfter(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var notificationBuilderSetUsesChronometerCmd = &cobra.Command{
+	Use:   "set-uses-chronometer",
+	Short: "SetUsesChronometer RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBuilderServiceClient(grpcConn)
+		req := &pb.SetUsesChronometerRequest{}
+		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetUsesChronometer(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var notificationBuilderSetVibrateCmd = &cobra.Command{
+	Use:   "set-vibrate",
+	Short: "SetVibrate RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBuilderServiceClient(grpcConn)
+		req := &pb.SetVibrateRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetVibrate(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var notificationBuilderSetVisibilityCmd = &cobra.Command{
+	Use:   "set-visibility",
+	Short: "SetVisibility RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBuilderServiceClient(grpcConn)
+		req := &pb.SetVisibilityRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetVisibility(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var notificationBuilderSetWhenCmd = &cobra.Command{
+	Use:   "set-when",
+	Short: "SetWhen RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBuilderServiceClient(grpcConn)
+		req := &pb.SetWhenRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetWhen(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var notificationBuilderRecoverBuilderCmd = &cobra.Command{
+	Use:   "recover-builder",
+	Short: "RecoverBuilder RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBuilderServiceClient(grpcConn)
+		req := &pb.RecoverBuilderRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.RecoverBuilder(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var notificationChannelCmd = &cobra.Command{
+	Use:   "channel",
+	Short: "ChannelService operations",
+}
+
+var notificationChannelCanBubbleCmd = &cobra.Command{
+	Use:   "can-bubble",
+	Short: "CanBubble RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewChannelServiceClient(grpcConn)
+		req := &pb.CanBubbleRequest{}
+		resp, err := client.CanBubble(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var notificationChannelCanBypassDndCmd = &cobra.Command{
+	Use:   "can-bypass-dnd",
+	Short: "CanBypassDnd RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewChannelServiceClient(grpcConn)
+		req := &pb.CanBypassDndRequest{}
+		resp, err := client.CanBypassDnd(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var notificationChannelCanShowBadgeCmd = &cobra.Command{
+	Use:   "can-show-badge",
+	Short: "CanShowBadge RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewChannelServiceClient(grpcConn)
+		req := &pb.CanShowBadgeRequest{}
+		resp, err := client.CanShowBadge(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var notificationChannelDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewChannelServiceClient(grpcConn)
+		req := &pb.DescribeContentsRequest{}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var notificationChannelEnableLightsCmd = &cobra.Command{
+	Use:   "enable-lights",
+	Short: "EnableLights RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewChannelServiceClient(grpcConn)
+		req := &pb.EnableLightsRequest{}
+		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.EnableLights(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var notificationChannelEnableVibrationCmd = &cobra.Command{
+	Use:   "enable-vibration",
+	Short: "EnableVibration RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewChannelServiceClient(grpcConn)
+		req := &pb.EnableVibrationRequest{}
+		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.EnableVibration(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var notificationChannelEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewChannelServiceClient(grpcConn)
+		req := &pb.EqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var notificationChannelGetAudioAttributesCmd = &cobra.Command{
+	Use:   "get-audio-attributes",
+	Short: "GetAudioAttributes RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewChannelServiceClient(grpcConn)
+		req := &pb.GetAudioAttributesRequest{}
+		resp, err := client.GetAudioAttributes(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var notificationChannelGetConversationIdCmd = &cobra.Command{
+	Use:   "get-conversation-id",
+	Short: "GetConversationId RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewChannelServiceClient(grpcConn)
+		req := &pb.GetConversationIdRequest{}
+		resp, err := client.GetConversationId(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var notificationChannelGetDescriptionCmd = &cobra.Command{
+	Use:   "get-description",
+	Short: "GetDescription RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewChannelServiceClient(grpcConn)
+		req := &pb.GetDescriptionRequest{}
+		resp, err := client.GetDescription(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var notificationChannelGetGroupCmd = &cobra.Command{
+	Use:   "get-group",
+	Short: "GetGroup RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewChannelServiceClient(grpcConn)
+		req := &pb.GetGroupRequest{}
+		resp, err := client.GetGroup(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var notificationChannelGetIdCmd = &cobra.Command{
+	Use:   "get-id",
+	Short: "GetId RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewChannelServiceClient(grpcConn)
+		req := &pb.GetIdRequest{}
+		resp, err := client.GetId(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var notificationChannelGetImportanceCmd = &cobra.Command{
+	Use:   "get-importance",
+	Short: "GetImportance RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewChannelServiceClient(grpcConn)
+		req := &pb.GetImportanceRequest{}
+		resp, err := client.GetImportance(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var notificationChannelGetLightColorCmd = &cobra.Command{
+	Use:   "get-light-color",
+	Short: "GetLightColor RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewChannelServiceClient(grpcConn)
+		req := &pb.GetLightColorRequest{}
+		resp, err := client.GetLightColor(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var notificationChannelGetLockscreenVisibilityCmd = &cobra.Command{
+	Use:   "get-lockscreen-visibility",
+	Short: "GetLockscreenVisibility RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewChannelServiceClient(grpcConn)
+		req := &pb.GetLockscreenVisibilityRequest{}
+		resp, err := client.GetLockscreenVisibility(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var notificationChannelGetNameCmd = &cobra.Command{
+	Use:   "get-name",
+	Short: "GetName RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewChannelServiceClient(grpcConn)
+		req := &pb.GetNameRequest{}
+		resp, err := client.GetName(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var notificationChannelGetParentChannelIdCmd = &cobra.Command{
+	Use:   "get-parent-channel-id",
+	Short: "GetParentChannelId RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewChannelServiceClient(grpcConn)
+		req := &pb.GetParentChannelIdRequest{}
+		resp, err := client.GetParentChannelId(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var notificationChannelGetSoundCmd = &cobra.Command{
+	Use:   "get-sound",
+	Short: "GetSound RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewChannelServiceClient(grpcConn)
+		req := &pb.GetSoundRequest{}
+		resp, err := client.GetSound(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var notificationChannelGetVibrationEffectCmd = &cobra.Command{
+	Use:   "get-vibration-effect",
+	Short: "GetVibrationEffect RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewChannelServiceClient(grpcConn)
+		req := &pb.GetVibrationEffectRequest{}
+		resp, err := client.GetVibrationEffect(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var notificationChannelGetVibrationPatternCmd = &cobra.Command{
+	Use:   "get-vibration-pattern",
+	Short: "GetVibrationPattern RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewChannelServiceClient(grpcConn)
+		req := &pb.GetVibrationPatternRequest{}
+		resp, err := client.GetVibrationPattern(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var notificationChannelHasUserSetImportanceCmd = &cobra.Command{
+	Use:   "has-user-set-importance",
+	Short: "HasUserSetImportance RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewChannelServiceClient(grpcConn)
+		req := &pb.HasUserSetImportanceRequest{}
+		resp, err := client.HasUserSetImportance(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var notificationChannelHasUserSetSoundCmd = &cobra.Command{
+	Use:   "has-user-set-sound",
+	Short: "HasUserSetSound RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewChannelServiceClient(grpcConn)
+		req := &pb.HasUserSetSoundRequest{}
+		resp, err := client.HasUserSetSound(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var notificationChannelHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewChannelServiceClient(grpcConn)
+		req := &pb.HashCodeRequest{}
+		resp, err := client.HashCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var notificationChannelIsBlockableCmd = &cobra.Command{
+	Use:   "is-blockable",
+	Short: "IsBlockable RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewChannelServiceClient(grpcConn)
+		req := &pb.IsBlockableRequest{}
+		resp, err := client.IsBlockable(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var notificationChannelIsConversationCmd = &cobra.Command{
+	Use:   "is-conversation",
+	Short: "IsConversation RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewChannelServiceClient(grpcConn)
+		req := &pb.IsConversationRequest{}
+		resp, err := client.IsConversation(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var notificationChannelIsDemotedCmd = &cobra.Command{
+	Use:   "is-demoted",
+	Short: "IsDemoted RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewChannelServiceClient(grpcConn)
+		req := &pb.IsDemotedRequest{}
+		resp, err := client.IsDemoted(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var notificationChannelIsImportantConversationCmd = &cobra.Command{
+	Use:   "is-important-conversation",
+	Short: "IsImportantConversation RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewChannelServiceClient(grpcConn)
+		req := &pb.IsImportantConversationRequest{}
+		resp, err := client.IsImportantConversation(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var notificationChannelSetAllowBubblesCmd = &cobra.Command{
+	Use:   "set-allow-bubbles",
+	Short: "SetAllowBubbles RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewChannelServiceClient(grpcConn)
+		req := &pb.SetAllowBubblesRequest{}
+		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetAllowBubbles(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var notificationChannelSetBlockableCmd = &cobra.Command{
+	Use:   "set-blockable",
+	Short: "SetBlockable RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewChannelServiceClient(grpcConn)
+		req := &pb.SetBlockableRequest{}
+		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetBlockable(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var notificationChannelSetBypassDndCmd = &cobra.Command{
+	Use:   "set-bypass-dnd",
+	Short: "SetBypassDnd RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewChannelServiceClient(grpcConn)
+		req := &pb.SetBypassDndRequest{}
+		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetBypassDnd(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var notificationChannelSetConversationIdCmd = &cobra.Command{
+	Use:   "set-conversation-id",
+	Short: "SetConversationId RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewChannelServiceClient(grpcConn)
+		req := &pb.SetConversationIdRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetString("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.SetConversationId(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var notificationChannelSetDescriptionCmd = &cobra.Command{
+	Use:   "set-description",
+	Short: "SetDescription RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewChannelServiceClient(grpcConn)
+		req := &pb.SetDescriptionRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetDescription(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var notificationChannelSetGroupCmd = &cobra.Command{
+	Use:   "set-group",
+	Short: "SetGroup RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewChannelServiceClient(grpcConn)
+		req := &pb.SetGroupRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetGroup(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var notificationChannelSetImportanceCmd = &cobra.Command{
+	Use:   "set-importance",
+	Short: "SetImportance RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewChannelServiceClient(grpcConn)
+		req := &pb.SetImportanceRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetImportance(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var notificationChannelSetLightColorCmd = &cobra.Command{
+	Use:   "set-light-color",
+	Short: "SetLightColor RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewChannelServiceClient(grpcConn)
+		req := &pb.SetLightColorRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetLightColor(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var notificationChannelSetLockscreenVisibilityCmd = &cobra.Command{
+	Use:   "set-lockscreen-visibility",
+	Short: "SetLockscreenVisibility RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewChannelServiceClient(grpcConn)
+		req := &pb.SetLockscreenVisibilityRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetLockscreenVisibility(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var notificationChannelSetNameCmd = &cobra.Command{
+	Use:   "set-name",
+	Short: "SetName RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewChannelServiceClient(grpcConn)
+		req := &pb.SetNameRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetName(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var notificationChannelSetShowBadgeCmd = &cobra.Command{
+	Use:   "set-show-badge",
+	Short: "SetShowBadge RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewChannelServiceClient(grpcConn)
+		req := &pb.SetShowBadgeRequest{}
+		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetShowBadge(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var notificationChannelSetSoundCmd = &cobra.Command{
+	Use:   "set-sound",
+	Short: "SetSound RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewChannelServiceClient(grpcConn)
+		req := &pb.SetSoundRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.SetSound(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var notificationChannelSetVibrationEffectCmd = &cobra.Command{
+	Use:   "set-vibration-effect",
+	Short: "SetVibrationEffect RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewChannelServiceClient(grpcConn)
+		req := &pb.SetVibrationEffectRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetVibrationEffect(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var notificationChannelSetVibrationPatternCmd = &cobra.Command{
+	Use:   "set-vibration-pattern",
+	Short: "SetVibrationPattern RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewChannelServiceClient(grpcConn)
+		req := &pb.SetVibrationPatternRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetVibrationPattern(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var notificationChannelShouldShowLightsCmd = &cobra.Command{
+	Use:   "should-show-lights",
+	Short: "ShouldShowLights RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewChannelServiceClient(grpcConn)
+		req := &pb.ShouldShowLightsRequest{}
+		resp, err := client.ShouldShowLights(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var notificationChannelShouldVibrateCmd = &cobra.Command{
+	Use:   "should-vibrate",
+	Short: "ShouldVibrate RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewChannelServiceClient(grpcConn)
+		req := &pb.ShouldVibrateRequest{}
+		resp, err := client.ShouldVibrate(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var notificationChannelToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewChannelServiceClient(grpcConn)
+		req := &pb.ToStringRequest{}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var notificationChannelWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewChannelServiceClient(grpcConn)
+		req := &pb.WriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var notificationManagerCmd = &cobra.Command{
+	Use:   "manager",
+	Short: "ManagerService operations",
+}
+
+var notificationManagerAddAutomaticZenRuleCmd = &cobra.Command{
 	Use:   "add-automatic-zen-rule",
 	Short: "AddAutomaticZenRule RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewNotificationManagerServiceClient(grpcConn)
+		client := pb.NewManagerServiceClient(grpcConn)
 		req := &pb.AddAutomaticZenRuleRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
@@ -1190,13 +3025,13 @@ var notificationNotificationManagerAddAutomaticZenRuleCmd = &cobra.Command{
 	},
 }
 
-var notificationNotificationManagerAreAutomaticZenRulesUserManagedCmd = &cobra.Command{
+var notificationManagerAreAutomaticZenRulesUserManagedCmd = &cobra.Command{
 	Use:   "are-automatic-zen-rules-user-managed",
 	Short: "AreAutomaticZenRulesUserManaged RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewNotificationManagerServiceClient(grpcConn)
+		client := pb.NewManagerServiceClient(grpcConn)
 		req := &pb.AreAutomaticZenRulesUserManagedRequest{}
 		resp, err := client.AreAutomaticZenRulesUserManaged(ctx, req)
 		if err != nil {
@@ -1206,13 +3041,13 @@ var notificationNotificationManagerAreAutomaticZenRulesUserManagedCmd = &cobra.C
 	},
 }
 
-var notificationNotificationManagerAreBubblesAllowedCmd = &cobra.Command{
+var notificationManagerAreBubblesAllowedCmd = &cobra.Command{
 	Use:   "are-bubbles-allowed",
 	Short: "AreBubblesAllowed RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewNotificationManagerServiceClient(grpcConn)
+		client := pb.NewManagerServiceClient(grpcConn)
 		req := &pb.AreBubblesAllowedRequest{}
 		resp, err := client.AreBubblesAllowed(ctx, req)
 		if err != nil {
@@ -1222,13 +3057,13 @@ var notificationNotificationManagerAreBubblesAllowedCmd = &cobra.Command{
 	},
 }
 
-var notificationNotificationManagerAreBubblesEnabledCmd = &cobra.Command{
+var notificationManagerAreBubblesEnabledCmd = &cobra.Command{
 	Use:   "are-bubbles-enabled",
 	Short: "AreBubblesEnabled RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewNotificationManagerServiceClient(grpcConn)
+		client := pb.NewManagerServiceClient(grpcConn)
 		req := &pb.AreBubblesEnabledRequest{}
 		resp, err := client.AreBubblesEnabled(ctx, req)
 		if err != nil {
@@ -1238,13 +3073,13 @@ var notificationNotificationManagerAreBubblesEnabledCmd = &cobra.Command{
 	},
 }
 
-var notificationNotificationManagerAreNotificationsEnabledCmd = &cobra.Command{
+var notificationManagerAreNotificationsEnabledCmd = &cobra.Command{
 	Use:   "are-notifications-enabled",
 	Short: "AreNotificationsEnabled RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewNotificationManagerServiceClient(grpcConn)
+		client := pb.NewManagerServiceClient(grpcConn)
 		req := &pb.AreNotificationsEnabledRequest{}
 		resp, err := client.AreNotificationsEnabled(ctx, req)
 		if err != nil {
@@ -1254,13 +3089,13 @@ var notificationNotificationManagerAreNotificationsEnabledCmd = &cobra.Command{
 	},
 }
 
-var notificationNotificationManagerAreNotificationsPausedCmd = &cobra.Command{
+var notificationManagerAreNotificationsPausedCmd = &cobra.Command{
 	Use:   "are-notifications-paused",
 	Short: "AreNotificationsPaused RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewNotificationManagerServiceClient(grpcConn)
+		client := pb.NewManagerServiceClient(grpcConn)
 		req := &pb.AreNotificationsPausedRequest{}
 		resp, err := client.AreNotificationsPaused(ctx, req)
 		if err != nil {
@@ -1270,13 +3105,13 @@ var notificationNotificationManagerAreNotificationsPausedCmd = &cobra.Command{
 	},
 }
 
-var notificationNotificationManagerCanNotifyAsPackageCmd = &cobra.Command{
+var notificationManagerCanNotifyAsPackageCmd = &cobra.Command{
 	Use:   "can-notify-as-package",
 	Short: "CanNotifyAsPackage RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewNotificationManagerServiceClient(grpcConn)
+		client := pb.NewManagerServiceClient(grpcConn)
 		req := &pb.CanNotifyAsPackageRequest{}
 		if v, err := cmd.Flags().GetString("arg0"); err == nil {
 			req.Arg0 = v
@@ -1289,13 +3124,13 @@ var notificationNotificationManagerCanNotifyAsPackageCmd = &cobra.Command{
 	},
 }
 
-var notificationNotificationManagerCanPostPromotedNotificationsCmd = &cobra.Command{
+var notificationManagerCanPostPromotedNotificationsCmd = &cobra.Command{
 	Use:   "can-post-promoted-notifications",
 	Short: "CanPostPromotedNotifications RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewNotificationManagerServiceClient(grpcConn)
+		client := pb.NewManagerServiceClient(grpcConn)
 		req := &pb.CanPostPromotedNotificationsRequest{}
 		resp, err := client.CanPostPromotedNotifications(ctx, req)
 		if err != nil {
@@ -1305,13 +3140,13 @@ var notificationNotificationManagerCanPostPromotedNotificationsCmd = &cobra.Comm
 	},
 }
 
-var notificationNotificationManagerCanUseFullScreenIntentCmd = &cobra.Command{
+var notificationManagerCanUseFullScreenIntentCmd = &cobra.Command{
 	Use:   "can-use-full-screen-intent",
 	Short: "CanUseFullScreenIntent RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewNotificationManagerServiceClient(grpcConn)
+		client := pb.NewManagerServiceClient(grpcConn)
 		req := &pb.CanUseFullScreenIntentRequest{}
 		resp, err := client.CanUseFullScreenIntent(ctx, req)
 		if err != nil {
@@ -1321,13 +3156,13 @@ var notificationNotificationManagerCanUseFullScreenIntentCmd = &cobra.Command{
 	},
 }
 
-var notificationNotificationManagerCancel1Cmd = &cobra.Command{
+var notificationManagerCancel1Cmd = &cobra.Command{
 	Use:   "cancel1",
 	Short: "Cancel1 RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewNotificationManagerServiceClient(grpcConn)
+		client := pb.NewManagerServiceClient(grpcConn)
 		req := &pb.Cancel1Request{}
 		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
 			req.Arg0 = v
@@ -1340,13 +3175,13 @@ var notificationNotificationManagerCancel1Cmd = &cobra.Command{
 	},
 }
 
-var notificationNotificationManagerCancel2_1Cmd = &cobra.Command{
+var notificationManagerCancel2_1Cmd = &cobra.Command{
 	Use:   "cancel2_1",
 	Short: "Cancel2_1 RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewNotificationManagerServiceClient(grpcConn)
+		client := pb.NewManagerServiceClient(grpcConn)
 		req := &pb.Cancel2_1Request{}
 		if v, err := cmd.Flags().GetString("arg0"); err == nil {
 			req.Arg0 = v
@@ -1362,13 +3197,13 @@ var notificationNotificationManagerCancel2_1Cmd = &cobra.Command{
 	},
 }
 
-var notificationNotificationManagerCancelAllCmd = &cobra.Command{
+var notificationManagerCancelAllCmd = &cobra.Command{
 	Use:   "cancel-all",
 	Short: "CancelAll RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewNotificationManagerServiceClient(grpcConn)
+		client := pb.NewManagerServiceClient(grpcConn)
 		req := &pb.CancelAllRequest{}
 		resp, err := client.CancelAll(ctx, req)
 		if err != nil {
@@ -1378,13 +3213,13 @@ var notificationNotificationManagerCancelAllCmd = &cobra.Command{
 	},
 }
 
-var notificationNotificationManagerCancelAsPackageCmd = &cobra.Command{
+var notificationManagerCancelAsPackageCmd = &cobra.Command{
 	Use:   "cancel-as-package",
 	Short: "CancelAsPackage RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewNotificationManagerServiceClient(grpcConn)
+		client := pb.NewManagerServiceClient(grpcConn)
 		req := &pb.CancelAsPackageRequest{}
 		if v, err := cmd.Flags().GetString("arg0"); err == nil {
 			req.Arg0 = v
@@ -1403,13 +3238,13 @@ var notificationNotificationManagerCancelAsPackageCmd = &cobra.Command{
 	},
 }
 
-var notificationNotificationManagerCreateNotificationChannelCmd = &cobra.Command{
+var notificationManagerCreateNotificationChannelCmd = &cobra.Command{
 	Use:   "create-notification-channel",
 	Short: "CreateNotificationChannel RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewNotificationManagerServiceClient(grpcConn)
+		client := pb.NewManagerServiceClient(grpcConn)
 		req := &pb.CreateNotificationChannelRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
@@ -1422,13 +3257,13 @@ var notificationNotificationManagerCreateNotificationChannelCmd = &cobra.Command
 	},
 }
 
-var notificationNotificationManagerCreateNotificationChannelGroupCmd = &cobra.Command{
+var notificationManagerCreateNotificationChannelGroupCmd = &cobra.Command{
 	Use:   "create-notification-channel-group",
 	Short: "CreateNotificationChannelGroup RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewNotificationManagerServiceClient(grpcConn)
+		client := pb.NewManagerServiceClient(grpcConn)
 		req := &pb.CreateNotificationChannelGroupRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
@@ -1441,13 +3276,13 @@ var notificationNotificationManagerCreateNotificationChannelGroupCmd = &cobra.Co
 	},
 }
 
-var notificationNotificationManagerCreateNotificationChannelGroupsCmd = &cobra.Command{
+var notificationManagerCreateNotificationChannelGroupsCmd = &cobra.Command{
 	Use:   "create-notification-channel-groups",
 	Short: "CreateNotificationChannelGroups RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewNotificationManagerServiceClient(grpcConn)
+		client := pb.NewManagerServiceClient(grpcConn)
 		req := &pb.CreateNotificationChannelGroupsRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
@@ -1460,13 +3295,13 @@ var notificationNotificationManagerCreateNotificationChannelGroupsCmd = &cobra.C
 	},
 }
 
-var notificationNotificationManagerCreateNotificationChannelsCmd = &cobra.Command{
+var notificationManagerCreateNotificationChannelsCmd = &cobra.Command{
 	Use:   "create-notification-channels",
 	Short: "CreateNotificationChannels RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewNotificationManagerServiceClient(grpcConn)
+		client := pb.NewManagerServiceClient(grpcConn)
 		req := &pb.CreateNotificationChannelsRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
@@ -1479,13 +3314,13 @@ var notificationNotificationManagerCreateNotificationChannelsCmd = &cobra.Comman
 	},
 }
 
-var notificationNotificationManagerDeleteNotificationChannelCmd = &cobra.Command{
+var notificationManagerDeleteNotificationChannelCmd = &cobra.Command{
 	Use:   "delete-notification-channel",
 	Short: "DeleteNotificationChannel RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewNotificationManagerServiceClient(grpcConn)
+		client := pb.NewManagerServiceClient(grpcConn)
 		req := &pb.DeleteNotificationChannelRequest{}
 		if v, err := cmd.Flags().GetString("arg0"); err == nil {
 			req.Arg0 = v
@@ -1498,13 +3333,13 @@ var notificationNotificationManagerDeleteNotificationChannelCmd = &cobra.Command
 	},
 }
 
-var notificationNotificationManagerDeleteNotificationChannelGroupCmd = &cobra.Command{
+var notificationManagerDeleteNotificationChannelGroupCmd = &cobra.Command{
 	Use:   "delete-notification-channel-group",
 	Short: "DeleteNotificationChannelGroup RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewNotificationManagerServiceClient(grpcConn)
+		client := pb.NewManagerServiceClient(grpcConn)
 		req := &pb.DeleteNotificationChannelGroupRequest{}
 		if v, err := cmd.Flags().GetString("arg0"); err == nil {
 			req.Arg0 = v
@@ -1517,13 +3352,13 @@ var notificationNotificationManagerDeleteNotificationChannelGroupCmd = &cobra.Co
 	},
 }
 
-var notificationNotificationManagerGetActiveNotificationsCmd = &cobra.Command{
+var notificationManagerGetActiveNotificationsCmd = &cobra.Command{
 	Use:   "get-active-notifications",
 	Short: "GetActiveNotifications RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewNotificationManagerServiceClient(grpcConn)
+		client := pb.NewManagerServiceClient(grpcConn)
 		req := &pb.GetActiveNotificationsRequest{}
 		resp, err := client.GetActiveNotifications(ctx, req)
 		if err != nil {
@@ -1533,13 +3368,13 @@ var notificationNotificationManagerGetActiveNotificationsCmd = &cobra.Command{
 	},
 }
 
-var notificationNotificationManagerGetAutomaticZenRuleCmd = &cobra.Command{
+var notificationManagerGetAutomaticZenRuleCmd = &cobra.Command{
 	Use:   "get-automatic-zen-rule",
 	Short: "GetAutomaticZenRule RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewNotificationManagerServiceClient(grpcConn)
+		client := pb.NewManagerServiceClient(grpcConn)
 		req := &pb.GetAutomaticZenRuleRequest{}
 		if v, err := cmd.Flags().GetString("arg0"); err == nil {
 			req.Arg0 = v
@@ -1552,13 +3387,13 @@ var notificationNotificationManagerGetAutomaticZenRuleCmd = &cobra.Command{
 	},
 }
 
-var notificationNotificationManagerGetAutomaticZenRuleStateCmd = &cobra.Command{
+var notificationManagerGetAutomaticZenRuleStateCmd = &cobra.Command{
 	Use:   "get-automatic-zen-rule-state",
 	Short: "GetAutomaticZenRuleState RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewNotificationManagerServiceClient(grpcConn)
+		client := pb.NewManagerServiceClient(grpcConn)
 		req := &pb.GetAutomaticZenRuleStateRequest{}
 		if v, err := cmd.Flags().GetString("arg0"); err == nil {
 			req.Arg0 = v
@@ -1571,13 +3406,13 @@ var notificationNotificationManagerGetAutomaticZenRuleStateCmd = &cobra.Command{
 	},
 }
 
-var notificationNotificationManagerGetBubblePreferenceCmd = &cobra.Command{
+var notificationManagerGetBubblePreferenceCmd = &cobra.Command{
 	Use:   "get-bubble-preference",
 	Short: "GetBubblePreference RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewNotificationManagerServiceClient(grpcConn)
+		client := pb.NewManagerServiceClient(grpcConn)
 		req := &pb.GetBubblePreferenceRequest{}
 		resp, err := client.GetBubblePreference(ctx, req)
 		if err != nil {
@@ -1587,13 +3422,13 @@ var notificationNotificationManagerGetBubblePreferenceCmd = &cobra.Command{
 	},
 }
 
-var notificationNotificationManagerGetConsolidatedNotificationPolicyCmd = &cobra.Command{
+var notificationManagerGetConsolidatedNotificationPolicyCmd = &cobra.Command{
 	Use:   "get-consolidated-notification-policy",
 	Short: "GetConsolidatedNotificationPolicy RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewNotificationManagerServiceClient(grpcConn)
+		client := pb.NewManagerServiceClient(grpcConn)
 		req := &pb.GetConsolidatedNotificationPolicyRequest{}
 		resp, err := client.GetConsolidatedNotificationPolicy(ctx, req)
 		if err != nil {
@@ -1603,13 +3438,29 @@ var notificationNotificationManagerGetConsolidatedNotificationPolicyCmd = &cobra
 	},
 }
 
-var notificationNotificationManagerGetImportanceCmd = &cobra.Command{
+var notificationManagerGetCurrentInterruptionFilterCmd = &cobra.Command{
+	Use:   "get-current-interruption-filter",
+	Short: "GetCurrentInterruptionFilter RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewManagerServiceClient(grpcConn)
+		req := &pb.GetCurrentInterruptionFilterRequest{}
+		resp, err := client.GetCurrentInterruptionFilter(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var notificationManagerGetImportanceCmd = &cobra.Command{
 	Use:   "get-importance",
 	Short: "GetImportance RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewNotificationManagerServiceClient(grpcConn)
+		client := pb.NewManagerServiceClient(grpcConn)
 		req := &pb.GetImportanceRequest{}
 		resp, err := client.GetImportance(ctx, req)
 		if err != nil {
@@ -1619,13 +3470,13 @@ var notificationNotificationManagerGetImportanceCmd = &cobra.Command{
 	},
 }
 
-var notificationNotificationManagerGetNotificationChannel1Cmd = &cobra.Command{
+var notificationManagerGetNotificationChannel1Cmd = &cobra.Command{
 	Use:   "get-notification-channel1",
 	Short: "GetNotificationChannel1 RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewNotificationManagerServiceClient(grpcConn)
+		client := pb.NewManagerServiceClient(grpcConn)
 		req := &pb.GetNotificationChannel1Request{}
 		if v, err := cmd.Flags().GetString("arg0"); err == nil {
 			req.Arg0 = v
@@ -1638,13 +3489,13 @@ var notificationNotificationManagerGetNotificationChannel1Cmd = &cobra.Command{
 	},
 }
 
-var notificationNotificationManagerGetNotificationChannel2_1Cmd = &cobra.Command{
+var notificationManagerGetNotificationChannel2_1Cmd = &cobra.Command{
 	Use:   "get-notification-channel2_1",
 	Short: "GetNotificationChannel2_1 RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewNotificationManagerServiceClient(grpcConn)
+		client := pb.NewManagerServiceClient(grpcConn)
 		req := &pb.GetNotificationChannel2_1Request{}
 		if v, err := cmd.Flags().GetString("arg0"); err == nil {
 			req.Arg0 = v
@@ -1660,13 +3511,13 @@ var notificationNotificationManagerGetNotificationChannel2_1Cmd = &cobra.Command
 	},
 }
 
-var notificationNotificationManagerGetNotificationChannelGroupCmd = &cobra.Command{
+var notificationManagerGetNotificationChannelGroupCmd = &cobra.Command{
 	Use:   "get-notification-channel-group",
 	Short: "GetNotificationChannelGroup RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewNotificationManagerServiceClient(grpcConn)
+		client := pb.NewManagerServiceClient(grpcConn)
 		req := &pb.GetNotificationChannelGroupRequest{}
 		if v, err := cmd.Flags().GetString("arg0"); err == nil {
 			req.Arg0 = v
@@ -1679,13 +3530,13 @@ var notificationNotificationManagerGetNotificationChannelGroupCmd = &cobra.Comma
 	},
 }
 
-var notificationNotificationManagerGetNotificationChannelGroupsCmd = &cobra.Command{
+var notificationManagerGetNotificationChannelGroupsCmd = &cobra.Command{
 	Use:   "get-notification-channel-groups",
 	Short: "GetNotificationChannelGroups RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewNotificationManagerServiceClient(grpcConn)
+		client := pb.NewManagerServiceClient(grpcConn)
 		req := &pb.GetNotificationChannelGroupsRequest{}
 		resp, err := client.GetNotificationChannelGroups(ctx, req)
 		if err != nil {
@@ -1695,13 +3546,13 @@ var notificationNotificationManagerGetNotificationChannelGroupsCmd = &cobra.Comm
 	},
 }
 
-var notificationNotificationManagerGetNotificationChannelsCmd = &cobra.Command{
+var notificationManagerGetNotificationChannelsCmd = &cobra.Command{
 	Use:   "get-notification-channels",
 	Short: "GetNotificationChannels RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewNotificationManagerServiceClient(grpcConn)
+		client := pb.NewManagerServiceClient(grpcConn)
 		req := &pb.GetNotificationChannelsRequest{}
 		resp, err := client.GetNotificationChannels(ctx, req)
 		if err != nil {
@@ -1711,13 +3562,13 @@ var notificationNotificationManagerGetNotificationChannelsCmd = &cobra.Command{
 	},
 }
 
-var notificationNotificationManagerGetNotificationDelegateCmd = &cobra.Command{
+var notificationManagerGetNotificationDelegateCmd = &cobra.Command{
 	Use:   "get-notification-delegate",
 	Short: "GetNotificationDelegate RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewNotificationManagerServiceClient(grpcConn)
+		client := pb.NewManagerServiceClient(grpcConn)
 		req := &pb.GetNotificationDelegateRequest{}
 		resp, err := client.GetNotificationDelegate(ctx, req)
 		if err != nil {
@@ -1727,13 +3578,13 @@ var notificationNotificationManagerGetNotificationDelegateCmd = &cobra.Command{
 	},
 }
 
-var notificationNotificationManagerGetNotificationPolicyCmd = &cobra.Command{
+var notificationManagerGetNotificationPolicyCmd = &cobra.Command{
 	Use:   "get-notification-policy",
 	Short: "GetNotificationPolicy RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewNotificationManagerServiceClient(grpcConn)
+		client := pb.NewManagerServiceClient(grpcConn)
 		req := &pb.GetNotificationPolicyRequest{}
 		resp, err := client.GetNotificationPolicy(ctx, req)
 		if err != nil {
@@ -1743,13 +3594,13 @@ var notificationNotificationManagerGetNotificationPolicyCmd = &cobra.Command{
 	},
 }
 
-var notificationNotificationManagerIsNotificationListenerAccessGrantedCmd = &cobra.Command{
+var notificationManagerIsNotificationListenerAccessGrantedCmd = &cobra.Command{
 	Use:   "is-notification-listener-access-granted",
 	Short: "IsNotificationListenerAccessGranted RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewNotificationManagerServiceClient(grpcConn)
+		client := pb.NewManagerServiceClient(grpcConn)
 		req := &pb.IsNotificationListenerAccessGrantedRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
@@ -1762,13 +3613,13 @@ var notificationNotificationManagerIsNotificationListenerAccessGrantedCmd = &cob
 	},
 }
 
-var notificationNotificationManagerIsNotificationPolicyAccessGrantedCmd = &cobra.Command{
+var notificationManagerIsNotificationPolicyAccessGrantedCmd = &cobra.Command{
 	Use:   "is-notification-policy-access-granted",
 	Short: "IsNotificationPolicyAccessGranted RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewNotificationManagerServiceClient(grpcConn)
+		client := pb.NewManagerServiceClient(grpcConn)
 		req := &pb.IsNotificationPolicyAccessGrantedRequest{}
 		resp, err := client.IsNotificationPolicyAccessGranted(ctx, req)
 		if err != nil {
@@ -1778,13 +3629,13 @@ var notificationNotificationManagerIsNotificationPolicyAccessGrantedCmd = &cobra
 	},
 }
 
-var notificationNotificationManagerMatchesCallFilterCmd = &cobra.Command{
+var notificationManagerMatchesCallFilterCmd = &cobra.Command{
 	Use:   "matches-call-filter",
 	Short: "MatchesCallFilter RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewNotificationManagerServiceClient(grpcConn)
+		client := pb.NewManagerServiceClient(grpcConn)
 		req := &pb.MatchesCallFilterRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
@@ -1797,13 +3648,13 @@ var notificationNotificationManagerMatchesCallFilterCmd = &cobra.Command{
 	},
 }
 
-var notificationNotificationManagerNotify2Cmd = &cobra.Command{
+var notificationManagerNotify2Cmd = &cobra.Command{
 	Use:   "notify2",
 	Short: "Notify2 RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewNotificationManagerServiceClient(grpcConn)
+		client := pb.NewManagerServiceClient(grpcConn)
 		req := &pb.Notify2Request{}
 		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
 			req.Arg0 = v
@@ -1819,13 +3670,13 @@ var notificationNotificationManagerNotify2Cmd = &cobra.Command{
 	},
 }
 
-var notificationNotificationManagerNotify3_1Cmd = &cobra.Command{
+var notificationManagerNotify3_1Cmd = &cobra.Command{
 	Use:   "notify3_1",
 	Short: "Notify3_1 RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewNotificationManagerServiceClient(grpcConn)
+		client := pb.NewManagerServiceClient(grpcConn)
 		req := &pb.Notify3_1Request{}
 		if v, err := cmd.Flags().GetString("arg0"); err == nil {
 			req.Arg0 = v
@@ -1844,13 +3695,13 @@ var notificationNotificationManagerNotify3_1Cmd = &cobra.Command{
 	},
 }
 
-var notificationNotificationManagerNotifyAsPackageCmd = &cobra.Command{
+var notificationManagerNotifyAsPackageCmd = &cobra.Command{
 	Use:   "notify-as-package",
 	Short: "NotifyAsPackage RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewNotificationManagerServiceClient(grpcConn)
+		client := pb.NewManagerServiceClient(grpcConn)
 		req := &pb.NotifyAsPackageRequest{}
 		if v, err := cmd.Flags().GetString("arg0"); err == nil {
 			req.Arg0 = v
@@ -1872,13 +3723,13 @@ var notificationNotificationManagerNotifyAsPackageCmd = &cobra.Command{
 	},
 }
 
-var notificationNotificationManagerRemoveAutomaticZenRuleCmd = &cobra.Command{
+var notificationManagerRemoveAutomaticZenRuleCmd = &cobra.Command{
 	Use:   "remove-automatic-zen-rule",
 	Short: "RemoveAutomaticZenRule RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewNotificationManagerServiceClient(grpcConn)
+		client := pb.NewManagerServiceClient(grpcConn)
 		req := &pb.RemoveAutomaticZenRuleRequest{}
 		if v, err := cmd.Flags().GetString("arg0"); err == nil {
 			req.Arg0 = v
@@ -1891,13 +3742,13 @@ var notificationNotificationManagerRemoveAutomaticZenRuleCmd = &cobra.Command{
 	},
 }
 
-var notificationNotificationManagerSetAutomaticZenRuleStateCmd = &cobra.Command{
+var notificationManagerSetAutomaticZenRuleStateCmd = &cobra.Command{
 	Use:   "set-automatic-zen-rule-state",
 	Short: "SetAutomaticZenRuleState RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewNotificationManagerServiceClient(grpcConn)
+		client := pb.NewManagerServiceClient(grpcConn)
 		req := &pb.SetAutomaticZenRuleStateRequest{}
 		if v, err := cmd.Flags().GetString("arg0"); err == nil {
 			req.Arg0 = v
@@ -1913,13 +3764,32 @@ var notificationNotificationManagerSetAutomaticZenRuleStateCmd = &cobra.Command{
 	},
 }
 
-var notificationNotificationManagerSetNotificationDelegateCmd = &cobra.Command{
+var notificationManagerSetInterruptionFilterCmd = &cobra.Command{
+	Use:   "set-interruption-filter",
+	Short: "SetInterruptionFilter RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewManagerServiceClient(grpcConn)
+		req := &pb.SetInterruptionFilterRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetInterruptionFilter(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var notificationManagerSetNotificationDelegateCmd = &cobra.Command{
 	Use:   "set-notification-delegate",
 	Short: "SetNotificationDelegate RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewNotificationManagerServiceClient(grpcConn)
+		client := pb.NewManagerServiceClient(grpcConn)
 		req := &pb.SetNotificationDelegateRequest{}
 		if v, err := cmd.Flags().GetString("arg0"); err == nil {
 			req.Arg0 = v
@@ -1932,13 +3802,13 @@ var notificationNotificationManagerSetNotificationDelegateCmd = &cobra.Command{
 	},
 }
 
-var notificationNotificationManagerSetNotificationPolicyCmd = &cobra.Command{
+var notificationManagerSetNotificationPolicyCmd = &cobra.Command{
 	Use:   "set-notification-policy",
 	Short: "SetNotificationPolicy RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewNotificationManagerServiceClient(grpcConn)
+		client := pb.NewManagerServiceClient(grpcConn)
 		req := &pb.SetNotificationPolicyRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
@@ -1951,13 +3821,13 @@ var notificationNotificationManagerSetNotificationPolicyCmd = &cobra.Command{
 	},
 }
 
-var notificationNotificationManagerShouldHideSilentStatusBarIconsCmd = &cobra.Command{
+var notificationManagerShouldHideSilentStatusBarIconsCmd = &cobra.Command{
 	Use:   "should-hide-silent-status-bar-icons",
 	Short: "ShouldHideSilentStatusBarIcons RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewNotificationManagerServiceClient(grpcConn)
+		client := pb.NewManagerServiceClient(grpcConn)
 		req := &pb.ShouldHideSilentStatusBarIconsRequest{}
 		resp, err := client.ShouldHideSilentStatusBarIcons(ctx, req)
 		if err != nil {
@@ -1967,13 +3837,13 @@ var notificationNotificationManagerShouldHideSilentStatusBarIconsCmd = &cobra.Co
 	},
 }
 
-var notificationNotificationManagerUpdateAutomaticZenRuleCmd = &cobra.Command{
+var notificationManagerUpdateAutomaticZenRuleCmd = &cobra.Command{
 	Use:   "update-automatic-zen-rule",
 	Short: "UpdateAutomaticZenRule RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewNotificationManagerServiceClient(grpcConn)
+		client := pb.NewManagerServiceClient(grpcConn)
 		req := &pb.UpdateAutomaticZenRuleRequest{}
 		if v, err := cmd.Flags().GetString("arg0"); err == nil {
 			req.Arg0 = v
@@ -1990,73 +3860,6 @@ var notificationNotificationManagerUpdateAutomaticZenRuleCmd = &cobra.Command{
 }
 
 func init() {
-	notificationNotificationChannelCmd.AddCommand(notificationNotificationChannelCanBubbleCmd)
-	notificationNotificationChannelCmd.AddCommand(notificationNotificationChannelCanBypassDndCmd)
-	notificationNotificationChannelCmd.AddCommand(notificationNotificationChannelCanShowBadgeCmd)
-	notificationNotificationChannelCmd.AddCommand(notificationNotificationChannelDescribeContentsCmd)
-	notificationNotificationChannelEnableLightsCmd.Flags().Bool("arg0", false, "arg0 (bool)")
-	notificationNotificationChannelCmd.AddCommand(notificationNotificationChannelEnableLightsCmd)
-	notificationNotificationChannelEnableVibrationCmd.Flags().Bool("arg0", false, "arg0 (bool)")
-	notificationNotificationChannelCmd.AddCommand(notificationNotificationChannelEnableVibrationCmd)
-	notificationNotificationChannelEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	notificationNotificationChannelCmd.AddCommand(notificationNotificationChannelEqualsCmd)
-	notificationNotificationChannelCmd.AddCommand(notificationNotificationChannelGetAudioAttributesCmd)
-	notificationNotificationChannelCmd.AddCommand(notificationNotificationChannelGetConversationIdCmd)
-	notificationNotificationChannelCmd.AddCommand(notificationNotificationChannelGetDescriptionCmd)
-	notificationNotificationChannelCmd.AddCommand(notificationNotificationChannelGetGroupCmd)
-	notificationNotificationChannelCmd.AddCommand(notificationNotificationChannelGetIdCmd)
-	notificationNotificationChannelCmd.AddCommand(notificationNotificationChannelGetImportanceCmd)
-	notificationNotificationChannelCmd.AddCommand(notificationNotificationChannelGetLightColorCmd)
-	notificationNotificationChannelCmd.AddCommand(notificationNotificationChannelGetLockscreenVisibilityCmd)
-	notificationNotificationChannelCmd.AddCommand(notificationNotificationChannelGetNameCmd)
-	notificationNotificationChannelCmd.AddCommand(notificationNotificationChannelGetParentChannelIdCmd)
-	notificationNotificationChannelCmd.AddCommand(notificationNotificationChannelGetSoundCmd)
-	notificationNotificationChannelCmd.AddCommand(notificationNotificationChannelGetVibrationEffectCmd)
-	notificationNotificationChannelCmd.AddCommand(notificationNotificationChannelGetVibrationPatternCmd)
-	notificationNotificationChannelCmd.AddCommand(notificationNotificationChannelHasUserSetImportanceCmd)
-	notificationNotificationChannelCmd.AddCommand(notificationNotificationChannelHasUserSetSoundCmd)
-	notificationNotificationChannelCmd.AddCommand(notificationNotificationChannelHashCodeCmd)
-	notificationNotificationChannelCmd.AddCommand(notificationNotificationChannelIsBlockableCmd)
-	notificationNotificationChannelCmd.AddCommand(notificationNotificationChannelIsConversationCmd)
-	notificationNotificationChannelCmd.AddCommand(notificationNotificationChannelIsDemotedCmd)
-	notificationNotificationChannelCmd.AddCommand(notificationNotificationChannelIsImportantConversationCmd)
-	notificationNotificationChannelSetAllowBubblesCmd.Flags().Bool("arg0", false, "arg0 (bool)")
-	notificationNotificationChannelCmd.AddCommand(notificationNotificationChannelSetAllowBubblesCmd)
-	notificationNotificationChannelSetBlockableCmd.Flags().Bool("arg0", false, "arg0 (bool)")
-	notificationNotificationChannelCmd.AddCommand(notificationNotificationChannelSetBlockableCmd)
-	notificationNotificationChannelSetBypassDndCmd.Flags().Bool("arg0", false, "arg0 (bool)")
-	notificationNotificationChannelCmd.AddCommand(notificationNotificationChannelSetBypassDndCmd)
-	notificationNotificationChannelSetConversationIdCmd.Flags().String("arg0", "", "arg0 (string)")
-	notificationNotificationChannelSetConversationIdCmd.Flags().String("arg1", "", "arg1 (string)")
-	notificationNotificationChannelCmd.AddCommand(notificationNotificationChannelSetConversationIdCmd)
-	notificationNotificationChannelSetDescriptionCmd.Flags().String("arg0", "", "arg0 (string)")
-	notificationNotificationChannelCmd.AddCommand(notificationNotificationChannelSetDescriptionCmd)
-	notificationNotificationChannelSetGroupCmd.Flags().String("arg0", "", "arg0 (string)")
-	notificationNotificationChannelCmd.AddCommand(notificationNotificationChannelSetGroupCmd)
-	notificationNotificationChannelSetImportanceCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	notificationNotificationChannelCmd.AddCommand(notificationNotificationChannelSetImportanceCmd)
-	notificationNotificationChannelSetLightColorCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	notificationNotificationChannelCmd.AddCommand(notificationNotificationChannelSetLightColorCmd)
-	notificationNotificationChannelSetLockscreenVisibilityCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	notificationNotificationChannelCmd.AddCommand(notificationNotificationChannelSetLockscreenVisibilityCmd)
-	notificationNotificationChannelSetNameCmd.Flags().String("arg0", "", "arg0 (string)")
-	notificationNotificationChannelCmd.AddCommand(notificationNotificationChannelSetNameCmd)
-	notificationNotificationChannelSetShowBadgeCmd.Flags().Bool("arg0", false, "arg0 (bool)")
-	notificationNotificationChannelCmd.AddCommand(notificationNotificationChannelSetShowBadgeCmd)
-	notificationNotificationChannelSetSoundCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	notificationNotificationChannelSetSoundCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	notificationNotificationChannelCmd.AddCommand(notificationNotificationChannelSetSoundCmd)
-	notificationNotificationChannelSetVibrationEffectCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	notificationNotificationChannelCmd.AddCommand(notificationNotificationChannelSetVibrationEffectCmd)
-	notificationNotificationChannelSetVibrationPatternCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	notificationNotificationChannelCmd.AddCommand(notificationNotificationChannelSetVibrationPatternCmd)
-	notificationNotificationChannelCmd.AddCommand(notificationNotificationChannelShouldShowLightsCmd)
-	notificationNotificationChannelCmd.AddCommand(notificationNotificationChannelShouldVibrateCmd)
-	notificationNotificationChannelCmd.AddCommand(notificationNotificationChannelToStringCmd)
-	notificationNotificationChannelWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	notificationNotificationChannelWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	notificationNotificationChannelCmd.AddCommand(notificationNotificationChannelWriteToParcelCmd)
-	notificationCmd.AddCommand(notificationNotificationChannelCmd)
 	notificationStatusBarNotificationCmd.AddCommand(notificationStatusBarNotificationClone0Cmd)
 	notificationStatusBarNotificationCmd.AddCommand(notificationStatusBarNotificationDescribeContentsCmd)
 	notificationStatusBarNotificationCmd.AddCommand(notificationStatusBarNotificationGetGroupKeyCmd)
@@ -2083,88 +3886,343 @@ func init() {
 	notificationStatusBarNotificationCmd.AddCommand(notificationStatusBarNotificationWriteToParcelCmd)
 	notificationStatusBarNotificationCmd.AddCommand(notificationStatusBarNotificationClone0_1Cmd)
 	notificationCmd.AddCommand(notificationStatusBarNotificationCmd)
-	notificationNotificationManagerAddAutomaticZenRuleCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	notificationNotificationManagerCmd.AddCommand(notificationNotificationManagerAddAutomaticZenRuleCmd)
-	notificationNotificationManagerCmd.AddCommand(notificationNotificationManagerAreAutomaticZenRulesUserManagedCmd)
-	notificationNotificationManagerCmd.AddCommand(notificationNotificationManagerAreBubblesAllowedCmd)
-	notificationNotificationManagerCmd.AddCommand(notificationNotificationManagerAreBubblesEnabledCmd)
-	notificationNotificationManagerCmd.AddCommand(notificationNotificationManagerAreNotificationsEnabledCmd)
-	notificationNotificationManagerCmd.AddCommand(notificationNotificationManagerAreNotificationsPausedCmd)
-	notificationNotificationManagerCanNotifyAsPackageCmd.Flags().String("arg0", "", "arg0 (string)")
-	notificationNotificationManagerCmd.AddCommand(notificationNotificationManagerCanNotifyAsPackageCmd)
-	notificationNotificationManagerCmd.AddCommand(notificationNotificationManagerCanPostPromotedNotificationsCmd)
-	notificationNotificationManagerCmd.AddCommand(notificationNotificationManagerCanUseFullScreenIntentCmd)
-	notificationNotificationManagerCancel1Cmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	notificationNotificationManagerCmd.AddCommand(notificationNotificationManagerCancel1Cmd)
-	notificationNotificationManagerCancel2_1Cmd.Flags().String("arg0", "", "arg0 (string)")
-	notificationNotificationManagerCancel2_1Cmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	notificationNotificationManagerCmd.AddCommand(notificationNotificationManagerCancel2_1Cmd)
-	notificationNotificationManagerCmd.AddCommand(notificationNotificationManagerCancelAllCmd)
-	notificationNotificationManagerCancelAsPackageCmd.Flags().String("arg0", "", "arg0 (string)")
-	notificationNotificationManagerCancelAsPackageCmd.Flags().String("arg1", "", "arg1 (string)")
-	notificationNotificationManagerCancelAsPackageCmd.Flags().Int32("arg2", 0, "arg2 (int32)")
-	notificationNotificationManagerCmd.AddCommand(notificationNotificationManagerCancelAsPackageCmd)
-	notificationNotificationManagerCreateNotificationChannelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	notificationNotificationManagerCmd.AddCommand(notificationNotificationManagerCreateNotificationChannelCmd)
-	notificationNotificationManagerCreateNotificationChannelGroupCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	notificationNotificationManagerCmd.AddCommand(notificationNotificationManagerCreateNotificationChannelGroupCmd)
-	notificationNotificationManagerCreateNotificationChannelGroupsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	notificationNotificationManagerCmd.AddCommand(notificationNotificationManagerCreateNotificationChannelGroupsCmd)
-	notificationNotificationManagerCreateNotificationChannelsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	notificationNotificationManagerCmd.AddCommand(notificationNotificationManagerCreateNotificationChannelsCmd)
-	notificationNotificationManagerDeleteNotificationChannelCmd.Flags().String("arg0", "", "arg0 (string)")
-	notificationNotificationManagerCmd.AddCommand(notificationNotificationManagerDeleteNotificationChannelCmd)
-	notificationNotificationManagerDeleteNotificationChannelGroupCmd.Flags().String("arg0", "", "arg0 (string)")
-	notificationNotificationManagerCmd.AddCommand(notificationNotificationManagerDeleteNotificationChannelGroupCmd)
-	notificationNotificationManagerCmd.AddCommand(notificationNotificationManagerGetActiveNotificationsCmd)
-	notificationNotificationManagerGetAutomaticZenRuleCmd.Flags().String("arg0", "", "arg0 (string)")
-	notificationNotificationManagerCmd.AddCommand(notificationNotificationManagerGetAutomaticZenRuleCmd)
-	notificationNotificationManagerGetAutomaticZenRuleStateCmd.Flags().String("arg0", "", "arg0 (string)")
-	notificationNotificationManagerCmd.AddCommand(notificationNotificationManagerGetAutomaticZenRuleStateCmd)
-	notificationNotificationManagerCmd.AddCommand(notificationNotificationManagerGetBubblePreferenceCmd)
-	notificationNotificationManagerCmd.AddCommand(notificationNotificationManagerGetConsolidatedNotificationPolicyCmd)
-	notificationNotificationManagerCmd.AddCommand(notificationNotificationManagerGetImportanceCmd)
-	notificationNotificationManagerGetNotificationChannel1Cmd.Flags().String("arg0", "", "arg0 (string)")
-	notificationNotificationManagerCmd.AddCommand(notificationNotificationManagerGetNotificationChannel1Cmd)
-	notificationNotificationManagerGetNotificationChannel2_1Cmd.Flags().String("arg0", "", "arg0 (string)")
-	notificationNotificationManagerGetNotificationChannel2_1Cmd.Flags().String("arg1", "", "arg1 (string)")
-	notificationNotificationManagerCmd.AddCommand(notificationNotificationManagerGetNotificationChannel2_1Cmd)
-	notificationNotificationManagerGetNotificationChannelGroupCmd.Flags().String("arg0", "", "arg0 (string)")
-	notificationNotificationManagerCmd.AddCommand(notificationNotificationManagerGetNotificationChannelGroupCmd)
-	notificationNotificationManagerCmd.AddCommand(notificationNotificationManagerGetNotificationChannelGroupsCmd)
-	notificationNotificationManagerCmd.AddCommand(notificationNotificationManagerGetNotificationChannelsCmd)
-	notificationNotificationManagerCmd.AddCommand(notificationNotificationManagerGetNotificationDelegateCmd)
-	notificationNotificationManagerCmd.AddCommand(notificationNotificationManagerGetNotificationPolicyCmd)
-	notificationNotificationManagerIsNotificationListenerAccessGrantedCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	notificationNotificationManagerCmd.AddCommand(notificationNotificationManagerIsNotificationListenerAccessGrantedCmd)
-	notificationNotificationManagerCmd.AddCommand(notificationNotificationManagerIsNotificationPolicyAccessGrantedCmd)
-	notificationNotificationManagerMatchesCallFilterCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	notificationNotificationManagerCmd.AddCommand(notificationNotificationManagerMatchesCallFilterCmd)
-	notificationNotificationManagerNotify2Cmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	notificationNotificationManagerNotify2Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	notificationNotificationManagerCmd.AddCommand(notificationNotificationManagerNotify2Cmd)
-	notificationNotificationManagerNotify3_1Cmd.Flags().String("arg0", "", "arg0 (string)")
-	notificationNotificationManagerNotify3_1Cmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	notificationNotificationManagerNotify3_1Cmd.Flags().Int64("arg2", 0, "arg2 (int64)")
-	notificationNotificationManagerCmd.AddCommand(notificationNotificationManagerNotify3_1Cmd)
-	notificationNotificationManagerNotifyAsPackageCmd.Flags().String("arg0", "", "arg0 (string)")
-	notificationNotificationManagerNotifyAsPackageCmd.Flags().String("arg1", "", "arg1 (string)")
-	notificationNotificationManagerNotifyAsPackageCmd.Flags().Int32("arg2", 0, "arg2 (int32)")
-	notificationNotificationManagerNotifyAsPackageCmd.Flags().Int64("arg3", 0, "arg3 (int64)")
-	notificationNotificationManagerCmd.AddCommand(notificationNotificationManagerNotifyAsPackageCmd)
-	notificationNotificationManagerRemoveAutomaticZenRuleCmd.Flags().String("arg0", "", "arg0 (string)")
-	notificationNotificationManagerCmd.AddCommand(notificationNotificationManagerRemoveAutomaticZenRuleCmd)
-	notificationNotificationManagerSetAutomaticZenRuleStateCmd.Flags().String("arg0", "", "arg0 (string)")
-	notificationNotificationManagerSetAutomaticZenRuleStateCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	notificationNotificationManagerCmd.AddCommand(notificationNotificationManagerSetAutomaticZenRuleStateCmd)
-	notificationNotificationManagerSetNotificationDelegateCmd.Flags().String("arg0", "", "arg0 (string)")
-	notificationNotificationManagerCmd.AddCommand(notificationNotificationManagerSetNotificationDelegateCmd)
-	notificationNotificationManagerSetNotificationPolicyCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	notificationNotificationManagerCmd.AddCommand(notificationNotificationManagerSetNotificationPolicyCmd)
-	notificationNotificationManagerCmd.AddCommand(notificationNotificationManagerShouldHideSilentStatusBarIconsCmd)
-	notificationNotificationManagerUpdateAutomaticZenRuleCmd.Flags().String("arg0", "", "arg0 (string)")
-	notificationNotificationManagerUpdateAutomaticZenRuleCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	notificationNotificationManagerCmd.AddCommand(notificationNotificationManagerUpdateAutomaticZenRuleCmd)
-	notificationCmd.AddCommand(notificationNotificationManagerCmd)
+	notificationNotificationCmd.AddCommand(notificationNotificationClone0Cmd)
+	notificationNotificationCmd.AddCommand(notificationNotificationDescribeContentsCmd)
+	notificationNotificationCmd.AddCommand(notificationNotificationGetAllowSystemGeneratedContextualActionsCmd)
+	notificationNotificationCmd.AddCommand(notificationNotificationGetBadgeIconTypeCmd)
+	notificationNotificationCmd.AddCommand(notificationNotificationGetBubbleMetadataCmd)
+	notificationNotificationCmd.AddCommand(notificationNotificationGetChannelIdCmd)
+	notificationNotificationCmd.AddCommand(notificationNotificationGetContextualActionsCmd)
+	notificationNotificationCmd.AddCommand(notificationNotificationGetGroupCmd)
+	notificationNotificationCmd.AddCommand(notificationNotificationGetGroupAlertBehaviorCmd)
+	notificationNotificationCmd.AddCommand(notificationNotificationGetLargeIconCmd)
+	notificationNotificationCmd.AddCommand(notificationNotificationGetLocusIdCmd)
+	notificationNotificationCmd.AddCommand(notificationNotificationGetSettingsTextCmd)
+	notificationNotificationCmd.AddCommand(notificationNotificationGetShortCriticalTextCmd)
+	notificationNotificationCmd.AddCommand(notificationNotificationGetShortcutIdCmd)
+	notificationNotificationCmd.AddCommand(notificationNotificationGetSmallIconCmd)
+	notificationNotificationCmd.AddCommand(notificationNotificationGetSortKeyCmd)
+	notificationNotificationCmd.AddCommand(notificationNotificationGetTimeoutAfterCmd)
+	notificationNotificationCmd.AddCommand(notificationNotificationHasImageCmd)
+	notificationNotificationCmd.AddCommand(notificationNotificationHasPromotableCharacteristicsCmd)
+	notificationNotificationCmd.AddCommand(notificationNotificationToStringCmd)
+	notificationNotificationWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	notificationNotificationWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	notificationNotificationCmd.AddCommand(notificationNotificationWriteToParcelCmd)
+	notificationNotificationCmd.AddCommand(notificationNotificationClone0_1Cmd)
+	notificationCmd.AddCommand(notificationNotificationCmd)
+	notificationBigTextStyleBigTextCmd.Flags().String("arg0", "", "arg0 (string)")
+	notificationBigTextStyleCmd.AddCommand(notificationBigTextStyleBigTextCmd)
+	notificationBigTextStyleSetBigContentTitleCmd.Flags().String("arg0", "", "arg0 (string)")
+	notificationBigTextStyleCmd.AddCommand(notificationBigTextStyleSetBigContentTitleCmd)
+	notificationBigTextStyleSetSummaryTextCmd.Flags().String("arg0", "", "arg0 (string)")
+	notificationBigTextStyleCmd.AddCommand(notificationBigTextStyleSetSummaryTextCmd)
+	notificationCmd.AddCommand(notificationBigTextStyleCmd)
+	notificationBuilderAddAction1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	notificationBuilderCmd.AddCommand(notificationBuilderAddAction1Cmd)
+	notificationBuilderAddAction3_1Cmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	notificationBuilderAddAction3_1Cmd.Flags().String("arg1", "", "arg1 (string)")
+	notificationBuilderAddAction3_1Cmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	notificationBuilderCmd.AddCommand(notificationBuilderAddAction3_1Cmd)
+	notificationBuilderAddExtrasCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	notificationBuilderCmd.AddCommand(notificationBuilderAddExtrasCmd)
+	notificationBuilderAddPerson1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	notificationBuilderCmd.AddCommand(notificationBuilderAddPerson1Cmd)
+	notificationBuilderAddPerson1_1Cmd.Flags().String("arg0", "", "arg0 (string)")
+	notificationBuilderCmd.AddCommand(notificationBuilderAddPerson1_1Cmd)
+	notificationBuilderCmd.AddCommand(notificationBuilderBuildCmd)
+	notificationBuilderCmd.AddCommand(notificationBuilderCreateBigContentViewCmd)
+	notificationBuilderCmd.AddCommand(notificationBuilderCreateContentViewCmd)
+	notificationBuilderCmd.AddCommand(notificationBuilderCreateHeadsUpContentViewCmd)
+	notificationBuilderExtendCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	notificationBuilderCmd.AddCommand(notificationBuilderExtendCmd)
+	notificationBuilderCmd.AddCommand(notificationBuilderGetExtrasCmd)
+	notificationBuilderCmd.AddCommand(notificationBuilderGetNotificationCmd)
+	notificationBuilderCmd.AddCommand(notificationBuilderGetStyleCmd)
+	notificationBuilderSetActionsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	notificationBuilderCmd.AddCommand(notificationBuilderSetActionsCmd)
+	notificationBuilderSetAllowSystemGeneratedContextualActionsCmd.Flags().Bool("arg0", false, "arg0 (bool)")
+	notificationBuilderCmd.AddCommand(notificationBuilderSetAllowSystemGeneratedContextualActionsCmd)
+	notificationBuilderSetAutoCancelCmd.Flags().Bool("arg0", false, "arg0 (bool)")
+	notificationBuilderCmd.AddCommand(notificationBuilderSetAutoCancelCmd)
+	notificationBuilderSetBadgeIconTypeCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	notificationBuilderCmd.AddCommand(notificationBuilderSetBadgeIconTypeCmd)
+	notificationBuilderSetBubbleMetadataCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	notificationBuilderCmd.AddCommand(notificationBuilderSetBubbleMetadataCmd)
+	notificationBuilderSetCategoryCmd.Flags().String("arg0", "", "arg0 (string)")
+	notificationBuilderCmd.AddCommand(notificationBuilderSetCategoryCmd)
+	notificationBuilderSetChannelIdCmd.Flags().String("arg0", "", "arg0 (string)")
+	notificationBuilderCmd.AddCommand(notificationBuilderSetChannelIdCmd)
+	notificationBuilderSetChronometerCountDownCmd.Flags().Bool("arg0", false, "arg0 (bool)")
+	notificationBuilderCmd.AddCommand(notificationBuilderSetChronometerCountDownCmd)
+	notificationBuilderSetColorCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	notificationBuilderCmd.AddCommand(notificationBuilderSetColorCmd)
+	notificationBuilderSetColorizedCmd.Flags().Bool("arg0", false, "arg0 (bool)")
+	notificationBuilderCmd.AddCommand(notificationBuilderSetColorizedCmd)
+	notificationBuilderSetContentCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	notificationBuilderCmd.AddCommand(notificationBuilderSetContentCmd)
+	notificationBuilderSetContentInfoCmd.Flags().String("arg0", "", "arg0 (string)")
+	notificationBuilderCmd.AddCommand(notificationBuilderSetContentInfoCmd)
+	notificationBuilderSetContentIntentCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	notificationBuilderCmd.AddCommand(notificationBuilderSetContentIntentCmd)
+	notificationBuilderSetContentTextCmd.Flags().String("arg0", "", "arg0 (string)")
+	notificationBuilderCmd.AddCommand(notificationBuilderSetContentTextCmd)
+	notificationBuilderSetContentTitleCmd.Flags().String("arg0", "", "arg0 (string)")
+	notificationBuilderCmd.AddCommand(notificationBuilderSetContentTitleCmd)
+	notificationBuilderSetCustomBigContentViewCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	notificationBuilderCmd.AddCommand(notificationBuilderSetCustomBigContentViewCmd)
+	notificationBuilderSetCustomContentViewCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	notificationBuilderCmd.AddCommand(notificationBuilderSetCustomContentViewCmd)
+	notificationBuilderSetCustomHeadsUpContentViewCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	notificationBuilderCmd.AddCommand(notificationBuilderSetCustomHeadsUpContentViewCmd)
+	notificationBuilderSetDefaultsCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	notificationBuilderCmd.AddCommand(notificationBuilderSetDefaultsCmd)
+	notificationBuilderSetDeleteIntentCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	notificationBuilderCmd.AddCommand(notificationBuilderSetDeleteIntentCmd)
+	notificationBuilderSetExtrasCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	notificationBuilderCmd.AddCommand(notificationBuilderSetExtrasCmd)
+	notificationBuilderSetFlagCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	notificationBuilderSetFlagCmd.Flags().Bool("arg1", false, "arg1 (bool)")
+	notificationBuilderCmd.AddCommand(notificationBuilderSetFlagCmd)
+	notificationBuilderSetForegroundServiceBehaviorCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	notificationBuilderCmd.AddCommand(notificationBuilderSetForegroundServiceBehaviorCmd)
+	notificationBuilderSetFullScreenIntentCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	notificationBuilderSetFullScreenIntentCmd.Flags().Bool("arg1", false, "arg1 (bool)")
+	notificationBuilderCmd.AddCommand(notificationBuilderSetFullScreenIntentCmd)
+	notificationBuilderSetGroupCmd.Flags().String("arg0", "", "arg0 (string)")
+	notificationBuilderCmd.AddCommand(notificationBuilderSetGroupCmd)
+	notificationBuilderSetGroupAlertBehaviorCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	notificationBuilderCmd.AddCommand(notificationBuilderSetGroupAlertBehaviorCmd)
+	notificationBuilderSetGroupSummaryCmd.Flags().Bool("arg0", false, "arg0 (bool)")
+	notificationBuilderCmd.AddCommand(notificationBuilderSetGroupSummaryCmd)
+	notificationBuilderSetLargeIcon1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	notificationBuilderCmd.AddCommand(notificationBuilderSetLargeIcon1Cmd)
+	notificationBuilderSetLargeIcon1_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	notificationBuilderCmd.AddCommand(notificationBuilderSetLargeIcon1_1Cmd)
+	notificationBuilderSetLightsCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	notificationBuilderSetLightsCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	notificationBuilderSetLightsCmd.Flags().Int32("arg2", 0, "arg2 (int32)")
+	notificationBuilderCmd.AddCommand(notificationBuilderSetLightsCmd)
+	notificationBuilderSetLocalOnlyCmd.Flags().Bool("arg0", false, "arg0 (bool)")
+	notificationBuilderCmd.AddCommand(notificationBuilderSetLocalOnlyCmd)
+	notificationBuilderSetLocusIdCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	notificationBuilderCmd.AddCommand(notificationBuilderSetLocusIdCmd)
+	notificationBuilderSetNumberCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	notificationBuilderCmd.AddCommand(notificationBuilderSetNumberCmd)
+	notificationBuilderSetOngoingCmd.Flags().Bool("arg0", false, "arg0 (bool)")
+	notificationBuilderCmd.AddCommand(notificationBuilderSetOngoingCmd)
+	notificationBuilderSetOnlyAlertOnceCmd.Flags().Bool("arg0", false, "arg0 (bool)")
+	notificationBuilderCmd.AddCommand(notificationBuilderSetOnlyAlertOnceCmd)
+	notificationBuilderSetPriorityCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	notificationBuilderCmd.AddCommand(notificationBuilderSetPriorityCmd)
+	notificationBuilderSetProgressCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	notificationBuilderSetProgressCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	notificationBuilderSetProgressCmd.Flags().Bool("arg2", false, "arg2 (bool)")
+	notificationBuilderCmd.AddCommand(notificationBuilderSetProgressCmd)
+	notificationBuilderSetPublicVersionCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	notificationBuilderCmd.AddCommand(notificationBuilderSetPublicVersionCmd)
+	notificationBuilderSetRemoteInputHistoryCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	notificationBuilderCmd.AddCommand(notificationBuilderSetRemoteInputHistoryCmd)
+	notificationBuilderSetSettingsTextCmd.Flags().String("arg0", "", "arg0 (string)")
+	notificationBuilderCmd.AddCommand(notificationBuilderSetSettingsTextCmd)
+	notificationBuilderSetShortCriticalTextCmd.Flags().String("arg0", "", "arg0 (string)")
+	notificationBuilderCmd.AddCommand(notificationBuilderSetShortCriticalTextCmd)
+	notificationBuilderSetShortcutIdCmd.Flags().String("arg0", "", "arg0 (string)")
+	notificationBuilderCmd.AddCommand(notificationBuilderSetShortcutIdCmd)
+	notificationBuilderSetShowWhenCmd.Flags().Bool("arg0", false, "arg0 (bool)")
+	notificationBuilderCmd.AddCommand(notificationBuilderSetShowWhenCmd)
+	notificationBuilderSetSmallIcon1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	notificationBuilderCmd.AddCommand(notificationBuilderSetSmallIcon1Cmd)
+	notificationBuilderSetSmallIcon1_1Cmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	notificationBuilderCmd.AddCommand(notificationBuilderSetSmallIcon1_1Cmd)
+	notificationBuilderSetSmallIcon2_2Cmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	notificationBuilderSetSmallIcon2_2Cmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	notificationBuilderCmd.AddCommand(notificationBuilderSetSmallIcon2_2Cmd)
+	notificationBuilderSetSortKeyCmd.Flags().String("arg0", "", "arg0 (string)")
+	notificationBuilderCmd.AddCommand(notificationBuilderSetSortKeyCmd)
+	notificationBuilderSetSound1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	notificationBuilderCmd.AddCommand(notificationBuilderSetSound1Cmd)
+	notificationBuilderSetSound2_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	notificationBuilderSetSound2_1Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	notificationBuilderCmd.AddCommand(notificationBuilderSetSound2_1Cmd)
+	notificationBuilderSetSound2_2Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	notificationBuilderSetSound2_2Cmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	notificationBuilderCmd.AddCommand(notificationBuilderSetSound2_2Cmd)
+	notificationBuilderSetStyleCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	notificationBuilderCmd.AddCommand(notificationBuilderSetStyleCmd)
+	notificationBuilderSetSubTextCmd.Flags().String("arg0", "", "arg0 (string)")
+	notificationBuilderCmd.AddCommand(notificationBuilderSetSubTextCmd)
+	notificationBuilderSetTicker1Cmd.Flags().String("arg0", "", "arg0 (string)")
+	notificationBuilderCmd.AddCommand(notificationBuilderSetTicker1Cmd)
+	notificationBuilderSetTicker2_1Cmd.Flags().String("arg0", "", "arg0 (string)")
+	notificationBuilderSetTicker2_1Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	notificationBuilderCmd.AddCommand(notificationBuilderSetTicker2_1Cmd)
+	notificationBuilderSetTimeoutAfterCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	notificationBuilderCmd.AddCommand(notificationBuilderSetTimeoutAfterCmd)
+	notificationBuilderSetUsesChronometerCmd.Flags().Bool("arg0", false, "arg0 (bool)")
+	notificationBuilderCmd.AddCommand(notificationBuilderSetUsesChronometerCmd)
+	notificationBuilderSetVibrateCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	notificationBuilderCmd.AddCommand(notificationBuilderSetVibrateCmd)
+	notificationBuilderSetVisibilityCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	notificationBuilderCmd.AddCommand(notificationBuilderSetVisibilityCmd)
+	notificationBuilderSetWhenCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	notificationBuilderCmd.AddCommand(notificationBuilderSetWhenCmd)
+	notificationBuilderRecoverBuilderCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	notificationBuilderRecoverBuilderCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	notificationBuilderCmd.AddCommand(notificationBuilderRecoverBuilderCmd)
+	notificationCmd.AddCommand(notificationBuilderCmd)
+	notificationChannelCmd.AddCommand(notificationChannelCanBubbleCmd)
+	notificationChannelCmd.AddCommand(notificationChannelCanBypassDndCmd)
+	notificationChannelCmd.AddCommand(notificationChannelCanShowBadgeCmd)
+	notificationChannelCmd.AddCommand(notificationChannelDescribeContentsCmd)
+	notificationChannelEnableLightsCmd.Flags().Bool("arg0", false, "arg0 (bool)")
+	notificationChannelCmd.AddCommand(notificationChannelEnableLightsCmd)
+	notificationChannelEnableVibrationCmd.Flags().Bool("arg0", false, "arg0 (bool)")
+	notificationChannelCmd.AddCommand(notificationChannelEnableVibrationCmd)
+	notificationChannelEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	notificationChannelCmd.AddCommand(notificationChannelEqualsCmd)
+	notificationChannelCmd.AddCommand(notificationChannelGetAudioAttributesCmd)
+	notificationChannelCmd.AddCommand(notificationChannelGetConversationIdCmd)
+	notificationChannelCmd.AddCommand(notificationChannelGetDescriptionCmd)
+	notificationChannelCmd.AddCommand(notificationChannelGetGroupCmd)
+	notificationChannelCmd.AddCommand(notificationChannelGetIdCmd)
+	notificationChannelCmd.AddCommand(notificationChannelGetImportanceCmd)
+	notificationChannelCmd.AddCommand(notificationChannelGetLightColorCmd)
+	notificationChannelCmd.AddCommand(notificationChannelGetLockscreenVisibilityCmd)
+	notificationChannelCmd.AddCommand(notificationChannelGetNameCmd)
+	notificationChannelCmd.AddCommand(notificationChannelGetParentChannelIdCmd)
+	notificationChannelCmd.AddCommand(notificationChannelGetSoundCmd)
+	notificationChannelCmd.AddCommand(notificationChannelGetVibrationEffectCmd)
+	notificationChannelCmd.AddCommand(notificationChannelGetVibrationPatternCmd)
+	notificationChannelCmd.AddCommand(notificationChannelHasUserSetImportanceCmd)
+	notificationChannelCmd.AddCommand(notificationChannelHasUserSetSoundCmd)
+	notificationChannelCmd.AddCommand(notificationChannelHashCodeCmd)
+	notificationChannelCmd.AddCommand(notificationChannelIsBlockableCmd)
+	notificationChannelCmd.AddCommand(notificationChannelIsConversationCmd)
+	notificationChannelCmd.AddCommand(notificationChannelIsDemotedCmd)
+	notificationChannelCmd.AddCommand(notificationChannelIsImportantConversationCmd)
+	notificationChannelSetAllowBubblesCmd.Flags().Bool("arg0", false, "arg0 (bool)")
+	notificationChannelCmd.AddCommand(notificationChannelSetAllowBubblesCmd)
+	notificationChannelSetBlockableCmd.Flags().Bool("arg0", false, "arg0 (bool)")
+	notificationChannelCmd.AddCommand(notificationChannelSetBlockableCmd)
+	notificationChannelSetBypassDndCmd.Flags().Bool("arg0", false, "arg0 (bool)")
+	notificationChannelCmd.AddCommand(notificationChannelSetBypassDndCmd)
+	notificationChannelSetConversationIdCmd.Flags().String("arg0", "", "arg0 (string)")
+	notificationChannelSetConversationIdCmd.Flags().String("arg1", "", "arg1 (string)")
+	notificationChannelCmd.AddCommand(notificationChannelSetConversationIdCmd)
+	notificationChannelSetDescriptionCmd.Flags().String("arg0", "", "arg0 (string)")
+	notificationChannelCmd.AddCommand(notificationChannelSetDescriptionCmd)
+	notificationChannelSetGroupCmd.Flags().String("arg0", "", "arg0 (string)")
+	notificationChannelCmd.AddCommand(notificationChannelSetGroupCmd)
+	notificationChannelSetImportanceCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	notificationChannelCmd.AddCommand(notificationChannelSetImportanceCmd)
+	notificationChannelSetLightColorCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	notificationChannelCmd.AddCommand(notificationChannelSetLightColorCmd)
+	notificationChannelSetLockscreenVisibilityCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	notificationChannelCmd.AddCommand(notificationChannelSetLockscreenVisibilityCmd)
+	notificationChannelSetNameCmd.Flags().String("arg0", "", "arg0 (string)")
+	notificationChannelCmd.AddCommand(notificationChannelSetNameCmd)
+	notificationChannelSetShowBadgeCmd.Flags().Bool("arg0", false, "arg0 (bool)")
+	notificationChannelCmd.AddCommand(notificationChannelSetShowBadgeCmd)
+	notificationChannelSetSoundCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	notificationChannelSetSoundCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	notificationChannelCmd.AddCommand(notificationChannelSetSoundCmd)
+	notificationChannelSetVibrationEffectCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	notificationChannelCmd.AddCommand(notificationChannelSetVibrationEffectCmd)
+	notificationChannelSetVibrationPatternCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	notificationChannelCmd.AddCommand(notificationChannelSetVibrationPatternCmd)
+	notificationChannelCmd.AddCommand(notificationChannelShouldShowLightsCmd)
+	notificationChannelCmd.AddCommand(notificationChannelShouldVibrateCmd)
+	notificationChannelCmd.AddCommand(notificationChannelToStringCmd)
+	notificationChannelWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	notificationChannelWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	notificationChannelCmd.AddCommand(notificationChannelWriteToParcelCmd)
+	notificationCmd.AddCommand(notificationChannelCmd)
+	notificationManagerAddAutomaticZenRuleCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	notificationManagerCmd.AddCommand(notificationManagerAddAutomaticZenRuleCmd)
+	notificationManagerCmd.AddCommand(notificationManagerAreAutomaticZenRulesUserManagedCmd)
+	notificationManagerCmd.AddCommand(notificationManagerAreBubblesAllowedCmd)
+	notificationManagerCmd.AddCommand(notificationManagerAreBubblesEnabledCmd)
+	notificationManagerCmd.AddCommand(notificationManagerAreNotificationsEnabledCmd)
+	notificationManagerCmd.AddCommand(notificationManagerAreNotificationsPausedCmd)
+	notificationManagerCanNotifyAsPackageCmd.Flags().String("arg0", "", "arg0 (string)")
+	notificationManagerCmd.AddCommand(notificationManagerCanNotifyAsPackageCmd)
+	notificationManagerCmd.AddCommand(notificationManagerCanPostPromotedNotificationsCmd)
+	notificationManagerCmd.AddCommand(notificationManagerCanUseFullScreenIntentCmd)
+	notificationManagerCancel1Cmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	notificationManagerCmd.AddCommand(notificationManagerCancel1Cmd)
+	notificationManagerCancel2_1Cmd.Flags().String("arg0", "", "arg0 (string)")
+	notificationManagerCancel2_1Cmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	notificationManagerCmd.AddCommand(notificationManagerCancel2_1Cmd)
+	notificationManagerCmd.AddCommand(notificationManagerCancelAllCmd)
+	notificationManagerCancelAsPackageCmd.Flags().String("arg0", "", "arg0 (string)")
+	notificationManagerCancelAsPackageCmd.Flags().String("arg1", "", "arg1 (string)")
+	notificationManagerCancelAsPackageCmd.Flags().Int32("arg2", 0, "arg2 (int32)")
+	notificationManagerCmd.AddCommand(notificationManagerCancelAsPackageCmd)
+	notificationManagerCreateNotificationChannelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	notificationManagerCmd.AddCommand(notificationManagerCreateNotificationChannelCmd)
+	notificationManagerCreateNotificationChannelGroupCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	notificationManagerCmd.AddCommand(notificationManagerCreateNotificationChannelGroupCmd)
+	notificationManagerCreateNotificationChannelGroupsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	notificationManagerCmd.AddCommand(notificationManagerCreateNotificationChannelGroupsCmd)
+	notificationManagerCreateNotificationChannelsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	notificationManagerCmd.AddCommand(notificationManagerCreateNotificationChannelsCmd)
+	notificationManagerDeleteNotificationChannelCmd.Flags().String("arg0", "", "arg0 (string)")
+	notificationManagerCmd.AddCommand(notificationManagerDeleteNotificationChannelCmd)
+	notificationManagerDeleteNotificationChannelGroupCmd.Flags().String("arg0", "", "arg0 (string)")
+	notificationManagerCmd.AddCommand(notificationManagerDeleteNotificationChannelGroupCmd)
+	notificationManagerCmd.AddCommand(notificationManagerGetActiveNotificationsCmd)
+	notificationManagerGetAutomaticZenRuleCmd.Flags().String("arg0", "", "arg0 (string)")
+	notificationManagerCmd.AddCommand(notificationManagerGetAutomaticZenRuleCmd)
+	notificationManagerGetAutomaticZenRuleStateCmd.Flags().String("arg0", "", "arg0 (string)")
+	notificationManagerCmd.AddCommand(notificationManagerGetAutomaticZenRuleStateCmd)
+	notificationManagerCmd.AddCommand(notificationManagerGetBubblePreferenceCmd)
+	notificationManagerCmd.AddCommand(notificationManagerGetConsolidatedNotificationPolicyCmd)
+	notificationManagerCmd.AddCommand(notificationManagerGetCurrentInterruptionFilterCmd)
+	notificationManagerCmd.AddCommand(notificationManagerGetImportanceCmd)
+	notificationManagerGetNotificationChannel1Cmd.Flags().String("arg0", "", "arg0 (string)")
+	notificationManagerCmd.AddCommand(notificationManagerGetNotificationChannel1Cmd)
+	notificationManagerGetNotificationChannel2_1Cmd.Flags().String("arg0", "", "arg0 (string)")
+	notificationManagerGetNotificationChannel2_1Cmd.Flags().String("arg1", "", "arg1 (string)")
+	notificationManagerCmd.AddCommand(notificationManagerGetNotificationChannel2_1Cmd)
+	notificationManagerGetNotificationChannelGroupCmd.Flags().String("arg0", "", "arg0 (string)")
+	notificationManagerCmd.AddCommand(notificationManagerGetNotificationChannelGroupCmd)
+	notificationManagerCmd.AddCommand(notificationManagerGetNotificationChannelGroupsCmd)
+	notificationManagerCmd.AddCommand(notificationManagerGetNotificationChannelsCmd)
+	notificationManagerCmd.AddCommand(notificationManagerGetNotificationDelegateCmd)
+	notificationManagerCmd.AddCommand(notificationManagerGetNotificationPolicyCmd)
+	notificationManagerIsNotificationListenerAccessGrantedCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	notificationManagerCmd.AddCommand(notificationManagerIsNotificationListenerAccessGrantedCmd)
+	notificationManagerCmd.AddCommand(notificationManagerIsNotificationPolicyAccessGrantedCmd)
+	notificationManagerMatchesCallFilterCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	notificationManagerCmd.AddCommand(notificationManagerMatchesCallFilterCmd)
+	notificationManagerNotify2Cmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	notificationManagerNotify2Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	notificationManagerCmd.AddCommand(notificationManagerNotify2Cmd)
+	notificationManagerNotify3_1Cmd.Flags().String("arg0", "", "arg0 (string)")
+	notificationManagerNotify3_1Cmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	notificationManagerNotify3_1Cmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	notificationManagerCmd.AddCommand(notificationManagerNotify3_1Cmd)
+	notificationManagerNotifyAsPackageCmd.Flags().String("arg0", "", "arg0 (string)")
+	notificationManagerNotifyAsPackageCmd.Flags().String("arg1", "", "arg1 (string)")
+	notificationManagerNotifyAsPackageCmd.Flags().Int32("arg2", 0, "arg2 (int32)")
+	notificationManagerNotifyAsPackageCmd.Flags().Int64("arg3", 0, "arg3 (int64)")
+	notificationManagerCmd.AddCommand(notificationManagerNotifyAsPackageCmd)
+	notificationManagerRemoveAutomaticZenRuleCmd.Flags().String("arg0", "", "arg0 (string)")
+	notificationManagerCmd.AddCommand(notificationManagerRemoveAutomaticZenRuleCmd)
+	notificationManagerSetAutomaticZenRuleStateCmd.Flags().String("arg0", "", "arg0 (string)")
+	notificationManagerSetAutomaticZenRuleStateCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	notificationManagerCmd.AddCommand(notificationManagerSetAutomaticZenRuleStateCmd)
+	notificationManagerSetInterruptionFilterCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	notificationManagerCmd.AddCommand(notificationManagerSetInterruptionFilterCmd)
+	notificationManagerSetNotificationDelegateCmd.Flags().String("arg0", "", "arg0 (string)")
+	notificationManagerCmd.AddCommand(notificationManagerSetNotificationDelegateCmd)
+	notificationManagerSetNotificationPolicyCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	notificationManagerCmd.AddCommand(notificationManagerSetNotificationPolicyCmd)
+	notificationManagerCmd.AddCommand(notificationManagerShouldHideSilentStatusBarIconsCmd)
+	notificationManagerUpdateAutomaticZenRuleCmd.Flags().String("arg0", "", "arg0 (string)")
+	notificationManagerUpdateAutomaticZenRuleCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	notificationManagerCmd.AddCommand(notificationManagerUpdateAutomaticZenRuleCmd)
+	notificationCmd.AddCommand(notificationManagerCmd)
 	rootCmd.AddCommand(notificationCmd)
 }

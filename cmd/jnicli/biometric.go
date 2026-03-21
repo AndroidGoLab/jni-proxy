@@ -3,8 +3,8 @@
 package main
 
 import (
-	"github.com/spf13/cobra"
 	pb "github.com/AndroidGoLab/jni-proxy/proto/biometric"
+	"github.com/spf13/cobra"
 )
 
 var biometricCmd = &cobra.Command{
@@ -12,96 +12,18 @@ var biometricCmd = &cobra.Command{
 	Short: "biometric service operations",
 }
 
-var biometricBiometricManagerCmd = &cobra.Command{
-	Use:   "biometric-manager",
-	Short: "BiometricManagerService operations",
+var biometricPromptCmd = &cobra.Command{
+	Use:   "prompt",
+	Short: "PromptService operations",
 }
 
-var biometricBiometricManagerCanAuthenticate0Cmd = &cobra.Command{
-	Use:   "can-authenticate0",
-	Short: "CanAuthenticate0 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewBiometricManagerServiceClient(grpcConn)
-		req := &pb.CanAuthenticate0Request{}
-		resp, err := client.CanAuthenticate0(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var biometricBiometricManagerCanAuthenticate1_1Cmd = &cobra.Command{
-	Use:   "can-authenticate1_1",
-	Short: "CanAuthenticate1_1 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewBiometricManagerServiceClient(grpcConn)
-		req := &pb.CanAuthenticate1_1Request{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.CanAuthenticate1_1(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var biometricBiometricManagerGetLastAuthenticationTimeCmd = &cobra.Command{
-	Use:   "get-last-authentication-time",
-	Short: "GetLastAuthenticationTime RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewBiometricManagerServiceClient(grpcConn)
-		req := &pb.GetLastAuthenticationTimeRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.GetLastAuthenticationTime(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var biometricBiometricManagerGetStringsCmd = &cobra.Command{
-	Use:   "get-strings",
-	Short: "GetStrings RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewBiometricManagerServiceClient(grpcConn)
-		req := &pb.GetStringsRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.GetStrings(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var biometricBiometricPromptCmd = &cobra.Command{
-	Use:   "biometric-prompt",
-	Short: "BiometricPromptService operations",
-}
-
-var biometricBiometricPromptAuthenticate4Cmd = &cobra.Command{
+var biometricPromptAuthenticate4Cmd = &cobra.Command{
 	Use:   "authenticate4",
 	Short: "Authenticate4 RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewBiometricPromptServiceClient(grpcConn)
+		client := pb.NewPromptServiceClient(grpcConn)
 		req := &pb.Authenticate4Request{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
@@ -123,13 +45,13 @@ var biometricBiometricPromptAuthenticate4Cmd = &cobra.Command{
 	},
 }
 
-var biometricBiometricPromptAuthenticate3_1Cmd = &cobra.Command{
+var biometricPromptAuthenticate3_1Cmd = &cobra.Command{
 	Use:   "authenticate3_1",
 	Short: "Authenticate3_1 RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewBiometricPromptServiceClient(grpcConn)
+		client := pb.NewPromptServiceClient(grpcConn)
 		req := &pb.Authenticate3_1Request{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
@@ -148,13 +70,13 @@ var biometricBiometricPromptAuthenticate3_1Cmd = &cobra.Command{
 	},
 }
 
-var biometricBiometricPromptGetAllowedAuthenticatorsCmd = &cobra.Command{
+var biometricPromptGetAllowedAuthenticatorsCmd = &cobra.Command{
 	Use:   "get-allowed-authenticators",
 	Short: "GetAllowedAuthenticators RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewBiometricPromptServiceClient(grpcConn)
+		client := pb.NewPromptServiceClient(grpcConn)
 		req := &pb.GetAllowedAuthenticatorsRequest{}
 		resp, err := client.GetAllowedAuthenticators(ctx, req)
 		if err != nil {
@@ -164,13 +86,13 @@ var biometricBiometricPromptGetAllowedAuthenticatorsCmd = &cobra.Command{
 	},
 }
 
-var biometricBiometricPromptGetContentViewCmd = &cobra.Command{
+var biometricPromptGetContentViewCmd = &cobra.Command{
 	Use:   "get-content-view",
 	Short: "GetContentView RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewBiometricPromptServiceClient(grpcConn)
+		client := pb.NewPromptServiceClient(grpcConn)
 		req := &pb.GetContentViewRequest{}
 		resp, err := client.GetContentView(ctx, req)
 		if err != nil {
@@ -180,13 +102,13 @@ var biometricBiometricPromptGetContentViewCmd = &cobra.Command{
 	},
 }
 
-var biometricBiometricPromptGetDescriptionCmd = &cobra.Command{
+var biometricPromptGetDescriptionCmd = &cobra.Command{
 	Use:   "get-description",
 	Short: "GetDescription RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewBiometricPromptServiceClient(grpcConn)
+		client := pb.NewPromptServiceClient(grpcConn)
 		req := &pb.GetDescriptionRequest{}
 		resp, err := client.GetDescription(ctx, req)
 		if err != nil {
@@ -196,13 +118,13 @@ var biometricBiometricPromptGetDescriptionCmd = &cobra.Command{
 	},
 }
 
-var biometricBiometricPromptGetLogoBitmapCmd = &cobra.Command{
+var biometricPromptGetLogoBitmapCmd = &cobra.Command{
 	Use:   "get-logo-bitmap",
 	Short: "GetLogoBitmap RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewBiometricPromptServiceClient(grpcConn)
+		client := pb.NewPromptServiceClient(grpcConn)
 		req := &pb.GetLogoBitmapRequest{}
 		resp, err := client.GetLogoBitmap(ctx, req)
 		if err != nil {
@@ -212,13 +134,13 @@ var biometricBiometricPromptGetLogoBitmapCmd = &cobra.Command{
 	},
 }
 
-var biometricBiometricPromptGetLogoDescriptionCmd = &cobra.Command{
+var biometricPromptGetLogoDescriptionCmd = &cobra.Command{
 	Use:   "get-logo-description",
 	Short: "GetLogoDescription RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewBiometricPromptServiceClient(grpcConn)
+		client := pb.NewPromptServiceClient(grpcConn)
 		req := &pb.GetLogoDescriptionRequest{}
 		resp, err := client.GetLogoDescription(ctx, req)
 		if err != nil {
@@ -228,13 +150,13 @@ var biometricBiometricPromptGetLogoDescriptionCmd = &cobra.Command{
 	},
 }
 
-var biometricBiometricPromptGetLogoResCmd = &cobra.Command{
+var biometricPromptGetLogoResCmd = &cobra.Command{
 	Use:   "get-logo-res",
 	Short: "GetLogoRes RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewBiometricPromptServiceClient(grpcConn)
+		client := pb.NewPromptServiceClient(grpcConn)
 		req := &pb.GetLogoResRequest{}
 		resp, err := client.GetLogoRes(ctx, req)
 		if err != nil {
@@ -244,13 +166,13 @@ var biometricBiometricPromptGetLogoResCmd = &cobra.Command{
 	},
 }
 
-var biometricBiometricPromptGetNegativeButtonTextCmd = &cobra.Command{
+var biometricPromptGetNegativeButtonTextCmd = &cobra.Command{
 	Use:   "get-negative-button-text",
 	Short: "GetNegativeButtonText RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewBiometricPromptServiceClient(grpcConn)
+		client := pb.NewPromptServiceClient(grpcConn)
 		req := &pb.GetNegativeButtonTextRequest{}
 		resp, err := client.GetNegativeButtonText(ctx, req)
 		if err != nil {
@@ -260,13 +182,13 @@ var biometricBiometricPromptGetNegativeButtonTextCmd = &cobra.Command{
 	},
 }
 
-var biometricBiometricPromptGetSubtitleCmd = &cobra.Command{
+var biometricPromptGetSubtitleCmd = &cobra.Command{
 	Use:   "get-subtitle",
 	Short: "GetSubtitle RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewBiometricPromptServiceClient(grpcConn)
+		client := pb.NewPromptServiceClient(grpcConn)
 		req := &pb.GetSubtitleRequest{}
 		resp, err := client.GetSubtitle(ctx, req)
 		if err != nil {
@@ -276,13 +198,13 @@ var biometricBiometricPromptGetSubtitleCmd = &cobra.Command{
 	},
 }
 
-var biometricBiometricPromptGetTitleCmd = &cobra.Command{
+var biometricPromptGetTitleCmd = &cobra.Command{
 	Use:   "get-title",
 	Short: "GetTitle RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewBiometricPromptServiceClient(grpcConn)
+		client := pb.NewPromptServiceClient(grpcConn)
 		req := &pb.GetTitleRequest{}
 		resp, err := client.GetTitle(ctx, req)
 		if err != nil {
@@ -292,13 +214,13 @@ var biometricBiometricPromptGetTitleCmd = &cobra.Command{
 	},
 }
 
-var biometricBiometricPromptIsConfirmationRequiredCmd = &cobra.Command{
+var biometricPromptIsConfirmationRequiredCmd = &cobra.Command{
 	Use:   "is-confirmation-required",
 	Short: "IsConfirmationRequired RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewBiometricPromptServiceClient(grpcConn)
+		client := pb.NewPromptServiceClient(grpcConn)
 		req := &pb.IsConfirmationRequiredRequest{}
 		resp, err := client.IsConfirmationRequired(ctx, req)
 		if err != nil {
@@ -308,18 +230,18 @@ var biometricBiometricPromptIsConfirmationRequiredCmd = &cobra.Command{
 	},
 }
 
-var biometricBiometricPromptBuilderCmd = &cobra.Command{
-	Use:   "biometric-prompt-builder",
-	Short: "BiometricPromptBuilderService operations",
+var biometricPromptBuilderCmd = &cobra.Command{
+	Use:   "prompt-builder",
+	Short: "PromptBuilderService operations",
 }
 
-var biometricBiometricPromptBuilderBuildCmd = &cobra.Command{
+var biometricPromptBuilderBuildCmd = &cobra.Command{
 	Use:   "build",
 	Short: "Build RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewBiometricPromptBuilderServiceClient(grpcConn)
+		client := pb.NewPromptBuilderServiceClient(grpcConn)
 		req := &pb.BuildRequest{}
 		resp, err := client.Build(ctx, req)
 		if err != nil {
@@ -329,13 +251,13 @@ var biometricBiometricPromptBuilderBuildCmd = &cobra.Command{
 	},
 }
 
-var biometricBiometricPromptBuilderSetAllowedAuthenticatorsCmd = &cobra.Command{
+var biometricPromptBuilderSetAllowedAuthenticatorsCmd = &cobra.Command{
 	Use:   "set-allowed-authenticators",
 	Short: "SetAllowedAuthenticators RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewBiometricPromptBuilderServiceClient(grpcConn)
+		client := pb.NewPromptBuilderServiceClient(grpcConn)
 		req := &pb.SetAllowedAuthenticatorsRequest{}
 		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
 			req.Arg0 = v
@@ -348,13 +270,13 @@ var biometricBiometricPromptBuilderSetAllowedAuthenticatorsCmd = &cobra.Command{
 	},
 }
 
-var biometricBiometricPromptBuilderSetConfirmationRequiredCmd = &cobra.Command{
+var biometricPromptBuilderSetConfirmationRequiredCmd = &cobra.Command{
 	Use:   "set-confirmation-required",
 	Short: "SetConfirmationRequired RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewBiometricPromptBuilderServiceClient(grpcConn)
+		client := pb.NewPromptBuilderServiceClient(grpcConn)
 		req := &pb.SetConfirmationRequiredRequest{}
 		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
 			req.Arg0 = v
@@ -367,13 +289,13 @@ var biometricBiometricPromptBuilderSetConfirmationRequiredCmd = &cobra.Command{
 	},
 }
 
-var biometricBiometricPromptBuilderSetContentViewCmd = &cobra.Command{
+var biometricPromptBuilderSetContentViewCmd = &cobra.Command{
 	Use:   "set-content-view",
 	Short: "SetContentView RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewBiometricPromptBuilderServiceClient(grpcConn)
+		client := pb.NewPromptBuilderServiceClient(grpcConn)
 		req := &pb.SetContentViewRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
@@ -386,13 +308,13 @@ var biometricBiometricPromptBuilderSetContentViewCmd = &cobra.Command{
 	},
 }
 
-var biometricBiometricPromptBuilderSetDescriptionCmd = &cobra.Command{
+var biometricPromptBuilderSetDescriptionCmd = &cobra.Command{
 	Use:   "set-description",
 	Short: "SetDescription RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewBiometricPromptBuilderServiceClient(grpcConn)
+		client := pb.NewPromptBuilderServiceClient(grpcConn)
 		req := &pb.SetDescriptionRequest{}
 		if v, err := cmd.Flags().GetString("arg0"); err == nil {
 			req.Arg0 = v
@@ -405,13 +327,13 @@ var biometricBiometricPromptBuilderSetDescriptionCmd = &cobra.Command{
 	},
 }
 
-var biometricBiometricPromptBuilderSetDeviceCredentialAllowedCmd = &cobra.Command{
+var biometricPromptBuilderSetDeviceCredentialAllowedCmd = &cobra.Command{
 	Use:   "set-device-credential-allowed",
 	Short: "SetDeviceCredentialAllowed RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewBiometricPromptBuilderServiceClient(grpcConn)
+		client := pb.NewPromptBuilderServiceClient(grpcConn)
 		req := &pb.SetDeviceCredentialAllowedRequest{}
 		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
 			req.Arg0 = v
@@ -424,13 +346,13 @@ var biometricBiometricPromptBuilderSetDeviceCredentialAllowedCmd = &cobra.Comman
 	},
 }
 
-var biometricBiometricPromptBuilderSetLogoBitmapCmd = &cobra.Command{
+var biometricPromptBuilderSetLogoBitmapCmd = &cobra.Command{
 	Use:   "set-logo-bitmap",
 	Short: "SetLogoBitmap RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewBiometricPromptBuilderServiceClient(grpcConn)
+		client := pb.NewPromptBuilderServiceClient(grpcConn)
 		req := &pb.SetLogoBitmapRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
@@ -443,13 +365,13 @@ var biometricBiometricPromptBuilderSetLogoBitmapCmd = &cobra.Command{
 	},
 }
 
-var biometricBiometricPromptBuilderSetLogoDescriptionCmd = &cobra.Command{
+var biometricPromptBuilderSetLogoDescriptionCmd = &cobra.Command{
 	Use:   "set-logo-description",
 	Short: "SetLogoDescription RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewBiometricPromptBuilderServiceClient(grpcConn)
+		client := pb.NewPromptBuilderServiceClient(grpcConn)
 		req := &pb.SetLogoDescriptionRequest{}
 		if v, err := cmd.Flags().GetString("arg0"); err == nil {
 			req.Arg0 = v
@@ -462,13 +384,13 @@ var biometricBiometricPromptBuilderSetLogoDescriptionCmd = &cobra.Command{
 	},
 }
 
-var biometricBiometricPromptBuilderSetLogoResCmd = &cobra.Command{
+var biometricPromptBuilderSetLogoResCmd = &cobra.Command{
 	Use:   "set-logo-res",
 	Short: "SetLogoRes RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewBiometricPromptBuilderServiceClient(grpcConn)
+		client := pb.NewPromptBuilderServiceClient(grpcConn)
 		req := &pb.SetLogoResRequest{}
 		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
 			req.Arg0 = v
@@ -481,13 +403,13 @@ var biometricBiometricPromptBuilderSetLogoResCmd = &cobra.Command{
 	},
 }
 
-var biometricBiometricPromptBuilderSetNegativeButtonCmd = &cobra.Command{
+var biometricPromptBuilderSetNegativeButtonCmd = &cobra.Command{
 	Use:   "set-negative-button",
 	Short: "SetNegativeButton RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewBiometricPromptBuilderServiceClient(grpcConn)
+		client := pb.NewPromptBuilderServiceClient(grpcConn)
 		req := &pb.SetNegativeButtonRequest{}
 		if v, err := cmd.Flags().GetString("arg0"); err == nil {
 			req.Arg0 = v
@@ -506,13 +428,13 @@ var biometricBiometricPromptBuilderSetNegativeButtonCmd = &cobra.Command{
 	},
 }
 
-var biometricBiometricPromptBuilderSetSubtitleCmd = &cobra.Command{
+var biometricPromptBuilderSetSubtitleCmd = &cobra.Command{
 	Use:   "set-subtitle",
 	Short: "SetSubtitle RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewBiometricPromptBuilderServiceClient(grpcConn)
+		client := pb.NewPromptBuilderServiceClient(grpcConn)
 		req := &pb.SetSubtitleRequest{}
 		if v, err := cmd.Flags().GetString("arg0"); err == nil {
 			req.Arg0 = v
@@ -525,13 +447,13 @@ var biometricBiometricPromptBuilderSetSubtitleCmd = &cobra.Command{
 	},
 }
 
-var biometricBiometricPromptBuilderSetTitleCmd = &cobra.Command{
+var biometricPromptBuilderSetTitleCmd = &cobra.Command{
 	Use:   "set-title",
 	Short: "SetTitle RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewBiometricPromptBuilderServiceClient(grpcConn)
+		client := pb.NewPromptBuilderServiceClient(grpcConn)
 		req := &pb.SetTitleRequest{}
 		if v, err := cmd.Flags().GetString("arg0"); err == nil {
 			req.Arg0 = v
@@ -544,60 +466,138 @@ var biometricBiometricPromptBuilderSetTitleCmd = &cobra.Command{
 	},
 }
 
+var biometricManagerCmd = &cobra.Command{
+	Use:   "manager",
+	Short: "ManagerService operations",
+}
+
+var biometricManagerCanAuthenticate0Cmd = &cobra.Command{
+	Use:   "can-authenticate0",
+	Short: "CanAuthenticate0 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewManagerServiceClient(grpcConn)
+		req := &pb.CanAuthenticate0Request{}
+		resp, err := client.CanAuthenticate0(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var biometricManagerCanAuthenticate1_1Cmd = &cobra.Command{
+	Use:   "can-authenticate1_1",
+	Short: "CanAuthenticate1_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewManagerServiceClient(grpcConn)
+		req := &pb.CanAuthenticate1_1Request{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.CanAuthenticate1_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var biometricManagerGetLastAuthenticationTimeCmd = &cobra.Command{
+	Use:   "get-last-authentication-time",
+	Short: "GetLastAuthenticationTime RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewManagerServiceClient(grpcConn)
+		req := &pb.GetLastAuthenticationTimeRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetLastAuthenticationTime(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var biometricManagerGetStringsCmd = &cobra.Command{
+	Use:   "get-strings",
+	Short: "GetStrings RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewManagerServiceClient(grpcConn)
+		req := &pb.GetStringsRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetStrings(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
 func init() {
-	biometricBiometricManagerCmd.AddCommand(biometricBiometricManagerCanAuthenticate0Cmd)
-	biometricBiometricManagerCanAuthenticate1_1Cmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	biometricBiometricManagerCmd.AddCommand(biometricBiometricManagerCanAuthenticate1_1Cmd)
-	biometricBiometricManagerGetLastAuthenticationTimeCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	biometricBiometricManagerCmd.AddCommand(biometricBiometricManagerGetLastAuthenticationTimeCmd)
-	biometricBiometricManagerGetStringsCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	biometricBiometricManagerCmd.AddCommand(biometricBiometricManagerGetStringsCmd)
-	biometricCmd.AddCommand(biometricBiometricManagerCmd)
-	biometricBiometricPromptAuthenticate4Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	biometricBiometricPromptAuthenticate4Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	biometricBiometricPromptAuthenticate4Cmd.Flags().Int64("arg2", 0, "arg2 (int64)")
-	biometricBiometricPromptAuthenticate4Cmd.Flags().Int64("arg3", 0, "arg3 (int64)")
-	biometricBiometricPromptCmd.AddCommand(biometricBiometricPromptAuthenticate4Cmd)
-	biometricBiometricPromptAuthenticate3_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	biometricBiometricPromptAuthenticate3_1Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	biometricBiometricPromptAuthenticate3_1Cmd.Flags().Int64("arg2", 0, "arg2 (int64)")
-	biometricBiometricPromptCmd.AddCommand(biometricBiometricPromptAuthenticate3_1Cmd)
-	biometricBiometricPromptCmd.AddCommand(biometricBiometricPromptGetAllowedAuthenticatorsCmd)
-	biometricBiometricPromptCmd.AddCommand(biometricBiometricPromptGetContentViewCmd)
-	biometricBiometricPromptCmd.AddCommand(biometricBiometricPromptGetDescriptionCmd)
-	biometricBiometricPromptCmd.AddCommand(biometricBiometricPromptGetLogoBitmapCmd)
-	biometricBiometricPromptCmd.AddCommand(biometricBiometricPromptGetLogoDescriptionCmd)
-	biometricBiometricPromptCmd.AddCommand(biometricBiometricPromptGetLogoResCmd)
-	biometricBiometricPromptCmd.AddCommand(biometricBiometricPromptGetNegativeButtonTextCmd)
-	biometricBiometricPromptCmd.AddCommand(biometricBiometricPromptGetSubtitleCmd)
-	biometricBiometricPromptCmd.AddCommand(biometricBiometricPromptGetTitleCmd)
-	biometricBiometricPromptCmd.AddCommand(biometricBiometricPromptIsConfirmationRequiredCmd)
-	biometricCmd.AddCommand(biometricBiometricPromptCmd)
-	biometricBiometricPromptBuilderCmd.AddCommand(biometricBiometricPromptBuilderBuildCmd)
-	biometricBiometricPromptBuilderSetAllowedAuthenticatorsCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	biometricBiometricPromptBuilderCmd.AddCommand(biometricBiometricPromptBuilderSetAllowedAuthenticatorsCmd)
-	biometricBiometricPromptBuilderSetConfirmationRequiredCmd.Flags().Bool("arg0", false, "arg0 (bool)")
-	biometricBiometricPromptBuilderCmd.AddCommand(biometricBiometricPromptBuilderSetConfirmationRequiredCmd)
-	biometricBiometricPromptBuilderSetContentViewCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	biometricBiometricPromptBuilderCmd.AddCommand(biometricBiometricPromptBuilderSetContentViewCmd)
-	biometricBiometricPromptBuilderSetDescriptionCmd.Flags().String("arg0", "", "arg0 (string)")
-	biometricBiometricPromptBuilderCmd.AddCommand(biometricBiometricPromptBuilderSetDescriptionCmd)
-	biometricBiometricPromptBuilderSetDeviceCredentialAllowedCmd.Flags().Bool("arg0", false, "arg0 (bool)")
-	biometricBiometricPromptBuilderCmd.AddCommand(biometricBiometricPromptBuilderSetDeviceCredentialAllowedCmd)
-	biometricBiometricPromptBuilderSetLogoBitmapCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	biometricBiometricPromptBuilderCmd.AddCommand(biometricBiometricPromptBuilderSetLogoBitmapCmd)
-	biometricBiometricPromptBuilderSetLogoDescriptionCmd.Flags().String("arg0", "", "arg0 (string)")
-	biometricBiometricPromptBuilderCmd.AddCommand(biometricBiometricPromptBuilderSetLogoDescriptionCmd)
-	biometricBiometricPromptBuilderSetLogoResCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	biometricBiometricPromptBuilderCmd.AddCommand(biometricBiometricPromptBuilderSetLogoResCmd)
-	biometricBiometricPromptBuilderSetNegativeButtonCmd.Flags().String("arg0", "", "arg0 (string)")
-	biometricBiometricPromptBuilderSetNegativeButtonCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	biometricBiometricPromptBuilderSetNegativeButtonCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
-	biometricBiometricPromptBuilderCmd.AddCommand(biometricBiometricPromptBuilderSetNegativeButtonCmd)
-	biometricBiometricPromptBuilderSetSubtitleCmd.Flags().String("arg0", "", "arg0 (string)")
-	biometricBiometricPromptBuilderCmd.AddCommand(biometricBiometricPromptBuilderSetSubtitleCmd)
-	biometricBiometricPromptBuilderSetTitleCmd.Flags().String("arg0", "", "arg0 (string)")
-	biometricBiometricPromptBuilderCmd.AddCommand(biometricBiometricPromptBuilderSetTitleCmd)
-	biometricCmd.AddCommand(biometricBiometricPromptBuilderCmd)
+	biometricPromptAuthenticate4Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	biometricPromptAuthenticate4Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	biometricPromptAuthenticate4Cmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	biometricPromptAuthenticate4Cmd.Flags().Int64("arg3", 0, "arg3 (int64)")
+	biometricPromptCmd.AddCommand(biometricPromptAuthenticate4Cmd)
+	biometricPromptAuthenticate3_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	biometricPromptAuthenticate3_1Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	biometricPromptAuthenticate3_1Cmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	biometricPromptCmd.AddCommand(biometricPromptAuthenticate3_1Cmd)
+	biometricPromptCmd.AddCommand(biometricPromptGetAllowedAuthenticatorsCmd)
+	biometricPromptCmd.AddCommand(biometricPromptGetContentViewCmd)
+	biometricPromptCmd.AddCommand(biometricPromptGetDescriptionCmd)
+	biometricPromptCmd.AddCommand(biometricPromptGetLogoBitmapCmd)
+	biometricPromptCmd.AddCommand(biometricPromptGetLogoDescriptionCmd)
+	biometricPromptCmd.AddCommand(biometricPromptGetLogoResCmd)
+	biometricPromptCmd.AddCommand(biometricPromptGetNegativeButtonTextCmd)
+	biometricPromptCmd.AddCommand(biometricPromptGetSubtitleCmd)
+	biometricPromptCmd.AddCommand(biometricPromptGetTitleCmd)
+	biometricPromptCmd.AddCommand(biometricPromptIsConfirmationRequiredCmd)
+	biometricCmd.AddCommand(biometricPromptCmd)
+	biometricPromptBuilderCmd.AddCommand(biometricPromptBuilderBuildCmd)
+	biometricPromptBuilderSetAllowedAuthenticatorsCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	biometricPromptBuilderCmd.AddCommand(biometricPromptBuilderSetAllowedAuthenticatorsCmd)
+	biometricPromptBuilderSetConfirmationRequiredCmd.Flags().Bool("arg0", false, "arg0 (bool)")
+	biometricPromptBuilderCmd.AddCommand(biometricPromptBuilderSetConfirmationRequiredCmd)
+	biometricPromptBuilderSetContentViewCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	biometricPromptBuilderCmd.AddCommand(biometricPromptBuilderSetContentViewCmd)
+	biometricPromptBuilderSetDescriptionCmd.Flags().String("arg0", "", "arg0 (string)")
+	biometricPromptBuilderCmd.AddCommand(biometricPromptBuilderSetDescriptionCmd)
+	biometricPromptBuilderSetDeviceCredentialAllowedCmd.Flags().Bool("arg0", false, "arg0 (bool)")
+	biometricPromptBuilderCmd.AddCommand(biometricPromptBuilderSetDeviceCredentialAllowedCmd)
+	biometricPromptBuilderSetLogoBitmapCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	biometricPromptBuilderCmd.AddCommand(biometricPromptBuilderSetLogoBitmapCmd)
+	biometricPromptBuilderSetLogoDescriptionCmd.Flags().String("arg0", "", "arg0 (string)")
+	biometricPromptBuilderCmd.AddCommand(biometricPromptBuilderSetLogoDescriptionCmd)
+	biometricPromptBuilderSetLogoResCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	biometricPromptBuilderCmd.AddCommand(biometricPromptBuilderSetLogoResCmd)
+	biometricPromptBuilderSetNegativeButtonCmd.Flags().String("arg0", "", "arg0 (string)")
+	biometricPromptBuilderSetNegativeButtonCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	biometricPromptBuilderSetNegativeButtonCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	biometricPromptBuilderCmd.AddCommand(biometricPromptBuilderSetNegativeButtonCmd)
+	biometricPromptBuilderSetSubtitleCmd.Flags().String("arg0", "", "arg0 (string)")
+	biometricPromptBuilderCmd.AddCommand(biometricPromptBuilderSetSubtitleCmd)
+	biometricPromptBuilderSetTitleCmd.Flags().String("arg0", "", "arg0 (string)")
+	biometricPromptBuilderCmd.AddCommand(biometricPromptBuilderSetTitleCmd)
+	biometricCmd.AddCommand(biometricPromptBuilderCmd)
+	biometricManagerCmd.AddCommand(biometricManagerCanAuthenticate0Cmd)
+	biometricManagerCanAuthenticate1_1Cmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	biometricManagerCmd.AddCommand(biometricManagerCanAuthenticate1_1Cmd)
+	biometricManagerGetLastAuthenticationTimeCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	biometricManagerCmd.AddCommand(biometricManagerGetLastAuthenticationTimeCmd)
+	biometricManagerGetStringsCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	biometricManagerCmd.AddCommand(biometricManagerGetStringsCmd)
+	biometricCmd.AddCommand(biometricManagerCmd)
 	rootCmd.AddCommand(biometricCmd)
 }

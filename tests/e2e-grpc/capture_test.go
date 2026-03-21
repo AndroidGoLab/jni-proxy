@@ -115,7 +115,7 @@ func readFileHeader(t *testing.T, path string, n int) []byte {
 
 	f, err := os.Open(path)
 	require.NoError(t, err)
-	defer f.Close()
+	defer func() { _ = f.Close() }()
 
 	buf := make([]byte, n)
 	nRead, err := f.Read(buf)

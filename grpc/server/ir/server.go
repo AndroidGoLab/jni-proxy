@@ -7,10 +7,10 @@ import (
 
 	"github.com/AndroidGoLab/jni"
 
-	"github.com/AndroidGoLab/jni/app"
 	"github.com/AndroidGoLab/jni-proxy/handlestore"
-	jnipkg "github.com/AndroidGoLab/jni/hardware/ir"
 	pb "github.com/AndroidGoLab/jni-proxy/proto/ir"
+	"github.com/AndroidGoLab/jni/app"
+	jnipkg "github.com/AndroidGoLab/jni/hardware/ir"
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"
 )
@@ -23,7 +23,7 @@ type ConsumerIrManagerServer struct {
 }
 
 func (s *ConsumerIrManagerServer) GetCarrierFrequencies(_ context.Context, req *pb.GetCarrierFrequenciesRequest) (*pb.GetCarrierFrequenciesResponse, error) {
-	mgr, err := jnipkg.NewconsumerIrManager(s.Ctx)
+	mgr, err := jnipkg.NewConsumerIrManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -46,7 +46,7 @@ func (s *ConsumerIrManagerServer) GetCarrierFrequencies(_ context.Context, req *
 }
 
 func (s *ConsumerIrManagerServer) HasIrEmitter(_ context.Context, req *pb.HasIrEmitterRequest) (*pb.HasIrEmitterResponse, error) {
-	mgr, err := jnipkg.NewconsumerIrManager(s.Ctx)
+	mgr, err := jnipkg.NewConsumerIrManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -60,7 +60,7 @@ func (s *ConsumerIrManagerServer) HasIrEmitter(_ context.Context, req *pb.HasIrE
 }
 
 func (s *ConsumerIrManagerServer) Transmit(_ context.Context, req *pb.TransmitRequest) (*pb.TransmitResponse, error) {
-	mgr, err := jnipkg.NewconsumerIrManager(s.Ctx)
+	mgr, err := jnipkg.NewConsumerIrManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}

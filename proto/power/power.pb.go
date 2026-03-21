@@ -3004,8 +3004,8 @@ const file_proto_power_power_proto_rawDesc = "" +
 	"\x15SetWorkSourceResponse\"\x11\n" +
 	"\x0fToStringRequest\"*\n" +
 	"\x10ToStringResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\tR\x06result2\x8e\x16\n" +
-	"\x13PowerManagerService\x12t\n" +
+	"\x06result\x18\x01 \x01(\tR\x06result2\x89\x16\n" +
+	"\x0eManagerService\x12t\n" +
 	"\x1bAddThermalHeadroomListener1\x12).power.AddThermalHeadroomListener1Request\x1a*.power.AddThermalHeadroomListener1Response\x12z\n" +
 	"\x1dAddThermalHeadroomListener2_1\x12+.power.AddThermalHeadroomListener2_1Request\x1a,.power.AddThermalHeadroomListener2_1Response\x12n\n" +
 	"\x19AddThermalStatusListener1\x12'.power.AddThermalStatusListener1Request\x1a(.power.AddThermalStatusListener1Response\x12t\n" +
@@ -3032,8 +3032,8 @@ const file_proto_power_power_proto_rawDesc = "" +
 	"\vNewWakeLock\x12\x19.power.NewWakeLockRequest\x1a\x1a.power.NewWakeLockResponse\x125\n" +
 	"\x06Reboot\x12\x14.power.RebootRequest\x1a\x15.power.RebootResponse\x12z\n" +
 	"\x1dRemoveThermalHeadroomListener\x12+.power.RemoveThermalHeadroomListenerRequest\x1a,.power.RemoveThermalHeadroomListenerResponse\x12t\n" +
-	"\x1bRemoveThermalStatusListener\x12).power.RemoveThermalStatusListenerRequest\x1a*.power.RemoveThermalStatusListenerResponse2\x90\x05\n" +
-	"\x1bPowerManagerWakeLockService\x12;\n" +
+	"\x1bRemoveThermalStatusListener\x12).power.RemoveThermalStatusListenerRequest\x1a*.power.RemoveThermalStatusListenerResponse2\x8b\x05\n" +
+	"\x16ManagerWakeLockService\x12;\n" +
 	"\bAcquire0\x12\x16.power.Acquire0Request\x1a\x17.power.Acquire0Response\x12A\n" +
 	"\n" +
 	"Acquire1_1\x12\x18.power.Acquire1_1Request\x1a\x19.power.Acquire1_1Response\x125\n" +
@@ -3044,7 +3044,7 @@ const file_proto_power_power_proto_rawDesc = "" +
 	"\x13SetReferenceCounted\x12!.power.SetReferenceCountedRequest\x1a\".power.SetReferenceCountedResponse\x12S\n" +
 	"\x10SetStateListener\x12\x1e.power.SetStateListenerRequest\x1a\x1f.power.SetStateListenerResponse\x12J\n" +
 	"\rSetWorkSource\x12\x1b.power.SetWorkSourceRequest\x1a\x1c.power.SetWorkSourceResponse\x12;\n" +
-	"\bToString\x12\x16.power.ToStringRequest\x1a\x17.power.ToStringResponseB(Z&github.com/AndroidGoLab/jni-proxy/proto/powerb\x06proto3"
+	"\bToString\x12\x16.power.ToStringRequest\x1a\x17.power.ToStringResponseB/Z-github.com/AndroidGoLab/jni-proxy/proto/powerb\x06proto3"
 
 var (
 	file_proto_power_power_proto_rawDescOnce sync.Once
@@ -3132,76 +3132,76 @@ var file_proto_power_power_proto_goTypes = []any{
 	(*ToStringResponse)(nil),                                 // 69: power.ToStringResponse
 }
 var file_proto_power_power_proto_depIdxs = []int32{
-	0,  // 0: power.PowerManagerService.AddThermalHeadroomListener1:input_type -> power.AddThermalHeadroomListener1Request
-	2,  // 1: power.PowerManagerService.AddThermalHeadroomListener2_1:input_type -> power.AddThermalHeadroomListener2_1Request
-	4,  // 2: power.PowerManagerService.AddThermalStatusListener1:input_type -> power.AddThermalStatusListener1Request
-	6,  // 3: power.PowerManagerService.AddThermalStatusListener2_1:input_type -> power.AddThermalStatusListener2_1Request
-	8,  // 4: power.PowerManagerService.GetBatteryDischargePrediction:input_type -> power.GetBatteryDischargePredictionRequest
-	10, // 5: power.PowerManagerService.GetCurrentThermalStatus:input_type -> power.GetCurrentThermalStatusRequest
-	12, // 6: power.PowerManagerService.GetLocationPowerSaveMode:input_type -> power.GetLocationPowerSaveModeRequest
-	14, // 7: power.PowerManagerService.GetThermalHeadroom:input_type -> power.GetThermalHeadroomRequest
-	16, // 8: power.PowerManagerService.IsAllowedInLowPowerStandby1:input_type -> power.IsAllowedInLowPowerStandby1Request
-	18, // 9: power.PowerManagerService.IsAllowedInLowPowerStandby1_1:input_type -> power.IsAllowedInLowPowerStandby1_1Request
-	20, // 10: power.PowerManagerService.IsBatteryDischargePredictionPersonalized:input_type -> power.IsBatteryDischargePredictionPersonalizedRequest
-	22, // 11: power.PowerManagerService.IsDeviceIdleMode:input_type -> power.IsDeviceIdleModeRequest
-	24, // 12: power.PowerManagerService.IsDeviceLightIdleMode:input_type -> power.IsDeviceLightIdleModeRequest
-	26, // 13: power.PowerManagerService.IsExemptFromLowPowerStandby:input_type -> power.IsExemptFromLowPowerStandbyRequest
-	28, // 14: power.PowerManagerService.IsIgnoringBatteryOptimizations:input_type -> power.IsIgnoringBatteryOptimizationsRequest
-	30, // 15: power.PowerManagerService.IsInteractive:input_type -> power.IsInteractiveRequest
-	32, // 16: power.PowerManagerService.IsLowPowerStandbyEnabled:input_type -> power.IsLowPowerStandbyEnabledRequest
-	34, // 17: power.PowerManagerService.IsPowerSaveMode:input_type -> power.IsPowerSaveModeRequest
-	36, // 18: power.PowerManagerService.IsRebootingUserspaceSupported:input_type -> power.IsRebootingUserspaceSupportedRequest
-	38, // 19: power.PowerManagerService.IsScreenOn:input_type -> power.IsScreenOnRequest
-	40, // 20: power.PowerManagerService.IsSustainedPerformanceModeSupported:input_type -> power.IsSustainedPerformanceModeSupportedRequest
-	42, // 21: power.PowerManagerService.IsWakeLockLevelSupported:input_type -> power.IsWakeLockLevelSupportedRequest
-	44, // 22: power.PowerManagerService.NewWakeLock:input_type -> power.NewWakeLockRequest
-	46, // 23: power.PowerManagerService.Reboot:input_type -> power.RebootRequest
-	48, // 24: power.PowerManagerService.RemoveThermalHeadroomListener:input_type -> power.RemoveThermalHeadroomListenerRequest
-	50, // 25: power.PowerManagerService.RemoveThermalStatusListener:input_type -> power.RemoveThermalStatusListenerRequest
-	52, // 26: power.PowerManagerWakeLockService.Acquire0:input_type -> power.Acquire0Request
-	54, // 27: power.PowerManagerWakeLockService.Acquire1_1:input_type -> power.Acquire1_1Request
-	56, // 28: power.PowerManagerWakeLockService.IsHeld:input_type -> power.IsHeldRequest
-	58, // 29: power.PowerManagerWakeLockService.Release0:input_type -> power.Release0Request
-	60, // 30: power.PowerManagerWakeLockService.Release1_1:input_type -> power.Release1_1Request
-	62, // 31: power.PowerManagerWakeLockService.SetReferenceCounted:input_type -> power.SetReferenceCountedRequest
-	64, // 32: power.PowerManagerWakeLockService.SetStateListener:input_type -> power.SetStateListenerRequest
-	66, // 33: power.PowerManagerWakeLockService.SetWorkSource:input_type -> power.SetWorkSourceRequest
-	68, // 34: power.PowerManagerWakeLockService.ToString:input_type -> power.ToStringRequest
-	1,  // 35: power.PowerManagerService.AddThermalHeadroomListener1:output_type -> power.AddThermalHeadroomListener1Response
-	3,  // 36: power.PowerManagerService.AddThermalHeadroomListener2_1:output_type -> power.AddThermalHeadroomListener2_1Response
-	5,  // 37: power.PowerManagerService.AddThermalStatusListener1:output_type -> power.AddThermalStatusListener1Response
-	7,  // 38: power.PowerManagerService.AddThermalStatusListener2_1:output_type -> power.AddThermalStatusListener2_1Response
-	9,  // 39: power.PowerManagerService.GetBatteryDischargePrediction:output_type -> power.GetBatteryDischargePredictionResponse
-	11, // 40: power.PowerManagerService.GetCurrentThermalStatus:output_type -> power.GetCurrentThermalStatusResponse
-	13, // 41: power.PowerManagerService.GetLocationPowerSaveMode:output_type -> power.GetLocationPowerSaveModeResponse
-	15, // 42: power.PowerManagerService.GetThermalHeadroom:output_type -> power.GetThermalHeadroomResponse
-	17, // 43: power.PowerManagerService.IsAllowedInLowPowerStandby1:output_type -> power.IsAllowedInLowPowerStandby1Response
-	19, // 44: power.PowerManagerService.IsAllowedInLowPowerStandby1_1:output_type -> power.IsAllowedInLowPowerStandby1_1Response
-	21, // 45: power.PowerManagerService.IsBatteryDischargePredictionPersonalized:output_type -> power.IsBatteryDischargePredictionPersonalizedResponse
-	23, // 46: power.PowerManagerService.IsDeviceIdleMode:output_type -> power.IsDeviceIdleModeResponse
-	25, // 47: power.PowerManagerService.IsDeviceLightIdleMode:output_type -> power.IsDeviceLightIdleModeResponse
-	27, // 48: power.PowerManagerService.IsExemptFromLowPowerStandby:output_type -> power.IsExemptFromLowPowerStandbyResponse
-	29, // 49: power.PowerManagerService.IsIgnoringBatteryOptimizations:output_type -> power.IsIgnoringBatteryOptimizationsResponse
-	31, // 50: power.PowerManagerService.IsInteractive:output_type -> power.IsInteractiveResponse
-	33, // 51: power.PowerManagerService.IsLowPowerStandbyEnabled:output_type -> power.IsLowPowerStandbyEnabledResponse
-	35, // 52: power.PowerManagerService.IsPowerSaveMode:output_type -> power.IsPowerSaveModeResponse
-	37, // 53: power.PowerManagerService.IsRebootingUserspaceSupported:output_type -> power.IsRebootingUserspaceSupportedResponse
-	39, // 54: power.PowerManagerService.IsScreenOn:output_type -> power.IsScreenOnResponse
-	41, // 55: power.PowerManagerService.IsSustainedPerformanceModeSupported:output_type -> power.IsSustainedPerformanceModeSupportedResponse
-	43, // 56: power.PowerManagerService.IsWakeLockLevelSupported:output_type -> power.IsWakeLockLevelSupportedResponse
-	45, // 57: power.PowerManagerService.NewWakeLock:output_type -> power.NewWakeLockResponse
-	47, // 58: power.PowerManagerService.Reboot:output_type -> power.RebootResponse
-	49, // 59: power.PowerManagerService.RemoveThermalHeadroomListener:output_type -> power.RemoveThermalHeadroomListenerResponse
-	51, // 60: power.PowerManagerService.RemoveThermalStatusListener:output_type -> power.RemoveThermalStatusListenerResponse
-	53, // 61: power.PowerManagerWakeLockService.Acquire0:output_type -> power.Acquire0Response
-	55, // 62: power.PowerManagerWakeLockService.Acquire1_1:output_type -> power.Acquire1_1Response
-	57, // 63: power.PowerManagerWakeLockService.IsHeld:output_type -> power.IsHeldResponse
-	59, // 64: power.PowerManagerWakeLockService.Release0:output_type -> power.Release0Response
-	61, // 65: power.PowerManagerWakeLockService.Release1_1:output_type -> power.Release1_1Response
-	63, // 66: power.PowerManagerWakeLockService.SetReferenceCounted:output_type -> power.SetReferenceCountedResponse
-	65, // 67: power.PowerManagerWakeLockService.SetStateListener:output_type -> power.SetStateListenerResponse
-	67, // 68: power.PowerManagerWakeLockService.SetWorkSource:output_type -> power.SetWorkSourceResponse
-	69, // 69: power.PowerManagerWakeLockService.ToString:output_type -> power.ToStringResponse
+	0,  // 0: power.ManagerService.AddThermalHeadroomListener1:input_type -> power.AddThermalHeadroomListener1Request
+	2,  // 1: power.ManagerService.AddThermalHeadroomListener2_1:input_type -> power.AddThermalHeadroomListener2_1Request
+	4,  // 2: power.ManagerService.AddThermalStatusListener1:input_type -> power.AddThermalStatusListener1Request
+	6,  // 3: power.ManagerService.AddThermalStatusListener2_1:input_type -> power.AddThermalStatusListener2_1Request
+	8,  // 4: power.ManagerService.GetBatteryDischargePrediction:input_type -> power.GetBatteryDischargePredictionRequest
+	10, // 5: power.ManagerService.GetCurrentThermalStatus:input_type -> power.GetCurrentThermalStatusRequest
+	12, // 6: power.ManagerService.GetLocationPowerSaveMode:input_type -> power.GetLocationPowerSaveModeRequest
+	14, // 7: power.ManagerService.GetThermalHeadroom:input_type -> power.GetThermalHeadroomRequest
+	16, // 8: power.ManagerService.IsAllowedInLowPowerStandby1:input_type -> power.IsAllowedInLowPowerStandby1Request
+	18, // 9: power.ManagerService.IsAllowedInLowPowerStandby1_1:input_type -> power.IsAllowedInLowPowerStandby1_1Request
+	20, // 10: power.ManagerService.IsBatteryDischargePredictionPersonalized:input_type -> power.IsBatteryDischargePredictionPersonalizedRequest
+	22, // 11: power.ManagerService.IsDeviceIdleMode:input_type -> power.IsDeviceIdleModeRequest
+	24, // 12: power.ManagerService.IsDeviceLightIdleMode:input_type -> power.IsDeviceLightIdleModeRequest
+	26, // 13: power.ManagerService.IsExemptFromLowPowerStandby:input_type -> power.IsExemptFromLowPowerStandbyRequest
+	28, // 14: power.ManagerService.IsIgnoringBatteryOptimizations:input_type -> power.IsIgnoringBatteryOptimizationsRequest
+	30, // 15: power.ManagerService.IsInteractive:input_type -> power.IsInteractiveRequest
+	32, // 16: power.ManagerService.IsLowPowerStandbyEnabled:input_type -> power.IsLowPowerStandbyEnabledRequest
+	34, // 17: power.ManagerService.IsPowerSaveMode:input_type -> power.IsPowerSaveModeRequest
+	36, // 18: power.ManagerService.IsRebootingUserspaceSupported:input_type -> power.IsRebootingUserspaceSupportedRequest
+	38, // 19: power.ManagerService.IsScreenOn:input_type -> power.IsScreenOnRequest
+	40, // 20: power.ManagerService.IsSustainedPerformanceModeSupported:input_type -> power.IsSustainedPerformanceModeSupportedRequest
+	42, // 21: power.ManagerService.IsWakeLockLevelSupported:input_type -> power.IsWakeLockLevelSupportedRequest
+	44, // 22: power.ManagerService.NewWakeLock:input_type -> power.NewWakeLockRequest
+	46, // 23: power.ManagerService.Reboot:input_type -> power.RebootRequest
+	48, // 24: power.ManagerService.RemoveThermalHeadroomListener:input_type -> power.RemoveThermalHeadroomListenerRequest
+	50, // 25: power.ManagerService.RemoveThermalStatusListener:input_type -> power.RemoveThermalStatusListenerRequest
+	52, // 26: power.ManagerWakeLockService.Acquire0:input_type -> power.Acquire0Request
+	54, // 27: power.ManagerWakeLockService.Acquire1_1:input_type -> power.Acquire1_1Request
+	56, // 28: power.ManagerWakeLockService.IsHeld:input_type -> power.IsHeldRequest
+	58, // 29: power.ManagerWakeLockService.Release0:input_type -> power.Release0Request
+	60, // 30: power.ManagerWakeLockService.Release1_1:input_type -> power.Release1_1Request
+	62, // 31: power.ManagerWakeLockService.SetReferenceCounted:input_type -> power.SetReferenceCountedRequest
+	64, // 32: power.ManagerWakeLockService.SetStateListener:input_type -> power.SetStateListenerRequest
+	66, // 33: power.ManagerWakeLockService.SetWorkSource:input_type -> power.SetWorkSourceRequest
+	68, // 34: power.ManagerWakeLockService.ToString:input_type -> power.ToStringRequest
+	1,  // 35: power.ManagerService.AddThermalHeadroomListener1:output_type -> power.AddThermalHeadroomListener1Response
+	3,  // 36: power.ManagerService.AddThermalHeadroomListener2_1:output_type -> power.AddThermalHeadroomListener2_1Response
+	5,  // 37: power.ManagerService.AddThermalStatusListener1:output_type -> power.AddThermalStatusListener1Response
+	7,  // 38: power.ManagerService.AddThermalStatusListener2_1:output_type -> power.AddThermalStatusListener2_1Response
+	9,  // 39: power.ManagerService.GetBatteryDischargePrediction:output_type -> power.GetBatteryDischargePredictionResponse
+	11, // 40: power.ManagerService.GetCurrentThermalStatus:output_type -> power.GetCurrentThermalStatusResponse
+	13, // 41: power.ManagerService.GetLocationPowerSaveMode:output_type -> power.GetLocationPowerSaveModeResponse
+	15, // 42: power.ManagerService.GetThermalHeadroom:output_type -> power.GetThermalHeadroomResponse
+	17, // 43: power.ManagerService.IsAllowedInLowPowerStandby1:output_type -> power.IsAllowedInLowPowerStandby1Response
+	19, // 44: power.ManagerService.IsAllowedInLowPowerStandby1_1:output_type -> power.IsAllowedInLowPowerStandby1_1Response
+	21, // 45: power.ManagerService.IsBatteryDischargePredictionPersonalized:output_type -> power.IsBatteryDischargePredictionPersonalizedResponse
+	23, // 46: power.ManagerService.IsDeviceIdleMode:output_type -> power.IsDeviceIdleModeResponse
+	25, // 47: power.ManagerService.IsDeviceLightIdleMode:output_type -> power.IsDeviceLightIdleModeResponse
+	27, // 48: power.ManagerService.IsExemptFromLowPowerStandby:output_type -> power.IsExemptFromLowPowerStandbyResponse
+	29, // 49: power.ManagerService.IsIgnoringBatteryOptimizations:output_type -> power.IsIgnoringBatteryOptimizationsResponse
+	31, // 50: power.ManagerService.IsInteractive:output_type -> power.IsInteractiveResponse
+	33, // 51: power.ManagerService.IsLowPowerStandbyEnabled:output_type -> power.IsLowPowerStandbyEnabledResponse
+	35, // 52: power.ManagerService.IsPowerSaveMode:output_type -> power.IsPowerSaveModeResponse
+	37, // 53: power.ManagerService.IsRebootingUserspaceSupported:output_type -> power.IsRebootingUserspaceSupportedResponse
+	39, // 54: power.ManagerService.IsScreenOn:output_type -> power.IsScreenOnResponse
+	41, // 55: power.ManagerService.IsSustainedPerformanceModeSupported:output_type -> power.IsSustainedPerformanceModeSupportedResponse
+	43, // 56: power.ManagerService.IsWakeLockLevelSupported:output_type -> power.IsWakeLockLevelSupportedResponse
+	45, // 57: power.ManagerService.NewWakeLock:output_type -> power.NewWakeLockResponse
+	47, // 58: power.ManagerService.Reboot:output_type -> power.RebootResponse
+	49, // 59: power.ManagerService.RemoveThermalHeadroomListener:output_type -> power.RemoveThermalHeadroomListenerResponse
+	51, // 60: power.ManagerService.RemoveThermalStatusListener:output_type -> power.RemoveThermalStatusListenerResponse
+	53, // 61: power.ManagerWakeLockService.Acquire0:output_type -> power.Acquire0Response
+	55, // 62: power.ManagerWakeLockService.Acquire1_1:output_type -> power.Acquire1_1Response
+	57, // 63: power.ManagerWakeLockService.IsHeld:output_type -> power.IsHeldResponse
+	59, // 64: power.ManagerWakeLockService.Release0:output_type -> power.Release0Response
+	61, // 65: power.ManagerWakeLockService.Release1_1:output_type -> power.Release1_1Response
+	63, // 66: power.ManagerWakeLockService.SetReferenceCounted:output_type -> power.SetReferenceCountedResponse
+	65, // 67: power.ManagerWakeLockService.SetStateListener:output_type -> power.SetStateListenerResponse
+	67, // 68: power.ManagerWakeLockService.SetWorkSource:output_type -> power.SetWorkSourceResponse
+	69, // 69: power.ManagerWakeLockService.ToString:output_type -> power.ToStringResponse
 	35, // [35:70] is the sub-list for method output_type
 	0,  // [0:35] is the sub-list for method input_type
 	0,  // [0:0] is the sub-list for extension type_name

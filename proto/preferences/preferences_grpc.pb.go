@@ -21,329 +21,444 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
-	PreferencesService_GetString_FullMethodName = "/preferences.PreferencesService/GetString"
-	PreferencesService_GetInt_FullMethodName    = "/preferences.PreferencesService/GetInt"
-	PreferencesService_GetBool_FullMethodName   = "/preferences.PreferencesService/GetBool"
-	PreferencesService_GetFloat_FullMethodName  = "/preferences.PreferencesService/GetFloat"
-	PreferencesService_GetLong_FullMethodName   = "/preferences.PreferencesService/GetLong"
-	PreferencesService_Contains_FullMethodName  = "/preferences.PreferencesService/Contains"
-	PreferencesService_Edit_FullMethodName      = "/preferences.PreferencesService/Edit"
+	SharedPreferencesService_Contains_FullMethodName                                   = "/preferences.SharedPreferencesService/Contains"
+	SharedPreferencesService_Edit_FullMethodName                                       = "/preferences.SharedPreferencesService/Edit"
+	SharedPreferencesService_GetBoolean_FullMethodName                                 = "/preferences.SharedPreferencesService/GetBoolean"
+	SharedPreferencesService_GetFloat_FullMethodName                                   = "/preferences.SharedPreferencesService/GetFloat"
+	SharedPreferencesService_GetInt_FullMethodName                                     = "/preferences.SharedPreferencesService/GetInt"
+	SharedPreferencesService_GetLong_FullMethodName                                    = "/preferences.SharedPreferencesService/GetLong"
+	SharedPreferencesService_GetString_FullMethodName                                  = "/preferences.SharedPreferencesService/GetString"
+	SharedPreferencesService_GetStringSet_FullMethodName                               = "/preferences.SharedPreferencesService/GetStringSet"
+	SharedPreferencesService_RegisterOnSharedPreferenceChangeListener_FullMethodName   = "/preferences.SharedPreferencesService/RegisterOnSharedPreferenceChangeListener"
+	SharedPreferencesService_UnregisterOnSharedPreferenceChangeListener_FullMethodName = "/preferences.SharedPreferencesService/UnregisterOnSharedPreferenceChangeListener"
 )
 
-// PreferencesServiceClient is the client API for PreferencesService service.
+// SharedPreferencesServiceClient is the client API for SharedPreferencesService service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type PreferencesServiceClient interface {
-	GetString(ctx context.Context, in *GetStringRequest, opts ...grpc.CallOption) (*GetStringResponse, error)
-	GetInt(ctx context.Context, in *GetIntRequest, opts ...grpc.CallOption) (*GetIntResponse, error)
-	GetBool(ctx context.Context, in *GetBoolRequest, opts ...grpc.CallOption) (*GetBoolResponse, error)
-	GetFloat(ctx context.Context, in *GetFloatRequest, opts ...grpc.CallOption) (*GetFloatResponse, error)
-	GetLong(ctx context.Context, in *GetLongRequest, opts ...grpc.CallOption) (*GetLongResponse, error)
+type SharedPreferencesServiceClient interface {
 	Contains(ctx context.Context, in *ContainsRequest, opts ...grpc.CallOption) (*ContainsResponse, error)
 	Edit(ctx context.Context, in *EditRequest, opts ...grpc.CallOption) (*EditResponse, error)
+	GetBoolean(ctx context.Context, in *GetBooleanRequest, opts ...grpc.CallOption) (*GetBooleanResponse, error)
+	GetFloat(ctx context.Context, in *GetFloatRequest, opts ...grpc.CallOption) (*GetFloatResponse, error)
+	GetInt(ctx context.Context, in *GetIntRequest, opts ...grpc.CallOption) (*GetIntResponse, error)
+	GetLong(ctx context.Context, in *GetLongRequest, opts ...grpc.CallOption) (*GetLongResponse, error)
+	GetString(ctx context.Context, in *GetStringRequest, opts ...grpc.CallOption) (*GetStringResponse, error)
+	GetStringSet(ctx context.Context, in *GetStringSetRequest, opts ...grpc.CallOption) (*GetStringSetResponse, error)
+	RegisterOnSharedPreferenceChangeListener(ctx context.Context, in *RegisterOnSharedPreferenceChangeListenerRequest, opts ...grpc.CallOption) (*RegisterOnSharedPreferenceChangeListenerResponse, error)
+	UnregisterOnSharedPreferenceChangeListener(ctx context.Context, in *UnregisterOnSharedPreferenceChangeListenerRequest, opts ...grpc.CallOption) (*UnregisterOnSharedPreferenceChangeListenerResponse, error)
 }
 
-type preferencesServiceClient struct {
+type sharedPreferencesServiceClient struct {
 	cc grpc.ClientConnInterface
 }
 
-func NewPreferencesServiceClient(cc grpc.ClientConnInterface) PreferencesServiceClient {
-	return &preferencesServiceClient{cc}
+func NewSharedPreferencesServiceClient(cc grpc.ClientConnInterface) SharedPreferencesServiceClient {
+	return &sharedPreferencesServiceClient{cc}
 }
 
-func (c *preferencesServiceClient) GetString(ctx context.Context, in *GetStringRequest, opts ...grpc.CallOption) (*GetStringResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetStringResponse)
-	err := c.cc.Invoke(ctx, PreferencesService_GetString_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *preferencesServiceClient) GetInt(ctx context.Context, in *GetIntRequest, opts ...grpc.CallOption) (*GetIntResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetIntResponse)
-	err := c.cc.Invoke(ctx, PreferencesService_GetInt_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *preferencesServiceClient) GetBool(ctx context.Context, in *GetBoolRequest, opts ...grpc.CallOption) (*GetBoolResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetBoolResponse)
-	err := c.cc.Invoke(ctx, PreferencesService_GetBool_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *preferencesServiceClient) GetFloat(ctx context.Context, in *GetFloatRequest, opts ...grpc.CallOption) (*GetFloatResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetFloatResponse)
-	err := c.cc.Invoke(ctx, PreferencesService_GetFloat_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *preferencesServiceClient) GetLong(ctx context.Context, in *GetLongRequest, opts ...grpc.CallOption) (*GetLongResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetLongResponse)
-	err := c.cc.Invoke(ctx, PreferencesService_GetLong_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *preferencesServiceClient) Contains(ctx context.Context, in *ContainsRequest, opts ...grpc.CallOption) (*ContainsResponse, error) {
+func (c *sharedPreferencesServiceClient) Contains(ctx context.Context, in *ContainsRequest, opts ...grpc.CallOption) (*ContainsResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(ContainsResponse)
-	err := c.cc.Invoke(ctx, PreferencesService_Contains_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, SharedPreferencesService_Contains_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *preferencesServiceClient) Edit(ctx context.Context, in *EditRequest, opts ...grpc.CallOption) (*EditResponse, error) {
+func (c *sharedPreferencesServiceClient) Edit(ctx context.Context, in *EditRequest, opts ...grpc.CallOption) (*EditResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(EditResponse)
-	err := c.cc.Invoke(ctx, PreferencesService_Edit_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, SharedPreferencesService_Edit_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-// PreferencesServiceServer is the server API for PreferencesService service.
-// All implementations must embed UnimplementedPreferencesServiceServer
-// for forward compatibility.
-type PreferencesServiceServer interface {
-	GetString(context.Context, *GetStringRequest) (*GetStringResponse, error)
-	GetInt(context.Context, *GetIntRequest) (*GetIntResponse, error)
-	GetBool(context.Context, *GetBoolRequest) (*GetBoolResponse, error)
-	GetFloat(context.Context, *GetFloatRequest) (*GetFloatResponse, error)
-	GetLong(context.Context, *GetLongRequest) (*GetLongResponse, error)
-	Contains(context.Context, *ContainsRequest) (*ContainsResponse, error)
-	Edit(context.Context, *EditRequest) (*EditResponse, error)
-	mustEmbedUnimplementedPreferencesServiceServer()
+func (c *sharedPreferencesServiceClient) GetBoolean(ctx context.Context, in *GetBooleanRequest, opts ...grpc.CallOption) (*GetBooleanResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetBooleanResponse)
+	err := c.cc.Invoke(ctx, SharedPreferencesService_GetBoolean_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
 }
 
-// UnimplementedPreferencesServiceServer must be embedded to have
+func (c *sharedPreferencesServiceClient) GetFloat(ctx context.Context, in *GetFloatRequest, opts ...grpc.CallOption) (*GetFloatResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetFloatResponse)
+	err := c.cc.Invoke(ctx, SharedPreferencesService_GetFloat_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *sharedPreferencesServiceClient) GetInt(ctx context.Context, in *GetIntRequest, opts ...grpc.CallOption) (*GetIntResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetIntResponse)
+	err := c.cc.Invoke(ctx, SharedPreferencesService_GetInt_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *sharedPreferencesServiceClient) GetLong(ctx context.Context, in *GetLongRequest, opts ...grpc.CallOption) (*GetLongResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetLongResponse)
+	err := c.cc.Invoke(ctx, SharedPreferencesService_GetLong_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *sharedPreferencesServiceClient) GetString(ctx context.Context, in *GetStringRequest, opts ...grpc.CallOption) (*GetStringResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetStringResponse)
+	err := c.cc.Invoke(ctx, SharedPreferencesService_GetString_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *sharedPreferencesServiceClient) GetStringSet(ctx context.Context, in *GetStringSetRequest, opts ...grpc.CallOption) (*GetStringSetResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetStringSetResponse)
+	err := c.cc.Invoke(ctx, SharedPreferencesService_GetStringSet_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *sharedPreferencesServiceClient) RegisterOnSharedPreferenceChangeListener(ctx context.Context, in *RegisterOnSharedPreferenceChangeListenerRequest, opts ...grpc.CallOption) (*RegisterOnSharedPreferenceChangeListenerResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(RegisterOnSharedPreferenceChangeListenerResponse)
+	err := c.cc.Invoke(ctx, SharedPreferencesService_RegisterOnSharedPreferenceChangeListener_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *sharedPreferencesServiceClient) UnregisterOnSharedPreferenceChangeListener(ctx context.Context, in *UnregisterOnSharedPreferenceChangeListenerRequest, opts ...grpc.CallOption) (*UnregisterOnSharedPreferenceChangeListenerResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(UnregisterOnSharedPreferenceChangeListenerResponse)
+	err := c.cc.Invoke(ctx, SharedPreferencesService_UnregisterOnSharedPreferenceChangeListener_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// SharedPreferencesServiceServer is the server API for SharedPreferencesService service.
+// All implementations must embed UnimplementedSharedPreferencesServiceServer
+// for forward compatibility.
+type SharedPreferencesServiceServer interface {
+	Contains(context.Context, *ContainsRequest) (*ContainsResponse, error)
+	Edit(context.Context, *EditRequest) (*EditResponse, error)
+	GetBoolean(context.Context, *GetBooleanRequest) (*GetBooleanResponse, error)
+	GetFloat(context.Context, *GetFloatRequest) (*GetFloatResponse, error)
+	GetInt(context.Context, *GetIntRequest) (*GetIntResponse, error)
+	GetLong(context.Context, *GetLongRequest) (*GetLongResponse, error)
+	GetString(context.Context, *GetStringRequest) (*GetStringResponse, error)
+	GetStringSet(context.Context, *GetStringSetRequest) (*GetStringSetResponse, error)
+	RegisterOnSharedPreferenceChangeListener(context.Context, *RegisterOnSharedPreferenceChangeListenerRequest) (*RegisterOnSharedPreferenceChangeListenerResponse, error)
+	UnregisterOnSharedPreferenceChangeListener(context.Context, *UnregisterOnSharedPreferenceChangeListenerRequest) (*UnregisterOnSharedPreferenceChangeListenerResponse, error)
+	mustEmbedUnimplementedSharedPreferencesServiceServer()
+}
+
+// UnimplementedSharedPreferencesServiceServer must be embedded to have
 // forward compatible implementations.
 //
 // NOTE: this should be embedded by value instead of pointer to avoid a nil
 // pointer dereference when methods are called.
-type UnimplementedPreferencesServiceServer struct{}
+type UnimplementedSharedPreferencesServiceServer struct{}
 
-func (UnimplementedPreferencesServiceServer) GetString(context.Context, *GetStringRequest) (*GetStringResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetString not implemented")
-}
-func (UnimplementedPreferencesServiceServer) GetInt(context.Context, *GetIntRequest) (*GetIntResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetInt not implemented")
-}
-func (UnimplementedPreferencesServiceServer) GetBool(context.Context, *GetBoolRequest) (*GetBoolResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetBool not implemented")
-}
-func (UnimplementedPreferencesServiceServer) GetFloat(context.Context, *GetFloatRequest) (*GetFloatResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetFloat not implemented")
-}
-func (UnimplementedPreferencesServiceServer) GetLong(context.Context, *GetLongRequest) (*GetLongResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetLong not implemented")
-}
-func (UnimplementedPreferencesServiceServer) Contains(context.Context, *ContainsRequest) (*ContainsResponse, error) {
+func (UnimplementedSharedPreferencesServiceServer) Contains(context.Context, *ContainsRequest) (*ContainsResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method Contains not implemented")
 }
-func (UnimplementedPreferencesServiceServer) Edit(context.Context, *EditRequest) (*EditResponse, error) {
+func (UnimplementedSharedPreferencesServiceServer) Edit(context.Context, *EditRequest) (*EditResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method Edit not implemented")
 }
-func (UnimplementedPreferencesServiceServer) mustEmbedUnimplementedPreferencesServiceServer() {}
-func (UnimplementedPreferencesServiceServer) testEmbeddedByValue()                            {}
+func (UnimplementedSharedPreferencesServiceServer) GetBoolean(context.Context, *GetBooleanRequest) (*GetBooleanResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetBoolean not implemented")
+}
+func (UnimplementedSharedPreferencesServiceServer) GetFloat(context.Context, *GetFloatRequest) (*GetFloatResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetFloat not implemented")
+}
+func (UnimplementedSharedPreferencesServiceServer) GetInt(context.Context, *GetIntRequest) (*GetIntResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetInt not implemented")
+}
+func (UnimplementedSharedPreferencesServiceServer) GetLong(context.Context, *GetLongRequest) (*GetLongResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetLong not implemented")
+}
+func (UnimplementedSharedPreferencesServiceServer) GetString(context.Context, *GetStringRequest) (*GetStringResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetString not implemented")
+}
+func (UnimplementedSharedPreferencesServiceServer) GetStringSet(context.Context, *GetStringSetRequest) (*GetStringSetResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetStringSet not implemented")
+}
+func (UnimplementedSharedPreferencesServiceServer) RegisterOnSharedPreferenceChangeListener(context.Context, *RegisterOnSharedPreferenceChangeListenerRequest) (*RegisterOnSharedPreferenceChangeListenerResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method RegisterOnSharedPreferenceChangeListener not implemented")
+}
+func (UnimplementedSharedPreferencesServiceServer) UnregisterOnSharedPreferenceChangeListener(context.Context, *UnregisterOnSharedPreferenceChangeListenerRequest) (*UnregisterOnSharedPreferenceChangeListenerResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method UnregisterOnSharedPreferenceChangeListener not implemented")
+}
+func (UnimplementedSharedPreferencesServiceServer) mustEmbedUnimplementedSharedPreferencesServiceServer() {
+}
+func (UnimplementedSharedPreferencesServiceServer) testEmbeddedByValue() {}
 
-// UnsafePreferencesServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to PreferencesServiceServer will
+// UnsafeSharedPreferencesServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to SharedPreferencesServiceServer will
 // result in compilation errors.
-type UnsafePreferencesServiceServer interface {
-	mustEmbedUnimplementedPreferencesServiceServer()
+type UnsafeSharedPreferencesServiceServer interface {
+	mustEmbedUnimplementedSharedPreferencesServiceServer()
 }
 
-func RegisterPreferencesServiceServer(s grpc.ServiceRegistrar, srv PreferencesServiceServer) {
-	// If the following call panics, it indicates UnimplementedPreferencesServiceServer was
+func RegisterSharedPreferencesServiceServer(s grpc.ServiceRegistrar, srv SharedPreferencesServiceServer) {
+	// If the following call panics, it indicates UnimplementedSharedPreferencesServiceServer was
 	// embedded by pointer and is nil.  This will cause panics if an
 	// unimplemented method is ever invoked, so we test this at initialization
 	// time to prevent it from happening at runtime later due to I/O.
 	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
 		t.testEmbeddedByValue()
 	}
-	s.RegisterService(&PreferencesService_ServiceDesc, srv)
+	s.RegisterService(&SharedPreferencesService_ServiceDesc, srv)
 }
 
-func _PreferencesService_GetString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetStringRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PreferencesServiceServer).GetString(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PreferencesService_GetString_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PreferencesServiceServer).GetString(ctx, req.(*GetStringRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PreferencesService_GetInt_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetIntRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PreferencesServiceServer).GetInt(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PreferencesService_GetInt_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PreferencesServiceServer).GetInt(ctx, req.(*GetIntRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PreferencesService_GetBool_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetBoolRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PreferencesServiceServer).GetBool(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PreferencesService_GetBool_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PreferencesServiceServer).GetBool(ctx, req.(*GetBoolRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PreferencesService_GetFloat_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetFloatRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PreferencesServiceServer).GetFloat(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PreferencesService_GetFloat_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PreferencesServiceServer).GetFloat(ctx, req.(*GetFloatRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PreferencesService_GetLong_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetLongRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PreferencesServiceServer).GetLong(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PreferencesService_GetLong_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PreferencesServiceServer).GetLong(ctx, req.(*GetLongRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PreferencesService_Contains_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _SharedPreferencesService_Contains_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(ContainsRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(PreferencesServiceServer).Contains(ctx, in)
+		return srv.(SharedPreferencesServiceServer).Contains(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: PreferencesService_Contains_FullMethodName,
+		FullMethod: SharedPreferencesService_Contains_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PreferencesServiceServer).Contains(ctx, req.(*ContainsRequest))
+		return srv.(SharedPreferencesServiceServer).Contains(ctx, req.(*ContainsRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _PreferencesService_Edit_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _SharedPreferencesService_Edit_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(EditRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(PreferencesServiceServer).Edit(ctx, in)
+		return srv.(SharedPreferencesServiceServer).Edit(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: PreferencesService_Edit_FullMethodName,
+		FullMethod: SharedPreferencesService_Edit_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PreferencesServiceServer).Edit(ctx, req.(*EditRequest))
+		return srv.(SharedPreferencesServiceServer).Edit(ctx, req.(*EditRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-// PreferencesService_ServiceDesc is the grpc.ServiceDesc for PreferencesService service.
+func _SharedPreferencesService_GetBoolean_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetBooleanRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SharedPreferencesServiceServer).GetBoolean(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SharedPreferencesService_GetBoolean_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SharedPreferencesServiceServer).GetBoolean(ctx, req.(*GetBooleanRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SharedPreferencesService_GetFloat_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetFloatRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SharedPreferencesServiceServer).GetFloat(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SharedPreferencesService_GetFloat_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SharedPreferencesServiceServer).GetFloat(ctx, req.(*GetFloatRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SharedPreferencesService_GetInt_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetIntRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SharedPreferencesServiceServer).GetInt(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SharedPreferencesService_GetInt_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SharedPreferencesServiceServer).GetInt(ctx, req.(*GetIntRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SharedPreferencesService_GetLong_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetLongRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SharedPreferencesServiceServer).GetLong(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SharedPreferencesService_GetLong_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SharedPreferencesServiceServer).GetLong(ctx, req.(*GetLongRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SharedPreferencesService_GetString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetStringRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SharedPreferencesServiceServer).GetString(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SharedPreferencesService_GetString_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SharedPreferencesServiceServer).GetString(ctx, req.(*GetStringRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SharedPreferencesService_GetStringSet_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetStringSetRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SharedPreferencesServiceServer).GetStringSet(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SharedPreferencesService_GetStringSet_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SharedPreferencesServiceServer).GetStringSet(ctx, req.(*GetStringSetRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SharedPreferencesService_RegisterOnSharedPreferenceChangeListener_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(RegisterOnSharedPreferenceChangeListenerRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SharedPreferencesServiceServer).RegisterOnSharedPreferenceChangeListener(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SharedPreferencesService_RegisterOnSharedPreferenceChangeListener_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SharedPreferencesServiceServer).RegisterOnSharedPreferenceChangeListener(ctx, req.(*RegisterOnSharedPreferenceChangeListenerRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SharedPreferencesService_UnregisterOnSharedPreferenceChangeListener_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(UnregisterOnSharedPreferenceChangeListenerRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SharedPreferencesServiceServer).UnregisterOnSharedPreferenceChangeListener(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SharedPreferencesService_UnregisterOnSharedPreferenceChangeListener_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SharedPreferencesServiceServer).UnregisterOnSharedPreferenceChangeListener(ctx, req.(*UnregisterOnSharedPreferenceChangeListenerRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// SharedPreferencesService_ServiceDesc is the grpc.ServiceDesc for SharedPreferencesService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
-var PreferencesService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "preferences.PreferencesService",
-	HandlerType: (*PreferencesServiceServer)(nil),
+var SharedPreferencesService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "preferences.SharedPreferencesService",
+	HandlerType: (*SharedPreferencesServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
-			MethodName: "GetString",
-			Handler:    _PreferencesService_GetString_Handler,
-		},
-		{
-			MethodName: "GetInt",
-			Handler:    _PreferencesService_GetInt_Handler,
-		},
-		{
-			MethodName: "GetBool",
-			Handler:    _PreferencesService_GetBool_Handler,
-		},
-		{
-			MethodName: "GetFloat",
-			Handler:    _PreferencesService_GetFloat_Handler,
-		},
-		{
-			MethodName: "GetLong",
-			Handler:    _PreferencesService_GetLong_Handler,
-		},
-		{
 			MethodName: "Contains",
-			Handler:    _PreferencesService_Contains_Handler,
+			Handler:    _SharedPreferencesService_Contains_Handler,
 		},
 		{
 			MethodName: "Edit",
-			Handler:    _PreferencesService_Edit_Handler,
+			Handler:    _SharedPreferencesService_Edit_Handler,
+		},
+		{
+			MethodName: "GetBoolean",
+			Handler:    _SharedPreferencesService_GetBoolean_Handler,
+		},
+		{
+			MethodName: "GetFloat",
+			Handler:    _SharedPreferencesService_GetFloat_Handler,
+		},
+		{
+			MethodName: "GetInt",
+			Handler:    _SharedPreferencesService_GetInt_Handler,
+		},
+		{
+			MethodName: "GetLong",
+			Handler:    _SharedPreferencesService_GetLong_Handler,
+		},
+		{
+			MethodName: "GetString",
+			Handler:    _SharedPreferencesService_GetString_Handler,
+		},
+		{
+			MethodName: "GetStringSet",
+			Handler:    _SharedPreferencesService_GetStringSet_Handler,
+		},
+		{
+			MethodName: "RegisterOnSharedPreferenceChangeListener",
+			Handler:    _SharedPreferencesService_RegisterOnSharedPreferenceChangeListener_Handler,
+		},
+		{
+			MethodName: "UnregisterOnSharedPreferenceChangeListener",
+			Handler:    _SharedPreferencesService_UnregisterOnSharedPreferenceChangeListener_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
@@ -351,367 +466,444 @@ var PreferencesService_ServiceDesc = grpc.ServiceDesc{
 }
 
 const (
-	EditorService_PutString_FullMethodName  = "/preferences.EditorService/PutString"
-	EditorService_PutInt_FullMethodName     = "/preferences.EditorService/PutInt"
-	EditorService_PutBoolean_FullMethodName = "/preferences.EditorService/PutBoolean"
-	EditorService_PutFloat_FullMethodName   = "/preferences.EditorService/PutFloat"
-	EditorService_PutLong_FullMethodName    = "/preferences.EditorService/PutLong"
-	EditorService_Remove_FullMethodName     = "/preferences.EditorService/Remove"
-	EditorService_Clear_FullMethodName      = "/preferences.EditorService/Clear"
-	EditorService_Apply_FullMethodName      = "/preferences.EditorService/Apply"
+	SharedPreferencesEditorService_Apply_FullMethodName        = "/preferences.SharedPreferencesEditorService/Apply"
+	SharedPreferencesEditorService_Clear_FullMethodName        = "/preferences.SharedPreferencesEditorService/Clear"
+	SharedPreferencesEditorService_Commit_FullMethodName       = "/preferences.SharedPreferencesEditorService/Commit"
+	SharedPreferencesEditorService_PutBoolean_FullMethodName   = "/preferences.SharedPreferencesEditorService/PutBoolean"
+	SharedPreferencesEditorService_PutFloat_FullMethodName     = "/preferences.SharedPreferencesEditorService/PutFloat"
+	SharedPreferencesEditorService_PutInt_FullMethodName       = "/preferences.SharedPreferencesEditorService/PutInt"
+	SharedPreferencesEditorService_PutLong_FullMethodName      = "/preferences.SharedPreferencesEditorService/PutLong"
+	SharedPreferencesEditorService_PutString_FullMethodName    = "/preferences.SharedPreferencesEditorService/PutString"
+	SharedPreferencesEditorService_PutStringSet_FullMethodName = "/preferences.SharedPreferencesEditorService/PutStringSet"
+	SharedPreferencesEditorService_Remove_FullMethodName       = "/preferences.SharedPreferencesEditorService/Remove"
 )
 
-// EditorServiceClient is the client API for EditorService service.
+// SharedPreferencesEditorServiceClient is the client API for SharedPreferencesEditorService service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type EditorServiceClient interface {
-	PutString(ctx context.Context, in *PutStringRequest, opts ...grpc.CallOption) (*PutStringResponse, error)
-	PutInt(ctx context.Context, in *PutIntRequest, opts ...grpc.CallOption) (*PutIntResponse, error)
+type SharedPreferencesEditorServiceClient interface {
+	Apply(ctx context.Context, in *ApplyRequest, opts ...grpc.CallOption) (*ApplyResponse, error)
+	Clear(ctx context.Context, in *ClearRequest, opts ...grpc.CallOption) (*ClearResponse, error)
+	Commit(ctx context.Context, in *CommitRequest, opts ...grpc.CallOption) (*CommitResponse, error)
 	PutBoolean(ctx context.Context, in *PutBooleanRequest, opts ...grpc.CallOption) (*PutBooleanResponse, error)
 	PutFloat(ctx context.Context, in *PutFloatRequest, opts ...grpc.CallOption) (*PutFloatResponse, error)
+	PutInt(ctx context.Context, in *PutIntRequest, opts ...grpc.CallOption) (*PutIntResponse, error)
 	PutLong(ctx context.Context, in *PutLongRequest, opts ...grpc.CallOption) (*PutLongResponse, error)
+	PutString(ctx context.Context, in *PutStringRequest, opts ...grpc.CallOption) (*PutStringResponse, error)
+	PutStringSet(ctx context.Context, in *PutStringSetRequest, opts ...grpc.CallOption) (*PutStringSetResponse, error)
 	Remove(ctx context.Context, in *RemoveRequest, opts ...grpc.CallOption) (*RemoveResponse, error)
-	Clear(ctx context.Context, in *ClearRequest, opts ...grpc.CallOption) (*ClearResponse, error)
-	Apply(ctx context.Context, in *ApplyRequest, opts ...grpc.CallOption) (*ApplyResponse, error)
 }
 
-type editorServiceClient struct {
+type sharedPreferencesEditorServiceClient struct {
 	cc grpc.ClientConnInterface
 }
 
-func NewEditorServiceClient(cc grpc.ClientConnInterface) EditorServiceClient {
-	return &editorServiceClient{cc}
+func NewSharedPreferencesEditorServiceClient(cc grpc.ClientConnInterface) SharedPreferencesEditorServiceClient {
+	return &sharedPreferencesEditorServiceClient{cc}
 }
 
-func (c *editorServiceClient) PutString(ctx context.Context, in *PutStringRequest, opts ...grpc.CallOption) (*PutStringResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(PutStringResponse)
-	err := c.cc.Invoke(ctx, EditorService_PutString_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *editorServiceClient) PutInt(ctx context.Context, in *PutIntRequest, opts ...grpc.CallOption) (*PutIntResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(PutIntResponse)
-	err := c.cc.Invoke(ctx, EditorService_PutInt_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *editorServiceClient) PutBoolean(ctx context.Context, in *PutBooleanRequest, opts ...grpc.CallOption) (*PutBooleanResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(PutBooleanResponse)
-	err := c.cc.Invoke(ctx, EditorService_PutBoolean_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *editorServiceClient) PutFloat(ctx context.Context, in *PutFloatRequest, opts ...grpc.CallOption) (*PutFloatResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(PutFloatResponse)
-	err := c.cc.Invoke(ctx, EditorService_PutFloat_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *editorServiceClient) PutLong(ctx context.Context, in *PutLongRequest, opts ...grpc.CallOption) (*PutLongResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(PutLongResponse)
-	err := c.cc.Invoke(ctx, EditorService_PutLong_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *editorServiceClient) Remove(ctx context.Context, in *RemoveRequest, opts ...grpc.CallOption) (*RemoveResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(RemoveResponse)
-	err := c.cc.Invoke(ctx, EditorService_Remove_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *editorServiceClient) Clear(ctx context.Context, in *ClearRequest, opts ...grpc.CallOption) (*ClearResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ClearResponse)
-	err := c.cc.Invoke(ctx, EditorService_Clear_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *editorServiceClient) Apply(ctx context.Context, in *ApplyRequest, opts ...grpc.CallOption) (*ApplyResponse, error) {
+func (c *sharedPreferencesEditorServiceClient) Apply(ctx context.Context, in *ApplyRequest, opts ...grpc.CallOption) (*ApplyResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(ApplyResponse)
-	err := c.cc.Invoke(ctx, EditorService_Apply_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, SharedPreferencesEditorService_Apply_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-// EditorServiceServer is the server API for EditorService service.
-// All implementations must embed UnimplementedEditorServiceServer
-// for forward compatibility.
-type EditorServiceServer interface {
-	PutString(context.Context, *PutStringRequest) (*PutStringResponse, error)
-	PutInt(context.Context, *PutIntRequest) (*PutIntResponse, error)
-	PutBoolean(context.Context, *PutBooleanRequest) (*PutBooleanResponse, error)
-	PutFloat(context.Context, *PutFloatRequest) (*PutFloatResponse, error)
-	PutLong(context.Context, *PutLongRequest) (*PutLongResponse, error)
-	Remove(context.Context, *RemoveRequest) (*RemoveResponse, error)
-	Clear(context.Context, *ClearRequest) (*ClearResponse, error)
-	Apply(context.Context, *ApplyRequest) (*ApplyResponse, error)
-	mustEmbedUnimplementedEditorServiceServer()
+func (c *sharedPreferencesEditorServiceClient) Clear(ctx context.Context, in *ClearRequest, opts ...grpc.CallOption) (*ClearResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ClearResponse)
+	err := c.cc.Invoke(ctx, SharedPreferencesEditorService_Clear_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
 }
 
-// UnimplementedEditorServiceServer must be embedded to have
+func (c *sharedPreferencesEditorServiceClient) Commit(ctx context.Context, in *CommitRequest, opts ...grpc.CallOption) (*CommitResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(CommitResponse)
+	err := c.cc.Invoke(ctx, SharedPreferencesEditorService_Commit_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *sharedPreferencesEditorServiceClient) PutBoolean(ctx context.Context, in *PutBooleanRequest, opts ...grpc.CallOption) (*PutBooleanResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(PutBooleanResponse)
+	err := c.cc.Invoke(ctx, SharedPreferencesEditorService_PutBoolean_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *sharedPreferencesEditorServiceClient) PutFloat(ctx context.Context, in *PutFloatRequest, opts ...grpc.CallOption) (*PutFloatResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(PutFloatResponse)
+	err := c.cc.Invoke(ctx, SharedPreferencesEditorService_PutFloat_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *sharedPreferencesEditorServiceClient) PutInt(ctx context.Context, in *PutIntRequest, opts ...grpc.CallOption) (*PutIntResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(PutIntResponse)
+	err := c.cc.Invoke(ctx, SharedPreferencesEditorService_PutInt_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *sharedPreferencesEditorServiceClient) PutLong(ctx context.Context, in *PutLongRequest, opts ...grpc.CallOption) (*PutLongResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(PutLongResponse)
+	err := c.cc.Invoke(ctx, SharedPreferencesEditorService_PutLong_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *sharedPreferencesEditorServiceClient) PutString(ctx context.Context, in *PutStringRequest, opts ...grpc.CallOption) (*PutStringResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(PutStringResponse)
+	err := c.cc.Invoke(ctx, SharedPreferencesEditorService_PutString_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *sharedPreferencesEditorServiceClient) PutStringSet(ctx context.Context, in *PutStringSetRequest, opts ...grpc.CallOption) (*PutStringSetResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(PutStringSetResponse)
+	err := c.cc.Invoke(ctx, SharedPreferencesEditorService_PutStringSet_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *sharedPreferencesEditorServiceClient) Remove(ctx context.Context, in *RemoveRequest, opts ...grpc.CallOption) (*RemoveResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(RemoveResponse)
+	err := c.cc.Invoke(ctx, SharedPreferencesEditorService_Remove_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// SharedPreferencesEditorServiceServer is the server API for SharedPreferencesEditorService service.
+// All implementations must embed UnimplementedSharedPreferencesEditorServiceServer
+// for forward compatibility.
+type SharedPreferencesEditorServiceServer interface {
+	Apply(context.Context, *ApplyRequest) (*ApplyResponse, error)
+	Clear(context.Context, *ClearRequest) (*ClearResponse, error)
+	Commit(context.Context, *CommitRequest) (*CommitResponse, error)
+	PutBoolean(context.Context, *PutBooleanRequest) (*PutBooleanResponse, error)
+	PutFloat(context.Context, *PutFloatRequest) (*PutFloatResponse, error)
+	PutInt(context.Context, *PutIntRequest) (*PutIntResponse, error)
+	PutLong(context.Context, *PutLongRequest) (*PutLongResponse, error)
+	PutString(context.Context, *PutStringRequest) (*PutStringResponse, error)
+	PutStringSet(context.Context, *PutStringSetRequest) (*PutStringSetResponse, error)
+	Remove(context.Context, *RemoveRequest) (*RemoveResponse, error)
+	mustEmbedUnimplementedSharedPreferencesEditorServiceServer()
+}
+
+// UnimplementedSharedPreferencesEditorServiceServer must be embedded to have
 // forward compatible implementations.
 //
 // NOTE: this should be embedded by value instead of pointer to avoid a nil
 // pointer dereference when methods are called.
-type UnimplementedEditorServiceServer struct{}
+type UnimplementedSharedPreferencesEditorServiceServer struct{}
 
-func (UnimplementedEditorServiceServer) PutString(context.Context, *PutStringRequest) (*PutStringResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method PutString not implemented")
-}
-func (UnimplementedEditorServiceServer) PutInt(context.Context, *PutIntRequest) (*PutIntResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method PutInt not implemented")
-}
-func (UnimplementedEditorServiceServer) PutBoolean(context.Context, *PutBooleanRequest) (*PutBooleanResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method PutBoolean not implemented")
-}
-func (UnimplementedEditorServiceServer) PutFloat(context.Context, *PutFloatRequest) (*PutFloatResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method PutFloat not implemented")
-}
-func (UnimplementedEditorServiceServer) PutLong(context.Context, *PutLongRequest) (*PutLongResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method PutLong not implemented")
-}
-func (UnimplementedEditorServiceServer) Remove(context.Context, *RemoveRequest) (*RemoveResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Remove not implemented")
-}
-func (UnimplementedEditorServiceServer) Clear(context.Context, *ClearRequest) (*ClearResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Clear not implemented")
-}
-func (UnimplementedEditorServiceServer) Apply(context.Context, *ApplyRequest) (*ApplyResponse, error) {
+func (UnimplementedSharedPreferencesEditorServiceServer) Apply(context.Context, *ApplyRequest) (*ApplyResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method Apply not implemented")
 }
-func (UnimplementedEditorServiceServer) mustEmbedUnimplementedEditorServiceServer() {}
-func (UnimplementedEditorServiceServer) testEmbeddedByValue()                       {}
+func (UnimplementedSharedPreferencesEditorServiceServer) Clear(context.Context, *ClearRequest) (*ClearResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Clear not implemented")
+}
+func (UnimplementedSharedPreferencesEditorServiceServer) Commit(context.Context, *CommitRequest) (*CommitResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Commit not implemented")
+}
+func (UnimplementedSharedPreferencesEditorServiceServer) PutBoolean(context.Context, *PutBooleanRequest) (*PutBooleanResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method PutBoolean not implemented")
+}
+func (UnimplementedSharedPreferencesEditorServiceServer) PutFloat(context.Context, *PutFloatRequest) (*PutFloatResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method PutFloat not implemented")
+}
+func (UnimplementedSharedPreferencesEditorServiceServer) PutInt(context.Context, *PutIntRequest) (*PutIntResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method PutInt not implemented")
+}
+func (UnimplementedSharedPreferencesEditorServiceServer) PutLong(context.Context, *PutLongRequest) (*PutLongResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method PutLong not implemented")
+}
+func (UnimplementedSharedPreferencesEditorServiceServer) PutString(context.Context, *PutStringRequest) (*PutStringResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method PutString not implemented")
+}
+func (UnimplementedSharedPreferencesEditorServiceServer) PutStringSet(context.Context, *PutStringSetRequest) (*PutStringSetResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method PutStringSet not implemented")
+}
+func (UnimplementedSharedPreferencesEditorServiceServer) Remove(context.Context, *RemoveRequest) (*RemoveResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Remove not implemented")
+}
+func (UnimplementedSharedPreferencesEditorServiceServer) mustEmbedUnimplementedSharedPreferencesEditorServiceServer() {
+}
+func (UnimplementedSharedPreferencesEditorServiceServer) testEmbeddedByValue() {}
 
-// UnsafeEditorServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to EditorServiceServer will
+// UnsafeSharedPreferencesEditorServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to SharedPreferencesEditorServiceServer will
 // result in compilation errors.
-type UnsafeEditorServiceServer interface {
-	mustEmbedUnimplementedEditorServiceServer()
+type UnsafeSharedPreferencesEditorServiceServer interface {
+	mustEmbedUnimplementedSharedPreferencesEditorServiceServer()
 }
 
-func RegisterEditorServiceServer(s grpc.ServiceRegistrar, srv EditorServiceServer) {
-	// If the following call panics, it indicates UnimplementedEditorServiceServer was
+func RegisterSharedPreferencesEditorServiceServer(s grpc.ServiceRegistrar, srv SharedPreferencesEditorServiceServer) {
+	// If the following call panics, it indicates UnimplementedSharedPreferencesEditorServiceServer was
 	// embedded by pointer and is nil.  This will cause panics if an
 	// unimplemented method is ever invoked, so we test this at initialization
 	// time to prevent it from happening at runtime later due to I/O.
 	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
 		t.testEmbeddedByValue()
 	}
-	s.RegisterService(&EditorService_ServiceDesc, srv)
+	s.RegisterService(&SharedPreferencesEditorService_ServiceDesc, srv)
 }
 
-func _EditorService_PutString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(PutStringRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(EditorServiceServer).PutString(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: EditorService_PutString_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(EditorServiceServer).PutString(ctx, req.(*PutStringRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _EditorService_PutInt_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(PutIntRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(EditorServiceServer).PutInt(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: EditorService_PutInt_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(EditorServiceServer).PutInt(ctx, req.(*PutIntRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _EditorService_PutBoolean_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(PutBooleanRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(EditorServiceServer).PutBoolean(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: EditorService_PutBoolean_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(EditorServiceServer).PutBoolean(ctx, req.(*PutBooleanRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _EditorService_PutFloat_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(PutFloatRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(EditorServiceServer).PutFloat(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: EditorService_PutFloat_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(EditorServiceServer).PutFloat(ctx, req.(*PutFloatRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _EditorService_PutLong_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(PutLongRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(EditorServiceServer).PutLong(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: EditorService_PutLong_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(EditorServiceServer).PutLong(ctx, req.(*PutLongRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _EditorService_Remove_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(RemoveRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(EditorServiceServer).Remove(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: EditorService_Remove_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(EditorServiceServer).Remove(ctx, req.(*RemoveRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _EditorService_Clear_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ClearRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(EditorServiceServer).Clear(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: EditorService_Clear_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(EditorServiceServer).Clear(ctx, req.(*ClearRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _EditorService_Apply_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _SharedPreferencesEditorService_Apply_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(ApplyRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(EditorServiceServer).Apply(ctx, in)
+		return srv.(SharedPreferencesEditorServiceServer).Apply(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: EditorService_Apply_FullMethodName,
+		FullMethod: SharedPreferencesEditorService_Apply_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(EditorServiceServer).Apply(ctx, req.(*ApplyRequest))
+		return srv.(SharedPreferencesEditorServiceServer).Apply(ctx, req.(*ApplyRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-// EditorService_ServiceDesc is the grpc.ServiceDesc for EditorService service.
+func _SharedPreferencesEditorService_Clear_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ClearRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SharedPreferencesEditorServiceServer).Clear(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SharedPreferencesEditorService_Clear_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SharedPreferencesEditorServiceServer).Clear(ctx, req.(*ClearRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SharedPreferencesEditorService_Commit_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CommitRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SharedPreferencesEditorServiceServer).Commit(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SharedPreferencesEditorService_Commit_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SharedPreferencesEditorServiceServer).Commit(ctx, req.(*CommitRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SharedPreferencesEditorService_PutBoolean_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(PutBooleanRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SharedPreferencesEditorServiceServer).PutBoolean(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SharedPreferencesEditorService_PutBoolean_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SharedPreferencesEditorServiceServer).PutBoolean(ctx, req.(*PutBooleanRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SharedPreferencesEditorService_PutFloat_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(PutFloatRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SharedPreferencesEditorServiceServer).PutFloat(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SharedPreferencesEditorService_PutFloat_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SharedPreferencesEditorServiceServer).PutFloat(ctx, req.(*PutFloatRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SharedPreferencesEditorService_PutInt_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(PutIntRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SharedPreferencesEditorServiceServer).PutInt(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SharedPreferencesEditorService_PutInt_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SharedPreferencesEditorServiceServer).PutInt(ctx, req.(*PutIntRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SharedPreferencesEditorService_PutLong_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(PutLongRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SharedPreferencesEditorServiceServer).PutLong(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SharedPreferencesEditorService_PutLong_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SharedPreferencesEditorServiceServer).PutLong(ctx, req.(*PutLongRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SharedPreferencesEditorService_PutString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(PutStringRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SharedPreferencesEditorServiceServer).PutString(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SharedPreferencesEditorService_PutString_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SharedPreferencesEditorServiceServer).PutString(ctx, req.(*PutStringRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SharedPreferencesEditorService_PutStringSet_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(PutStringSetRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SharedPreferencesEditorServiceServer).PutStringSet(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SharedPreferencesEditorService_PutStringSet_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SharedPreferencesEditorServiceServer).PutStringSet(ctx, req.(*PutStringSetRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SharedPreferencesEditorService_Remove_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(RemoveRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SharedPreferencesEditorServiceServer).Remove(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SharedPreferencesEditorService_Remove_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SharedPreferencesEditorServiceServer).Remove(ctx, req.(*RemoveRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// SharedPreferencesEditorService_ServiceDesc is the grpc.ServiceDesc for SharedPreferencesEditorService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
-var EditorService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "preferences.EditorService",
-	HandlerType: (*EditorServiceServer)(nil),
+var SharedPreferencesEditorService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "preferences.SharedPreferencesEditorService",
+	HandlerType: (*SharedPreferencesEditorServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
-			MethodName: "PutString",
-			Handler:    _EditorService_PutString_Handler,
-		},
-		{
-			MethodName: "PutInt",
-			Handler:    _EditorService_PutInt_Handler,
-		},
-		{
-			MethodName: "PutBoolean",
-			Handler:    _EditorService_PutBoolean_Handler,
-		},
-		{
-			MethodName: "PutFloat",
-			Handler:    _EditorService_PutFloat_Handler,
-		},
-		{
-			MethodName: "PutLong",
-			Handler:    _EditorService_PutLong_Handler,
-		},
-		{
-			MethodName: "Remove",
-			Handler:    _EditorService_Remove_Handler,
+			MethodName: "Apply",
+			Handler:    _SharedPreferencesEditorService_Apply_Handler,
 		},
 		{
 			MethodName: "Clear",
-			Handler:    _EditorService_Clear_Handler,
+			Handler:    _SharedPreferencesEditorService_Clear_Handler,
 		},
 		{
-			MethodName: "Apply",
-			Handler:    _EditorService_Apply_Handler,
+			MethodName: "Commit",
+			Handler:    _SharedPreferencesEditorService_Commit_Handler,
+		},
+		{
+			MethodName: "PutBoolean",
+			Handler:    _SharedPreferencesEditorService_PutBoolean_Handler,
+		},
+		{
+			MethodName: "PutFloat",
+			Handler:    _SharedPreferencesEditorService_PutFloat_Handler,
+		},
+		{
+			MethodName: "PutInt",
+			Handler:    _SharedPreferencesEditorService_PutInt_Handler,
+		},
+		{
+			MethodName: "PutLong",
+			Handler:    _SharedPreferencesEditorService_PutLong_Handler,
+		},
+		{
+			MethodName: "PutString",
+			Handler:    _SharedPreferencesEditorService_PutString_Handler,
+		},
+		{
+			MethodName: "PutStringSet",
+			Handler:    _SharedPreferencesEditorService_PutStringSet_Handler,
+		},
+		{
+			MethodName: "Remove",
+			Handler:    _SharedPreferencesEditorService_Remove_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

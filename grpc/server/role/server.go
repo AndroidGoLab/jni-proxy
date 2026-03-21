@@ -7,23 +7,23 @@ import (
 
 	"github.com/AndroidGoLab/jni"
 
-	"github.com/AndroidGoLab/jni/app"
-	jnipkg "github.com/AndroidGoLab/jni/app/role"
 	"github.com/AndroidGoLab/jni-proxy/handlestore"
 	pb "github.com/AndroidGoLab/jni-proxy/proto/role"
+	"github.com/AndroidGoLab/jni/app"
+	jnipkg "github.com/AndroidGoLab/jni/app/role"
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"
 )
 
-// RoleManagerServer implements pb.RoleManagerServiceServer.
-type RoleManagerServer struct {
-	pb.UnimplementedRoleManagerServiceServer
+// ManagerServer implements pb.ManagerServiceServer.
+type ManagerServer struct {
+	pb.UnimplementedManagerServiceServer
 	Ctx     *app.Context
 	Handles *handlestore.HandleStore
 }
 
-func (s *RoleManagerServer) CreateRequestRoleIntent(_ context.Context, req *pb.CreateRequestRoleIntentRequest) (*pb.CreateRequestRoleIntentResponse, error) {
-	mgr, err := jnipkg.NewroleManager(s.Ctx)
+func (s *ManagerServer) CreateRequestRoleIntent(_ context.Context, req *pb.CreateRequestRoleIntentRequest) (*pb.CreateRequestRoleIntentResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -45,8 +45,8 @@ func (s *RoleManagerServer) CreateRequestRoleIntent(_ context.Context, req *pb.C
 	return &pb.CreateRequestRoleIntentResponse{Result: handle}, nil
 }
 
-func (s *RoleManagerServer) IsRoleAvailable(_ context.Context, req *pb.IsRoleAvailableRequest) (*pb.IsRoleAvailableResponse, error) {
-	mgr, err := jnipkg.NewroleManager(s.Ctx)
+func (s *ManagerServer) IsRoleAvailable(_ context.Context, req *pb.IsRoleAvailableRequest) (*pb.IsRoleAvailableResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -59,8 +59,8 @@ func (s *RoleManagerServer) IsRoleAvailable(_ context.Context, req *pb.IsRoleAva
 	return &pb.IsRoleAvailableResponse{Result: result}, nil
 }
 
-func (s *RoleManagerServer) IsRoleHeld(_ context.Context, req *pb.IsRoleHeldRequest) (*pb.IsRoleHeldResponse, error) {
-	mgr, err := jnipkg.NewroleManager(s.Ctx)
+func (s *ManagerServer) IsRoleHeld(_ context.Context, req *pb.IsRoleHeldRequest) (*pb.IsRoleHeldResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}

@@ -21,140 +21,139 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
-	AltitudeConverterService_AddMslAltitudeToLocation_FullMethodName    = "/altitude.AltitudeConverterService/AddMslAltitudeToLocation"
-	AltitudeConverterService_TryAddMslAltitudeToLocation_FullMethodName = "/altitude.AltitudeConverterService/TryAddMslAltitudeToLocation"
+	ConverterService_AddMslAltitudeToLocation_FullMethodName    = "/altitude.ConverterService/AddMslAltitudeToLocation"
+	ConverterService_TryAddMslAltitudeToLocation_FullMethodName = "/altitude.ConverterService/TryAddMslAltitudeToLocation"
 )
 
-// AltitudeConverterServiceClient is the client API for AltitudeConverterService service.
+// ConverterServiceClient is the client API for ConverterService service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type AltitudeConverterServiceClient interface {
+type ConverterServiceClient interface {
 	AddMslAltitudeToLocation(ctx context.Context, in *AddMslAltitudeToLocationRequest, opts ...grpc.CallOption) (*AddMslAltitudeToLocationResponse, error)
 	TryAddMslAltitudeToLocation(ctx context.Context, in *TryAddMslAltitudeToLocationRequest, opts ...grpc.CallOption) (*TryAddMslAltitudeToLocationResponse, error)
 }
 
-type altitudeConverterServiceClient struct {
+type converterServiceClient struct {
 	cc grpc.ClientConnInterface
 }
 
-func NewAltitudeConverterServiceClient(cc grpc.ClientConnInterface) AltitudeConverterServiceClient {
-	return &altitudeConverterServiceClient{cc}
+func NewConverterServiceClient(cc grpc.ClientConnInterface) ConverterServiceClient {
+	return &converterServiceClient{cc}
 }
 
-func (c *altitudeConverterServiceClient) AddMslAltitudeToLocation(ctx context.Context, in *AddMslAltitudeToLocationRequest, opts ...grpc.CallOption) (*AddMslAltitudeToLocationResponse, error) {
+func (c *converterServiceClient) AddMslAltitudeToLocation(ctx context.Context, in *AddMslAltitudeToLocationRequest, opts ...grpc.CallOption) (*AddMslAltitudeToLocationResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(AddMslAltitudeToLocationResponse)
-	err := c.cc.Invoke(ctx, AltitudeConverterService_AddMslAltitudeToLocation_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, ConverterService_AddMslAltitudeToLocation_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *altitudeConverterServiceClient) TryAddMslAltitudeToLocation(ctx context.Context, in *TryAddMslAltitudeToLocationRequest, opts ...grpc.CallOption) (*TryAddMslAltitudeToLocationResponse, error) {
+func (c *converterServiceClient) TryAddMslAltitudeToLocation(ctx context.Context, in *TryAddMslAltitudeToLocationRequest, opts ...grpc.CallOption) (*TryAddMslAltitudeToLocationResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(TryAddMslAltitudeToLocationResponse)
-	err := c.cc.Invoke(ctx, AltitudeConverterService_TryAddMslAltitudeToLocation_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, ConverterService_TryAddMslAltitudeToLocation_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-// AltitudeConverterServiceServer is the server API for AltitudeConverterService service.
-// All implementations must embed UnimplementedAltitudeConverterServiceServer
+// ConverterServiceServer is the server API for ConverterService service.
+// All implementations must embed UnimplementedConverterServiceServer
 // for forward compatibility.
-type AltitudeConverterServiceServer interface {
+type ConverterServiceServer interface {
 	AddMslAltitudeToLocation(context.Context, *AddMslAltitudeToLocationRequest) (*AddMslAltitudeToLocationResponse, error)
 	TryAddMslAltitudeToLocation(context.Context, *TryAddMslAltitudeToLocationRequest) (*TryAddMslAltitudeToLocationResponse, error)
-	mustEmbedUnimplementedAltitudeConverterServiceServer()
+	mustEmbedUnimplementedConverterServiceServer()
 }
 
-// UnimplementedAltitudeConverterServiceServer must be embedded to have
+// UnimplementedConverterServiceServer must be embedded to have
 // forward compatible implementations.
 //
 // NOTE: this should be embedded by value instead of pointer to avoid a nil
 // pointer dereference when methods are called.
-type UnimplementedAltitudeConverterServiceServer struct{}
+type UnimplementedConverterServiceServer struct{}
 
-func (UnimplementedAltitudeConverterServiceServer) AddMslAltitudeToLocation(context.Context, *AddMslAltitudeToLocationRequest) (*AddMslAltitudeToLocationResponse, error) {
+func (UnimplementedConverterServiceServer) AddMslAltitudeToLocation(context.Context, *AddMslAltitudeToLocationRequest) (*AddMslAltitudeToLocationResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method AddMslAltitudeToLocation not implemented")
 }
-func (UnimplementedAltitudeConverterServiceServer) TryAddMslAltitudeToLocation(context.Context, *TryAddMslAltitudeToLocationRequest) (*TryAddMslAltitudeToLocationResponse, error) {
+func (UnimplementedConverterServiceServer) TryAddMslAltitudeToLocation(context.Context, *TryAddMslAltitudeToLocationRequest) (*TryAddMslAltitudeToLocationResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method TryAddMslAltitudeToLocation not implemented")
 }
-func (UnimplementedAltitudeConverterServiceServer) mustEmbedUnimplementedAltitudeConverterServiceServer() {
-}
-func (UnimplementedAltitudeConverterServiceServer) testEmbeddedByValue() {}
+func (UnimplementedConverterServiceServer) mustEmbedUnimplementedConverterServiceServer() {}
+func (UnimplementedConverterServiceServer) testEmbeddedByValue()                          {}
 
-// UnsafeAltitudeConverterServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to AltitudeConverterServiceServer will
+// UnsafeConverterServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to ConverterServiceServer will
 // result in compilation errors.
-type UnsafeAltitudeConverterServiceServer interface {
-	mustEmbedUnimplementedAltitudeConverterServiceServer()
+type UnsafeConverterServiceServer interface {
+	mustEmbedUnimplementedConverterServiceServer()
 }
 
-func RegisterAltitudeConverterServiceServer(s grpc.ServiceRegistrar, srv AltitudeConverterServiceServer) {
-	// If the following call panics, it indicates UnimplementedAltitudeConverterServiceServer was
+func RegisterConverterServiceServer(s grpc.ServiceRegistrar, srv ConverterServiceServer) {
+	// If the following call panics, it indicates UnimplementedConverterServiceServer was
 	// embedded by pointer and is nil.  This will cause panics if an
 	// unimplemented method is ever invoked, so we test this at initialization
 	// time to prevent it from happening at runtime later due to I/O.
 	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
 		t.testEmbeddedByValue()
 	}
-	s.RegisterService(&AltitudeConverterService_ServiceDesc, srv)
+	s.RegisterService(&ConverterService_ServiceDesc, srv)
 }
 
-func _AltitudeConverterService_AddMslAltitudeToLocation_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _ConverterService_AddMslAltitudeToLocation_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(AddMslAltitudeToLocationRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(AltitudeConverterServiceServer).AddMslAltitudeToLocation(ctx, in)
+		return srv.(ConverterServiceServer).AddMslAltitudeToLocation(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: AltitudeConverterService_AddMslAltitudeToLocation_FullMethodName,
+		FullMethod: ConverterService_AddMslAltitudeToLocation_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AltitudeConverterServiceServer).AddMslAltitudeToLocation(ctx, req.(*AddMslAltitudeToLocationRequest))
+		return srv.(ConverterServiceServer).AddMslAltitudeToLocation(ctx, req.(*AddMslAltitudeToLocationRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _AltitudeConverterService_TryAddMslAltitudeToLocation_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _ConverterService_TryAddMslAltitudeToLocation_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(TryAddMslAltitudeToLocationRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(AltitudeConverterServiceServer).TryAddMslAltitudeToLocation(ctx, in)
+		return srv.(ConverterServiceServer).TryAddMslAltitudeToLocation(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: AltitudeConverterService_TryAddMslAltitudeToLocation_FullMethodName,
+		FullMethod: ConverterService_TryAddMslAltitudeToLocation_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AltitudeConverterServiceServer).TryAddMslAltitudeToLocation(ctx, req.(*TryAddMslAltitudeToLocationRequest))
+		return srv.(ConverterServiceServer).TryAddMslAltitudeToLocation(ctx, req.(*TryAddMslAltitudeToLocationRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-// AltitudeConverterService_ServiceDesc is the grpc.ServiceDesc for AltitudeConverterService service.
+// ConverterService_ServiceDesc is the grpc.ServiceDesc for ConverterService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
-var AltitudeConverterService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "altitude.AltitudeConverterService",
-	HandlerType: (*AltitudeConverterServiceServer)(nil),
+var ConverterService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "altitude.ConverterService",
+	HandlerType: (*ConverterServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
 			MethodName: "AddMslAltitudeToLocation",
-			Handler:    _AltitudeConverterService_AddMslAltitudeToLocation_Handler,
+			Handler:    _ConverterService_AddMslAltitudeToLocation_Handler,
 		},
 		{
 			MethodName: "TryAddMslAltitudeToLocation",
-			Handler:    _AltitudeConverterService_TryAddMslAltitudeToLocation_Handler,
+			Handler:    _ConverterService_TryAddMslAltitudeToLocation_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

@@ -21,38 +21,38 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
-	PowerManagerService_AddThermalHeadroomListener1_FullMethodName              = "/power.PowerManagerService/AddThermalHeadroomListener1"
-	PowerManagerService_AddThermalHeadroomListener2_1_FullMethodName            = "/power.PowerManagerService/AddThermalHeadroomListener2_1"
-	PowerManagerService_AddThermalStatusListener1_FullMethodName                = "/power.PowerManagerService/AddThermalStatusListener1"
-	PowerManagerService_AddThermalStatusListener2_1_FullMethodName              = "/power.PowerManagerService/AddThermalStatusListener2_1"
-	PowerManagerService_GetBatteryDischargePrediction_FullMethodName            = "/power.PowerManagerService/GetBatteryDischargePrediction"
-	PowerManagerService_GetCurrentThermalStatus_FullMethodName                  = "/power.PowerManagerService/GetCurrentThermalStatus"
-	PowerManagerService_GetLocationPowerSaveMode_FullMethodName                 = "/power.PowerManagerService/GetLocationPowerSaveMode"
-	PowerManagerService_GetThermalHeadroom_FullMethodName                       = "/power.PowerManagerService/GetThermalHeadroom"
-	PowerManagerService_IsAllowedInLowPowerStandby1_FullMethodName              = "/power.PowerManagerService/IsAllowedInLowPowerStandby1"
-	PowerManagerService_IsAllowedInLowPowerStandby1_1_FullMethodName            = "/power.PowerManagerService/IsAllowedInLowPowerStandby1_1"
-	PowerManagerService_IsBatteryDischargePredictionPersonalized_FullMethodName = "/power.PowerManagerService/IsBatteryDischargePredictionPersonalized"
-	PowerManagerService_IsDeviceIdleMode_FullMethodName                         = "/power.PowerManagerService/IsDeviceIdleMode"
-	PowerManagerService_IsDeviceLightIdleMode_FullMethodName                    = "/power.PowerManagerService/IsDeviceLightIdleMode"
-	PowerManagerService_IsExemptFromLowPowerStandby_FullMethodName              = "/power.PowerManagerService/IsExemptFromLowPowerStandby"
-	PowerManagerService_IsIgnoringBatteryOptimizations_FullMethodName           = "/power.PowerManagerService/IsIgnoringBatteryOptimizations"
-	PowerManagerService_IsInteractive_FullMethodName                            = "/power.PowerManagerService/IsInteractive"
-	PowerManagerService_IsLowPowerStandbyEnabled_FullMethodName                 = "/power.PowerManagerService/IsLowPowerStandbyEnabled"
-	PowerManagerService_IsPowerSaveMode_FullMethodName                          = "/power.PowerManagerService/IsPowerSaveMode"
-	PowerManagerService_IsRebootingUserspaceSupported_FullMethodName            = "/power.PowerManagerService/IsRebootingUserspaceSupported"
-	PowerManagerService_IsScreenOn_FullMethodName                               = "/power.PowerManagerService/IsScreenOn"
-	PowerManagerService_IsSustainedPerformanceModeSupported_FullMethodName      = "/power.PowerManagerService/IsSustainedPerformanceModeSupported"
-	PowerManagerService_IsWakeLockLevelSupported_FullMethodName                 = "/power.PowerManagerService/IsWakeLockLevelSupported"
-	PowerManagerService_NewWakeLock_FullMethodName                              = "/power.PowerManagerService/NewWakeLock"
-	PowerManagerService_Reboot_FullMethodName                                   = "/power.PowerManagerService/Reboot"
-	PowerManagerService_RemoveThermalHeadroomListener_FullMethodName            = "/power.PowerManagerService/RemoveThermalHeadroomListener"
-	PowerManagerService_RemoveThermalStatusListener_FullMethodName              = "/power.PowerManagerService/RemoveThermalStatusListener"
+	ManagerService_AddThermalHeadroomListener1_FullMethodName              = "/power.ManagerService/AddThermalHeadroomListener1"
+	ManagerService_AddThermalHeadroomListener2_1_FullMethodName            = "/power.ManagerService/AddThermalHeadroomListener2_1"
+	ManagerService_AddThermalStatusListener1_FullMethodName                = "/power.ManagerService/AddThermalStatusListener1"
+	ManagerService_AddThermalStatusListener2_1_FullMethodName              = "/power.ManagerService/AddThermalStatusListener2_1"
+	ManagerService_GetBatteryDischargePrediction_FullMethodName            = "/power.ManagerService/GetBatteryDischargePrediction"
+	ManagerService_GetCurrentThermalStatus_FullMethodName                  = "/power.ManagerService/GetCurrentThermalStatus"
+	ManagerService_GetLocationPowerSaveMode_FullMethodName                 = "/power.ManagerService/GetLocationPowerSaveMode"
+	ManagerService_GetThermalHeadroom_FullMethodName                       = "/power.ManagerService/GetThermalHeadroom"
+	ManagerService_IsAllowedInLowPowerStandby1_FullMethodName              = "/power.ManagerService/IsAllowedInLowPowerStandby1"
+	ManagerService_IsAllowedInLowPowerStandby1_1_FullMethodName            = "/power.ManagerService/IsAllowedInLowPowerStandby1_1"
+	ManagerService_IsBatteryDischargePredictionPersonalized_FullMethodName = "/power.ManagerService/IsBatteryDischargePredictionPersonalized"
+	ManagerService_IsDeviceIdleMode_FullMethodName                         = "/power.ManagerService/IsDeviceIdleMode"
+	ManagerService_IsDeviceLightIdleMode_FullMethodName                    = "/power.ManagerService/IsDeviceLightIdleMode"
+	ManagerService_IsExemptFromLowPowerStandby_FullMethodName              = "/power.ManagerService/IsExemptFromLowPowerStandby"
+	ManagerService_IsIgnoringBatteryOptimizations_FullMethodName           = "/power.ManagerService/IsIgnoringBatteryOptimizations"
+	ManagerService_IsInteractive_FullMethodName                            = "/power.ManagerService/IsInteractive"
+	ManagerService_IsLowPowerStandbyEnabled_FullMethodName                 = "/power.ManagerService/IsLowPowerStandbyEnabled"
+	ManagerService_IsPowerSaveMode_FullMethodName                          = "/power.ManagerService/IsPowerSaveMode"
+	ManagerService_IsRebootingUserspaceSupported_FullMethodName            = "/power.ManagerService/IsRebootingUserspaceSupported"
+	ManagerService_IsScreenOn_FullMethodName                               = "/power.ManagerService/IsScreenOn"
+	ManagerService_IsSustainedPerformanceModeSupported_FullMethodName      = "/power.ManagerService/IsSustainedPerformanceModeSupported"
+	ManagerService_IsWakeLockLevelSupported_FullMethodName                 = "/power.ManagerService/IsWakeLockLevelSupported"
+	ManagerService_NewWakeLock_FullMethodName                              = "/power.ManagerService/NewWakeLock"
+	ManagerService_Reboot_FullMethodName                                   = "/power.ManagerService/Reboot"
+	ManagerService_RemoveThermalHeadroomListener_FullMethodName            = "/power.ManagerService/RemoveThermalHeadroomListener"
+	ManagerService_RemoveThermalStatusListener_FullMethodName              = "/power.ManagerService/RemoveThermalStatusListener"
 )
 
-// PowerManagerServiceClient is the client API for PowerManagerService service.
+// ManagerServiceClient is the client API for ManagerService service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type PowerManagerServiceClient interface {
+type ManagerServiceClient interface {
 	AddThermalHeadroomListener1(ctx context.Context, in *AddThermalHeadroomListener1Request, opts ...grpc.CallOption) (*AddThermalHeadroomListener1Response, error)
 	AddThermalHeadroomListener2_1(ctx context.Context, in *AddThermalHeadroomListener2_1Request, opts ...grpc.CallOption) (*AddThermalHeadroomListener2_1Response, error)
 	AddThermalStatusListener1(ctx context.Context, in *AddThermalStatusListener1Request, opts ...grpc.CallOption) (*AddThermalStatusListener1Response, error)
@@ -81,278 +81,278 @@ type PowerManagerServiceClient interface {
 	RemoveThermalStatusListener(ctx context.Context, in *RemoveThermalStatusListenerRequest, opts ...grpc.CallOption) (*RemoveThermalStatusListenerResponse, error)
 }
 
-type powerManagerServiceClient struct {
+type managerServiceClient struct {
 	cc grpc.ClientConnInterface
 }
 
-func NewPowerManagerServiceClient(cc grpc.ClientConnInterface) PowerManagerServiceClient {
-	return &powerManagerServiceClient{cc}
+func NewManagerServiceClient(cc grpc.ClientConnInterface) ManagerServiceClient {
+	return &managerServiceClient{cc}
 }
 
-func (c *powerManagerServiceClient) AddThermalHeadroomListener1(ctx context.Context, in *AddThermalHeadroomListener1Request, opts ...grpc.CallOption) (*AddThermalHeadroomListener1Response, error) {
+func (c *managerServiceClient) AddThermalHeadroomListener1(ctx context.Context, in *AddThermalHeadroomListener1Request, opts ...grpc.CallOption) (*AddThermalHeadroomListener1Response, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(AddThermalHeadroomListener1Response)
-	err := c.cc.Invoke(ctx, PowerManagerService_AddThermalHeadroomListener1_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, ManagerService_AddThermalHeadroomListener1_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *powerManagerServiceClient) AddThermalHeadroomListener2_1(ctx context.Context, in *AddThermalHeadroomListener2_1Request, opts ...grpc.CallOption) (*AddThermalHeadroomListener2_1Response, error) {
+func (c *managerServiceClient) AddThermalHeadroomListener2_1(ctx context.Context, in *AddThermalHeadroomListener2_1Request, opts ...grpc.CallOption) (*AddThermalHeadroomListener2_1Response, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(AddThermalHeadroomListener2_1Response)
-	err := c.cc.Invoke(ctx, PowerManagerService_AddThermalHeadroomListener2_1_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, ManagerService_AddThermalHeadroomListener2_1_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *powerManagerServiceClient) AddThermalStatusListener1(ctx context.Context, in *AddThermalStatusListener1Request, opts ...grpc.CallOption) (*AddThermalStatusListener1Response, error) {
+func (c *managerServiceClient) AddThermalStatusListener1(ctx context.Context, in *AddThermalStatusListener1Request, opts ...grpc.CallOption) (*AddThermalStatusListener1Response, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(AddThermalStatusListener1Response)
-	err := c.cc.Invoke(ctx, PowerManagerService_AddThermalStatusListener1_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, ManagerService_AddThermalStatusListener1_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *powerManagerServiceClient) AddThermalStatusListener2_1(ctx context.Context, in *AddThermalStatusListener2_1Request, opts ...grpc.CallOption) (*AddThermalStatusListener2_1Response, error) {
+func (c *managerServiceClient) AddThermalStatusListener2_1(ctx context.Context, in *AddThermalStatusListener2_1Request, opts ...grpc.CallOption) (*AddThermalStatusListener2_1Response, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(AddThermalStatusListener2_1Response)
-	err := c.cc.Invoke(ctx, PowerManagerService_AddThermalStatusListener2_1_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, ManagerService_AddThermalStatusListener2_1_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *powerManagerServiceClient) GetBatteryDischargePrediction(ctx context.Context, in *GetBatteryDischargePredictionRequest, opts ...grpc.CallOption) (*GetBatteryDischargePredictionResponse, error) {
+func (c *managerServiceClient) GetBatteryDischargePrediction(ctx context.Context, in *GetBatteryDischargePredictionRequest, opts ...grpc.CallOption) (*GetBatteryDischargePredictionResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(GetBatteryDischargePredictionResponse)
-	err := c.cc.Invoke(ctx, PowerManagerService_GetBatteryDischargePrediction_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, ManagerService_GetBatteryDischargePrediction_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *powerManagerServiceClient) GetCurrentThermalStatus(ctx context.Context, in *GetCurrentThermalStatusRequest, opts ...grpc.CallOption) (*GetCurrentThermalStatusResponse, error) {
+func (c *managerServiceClient) GetCurrentThermalStatus(ctx context.Context, in *GetCurrentThermalStatusRequest, opts ...grpc.CallOption) (*GetCurrentThermalStatusResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(GetCurrentThermalStatusResponse)
-	err := c.cc.Invoke(ctx, PowerManagerService_GetCurrentThermalStatus_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, ManagerService_GetCurrentThermalStatus_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *powerManagerServiceClient) GetLocationPowerSaveMode(ctx context.Context, in *GetLocationPowerSaveModeRequest, opts ...grpc.CallOption) (*GetLocationPowerSaveModeResponse, error) {
+func (c *managerServiceClient) GetLocationPowerSaveMode(ctx context.Context, in *GetLocationPowerSaveModeRequest, opts ...grpc.CallOption) (*GetLocationPowerSaveModeResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(GetLocationPowerSaveModeResponse)
-	err := c.cc.Invoke(ctx, PowerManagerService_GetLocationPowerSaveMode_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, ManagerService_GetLocationPowerSaveMode_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *powerManagerServiceClient) GetThermalHeadroom(ctx context.Context, in *GetThermalHeadroomRequest, opts ...grpc.CallOption) (*GetThermalHeadroomResponse, error) {
+func (c *managerServiceClient) GetThermalHeadroom(ctx context.Context, in *GetThermalHeadroomRequest, opts ...grpc.CallOption) (*GetThermalHeadroomResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(GetThermalHeadroomResponse)
-	err := c.cc.Invoke(ctx, PowerManagerService_GetThermalHeadroom_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, ManagerService_GetThermalHeadroom_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *powerManagerServiceClient) IsAllowedInLowPowerStandby1(ctx context.Context, in *IsAllowedInLowPowerStandby1Request, opts ...grpc.CallOption) (*IsAllowedInLowPowerStandby1Response, error) {
+func (c *managerServiceClient) IsAllowedInLowPowerStandby1(ctx context.Context, in *IsAllowedInLowPowerStandby1Request, opts ...grpc.CallOption) (*IsAllowedInLowPowerStandby1Response, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(IsAllowedInLowPowerStandby1Response)
-	err := c.cc.Invoke(ctx, PowerManagerService_IsAllowedInLowPowerStandby1_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, ManagerService_IsAllowedInLowPowerStandby1_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *powerManagerServiceClient) IsAllowedInLowPowerStandby1_1(ctx context.Context, in *IsAllowedInLowPowerStandby1_1Request, opts ...grpc.CallOption) (*IsAllowedInLowPowerStandby1_1Response, error) {
+func (c *managerServiceClient) IsAllowedInLowPowerStandby1_1(ctx context.Context, in *IsAllowedInLowPowerStandby1_1Request, opts ...grpc.CallOption) (*IsAllowedInLowPowerStandby1_1Response, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(IsAllowedInLowPowerStandby1_1Response)
-	err := c.cc.Invoke(ctx, PowerManagerService_IsAllowedInLowPowerStandby1_1_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, ManagerService_IsAllowedInLowPowerStandby1_1_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *powerManagerServiceClient) IsBatteryDischargePredictionPersonalized(ctx context.Context, in *IsBatteryDischargePredictionPersonalizedRequest, opts ...grpc.CallOption) (*IsBatteryDischargePredictionPersonalizedResponse, error) {
+func (c *managerServiceClient) IsBatteryDischargePredictionPersonalized(ctx context.Context, in *IsBatteryDischargePredictionPersonalizedRequest, opts ...grpc.CallOption) (*IsBatteryDischargePredictionPersonalizedResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(IsBatteryDischargePredictionPersonalizedResponse)
-	err := c.cc.Invoke(ctx, PowerManagerService_IsBatteryDischargePredictionPersonalized_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, ManagerService_IsBatteryDischargePredictionPersonalized_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *powerManagerServiceClient) IsDeviceIdleMode(ctx context.Context, in *IsDeviceIdleModeRequest, opts ...grpc.CallOption) (*IsDeviceIdleModeResponse, error) {
+func (c *managerServiceClient) IsDeviceIdleMode(ctx context.Context, in *IsDeviceIdleModeRequest, opts ...grpc.CallOption) (*IsDeviceIdleModeResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(IsDeviceIdleModeResponse)
-	err := c.cc.Invoke(ctx, PowerManagerService_IsDeviceIdleMode_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, ManagerService_IsDeviceIdleMode_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *powerManagerServiceClient) IsDeviceLightIdleMode(ctx context.Context, in *IsDeviceLightIdleModeRequest, opts ...grpc.CallOption) (*IsDeviceLightIdleModeResponse, error) {
+func (c *managerServiceClient) IsDeviceLightIdleMode(ctx context.Context, in *IsDeviceLightIdleModeRequest, opts ...grpc.CallOption) (*IsDeviceLightIdleModeResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(IsDeviceLightIdleModeResponse)
-	err := c.cc.Invoke(ctx, PowerManagerService_IsDeviceLightIdleMode_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, ManagerService_IsDeviceLightIdleMode_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *powerManagerServiceClient) IsExemptFromLowPowerStandby(ctx context.Context, in *IsExemptFromLowPowerStandbyRequest, opts ...grpc.CallOption) (*IsExemptFromLowPowerStandbyResponse, error) {
+func (c *managerServiceClient) IsExemptFromLowPowerStandby(ctx context.Context, in *IsExemptFromLowPowerStandbyRequest, opts ...grpc.CallOption) (*IsExemptFromLowPowerStandbyResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(IsExemptFromLowPowerStandbyResponse)
-	err := c.cc.Invoke(ctx, PowerManagerService_IsExemptFromLowPowerStandby_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, ManagerService_IsExemptFromLowPowerStandby_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *powerManagerServiceClient) IsIgnoringBatteryOptimizations(ctx context.Context, in *IsIgnoringBatteryOptimizationsRequest, opts ...grpc.CallOption) (*IsIgnoringBatteryOptimizationsResponse, error) {
+func (c *managerServiceClient) IsIgnoringBatteryOptimizations(ctx context.Context, in *IsIgnoringBatteryOptimizationsRequest, opts ...grpc.CallOption) (*IsIgnoringBatteryOptimizationsResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(IsIgnoringBatteryOptimizationsResponse)
-	err := c.cc.Invoke(ctx, PowerManagerService_IsIgnoringBatteryOptimizations_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, ManagerService_IsIgnoringBatteryOptimizations_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *powerManagerServiceClient) IsInteractive(ctx context.Context, in *IsInteractiveRequest, opts ...grpc.CallOption) (*IsInteractiveResponse, error) {
+func (c *managerServiceClient) IsInteractive(ctx context.Context, in *IsInteractiveRequest, opts ...grpc.CallOption) (*IsInteractiveResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(IsInteractiveResponse)
-	err := c.cc.Invoke(ctx, PowerManagerService_IsInteractive_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, ManagerService_IsInteractive_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *powerManagerServiceClient) IsLowPowerStandbyEnabled(ctx context.Context, in *IsLowPowerStandbyEnabledRequest, opts ...grpc.CallOption) (*IsLowPowerStandbyEnabledResponse, error) {
+func (c *managerServiceClient) IsLowPowerStandbyEnabled(ctx context.Context, in *IsLowPowerStandbyEnabledRequest, opts ...grpc.CallOption) (*IsLowPowerStandbyEnabledResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(IsLowPowerStandbyEnabledResponse)
-	err := c.cc.Invoke(ctx, PowerManagerService_IsLowPowerStandbyEnabled_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, ManagerService_IsLowPowerStandbyEnabled_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *powerManagerServiceClient) IsPowerSaveMode(ctx context.Context, in *IsPowerSaveModeRequest, opts ...grpc.CallOption) (*IsPowerSaveModeResponse, error) {
+func (c *managerServiceClient) IsPowerSaveMode(ctx context.Context, in *IsPowerSaveModeRequest, opts ...grpc.CallOption) (*IsPowerSaveModeResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(IsPowerSaveModeResponse)
-	err := c.cc.Invoke(ctx, PowerManagerService_IsPowerSaveMode_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, ManagerService_IsPowerSaveMode_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *powerManagerServiceClient) IsRebootingUserspaceSupported(ctx context.Context, in *IsRebootingUserspaceSupportedRequest, opts ...grpc.CallOption) (*IsRebootingUserspaceSupportedResponse, error) {
+func (c *managerServiceClient) IsRebootingUserspaceSupported(ctx context.Context, in *IsRebootingUserspaceSupportedRequest, opts ...grpc.CallOption) (*IsRebootingUserspaceSupportedResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(IsRebootingUserspaceSupportedResponse)
-	err := c.cc.Invoke(ctx, PowerManagerService_IsRebootingUserspaceSupported_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, ManagerService_IsRebootingUserspaceSupported_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *powerManagerServiceClient) IsScreenOn(ctx context.Context, in *IsScreenOnRequest, opts ...grpc.CallOption) (*IsScreenOnResponse, error) {
+func (c *managerServiceClient) IsScreenOn(ctx context.Context, in *IsScreenOnRequest, opts ...grpc.CallOption) (*IsScreenOnResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(IsScreenOnResponse)
-	err := c.cc.Invoke(ctx, PowerManagerService_IsScreenOn_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, ManagerService_IsScreenOn_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *powerManagerServiceClient) IsSustainedPerformanceModeSupported(ctx context.Context, in *IsSustainedPerformanceModeSupportedRequest, opts ...grpc.CallOption) (*IsSustainedPerformanceModeSupportedResponse, error) {
+func (c *managerServiceClient) IsSustainedPerformanceModeSupported(ctx context.Context, in *IsSustainedPerformanceModeSupportedRequest, opts ...grpc.CallOption) (*IsSustainedPerformanceModeSupportedResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(IsSustainedPerformanceModeSupportedResponse)
-	err := c.cc.Invoke(ctx, PowerManagerService_IsSustainedPerformanceModeSupported_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, ManagerService_IsSustainedPerformanceModeSupported_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *powerManagerServiceClient) IsWakeLockLevelSupported(ctx context.Context, in *IsWakeLockLevelSupportedRequest, opts ...grpc.CallOption) (*IsWakeLockLevelSupportedResponse, error) {
+func (c *managerServiceClient) IsWakeLockLevelSupported(ctx context.Context, in *IsWakeLockLevelSupportedRequest, opts ...grpc.CallOption) (*IsWakeLockLevelSupportedResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(IsWakeLockLevelSupportedResponse)
-	err := c.cc.Invoke(ctx, PowerManagerService_IsWakeLockLevelSupported_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, ManagerService_IsWakeLockLevelSupported_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *powerManagerServiceClient) NewWakeLock(ctx context.Context, in *NewWakeLockRequest, opts ...grpc.CallOption) (*NewWakeLockResponse, error) {
+func (c *managerServiceClient) NewWakeLock(ctx context.Context, in *NewWakeLockRequest, opts ...grpc.CallOption) (*NewWakeLockResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(NewWakeLockResponse)
-	err := c.cc.Invoke(ctx, PowerManagerService_NewWakeLock_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, ManagerService_NewWakeLock_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *powerManagerServiceClient) Reboot(ctx context.Context, in *RebootRequest, opts ...grpc.CallOption) (*RebootResponse, error) {
+func (c *managerServiceClient) Reboot(ctx context.Context, in *RebootRequest, opts ...grpc.CallOption) (*RebootResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(RebootResponse)
-	err := c.cc.Invoke(ctx, PowerManagerService_Reboot_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, ManagerService_Reboot_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *powerManagerServiceClient) RemoveThermalHeadroomListener(ctx context.Context, in *RemoveThermalHeadroomListenerRequest, opts ...grpc.CallOption) (*RemoveThermalHeadroomListenerResponse, error) {
+func (c *managerServiceClient) RemoveThermalHeadroomListener(ctx context.Context, in *RemoveThermalHeadroomListenerRequest, opts ...grpc.CallOption) (*RemoveThermalHeadroomListenerResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(RemoveThermalHeadroomListenerResponse)
-	err := c.cc.Invoke(ctx, PowerManagerService_RemoveThermalHeadroomListener_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, ManagerService_RemoveThermalHeadroomListener_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *powerManagerServiceClient) RemoveThermalStatusListener(ctx context.Context, in *RemoveThermalStatusListenerRequest, opts ...grpc.CallOption) (*RemoveThermalStatusListenerResponse, error) {
+func (c *managerServiceClient) RemoveThermalStatusListener(ctx context.Context, in *RemoveThermalStatusListenerRequest, opts ...grpc.CallOption) (*RemoveThermalStatusListenerResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(RemoveThermalStatusListenerResponse)
-	err := c.cc.Invoke(ctx, PowerManagerService_RemoveThermalStatusListener_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, ManagerService_RemoveThermalStatusListener_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-// PowerManagerServiceServer is the server API for PowerManagerService service.
-// All implementations must embed UnimplementedPowerManagerServiceServer
+// ManagerServiceServer is the server API for ManagerService service.
+// All implementations must embed UnimplementedManagerServiceServer
 // for forward compatibility.
-type PowerManagerServiceServer interface {
+type ManagerServiceServer interface {
 	AddThermalHeadroomListener1(context.Context, *AddThermalHeadroomListener1Request) (*AddThermalHeadroomListener1Response, error)
 	AddThermalHeadroomListener2_1(context.Context, *AddThermalHeadroomListener2_1Request) (*AddThermalHeadroomListener2_1Response, error)
 	AddThermalStatusListener1(context.Context, *AddThermalStatusListener1Request) (*AddThermalStatusListener1Response, error)
@@ -379,693 +379,693 @@ type PowerManagerServiceServer interface {
 	Reboot(context.Context, *RebootRequest) (*RebootResponse, error)
 	RemoveThermalHeadroomListener(context.Context, *RemoveThermalHeadroomListenerRequest) (*RemoveThermalHeadroomListenerResponse, error)
 	RemoveThermalStatusListener(context.Context, *RemoveThermalStatusListenerRequest) (*RemoveThermalStatusListenerResponse, error)
-	mustEmbedUnimplementedPowerManagerServiceServer()
+	mustEmbedUnimplementedManagerServiceServer()
 }
 
-// UnimplementedPowerManagerServiceServer must be embedded to have
+// UnimplementedManagerServiceServer must be embedded to have
 // forward compatible implementations.
 //
 // NOTE: this should be embedded by value instead of pointer to avoid a nil
 // pointer dereference when methods are called.
-type UnimplementedPowerManagerServiceServer struct{}
+type UnimplementedManagerServiceServer struct{}
 
-func (UnimplementedPowerManagerServiceServer) AddThermalHeadroomListener1(context.Context, *AddThermalHeadroomListener1Request) (*AddThermalHeadroomListener1Response, error) {
+func (UnimplementedManagerServiceServer) AddThermalHeadroomListener1(context.Context, *AddThermalHeadroomListener1Request) (*AddThermalHeadroomListener1Response, error) {
 	return nil, status.Error(codes.Unimplemented, "method AddThermalHeadroomListener1 not implemented")
 }
-func (UnimplementedPowerManagerServiceServer) AddThermalHeadroomListener2_1(context.Context, *AddThermalHeadroomListener2_1Request) (*AddThermalHeadroomListener2_1Response, error) {
+func (UnimplementedManagerServiceServer) AddThermalHeadroomListener2_1(context.Context, *AddThermalHeadroomListener2_1Request) (*AddThermalHeadroomListener2_1Response, error) {
 	return nil, status.Error(codes.Unimplemented, "method AddThermalHeadroomListener2_1 not implemented")
 }
-func (UnimplementedPowerManagerServiceServer) AddThermalStatusListener1(context.Context, *AddThermalStatusListener1Request) (*AddThermalStatusListener1Response, error) {
+func (UnimplementedManagerServiceServer) AddThermalStatusListener1(context.Context, *AddThermalStatusListener1Request) (*AddThermalStatusListener1Response, error) {
 	return nil, status.Error(codes.Unimplemented, "method AddThermalStatusListener1 not implemented")
 }
-func (UnimplementedPowerManagerServiceServer) AddThermalStatusListener2_1(context.Context, *AddThermalStatusListener2_1Request) (*AddThermalStatusListener2_1Response, error) {
+func (UnimplementedManagerServiceServer) AddThermalStatusListener2_1(context.Context, *AddThermalStatusListener2_1Request) (*AddThermalStatusListener2_1Response, error) {
 	return nil, status.Error(codes.Unimplemented, "method AddThermalStatusListener2_1 not implemented")
 }
-func (UnimplementedPowerManagerServiceServer) GetBatteryDischargePrediction(context.Context, *GetBatteryDischargePredictionRequest) (*GetBatteryDischargePredictionResponse, error) {
+func (UnimplementedManagerServiceServer) GetBatteryDischargePrediction(context.Context, *GetBatteryDischargePredictionRequest) (*GetBatteryDischargePredictionResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetBatteryDischargePrediction not implemented")
 }
-func (UnimplementedPowerManagerServiceServer) GetCurrentThermalStatus(context.Context, *GetCurrentThermalStatusRequest) (*GetCurrentThermalStatusResponse, error) {
+func (UnimplementedManagerServiceServer) GetCurrentThermalStatus(context.Context, *GetCurrentThermalStatusRequest) (*GetCurrentThermalStatusResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetCurrentThermalStatus not implemented")
 }
-func (UnimplementedPowerManagerServiceServer) GetLocationPowerSaveMode(context.Context, *GetLocationPowerSaveModeRequest) (*GetLocationPowerSaveModeResponse, error) {
+func (UnimplementedManagerServiceServer) GetLocationPowerSaveMode(context.Context, *GetLocationPowerSaveModeRequest) (*GetLocationPowerSaveModeResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetLocationPowerSaveMode not implemented")
 }
-func (UnimplementedPowerManagerServiceServer) GetThermalHeadroom(context.Context, *GetThermalHeadroomRequest) (*GetThermalHeadroomResponse, error) {
+func (UnimplementedManagerServiceServer) GetThermalHeadroom(context.Context, *GetThermalHeadroomRequest) (*GetThermalHeadroomResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetThermalHeadroom not implemented")
 }
-func (UnimplementedPowerManagerServiceServer) IsAllowedInLowPowerStandby1(context.Context, *IsAllowedInLowPowerStandby1Request) (*IsAllowedInLowPowerStandby1Response, error) {
+func (UnimplementedManagerServiceServer) IsAllowedInLowPowerStandby1(context.Context, *IsAllowedInLowPowerStandby1Request) (*IsAllowedInLowPowerStandby1Response, error) {
 	return nil, status.Error(codes.Unimplemented, "method IsAllowedInLowPowerStandby1 not implemented")
 }
-func (UnimplementedPowerManagerServiceServer) IsAllowedInLowPowerStandby1_1(context.Context, *IsAllowedInLowPowerStandby1_1Request) (*IsAllowedInLowPowerStandby1_1Response, error) {
+func (UnimplementedManagerServiceServer) IsAllowedInLowPowerStandby1_1(context.Context, *IsAllowedInLowPowerStandby1_1Request) (*IsAllowedInLowPowerStandby1_1Response, error) {
 	return nil, status.Error(codes.Unimplemented, "method IsAllowedInLowPowerStandby1_1 not implemented")
 }
-func (UnimplementedPowerManagerServiceServer) IsBatteryDischargePredictionPersonalized(context.Context, *IsBatteryDischargePredictionPersonalizedRequest) (*IsBatteryDischargePredictionPersonalizedResponse, error) {
+func (UnimplementedManagerServiceServer) IsBatteryDischargePredictionPersonalized(context.Context, *IsBatteryDischargePredictionPersonalizedRequest) (*IsBatteryDischargePredictionPersonalizedResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method IsBatteryDischargePredictionPersonalized not implemented")
 }
-func (UnimplementedPowerManagerServiceServer) IsDeviceIdleMode(context.Context, *IsDeviceIdleModeRequest) (*IsDeviceIdleModeResponse, error) {
+func (UnimplementedManagerServiceServer) IsDeviceIdleMode(context.Context, *IsDeviceIdleModeRequest) (*IsDeviceIdleModeResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method IsDeviceIdleMode not implemented")
 }
-func (UnimplementedPowerManagerServiceServer) IsDeviceLightIdleMode(context.Context, *IsDeviceLightIdleModeRequest) (*IsDeviceLightIdleModeResponse, error) {
+func (UnimplementedManagerServiceServer) IsDeviceLightIdleMode(context.Context, *IsDeviceLightIdleModeRequest) (*IsDeviceLightIdleModeResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method IsDeviceLightIdleMode not implemented")
 }
-func (UnimplementedPowerManagerServiceServer) IsExemptFromLowPowerStandby(context.Context, *IsExemptFromLowPowerStandbyRequest) (*IsExemptFromLowPowerStandbyResponse, error) {
+func (UnimplementedManagerServiceServer) IsExemptFromLowPowerStandby(context.Context, *IsExemptFromLowPowerStandbyRequest) (*IsExemptFromLowPowerStandbyResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method IsExemptFromLowPowerStandby not implemented")
 }
-func (UnimplementedPowerManagerServiceServer) IsIgnoringBatteryOptimizations(context.Context, *IsIgnoringBatteryOptimizationsRequest) (*IsIgnoringBatteryOptimizationsResponse, error) {
+func (UnimplementedManagerServiceServer) IsIgnoringBatteryOptimizations(context.Context, *IsIgnoringBatteryOptimizationsRequest) (*IsIgnoringBatteryOptimizationsResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method IsIgnoringBatteryOptimizations not implemented")
 }
-func (UnimplementedPowerManagerServiceServer) IsInteractive(context.Context, *IsInteractiveRequest) (*IsInteractiveResponse, error) {
+func (UnimplementedManagerServiceServer) IsInteractive(context.Context, *IsInteractiveRequest) (*IsInteractiveResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method IsInteractive not implemented")
 }
-func (UnimplementedPowerManagerServiceServer) IsLowPowerStandbyEnabled(context.Context, *IsLowPowerStandbyEnabledRequest) (*IsLowPowerStandbyEnabledResponse, error) {
+func (UnimplementedManagerServiceServer) IsLowPowerStandbyEnabled(context.Context, *IsLowPowerStandbyEnabledRequest) (*IsLowPowerStandbyEnabledResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method IsLowPowerStandbyEnabled not implemented")
 }
-func (UnimplementedPowerManagerServiceServer) IsPowerSaveMode(context.Context, *IsPowerSaveModeRequest) (*IsPowerSaveModeResponse, error) {
+func (UnimplementedManagerServiceServer) IsPowerSaveMode(context.Context, *IsPowerSaveModeRequest) (*IsPowerSaveModeResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method IsPowerSaveMode not implemented")
 }
-func (UnimplementedPowerManagerServiceServer) IsRebootingUserspaceSupported(context.Context, *IsRebootingUserspaceSupportedRequest) (*IsRebootingUserspaceSupportedResponse, error) {
+func (UnimplementedManagerServiceServer) IsRebootingUserspaceSupported(context.Context, *IsRebootingUserspaceSupportedRequest) (*IsRebootingUserspaceSupportedResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method IsRebootingUserspaceSupported not implemented")
 }
-func (UnimplementedPowerManagerServiceServer) IsScreenOn(context.Context, *IsScreenOnRequest) (*IsScreenOnResponse, error) {
+func (UnimplementedManagerServiceServer) IsScreenOn(context.Context, *IsScreenOnRequest) (*IsScreenOnResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method IsScreenOn not implemented")
 }
-func (UnimplementedPowerManagerServiceServer) IsSustainedPerformanceModeSupported(context.Context, *IsSustainedPerformanceModeSupportedRequest) (*IsSustainedPerformanceModeSupportedResponse, error) {
+func (UnimplementedManagerServiceServer) IsSustainedPerformanceModeSupported(context.Context, *IsSustainedPerformanceModeSupportedRequest) (*IsSustainedPerformanceModeSupportedResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method IsSustainedPerformanceModeSupported not implemented")
 }
-func (UnimplementedPowerManagerServiceServer) IsWakeLockLevelSupported(context.Context, *IsWakeLockLevelSupportedRequest) (*IsWakeLockLevelSupportedResponse, error) {
+func (UnimplementedManagerServiceServer) IsWakeLockLevelSupported(context.Context, *IsWakeLockLevelSupportedRequest) (*IsWakeLockLevelSupportedResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method IsWakeLockLevelSupported not implemented")
 }
-func (UnimplementedPowerManagerServiceServer) NewWakeLock(context.Context, *NewWakeLockRequest) (*NewWakeLockResponse, error) {
+func (UnimplementedManagerServiceServer) NewWakeLock(context.Context, *NewWakeLockRequest) (*NewWakeLockResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method NewWakeLock not implemented")
 }
-func (UnimplementedPowerManagerServiceServer) Reboot(context.Context, *RebootRequest) (*RebootResponse, error) {
+func (UnimplementedManagerServiceServer) Reboot(context.Context, *RebootRequest) (*RebootResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method Reboot not implemented")
 }
-func (UnimplementedPowerManagerServiceServer) RemoveThermalHeadroomListener(context.Context, *RemoveThermalHeadroomListenerRequest) (*RemoveThermalHeadroomListenerResponse, error) {
+func (UnimplementedManagerServiceServer) RemoveThermalHeadroomListener(context.Context, *RemoveThermalHeadroomListenerRequest) (*RemoveThermalHeadroomListenerResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method RemoveThermalHeadroomListener not implemented")
 }
-func (UnimplementedPowerManagerServiceServer) RemoveThermalStatusListener(context.Context, *RemoveThermalStatusListenerRequest) (*RemoveThermalStatusListenerResponse, error) {
+func (UnimplementedManagerServiceServer) RemoveThermalStatusListener(context.Context, *RemoveThermalStatusListenerRequest) (*RemoveThermalStatusListenerResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method RemoveThermalStatusListener not implemented")
 }
-func (UnimplementedPowerManagerServiceServer) mustEmbedUnimplementedPowerManagerServiceServer() {}
-func (UnimplementedPowerManagerServiceServer) testEmbeddedByValue()                             {}
+func (UnimplementedManagerServiceServer) mustEmbedUnimplementedManagerServiceServer() {}
+func (UnimplementedManagerServiceServer) testEmbeddedByValue()                        {}
 
-// UnsafePowerManagerServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to PowerManagerServiceServer will
+// UnsafeManagerServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to ManagerServiceServer will
 // result in compilation errors.
-type UnsafePowerManagerServiceServer interface {
-	mustEmbedUnimplementedPowerManagerServiceServer()
+type UnsafeManagerServiceServer interface {
+	mustEmbedUnimplementedManagerServiceServer()
 }
 
-func RegisterPowerManagerServiceServer(s grpc.ServiceRegistrar, srv PowerManagerServiceServer) {
-	// If the following call panics, it indicates UnimplementedPowerManagerServiceServer was
+func RegisterManagerServiceServer(s grpc.ServiceRegistrar, srv ManagerServiceServer) {
+	// If the following call panics, it indicates UnimplementedManagerServiceServer was
 	// embedded by pointer and is nil.  This will cause panics if an
 	// unimplemented method is ever invoked, so we test this at initialization
 	// time to prevent it from happening at runtime later due to I/O.
 	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
 		t.testEmbeddedByValue()
 	}
-	s.RegisterService(&PowerManagerService_ServiceDesc, srv)
+	s.RegisterService(&ManagerService_ServiceDesc, srv)
 }
 
-func _PowerManagerService_AddThermalHeadroomListener1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _ManagerService_AddThermalHeadroomListener1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(AddThermalHeadroomListener1Request)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(PowerManagerServiceServer).AddThermalHeadroomListener1(ctx, in)
+		return srv.(ManagerServiceServer).AddThermalHeadroomListener1(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: PowerManagerService_AddThermalHeadroomListener1_FullMethodName,
+		FullMethod: ManagerService_AddThermalHeadroomListener1_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PowerManagerServiceServer).AddThermalHeadroomListener1(ctx, req.(*AddThermalHeadroomListener1Request))
+		return srv.(ManagerServiceServer).AddThermalHeadroomListener1(ctx, req.(*AddThermalHeadroomListener1Request))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _PowerManagerService_AddThermalHeadroomListener2_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _ManagerService_AddThermalHeadroomListener2_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(AddThermalHeadroomListener2_1Request)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(PowerManagerServiceServer).AddThermalHeadroomListener2_1(ctx, in)
+		return srv.(ManagerServiceServer).AddThermalHeadroomListener2_1(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: PowerManagerService_AddThermalHeadroomListener2_1_FullMethodName,
+		FullMethod: ManagerService_AddThermalHeadroomListener2_1_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PowerManagerServiceServer).AddThermalHeadroomListener2_1(ctx, req.(*AddThermalHeadroomListener2_1Request))
+		return srv.(ManagerServiceServer).AddThermalHeadroomListener2_1(ctx, req.(*AddThermalHeadroomListener2_1Request))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _PowerManagerService_AddThermalStatusListener1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _ManagerService_AddThermalStatusListener1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(AddThermalStatusListener1Request)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(PowerManagerServiceServer).AddThermalStatusListener1(ctx, in)
+		return srv.(ManagerServiceServer).AddThermalStatusListener1(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: PowerManagerService_AddThermalStatusListener1_FullMethodName,
+		FullMethod: ManagerService_AddThermalStatusListener1_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PowerManagerServiceServer).AddThermalStatusListener1(ctx, req.(*AddThermalStatusListener1Request))
+		return srv.(ManagerServiceServer).AddThermalStatusListener1(ctx, req.(*AddThermalStatusListener1Request))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _PowerManagerService_AddThermalStatusListener2_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _ManagerService_AddThermalStatusListener2_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(AddThermalStatusListener2_1Request)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(PowerManagerServiceServer).AddThermalStatusListener2_1(ctx, in)
+		return srv.(ManagerServiceServer).AddThermalStatusListener2_1(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: PowerManagerService_AddThermalStatusListener2_1_FullMethodName,
+		FullMethod: ManagerService_AddThermalStatusListener2_1_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PowerManagerServiceServer).AddThermalStatusListener2_1(ctx, req.(*AddThermalStatusListener2_1Request))
+		return srv.(ManagerServiceServer).AddThermalStatusListener2_1(ctx, req.(*AddThermalStatusListener2_1Request))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _PowerManagerService_GetBatteryDischargePrediction_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _ManagerService_GetBatteryDischargePrediction_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(GetBatteryDischargePredictionRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(PowerManagerServiceServer).GetBatteryDischargePrediction(ctx, in)
+		return srv.(ManagerServiceServer).GetBatteryDischargePrediction(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: PowerManagerService_GetBatteryDischargePrediction_FullMethodName,
+		FullMethod: ManagerService_GetBatteryDischargePrediction_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PowerManagerServiceServer).GetBatteryDischargePrediction(ctx, req.(*GetBatteryDischargePredictionRequest))
+		return srv.(ManagerServiceServer).GetBatteryDischargePrediction(ctx, req.(*GetBatteryDischargePredictionRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _PowerManagerService_GetCurrentThermalStatus_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _ManagerService_GetCurrentThermalStatus_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(GetCurrentThermalStatusRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(PowerManagerServiceServer).GetCurrentThermalStatus(ctx, in)
+		return srv.(ManagerServiceServer).GetCurrentThermalStatus(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: PowerManagerService_GetCurrentThermalStatus_FullMethodName,
+		FullMethod: ManagerService_GetCurrentThermalStatus_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PowerManagerServiceServer).GetCurrentThermalStatus(ctx, req.(*GetCurrentThermalStatusRequest))
+		return srv.(ManagerServiceServer).GetCurrentThermalStatus(ctx, req.(*GetCurrentThermalStatusRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _PowerManagerService_GetLocationPowerSaveMode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _ManagerService_GetLocationPowerSaveMode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(GetLocationPowerSaveModeRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(PowerManagerServiceServer).GetLocationPowerSaveMode(ctx, in)
+		return srv.(ManagerServiceServer).GetLocationPowerSaveMode(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: PowerManagerService_GetLocationPowerSaveMode_FullMethodName,
+		FullMethod: ManagerService_GetLocationPowerSaveMode_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PowerManagerServiceServer).GetLocationPowerSaveMode(ctx, req.(*GetLocationPowerSaveModeRequest))
+		return srv.(ManagerServiceServer).GetLocationPowerSaveMode(ctx, req.(*GetLocationPowerSaveModeRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _PowerManagerService_GetThermalHeadroom_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _ManagerService_GetThermalHeadroom_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(GetThermalHeadroomRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(PowerManagerServiceServer).GetThermalHeadroom(ctx, in)
+		return srv.(ManagerServiceServer).GetThermalHeadroom(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: PowerManagerService_GetThermalHeadroom_FullMethodName,
+		FullMethod: ManagerService_GetThermalHeadroom_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PowerManagerServiceServer).GetThermalHeadroom(ctx, req.(*GetThermalHeadroomRequest))
+		return srv.(ManagerServiceServer).GetThermalHeadroom(ctx, req.(*GetThermalHeadroomRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _PowerManagerService_IsAllowedInLowPowerStandby1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _ManagerService_IsAllowedInLowPowerStandby1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(IsAllowedInLowPowerStandby1Request)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(PowerManagerServiceServer).IsAllowedInLowPowerStandby1(ctx, in)
+		return srv.(ManagerServiceServer).IsAllowedInLowPowerStandby1(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: PowerManagerService_IsAllowedInLowPowerStandby1_FullMethodName,
+		FullMethod: ManagerService_IsAllowedInLowPowerStandby1_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PowerManagerServiceServer).IsAllowedInLowPowerStandby1(ctx, req.(*IsAllowedInLowPowerStandby1Request))
+		return srv.(ManagerServiceServer).IsAllowedInLowPowerStandby1(ctx, req.(*IsAllowedInLowPowerStandby1Request))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _PowerManagerService_IsAllowedInLowPowerStandby1_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _ManagerService_IsAllowedInLowPowerStandby1_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(IsAllowedInLowPowerStandby1_1Request)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(PowerManagerServiceServer).IsAllowedInLowPowerStandby1_1(ctx, in)
+		return srv.(ManagerServiceServer).IsAllowedInLowPowerStandby1_1(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: PowerManagerService_IsAllowedInLowPowerStandby1_1_FullMethodName,
+		FullMethod: ManagerService_IsAllowedInLowPowerStandby1_1_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PowerManagerServiceServer).IsAllowedInLowPowerStandby1_1(ctx, req.(*IsAllowedInLowPowerStandby1_1Request))
+		return srv.(ManagerServiceServer).IsAllowedInLowPowerStandby1_1(ctx, req.(*IsAllowedInLowPowerStandby1_1Request))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _PowerManagerService_IsBatteryDischargePredictionPersonalized_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _ManagerService_IsBatteryDischargePredictionPersonalized_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(IsBatteryDischargePredictionPersonalizedRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(PowerManagerServiceServer).IsBatteryDischargePredictionPersonalized(ctx, in)
+		return srv.(ManagerServiceServer).IsBatteryDischargePredictionPersonalized(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: PowerManagerService_IsBatteryDischargePredictionPersonalized_FullMethodName,
+		FullMethod: ManagerService_IsBatteryDischargePredictionPersonalized_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PowerManagerServiceServer).IsBatteryDischargePredictionPersonalized(ctx, req.(*IsBatteryDischargePredictionPersonalizedRequest))
+		return srv.(ManagerServiceServer).IsBatteryDischargePredictionPersonalized(ctx, req.(*IsBatteryDischargePredictionPersonalizedRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _PowerManagerService_IsDeviceIdleMode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _ManagerService_IsDeviceIdleMode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(IsDeviceIdleModeRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(PowerManagerServiceServer).IsDeviceIdleMode(ctx, in)
+		return srv.(ManagerServiceServer).IsDeviceIdleMode(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: PowerManagerService_IsDeviceIdleMode_FullMethodName,
+		FullMethod: ManagerService_IsDeviceIdleMode_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PowerManagerServiceServer).IsDeviceIdleMode(ctx, req.(*IsDeviceIdleModeRequest))
+		return srv.(ManagerServiceServer).IsDeviceIdleMode(ctx, req.(*IsDeviceIdleModeRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _PowerManagerService_IsDeviceLightIdleMode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _ManagerService_IsDeviceLightIdleMode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(IsDeviceLightIdleModeRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(PowerManagerServiceServer).IsDeviceLightIdleMode(ctx, in)
+		return srv.(ManagerServiceServer).IsDeviceLightIdleMode(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: PowerManagerService_IsDeviceLightIdleMode_FullMethodName,
+		FullMethod: ManagerService_IsDeviceLightIdleMode_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PowerManagerServiceServer).IsDeviceLightIdleMode(ctx, req.(*IsDeviceLightIdleModeRequest))
+		return srv.(ManagerServiceServer).IsDeviceLightIdleMode(ctx, req.(*IsDeviceLightIdleModeRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _PowerManagerService_IsExemptFromLowPowerStandby_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _ManagerService_IsExemptFromLowPowerStandby_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(IsExemptFromLowPowerStandbyRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(PowerManagerServiceServer).IsExemptFromLowPowerStandby(ctx, in)
+		return srv.(ManagerServiceServer).IsExemptFromLowPowerStandby(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: PowerManagerService_IsExemptFromLowPowerStandby_FullMethodName,
+		FullMethod: ManagerService_IsExemptFromLowPowerStandby_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PowerManagerServiceServer).IsExemptFromLowPowerStandby(ctx, req.(*IsExemptFromLowPowerStandbyRequest))
+		return srv.(ManagerServiceServer).IsExemptFromLowPowerStandby(ctx, req.(*IsExemptFromLowPowerStandbyRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _PowerManagerService_IsIgnoringBatteryOptimizations_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _ManagerService_IsIgnoringBatteryOptimizations_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(IsIgnoringBatteryOptimizationsRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(PowerManagerServiceServer).IsIgnoringBatteryOptimizations(ctx, in)
+		return srv.(ManagerServiceServer).IsIgnoringBatteryOptimizations(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: PowerManagerService_IsIgnoringBatteryOptimizations_FullMethodName,
+		FullMethod: ManagerService_IsIgnoringBatteryOptimizations_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PowerManagerServiceServer).IsIgnoringBatteryOptimizations(ctx, req.(*IsIgnoringBatteryOptimizationsRequest))
+		return srv.(ManagerServiceServer).IsIgnoringBatteryOptimizations(ctx, req.(*IsIgnoringBatteryOptimizationsRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _PowerManagerService_IsInteractive_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _ManagerService_IsInteractive_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(IsInteractiveRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(PowerManagerServiceServer).IsInteractive(ctx, in)
+		return srv.(ManagerServiceServer).IsInteractive(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: PowerManagerService_IsInteractive_FullMethodName,
+		FullMethod: ManagerService_IsInteractive_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PowerManagerServiceServer).IsInteractive(ctx, req.(*IsInteractiveRequest))
+		return srv.(ManagerServiceServer).IsInteractive(ctx, req.(*IsInteractiveRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _PowerManagerService_IsLowPowerStandbyEnabled_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _ManagerService_IsLowPowerStandbyEnabled_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(IsLowPowerStandbyEnabledRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(PowerManagerServiceServer).IsLowPowerStandbyEnabled(ctx, in)
+		return srv.(ManagerServiceServer).IsLowPowerStandbyEnabled(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: PowerManagerService_IsLowPowerStandbyEnabled_FullMethodName,
+		FullMethod: ManagerService_IsLowPowerStandbyEnabled_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PowerManagerServiceServer).IsLowPowerStandbyEnabled(ctx, req.(*IsLowPowerStandbyEnabledRequest))
+		return srv.(ManagerServiceServer).IsLowPowerStandbyEnabled(ctx, req.(*IsLowPowerStandbyEnabledRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _PowerManagerService_IsPowerSaveMode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _ManagerService_IsPowerSaveMode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(IsPowerSaveModeRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(PowerManagerServiceServer).IsPowerSaveMode(ctx, in)
+		return srv.(ManagerServiceServer).IsPowerSaveMode(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: PowerManagerService_IsPowerSaveMode_FullMethodName,
+		FullMethod: ManagerService_IsPowerSaveMode_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PowerManagerServiceServer).IsPowerSaveMode(ctx, req.(*IsPowerSaveModeRequest))
+		return srv.(ManagerServiceServer).IsPowerSaveMode(ctx, req.(*IsPowerSaveModeRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _PowerManagerService_IsRebootingUserspaceSupported_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _ManagerService_IsRebootingUserspaceSupported_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(IsRebootingUserspaceSupportedRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(PowerManagerServiceServer).IsRebootingUserspaceSupported(ctx, in)
+		return srv.(ManagerServiceServer).IsRebootingUserspaceSupported(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: PowerManagerService_IsRebootingUserspaceSupported_FullMethodName,
+		FullMethod: ManagerService_IsRebootingUserspaceSupported_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PowerManagerServiceServer).IsRebootingUserspaceSupported(ctx, req.(*IsRebootingUserspaceSupportedRequest))
+		return srv.(ManagerServiceServer).IsRebootingUserspaceSupported(ctx, req.(*IsRebootingUserspaceSupportedRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _PowerManagerService_IsScreenOn_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _ManagerService_IsScreenOn_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(IsScreenOnRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(PowerManagerServiceServer).IsScreenOn(ctx, in)
+		return srv.(ManagerServiceServer).IsScreenOn(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: PowerManagerService_IsScreenOn_FullMethodName,
+		FullMethod: ManagerService_IsScreenOn_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PowerManagerServiceServer).IsScreenOn(ctx, req.(*IsScreenOnRequest))
+		return srv.(ManagerServiceServer).IsScreenOn(ctx, req.(*IsScreenOnRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _PowerManagerService_IsSustainedPerformanceModeSupported_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _ManagerService_IsSustainedPerformanceModeSupported_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(IsSustainedPerformanceModeSupportedRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(PowerManagerServiceServer).IsSustainedPerformanceModeSupported(ctx, in)
+		return srv.(ManagerServiceServer).IsSustainedPerformanceModeSupported(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: PowerManagerService_IsSustainedPerformanceModeSupported_FullMethodName,
+		FullMethod: ManagerService_IsSustainedPerformanceModeSupported_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PowerManagerServiceServer).IsSustainedPerformanceModeSupported(ctx, req.(*IsSustainedPerformanceModeSupportedRequest))
+		return srv.(ManagerServiceServer).IsSustainedPerformanceModeSupported(ctx, req.(*IsSustainedPerformanceModeSupportedRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _PowerManagerService_IsWakeLockLevelSupported_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _ManagerService_IsWakeLockLevelSupported_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(IsWakeLockLevelSupportedRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(PowerManagerServiceServer).IsWakeLockLevelSupported(ctx, in)
+		return srv.(ManagerServiceServer).IsWakeLockLevelSupported(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: PowerManagerService_IsWakeLockLevelSupported_FullMethodName,
+		FullMethod: ManagerService_IsWakeLockLevelSupported_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PowerManagerServiceServer).IsWakeLockLevelSupported(ctx, req.(*IsWakeLockLevelSupportedRequest))
+		return srv.(ManagerServiceServer).IsWakeLockLevelSupported(ctx, req.(*IsWakeLockLevelSupportedRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _PowerManagerService_NewWakeLock_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _ManagerService_NewWakeLock_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(NewWakeLockRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(PowerManagerServiceServer).NewWakeLock(ctx, in)
+		return srv.(ManagerServiceServer).NewWakeLock(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: PowerManagerService_NewWakeLock_FullMethodName,
+		FullMethod: ManagerService_NewWakeLock_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PowerManagerServiceServer).NewWakeLock(ctx, req.(*NewWakeLockRequest))
+		return srv.(ManagerServiceServer).NewWakeLock(ctx, req.(*NewWakeLockRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _PowerManagerService_Reboot_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _ManagerService_Reboot_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(RebootRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(PowerManagerServiceServer).Reboot(ctx, in)
+		return srv.(ManagerServiceServer).Reboot(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: PowerManagerService_Reboot_FullMethodName,
+		FullMethod: ManagerService_Reboot_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PowerManagerServiceServer).Reboot(ctx, req.(*RebootRequest))
+		return srv.(ManagerServiceServer).Reboot(ctx, req.(*RebootRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _PowerManagerService_RemoveThermalHeadroomListener_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _ManagerService_RemoveThermalHeadroomListener_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(RemoveThermalHeadroomListenerRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(PowerManagerServiceServer).RemoveThermalHeadroomListener(ctx, in)
+		return srv.(ManagerServiceServer).RemoveThermalHeadroomListener(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: PowerManagerService_RemoveThermalHeadroomListener_FullMethodName,
+		FullMethod: ManagerService_RemoveThermalHeadroomListener_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PowerManagerServiceServer).RemoveThermalHeadroomListener(ctx, req.(*RemoveThermalHeadroomListenerRequest))
+		return srv.(ManagerServiceServer).RemoveThermalHeadroomListener(ctx, req.(*RemoveThermalHeadroomListenerRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _PowerManagerService_RemoveThermalStatusListener_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _ManagerService_RemoveThermalStatusListener_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(RemoveThermalStatusListenerRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(PowerManagerServiceServer).RemoveThermalStatusListener(ctx, in)
+		return srv.(ManagerServiceServer).RemoveThermalStatusListener(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: PowerManagerService_RemoveThermalStatusListener_FullMethodName,
+		FullMethod: ManagerService_RemoveThermalStatusListener_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PowerManagerServiceServer).RemoveThermalStatusListener(ctx, req.(*RemoveThermalStatusListenerRequest))
+		return srv.(ManagerServiceServer).RemoveThermalStatusListener(ctx, req.(*RemoveThermalStatusListenerRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-// PowerManagerService_ServiceDesc is the grpc.ServiceDesc for PowerManagerService service.
+// ManagerService_ServiceDesc is the grpc.ServiceDesc for ManagerService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
-var PowerManagerService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "power.PowerManagerService",
-	HandlerType: (*PowerManagerServiceServer)(nil),
+var ManagerService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "power.ManagerService",
+	HandlerType: (*ManagerServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
 			MethodName: "AddThermalHeadroomListener1",
-			Handler:    _PowerManagerService_AddThermalHeadroomListener1_Handler,
+			Handler:    _ManagerService_AddThermalHeadroomListener1_Handler,
 		},
 		{
 			MethodName: "AddThermalHeadroomListener2_1",
-			Handler:    _PowerManagerService_AddThermalHeadroomListener2_1_Handler,
+			Handler:    _ManagerService_AddThermalHeadroomListener2_1_Handler,
 		},
 		{
 			MethodName: "AddThermalStatusListener1",
-			Handler:    _PowerManagerService_AddThermalStatusListener1_Handler,
+			Handler:    _ManagerService_AddThermalStatusListener1_Handler,
 		},
 		{
 			MethodName: "AddThermalStatusListener2_1",
-			Handler:    _PowerManagerService_AddThermalStatusListener2_1_Handler,
+			Handler:    _ManagerService_AddThermalStatusListener2_1_Handler,
 		},
 		{
 			MethodName: "GetBatteryDischargePrediction",
-			Handler:    _PowerManagerService_GetBatteryDischargePrediction_Handler,
+			Handler:    _ManagerService_GetBatteryDischargePrediction_Handler,
 		},
 		{
 			MethodName: "GetCurrentThermalStatus",
-			Handler:    _PowerManagerService_GetCurrentThermalStatus_Handler,
+			Handler:    _ManagerService_GetCurrentThermalStatus_Handler,
 		},
 		{
 			MethodName: "GetLocationPowerSaveMode",
-			Handler:    _PowerManagerService_GetLocationPowerSaveMode_Handler,
+			Handler:    _ManagerService_GetLocationPowerSaveMode_Handler,
 		},
 		{
 			MethodName: "GetThermalHeadroom",
-			Handler:    _PowerManagerService_GetThermalHeadroom_Handler,
+			Handler:    _ManagerService_GetThermalHeadroom_Handler,
 		},
 		{
 			MethodName: "IsAllowedInLowPowerStandby1",
-			Handler:    _PowerManagerService_IsAllowedInLowPowerStandby1_Handler,
+			Handler:    _ManagerService_IsAllowedInLowPowerStandby1_Handler,
 		},
 		{
 			MethodName: "IsAllowedInLowPowerStandby1_1",
-			Handler:    _PowerManagerService_IsAllowedInLowPowerStandby1_1_Handler,
+			Handler:    _ManagerService_IsAllowedInLowPowerStandby1_1_Handler,
 		},
 		{
 			MethodName: "IsBatteryDischargePredictionPersonalized",
-			Handler:    _PowerManagerService_IsBatteryDischargePredictionPersonalized_Handler,
+			Handler:    _ManagerService_IsBatteryDischargePredictionPersonalized_Handler,
 		},
 		{
 			MethodName: "IsDeviceIdleMode",
-			Handler:    _PowerManagerService_IsDeviceIdleMode_Handler,
+			Handler:    _ManagerService_IsDeviceIdleMode_Handler,
 		},
 		{
 			MethodName: "IsDeviceLightIdleMode",
-			Handler:    _PowerManagerService_IsDeviceLightIdleMode_Handler,
+			Handler:    _ManagerService_IsDeviceLightIdleMode_Handler,
 		},
 		{
 			MethodName: "IsExemptFromLowPowerStandby",
-			Handler:    _PowerManagerService_IsExemptFromLowPowerStandby_Handler,
+			Handler:    _ManagerService_IsExemptFromLowPowerStandby_Handler,
 		},
 		{
 			MethodName: "IsIgnoringBatteryOptimizations",
-			Handler:    _PowerManagerService_IsIgnoringBatteryOptimizations_Handler,
+			Handler:    _ManagerService_IsIgnoringBatteryOptimizations_Handler,
 		},
 		{
 			MethodName: "IsInteractive",
-			Handler:    _PowerManagerService_IsInteractive_Handler,
+			Handler:    _ManagerService_IsInteractive_Handler,
 		},
 		{
 			MethodName: "IsLowPowerStandbyEnabled",
-			Handler:    _PowerManagerService_IsLowPowerStandbyEnabled_Handler,
+			Handler:    _ManagerService_IsLowPowerStandbyEnabled_Handler,
 		},
 		{
 			MethodName: "IsPowerSaveMode",
-			Handler:    _PowerManagerService_IsPowerSaveMode_Handler,
+			Handler:    _ManagerService_IsPowerSaveMode_Handler,
 		},
 		{
 			MethodName: "IsRebootingUserspaceSupported",
-			Handler:    _PowerManagerService_IsRebootingUserspaceSupported_Handler,
+			Handler:    _ManagerService_IsRebootingUserspaceSupported_Handler,
 		},
 		{
 			MethodName: "IsScreenOn",
-			Handler:    _PowerManagerService_IsScreenOn_Handler,
+			Handler:    _ManagerService_IsScreenOn_Handler,
 		},
 		{
 			MethodName: "IsSustainedPerformanceModeSupported",
-			Handler:    _PowerManagerService_IsSustainedPerformanceModeSupported_Handler,
+			Handler:    _ManagerService_IsSustainedPerformanceModeSupported_Handler,
 		},
 		{
 			MethodName: "IsWakeLockLevelSupported",
-			Handler:    _PowerManagerService_IsWakeLockLevelSupported_Handler,
+			Handler:    _ManagerService_IsWakeLockLevelSupported_Handler,
 		},
 		{
 			MethodName: "NewWakeLock",
-			Handler:    _PowerManagerService_NewWakeLock_Handler,
+			Handler:    _ManagerService_NewWakeLock_Handler,
 		},
 		{
 			MethodName: "Reboot",
-			Handler:    _PowerManagerService_Reboot_Handler,
+			Handler:    _ManagerService_Reboot_Handler,
 		},
 		{
 			MethodName: "RemoveThermalHeadroomListener",
-			Handler:    _PowerManagerService_RemoveThermalHeadroomListener_Handler,
+			Handler:    _ManagerService_RemoveThermalHeadroomListener_Handler,
 		},
 		{
 			MethodName: "RemoveThermalStatusListener",
-			Handler:    _PowerManagerService_RemoveThermalStatusListener_Handler,
+			Handler:    _ManagerService_RemoveThermalStatusListener_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
@@ -1073,21 +1073,21 @@ var PowerManagerService_ServiceDesc = grpc.ServiceDesc{
 }
 
 const (
-	PowerManagerWakeLockService_Acquire0_FullMethodName            = "/power.PowerManagerWakeLockService/Acquire0"
-	PowerManagerWakeLockService_Acquire1_1_FullMethodName          = "/power.PowerManagerWakeLockService/Acquire1_1"
-	PowerManagerWakeLockService_IsHeld_FullMethodName              = "/power.PowerManagerWakeLockService/IsHeld"
-	PowerManagerWakeLockService_Release0_FullMethodName            = "/power.PowerManagerWakeLockService/Release0"
-	PowerManagerWakeLockService_Release1_1_FullMethodName          = "/power.PowerManagerWakeLockService/Release1_1"
-	PowerManagerWakeLockService_SetReferenceCounted_FullMethodName = "/power.PowerManagerWakeLockService/SetReferenceCounted"
-	PowerManagerWakeLockService_SetStateListener_FullMethodName    = "/power.PowerManagerWakeLockService/SetStateListener"
-	PowerManagerWakeLockService_SetWorkSource_FullMethodName       = "/power.PowerManagerWakeLockService/SetWorkSource"
-	PowerManagerWakeLockService_ToString_FullMethodName            = "/power.PowerManagerWakeLockService/ToString"
+	ManagerWakeLockService_Acquire0_FullMethodName            = "/power.ManagerWakeLockService/Acquire0"
+	ManagerWakeLockService_Acquire1_1_FullMethodName          = "/power.ManagerWakeLockService/Acquire1_1"
+	ManagerWakeLockService_IsHeld_FullMethodName              = "/power.ManagerWakeLockService/IsHeld"
+	ManagerWakeLockService_Release0_FullMethodName            = "/power.ManagerWakeLockService/Release0"
+	ManagerWakeLockService_Release1_1_FullMethodName          = "/power.ManagerWakeLockService/Release1_1"
+	ManagerWakeLockService_SetReferenceCounted_FullMethodName = "/power.ManagerWakeLockService/SetReferenceCounted"
+	ManagerWakeLockService_SetStateListener_FullMethodName    = "/power.ManagerWakeLockService/SetStateListener"
+	ManagerWakeLockService_SetWorkSource_FullMethodName       = "/power.ManagerWakeLockService/SetWorkSource"
+	ManagerWakeLockService_ToString_FullMethodName            = "/power.ManagerWakeLockService/ToString"
 )
 
-// PowerManagerWakeLockServiceClient is the client API for PowerManagerWakeLockService service.
+// ManagerWakeLockServiceClient is the client API for ManagerWakeLockService service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type PowerManagerWakeLockServiceClient interface {
+type ManagerWakeLockServiceClient interface {
 	Acquire0(ctx context.Context, in *Acquire0Request, opts ...grpc.CallOption) (*Acquire0Response, error)
 	Acquire1_1(ctx context.Context, in *Acquire1_1Request, opts ...grpc.CallOption) (*Acquire1_1Response, error)
 	IsHeld(ctx context.Context, in *IsHeldRequest, opts ...grpc.CallOption) (*IsHeldResponse, error)
@@ -1099,108 +1099,108 @@ type PowerManagerWakeLockServiceClient interface {
 	ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
 }
 
-type powerManagerWakeLockServiceClient struct {
+type managerWakeLockServiceClient struct {
 	cc grpc.ClientConnInterface
 }
 
-func NewPowerManagerWakeLockServiceClient(cc grpc.ClientConnInterface) PowerManagerWakeLockServiceClient {
-	return &powerManagerWakeLockServiceClient{cc}
+func NewManagerWakeLockServiceClient(cc grpc.ClientConnInterface) ManagerWakeLockServiceClient {
+	return &managerWakeLockServiceClient{cc}
 }
 
-func (c *powerManagerWakeLockServiceClient) Acquire0(ctx context.Context, in *Acquire0Request, opts ...grpc.CallOption) (*Acquire0Response, error) {
+func (c *managerWakeLockServiceClient) Acquire0(ctx context.Context, in *Acquire0Request, opts ...grpc.CallOption) (*Acquire0Response, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(Acquire0Response)
-	err := c.cc.Invoke(ctx, PowerManagerWakeLockService_Acquire0_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, ManagerWakeLockService_Acquire0_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *powerManagerWakeLockServiceClient) Acquire1_1(ctx context.Context, in *Acquire1_1Request, opts ...grpc.CallOption) (*Acquire1_1Response, error) {
+func (c *managerWakeLockServiceClient) Acquire1_1(ctx context.Context, in *Acquire1_1Request, opts ...grpc.CallOption) (*Acquire1_1Response, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(Acquire1_1Response)
-	err := c.cc.Invoke(ctx, PowerManagerWakeLockService_Acquire1_1_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, ManagerWakeLockService_Acquire1_1_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *powerManagerWakeLockServiceClient) IsHeld(ctx context.Context, in *IsHeldRequest, opts ...grpc.CallOption) (*IsHeldResponse, error) {
+func (c *managerWakeLockServiceClient) IsHeld(ctx context.Context, in *IsHeldRequest, opts ...grpc.CallOption) (*IsHeldResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(IsHeldResponse)
-	err := c.cc.Invoke(ctx, PowerManagerWakeLockService_IsHeld_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, ManagerWakeLockService_IsHeld_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *powerManagerWakeLockServiceClient) Release0(ctx context.Context, in *Release0Request, opts ...grpc.CallOption) (*Release0Response, error) {
+func (c *managerWakeLockServiceClient) Release0(ctx context.Context, in *Release0Request, opts ...grpc.CallOption) (*Release0Response, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(Release0Response)
-	err := c.cc.Invoke(ctx, PowerManagerWakeLockService_Release0_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, ManagerWakeLockService_Release0_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *powerManagerWakeLockServiceClient) Release1_1(ctx context.Context, in *Release1_1Request, opts ...grpc.CallOption) (*Release1_1Response, error) {
+func (c *managerWakeLockServiceClient) Release1_1(ctx context.Context, in *Release1_1Request, opts ...grpc.CallOption) (*Release1_1Response, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(Release1_1Response)
-	err := c.cc.Invoke(ctx, PowerManagerWakeLockService_Release1_1_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, ManagerWakeLockService_Release1_1_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *powerManagerWakeLockServiceClient) SetReferenceCounted(ctx context.Context, in *SetReferenceCountedRequest, opts ...grpc.CallOption) (*SetReferenceCountedResponse, error) {
+func (c *managerWakeLockServiceClient) SetReferenceCounted(ctx context.Context, in *SetReferenceCountedRequest, opts ...grpc.CallOption) (*SetReferenceCountedResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(SetReferenceCountedResponse)
-	err := c.cc.Invoke(ctx, PowerManagerWakeLockService_SetReferenceCounted_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, ManagerWakeLockService_SetReferenceCounted_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *powerManagerWakeLockServiceClient) SetStateListener(ctx context.Context, in *SetStateListenerRequest, opts ...grpc.CallOption) (*SetStateListenerResponse, error) {
+func (c *managerWakeLockServiceClient) SetStateListener(ctx context.Context, in *SetStateListenerRequest, opts ...grpc.CallOption) (*SetStateListenerResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(SetStateListenerResponse)
-	err := c.cc.Invoke(ctx, PowerManagerWakeLockService_SetStateListener_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, ManagerWakeLockService_SetStateListener_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *powerManagerWakeLockServiceClient) SetWorkSource(ctx context.Context, in *SetWorkSourceRequest, opts ...grpc.CallOption) (*SetWorkSourceResponse, error) {
+func (c *managerWakeLockServiceClient) SetWorkSource(ctx context.Context, in *SetWorkSourceRequest, opts ...grpc.CallOption) (*SetWorkSourceResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(SetWorkSourceResponse)
-	err := c.cc.Invoke(ctx, PowerManagerWakeLockService_SetWorkSource_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, ManagerWakeLockService_SetWorkSource_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *powerManagerWakeLockServiceClient) ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
+func (c *managerWakeLockServiceClient) ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(ToStringResponse)
-	err := c.cc.Invoke(ctx, PowerManagerWakeLockService_ToString_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, ManagerWakeLockService_ToString_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-// PowerManagerWakeLockServiceServer is the server API for PowerManagerWakeLockService service.
-// All implementations must embed UnimplementedPowerManagerWakeLockServiceServer
+// ManagerWakeLockServiceServer is the server API for ManagerWakeLockService service.
+// All implementations must embed UnimplementedManagerWakeLockServiceServer
 // for forward compatibility.
-type PowerManagerWakeLockServiceServer interface {
+type ManagerWakeLockServiceServer interface {
 	Acquire0(context.Context, *Acquire0Request) (*Acquire0Response, error)
 	Acquire1_1(context.Context, *Acquire1_1Request) (*Acquire1_1Response, error)
 	IsHeld(context.Context, *IsHeldRequest) (*IsHeldResponse, error)
@@ -1210,269 +1210,269 @@ type PowerManagerWakeLockServiceServer interface {
 	SetStateListener(context.Context, *SetStateListenerRequest) (*SetStateListenerResponse, error)
 	SetWorkSource(context.Context, *SetWorkSourceRequest) (*SetWorkSourceResponse, error)
 	ToString(context.Context, *ToStringRequest) (*ToStringResponse, error)
-	mustEmbedUnimplementedPowerManagerWakeLockServiceServer()
+	mustEmbedUnimplementedManagerWakeLockServiceServer()
 }
 
-// UnimplementedPowerManagerWakeLockServiceServer must be embedded to have
+// UnimplementedManagerWakeLockServiceServer must be embedded to have
 // forward compatible implementations.
 //
 // NOTE: this should be embedded by value instead of pointer to avoid a nil
 // pointer dereference when methods are called.
-type UnimplementedPowerManagerWakeLockServiceServer struct{}
+type UnimplementedManagerWakeLockServiceServer struct{}
 
-func (UnimplementedPowerManagerWakeLockServiceServer) Acquire0(context.Context, *Acquire0Request) (*Acquire0Response, error) {
+func (UnimplementedManagerWakeLockServiceServer) Acquire0(context.Context, *Acquire0Request) (*Acquire0Response, error) {
 	return nil, status.Error(codes.Unimplemented, "method Acquire0 not implemented")
 }
-func (UnimplementedPowerManagerWakeLockServiceServer) Acquire1_1(context.Context, *Acquire1_1Request) (*Acquire1_1Response, error) {
+func (UnimplementedManagerWakeLockServiceServer) Acquire1_1(context.Context, *Acquire1_1Request) (*Acquire1_1Response, error) {
 	return nil, status.Error(codes.Unimplemented, "method Acquire1_1 not implemented")
 }
-func (UnimplementedPowerManagerWakeLockServiceServer) IsHeld(context.Context, *IsHeldRequest) (*IsHeldResponse, error) {
+func (UnimplementedManagerWakeLockServiceServer) IsHeld(context.Context, *IsHeldRequest) (*IsHeldResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method IsHeld not implemented")
 }
-func (UnimplementedPowerManagerWakeLockServiceServer) Release0(context.Context, *Release0Request) (*Release0Response, error) {
+func (UnimplementedManagerWakeLockServiceServer) Release0(context.Context, *Release0Request) (*Release0Response, error) {
 	return nil, status.Error(codes.Unimplemented, "method Release0 not implemented")
 }
-func (UnimplementedPowerManagerWakeLockServiceServer) Release1_1(context.Context, *Release1_1Request) (*Release1_1Response, error) {
+func (UnimplementedManagerWakeLockServiceServer) Release1_1(context.Context, *Release1_1Request) (*Release1_1Response, error) {
 	return nil, status.Error(codes.Unimplemented, "method Release1_1 not implemented")
 }
-func (UnimplementedPowerManagerWakeLockServiceServer) SetReferenceCounted(context.Context, *SetReferenceCountedRequest) (*SetReferenceCountedResponse, error) {
+func (UnimplementedManagerWakeLockServiceServer) SetReferenceCounted(context.Context, *SetReferenceCountedRequest) (*SetReferenceCountedResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method SetReferenceCounted not implemented")
 }
-func (UnimplementedPowerManagerWakeLockServiceServer) SetStateListener(context.Context, *SetStateListenerRequest) (*SetStateListenerResponse, error) {
+func (UnimplementedManagerWakeLockServiceServer) SetStateListener(context.Context, *SetStateListenerRequest) (*SetStateListenerResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method SetStateListener not implemented")
 }
-func (UnimplementedPowerManagerWakeLockServiceServer) SetWorkSource(context.Context, *SetWorkSourceRequest) (*SetWorkSourceResponse, error) {
+func (UnimplementedManagerWakeLockServiceServer) SetWorkSource(context.Context, *SetWorkSourceRequest) (*SetWorkSourceResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method SetWorkSource not implemented")
 }
-func (UnimplementedPowerManagerWakeLockServiceServer) ToString(context.Context, *ToStringRequest) (*ToStringResponse, error) {
+func (UnimplementedManagerWakeLockServiceServer) ToString(context.Context, *ToStringRequest) (*ToStringResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
 }
-func (UnimplementedPowerManagerWakeLockServiceServer) mustEmbedUnimplementedPowerManagerWakeLockServiceServer() {
+func (UnimplementedManagerWakeLockServiceServer) mustEmbedUnimplementedManagerWakeLockServiceServer() {
 }
-func (UnimplementedPowerManagerWakeLockServiceServer) testEmbeddedByValue() {}
+func (UnimplementedManagerWakeLockServiceServer) testEmbeddedByValue() {}
 
-// UnsafePowerManagerWakeLockServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to PowerManagerWakeLockServiceServer will
+// UnsafeManagerWakeLockServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to ManagerWakeLockServiceServer will
 // result in compilation errors.
-type UnsafePowerManagerWakeLockServiceServer interface {
-	mustEmbedUnimplementedPowerManagerWakeLockServiceServer()
+type UnsafeManagerWakeLockServiceServer interface {
+	mustEmbedUnimplementedManagerWakeLockServiceServer()
 }
 
-func RegisterPowerManagerWakeLockServiceServer(s grpc.ServiceRegistrar, srv PowerManagerWakeLockServiceServer) {
-	// If the following call panics, it indicates UnimplementedPowerManagerWakeLockServiceServer was
+func RegisterManagerWakeLockServiceServer(s grpc.ServiceRegistrar, srv ManagerWakeLockServiceServer) {
+	// If the following call panics, it indicates UnimplementedManagerWakeLockServiceServer was
 	// embedded by pointer and is nil.  This will cause panics if an
 	// unimplemented method is ever invoked, so we test this at initialization
 	// time to prevent it from happening at runtime later due to I/O.
 	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
 		t.testEmbeddedByValue()
 	}
-	s.RegisterService(&PowerManagerWakeLockService_ServiceDesc, srv)
+	s.RegisterService(&ManagerWakeLockService_ServiceDesc, srv)
 }
 
-func _PowerManagerWakeLockService_Acquire0_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _ManagerWakeLockService_Acquire0_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(Acquire0Request)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(PowerManagerWakeLockServiceServer).Acquire0(ctx, in)
+		return srv.(ManagerWakeLockServiceServer).Acquire0(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: PowerManagerWakeLockService_Acquire0_FullMethodName,
+		FullMethod: ManagerWakeLockService_Acquire0_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PowerManagerWakeLockServiceServer).Acquire0(ctx, req.(*Acquire0Request))
+		return srv.(ManagerWakeLockServiceServer).Acquire0(ctx, req.(*Acquire0Request))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _PowerManagerWakeLockService_Acquire1_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _ManagerWakeLockService_Acquire1_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(Acquire1_1Request)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(PowerManagerWakeLockServiceServer).Acquire1_1(ctx, in)
+		return srv.(ManagerWakeLockServiceServer).Acquire1_1(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: PowerManagerWakeLockService_Acquire1_1_FullMethodName,
+		FullMethod: ManagerWakeLockService_Acquire1_1_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PowerManagerWakeLockServiceServer).Acquire1_1(ctx, req.(*Acquire1_1Request))
+		return srv.(ManagerWakeLockServiceServer).Acquire1_1(ctx, req.(*Acquire1_1Request))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _PowerManagerWakeLockService_IsHeld_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _ManagerWakeLockService_IsHeld_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(IsHeldRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(PowerManagerWakeLockServiceServer).IsHeld(ctx, in)
+		return srv.(ManagerWakeLockServiceServer).IsHeld(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: PowerManagerWakeLockService_IsHeld_FullMethodName,
+		FullMethod: ManagerWakeLockService_IsHeld_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PowerManagerWakeLockServiceServer).IsHeld(ctx, req.(*IsHeldRequest))
+		return srv.(ManagerWakeLockServiceServer).IsHeld(ctx, req.(*IsHeldRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _PowerManagerWakeLockService_Release0_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _ManagerWakeLockService_Release0_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(Release0Request)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(PowerManagerWakeLockServiceServer).Release0(ctx, in)
+		return srv.(ManagerWakeLockServiceServer).Release0(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: PowerManagerWakeLockService_Release0_FullMethodName,
+		FullMethod: ManagerWakeLockService_Release0_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PowerManagerWakeLockServiceServer).Release0(ctx, req.(*Release0Request))
+		return srv.(ManagerWakeLockServiceServer).Release0(ctx, req.(*Release0Request))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _PowerManagerWakeLockService_Release1_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _ManagerWakeLockService_Release1_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(Release1_1Request)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(PowerManagerWakeLockServiceServer).Release1_1(ctx, in)
+		return srv.(ManagerWakeLockServiceServer).Release1_1(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: PowerManagerWakeLockService_Release1_1_FullMethodName,
+		FullMethod: ManagerWakeLockService_Release1_1_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PowerManagerWakeLockServiceServer).Release1_1(ctx, req.(*Release1_1Request))
+		return srv.(ManagerWakeLockServiceServer).Release1_1(ctx, req.(*Release1_1Request))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _PowerManagerWakeLockService_SetReferenceCounted_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _ManagerWakeLockService_SetReferenceCounted_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(SetReferenceCountedRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(PowerManagerWakeLockServiceServer).SetReferenceCounted(ctx, in)
+		return srv.(ManagerWakeLockServiceServer).SetReferenceCounted(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: PowerManagerWakeLockService_SetReferenceCounted_FullMethodName,
+		FullMethod: ManagerWakeLockService_SetReferenceCounted_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PowerManagerWakeLockServiceServer).SetReferenceCounted(ctx, req.(*SetReferenceCountedRequest))
+		return srv.(ManagerWakeLockServiceServer).SetReferenceCounted(ctx, req.(*SetReferenceCountedRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _PowerManagerWakeLockService_SetStateListener_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _ManagerWakeLockService_SetStateListener_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(SetStateListenerRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(PowerManagerWakeLockServiceServer).SetStateListener(ctx, in)
+		return srv.(ManagerWakeLockServiceServer).SetStateListener(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: PowerManagerWakeLockService_SetStateListener_FullMethodName,
+		FullMethod: ManagerWakeLockService_SetStateListener_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PowerManagerWakeLockServiceServer).SetStateListener(ctx, req.(*SetStateListenerRequest))
+		return srv.(ManagerWakeLockServiceServer).SetStateListener(ctx, req.(*SetStateListenerRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _PowerManagerWakeLockService_SetWorkSource_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _ManagerWakeLockService_SetWorkSource_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(SetWorkSourceRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(PowerManagerWakeLockServiceServer).SetWorkSource(ctx, in)
+		return srv.(ManagerWakeLockServiceServer).SetWorkSource(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: PowerManagerWakeLockService_SetWorkSource_FullMethodName,
+		FullMethod: ManagerWakeLockService_SetWorkSource_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PowerManagerWakeLockServiceServer).SetWorkSource(ctx, req.(*SetWorkSourceRequest))
+		return srv.(ManagerWakeLockServiceServer).SetWorkSource(ctx, req.(*SetWorkSourceRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _PowerManagerWakeLockService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _ManagerWakeLockService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(ToStringRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(PowerManagerWakeLockServiceServer).ToString(ctx, in)
+		return srv.(ManagerWakeLockServiceServer).ToString(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: PowerManagerWakeLockService_ToString_FullMethodName,
+		FullMethod: ManagerWakeLockService_ToString_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PowerManagerWakeLockServiceServer).ToString(ctx, req.(*ToStringRequest))
+		return srv.(ManagerWakeLockServiceServer).ToString(ctx, req.(*ToStringRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-// PowerManagerWakeLockService_ServiceDesc is the grpc.ServiceDesc for PowerManagerWakeLockService service.
+// ManagerWakeLockService_ServiceDesc is the grpc.ServiceDesc for ManagerWakeLockService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
-var PowerManagerWakeLockService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "power.PowerManagerWakeLockService",
-	HandlerType: (*PowerManagerWakeLockServiceServer)(nil),
+var ManagerWakeLockService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "power.ManagerWakeLockService",
+	HandlerType: (*ManagerWakeLockServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
 			MethodName: "Acquire0",
-			Handler:    _PowerManagerWakeLockService_Acquire0_Handler,
+			Handler:    _ManagerWakeLockService_Acquire0_Handler,
 		},
 		{
 			MethodName: "Acquire1_1",
-			Handler:    _PowerManagerWakeLockService_Acquire1_1_Handler,
+			Handler:    _ManagerWakeLockService_Acquire1_1_Handler,
 		},
 		{
 			MethodName: "IsHeld",
-			Handler:    _PowerManagerWakeLockService_IsHeld_Handler,
+			Handler:    _ManagerWakeLockService_IsHeld_Handler,
 		},
 		{
 			MethodName: "Release0",
-			Handler:    _PowerManagerWakeLockService_Release0_Handler,
+			Handler:    _ManagerWakeLockService_Release0_Handler,
 		},
 		{
 			MethodName: "Release1_1",
-			Handler:    _PowerManagerWakeLockService_Release1_1_Handler,
+			Handler:    _ManagerWakeLockService_Release1_1_Handler,
 		},
 		{
 			MethodName: "SetReferenceCounted",
-			Handler:    _PowerManagerWakeLockService_SetReferenceCounted_Handler,
+			Handler:    _ManagerWakeLockService_SetReferenceCounted_Handler,
 		},
 		{
 			MethodName: "SetStateListener",
-			Handler:    _PowerManagerWakeLockService_SetStateListener_Handler,
+			Handler:    _ManagerWakeLockService_SetStateListener_Handler,
 		},
 		{
 			MethodName: "SetWorkSource",
-			Handler:    _PowerManagerWakeLockService_SetWorkSource_Handler,
+			Handler:    _ManagerWakeLockService_SetWorkSource_Handler,
 		},
 		{
 			MethodName: "ToString",
-			Handler:    _PowerManagerWakeLockService_ToString_Handler,
+			Handler:    _ManagerWakeLockService_ToString_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

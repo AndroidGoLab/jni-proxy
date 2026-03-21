@@ -21,6 +21,1350 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
+	WifiP2PConfigService_DescribeContents_FullMethodName                     = "/wifi_p2p.WifiP2pConfigService/DescribeContents"
+	WifiP2PConfigService_GetGroupClientIpProvisioningMode_FullMethodName     = "/wifi_p2p.WifiP2pConfigService/GetGroupClientIpProvisioningMode"
+	WifiP2PConfigService_GetGroupOwnerBand_FullMethodName                    = "/wifi_p2p.WifiP2pConfigService/GetGroupOwnerBand"
+	WifiP2PConfigService_GetGroupOwnerVersion_FullMethodName                 = "/wifi_p2p.WifiP2pConfigService/GetGroupOwnerVersion"
+	WifiP2PConfigService_GetNetworkId_FullMethodName                         = "/wifi_p2p.WifiP2pConfigService/GetNetworkId"
+	WifiP2PConfigService_GetNetworkName_FullMethodName                       = "/wifi_p2p.WifiP2pConfigService/GetNetworkName"
+	WifiP2PConfigService_GetPairingBootstrappingConfig_FullMethodName        = "/wifi_p2p.WifiP2pConfigService/GetPairingBootstrappingConfig"
+	WifiP2PConfigService_GetPassphrase_FullMethodName                        = "/wifi_p2p.WifiP2pConfigService/GetPassphrase"
+	WifiP2PConfigService_GetPccModeConnectionType_FullMethodName             = "/wifi_p2p.WifiP2pConfigService/GetPccModeConnectionType"
+	WifiP2PConfigService_IsAuthorizeConnectionFromPeerEnabled_FullMethodName = "/wifi_p2p.WifiP2pConfigService/IsAuthorizeConnectionFromPeerEnabled"
+	WifiP2PConfigService_SetGroupOwnerVersion_FullMethodName                 = "/wifi_p2p.WifiP2pConfigService/SetGroupOwnerVersion"
+	WifiP2PConfigService_ToString_FullMethodName                             = "/wifi_p2p.WifiP2pConfigService/ToString"
+	WifiP2PConfigService_WriteToParcel_FullMethodName                        = "/wifi_p2p.WifiP2pConfigService/WriteToParcel"
+)
+
+// WifiP2PConfigServiceClient is the client API for WifiP2PConfigService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type WifiP2PConfigServiceClient interface {
+	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
+	GetGroupClientIpProvisioningMode(ctx context.Context, in *GetGroupClientIpProvisioningModeRequest, opts ...grpc.CallOption) (*GetGroupClientIpProvisioningModeResponse, error)
+	GetGroupOwnerBand(ctx context.Context, in *GetGroupOwnerBandRequest, opts ...grpc.CallOption) (*GetGroupOwnerBandResponse, error)
+	GetGroupOwnerVersion(ctx context.Context, in *GetGroupOwnerVersionRequest, opts ...grpc.CallOption) (*GetGroupOwnerVersionResponse, error)
+	GetNetworkId(ctx context.Context, in *GetNetworkIdRequest, opts ...grpc.CallOption) (*GetNetworkIdResponse, error)
+	GetNetworkName(ctx context.Context, in *GetNetworkNameRequest, opts ...grpc.CallOption) (*GetNetworkNameResponse, error)
+	GetPairingBootstrappingConfig(ctx context.Context, in *GetPairingBootstrappingConfigRequest, opts ...grpc.CallOption) (*GetPairingBootstrappingConfigResponse, error)
+	GetPassphrase(ctx context.Context, in *GetPassphraseRequest, opts ...grpc.CallOption) (*GetPassphraseResponse, error)
+	GetPccModeConnectionType(ctx context.Context, in *GetPccModeConnectionTypeRequest, opts ...grpc.CallOption) (*GetPccModeConnectionTypeResponse, error)
+	IsAuthorizeConnectionFromPeerEnabled(ctx context.Context, in *IsAuthorizeConnectionFromPeerEnabledRequest, opts ...grpc.CallOption) (*IsAuthorizeConnectionFromPeerEnabledResponse, error)
+	SetGroupOwnerVersion(ctx context.Context, in *SetGroupOwnerVersionRequest, opts ...grpc.CallOption) (*SetGroupOwnerVersionResponse, error)
+	ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
+	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
+}
+
+type wifiP2PConfigServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewWifiP2PConfigServiceClient(cc grpc.ClientConnInterface) WifiP2PConfigServiceClient {
+	return &wifiP2PConfigServiceClient{cc}
+}
+
+func (c *wifiP2PConfigServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(DescribeContentsResponse)
+	err := c.cc.Invoke(ctx, WifiP2PConfigService_DescribeContents_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *wifiP2PConfigServiceClient) GetGroupClientIpProvisioningMode(ctx context.Context, in *GetGroupClientIpProvisioningModeRequest, opts ...grpc.CallOption) (*GetGroupClientIpProvisioningModeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetGroupClientIpProvisioningModeResponse)
+	err := c.cc.Invoke(ctx, WifiP2PConfigService_GetGroupClientIpProvisioningMode_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *wifiP2PConfigServiceClient) GetGroupOwnerBand(ctx context.Context, in *GetGroupOwnerBandRequest, opts ...grpc.CallOption) (*GetGroupOwnerBandResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetGroupOwnerBandResponse)
+	err := c.cc.Invoke(ctx, WifiP2PConfigService_GetGroupOwnerBand_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *wifiP2PConfigServiceClient) GetGroupOwnerVersion(ctx context.Context, in *GetGroupOwnerVersionRequest, opts ...grpc.CallOption) (*GetGroupOwnerVersionResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetGroupOwnerVersionResponse)
+	err := c.cc.Invoke(ctx, WifiP2PConfigService_GetGroupOwnerVersion_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *wifiP2PConfigServiceClient) GetNetworkId(ctx context.Context, in *GetNetworkIdRequest, opts ...grpc.CallOption) (*GetNetworkIdResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetNetworkIdResponse)
+	err := c.cc.Invoke(ctx, WifiP2PConfigService_GetNetworkId_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *wifiP2PConfigServiceClient) GetNetworkName(ctx context.Context, in *GetNetworkNameRequest, opts ...grpc.CallOption) (*GetNetworkNameResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetNetworkNameResponse)
+	err := c.cc.Invoke(ctx, WifiP2PConfigService_GetNetworkName_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *wifiP2PConfigServiceClient) GetPairingBootstrappingConfig(ctx context.Context, in *GetPairingBootstrappingConfigRequest, opts ...grpc.CallOption) (*GetPairingBootstrappingConfigResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetPairingBootstrappingConfigResponse)
+	err := c.cc.Invoke(ctx, WifiP2PConfigService_GetPairingBootstrappingConfig_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *wifiP2PConfigServiceClient) GetPassphrase(ctx context.Context, in *GetPassphraseRequest, opts ...grpc.CallOption) (*GetPassphraseResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetPassphraseResponse)
+	err := c.cc.Invoke(ctx, WifiP2PConfigService_GetPassphrase_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *wifiP2PConfigServiceClient) GetPccModeConnectionType(ctx context.Context, in *GetPccModeConnectionTypeRequest, opts ...grpc.CallOption) (*GetPccModeConnectionTypeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetPccModeConnectionTypeResponse)
+	err := c.cc.Invoke(ctx, WifiP2PConfigService_GetPccModeConnectionType_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *wifiP2PConfigServiceClient) IsAuthorizeConnectionFromPeerEnabled(ctx context.Context, in *IsAuthorizeConnectionFromPeerEnabledRequest, opts ...grpc.CallOption) (*IsAuthorizeConnectionFromPeerEnabledResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IsAuthorizeConnectionFromPeerEnabledResponse)
+	err := c.cc.Invoke(ctx, WifiP2PConfigService_IsAuthorizeConnectionFromPeerEnabled_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *wifiP2PConfigServiceClient) SetGroupOwnerVersion(ctx context.Context, in *SetGroupOwnerVersionRequest, opts ...grpc.CallOption) (*SetGroupOwnerVersionResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetGroupOwnerVersionResponse)
+	err := c.cc.Invoke(ctx, WifiP2PConfigService_SetGroupOwnerVersion_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *wifiP2PConfigServiceClient) ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ToStringResponse)
+	err := c.cc.Invoke(ctx, WifiP2PConfigService_ToString_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *wifiP2PConfigServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(WriteToParcelResponse)
+	err := c.cc.Invoke(ctx, WifiP2PConfigService_WriteToParcel_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// WifiP2PConfigServiceServer is the server API for WifiP2PConfigService service.
+// All implementations must embed UnimplementedWifiP2PConfigServiceServer
+// for forward compatibility.
+type WifiP2PConfigServiceServer interface {
+	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
+	GetGroupClientIpProvisioningMode(context.Context, *GetGroupClientIpProvisioningModeRequest) (*GetGroupClientIpProvisioningModeResponse, error)
+	GetGroupOwnerBand(context.Context, *GetGroupOwnerBandRequest) (*GetGroupOwnerBandResponse, error)
+	GetGroupOwnerVersion(context.Context, *GetGroupOwnerVersionRequest) (*GetGroupOwnerVersionResponse, error)
+	GetNetworkId(context.Context, *GetNetworkIdRequest) (*GetNetworkIdResponse, error)
+	GetNetworkName(context.Context, *GetNetworkNameRequest) (*GetNetworkNameResponse, error)
+	GetPairingBootstrappingConfig(context.Context, *GetPairingBootstrappingConfigRequest) (*GetPairingBootstrappingConfigResponse, error)
+	GetPassphrase(context.Context, *GetPassphraseRequest) (*GetPassphraseResponse, error)
+	GetPccModeConnectionType(context.Context, *GetPccModeConnectionTypeRequest) (*GetPccModeConnectionTypeResponse, error)
+	IsAuthorizeConnectionFromPeerEnabled(context.Context, *IsAuthorizeConnectionFromPeerEnabledRequest) (*IsAuthorizeConnectionFromPeerEnabledResponse, error)
+	SetGroupOwnerVersion(context.Context, *SetGroupOwnerVersionRequest) (*SetGroupOwnerVersionResponse, error)
+	ToString(context.Context, *ToStringRequest) (*ToStringResponse, error)
+	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
+	mustEmbedUnimplementedWifiP2PConfigServiceServer()
+}
+
+// UnimplementedWifiP2PConfigServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedWifiP2PConfigServiceServer struct{}
+
+func (UnimplementedWifiP2PConfigServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
+}
+func (UnimplementedWifiP2PConfigServiceServer) GetGroupClientIpProvisioningMode(context.Context, *GetGroupClientIpProvisioningModeRequest) (*GetGroupClientIpProvisioningModeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetGroupClientIpProvisioningMode not implemented")
+}
+func (UnimplementedWifiP2PConfigServiceServer) GetGroupOwnerBand(context.Context, *GetGroupOwnerBandRequest) (*GetGroupOwnerBandResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetGroupOwnerBand not implemented")
+}
+func (UnimplementedWifiP2PConfigServiceServer) GetGroupOwnerVersion(context.Context, *GetGroupOwnerVersionRequest) (*GetGroupOwnerVersionResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetGroupOwnerVersion not implemented")
+}
+func (UnimplementedWifiP2PConfigServiceServer) GetNetworkId(context.Context, *GetNetworkIdRequest) (*GetNetworkIdResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetNetworkId not implemented")
+}
+func (UnimplementedWifiP2PConfigServiceServer) GetNetworkName(context.Context, *GetNetworkNameRequest) (*GetNetworkNameResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetNetworkName not implemented")
+}
+func (UnimplementedWifiP2PConfigServiceServer) GetPairingBootstrappingConfig(context.Context, *GetPairingBootstrappingConfigRequest) (*GetPairingBootstrappingConfigResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetPairingBootstrappingConfig not implemented")
+}
+func (UnimplementedWifiP2PConfigServiceServer) GetPassphrase(context.Context, *GetPassphraseRequest) (*GetPassphraseResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetPassphrase not implemented")
+}
+func (UnimplementedWifiP2PConfigServiceServer) GetPccModeConnectionType(context.Context, *GetPccModeConnectionTypeRequest) (*GetPccModeConnectionTypeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetPccModeConnectionType not implemented")
+}
+func (UnimplementedWifiP2PConfigServiceServer) IsAuthorizeConnectionFromPeerEnabled(context.Context, *IsAuthorizeConnectionFromPeerEnabledRequest) (*IsAuthorizeConnectionFromPeerEnabledResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsAuthorizeConnectionFromPeerEnabled not implemented")
+}
+func (UnimplementedWifiP2PConfigServiceServer) SetGroupOwnerVersion(context.Context, *SetGroupOwnerVersionRequest) (*SetGroupOwnerVersionResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetGroupOwnerVersion not implemented")
+}
+func (UnimplementedWifiP2PConfigServiceServer) ToString(context.Context, *ToStringRequest) (*ToStringResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
+}
+func (UnimplementedWifiP2PConfigServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
+}
+func (UnimplementedWifiP2PConfigServiceServer) mustEmbedUnimplementedWifiP2PConfigServiceServer() {}
+func (UnimplementedWifiP2PConfigServiceServer) testEmbeddedByValue()                              {}
+
+// UnsafeWifiP2PConfigServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to WifiP2PConfigServiceServer will
+// result in compilation errors.
+type UnsafeWifiP2PConfigServiceServer interface {
+	mustEmbedUnimplementedWifiP2PConfigServiceServer()
+}
+
+func RegisterWifiP2PConfigServiceServer(s grpc.ServiceRegistrar, srv WifiP2PConfigServiceServer) {
+	// If the following call panics, it indicates UnimplementedWifiP2PConfigServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&WifiP2PConfigService_ServiceDesc, srv)
+}
+
+func _WifiP2PConfigService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DescribeContentsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(WifiP2PConfigServiceServer).DescribeContents(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: WifiP2PConfigService_DescribeContents_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(WifiP2PConfigServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _WifiP2PConfigService_GetGroupClientIpProvisioningMode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetGroupClientIpProvisioningModeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(WifiP2PConfigServiceServer).GetGroupClientIpProvisioningMode(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: WifiP2PConfigService_GetGroupClientIpProvisioningMode_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(WifiP2PConfigServiceServer).GetGroupClientIpProvisioningMode(ctx, req.(*GetGroupClientIpProvisioningModeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _WifiP2PConfigService_GetGroupOwnerBand_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetGroupOwnerBandRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(WifiP2PConfigServiceServer).GetGroupOwnerBand(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: WifiP2PConfigService_GetGroupOwnerBand_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(WifiP2PConfigServiceServer).GetGroupOwnerBand(ctx, req.(*GetGroupOwnerBandRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _WifiP2PConfigService_GetGroupOwnerVersion_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetGroupOwnerVersionRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(WifiP2PConfigServiceServer).GetGroupOwnerVersion(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: WifiP2PConfigService_GetGroupOwnerVersion_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(WifiP2PConfigServiceServer).GetGroupOwnerVersion(ctx, req.(*GetGroupOwnerVersionRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _WifiP2PConfigService_GetNetworkId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetNetworkIdRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(WifiP2PConfigServiceServer).GetNetworkId(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: WifiP2PConfigService_GetNetworkId_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(WifiP2PConfigServiceServer).GetNetworkId(ctx, req.(*GetNetworkIdRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _WifiP2PConfigService_GetNetworkName_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetNetworkNameRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(WifiP2PConfigServiceServer).GetNetworkName(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: WifiP2PConfigService_GetNetworkName_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(WifiP2PConfigServiceServer).GetNetworkName(ctx, req.(*GetNetworkNameRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _WifiP2PConfigService_GetPairingBootstrappingConfig_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetPairingBootstrappingConfigRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(WifiP2PConfigServiceServer).GetPairingBootstrappingConfig(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: WifiP2PConfigService_GetPairingBootstrappingConfig_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(WifiP2PConfigServiceServer).GetPairingBootstrappingConfig(ctx, req.(*GetPairingBootstrappingConfigRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _WifiP2PConfigService_GetPassphrase_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetPassphraseRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(WifiP2PConfigServiceServer).GetPassphrase(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: WifiP2PConfigService_GetPassphrase_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(WifiP2PConfigServiceServer).GetPassphrase(ctx, req.(*GetPassphraseRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _WifiP2PConfigService_GetPccModeConnectionType_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetPccModeConnectionTypeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(WifiP2PConfigServiceServer).GetPccModeConnectionType(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: WifiP2PConfigService_GetPccModeConnectionType_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(WifiP2PConfigServiceServer).GetPccModeConnectionType(ctx, req.(*GetPccModeConnectionTypeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _WifiP2PConfigService_IsAuthorizeConnectionFromPeerEnabled_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsAuthorizeConnectionFromPeerEnabledRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(WifiP2PConfigServiceServer).IsAuthorizeConnectionFromPeerEnabled(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: WifiP2PConfigService_IsAuthorizeConnectionFromPeerEnabled_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(WifiP2PConfigServiceServer).IsAuthorizeConnectionFromPeerEnabled(ctx, req.(*IsAuthorizeConnectionFromPeerEnabledRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _WifiP2PConfigService_SetGroupOwnerVersion_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetGroupOwnerVersionRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(WifiP2PConfigServiceServer).SetGroupOwnerVersion(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: WifiP2PConfigService_SetGroupOwnerVersion_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(WifiP2PConfigServiceServer).SetGroupOwnerVersion(ctx, req.(*SetGroupOwnerVersionRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _WifiP2PConfigService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ToStringRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(WifiP2PConfigServiceServer).ToString(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: WifiP2PConfigService_ToString_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(WifiP2PConfigServiceServer).ToString(ctx, req.(*ToStringRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _WifiP2PConfigService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(WriteToParcelRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(WifiP2PConfigServiceServer).WriteToParcel(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: WifiP2PConfigService_WriteToParcel_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(WifiP2PConfigServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// WifiP2PConfigService_ServiceDesc is the grpc.ServiceDesc for WifiP2PConfigService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var WifiP2PConfigService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "wifi_p2p.WifiP2pConfigService",
+	HandlerType: (*WifiP2PConfigServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "DescribeContents",
+			Handler:    _WifiP2PConfigService_DescribeContents_Handler,
+		},
+		{
+			MethodName: "GetGroupClientIpProvisioningMode",
+			Handler:    _WifiP2PConfigService_GetGroupClientIpProvisioningMode_Handler,
+		},
+		{
+			MethodName: "GetGroupOwnerBand",
+			Handler:    _WifiP2PConfigService_GetGroupOwnerBand_Handler,
+		},
+		{
+			MethodName: "GetGroupOwnerVersion",
+			Handler:    _WifiP2PConfigService_GetGroupOwnerVersion_Handler,
+		},
+		{
+			MethodName: "GetNetworkId",
+			Handler:    _WifiP2PConfigService_GetNetworkId_Handler,
+		},
+		{
+			MethodName: "GetNetworkName",
+			Handler:    _WifiP2PConfigService_GetNetworkName_Handler,
+		},
+		{
+			MethodName: "GetPairingBootstrappingConfig",
+			Handler:    _WifiP2PConfigService_GetPairingBootstrappingConfig_Handler,
+		},
+		{
+			MethodName: "GetPassphrase",
+			Handler:    _WifiP2PConfigService_GetPassphrase_Handler,
+		},
+		{
+			MethodName: "GetPccModeConnectionType",
+			Handler:    _WifiP2PConfigService_GetPccModeConnectionType_Handler,
+		},
+		{
+			MethodName: "IsAuthorizeConnectionFromPeerEnabled",
+			Handler:    _WifiP2PConfigService_IsAuthorizeConnectionFromPeerEnabled_Handler,
+		},
+		{
+			MethodName: "SetGroupOwnerVersion",
+			Handler:    _WifiP2PConfigService_SetGroupOwnerVersion_Handler,
+		},
+		{
+			MethodName: "ToString",
+			Handler:    _WifiP2PConfigService_ToString_Handler,
+		},
+		{
+			MethodName: "WriteToParcel",
+			Handler:    _WifiP2PConfigService_WriteToParcel_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/wifi_p2p/wifi_p2p.proto",
+}
+
+const (
+	WifiP2PDeviceService_DescribeContents_FullMethodName                                = "/wifi_p2p.WifiP2pDeviceService/DescribeContents"
+	WifiP2PDeviceService_Equals_FullMethodName                                          = "/wifi_p2p.WifiP2pDeviceService/Equals"
+	WifiP2PDeviceService_GetIpAddress_FullMethodName                                    = "/wifi_p2p.WifiP2pDeviceService/GetIpAddress"
+	WifiP2PDeviceService_GetVendorElements_FullMethodName                               = "/wifi_p2p.WifiP2pDeviceService/GetVendorElements"
+	WifiP2PDeviceService_GetWfdInfo_FullMethodName                                      = "/wifi_p2p.WifiP2pDeviceService/GetWfdInfo"
+	WifiP2PDeviceService_HashCode_FullMethodName                                        = "/wifi_p2p.WifiP2pDeviceService/HashCode"
+	WifiP2PDeviceService_IsGroupOwner_FullMethodName                                    = "/wifi_p2p.WifiP2pDeviceService/IsGroupOwner"
+	WifiP2PDeviceService_IsOpportunisticBootstrappingMethodSupported_FullMethodName     = "/wifi_p2p.WifiP2pDeviceService/IsOpportunisticBootstrappingMethodSupported"
+	WifiP2PDeviceService_IsPassphraseDisplayBootstrappingMethodSupported_FullMethodName = "/wifi_p2p.WifiP2pDeviceService/IsPassphraseDisplayBootstrappingMethodSupported"
+	WifiP2PDeviceService_IsPassphraseKeypadBootstrappingMethodSupported_FullMethodName  = "/wifi_p2p.WifiP2pDeviceService/IsPassphraseKeypadBootstrappingMethodSupported"
+	WifiP2PDeviceService_IsPinCodeDisplayBootstrappingMethodSupported_FullMethodName    = "/wifi_p2p.WifiP2pDeviceService/IsPinCodeDisplayBootstrappingMethodSupported"
+	WifiP2PDeviceService_IsPinCodeKeypadBootstrappingMethodSupported_FullMethodName     = "/wifi_p2p.WifiP2pDeviceService/IsPinCodeKeypadBootstrappingMethodSupported"
+	WifiP2PDeviceService_IsServiceDiscoveryCapable_FullMethodName                       = "/wifi_p2p.WifiP2pDeviceService/IsServiceDiscoveryCapable"
+	WifiP2PDeviceService_ToString_FullMethodName                                        = "/wifi_p2p.WifiP2pDeviceService/ToString"
+	WifiP2PDeviceService_Update_FullMethodName                                          = "/wifi_p2p.WifiP2pDeviceService/Update"
+	WifiP2PDeviceService_WpsDisplaySupported_FullMethodName                             = "/wifi_p2p.WifiP2pDeviceService/WpsDisplaySupported"
+	WifiP2PDeviceService_WpsKeypadSupported_FullMethodName                              = "/wifi_p2p.WifiP2pDeviceService/WpsKeypadSupported"
+	WifiP2PDeviceService_WpsPbcSupported_FullMethodName                                 = "/wifi_p2p.WifiP2pDeviceService/WpsPbcSupported"
+	WifiP2PDeviceService_WriteToParcel_FullMethodName                                   = "/wifi_p2p.WifiP2pDeviceService/WriteToParcel"
+)
+
+// WifiP2PDeviceServiceClient is the client API for WifiP2PDeviceService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type WifiP2PDeviceServiceClient interface {
+	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
+	Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
+	GetIpAddress(ctx context.Context, in *GetIpAddressRequest, opts ...grpc.CallOption) (*GetIpAddressResponse, error)
+	GetVendorElements(ctx context.Context, in *GetVendorElementsRequest, opts ...grpc.CallOption) (*GetVendorElementsResponse, error)
+	GetWfdInfo(ctx context.Context, in *GetWfdInfoRequest, opts ...grpc.CallOption) (*GetWfdInfoResponse, error)
+	HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
+	IsGroupOwner(ctx context.Context, in *IsGroupOwnerRequest, opts ...grpc.CallOption) (*IsGroupOwnerResponse, error)
+	IsOpportunisticBootstrappingMethodSupported(ctx context.Context, in *IsOpportunisticBootstrappingMethodSupportedRequest, opts ...grpc.CallOption) (*IsOpportunisticBootstrappingMethodSupportedResponse, error)
+	IsPassphraseDisplayBootstrappingMethodSupported(ctx context.Context, in *IsPassphraseDisplayBootstrappingMethodSupportedRequest, opts ...grpc.CallOption) (*IsPassphraseDisplayBootstrappingMethodSupportedResponse, error)
+	IsPassphraseKeypadBootstrappingMethodSupported(ctx context.Context, in *IsPassphraseKeypadBootstrappingMethodSupportedRequest, opts ...grpc.CallOption) (*IsPassphraseKeypadBootstrappingMethodSupportedResponse, error)
+	IsPinCodeDisplayBootstrappingMethodSupported(ctx context.Context, in *IsPinCodeDisplayBootstrappingMethodSupportedRequest, opts ...grpc.CallOption) (*IsPinCodeDisplayBootstrappingMethodSupportedResponse, error)
+	IsPinCodeKeypadBootstrappingMethodSupported(ctx context.Context, in *IsPinCodeKeypadBootstrappingMethodSupportedRequest, opts ...grpc.CallOption) (*IsPinCodeKeypadBootstrappingMethodSupportedResponse, error)
+	IsServiceDiscoveryCapable(ctx context.Context, in *IsServiceDiscoveryCapableRequest, opts ...grpc.CallOption) (*IsServiceDiscoveryCapableResponse, error)
+	ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
+	Update(ctx context.Context, in *UpdateRequest, opts ...grpc.CallOption) (*UpdateResponse, error)
+	WpsDisplaySupported(ctx context.Context, in *WpsDisplaySupportedRequest, opts ...grpc.CallOption) (*WpsDisplaySupportedResponse, error)
+	WpsKeypadSupported(ctx context.Context, in *WpsKeypadSupportedRequest, opts ...grpc.CallOption) (*WpsKeypadSupportedResponse, error)
+	WpsPbcSupported(ctx context.Context, in *WpsPbcSupportedRequest, opts ...grpc.CallOption) (*WpsPbcSupportedResponse, error)
+	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
+}
+
+type wifiP2PDeviceServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewWifiP2PDeviceServiceClient(cc grpc.ClientConnInterface) WifiP2PDeviceServiceClient {
+	return &wifiP2PDeviceServiceClient{cc}
+}
+
+func (c *wifiP2PDeviceServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(DescribeContentsResponse)
+	err := c.cc.Invoke(ctx, WifiP2PDeviceService_DescribeContents_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *wifiP2PDeviceServiceClient) Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(EqualsResponse)
+	err := c.cc.Invoke(ctx, WifiP2PDeviceService_Equals_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *wifiP2PDeviceServiceClient) GetIpAddress(ctx context.Context, in *GetIpAddressRequest, opts ...grpc.CallOption) (*GetIpAddressResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetIpAddressResponse)
+	err := c.cc.Invoke(ctx, WifiP2PDeviceService_GetIpAddress_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *wifiP2PDeviceServiceClient) GetVendorElements(ctx context.Context, in *GetVendorElementsRequest, opts ...grpc.CallOption) (*GetVendorElementsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetVendorElementsResponse)
+	err := c.cc.Invoke(ctx, WifiP2PDeviceService_GetVendorElements_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *wifiP2PDeviceServiceClient) GetWfdInfo(ctx context.Context, in *GetWfdInfoRequest, opts ...grpc.CallOption) (*GetWfdInfoResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetWfdInfoResponse)
+	err := c.cc.Invoke(ctx, WifiP2PDeviceService_GetWfdInfo_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *wifiP2PDeviceServiceClient) HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(HashCodeResponse)
+	err := c.cc.Invoke(ctx, WifiP2PDeviceService_HashCode_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *wifiP2PDeviceServiceClient) IsGroupOwner(ctx context.Context, in *IsGroupOwnerRequest, opts ...grpc.CallOption) (*IsGroupOwnerResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IsGroupOwnerResponse)
+	err := c.cc.Invoke(ctx, WifiP2PDeviceService_IsGroupOwner_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *wifiP2PDeviceServiceClient) IsOpportunisticBootstrappingMethodSupported(ctx context.Context, in *IsOpportunisticBootstrappingMethodSupportedRequest, opts ...grpc.CallOption) (*IsOpportunisticBootstrappingMethodSupportedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IsOpportunisticBootstrappingMethodSupportedResponse)
+	err := c.cc.Invoke(ctx, WifiP2PDeviceService_IsOpportunisticBootstrappingMethodSupported_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *wifiP2PDeviceServiceClient) IsPassphraseDisplayBootstrappingMethodSupported(ctx context.Context, in *IsPassphraseDisplayBootstrappingMethodSupportedRequest, opts ...grpc.CallOption) (*IsPassphraseDisplayBootstrappingMethodSupportedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IsPassphraseDisplayBootstrappingMethodSupportedResponse)
+	err := c.cc.Invoke(ctx, WifiP2PDeviceService_IsPassphraseDisplayBootstrappingMethodSupported_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *wifiP2PDeviceServiceClient) IsPassphraseKeypadBootstrappingMethodSupported(ctx context.Context, in *IsPassphraseKeypadBootstrappingMethodSupportedRequest, opts ...grpc.CallOption) (*IsPassphraseKeypadBootstrappingMethodSupportedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IsPassphraseKeypadBootstrappingMethodSupportedResponse)
+	err := c.cc.Invoke(ctx, WifiP2PDeviceService_IsPassphraseKeypadBootstrappingMethodSupported_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *wifiP2PDeviceServiceClient) IsPinCodeDisplayBootstrappingMethodSupported(ctx context.Context, in *IsPinCodeDisplayBootstrappingMethodSupportedRequest, opts ...grpc.CallOption) (*IsPinCodeDisplayBootstrappingMethodSupportedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IsPinCodeDisplayBootstrappingMethodSupportedResponse)
+	err := c.cc.Invoke(ctx, WifiP2PDeviceService_IsPinCodeDisplayBootstrappingMethodSupported_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *wifiP2PDeviceServiceClient) IsPinCodeKeypadBootstrappingMethodSupported(ctx context.Context, in *IsPinCodeKeypadBootstrappingMethodSupportedRequest, opts ...grpc.CallOption) (*IsPinCodeKeypadBootstrappingMethodSupportedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IsPinCodeKeypadBootstrappingMethodSupportedResponse)
+	err := c.cc.Invoke(ctx, WifiP2PDeviceService_IsPinCodeKeypadBootstrappingMethodSupported_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *wifiP2PDeviceServiceClient) IsServiceDiscoveryCapable(ctx context.Context, in *IsServiceDiscoveryCapableRequest, opts ...grpc.CallOption) (*IsServiceDiscoveryCapableResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IsServiceDiscoveryCapableResponse)
+	err := c.cc.Invoke(ctx, WifiP2PDeviceService_IsServiceDiscoveryCapable_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *wifiP2PDeviceServiceClient) ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ToStringResponse)
+	err := c.cc.Invoke(ctx, WifiP2PDeviceService_ToString_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *wifiP2PDeviceServiceClient) Update(ctx context.Context, in *UpdateRequest, opts ...grpc.CallOption) (*UpdateResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(UpdateResponse)
+	err := c.cc.Invoke(ctx, WifiP2PDeviceService_Update_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *wifiP2PDeviceServiceClient) WpsDisplaySupported(ctx context.Context, in *WpsDisplaySupportedRequest, opts ...grpc.CallOption) (*WpsDisplaySupportedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(WpsDisplaySupportedResponse)
+	err := c.cc.Invoke(ctx, WifiP2PDeviceService_WpsDisplaySupported_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *wifiP2PDeviceServiceClient) WpsKeypadSupported(ctx context.Context, in *WpsKeypadSupportedRequest, opts ...grpc.CallOption) (*WpsKeypadSupportedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(WpsKeypadSupportedResponse)
+	err := c.cc.Invoke(ctx, WifiP2PDeviceService_WpsKeypadSupported_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *wifiP2PDeviceServiceClient) WpsPbcSupported(ctx context.Context, in *WpsPbcSupportedRequest, opts ...grpc.CallOption) (*WpsPbcSupportedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(WpsPbcSupportedResponse)
+	err := c.cc.Invoke(ctx, WifiP2PDeviceService_WpsPbcSupported_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *wifiP2PDeviceServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(WriteToParcelResponse)
+	err := c.cc.Invoke(ctx, WifiP2PDeviceService_WriteToParcel_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// WifiP2PDeviceServiceServer is the server API for WifiP2PDeviceService service.
+// All implementations must embed UnimplementedWifiP2PDeviceServiceServer
+// for forward compatibility.
+type WifiP2PDeviceServiceServer interface {
+	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
+	Equals(context.Context, *EqualsRequest) (*EqualsResponse, error)
+	GetIpAddress(context.Context, *GetIpAddressRequest) (*GetIpAddressResponse, error)
+	GetVendorElements(context.Context, *GetVendorElementsRequest) (*GetVendorElementsResponse, error)
+	GetWfdInfo(context.Context, *GetWfdInfoRequest) (*GetWfdInfoResponse, error)
+	HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error)
+	IsGroupOwner(context.Context, *IsGroupOwnerRequest) (*IsGroupOwnerResponse, error)
+	IsOpportunisticBootstrappingMethodSupported(context.Context, *IsOpportunisticBootstrappingMethodSupportedRequest) (*IsOpportunisticBootstrappingMethodSupportedResponse, error)
+	IsPassphraseDisplayBootstrappingMethodSupported(context.Context, *IsPassphraseDisplayBootstrappingMethodSupportedRequest) (*IsPassphraseDisplayBootstrappingMethodSupportedResponse, error)
+	IsPassphraseKeypadBootstrappingMethodSupported(context.Context, *IsPassphraseKeypadBootstrappingMethodSupportedRequest) (*IsPassphraseKeypadBootstrappingMethodSupportedResponse, error)
+	IsPinCodeDisplayBootstrappingMethodSupported(context.Context, *IsPinCodeDisplayBootstrappingMethodSupportedRequest) (*IsPinCodeDisplayBootstrappingMethodSupportedResponse, error)
+	IsPinCodeKeypadBootstrappingMethodSupported(context.Context, *IsPinCodeKeypadBootstrappingMethodSupportedRequest) (*IsPinCodeKeypadBootstrappingMethodSupportedResponse, error)
+	IsServiceDiscoveryCapable(context.Context, *IsServiceDiscoveryCapableRequest) (*IsServiceDiscoveryCapableResponse, error)
+	ToString(context.Context, *ToStringRequest) (*ToStringResponse, error)
+	Update(context.Context, *UpdateRequest) (*UpdateResponse, error)
+	WpsDisplaySupported(context.Context, *WpsDisplaySupportedRequest) (*WpsDisplaySupportedResponse, error)
+	WpsKeypadSupported(context.Context, *WpsKeypadSupportedRequest) (*WpsKeypadSupportedResponse, error)
+	WpsPbcSupported(context.Context, *WpsPbcSupportedRequest) (*WpsPbcSupportedResponse, error)
+	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
+	mustEmbedUnimplementedWifiP2PDeviceServiceServer()
+}
+
+// UnimplementedWifiP2PDeviceServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedWifiP2PDeviceServiceServer struct{}
+
+func (UnimplementedWifiP2PDeviceServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
+}
+func (UnimplementedWifiP2PDeviceServiceServer) Equals(context.Context, *EqualsRequest) (*EqualsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Equals not implemented")
+}
+func (UnimplementedWifiP2PDeviceServiceServer) GetIpAddress(context.Context, *GetIpAddressRequest) (*GetIpAddressResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetIpAddress not implemented")
+}
+func (UnimplementedWifiP2PDeviceServiceServer) GetVendorElements(context.Context, *GetVendorElementsRequest) (*GetVendorElementsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetVendorElements not implemented")
+}
+func (UnimplementedWifiP2PDeviceServiceServer) GetWfdInfo(context.Context, *GetWfdInfoRequest) (*GetWfdInfoResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetWfdInfo not implemented")
+}
+func (UnimplementedWifiP2PDeviceServiceServer) HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method HashCode not implemented")
+}
+func (UnimplementedWifiP2PDeviceServiceServer) IsGroupOwner(context.Context, *IsGroupOwnerRequest) (*IsGroupOwnerResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsGroupOwner not implemented")
+}
+func (UnimplementedWifiP2PDeviceServiceServer) IsOpportunisticBootstrappingMethodSupported(context.Context, *IsOpportunisticBootstrappingMethodSupportedRequest) (*IsOpportunisticBootstrappingMethodSupportedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsOpportunisticBootstrappingMethodSupported not implemented")
+}
+func (UnimplementedWifiP2PDeviceServiceServer) IsPassphraseDisplayBootstrappingMethodSupported(context.Context, *IsPassphraseDisplayBootstrappingMethodSupportedRequest) (*IsPassphraseDisplayBootstrappingMethodSupportedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsPassphraseDisplayBootstrappingMethodSupported not implemented")
+}
+func (UnimplementedWifiP2PDeviceServiceServer) IsPassphraseKeypadBootstrappingMethodSupported(context.Context, *IsPassphraseKeypadBootstrappingMethodSupportedRequest) (*IsPassphraseKeypadBootstrappingMethodSupportedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsPassphraseKeypadBootstrappingMethodSupported not implemented")
+}
+func (UnimplementedWifiP2PDeviceServiceServer) IsPinCodeDisplayBootstrappingMethodSupported(context.Context, *IsPinCodeDisplayBootstrappingMethodSupportedRequest) (*IsPinCodeDisplayBootstrappingMethodSupportedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsPinCodeDisplayBootstrappingMethodSupported not implemented")
+}
+func (UnimplementedWifiP2PDeviceServiceServer) IsPinCodeKeypadBootstrappingMethodSupported(context.Context, *IsPinCodeKeypadBootstrappingMethodSupportedRequest) (*IsPinCodeKeypadBootstrappingMethodSupportedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsPinCodeKeypadBootstrappingMethodSupported not implemented")
+}
+func (UnimplementedWifiP2PDeviceServiceServer) IsServiceDiscoveryCapable(context.Context, *IsServiceDiscoveryCapableRequest) (*IsServiceDiscoveryCapableResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsServiceDiscoveryCapable not implemented")
+}
+func (UnimplementedWifiP2PDeviceServiceServer) ToString(context.Context, *ToStringRequest) (*ToStringResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
+}
+func (UnimplementedWifiP2PDeviceServiceServer) Update(context.Context, *UpdateRequest) (*UpdateResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Update not implemented")
+}
+func (UnimplementedWifiP2PDeviceServiceServer) WpsDisplaySupported(context.Context, *WpsDisplaySupportedRequest) (*WpsDisplaySupportedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method WpsDisplaySupported not implemented")
+}
+func (UnimplementedWifiP2PDeviceServiceServer) WpsKeypadSupported(context.Context, *WpsKeypadSupportedRequest) (*WpsKeypadSupportedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method WpsKeypadSupported not implemented")
+}
+func (UnimplementedWifiP2PDeviceServiceServer) WpsPbcSupported(context.Context, *WpsPbcSupportedRequest) (*WpsPbcSupportedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method WpsPbcSupported not implemented")
+}
+func (UnimplementedWifiP2PDeviceServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
+}
+func (UnimplementedWifiP2PDeviceServiceServer) mustEmbedUnimplementedWifiP2PDeviceServiceServer() {}
+func (UnimplementedWifiP2PDeviceServiceServer) testEmbeddedByValue()                              {}
+
+// UnsafeWifiP2PDeviceServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to WifiP2PDeviceServiceServer will
+// result in compilation errors.
+type UnsafeWifiP2PDeviceServiceServer interface {
+	mustEmbedUnimplementedWifiP2PDeviceServiceServer()
+}
+
+func RegisterWifiP2PDeviceServiceServer(s grpc.ServiceRegistrar, srv WifiP2PDeviceServiceServer) {
+	// If the following call panics, it indicates UnimplementedWifiP2PDeviceServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&WifiP2PDeviceService_ServiceDesc, srv)
+}
+
+func _WifiP2PDeviceService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DescribeContentsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(WifiP2PDeviceServiceServer).DescribeContents(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: WifiP2PDeviceService_DescribeContents_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(WifiP2PDeviceServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _WifiP2PDeviceService_Equals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(EqualsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(WifiP2PDeviceServiceServer).Equals(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: WifiP2PDeviceService_Equals_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(WifiP2PDeviceServiceServer).Equals(ctx, req.(*EqualsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _WifiP2PDeviceService_GetIpAddress_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetIpAddressRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(WifiP2PDeviceServiceServer).GetIpAddress(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: WifiP2PDeviceService_GetIpAddress_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(WifiP2PDeviceServiceServer).GetIpAddress(ctx, req.(*GetIpAddressRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _WifiP2PDeviceService_GetVendorElements_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetVendorElementsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(WifiP2PDeviceServiceServer).GetVendorElements(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: WifiP2PDeviceService_GetVendorElements_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(WifiP2PDeviceServiceServer).GetVendorElements(ctx, req.(*GetVendorElementsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _WifiP2PDeviceService_GetWfdInfo_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetWfdInfoRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(WifiP2PDeviceServiceServer).GetWfdInfo(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: WifiP2PDeviceService_GetWfdInfo_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(WifiP2PDeviceServiceServer).GetWfdInfo(ctx, req.(*GetWfdInfoRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _WifiP2PDeviceService_HashCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(HashCodeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(WifiP2PDeviceServiceServer).HashCode(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: WifiP2PDeviceService_HashCode_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(WifiP2PDeviceServiceServer).HashCode(ctx, req.(*HashCodeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _WifiP2PDeviceService_IsGroupOwner_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsGroupOwnerRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(WifiP2PDeviceServiceServer).IsGroupOwner(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: WifiP2PDeviceService_IsGroupOwner_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(WifiP2PDeviceServiceServer).IsGroupOwner(ctx, req.(*IsGroupOwnerRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _WifiP2PDeviceService_IsOpportunisticBootstrappingMethodSupported_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsOpportunisticBootstrappingMethodSupportedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(WifiP2PDeviceServiceServer).IsOpportunisticBootstrappingMethodSupported(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: WifiP2PDeviceService_IsOpportunisticBootstrappingMethodSupported_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(WifiP2PDeviceServiceServer).IsOpportunisticBootstrappingMethodSupported(ctx, req.(*IsOpportunisticBootstrappingMethodSupportedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _WifiP2PDeviceService_IsPassphraseDisplayBootstrappingMethodSupported_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsPassphraseDisplayBootstrappingMethodSupportedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(WifiP2PDeviceServiceServer).IsPassphraseDisplayBootstrappingMethodSupported(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: WifiP2PDeviceService_IsPassphraseDisplayBootstrappingMethodSupported_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(WifiP2PDeviceServiceServer).IsPassphraseDisplayBootstrappingMethodSupported(ctx, req.(*IsPassphraseDisplayBootstrappingMethodSupportedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _WifiP2PDeviceService_IsPassphraseKeypadBootstrappingMethodSupported_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsPassphraseKeypadBootstrappingMethodSupportedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(WifiP2PDeviceServiceServer).IsPassphraseKeypadBootstrappingMethodSupported(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: WifiP2PDeviceService_IsPassphraseKeypadBootstrappingMethodSupported_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(WifiP2PDeviceServiceServer).IsPassphraseKeypadBootstrappingMethodSupported(ctx, req.(*IsPassphraseKeypadBootstrappingMethodSupportedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _WifiP2PDeviceService_IsPinCodeDisplayBootstrappingMethodSupported_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsPinCodeDisplayBootstrappingMethodSupportedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(WifiP2PDeviceServiceServer).IsPinCodeDisplayBootstrappingMethodSupported(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: WifiP2PDeviceService_IsPinCodeDisplayBootstrappingMethodSupported_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(WifiP2PDeviceServiceServer).IsPinCodeDisplayBootstrappingMethodSupported(ctx, req.(*IsPinCodeDisplayBootstrappingMethodSupportedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _WifiP2PDeviceService_IsPinCodeKeypadBootstrappingMethodSupported_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsPinCodeKeypadBootstrappingMethodSupportedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(WifiP2PDeviceServiceServer).IsPinCodeKeypadBootstrappingMethodSupported(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: WifiP2PDeviceService_IsPinCodeKeypadBootstrappingMethodSupported_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(WifiP2PDeviceServiceServer).IsPinCodeKeypadBootstrappingMethodSupported(ctx, req.(*IsPinCodeKeypadBootstrappingMethodSupportedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _WifiP2PDeviceService_IsServiceDiscoveryCapable_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsServiceDiscoveryCapableRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(WifiP2PDeviceServiceServer).IsServiceDiscoveryCapable(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: WifiP2PDeviceService_IsServiceDiscoveryCapable_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(WifiP2PDeviceServiceServer).IsServiceDiscoveryCapable(ctx, req.(*IsServiceDiscoveryCapableRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _WifiP2PDeviceService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ToStringRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(WifiP2PDeviceServiceServer).ToString(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: WifiP2PDeviceService_ToString_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(WifiP2PDeviceServiceServer).ToString(ctx, req.(*ToStringRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _WifiP2PDeviceService_Update_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(UpdateRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(WifiP2PDeviceServiceServer).Update(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: WifiP2PDeviceService_Update_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(WifiP2PDeviceServiceServer).Update(ctx, req.(*UpdateRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _WifiP2PDeviceService_WpsDisplaySupported_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(WpsDisplaySupportedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(WifiP2PDeviceServiceServer).WpsDisplaySupported(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: WifiP2PDeviceService_WpsDisplaySupported_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(WifiP2PDeviceServiceServer).WpsDisplaySupported(ctx, req.(*WpsDisplaySupportedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _WifiP2PDeviceService_WpsKeypadSupported_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(WpsKeypadSupportedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(WifiP2PDeviceServiceServer).WpsKeypadSupported(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: WifiP2PDeviceService_WpsKeypadSupported_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(WifiP2PDeviceServiceServer).WpsKeypadSupported(ctx, req.(*WpsKeypadSupportedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _WifiP2PDeviceService_WpsPbcSupported_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(WpsPbcSupportedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(WifiP2PDeviceServiceServer).WpsPbcSupported(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: WifiP2PDeviceService_WpsPbcSupported_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(WifiP2PDeviceServiceServer).WpsPbcSupported(ctx, req.(*WpsPbcSupportedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _WifiP2PDeviceService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(WriteToParcelRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(WifiP2PDeviceServiceServer).WriteToParcel(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: WifiP2PDeviceService_WriteToParcel_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(WifiP2PDeviceServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// WifiP2PDeviceService_ServiceDesc is the grpc.ServiceDesc for WifiP2PDeviceService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var WifiP2PDeviceService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "wifi_p2p.WifiP2pDeviceService",
+	HandlerType: (*WifiP2PDeviceServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "DescribeContents",
+			Handler:    _WifiP2PDeviceService_DescribeContents_Handler,
+		},
+		{
+			MethodName: "Equals",
+			Handler:    _WifiP2PDeviceService_Equals_Handler,
+		},
+		{
+			MethodName: "GetIpAddress",
+			Handler:    _WifiP2PDeviceService_GetIpAddress_Handler,
+		},
+		{
+			MethodName: "GetVendorElements",
+			Handler:    _WifiP2PDeviceService_GetVendorElements_Handler,
+		},
+		{
+			MethodName: "GetWfdInfo",
+			Handler:    _WifiP2PDeviceService_GetWfdInfo_Handler,
+		},
+		{
+			MethodName: "HashCode",
+			Handler:    _WifiP2PDeviceService_HashCode_Handler,
+		},
+		{
+			MethodName: "IsGroupOwner",
+			Handler:    _WifiP2PDeviceService_IsGroupOwner_Handler,
+		},
+		{
+			MethodName: "IsOpportunisticBootstrappingMethodSupported",
+			Handler:    _WifiP2PDeviceService_IsOpportunisticBootstrappingMethodSupported_Handler,
+		},
+		{
+			MethodName: "IsPassphraseDisplayBootstrappingMethodSupported",
+			Handler:    _WifiP2PDeviceService_IsPassphraseDisplayBootstrappingMethodSupported_Handler,
+		},
+		{
+			MethodName: "IsPassphraseKeypadBootstrappingMethodSupported",
+			Handler:    _WifiP2PDeviceService_IsPassphraseKeypadBootstrappingMethodSupported_Handler,
+		},
+		{
+			MethodName: "IsPinCodeDisplayBootstrappingMethodSupported",
+			Handler:    _WifiP2PDeviceService_IsPinCodeDisplayBootstrappingMethodSupported_Handler,
+		},
+		{
+			MethodName: "IsPinCodeKeypadBootstrappingMethodSupported",
+			Handler:    _WifiP2PDeviceService_IsPinCodeKeypadBootstrappingMethodSupported_Handler,
+		},
+		{
+			MethodName: "IsServiceDiscoveryCapable",
+			Handler:    _WifiP2PDeviceService_IsServiceDiscoveryCapable_Handler,
+		},
+		{
+			MethodName: "ToString",
+			Handler:    _WifiP2PDeviceService_ToString_Handler,
+		},
+		{
+			MethodName: "Update",
+			Handler:    _WifiP2PDeviceService_Update_Handler,
+		},
+		{
+			MethodName: "WpsDisplaySupported",
+			Handler:    _WifiP2PDeviceService_WpsDisplaySupported_Handler,
+		},
+		{
+			MethodName: "WpsKeypadSupported",
+			Handler:    _WifiP2PDeviceService_WpsKeypadSupported_Handler,
+		},
+		{
+			MethodName: "WpsPbcSupported",
+			Handler:    _WifiP2PDeviceService_WpsPbcSupported_Handler,
+		},
+		{
+			MethodName: "WriteToParcel",
+			Handler:    _WifiP2PDeviceService_WriteToParcel_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/wifi_p2p/wifi_p2p.proto",
+}
+
+const (
 	WifiP2PManagerService_AddExternalApprover_FullMethodName                       = "/wifi_p2p.WifiP2pManagerService/AddExternalApprover"
 	WifiP2PManagerService_AddLocalService_FullMethodName                           = "/wifi_p2p.WifiP2pManagerService/AddLocalService"
 	WifiP2PManagerService_AddServiceRequest_FullMethodName                         = "/wifi_p2p.WifiP2pManagerService/AddServiceRequest"
@@ -2016,1350 +3360,6 @@ var WifiP2PManagerService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "GetP2pMaxAllowedVendorElementsLengthBytes",
 			Handler:    _WifiP2PManagerService_GetP2PMaxAllowedVendorElementsLengthBytes_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/wifi_p2p/wifi_p2p.proto",
-}
-
-const (
-	WifiP2PDeviceService_DescribeContents_FullMethodName                                = "/wifi_p2p.WifiP2pDeviceService/DescribeContents"
-	WifiP2PDeviceService_Equals_FullMethodName                                          = "/wifi_p2p.WifiP2pDeviceService/Equals"
-	WifiP2PDeviceService_GetIpAddress_FullMethodName                                    = "/wifi_p2p.WifiP2pDeviceService/GetIpAddress"
-	WifiP2PDeviceService_GetVendorElements_FullMethodName                               = "/wifi_p2p.WifiP2pDeviceService/GetVendorElements"
-	WifiP2PDeviceService_GetWfdInfo_FullMethodName                                      = "/wifi_p2p.WifiP2pDeviceService/GetWfdInfo"
-	WifiP2PDeviceService_HashCode_FullMethodName                                        = "/wifi_p2p.WifiP2pDeviceService/HashCode"
-	WifiP2PDeviceService_IsGroupOwner_FullMethodName                                    = "/wifi_p2p.WifiP2pDeviceService/IsGroupOwner"
-	WifiP2PDeviceService_IsOpportunisticBootstrappingMethodSupported_FullMethodName     = "/wifi_p2p.WifiP2pDeviceService/IsOpportunisticBootstrappingMethodSupported"
-	WifiP2PDeviceService_IsPassphraseDisplayBootstrappingMethodSupported_FullMethodName = "/wifi_p2p.WifiP2pDeviceService/IsPassphraseDisplayBootstrappingMethodSupported"
-	WifiP2PDeviceService_IsPassphraseKeypadBootstrappingMethodSupported_FullMethodName  = "/wifi_p2p.WifiP2pDeviceService/IsPassphraseKeypadBootstrappingMethodSupported"
-	WifiP2PDeviceService_IsPinCodeDisplayBootstrappingMethodSupported_FullMethodName    = "/wifi_p2p.WifiP2pDeviceService/IsPinCodeDisplayBootstrappingMethodSupported"
-	WifiP2PDeviceService_IsPinCodeKeypadBootstrappingMethodSupported_FullMethodName     = "/wifi_p2p.WifiP2pDeviceService/IsPinCodeKeypadBootstrappingMethodSupported"
-	WifiP2PDeviceService_IsServiceDiscoveryCapable_FullMethodName                       = "/wifi_p2p.WifiP2pDeviceService/IsServiceDiscoveryCapable"
-	WifiP2PDeviceService_ToString_FullMethodName                                        = "/wifi_p2p.WifiP2pDeviceService/ToString"
-	WifiP2PDeviceService_Update_FullMethodName                                          = "/wifi_p2p.WifiP2pDeviceService/Update"
-	WifiP2PDeviceService_WpsDisplaySupported_FullMethodName                             = "/wifi_p2p.WifiP2pDeviceService/WpsDisplaySupported"
-	WifiP2PDeviceService_WpsKeypadSupported_FullMethodName                              = "/wifi_p2p.WifiP2pDeviceService/WpsKeypadSupported"
-	WifiP2PDeviceService_WpsPbcSupported_FullMethodName                                 = "/wifi_p2p.WifiP2pDeviceService/WpsPbcSupported"
-	WifiP2PDeviceService_WriteToParcel_FullMethodName                                   = "/wifi_p2p.WifiP2pDeviceService/WriteToParcel"
-)
-
-// WifiP2PDeviceServiceClient is the client API for WifiP2PDeviceService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type WifiP2PDeviceServiceClient interface {
-	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
-	Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
-	GetIpAddress(ctx context.Context, in *GetIpAddressRequest, opts ...grpc.CallOption) (*GetIpAddressResponse, error)
-	GetVendorElements(ctx context.Context, in *GetVendorElementsRequest, opts ...grpc.CallOption) (*GetVendorElementsResponse, error)
-	GetWfdInfo(ctx context.Context, in *GetWfdInfoRequest, opts ...grpc.CallOption) (*GetWfdInfoResponse, error)
-	HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
-	IsGroupOwner(ctx context.Context, in *IsGroupOwnerRequest, opts ...grpc.CallOption) (*IsGroupOwnerResponse, error)
-	IsOpportunisticBootstrappingMethodSupported(ctx context.Context, in *IsOpportunisticBootstrappingMethodSupportedRequest, opts ...grpc.CallOption) (*IsOpportunisticBootstrappingMethodSupportedResponse, error)
-	IsPassphraseDisplayBootstrappingMethodSupported(ctx context.Context, in *IsPassphraseDisplayBootstrappingMethodSupportedRequest, opts ...grpc.CallOption) (*IsPassphraseDisplayBootstrappingMethodSupportedResponse, error)
-	IsPassphraseKeypadBootstrappingMethodSupported(ctx context.Context, in *IsPassphraseKeypadBootstrappingMethodSupportedRequest, opts ...grpc.CallOption) (*IsPassphraseKeypadBootstrappingMethodSupportedResponse, error)
-	IsPinCodeDisplayBootstrappingMethodSupported(ctx context.Context, in *IsPinCodeDisplayBootstrappingMethodSupportedRequest, opts ...grpc.CallOption) (*IsPinCodeDisplayBootstrappingMethodSupportedResponse, error)
-	IsPinCodeKeypadBootstrappingMethodSupported(ctx context.Context, in *IsPinCodeKeypadBootstrappingMethodSupportedRequest, opts ...grpc.CallOption) (*IsPinCodeKeypadBootstrappingMethodSupportedResponse, error)
-	IsServiceDiscoveryCapable(ctx context.Context, in *IsServiceDiscoveryCapableRequest, opts ...grpc.CallOption) (*IsServiceDiscoveryCapableResponse, error)
-	ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
-	Update(ctx context.Context, in *UpdateRequest, opts ...grpc.CallOption) (*UpdateResponse, error)
-	WpsDisplaySupported(ctx context.Context, in *WpsDisplaySupportedRequest, opts ...grpc.CallOption) (*WpsDisplaySupportedResponse, error)
-	WpsKeypadSupported(ctx context.Context, in *WpsKeypadSupportedRequest, opts ...grpc.CallOption) (*WpsKeypadSupportedResponse, error)
-	WpsPbcSupported(ctx context.Context, in *WpsPbcSupportedRequest, opts ...grpc.CallOption) (*WpsPbcSupportedResponse, error)
-	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
-}
-
-type wifiP2PDeviceServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewWifiP2PDeviceServiceClient(cc grpc.ClientConnInterface) WifiP2PDeviceServiceClient {
-	return &wifiP2PDeviceServiceClient{cc}
-}
-
-func (c *wifiP2PDeviceServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(DescribeContentsResponse)
-	err := c.cc.Invoke(ctx, WifiP2PDeviceService_DescribeContents_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *wifiP2PDeviceServiceClient) Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(EqualsResponse)
-	err := c.cc.Invoke(ctx, WifiP2PDeviceService_Equals_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *wifiP2PDeviceServiceClient) GetIpAddress(ctx context.Context, in *GetIpAddressRequest, opts ...grpc.CallOption) (*GetIpAddressResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetIpAddressResponse)
-	err := c.cc.Invoke(ctx, WifiP2PDeviceService_GetIpAddress_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *wifiP2PDeviceServiceClient) GetVendorElements(ctx context.Context, in *GetVendorElementsRequest, opts ...grpc.CallOption) (*GetVendorElementsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetVendorElementsResponse)
-	err := c.cc.Invoke(ctx, WifiP2PDeviceService_GetVendorElements_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *wifiP2PDeviceServiceClient) GetWfdInfo(ctx context.Context, in *GetWfdInfoRequest, opts ...grpc.CallOption) (*GetWfdInfoResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetWfdInfoResponse)
-	err := c.cc.Invoke(ctx, WifiP2PDeviceService_GetWfdInfo_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *wifiP2PDeviceServiceClient) HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(HashCodeResponse)
-	err := c.cc.Invoke(ctx, WifiP2PDeviceService_HashCode_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *wifiP2PDeviceServiceClient) IsGroupOwner(ctx context.Context, in *IsGroupOwnerRequest, opts ...grpc.CallOption) (*IsGroupOwnerResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(IsGroupOwnerResponse)
-	err := c.cc.Invoke(ctx, WifiP2PDeviceService_IsGroupOwner_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *wifiP2PDeviceServiceClient) IsOpportunisticBootstrappingMethodSupported(ctx context.Context, in *IsOpportunisticBootstrappingMethodSupportedRequest, opts ...grpc.CallOption) (*IsOpportunisticBootstrappingMethodSupportedResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(IsOpportunisticBootstrappingMethodSupportedResponse)
-	err := c.cc.Invoke(ctx, WifiP2PDeviceService_IsOpportunisticBootstrappingMethodSupported_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *wifiP2PDeviceServiceClient) IsPassphraseDisplayBootstrappingMethodSupported(ctx context.Context, in *IsPassphraseDisplayBootstrappingMethodSupportedRequest, opts ...grpc.CallOption) (*IsPassphraseDisplayBootstrappingMethodSupportedResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(IsPassphraseDisplayBootstrappingMethodSupportedResponse)
-	err := c.cc.Invoke(ctx, WifiP2PDeviceService_IsPassphraseDisplayBootstrappingMethodSupported_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *wifiP2PDeviceServiceClient) IsPassphraseKeypadBootstrappingMethodSupported(ctx context.Context, in *IsPassphraseKeypadBootstrappingMethodSupportedRequest, opts ...grpc.CallOption) (*IsPassphraseKeypadBootstrappingMethodSupportedResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(IsPassphraseKeypadBootstrappingMethodSupportedResponse)
-	err := c.cc.Invoke(ctx, WifiP2PDeviceService_IsPassphraseKeypadBootstrappingMethodSupported_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *wifiP2PDeviceServiceClient) IsPinCodeDisplayBootstrappingMethodSupported(ctx context.Context, in *IsPinCodeDisplayBootstrappingMethodSupportedRequest, opts ...grpc.CallOption) (*IsPinCodeDisplayBootstrappingMethodSupportedResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(IsPinCodeDisplayBootstrappingMethodSupportedResponse)
-	err := c.cc.Invoke(ctx, WifiP2PDeviceService_IsPinCodeDisplayBootstrappingMethodSupported_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *wifiP2PDeviceServiceClient) IsPinCodeKeypadBootstrappingMethodSupported(ctx context.Context, in *IsPinCodeKeypadBootstrappingMethodSupportedRequest, opts ...grpc.CallOption) (*IsPinCodeKeypadBootstrappingMethodSupportedResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(IsPinCodeKeypadBootstrappingMethodSupportedResponse)
-	err := c.cc.Invoke(ctx, WifiP2PDeviceService_IsPinCodeKeypadBootstrappingMethodSupported_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *wifiP2PDeviceServiceClient) IsServiceDiscoveryCapable(ctx context.Context, in *IsServiceDiscoveryCapableRequest, opts ...grpc.CallOption) (*IsServiceDiscoveryCapableResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(IsServiceDiscoveryCapableResponse)
-	err := c.cc.Invoke(ctx, WifiP2PDeviceService_IsServiceDiscoveryCapable_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *wifiP2PDeviceServiceClient) ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ToStringResponse)
-	err := c.cc.Invoke(ctx, WifiP2PDeviceService_ToString_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *wifiP2PDeviceServiceClient) Update(ctx context.Context, in *UpdateRequest, opts ...grpc.CallOption) (*UpdateResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(UpdateResponse)
-	err := c.cc.Invoke(ctx, WifiP2PDeviceService_Update_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *wifiP2PDeviceServiceClient) WpsDisplaySupported(ctx context.Context, in *WpsDisplaySupportedRequest, opts ...grpc.CallOption) (*WpsDisplaySupportedResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(WpsDisplaySupportedResponse)
-	err := c.cc.Invoke(ctx, WifiP2PDeviceService_WpsDisplaySupported_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *wifiP2PDeviceServiceClient) WpsKeypadSupported(ctx context.Context, in *WpsKeypadSupportedRequest, opts ...grpc.CallOption) (*WpsKeypadSupportedResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(WpsKeypadSupportedResponse)
-	err := c.cc.Invoke(ctx, WifiP2PDeviceService_WpsKeypadSupported_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *wifiP2PDeviceServiceClient) WpsPbcSupported(ctx context.Context, in *WpsPbcSupportedRequest, opts ...grpc.CallOption) (*WpsPbcSupportedResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(WpsPbcSupportedResponse)
-	err := c.cc.Invoke(ctx, WifiP2PDeviceService_WpsPbcSupported_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *wifiP2PDeviceServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(WriteToParcelResponse)
-	err := c.cc.Invoke(ctx, WifiP2PDeviceService_WriteToParcel_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// WifiP2PDeviceServiceServer is the server API for WifiP2PDeviceService service.
-// All implementations must embed UnimplementedWifiP2PDeviceServiceServer
-// for forward compatibility.
-type WifiP2PDeviceServiceServer interface {
-	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
-	Equals(context.Context, *EqualsRequest) (*EqualsResponse, error)
-	GetIpAddress(context.Context, *GetIpAddressRequest) (*GetIpAddressResponse, error)
-	GetVendorElements(context.Context, *GetVendorElementsRequest) (*GetVendorElementsResponse, error)
-	GetWfdInfo(context.Context, *GetWfdInfoRequest) (*GetWfdInfoResponse, error)
-	HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error)
-	IsGroupOwner(context.Context, *IsGroupOwnerRequest) (*IsGroupOwnerResponse, error)
-	IsOpportunisticBootstrappingMethodSupported(context.Context, *IsOpportunisticBootstrappingMethodSupportedRequest) (*IsOpportunisticBootstrappingMethodSupportedResponse, error)
-	IsPassphraseDisplayBootstrappingMethodSupported(context.Context, *IsPassphraseDisplayBootstrappingMethodSupportedRequest) (*IsPassphraseDisplayBootstrappingMethodSupportedResponse, error)
-	IsPassphraseKeypadBootstrappingMethodSupported(context.Context, *IsPassphraseKeypadBootstrappingMethodSupportedRequest) (*IsPassphraseKeypadBootstrappingMethodSupportedResponse, error)
-	IsPinCodeDisplayBootstrappingMethodSupported(context.Context, *IsPinCodeDisplayBootstrappingMethodSupportedRequest) (*IsPinCodeDisplayBootstrappingMethodSupportedResponse, error)
-	IsPinCodeKeypadBootstrappingMethodSupported(context.Context, *IsPinCodeKeypadBootstrappingMethodSupportedRequest) (*IsPinCodeKeypadBootstrappingMethodSupportedResponse, error)
-	IsServiceDiscoveryCapable(context.Context, *IsServiceDiscoveryCapableRequest) (*IsServiceDiscoveryCapableResponse, error)
-	ToString(context.Context, *ToStringRequest) (*ToStringResponse, error)
-	Update(context.Context, *UpdateRequest) (*UpdateResponse, error)
-	WpsDisplaySupported(context.Context, *WpsDisplaySupportedRequest) (*WpsDisplaySupportedResponse, error)
-	WpsKeypadSupported(context.Context, *WpsKeypadSupportedRequest) (*WpsKeypadSupportedResponse, error)
-	WpsPbcSupported(context.Context, *WpsPbcSupportedRequest) (*WpsPbcSupportedResponse, error)
-	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
-	mustEmbedUnimplementedWifiP2PDeviceServiceServer()
-}
-
-// UnimplementedWifiP2PDeviceServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedWifiP2PDeviceServiceServer struct{}
-
-func (UnimplementedWifiP2PDeviceServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
-}
-func (UnimplementedWifiP2PDeviceServiceServer) Equals(context.Context, *EqualsRequest) (*EqualsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Equals not implemented")
-}
-func (UnimplementedWifiP2PDeviceServiceServer) GetIpAddress(context.Context, *GetIpAddressRequest) (*GetIpAddressResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetIpAddress not implemented")
-}
-func (UnimplementedWifiP2PDeviceServiceServer) GetVendorElements(context.Context, *GetVendorElementsRequest) (*GetVendorElementsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetVendorElements not implemented")
-}
-func (UnimplementedWifiP2PDeviceServiceServer) GetWfdInfo(context.Context, *GetWfdInfoRequest) (*GetWfdInfoResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetWfdInfo not implemented")
-}
-func (UnimplementedWifiP2PDeviceServiceServer) HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method HashCode not implemented")
-}
-func (UnimplementedWifiP2PDeviceServiceServer) IsGroupOwner(context.Context, *IsGroupOwnerRequest) (*IsGroupOwnerResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method IsGroupOwner not implemented")
-}
-func (UnimplementedWifiP2PDeviceServiceServer) IsOpportunisticBootstrappingMethodSupported(context.Context, *IsOpportunisticBootstrappingMethodSupportedRequest) (*IsOpportunisticBootstrappingMethodSupportedResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method IsOpportunisticBootstrappingMethodSupported not implemented")
-}
-func (UnimplementedWifiP2PDeviceServiceServer) IsPassphraseDisplayBootstrappingMethodSupported(context.Context, *IsPassphraseDisplayBootstrappingMethodSupportedRequest) (*IsPassphraseDisplayBootstrappingMethodSupportedResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method IsPassphraseDisplayBootstrappingMethodSupported not implemented")
-}
-func (UnimplementedWifiP2PDeviceServiceServer) IsPassphraseKeypadBootstrappingMethodSupported(context.Context, *IsPassphraseKeypadBootstrappingMethodSupportedRequest) (*IsPassphraseKeypadBootstrappingMethodSupportedResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method IsPassphraseKeypadBootstrappingMethodSupported not implemented")
-}
-func (UnimplementedWifiP2PDeviceServiceServer) IsPinCodeDisplayBootstrappingMethodSupported(context.Context, *IsPinCodeDisplayBootstrappingMethodSupportedRequest) (*IsPinCodeDisplayBootstrappingMethodSupportedResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method IsPinCodeDisplayBootstrappingMethodSupported not implemented")
-}
-func (UnimplementedWifiP2PDeviceServiceServer) IsPinCodeKeypadBootstrappingMethodSupported(context.Context, *IsPinCodeKeypadBootstrappingMethodSupportedRequest) (*IsPinCodeKeypadBootstrappingMethodSupportedResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method IsPinCodeKeypadBootstrappingMethodSupported not implemented")
-}
-func (UnimplementedWifiP2PDeviceServiceServer) IsServiceDiscoveryCapable(context.Context, *IsServiceDiscoveryCapableRequest) (*IsServiceDiscoveryCapableResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method IsServiceDiscoveryCapable not implemented")
-}
-func (UnimplementedWifiP2PDeviceServiceServer) ToString(context.Context, *ToStringRequest) (*ToStringResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
-}
-func (UnimplementedWifiP2PDeviceServiceServer) Update(context.Context, *UpdateRequest) (*UpdateResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Update not implemented")
-}
-func (UnimplementedWifiP2PDeviceServiceServer) WpsDisplaySupported(context.Context, *WpsDisplaySupportedRequest) (*WpsDisplaySupportedResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method WpsDisplaySupported not implemented")
-}
-func (UnimplementedWifiP2PDeviceServiceServer) WpsKeypadSupported(context.Context, *WpsKeypadSupportedRequest) (*WpsKeypadSupportedResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method WpsKeypadSupported not implemented")
-}
-func (UnimplementedWifiP2PDeviceServiceServer) WpsPbcSupported(context.Context, *WpsPbcSupportedRequest) (*WpsPbcSupportedResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method WpsPbcSupported not implemented")
-}
-func (UnimplementedWifiP2PDeviceServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
-}
-func (UnimplementedWifiP2PDeviceServiceServer) mustEmbedUnimplementedWifiP2PDeviceServiceServer() {}
-func (UnimplementedWifiP2PDeviceServiceServer) testEmbeddedByValue()                              {}
-
-// UnsafeWifiP2PDeviceServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to WifiP2PDeviceServiceServer will
-// result in compilation errors.
-type UnsafeWifiP2PDeviceServiceServer interface {
-	mustEmbedUnimplementedWifiP2PDeviceServiceServer()
-}
-
-func RegisterWifiP2PDeviceServiceServer(s grpc.ServiceRegistrar, srv WifiP2PDeviceServiceServer) {
-	// If the following call panics, it indicates UnimplementedWifiP2PDeviceServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&WifiP2PDeviceService_ServiceDesc, srv)
-}
-
-func _WifiP2PDeviceService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(DescribeContentsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(WifiP2PDeviceServiceServer).DescribeContents(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: WifiP2PDeviceService_DescribeContents_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WifiP2PDeviceServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _WifiP2PDeviceService_Equals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(EqualsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(WifiP2PDeviceServiceServer).Equals(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: WifiP2PDeviceService_Equals_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WifiP2PDeviceServiceServer).Equals(ctx, req.(*EqualsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _WifiP2PDeviceService_GetIpAddress_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetIpAddressRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(WifiP2PDeviceServiceServer).GetIpAddress(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: WifiP2PDeviceService_GetIpAddress_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WifiP2PDeviceServiceServer).GetIpAddress(ctx, req.(*GetIpAddressRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _WifiP2PDeviceService_GetVendorElements_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetVendorElementsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(WifiP2PDeviceServiceServer).GetVendorElements(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: WifiP2PDeviceService_GetVendorElements_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WifiP2PDeviceServiceServer).GetVendorElements(ctx, req.(*GetVendorElementsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _WifiP2PDeviceService_GetWfdInfo_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetWfdInfoRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(WifiP2PDeviceServiceServer).GetWfdInfo(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: WifiP2PDeviceService_GetWfdInfo_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WifiP2PDeviceServiceServer).GetWfdInfo(ctx, req.(*GetWfdInfoRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _WifiP2PDeviceService_HashCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(HashCodeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(WifiP2PDeviceServiceServer).HashCode(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: WifiP2PDeviceService_HashCode_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WifiP2PDeviceServiceServer).HashCode(ctx, req.(*HashCodeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _WifiP2PDeviceService_IsGroupOwner_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(IsGroupOwnerRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(WifiP2PDeviceServiceServer).IsGroupOwner(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: WifiP2PDeviceService_IsGroupOwner_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WifiP2PDeviceServiceServer).IsGroupOwner(ctx, req.(*IsGroupOwnerRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _WifiP2PDeviceService_IsOpportunisticBootstrappingMethodSupported_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(IsOpportunisticBootstrappingMethodSupportedRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(WifiP2PDeviceServiceServer).IsOpportunisticBootstrappingMethodSupported(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: WifiP2PDeviceService_IsOpportunisticBootstrappingMethodSupported_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WifiP2PDeviceServiceServer).IsOpportunisticBootstrappingMethodSupported(ctx, req.(*IsOpportunisticBootstrappingMethodSupportedRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _WifiP2PDeviceService_IsPassphraseDisplayBootstrappingMethodSupported_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(IsPassphraseDisplayBootstrappingMethodSupportedRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(WifiP2PDeviceServiceServer).IsPassphraseDisplayBootstrappingMethodSupported(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: WifiP2PDeviceService_IsPassphraseDisplayBootstrappingMethodSupported_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WifiP2PDeviceServiceServer).IsPassphraseDisplayBootstrappingMethodSupported(ctx, req.(*IsPassphraseDisplayBootstrappingMethodSupportedRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _WifiP2PDeviceService_IsPassphraseKeypadBootstrappingMethodSupported_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(IsPassphraseKeypadBootstrappingMethodSupportedRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(WifiP2PDeviceServiceServer).IsPassphraseKeypadBootstrappingMethodSupported(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: WifiP2PDeviceService_IsPassphraseKeypadBootstrappingMethodSupported_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WifiP2PDeviceServiceServer).IsPassphraseKeypadBootstrappingMethodSupported(ctx, req.(*IsPassphraseKeypadBootstrappingMethodSupportedRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _WifiP2PDeviceService_IsPinCodeDisplayBootstrappingMethodSupported_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(IsPinCodeDisplayBootstrappingMethodSupportedRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(WifiP2PDeviceServiceServer).IsPinCodeDisplayBootstrappingMethodSupported(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: WifiP2PDeviceService_IsPinCodeDisplayBootstrappingMethodSupported_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WifiP2PDeviceServiceServer).IsPinCodeDisplayBootstrappingMethodSupported(ctx, req.(*IsPinCodeDisplayBootstrappingMethodSupportedRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _WifiP2PDeviceService_IsPinCodeKeypadBootstrappingMethodSupported_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(IsPinCodeKeypadBootstrappingMethodSupportedRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(WifiP2PDeviceServiceServer).IsPinCodeKeypadBootstrappingMethodSupported(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: WifiP2PDeviceService_IsPinCodeKeypadBootstrappingMethodSupported_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WifiP2PDeviceServiceServer).IsPinCodeKeypadBootstrappingMethodSupported(ctx, req.(*IsPinCodeKeypadBootstrappingMethodSupportedRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _WifiP2PDeviceService_IsServiceDiscoveryCapable_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(IsServiceDiscoveryCapableRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(WifiP2PDeviceServiceServer).IsServiceDiscoveryCapable(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: WifiP2PDeviceService_IsServiceDiscoveryCapable_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WifiP2PDeviceServiceServer).IsServiceDiscoveryCapable(ctx, req.(*IsServiceDiscoveryCapableRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _WifiP2PDeviceService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ToStringRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(WifiP2PDeviceServiceServer).ToString(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: WifiP2PDeviceService_ToString_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WifiP2PDeviceServiceServer).ToString(ctx, req.(*ToStringRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _WifiP2PDeviceService_Update_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(UpdateRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(WifiP2PDeviceServiceServer).Update(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: WifiP2PDeviceService_Update_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WifiP2PDeviceServiceServer).Update(ctx, req.(*UpdateRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _WifiP2PDeviceService_WpsDisplaySupported_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(WpsDisplaySupportedRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(WifiP2PDeviceServiceServer).WpsDisplaySupported(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: WifiP2PDeviceService_WpsDisplaySupported_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WifiP2PDeviceServiceServer).WpsDisplaySupported(ctx, req.(*WpsDisplaySupportedRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _WifiP2PDeviceService_WpsKeypadSupported_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(WpsKeypadSupportedRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(WifiP2PDeviceServiceServer).WpsKeypadSupported(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: WifiP2PDeviceService_WpsKeypadSupported_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WifiP2PDeviceServiceServer).WpsKeypadSupported(ctx, req.(*WpsKeypadSupportedRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _WifiP2PDeviceService_WpsPbcSupported_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(WpsPbcSupportedRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(WifiP2PDeviceServiceServer).WpsPbcSupported(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: WifiP2PDeviceService_WpsPbcSupported_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WifiP2PDeviceServiceServer).WpsPbcSupported(ctx, req.(*WpsPbcSupportedRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _WifiP2PDeviceService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(WriteToParcelRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(WifiP2PDeviceServiceServer).WriteToParcel(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: WifiP2PDeviceService_WriteToParcel_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WifiP2PDeviceServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// WifiP2PDeviceService_ServiceDesc is the grpc.ServiceDesc for WifiP2PDeviceService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var WifiP2PDeviceService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "wifi_p2p.WifiP2pDeviceService",
-	HandlerType: (*WifiP2PDeviceServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "DescribeContents",
-			Handler:    _WifiP2PDeviceService_DescribeContents_Handler,
-		},
-		{
-			MethodName: "Equals",
-			Handler:    _WifiP2PDeviceService_Equals_Handler,
-		},
-		{
-			MethodName: "GetIpAddress",
-			Handler:    _WifiP2PDeviceService_GetIpAddress_Handler,
-		},
-		{
-			MethodName: "GetVendorElements",
-			Handler:    _WifiP2PDeviceService_GetVendorElements_Handler,
-		},
-		{
-			MethodName: "GetWfdInfo",
-			Handler:    _WifiP2PDeviceService_GetWfdInfo_Handler,
-		},
-		{
-			MethodName: "HashCode",
-			Handler:    _WifiP2PDeviceService_HashCode_Handler,
-		},
-		{
-			MethodName: "IsGroupOwner",
-			Handler:    _WifiP2PDeviceService_IsGroupOwner_Handler,
-		},
-		{
-			MethodName: "IsOpportunisticBootstrappingMethodSupported",
-			Handler:    _WifiP2PDeviceService_IsOpportunisticBootstrappingMethodSupported_Handler,
-		},
-		{
-			MethodName: "IsPassphraseDisplayBootstrappingMethodSupported",
-			Handler:    _WifiP2PDeviceService_IsPassphraseDisplayBootstrappingMethodSupported_Handler,
-		},
-		{
-			MethodName: "IsPassphraseKeypadBootstrappingMethodSupported",
-			Handler:    _WifiP2PDeviceService_IsPassphraseKeypadBootstrappingMethodSupported_Handler,
-		},
-		{
-			MethodName: "IsPinCodeDisplayBootstrappingMethodSupported",
-			Handler:    _WifiP2PDeviceService_IsPinCodeDisplayBootstrappingMethodSupported_Handler,
-		},
-		{
-			MethodName: "IsPinCodeKeypadBootstrappingMethodSupported",
-			Handler:    _WifiP2PDeviceService_IsPinCodeKeypadBootstrappingMethodSupported_Handler,
-		},
-		{
-			MethodName: "IsServiceDiscoveryCapable",
-			Handler:    _WifiP2PDeviceService_IsServiceDiscoveryCapable_Handler,
-		},
-		{
-			MethodName: "ToString",
-			Handler:    _WifiP2PDeviceService_ToString_Handler,
-		},
-		{
-			MethodName: "Update",
-			Handler:    _WifiP2PDeviceService_Update_Handler,
-		},
-		{
-			MethodName: "WpsDisplaySupported",
-			Handler:    _WifiP2PDeviceService_WpsDisplaySupported_Handler,
-		},
-		{
-			MethodName: "WpsKeypadSupported",
-			Handler:    _WifiP2PDeviceService_WpsKeypadSupported_Handler,
-		},
-		{
-			MethodName: "WpsPbcSupported",
-			Handler:    _WifiP2PDeviceService_WpsPbcSupported_Handler,
-		},
-		{
-			MethodName: "WriteToParcel",
-			Handler:    _WifiP2PDeviceService_WriteToParcel_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/wifi_p2p/wifi_p2p.proto",
-}
-
-const (
-	WifiP2PConfigService_DescribeContents_FullMethodName                     = "/wifi_p2p.WifiP2pConfigService/DescribeContents"
-	WifiP2PConfigService_GetGroupClientIpProvisioningMode_FullMethodName     = "/wifi_p2p.WifiP2pConfigService/GetGroupClientIpProvisioningMode"
-	WifiP2PConfigService_GetGroupOwnerBand_FullMethodName                    = "/wifi_p2p.WifiP2pConfigService/GetGroupOwnerBand"
-	WifiP2PConfigService_GetGroupOwnerVersion_FullMethodName                 = "/wifi_p2p.WifiP2pConfigService/GetGroupOwnerVersion"
-	WifiP2PConfigService_GetNetworkId_FullMethodName                         = "/wifi_p2p.WifiP2pConfigService/GetNetworkId"
-	WifiP2PConfigService_GetNetworkName_FullMethodName                       = "/wifi_p2p.WifiP2pConfigService/GetNetworkName"
-	WifiP2PConfigService_GetPairingBootstrappingConfig_FullMethodName        = "/wifi_p2p.WifiP2pConfigService/GetPairingBootstrappingConfig"
-	WifiP2PConfigService_GetPassphrase_FullMethodName                        = "/wifi_p2p.WifiP2pConfigService/GetPassphrase"
-	WifiP2PConfigService_GetPccModeConnectionType_FullMethodName             = "/wifi_p2p.WifiP2pConfigService/GetPccModeConnectionType"
-	WifiP2PConfigService_IsAuthorizeConnectionFromPeerEnabled_FullMethodName = "/wifi_p2p.WifiP2pConfigService/IsAuthorizeConnectionFromPeerEnabled"
-	WifiP2PConfigService_SetGroupOwnerVersion_FullMethodName                 = "/wifi_p2p.WifiP2pConfigService/SetGroupOwnerVersion"
-	WifiP2PConfigService_ToString_FullMethodName                             = "/wifi_p2p.WifiP2pConfigService/ToString"
-	WifiP2PConfigService_WriteToParcel_FullMethodName                        = "/wifi_p2p.WifiP2pConfigService/WriteToParcel"
-)
-
-// WifiP2PConfigServiceClient is the client API for WifiP2PConfigService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type WifiP2PConfigServiceClient interface {
-	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
-	GetGroupClientIpProvisioningMode(ctx context.Context, in *GetGroupClientIpProvisioningModeRequest, opts ...grpc.CallOption) (*GetGroupClientIpProvisioningModeResponse, error)
-	GetGroupOwnerBand(ctx context.Context, in *GetGroupOwnerBandRequest, opts ...grpc.CallOption) (*GetGroupOwnerBandResponse, error)
-	GetGroupOwnerVersion(ctx context.Context, in *GetGroupOwnerVersionRequest, opts ...grpc.CallOption) (*GetGroupOwnerVersionResponse, error)
-	GetNetworkId(ctx context.Context, in *GetNetworkIdRequest, opts ...grpc.CallOption) (*GetNetworkIdResponse, error)
-	GetNetworkName(ctx context.Context, in *GetNetworkNameRequest, opts ...grpc.CallOption) (*GetNetworkNameResponse, error)
-	GetPairingBootstrappingConfig(ctx context.Context, in *GetPairingBootstrappingConfigRequest, opts ...grpc.CallOption) (*GetPairingBootstrappingConfigResponse, error)
-	GetPassphrase(ctx context.Context, in *GetPassphraseRequest, opts ...grpc.CallOption) (*GetPassphraseResponse, error)
-	GetPccModeConnectionType(ctx context.Context, in *GetPccModeConnectionTypeRequest, opts ...grpc.CallOption) (*GetPccModeConnectionTypeResponse, error)
-	IsAuthorizeConnectionFromPeerEnabled(ctx context.Context, in *IsAuthorizeConnectionFromPeerEnabledRequest, opts ...grpc.CallOption) (*IsAuthorizeConnectionFromPeerEnabledResponse, error)
-	SetGroupOwnerVersion(ctx context.Context, in *SetGroupOwnerVersionRequest, opts ...grpc.CallOption) (*SetGroupOwnerVersionResponse, error)
-	ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
-	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
-}
-
-type wifiP2PConfigServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewWifiP2PConfigServiceClient(cc grpc.ClientConnInterface) WifiP2PConfigServiceClient {
-	return &wifiP2PConfigServiceClient{cc}
-}
-
-func (c *wifiP2PConfigServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(DescribeContentsResponse)
-	err := c.cc.Invoke(ctx, WifiP2PConfigService_DescribeContents_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *wifiP2PConfigServiceClient) GetGroupClientIpProvisioningMode(ctx context.Context, in *GetGroupClientIpProvisioningModeRequest, opts ...grpc.CallOption) (*GetGroupClientIpProvisioningModeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetGroupClientIpProvisioningModeResponse)
-	err := c.cc.Invoke(ctx, WifiP2PConfigService_GetGroupClientIpProvisioningMode_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *wifiP2PConfigServiceClient) GetGroupOwnerBand(ctx context.Context, in *GetGroupOwnerBandRequest, opts ...grpc.CallOption) (*GetGroupOwnerBandResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetGroupOwnerBandResponse)
-	err := c.cc.Invoke(ctx, WifiP2PConfigService_GetGroupOwnerBand_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *wifiP2PConfigServiceClient) GetGroupOwnerVersion(ctx context.Context, in *GetGroupOwnerVersionRequest, opts ...grpc.CallOption) (*GetGroupOwnerVersionResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetGroupOwnerVersionResponse)
-	err := c.cc.Invoke(ctx, WifiP2PConfigService_GetGroupOwnerVersion_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *wifiP2PConfigServiceClient) GetNetworkId(ctx context.Context, in *GetNetworkIdRequest, opts ...grpc.CallOption) (*GetNetworkIdResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetNetworkIdResponse)
-	err := c.cc.Invoke(ctx, WifiP2PConfigService_GetNetworkId_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *wifiP2PConfigServiceClient) GetNetworkName(ctx context.Context, in *GetNetworkNameRequest, opts ...grpc.CallOption) (*GetNetworkNameResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetNetworkNameResponse)
-	err := c.cc.Invoke(ctx, WifiP2PConfigService_GetNetworkName_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *wifiP2PConfigServiceClient) GetPairingBootstrappingConfig(ctx context.Context, in *GetPairingBootstrappingConfigRequest, opts ...grpc.CallOption) (*GetPairingBootstrappingConfigResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetPairingBootstrappingConfigResponse)
-	err := c.cc.Invoke(ctx, WifiP2PConfigService_GetPairingBootstrappingConfig_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *wifiP2PConfigServiceClient) GetPassphrase(ctx context.Context, in *GetPassphraseRequest, opts ...grpc.CallOption) (*GetPassphraseResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetPassphraseResponse)
-	err := c.cc.Invoke(ctx, WifiP2PConfigService_GetPassphrase_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *wifiP2PConfigServiceClient) GetPccModeConnectionType(ctx context.Context, in *GetPccModeConnectionTypeRequest, opts ...grpc.CallOption) (*GetPccModeConnectionTypeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetPccModeConnectionTypeResponse)
-	err := c.cc.Invoke(ctx, WifiP2PConfigService_GetPccModeConnectionType_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *wifiP2PConfigServiceClient) IsAuthorizeConnectionFromPeerEnabled(ctx context.Context, in *IsAuthorizeConnectionFromPeerEnabledRequest, opts ...grpc.CallOption) (*IsAuthorizeConnectionFromPeerEnabledResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(IsAuthorizeConnectionFromPeerEnabledResponse)
-	err := c.cc.Invoke(ctx, WifiP2PConfigService_IsAuthorizeConnectionFromPeerEnabled_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *wifiP2PConfigServiceClient) SetGroupOwnerVersion(ctx context.Context, in *SetGroupOwnerVersionRequest, opts ...grpc.CallOption) (*SetGroupOwnerVersionResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetGroupOwnerVersionResponse)
-	err := c.cc.Invoke(ctx, WifiP2PConfigService_SetGroupOwnerVersion_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *wifiP2PConfigServiceClient) ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ToStringResponse)
-	err := c.cc.Invoke(ctx, WifiP2PConfigService_ToString_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *wifiP2PConfigServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(WriteToParcelResponse)
-	err := c.cc.Invoke(ctx, WifiP2PConfigService_WriteToParcel_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// WifiP2PConfigServiceServer is the server API for WifiP2PConfigService service.
-// All implementations must embed UnimplementedWifiP2PConfigServiceServer
-// for forward compatibility.
-type WifiP2PConfigServiceServer interface {
-	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
-	GetGroupClientIpProvisioningMode(context.Context, *GetGroupClientIpProvisioningModeRequest) (*GetGroupClientIpProvisioningModeResponse, error)
-	GetGroupOwnerBand(context.Context, *GetGroupOwnerBandRequest) (*GetGroupOwnerBandResponse, error)
-	GetGroupOwnerVersion(context.Context, *GetGroupOwnerVersionRequest) (*GetGroupOwnerVersionResponse, error)
-	GetNetworkId(context.Context, *GetNetworkIdRequest) (*GetNetworkIdResponse, error)
-	GetNetworkName(context.Context, *GetNetworkNameRequest) (*GetNetworkNameResponse, error)
-	GetPairingBootstrappingConfig(context.Context, *GetPairingBootstrappingConfigRequest) (*GetPairingBootstrappingConfigResponse, error)
-	GetPassphrase(context.Context, *GetPassphraseRequest) (*GetPassphraseResponse, error)
-	GetPccModeConnectionType(context.Context, *GetPccModeConnectionTypeRequest) (*GetPccModeConnectionTypeResponse, error)
-	IsAuthorizeConnectionFromPeerEnabled(context.Context, *IsAuthorizeConnectionFromPeerEnabledRequest) (*IsAuthorizeConnectionFromPeerEnabledResponse, error)
-	SetGroupOwnerVersion(context.Context, *SetGroupOwnerVersionRequest) (*SetGroupOwnerVersionResponse, error)
-	ToString(context.Context, *ToStringRequest) (*ToStringResponse, error)
-	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
-	mustEmbedUnimplementedWifiP2PConfigServiceServer()
-}
-
-// UnimplementedWifiP2PConfigServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedWifiP2PConfigServiceServer struct{}
-
-func (UnimplementedWifiP2PConfigServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
-}
-func (UnimplementedWifiP2PConfigServiceServer) GetGroupClientIpProvisioningMode(context.Context, *GetGroupClientIpProvisioningModeRequest) (*GetGroupClientIpProvisioningModeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetGroupClientIpProvisioningMode not implemented")
-}
-func (UnimplementedWifiP2PConfigServiceServer) GetGroupOwnerBand(context.Context, *GetGroupOwnerBandRequest) (*GetGroupOwnerBandResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetGroupOwnerBand not implemented")
-}
-func (UnimplementedWifiP2PConfigServiceServer) GetGroupOwnerVersion(context.Context, *GetGroupOwnerVersionRequest) (*GetGroupOwnerVersionResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetGroupOwnerVersion not implemented")
-}
-func (UnimplementedWifiP2PConfigServiceServer) GetNetworkId(context.Context, *GetNetworkIdRequest) (*GetNetworkIdResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetNetworkId not implemented")
-}
-func (UnimplementedWifiP2PConfigServiceServer) GetNetworkName(context.Context, *GetNetworkNameRequest) (*GetNetworkNameResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetNetworkName not implemented")
-}
-func (UnimplementedWifiP2PConfigServiceServer) GetPairingBootstrappingConfig(context.Context, *GetPairingBootstrappingConfigRequest) (*GetPairingBootstrappingConfigResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetPairingBootstrappingConfig not implemented")
-}
-func (UnimplementedWifiP2PConfigServiceServer) GetPassphrase(context.Context, *GetPassphraseRequest) (*GetPassphraseResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetPassphrase not implemented")
-}
-func (UnimplementedWifiP2PConfigServiceServer) GetPccModeConnectionType(context.Context, *GetPccModeConnectionTypeRequest) (*GetPccModeConnectionTypeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetPccModeConnectionType not implemented")
-}
-func (UnimplementedWifiP2PConfigServiceServer) IsAuthorizeConnectionFromPeerEnabled(context.Context, *IsAuthorizeConnectionFromPeerEnabledRequest) (*IsAuthorizeConnectionFromPeerEnabledResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method IsAuthorizeConnectionFromPeerEnabled not implemented")
-}
-func (UnimplementedWifiP2PConfigServiceServer) SetGroupOwnerVersion(context.Context, *SetGroupOwnerVersionRequest) (*SetGroupOwnerVersionResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetGroupOwnerVersion not implemented")
-}
-func (UnimplementedWifiP2PConfigServiceServer) ToString(context.Context, *ToStringRequest) (*ToStringResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
-}
-func (UnimplementedWifiP2PConfigServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
-}
-func (UnimplementedWifiP2PConfigServiceServer) mustEmbedUnimplementedWifiP2PConfigServiceServer() {}
-func (UnimplementedWifiP2PConfigServiceServer) testEmbeddedByValue()                              {}
-
-// UnsafeWifiP2PConfigServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to WifiP2PConfigServiceServer will
-// result in compilation errors.
-type UnsafeWifiP2PConfigServiceServer interface {
-	mustEmbedUnimplementedWifiP2PConfigServiceServer()
-}
-
-func RegisterWifiP2PConfigServiceServer(s grpc.ServiceRegistrar, srv WifiP2PConfigServiceServer) {
-	// If the following call panics, it indicates UnimplementedWifiP2PConfigServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&WifiP2PConfigService_ServiceDesc, srv)
-}
-
-func _WifiP2PConfigService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(DescribeContentsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(WifiP2PConfigServiceServer).DescribeContents(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: WifiP2PConfigService_DescribeContents_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WifiP2PConfigServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _WifiP2PConfigService_GetGroupClientIpProvisioningMode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetGroupClientIpProvisioningModeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(WifiP2PConfigServiceServer).GetGroupClientIpProvisioningMode(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: WifiP2PConfigService_GetGroupClientIpProvisioningMode_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WifiP2PConfigServiceServer).GetGroupClientIpProvisioningMode(ctx, req.(*GetGroupClientIpProvisioningModeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _WifiP2PConfigService_GetGroupOwnerBand_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetGroupOwnerBandRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(WifiP2PConfigServiceServer).GetGroupOwnerBand(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: WifiP2PConfigService_GetGroupOwnerBand_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WifiP2PConfigServiceServer).GetGroupOwnerBand(ctx, req.(*GetGroupOwnerBandRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _WifiP2PConfigService_GetGroupOwnerVersion_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetGroupOwnerVersionRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(WifiP2PConfigServiceServer).GetGroupOwnerVersion(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: WifiP2PConfigService_GetGroupOwnerVersion_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WifiP2PConfigServiceServer).GetGroupOwnerVersion(ctx, req.(*GetGroupOwnerVersionRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _WifiP2PConfigService_GetNetworkId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetNetworkIdRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(WifiP2PConfigServiceServer).GetNetworkId(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: WifiP2PConfigService_GetNetworkId_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WifiP2PConfigServiceServer).GetNetworkId(ctx, req.(*GetNetworkIdRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _WifiP2PConfigService_GetNetworkName_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetNetworkNameRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(WifiP2PConfigServiceServer).GetNetworkName(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: WifiP2PConfigService_GetNetworkName_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WifiP2PConfigServiceServer).GetNetworkName(ctx, req.(*GetNetworkNameRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _WifiP2PConfigService_GetPairingBootstrappingConfig_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetPairingBootstrappingConfigRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(WifiP2PConfigServiceServer).GetPairingBootstrappingConfig(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: WifiP2PConfigService_GetPairingBootstrappingConfig_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WifiP2PConfigServiceServer).GetPairingBootstrappingConfig(ctx, req.(*GetPairingBootstrappingConfigRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _WifiP2PConfigService_GetPassphrase_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetPassphraseRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(WifiP2PConfigServiceServer).GetPassphrase(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: WifiP2PConfigService_GetPassphrase_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WifiP2PConfigServiceServer).GetPassphrase(ctx, req.(*GetPassphraseRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _WifiP2PConfigService_GetPccModeConnectionType_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetPccModeConnectionTypeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(WifiP2PConfigServiceServer).GetPccModeConnectionType(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: WifiP2PConfigService_GetPccModeConnectionType_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WifiP2PConfigServiceServer).GetPccModeConnectionType(ctx, req.(*GetPccModeConnectionTypeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _WifiP2PConfigService_IsAuthorizeConnectionFromPeerEnabled_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(IsAuthorizeConnectionFromPeerEnabledRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(WifiP2PConfigServiceServer).IsAuthorizeConnectionFromPeerEnabled(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: WifiP2PConfigService_IsAuthorizeConnectionFromPeerEnabled_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WifiP2PConfigServiceServer).IsAuthorizeConnectionFromPeerEnabled(ctx, req.(*IsAuthorizeConnectionFromPeerEnabledRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _WifiP2PConfigService_SetGroupOwnerVersion_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetGroupOwnerVersionRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(WifiP2PConfigServiceServer).SetGroupOwnerVersion(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: WifiP2PConfigService_SetGroupOwnerVersion_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WifiP2PConfigServiceServer).SetGroupOwnerVersion(ctx, req.(*SetGroupOwnerVersionRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _WifiP2PConfigService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ToStringRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(WifiP2PConfigServiceServer).ToString(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: WifiP2PConfigService_ToString_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WifiP2PConfigServiceServer).ToString(ctx, req.(*ToStringRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _WifiP2PConfigService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(WriteToParcelRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(WifiP2PConfigServiceServer).WriteToParcel(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: WifiP2PConfigService_WriteToParcel_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WifiP2PConfigServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// WifiP2PConfigService_ServiceDesc is the grpc.ServiceDesc for WifiP2PConfigService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var WifiP2PConfigService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "wifi_p2p.WifiP2pConfigService",
-	HandlerType: (*WifiP2PConfigServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "DescribeContents",
-			Handler:    _WifiP2PConfigService_DescribeContents_Handler,
-		},
-		{
-			MethodName: "GetGroupClientIpProvisioningMode",
-			Handler:    _WifiP2PConfigService_GetGroupClientIpProvisioningMode_Handler,
-		},
-		{
-			MethodName: "GetGroupOwnerBand",
-			Handler:    _WifiP2PConfigService_GetGroupOwnerBand_Handler,
-		},
-		{
-			MethodName: "GetGroupOwnerVersion",
-			Handler:    _WifiP2PConfigService_GetGroupOwnerVersion_Handler,
-		},
-		{
-			MethodName: "GetNetworkId",
-			Handler:    _WifiP2PConfigService_GetNetworkId_Handler,
-		},
-		{
-			MethodName: "GetNetworkName",
-			Handler:    _WifiP2PConfigService_GetNetworkName_Handler,
-		},
-		{
-			MethodName: "GetPairingBootstrappingConfig",
-			Handler:    _WifiP2PConfigService_GetPairingBootstrappingConfig_Handler,
-		},
-		{
-			MethodName: "GetPassphrase",
-			Handler:    _WifiP2PConfigService_GetPassphrase_Handler,
-		},
-		{
-			MethodName: "GetPccModeConnectionType",
-			Handler:    _WifiP2PConfigService_GetPccModeConnectionType_Handler,
-		},
-		{
-			MethodName: "IsAuthorizeConnectionFromPeerEnabled",
-			Handler:    _WifiP2PConfigService_IsAuthorizeConnectionFromPeerEnabled_Handler,
-		},
-		{
-			MethodName: "SetGroupOwnerVersion",
-			Handler:    _WifiP2PConfigService_SetGroupOwnerVersion_Handler,
-		},
-		{
-			MethodName: "ToString",
-			Handler:    _WifiP2PConfigService_ToString_Handler,
-		},
-		{
-			MethodName: "WriteToParcel",
-			Handler:    _WifiP2PConfigService_WriteToParcel_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

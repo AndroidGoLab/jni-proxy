@@ -496,7 +496,7 @@ service TextToSpeechService {
   rpc GetMaxSpeechInputLength (GetMaxSpeechInputLengthRequest) returns (GetMaxSpeechInputLengthResponse);
 }
 
-service SpeechRecognizerService {
+service RecognizerService {
   rpc Cancel (CancelRequest) returns (CancelResponse);
   rpc CheckRecognitionSupport (CheckRecognitionSupportRequest) returns (CheckRecognitionSupportResponse);
   rpc Destroy (DestroyRequest) returns (DestroyResponse);

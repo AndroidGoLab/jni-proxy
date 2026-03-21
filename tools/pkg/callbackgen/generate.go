@@ -11,12 +11,6 @@ import (
 
 const javaPackage = "center.dx.jni.generated"
 
-// templateData holds the context passed to the Java adapter template.
-type templateData struct {
-	Package string
-	Entry   CallbackEntry
-}
-
 // Generate reads the spec and writes one Java adapter file per callback entry.
 func Generate(specPath, outputDir string) error {
 	spec, err := LoadSpec(specPath)

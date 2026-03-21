@@ -3,123 +3,13 @@
 package main
 
 import (
-	"github.com/spf13/cobra"
 	pb "github.com/AndroidGoLab/jni-proxy/proto/display"
+	"github.com/spf13/cobra"
 )
 
 var displayCmd = &cobra.Command{
 	Use:   "display",
 	Short: "display service operations",
-}
-
-var displayDisplayMetricsCmd = &cobra.Command{
-	Use:   "display-metrics",
-	Short: "DisplayMetricsService operations",
-}
-
-var displayDisplayMetricsEquals1Cmd = &cobra.Command{
-	Use:   "equals1",
-	Short: "Equals1 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewDisplayMetricsServiceClient(grpcConn)
-		req := &pb.Equals1Request{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.Equals1(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var displayDisplayMetricsEquals1_1Cmd = &cobra.Command{
-	Use:   "equals1_1",
-	Short: "Equals1_1 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewDisplayMetricsServiceClient(grpcConn)
-		req := &pb.Equals1_1Request{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.Equals1_1(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var displayDisplayMetricsHashCodeCmd = &cobra.Command{
-	Use:   "hash-code",
-	Short: "HashCode RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewDisplayMetricsServiceClient(grpcConn)
-		req := &pb.HashCodeRequest{}
-		resp, err := client.HashCode(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var displayDisplayMetricsSetToCmd = &cobra.Command{
-	Use:   "set-to",
-	Short: "SetTo RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewDisplayMetricsServiceClient(grpcConn)
-		req := &pb.SetToRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetTo(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var displayDisplayMetricsSetToDefaultsCmd = &cobra.Command{
-	Use:   "set-to-defaults",
-	Short: "SetToDefaults RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewDisplayMetricsServiceClient(grpcConn)
-		req := &pb.SetToDefaultsRequest{}
-		resp, err := client.SetToDefaults(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var displayDisplayMetricsToStringCmd = &cobra.Command{
-	Use:   "to-string",
-	Short: "ToString RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewDisplayMetricsServiceClient(grpcConn)
-		req := &pb.ToStringRequest{}
-		resp, err := client.ToString(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
 }
 
 var displayDisplayCmd = &cobra.Command{
@@ -803,17 +693,157 @@ var displayDisplayUnregisterHdrSdrRatioChangedListenerCmd = &cobra.Command{
 	},
 }
 
+var displayWindowManagerCmd = &cobra.Command{
+	Use:   "window-manager",
+	Short: "WindowManagerService operations",
+}
+
+var displayWindowManagerGetDefaultDisplayCmd = &cobra.Command{
+	Use:   "get-default-display",
+	Short: "GetDefaultDisplay RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWindowManagerServiceClient(grpcConn)
+		req := &pb.GetDefaultDisplayRequest{}
+		resp, err := client.GetDefaultDisplay(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var displayWindowManagerRemoveViewImmediateCmd = &cobra.Command{
+	Use:   "remove-view-immediate",
+	Short: "RemoveViewImmediate RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWindowManagerServiceClient(grpcConn)
+		req := &pb.RemoveViewImmediateRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.RemoveViewImmediate(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var displayMetricsCmd = &cobra.Command{
+	Use:   "metrics",
+	Short: "MetricsService operations",
+}
+
+var displayMetricsEquals1Cmd = &cobra.Command{
+	Use:   "equals1",
+	Short: "Equals1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewMetricsServiceClient(grpcConn)
+		req := &pb.Equals1Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Equals1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var displayMetricsEquals1_1Cmd = &cobra.Command{
+	Use:   "equals1_1",
+	Short: "Equals1_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewMetricsServiceClient(grpcConn)
+		req := &pb.Equals1_1Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Equals1_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var displayMetricsHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewMetricsServiceClient(grpcConn)
+		req := &pb.HashCodeRequest{}
+		resp, err := client.HashCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var displayMetricsSetToCmd = &cobra.Command{
+	Use:   "set-to",
+	Short: "SetTo RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewMetricsServiceClient(grpcConn)
+		req := &pb.SetToRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetTo(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var displayMetricsSetToDefaultsCmd = &cobra.Command{
+	Use:   "set-to-defaults",
+	Short: "SetToDefaults RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewMetricsServiceClient(grpcConn)
+		req := &pb.SetToDefaultsRequest{}
+		resp, err := client.SetToDefaults(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var displayMetricsToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewMetricsServiceClient(grpcConn)
+		req := &pb.ToStringRequest{}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
 func init() {
-	displayDisplayMetricsEquals1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	displayDisplayMetricsCmd.AddCommand(displayDisplayMetricsEquals1Cmd)
-	displayDisplayMetricsEquals1_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	displayDisplayMetricsCmd.AddCommand(displayDisplayMetricsEquals1_1Cmd)
-	displayDisplayMetricsCmd.AddCommand(displayDisplayMetricsHashCodeCmd)
-	displayDisplayMetricsSetToCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	displayDisplayMetricsCmd.AddCommand(displayDisplayMetricsSetToCmd)
-	displayDisplayMetricsCmd.AddCommand(displayDisplayMetricsSetToDefaultsCmd)
-	displayDisplayMetricsCmd.AddCommand(displayDisplayMetricsToStringCmd)
-	displayCmd.AddCommand(displayDisplayMetricsCmd)
 	displayDisplayCmd.AddCommand(displayDisplayGetAppVsyncOffsetNanosCmd)
 	displayDisplayGetCurrentSizeRangeCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	displayDisplayGetCurrentSizeRangeCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
@@ -867,5 +897,19 @@ func init() {
 	displayDisplayUnregisterHdrSdrRatioChangedListenerCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	displayDisplayCmd.AddCommand(displayDisplayUnregisterHdrSdrRatioChangedListenerCmd)
 	displayCmd.AddCommand(displayDisplayCmd)
+	displayWindowManagerCmd.AddCommand(displayWindowManagerGetDefaultDisplayCmd)
+	displayWindowManagerRemoveViewImmediateCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	displayWindowManagerCmd.AddCommand(displayWindowManagerRemoveViewImmediateCmd)
+	displayCmd.AddCommand(displayWindowManagerCmd)
+	displayMetricsEquals1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	displayMetricsCmd.AddCommand(displayMetricsEquals1Cmd)
+	displayMetricsEquals1_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	displayMetricsCmd.AddCommand(displayMetricsEquals1_1Cmd)
+	displayMetricsCmd.AddCommand(displayMetricsHashCodeCmd)
+	displayMetricsSetToCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	displayMetricsCmd.AddCommand(displayMetricsSetToCmd)
+	displayMetricsCmd.AddCommand(displayMetricsSetToDefaultsCmd)
+	displayMetricsCmd.AddCommand(displayMetricsToStringCmd)
+	displayCmd.AddCommand(displayMetricsCmd)
 	rootCmd.AddCommand(displayCmd)
 }

@@ -7,23 +7,23 @@ import (
 
 	"github.com/AndroidGoLab/jni"
 
-	"github.com/AndroidGoLab/jni/app"
-	jnipkg "github.com/AndroidGoLab/jni/app/alarm"
 	"github.com/AndroidGoLab/jni-proxy/handlestore"
 	pb "github.com/AndroidGoLab/jni-proxy/proto/alarm"
+	"github.com/AndroidGoLab/jni/app"
+	jnipkg "github.com/AndroidGoLab/jni/app/alarm"
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"
 )
 
-// AlarmManagerServer implements pb.AlarmManagerServiceServer.
-type AlarmManagerServer struct {
-	pb.UnimplementedAlarmManagerServiceServer
+// ManagerServer implements pb.ManagerServiceServer.
+type ManagerServer struct {
+	pb.UnimplementedManagerServiceServer
 	Ctx     *app.Context
 	Handles *handlestore.HandleStore
 }
 
-func (s *AlarmManagerServer) CanScheduleExactAlarms(_ context.Context, req *pb.CanScheduleExactAlarmsRequest) (*pb.CanScheduleExactAlarmsResponse, error) {
-	mgr, err := jnipkg.NewalarmManager(s.Ctx)
+func (s *ManagerServer) CanScheduleExactAlarms(_ context.Context, req *pb.CanScheduleExactAlarmsRequest) (*pb.CanScheduleExactAlarmsResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -36,8 +36,8 @@ func (s *AlarmManagerServer) CanScheduleExactAlarms(_ context.Context, req *pb.C
 	return &pb.CanScheduleExactAlarmsResponse{Result: result}, nil
 }
 
-func (s *AlarmManagerServer) Cancel1(_ context.Context, req *pb.Cancel1Request) (*pb.Cancel1Response, error) {
-	mgr, err := jnipkg.NewalarmManager(s.Ctx)
+func (s *ManagerServer) Cancel1(_ context.Context, req *pb.Cancel1Request) (*pb.Cancel1Response, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -49,8 +49,8 @@ func (s *AlarmManagerServer) Cancel1(_ context.Context, req *pb.Cancel1Request) 
 	return &pb.Cancel1Response{}, nil
 }
 
-func (s *AlarmManagerServer) Cancel1_1(_ context.Context, req *pb.Cancel1_1Request) (*pb.Cancel1_1Response, error) {
-	mgr, err := jnipkg.NewalarmManager(s.Ctx)
+func (s *ManagerServer) Cancel1_1(_ context.Context, req *pb.Cancel1_1Request) (*pb.Cancel1_1Response, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -62,8 +62,8 @@ func (s *AlarmManagerServer) Cancel1_1(_ context.Context, req *pb.Cancel1_1Reque
 	return &pb.Cancel1_1Response{}, nil
 }
 
-func (s *AlarmManagerServer) CancelAll(_ context.Context, req *pb.CancelAllRequest) (*pb.CancelAllResponse, error) {
-	mgr, err := jnipkg.NewalarmManager(s.Ctx)
+func (s *ManagerServer) CancelAll(_ context.Context, req *pb.CancelAllRequest) (*pb.CancelAllResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -75,8 +75,8 @@ func (s *AlarmManagerServer) CancelAll(_ context.Context, req *pb.CancelAllReque
 	return &pb.CancelAllResponse{}, nil
 }
 
-func (s *AlarmManagerServer) GetNextAlarmClock(_ context.Context, req *pb.GetNextAlarmClockRequest) (*pb.GetNextAlarmClockResponse, error) {
-	mgr, err := jnipkg.NewalarmManager(s.Ctx)
+func (s *ManagerServer) GetNextAlarmClock(_ context.Context, req *pb.GetNextAlarmClockRequest) (*pb.GetNextAlarmClockResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -98,8 +98,8 @@ func (s *AlarmManagerServer) GetNextAlarmClock(_ context.Context, req *pb.GetNex
 	return &pb.GetNextAlarmClockResponse{Result: handle}, nil
 }
 
-func (s *AlarmManagerServer) Set(_ context.Context, req *pb.SetRequest) (*pb.SetResponse, error) {
-	mgr, err := jnipkg.NewalarmManager(s.Ctx)
+func (s *ManagerServer) Set(_ context.Context, req *pb.SetRequest) (*pb.SetResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -111,8 +111,8 @@ func (s *AlarmManagerServer) Set(_ context.Context, req *pb.SetRequest) (*pb.Set
 	return &pb.SetResponse{}, nil
 }
 
-func (s *AlarmManagerServer) SetAlarmClock(_ context.Context, req *pb.SetAlarmClockRequest) (*pb.SetAlarmClockResponse, error) {
-	mgr, err := jnipkg.NewalarmManager(s.Ctx)
+func (s *ManagerServer) SetAlarmClock(_ context.Context, req *pb.SetAlarmClockRequest) (*pb.SetAlarmClockResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -124,8 +124,8 @@ func (s *AlarmManagerServer) SetAlarmClock(_ context.Context, req *pb.SetAlarmCl
 	return &pb.SetAlarmClockResponse{}, nil
 }
 
-func (s *AlarmManagerServer) SetAndAllowWhileIdle(_ context.Context, req *pb.SetAndAllowWhileIdleRequest) (*pb.SetAndAllowWhileIdleResponse, error) {
-	mgr, err := jnipkg.NewalarmManager(s.Ctx)
+func (s *ManagerServer) SetAndAllowWhileIdle(_ context.Context, req *pb.SetAndAllowWhileIdleRequest) (*pb.SetAndAllowWhileIdleResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -137,8 +137,8 @@ func (s *AlarmManagerServer) SetAndAllowWhileIdle(_ context.Context, req *pb.Set
 	return &pb.SetAndAllowWhileIdleResponse{}, nil
 }
 
-func (s *AlarmManagerServer) SetExact(_ context.Context, req *pb.SetExactRequest) (*pb.SetExactResponse, error) {
-	mgr, err := jnipkg.NewalarmManager(s.Ctx)
+func (s *ManagerServer) SetExact(_ context.Context, req *pb.SetExactRequest) (*pb.SetExactResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -150,8 +150,8 @@ func (s *AlarmManagerServer) SetExact(_ context.Context, req *pb.SetExactRequest
 	return &pb.SetExactResponse{}, nil
 }
 
-func (s *AlarmManagerServer) SetExactAndAllowWhileIdle(_ context.Context, req *pb.SetExactAndAllowWhileIdleRequest) (*pb.SetExactAndAllowWhileIdleResponse, error) {
-	mgr, err := jnipkg.NewalarmManager(s.Ctx)
+func (s *ManagerServer) SetExactAndAllowWhileIdle(_ context.Context, req *pb.SetExactAndAllowWhileIdleRequest) (*pb.SetExactAndAllowWhileIdleResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -163,8 +163,8 @@ func (s *AlarmManagerServer) SetExactAndAllowWhileIdle(_ context.Context, req *p
 	return &pb.SetExactAndAllowWhileIdleResponse{}, nil
 }
 
-func (s *AlarmManagerServer) SetInexactRepeating(_ context.Context, req *pb.SetInexactRepeatingRequest) (*pb.SetInexactRepeatingResponse, error) {
-	mgr, err := jnipkg.NewalarmManager(s.Ctx)
+func (s *ManagerServer) SetInexactRepeating(_ context.Context, req *pb.SetInexactRepeatingRequest) (*pb.SetInexactRepeatingResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -176,8 +176,8 @@ func (s *AlarmManagerServer) SetInexactRepeating(_ context.Context, req *pb.SetI
 	return &pb.SetInexactRepeatingResponse{}, nil
 }
 
-func (s *AlarmManagerServer) SetRepeating(_ context.Context, req *pb.SetRepeatingRequest) (*pb.SetRepeatingResponse, error) {
-	mgr, err := jnipkg.NewalarmManager(s.Ctx)
+func (s *ManagerServer) SetRepeating(_ context.Context, req *pb.SetRepeatingRequest) (*pb.SetRepeatingResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -189,8 +189,8 @@ func (s *AlarmManagerServer) SetRepeating(_ context.Context, req *pb.SetRepeatin
 	return &pb.SetRepeatingResponse{}, nil
 }
 
-func (s *AlarmManagerServer) SetTime(_ context.Context, req *pb.SetTimeRequest) (*pb.SetTimeResponse, error) {
-	mgr, err := jnipkg.NewalarmManager(s.Ctx)
+func (s *ManagerServer) SetTime(_ context.Context, req *pb.SetTimeRequest) (*pb.SetTimeResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -202,8 +202,8 @@ func (s *AlarmManagerServer) SetTime(_ context.Context, req *pb.SetTimeRequest) 
 	return &pb.SetTimeResponse{}, nil
 }
 
-func (s *AlarmManagerServer) SetTimeZone(_ context.Context, req *pb.SetTimeZoneRequest) (*pb.SetTimeZoneResponse, error) {
-	mgr, err := jnipkg.NewalarmManager(s.Ctx)
+func (s *ManagerServer) SetTimeZone(_ context.Context, req *pb.SetTimeZoneRequest) (*pb.SetTimeZoneResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -215,8 +215,8 @@ func (s *AlarmManagerServer) SetTimeZone(_ context.Context, req *pb.SetTimeZoneR
 	return &pb.SetTimeZoneResponse{}, nil
 }
 
-func (s *AlarmManagerServer) SetWindow4(_ context.Context, req *pb.SetWindow4Request) (*pb.SetWindow4Response, error) {
-	mgr, err := jnipkg.NewalarmManager(s.Ctx)
+func (s *ManagerServer) SetWindow4(_ context.Context, req *pb.SetWindow4Request) (*pb.SetWindow4Response, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -228,8 +228,8 @@ func (s *AlarmManagerServer) SetWindow4(_ context.Context, req *pb.SetWindow4Req
 	return &pb.SetWindow4Response{}, nil
 }
 
-func (s *AlarmManagerServer) SetWindow6_1(_ context.Context, req *pb.SetWindow6_1Request) (*pb.SetWindow6_1Response, error) {
-	mgr, err := jnipkg.NewalarmManager(s.Ctx)
+func (s *ManagerServer) SetWindow6_1(_ context.Context, req *pb.SetWindow6_1Request) (*pb.SetWindow6_1Response, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}

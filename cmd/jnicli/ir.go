@@ -3,8 +3,8 @@
 package main
 
 import (
-	"github.com/spf13/cobra"
 	pb "github.com/AndroidGoLab/jni-proxy/proto/ir"
+	"github.com/spf13/cobra"
 )
 
 var irCmd = &cobra.Command{

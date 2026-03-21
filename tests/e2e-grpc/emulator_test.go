@@ -5,7 +5,6 @@ package e2e_grpc_test
 import (
 	"bytes"
 	"encoding/json"
-	"fmt"
 	"os"
 	"os/exec"
 	"strconv"
@@ -738,5 +737,5 @@ func TestE2E_SummaryOfTests(t *testing.T) {
 	// Quick smoke test: get version to confirm connectivity.
 	out := runLiveJnicli(t, "jni", "get-version")
 	t.Logf("Smoke test (get-version): %s", strings.TrimSpace(out))
-	fmt.Fprintf(os.Stderr, "E2E: connected to %s, %d tests available\n", addr, len(tests))
+	t.Logf("E2E: connected to %s, %d tests available", addr, len(tests))
 }

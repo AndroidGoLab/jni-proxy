@@ -1189,7 +1189,7 @@ message ConvertFrequencyMhzToChannelIfSupportedResponse {
   int32 result = 1;
 }
 
-service WifiInfoService {
+service InfoService {
   rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
   rpc Equals (EqualsRequest) returns (EqualsResponse);
   rpc GetAffiliatedMloLinks (GetAffiliatedMloLinksRequest) returns (GetAffiliatedMloLinksResponse);
@@ -1226,7 +1226,7 @@ service WifiInfoService {
   rpc GetDetailedStateOf (GetDetailedStateOfRequest) returns (GetDetailedStateOfResponse);
 }
 
-service WifiManagerService {
+service ManagerService {
   rpc AddLocalOnlyConnectionFailureListener (AddLocalOnlyConnectionFailureListenerRequest) returns (AddLocalOnlyConnectionFailureListenerResponse);
   rpc AddNetwork (AddNetworkRequest) returns (AddNetworkResponse);
   rpc AddNetworkPrivileged (AddNetworkPrivilegedRequest) returns (AddNetworkPrivilegedResponse);

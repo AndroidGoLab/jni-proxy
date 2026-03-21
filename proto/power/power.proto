@@ -259,7 +259,7 @@ message ToStringResponse {
   string result = 1;
 }
 
-service PowerManagerService {
+service ManagerService {
   rpc AddThermalHeadroomListener1 (AddThermalHeadroomListener1Request) returns (AddThermalHeadroomListener1Response);
   rpc AddThermalHeadroomListener2_1 (AddThermalHeadroomListener2_1Request) returns (AddThermalHeadroomListener2_1Response);
   rpc AddThermalStatusListener1 (AddThermalStatusListener1Request) returns (AddThermalStatusListener1Response);
@@ -288,7 +288,7 @@ service PowerManagerService {
   rpc RemoveThermalStatusListener (RemoveThermalStatusListenerRequest) returns (RemoveThermalStatusListenerResponse);
 }
 
-service PowerManagerWakeLockService {
+service ManagerWakeLockService {
   rpc Acquire0 (Acquire0Request) returns (Acquire0Response);
   rpc Acquire1_1 (Acquire1_1Request) returns (Acquire1_1Response);
   rpc IsHeld (IsHeldRequest) returns (IsHeldResponse);

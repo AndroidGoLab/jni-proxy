@@ -6,6 +6,13 @@ package resolver;
 
 option go_package = "github.com/AndroidGoLab/jni-proxy/proto/resolver";
 
+message BuildUponRequest {
+}
+
+message BuildUponResponse {
+  int64 result = 1;
+}
+
 message CompareTo1Request {
   int64 arg0 = 1;
 }
@@ -22,6 +29,13 @@ message EqualsResponse {
   bool result = 1;
 }
 
+message GetAuthorityRequest {
+}
+
+message GetAuthorityResponse {
+  string result = 1;
+}
+
 message GetBooleanQueryParameterRequest {
   string arg0 = 1;
   bool arg1 = 2;
@@ -29,6 +43,97 @@ message GetBooleanQueryParameterRequest {
 
 message GetBooleanQueryParameterResponse {
   bool result = 1;
+}
+
+message GetEncodedAuthorityRequest {
+}
+
+message GetEncodedAuthorityResponse {
+  string result = 1;
+}
+
+message GetEncodedFragmentRequest {
+}
+
+message GetEncodedFragmentResponse {
+  string result = 1;
+}
+
+message GetEncodedPathRequest {
+}
+
+message GetEncodedPathResponse {
+  string result = 1;
+}
+
+message GetEncodedQueryRequest {
+}
+
+message GetEncodedQueryResponse {
+  string result = 1;
+}
+
+message GetEncodedSchemeSpecificPartRequest {
+}
+
+message GetEncodedSchemeSpecificPartResponse {
+  string result = 1;
+}
+
+message GetEncodedUserInfoRequest {
+}
+
+message GetEncodedUserInfoResponse {
+  string result = 1;
+}
+
+message GetFragmentRequest {
+}
+
+message GetFragmentResponse {
+  string result = 1;
+}
+
+message GetHostRequest {
+}
+
+message GetHostResponse {
+  string result = 1;
+}
+
+message GetLastPathSegmentRequest {
+}
+
+message GetLastPathSegmentResponse {
+  string result = 1;
+}
+
+message GetPathRequest {
+}
+
+message GetPathResponse {
+  string result = 1;
+}
+
+message GetPathSegmentsRequest {
+}
+
+message GetPathSegmentsResponse {
+  int64 result = 1;
+}
+
+message GetPortRequest {
+}
+
+message GetPortResponse {
+  int32 result = 1;
+}
+
+message GetQueryRequest {
+}
+
+message GetQueryResponse {
+  string result = 1;
 }
 
 message GetQueryParameterRequest {
@@ -54,6 +159,27 @@ message GetQueryParametersResponse {
   int64 result = 1;
 }
 
+message GetSchemeRequest {
+}
+
+message GetSchemeResponse {
+  string result = 1;
+}
+
+message GetSchemeSpecificPartRequest {
+}
+
+message GetSchemeSpecificPartResponse {
+  string result = 1;
+}
+
+message GetUserInfoRequest {
+}
+
+message GetUserInfoResponse {
+  string result = 1;
+}
+
 message HashCodeRequest {
 }
 
@@ -68,10 +194,24 @@ message IsAbsoluteResponse {
   bool result = 1;
 }
 
+message IsHierarchicalRequest {
+}
+
+message IsHierarchicalResponse {
+  bool result = 1;
+}
+
 message IsOpaqueRequest {
 }
 
 message IsOpaqueResponse {
+  bool result = 1;
+}
+
+message IsRelativeRequest {
+}
+
+message IsRelativeResponse {
   bool result = 1;
 }
 
@@ -80,6 +220,13 @@ message NormalizeSchemeRequest {
 
 message NormalizeSchemeResponse {
   int64 result = 1;
+}
+
+message ToStringRequest {
+}
+
+message ToStringResponse {
+  string result = 1;
 }
 
 message CompareTo1_1Request {
@@ -158,6 +305,38 @@ message WriteToParcelRequest {
 message WriteToParcelResponse {
 }
 
+message AcquireContentProviderClient1Request {
+  int64 arg0 = 1;
+}
+
+message AcquireContentProviderClient1Response {
+  int64 result = 1;
+}
+
+message AcquireContentProviderClient1_1Request {
+  string arg0 = 1;
+}
+
+message AcquireContentProviderClient1_1Response {
+  int64 result = 1;
+}
+
+message AcquireUnstableContentProviderClient1Request {
+  int64 arg0 = 1;
+}
+
+message AcquireUnstableContentProviderClient1Response {
+  int64 result = 1;
+}
+
+message AcquireUnstableContentProviderClient1_1Request {
+  string arg0 = 1;
+}
+
+message AcquireUnstableContentProviderClient1_1Response {
+  int64 result = 1;
+}
+
 message ApplyBatchRequest {
   string arg0 = 1;
   int64 arg1 = 2;
@@ -167,11 +346,69 @@ message ApplyBatchResponse {
   int64 result = 1;
 }
 
+message BulkInsertRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message BulkInsertResponse {
+  int32 result = 1;
+}
+
+message Call4Request {
+  int64 arg0 = 1;
+  string arg1 = 2;
+  string arg2 = 3;
+  int64 arg3 = 4;
+}
+
+message Call4Response {
+  int64 result = 1;
+}
+
+message Call4_1Request {
+  string arg0 = 1;
+  string arg1 = 2;
+  string arg2 = 3;
+  int64 arg3 = 4;
+}
+
+message Call4_1Response {
+  int64 result = 1;
+}
+
 message CancelSync1_2Request {
   int64 arg0 = 1;
 }
 
 message CancelSync1_2Response {
+}
+
+message CanonicalizeRequest {
+  int64 arg0 = 1;
+}
+
+message CanonicalizeResponse {
+  int64 result = 1;
+}
+
+message Delete2Request {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message Delete2Response {
+  int32 result = 1;
+}
+
+message Delete3_1Request {
+  int64 arg0 = 1;
+  string arg1 = 2;
+  int64 arg2 = 3;
+}
+
+message Delete3_1Response {
+  int32 result = 1;
 }
 
 message GetOutgoingPersistedUriPermissionsRequest {
@@ -194,6 +431,41 @@ message GetStreamTypesRequest {
 }
 
 message GetStreamTypesResponse {
+  int64 result = 1;
+}
+
+message GetTypeRequest {
+  int64 arg0 = 1;
+}
+
+message GetTypeResponse {
+  string result = 1;
+}
+
+message GetTypeInfoRequest {
+  string arg0 = 1;
+}
+
+message GetTypeInfoResponse {
+  int64 result = 1;
+}
+
+message Insert2Request {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message Insert2Response {
+  int64 result = 1;
+}
+
+message Insert3_1Request {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+  int64 arg2 = 3;
+}
+
+message Insert3_1Response {
   int64 result = 1;
 }
 
@@ -242,6 +514,176 @@ message NotifyChange3_3Request {
 message NotifyChange3_3Response {
 }
 
+message OpenAssetFileRequest {
+  int64 arg0 = 1;
+  string arg1 = 2;
+  int64 arg2 = 3;
+}
+
+message OpenAssetFileResponse {
+  int64 result = 1;
+}
+
+message OpenAssetFileDescriptor2Request {
+  int64 arg0 = 1;
+  string arg1 = 2;
+}
+
+message OpenAssetFileDescriptor2Response {
+  int64 result = 1;
+}
+
+message OpenAssetFileDescriptor3_1Request {
+  int64 arg0 = 1;
+  string arg1 = 2;
+  int64 arg2 = 3;
+}
+
+message OpenAssetFileDescriptor3_1Response {
+  int64 result = 1;
+}
+
+message OpenFileRequest {
+  int64 arg0 = 1;
+  string arg1 = 2;
+  int64 arg2 = 3;
+}
+
+message OpenFileResponse {
+  int64 result = 1;
+}
+
+message OpenFileDescriptor2Request {
+  int64 arg0 = 1;
+  string arg1 = 2;
+}
+
+message OpenFileDescriptor2Response {
+  int64 result = 1;
+}
+
+message OpenFileDescriptor3_1Request {
+  int64 arg0 = 1;
+  string arg1 = 2;
+  int64 arg2 = 3;
+}
+
+message OpenFileDescriptor3_1Response {
+  int64 result = 1;
+}
+
+message OpenInputStreamRequest {
+  int64 arg0 = 1;
+}
+
+message OpenInputStreamResponse {
+  int64 result = 1;
+}
+
+message OpenOutputStream1Request {
+  int64 arg0 = 1;
+}
+
+message OpenOutputStream1Response {
+  int64 result = 1;
+}
+
+message OpenOutputStream2_1Request {
+  int64 arg0 = 1;
+  string arg1 = 2;
+}
+
+message OpenOutputStream2_1Response {
+  int64 result = 1;
+}
+
+message OpenTypedAssetFileRequest {
+  int64 arg0 = 1;
+  string arg1 = 2;
+  int64 arg2 = 3;
+  int64 arg3 = 4;
+}
+
+message OpenTypedAssetFileResponse {
+  int64 result = 1;
+}
+
+message OpenTypedAssetFileDescriptor3Request {
+  int64 arg0 = 1;
+  string arg1 = 2;
+  int64 arg2 = 3;
+}
+
+message OpenTypedAssetFileDescriptor3Response {
+  int64 result = 1;
+}
+
+message OpenTypedAssetFileDescriptor4_1Request {
+  int64 arg0 = 1;
+  string arg1 = 2;
+  int64 arg2 = 3;
+  int64 arg3 = 4;
+}
+
+message OpenTypedAssetFileDescriptor4_1Response {
+  int64 result = 1;
+}
+
+message Query4Request {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+  int64 arg2 = 3;
+  int64 arg3 = 4;
+}
+
+message Query4Response {
+  int64 result = 1;
+}
+
+message Query5_1Request {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+  string arg2 = 3;
+  int64 arg3 = 4;
+  string arg4 = 5;
+}
+
+message Query5_1Response {
+  int64 result = 1;
+}
+
+message Query6_2Request {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+  string arg2 = 3;
+  int64 arg3 = 4;
+  string arg4 = 5;
+  int64 arg5 = 6;
+}
+
+message Query6_2Response {
+  int64 result = 1;
+}
+
+message RefreshRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+  int64 arg2 = 3;
+}
+
+message RefreshResponse {
+  bool result = 1;
+}
+
+message RegisterContentObserverRequest {
+  int64 arg0 = 1;
+  bool arg1 = 2;
+  int64 arg2 = 3;
+}
+
+message RegisterContentObserverResponse {
+}
+
 message ReleasePersistableUriPermissionRequest {
   int64 arg0 = 1;
   int32 arg1 = 2;
@@ -264,6 +706,42 @@ message TakePersistableUriPermissionRequest {
 }
 
 message TakePersistableUriPermissionResponse {
+}
+
+message UncanonicalizeRequest {
+  int64 arg0 = 1;
+}
+
+message UncanonicalizeResponse {
+  int64 result = 1;
+}
+
+message UnregisterContentObserverRequest {
+  int64 arg0 = 1;
+}
+
+message UnregisterContentObserverResponse {
+}
+
+message Update3Request {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+  int64 arg2 = 3;
+}
+
+message Update3Response {
+  int32 result = 1;
+}
+
+message Update4_1Request {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+  string arg2 = 3;
+  int64 arg3 = 4;
+}
+
+message Update4_1Response {
+  int32 result = 1;
 }
 
 message AddPeriodicSyncRequest {
@@ -453,17 +931,330 @@ message Wrap1_1Response {
   int64 result = 1;
 }
 
+message CloseRequest {
+}
+
+message CloseResponse {
+}
+
+message CopyStringToBufferRequest {
+  int32 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message CopyStringToBufferResponse {
+}
+
+message DeactivateRequest {
+}
+
+message DeactivateResponse {
+}
+
+message GetBlobRequest {
+  int32 arg0 = 1;
+}
+
+message GetBlobResponse {
+  int64 result = 1;
+}
+
+message GetColumnCountRequest {
+}
+
+message GetColumnCountResponse {
+  int32 result = 1;
+}
+
+message GetColumnIndexRequest {
+  string arg0 = 1;
+}
+
+message GetColumnIndexResponse {
+  int32 result = 1;
+}
+
+message GetColumnIndexOrThrowRequest {
+  string arg0 = 1;
+}
+
+message GetColumnIndexOrThrowResponse {
+  int32 result = 1;
+}
+
+message GetColumnNameRequest {
+  int32 arg0 = 1;
+}
+
+message GetColumnNameResponse {
+  string result = 1;
+}
+
+message GetColumnNamesRequest {
+}
+
+message GetColumnNamesResponse {
+  int64 result = 1;
+}
+
+message GetCountRequest {
+}
+
+message GetCountResponse {
+  int32 result = 1;
+}
+
+message GetDoubleRequest {
+  int32 arg0 = 1;
+}
+
+message GetDoubleResponse {
+  double result = 1;
+}
+
+message GetExtrasRequest {
+}
+
+message GetExtrasResponse {
+  int64 result = 1;
+}
+
+message GetFloatRequest {
+  int32 arg0 = 1;
+}
+
+message GetFloatResponse {
+  float result = 1;
+}
+
+message GetIntRequest {
+  int32 arg0 = 1;
+}
+
+message GetIntResponse {
+  int32 result = 1;
+}
+
+message GetLongRequest {
+  int32 arg0 = 1;
+}
+
+message GetLongResponse {
+  int64 result = 1;
+}
+
+message GetNotificationUriRequest {
+}
+
+message GetNotificationUriResponse {
+  int64 result = 1;
+}
+
+message GetPositionRequest {
+}
+
+message GetPositionResponse {
+  int32 result = 1;
+}
+
+message GetShortRequest {
+  int32 arg0 = 1;
+}
+
+message GetShortResponse {
+  int32 result = 1;
+}
+
+message GetStringRequest {
+  int32 arg0 = 1;
+}
+
+message GetStringResponse {
+  string result = 1;
+}
+
+message CursorGetTypeRequest {
+  int32 arg0 = 1;
+}
+
+message CursorGetTypeResponse {
+  int32 result = 1;
+}
+
+message GetWantsAllOnMoveCallsRequest {
+}
+
+message GetWantsAllOnMoveCallsResponse {
+  bool result = 1;
+}
+
+message IsAfterLastRequest {
+}
+
+message IsAfterLastResponse {
+  bool result = 1;
+}
+
+message IsBeforeFirstRequest {
+}
+
+message IsBeforeFirstResponse {
+  bool result = 1;
+}
+
+message IsClosedRequest {
+}
+
+message IsClosedResponse {
+  bool result = 1;
+}
+
+message IsFirstRequest {
+}
+
+message IsFirstResponse {
+  bool result = 1;
+}
+
+message IsLastRequest {
+}
+
+message IsLastResponse {
+  bool result = 1;
+}
+
+message IsNullRequest {
+  int32 arg0 = 1;
+}
+
+message IsNullResponse {
+  bool result = 1;
+}
+
+message MoveRequest {
+  int32 arg0 = 1;
+}
+
+message MoveResponse {
+  bool result = 1;
+}
+
+message MoveToFirstRequest {
+}
+
+message MoveToFirstResponse {
+  bool result = 1;
+}
+
+message MoveToLastRequest {
+}
+
+message MoveToLastResponse {
+  bool result = 1;
+}
+
+message MoveToNextRequest {
+}
+
+message MoveToNextResponse {
+  bool result = 1;
+}
+
+message MoveToPositionRequest {
+  int32 arg0 = 1;
+}
+
+message MoveToPositionResponse {
+  bool result = 1;
+}
+
+message MoveToPreviousRequest {
+}
+
+message MoveToPreviousResponse {
+  bool result = 1;
+}
+
+message CursorRegisterContentObserverRequest {
+  int64 arg0 = 1;
+}
+
+message RegisterDataSetObserverRequest {
+  int64 arg0 = 1;
+}
+
+message RegisterDataSetObserverResponse {
+}
+
+message RequeryRequest {
+}
+
+message RequeryResponse {
+  bool result = 1;
+}
+
+message RespondRequest {
+  int64 arg0 = 1;
+}
+
+message RespondResponse {
+  int64 result = 1;
+}
+
+message SetExtrasRequest {
+  int64 arg0 = 1;
+}
+
+message SetExtrasResponse {
+}
+
+message SetNotificationUriRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message SetNotificationUriResponse {
+}
+
+message UnregisterDataSetObserverRequest {
+  int64 arg0 = 1;
+}
+
+message UnregisterDataSetObserverResponse {
+}
+
 service UriService {
+  rpc BuildUpon (BuildUponRequest) returns (BuildUponResponse);
   rpc CompareTo1 (CompareTo1Request) returns (CompareTo1Response);
   rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetAuthority (GetAuthorityRequest) returns (GetAuthorityResponse);
   rpc GetBooleanQueryParameter (GetBooleanQueryParameterRequest) returns (GetBooleanQueryParameterResponse);
+  rpc GetEncodedAuthority (GetEncodedAuthorityRequest) returns (GetEncodedAuthorityResponse);
+  rpc GetEncodedFragment (GetEncodedFragmentRequest) returns (GetEncodedFragmentResponse);
+  rpc GetEncodedPath (GetEncodedPathRequest) returns (GetEncodedPathResponse);
+  rpc GetEncodedQuery (GetEncodedQueryRequest) returns (GetEncodedQueryResponse);
+  rpc GetEncodedSchemeSpecificPart (GetEncodedSchemeSpecificPartRequest) returns (GetEncodedSchemeSpecificPartResponse);
+  rpc GetEncodedUserInfo (GetEncodedUserInfoRequest) returns (GetEncodedUserInfoResponse);
+  rpc GetFragment (GetFragmentRequest) returns (GetFragmentResponse);
+  rpc GetHost (GetHostRequest) returns (GetHostResponse);
+  rpc GetLastPathSegment (GetLastPathSegmentRequest) returns (GetLastPathSegmentResponse);
+  rpc GetPath (GetPathRequest) returns (GetPathResponse);
+  rpc GetPathSegments (GetPathSegmentsRequest) returns (GetPathSegmentsResponse);
+  rpc GetPort (GetPortRequest) returns (GetPortResponse);
+  rpc GetQuery (GetQueryRequest) returns (GetQueryResponse);
   rpc GetQueryParameter (GetQueryParameterRequest) returns (GetQueryParameterResponse);
   rpc GetQueryParameterNames (GetQueryParameterNamesRequest) returns (GetQueryParameterNamesResponse);
   rpc GetQueryParameters (GetQueryParametersRequest) returns (GetQueryParametersResponse);
+  rpc GetScheme (GetSchemeRequest) returns (GetSchemeResponse);
+  rpc GetSchemeSpecificPart (GetSchemeSpecificPartRequest) returns (GetSchemeSpecificPartResponse);
+  rpc GetUserInfo (GetUserInfoRequest) returns (GetUserInfoResponse);
   rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
   rpc IsAbsolute (IsAbsoluteRequest) returns (IsAbsoluteResponse);
+  rpc IsHierarchical (IsHierarchicalRequest) returns (IsHierarchicalResponse);
   rpc IsOpaque (IsOpaqueRequest) returns (IsOpaqueResponse);
+  rpc IsRelative (IsRelativeRequest) returns (IsRelativeResponse);
   rpc NormalizeScheme (NormalizeSchemeRequest) returns (NormalizeSchemeResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
   rpc CompareTo1_1 (CompareTo1_1Request) returns (CompareTo1_1Response);
   rpc Decode (DecodeRequest) returns (DecodeResponse);
   rpc Encode1 (Encode1Request) returns (Encode1Response);
@@ -476,19 +1267,54 @@ service UriService {
 }
 
 service ContentResolverService {
+  rpc AcquireContentProviderClient1 (AcquireContentProviderClient1Request) returns (AcquireContentProviderClient1Response);
+  rpc AcquireContentProviderClient1_1 (AcquireContentProviderClient1_1Request) returns (AcquireContentProviderClient1_1Response);
+  rpc AcquireUnstableContentProviderClient1 (AcquireUnstableContentProviderClient1Request) returns (AcquireUnstableContentProviderClient1Response);
+  rpc AcquireUnstableContentProviderClient1_1 (AcquireUnstableContentProviderClient1_1Request) returns (AcquireUnstableContentProviderClient1_1Response);
   rpc ApplyBatch (ApplyBatchRequest) returns (ApplyBatchResponse);
+  rpc BulkInsert (BulkInsertRequest) returns (BulkInsertResponse);
+  rpc Call4 (Call4Request) returns (Call4Response);
+  rpc Call4_1 (Call4_1Request) returns (Call4_1Response);
   rpc CancelSync1_2 (CancelSync1_2Request) returns (CancelSync1_2Response);
+  rpc Canonicalize (CanonicalizeRequest) returns (CanonicalizeResponse);
+  rpc Delete2 (Delete2Request) returns (Delete2Response);
+  rpc Delete3_1 (Delete3_1Request) returns (Delete3_1Response);
   rpc GetOutgoingPersistedUriPermissions (GetOutgoingPersistedUriPermissionsRequest) returns (GetOutgoingPersistedUriPermissionsResponse);
   rpc GetPersistedUriPermissions (GetPersistedUriPermissionsRequest) returns (GetPersistedUriPermissionsResponse);
   rpc GetStreamTypes (GetStreamTypesRequest) returns (GetStreamTypesResponse);
+  rpc GetType (GetTypeRequest) returns (GetTypeResponse);
+  rpc GetTypeInfo (GetTypeInfoRequest) returns (GetTypeInfoResponse);
+  rpc Insert2 (Insert2Request) returns (Insert2Response);
+  rpc Insert3_1 (Insert3_1Request) returns (Insert3_1Response);
   rpc LoadThumbnail (LoadThumbnailRequest) returns (LoadThumbnailResponse);
   rpc NotifyChange2 (NotifyChange2Request) returns (NotifyChange2Response);
   rpc NotifyChange3_1 (NotifyChange3_1Request) returns (NotifyChange3_1Response);
   rpc NotifyChange3_2 (NotifyChange3_2Request) returns (NotifyChange3_2Response);
   rpc NotifyChange3_3 (NotifyChange3_3Request) returns (NotifyChange3_3Response);
+  rpc OpenAssetFile (OpenAssetFileRequest) returns (OpenAssetFileResponse);
+  rpc OpenAssetFileDescriptor2 (OpenAssetFileDescriptor2Request) returns (OpenAssetFileDescriptor2Response);
+  rpc OpenAssetFileDescriptor3_1 (OpenAssetFileDescriptor3_1Request) returns (OpenAssetFileDescriptor3_1Response);
+  rpc OpenFile (OpenFileRequest) returns (OpenFileResponse);
+  rpc OpenFileDescriptor2 (OpenFileDescriptor2Request) returns (OpenFileDescriptor2Response);
+  rpc OpenFileDescriptor3_1 (OpenFileDescriptor3_1Request) returns (OpenFileDescriptor3_1Response);
+  rpc OpenInputStream (OpenInputStreamRequest) returns (OpenInputStreamResponse);
+  rpc OpenOutputStream1 (OpenOutputStream1Request) returns (OpenOutputStream1Response);
+  rpc OpenOutputStream2_1 (OpenOutputStream2_1Request) returns (OpenOutputStream2_1Response);
+  rpc OpenTypedAssetFile (OpenTypedAssetFileRequest) returns (OpenTypedAssetFileResponse);
+  rpc OpenTypedAssetFileDescriptor3 (OpenTypedAssetFileDescriptor3Request) returns (OpenTypedAssetFileDescriptor3Response);
+  rpc OpenTypedAssetFileDescriptor4_1 (OpenTypedAssetFileDescriptor4_1Request) returns (OpenTypedAssetFileDescriptor4_1Response);
+  rpc Query4 (Query4Request) returns (Query4Response);
+  rpc Query5_1 (Query5_1Request) returns (Query5_1Response);
+  rpc Query6_2 (Query6_2Request) returns (Query6_2Response);
+  rpc Refresh (RefreshRequest) returns (RefreshResponse);
+  rpc RegisterContentObserver (RegisterContentObserverRequest) returns (RegisterContentObserverResponse);
   rpc ReleasePersistableUriPermission (ReleasePersistableUriPermissionRequest) returns (ReleasePersistableUriPermissionResponse);
   rpc StartSync (StartSyncRequest) returns (StartSyncResponse);
   rpc TakePersistableUriPermission (TakePersistableUriPermissionRequest) returns (TakePersistableUriPermissionResponse);
+  rpc Uncanonicalize (UncanonicalizeRequest) returns (UncanonicalizeResponse);
+  rpc UnregisterContentObserver (UnregisterContentObserverRequest) returns (UnregisterContentObserverResponse);
+  rpc Update3 (Update3Request) returns (Update3Response);
+  rpc Update4_1 (Update4_1Request) returns (Update4_1Response);
   rpc AddPeriodicSync (AddPeriodicSyncRequest) returns (AddPeriodicSyncResponse);
   rpc AddStatusChangeListener (AddStatusChangeListenerRequest) returns (AddStatusChangeListenerResponse);
   rpc CancelSync2 (CancelSync2Request) returns (CancelSync2Response);
@@ -512,4 +1338,48 @@ service ContentResolverService {
   rpc ValidateSyncExtrasBundle (ValidateSyncExtrasBundleRequest) returns (ValidateSyncExtrasBundleResponse);
   rpc Wrap1 (Wrap1Request) returns (Wrap1Response);
   rpc Wrap1_1 (Wrap1_1Request) returns (Wrap1_1Response);
+}
+
+service CursorService {
+  rpc Close (CloseRequest) returns (CloseResponse);
+  rpc CopyStringToBuffer (CopyStringToBufferRequest) returns (CopyStringToBufferResponse);
+  rpc Deactivate (DeactivateRequest) returns (DeactivateResponse);
+  rpc GetBlob (GetBlobRequest) returns (GetBlobResponse);
+  rpc GetColumnCount (GetColumnCountRequest) returns (GetColumnCountResponse);
+  rpc GetColumnIndex (GetColumnIndexRequest) returns (GetColumnIndexResponse);
+  rpc GetColumnIndexOrThrow (GetColumnIndexOrThrowRequest) returns (GetColumnIndexOrThrowResponse);
+  rpc GetColumnName (GetColumnNameRequest) returns (GetColumnNameResponse);
+  rpc GetColumnNames (GetColumnNamesRequest) returns (GetColumnNamesResponse);
+  rpc GetCount (GetCountRequest) returns (GetCountResponse);
+  rpc GetDouble (GetDoubleRequest) returns (GetDoubleResponse);
+  rpc GetExtras (GetExtrasRequest) returns (GetExtrasResponse);
+  rpc GetFloat (GetFloatRequest) returns (GetFloatResponse);
+  rpc GetInt (GetIntRequest) returns (GetIntResponse);
+  rpc GetLong (GetLongRequest) returns (GetLongResponse);
+  rpc GetNotificationUri (GetNotificationUriRequest) returns (GetNotificationUriResponse);
+  rpc GetPosition (GetPositionRequest) returns (GetPositionResponse);
+  rpc GetShort (GetShortRequest) returns (GetShortResponse);
+  rpc GetString (GetStringRequest) returns (GetStringResponse);
+  rpc GetType (CursorGetTypeRequest) returns (CursorGetTypeResponse);
+  rpc GetWantsAllOnMoveCalls (GetWantsAllOnMoveCallsRequest) returns (GetWantsAllOnMoveCallsResponse);
+  rpc IsAfterLast (IsAfterLastRequest) returns (IsAfterLastResponse);
+  rpc IsBeforeFirst (IsBeforeFirstRequest) returns (IsBeforeFirstResponse);
+  rpc IsClosed (IsClosedRequest) returns (IsClosedResponse);
+  rpc IsFirst (IsFirstRequest) returns (IsFirstResponse);
+  rpc IsLast (IsLastRequest) returns (IsLastResponse);
+  rpc IsNull (IsNullRequest) returns (IsNullResponse);
+  rpc Move (MoveRequest) returns (MoveResponse);
+  rpc MoveToFirst (MoveToFirstRequest) returns (MoveToFirstResponse);
+  rpc MoveToLast (MoveToLastRequest) returns (MoveToLastResponse);
+  rpc MoveToNext (MoveToNextRequest) returns (MoveToNextResponse);
+  rpc MoveToPosition (MoveToPositionRequest) returns (MoveToPositionResponse);
+  rpc MoveToPrevious (MoveToPreviousRequest) returns (MoveToPreviousResponse);
+  rpc RegisterContentObserver (CursorRegisterContentObserverRequest) returns (RegisterContentObserverResponse);
+  rpc RegisterDataSetObserver (RegisterDataSetObserverRequest) returns (RegisterDataSetObserverResponse);
+  rpc Requery (RequeryRequest) returns (RequeryResponse);
+  rpc Respond (RespondRequest) returns (RespondResponse);
+  rpc SetExtras (SetExtrasRequest) returns (SetExtrasResponse);
+  rpc SetNotificationUri (SetNotificationUriRequest) returns (SetNotificationUriResponse);
+  rpc UnregisterContentObserver (UnregisterContentObserverRequest) returns (UnregisterContentObserverResponse);
+  rpc UnregisterDataSetObserver (UnregisterDataSetObserverRequest) returns (UnregisterDataSetObserverResponse);
 }

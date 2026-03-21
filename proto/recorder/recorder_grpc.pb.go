@@ -57,6 +57,7 @@ const (
 	MediaRecorderService_SetVideoEncodingProfileLevel_FullMethodName         = "/recorder.MediaRecorderService/SetVideoEncodingProfileLevel"
 	MediaRecorderService_SetVideoProfile_FullMethodName                      = "/recorder.MediaRecorderService/SetVideoProfile"
 	MediaRecorderService_UnregisterAudioRecordingCallback_FullMethodName     = "/recorder.MediaRecorderService/UnregisterAudioRecordingCallback"
+	MediaRecorderService_GetAudioSourceMax_FullMethodName                    = "/recorder.MediaRecorderService/GetAudioSourceMax"
 )
 
 // MediaRecorderServiceClient is the client API for MediaRecorderService service.
@@ -99,6 +100,7 @@ type MediaRecorderServiceClient interface {
 	SetVideoEncodingProfileLevel(ctx context.Context, in *SetVideoEncodingProfileLevelRequest, opts ...grpc.CallOption) (*SetVideoEncodingProfileLevelResponse, error)
 	SetVideoProfile(ctx context.Context, in *SetVideoProfileRequest, opts ...grpc.CallOption) (*SetVideoProfileResponse, error)
 	UnregisterAudioRecordingCallback(ctx context.Context, in *UnregisterAudioRecordingCallbackRequest, opts ...grpc.CallOption) (*UnregisterAudioRecordingCallbackResponse, error)
+	GetAudioSourceMax(ctx context.Context, in *GetAudioSourceMaxRequest, opts ...grpc.CallOption) (*GetAudioSourceMaxResponse, error)
 }
 
 type mediaRecorderServiceClient struct {
@@ -469,6 +471,16 @@ func (c *mediaRecorderServiceClient) UnregisterAudioRecordingCallback(ctx contex
 	return out, nil
 }
 
+func (c *mediaRecorderServiceClient) GetAudioSourceMax(ctx context.Context, in *GetAudioSourceMaxRequest, opts ...grpc.CallOption) (*GetAudioSourceMaxResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetAudioSourceMaxResponse)
+	err := c.cc.Invoke(ctx, MediaRecorderService_GetAudioSourceMax_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // MediaRecorderServiceServer is the server API for MediaRecorderService service.
 // All implementations must embed UnimplementedMediaRecorderServiceServer
 // for forward compatibility.
@@ -509,6 +521,7 @@ type MediaRecorderServiceServer interface {
 	SetVideoEncodingProfileLevel(context.Context, *SetVideoEncodingProfileLevelRequest) (*SetVideoEncodingProfileLevelResponse, error)
 	SetVideoProfile(context.Context, *SetVideoProfileRequest) (*SetVideoProfileResponse, error)
 	UnregisterAudioRecordingCallback(context.Context, *UnregisterAudioRecordingCallbackRequest) (*UnregisterAudioRecordingCallbackResponse, error)
+	GetAudioSourceMax(context.Context, *GetAudioSourceMaxRequest) (*GetAudioSourceMaxResponse, error)
 	mustEmbedUnimplementedMediaRecorderServiceServer()
 }
 
@@ -626,6 +639,9 @@ func (UnimplementedMediaRecorderServiceServer) SetVideoProfile(context.Context, 
 }
 func (UnimplementedMediaRecorderServiceServer) UnregisterAudioRecordingCallback(context.Context, *UnregisterAudioRecordingCallbackRequest) (*UnregisterAudioRecordingCallbackResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method UnregisterAudioRecordingCallback not implemented")
+}
+func (UnimplementedMediaRecorderServiceServer) GetAudioSourceMax(context.Context, *GetAudioSourceMaxRequest) (*GetAudioSourceMaxResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetAudioSourceMax not implemented")
 }
 func (UnimplementedMediaRecorderServiceServer) mustEmbedUnimplementedMediaRecorderServiceServer() {}
 func (UnimplementedMediaRecorderServiceServer) testEmbeddedByValue()                              {}
@@ -1296,6 +1312,24 @@ func _MediaRecorderService_UnregisterAudioRecordingCallback_Handler(srv interfac
 	return interceptor(ctx, in, info, handler)
 }
 
+func _MediaRecorderService_GetAudioSourceMax_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetAudioSourceMaxRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(MediaRecorderServiceServer).GetAudioSourceMax(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: MediaRecorderService_GetAudioSourceMax_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(MediaRecorderServiceServer).GetAudioSourceMax(ctx, req.(*GetAudioSourceMaxRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 // MediaRecorderService_ServiceDesc is the grpc.ServiceDesc for MediaRecorderService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -1446,6 +1480,10 @@ var MediaRecorderService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "UnregisterAudioRecordingCallback",
 			Handler:    _MediaRecorderService_UnregisterAudioRecordingCallback_Handler,
+		},
+		{
+			MethodName: "GetAudioSourceMax",
+			Handler:    _MediaRecorderService_GetAudioSourceMax_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

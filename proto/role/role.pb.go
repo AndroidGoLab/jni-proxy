@@ -303,12 +303,12 @@ const file_proto_role_role_proto_rawDesc = "" +
 	"\x11IsRoleHeldRequest\x12\x12\n" +
 	"\x04arg0\x18\x01 \x01(\tR\x04arg0\",\n" +
 	"\x12IsRoleHeldResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\bR\x06result2\x8d\x02\n" +
-	"\x12RoleManagerService\x12f\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result2\x89\x02\n" +
+	"\x0eManagerService\x12f\n" +
 	"\x17CreateRequestRoleIntent\x12$.role.CreateRequestRoleIntentRequest\x1a%.role.CreateRequestRoleIntentResponse\x12N\n" +
 	"\x0fIsRoleAvailable\x12\x1c.role.IsRoleAvailableRequest\x1a\x1d.role.IsRoleAvailableResponse\x12?\n" +
 	"\n" +
-	"IsRoleHeld\x12\x17.role.IsRoleHeldRequest\x1a\x18.role.IsRoleHeldResponseB'Z%github.com/AndroidGoLab/jni-proxy/proto/roleb\x06proto3"
+	"IsRoleHeld\x12\x17.role.IsRoleHeldRequest\x1a\x18.role.IsRoleHeldResponseB.Z,github.com/AndroidGoLab/jni-proxy/proto/roleb\x06proto3"
 
 var (
 	file_proto_role_role_proto_rawDescOnce sync.Once
@@ -332,12 +332,12 @@ var file_proto_role_role_proto_goTypes = []any{
 	(*IsRoleHeldResponse)(nil),              // 5: role.IsRoleHeldResponse
 }
 var file_proto_role_role_proto_depIdxs = []int32{
-	0, // 0: role.RoleManagerService.CreateRequestRoleIntent:input_type -> role.CreateRequestRoleIntentRequest
-	2, // 1: role.RoleManagerService.IsRoleAvailable:input_type -> role.IsRoleAvailableRequest
-	4, // 2: role.RoleManagerService.IsRoleHeld:input_type -> role.IsRoleHeldRequest
-	1, // 3: role.RoleManagerService.CreateRequestRoleIntent:output_type -> role.CreateRequestRoleIntentResponse
-	3, // 4: role.RoleManagerService.IsRoleAvailable:output_type -> role.IsRoleAvailableResponse
-	5, // 5: role.RoleManagerService.IsRoleHeld:output_type -> role.IsRoleHeldResponse
+	0, // 0: role.ManagerService.CreateRequestRoleIntent:input_type -> role.CreateRequestRoleIntentRequest
+	2, // 1: role.ManagerService.IsRoleAvailable:input_type -> role.IsRoleAvailableRequest
+	4, // 2: role.ManagerService.IsRoleHeld:input_type -> role.IsRoleHeldRequest
+	1, // 3: role.ManagerService.CreateRequestRoleIntent:output_type -> role.CreateRequestRoleIntentResponse
+	3, // 4: role.ManagerService.IsRoleAvailable:output_type -> role.IsRoleAvailableResponse
+	5, // 5: role.ManagerService.IsRoleHeld:output_type -> role.IsRoleHeldResponse
 	3, // [3:6] is the sub-list for method output_type
 	0, // [0:3] is the sub-list for method input_type
 	0, // [0:0] is the sub-list for extension type_name

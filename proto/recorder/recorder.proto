@@ -262,6 +262,13 @@ message UnregisterAudioRecordingCallbackRequest {
 message UnregisterAudioRecordingCallbackResponse {
 }
 
+message GetAudioSourceMaxRequest {
+}
+
+message GetAudioSourceMaxResponse {
+  int32 result = 1;
+}
+
 service MediaRecorderService {
   rpc GetActiveMicrophones (GetActiveMicrophonesRequest) returns (GetActiveMicrophonesResponse);
   rpc GetActiveRecordingConfiguration (GetActiveRecordingConfigurationRequest) returns (GetActiveRecordingConfigurationResponse);
@@ -299,4 +306,5 @@ service MediaRecorderService {
   rpc SetVideoEncodingProfileLevel (SetVideoEncodingProfileLevelRequest) returns (SetVideoEncodingProfileLevelResponse);
   rpc SetVideoProfile (SetVideoProfileRequest) returns (SetVideoProfileResponse);
   rpc UnregisterAudioRecordingCallback (UnregisterAudioRecordingCallbackRequest) returns (UnregisterAudioRecordingCallbackResponse);
+  rpc GetAudioSourceMax (GetAudioSourceMaxRequest) returns (GetAudioSourceMaxResponse);
 }

@@ -12,11 +12,6 @@ import (
 	"google.golang.org/grpc/status"
 )
 
-// Authorizer checks whether a gRPC call is allowed.
-type Authorizer interface {
-	Authorize(ctx context.Context, fullMethod string) error
-}
-
 // ACLAuth checks client identity from mTLS peer cert and verifies
 // method permissions against the ACL store.
 type ACLAuth struct {

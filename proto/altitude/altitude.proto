@@ -22,7 +22,7 @@ message TryAddMslAltitudeToLocationResponse {
   bool result = 1;
 }
 
-service AltitudeConverterService {
+service ConverterService {
   rpc AddMslAltitudeToLocation (AddMslAltitudeToLocationRequest) returns (AddMslAltitudeToLocationResponse);
   rpc TryAddMslAltitudeToLocation (TryAddMslAltitudeToLocationRequest) returns (TryAddMslAltitudeToLocationResponse);
 }

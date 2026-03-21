@@ -3,8 +3,8 @@
 package main
 
 import (
-	"github.com/spf13/cobra"
 	pb "github.com/AndroidGoLab/jni-proxy/proto/altitude"
+	"github.com/spf13/cobra"
 )
 
 var altitudeCmd = &cobra.Command{
@@ -12,18 +12,18 @@ var altitudeCmd = &cobra.Command{
 	Short: "altitude service operations",
 }
 
-var altitudeAltitudeConverterCmd = &cobra.Command{
-	Use:   "altitude-converter",
-	Short: "AltitudeConverterService operations",
+var altitudeConverterCmd = &cobra.Command{
+	Use:   "converter",
+	Short: "ConverterService operations",
 }
 
-var altitudeAltitudeConverterAddMslAltitudeToLocationCmd = &cobra.Command{
+var altitudeConverterAddMslAltitudeToLocationCmd = &cobra.Command{
 	Use:   "add-msl-altitude-to-location",
 	Short: "AddMslAltitudeToLocation RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewAltitudeConverterServiceClient(grpcConn)
+		client := pb.NewConverterServiceClient(grpcConn)
 		req := &pb.AddMslAltitudeToLocationRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
@@ -39,13 +39,13 @@ var altitudeAltitudeConverterAddMslAltitudeToLocationCmd = &cobra.Command{
 	},
 }
 
-var altitudeAltitudeConverterTryAddMslAltitudeToLocationCmd = &cobra.Command{
+var altitudeConverterTryAddMslAltitudeToLocationCmd = &cobra.Command{
 	Use:   "try-add-msl-altitude-to-location",
 	Short: "TryAddMslAltitudeToLocation RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewAltitudeConverterServiceClient(grpcConn)
+		client := pb.NewConverterServiceClient(grpcConn)
 		req := &pb.TryAddMslAltitudeToLocationRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
@@ -59,11 +59,11 @@ var altitudeAltitudeConverterTryAddMslAltitudeToLocationCmd = &cobra.Command{
 }
 
 func init() {
-	altitudeAltitudeConverterAddMslAltitudeToLocationCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	altitudeAltitudeConverterAddMslAltitudeToLocationCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	altitudeAltitudeConverterCmd.AddCommand(altitudeAltitudeConverterAddMslAltitudeToLocationCmd)
-	altitudeAltitudeConverterTryAddMslAltitudeToLocationCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	altitudeAltitudeConverterCmd.AddCommand(altitudeAltitudeConverterTryAddMslAltitudeToLocationCmd)
-	altitudeCmd.AddCommand(altitudeAltitudeConverterCmd)
+	altitudeConverterAddMslAltitudeToLocationCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	altitudeConverterAddMslAltitudeToLocationCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	altitudeConverterCmd.AddCommand(altitudeConverterAddMslAltitudeToLocationCmd)
+	altitudeConverterTryAddMslAltitudeToLocationCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	altitudeConverterCmd.AddCommand(altitudeConverterTryAddMslAltitudeToLocationCmd)
+	altitudeCmd.AddCommand(altitudeConverterCmd)
 	rootCmd.AddCommand(altitudeCmd)
 }

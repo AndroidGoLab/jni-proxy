@@ -6,6 +6,103 @@ package job;
 
 option go_package = "github.com/AndroidGoLab/jni-proxy/proto/job";
 
+message CanRunUserInitiatedJobsRequest {
+}
+
+message CanRunUserInitiatedJobsResponse {
+  bool result = 1;
+}
+
+message CancelRequest {
+  int32 arg0 = 1;
+}
+
+message CancelResponse {
+}
+
+message CancelAllRequest {
+}
+
+message CancelAllResponse {
+}
+
+message CancelInAllNamespacesRequest {
+}
+
+message CancelInAllNamespacesResponse {
+}
+
+message EnqueueRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message EnqueueResponse {
+  int32 result = 1;
+}
+
+message ForNamespaceRequest {
+  string arg0 = 1;
+}
+
+message ForNamespaceResponse {
+  int64 result = 1;
+}
+
+message GetAllPendingJobsRequest {
+}
+
+message GetAllPendingJobsResponse {
+  int64 result = 1;
+}
+
+message GetNamespaceRequest {
+}
+
+message GetNamespaceResponse {
+  string result = 1;
+}
+
+message GetPendingJobRequest {
+  int32 arg0 = 1;
+}
+
+message GetPendingJobResponse {
+  int64 result = 1;
+}
+
+message GetPendingJobReasonRequest {
+  int32 arg0 = 1;
+}
+
+message GetPendingJobReasonResponse {
+  int32 result = 1;
+}
+
+message GetPendingJobReasonsRequest {
+  int32 arg0 = 1;
+}
+
+message GetPendingJobReasonsResponse {
+  int64 result = 1;
+}
+
+message GetPendingJobReasonsHistoryRequest {
+  int32 arg0 = 1;
+}
+
+message GetPendingJobReasonsHistoryResponse {
+  int64 result = 1;
+}
+
+message ScheduleRequest {
+  int64 arg0 = 1;
+}
+
+message ScheduleResponse {
+  int32 result = 1;
+}
+
 message DescribeContentsRequest {
 }
 
@@ -274,6 +371,20 @@ message WriteToParcelRequest {
 message WriteToParcelResponse {
 }
 
+message GetMinFlexMillisRequest {
+}
+
+message GetMinFlexMillisResponse {
+  int64 result = 1;
+}
+
+message GetMinPeriodMillisRequest {
+}
+
+message GetMinPeriodMillisResponse {
+  int64 result = 1;
+}
+
 message AddDebugTagRequest {
   string arg0 = 1;
 }
@@ -509,59 +620,23 @@ message SetUserInitiatedResponse {
   int64 result = 1;
 }
 
-message CanRunUserInitiatedJobsRequest {
+service SchedulerService {
+  rpc CanRunUserInitiatedJobs (CanRunUserInitiatedJobsRequest) returns (CanRunUserInitiatedJobsResponse);
+  rpc Cancel (CancelRequest) returns (CancelResponse);
+  rpc CancelAll (CancelAllRequest) returns (CancelAllResponse);
+  rpc CancelInAllNamespaces (CancelInAllNamespacesRequest) returns (CancelInAllNamespacesResponse);
+  rpc Enqueue (EnqueueRequest) returns (EnqueueResponse);
+  rpc ForNamespace (ForNamespaceRequest) returns (ForNamespaceResponse);
+  rpc GetAllPendingJobs (GetAllPendingJobsRequest) returns (GetAllPendingJobsResponse);
+  rpc GetNamespace (GetNamespaceRequest) returns (GetNamespaceResponse);
+  rpc GetPendingJob (GetPendingJobRequest) returns (GetPendingJobResponse);
+  rpc GetPendingJobReason (GetPendingJobReasonRequest) returns (GetPendingJobReasonResponse);
+  rpc GetPendingJobReasons (GetPendingJobReasonsRequest) returns (GetPendingJobReasonsResponse);
+  rpc GetPendingJobReasonsHistory (GetPendingJobReasonsHistoryRequest) returns (GetPendingJobReasonsHistoryResponse);
+  rpc Schedule (ScheduleRequest) returns (ScheduleResponse);
 }
 
-message CanRunUserInitiatedJobsResponse {
-  bool result = 1;
-}
-
-message CancelInAllNamespacesRequest {
-}
-
-message CancelInAllNamespacesResponse {
-}
-
-message ForNamespaceRequest {
-  string arg0 = 1;
-}
-
-message ForNamespaceResponse {
-  int64 result = 1;
-}
-
-message GetNamespaceRequest {
-}
-
-message GetNamespaceResponse {
-  string result = 1;
-}
-
-message GetPendingJobReasonRequest {
-  int32 arg0 = 1;
-}
-
-message GetPendingJobReasonResponse {
-  int32 result = 1;
-}
-
-message GetPendingJobReasonsRequest {
-  int32 arg0 = 1;
-}
-
-message GetPendingJobReasonsResponse {
-  int64 result = 1;
-}
-
-message GetPendingJobReasonsHistoryRequest {
-  int32 arg0 = 1;
-}
-
-message GetPendingJobReasonsHistoryResponse {
-  int64 result = 1;
-}
-
-service JobInfoService {
+service InfoService {
   rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
   rpc Equals (EqualsRequest) returns (EqualsResponse);
   rpc GetBackoffPolicy (GetBackoffPolicyRequest) returns (GetBackoffPolicyResponse);
@@ -600,9 +675,11 @@ service JobInfoService {
   rpc IsUserInitiated (IsUserInitiatedRequest) returns (IsUserInitiatedResponse);
   rpc ToString (ToStringRequest) returns (ToStringResponse);
   rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+  rpc GetMinFlexMillis (GetMinFlexMillisRequest) returns (GetMinFlexMillisResponse);
+  rpc GetMinPeriodMillis (GetMinPeriodMillisRequest) returns (GetMinPeriodMillisResponse);
 }
 
-service JobInfoBuilderService {
+service InfoBuilderService {
   rpc AddDebugTag (AddDebugTagRequest) returns (AddDebugTagResponse);
   rpc AddTriggerContentUri (AddTriggerContentUriRequest) returns (AddTriggerContentUriResponse);
   rpc Build (BuildRequest) returns (BuildResponse);
@@ -632,14 +709,4 @@ service JobInfoBuilderService {
   rpc SetTriggerContentMaxDelay (SetTriggerContentMaxDelayRequest) returns (SetTriggerContentMaxDelayResponse);
   rpc SetTriggerContentUpdateDelay (SetTriggerContentUpdateDelayRequest) returns (SetTriggerContentUpdateDelayResponse);
   rpc SetUserInitiated (SetUserInitiatedRequest) returns (SetUserInitiatedResponse);
-}
-
-service JobSchedulerService {
-  rpc CanRunUserInitiatedJobs (CanRunUserInitiatedJobsRequest) returns (CanRunUserInitiatedJobsResponse);
-  rpc CancelInAllNamespaces (CancelInAllNamespacesRequest) returns (CancelInAllNamespacesResponse);
-  rpc ForNamespace (ForNamespaceRequest) returns (ForNamespaceResponse);
-  rpc GetNamespace (GetNamespaceRequest) returns (GetNamespaceResponse);
-  rpc GetPendingJobReason (GetPendingJobReasonRequest) returns (GetPendingJobReasonResponse);
-  rpc GetPendingJobReasons (GetPendingJobReasonsRequest) returns (GetPendingJobReasonsResponse);
-  rpc GetPendingJobReasonsHistory (GetPendingJobReasonsHistoryRequest) returns (GetPendingJobReasonsHistoryResponse);
 }

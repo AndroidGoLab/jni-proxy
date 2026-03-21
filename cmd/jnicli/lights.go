@@ -3,8 +3,8 @@
 package main
 
 import (
-	"github.com/spf13/cobra"
 	pb "github.com/AndroidGoLab/jni-proxy/proto/lights"
+	"github.com/spf13/cobra"
 )
 
 var lightsCmd = &cobra.Command{
@@ -202,6 +202,102 @@ var lightsLightWriteToParcelCmd = &cobra.Command{
 	},
 }
 
+var lightsManagerCmd = &cobra.Command{
+	Use:   "manager",
+	Short: "ManagerService operations",
+}
+
+var lightsManagerGetLightStateCmd = &cobra.Command{
+	Use:   "get-light-state",
+	Short: "GetLightState RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewManagerServiceClient(grpcConn)
+		req := &pb.GetLightStateRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetLightState(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var lightsManagerGetLightsCmd = &cobra.Command{
+	Use:   "get-lights",
+	Short: "GetLights RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewManagerServiceClient(grpcConn)
+		req := &pb.GetLightsRequest{}
+		resp, err := client.GetLights(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var lightsManagerOpenSessionCmd = &cobra.Command{
+	Use:   "open-session",
+	Short: "OpenSession RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewManagerServiceClient(grpcConn)
+		req := &pb.OpenSessionRequest{}
+		resp, err := client.OpenSession(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var lightsManagerLightsSessionCmd = &cobra.Command{
+	Use:   "manager-lights-session",
+	Short: "ManagerLightsSessionService operations",
+}
+
+var lightsManagerLightsSessionCloseCmd = &cobra.Command{
+	Use:   "close",
+	Short: "Close RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewManagerLightsSessionServiceClient(grpcConn)
+		req := &pb.CloseRequest{}
+		resp, err := client.Close(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var lightsManagerLightsSessionRequestLightsCmd = &cobra.Command{
+	Use:   "request-lights",
+	Short: "RequestLights RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewManagerLightsSessionServiceClient(grpcConn)
+		req := &pb.RequestLightsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.RequestLights(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
 var lightsLightStateCmd = &cobra.Command{
 	Use:   "light-state",
 	Short: "LightStateService operations",
@@ -368,6 +464,15 @@ func init() {
 	lightsLightWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
 	lightsLightCmd.AddCommand(lightsLightWriteToParcelCmd)
 	lightsCmd.AddCommand(lightsLightCmd)
+	lightsManagerGetLightStateCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	lightsManagerCmd.AddCommand(lightsManagerGetLightStateCmd)
+	lightsManagerCmd.AddCommand(lightsManagerGetLightsCmd)
+	lightsManagerCmd.AddCommand(lightsManagerOpenSessionCmd)
+	lightsCmd.AddCommand(lightsManagerCmd)
+	lightsManagerLightsSessionCmd.AddCommand(lightsManagerLightsSessionCloseCmd)
+	lightsManagerLightsSessionRequestLightsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	lightsManagerLightsSessionCmd.AddCommand(lightsManagerLightsSessionRequestLightsCmd)
+	lightsCmd.AddCommand(lightsManagerLightsSessionCmd)
 	lightsLightStateCmd.AddCommand(lightsLightStateDescribeContentsCmd)
 	lightsLightStateCmd.AddCommand(lightsLightStateGetColorCmd)
 	lightsLightStateCmd.AddCommand(lightsLightStateGetPlayerIdCmd)

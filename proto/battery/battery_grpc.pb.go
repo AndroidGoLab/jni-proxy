@@ -21,17 +21,17 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
-	BatteryManagerService_ComputeChargeTimeRemaining_FullMethodName = "/battery.BatteryManagerService/ComputeChargeTimeRemaining"
-	BatteryManagerService_GetIntProperty_FullMethodName             = "/battery.BatteryManagerService/GetIntProperty"
-	BatteryManagerService_GetLongProperty_FullMethodName            = "/battery.BatteryManagerService/GetLongProperty"
-	BatteryManagerService_GetStringProperty_FullMethodName          = "/battery.BatteryManagerService/GetStringProperty"
-	BatteryManagerService_IsCharging_FullMethodName                 = "/battery.BatteryManagerService/IsCharging"
+	ManagerService_ComputeChargeTimeRemaining_FullMethodName = "/battery.ManagerService/ComputeChargeTimeRemaining"
+	ManagerService_GetIntProperty_FullMethodName             = "/battery.ManagerService/GetIntProperty"
+	ManagerService_GetLongProperty_FullMethodName            = "/battery.ManagerService/GetLongProperty"
+	ManagerService_GetStringProperty_FullMethodName          = "/battery.ManagerService/GetStringProperty"
+	ManagerService_IsCharging_FullMethodName                 = "/battery.ManagerService/IsCharging"
 )
 
-// BatteryManagerServiceClient is the client API for BatteryManagerService service.
+// ManagerServiceClient is the client API for ManagerService service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type BatteryManagerServiceClient interface {
+type ManagerServiceClient interface {
 	ComputeChargeTimeRemaining(ctx context.Context, in *ComputeChargeTimeRemainingRequest, opts ...grpc.CallOption) (*ComputeChargeTimeRemainingResponse, error)
 	GetIntProperty(ctx context.Context, in *GetIntPropertyRequest, opts ...grpc.CallOption) (*GetIntPropertyResponse, error)
 	GetLongProperty(ctx context.Context, in *GetLongPropertyRequest, opts ...grpc.CallOption) (*GetLongPropertyResponse, error)
@@ -39,235 +39,235 @@ type BatteryManagerServiceClient interface {
 	IsCharging(ctx context.Context, in *IsChargingRequest, opts ...grpc.CallOption) (*IsChargingResponse, error)
 }
 
-type batteryManagerServiceClient struct {
+type managerServiceClient struct {
 	cc grpc.ClientConnInterface
 }
 
-func NewBatteryManagerServiceClient(cc grpc.ClientConnInterface) BatteryManagerServiceClient {
-	return &batteryManagerServiceClient{cc}
+func NewManagerServiceClient(cc grpc.ClientConnInterface) ManagerServiceClient {
+	return &managerServiceClient{cc}
 }
 
-func (c *batteryManagerServiceClient) ComputeChargeTimeRemaining(ctx context.Context, in *ComputeChargeTimeRemainingRequest, opts ...grpc.CallOption) (*ComputeChargeTimeRemainingResponse, error) {
+func (c *managerServiceClient) ComputeChargeTimeRemaining(ctx context.Context, in *ComputeChargeTimeRemainingRequest, opts ...grpc.CallOption) (*ComputeChargeTimeRemainingResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(ComputeChargeTimeRemainingResponse)
-	err := c.cc.Invoke(ctx, BatteryManagerService_ComputeChargeTimeRemaining_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, ManagerService_ComputeChargeTimeRemaining_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *batteryManagerServiceClient) GetIntProperty(ctx context.Context, in *GetIntPropertyRequest, opts ...grpc.CallOption) (*GetIntPropertyResponse, error) {
+func (c *managerServiceClient) GetIntProperty(ctx context.Context, in *GetIntPropertyRequest, opts ...grpc.CallOption) (*GetIntPropertyResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(GetIntPropertyResponse)
-	err := c.cc.Invoke(ctx, BatteryManagerService_GetIntProperty_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, ManagerService_GetIntProperty_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *batteryManagerServiceClient) GetLongProperty(ctx context.Context, in *GetLongPropertyRequest, opts ...grpc.CallOption) (*GetLongPropertyResponse, error) {
+func (c *managerServiceClient) GetLongProperty(ctx context.Context, in *GetLongPropertyRequest, opts ...grpc.CallOption) (*GetLongPropertyResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(GetLongPropertyResponse)
-	err := c.cc.Invoke(ctx, BatteryManagerService_GetLongProperty_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, ManagerService_GetLongProperty_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *batteryManagerServiceClient) GetStringProperty(ctx context.Context, in *GetStringPropertyRequest, opts ...grpc.CallOption) (*GetStringPropertyResponse, error) {
+func (c *managerServiceClient) GetStringProperty(ctx context.Context, in *GetStringPropertyRequest, opts ...grpc.CallOption) (*GetStringPropertyResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(GetStringPropertyResponse)
-	err := c.cc.Invoke(ctx, BatteryManagerService_GetStringProperty_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, ManagerService_GetStringProperty_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *batteryManagerServiceClient) IsCharging(ctx context.Context, in *IsChargingRequest, opts ...grpc.CallOption) (*IsChargingResponse, error) {
+func (c *managerServiceClient) IsCharging(ctx context.Context, in *IsChargingRequest, opts ...grpc.CallOption) (*IsChargingResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(IsChargingResponse)
-	err := c.cc.Invoke(ctx, BatteryManagerService_IsCharging_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, ManagerService_IsCharging_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-// BatteryManagerServiceServer is the server API for BatteryManagerService service.
-// All implementations must embed UnimplementedBatteryManagerServiceServer
+// ManagerServiceServer is the server API for ManagerService service.
+// All implementations must embed UnimplementedManagerServiceServer
 // for forward compatibility.
-type BatteryManagerServiceServer interface {
+type ManagerServiceServer interface {
 	ComputeChargeTimeRemaining(context.Context, *ComputeChargeTimeRemainingRequest) (*ComputeChargeTimeRemainingResponse, error)
 	GetIntProperty(context.Context, *GetIntPropertyRequest) (*GetIntPropertyResponse, error)
 	GetLongProperty(context.Context, *GetLongPropertyRequest) (*GetLongPropertyResponse, error)
 	GetStringProperty(context.Context, *GetStringPropertyRequest) (*GetStringPropertyResponse, error)
 	IsCharging(context.Context, *IsChargingRequest) (*IsChargingResponse, error)
-	mustEmbedUnimplementedBatteryManagerServiceServer()
+	mustEmbedUnimplementedManagerServiceServer()
 }
 
-// UnimplementedBatteryManagerServiceServer must be embedded to have
+// UnimplementedManagerServiceServer must be embedded to have
 // forward compatible implementations.
 //
 // NOTE: this should be embedded by value instead of pointer to avoid a nil
 // pointer dereference when methods are called.
-type UnimplementedBatteryManagerServiceServer struct{}
+type UnimplementedManagerServiceServer struct{}
 
-func (UnimplementedBatteryManagerServiceServer) ComputeChargeTimeRemaining(context.Context, *ComputeChargeTimeRemainingRequest) (*ComputeChargeTimeRemainingResponse, error) {
+func (UnimplementedManagerServiceServer) ComputeChargeTimeRemaining(context.Context, *ComputeChargeTimeRemainingRequest) (*ComputeChargeTimeRemainingResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method ComputeChargeTimeRemaining not implemented")
 }
-func (UnimplementedBatteryManagerServiceServer) GetIntProperty(context.Context, *GetIntPropertyRequest) (*GetIntPropertyResponse, error) {
+func (UnimplementedManagerServiceServer) GetIntProperty(context.Context, *GetIntPropertyRequest) (*GetIntPropertyResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetIntProperty not implemented")
 }
-func (UnimplementedBatteryManagerServiceServer) GetLongProperty(context.Context, *GetLongPropertyRequest) (*GetLongPropertyResponse, error) {
+func (UnimplementedManagerServiceServer) GetLongProperty(context.Context, *GetLongPropertyRequest) (*GetLongPropertyResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetLongProperty not implemented")
 }
-func (UnimplementedBatteryManagerServiceServer) GetStringProperty(context.Context, *GetStringPropertyRequest) (*GetStringPropertyResponse, error) {
+func (UnimplementedManagerServiceServer) GetStringProperty(context.Context, *GetStringPropertyRequest) (*GetStringPropertyResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetStringProperty not implemented")
 }
-func (UnimplementedBatteryManagerServiceServer) IsCharging(context.Context, *IsChargingRequest) (*IsChargingResponse, error) {
+func (UnimplementedManagerServiceServer) IsCharging(context.Context, *IsChargingRequest) (*IsChargingResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method IsCharging not implemented")
 }
-func (UnimplementedBatteryManagerServiceServer) mustEmbedUnimplementedBatteryManagerServiceServer() {}
-func (UnimplementedBatteryManagerServiceServer) testEmbeddedByValue()                               {}
+func (UnimplementedManagerServiceServer) mustEmbedUnimplementedManagerServiceServer() {}
+func (UnimplementedManagerServiceServer) testEmbeddedByValue()                        {}
 
-// UnsafeBatteryManagerServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to BatteryManagerServiceServer will
+// UnsafeManagerServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to ManagerServiceServer will
 // result in compilation errors.
-type UnsafeBatteryManagerServiceServer interface {
-	mustEmbedUnimplementedBatteryManagerServiceServer()
+type UnsafeManagerServiceServer interface {
+	mustEmbedUnimplementedManagerServiceServer()
 }
 
-func RegisterBatteryManagerServiceServer(s grpc.ServiceRegistrar, srv BatteryManagerServiceServer) {
-	// If the following call panics, it indicates UnimplementedBatteryManagerServiceServer was
+func RegisterManagerServiceServer(s grpc.ServiceRegistrar, srv ManagerServiceServer) {
+	// If the following call panics, it indicates UnimplementedManagerServiceServer was
 	// embedded by pointer and is nil.  This will cause panics if an
 	// unimplemented method is ever invoked, so we test this at initialization
 	// time to prevent it from happening at runtime later due to I/O.
 	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
 		t.testEmbeddedByValue()
 	}
-	s.RegisterService(&BatteryManagerService_ServiceDesc, srv)
+	s.RegisterService(&ManagerService_ServiceDesc, srv)
 }
 
-func _BatteryManagerService_ComputeChargeTimeRemaining_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _ManagerService_ComputeChargeTimeRemaining_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(ComputeChargeTimeRemainingRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(BatteryManagerServiceServer).ComputeChargeTimeRemaining(ctx, in)
+		return srv.(ManagerServiceServer).ComputeChargeTimeRemaining(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: BatteryManagerService_ComputeChargeTimeRemaining_FullMethodName,
+		FullMethod: ManagerService_ComputeChargeTimeRemaining_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(BatteryManagerServiceServer).ComputeChargeTimeRemaining(ctx, req.(*ComputeChargeTimeRemainingRequest))
+		return srv.(ManagerServiceServer).ComputeChargeTimeRemaining(ctx, req.(*ComputeChargeTimeRemainingRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _BatteryManagerService_GetIntProperty_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _ManagerService_GetIntProperty_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(GetIntPropertyRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(BatteryManagerServiceServer).GetIntProperty(ctx, in)
+		return srv.(ManagerServiceServer).GetIntProperty(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: BatteryManagerService_GetIntProperty_FullMethodName,
+		FullMethod: ManagerService_GetIntProperty_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(BatteryManagerServiceServer).GetIntProperty(ctx, req.(*GetIntPropertyRequest))
+		return srv.(ManagerServiceServer).GetIntProperty(ctx, req.(*GetIntPropertyRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _BatteryManagerService_GetLongProperty_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _ManagerService_GetLongProperty_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(GetLongPropertyRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(BatteryManagerServiceServer).GetLongProperty(ctx, in)
+		return srv.(ManagerServiceServer).GetLongProperty(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: BatteryManagerService_GetLongProperty_FullMethodName,
+		FullMethod: ManagerService_GetLongProperty_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(BatteryManagerServiceServer).GetLongProperty(ctx, req.(*GetLongPropertyRequest))
+		return srv.(ManagerServiceServer).GetLongProperty(ctx, req.(*GetLongPropertyRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _BatteryManagerService_GetStringProperty_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _ManagerService_GetStringProperty_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(GetStringPropertyRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(BatteryManagerServiceServer).GetStringProperty(ctx, in)
+		return srv.(ManagerServiceServer).GetStringProperty(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: BatteryManagerService_GetStringProperty_FullMethodName,
+		FullMethod: ManagerService_GetStringProperty_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(BatteryManagerServiceServer).GetStringProperty(ctx, req.(*GetStringPropertyRequest))
+		return srv.(ManagerServiceServer).GetStringProperty(ctx, req.(*GetStringPropertyRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _BatteryManagerService_IsCharging_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _ManagerService_IsCharging_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(IsChargingRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(BatteryManagerServiceServer).IsCharging(ctx, in)
+		return srv.(ManagerServiceServer).IsCharging(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: BatteryManagerService_IsCharging_FullMethodName,
+		FullMethod: ManagerService_IsCharging_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(BatteryManagerServiceServer).IsCharging(ctx, req.(*IsChargingRequest))
+		return srv.(ManagerServiceServer).IsCharging(ctx, req.(*IsChargingRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-// BatteryManagerService_ServiceDesc is the grpc.ServiceDesc for BatteryManagerService service.
+// ManagerService_ServiceDesc is the grpc.ServiceDesc for ManagerService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
-var BatteryManagerService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "battery.BatteryManagerService",
-	HandlerType: (*BatteryManagerServiceServer)(nil),
+var ManagerService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "battery.ManagerService",
+	HandlerType: (*ManagerServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
 			MethodName: "ComputeChargeTimeRemaining",
-			Handler:    _BatteryManagerService_ComputeChargeTimeRemaining_Handler,
+			Handler:    _ManagerService_ComputeChargeTimeRemaining_Handler,
 		},
 		{
 			MethodName: "GetIntProperty",
-			Handler:    _BatteryManagerService_GetIntProperty_Handler,
+			Handler:    _ManagerService_GetIntProperty_Handler,
 		},
 		{
 			MethodName: "GetLongProperty",
-			Handler:    _BatteryManagerService_GetLongProperty_Handler,
+			Handler:    _ManagerService_GetLongProperty_Handler,
 		},
 		{
 			MethodName: "GetStringProperty",
-			Handler:    _BatteryManagerService_GetStringProperty_Handler,
+			Handler:    _ManagerService_GetStringProperty_Handler,
 		},
 		{
 			MethodName: "IsCharging",
-			Handler:    _BatteryManagerService_IsCharging_Handler,
+			Handler:    _ManagerService_IsCharging_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

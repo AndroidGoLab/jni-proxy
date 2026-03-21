@@ -3,8 +3,8 @@
 package main
 
 import (
-	"github.com/spf13/cobra"
 	pb "github.com/AndroidGoLab/jni-proxy/proto/calendar"
+	"github.com/spf13/cobra"
 )
 
 var calendarCmd = &cobra.Command{
@@ -12,18 +12,18 @@ var calendarCmd = &cobra.Command{
 	Short: "calendar service operations",
 }
 
-var calendarCalendarContractCmd = &cobra.Command{
-	Use:   "calendar-contract",
-	Short: "CalendarContractService operations",
+var calendarContractCmd = &cobra.Command{
+	Use:   "contract",
+	Short: "ContractService operations",
 }
 
-var calendarCalendarContractStartViewCalendarEventInManagedProfileCmd = &cobra.Command{
+var calendarContractStartViewCalendarEventInManagedProfileCmd = &cobra.Command{
 	Use:   "start-view-calendar-event-in-managed-profile",
 	Short: "StartViewCalendarEventInManagedProfile RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewCalendarContractServiceClient(grpcConn)
+		client := pb.NewContractServiceClient(grpcConn)
 		req := &pb.StartViewCalendarEventInManagedProfileRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
@@ -52,13 +52,13 @@ var calendarCalendarContractStartViewCalendarEventInManagedProfileCmd = &cobra.C
 }
 
 func init() {
-	calendarCalendarContractStartViewCalendarEventInManagedProfileCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	calendarCalendarContractStartViewCalendarEventInManagedProfileCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	calendarCalendarContractStartViewCalendarEventInManagedProfileCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
-	calendarCalendarContractStartViewCalendarEventInManagedProfileCmd.Flags().Int64("arg3", 0, "arg3 (int64)")
-	calendarCalendarContractStartViewCalendarEventInManagedProfileCmd.Flags().Bool("arg4", false, "arg4 (bool)")
-	calendarCalendarContractStartViewCalendarEventInManagedProfileCmd.Flags().Int32("arg5", 0, "arg5 (int32)")
-	calendarCalendarContractCmd.AddCommand(calendarCalendarContractStartViewCalendarEventInManagedProfileCmd)
-	calendarCmd.AddCommand(calendarCalendarContractCmd)
+	calendarContractStartViewCalendarEventInManagedProfileCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	calendarContractStartViewCalendarEventInManagedProfileCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	calendarContractStartViewCalendarEventInManagedProfileCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	calendarContractStartViewCalendarEventInManagedProfileCmd.Flags().Int64("arg3", 0, "arg3 (int64)")
+	calendarContractStartViewCalendarEventInManagedProfileCmd.Flags().Bool("arg4", false, "arg4 (bool)")
+	calendarContractStartViewCalendarEventInManagedProfileCmd.Flags().Int32("arg5", 0, "arg5 (int32)")
+	calendarContractCmd.AddCommand(calendarContractStartViewCalendarEventInManagedProfileCmd)
+	calendarCmd.AddCommand(calendarContractCmd)
 	rootCmd.AddCommand(calendarCmd)
 }

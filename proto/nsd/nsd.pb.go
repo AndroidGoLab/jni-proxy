@@ -2982,8 +2982,8 @@ const file_proto_nsd_nsd_proto_rawDesc = "" +
 	"\x14WriteToParcelRequest\x12\x12\n" +
 	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
 	"\x04arg1\x18\x02 \x01(\x05R\x04arg1\"\x17\n" +
-	"\x15WriteToParcelResponse2\xba\t\n" +
-	"\x11NsdManagerService\x12R\n" +
+	"\x15WriteToParcelResponse2\xb7\t\n" +
+	"\x0eManagerService\x12R\n" +
 	"\x11DiscoverServices3\x12\x1d.nsd.DiscoverServices3Request\x1a\x1e.nsd.DiscoverServices3Response\x12X\n" +
 	"\x13DiscoverServices5_1\x12\x1f.nsd.DiscoverServices5_1Request\x1a .nsd.DiscoverServices5_1Response\x12X\n" +
 	"\x13DiscoverServices5_2\x12\x1f.nsd.DiscoverServices5_2Request\x1a .nsd.DiscoverServices5_2Response\x12X\n" +
@@ -2996,9 +2996,9 @@ const file_proto_nsd_nsd_proto_rawDesc = "" +
 	"\x14StopServiceDiscovery\x12 .nsd.StopServiceDiscoveryRequest\x1a!.nsd.StopServiceDiscoveryResponse\x12^\n" +
 	"\x15StopServiceResolution\x12!.nsd.StopServiceResolutionRequest\x1a\".nsd.StopServiceResolutionResponse\x12R\n" +
 	"\x11UnregisterService\x12\x1d.nsd.UnregisterServiceRequest\x1a\x1e.nsd.UnregisterServiceResponse\x12v\n" +
-	"\x1dUnregisterServiceInfoCallback\x12).nsd.UnregisterServiceInfoCallbackRequest\x1a*.nsd.UnregisterServiceInfoCallbackResponse2\xe6\n" +
+	"\x1dUnregisterServiceInfoCallback\x12).nsd.UnregisterServiceInfoCallbackRequest\x1a*.nsd.UnregisterServiceInfoCallbackResponse2\xe3\n" +
 	"\n" +
-	"\x15NsdServiceInfoService\x12O\n" +
+	"\x12ServiceInfoService\x12O\n" +
 	"\x10DescribeContents\x12\x1c.nsd.DescribeContentsRequest\x1a\x1d.nsd.DescribeContentsResponse\x124\n" +
 	"\aGetHost\x12\x13.nsd.GetHostRequest\x1a\x14.nsd.GetHostResponse\x12O\n" +
 	"\x10GetHostAddresses\x12\x1c.nsd.GetHostAddressesRequest\x1a\x1d.nsd.GetHostAddressesResponse\x12@\n" +
@@ -3020,7 +3020,7 @@ const file_proto_nsd_nsd_proto_rawDesc = "" +
 	"\x0eSetServiceType\x12\x1a.nsd.SetServiceTypeRequest\x1a\x1b.nsd.SetServiceTypeResponse\x12@\n" +
 	"\vSetSubtypes\x12\x17.nsd.SetSubtypesRequest\x1a\x18.nsd.SetSubtypesResponse\x127\n" +
 	"\bToString\x12\x14.nsd.ToStringRequest\x1a\x15.nsd.ToStringResponse\x12F\n" +
-	"\rWriteToParcel\x12\x19.nsd.WriteToParcelRequest\x1a\x1a.nsd.WriteToParcelResponseB&Z$github.com/AndroidGoLab/jni-proxy/proto/nsdb\x06proto3"
+	"\rWriteToParcel\x12\x19.nsd.WriteToParcelRequest\x1a\x1a.nsd.WriteToParcelResponseB-Z+github.com/AndroidGoLab/jni-proxy/proto/nsdb\x06proto3"
 
 var (
 	file_proto_nsd_nsd_proto_rawDescOnce sync.Once
@@ -3104,72 +3104,72 @@ var file_proto_nsd_nsd_proto_goTypes = []any{
 	(*WriteToParcelResponse)(nil),                 // 65: nsd.WriteToParcelResponse
 }
 var file_proto_nsd_nsd_proto_depIdxs = []int32{
-	0,  // 0: nsd.NsdManagerService.DiscoverServices3:input_type -> nsd.DiscoverServices3Request
-	2,  // 1: nsd.NsdManagerService.DiscoverServices5_1:input_type -> nsd.DiscoverServices5_1Request
-	4,  // 2: nsd.NsdManagerService.DiscoverServices5_2:input_type -> nsd.DiscoverServices5_2Request
-	6,  // 3: nsd.NsdManagerService.DiscoverServices3_3:input_type -> nsd.DiscoverServices3_3Request
-	8,  // 4: nsd.NsdManagerService.RegisterService3:input_type -> nsd.RegisterService3Request
-	10, // 5: nsd.NsdManagerService.RegisterService4_1:input_type -> nsd.RegisterService4_1Request
-	12, // 6: nsd.NsdManagerService.RegisterServiceInfoCallback:input_type -> nsd.RegisterServiceInfoCallbackRequest
-	14, // 7: nsd.NsdManagerService.ResolveService2:input_type -> nsd.ResolveService2Request
-	16, // 8: nsd.NsdManagerService.ResolveService3_1:input_type -> nsd.ResolveService3_1Request
-	18, // 9: nsd.NsdManagerService.StopServiceDiscovery:input_type -> nsd.StopServiceDiscoveryRequest
-	20, // 10: nsd.NsdManagerService.StopServiceResolution:input_type -> nsd.StopServiceResolutionRequest
-	22, // 11: nsd.NsdManagerService.UnregisterService:input_type -> nsd.UnregisterServiceRequest
-	24, // 12: nsd.NsdManagerService.UnregisterServiceInfoCallback:input_type -> nsd.UnregisterServiceInfoCallbackRequest
-	26, // 13: nsd.NsdServiceInfoService.DescribeContents:input_type -> nsd.DescribeContentsRequest
-	28, // 14: nsd.NsdServiceInfoService.GetHost:input_type -> nsd.GetHostRequest
-	30, // 15: nsd.NsdServiceInfoService.GetHostAddresses:input_type -> nsd.GetHostAddressesRequest
-	32, // 16: nsd.NsdServiceInfoService.GetHostname:input_type -> nsd.GetHostnameRequest
-	34, // 17: nsd.NsdServiceInfoService.GetNetwork:input_type -> nsd.GetNetworkRequest
-	36, // 18: nsd.NsdServiceInfoService.GetPort:input_type -> nsd.GetPortRequest
-	38, // 19: nsd.NsdServiceInfoService.GetServiceName:input_type -> nsd.GetServiceNameRequest
-	40, // 20: nsd.NsdServiceInfoService.GetServiceType:input_type -> nsd.GetServiceTypeRequest
-	42, // 21: nsd.NsdServiceInfoService.GetSubtypes:input_type -> nsd.GetSubtypesRequest
-	44, // 22: nsd.NsdServiceInfoService.RemoveAttribute:input_type -> nsd.RemoveAttributeRequest
-	46, // 23: nsd.NsdServiceInfoService.SetAttribute:input_type -> nsd.SetAttributeRequest
-	48, // 24: nsd.NsdServiceInfoService.SetHost:input_type -> nsd.SetHostRequest
-	50, // 25: nsd.NsdServiceInfoService.SetHostAddresses:input_type -> nsd.SetHostAddressesRequest
-	52, // 26: nsd.NsdServiceInfoService.SetNetwork:input_type -> nsd.SetNetworkRequest
-	54, // 27: nsd.NsdServiceInfoService.SetPort:input_type -> nsd.SetPortRequest
-	56, // 28: nsd.NsdServiceInfoService.SetServiceName:input_type -> nsd.SetServiceNameRequest
-	58, // 29: nsd.NsdServiceInfoService.SetServiceType:input_type -> nsd.SetServiceTypeRequest
-	60, // 30: nsd.NsdServiceInfoService.SetSubtypes:input_type -> nsd.SetSubtypesRequest
-	62, // 31: nsd.NsdServiceInfoService.ToString:input_type -> nsd.ToStringRequest
-	64, // 32: nsd.NsdServiceInfoService.WriteToParcel:input_type -> nsd.WriteToParcelRequest
-	1,  // 33: nsd.NsdManagerService.DiscoverServices3:output_type -> nsd.DiscoverServices3Response
-	3,  // 34: nsd.NsdManagerService.DiscoverServices5_1:output_type -> nsd.DiscoverServices5_1Response
-	5,  // 35: nsd.NsdManagerService.DiscoverServices5_2:output_type -> nsd.DiscoverServices5_2Response
-	7,  // 36: nsd.NsdManagerService.DiscoverServices3_3:output_type -> nsd.DiscoverServices3_3Response
-	9,  // 37: nsd.NsdManagerService.RegisterService3:output_type -> nsd.RegisterService3Response
-	11, // 38: nsd.NsdManagerService.RegisterService4_1:output_type -> nsd.RegisterService4_1Response
-	13, // 39: nsd.NsdManagerService.RegisterServiceInfoCallback:output_type -> nsd.RegisterServiceInfoCallbackResponse
-	15, // 40: nsd.NsdManagerService.ResolveService2:output_type -> nsd.ResolveService2Response
-	17, // 41: nsd.NsdManagerService.ResolveService3_1:output_type -> nsd.ResolveService3_1Response
-	19, // 42: nsd.NsdManagerService.StopServiceDiscovery:output_type -> nsd.StopServiceDiscoveryResponse
-	21, // 43: nsd.NsdManagerService.StopServiceResolution:output_type -> nsd.StopServiceResolutionResponse
-	23, // 44: nsd.NsdManagerService.UnregisterService:output_type -> nsd.UnregisterServiceResponse
-	25, // 45: nsd.NsdManagerService.UnregisterServiceInfoCallback:output_type -> nsd.UnregisterServiceInfoCallbackResponse
-	27, // 46: nsd.NsdServiceInfoService.DescribeContents:output_type -> nsd.DescribeContentsResponse
-	29, // 47: nsd.NsdServiceInfoService.GetHost:output_type -> nsd.GetHostResponse
-	31, // 48: nsd.NsdServiceInfoService.GetHostAddresses:output_type -> nsd.GetHostAddressesResponse
-	33, // 49: nsd.NsdServiceInfoService.GetHostname:output_type -> nsd.GetHostnameResponse
-	35, // 50: nsd.NsdServiceInfoService.GetNetwork:output_type -> nsd.GetNetworkResponse
-	37, // 51: nsd.NsdServiceInfoService.GetPort:output_type -> nsd.GetPortResponse
-	39, // 52: nsd.NsdServiceInfoService.GetServiceName:output_type -> nsd.GetServiceNameResponse
-	41, // 53: nsd.NsdServiceInfoService.GetServiceType:output_type -> nsd.GetServiceTypeResponse
-	43, // 54: nsd.NsdServiceInfoService.GetSubtypes:output_type -> nsd.GetSubtypesResponse
-	45, // 55: nsd.NsdServiceInfoService.RemoveAttribute:output_type -> nsd.RemoveAttributeResponse
-	47, // 56: nsd.NsdServiceInfoService.SetAttribute:output_type -> nsd.SetAttributeResponse
-	49, // 57: nsd.NsdServiceInfoService.SetHost:output_type -> nsd.SetHostResponse
-	51, // 58: nsd.NsdServiceInfoService.SetHostAddresses:output_type -> nsd.SetHostAddressesResponse
-	53, // 59: nsd.NsdServiceInfoService.SetNetwork:output_type -> nsd.SetNetworkResponse
-	55, // 60: nsd.NsdServiceInfoService.SetPort:output_type -> nsd.SetPortResponse
-	57, // 61: nsd.NsdServiceInfoService.SetServiceName:output_type -> nsd.SetServiceNameResponse
-	59, // 62: nsd.NsdServiceInfoService.SetServiceType:output_type -> nsd.SetServiceTypeResponse
-	61, // 63: nsd.NsdServiceInfoService.SetSubtypes:output_type -> nsd.SetSubtypesResponse
-	63, // 64: nsd.NsdServiceInfoService.ToString:output_type -> nsd.ToStringResponse
-	65, // 65: nsd.NsdServiceInfoService.WriteToParcel:output_type -> nsd.WriteToParcelResponse
+	0,  // 0: nsd.ManagerService.DiscoverServices3:input_type -> nsd.DiscoverServices3Request
+	2,  // 1: nsd.ManagerService.DiscoverServices5_1:input_type -> nsd.DiscoverServices5_1Request
+	4,  // 2: nsd.ManagerService.DiscoverServices5_2:input_type -> nsd.DiscoverServices5_2Request
+	6,  // 3: nsd.ManagerService.DiscoverServices3_3:input_type -> nsd.DiscoverServices3_3Request
+	8,  // 4: nsd.ManagerService.RegisterService3:input_type -> nsd.RegisterService3Request
+	10, // 5: nsd.ManagerService.RegisterService4_1:input_type -> nsd.RegisterService4_1Request
+	12, // 6: nsd.ManagerService.RegisterServiceInfoCallback:input_type -> nsd.RegisterServiceInfoCallbackRequest
+	14, // 7: nsd.ManagerService.ResolveService2:input_type -> nsd.ResolveService2Request
+	16, // 8: nsd.ManagerService.ResolveService3_1:input_type -> nsd.ResolveService3_1Request
+	18, // 9: nsd.ManagerService.StopServiceDiscovery:input_type -> nsd.StopServiceDiscoveryRequest
+	20, // 10: nsd.ManagerService.StopServiceResolution:input_type -> nsd.StopServiceResolutionRequest
+	22, // 11: nsd.ManagerService.UnregisterService:input_type -> nsd.UnregisterServiceRequest
+	24, // 12: nsd.ManagerService.UnregisterServiceInfoCallback:input_type -> nsd.UnregisterServiceInfoCallbackRequest
+	26, // 13: nsd.ServiceInfoService.DescribeContents:input_type -> nsd.DescribeContentsRequest
+	28, // 14: nsd.ServiceInfoService.GetHost:input_type -> nsd.GetHostRequest
+	30, // 15: nsd.ServiceInfoService.GetHostAddresses:input_type -> nsd.GetHostAddressesRequest
+	32, // 16: nsd.ServiceInfoService.GetHostname:input_type -> nsd.GetHostnameRequest
+	34, // 17: nsd.ServiceInfoService.GetNetwork:input_type -> nsd.GetNetworkRequest
+	36, // 18: nsd.ServiceInfoService.GetPort:input_type -> nsd.GetPortRequest
+	38, // 19: nsd.ServiceInfoService.GetServiceName:input_type -> nsd.GetServiceNameRequest
+	40, // 20: nsd.ServiceInfoService.GetServiceType:input_type -> nsd.GetServiceTypeRequest
+	42, // 21: nsd.ServiceInfoService.GetSubtypes:input_type -> nsd.GetSubtypesRequest
+	44, // 22: nsd.ServiceInfoService.RemoveAttribute:input_type -> nsd.RemoveAttributeRequest
+	46, // 23: nsd.ServiceInfoService.SetAttribute:input_type -> nsd.SetAttributeRequest
+	48, // 24: nsd.ServiceInfoService.SetHost:input_type -> nsd.SetHostRequest
+	50, // 25: nsd.ServiceInfoService.SetHostAddresses:input_type -> nsd.SetHostAddressesRequest
+	52, // 26: nsd.ServiceInfoService.SetNetwork:input_type -> nsd.SetNetworkRequest
+	54, // 27: nsd.ServiceInfoService.SetPort:input_type -> nsd.SetPortRequest
+	56, // 28: nsd.ServiceInfoService.SetServiceName:input_type -> nsd.SetServiceNameRequest
+	58, // 29: nsd.ServiceInfoService.SetServiceType:input_type -> nsd.SetServiceTypeRequest
+	60, // 30: nsd.ServiceInfoService.SetSubtypes:input_type -> nsd.SetSubtypesRequest
+	62, // 31: nsd.ServiceInfoService.ToString:input_type -> nsd.ToStringRequest
+	64, // 32: nsd.ServiceInfoService.WriteToParcel:input_type -> nsd.WriteToParcelRequest
+	1,  // 33: nsd.ManagerService.DiscoverServices3:output_type -> nsd.DiscoverServices3Response
+	3,  // 34: nsd.ManagerService.DiscoverServices5_1:output_type -> nsd.DiscoverServices5_1Response
+	5,  // 35: nsd.ManagerService.DiscoverServices5_2:output_type -> nsd.DiscoverServices5_2Response
+	7,  // 36: nsd.ManagerService.DiscoverServices3_3:output_type -> nsd.DiscoverServices3_3Response
+	9,  // 37: nsd.ManagerService.RegisterService3:output_type -> nsd.RegisterService3Response
+	11, // 38: nsd.ManagerService.RegisterService4_1:output_type -> nsd.RegisterService4_1Response
+	13, // 39: nsd.ManagerService.RegisterServiceInfoCallback:output_type -> nsd.RegisterServiceInfoCallbackResponse
+	15, // 40: nsd.ManagerService.ResolveService2:output_type -> nsd.ResolveService2Response
+	17, // 41: nsd.ManagerService.ResolveService3_1:output_type -> nsd.ResolveService3_1Response
+	19, // 42: nsd.ManagerService.StopServiceDiscovery:output_type -> nsd.StopServiceDiscoveryResponse
+	21, // 43: nsd.ManagerService.StopServiceResolution:output_type -> nsd.StopServiceResolutionResponse
+	23, // 44: nsd.ManagerService.UnregisterService:output_type -> nsd.UnregisterServiceResponse
+	25, // 45: nsd.ManagerService.UnregisterServiceInfoCallback:output_type -> nsd.UnregisterServiceInfoCallbackResponse
+	27, // 46: nsd.ServiceInfoService.DescribeContents:output_type -> nsd.DescribeContentsResponse
+	29, // 47: nsd.ServiceInfoService.GetHost:output_type -> nsd.GetHostResponse
+	31, // 48: nsd.ServiceInfoService.GetHostAddresses:output_type -> nsd.GetHostAddressesResponse
+	33, // 49: nsd.ServiceInfoService.GetHostname:output_type -> nsd.GetHostnameResponse
+	35, // 50: nsd.ServiceInfoService.GetNetwork:output_type -> nsd.GetNetworkResponse
+	37, // 51: nsd.ServiceInfoService.GetPort:output_type -> nsd.GetPortResponse
+	39, // 52: nsd.ServiceInfoService.GetServiceName:output_type -> nsd.GetServiceNameResponse
+	41, // 53: nsd.ServiceInfoService.GetServiceType:output_type -> nsd.GetServiceTypeResponse
+	43, // 54: nsd.ServiceInfoService.GetSubtypes:output_type -> nsd.GetSubtypesResponse
+	45, // 55: nsd.ServiceInfoService.RemoveAttribute:output_type -> nsd.RemoveAttributeResponse
+	47, // 56: nsd.ServiceInfoService.SetAttribute:output_type -> nsd.SetAttributeResponse
+	49, // 57: nsd.ServiceInfoService.SetHost:output_type -> nsd.SetHostResponse
+	51, // 58: nsd.ServiceInfoService.SetHostAddresses:output_type -> nsd.SetHostAddressesResponse
+	53, // 59: nsd.ServiceInfoService.SetNetwork:output_type -> nsd.SetNetworkResponse
+	55, // 60: nsd.ServiceInfoService.SetPort:output_type -> nsd.SetPortResponse
+	57, // 61: nsd.ServiceInfoService.SetServiceName:output_type -> nsd.SetServiceNameResponse
+	59, // 62: nsd.ServiceInfoService.SetServiceType:output_type -> nsd.SetServiceTypeResponse
+	61, // 63: nsd.ServiceInfoService.SetSubtypes:output_type -> nsd.SetSubtypesResponse
+	63, // 64: nsd.ServiceInfoService.ToString:output_type -> nsd.ToStringResponse
+	65, // 65: nsd.ServiceInfoService.WriteToParcel:output_type -> nsd.WriteToParcelResponse
 	33, // [33:66] is the sub-list for method output_type
 	0,  // [0:33] is the sub-list for method input_type
 	0,  // [0:0] is the sub-list for extension type_name

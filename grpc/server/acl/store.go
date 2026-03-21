@@ -16,31 +16,6 @@ type Store struct {
 	db *sql.DB
 }
 
-// ClientInfo describes a registered client.
-type ClientInfo struct {
-	ClientID     string
-	CertPEM      string
-	Fingerprint  string
-	RegisteredAt time.Time
-}
-
-// GrantInfo describes a method-access grant for a client.
-type GrantInfo struct {
-	ClientID      string
-	MethodPattern string
-	GrantedAt     time.Time
-	GrantedBy     string
-}
-
-// RequestInfo describes a pending (or resolved) access request.
-type RequestInfo struct {
-	ID          int64
-	ClientID    string
-	Methods     []string
-	RequestedAt time.Time
-	Status      string
-}
-
 // OpenStore opens (or creates) a SQLite database at dbPath and
 // ensures the required tables exist.
 func OpenStore(dbPath string) (_ *Store, _err error) {

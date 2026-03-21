@@ -9,17 +9,17 @@ import (
 	"google.golang.org/grpc"
 )
 
-// Client wraps the gRPC LocationManagerService client.
+// Client wraps the gRPC ManagerService client.
 type Client struct {
 	cc  grpc.ClientConnInterface
-	svc pb.LocationManagerServiceClient
+	svc pb.ManagerServiceClient
 }
 
 // NewClient creates a new location client.
 func NewClient(cc grpc.ClientConnInterface) *Client {
 	return &Client{
 		cc:  cc,
-		svc: pb.NewLocationManagerServiceClient(cc),
+		svc: pb.NewManagerServiceClient(cc),
 	}
 }
 
@@ -244,7 +244,7 @@ func (c *Client) GetLastKnownLocation(ctx context.Context, arg0 string) (int64, 
 
 // GetProvider calls the GetProvider RPC.
 func (c *Client) GetProvider(ctx context.Context, arg0 string) (int64, error) {
-	resp, err := c.svc.GetProvider(ctx, &pb.LocationManagerGetProviderRequest{
+	resp, err := c.svc.GetProvider(ctx, &pb.ManagerGetProviderRequest{
 		Arg0: arg0,
 	})
 	if err != nil {

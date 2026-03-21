@@ -15,6 +15,11 @@ import (
 	"time"
 )
 
+const (
+	clientCertValidity = 365 * 24 * time.Hour
+	caCertValidity     = 10 * 365 * 24 * time.Hour
+)
+
 // CA holds a certificate authority's certificate and private key,
 // used to sign client certificates for mTLS authentication.
 type CA struct {
@@ -72,7 +77,7 @@ func (ca *CA) SignCSR(csrPEM []byte) ([]byte, error) {
 		SerialNumber: serial,
 		Subject:      csr.Subject,
 		NotBefore:    now,
-		NotAfter:     now.Add(365 * 24 * time.Hour),
+		NotAfter:     now.Add(clientCertValidity),
 		KeyUsage:     x509.KeyUsageDigitalSignature,
 		ExtKeyUsage:  []x509.ExtKeyUsage{x509.ExtKeyUsageClientAuth},
 	}
@@ -191,7 +196,7 @@ func createCA(keyPath, certPath string) (*CA, error) {
 		SerialNumber:          serial,
 		Subject:               pkix.Name{CommonName: "jniservice CA"},
 		NotBefore:             now,
-		NotAfter:              now.Add(10 * 365 * 24 * time.Hour),
+		NotAfter:              now.Add(caCertValidity),
 		IsCA:                  true,
 		BasicConstraintsValid: true,
 		KeyUsage:              x509.KeyUsageCertSign | x509.KeyUsageCRLSign,

@@ -9,17 +9,17 @@ import (
 	"google.golang.org/grpc"
 )
 
-// Client wraps the gRPC CompanionDeviceManagerService client.
+// Client wraps the gRPC DeviceManagerService client.
 type Client struct {
 	cc  grpc.ClientConnInterface
-	svc pb.CompanionDeviceManagerServiceClient
+	svc pb.DeviceManagerServiceClient
 }
 
 // NewClient creates a new companion client.
 func NewClient(cc grpc.ClientConnInterface) *Client {
 	return &Client{
 		cc:  cc,
-		svc: pb.NewCompanionDeviceManagerServiceClient(cc),
+		svc: pb.NewDeviceManagerServiceClient(cc),
 	}
 }
 

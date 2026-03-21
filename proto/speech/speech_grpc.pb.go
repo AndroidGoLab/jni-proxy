@@ -1643,25 +1643,25 @@ var TextToSpeechService_ServiceDesc = grpc.ServiceDesc{
 }
 
 const (
-	SpeechRecognizerService_Cancel_FullMethodName                         = "/speech.SpeechRecognizerService/Cancel"
-	SpeechRecognizerService_CheckRecognitionSupport_FullMethodName        = "/speech.SpeechRecognizerService/CheckRecognitionSupport"
-	SpeechRecognizerService_Destroy_FullMethodName                        = "/speech.SpeechRecognizerService/Destroy"
-	SpeechRecognizerService_SetRecognitionListener_FullMethodName         = "/speech.SpeechRecognizerService/SetRecognitionListener"
-	SpeechRecognizerService_StartListening_FullMethodName                 = "/speech.SpeechRecognizerService/StartListening"
-	SpeechRecognizerService_StopListening_FullMethodName                  = "/speech.SpeechRecognizerService/StopListening"
-	SpeechRecognizerService_TriggerModelDownload1_FullMethodName          = "/speech.SpeechRecognizerService/TriggerModelDownload1"
-	SpeechRecognizerService_TriggerModelDownload3_1_FullMethodName        = "/speech.SpeechRecognizerService/TriggerModelDownload3_1"
-	SpeechRecognizerService_CreateOnDeviceSpeechRecognizer_FullMethodName = "/speech.SpeechRecognizerService/CreateOnDeviceSpeechRecognizer"
-	SpeechRecognizerService_CreateSpeechRecognizer1_FullMethodName        = "/speech.SpeechRecognizerService/CreateSpeechRecognizer1"
-	SpeechRecognizerService_CreateSpeechRecognizer2_1_FullMethodName      = "/speech.SpeechRecognizerService/CreateSpeechRecognizer2_1"
-	SpeechRecognizerService_IsOnDeviceRecognitionAvailable_FullMethodName = "/speech.SpeechRecognizerService/IsOnDeviceRecognitionAvailable"
-	SpeechRecognizerService_IsRecognitionAvailable_FullMethodName         = "/speech.SpeechRecognizerService/IsRecognitionAvailable"
+	RecognizerService_Cancel_FullMethodName                         = "/speech.RecognizerService/Cancel"
+	RecognizerService_CheckRecognitionSupport_FullMethodName        = "/speech.RecognizerService/CheckRecognitionSupport"
+	RecognizerService_Destroy_FullMethodName                        = "/speech.RecognizerService/Destroy"
+	RecognizerService_SetRecognitionListener_FullMethodName         = "/speech.RecognizerService/SetRecognitionListener"
+	RecognizerService_StartListening_FullMethodName                 = "/speech.RecognizerService/StartListening"
+	RecognizerService_StopListening_FullMethodName                  = "/speech.RecognizerService/StopListening"
+	RecognizerService_TriggerModelDownload1_FullMethodName          = "/speech.RecognizerService/TriggerModelDownload1"
+	RecognizerService_TriggerModelDownload3_1_FullMethodName        = "/speech.RecognizerService/TriggerModelDownload3_1"
+	RecognizerService_CreateOnDeviceSpeechRecognizer_FullMethodName = "/speech.RecognizerService/CreateOnDeviceSpeechRecognizer"
+	RecognizerService_CreateSpeechRecognizer1_FullMethodName        = "/speech.RecognizerService/CreateSpeechRecognizer1"
+	RecognizerService_CreateSpeechRecognizer2_1_FullMethodName      = "/speech.RecognizerService/CreateSpeechRecognizer2_1"
+	RecognizerService_IsOnDeviceRecognitionAvailable_FullMethodName = "/speech.RecognizerService/IsOnDeviceRecognitionAvailable"
+	RecognizerService_IsRecognitionAvailable_FullMethodName         = "/speech.RecognizerService/IsRecognitionAvailable"
 )
 
-// SpeechRecognizerServiceClient is the client API for SpeechRecognizerService service.
+// RecognizerServiceClient is the client API for RecognizerService service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type SpeechRecognizerServiceClient interface {
+type RecognizerServiceClient interface {
 	Cancel(ctx context.Context, in *CancelRequest, opts ...grpc.CallOption) (*CancelResponse, error)
 	CheckRecognitionSupport(ctx context.Context, in *CheckRecognitionSupportRequest, opts ...grpc.CallOption) (*CheckRecognitionSupportResponse, error)
 	Destroy(ctx context.Context, in *DestroyRequest, opts ...grpc.CallOption) (*DestroyResponse, error)
@@ -1677,148 +1677,148 @@ type SpeechRecognizerServiceClient interface {
 	IsRecognitionAvailable(ctx context.Context, in *IsRecognitionAvailableRequest, opts ...grpc.CallOption) (*IsRecognitionAvailableResponse, error)
 }
 
-type speechRecognizerServiceClient struct {
+type recognizerServiceClient struct {
 	cc grpc.ClientConnInterface
 }
 
-func NewSpeechRecognizerServiceClient(cc grpc.ClientConnInterface) SpeechRecognizerServiceClient {
-	return &speechRecognizerServiceClient{cc}
+func NewRecognizerServiceClient(cc grpc.ClientConnInterface) RecognizerServiceClient {
+	return &recognizerServiceClient{cc}
 }
 
-func (c *speechRecognizerServiceClient) Cancel(ctx context.Context, in *CancelRequest, opts ...grpc.CallOption) (*CancelResponse, error) {
+func (c *recognizerServiceClient) Cancel(ctx context.Context, in *CancelRequest, opts ...grpc.CallOption) (*CancelResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(CancelResponse)
-	err := c.cc.Invoke(ctx, SpeechRecognizerService_Cancel_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, RecognizerService_Cancel_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *speechRecognizerServiceClient) CheckRecognitionSupport(ctx context.Context, in *CheckRecognitionSupportRequest, opts ...grpc.CallOption) (*CheckRecognitionSupportResponse, error) {
+func (c *recognizerServiceClient) CheckRecognitionSupport(ctx context.Context, in *CheckRecognitionSupportRequest, opts ...grpc.CallOption) (*CheckRecognitionSupportResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(CheckRecognitionSupportResponse)
-	err := c.cc.Invoke(ctx, SpeechRecognizerService_CheckRecognitionSupport_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, RecognizerService_CheckRecognitionSupport_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *speechRecognizerServiceClient) Destroy(ctx context.Context, in *DestroyRequest, opts ...grpc.CallOption) (*DestroyResponse, error) {
+func (c *recognizerServiceClient) Destroy(ctx context.Context, in *DestroyRequest, opts ...grpc.CallOption) (*DestroyResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(DestroyResponse)
-	err := c.cc.Invoke(ctx, SpeechRecognizerService_Destroy_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, RecognizerService_Destroy_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *speechRecognizerServiceClient) SetRecognitionListener(ctx context.Context, in *SetRecognitionListenerRequest, opts ...grpc.CallOption) (*SetRecognitionListenerResponse, error) {
+func (c *recognizerServiceClient) SetRecognitionListener(ctx context.Context, in *SetRecognitionListenerRequest, opts ...grpc.CallOption) (*SetRecognitionListenerResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(SetRecognitionListenerResponse)
-	err := c.cc.Invoke(ctx, SpeechRecognizerService_SetRecognitionListener_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, RecognizerService_SetRecognitionListener_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *speechRecognizerServiceClient) StartListening(ctx context.Context, in *StartListeningRequest, opts ...grpc.CallOption) (*StartListeningResponse, error) {
+func (c *recognizerServiceClient) StartListening(ctx context.Context, in *StartListeningRequest, opts ...grpc.CallOption) (*StartListeningResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(StartListeningResponse)
-	err := c.cc.Invoke(ctx, SpeechRecognizerService_StartListening_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, RecognizerService_StartListening_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *speechRecognizerServiceClient) StopListening(ctx context.Context, in *StopListeningRequest, opts ...grpc.CallOption) (*StopListeningResponse, error) {
+func (c *recognizerServiceClient) StopListening(ctx context.Context, in *StopListeningRequest, opts ...grpc.CallOption) (*StopListeningResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(StopListeningResponse)
-	err := c.cc.Invoke(ctx, SpeechRecognizerService_StopListening_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, RecognizerService_StopListening_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *speechRecognizerServiceClient) TriggerModelDownload1(ctx context.Context, in *TriggerModelDownload1Request, opts ...grpc.CallOption) (*TriggerModelDownload1Response, error) {
+func (c *recognizerServiceClient) TriggerModelDownload1(ctx context.Context, in *TriggerModelDownload1Request, opts ...grpc.CallOption) (*TriggerModelDownload1Response, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(TriggerModelDownload1Response)
-	err := c.cc.Invoke(ctx, SpeechRecognizerService_TriggerModelDownload1_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, RecognizerService_TriggerModelDownload1_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *speechRecognizerServiceClient) TriggerModelDownload3_1(ctx context.Context, in *TriggerModelDownload3_1Request, opts ...grpc.CallOption) (*TriggerModelDownload3_1Response, error) {
+func (c *recognizerServiceClient) TriggerModelDownload3_1(ctx context.Context, in *TriggerModelDownload3_1Request, opts ...grpc.CallOption) (*TriggerModelDownload3_1Response, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(TriggerModelDownload3_1Response)
-	err := c.cc.Invoke(ctx, SpeechRecognizerService_TriggerModelDownload3_1_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, RecognizerService_TriggerModelDownload3_1_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *speechRecognizerServiceClient) CreateOnDeviceSpeechRecognizer(ctx context.Context, in *CreateOnDeviceSpeechRecognizerRequest, opts ...grpc.CallOption) (*CreateOnDeviceSpeechRecognizerResponse, error) {
+func (c *recognizerServiceClient) CreateOnDeviceSpeechRecognizer(ctx context.Context, in *CreateOnDeviceSpeechRecognizerRequest, opts ...grpc.CallOption) (*CreateOnDeviceSpeechRecognizerResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(CreateOnDeviceSpeechRecognizerResponse)
-	err := c.cc.Invoke(ctx, SpeechRecognizerService_CreateOnDeviceSpeechRecognizer_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, RecognizerService_CreateOnDeviceSpeechRecognizer_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *speechRecognizerServiceClient) CreateSpeechRecognizer1(ctx context.Context, in *CreateSpeechRecognizer1Request, opts ...grpc.CallOption) (*CreateSpeechRecognizer1Response, error) {
+func (c *recognizerServiceClient) CreateSpeechRecognizer1(ctx context.Context, in *CreateSpeechRecognizer1Request, opts ...grpc.CallOption) (*CreateSpeechRecognizer1Response, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(CreateSpeechRecognizer1Response)
-	err := c.cc.Invoke(ctx, SpeechRecognizerService_CreateSpeechRecognizer1_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, RecognizerService_CreateSpeechRecognizer1_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *speechRecognizerServiceClient) CreateSpeechRecognizer2_1(ctx context.Context, in *CreateSpeechRecognizer2_1Request, opts ...grpc.CallOption) (*CreateSpeechRecognizer2_1Response, error) {
+func (c *recognizerServiceClient) CreateSpeechRecognizer2_1(ctx context.Context, in *CreateSpeechRecognizer2_1Request, opts ...grpc.CallOption) (*CreateSpeechRecognizer2_1Response, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(CreateSpeechRecognizer2_1Response)
-	err := c.cc.Invoke(ctx, SpeechRecognizerService_CreateSpeechRecognizer2_1_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, RecognizerService_CreateSpeechRecognizer2_1_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *speechRecognizerServiceClient) IsOnDeviceRecognitionAvailable(ctx context.Context, in *IsOnDeviceRecognitionAvailableRequest, opts ...grpc.CallOption) (*IsOnDeviceRecognitionAvailableResponse, error) {
+func (c *recognizerServiceClient) IsOnDeviceRecognitionAvailable(ctx context.Context, in *IsOnDeviceRecognitionAvailableRequest, opts ...grpc.CallOption) (*IsOnDeviceRecognitionAvailableResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(IsOnDeviceRecognitionAvailableResponse)
-	err := c.cc.Invoke(ctx, SpeechRecognizerService_IsOnDeviceRecognitionAvailable_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, RecognizerService_IsOnDeviceRecognitionAvailable_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *speechRecognizerServiceClient) IsRecognitionAvailable(ctx context.Context, in *IsRecognitionAvailableRequest, opts ...grpc.CallOption) (*IsRecognitionAvailableResponse, error) {
+func (c *recognizerServiceClient) IsRecognitionAvailable(ctx context.Context, in *IsRecognitionAvailableRequest, opts ...grpc.CallOption) (*IsRecognitionAvailableResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(IsRecognitionAvailableResponse)
-	err := c.cc.Invoke(ctx, SpeechRecognizerService_IsRecognitionAvailable_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, RecognizerService_IsRecognitionAvailable_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-// SpeechRecognizerServiceServer is the server API for SpeechRecognizerService service.
-// All implementations must embed UnimplementedSpeechRecognizerServiceServer
+// RecognizerServiceServer is the server API for RecognizerService service.
+// All implementations must embed UnimplementedRecognizerServiceServer
 // for forward compatibility.
-type SpeechRecognizerServiceServer interface {
+type RecognizerServiceServer interface {
 	Cancel(context.Context, *CancelRequest) (*CancelResponse, error)
 	CheckRecognitionSupport(context.Context, *CheckRecognitionSupportRequest) (*CheckRecognitionSupportResponse, error)
 	Destroy(context.Context, *DestroyRequest) (*DestroyResponse, error)
@@ -1832,369 +1832,368 @@ type SpeechRecognizerServiceServer interface {
 	CreateSpeechRecognizer2_1(context.Context, *CreateSpeechRecognizer2_1Request) (*CreateSpeechRecognizer2_1Response, error)
 	IsOnDeviceRecognitionAvailable(context.Context, *IsOnDeviceRecognitionAvailableRequest) (*IsOnDeviceRecognitionAvailableResponse, error)
 	IsRecognitionAvailable(context.Context, *IsRecognitionAvailableRequest) (*IsRecognitionAvailableResponse, error)
-	mustEmbedUnimplementedSpeechRecognizerServiceServer()
+	mustEmbedUnimplementedRecognizerServiceServer()
 }
 
-// UnimplementedSpeechRecognizerServiceServer must be embedded to have
+// UnimplementedRecognizerServiceServer must be embedded to have
 // forward compatible implementations.
 //
 // NOTE: this should be embedded by value instead of pointer to avoid a nil
 // pointer dereference when methods are called.
-type UnimplementedSpeechRecognizerServiceServer struct{}
+type UnimplementedRecognizerServiceServer struct{}
 
-func (UnimplementedSpeechRecognizerServiceServer) Cancel(context.Context, *CancelRequest) (*CancelResponse, error) {
+func (UnimplementedRecognizerServiceServer) Cancel(context.Context, *CancelRequest) (*CancelResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method Cancel not implemented")
 }
-func (UnimplementedSpeechRecognizerServiceServer) CheckRecognitionSupport(context.Context, *CheckRecognitionSupportRequest) (*CheckRecognitionSupportResponse, error) {
+func (UnimplementedRecognizerServiceServer) CheckRecognitionSupport(context.Context, *CheckRecognitionSupportRequest) (*CheckRecognitionSupportResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method CheckRecognitionSupport not implemented")
 }
-func (UnimplementedSpeechRecognizerServiceServer) Destroy(context.Context, *DestroyRequest) (*DestroyResponse, error) {
+func (UnimplementedRecognizerServiceServer) Destroy(context.Context, *DestroyRequest) (*DestroyResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method Destroy not implemented")
 }
-func (UnimplementedSpeechRecognizerServiceServer) SetRecognitionListener(context.Context, *SetRecognitionListenerRequest) (*SetRecognitionListenerResponse, error) {
+func (UnimplementedRecognizerServiceServer) SetRecognitionListener(context.Context, *SetRecognitionListenerRequest) (*SetRecognitionListenerResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method SetRecognitionListener not implemented")
 }
-func (UnimplementedSpeechRecognizerServiceServer) StartListening(context.Context, *StartListeningRequest) (*StartListeningResponse, error) {
+func (UnimplementedRecognizerServiceServer) StartListening(context.Context, *StartListeningRequest) (*StartListeningResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method StartListening not implemented")
 }
-func (UnimplementedSpeechRecognizerServiceServer) StopListening(context.Context, *StopListeningRequest) (*StopListeningResponse, error) {
+func (UnimplementedRecognizerServiceServer) StopListening(context.Context, *StopListeningRequest) (*StopListeningResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method StopListening not implemented")
 }
-func (UnimplementedSpeechRecognizerServiceServer) TriggerModelDownload1(context.Context, *TriggerModelDownload1Request) (*TriggerModelDownload1Response, error) {
+func (UnimplementedRecognizerServiceServer) TriggerModelDownload1(context.Context, *TriggerModelDownload1Request) (*TriggerModelDownload1Response, error) {
 	return nil, status.Error(codes.Unimplemented, "method TriggerModelDownload1 not implemented")
 }
-func (UnimplementedSpeechRecognizerServiceServer) TriggerModelDownload3_1(context.Context, *TriggerModelDownload3_1Request) (*TriggerModelDownload3_1Response, error) {
+func (UnimplementedRecognizerServiceServer) TriggerModelDownload3_1(context.Context, *TriggerModelDownload3_1Request) (*TriggerModelDownload3_1Response, error) {
 	return nil, status.Error(codes.Unimplemented, "method TriggerModelDownload3_1 not implemented")
 }
-func (UnimplementedSpeechRecognizerServiceServer) CreateOnDeviceSpeechRecognizer(context.Context, *CreateOnDeviceSpeechRecognizerRequest) (*CreateOnDeviceSpeechRecognizerResponse, error) {
+func (UnimplementedRecognizerServiceServer) CreateOnDeviceSpeechRecognizer(context.Context, *CreateOnDeviceSpeechRecognizerRequest) (*CreateOnDeviceSpeechRecognizerResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method CreateOnDeviceSpeechRecognizer not implemented")
 }
-func (UnimplementedSpeechRecognizerServiceServer) CreateSpeechRecognizer1(context.Context, *CreateSpeechRecognizer1Request) (*CreateSpeechRecognizer1Response, error) {
+func (UnimplementedRecognizerServiceServer) CreateSpeechRecognizer1(context.Context, *CreateSpeechRecognizer1Request) (*CreateSpeechRecognizer1Response, error) {
 	return nil, status.Error(codes.Unimplemented, "method CreateSpeechRecognizer1 not implemented")
 }
-func (UnimplementedSpeechRecognizerServiceServer) CreateSpeechRecognizer2_1(context.Context, *CreateSpeechRecognizer2_1Request) (*CreateSpeechRecognizer2_1Response, error) {
+func (UnimplementedRecognizerServiceServer) CreateSpeechRecognizer2_1(context.Context, *CreateSpeechRecognizer2_1Request) (*CreateSpeechRecognizer2_1Response, error) {
 	return nil, status.Error(codes.Unimplemented, "method CreateSpeechRecognizer2_1 not implemented")
 }
-func (UnimplementedSpeechRecognizerServiceServer) IsOnDeviceRecognitionAvailable(context.Context, *IsOnDeviceRecognitionAvailableRequest) (*IsOnDeviceRecognitionAvailableResponse, error) {
+func (UnimplementedRecognizerServiceServer) IsOnDeviceRecognitionAvailable(context.Context, *IsOnDeviceRecognitionAvailableRequest) (*IsOnDeviceRecognitionAvailableResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method IsOnDeviceRecognitionAvailable not implemented")
 }
-func (UnimplementedSpeechRecognizerServiceServer) IsRecognitionAvailable(context.Context, *IsRecognitionAvailableRequest) (*IsRecognitionAvailableResponse, error) {
+func (UnimplementedRecognizerServiceServer) IsRecognitionAvailable(context.Context, *IsRecognitionAvailableRequest) (*IsRecognitionAvailableResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method IsRecognitionAvailable not implemented")
 }
-func (UnimplementedSpeechRecognizerServiceServer) mustEmbedUnimplementedSpeechRecognizerServiceServer() {
-}
-func (UnimplementedSpeechRecognizerServiceServer) testEmbeddedByValue() {}
+func (UnimplementedRecognizerServiceServer) mustEmbedUnimplementedRecognizerServiceServer() {}
+func (UnimplementedRecognizerServiceServer) testEmbeddedByValue()                           {}
 
-// UnsafeSpeechRecognizerServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to SpeechRecognizerServiceServer will
+// UnsafeRecognizerServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to RecognizerServiceServer will
 // result in compilation errors.
-type UnsafeSpeechRecognizerServiceServer interface {
-	mustEmbedUnimplementedSpeechRecognizerServiceServer()
+type UnsafeRecognizerServiceServer interface {
+	mustEmbedUnimplementedRecognizerServiceServer()
 }
 
-func RegisterSpeechRecognizerServiceServer(s grpc.ServiceRegistrar, srv SpeechRecognizerServiceServer) {
-	// If the following call panics, it indicates UnimplementedSpeechRecognizerServiceServer was
+func RegisterRecognizerServiceServer(s grpc.ServiceRegistrar, srv RecognizerServiceServer) {
+	// If the following call panics, it indicates UnimplementedRecognizerServiceServer was
 	// embedded by pointer and is nil.  This will cause panics if an
 	// unimplemented method is ever invoked, so we test this at initialization
 	// time to prevent it from happening at runtime later due to I/O.
 	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
 		t.testEmbeddedByValue()
 	}
-	s.RegisterService(&SpeechRecognizerService_ServiceDesc, srv)
+	s.RegisterService(&RecognizerService_ServiceDesc, srv)
 }
 
-func _SpeechRecognizerService_Cancel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _RecognizerService_Cancel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(CancelRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(SpeechRecognizerServiceServer).Cancel(ctx, in)
+		return srv.(RecognizerServiceServer).Cancel(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: SpeechRecognizerService_Cancel_FullMethodName,
+		FullMethod: RecognizerService_Cancel_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SpeechRecognizerServiceServer).Cancel(ctx, req.(*CancelRequest))
+		return srv.(RecognizerServiceServer).Cancel(ctx, req.(*CancelRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _SpeechRecognizerService_CheckRecognitionSupport_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _RecognizerService_CheckRecognitionSupport_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(CheckRecognitionSupportRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(SpeechRecognizerServiceServer).CheckRecognitionSupport(ctx, in)
+		return srv.(RecognizerServiceServer).CheckRecognitionSupport(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: SpeechRecognizerService_CheckRecognitionSupport_FullMethodName,
+		FullMethod: RecognizerService_CheckRecognitionSupport_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SpeechRecognizerServiceServer).CheckRecognitionSupport(ctx, req.(*CheckRecognitionSupportRequest))
+		return srv.(RecognizerServiceServer).CheckRecognitionSupport(ctx, req.(*CheckRecognitionSupportRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _SpeechRecognizerService_Destroy_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _RecognizerService_Destroy_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(DestroyRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(SpeechRecognizerServiceServer).Destroy(ctx, in)
+		return srv.(RecognizerServiceServer).Destroy(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: SpeechRecognizerService_Destroy_FullMethodName,
+		FullMethod: RecognizerService_Destroy_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SpeechRecognizerServiceServer).Destroy(ctx, req.(*DestroyRequest))
+		return srv.(RecognizerServiceServer).Destroy(ctx, req.(*DestroyRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _SpeechRecognizerService_SetRecognitionListener_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _RecognizerService_SetRecognitionListener_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(SetRecognitionListenerRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(SpeechRecognizerServiceServer).SetRecognitionListener(ctx, in)
+		return srv.(RecognizerServiceServer).SetRecognitionListener(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: SpeechRecognizerService_SetRecognitionListener_FullMethodName,
+		FullMethod: RecognizerService_SetRecognitionListener_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SpeechRecognizerServiceServer).SetRecognitionListener(ctx, req.(*SetRecognitionListenerRequest))
+		return srv.(RecognizerServiceServer).SetRecognitionListener(ctx, req.(*SetRecognitionListenerRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _SpeechRecognizerService_StartListening_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _RecognizerService_StartListening_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(StartListeningRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(SpeechRecognizerServiceServer).StartListening(ctx, in)
+		return srv.(RecognizerServiceServer).StartListening(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: SpeechRecognizerService_StartListening_FullMethodName,
+		FullMethod: RecognizerService_StartListening_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SpeechRecognizerServiceServer).StartListening(ctx, req.(*StartListeningRequest))
+		return srv.(RecognizerServiceServer).StartListening(ctx, req.(*StartListeningRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _SpeechRecognizerService_StopListening_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _RecognizerService_StopListening_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(StopListeningRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(SpeechRecognizerServiceServer).StopListening(ctx, in)
+		return srv.(RecognizerServiceServer).StopListening(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: SpeechRecognizerService_StopListening_FullMethodName,
+		FullMethod: RecognizerService_StopListening_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SpeechRecognizerServiceServer).StopListening(ctx, req.(*StopListeningRequest))
+		return srv.(RecognizerServiceServer).StopListening(ctx, req.(*StopListeningRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _SpeechRecognizerService_TriggerModelDownload1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _RecognizerService_TriggerModelDownload1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(TriggerModelDownload1Request)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(SpeechRecognizerServiceServer).TriggerModelDownload1(ctx, in)
+		return srv.(RecognizerServiceServer).TriggerModelDownload1(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: SpeechRecognizerService_TriggerModelDownload1_FullMethodName,
+		FullMethod: RecognizerService_TriggerModelDownload1_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SpeechRecognizerServiceServer).TriggerModelDownload1(ctx, req.(*TriggerModelDownload1Request))
+		return srv.(RecognizerServiceServer).TriggerModelDownload1(ctx, req.(*TriggerModelDownload1Request))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _SpeechRecognizerService_TriggerModelDownload3_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _RecognizerService_TriggerModelDownload3_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(TriggerModelDownload3_1Request)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(SpeechRecognizerServiceServer).TriggerModelDownload3_1(ctx, in)
+		return srv.(RecognizerServiceServer).TriggerModelDownload3_1(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: SpeechRecognizerService_TriggerModelDownload3_1_FullMethodName,
+		FullMethod: RecognizerService_TriggerModelDownload3_1_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SpeechRecognizerServiceServer).TriggerModelDownload3_1(ctx, req.(*TriggerModelDownload3_1Request))
+		return srv.(RecognizerServiceServer).TriggerModelDownload3_1(ctx, req.(*TriggerModelDownload3_1Request))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _SpeechRecognizerService_CreateOnDeviceSpeechRecognizer_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _RecognizerService_CreateOnDeviceSpeechRecognizer_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(CreateOnDeviceSpeechRecognizerRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(SpeechRecognizerServiceServer).CreateOnDeviceSpeechRecognizer(ctx, in)
+		return srv.(RecognizerServiceServer).CreateOnDeviceSpeechRecognizer(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: SpeechRecognizerService_CreateOnDeviceSpeechRecognizer_FullMethodName,
+		FullMethod: RecognizerService_CreateOnDeviceSpeechRecognizer_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SpeechRecognizerServiceServer).CreateOnDeviceSpeechRecognizer(ctx, req.(*CreateOnDeviceSpeechRecognizerRequest))
+		return srv.(RecognizerServiceServer).CreateOnDeviceSpeechRecognizer(ctx, req.(*CreateOnDeviceSpeechRecognizerRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _SpeechRecognizerService_CreateSpeechRecognizer1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _RecognizerService_CreateSpeechRecognizer1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(CreateSpeechRecognizer1Request)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(SpeechRecognizerServiceServer).CreateSpeechRecognizer1(ctx, in)
+		return srv.(RecognizerServiceServer).CreateSpeechRecognizer1(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: SpeechRecognizerService_CreateSpeechRecognizer1_FullMethodName,
+		FullMethod: RecognizerService_CreateSpeechRecognizer1_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SpeechRecognizerServiceServer).CreateSpeechRecognizer1(ctx, req.(*CreateSpeechRecognizer1Request))
+		return srv.(RecognizerServiceServer).CreateSpeechRecognizer1(ctx, req.(*CreateSpeechRecognizer1Request))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _SpeechRecognizerService_CreateSpeechRecognizer2_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _RecognizerService_CreateSpeechRecognizer2_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(CreateSpeechRecognizer2_1Request)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(SpeechRecognizerServiceServer).CreateSpeechRecognizer2_1(ctx, in)
+		return srv.(RecognizerServiceServer).CreateSpeechRecognizer2_1(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: SpeechRecognizerService_CreateSpeechRecognizer2_1_FullMethodName,
+		FullMethod: RecognizerService_CreateSpeechRecognizer2_1_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SpeechRecognizerServiceServer).CreateSpeechRecognizer2_1(ctx, req.(*CreateSpeechRecognizer2_1Request))
+		return srv.(RecognizerServiceServer).CreateSpeechRecognizer2_1(ctx, req.(*CreateSpeechRecognizer2_1Request))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _SpeechRecognizerService_IsOnDeviceRecognitionAvailable_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _RecognizerService_IsOnDeviceRecognitionAvailable_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(IsOnDeviceRecognitionAvailableRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(SpeechRecognizerServiceServer).IsOnDeviceRecognitionAvailable(ctx, in)
+		return srv.(RecognizerServiceServer).IsOnDeviceRecognitionAvailable(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: SpeechRecognizerService_IsOnDeviceRecognitionAvailable_FullMethodName,
+		FullMethod: RecognizerService_IsOnDeviceRecognitionAvailable_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SpeechRecognizerServiceServer).IsOnDeviceRecognitionAvailable(ctx, req.(*IsOnDeviceRecognitionAvailableRequest))
+		return srv.(RecognizerServiceServer).IsOnDeviceRecognitionAvailable(ctx, req.(*IsOnDeviceRecognitionAvailableRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _SpeechRecognizerService_IsRecognitionAvailable_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _RecognizerService_IsRecognitionAvailable_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(IsRecognitionAvailableRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(SpeechRecognizerServiceServer).IsRecognitionAvailable(ctx, in)
+		return srv.(RecognizerServiceServer).IsRecognitionAvailable(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: SpeechRecognizerService_IsRecognitionAvailable_FullMethodName,
+		FullMethod: RecognizerService_IsRecognitionAvailable_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SpeechRecognizerServiceServer).IsRecognitionAvailable(ctx, req.(*IsRecognitionAvailableRequest))
+		return srv.(RecognizerServiceServer).IsRecognitionAvailable(ctx, req.(*IsRecognitionAvailableRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-// SpeechRecognizerService_ServiceDesc is the grpc.ServiceDesc for SpeechRecognizerService service.
+// RecognizerService_ServiceDesc is the grpc.ServiceDesc for RecognizerService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
-var SpeechRecognizerService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "speech.SpeechRecognizerService",
-	HandlerType: (*SpeechRecognizerServiceServer)(nil),
+var RecognizerService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "speech.RecognizerService",
+	HandlerType: (*RecognizerServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
 			MethodName: "Cancel",
-			Handler:    _SpeechRecognizerService_Cancel_Handler,
+			Handler:    _RecognizerService_Cancel_Handler,
 		},
 		{
 			MethodName: "CheckRecognitionSupport",
-			Handler:    _SpeechRecognizerService_CheckRecognitionSupport_Handler,
+			Handler:    _RecognizerService_CheckRecognitionSupport_Handler,
 		},
 		{
 			MethodName: "Destroy",
-			Handler:    _SpeechRecognizerService_Destroy_Handler,
+			Handler:    _RecognizerService_Destroy_Handler,
 		},
 		{
 			MethodName: "SetRecognitionListener",
-			Handler:    _SpeechRecognizerService_SetRecognitionListener_Handler,
+			Handler:    _RecognizerService_SetRecognitionListener_Handler,
 		},
 		{
 			MethodName: "StartListening",
-			Handler:    _SpeechRecognizerService_StartListening_Handler,
+			Handler:    _RecognizerService_StartListening_Handler,
 		},
 		{
 			MethodName: "StopListening",
-			Handler:    _SpeechRecognizerService_StopListening_Handler,
+			Handler:    _RecognizerService_StopListening_Handler,
 		},
 		{
 			MethodName: "TriggerModelDownload1",
-			Handler:    _SpeechRecognizerService_TriggerModelDownload1_Handler,
+			Handler:    _RecognizerService_TriggerModelDownload1_Handler,
 		},
 		{
 			MethodName: "TriggerModelDownload3_1",
-			Handler:    _SpeechRecognizerService_TriggerModelDownload3_1_Handler,
+			Handler:    _RecognizerService_TriggerModelDownload3_1_Handler,
 		},
 		{
 			MethodName: "CreateOnDeviceSpeechRecognizer",
-			Handler:    _SpeechRecognizerService_CreateOnDeviceSpeechRecognizer_Handler,
+			Handler:    _RecognizerService_CreateOnDeviceSpeechRecognizer_Handler,
 		},
 		{
 			MethodName: "CreateSpeechRecognizer1",
-			Handler:    _SpeechRecognizerService_CreateSpeechRecognizer1_Handler,
+			Handler:    _RecognizerService_CreateSpeechRecognizer1_Handler,
 		},
 		{
 			MethodName: "CreateSpeechRecognizer2_1",
-			Handler:    _SpeechRecognizerService_CreateSpeechRecognizer2_1_Handler,
+			Handler:    _RecognizerService_CreateSpeechRecognizer2_1_Handler,
 		},
 		{
 			MethodName: "IsOnDeviceRecognitionAvailable",
-			Handler:    _SpeechRecognizerService_IsOnDeviceRecognitionAvailable_Handler,
+			Handler:    _RecognizerService_IsOnDeviceRecognitionAvailable_Handler,
 		},
 		{
 			MethodName: "IsRecognitionAvailable",
-			Handler:    _SpeechRecognizerService_IsRecognitionAvailable_Handler,
+			Handler:    _RecognizerService_IsRecognitionAvailable_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

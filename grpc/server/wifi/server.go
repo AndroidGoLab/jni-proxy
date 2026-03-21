@@ -7,23 +7,23 @@ import (
 
 	"github.com/AndroidGoLab/jni"
 
-	"github.com/AndroidGoLab/jni/app"
 	"github.com/AndroidGoLab/jni-proxy/handlestore"
-	jnipkg "github.com/AndroidGoLab/jni/net/wifi"
 	pb "github.com/AndroidGoLab/jni-proxy/proto/wifi"
+	"github.com/AndroidGoLab/jni/app"
+	jnipkg "github.com/AndroidGoLab/jni/net/wifi"
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"
 )
 
-// WifiManagerServer implements pb.WifiManagerServiceServer.
-type WifiManagerServer struct {
-	pb.UnimplementedWifiManagerServiceServer
+// ManagerServer implements pb.ManagerServiceServer.
+type ManagerServer struct {
+	pb.UnimplementedManagerServiceServer
 	Ctx     *app.Context
 	Handles *handlestore.HandleStore
 }
 
-func (s *WifiManagerServer) AddLocalOnlyConnectionFailureListener(_ context.Context, req *pb.AddLocalOnlyConnectionFailureListenerRequest) (*pb.AddLocalOnlyConnectionFailureListenerResponse, error) {
-	mgr, err := jnipkg.NewwifiManager(s.Ctx)
+func (s *ManagerServer) AddLocalOnlyConnectionFailureListener(_ context.Context, req *pb.AddLocalOnlyConnectionFailureListenerRequest) (*pb.AddLocalOnlyConnectionFailureListenerResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -35,8 +35,8 @@ func (s *WifiManagerServer) AddLocalOnlyConnectionFailureListener(_ context.Cont
 	return &pb.AddLocalOnlyConnectionFailureListenerResponse{}, nil
 }
 
-func (s *WifiManagerServer) AddNetwork(_ context.Context, req *pb.AddNetworkRequest) (*pb.AddNetworkResponse, error) {
-	mgr, err := jnipkg.NewwifiManager(s.Ctx)
+func (s *ManagerServer) AddNetwork(_ context.Context, req *pb.AddNetworkRequest) (*pb.AddNetworkResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -49,8 +49,8 @@ func (s *WifiManagerServer) AddNetwork(_ context.Context, req *pb.AddNetworkRequ
 	return &pb.AddNetworkResponse{Result: result}, nil
 }
 
-func (s *WifiManagerServer) AddNetworkPrivileged(_ context.Context, req *pb.AddNetworkPrivilegedRequest) (*pb.AddNetworkPrivilegedResponse, error) {
-	mgr, err := jnipkg.NewwifiManager(s.Ctx)
+func (s *ManagerServer) AddNetworkPrivileged(_ context.Context, req *pb.AddNetworkPrivilegedRequest) (*pb.AddNetworkPrivilegedResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -72,8 +72,8 @@ func (s *WifiManagerServer) AddNetworkPrivileged(_ context.Context, req *pb.AddN
 	return &pb.AddNetworkPrivilegedResponse{Result: handle}, nil
 }
 
-func (s *WifiManagerServer) AddNetworkSuggestions(_ context.Context, req *pb.AddNetworkSuggestionsRequest) (*pb.AddNetworkSuggestionsResponse, error) {
-	mgr, err := jnipkg.NewwifiManager(s.Ctx)
+func (s *ManagerServer) AddNetworkSuggestions(_ context.Context, req *pb.AddNetworkSuggestionsRequest) (*pb.AddNetworkSuggestionsResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -86,8 +86,8 @@ func (s *WifiManagerServer) AddNetworkSuggestions(_ context.Context, req *pb.Add
 	return &pb.AddNetworkSuggestionsResponse{Result: result}, nil
 }
 
-func (s *WifiManagerServer) AddOrUpdatePasspointConfiguration(_ context.Context, req *pb.AddOrUpdatePasspointConfigurationRequest) (*pb.AddOrUpdatePasspointConfigurationResponse, error) {
-	mgr, err := jnipkg.NewwifiManager(s.Ctx)
+func (s *ManagerServer) AddOrUpdatePasspointConfiguration(_ context.Context, req *pb.AddOrUpdatePasspointConfigurationRequest) (*pb.AddOrUpdatePasspointConfigurationResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -99,8 +99,8 @@ func (s *WifiManagerServer) AddOrUpdatePasspointConfiguration(_ context.Context,
 	return &pb.AddOrUpdatePasspointConfigurationResponse{}, nil
 }
 
-func (s *WifiManagerServer) AddSuggestionConnectionStatusListener(_ context.Context, req *pb.AddSuggestionConnectionStatusListenerRequest) (*pb.AddSuggestionConnectionStatusListenerResponse, error) {
-	mgr, err := jnipkg.NewwifiManager(s.Ctx)
+func (s *ManagerServer) AddSuggestionConnectionStatusListener(_ context.Context, req *pb.AddSuggestionConnectionStatusListenerRequest) (*pb.AddSuggestionConnectionStatusListenerResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -112,8 +112,8 @@ func (s *WifiManagerServer) AddSuggestionConnectionStatusListener(_ context.Cont
 	return &pb.AddSuggestionConnectionStatusListenerResponse{}, nil
 }
 
-func (s *WifiManagerServer) AddSuggestionUserApprovalStatusListener(_ context.Context, req *pb.AddSuggestionUserApprovalStatusListenerRequest) (*pb.AddSuggestionUserApprovalStatusListenerResponse, error) {
-	mgr, err := jnipkg.NewwifiManager(s.Ctx)
+func (s *ManagerServer) AddSuggestionUserApprovalStatusListener(_ context.Context, req *pb.AddSuggestionUserApprovalStatusListenerRequest) (*pb.AddSuggestionUserApprovalStatusListenerResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -125,8 +125,8 @@ func (s *WifiManagerServer) AddSuggestionUserApprovalStatusListener(_ context.Co
 	return &pb.AddSuggestionUserApprovalStatusListenerResponse{}, nil
 }
 
-func (s *WifiManagerServer) AddWifiStateChangedListener(_ context.Context, req *pb.AddWifiStateChangedListenerRequest) (*pb.AddWifiStateChangedListenerResponse, error) {
-	mgr, err := jnipkg.NewwifiManager(s.Ctx)
+func (s *ManagerServer) AddWifiStateChangedListener(_ context.Context, req *pb.AddWifiStateChangedListenerRequest) (*pb.AddWifiStateChangedListenerResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -138,8 +138,8 @@ func (s *WifiManagerServer) AddWifiStateChangedListener(_ context.Context, req *
 	return &pb.AddWifiStateChangedListenerResponse{}, nil
 }
 
-func (s *WifiManagerServer) AllowAutojoinGlobal(_ context.Context, req *pb.AllowAutojoinGlobalRequest) (*pb.AllowAutojoinGlobalResponse, error) {
-	mgr, err := jnipkg.NewwifiManager(s.Ctx)
+func (s *ManagerServer) AllowAutojoinGlobal(_ context.Context, req *pb.AllowAutojoinGlobalRequest) (*pb.AllowAutojoinGlobalResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -151,8 +151,8 @@ func (s *WifiManagerServer) AllowAutojoinGlobal(_ context.Context, req *pb.Allow
 	return &pb.AllowAutojoinGlobalResponse{}, nil
 }
 
-func (s *WifiManagerServer) CalculateSignalLevel1(_ context.Context, req *pb.CalculateSignalLevel1Request) (*pb.CalculateSignalLevel1Response, error) {
-	mgr, err := jnipkg.NewwifiManager(s.Ctx)
+func (s *ManagerServer) CalculateSignalLevel1(_ context.Context, req *pb.CalculateSignalLevel1Request) (*pb.CalculateSignalLevel1Response, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -165,8 +165,8 @@ func (s *WifiManagerServer) CalculateSignalLevel1(_ context.Context, req *pb.Cal
 	return &pb.CalculateSignalLevel1Response{Result: result}, nil
 }
 
-func (s *WifiManagerServer) CancelWps(_ context.Context, req *pb.CancelWpsRequest) (*pb.CancelWpsResponse, error) {
-	mgr, err := jnipkg.NewwifiManager(s.Ctx)
+func (s *ManagerServer) CancelWps(_ context.Context, req *pb.CancelWpsRequest) (*pb.CancelWpsResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -178,8 +178,8 @@ func (s *WifiManagerServer) CancelWps(_ context.Context, req *pb.CancelWpsReques
 	return &pb.CancelWpsResponse{}, nil
 }
 
-func (s *WifiManagerServer) CreateMulticastLock(_ context.Context, req *pb.CreateMulticastLockRequest) (*pb.CreateMulticastLockResponse, error) {
-	mgr, err := jnipkg.NewwifiManager(s.Ctx)
+func (s *ManagerServer) CreateMulticastLock(_ context.Context, req *pb.CreateMulticastLockRequest) (*pb.CreateMulticastLockResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -201,8 +201,8 @@ func (s *WifiManagerServer) CreateMulticastLock(_ context.Context, req *pb.Creat
 	return &pb.CreateMulticastLockResponse{Result: handle}, nil
 }
 
-func (s *WifiManagerServer) CreateWifiLock2(_ context.Context, req *pb.CreateWifiLock2Request) (*pb.CreateWifiLock2Response, error) {
-	mgr, err := jnipkg.NewwifiManager(s.Ctx)
+func (s *ManagerServer) CreateWifiLock2(_ context.Context, req *pb.CreateWifiLock2Request) (*pb.CreateWifiLock2Response, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -224,8 +224,8 @@ func (s *WifiManagerServer) CreateWifiLock2(_ context.Context, req *pb.CreateWif
 	return &pb.CreateWifiLock2Response{Result: handle}, nil
 }
 
-func (s *WifiManagerServer) CreateWifiLock1_1(_ context.Context, req *pb.CreateWifiLock1_1Request) (*pb.CreateWifiLock1_1Response, error) {
-	mgr, err := jnipkg.NewwifiManager(s.Ctx)
+func (s *ManagerServer) CreateWifiLock1_1(_ context.Context, req *pb.CreateWifiLock1_1Request) (*pb.CreateWifiLock1_1Response, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -247,8 +247,8 @@ func (s *WifiManagerServer) CreateWifiLock1_1(_ context.Context, req *pb.CreateW
 	return &pb.CreateWifiLock1_1Response{Result: handle}, nil
 }
 
-func (s *WifiManagerServer) DisableNetwork(_ context.Context, req *pb.DisableNetworkRequest) (*pb.DisableNetworkResponse, error) {
-	mgr, err := jnipkg.NewwifiManager(s.Ctx)
+func (s *ManagerServer) DisableNetwork(_ context.Context, req *pb.DisableNetworkRequest) (*pb.DisableNetworkResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -261,8 +261,8 @@ func (s *WifiManagerServer) DisableNetwork(_ context.Context, req *pb.DisableNet
 	return &pb.DisableNetworkResponse{Result: result}, nil
 }
 
-func (s *WifiManagerServer) DisallowCurrentSuggestedNetwork(_ context.Context, req *pb.DisallowCurrentSuggestedNetworkRequest) (*pb.DisallowCurrentSuggestedNetworkResponse, error) {
-	mgr, err := jnipkg.NewwifiManager(s.Ctx)
+func (s *ManagerServer) DisallowCurrentSuggestedNetwork(_ context.Context, req *pb.DisallowCurrentSuggestedNetworkRequest) (*pb.DisallowCurrentSuggestedNetworkResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -274,8 +274,8 @@ func (s *WifiManagerServer) DisallowCurrentSuggestedNetwork(_ context.Context, r
 	return &pb.DisallowCurrentSuggestedNetworkResponse{}, nil
 }
 
-func (s *WifiManagerServer) Disconnect(_ context.Context, req *pb.DisconnectRequest) (*pb.DisconnectResponse, error) {
-	mgr, err := jnipkg.NewwifiManager(s.Ctx)
+func (s *ManagerServer) Disconnect(_ context.Context, req *pb.DisconnectRequest) (*pb.DisconnectResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -288,8 +288,8 @@ func (s *WifiManagerServer) Disconnect(_ context.Context, req *pb.DisconnectRequ
 	return &pb.DisconnectResponse{Result: result}, nil
 }
 
-func (s *WifiManagerServer) EnableNetwork(_ context.Context, req *pb.EnableNetworkRequest) (*pb.EnableNetworkResponse, error) {
-	mgr, err := jnipkg.NewwifiManager(s.Ctx)
+func (s *ManagerServer) EnableNetwork(_ context.Context, req *pb.EnableNetworkRequest) (*pb.EnableNetworkResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -302,8 +302,8 @@ func (s *WifiManagerServer) EnableNetwork(_ context.Context, req *pb.EnableNetwo
 	return &pb.EnableNetworkResponse{Result: result}, nil
 }
 
-func (s *WifiManagerServer) FlushPasspointAnqpCache(_ context.Context, req *pb.FlushPasspointAnqpCacheRequest) (*pb.FlushPasspointAnqpCacheResponse, error) {
-	mgr, err := jnipkg.NewwifiManager(s.Ctx)
+func (s *ManagerServer) FlushPasspointAnqpCache(_ context.Context, req *pb.FlushPasspointAnqpCacheRequest) (*pb.FlushPasspointAnqpCacheResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -315,8 +315,8 @@ func (s *WifiManagerServer) FlushPasspointAnqpCache(_ context.Context, req *pb.F
 	return &pb.FlushPasspointAnqpCacheResponse{}, nil
 }
 
-func (s *WifiManagerServer) GetAllowedChannels(_ context.Context, req *pb.GetAllowedChannelsRequest) (*pb.GetAllowedChannelsResponse, error) {
-	mgr, err := jnipkg.NewwifiManager(s.Ctx)
+func (s *ManagerServer) GetAllowedChannels(_ context.Context, req *pb.GetAllowedChannelsRequest) (*pb.GetAllowedChannelsResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -338,8 +338,8 @@ func (s *WifiManagerServer) GetAllowedChannels(_ context.Context, req *pb.GetAll
 	return &pb.GetAllowedChannelsResponse{Result: handle}, nil
 }
 
-func (s *WifiManagerServer) GetCallerConfiguredNetworks(_ context.Context, req *pb.GetCallerConfiguredNetworksRequest) (*pb.GetCallerConfiguredNetworksResponse, error) {
-	mgr, err := jnipkg.NewwifiManager(s.Ctx)
+func (s *ManagerServer) GetCallerConfiguredNetworks(_ context.Context, req *pb.GetCallerConfiguredNetworksRequest) (*pb.GetCallerConfiguredNetworksResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -361,8 +361,8 @@ func (s *WifiManagerServer) GetCallerConfiguredNetworks(_ context.Context, req *
 	return &pb.GetCallerConfiguredNetworksResponse{Result: handle}, nil
 }
 
-func (s *WifiManagerServer) GetChannelData(_ context.Context, req *pb.GetChannelDataRequest) (*pb.GetChannelDataResponse, error) {
-	mgr, err := jnipkg.NewwifiManager(s.Ctx)
+func (s *ManagerServer) GetChannelData(_ context.Context, req *pb.GetChannelDataRequest) (*pb.GetChannelDataResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -374,8 +374,8 @@ func (s *WifiManagerServer) GetChannelData(_ context.Context, req *pb.GetChannel
 	return &pb.GetChannelDataResponse{}, nil
 }
 
-func (s *WifiManagerServer) GetConfiguredNetworks(_ context.Context, req *pb.GetConfiguredNetworksRequest) (*pb.GetConfiguredNetworksResponse, error) {
-	mgr, err := jnipkg.NewwifiManager(s.Ctx)
+func (s *ManagerServer) GetConfiguredNetworks(_ context.Context, req *pb.GetConfiguredNetworksRequest) (*pb.GetConfiguredNetworksResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -397,8 +397,8 @@ func (s *WifiManagerServer) GetConfiguredNetworks(_ context.Context, req *pb.Get
 	return &pb.GetConfiguredNetworksResponse{Result: handle}, nil
 }
 
-func (s *WifiManagerServer) GetConnectionInfo(_ context.Context, req *pb.GetConnectionInfoRequest) (*pb.GetConnectionInfoResponse, error) {
-	mgr, err := jnipkg.NewwifiManager(s.Ctx)
+func (s *ManagerServer) GetConnectionInfo(_ context.Context, req *pb.GetConnectionInfoRequest) (*pb.GetConnectionInfoResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -420,8 +420,8 @@ func (s *WifiManagerServer) GetConnectionInfo(_ context.Context, req *pb.GetConn
 	return &pb.GetConnectionInfoResponse{Result: handle}, nil
 }
 
-func (s *WifiManagerServer) GetDhcpInfo(_ context.Context, req *pb.GetDhcpInfoRequest) (*pb.GetDhcpInfoResponse, error) {
-	mgr, err := jnipkg.NewwifiManager(s.Ctx)
+func (s *ManagerServer) GetDhcpInfo(_ context.Context, req *pb.GetDhcpInfoRequest) (*pb.GetDhcpInfoResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -443,8 +443,8 @@ func (s *WifiManagerServer) GetDhcpInfo(_ context.Context, req *pb.GetDhcpInfoRe
 	return &pb.GetDhcpInfoResponse{Result: handle}, nil
 }
 
-func (s *WifiManagerServer) GetMaxNumberOfChannelsPerNetworkSpecifierRequest(_ context.Context, req *pb.GetMaxNumberOfChannelsPerNetworkSpecifierRequestRequest) (*pb.GetMaxNumberOfChannelsPerNetworkSpecifierRequestResponse, error) {
-	mgr, err := jnipkg.NewwifiManager(s.Ctx)
+func (s *ManagerServer) GetMaxNumberOfChannelsPerNetworkSpecifierRequest(_ context.Context, req *pb.GetMaxNumberOfChannelsPerNetworkSpecifierRequestRequest) (*pb.GetMaxNumberOfChannelsPerNetworkSpecifierRequestResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -457,8 +457,8 @@ func (s *WifiManagerServer) GetMaxNumberOfChannelsPerNetworkSpecifierRequest(_ c
 	return &pb.GetMaxNumberOfChannelsPerNetworkSpecifierRequestResponse{Result: result}, nil
 }
 
-func (s *WifiManagerServer) GetMaxNumberOfNetworkSuggestionsPerApp(_ context.Context, req *pb.GetMaxNumberOfNetworkSuggestionsPerAppRequest) (*pb.GetMaxNumberOfNetworkSuggestionsPerAppResponse, error) {
-	mgr, err := jnipkg.NewwifiManager(s.Ctx)
+func (s *ManagerServer) GetMaxNumberOfNetworkSuggestionsPerApp(_ context.Context, req *pb.GetMaxNumberOfNetworkSuggestionsPerAppRequest) (*pb.GetMaxNumberOfNetworkSuggestionsPerAppResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -471,8 +471,8 @@ func (s *WifiManagerServer) GetMaxNumberOfNetworkSuggestionsPerApp(_ context.Con
 	return &pb.GetMaxNumberOfNetworkSuggestionsPerAppResponse{Result: result}, nil
 }
 
-func (s *WifiManagerServer) GetMaxSignalLevel(_ context.Context, req *pb.GetMaxSignalLevelRequest) (*pb.GetMaxSignalLevelResponse, error) {
-	mgr, err := jnipkg.NewwifiManager(s.Ctx)
+func (s *ManagerServer) GetMaxSignalLevel(_ context.Context, req *pb.GetMaxSignalLevelRequest) (*pb.GetMaxSignalLevelResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -485,8 +485,8 @@ func (s *WifiManagerServer) GetMaxSignalLevel(_ context.Context, req *pb.GetMaxS
 	return &pb.GetMaxSignalLevelResponse{Result: result}, nil
 }
 
-func (s *WifiManagerServer) GetMaxSupportedConcurrentTdlsSessions(_ context.Context, req *pb.GetMaxSupportedConcurrentTdlsSessionsRequest) (*pb.GetMaxSupportedConcurrentTdlsSessionsResponse, error) {
-	mgr, err := jnipkg.NewwifiManager(s.Ctx)
+func (s *ManagerServer) GetMaxSupportedConcurrentTdlsSessions(_ context.Context, req *pb.GetMaxSupportedConcurrentTdlsSessionsRequest) (*pb.GetMaxSupportedConcurrentTdlsSessionsResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -498,8 +498,8 @@ func (s *WifiManagerServer) GetMaxSupportedConcurrentTdlsSessions(_ context.Cont
 	return &pb.GetMaxSupportedConcurrentTdlsSessionsResponse{}, nil
 }
 
-func (s *WifiManagerServer) GetNetworkSuggestions(_ context.Context, req *pb.GetNetworkSuggestionsRequest) (*pb.GetNetworkSuggestionsResponse, error) {
-	mgr, err := jnipkg.NewwifiManager(s.Ctx)
+func (s *ManagerServer) GetNetworkSuggestions(_ context.Context, req *pb.GetNetworkSuggestionsRequest) (*pb.GetNetworkSuggestionsResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -521,8 +521,8 @@ func (s *WifiManagerServer) GetNetworkSuggestions(_ context.Context, req *pb.Get
 	return &pb.GetNetworkSuggestionsResponse{Result: handle}, nil
 }
 
-func (s *WifiManagerServer) GetNumberOfEnabledTdlsSessions(_ context.Context, req *pb.GetNumberOfEnabledTdlsSessionsRequest) (*pb.GetNumberOfEnabledTdlsSessionsResponse, error) {
-	mgr, err := jnipkg.NewwifiManager(s.Ctx)
+func (s *ManagerServer) GetNumberOfEnabledTdlsSessions(_ context.Context, req *pb.GetNumberOfEnabledTdlsSessionsRequest) (*pb.GetNumberOfEnabledTdlsSessionsResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -534,8 +534,8 @@ func (s *WifiManagerServer) GetNumberOfEnabledTdlsSessions(_ context.Context, re
 	return &pb.GetNumberOfEnabledTdlsSessionsResponse{}, nil
 }
 
-func (s *WifiManagerServer) GetPasspointConfigurations(_ context.Context, req *pb.GetPasspointConfigurationsRequest) (*pb.GetPasspointConfigurationsResponse, error) {
-	mgr, err := jnipkg.NewwifiManager(s.Ctx)
+func (s *ManagerServer) GetPasspointConfigurations(_ context.Context, req *pb.GetPasspointConfigurationsRequest) (*pb.GetPasspointConfigurationsResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -557,8 +557,8 @@ func (s *WifiManagerServer) GetPasspointConfigurations(_ context.Context, req *p
 	return &pb.GetPasspointConfigurationsResponse{Result: handle}, nil
 }
 
-func (s *WifiManagerServer) GetPerSsidRoamingModes(_ context.Context, req *pb.GetPerSsidRoamingModesRequest) (*pb.GetPerSsidRoamingModesResponse, error) {
-	mgr, err := jnipkg.NewwifiManager(s.Ctx)
+func (s *ManagerServer) GetPerSsidRoamingModes(_ context.Context, req *pb.GetPerSsidRoamingModesRequest) (*pb.GetPerSsidRoamingModesResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -570,8 +570,8 @@ func (s *WifiManagerServer) GetPerSsidRoamingModes(_ context.Context, req *pb.Ge
 	return &pb.GetPerSsidRoamingModesResponse{}, nil
 }
 
-func (s *WifiManagerServer) GetScanResults(_ context.Context, req *pb.GetScanResultsRequest) (*pb.GetScanResultsResponse, error) {
-	mgr, err := jnipkg.NewwifiManager(s.Ctx)
+func (s *ManagerServer) GetScanResults(_ context.Context, req *pb.GetScanResultsRequest) (*pb.GetScanResultsResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -593,8 +593,8 @@ func (s *WifiManagerServer) GetScanResults(_ context.Context, req *pb.GetScanRes
 	return &pb.GetScanResultsResponse{Result: handle}, nil
 }
 
-func (s *WifiManagerServer) GetStaConcurrencyForMultiInternetMode(_ context.Context, req *pb.GetStaConcurrencyForMultiInternetModeRequest) (*pb.GetStaConcurrencyForMultiInternetModeResponse, error) {
-	mgr, err := jnipkg.NewwifiManager(s.Ctx)
+func (s *ManagerServer) GetStaConcurrencyForMultiInternetMode(_ context.Context, req *pb.GetStaConcurrencyForMultiInternetModeRequest) (*pb.GetStaConcurrencyForMultiInternetModeResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -607,8 +607,8 @@ func (s *WifiManagerServer) GetStaConcurrencyForMultiInternetMode(_ context.Cont
 	return &pb.GetStaConcurrencyForMultiInternetModeResponse{Result: result}, nil
 }
 
-func (s *WifiManagerServer) GetUsableChannels(_ context.Context, req *pb.GetUsableChannelsRequest) (*pb.GetUsableChannelsResponse, error) {
-	mgr, err := jnipkg.NewwifiManager(s.Ctx)
+func (s *ManagerServer) GetUsableChannels(_ context.Context, req *pb.GetUsableChannelsRequest) (*pb.GetUsableChannelsResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -630,8 +630,8 @@ func (s *WifiManagerServer) GetUsableChannels(_ context.Context, req *pb.GetUsab
 	return &pb.GetUsableChannelsResponse{Result: handle}, nil
 }
 
-func (s *WifiManagerServer) GetWifiState(_ context.Context, req *pb.GetWifiStateRequest) (*pb.GetWifiStateResponse, error) {
-	mgr, err := jnipkg.NewwifiManager(s.Ctx)
+func (s *ManagerServer) GetWifiState(_ context.Context, req *pb.GetWifiStateRequest) (*pb.GetWifiStateResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -644,8 +644,8 @@ func (s *WifiManagerServer) GetWifiState(_ context.Context, req *pb.GetWifiState
 	return &pb.GetWifiStateResponse{Result: result}, nil
 }
 
-func (s *WifiManagerServer) Is24GHzBandSupported(_ context.Context, req *pb.Is24GHzBandSupportedRequest) (*pb.Is24GHzBandSupportedResponse, error) {
-	mgr, err := jnipkg.NewwifiManager(s.Ctx)
+func (s *ManagerServer) Is24GHzBandSupported(_ context.Context, req *pb.Is24GHzBandSupportedRequest) (*pb.Is24GHzBandSupportedResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -658,8 +658,8 @@ func (s *WifiManagerServer) Is24GHzBandSupported(_ context.Context, req *pb.Is24
 	return &pb.Is24GHzBandSupportedResponse{Result: result}, nil
 }
 
-func (s *WifiManagerServer) Is5GHzBandSupported(_ context.Context, req *pb.Is5GHzBandSupportedRequest) (*pb.Is5GHzBandSupportedResponse, error) {
-	mgr, err := jnipkg.NewwifiManager(s.Ctx)
+func (s *ManagerServer) Is5GHzBandSupported(_ context.Context, req *pb.Is5GHzBandSupportedRequest) (*pb.Is5GHzBandSupportedResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -672,8 +672,8 @@ func (s *WifiManagerServer) Is5GHzBandSupported(_ context.Context, req *pb.Is5GH
 	return &pb.Is5GHzBandSupportedResponse{Result: result}, nil
 }
 
-func (s *WifiManagerServer) Is60GHzBandSupported(_ context.Context, req *pb.Is60GHzBandSupportedRequest) (*pb.Is60GHzBandSupportedResponse, error) {
-	mgr, err := jnipkg.NewwifiManager(s.Ctx)
+func (s *ManagerServer) Is60GHzBandSupported(_ context.Context, req *pb.Is60GHzBandSupportedRequest) (*pb.Is60GHzBandSupportedResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -686,8 +686,8 @@ func (s *WifiManagerServer) Is60GHzBandSupported(_ context.Context, req *pb.Is60
 	return &pb.Is60GHzBandSupportedResponse{Result: result}, nil
 }
 
-func (s *WifiManagerServer) Is6GHzBandSupported(_ context.Context, req *pb.Is6GHzBandSupportedRequest) (*pb.Is6GHzBandSupportedResponse, error) {
-	mgr, err := jnipkg.NewwifiManager(s.Ctx)
+func (s *ManagerServer) Is6GHzBandSupported(_ context.Context, req *pb.Is6GHzBandSupportedRequest) (*pb.Is6GHzBandSupportedResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -700,8 +700,8 @@ func (s *WifiManagerServer) Is6GHzBandSupported(_ context.Context, req *pb.Is6GH
 	return &pb.Is6GHzBandSupportedResponse{Result: result}, nil
 }
 
-func (s *WifiManagerServer) IsAggressiveRoamingModeSupported(_ context.Context, req *pb.IsAggressiveRoamingModeSupportedRequest) (*pb.IsAggressiveRoamingModeSupportedResponse, error) {
-	mgr, err := jnipkg.NewwifiManager(s.Ctx)
+func (s *ManagerServer) IsAggressiveRoamingModeSupported(_ context.Context, req *pb.IsAggressiveRoamingModeSupportedRequest) (*pb.IsAggressiveRoamingModeSupportedResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -714,8 +714,8 @@ func (s *WifiManagerServer) IsAggressiveRoamingModeSupported(_ context.Context, 
 	return &pb.IsAggressiveRoamingModeSupportedResponse{Result: result}, nil
 }
 
-func (s *WifiManagerServer) IsAutoWakeupEnabled(_ context.Context, req *pb.IsAutoWakeupEnabledRequest) (*pb.IsAutoWakeupEnabledResponse, error) {
-	mgr, err := jnipkg.NewwifiManager(s.Ctx)
+func (s *ManagerServer) IsAutoWakeupEnabled(_ context.Context, req *pb.IsAutoWakeupEnabledRequest) (*pb.IsAutoWakeupEnabledResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -728,8 +728,8 @@ func (s *WifiManagerServer) IsAutoWakeupEnabled(_ context.Context, req *pb.IsAut
 	return &pb.IsAutoWakeupEnabledResponse{Result: result}, nil
 }
 
-func (s *WifiManagerServer) IsBridgedApConcurrencySupported(_ context.Context, req *pb.IsBridgedApConcurrencySupportedRequest) (*pb.IsBridgedApConcurrencySupportedResponse, error) {
-	mgr, err := jnipkg.NewwifiManager(s.Ctx)
+func (s *ManagerServer) IsBridgedApConcurrencySupported(_ context.Context, req *pb.IsBridgedApConcurrencySupportedRequest) (*pb.IsBridgedApConcurrencySupportedResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -742,8 +742,8 @@ func (s *WifiManagerServer) IsBridgedApConcurrencySupported(_ context.Context, r
 	return &pb.IsBridgedApConcurrencySupportedResponse{Result: result}, nil
 }
 
-func (s *WifiManagerServer) IsCarrierNetworkOffloadEnabled(_ context.Context, req *pb.IsCarrierNetworkOffloadEnabledRequest) (*pb.IsCarrierNetworkOffloadEnabledResponse, error) {
-	mgr, err := jnipkg.NewwifiManager(s.Ctx)
+func (s *ManagerServer) IsCarrierNetworkOffloadEnabled(_ context.Context, req *pb.IsCarrierNetworkOffloadEnabledRequest) (*pb.IsCarrierNetworkOffloadEnabledResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -756,8 +756,8 @@ func (s *WifiManagerServer) IsCarrierNetworkOffloadEnabled(_ context.Context, re
 	return &pb.IsCarrierNetworkOffloadEnabledResponse{Result: result}, nil
 }
 
-func (s *WifiManagerServer) IsD2DSupportedWhenInfraStaDisabled(_ context.Context, req *pb.IsD2DSupportedWhenInfraStaDisabledRequest) (*pb.IsD2DSupportedWhenInfraStaDisabledResponse, error) {
-	mgr, err := jnipkg.NewwifiManager(s.Ctx)
+func (s *ManagerServer) IsD2DSupportedWhenInfraStaDisabled(_ context.Context, req *pb.IsD2DSupportedWhenInfraStaDisabledRequest) (*pb.IsD2DSupportedWhenInfraStaDisabledResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -770,8 +770,8 @@ func (s *WifiManagerServer) IsD2DSupportedWhenInfraStaDisabled(_ context.Context
 	return &pb.IsD2DSupportedWhenInfraStaDisabledResponse{Result: result}, nil
 }
 
-func (s *WifiManagerServer) IsDecoratedIdentitySupported(_ context.Context, req *pb.IsDecoratedIdentitySupportedRequest) (*pb.IsDecoratedIdentitySupportedResponse, error) {
-	mgr, err := jnipkg.NewwifiManager(s.Ctx)
+func (s *ManagerServer) IsDecoratedIdentitySupported(_ context.Context, req *pb.IsDecoratedIdentitySupportedRequest) (*pb.IsDecoratedIdentitySupportedResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -784,8 +784,8 @@ func (s *WifiManagerServer) IsDecoratedIdentitySupported(_ context.Context, req 
 	return &pb.IsDecoratedIdentitySupportedResponse{Result: result}, nil
 }
 
-func (s *WifiManagerServer) IsDeviceToApRttSupported(_ context.Context, req *pb.IsDeviceToApRttSupportedRequest) (*pb.IsDeviceToApRttSupportedResponse, error) {
-	mgr, err := jnipkg.NewwifiManager(s.Ctx)
+func (s *ManagerServer) IsDeviceToApRttSupported(_ context.Context, req *pb.IsDeviceToApRttSupportedRequest) (*pb.IsDeviceToApRttSupportedResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -798,8 +798,8 @@ func (s *WifiManagerServer) IsDeviceToApRttSupported(_ context.Context, req *pb.
 	return &pb.IsDeviceToApRttSupportedResponse{Result: result}, nil
 }
 
-func (s *WifiManagerServer) IsDualBandSimultaneousSupported(_ context.Context, req *pb.IsDualBandSimultaneousSupportedRequest) (*pb.IsDualBandSimultaneousSupportedResponse, error) {
-	mgr, err := jnipkg.NewwifiManager(s.Ctx)
+func (s *ManagerServer) IsDualBandSimultaneousSupported(_ context.Context, req *pb.IsDualBandSimultaneousSupportedRequest) (*pb.IsDualBandSimultaneousSupportedResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -812,8 +812,8 @@ func (s *WifiManagerServer) IsDualBandSimultaneousSupported(_ context.Context, r
 	return &pb.IsDualBandSimultaneousSupportedResponse{Result: result}, nil
 }
 
-func (s *WifiManagerServer) IsEasyConnectDppAkmSupported(_ context.Context, req *pb.IsEasyConnectDppAkmSupportedRequest) (*pb.IsEasyConnectDppAkmSupportedResponse, error) {
-	mgr, err := jnipkg.NewwifiManager(s.Ctx)
+func (s *ManagerServer) IsEasyConnectDppAkmSupported(_ context.Context, req *pb.IsEasyConnectDppAkmSupportedRequest) (*pb.IsEasyConnectDppAkmSupportedResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -826,8 +826,8 @@ func (s *WifiManagerServer) IsEasyConnectDppAkmSupported(_ context.Context, req 
 	return &pb.IsEasyConnectDppAkmSupportedResponse{Result: result}, nil
 }
 
-func (s *WifiManagerServer) IsEasyConnectEnrolleeResponderModeSupported(_ context.Context, req *pb.IsEasyConnectEnrolleeResponderModeSupportedRequest) (*pb.IsEasyConnectEnrolleeResponderModeSupportedResponse, error) {
-	mgr, err := jnipkg.NewwifiManager(s.Ctx)
+func (s *ManagerServer) IsEasyConnectEnrolleeResponderModeSupported(_ context.Context, req *pb.IsEasyConnectEnrolleeResponderModeSupportedRequest) (*pb.IsEasyConnectEnrolleeResponderModeSupportedResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -840,8 +840,8 @@ func (s *WifiManagerServer) IsEasyConnectEnrolleeResponderModeSupported(_ contex
 	return &pb.IsEasyConnectEnrolleeResponderModeSupportedResponse{Result: result}, nil
 }
 
-func (s *WifiManagerServer) IsEasyConnectSupported(_ context.Context, req *pb.IsEasyConnectSupportedRequest) (*pb.IsEasyConnectSupportedResponse, error) {
-	mgr, err := jnipkg.NewwifiManager(s.Ctx)
+func (s *ManagerServer) IsEasyConnectSupported(_ context.Context, req *pb.IsEasyConnectSupportedRequest) (*pb.IsEasyConnectSupportedResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -854,8 +854,8 @@ func (s *WifiManagerServer) IsEasyConnectSupported(_ context.Context, req *pb.Is
 	return &pb.IsEasyConnectSupportedResponse{Result: result}, nil
 }
 
-func (s *WifiManagerServer) IsEnhancedOpenSupported(_ context.Context, req *pb.IsEnhancedOpenSupportedRequest) (*pb.IsEnhancedOpenSupportedResponse, error) {
-	mgr, err := jnipkg.NewwifiManager(s.Ctx)
+func (s *ManagerServer) IsEnhancedOpenSupported(_ context.Context, req *pb.IsEnhancedOpenSupportedRequest) (*pb.IsEnhancedOpenSupportedResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -868,8 +868,8 @@ func (s *WifiManagerServer) IsEnhancedOpenSupported(_ context.Context, req *pb.I
 	return &pb.IsEnhancedOpenSupportedResponse{Result: result}, nil
 }
 
-func (s *WifiManagerServer) IsEnhancedPowerReportingSupported(_ context.Context, req *pb.IsEnhancedPowerReportingSupportedRequest) (*pb.IsEnhancedPowerReportingSupportedResponse, error) {
-	mgr, err := jnipkg.NewwifiManager(s.Ctx)
+func (s *ManagerServer) IsEnhancedPowerReportingSupported(_ context.Context, req *pb.IsEnhancedPowerReportingSupportedRequest) (*pb.IsEnhancedPowerReportingSupportedResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -882,8 +882,8 @@ func (s *WifiManagerServer) IsEnhancedPowerReportingSupported(_ context.Context,
 	return &pb.IsEnhancedPowerReportingSupportedResponse{Result: result}, nil
 }
 
-func (s *WifiManagerServer) IsMakeBeforeBreakWifiSwitchingSupported(_ context.Context, req *pb.IsMakeBeforeBreakWifiSwitchingSupportedRequest) (*pb.IsMakeBeforeBreakWifiSwitchingSupportedResponse, error) {
-	mgr, err := jnipkg.NewwifiManager(s.Ctx)
+func (s *ManagerServer) IsMakeBeforeBreakWifiSwitchingSupported(_ context.Context, req *pb.IsMakeBeforeBreakWifiSwitchingSupportedRequest) (*pb.IsMakeBeforeBreakWifiSwitchingSupportedResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -896,8 +896,8 @@ func (s *WifiManagerServer) IsMakeBeforeBreakWifiSwitchingSupported(_ context.Co
 	return &pb.IsMakeBeforeBreakWifiSwitchingSupportedResponse{Result: result}, nil
 }
 
-func (s *WifiManagerServer) IsP2PSupported(_ context.Context, req *pb.IsP2PSupportedRequest) (*pb.IsP2PSupportedResponse, error) {
-	mgr, err := jnipkg.NewwifiManager(s.Ctx)
+func (s *ManagerServer) IsP2PSupported(_ context.Context, req *pb.IsP2PSupportedRequest) (*pb.IsP2PSupportedResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -910,8 +910,8 @@ func (s *WifiManagerServer) IsP2PSupported(_ context.Context, req *pb.IsP2PSuppo
 	return &pb.IsP2PSupportedResponse{Result: result}, nil
 }
 
-func (s *WifiManagerServer) IsPasspointTermsAndConditionsSupported(_ context.Context, req *pb.IsPasspointTermsAndConditionsSupportedRequest) (*pb.IsPasspointTermsAndConditionsSupportedResponse, error) {
-	mgr, err := jnipkg.NewwifiManager(s.Ctx)
+func (s *ManagerServer) IsPasspointTermsAndConditionsSupported(_ context.Context, req *pb.IsPasspointTermsAndConditionsSupportedRequest) (*pb.IsPasspointTermsAndConditionsSupportedResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -924,8 +924,8 @@ func (s *WifiManagerServer) IsPasspointTermsAndConditionsSupported(_ context.Con
 	return &pb.IsPasspointTermsAndConditionsSupportedResponse{Result: result}, nil
 }
 
-func (s *WifiManagerServer) IsPreferredNetworkOffloadSupported(_ context.Context, req *pb.IsPreferredNetworkOffloadSupportedRequest) (*pb.IsPreferredNetworkOffloadSupportedResponse, error) {
-	mgr, err := jnipkg.NewwifiManager(s.Ctx)
+func (s *ManagerServer) IsPreferredNetworkOffloadSupported(_ context.Context, req *pb.IsPreferredNetworkOffloadSupportedRequest) (*pb.IsPreferredNetworkOffloadSupportedResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -938,8 +938,8 @@ func (s *WifiManagerServer) IsPreferredNetworkOffloadSupported(_ context.Context
 	return &pb.IsPreferredNetworkOffloadSupportedResponse{Result: result}, nil
 }
 
-func (s *WifiManagerServer) IsScanAlwaysAvailable(_ context.Context, req *pb.IsScanAlwaysAvailableRequest) (*pb.IsScanAlwaysAvailableResponse, error) {
-	mgr, err := jnipkg.NewwifiManager(s.Ctx)
+func (s *ManagerServer) IsScanAlwaysAvailable(_ context.Context, req *pb.IsScanAlwaysAvailableRequest) (*pb.IsScanAlwaysAvailableResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -952,8 +952,8 @@ func (s *WifiManagerServer) IsScanAlwaysAvailable(_ context.Context, req *pb.IsS
 	return &pb.IsScanAlwaysAvailableResponse{Result: result}, nil
 }
 
-func (s *WifiManagerServer) IsScanThrottleEnabled(_ context.Context, req *pb.IsScanThrottleEnabledRequest) (*pb.IsScanThrottleEnabledResponse, error) {
-	mgr, err := jnipkg.NewwifiManager(s.Ctx)
+func (s *ManagerServer) IsScanThrottleEnabled(_ context.Context, req *pb.IsScanThrottleEnabledRequest) (*pb.IsScanThrottleEnabledResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -966,8 +966,8 @@ func (s *WifiManagerServer) IsScanThrottleEnabled(_ context.Context, req *pb.IsS
 	return &pb.IsScanThrottleEnabledResponse{Result: result}, nil
 }
 
-func (s *WifiManagerServer) IsStaApConcurrencySupported(_ context.Context, req *pb.IsStaApConcurrencySupportedRequest) (*pb.IsStaApConcurrencySupportedResponse, error) {
-	mgr, err := jnipkg.NewwifiManager(s.Ctx)
+func (s *ManagerServer) IsStaApConcurrencySupported(_ context.Context, req *pb.IsStaApConcurrencySupportedRequest) (*pb.IsStaApConcurrencySupportedResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -980,8 +980,8 @@ func (s *WifiManagerServer) IsStaApConcurrencySupported(_ context.Context, req *
 	return &pb.IsStaApConcurrencySupportedResponse{Result: result}, nil
 }
 
-func (s *WifiManagerServer) IsStaBridgedApConcurrencySupported(_ context.Context, req *pb.IsStaBridgedApConcurrencySupportedRequest) (*pb.IsStaBridgedApConcurrencySupportedResponse, error) {
-	mgr, err := jnipkg.NewwifiManager(s.Ctx)
+func (s *ManagerServer) IsStaBridgedApConcurrencySupported(_ context.Context, req *pb.IsStaBridgedApConcurrencySupportedRequest) (*pb.IsStaBridgedApConcurrencySupportedResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -994,8 +994,8 @@ func (s *WifiManagerServer) IsStaBridgedApConcurrencySupported(_ context.Context
 	return &pb.IsStaBridgedApConcurrencySupportedResponse{Result: result}, nil
 }
 
-func (s *WifiManagerServer) IsStaConcurrencyForLocalOnlyConnectionsSupported(_ context.Context, req *pb.IsStaConcurrencyForLocalOnlyConnectionsSupportedRequest) (*pb.IsStaConcurrencyForLocalOnlyConnectionsSupportedResponse, error) {
-	mgr, err := jnipkg.NewwifiManager(s.Ctx)
+func (s *ManagerServer) IsStaConcurrencyForLocalOnlyConnectionsSupported(_ context.Context, req *pb.IsStaConcurrencyForLocalOnlyConnectionsSupportedRequest) (*pb.IsStaConcurrencyForLocalOnlyConnectionsSupportedResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -1008,8 +1008,8 @@ func (s *WifiManagerServer) IsStaConcurrencyForLocalOnlyConnectionsSupported(_ c
 	return &pb.IsStaConcurrencyForLocalOnlyConnectionsSupportedResponse{Result: result}, nil
 }
 
-func (s *WifiManagerServer) IsStaConcurrencyForMultiInternetSupported(_ context.Context, req *pb.IsStaConcurrencyForMultiInternetSupportedRequest) (*pb.IsStaConcurrencyForMultiInternetSupportedResponse, error) {
-	mgr, err := jnipkg.NewwifiManager(s.Ctx)
+func (s *ManagerServer) IsStaConcurrencyForMultiInternetSupported(_ context.Context, req *pb.IsStaConcurrencyForMultiInternetSupportedRequest) (*pb.IsStaConcurrencyForMultiInternetSupportedResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -1022,8 +1022,8 @@ func (s *WifiManagerServer) IsStaConcurrencyForMultiInternetSupported(_ context.
 	return &pb.IsStaConcurrencyForMultiInternetSupportedResponse{Result: result}, nil
 }
 
-func (s *WifiManagerServer) IsTdlsOperationCurrentlyAvailable(_ context.Context, req *pb.IsTdlsOperationCurrentlyAvailableRequest) (*pb.IsTdlsOperationCurrentlyAvailableResponse, error) {
-	mgr, err := jnipkg.NewwifiManager(s.Ctx)
+func (s *ManagerServer) IsTdlsOperationCurrentlyAvailable(_ context.Context, req *pb.IsTdlsOperationCurrentlyAvailableRequest) (*pb.IsTdlsOperationCurrentlyAvailableResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -1035,8 +1035,8 @@ func (s *WifiManagerServer) IsTdlsOperationCurrentlyAvailable(_ context.Context,
 	return &pb.IsTdlsOperationCurrentlyAvailableResponse{}, nil
 }
 
-func (s *WifiManagerServer) IsTdlsSupported(_ context.Context, req *pb.IsTdlsSupportedRequest) (*pb.IsTdlsSupportedResponse, error) {
-	mgr, err := jnipkg.NewwifiManager(s.Ctx)
+func (s *ManagerServer) IsTdlsSupported(_ context.Context, req *pb.IsTdlsSupportedRequest) (*pb.IsTdlsSupportedResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -1049,8 +1049,8 @@ func (s *WifiManagerServer) IsTdlsSupported(_ context.Context, req *pb.IsTdlsSup
 	return &pb.IsTdlsSupportedResponse{Result: result}, nil
 }
 
-func (s *WifiManagerServer) IsTidToLinkMappingNegotiationSupported(_ context.Context, req *pb.IsTidToLinkMappingNegotiationSupportedRequest) (*pb.IsTidToLinkMappingNegotiationSupportedResponse, error) {
-	mgr, err := jnipkg.NewwifiManager(s.Ctx)
+func (s *ManagerServer) IsTidToLinkMappingNegotiationSupported(_ context.Context, req *pb.IsTidToLinkMappingNegotiationSupportedRequest) (*pb.IsTidToLinkMappingNegotiationSupportedResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -1063,8 +1063,8 @@ func (s *WifiManagerServer) IsTidToLinkMappingNegotiationSupported(_ context.Con
 	return &pb.IsTidToLinkMappingNegotiationSupportedResponse{Result: result}, nil
 }
 
-func (s *WifiManagerServer) IsTlsMinimumVersionSupported(_ context.Context, req *pb.IsTlsMinimumVersionSupportedRequest) (*pb.IsTlsMinimumVersionSupportedResponse, error) {
-	mgr, err := jnipkg.NewwifiManager(s.Ctx)
+func (s *ManagerServer) IsTlsMinimumVersionSupported(_ context.Context, req *pb.IsTlsMinimumVersionSupportedRequest) (*pb.IsTlsMinimumVersionSupportedResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -1077,8 +1077,8 @@ func (s *WifiManagerServer) IsTlsMinimumVersionSupported(_ context.Context, req 
 	return &pb.IsTlsMinimumVersionSupportedResponse{Result: result}, nil
 }
 
-func (s *WifiManagerServer) IsTlsV13Supported(_ context.Context, req *pb.IsTlsV13SupportedRequest) (*pb.IsTlsV13SupportedResponse, error) {
-	mgr, err := jnipkg.NewwifiManager(s.Ctx)
+func (s *ManagerServer) IsTlsV13Supported(_ context.Context, req *pb.IsTlsV13SupportedRequest) (*pb.IsTlsV13SupportedResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -1091,8 +1091,8 @@ func (s *WifiManagerServer) IsTlsV13Supported(_ context.Context, req *pb.IsTlsV1
 	return &pb.IsTlsV13SupportedResponse{Result: result}, nil
 }
 
-func (s *WifiManagerServer) IsTrustOnFirstUseSupported(_ context.Context, req *pb.IsTrustOnFirstUseSupportedRequest) (*pb.IsTrustOnFirstUseSupportedResponse, error) {
-	mgr, err := jnipkg.NewwifiManager(s.Ctx)
+func (s *ManagerServer) IsTrustOnFirstUseSupported(_ context.Context, req *pb.IsTrustOnFirstUseSupportedRequest) (*pb.IsTrustOnFirstUseSupportedResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -1105,8 +1105,8 @@ func (s *WifiManagerServer) IsTrustOnFirstUseSupported(_ context.Context, req *p
 	return &pb.IsTrustOnFirstUseSupportedResponse{Result: result}, nil
 }
 
-func (s *WifiManagerServer) IsWapiSupported(_ context.Context, req *pb.IsWapiSupportedRequest) (*pb.IsWapiSupportedResponse, error) {
-	mgr, err := jnipkg.NewwifiManager(s.Ctx)
+func (s *ManagerServer) IsWapiSupported(_ context.Context, req *pb.IsWapiSupportedRequest) (*pb.IsWapiSupportedResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -1119,8 +1119,8 @@ func (s *WifiManagerServer) IsWapiSupported(_ context.Context, req *pb.IsWapiSup
 	return &pb.IsWapiSupportedResponse{Result: result}, nil
 }
 
-func (s *WifiManagerServer) IsWepSupported(_ context.Context, req *pb.IsWepSupportedRequest) (*pb.IsWepSupportedResponse, error) {
-	mgr, err := jnipkg.NewwifiManager(s.Ctx)
+func (s *ManagerServer) IsWepSupported(_ context.Context, req *pb.IsWepSupportedRequest) (*pb.IsWepSupportedResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -1133,8 +1133,8 @@ func (s *WifiManagerServer) IsWepSupported(_ context.Context, req *pb.IsWepSuppo
 	return &pb.IsWepSupportedResponse{Result: result}, nil
 }
 
-func (s *WifiManagerServer) IsWifiDisplayR2Supported(_ context.Context, req *pb.IsWifiDisplayR2SupportedRequest) (*pb.IsWifiDisplayR2SupportedResponse, error) {
-	mgr, err := jnipkg.NewwifiManager(s.Ctx)
+func (s *ManagerServer) IsWifiDisplayR2Supported(_ context.Context, req *pb.IsWifiDisplayR2SupportedRequest) (*pb.IsWifiDisplayR2SupportedResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -1147,8 +1147,8 @@ func (s *WifiManagerServer) IsWifiDisplayR2Supported(_ context.Context, req *pb.
 	return &pb.IsWifiDisplayR2SupportedResponse{Result: result}, nil
 }
 
-func (s *WifiManagerServer) IsWifiEnabled(_ context.Context, req *pb.IsWifiEnabledRequest) (*pb.IsWifiEnabledResponse, error) {
-	mgr, err := jnipkg.NewwifiManager(s.Ctx)
+func (s *ManagerServer) IsWifiEnabled(_ context.Context, req *pb.IsWifiEnabledRequest) (*pb.IsWifiEnabledResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -1161,8 +1161,8 @@ func (s *WifiManagerServer) IsWifiEnabled(_ context.Context, req *pb.IsWifiEnabl
 	return &pb.IsWifiEnabledResponse{Result: result}, nil
 }
 
-func (s *WifiManagerServer) IsWifiPasspointEnabled(_ context.Context, req *pb.IsWifiPasspointEnabledRequest) (*pb.IsWifiPasspointEnabledResponse, error) {
-	mgr, err := jnipkg.NewwifiManager(s.Ctx)
+func (s *ManagerServer) IsWifiPasspointEnabled(_ context.Context, req *pb.IsWifiPasspointEnabledRequest) (*pb.IsWifiPasspointEnabledResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -1175,8 +1175,8 @@ func (s *WifiManagerServer) IsWifiPasspointEnabled(_ context.Context, req *pb.Is
 	return &pb.IsWifiPasspointEnabledResponse{Result: result}, nil
 }
 
-func (s *WifiManagerServer) IsWifiStandardSupported(_ context.Context, req *pb.IsWifiStandardSupportedRequest) (*pb.IsWifiStandardSupportedResponse, error) {
-	mgr, err := jnipkg.NewwifiManager(s.Ctx)
+func (s *ManagerServer) IsWifiStandardSupported(_ context.Context, req *pb.IsWifiStandardSupportedRequest) (*pb.IsWifiStandardSupportedResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -1189,8 +1189,8 @@ func (s *WifiManagerServer) IsWifiStandardSupported(_ context.Context, req *pb.I
 	return &pb.IsWifiStandardSupportedResponse{Result: result}, nil
 }
 
-func (s *WifiManagerServer) IsWpa3SaeH2ESupported(_ context.Context, req *pb.IsWpa3SaeH2ESupportedRequest) (*pb.IsWpa3SaeH2ESupportedResponse, error) {
-	mgr, err := jnipkg.NewwifiManager(s.Ctx)
+func (s *ManagerServer) IsWpa3SaeH2ESupported(_ context.Context, req *pb.IsWpa3SaeH2ESupportedRequest) (*pb.IsWpa3SaeH2ESupportedResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -1203,8 +1203,8 @@ func (s *WifiManagerServer) IsWpa3SaeH2ESupported(_ context.Context, req *pb.IsW
 	return &pb.IsWpa3SaeH2ESupportedResponse{Result: result}, nil
 }
 
-func (s *WifiManagerServer) IsWpa3SaePublicKeySupported(_ context.Context, req *pb.IsWpa3SaePublicKeySupportedRequest) (*pb.IsWpa3SaePublicKeySupportedResponse, error) {
-	mgr, err := jnipkg.NewwifiManager(s.Ctx)
+func (s *ManagerServer) IsWpa3SaePublicKeySupported(_ context.Context, req *pb.IsWpa3SaePublicKeySupportedRequest) (*pb.IsWpa3SaePublicKeySupportedResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -1217,8 +1217,8 @@ func (s *WifiManagerServer) IsWpa3SaePublicKeySupported(_ context.Context, req *
 	return &pb.IsWpa3SaePublicKeySupportedResponse{Result: result}, nil
 }
 
-func (s *WifiManagerServer) IsWpa3SaeSupported(_ context.Context, req *pb.IsWpa3SaeSupportedRequest) (*pb.IsWpa3SaeSupportedResponse, error) {
-	mgr, err := jnipkg.NewwifiManager(s.Ctx)
+func (s *ManagerServer) IsWpa3SaeSupported(_ context.Context, req *pb.IsWpa3SaeSupportedRequest) (*pb.IsWpa3SaeSupportedResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -1231,8 +1231,8 @@ func (s *WifiManagerServer) IsWpa3SaeSupported(_ context.Context, req *pb.IsWpa3
 	return &pb.IsWpa3SaeSupportedResponse{Result: result}, nil
 }
 
-func (s *WifiManagerServer) IsWpa3SuiteBSupported(_ context.Context, req *pb.IsWpa3SuiteBSupportedRequest) (*pb.IsWpa3SuiteBSupportedResponse, error) {
-	mgr, err := jnipkg.NewwifiManager(s.Ctx)
+func (s *ManagerServer) IsWpa3SuiteBSupported(_ context.Context, req *pb.IsWpa3SuiteBSupportedRequest) (*pb.IsWpa3SuiteBSupportedResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -1245,8 +1245,8 @@ func (s *WifiManagerServer) IsWpa3SuiteBSupported(_ context.Context, req *pb.IsW
 	return &pb.IsWpa3SuiteBSupportedResponse{Result: result}, nil
 }
 
-func (s *WifiManagerServer) IsWpaPersonalSupported(_ context.Context, req *pb.IsWpaPersonalSupportedRequest) (*pb.IsWpaPersonalSupportedResponse, error) {
-	mgr, err := jnipkg.NewwifiManager(s.Ctx)
+func (s *ManagerServer) IsWpaPersonalSupported(_ context.Context, req *pb.IsWpaPersonalSupportedRequest) (*pb.IsWpaPersonalSupportedResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -1259,8 +1259,8 @@ func (s *WifiManagerServer) IsWpaPersonalSupported(_ context.Context, req *pb.Is
 	return &pb.IsWpaPersonalSupportedResponse{Result: result}, nil
 }
 
-func (s *WifiManagerServer) PingSupplicant(_ context.Context, req *pb.PingSupplicantRequest) (*pb.PingSupplicantResponse, error) {
-	mgr, err := jnipkg.NewwifiManager(s.Ctx)
+func (s *ManagerServer) PingSupplicant(_ context.Context, req *pb.PingSupplicantRequest) (*pb.PingSupplicantResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -1273,8 +1273,8 @@ func (s *WifiManagerServer) PingSupplicant(_ context.Context, req *pb.PingSuppli
 	return &pb.PingSupplicantResponse{Result: result}, nil
 }
 
-func (s *WifiManagerServer) QueryAutojoinGlobal(_ context.Context, req *pb.QueryAutojoinGlobalRequest) (*pb.QueryAutojoinGlobalResponse, error) {
-	mgr, err := jnipkg.NewwifiManager(s.Ctx)
+func (s *ManagerServer) QueryAutojoinGlobal(_ context.Context, req *pb.QueryAutojoinGlobalRequest) (*pb.QueryAutojoinGlobalResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -1286,8 +1286,8 @@ func (s *WifiManagerServer) QueryAutojoinGlobal(_ context.Context, req *pb.Query
 	return &pb.QueryAutojoinGlobalResponse{}, nil
 }
 
-func (s *WifiManagerServer) QuerySendDhcpHostnameRestriction(_ context.Context, req *pb.QuerySendDhcpHostnameRestrictionRequest) (*pb.QuerySendDhcpHostnameRestrictionResponse, error) {
-	mgr, err := jnipkg.NewwifiManager(s.Ctx)
+func (s *ManagerServer) QuerySendDhcpHostnameRestriction(_ context.Context, req *pb.QuerySendDhcpHostnameRestrictionRequest) (*pb.QuerySendDhcpHostnameRestrictionResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -1299,8 +1299,8 @@ func (s *WifiManagerServer) QuerySendDhcpHostnameRestriction(_ context.Context, 
 	return &pb.QuerySendDhcpHostnameRestrictionResponse{}, nil
 }
 
-func (s *WifiManagerServer) Reassociate(_ context.Context, req *pb.ReassociateRequest) (*pb.ReassociateResponse, error) {
-	mgr, err := jnipkg.NewwifiManager(s.Ctx)
+func (s *ManagerServer) Reassociate(_ context.Context, req *pb.ReassociateRequest) (*pb.ReassociateResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -1313,8 +1313,8 @@ func (s *WifiManagerServer) Reassociate(_ context.Context, req *pb.ReassociateRe
 	return &pb.ReassociateResponse{Result: result}, nil
 }
 
-func (s *WifiManagerServer) Reconnect(_ context.Context, req *pb.ReconnectRequest) (*pb.ReconnectResponse, error) {
-	mgr, err := jnipkg.NewwifiManager(s.Ctx)
+func (s *ManagerServer) Reconnect(_ context.Context, req *pb.ReconnectRequest) (*pb.ReconnectResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -1327,8 +1327,8 @@ func (s *WifiManagerServer) Reconnect(_ context.Context, req *pb.ReconnectReques
 	return &pb.ReconnectResponse{Result: result}, nil
 }
 
-func (s *WifiManagerServer) RegisterScanResultsCallback(_ context.Context, req *pb.RegisterScanResultsCallbackRequest) (*pb.RegisterScanResultsCallbackResponse, error) {
-	mgr, err := jnipkg.NewwifiManager(s.Ctx)
+func (s *ManagerServer) RegisterScanResultsCallback(_ context.Context, req *pb.RegisterScanResultsCallbackRequest) (*pb.RegisterScanResultsCallbackResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -1340,8 +1340,8 @@ func (s *WifiManagerServer) RegisterScanResultsCallback(_ context.Context, req *
 	return &pb.RegisterScanResultsCallbackResponse{}, nil
 }
 
-func (s *WifiManagerServer) RegisterSubsystemRestartTrackingCallback(_ context.Context, req *pb.RegisterSubsystemRestartTrackingCallbackRequest) (*pb.RegisterSubsystemRestartTrackingCallbackResponse, error) {
-	mgr, err := jnipkg.NewwifiManager(s.Ctx)
+func (s *ManagerServer) RegisterSubsystemRestartTrackingCallback(_ context.Context, req *pb.RegisterSubsystemRestartTrackingCallbackRequest) (*pb.RegisterSubsystemRestartTrackingCallbackResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -1353,8 +1353,8 @@ func (s *WifiManagerServer) RegisterSubsystemRestartTrackingCallback(_ context.C
 	return &pb.RegisterSubsystemRestartTrackingCallbackResponse{}, nil
 }
 
-func (s *WifiManagerServer) RemoveLocalOnlyConnectionFailureListener(_ context.Context, req *pb.RemoveLocalOnlyConnectionFailureListenerRequest) (*pb.RemoveLocalOnlyConnectionFailureListenerResponse, error) {
-	mgr, err := jnipkg.NewwifiManager(s.Ctx)
+func (s *ManagerServer) RemoveLocalOnlyConnectionFailureListener(_ context.Context, req *pb.RemoveLocalOnlyConnectionFailureListenerRequest) (*pb.RemoveLocalOnlyConnectionFailureListenerResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -1366,8 +1366,8 @@ func (s *WifiManagerServer) RemoveLocalOnlyConnectionFailureListener(_ context.C
 	return &pb.RemoveLocalOnlyConnectionFailureListenerResponse{}, nil
 }
 
-func (s *WifiManagerServer) RemoveNetwork(_ context.Context, req *pb.RemoveNetworkRequest) (*pb.RemoveNetworkResponse, error) {
-	mgr, err := jnipkg.NewwifiManager(s.Ctx)
+func (s *ManagerServer) RemoveNetwork(_ context.Context, req *pb.RemoveNetworkRequest) (*pb.RemoveNetworkResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -1380,8 +1380,8 @@ func (s *WifiManagerServer) RemoveNetwork(_ context.Context, req *pb.RemoveNetwo
 	return &pb.RemoveNetworkResponse{Result: result}, nil
 }
 
-func (s *WifiManagerServer) RemoveNetworkSuggestions1(_ context.Context, req *pb.RemoveNetworkSuggestions1Request) (*pb.RemoveNetworkSuggestions1Response, error) {
-	mgr, err := jnipkg.NewwifiManager(s.Ctx)
+func (s *ManagerServer) RemoveNetworkSuggestions1(_ context.Context, req *pb.RemoveNetworkSuggestions1Request) (*pb.RemoveNetworkSuggestions1Response, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -1394,8 +1394,8 @@ func (s *WifiManagerServer) RemoveNetworkSuggestions1(_ context.Context, req *pb
 	return &pb.RemoveNetworkSuggestions1Response{Result: result}, nil
 }
 
-func (s *WifiManagerServer) RemoveNetworkSuggestions2_1(_ context.Context, req *pb.RemoveNetworkSuggestions2_1Request) (*pb.RemoveNetworkSuggestions2_1Response, error) {
-	mgr, err := jnipkg.NewwifiManager(s.Ctx)
+func (s *ManagerServer) RemoveNetworkSuggestions2_1(_ context.Context, req *pb.RemoveNetworkSuggestions2_1Request) (*pb.RemoveNetworkSuggestions2_1Response, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -1408,8 +1408,8 @@ func (s *WifiManagerServer) RemoveNetworkSuggestions2_1(_ context.Context, req *
 	return &pb.RemoveNetworkSuggestions2_1Response{Result: result}, nil
 }
 
-func (s *WifiManagerServer) RemoveNonCallerConfiguredNetworks(_ context.Context, req *pb.RemoveNonCallerConfiguredNetworksRequest) (*pb.RemoveNonCallerConfiguredNetworksResponse, error) {
-	mgr, err := jnipkg.NewwifiManager(s.Ctx)
+func (s *ManagerServer) RemoveNonCallerConfiguredNetworks(_ context.Context, req *pb.RemoveNonCallerConfiguredNetworksRequest) (*pb.RemoveNonCallerConfiguredNetworksResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -1422,8 +1422,8 @@ func (s *WifiManagerServer) RemoveNonCallerConfiguredNetworks(_ context.Context,
 	return &pb.RemoveNonCallerConfiguredNetworksResponse{Result: result}, nil
 }
 
-func (s *WifiManagerServer) RemovePasspointConfiguration(_ context.Context, req *pb.RemovePasspointConfigurationRequest) (*pb.RemovePasspointConfigurationResponse, error) {
-	mgr, err := jnipkg.NewwifiManager(s.Ctx)
+func (s *ManagerServer) RemovePasspointConfiguration(_ context.Context, req *pb.RemovePasspointConfigurationRequest) (*pb.RemovePasspointConfigurationResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -1435,8 +1435,8 @@ func (s *WifiManagerServer) RemovePasspointConfiguration(_ context.Context, req 
 	return &pb.RemovePasspointConfigurationResponse{}, nil
 }
 
-func (s *WifiManagerServer) RemovePerSsidRoamingMode(_ context.Context, req *pb.RemovePerSsidRoamingModeRequest) (*pb.RemovePerSsidRoamingModeResponse, error) {
-	mgr, err := jnipkg.NewwifiManager(s.Ctx)
+func (s *ManagerServer) RemovePerSsidRoamingMode(_ context.Context, req *pb.RemovePerSsidRoamingModeRequest) (*pb.RemovePerSsidRoamingModeResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -1448,8 +1448,8 @@ func (s *WifiManagerServer) RemovePerSsidRoamingMode(_ context.Context, req *pb.
 	return &pb.RemovePerSsidRoamingModeResponse{}, nil
 }
 
-func (s *WifiManagerServer) RemoveSuggestionConnectionStatusListener(_ context.Context, req *pb.RemoveSuggestionConnectionStatusListenerRequest) (*pb.RemoveSuggestionConnectionStatusListenerResponse, error) {
-	mgr, err := jnipkg.NewwifiManager(s.Ctx)
+func (s *ManagerServer) RemoveSuggestionConnectionStatusListener(_ context.Context, req *pb.RemoveSuggestionConnectionStatusListenerRequest) (*pb.RemoveSuggestionConnectionStatusListenerResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -1461,8 +1461,8 @@ func (s *WifiManagerServer) RemoveSuggestionConnectionStatusListener(_ context.C
 	return &pb.RemoveSuggestionConnectionStatusListenerResponse{}, nil
 }
 
-func (s *WifiManagerServer) RemoveSuggestionUserApprovalStatusListener(_ context.Context, req *pb.RemoveSuggestionUserApprovalStatusListenerRequest) (*pb.RemoveSuggestionUserApprovalStatusListenerResponse, error) {
-	mgr, err := jnipkg.NewwifiManager(s.Ctx)
+func (s *ManagerServer) RemoveSuggestionUserApprovalStatusListener(_ context.Context, req *pb.RemoveSuggestionUserApprovalStatusListenerRequest) (*pb.RemoveSuggestionUserApprovalStatusListenerResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -1474,8 +1474,8 @@ func (s *WifiManagerServer) RemoveSuggestionUserApprovalStatusListener(_ context
 	return &pb.RemoveSuggestionUserApprovalStatusListenerResponse{}, nil
 }
 
-func (s *WifiManagerServer) RemoveWifiStateChangedListener(_ context.Context, req *pb.RemoveWifiStateChangedListenerRequest) (*pb.RemoveWifiStateChangedListenerResponse, error) {
-	mgr, err := jnipkg.NewwifiManager(s.Ctx)
+func (s *ManagerServer) RemoveWifiStateChangedListener(_ context.Context, req *pb.RemoveWifiStateChangedListenerRequest) (*pb.RemoveWifiStateChangedListenerResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -1487,8 +1487,8 @@ func (s *WifiManagerServer) RemoveWifiStateChangedListener(_ context.Context, re
 	return &pb.RemoveWifiStateChangedListenerResponse{}, nil
 }
 
-func (s *WifiManagerServer) ReportCreateInterfaceImpact(_ context.Context, req *pb.ReportCreateInterfaceImpactRequest) (*pb.ReportCreateInterfaceImpactResponse, error) {
-	mgr, err := jnipkg.NewwifiManager(s.Ctx)
+func (s *ManagerServer) ReportCreateInterfaceImpact(_ context.Context, req *pb.ReportCreateInterfaceImpactRequest) (*pb.ReportCreateInterfaceImpactResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -1500,8 +1500,8 @@ func (s *WifiManagerServer) ReportCreateInterfaceImpact(_ context.Context, req *
 	return &pb.ReportCreateInterfaceImpactResponse{}, nil
 }
 
-func (s *WifiManagerServer) SaveConfiguration(_ context.Context, req *pb.SaveConfigurationRequest) (*pb.SaveConfigurationResponse, error) {
-	mgr, err := jnipkg.NewwifiManager(s.Ctx)
+func (s *ManagerServer) SaveConfiguration(_ context.Context, req *pb.SaveConfigurationRequest) (*pb.SaveConfigurationResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -1514,8 +1514,8 @@ func (s *WifiManagerServer) SaveConfiguration(_ context.Context, req *pb.SaveCon
 	return &pb.SaveConfigurationResponse{Result: result}, nil
 }
 
-func (s *WifiManagerServer) SetPerSsidRoamingMode(_ context.Context, req *pb.SetPerSsidRoamingModeRequest) (*pb.SetPerSsidRoamingModeResponse, error) {
-	mgr, err := jnipkg.NewwifiManager(s.Ctx)
+func (s *ManagerServer) SetPerSsidRoamingMode(_ context.Context, req *pb.SetPerSsidRoamingModeRequest) (*pb.SetPerSsidRoamingModeResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -1527,8 +1527,8 @@ func (s *WifiManagerServer) SetPerSsidRoamingMode(_ context.Context, req *pb.Set
 	return &pb.SetPerSsidRoamingModeResponse{}, nil
 }
 
-func (s *WifiManagerServer) SetSendDhcpHostnameRestriction(_ context.Context, req *pb.SetSendDhcpHostnameRestrictionRequest) (*pb.SetSendDhcpHostnameRestrictionResponse, error) {
-	mgr, err := jnipkg.NewwifiManager(s.Ctx)
+func (s *ManagerServer) SetSendDhcpHostnameRestriction(_ context.Context, req *pb.SetSendDhcpHostnameRestrictionRequest) (*pb.SetSendDhcpHostnameRestrictionResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -1540,8 +1540,8 @@ func (s *WifiManagerServer) SetSendDhcpHostnameRestriction(_ context.Context, re
 	return &pb.SetSendDhcpHostnameRestrictionResponse{}, nil
 }
 
-func (s *WifiManagerServer) SetTdlsEnabled2(_ context.Context, req *pb.SetTdlsEnabled2Request) (*pb.SetTdlsEnabled2Response, error) {
-	mgr, err := jnipkg.NewwifiManager(s.Ctx)
+func (s *ManagerServer) SetTdlsEnabled2(_ context.Context, req *pb.SetTdlsEnabled2Request) (*pb.SetTdlsEnabled2Response, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -1553,8 +1553,8 @@ func (s *WifiManagerServer) SetTdlsEnabled2(_ context.Context, req *pb.SetTdlsEn
 	return &pb.SetTdlsEnabled2Response{}, nil
 }
 
-func (s *WifiManagerServer) SetTdlsEnabled4_1(_ context.Context, req *pb.SetTdlsEnabled4_1Request) (*pb.SetTdlsEnabled4_1Response, error) {
-	mgr, err := jnipkg.NewwifiManager(s.Ctx)
+func (s *ManagerServer) SetTdlsEnabled4_1(_ context.Context, req *pb.SetTdlsEnabled4_1Request) (*pb.SetTdlsEnabled4_1Response, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -1566,8 +1566,8 @@ func (s *WifiManagerServer) SetTdlsEnabled4_1(_ context.Context, req *pb.SetTdls
 	return &pb.SetTdlsEnabled4_1Response{}, nil
 }
 
-func (s *WifiManagerServer) SetTdlsEnabledWithMacAddress2(_ context.Context, req *pb.SetTdlsEnabledWithMacAddress2Request) (*pb.SetTdlsEnabledWithMacAddress2Response, error) {
-	mgr, err := jnipkg.NewwifiManager(s.Ctx)
+func (s *ManagerServer) SetTdlsEnabledWithMacAddress2(_ context.Context, req *pb.SetTdlsEnabledWithMacAddress2Request) (*pb.SetTdlsEnabledWithMacAddress2Response, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -1579,8 +1579,8 @@ func (s *WifiManagerServer) SetTdlsEnabledWithMacAddress2(_ context.Context, req
 	return &pb.SetTdlsEnabledWithMacAddress2Response{}, nil
 }
 
-func (s *WifiManagerServer) SetTdlsEnabledWithMacAddress4_1(_ context.Context, req *pb.SetTdlsEnabledWithMacAddress4_1Request) (*pb.SetTdlsEnabledWithMacAddress4_1Response, error) {
-	mgr, err := jnipkg.NewwifiManager(s.Ctx)
+func (s *ManagerServer) SetTdlsEnabledWithMacAddress4_1(_ context.Context, req *pb.SetTdlsEnabledWithMacAddress4_1Request) (*pb.SetTdlsEnabledWithMacAddress4_1Response, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -1592,8 +1592,8 @@ func (s *WifiManagerServer) SetTdlsEnabledWithMacAddress4_1(_ context.Context, r
 	return &pb.SetTdlsEnabledWithMacAddress4_1Response{}, nil
 }
 
-func (s *WifiManagerServer) SetWifiEnabled(_ context.Context, req *pb.SetWifiEnabledRequest) (*pb.SetWifiEnabledResponse, error) {
-	mgr, err := jnipkg.NewwifiManager(s.Ctx)
+func (s *ManagerServer) SetWifiEnabled(_ context.Context, req *pb.SetWifiEnabledRequest) (*pb.SetWifiEnabledResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -1606,8 +1606,8 @@ func (s *WifiManagerServer) SetWifiEnabled(_ context.Context, req *pb.SetWifiEna
 	return &pb.SetWifiEnabledResponse{Result: result}, nil
 }
 
-func (s *WifiManagerServer) StartLocalOnlyHotspotWithConfiguration(_ context.Context, req *pb.StartLocalOnlyHotspotWithConfigurationRequest) (*pb.StartLocalOnlyHotspotWithConfigurationResponse, error) {
-	mgr, err := jnipkg.NewwifiManager(s.Ctx)
+func (s *ManagerServer) StartLocalOnlyHotspotWithConfiguration(_ context.Context, req *pb.StartLocalOnlyHotspotWithConfigurationRequest) (*pb.StartLocalOnlyHotspotWithConfigurationResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -1619,8 +1619,8 @@ func (s *WifiManagerServer) StartLocalOnlyHotspotWithConfiguration(_ context.Con
 	return &pb.StartLocalOnlyHotspotWithConfigurationResponse{}, nil
 }
 
-func (s *WifiManagerServer) StartScan(_ context.Context, req *pb.StartScanRequest) (*pb.StartScanResponse, error) {
-	mgr, err := jnipkg.NewwifiManager(s.Ctx)
+func (s *ManagerServer) StartScan(_ context.Context, req *pb.StartScanRequest) (*pb.StartScanResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -1633,8 +1633,8 @@ func (s *WifiManagerServer) StartScan(_ context.Context, req *pb.StartScanReques
 	return &pb.StartScanResponse{Result: result}, nil
 }
 
-func (s *WifiManagerServer) StartWps(_ context.Context, req *pb.StartWpsRequest) (*pb.StartWpsResponse, error) {
-	mgr, err := jnipkg.NewwifiManager(s.Ctx)
+func (s *ManagerServer) StartWps(_ context.Context, req *pb.StartWpsRequest) (*pb.StartWpsResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -1646,8 +1646,8 @@ func (s *WifiManagerServer) StartWps(_ context.Context, req *pb.StartWpsRequest)
 	return &pb.StartWpsResponse{}, nil
 }
 
-func (s *WifiManagerServer) UnregisterScanResultsCallback(_ context.Context, req *pb.UnregisterScanResultsCallbackRequest) (*pb.UnregisterScanResultsCallbackResponse, error) {
-	mgr, err := jnipkg.NewwifiManager(s.Ctx)
+func (s *ManagerServer) UnregisterScanResultsCallback(_ context.Context, req *pb.UnregisterScanResultsCallbackRequest) (*pb.UnregisterScanResultsCallbackResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -1659,8 +1659,8 @@ func (s *WifiManagerServer) UnregisterScanResultsCallback(_ context.Context, req
 	return &pb.UnregisterScanResultsCallbackResponse{}, nil
 }
 
-func (s *WifiManagerServer) UnregisterSubsystemRestartTrackingCallback(_ context.Context, req *pb.UnregisterSubsystemRestartTrackingCallbackRequest) (*pb.UnregisterSubsystemRestartTrackingCallbackResponse, error) {
-	mgr, err := jnipkg.NewwifiManager(s.Ctx)
+func (s *ManagerServer) UnregisterSubsystemRestartTrackingCallback(_ context.Context, req *pb.UnregisterSubsystemRestartTrackingCallbackRequest) (*pb.UnregisterSubsystemRestartTrackingCallbackResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -1672,8 +1672,8 @@ func (s *WifiManagerServer) UnregisterSubsystemRestartTrackingCallback(_ context
 	return &pb.UnregisterSubsystemRestartTrackingCallbackResponse{}, nil
 }
 
-func (s *WifiManagerServer) UpdateNetwork(_ context.Context, req *pb.UpdateNetworkRequest) (*pb.UpdateNetworkResponse, error) {
-	mgr, err := jnipkg.NewwifiManager(s.Ctx)
+func (s *ManagerServer) UpdateNetwork(_ context.Context, req *pb.UpdateNetworkRequest) (*pb.UpdateNetworkResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -1686,8 +1686,8 @@ func (s *WifiManagerServer) UpdateNetwork(_ context.Context, req *pb.UpdateNetwo
 	return &pb.UpdateNetworkResponse{Result: result}, nil
 }
 
-func (s *WifiManagerServer) ValidateSoftApConfiguration(_ context.Context, req *pb.ValidateSoftApConfigurationRequest) (*pb.ValidateSoftApConfigurationResponse, error) {
-	mgr, err := jnipkg.NewwifiManager(s.Ctx)
+func (s *ManagerServer) ValidateSoftApConfiguration(_ context.Context, req *pb.ValidateSoftApConfigurationRequest) (*pb.ValidateSoftApConfigurationResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -1700,8 +1700,8 @@ func (s *WifiManagerServer) ValidateSoftApConfiguration(_ context.Context, req *
 	return &pb.ValidateSoftApConfigurationResponse{Result: result}, nil
 }
 
-func (s *WifiManagerServer) CalculateSignalLevel2_1(_ context.Context, req *pb.CalculateSignalLevel2_1Request) (*pb.CalculateSignalLevel2_1Response, error) {
-	mgr, err := jnipkg.NewwifiManager(s.Ctx)
+func (s *ManagerServer) CalculateSignalLevel2_1(_ context.Context, req *pb.CalculateSignalLevel2_1Request) (*pb.CalculateSignalLevel2_1Response, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -1714,8 +1714,8 @@ func (s *WifiManagerServer) CalculateSignalLevel2_1(_ context.Context, req *pb.C
 	return &pb.CalculateSignalLevel2_1Response{Result: result}, nil
 }
 
-func (s *WifiManagerServer) CompareSignalLevel(_ context.Context, req *pb.CompareSignalLevelRequest) (*pb.CompareSignalLevelResponse, error) {
-	mgr, err := jnipkg.NewwifiManager(s.Ctx)
+func (s *ManagerServer) CompareSignalLevel(_ context.Context, req *pb.CompareSignalLevelRequest) (*pb.CompareSignalLevelResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}

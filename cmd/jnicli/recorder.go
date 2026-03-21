@@ -3,8 +3,8 @@
 package main
 
 import (
-	"github.com/spf13/cobra"
 	pb "github.com/AndroidGoLab/jni-proxy/proto/recorder"
+	"github.com/spf13/cobra"
 )
 
 var recorderCmd = &cobra.Command{
@@ -683,6 +683,22 @@ var recorderMediaRecorderUnregisterAudioRecordingCallbackCmd = &cobra.Command{
 	},
 }
 
+var recorderMediaRecorderGetAudioSourceMaxCmd = &cobra.Command{
+	Use:   "get-audio-source-max",
+	Short: "GetAudioSourceMax RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewMediaRecorderServiceClient(grpcConn)
+		req := &pb.GetAudioSourceMaxRequest{}
+		resp, err := client.GetAudioSourceMax(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
 func init() {
 	recorderMediaRecorderCmd.AddCommand(recorderMediaRecorderGetActiveMicrophonesCmd)
 	recorderMediaRecorderCmd.AddCommand(recorderMediaRecorderGetActiveRecordingConfigurationCmd)
@@ -750,6 +766,7 @@ func init() {
 	recorderMediaRecorderCmd.AddCommand(recorderMediaRecorderSetVideoProfileCmd)
 	recorderMediaRecorderUnregisterAudioRecordingCallbackCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	recorderMediaRecorderCmd.AddCommand(recorderMediaRecorderUnregisterAudioRecordingCallbackCmd)
+	recorderMediaRecorderCmd.AddCommand(recorderMediaRecorderGetAudioSourceMaxCmd)
 	recorderCmd.AddCommand(recorderMediaRecorderCmd)
 	rootCmd.AddCommand(recorderCmd)
 }

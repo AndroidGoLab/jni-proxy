@@ -1380,8 +1380,8 @@ const file_proto_camera_camera_proto_rawDesc = "" +
 	"&UnregisterAvailabilityCallbackResponse\"4\n" +
 	"\x1eUnregisterTorchCallbackRequest\x12\x12\n" +
 	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"!\n" +
-	"\x1fUnregisterTorchCallbackResponse2\x8d\r\n" +
-	"\x14CameraManagerService\x12m\n" +
+	"\x1fUnregisterTorchCallbackResponse2\x87\r\n" +
+	"\x0eManagerService\x12m\n" +
 	"\x18GetCameraCharacteristics\x12'.camera.GetCameraCharacteristicsRequest\x1a(.camera.GetCameraCharacteristicsResponse\x12a\n" +
 	"\x14GetCameraDeviceSetup\x12#.camera.GetCameraDeviceSetupRequest\x1a$.camera.GetCameraDeviceSetupResponse\x12\x88\x01\n" +
 	"!GetCameraExtensionCharacteristics\x120.camera.GetCameraExtensionCharacteristicsRequest\x1a1.camera.GetCameraExtensionCharacteristicsResponse\x12R\n" +
@@ -1397,7 +1397,7 @@ const file_proto_camera_camera_proto_rawDesc = "" +
 	"\fSetTorchMode\x12\x1b.camera.SetTorchModeRequest\x1a\x1c.camera.SetTorchModeResponse\x12y\n" +
 	"\x1cTurnOnTorchWithStrengthLevel\x12+.camera.TurnOnTorchWithStrengthLevelRequest\x1a,.camera.TurnOnTorchWithStrengthLevelResponse\x12\x7f\n" +
 	"\x1eUnregisterAvailabilityCallback\x12-.camera.UnregisterAvailabilityCallbackRequest\x1a..camera.UnregisterAvailabilityCallbackResponse\x12j\n" +
-	"\x17UnregisterTorchCallback\x12&.camera.UnregisterTorchCallbackRequest\x1a'.camera.UnregisterTorchCallbackResponseB)Z'github.com/AndroidGoLab/jni-proxy/proto/camerab\x06proto3"
+	"\x17UnregisterTorchCallback\x12&.camera.UnregisterTorchCallbackRequest\x1a'.camera.UnregisterTorchCallbackResponseB0Z.github.com/AndroidGoLab/jni-proxy/proto/camerab\x06proto3"
 
 var (
 	file_proto_camera_camera_proto_rawDescOnce sync.Once
@@ -1445,36 +1445,36 @@ var file_proto_camera_camera_proto_goTypes = []any{
 	(*UnregisterTorchCallbackResponse)(nil),                   // 29: camera.UnregisterTorchCallbackResponse
 }
 var file_proto_camera_camera_proto_depIdxs = []int32{
-	0,  // 0: camera.CameraManagerService.GetCameraCharacteristics:input_type -> camera.GetCameraCharacteristicsRequest
-	2,  // 1: camera.CameraManagerService.GetCameraDeviceSetup:input_type -> camera.GetCameraDeviceSetupRequest
-	4,  // 2: camera.CameraManagerService.GetCameraExtensionCharacteristics:input_type -> camera.GetCameraExtensionCharacteristicsRequest
-	6,  // 3: camera.CameraManagerService.GetCameraIdList:input_type -> camera.GetCameraIdListRequest
-	8,  // 4: camera.CameraManagerService.GetConcurrentCameraIds:input_type -> camera.GetConcurrentCameraIdsRequest
-	10, // 5: camera.CameraManagerService.GetTorchStrengthLevel:input_type -> camera.GetTorchStrengthLevelRequest
-	12, // 6: camera.CameraManagerService.IsCameraDeviceSetupSupported:input_type -> camera.IsCameraDeviceSetupSupportedRequest
-	14, // 7: camera.CameraManagerService.IsConcurrentSessionConfigurationSupported:input_type -> camera.IsConcurrentSessionConfigurationSupportedRequest
-	16, // 8: camera.CameraManagerService.OpenCamera:input_type -> camera.OpenCameraRequest
-	18, // 9: camera.CameraManagerService.RegisterAvailabilityCallback:input_type -> camera.RegisterAvailabilityCallbackRequest
-	20, // 10: camera.CameraManagerService.RegisterTorchCallback:input_type -> camera.RegisterTorchCallbackRequest
-	22, // 11: camera.CameraManagerService.SetTorchMode:input_type -> camera.SetTorchModeRequest
-	24, // 12: camera.CameraManagerService.TurnOnTorchWithStrengthLevel:input_type -> camera.TurnOnTorchWithStrengthLevelRequest
-	26, // 13: camera.CameraManagerService.UnregisterAvailabilityCallback:input_type -> camera.UnregisterAvailabilityCallbackRequest
-	28, // 14: camera.CameraManagerService.UnregisterTorchCallback:input_type -> camera.UnregisterTorchCallbackRequest
-	1,  // 15: camera.CameraManagerService.GetCameraCharacteristics:output_type -> camera.GetCameraCharacteristicsResponse
-	3,  // 16: camera.CameraManagerService.GetCameraDeviceSetup:output_type -> camera.GetCameraDeviceSetupResponse
-	5,  // 17: camera.CameraManagerService.GetCameraExtensionCharacteristics:output_type -> camera.GetCameraExtensionCharacteristicsResponse
-	7,  // 18: camera.CameraManagerService.GetCameraIdList:output_type -> camera.GetCameraIdListResponse
-	9,  // 19: camera.CameraManagerService.GetConcurrentCameraIds:output_type -> camera.GetConcurrentCameraIdsResponse
-	11, // 20: camera.CameraManagerService.GetTorchStrengthLevel:output_type -> camera.GetTorchStrengthLevelResponse
-	13, // 21: camera.CameraManagerService.IsCameraDeviceSetupSupported:output_type -> camera.IsCameraDeviceSetupSupportedResponse
-	15, // 22: camera.CameraManagerService.IsConcurrentSessionConfigurationSupported:output_type -> camera.IsConcurrentSessionConfigurationSupportedResponse
-	17, // 23: camera.CameraManagerService.OpenCamera:output_type -> camera.OpenCameraResponse
-	19, // 24: camera.CameraManagerService.RegisterAvailabilityCallback:output_type -> camera.RegisterAvailabilityCallbackResponse
-	21, // 25: camera.CameraManagerService.RegisterTorchCallback:output_type -> camera.RegisterTorchCallbackResponse
-	23, // 26: camera.CameraManagerService.SetTorchMode:output_type -> camera.SetTorchModeResponse
-	25, // 27: camera.CameraManagerService.TurnOnTorchWithStrengthLevel:output_type -> camera.TurnOnTorchWithStrengthLevelResponse
-	27, // 28: camera.CameraManagerService.UnregisterAvailabilityCallback:output_type -> camera.UnregisterAvailabilityCallbackResponse
-	29, // 29: camera.CameraManagerService.UnregisterTorchCallback:output_type -> camera.UnregisterTorchCallbackResponse
+	0,  // 0: camera.ManagerService.GetCameraCharacteristics:input_type -> camera.GetCameraCharacteristicsRequest
+	2,  // 1: camera.ManagerService.GetCameraDeviceSetup:input_type -> camera.GetCameraDeviceSetupRequest
+	4,  // 2: camera.ManagerService.GetCameraExtensionCharacteristics:input_type -> camera.GetCameraExtensionCharacteristicsRequest
+	6,  // 3: camera.ManagerService.GetCameraIdList:input_type -> camera.GetCameraIdListRequest
+	8,  // 4: camera.ManagerService.GetConcurrentCameraIds:input_type -> camera.GetConcurrentCameraIdsRequest
+	10, // 5: camera.ManagerService.GetTorchStrengthLevel:input_type -> camera.GetTorchStrengthLevelRequest
+	12, // 6: camera.ManagerService.IsCameraDeviceSetupSupported:input_type -> camera.IsCameraDeviceSetupSupportedRequest
+	14, // 7: camera.ManagerService.IsConcurrentSessionConfigurationSupported:input_type -> camera.IsConcurrentSessionConfigurationSupportedRequest
+	16, // 8: camera.ManagerService.OpenCamera:input_type -> camera.OpenCameraRequest
+	18, // 9: camera.ManagerService.RegisterAvailabilityCallback:input_type -> camera.RegisterAvailabilityCallbackRequest
+	20, // 10: camera.ManagerService.RegisterTorchCallback:input_type -> camera.RegisterTorchCallbackRequest
+	22, // 11: camera.ManagerService.SetTorchMode:input_type -> camera.SetTorchModeRequest
+	24, // 12: camera.ManagerService.TurnOnTorchWithStrengthLevel:input_type -> camera.TurnOnTorchWithStrengthLevelRequest
+	26, // 13: camera.ManagerService.UnregisterAvailabilityCallback:input_type -> camera.UnregisterAvailabilityCallbackRequest
+	28, // 14: camera.ManagerService.UnregisterTorchCallback:input_type -> camera.UnregisterTorchCallbackRequest
+	1,  // 15: camera.ManagerService.GetCameraCharacteristics:output_type -> camera.GetCameraCharacteristicsResponse
+	3,  // 16: camera.ManagerService.GetCameraDeviceSetup:output_type -> camera.GetCameraDeviceSetupResponse
+	5,  // 17: camera.ManagerService.GetCameraExtensionCharacteristics:output_type -> camera.GetCameraExtensionCharacteristicsResponse
+	7,  // 18: camera.ManagerService.GetCameraIdList:output_type -> camera.GetCameraIdListResponse
+	9,  // 19: camera.ManagerService.GetConcurrentCameraIds:output_type -> camera.GetConcurrentCameraIdsResponse
+	11, // 20: camera.ManagerService.GetTorchStrengthLevel:output_type -> camera.GetTorchStrengthLevelResponse
+	13, // 21: camera.ManagerService.IsCameraDeviceSetupSupported:output_type -> camera.IsCameraDeviceSetupSupportedResponse
+	15, // 22: camera.ManagerService.IsConcurrentSessionConfigurationSupported:output_type -> camera.IsConcurrentSessionConfigurationSupportedResponse
+	17, // 23: camera.ManagerService.OpenCamera:output_type -> camera.OpenCameraResponse
+	19, // 24: camera.ManagerService.RegisterAvailabilityCallback:output_type -> camera.RegisterAvailabilityCallbackResponse
+	21, // 25: camera.ManagerService.RegisterTorchCallback:output_type -> camera.RegisterTorchCallbackResponse
+	23, // 26: camera.ManagerService.SetTorchMode:output_type -> camera.SetTorchModeResponse
+	25, // 27: camera.ManagerService.TurnOnTorchWithStrengthLevel:output_type -> camera.TurnOnTorchWithStrengthLevelResponse
+	27, // 28: camera.ManagerService.UnregisterAvailabilityCallback:output_type -> camera.UnregisterAvailabilityCallbackResponse
+	29, // 29: camera.ManagerService.UnregisterTorchCallback:output_type -> camera.UnregisterTorchCallbackResponse
 	15, // [15:30] is the sub-list for method output_type
 	0,  // [0:15] is the sub-list for method input_type
 	0,  // [0:0] is the sub-list for extension type_name

@@ -21,102 +21,101 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
-	CalendarContractService_StartViewCalendarEventInManagedProfile_FullMethodName = "/calendar.CalendarContractService/StartViewCalendarEventInManagedProfile"
+	ContractService_StartViewCalendarEventInManagedProfile_FullMethodName = "/calendar.ContractService/StartViewCalendarEventInManagedProfile"
 )
 
-// CalendarContractServiceClient is the client API for CalendarContractService service.
+// ContractServiceClient is the client API for ContractService service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type CalendarContractServiceClient interface {
+type ContractServiceClient interface {
 	StartViewCalendarEventInManagedProfile(ctx context.Context, in *StartViewCalendarEventInManagedProfileRequest, opts ...grpc.CallOption) (*StartViewCalendarEventInManagedProfileResponse, error)
 }
 
-type calendarContractServiceClient struct {
+type contractServiceClient struct {
 	cc grpc.ClientConnInterface
 }
 
-func NewCalendarContractServiceClient(cc grpc.ClientConnInterface) CalendarContractServiceClient {
-	return &calendarContractServiceClient{cc}
+func NewContractServiceClient(cc grpc.ClientConnInterface) ContractServiceClient {
+	return &contractServiceClient{cc}
 }
 
-func (c *calendarContractServiceClient) StartViewCalendarEventInManagedProfile(ctx context.Context, in *StartViewCalendarEventInManagedProfileRequest, opts ...grpc.CallOption) (*StartViewCalendarEventInManagedProfileResponse, error) {
+func (c *contractServiceClient) StartViewCalendarEventInManagedProfile(ctx context.Context, in *StartViewCalendarEventInManagedProfileRequest, opts ...grpc.CallOption) (*StartViewCalendarEventInManagedProfileResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(StartViewCalendarEventInManagedProfileResponse)
-	err := c.cc.Invoke(ctx, CalendarContractService_StartViewCalendarEventInManagedProfile_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, ContractService_StartViewCalendarEventInManagedProfile_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-// CalendarContractServiceServer is the server API for CalendarContractService service.
-// All implementations must embed UnimplementedCalendarContractServiceServer
+// ContractServiceServer is the server API for ContractService service.
+// All implementations must embed UnimplementedContractServiceServer
 // for forward compatibility.
-type CalendarContractServiceServer interface {
+type ContractServiceServer interface {
 	StartViewCalendarEventInManagedProfile(context.Context, *StartViewCalendarEventInManagedProfileRequest) (*StartViewCalendarEventInManagedProfileResponse, error)
-	mustEmbedUnimplementedCalendarContractServiceServer()
+	mustEmbedUnimplementedContractServiceServer()
 }
 
-// UnimplementedCalendarContractServiceServer must be embedded to have
+// UnimplementedContractServiceServer must be embedded to have
 // forward compatible implementations.
 //
 // NOTE: this should be embedded by value instead of pointer to avoid a nil
 // pointer dereference when methods are called.
-type UnimplementedCalendarContractServiceServer struct{}
+type UnimplementedContractServiceServer struct{}
 
-func (UnimplementedCalendarContractServiceServer) StartViewCalendarEventInManagedProfile(context.Context, *StartViewCalendarEventInManagedProfileRequest) (*StartViewCalendarEventInManagedProfileResponse, error) {
+func (UnimplementedContractServiceServer) StartViewCalendarEventInManagedProfile(context.Context, *StartViewCalendarEventInManagedProfileRequest) (*StartViewCalendarEventInManagedProfileResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method StartViewCalendarEventInManagedProfile not implemented")
 }
-func (UnimplementedCalendarContractServiceServer) mustEmbedUnimplementedCalendarContractServiceServer() {
-}
-func (UnimplementedCalendarContractServiceServer) testEmbeddedByValue() {}
+func (UnimplementedContractServiceServer) mustEmbedUnimplementedContractServiceServer() {}
+func (UnimplementedContractServiceServer) testEmbeddedByValue()                         {}
 
-// UnsafeCalendarContractServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to CalendarContractServiceServer will
+// UnsafeContractServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to ContractServiceServer will
 // result in compilation errors.
-type UnsafeCalendarContractServiceServer interface {
-	mustEmbedUnimplementedCalendarContractServiceServer()
+type UnsafeContractServiceServer interface {
+	mustEmbedUnimplementedContractServiceServer()
 }
 
-func RegisterCalendarContractServiceServer(s grpc.ServiceRegistrar, srv CalendarContractServiceServer) {
-	// If the following call panics, it indicates UnimplementedCalendarContractServiceServer was
+func RegisterContractServiceServer(s grpc.ServiceRegistrar, srv ContractServiceServer) {
+	// If the following call panics, it indicates UnimplementedContractServiceServer was
 	// embedded by pointer and is nil.  This will cause panics if an
 	// unimplemented method is ever invoked, so we test this at initialization
 	// time to prevent it from happening at runtime later due to I/O.
 	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
 		t.testEmbeddedByValue()
 	}
-	s.RegisterService(&CalendarContractService_ServiceDesc, srv)
+	s.RegisterService(&ContractService_ServiceDesc, srv)
 }
 
-func _CalendarContractService_StartViewCalendarEventInManagedProfile_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _ContractService_StartViewCalendarEventInManagedProfile_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(StartViewCalendarEventInManagedProfileRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(CalendarContractServiceServer).StartViewCalendarEventInManagedProfile(ctx, in)
+		return srv.(ContractServiceServer).StartViewCalendarEventInManagedProfile(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: CalendarContractService_StartViewCalendarEventInManagedProfile_FullMethodName,
+		FullMethod: ContractService_StartViewCalendarEventInManagedProfile_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CalendarContractServiceServer).StartViewCalendarEventInManagedProfile(ctx, req.(*StartViewCalendarEventInManagedProfileRequest))
+		return srv.(ContractServiceServer).StartViewCalendarEventInManagedProfile(ctx, req.(*StartViewCalendarEventInManagedProfileRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-// CalendarContractService_ServiceDesc is the grpc.ServiceDesc for CalendarContractService service.
+// ContractService_ServiceDesc is the grpc.ServiceDesc for ContractService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
-var CalendarContractService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "calendar.CalendarContractService",
-	HandlerType: (*CalendarContractServiceServer)(nil),
+var ContractService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "calendar.ContractService",
+	HandlerType: (*ContractServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
 			MethodName: "StartViewCalendarEventInManagedProfile",
-			Handler:    _CalendarContractService_StartViewCalendarEventInManagedProfile_Handler,
+			Handler:    _ContractService_StartViewCalendarEventInManagedProfile_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

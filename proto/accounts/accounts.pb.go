@@ -23,422 +23,6 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
-type DescribeContentsRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *DescribeContentsRequest) Reset() {
-	*x = DescribeContentsRequest{}
-	mi := &file_proto_accounts_accounts_proto_msgTypes[0]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *DescribeContentsRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*DescribeContentsRequest) ProtoMessage() {}
-
-func (x *DescribeContentsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_accounts_accounts_proto_msgTypes[0]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use DescribeContentsRequest.ProtoReflect.Descriptor instead.
-func (*DescribeContentsRequest) Descriptor() ([]byte, []int) {
-	return file_proto_accounts_accounts_proto_rawDescGZIP(), []int{0}
-}
-
-type DescribeContentsResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *DescribeContentsResponse) Reset() {
-	*x = DescribeContentsResponse{}
-	mi := &file_proto_accounts_accounts_proto_msgTypes[1]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *DescribeContentsResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*DescribeContentsResponse) ProtoMessage() {}
-
-func (x *DescribeContentsResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_accounts_accounts_proto_msgTypes[1]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use DescribeContentsResponse.ProtoReflect.Descriptor instead.
-func (*DescribeContentsResponse) Descriptor() ([]byte, []int) {
-	return file_proto_accounts_accounts_proto_rawDescGZIP(), []int{1}
-}
-
-func (x *DescribeContentsResponse) GetResult() int32 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type EqualsRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *EqualsRequest) Reset() {
-	*x = EqualsRequest{}
-	mi := &file_proto_accounts_accounts_proto_msgTypes[2]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *EqualsRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*EqualsRequest) ProtoMessage() {}
-
-func (x *EqualsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_accounts_accounts_proto_msgTypes[2]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use EqualsRequest.ProtoReflect.Descriptor instead.
-func (*EqualsRequest) Descriptor() ([]byte, []int) {
-	return file_proto_accounts_accounts_proto_rawDescGZIP(), []int{2}
-}
-
-func (x *EqualsRequest) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type EqualsResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *EqualsResponse) Reset() {
-	*x = EqualsResponse{}
-	mi := &file_proto_accounts_accounts_proto_msgTypes[3]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *EqualsResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*EqualsResponse) ProtoMessage() {}
-
-func (x *EqualsResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_accounts_accounts_proto_msgTypes[3]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use EqualsResponse.ProtoReflect.Descriptor instead.
-func (*EqualsResponse) Descriptor() ([]byte, []int) {
-	return file_proto_accounts_accounts_proto_rawDescGZIP(), []int{3}
-}
-
-func (x *EqualsResponse) GetResult() bool {
-	if x != nil {
-		return x.Result
-	}
-	return false
-}
-
-type HashCodeRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *HashCodeRequest) Reset() {
-	*x = HashCodeRequest{}
-	mi := &file_proto_accounts_accounts_proto_msgTypes[4]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *HashCodeRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*HashCodeRequest) ProtoMessage() {}
-
-func (x *HashCodeRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_accounts_accounts_proto_msgTypes[4]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use HashCodeRequest.ProtoReflect.Descriptor instead.
-func (*HashCodeRequest) Descriptor() ([]byte, []int) {
-	return file_proto_accounts_accounts_proto_rawDescGZIP(), []int{4}
-}
-
-type HashCodeResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *HashCodeResponse) Reset() {
-	*x = HashCodeResponse{}
-	mi := &file_proto_accounts_accounts_proto_msgTypes[5]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *HashCodeResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*HashCodeResponse) ProtoMessage() {}
-
-func (x *HashCodeResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_accounts_accounts_proto_msgTypes[5]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use HashCodeResponse.ProtoReflect.Descriptor instead.
-func (*HashCodeResponse) Descriptor() ([]byte, []int) {
-	return file_proto_accounts_accounts_proto_rawDescGZIP(), []int{5}
-}
-
-func (x *HashCodeResponse) GetResult() int32 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type ToStringRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *ToStringRequest) Reset() {
-	*x = ToStringRequest{}
-	mi := &file_proto_accounts_accounts_proto_msgTypes[6]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *ToStringRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*ToStringRequest) ProtoMessage() {}
-
-func (x *ToStringRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_accounts_accounts_proto_msgTypes[6]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use ToStringRequest.ProtoReflect.Descriptor instead.
-func (*ToStringRequest) Descriptor() ([]byte, []int) {
-	return file_proto_accounts_accounts_proto_rawDescGZIP(), []int{6}
-}
-
-type ToStringResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *ToStringResponse) Reset() {
-	*x = ToStringResponse{}
-	mi := &file_proto_accounts_accounts_proto_msgTypes[7]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *ToStringResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*ToStringResponse) ProtoMessage() {}
-
-func (x *ToStringResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_accounts_accounts_proto_msgTypes[7]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use ToStringResponse.ProtoReflect.Descriptor instead.
-func (*ToStringResponse) Descriptor() ([]byte, []int) {
-	return file_proto_accounts_accounts_proto_rawDescGZIP(), []int{7}
-}
-
-func (x *ToStringResponse) GetResult() string {
-	if x != nil {
-		return x.Result
-	}
-	return ""
-}
-
-type WriteToParcelRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	Arg1          int32                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *WriteToParcelRequest) Reset() {
-	*x = WriteToParcelRequest{}
-	mi := &file_proto_accounts_accounts_proto_msgTypes[8]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *WriteToParcelRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*WriteToParcelRequest) ProtoMessage() {}
-
-func (x *WriteToParcelRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_accounts_accounts_proto_msgTypes[8]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use WriteToParcelRequest.ProtoReflect.Descriptor instead.
-func (*WriteToParcelRequest) Descriptor() ([]byte, []int) {
-	return file_proto_accounts_accounts_proto_rawDescGZIP(), []int{8}
-}
-
-func (x *WriteToParcelRequest) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-func (x *WriteToParcelRequest) GetArg1() int32 {
-	if x != nil {
-		return x.Arg1
-	}
-	return 0
-}
-
-type WriteToParcelResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *WriteToParcelResponse) Reset() {
-	*x = WriteToParcelResponse{}
-	mi := &file_proto_accounts_accounts_proto_msgTypes[9]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *WriteToParcelResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*WriteToParcelResponse) ProtoMessage() {}
-
-func (x *WriteToParcelResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_accounts_accounts_proto_msgTypes[9]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use WriteToParcelResponse.ProtoReflect.Descriptor instead.
-func (*WriteToParcelResponse) Descriptor() ([]byte, []int) {
-	return file_proto_accounts_accounts_proto_rawDescGZIP(), []int{9}
-}
-
 type AddAccountExplicitly3Request struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
@@ -450,7 +34,7 @@ type AddAccountExplicitly3Request struct {
 
 func (x *AddAccountExplicitly3Request) Reset() {
 	*x = AddAccountExplicitly3Request{}
-	mi := &file_proto_accounts_accounts_proto_msgTypes[10]
+	mi := &file_proto_accounts_accounts_proto_msgTypes[0]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -462,7 +46,7 @@ func (x *AddAccountExplicitly3Request) String() string {
 func (*AddAccountExplicitly3Request) ProtoMessage() {}
 
 func (x *AddAccountExplicitly3Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_accounts_accounts_proto_msgTypes[10]
+	mi := &file_proto_accounts_accounts_proto_msgTypes[0]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -475,7 +59,7 @@ func (x *AddAccountExplicitly3Request) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use AddAccountExplicitly3Request.ProtoReflect.Descriptor instead.
 func (*AddAccountExplicitly3Request) Descriptor() ([]byte, []int) {
-	return file_proto_accounts_accounts_proto_rawDescGZIP(), []int{10}
+	return file_proto_accounts_accounts_proto_rawDescGZIP(), []int{0}
 }
 
 func (x *AddAccountExplicitly3Request) GetArg0() int64 {
@@ -508,7 +92,7 @@ type AddAccountExplicitly3Response struct {
 
 func (x *AddAccountExplicitly3Response) Reset() {
 	*x = AddAccountExplicitly3Response{}
-	mi := &file_proto_accounts_accounts_proto_msgTypes[11]
+	mi := &file_proto_accounts_accounts_proto_msgTypes[1]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -520,7 +104,7 @@ func (x *AddAccountExplicitly3Response) String() string {
 func (*AddAccountExplicitly3Response) ProtoMessage() {}
 
 func (x *AddAccountExplicitly3Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_accounts_accounts_proto_msgTypes[11]
+	mi := &file_proto_accounts_accounts_proto_msgTypes[1]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -533,7 +117,7 @@ func (x *AddAccountExplicitly3Response) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use AddAccountExplicitly3Response.ProtoReflect.Descriptor instead.
 func (*AddAccountExplicitly3Response) Descriptor() ([]byte, []int) {
-	return file_proto_accounts_accounts_proto_rawDescGZIP(), []int{11}
+	return file_proto_accounts_accounts_proto_rawDescGZIP(), []int{1}
 }
 
 func (x *AddAccountExplicitly3Response) GetResult() bool {
@@ -555,7 +139,7 @@ type AddAccountExplicitly4_1Request struct {
 
 func (x *AddAccountExplicitly4_1Request) Reset() {
 	*x = AddAccountExplicitly4_1Request{}
-	mi := &file_proto_accounts_accounts_proto_msgTypes[12]
+	mi := &file_proto_accounts_accounts_proto_msgTypes[2]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -567,7 +151,7 @@ func (x *AddAccountExplicitly4_1Request) String() string {
 func (*AddAccountExplicitly4_1Request) ProtoMessage() {}
 
 func (x *AddAccountExplicitly4_1Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_accounts_accounts_proto_msgTypes[12]
+	mi := &file_proto_accounts_accounts_proto_msgTypes[2]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -580,7 +164,7 @@ func (x *AddAccountExplicitly4_1Request) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use AddAccountExplicitly4_1Request.ProtoReflect.Descriptor instead.
 func (*AddAccountExplicitly4_1Request) Descriptor() ([]byte, []int) {
-	return file_proto_accounts_accounts_proto_rawDescGZIP(), []int{12}
+	return file_proto_accounts_accounts_proto_rawDescGZIP(), []int{2}
 }
 
 func (x *AddAccountExplicitly4_1Request) GetArg0() int64 {
@@ -620,7 +204,7 @@ type AddAccountExplicitly4_1Response struct {
 
 func (x *AddAccountExplicitly4_1Response) Reset() {
 	*x = AddAccountExplicitly4_1Response{}
-	mi := &file_proto_accounts_accounts_proto_msgTypes[13]
+	mi := &file_proto_accounts_accounts_proto_msgTypes[3]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -632,7 +216,7 @@ func (x *AddAccountExplicitly4_1Response) String() string {
 func (*AddAccountExplicitly4_1Response) ProtoMessage() {}
 
 func (x *AddAccountExplicitly4_1Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_accounts_accounts_proto_msgTypes[13]
+	mi := &file_proto_accounts_accounts_proto_msgTypes[3]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -645,7 +229,7 @@ func (x *AddAccountExplicitly4_1Response) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use AddAccountExplicitly4_1Response.ProtoReflect.Descriptor instead.
 func (*AddAccountExplicitly4_1Response) Descriptor() ([]byte, []int) {
-	return file_proto_accounts_accounts_proto_rawDescGZIP(), []int{13}
+	return file_proto_accounts_accounts_proto_rawDescGZIP(), []int{3}
 }
 
 func (x *AddAccountExplicitly4_1Response) GetResult() bool {
@@ -666,7 +250,7 @@ type BlockingGetAuthTokenRequest struct {
 
 func (x *BlockingGetAuthTokenRequest) Reset() {
 	*x = BlockingGetAuthTokenRequest{}
-	mi := &file_proto_accounts_accounts_proto_msgTypes[14]
+	mi := &file_proto_accounts_accounts_proto_msgTypes[4]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -678,7 +262,7 @@ func (x *BlockingGetAuthTokenRequest) String() string {
 func (*BlockingGetAuthTokenRequest) ProtoMessage() {}
 
 func (x *BlockingGetAuthTokenRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_accounts_accounts_proto_msgTypes[14]
+	mi := &file_proto_accounts_accounts_proto_msgTypes[4]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -691,7 +275,7 @@ func (x *BlockingGetAuthTokenRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use BlockingGetAuthTokenRequest.ProtoReflect.Descriptor instead.
 func (*BlockingGetAuthTokenRequest) Descriptor() ([]byte, []int) {
-	return file_proto_accounts_accounts_proto_rawDescGZIP(), []int{14}
+	return file_proto_accounts_accounts_proto_rawDescGZIP(), []int{4}
 }
 
 func (x *BlockingGetAuthTokenRequest) GetArg0() int64 {
@@ -724,7 +308,7 @@ type BlockingGetAuthTokenResponse struct {
 
 func (x *BlockingGetAuthTokenResponse) Reset() {
 	*x = BlockingGetAuthTokenResponse{}
-	mi := &file_proto_accounts_accounts_proto_msgTypes[15]
+	mi := &file_proto_accounts_accounts_proto_msgTypes[5]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -736,7 +320,7 @@ func (x *BlockingGetAuthTokenResponse) String() string {
 func (*BlockingGetAuthTokenResponse) ProtoMessage() {}
 
 func (x *BlockingGetAuthTokenResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_accounts_accounts_proto_msgTypes[15]
+	mi := &file_proto_accounts_accounts_proto_msgTypes[5]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -749,7 +333,7 @@ func (x *BlockingGetAuthTokenResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use BlockingGetAuthTokenResponse.ProtoReflect.Descriptor instead.
 func (*BlockingGetAuthTokenResponse) Descriptor() ([]byte, []int) {
-	return file_proto_accounts_accounts_proto_rawDescGZIP(), []int{15}
+	return file_proto_accounts_accounts_proto_rawDescGZIP(), []int{5}
 }
 
 func (x *BlockingGetAuthTokenResponse) GetResult() string {
@@ -768,7 +352,7 @@ type ClearPasswordRequest struct {
 
 func (x *ClearPasswordRequest) Reset() {
 	*x = ClearPasswordRequest{}
-	mi := &file_proto_accounts_accounts_proto_msgTypes[16]
+	mi := &file_proto_accounts_accounts_proto_msgTypes[6]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -780,7 +364,7 @@ func (x *ClearPasswordRequest) String() string {
 func (*ClearPasswordRequest) ProtoMessage() {}
 
 func (x *ClearPasswordRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_accounts_accounts_proto_msgTypes[16]
+	mi := &file_proto_accounts_accounts_proto_msgTypes[6]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -793,7 +377,7 @@ func (x *ClearPasswordRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ClearPasswordRequest.ProtoReflect.Descriptor instead.
 func (*ClearPasswordRequest) Descriptor() ([]byte, []int) {
-	return file_proto_accounts_accounts_proto_rawDescGZIP(), []int{16}
+	return file_proto_accounts_accounts_proto_rawDescGZIP(), []int{6}
 }
 
 func (x *ClearPasswordRequest) GetArg0() int64 {
@@ -811,7 +395,7 @@ type ClearPasswordResponse struct {
 
 func (x *ClearPasswordResponse) Reset() {
 	*x = ClearPasswordResponse{}
-	mi := &file_proto_accounts_accounts_proto_msgTypes[17]
+	mi := &file_proto_accounts_accounts_proto_msgTypes[7]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -823,7 +407,7 @@ func (x *ClearPasswordResponse) String() string {
 func (*ClearPasswordResponse) ProtoMessage() {}
 
 func (x *ClearPasswordResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_accounts_accounts_proto_msgTypes[17]
+	mi := &file_proto_accounts_accounts_proto_msgTypes[7]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -836,7 +420,7 @@ func (x *ClearPasswordResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ClearPasswordResponse.ProtoReflect.Descriptor instead.
 func (*ClearPasswordResponse) Descriptor() ([]byte, []int) {
-	return file_proto_accounts_accounts_proto_rawDescGZIP(), []int{17}
+	return file_proto_accounts_accounts_proto_rawDescGZIP(), []int{7}
 }
 
 type GetAccountVisibilityRequest struct {
@@ -849,7 +433,7 @@ type GetAccountVisibilityRequest struct {
 
 func (x *GetAccountVisibilityRequest) Reset() {
 	*x = GetAccountVisibilityRequest{}
-	mi := &file_proto_accounts_accounts_proto_msgTypes[18]
+	mi := &file_proto_accounts_accounts_proto_msgTypes[8]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -861,7 +445,7 @@ func (x *GetAccountVisibilityRequest) String() string {
 func (*GetAccountVisibilityRequest) ProtoMessage() {}
 
 func (x *GetAccountVisibilityRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_accounts_accounts_proto_msgTypes[18]
+	mi := &file_proto_accounts_accounts_proto_msgTypes[8]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -874,7 +458,7 @@ func (x *GetAccountVisibilityRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetAccountVisibilityRequest.ProtoReflect.Descriptor instead.
 func (*GetAccountVisibilityRequest) Descriptor() ([]byte, []int) {
-	return file_proto_accounts_accounts_proto_rawDescGZIP(), []int{18}
+	return file_proto_accounts_accounts_proto_rawDescGZIP(), []int{8}
 }
 
 func (x *GetAccountVisibilityRequest) GetArg0() int64 {
@@ -900,7 +484,7 @@ type GetAccountVisibilityResponse struct {
 
 func (x *GetAccountVisibilityResponse) Reset() {
 	*x = GetAccountVisibilityResponse{}
-	mi := &file_proto_accounts_accounts_proto_msgTypes[19]
+	mi := &file_proto_accounts_accounts_proto_msgTypes[9]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -912,7 +496,7 @@ func (x *GetAccountVisibilityResponse) String() string {
 func (*GetAccountVisibilityResponse) ProtoMessage() {}
 
 func (x *GetAccountVisibilityResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_accounts_accounts_proto_msgTypes[19]
+	mi := &file_proto_accounts_accounts_proto_msgTypes[9]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -925,7 +509,7 @@ func (x *GetAccountVisibilityResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetAccountVisibilityResponse.ProtoReflect.Descriptor instead.
 func (*GetAccountVisibilityResponse) Descriptor() ([]byte, []int) {
-	return file_proto_accounts_accounts_proto_rawDescGZIP(), []int{19}
+	return file_proto_accounts_accounts_proto_rawDescGZIP(), []int{9}
 }
 
 func (x *GetAccountVisibilityResponse) GetResult() int32 {
@@ -943,7 +527,7 @@ type GetAccountsRequest struct {
 
 func (x *GetAccountsRequest) Reset() {
 	*x = GetAccountsRequest{}
-	mi := &file_proto_accounts_accounts_proto_msgTypes[20]
+	mi := &file_proto_accounts_accounts_proto_msgTypes[10]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -955,7 +539,7 @@ func (x *GetAccountsRequest) String() string {
 func (*GetAccountsRequest) ProtoMessage() {}
 
 func (x *GetAccountsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_accounts_accounts_proto_msgTypes[20]
+	mi := &file_proto_accounts_accounts_proto_msgTypes[10]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -968,7 +552,7 @@ func (x *GetAccountsRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetAccountsRequest.ProtoReflect.Descriptor instead.
 func (*GetAccountsRequest) Descriptor() ([]byte, []int) {
-	return file_proto_accounts_accounts_proto_rawDescGZIP(), []int{20}
+	return file_proto_accounts_accounts_proto_rawDescGZIP(), []int{10}
 }
 
 type GetAccountsResponse struct {
@@ -980,7 +564,7 @@ type GetAccountsResponse struct {
 
 func (x *GetAccountsResponse) Reset() {
 	*x = GetAccountsResponse{}
-	mi := &file_proto_accounts_accounts_proto_msgTypes[21]
+	mi := &file_proto_accounts_accounts_proto_msgTypes[11]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -992,7 +576,7 @@ func (x *GetAccountsResponse) String() string {
 func (*GetAccountsResponse) ProtoMessage() {}
 
 func (x *GetAccountsResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_accounts_accounts_proto_msgTypes[21]
+	mi := &file_proto_accounts_accounts_proto_msgTypes[11]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1005,7 +589,7 @@ func (x *GetAccountsResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetAccountsResponse.ProtoReflect.Descriptor instead.
 func (*GetAccountsResponse) Descriptor() ([]byte, []int) {
-	return file_proto_accounts_accounts_proto_rawDescGZIP(), []int{21}
+	return file_proto_accounts_accounts_proto_rawDescGZIP(), []int{11}
 }
 
 func (x *GetAccountsResponse) GetResult() int64 {
@@ -1024,7 +608,7 @@ type GetAccountsByTypeRequest struct {
 
 func (x *GetAccountsByTypeRequest) Reset() {
 	*x = GetAccountsByTypeRequest{}
-	mi := &file_proto_accounts_accounts_proto_msgTypes[22]
+	mi := &file_proto_accounts_accounts_proto_msgTypes[12]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1036,7 +620,7 @@ func (x *GetAccountsByTypeRequest) String() string {
 func (*GetAccountsByTypeRequest) ProtoMessage() {}
 
 func (x *GetAccountsByTypeRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_accounts_accounts_proto_msgTypes[22]
+	mi := &file_proto_accounts_accounts_proto_msgTypes[12]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1049,7 +633,7 @@ func (x *GetAccountsByTypeRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetAccountsByTypeRequest.ProtoReflect.Descriptor instead.
 func (*GetAccountsByTypeRequest) Descriptor() ([]byte, []int) {
-	return file_proto_accounts_accounts_proto_rawDescGZIP(), []int{22}
+	return file_proto_accounts_accounts_proto_rawDescGZIP(), []int{12}
 }
 
 func (x *GetAccountsByTypeRequest) GetArg0() string {
@@ -1068,7 +652,7 @@ type GetAccountsByTypeResponse struct {
 
 func (x *GetAccountsByTypeResponse) Reset() {
 	*x = GetAccountsByTypeResponse{}
-	mi := &file_proto_accounts_accounts_proto_msgTypes[23]
+	mi := &file_proto_accounts_accounts_proto_msgTypes[13]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1080,7 +664,7 @@ func (x *GetAccountsByTypeResponse) String() string {
 func (*GetAccountsByTypeResponse) ProtoMessage() {}
 
 func (x *GetAccountsByTypeResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_accounts_accounts_proto_msgTypes[23]
+	mi := &file_proto_accounts_accounts_proto_msgTypes[13]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1093,7 +677,7 @@ func (x *GetAccountsByTypeResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetAccountsByTypeResponse.ProtoReflect.Descriptor instead.
 func (*GetAccountsByTypeResponse) Descriptor() ([]byte, []int) {
-	return file_proto_accounts_accounts_proto_rawDescGZIP(), []int{23}
+	return file_proto_accounts_accounts_proto_rawDescGZIP(), []int{13}
 }
 
 func (x *GetAccountsByTypeResponse) GetResult() int64 {
@@ -1113,7 +697,7 @@ type GetAccountsByTypeForPackageRequest struct {
 
 func (x *GetAccountsByTypeForPackageRequest) Reset() {
 	*x = GetAccountsByTypeForPackageRequest{}
-	mi := &file_proto_accounts_accounts_proto_msgTypes[24]
+	mi := &file_proto_accounts_accounts_proto_msgTypes[14]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1125,7 +709,7 @@ func (x *GetAccountsByTypeForPackageRequest) String() string {
 func (*GetAccountsByTypeForPackageRequest) ProtoMessage() {}
 
 func (x *GetAccountsByTypeForPackageRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_accounts_accounts_proto_msgTypes[24]
+	mi := &file_proto_accounts_accounts_proto_msgTypes[14]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1138,7 +722,7 @@ func (x *GetAccountsByTypeForPackageRequest) ProtoReflect() protoreflect.Message
 
 // Deprecated: Use GetAccountsByTypeForPackageRequest.ProtoReflect.Descriptor instead.
 func (*GetAccountsByTypeForPackageRequest) Descriptor() ([]byte, []int) {
-	return file_proto_accounts_accounts_proto_rawDescGZIP(), []int{24}
+	return file_proto_accounts_accounts_proto_rawDescGZIP(), []int{14}
 }
 
 func (x *GetAccountsByTypeForPackageRequest) GetArg0() string {
@@ -1164,7 +748,7 @@ type GetAccountsByTypeForPackageResponse struct {
 
 func (x *GetAccountsByTypeForPackageResponse) Reset() {
 	*x = GetAccountsByTypeForPackageResponse{}
-	mi := &file_proto_accounts_accounts_proto_msgTypes[25]
+	mi := &file_proto_accounts_accounts_proto_msgTypes[15]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1176,7 +760,7 @@ func (x *GetAccountsByTypeForPackageResponse) String() string {
 func (*GetAccountsByTypeForPackageResponse) ProtoMessage() {}
 
 func (x *GetAccountsByTypeForPackageResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_accounts_accounts_proto_msgTypes[25]
+	mi := &file_proto_accounts_accounts_proto_msgTypes[15]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1189,7 +773,7 @@ func (x *GetAccountsByTypeForPackageResponse) ProtoReflect() protoreflect.Messag
 
 // Deprecated: Use GetAccountsByTypeForPackageResponse.ProtoReflect.Descriptor instead.
 func (*GetAccountsByTypeForPackageResponse) Descriptor() ([]byte, []int) {
-	return file_proto_accounts_accounts_proto_rawDescGZIP(), []int{25}
+	return file_proto_accounts_accounts_proto_rawDescGZIP(), []int{15}
 }
 
 func (x *GetAccountsByTypeForPackageResponse) GetResult() int64 {
@@ -1207,7 +791,7 @@ type GetAuthenticatorTypesRequest struct {
 
 func (x *GetAuthenticatorTypesRequest) Reset() {
 	*x = GetAuthenticatorTypesRequest{}
-	mi := &file_proto_accounts_accounts_proto_msgTypes[26]
+	mi := &file_proto_accounts_accounts_proto_msgTypes[16]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1219,7 +803,7 @@ func (x *GetAuthenticatorTypesRequest) String() string {
 func (*GetAuthenticatorTypesRequest) ProtoMessage() {}
 
 func (x *GetAuthenticatorTypesRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_accounts_accounts_proto_msgTypes[26]
+	mi := &file_proto_accounts_accounts_proto_msgTypes[16]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1232,7 +816,7 @@ func (x *GetAuthenticatorTypesRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetAuthenticatorTypesRequest.ProtoReflect.Descriptor instead.
 func (*GetAuthenticatorTypesRequest) Descriptor() ([]byte, []int) {
-	return file_proto_accounts_accounts_proto_rawDescGZIP(), []int{26}
+	return file_proto_accounts_accounts_proto_rawDescGZIP(), []int{16}
 }
 
 type GetAuthenticatorTypesResponse struct {
@@ -1244,7 +828,7 @@ type GetAuthenticatorTypesResponse struct {
 
 func (x *GetAuthenticatorTypesResponse) Reset() {
 	*x = GetAuthenticatorTypesResponse{}
-	mi := &file_proto_accounts_accounts_proto_msgTypes[27]
+	mi := &file_proto_accounts_accounts_proto_msgTypes[17]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1256,7 +840,7 @@ func (x *GetAuthenticatorTypesResponse) String() string {
 func (*GetAuthenticatorTypesResponse) ProtoMessage() {}
 
 func (x *GetAuthenticatorTypesResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_accounts_accounts_proto_msgTypes[27]
+	mi := &file_proto_accounts_accounts_proto_msgTypes[17]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1269,7 +853,7 @@ func (x *GetAuthenticatorTypesResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetAuthenticatorTypesResponse.ProtoReflect.Descriptor instead.
 func (*GetAuthenticatorTypesResponse) Descriptor() ([]byte, []int) {
-	return file_proto_accounts_accounts_proto_rawDescGZIP(), []int{27}
+	return file_proto_accounts_accounts_proto_rawDescGZIP(), []int{17}
 }
 
 func (x *GetAuthenticatorTypesResponse) GetResult() int64 {
@@ -1288,7 +872,7 @@ type GetPasswordRequest struct {
 
 func (x *GetPasswordRequest) Reset() {
 	*x = GetPasswordRequest{}
-	mi := &file_proto_accounts_accounts_proto_msgTypes[28]
+	mi := &file_proto_accounts_accounts_proto_msgTypes[18]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1300,7 +884,7 @@ func (x *GetPasswordRequest) String() string {
 func (*GetPasswordRequest) ProtoMessage() {}
 
 func (x *GetPasswordRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_accounts_accounts_proto_msgTypes[28]
+	mi := &file_proto_accounts_accounts_proto_msgTypes[18]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1313,7 +897,7 @@ func (x *GetPasswordRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetPasswordRequest.ProtoReflect.Descriptor instead.
 func (*GetPasswordRequest) Descriptor() ([]byte, []int) {
-	return file_proto_accounts_accounts_proto_rawDescGZIP(), []int{28}
+	return file_proto_accounts_accounts_proto_rawDescGZIP(), []int{18}
 }
 
 func (x *GetPasswordRequest) GetArg0() int64 {
@@ -1332,7 +916,7 @@ type GetPasswordResponse struct {
 
 func (x *GetPasswordResponse) Reset() {
 	*x = GetPasswordResponse{}
-	mi := &file_proto_accounts_accounts_proto_msgTypes[29]
+	mi := &file_proto_accounts_accounts_proto_msgTypes[19]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1344,7 +928,7 @@ func (x *GetPasswordResponse) String() string {
 func (*GetPasswordResponse) ProtoMessage() {}
 
 func (x *GetPasswordResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_accounts_accounts_proto_msgTypes[29]
+	mi := &file_proto_accounts_accounts_proto_msgTypes[19]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1357,7 +941,7 @@ func (x *GetPasswordResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetPasswordResponse.ProtoReflect.Descriptor instead.
 func (*GetPasswordResponse) Descriptor() ([]byte, []int) {
-	return file_proto_accounts_accounts_proto_rawDescGZIP(), []int{29}
+	return file_proto_accounts_accounts_proto_rawDescGZIP(), []int{19}
 }
 
 func (x *GetPasswordResponse) GetResult() string {
@@ -1376,7 +960,7 @@ type GetPreviousNameRequest struct {
 
 func (x *GetPreviousNameRequest) Reset() {
 	*x = GetPreviousNameRequest{}
-	mi := &file_proto_accounts_accounts_proto_msgTypes[30]
+	mi := &file_proto_accounts_accounts_proto_msgTypes[20]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1388,7 +972,7 @@ func (x *GetPreviousNameRequest) String() string {
 func (*GetPreviousNameRequest) ProtoMessage() {}
 
 func (x *GetPreviousNameRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_accounts_accounts_proto_msgTypes[30]
+	mi := &file_proto_accounts_accounts_proto_msgTypes[20]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1401,7 +985,7 @@ func (x *GetPreviousNameRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetPreviousNameRequest.ProtoReflect.Descriptor instead.
 func (*GetPreviousNameRequest) Descriptor() ([]byte, []int) {
-	return file_proto_accounts_accounts_proto_rawDescGZIP(), []int{30}
+	return file_proto_accounts_accounts_proto_rawDescGZIP(), []int{20}
 }
 
 func (x *GetPreviousNameRequest) GetArg0() int64 {
@@ -1420,7 +1004,7 @@ type GetPreviousNameResponse struct {
 
 func (x *GetPreviousNameResponse) Reset() {
 	*x = GetPreviousNameResponse{}
-	mi := &file_proto_accounts_accounts_proto_msgTypes[31]
+	mi := &file_proto_accounts_accounts_proto_msgTypes[21]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1432,7 +1016,7 @@ func (x *GetPreviousNameResponse) String() string {
 func (*GetPreviousNameResponse) ProtoMessage() {}
 
 func (x *GetPreviousNameResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_accounts_accounts_proto_msgTypes[31]
+	mi := &file_proto_accounts_accounts_proto_msgTypes[21]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1445,7 +1029,7 @@ func (x *GetPreviousNameResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetPreviousNameResponse.ProtoReflect.Descriptor instead.
 func (*GetPreviousNameResponse) Descriptor() ([]byte, []int) {
-	return file_proto_accounts_accounts_proto_rawDescGZIP(), []int{31}
+	return file_proto_accounts_accounts_proto_rawDescGZIP(), []int{21}
 }
 
 func (x *GetPreviousNameResponse) GetResult() string {
@@ -1465,7 +1049,7 @@ type GetUserDataRequest struct {
 
 func (x *GetUserDataRequest) Reset() {
 	*x = GetUserDataRequest{}
-	mi := &file_proto_accounts_accounts_proto_msgTypes[32]
+	mi := &file_proto_accounts_accounts_proto_msgTypes[22]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1477,7 +1061,7 @@ func (x *GetUserDataRequest) String() string {
 func (*GetUserDataRequest) ProtoMessage() {}
 
 func (x *GetUserDataRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_accounts_accounts_proto_msgTypes[32]
+	mi := &file_proto_accounts_accounts_proto_msgTypes[22]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1490,7 +1074,7 @@ func (x *GetUserDataRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetUserDataRequest.ProtoReflect.Descriptor instead.
 func (*GetUserDataRequest) Descriptor() ([]byte, []int) {
-	return file_proto_accounts_accounts_proto_rawDescGZIP(), []int{32}
+	return file_proto_accounts_accounts_proto_rawDescGZIP(), []int{22}
 }
 
 func (x *GetUserDataRequest) GetArg0() int64 {
@@ -1516,7 +1100,7 @@ type GetUserDataResponse struct {
 
 func (x *GetUserDataResponse) Reset() {
 	*x = GetUserDataResponse{}
-	mi := &file_proto_accounts_accounts_proto_msgTypes[33]
+	mi := &file_proto_accounts_accounts_proto_msgTypes[23]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1528,7 +1112,7 @@ func (x *GetUserDataResponse) String() string {
 func (*GetUserDataResponse) ProtoMessage() {}
 
 func (x *GetUserDataResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_accounts_accounts_proto_msgTypes[33]
+	mi := &file_proto_accounts_accounts_proto_msgTypes[23]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1541,7 +1125,7 @@ func (x *GetUserDataResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetUserDataResponse.ProtoReflect.Descriptor instead.
 func (*GetUserDataResponse) Descriptor() ([]byte, []int) {
-	return file_proto_accounts_accounts_proto_rawDescGZIP(), []int{33}
+	return file_proto_accounts_accounts_proto_rawDescGZIP(), []int{23}
 }
 
 func (x *GetUserDataResponse) GetResult() string {
@@ -1561,7 +1145,7 @@ type InvalidateAuthTokenRequest struct {
 
 func (x *InvalidateAuthTokenRequest) Reset() {
 	*x = InvalidateAuthTokenRequest{}
-	mi := &file_proto_accounts_accounts_proto_msgTypes[34]
+	mi := &file_proto_accounts_accounts_proto_msgTypes[24]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1573,7 +1157,7 @@ func (x *InvalidateAuthTokenRequest) String() string {
 func (*InvalidateAuthTokenRequest) ProtoMessage() {}
 
 func (x *InvalidateAuthTokenRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_accounts_accounts_proto_msgTypes[34]
+	mi := &file_proto_accounts_accounts_proto_msgTypes[24]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1586,7 +1170,7 @@ func (x *InvalidateAuthTokenRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use InvalidateAuthTokenRequest.ProtoReflect.Descriptor instead.
 func (*InvalidateAuthTokenRequest) Descriptor() ([]byte, []int) {
-	return file_proto_accounts_accounts_proto_rawDescGZIP(), []int{34}
+	return file_proto_accounts_accounts_proto_rawDescGZIP(), []int{24}
 }
 
 func (x *InvalidateAuthTokenRequest) GetArg0() string {
@@ -1611,7 +1195,7 @@ type InvalidateAuthTokenResponse struct {
 
 func (x *InvalidateAuthTokenResponse) Reset() {
 	*x = InvalidateAuthTokenResponse{}
-	mi := &file_proto_accounts_accounts_proto_msgTypes[35]
+	mi := &file_proto_accounts_accounts_proto_msgTypes[25]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1623,7 +1207,7 @@ func (x *InvalidateAuthTokenResponse) String() string {
 func (*InvalidateAuthTokenResponse) ProtoMessage() {}
 
 func (x *InvalidateAuthTokenResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_accounts_accounts_proto_msgTypes[35]
+	mi := &file_proto_accounts_accounts_proto_msgTypes[25]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1636,7 +1220,7 @@ func (x *InvalidateAuthTokenResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use InvalidateAuthTokenResponse.ProtoReflect.Descriptor instead.
 func (*InvalidateAuthTokenResponse) Descriptor() ([]byte, []int) {
-	return file_proto_accounts_accounts_proto_rawDescGZIP(), []int{35}
+	return file_proto_accounts_accounts_proto_rawDescGZIP(), []int{25}
 }
 
 type NotifyAccountAuthenticatedRequest struct {
@@ -1648,7 +1232,7 @@ type NotifyAccountAuthenticatedRequest struct {
 
 func (x *NotifyAccountAuthenticatedRequest) Reset() {
 	*x = NotifyAccountAuthenticatedRequest{}
-	mi := &file_proto_accounts_accounts_proto_msgTypes[36]
+	mi := &file_proto_accounts_accounts_proto_msgTypes[26]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1660,7 +1244,7 @@ func (x *NotifyAccountAuthenticatedRequest) String() string {
 func (*NotifyAccountAuthenticatedRequest) ProtoMessage() {}
 
 func (x *NotifyAccountAuthenticatedRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_accounts_accounts_proto_msgTypes[36]
+	mi := &file_proto_accounts_accounts_proto_msgTypes[26]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1673,7 +1257,7 @@ func (x *NotifyAccountAuthenticatedRequest) ProtoReflect() protoreflect.Message 
 
 // Deprecated: Use NotifyAccountAuthenticatedRequest.ProtoReflect.Descriptor instead.
 func (*NotifyAccountAuthenticatedRequest) Descriptor() ([]byte, []int) {
-	return file_proto_accounts_accounts_proto_rawDescGZIP(), []int{36}
+	return file_proto_accounts_accounts_proto_rawDescGZIP(), []int{26}
 }
 
 func (x *NotifyAccountAuthenticatedRequest) GetArg0() int64 {
@@ -1692,7 +1276,7 @@ type NotifyAccountAuthenticatedResponse struct {
 
 func (x *NotifyAccountAuthenticatedResponse) Reset() {
 	*x = NotifyAccountAuthenticatedResponse{}
-	mi := &file_proto_accounts_accounts_proto_msgTypes[37]
+	mi := &file_proto_accounts_accounts_proto_msgTypes[27]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1704,7 +1288,7 @@ func (x *NotifyAccountAuthenticatedResponse) String() string {
 func (*NotifyAccountAuthenticatedResponse) ProtoMessage() {}
 
 func (x *NotifyAccountAuthenticatedResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_accounts_accounts_proto_msgTypes[37]
+	mi := &file_proto_accounts_accounts_proto_msgTypes[27]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1717,7 +1301,7 @@ func (x *NotifyAccountAuthenticatedResponse) ProtoReflect() protoreflect.Message
 
 // Deprecated: Use NotifyAccountAuthenticatedResponse.ProtoReflect.Descriptor instead.
 func (*NotifyAccountAuthenticatedResponse) Descriptor() ([]byte, []int) {
-	return file_proto_accounts_accounts_proto_rawDescGZIP(), []int{37}
+	return file_proto_accounts_accounts_proto_rawDescGZIP(), []int{27}
 }
 
 func (x *NotifyAccountAuthenticatedResponse) GetResult() bool {
@@ -1737,7 +1321,7 @@ type PeekAuthTokenRequest struct {
 
 func (x *PeekAuthTokenRequest) Reset() {
 	*x = PeekAuthTokenRequest{}
-	mi := &file_proto_accounts_accounts_proto_msgTypes[38]
+	mi := &file_proto_accounts_accounts_proto_msgTypes[28]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1749,7 +1333,7 @@ func (x *PeekAuthTokenRequest) String() string {
 func (*PeekAuthTokenRequest) ProtoMessage() {}
 
 func (x *PeekAuthTokenRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_accounts_accounts_proto_msgTypes[38]
+	mi := &file_proto_accounts_accounts_proto_msgTypes[28]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1762,7 +1346,7 @@ func (x *PeekAuthTokenRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use PeekAuthTokenRequest.ProtoReflect.Descriptor instead.
 func (*PeekAuthTokenRequest) Descriptor() ([]byte, []int) {
-	return file_proto_accounts_accounts_proto_rawDescGZIP(), []int{38}
+	return file_proto_accounts_accounts_proto_rawDescGZIP(), []int{28}
 }
 
 func (x *PeekAuthTokenRequest) GetArg0() int64 {
@@ -1788,7 +1372,7 @@ type PeekAuthTokenResponse struct {
 
 func (x *PeekAuthTokenResponse) Reset() {
 	*x = PeekAuthTokenResponse{}
-	mi := &file_proto_accounts_accounts_proto_msgTypes[39]
+	mi := &file_proto_accounts_accounts_proto_msgTypes[29]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1800,7 +1384,7 @@ func (x *PeekAuthTokenResponse) String() string {
 func (*PeekAuthTokenResponse) ProtoMessage() {}
 
 func (x *PeekAuthTokenResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_accounts_accounts_proto_msgTypes[39]
+	mi := &file_proto_accounts_accounts_proto_msgTypes[29]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1813,7 +1397,7 @@ func (x *PeekAuthTokenResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use PeekAuthTokenResponse.ProtoReflect.Descriptor instead.
 func (*PeekAuthTokenResponse) Descriptor() ([]byte, []int) {
-	return file_proto_accounts_accounts_proto_rawDescGZIP(), []int{39}
+	return file_proto_accounts_accounts_proto_rawDescGZIP(), []int{29}
 }
 
 func (x *PeekAuthTokenResponse) GetResult() string {
@@ -1832,7 +1416,7 @@ type RemoveAccountExplicitlyRequest struct {
 
 func (x *RemoveAccountExplicitlyRequest) Reset() {
 	*x = RemoveAccountExplicitlyRequest{}
-	mi := &file_proto_accounts_accounts_proto_msgTypes[40]
+	mi := &file_proto_accounts_accounts_proto_msgTypes[30]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1844,7 +1428,7 @@ func (x *RemoveAccountExplicitlyRequest) String() string {
 func (*RemoveAccountExplicitlyRequest) ProtoMessage() {}
 
 func (x *RemoveAccountExplicitlyRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_accounts_accounts_proto_msgTypes[40]
+	mi := &file_proto_accounts_accounts_proto_msgTypes[30]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1857,7 +1441,7 @@ func (x *RemoveAccountExplicitlyRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use RemoveAccountExplicitlyRequest.ProtoReflect.Descriptor instead.
 func (*RemoveAccountExplicitlyRequest) Descriptor() ([]byte, []int) {
-	return file_proto_accounts_accounts_proto_rawDescGZIP(), []int{40}
+	return file_proto_accounts_accounts_proto_rawDescGZIP(), []int{30}
 }
 
 func (x *RemoveAccountExplicitlyRequest) GetArg0() int64 {
@@ -1876,7 +1460,7 @@ type RemoveAccountExplicitlyResponse struct {
 
 func (x *RemoveAccountExplicitlyResponse) Reset() {
 	*x = RemoveAccountExplicitlyResponse{}
-	mi := &file_proto_accounts_accounts_proto_msgTypes[41]
+	mi := &file_proto_accounts_accounts_proto_msgTypes[31]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1888,7 +1472,7 @@ func (x *RemoveAccountExplicitlyResponse) String() string {
 func (*RemoveAccountExplicitlyResponse) ProtoMessage() {}
 
 func (x *RemoveAccountExplicitlyResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_accounts_accounts_proto_msgTypes[41]
+	mi := &file_proto_accounts_accounts_proto_msgTypes[31]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1901,7 +1485,7 @@ func (x *RemoveAccountExplicitlyResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use RemoveAccountExplicitlyResponse.ProtoReflect.Descriptor instead.
 func (*RemoveAccountExplicitlyResponse) Descriptor() ([]byte, []int) {
-	return file_proto_accounts_accounts_proto_rawDescGZIP(), []int{41}
+	return file_proto_accounts_accounts_proto_rawDescGZIP(), []int{31}
 }
 
 func (x *RemoveAccountExplicitlyResponse) GetResult() bool {
@@ -1920,7 +1504,7 @@ type RemoveOnAccountsUpdatedListenerRequest struct {
 
 func (x *RemoveOnAccountsUpdatedListenerRequest) Reset() {
 	*x = RemoveOnAccountsUpdatedListenerRequest{}
-	mi := &file_proto_accounts_accounts_proto_msgTypes[42]
+	mi := &file_proto_accounts_accounts_proto_msgTypes[32]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1932,7 +1516,7 @@ func (x *RemoveOnAccountsUpdatedListenerRequest) String() string {
 func (*RemoveOnAccountsUpdatedListenerRequest) ProtoMessage() {}
 
 func (x *RemoveOnAccountsUpdatedListenerRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_accounts_accounts_proto_msgTypes[42]
+	mi := &file_proto_accounts_accounts_proto_msgTypes[32]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1945,7 +1529,7 @@ func (x *RemoveOnAccountsUpdatedListenerRequest) ProtoReflect() protoreflect.Mes
 
 // Deprecated: Use RemoveOnAccountsUpdatedListenerRequest.ProtoReflect.Descriptor instead.
 func (*RemoveOnAccountsUpdatedListenerRequest) Descriptor() ([]byte, []int) {
-	return file_proto_accounts_accounts_proto_rawDescGZIP(), []int{42}
+	return file_proto_accounts_accounts_proto_rawDescGZIP(), []int{32}
 }
 
 func (x *RemoveOnAccountsUpdatedListenerRequest) GetArg0() int64 {
@@ -1963,7 +1547,7 @@ type RemoveOnAccountsUpdatedListenerResponse struct {
 
 func (x *RemoveOnAccountsUpdatedListenerResponse) Reset() {
 	*x = RemoveOnAccountsUpdatedListenerResponse{}
-	mi := &file_proto_accounts_accounts_proto_msgTypes[43]
+	mi := &file_proto_accounts_accounts_proto_msgTypes[33]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1975,7 +1559,7 @@ func (x *RemoveOnAccountsUpdatedListenerResponse) String() string {
 func (*RemoveOnAccountsUpdatedListenerResponse) ProtoMessage() {}
 
 func (x *RemoveOnAccountsUpdatedListenerResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_accounts_accounts_proto_msgTypes[43]
+	mi := &file_proto_accounts_accounts_proto_msgTypes[33]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1988,7 +1572,7 @@ func (x *RemoveOnAccountsUpdatedListenerResponse) ProtoReflect() protoreflect.Me
 
 // Deprecated: Use RemoveOnAccountsUpdatedListenerResponse.ProtoReflect.Descriptor instead.
 func (*RemoveOnAccountsUpdatedListenerResponse) Descriptor() ([]byte, []int) {
-	return file_proto_accounts_accounts_proto_rawDescGZIP(), []int{43}
+	return file_proto_accounts_accounts_proto_rawDescGZIP(), []int{33}
 }
 
 type SetAccountVisibilityRequest struct {
@@ -2002,7 +1586,7 @@ type SetAccountVisibilityRequest struct {
 
 func (x *SetAccountVisibilityRequest) Reset() {
 	*x = SetAccountVisibilityRequest{}
-	mi := &file_proto_accounts_accounts_proto_msgTypes[44]
+	mi := &file_proto_accounts_accounts_proto_msgTypes[34]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2014,7 +1598,7 @@ func (x *SetAccountVisibilityRequest) String() string {
 func (*SetAccountVisibilityRequest) ProtoMessage() {}
 
 func (x *SetAccountVisibilityRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_accounts_accounts_proto_msgTypes[44]
+	mi := &file_proto_accounts_accounts_proto_msgTypes[34]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2027,7 +1611,7 @@ func (x *SetAccountVisibilityRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetAccountVisibilityRequest.ProtoReflect.Descriptor instead.
 func (*SetAccountVisibilityRequest) Descriptor() ([]byte, []int) {
-	return file_proto_accounts_accounts_proto_rawDescGZIP(), []int{44}
+	return file_proto_accounts_accounts_proto_rawDescGZIP(), []int{34}
 }
 
 func (x *SetAccountVisibilityRequest) GetArg0() int64 {
@@ -2060,7 +1644,7 @@ type SetAccountVisibilityResponse struct {
 
 func (x *SetAccountVisibilityResponse) Reset() {
 	*x = SetAccountVisibilityResponse{}
-	mi := &file_proto_accounts_accounts_proto_msgTypes[45]
+	mi := &file_proto_accounts_accounts_proto_msgTypes[35]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2072,7 +1656,7 @@ func (x *SetAccountVisibilityResponse) String() string {
 func (*SetAccountVisibilityResponse) ProtoMessage() {}
 
 func (x *SetAccountVisibilityResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_accounts_accounts_proto_msgTypes[45]
+	mi := &file_proto_accounts_accounts_proto_msgTypes[35]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2085,7 +1669,7 @@ func (x *SetAccountVisibilityResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetAccountVisibilityResponse.ProtoReflect.Descriptor instead.
 func (*SetAccountVisibilityResponse) Descriptor() ([]byte, []int) {
-	return file_proto_accounts_accounts_proto_rawDescGZIP(), []int{45}
+	return file_proto_accounts_accounts_proto_rawDescGZIP(), []int{35}
 }
 
 func (x *SetAccountVisibilityResponse) GetResult() bool {
@@ -2106,7 +1690,7 @@ type SetAuthTokenRequest struct {
 
 func (x *SetAuthTokenRequest) Reset() {
 	*x = SetAuthTokenRequest{}
-	mi := &file_proto_accounts_accounts_proto_msgTypes[46]
+	mi := &file_proto_accounts_accounts_proto_msgTypes[36]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2118,7 +1702,7 @@ func (x *SetAuthTokenRequest) String() string {
 func (*SetAuthTokenRequest) ProtoMessage() {}
 
 func (x *SetAuthTokenRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_accounts_accounts_proto_msgTypes[46]
+	mi := &file_proto_accounts_accounts_proto_msgTypes[36]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2131,7 +1715,7 @@ func (x *SetAuthTokenRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetAuthTokenRequest.ProtoReflect.Descriptor instead.
 func (*SetAuthTokenRequest) Descriptor() ([]byte, []int) {
-	return file_proto_accounts_accounts_proto_rawDescGZIP(), []int{46}
+	return file_proto_accounts_accounts_proto_rawDescGZIP(), []int{36}
 }
 
 func (x *SetAuthTokenRequest) GetArg0() int64 {
@@ -2163,7 +1747,7 @@ type SetAuthTokenResponse struct {
 
 func (x *SetAuthTokenResponse) Reset() {
 	*x = SetAuthTokenResponse{}
-	mi := &file_proto_accounts_accounts_proto_msgTypes[47]
+	mi := &file_proto_accounts_accounts_proto_msgTypes[37]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2175,7 +1759,7 @@ func (x *SetAuthTokenResponse) String() string {
 func (*SetAuthTokenResponse) ProtoMessage() {}
 
 func (x *SetAuthTokenResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_accounts_accounts_proto_msgTypes[47]
+	mi := &file_proto_accounts_accounts_proto_msgTypes[37]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2188,7 +1772,7 @@ func (x *SetAuthTokenResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetAuthTokenResponse.ProtoReflect.Descriptor instead.
 func (*SetAuthTokenResponse) Descriptor() ([]byte, []int) {
-	return file_proto_accounts_accounts_proto_rawDescGZIP(), []int{47}
+	return file_proto_accounts_accounts_proto_rawDescGZIP(), []int{37}
 }
 
 type SetPasswordRequest struct {
@@ -2201,7 +1785,7 @@ type SetPasswordRequest struct {
 
 func (x *SetPasswordRequest) Reset() {
 	*x = SetPasswordRequest{}
-	mi := &file_proto_accounts_accounts_proto_msgTypes[48]
+	mi := &file_proto_accounts_accounts_proto_msgTypes[38]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2213,7 +1797,7 @@ func (x *SetPasswordRequest) String() string {
 func (*SetPasswordRequest) ProtoMessage() {}
 
 func (x *SetPasswordRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_accounts_accounts_proto_msgTypes[48]
+	mi := &file_proto_accounts_accounts_proto_msgTypes[38]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2226,7 +1810,7 @@ func (x *SetPasswordRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetPasswordRequest.ProtoReflect.Descriptor instead.
 func (*SetPasswordRequest) Descriptor() ([]byte, []int) {
-	return file_proto_accounts_accounts_proto_rawDescGZIP(), []int{48}
+	return file_proto_accounts_accounts_proto_rawDescGZIP(), []int{38}
 }
 
 func (x *SetPasswordRequest) GetArg0() int64 {
@@ -2251,7 +1835,7 @@ type SetPasswordResponse struct {
 
 func (x *SetPasswordResponse) Reset() {
 	*x = SetPasswordResponse{}
-	mi := &file_proto_accounts_accounts_proto_msgTypes[49]
+	mi := &file_proto_accounts_accounts_proto_msgTypes[39]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2263,7 +1847,7 @@ func (x *SetPasswordResponse) String() string {
 func (*SetPasswordResponse) ProtoMessage() {}
 
 func (x *SetPasswordResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_accounts_accounts_proto_msgTypes[49]
+	mi := &file_proto_accounts_accounts_proto_msgTypes[39]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2276,7 +1860,7 @@ func (x *SetPasswordResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetPasswordResponse.ProtoReflect.Descriptor instead.
 func (*SetPasswordResponse) Descriptor() ([]byte, []int) {
-	return file_proto_accounts_accounts_proto_rawDescGZIP(), []int{49}
+	return file_proto_accounts_accounts_proto_rawDescGZIP(), []int{39}
 }
 
 type SetUserDataRequest struct {
@@ -2290,7 +1874,7 @@ type SetUserDataRequest struct {
 
 func (x *SetUserDataRequest) Reset() {
 	*x = SetUserDataRequest{}
-	mi := &file_proto_accounts_accounts_proto_msgTypes[50]
+	mi := &file_proto_accounts_accounts_proto_msgTypes[40]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2302,7 +1886,7 @@ func (x *SetUserDataRequest) String() string {
 func (*SetUserDataRequest) ProtoMessage() {}
 
 func (x *SetUserDataRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_accounts_accounts_proto_msgTypes[50]
+	mi := &file_proto_accounts_accounts_proto_msgTypes[40]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2315,7 +1899,7 @@ func (x *SetUserDataRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetUserDataRequest.ProtoReflect.Descriptor instead.
 func (*SetUserDataRequest) Descriptor() ([]byte, []int) {
-	return file_proto_accounts_accounts_proto_rawDescGZIP(), []int{50}
+	return file_proto_accounts_accounts_proto_rawDescGZIP(), []int{40}
 }
 
 func (x *SetUserDataRequest) GetArg0() int64 {
@@ -2347,7 +1931,7 @@ type SetUserDataResponse struct {
 
 func (x *SetUserDataResponse) Reset() {
 	*x = SetUserDataResponse{}
-	mi := &file_proto_accounts_accounts_proto_msgTypes[51]
+	mi := &file_proto_accounts_accounts_proto_msgTypes[41]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2359,7 +1943,7 @@ func (x *SetUserDataResponse) String() string {
 func (*SetUserDataResponse) ProtoMessage() {}
 
 func (x *SetUserDataResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_accounts_accounts_proto_msgTypes[51]
+	mi := &file_proto_accounts_accounts_proto_msgTypes[41]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2372,7 +1956,7 @@ func (x *SetUserDataResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetUserDataResponse.ProtoReflect.Descriptor instead.
 func (*SetUserDataResponse) Descriptor() ([]byte, []int) {
-	return file_proto_accounts_accounts_proto_rawDescGZIP(), []int{51}
+	return file_proto_accounts_accounts_proto_rawDescGZIP(), []int{41}
 }
 
 type GetRequest struct {
@@ -2384,7 +1968,7 @@ type GetRequest struct {
 
 func (x *GetRequest) Reset() {
 	*x = GetRequest{}
-	mi := &file_proto_accounts_accounts_proto_msgTypes[52]
+	mi := &file_proto_accounts_accounts_proto_msgTypes[42]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2396,7 +1980,7 @@ func (x *GetRequest) String() string {
 func (*GetRequest) ProtoMessage() {}
 
 func (x *GetRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_accounts_accounts_proto_msgTypes[52]
+	mi := &file_proto_accounts_accounts_proto_msgTypes[42]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2409,7 +1993,7 @@ func (x *GetRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetRequest.ProtoReflect.Descriptor instead.
 func (*GetRequest) Descriptor() ([]byte, []int) {
-	return file_proto_accounts_accounts_proto_rawDescGZIP(), []int{52}
+	return file_proto_accounts_accounts_proto_rawDescGZIP(), []int{42}
 }
 
 func (x *GetRequest) GetArg0() int64 {
@@ -2428,7 +2012,7 @@ type GetResponse struct {
 
 func (x *GetResponse) Reset() {
 	*x = GetResponse{}
-	mi := &file_proto_accounts_accounts_proto_msgTypes[53]
+	mi := &file_proto_accounts_accounts_proto_msgTypes[43]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2440,7 +2024,7 @@ func (x *GetResponse) String() string {
 func (*GetResponse) ProtoMessage() {}
 
 func (x *GetResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_accounts_accounts_proto_msgTypes[53]
+	mi := &file_proto_accounts_accounts_proto_msgTypes[43]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2453,7 +2037,7 @@ func (x *GetResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetResponse.ProtoReflect.Descriptor instead.
 func (*GetResponse) Descriptor() ([]byte, []int) {
-	return file_proto_accounts_accounts_proto_rawDescGZIP(), []int{53}
+	return file_proto_accounts_accounts_proto_rawDescGZIP(), []int{43}
 }
 
 func (x *GetResponse) GetResult() int64 {
@@ -2479,7 +2063,7 @@ type NewChooseAccountIntent8Request struct {
 
 func (x *NewChooseAccountIntent8Request) Reset() {
 	*x = NewChooseAccountIntent8Request{}
-	mi := &file_proto_accounts_accounts_proto_msgTypes[54]
+	mi := &file_proto_accounts_accounts_proto_msgTypes[44]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2491,7 +2075,7 @@ func (x *NewChooseAccountIntent8Request) String() string {
 func (*NewChooseAccountIntent8Request) ProtoMessage() {}
 
 func (x *NewChooseAccountIntent8Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_accounts_accounts_proto_msgTypes[54]
+	mi := &file_proto_accounts_accounts_proto_msgTypes[44]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2504,7 +2088,7 @@ func (x *NewChooseAccountIntent8Request) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use NewChooseAccountIntent8Request.ProtoReflect.Descriptor instead.
 func (*NewChooseAccountIntent8Request) Descriptor() ([]byte, []int) {
-	return file_proto_accounts_accounts_proto_rawDescGZIP(), []int{54}
+	return file_proto_accounts_accounts_proto_rawDescGZIP(), []int{44}
 }
 
 func (x *NewChooseAccountIntent8Request) GetArg0() int64 {
@@ -2572,7 +2156,7 @@ type NewChooseAccountIntent8Response struct {
 
 func (x *NewChooseAccountIntent8Response) Reset() {
 	*x = NewChooseAccountIntent8Response{}
-	mi := &file_proto_accounts_accounts_proto_msgTypes[55]
+	mi := &file_proto_accounts_accounts_proto_msgTypes[45]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2584,7 +2168,7 @@ func (x *NewChooseAccountIntent8Response) String() string {
 func (*NewChooseAccountIntent8Response) ProtoMessage() {}
 
 func (x *NewChooseAccountIntent8Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_accounts_accounts_proto_msgTypes[55]
+	mi := &file_proto_accounts_accounts_proto_msgTypes[45]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2597,7 +2181,7 @@ func (x *NewChooseAccountIntent8Response) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use NewChooseAccountIntent8Response.ProtoReflect.Descriptor instead.
 func (*NewChooseAccountIntent8Response) Descriptor() ([]byte, []int) {
-	return file_proto_accounts_accounts_proto_rawDescGZIP(), []int{55}
+	return file_proto_accounts_accounts_proto_rawDescGZIP(), []int{45}
 }
 
 func (x *NewChooseAccountIntent8Response) GetResult() int64 {
@@ -2622,7 +2206,7 @@ type NewChooseAccountIntent7_1Request struct {
 
 func (x *NewChooseAccountIntent7_1Request) Reset() {
 	*x = NewChooseAccountIntent7_1Request{}
-	mi := &file_proto_accounts_accounts_proto_msgTypes[56]
+	mi := &file_proto_accounts_accounts_proto_msgTypes[46]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2634,7 +2218,7 @@ func (x *NewChooseAccountIntent7_1Request) String() string {
 func (*NewChooseAccountIntent7_1Request) ProtoMessage() {}
 
 func (x *NewChooseAccountIntent7_1Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_accounts_accounts_proto_msgTypes[56]
+	mi := &file_proto_accounts_accounts_proto_msgTypes[46]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2647,7 +2231,7 @@ func (x *NewChooseAccountIntent7_1Request) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use NewChooseAccountIntent7_1Request.ProtoReflect.Descriptor instead.
 func (*NewChooseAccountIntent7_1Request) Descriptor() ([]byte, []int) {
-	return file_proto_accounts_accounts_proto_rawDescGZIP(), []int{56}
+	return file_proto_accounts_accounts_proto_rawDescGZIP(), []int{46}
 }
 
 func (x *NewChooseAccountIntent7_1Request) GetArg0() int64 {
@@ -2708,7 +2292,7 @@ type NewChooseAccountIntent7_1Response struct {
 
 func (x *NewChooseAccountIntent7_1Response) Reset() {
 	*x = NewChooseAccountIntent7_1Response{}
-	mi := &file_proto_accounts_accounts_proto_msgTypes[57]
+	mi := &file_proto_accounts_accounts_proto_msgTypes[47]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2720,7 +2304,7 @@ func (x *NewChooseAccountIntent7_1Response) String() string {
 func (*NewChooseAccountIntent7_1Response) ProtoMessage() {}
 
 func (x *NewChooseAccountIntent7_1Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_accounts_accounts_proto_msgTypes[57]
+	mi := &file_proto_accounts_accounts_proto_msgTypes[47]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2733,7 +2317,7 @@ func (x *NewChooseAccountIntent7_1Response) ProtoReflect() protoreflect.Message 
 
 // Deprecated: Use NewChooseAccountIntent7_1Response.ProtoReflect.Descriptor instead.
 func (*NewChooseAccountIntent7_1Response) Descriptor() ([]byte, []int) {
-	return file_proto_accounts_accounts_proto_rawDescGZIP(), []int{57}
+	return file_proto_accounts_accounts_proto_rawDescGZIP(), []int{47}
 }
 
 func (x *NewChooseAccountIntent7_1Response) GetResult() int64 {
@@ -2743,28 +2327,427 @@ func (x *NewChooseAccountIntent7_1Response) GetResult() int64 {
 	return 0
 }
 
+type DescribeContentsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *DescribeContentsRequest) Reset() {
+	*x = DescribeContentsRequest{}
+	mi := &file_proto_accounts_accounts_proto_msgTypes[48]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *DescribeContentsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*DescribeContentsRequest) ProtoMessage() {}
+
+func (x *DescribeContentsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_accounts_accounts_proto_msgTypes[48]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use DescribeContentsRequest.ProtoReflect.Descriptor instead.
+func (*DescribeContentsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_accounts_accounts_proto_rawDescGZIP(), []int{48}
+}
+
+type DescribeContentsResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *DescribeContentsResponse) Reset() {
+	*x = DescribeContentsResponse{}
+	mi := &file_proto_accounts_accounts_proto_msgTypes[49]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *DescribeContentsResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*DescribeContentsResponse) ProtoMessage() {}
+
+func (x *DescribeContentsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_accounts_accounts_proto_msgTypes[49]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use DescribeContentsResponse.ProtoReflect.Descriptor instead.
+func (*DescribeContentsResponse) Descriptor() ([]byte, []int) {
+	return file_proto_accounts_accounts_proto_rawDescGZIP(), []int{49}
+}
+
+func (x *DescribeContentsResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type EqualsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *EqualsRequest) Reset() {
+	*x = EqualsRequest{}
+	mi := &file_proto_accounts_accounts_proto_msgTypes[50]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *EqualsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*EqualsRequest) ProtoMessage() {}
+
+func (x *EqualsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_accounts_accounts_proto_msgTypes[50]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use EqualsRequest.ProtoReflect.Descriptor instead.
+func (*EqualsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_accounts_accounts_proto_rawDescGZIP(), []int{50}
+}
+
+func (x *EqualsRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type EqualsResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *EqualsResponse) Reset() {
+	*x = EqualsResponse{}
+	mi := &file_proto_accounts_accounts_proto_msgTypes[51]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *EqualsResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*EqualsResponse) ProtoMessage() {}
+
+func (x *EqualsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_accounts_accounts_proto_msgTypes[51]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use EqualsResponse.ProtoReflect.Descriptor instead.
+func (*EqualsResponse) Descriptor() ([]byte, []int) {
+	return file_proto_accounts_accounts_proto_rawDescGZIP(), []int{51}
+}
+
+func (x *EqualsResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type HashCodeRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *HashCodeRequest) Reset() {
+	*x = HashCodeRequest{}
+	mi := &file_proto_accounts_accounts_proto_msgTypes[52]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *HashCodeRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*HashCodeRequest) ProtoMessage() {}
+
+func (x *HashCodeRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_accounts_accounts_proto_msgTypes[52]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use HashCodeRequest.ProtoReflect.Descriptor instead.
+func (*HashCodeRequest) Descriptor() ([]byte, []int) {
+	return file_proto_accounts_accounts_proto_rawDescGZIP(), []int{52}
+}
+
+type HashCodeResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *HashCodeResponse) Reset() {
+	*x = HashCodeResponse{}
+	mi := &file_proto_accounts_accounts_proto_msgTypes[53]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *HashCodeResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*HashCodeResponse) ProtoMessage() {}
+
+func (x *HashCodeResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_accounts_accounts_proto_msgTypes[53]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use HashCodeResponse.ProtoReflect.Descriptor instead.
+func (*HashCodeResponse) Descriptor() ([]byte, []int) {
+	return file_proto_accounts_accounts_proto_rawDescGZIP(), []int{53}
+}
+
+func (x *HashCodeResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type ToStringRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ToStringRequest) Reset() {
+	*x = ToStringRequest{}
+	mi := &file_proto_accounts_accounts_proto_msgTypes[54]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ToStringRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ToStringRequest) ProtoMessage() {}
+
+func (x *ToStringRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_accounts_accounts_proto_msgTypes[54]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ToStringRequest.ProtoReflect.Descriptor instead.
+func (*ToStringRequest) Descriptor() ([]byte, []int) {
+	return file_proto_accounts_accounts_proto_rawDescGZIP(), []int{54}
+}
+
+type ToStringResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ToStringResponse) Reset() {
+	*x = ToStringResponse{}
+	mi := &file_proto_accounts_accounts_proto_msgTypes[55]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ToStringResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ToStringResponse) ProtoMessage() {}
+
+func (x *ToStringResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_accounts_accounts_proto_msgTypes[55]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ToStringResponse.ProtoReflect.Descriptor instead.
+func (*ToStringResponse) Descriptor() ([]byte, []int) {
+	return file_proto_accounts_accounts_proto_rawDescGZIP(), []int{55}
+}
+
+func (x *ToStringResponse) GetResult() string {
+	if x != nil {
+		return x.Result
+	}
+	return ""
+}
+
+type WriteToParcelRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int32                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *WriteToParcelRequest) Reset() {
+	*x = WriteToParcelRequest{}
+	mi := &file_proto_accounts_accounts_proto_msgTypes[56]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *WriteToParcelRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*WriteToParcelRequest) ProtoMessage() {}
+
+func (x *WriteToParcelRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_accounts_accounts_proto_msgTypes[56]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use WriteToParcelRequest.ProtoReflect.Descriptor instead.
+func (*WriteToParcelRequest) Descriptor() ([]byte, []int) {
+	return file_proto_accounts_accounts_proto_rawDescGZIP(), []int{56}
+}
+
+func (x *WriteToParcelRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *WriteToParcelRequest) GetArg1() int32 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type WriteToParcelResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *WriteToParcelResponse) Reset() {
+	*x = WriteToParcelResponse{}
+	mi := &file_proto_accounts_accounts_proto_msgTypes[57]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *WriteToParcelResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*WriteToParcelResponse) ProtoMessage() {}
+
+func (x *WriteToParcelResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_accounts_accounts_proto_msgTypes[57]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use WriteToParcelResponse.ProtoReflect.Descriptor instead.
+func (*WriteToParcelResponse) Descriptor() ([]byte, []int) {
+	return file_proto_accounts_accounts_proto_rawDescGZIP(), []int{57}
+}
+
 var File_proto_accounts_accounts_proto protoreflect.FileDescriptor
 
 const file_proto_accounts_accounts_proto_rawDesc = "" +
 	"\n" +
-	"\x1dproto/accounts/accounts.proto\x12\baccounts\"\x19\n" +
-	"\x17DescribeContentsRequest\"2\n" +
-	"\x18DescribeContentsResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x05R\x06result\"#\n" +
-	"\rEqualsRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"(\n" +
-	"\x0eEqualsResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\bR\x06result\"\x11\n" +
-	"\x0fHashCodeRequest\"*\n" +
-	"\x10HashCodeResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x05R\x06result\"\x11\n" +
-	"\x0fToStringRequest\"*\n" +
-	"\x10ToStringResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\tR\x06result\">\n" +
-	"\x14WriteToParcelRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
-	"\x04arg1\x18\x02 \x01(\x05R\x04arg1\"\x17\n" +
-	"\x15WriteToParcelResponse\"Z\n" +
+	"\x1dproto/accounts/accounts.proto\x12\baccounts\"Z\n" +
 	"\x1cAddAccountExplicitly3Request\x12\x12\n" +
 	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
 	"\x04arg1\x18\x02 \x01(\tR\x04arg1\x12\x12\n" +
@@ -2885,13 +2868,24 @@ const file_proto_accounts_accounts_proto_rawDesc = "" +
 	"\x04arg5\x18\x06 \x01(\x03R\x04arg5\x12\x12\n" +
 	"\x04arg6\x18\a \x01(\x03R\x04arg6\";\n" +
 	"!NewChooseAccountIntent7_1Response\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result2\x80\x03\n" +
-	"\x0eAccountService\x12Y\n" +
-	"\x10DescribeContents\x12!.accounts.DescribeContentsRequest\x1a\".accounts.DescribeContentsResponse\x12;\n" +
-	"\x06Equals\x12\x17.accounts.EqualsRequest\x1a\x18.accounts.EqualsResponse\x12A\n" +
-	"\bHashCode\x12\x19.accounts.HashCodeRequest\x1a\x1a.accounts.HashCodeResponse\x12A\n" +
-	"\bToString\x12\x19.accounts.ToStringRequest\x1a\x1a.accounts.ToStringResponse\x12P\n" +
-	"\rWriteToParcel\x12\x1e.accounts.WriteToParcelRequest\x1a\x1f.accounts.WriteToParcelResponse2\xa1\x12\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x19\n" +
+	"\x17DescribeContentsRequest\"2\n" +
+	"\x18DescribeContentsResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"#\n" +
+	"\rEqualsRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"(\n" +
+	"\x0eEqualsResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\"\x11\n" +
+	"\x0fHashCodeRequest\"*\n" +
+	"\x10HashCodeResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"\x11\n" +
+	"\x0fToStringRequest\"*\n" +
+	"\x10ToStringResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\tR\x06result\">\n" +
+	"\x14WriteToParcelRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x05R\x04arg1\"\x17\n" +
+	"\x15WriteToParcelResponse2\xa1\x12\n" +
 	"\x15AccountManagerService\x12h\n" +
 	"\x15AddAccountExplicitly3\x12&.accounts.AddAccountExplicitly3Request\x1a'.accounts.AddAccountExplicitly3Response\x12n\n" +
 	"\x17AddAccountExplicitly4_1\x12(.accounts.AddAccountExplicitly4_1Request\x1a).accounts.AddAccountExplicitly4_1Response\x12e\n" +
@@ -2916,7 +2910,13 @@ const file_proto_accounts_accounts_proto_rawDesc = "" +
 	"\vSetUserData\x12\x1c.accounts.SetUserDataRequest\x1a\x1d.accounts.SetUserDataResponse\x122\n" +
 	"\x03Get\x12\x14.accounts.GetRequest\x1a\x15.accounts.GetResponse\x12n\n" +
 	"\x17NewChooseAccountIntent8\x12(.accounts.NewChooseAccountIntent8Request\x1a).accounts.NewChooseAccountIntent8Response\x12t\n" +
-	"\x19NewChooseAccountIntent7_1\x12*.accounts.NewChooseAccountIntent7_1Request\x1a+.accounts.NewChooseAccountIntent7_1ResponseB+Z)github.com/AndroidGoLab/jni-proxy/proto/accountsb\x06proto3"
+	"\x19NewChooseAccountIntent7_1\x12*.accounts.NewChooseAccountIntent7_1Request\x1a+.accounts.NewChooseAccountIntent7_1Response2\x80\x03\n" +
+	"\x0eAccountService\x12Y\n" +
+	"\x10DescribeContents\x12!.accounts.DescribeContentsRequest\x1a\".accounts.DescribeContentsResponse\x12;\n" +
+	"\x06Equals\x12\x17.accounts.EqualsRequest\x1a\x18.accounts.EqualsResponse\x12A\n" +
+	"\bHashCode\x12\x19.accounts.HashCodeRequest\x1a\x1a.accounts.HashCodeResponse\x12A\n" +
+	"\bToString\x12\x19.accounts.ToStringRequest\x1a\x1a.accounts.ToStringResponse\x12P\n" +
+	"\rWriteToParcel\x12\x1e.accounts.WriteToParcelRequest\x1a\x1f.accounts.WriteToParcelResponseB2Z0github.com/AndroidGoLab/jni-proxy/proto/accountsb\x06proto3"
 
 var (
 	file_proto_accounts_accounts_proto_rawDescOnce sync.Once
@@ -2932,124 +2932,124 @@ func file_proto_accounts_accounts_proto_rawDescGZIP() []byte {
 
 var file_proto_accounts_accounts_proto_msgTypes = make([]protoimpl.MessageInfo, 58)
 var file_proto_accounts_accounts_proto_goTypes = []any{
-	(*DescribeContentsRequest)(nil),                 // 0: accounts.DescribeContentsRequest
-	(*DescribeContentsResponse)(nil),                // 1: accounts.DescribeContentsResponse
-	(*EqualsRequest)(nil),                           // 2: accounts.EqualsRequest
-	(*EqualsResponse)(nil),                          // 3: accounts.EqualsResponse
-	(*HashCodeRequest)(nil),                         // 4: accounts.HashCodeRequest
-	(*HashCodeResponse)(nil),                        // 5: accounts.HashCodeResponse
-	(*ToStringRequest)(nil),                         // 6: accounts.ToStringRequest
-	(*ToStringResponse)(nil),                        // 7: accounts.ToStringResponse
-	(*WriteToParcelRequest)(nil),                    // 8: accounts.WriteToParcelRequest
-	(*WriteToParcelResponse)(nil),                   // 9: accounts.WriteToParcelResponse
-	(*AddAccountExplicitly3Request)(nil),            // 10: accounts.AddAccountExplicitly3Request
-	(*AddAccountExplicitly3Response)(nil),           // 11: accounts.AddAccountExplicitly3Response
-	(*AddAccountExplicitly4_1Request)(nil),          // 12: accounts.AddAccountExplicitly4_1Request
-	(*AddAccountExplicitly4_1Response)(nil),         // 13: accounts.AddAccountExplicitly4_1Response
-	(*BlockingGetAuthTokenRequest)(nil),             // 14: accounts.BlockingGetAuthTokenRequest
-	(*BlockingGetAuthTokenResponse)(nil),            // 15: accounts.BlockingGetAuthTokenResponse
-	(*ClearPasswordRequest)(nil),                    // 16: accounts.ClearPasswordRequest
-	(*ClearPasswordResponse)(nil),                   // 17: accounts.ClearPasswordResponse
-	(*GetAccountVisibilityRequest)(nil),             // 18: accounts.GetAccountVisibilityRequest
-	(*GetAccountVisibilityResponse)(nil),            // 19: accounts.GetAccountVisibilityResponse
-	(*GetAccountsRequest)(nil),                      // 20: accounts.GetAccountsRequest
-	(*GetAccountsResponse)(nil),                     // 21: accounts.GetAccountsResponse
-	(*GetAccountsByTypeRequest)(nil),                // 22: accounts.GetAccountsByTypeRequest
-	(*GetAccountsByTypeResponse)(nil),               // 23: accounts.GetAccountsByTypeResponse
-	(*GetAccountsByTypeForPackageRequest)(nil),      // 24: accounts.GetAccountsByTypeForPackageRequest
-	(*GetAccountsByTypeForPackageResponse)(nil),     // 25: accounts.GetAccountsByTypeForPackageResponse
-	(*GetAuthenticatorTypesRequest)(nil),            // 26: accounts.GetAuthenticatorTypesRequest
-	(*GetAuthenticatorTypesResponse)(nil),           // 27: accounts.GetAuthenticatorTypesResponse
-	(*GetPasswordRequest)(nil),                      // 28: accounts.GetPasswordRequest
-	(*GetPasswordResponse)(nil),                     // 29: accounts.GetPasswordResponse
-	(*GetPreviousNameRequest)(nil),                  // 30: accounts.GetPreviousNameRequest
-	(*GetPreviousNameResponse)(nil),                 // 31: accounts.GetPreviousNameResponse
-	(*GetUserDataRequest)(nil),                      // 32: accounts.GetUserDataRequest
-	(*GetUserDataResponse)(nil),                     // 33: accounts.GetUserDataResponse
-	(*InvalidateAuthTokenRequest)(nil),              // 34: accounts.InvalidateAuthTokenRequest
-	(*InvalidateAuthTokenResponse)(nil),             // 35: accounts.InvalidateAuthTokenResponse
-	(*NotifyAccountAuthenticatedRequest)(nil),       // 36: accounts.NotifyAccountAuthenticatedRequest
-	(*NotifyAccountAuthenticatedResponse)(nil),      // 37: accounts.NotifyAccountAuthenticatedResponse
-	(*PeekAuthTokenRequest)(nil),                    // 38: accounts.PeekAuthTokenRequest
-	(*PeekAuthTokenResponse)(nil),                   // 39: accounts.PeekAuthTokenResponse
-	(*RemoveAccountExplicitlyRequest)(nil),          // 40: accounts.RemoveAccountExplicitlyRequest
-	(*RemoveAccountExplicitlyResponse)(nil),         // 41: accounts.RemoveAccountExplicitlyResponse
-	(*RemoveOnAccountsUpdatedListenerRequest)(nil),  // 42: accounts.RemoveOnAccountsUpdatedListenerRequest
-	(*RemoveOnAccountsUpdatedListenerResponse)(nil), // 43: accounts.RemoveOnAccountsUpdatedListenerResponse
-	(*SetAccountVisibilityRequest)(nil),             // 44: accounts.SetAccountVisibilityRequest
-	(*SetAccountVisibilityResponse)(nil),            // 45: accounts.SetAccountVisibilityResponse
-	(*SetAuthTokenRequest)(nil),                     // 46: accounts.SetAuthTokenRequest
-	(*SetAuthTokenResponse)(nil),                    // 47: accounts.SetAuthTokenResponse
-	(*SetPasswordRequest)(nil),                      // 48: accounts.SetPasswordRequest
-	(*SetPasswordResponse)(nil),                     // 49: accounts.SetPasswordResponse
-	(*SetUserDataRequest)(nil),                      // 50: accounts.SetUserDataRequest
-	(*SetUserDataResponse)(nil),                     // 51: accounts.SetUserDataResponse
-	(*GetRequest)(nil),                              // 52: accounts.GetRequest
-	(*GetResponse)(nil),                             // 53: accounts.GetResponse
-	(*NewChooseAccountIntent8Request)(nil),          // 54: accounts.NewChooseAccountIntent8Request
-	(*NewChooseAccountIntent8Response)(nil),         // 55: accounts.NewChooseAccountIntent8Response
-	(*NewChooseAccountIntent7_1Request)(nil),        // 56: accounts.NewChooseAccountIntent7_1Request
-	(*NewChooseAccountIntent7_1Response)(nil),       // 57: accounts.NewChooseAccountIntent7_1Response
+	(*AddAccountExplicitly3Request)(nil),            // 0: accounts.AddAccountExplicitly3Request
+	(*AddAccountExplicitly3Response)(nil),           // 1: accounts.AddAccountExplicitly3Response
+	(*AddAccountExplicitly4_1Request)(nil),          // 2: accounts.AddAccountExplicitly4_1Request
+	(*AddAccountExplicitly4_1Response)(nil),         // 3: accounts.AddAccountExplicitly4_1Response
+	(*BlockingGetAuthTokenRequest)(nil),             // 4: accounts.BlockingGetAuthTokenRequest
+	(*BlockingGetAuthTokenResponse)(nil),            // 5: accounts.BlockingGetAuthTokenResponse
+	(*ClearPasswordRequest)(nil),                    // 6: accounts.ClearPasswordRequest
+	(*ClearPasswordResponse)(nil),                   // 7: accounts.ClearPasswordResponse
+	(*GetAccountVisibilityRequest)(nil),             // 8: accounts.GetAccountVisibilityRequest
+	(*GetAccountVisibilityResponse)(nil),            // 9: accounts.GetAccountVisibilityResponse
+	(*GetAccountsRequest)(nil),                      // 10: accounts.GetAccountsRequest
+	(*GetAccountsResponse)(nil),                     // 11: accounts.GetAccountsResponse
+	(*GetAccountsByTypeRequest)(nil),                // 12: accounts.GetAccountsByTypeRequest
+	(*GetAccountsByTypeResponse)(nil),               // 13: accounts.GetAccountsByTypeResponse
+	(*GetAccountsByTypeForPackageRequest)(nil),      // 14: accounts.GetAccountsByTypeForPackageRequest
+	(*GetAccountsByTypeForPackageResponse)(nil),     // 15: accounts.GetAccountsByTypeForPackageResponse
+	(*GetAuthenticatorTypesRequest)(nil),            // 16: accounts.GetAuthenticatorTypesRequest
+	(*GetAuthenticatorTypesResponse)(nil),           // 17: accounts.GetAuthenticatorTypesResponse
+	(*GetPasswordRequest)(nil),                      // 18: accounts.GetPasswordRequest
+	(*GetPasswordResponse)(nil),                     // 19: accounts.GetPasswordResponse
+	(*GetPreviousNameRequest)(nil),                  // 20: accounts.GetPreviousNameRequest
+	(*GetPreviousNameResponse)(nil),                 // 21: accounts.GetPreviousNameResponse
+	(*GetUserDataRequest)(nil),                      // 22: accounts.GetUserDataRequest
+	(*GetUserDataResponse)(nil),                     // 23: accounts.GetUserDataResponse
+	(*InvalidateAuthTokenRequest)(nil),              // 24: accounts.InvalidateAuthTokenRequest
+	(*InvalidateAuthTokenResponse)(nil),             // 25: accounts.InvalidateAuthTokenResponse
+	(*NotifyAccountAuthenticatedRequest)(nil),       // 26: accounts.NotifyAccountAuthenticatedRequest
+	(*NotifyAccountAuthenticatedResponse)(nil),      // 27: accounts.NotifyAccountAuthenticatedResponse
+	(*PeekAuthTokenRequest)(nil),                    // 28: accounts.PeekAuthTokenRequest
+	(*PeekAuthTokenResponse)(nil),                   // 29: accounts.PeekAuthTokenResponse
+	(*RemoveAccountExplicitlyRequest)(nil),          // 30: accounts.RemoveAccountExplicitlyRequest
+	(*RemoveAccountExplicitlyResponse)(nil),         // 31: accounts.RemoveAccountExplicitlyResponse
+	(*RemoveOnAccountsUpdatedListenerRequest)(nil),  // 32: accounts.RemoveOnAccountsUpdatedListenerRequest
+	(*RemoveOnAccountsUpdatedListenerResponse)(nil), // 33: accounts.RemoveOnAccountsUpdatedListenerResponse
+	(*SetAccountVisibilityRequest)(nil),             // 34: accounts.SetAccountVisibilityRequest
+	(*SetAccountVisibilityResponse)(nil),            // 35: accounts.SetAccountVisibilityResponse
+	(*SetAuthTokenRequest)(nil),                     // 36: accounts.SetAuthTokenRequest
+	(*SetAuthTokenResponse)(nil),                    // 37: accounts.SetAuthTokenResponse
+	(*SetPasswordRequest)(nil),                      // 38: accounts.SetPasswordRequest
+	(*SetPasswordResponse)(nil),                     // 39: accounts.SetPasswordResponse
+	(*SetUserDataRequest)(nil),                      // 40: accounts.SetUserDataRequest
+	(*SetUserDataResponse)(nil),                     // 41: accounts.SetUserDataResponse
+	(*GetRequest)(nil),                              // 42: accounts.GetRequest
+	(*GetResponse)(nil),                             // 43: accounts.GetResponse
+	(*NewChooseAccountIntent8Request)(nil),          // 44: accounts.NewChooseAccountIntent8Request
+	(*NewChooseAccountIntent8Response)(nil),         // 45: accounts.NewChooseAccountIntent8Response
+	(*NewChooseAccountIntent7_1Request)(nil),        // 46: accounts.NewChooseAccountIntent7_1Request
+	(*NewChooseAccountIntent7_1Response)(nil),       // 47: accounts.NewChooseAccountIntent7_1Response
+	(*DescribeContentsRequest)(nil),                 // 48: accounts.DescribeContentsRequest
+	(*DescribeContentsResponse)(nil),                // 49: accounts.DescribeContentsResponse
+	(*EqualsRequest)(nil),                           // 50: accounts.EqualsRequest
+	(*EqualsResponse)(nil),                          // 51: accounts.EqualsResponse
+	(*HashCodeRequest)(nil),                         // 52: accounts.HashCodeRequest
+	(*HashCodeResponse)(nil),                        // 53: accounts.HashCodeResponse
+	(*ToStringRequest)(nil),                         // 54: accounts.ToStringRequest
+	(*ToStringResponse)(nil),                        // 55: accounts.ToStringResponse
+	(*WriteToParcelRequest)(nil),                    // 56: accounts.WriteToParcelRequest
+	(*WriteToParcelResponse)(nil),                   // 57: accounts.WriteToParcelResponse
 }
 var file_proto_accounts_accounts_proto_depIdxs = []int32{
-	0,  // 0: accounts.AccountService.DescribeContents:input_type -> accounts.DescribeContentsRequest
-	2,  // 1: accounts.AccountService.Equals:input_type -> accounts.EqualsRequest
-	4,  // 2: accounts.AccountService.HashCode:input_type -> accounts.HashCodeRequest
-	6,  // 3: accounts.AccountService.ToString:input_type -> accounts.ToStringRequest
-	8,  // 4: accounts.AccountService.WriteToParcel:input_type -> accounts.WriteToParcelRequest
-	10, // 5: accounts.AccountManagerService.AddAccountExplicitly3:input_type -> accounts.AddAccountExplicitly3Request
-	12, // 6: accounts.AccountManagerService.AddAccountExplicitly4_1:input_type -> accounts.AddAccountExplicitly4_1Request
-	14, // 7: accounts.AccountManagerService.BlockingGetAuthToken:input_type -> accounts.BlockingGetAuthTokenRequest
-	16, // 8: accounts.AccountManagerService.ClearPassword:input_type -> accounts.ClearPasswordRequest
-	18, // 9: accounts.AccountManagerService.GetAccountVisibility:input_type -> accounts.GetAccountVisibilityRequest
-	20, // 10: accounts.AccountManagerService.GetAccounts:input_type -> accounts.GetAccountsRequest
-	22, // 11: accounts.AccountManagerService.GetAccountsByType:input_type -> accounts.GetAccountsByTypeRequest
-	24, // 12: accounts.AccountManagerService.GetAccountsByTypeForPackage:input_type -> accounts.GetAccountsByTypeForPackageRequest
-	26, // 13: accounts.AccountManagerService.GetAuthenticatorTypes:input_type -> accounts.GetAuthenticatorTypesRequest
-	28, // 14: accounts.AccountManagerService.GetPassword:input_type -> accounts.GetPasswordRequest
-	30, // 15: accounts.AccountManagerService.GetPreviousName:input_type -> accounts.GetPreviousNameRequest
-	32, // 16: accounts.AccountManagerService.GetUserData:input_type -> accounts.GetUserDataRequest
-	34, // 17: accounts.AccountManagerService.InvalidateAuthToken:input_type -> accounts.InvalidateAuthTokenRequest
-	36, // 18: accounts.AccountManagerService.NotifyAccountAuthenticated:input_type -> accounts.NotifyAccountAuthenticatedRequest
-	38, // 19: accounts.AccountManagerService.PeekAuthToken:input_type -> accounts.PeekAuthTokenRequest
-	40, // 20: accounts.AccountManagerService.RemoveAccountExplicitly:input_type -> accounts.RemoveAccountExplicitlyRequest
-	42, // 21: accounts.AccountManagerService.RemoveOnAccountsUpdatedListener:input_type -> accounts.RemoveOnAccountsUpdatedListenerRequest
-	44, // 22: accounts.AccountManagerService.SetAccountVisibility:input_type -> accounts.SetAccountVisibilityRequest
-	46, // 23: accounts.AccountManagerService.SetAuthToken:input_type -> accounts.SetAuthTokenRequest
-	48, // 24: accounts.AccountManagerService.SetPassword:input_type -> accounts.SetPasswordRequest
-	50, // 25: accounts.AccountManagerService.SetUserData:input_type -> accounts.SetUserDataRequest
-	52, // 26: accounts.AccountManagerService.Get:input_type -> accounts.GetRequest
-	54, // 27: accounts.AccountManagerService.NewChooseAccountIntent8:input_type -> accounts.NewChooseAccountIntent8Request
-	56, // 28: accounts.AccountManagerService.NewChooseAccountIntent7_1:input_type -> accounts.NewChooseAccountIntent7_1Request
-	1,  // 29: accounts.AccountService.DescribeContents:output_type -> accounts.DescribeContentsResponse
-	3,  // 30: accounts.AccountService.Equals:output_type -> accounts.EqualsResponse
-	5,  // 31: accounts.AccountService.HashCode:output_type -> accounts.HashCodeResponse
-	7,  // 32: accounts.AccountService.ToString:output_type -> accounts.ToStringResponse
-	9,  // 33: accounts.AccountService.WriteToParcel:output_type -> accounts.WriteToParcelResponse
-	11, // 34: accounts.AccountManagerService.AddAccountExplicitly3:output_type -> accounts.AddAccountExplicitly3Response
-	13, // 35: accounts.AccountManagerService.AddAccountExplicitly4_1:output_type -> accounts.AddAccountExplicitly4_1Response
-	15, // 36: accounts.AccountManagerService.BlockingGetAuthToken:output_type -> accounts.BlockingGetAuthTokenResponse
-	17, // 37: accounts.AccountManagerService.ClearPassword:output_type -> accounts.ClearPasswordResponse
-	19, // 38: accounts.AccountManagerService.GetAccountVisibility:output_type -> accounts.GetAccountVisibilityResponse
-	21, // 39: accounts.AccountManagerService.GetAccounts:output_type -> accounts.GetAccountsResponse
-	23, // 40: accounts.AccountManagerService.GetAccountsByType:output_type -> accounts.GetAccountsByTypeResponse
-	25, // 41: accounts.AccountManagerService.GetAccountsByTypeForPackage:output_type -> accounts.GetAccountsByTypeForPackageResponse
-	27, // 42: accounts.AccountManagerService.GetAuthenticatorTypes:output_type -> accounts.GetAuthenticatorTypesResponse
-	29, // 43: accounts.AccountManagerService.GetPassword:output_type -> accounts.GetPasswordResponse
-	31, // 44: accounts.AccountManagerService.GetPreviousName:output_type -> accounts.GetPreviousNameResponse
-	33, // 45: accounts.AccountManagerService.GetUserData:output_type -> accounts.GetUserDataResponse
-	35, // 46: accounts.AccountManagerService.InvalidateAuthToken:output_type -> accounts.InvalidateAuthTokenResponse
-	37, // 47: accounts.AccountManagerService.NotifyAccountAuthenticated:output_type -> accounts.NotifyAccountAuthenticatedResponse
-	39, // 48: accounts.AccountManagerService.PeekAuthToken:output_type -> accounts.PeekAuthTokenResponse
-	41, // 49: accounts.AccountManagerService.RemoveAccountExplicitly:output_type -> accounts.RemoveAccountExplicitlyResponse
-	43, // 50: accounts.AccountManagerService.RemoveOnAccountsUpdatedListener:output_type -> accounts.RemoveOnAccountsUpdatedListenerResponse
-	45, // 51: accounts.AccountManagerService.SetAccountVisibility:output_type -> accounts.SetAccountVisibilityResponse
-	47, // 52: accounts.AccountManagerService.SetAuthToken:output_type -> accounts.SetAuthTokenResponse
-	49, // 53: accounts.AccountManagerService.SetPassword:output_type -> accounts.SetPasswordResponse
-	51, // 54: accounts.AccountManagerService.SetUserData:output_type -> accounts.SetUserDataResponse
-	53, // 55: accounts.AccountManagerService.Get:output_type -> accounts.GetResponse
-	55, // 56: accounts.AccountManagerService.NewChooseAccountIntent8:output_type -> accounts.NewChooseAccountIntent8Response
-	57, // 57: accounts.AccountManagerService.NewChooseAccountIntent7_1:output_type -> accounts.NewChooseAccountIntent7_1Response
+	0,  // 0: accounts.AccountManagerService.AddAccountExplicitly3:input_type -> accounts.AddAccountExplicitly3Request
+	2,  // 1: accounts.AccountManagerService.AddAccountExplicitly4_1:input_type -> accounts.AddAccountExplicitly4_1Request
+	4,  // 2: accounts.AccountManagerService.BlockingGetAuthToken:input_type -> accounts.BlockingGetAuthTokenRequest
+	6,  // 3: accounts.AccountManagerService.ClearPassword:input_type -> accounts.ClearPasswordRequest
+	8,  // 4: accounts.AccountManagerService.GetAccountVisibility:input_type -> accounts.GetAccountVisibilityRequest
+	10, // 5: accounts.AccountManagerService.GetAccounts:input_type -> accounts.GetAccountsRequest
+	12, // 6: accounts.AccountManagerService.GetAccountsByType:input_type -> accounts.GetAccountsByTypeRequest
+	14, // 7: accounts.AccountManagerService.GetAccountsByTypeForPackage:input_type -> accounts.GetAccountsByTypeForPackageRequest
+	16, // 8: accounts.AccountManagerService.GetAuthenticatorTypes:input_type -> accounts.GetAuthenticatorTypesRequest
+	18, // 9: accounts.AccountManagerService.GetPassword:input_type -> accounts.GetPasswordRequest
+	20, // 10: accounts.AccountManagerService.GetPreviousName:input_type -> accounts.GetPreviousNameRequest
+	22, // 11: accounts.AccountManagerService.GetUserData:input_type -> accounts.GetUserDataRequest
+	24, // 12: accounts.AccountManagerService.InvalidateAuthToken:input_type -> accounts.InvalidateAuthTokenRequest
+	26, // 13: accounts.AccountManagerService.NotifyAccountAuthenticated:input_type -> accounts.NotifyAccountAuthenticatedRequest
+	28, // 14: accounts.AccountManagerService.PeekAuthToken:input_type -> accounts.PeekAuthTokenRequest
+	30, // 15: accounts.AccountManagerService.RemoveAccountExplicitly:input_type -> accounts.RemoveAccountExplicitlyRequest
+	32, // 16: accounts.AccountManagerService.RemoveOnAccountsUpdatedListener:input_type -> accounts.RemoveOnAccountsUpdatedListenerRequest
+	34, // 17: accounts.AccountManagerService.SetAccountVisibility:input_type -> accounts.SetAccountVisibilityRequest
+	36, // 18: accounts.AccountManagerService.SetAuthToken:input_type -> accounts.SetAuthTokenRequest
+	38, // 19: accounts.AccountManagerService.SetPassword:input_type -> accounts.SetPasswordRequest
+	40, // 20: accounts.AccountManagerService.SetUserData:input_type -> accounts.SetUserDataRequest
+	42, // 21: accounts.AccountManagerService.Get:input_type -> accounts.GetRequest
+	44, // 22: accounts.AccountManagerService.NewChooseAccountIntent8:input_type -> accounts.NewChooseAccountIntent8Request
+	46, // 23: accounts.AccountManagerService.NewChooseAccountIntent7_1:input_type -> accounts.NewChooseAccountIntent7_1Request
+	48, // 24: accounts.AccountService.DescribeContents:input_type -> accounts.DescribeContentsRequest
+	50, // 25: accounts.AccountService.Equals:input_type -> accounts.EqualsRequest
+	52, // 26: accounts.AccountService.HashCode:input_type -> accounts.HashCodeRequest
+	54, // 27: accounts.AccountService.ToString:input_type -> accounts.ToStringRequest
+	56, // 28: accounts.AccountService.WriteToParcel:input_type -> accounts.WriteToParcelRequest
+	1,  // 29: accounts.AccountManagerService.AddAccountExplicitly3:output_type -> accounts.AddAccountExplicitly3Response
+	3,  // 30: accounts.AccountManagerService.AddAccountExplicitly4_1:output_type -> accounts.AddAccountExplicitly4_1Response
+	5,  // 31: accounts.AccountManagerService.BlockingGetAuthToken:output_type -> accounts.BlockingGetAuthTokenResponse
+	7,  // 32: accounts.AccountManagerService.ClearPassword:output_type -> accounts.ClearPasswordResponse
+	9,  // 33: accounts.AccountManagerService.GetAccountVisibility:output_type -> accounts.GetAccountVisibilityResponse
+	11, // 34: accounts.AccountManagerService.GetAccounts:output_type -> accounts.GetAccountsResponse
+	13, // 35: accounts.AccountManagerService.GetAccountsByType:output_type -> accounts.GetAccountsByTypeResponse
+	15, // 36: accounts.AccountManagerService.GetAccountsByTypeForPackage:output_type -> accounts.GetAccountsByTypeForPackageResponse
+	17, // 37: accounts.AccountManagerService.GetAuthenticatorTypes:output_type -> accounts.GetAuthenticatorTypesResponse
+	19, // 38: accounts.AccountManagerService.GetPassword:output_type -> accounts.GetPasswordResponse
+	21, // 39: accounts.AccountManagerService.GetPreviousName:output_type -> accounts.GetPreviousNameResponse
+	23, // 40: accounts.AccountManagerService.GetUserData:output_type -> accounts.GetUserDataResponse
+	25, // 41: accounts.AccountManagerService.InvalidateAuthToken:output_type -> accounts.InvalidateAuthTokenResponse
+	27, // 42: accounts.AccountManagerService.NotifyAccountAuthenticated:output_type -> accounts.NotifyAccountAuthenticatedResponse
+	29, // 43: accounts.AccountManagerService.PeekAuthToken:output_type -> accounts.PeekAuthTokenResponse
+	31, // 44: accounts.AccountManagerService.RemoveAccountExplicitly:output_type -> accounts.RemoveAccountExplicitlyResponse
+	33, // 45: accounts.AccountManagerService.RemoveOnAccountsUpdatedListener:output_type -> accounts.RemoveOnAccountsUpdatedListenerResponse
+	35, // 46: accounts.AccountManagerService.SetAccountVisibility:output_type -> accounts.SetAccountVisibilityResponse
+	37, // 47: accounts.AccountManagerService.SetAuthToken:output_type -> accounts.SetAuthTokenResponse
+	39, // 48: accounts.AccountManagerService.SetPassword:output_type -> accounts.SetPasswordResponse
+	41, // 49: accounts.AccountManagerService.SetUserData:output_type -> accounts.SetUserDataResponse
+	43, // 50: accounts.AccountManagerService.Get:output_type -> accounts.GetResponse
+	45, // 51: accounts.AccountManagerService.NewChooseAccountIntent8:output_type -> accounts.NewChooseAccountIntent8Response
+	47, // 52: accounts.AccountManagerService.NewChooseAccountIntent7_1:output_type -> accounts.NewChooseAccountIntent7_1Response
+	49, // 53: accounts.AccountService.DescribeContents:output_type -> accounts.DescribeContentsResponse
+	51, // 54: accounts.AccountService.Equals:output_type -> accounts.EqualsResponse
+	53, // 55: accounts.AccountService.HashCode:output_type -> accounts.HashCodeResponse
+	55, // 56: accounts.AccountService.ToString:output_type -> accounts.ToStringResponse
+	57, // 57: accounts.AccountService.WriteToParcel:output_type -> accounts.WriteToParcelResponse
 	29, // [29:58] is the sub-list for method output_type
 	0,  // [0:29] is the sub-list for method input_type
 	0,  // [0:0] is the sub-list for extension type_name

@@ -3,8 +3,8 @@
 package main
 
 import (
-	"github.com/spf13/cobra"
 	pb "github.com/AndroidGoLab/jni-proxy/proto/vibrator"
+	"github.com/spf13/cobra"
 )
 
 var vibratorCmd = &cobra.Command{
@@ -15,6 +15,44 @@ var vibratorCmd = &cobra.Command{
 var vibratorVibratorCmd = &cobra.Command{
 	Use:   "vibrator",
 	Short: "VibratorService operations",
+}
+
+var vibratorVibratorAreAllEffectsSupportedCmd = &cobra.Command{
+	Use:   "are-all-effects-supported",
+	Short: "AreAllEffectsSupported RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewVibratorServiceClient(grpcConn)
+		req := &pb.AreAllEffectsSupportedRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.AreAllEffectsSupported(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var vibratorVibratorAreAllPrimitivesSupportedCmd = &cobra.Command{
+	Use:   "are-all-primitives-supported",
+	Short: "AreAllPrimitivesSupported RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewVibratorServiceClient(grpcConn)
+		req := &pb.AreAllPrimitivesSupportedRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.AreAllPrimitivesSupported(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
 }
 
 var vibratorVibratorAreEffectsSupportedCmd = &cobra.Command{
@@ -64,6 +102,22 @@ var vibratorVibratorArePrimitivesSupportedCmd = &cobra.Command{
 			req.Arg0 = v
 		}
 		resp, err := client.ArePrimitivesSupported(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var vibratorVibratorCancelCmd = &cobra.Command{
+	Use:   "cancel",
+	Short: "Cancel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewVibratorServiceClient(grpcConn)
+		req := &pb.CancelRequest{}
+		resp, err := client.Cancel(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -163,6 +217,38 @@ var vibratorVibratorGetResonantFrequencyCmd = &cobra.Command{
 		client := pb.NewVibratorServiceClient(grpcConn)
 		req := &pb.GetResonantFrequencyRequest{}
 		resp, err := client.GetResonantFrequency(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var vibratorVibratorHasAmplitudeControlCmd = &cobra.Command{
+	Use:   "has-amplitude-control",
+	Short: "HasAmplitudeControl RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewVibratorServiceClient(grpcConn)
+		req := &pb.HasAmplitudeControlRequest{}
+		resp, err := client.HasAmplitudeControl(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var vibratorVibratorHasVibratorCmd = &cobra.Command{
+	Use:   "has-vibrator",
+	Short: "HasVibrator RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewVibratorServiceClient(grpcConn)
+		req := &pb.HasVibratorRequest{}
+		resp, err := client.HasVibrator(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -322,11 +408,16 @@ var vibratorVibratorVibrate3_6Cmd = &cobra.Command{
 }
 
 func init() {
+	vibratorVibratorAreAllEffectsSupportedCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	vibratorVibratorCmd.AddCommand(vibratorVibratorAreAllEffectsSupportedCmd)
+	vibratorVibratorAreAllPrimitivesSupportedCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	vibratorVibratorCmd.AddCommand(vibratorVibratorAreAllPrimitivesSupportedCmd)
 	vibratorVibratorAreEffectsSupportedCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	vibratorVibratorCmd.AddCommand(vibratorVibratorAreEffectsSupportedCmd)
 	vibratorVibratorCmd.AddCommand(vibratorVibratorAreEnvelopeEffectsSupportedCmd)
 	vibratorVibratorArePrimitivesSupportedCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	vibratorVibratorCmd.AddCommand(vibratorVibratorArePrimitivesSupportedCmd)
+	vibratorVibratorCmd.AddCommand(vibratorVibratorCancelCmd)
 	vibratorVibratorCmd.AddCommand(vibratorVibratorGetEnvelopeEffectInfoCmd)
 	vibratorVibratorCmd.AddCommand(vibratorVibratorGetFrequencyProfileCmd)
 	vibratorVibratorCmd.AddCommand(vibratorVibratorGetIdCmd)
@@ -334,6 +425,8 @@ func init() {
 	vibratorVibratorCmd.AddCommand(vibratorVibratorGetPrimitiveDurationsCmd)
 	vibratorVibratorCmd.AddCommand(vibratorVibratorGetQFactorCmd)
 	vibratorVibratorCmd.AddCommand(vibratorVibratorGetResonantFrequencyCmd)
+	vibratorVibratorCmd.AddCommand(vibratorVibratorHasAmplitudeControlCmd)
+	vibratorVibratorCmd.AddCommand(vibratorVibratorHasVibratorCmd)
 	vibratorVibratorVibrate1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	vibratorVibratorCmd.AddCommand(vibratorVibratorVibrate1Cmd)
 	vibratorVibratorVibrate2_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")

@@ -3,8 +3,8 @@
 package main
 
 import (
-	"github.com/spf13/cobra"
 	pb "github.com/AndroidGoLab/jni-proxy/proto/toast"
+	"github.com/spf13/cobra"
 )
 
 var toastCmd = &cobra.Command{

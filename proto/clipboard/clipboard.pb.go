@@ -2753,8 +2753,8 @@ const file_proto_clipboard_clipboard_proto_rawDesc = "" +
 	"\x06result\x18\x01 \x01(\x03R\x06result\"\x0f\n" +
 	"\rGetUriRequest\"(\n" +
 	"\x0eGetUriResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result2\xcc\a\n" +
-	"\x17ClipboardManagerService\x12\x82\x01\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result2\xc3\a\n" +
+	"\x0eManagerService\x12\x82\x01\n" +
 	"\x1dAddPrimaryClipChangedListener\x12/.clipboard.AddPrimaryClipChangedListenerRequest\x1a0.clipboard.AddPrimaryClipChangedListenerResponse\x12[\n" +
 	"\x10ClearPrimaryClip\x12\".clipboard.ClearPrimaryClipRequest\x1a#.clipboard.ClearPrimaryClipResponse\x12U\n" +
 	"\x0eGetPrimaryClip\x12 .clipboard.GetPrimaryClipRequest\x1a!.clipboard.GetPrimaryClipResponse\x12v\n" +
@@ -2790,7 +2790,7 @@ const file_proto_clipboard_clipboard_proto_rawDesc = "" +
 	"\aGetText\x12\x19.clipboard.GetTextRequest\x1a\x1a.clipboard.GetTextResponse\x12O\n" +
 	"\fGetTextLinks\x12\x1e.clipboard.GetTextLinksRequest\x1a\x1f.clipboard.GetTextLinksResponse\x12=\n" +
 	"\x06GetUri\x12\x18.clipboard.GetUriRequest\x1a\x19.clipboard.GetUriResponse\x12C\n" +
-	"\bToString\x12\x1a.clipboard.ToStringRequest\x1a\x1b.clipboard.ToStringResponseB,Z*github.com/AndroidGoLab/jni-proxy/proto/clipboardb\x06proto3"
+	"\bToString\x12\x1a.clipboard.ToStringRequest\x1a\x1b.clipboard.ToStringResponseB3Z1github.com/AndroidGoLab/jni-proxy/proto/clipboardb\x06proto3"
 
 var (
 	file_proto_clipboard_clipboard_proto_rawDescOnce sync.Once
@@ -2870,16 +2870,16 @@ var file_proto_clipboard_clipboard_proto_goTypes = []any{
 	(*GetUriResponse)(nil),                           // 61: clipboard.GetUriResponse
 }
 var file_proto_clipboard_clipboard_proto_depIdxs = []int32{
-	0,  // 0: clipboard.ClipboardManagerService.AddPrimaryClipChangedListener:input_type -> clipboard.AddPrimaryClipChangedListenerRequest
-	2,  // 1: clipboard.ClipboardManagerService.ClearPrimaryClip:input_type -> clipboard.ClearPrimaryClipRequest
-	4,  // 2: clipboard.ClipboardManagerService.GetPrimaryClip:input_type -> clipboard.GetPrimaryClipRequest
-	6,  // 3: clipboard.ClipboardManagerService.GetPrimaryClipDescription:input_type -> clipboard.GetPrimaryClipDescriptionRequest
-	8,  // 4: clipboard.ClipboardManagerService.GetText:input_type -> clipboard.GetTextRequest
-	10, // 5: clipboard.ClipboardManagerService.HasPrimaryClip:input_type -> clipboard.HasPrimaryClipRequest
-	12, // 6: clipboard.ClipboardManagerService.HasText:input_type -> clipboard.HasTextRequest
-	14, // 7: clipboard.ClipboardManagerService.RemovePrimaryClipChangedListener:input_type -> clipboard.RemovePrimaryClipChangedListenerRequest
-	16, // 8: clipboard.ClipboardManagerService.SetPrimaryClip:input_type -> clipboard.SetPrimaryClipRequest
-	18, // 9: clipboard.ClipboardManagerService.SetText:input_type -> clipboard.SetTextRequest
+	0,  // 0: clipboard.ManagerService.AddPrimaryClipChangedListener:input_type -> clipboard.AddPrimaryClipChangedListenerRequest
+	2,  // 1: clipboard.ManagerService.ClearPrimaryClip:input_type -> clipboard.ClearPrimaryClipRequest
+	4,  // 2: clipboard.ManagerService.GetPrimaryClip:input_type -> clipboard.GetPrimaryClipRequest
+	6,  // 3: clipboard.ManagerService.GetPrimaryClipDescription:input_type -> clipboard.GetPrimaryClipDescriptionRequest
+	8,  // 4: clipboard.ManagerService.GetText:input_type -> clipboard.GetTextRequest
+	10, // 5: clipboard.ManagerService.HasPrimaryClip:input_type -> clipboard.HasPrimaryClipRequest
+	12, // 6: clipboard.ManagerService.HasText:input_type -> clipboard.HasTextRequest
+	14, // 7: clipboard.ManagerService.RemovePrimaryClipChangedListener:input_type -> clipboard.RemovePrimaryClipChangedListenerRequest
+	16, // 8: clipboard.ManagerService.SetPrimaryClip:input_type -> clipboard.SetPrimaryClipRequest
+	18, // 9: clipboard.ManagerService.SetText:input_type -> clipboard.SetTextRequest
 	20, // 10: clipboard.ClipDataService.AddItem1:input_type -> clipboard.AddItem1Request
 	22, // 11: clipboard.ClipDataService.AddItem2_1:input_type -> clipboard.AddItem2_1Request
 	24, // 12: clipboard.ClipDataService.DescribeContents:input_type -> clipboard.DescribeContentsRequest
@@ -2903,16 +2903,16 @@ var file_proto_clipboard_clipboard_proto_depIdxs = []int32{
 	58, // 30: clipboard.ClipDataItemService.GetTextLinks:input_type -> clipboard.GetTextLinksRequest
 	60, // 31: clipboard.ClipDataItemService.GetUri:input_type -> clipboard.GetUriRequest
 	32, // 32: clipboard.ClipDataItemService.ToString:input_type -> clipboard.ToStringRequest
-	1,  // 33: clipboard.ClipboardManagerService.AddPrimaryClipChangedListener:output_type -> clipboard.AddPrimaryClipChangedListenerResponse
-	3,  // 34: clipboard.ClipboardManagerService.ClearPrimaryClip:output_type -> clipboard.ClearPrimaryClipResponse
-	5,  // 35: clipboard.ClipboardManagerService.GetPrimaryClip:output_type -> clipboard.GetPrimaryClipResponse
-	7,  // 36: clipboard.ClipboardManagerService.GetPrimaryClipDescription:output_type -> clipboard.GetPrimaryClipDescriptionResponse
-	9,  // 37: clipboard.ClipboardManagerService.GetText:output_type -> clipboard.GetTextResponse
-	11, // 38: clipboard.ClipboardManagerService.HasPrimaryClip:output_type -> clipboard.HasPrimaryClipResponse
-	13, // 39: clipboard.ClipboardManagerService.HasText:output_type -> clipboard.HasTextResponse
-	15, // 40: clipboard.ClipboardManagerService.RemovePrimaryClipChangedListener:output_type -> clipboard.RemovePrimaryClipChangedListenerResponse
-	17, // 41: clipboard.ClipboardManagerService.SetPrimaryClip:output_type -> clipboard.SetPrimaryClipResponse
-	19, // 42: clipboard.ClipboardManagerService.SetText:output_type -> clipboard.SetTextResponse
+	1,  // 33: clipboard.ManagerService.AddPrimaryClipChangedListener:output_type -> clipboard.AddPrimaryClipChangedListenerResponse
+	3,  // 34: clipboard.ManagerService.ClearPrimaryClip:output_type -> clipboard.ClearPrimaryClipResponse
+	5,  // 35: clipboard.ManagerService.GetPrimaryClip:output_type -> clipboard.GetPrimaryClipResponse
+	7,  // 36: clipboard.ManagerService.GetPrimaryClipDescription:output_type -> clipboard.GetPrimaryClipDescriptionResponse
+	9,  // 37: clipboard.ManagerService.GetText:output_type -> clipboard.GetTextResponse
+	11, // 38: clipboard.ManagerService.HasPrimaryClip:output_type -> clipboard.HasPrimaryClipResponse
+	13, // 39: clipboard.ManagerService.HasText:output_type -> clipboard.HasTextResponse
+	15, // 40: clipboard.ManagerService.RemovePrimaryClipChangedListener:output_type -> clipboard.RemovePrimaryClipChangedListenerResponse
+	17, // 41: clipboard.ManagerService.SetPrimaryClip:output_type -> clipboard.SetPrimaryClipResponse
+	19, // 42: clipboard.ManagerService.SetText:output_type -> clipboard.SetTextResponse
 	21, // 43: clipboard.ClipDataService.AddItem1:output_type -> clipboard.AddItem1Response
 	23, // 44: clipboard.ClipDataService.AddItem2_1:output_type -> clipboard.AddItem2_1Response
 	25, // 45: clipboard.ClipDataService.DescribeContents:output_type -> clipboard.DescribeContentsResponse

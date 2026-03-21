@@ -3,8 +3,8 @@
 package main
 
 import (
-	"github.com/spf13/cobra"
 	pb "github.com/AndroidGoLab/jni-proxy/proto/telecom"
+	"github.com/spf13/cobra"
 )
 
 var telecomCmd = &cobra.Command{
@@ -12,18 +12,18 @@ var telecomCmd = &cobra.Command{
 	Short: "telecom service operations",
 }
 
-var telecomTelecomManagerCmd = &cobra.Command{
-	Use:   "telecom-manager",
-	Short: "TelecomManagerService operations",
+var telecomManagerCmd = &cobra.Command{
+	Use:   "manager",
+	Short: "ManagerService operations",
 }
 
-var telecomTelecomManagerAcceptHandoverCmd = &cobra.Command{
+var telecomManagerAcceptHandoverCmd = &cobra.Command{
 	Use:   "accept-handover",
 	Short: "AcceptHandover RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewTelecomManagerServiceClient(grpcConn)
+		client := pb.NewManagerServiceClient(grpcConn)
 		req := &pb.AcceptHandoverRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
@@ -42,13 +42,13 @@ var telecomTelecomManagerAcceptHandoverCmd = &cobra.Command{
 	},
 }
 
-var telecomTelecomManagerAcceptRingingCall0Cmd = &cobra.Command{
+var telecomManagerAcceptRingingCall0Cmd = &cobra.Command{
 	Use:   "accept-ringing-call0",
 	Short: "AcceptRingingCall0 RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewTelecomManagerServiceClient(grpcConn)
+		client := pb.NewManagerServiceClient(grpcConn)
 		req := &pb.AcceptRingingCall0Request{}
 		resp, err := client.AcceptRingingCall0(ctx, req)
 		if err != nil {
@@ -58,13 +58,13 @@ var telecomTelecomManagerAcceptRingingCall0Cmd = &cobra.Command{
 	},
 }
 
-var telecomTelecomManagerAcceptRingingCall1_1Cmd = &cobra.Command{
+var telecomManagerAcceptRingingCall1_1Cmd = &cobra.Command{
 	Use:   "accept-ringing-call1_1",
 	Short: "AcceptRingingCall1_1 RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewTelecomManagerServiceClient(grpcConn)
+		client := pb.NewManagerServiceClient(grpcConn)
 		req := &pb.AcceptRingingCall1_1Request{}
 		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
 			req.Arg0 = v
@@ -77,13 +77,13 @@ var telecomTelecomManagerAcceptRingingCall1_1Cmd = &cobra.Command{
 	},
 }
 
-var telecomTelecomManagerAddCallCmd = &cobra.Command{
+var telecomManagerAddCallCmd = &cobra.Command{
 	Use:   "add-call",
 	Short: "AddCall RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewTelecomManagerServiceClient(grpcConn)
+		client := pb.NewManagerServiceClient(grpcConn)
 		req := &pb.AddCallRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
@@ -108,13 +108,13 @@ var telecomTelecomManagerAddCallCmd = &cobra.Command{
 	},
 }
 
-var telecomTelecomManagerAddNewIncomingCallCmd = &cobra.Command{
+var telecomManagerAddNewIncomingCallCmd = &cobra.Command{
 	Use:   "add-new-incoming-call",
 	Short: "AddNewIncomingCall RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewTelecomManagerServiceClient(grpcConn)
+		client := pb.NewManagerServiceClient(grpcConn)
 		req := &pb.AddNewIncomingCallRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
@@ -130,13 +130,13 @@ var telecomTelecomManagerAddNewIncomingCallCmd = &cobra.Command{
 	},
 }
 
-var telecomTelecomManagerAddNewIncomingConferenceCmd = &cobra.Command{
+var telecomManagerAddNewIncomingConferenceCmd = &cobra.Command{
 	Use:   "add-new-incoming-conference",
 	Short: "AddNewIncomingConference RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewTelecomManagerServiceClient(grpcConn)
+		client := pb.NewManagerServiceClient(grpcConn)
 		req := &pb.AddNewIncomingConferenceRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
@@ -152,13 +152,13 @@ var telecomTelecomManagerAddNewIncomingConferenceCmd = &cobra.Command{
 	},
 }
 
-var telecomTelecomManagerCancelMissedCallsNotificationCmd = &cobra.Command{
+var telecomManagerCancelMissedCallsNotificationCmd = &cobra.Command{
 	Use:   "cancel-missed-calls-notification",
 	Short: "CancelMissedCallsNotification RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewTelecomManagerServiceClient(grpcConn)
+		client := pb.NewManagerServiceClient(grpcConn)
 		req := &pb.CancelMissedCallsNotificationRequest{}
 		resp, err := client.CancelMissedCallsNotification(ctx, req)
 		if err != nil {
@@ -168,13 +168,13 @@ var telecomTelecomManagerCancelMissedCallsNotificationCmd = &cobra.Command{
 	},
 }
 
-var telecomTelecomManagerCreateManageBlockedNumbersIntentCmd = &cobra.Command{
+var telecomManagerCreateManageBlockedNumbersIntentCmd = &cobra.Command{
 	Use:   "create-manage-blocked-numbers-intent",
 	Short: "CreateManageBlockedNumbersIntent RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewTelecomManagerServiceClient(grpcConn)
+		client := pb.NewManagerServiceClient(grpcConn)
 		req := &pb.CreateManageBlockedNumbersIntentRequest{}
 		resp, err := client.CreateManageBlockedNumbersIntent(ctx, req)
 		if err != nil {
@@ -184,13 +184,13 @@ var telecomTelecomManagerCreateManageBlockedNumbersIntentCmd = &cobra.Command{
 	},
 }
 
-var telecomTelecomManagerEndCallCmd = &cobra.Command{
+var telecomManagerEndCallCmd = &cobra.Command{
 	Use:   "end-call",
 	Short: "EndCall RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewTelecomManagerServiceClient(grpcConn)
+		client := pb.NewManagerServiceClient(grpcConn)
 		req := &pb.EndCallRequest{}
 		resp, err := client.EndCall(ctx, req)
 		if err != nil {
@@ -200,13 +200,13 @@ var telecomTelecomManagerEndCallCmd = &cobra.Command{
 	},
 }
 
-var telecomTelecomManagerGetAdnUriForPhoneAccountCmd = &cobra.Command{
+var telecomManagerGetAdnUriForPhoneAccountCmd = &cobra.Command{
 	Use:   "get-adn-uri-for-phone-account",
 	Short: "GetAdnUriForPhoneAccount RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewTelecomManagerServiceClient(grpcConn)
+		client := pb.NewManagerServiceClient(grpcConn)
 		req := &pb.GetAdnUriForPhoneAccountRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
@@ -219,13 +219,13 @@ var telecomTelecomManagerGetAdnUriForPhoneAccountCmd = &cobra.Command{
 	},
 }
 
-var telecomTelecomManagerGetCallCapablePhoneAccountsCmd = &cobra.Command{
+var telecomManagerGetCallCapablePhoneAccountsCmd = &cobra.Command{
 	Use:   "get-call-capable-phone-accounts",
 	Short: "GetCallCapablePhoneAccounts RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewTelecomManagerServiceClient(grpcConn)
+		client := pb.NewManagerServiceClient(grpcConn)
 		req := &pb.GetCallCapablePhoneAccountsRequest{}
 		resp, err := client.GetCallCapablePhoneAccounts(ctx, req)
 		if err != nil {
@@ -235,13 +235,13 @@ var telecomTelecomManagerGetCallCapablePhoneAccountsCmd = &cobra.Command{
 	},
 }
 
-var telecomTelecomManagerGetDefaultDialerPackageCmd = &cobra.Command{
+var telecomManagerGetDefaultDialerPackageCmd = &cobra.Command{
 	Use:   "get-default-dialer-package",
 	Short: "GetDefaultDialerPackage RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewTelecomManagerServiceClient(grpcConn)
+		client := pb.NewManagerServiceClient(grpcConn)
 		req := &pb.GetDefaultDialerPackageRequest{}
 		resp, err := client.GetDefaultDialerPackage(ctx, req)
 		if err != nil {
@@ -251,13 +251,13 @@ var telecomTelecomManagerGetDefaultDialerPackageCmd = &cobra.Command{
 	},
 }
 
-var telecomTelecomManagerGetDefaultOutgoingPhoneAccountCmd = &cobra.Command{
+var telecomManagerGetDefaultOutgoingPhoneAccountCmd = &cobra.Command{
 	Use:   "get-default-outgoing-phone-account",
 	Short: "GetDefaultOutgoingPhoneAccount RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewTelecomManagerServiceClient(grpcConn)
+		client := pb.NewManagerServiceClient(grpcConn)
 		req := &pb.GetDefaultOutgoingPhoneAccountRequest{}
 		if v, err := cmd.Flags().GetString("arg0"); err == nil {
 			req.Arg0 = v
@@ -270,13 +270,13 @@ var telecomTelecomManagerGetDefaultOutgoingPhoneAccountCmd = &cobra.Command{
 	},
 }
 
-var telecomTelecomManagerGetLine1NumberCmd = &cobra.Command{
+var telecomManagerGetLine1NumberCmd = &cobra.Command{
 	Use:   "get-line1number",
 	Short: "GetLine1Number RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewTelecomManagerServiceClient(grpcConn)
+		client := pb.NewManagerServiceClient(grpcConn)
 		req := &pb.GetLine1NumberRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
@@ -289,13 +289,13 @@ var telecomTelecomManagerGetLine1NumberCmd = &cobra.Command{
 	},
 }
 
-var telecomTelecomManagerGetOwnSelfManagedPhoneAccountsCmd = &cobra.Command{
+var telecomManagerGetOwnSelfManagedPhoneAccountsCmd = &cobra.Command{
 	Use:   "get-own-self-managed-phone-accounts",
 	Short: "GetOwnSelfManagedPhoneAccounts RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewTelecomManagerServiceClient(grpcConn)
+		client := pb.NewManagerServiceClient(grpcConn)
 		req := &pb.GetOwnSelfManagedPhoneAccountsRequest{}
 		resp, err := client.GetOwnSelfManagedPhoneAccounts(ctx, req)
 		if err != nil {
@@ -305,13 +305,13 @@ var telecomTelecomManagerGetOwnSelfManagedPhoneAccountsCmd = &cobra.Command{
 	},
 }
 
-var telecomTelecomManagerGetPhoneAccountCmd = &cobra.Command{
+var telecomManagerGetPhoneAccountCmd = &cobra.Command{
 	Use:   "get-phone-account",
 	Short: "GetPhoneAccount RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewTelecomManagerServiceClient(grpcConn)
+		client := pb.NewManagerServiceClient(grpcConn)
 		req := &pb.GetPhoneAccountRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
@@ -324,13 +324,13 @@ var telecomTelecomManagerGetPhoneAccountCmd = &cobra.Command{
 	},
 }
 
-var telecomTelecomManagerGetRegisteredPhoneAccountsCmd = &cobra.Command{
+var telecomManagerGetRegisteredPhoneAccountsCmd = &cobra.Command{
 	Use:   "get-registered-phone-accounts",
 	Short: "GetRegisteredPhoneAccounts RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewTelecomManagerServiceClient(grpcConn)
+		client := pb.NewManagerServiceClient(grpcConn)
 		req := &pb.GetRegisteredPhoneAccountsRequest{}
 		resp, err := client.GetRegisteredPhoneAccounts(ctx, req)
 		if err != nil {
@@ -340,13 +340,13 @@ var telecomTelecomManagerGetRegisteredPhoneAccountsCmd = &cobra.Command{
 	},
 }
 
-var telecomTelecomManagerGetSelfManagedPhoneAccountsCmd = &cobra.Command{
+var telecomManagerGetSelfManagedPhoneAccountsCmd = &cobra.Command{
 	Use:   "get-self-managed-phone-accounts",
 	Short: "GetSelfManagedPhoneAccounts RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewTelecomManagerServiceClient(grpcConn)
+		client := pb.NewManagerServiceClient(grpcConn)
 		req := &pb.GetSelfManagedPhoneAccountsRequest{}
 		resp, err := client.GetSelfManagedPhoneAccounts(ctx, req)
 		if err != nil {
@@ -356,13 +356,13 @@ var telecomTelecomManagerGetSelfManagedPhoneAccountsCmd = &cobra.Command{
 	},
 }
 
-var telecomTelecomManagerGetSimCallManagerCmd = &cobra.Command{
+var telecomManagerGetSimCallManagerCmd = &cobra.Command{
 	Use:   "get-sim-call-manager",
 	Short: "GetSimCallManager RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewTelecomManagerServiceClient(grpcConn)
+		client := pb.NewManagerServiceClient(grpcConn)
 		req := &pb.GetSimCallManagerRequest{}
 		resp, err := client.GetSimCallManager(ctx, req)
 		if err != nil {
@@ -372,13 +372,13 @@ var telecomTelecomManagerGetSimCallManagerCmd = &cobra.Command{
 	},
 }
 
-var telecomTelecomManagerGetSimCallManagerForSubscriptionCmd = &cobra.Command{
+var telecomManagerGetSimCallManagerForSubscriptionCmd = &cobra.Command{
 	Use:   "get-sim-call-manager-for-subscription",
 	Short: "GetSimCallManagerForSubscription RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewTelecomManagerServiceClient(grpcConn)
+		client := pb.NewManagerServiceClient(grpcConn)
 		req := &pb.GetSimCallManagerForSubscriptionRequest{}
 		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
 			req.Arg0 = v
@@ -391,13 +391,13 @@ var telecomTelecomManagerGetSimCallManagerForSubscriptionCmd = &cobra.Command{
 	},
 }
 
-var telecomTelecomManagerGetSystemDialerPackageCmd = &cobra.Command{
+var telecomManagerGetSystemDialerPackageCmd = &cobra.Command{
 	Use:   "get-system-dialer-package",
 	Short: "GetSystemDialerPackage RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewTelecomManagerServiceClient(grpcConn)
+		client := pb.NewManagerServiceClient(grpcConn)
 		req := &pb.GetSystemDialerPackageRequest{}
 		resp, err := client.GetSystemDialerPackage(ctx, req)
 		if err != nil {
@@ -407,13 +407,13 @@ var telecomTelecomManagerGetSystemDialerPackageCmd = &cobra.Command{
 	},
 }
 
-var telecomTelecomManagerGetUserSelectedOutgoingPhoneAccountCmd = &cobra.Command{
+var telecomManagerGetUserSelectedOutgoingPhoneAccountCmd = &cobra.Command{
 	Use:   "get-user-selected-outgoing-phone-account",
 	Short: "GetUserSelectedOutgoingPhoneAccount RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewTelecomManagerServiceClient(grpcConn)
+		client := pb.NewManagerServiceClient(grpcConn)
 		req := &pb.GetUserSelectedOutgoingPhoneAccountRequest{}
 		resp, err := client.GetUserSelectedOutgoingPhoneAccount(ctx, req)
 		if err != nil {
@@ -423,13 +423,13 @@ var telecomTelecomManagerGetUserSelectedOutgoingPhoneAccountCmd = &cobra.Command
 	},
 }
 
-var telecomTelecomManagerGetVoiceMailNumberCmd = &cobra.Command{
+var telecomManagerGetVoiceMailNumberCmd = &cobra.Command{
 	Use:   "get-voice-mail-number",
 	Short: "GetVoiceMailNumber RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewTelecomManagerServiceClient(grpcConn)
+		client := pb.NewManagerServiceClient(grpcConn)
 		req := &pb.GetVoiceMailNumberRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
@@ -442,13 +442,13 @@ var telecomTelecomManagerGetVoiceMailNumberCmd = &cobra.Command{
 	},
 }
 
-var telecomTelecomManagerHandleMmi1Cmd = &cobra.Command{
+var telecomManagerHandleMmi1Cmd = &cobra.Command{
 	Use:   "handle-mmi1",
 	Short: "HandleMmi1 RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewTelecomManagerServiceClient(grpcConn)
+		client := pb.NewManagerServiceClient(grpcConn)
 		req := &pb.HandleMmi1Request{}
 		if v, err := cmd.Flags().GetString("arg0"); err == nil {
 			req.Arg0 = v
@@ -461,13 +461,13 @@ var telecomTelecomManagerHandleMmi1Cmd = &cobra.Command{
 	},
 }
 
-var telecomTelecomManagerHandleMmi2_1Cmd = &cobra.Command{
+var telecomManagerHandleMmi2_1Cmd = &cobra.Command{
 	Use:   "handle-mmi2_1",
 	Short: "HandleMmi2_1 RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewTelecomManagerServiceClient(grpcConn)
+		client := pb.NewManagerServiceClient(grpcConn)
 		req := &pb.HandleMmi2_1Request{}
 		if v, err := cmd.Flags().GetString("arg0"); err == nil {
 			req.Arg0 = v
@@ -483,13 +483,13 @@ var telecomTelecomManagerHandleMmi2_1Cmd = &cobra.Command{
 	},
 }
 
-var telecomTelecomManagerHasManageOngoingCallsPermissionCmd = &cobra.Command{
+var telecomManagerHasManageOngoingCallsPermissionCmd = &cobra.Command{
 	Use:   "has-manage-ongoing-calls-permission",
 	Short: "HasManageOngoingCallsPermission RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewTelecomManagerServiceClient(grpcConn)
+		client := pb.NewManagerServiceClient(grpcConn)
 		req := &pb.HasManageOngoingCallsPermissionRequest{}
 		resp, err := client.HasManageOngoingCallsPermission(ctx, req)
 		if err != nil {
@@ -499,13 +499,13 @@ var telecomTelecomManagerHasManageOngoingCallsPermissionCmd = &cobra.Command{
 	},
 }
 
-var telecomTelecomManagerIsInCallCmd = &cobra.Command{
+var telecomManagerIsInCallCmd = &cobra.Command{
 	Use:   "is-in-call",
 	Short: "IsInCall RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewTelecomManagerServiceClient(grpcConn)
+		client := pb.NewManagerServiceClient(grpcConn)
 		req := &pb.IsInCallRequest{}
 		resp, err := client.IsInCall(ctx, req)
 		if err != nil {
@@ -515,13 +515,13 @@ var telecomTelecomManagerIsInCallCmd = &cobra.Command{
 	},
 }
 
-var telecomTelecomManagerIsInManagedCallCmd = &cobra.Command{
+var telecomManagerIsInManagedCallCmd = &cobra.Command{
 	Use:   "is-in-managed-call",
 	Short: "IsInManagedCall RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewTelecomManagerServiceClient(grpcConn)
+		client := pb.NewManagerServiceClient(grpcConn)
 		req := &pb.IsInManagedCallRequest{}
 		resp, err := client.IsInManagedCall(ctx, req)
 		if err != nil {
@@ -531,13 +531,13 @@ var telecomTelecomManagerIsInManagedCallCmd = &cobra.Command{
 	},
 }
 
-var telecomTelecomManagerIsIncomingCallPermittedCmd = &cobra.Command{
+var telecomManagerIsIncomingCallPermittedCmd = &cobra.Command{
 	Use:   "is-incoming-call-permitted",
 	Short: "IsIncomingCallPermitted RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewTelecomManagerServiceClient(grpcConn)
+		client := pb.NewManagerServiceClient(grpcConn)
 		req := &pb.IsIncomingCallPermittedRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
@@ -550,13 +550,13 @@ var telecomTelecomManagerIsIncomingCallPermittedCmd = &cobra.Command{
 	},
 }
 
-var telecomTelecomManagerIsOutgoingCallPermittedCmd = &cobra.Command{
+var telecomManagerIsOutgoingCallPermittedCmd = &cobra.Command{
 	Use:   "is-outgoing-call-permitted",
 	Short: "IsOutgoingCallPermitted RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewTelecomManagerServiceClient(grpcConn)
+		client := pb.NewManagerServiceClient(grpcConn)
 		req := &pb.IsOutgoingCallPermittedRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
@@ -569,13 +569,13 @@ var telecomTelecomManagerIsOutgoingCallPermittedCmd = &cobra.Command{
 	},
 }
 
-var telecomTelecomManagerIsTtySupportedCmd = &cobra.Command{
+var telecomManagerIsTtySupportedCmd = &cobra.Command{
 	Use:   "is-tty-supported",
 	Short: "IsTtySupported RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewTelecomManagerServiceClient(grpcConn)
+		client := pb.NewManagerServiceClient(grpcConn)
 		req := &pb.IsTtySupportedRequest{}
 		resp, err := client.IsTtySupported(ctx, req)
 		if err != nil {
@@ -585,13 +585,13 @@ var telecomTelecomManagerIsTtySupportedCmd = &cobra.Command{
 	},
 }
 
-var telecomTelecomManagerIsVoiceMailNumberCmd = &cobra.Command{
+var telecomManagerIsVoiceMailNumberCmd = &cobra.Command{
 	Use:   "is-voice-mail-number",
 	Short: "IsVoiceMailNumber RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewTelecomManagerServiceClient(grpcConn)
+		client := pb.NewManagerServiceClient(grpcConn)
 		req := &pb.IsVoiceMailNumberRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
@@ -607,13 +607,13 @@ var telecomTelecomManagerIsVoiceMailNumberCmd = &cobra.Command{
 	},
 }
 
-var telecomTelecomManagerPlaceCallCmd = &cobra.Command{
+var telecomManagerPlaceCallCmd = &cobra.Command{
 	Use:   "place-call",
 	Short: "PlaceCall RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewTelecomManagerServiceClient(grpcConn)
+		client := pb.NewManagerServiceClient(grpcConn)
 		req := &pb.PlaceCallRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
@@ -629,13 +629,13 @@ var telecomTelecomManagerPlaceCallCmd = &cobra.Command{
 	},
 }
 
-var telecomTelecomManagerRegisterPhoneAccountCmd = &cobra.Command{
+var telecomManagerRegisterPhoneAccountCmd = &cobra.Command{
 	Use:   "register-phone-account",
 	Short: "RegisterPhoneAccount RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewTelecomManagerServiceClient(grpcConn)
+		client := pb.NewManagerServiceClient(grpcConn)
 		req := &pb.RegisterPhoneAccountRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
@@ -648,13 +648,13 @@ var telecomTelecomManagerRegisterPhoneAccountCmd = &cobra.Command{
 	},
 }
 
-var telecomTelecomManagerShowInCallScreenCmd = &cobra.Command{
+var telecomManagerShowInCallScreenCmd = &cobra.Command{
 	Use:   "show-in-call-screen",
 	Short: "ShowInCallScreen RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewTelecomManagerServiceClient(grpcConn)
+		client := pb.NewManagerServiceClient(grpcConn)
 		req := &pb.ShowInCallScreenRequest{}
 		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
 			req.Arg0 = v
@@ -667,13 +667,13 @@ var telecomTelecomManagerShowInCallScreenCmd = &cobra.Command{
 	},
 }
 
-var telecomTelecomManagerSilenceRingerCmd = &cobra.Command{
+var telecomManagerSilenceRingerCmd = &cobra.Command{
 	Use:   "silence-ringer",
 	Short: "SilenceRinger RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewTelecomManagerServiceClient(grpcConn)
+		client := pb.NewManagerServiceClient(grpcConn)
 		req := &pb.SilenceRingerRequest{}
 		resp, err := client.SilenceRinger(ctx, req)
 		if err != nil {
@@ -683,13 +683,13 @@ var telecomTelecomManagerSilenceRingerCmd = &cobra.Command{
 	},
 }
 
-var telecomTelecomManagerStartConferenceCmd = &cobra.Command{
+var telecomManagerStartConferenceCmd = &cobra.Command{
 	Use:   "start-conference",
 	Short: "StartConference RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewTelecomManagerServiceClient(grpcConn)
+		client := pb.NewManagerServiceClient(grpcConn)
 		req := &pb.StartConferenceRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
@@ -705,13 +705,13 @@ var telecomTelecomManagerStartConferenceCmd = &cobra.Command{
 	},
 }
 
-var telecomTelecomManagerUnregisterPhoneAccountCmd = &cobra.Command{
+var telecomManagerUnregisterPhoneAccountCmd = &cobra.Command{
 	Use:   "unregister-phone-account",
 	Short: "UnregisterPhoneAccount RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewTelecomManagerServiceClient(grpcConn)
+		client := pb.NewManagerServiceClient(grpcConn)
 		req := &pb.UnregisterPhoneAccountRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
@@ -725,77 +725,77 @@ var telecomTelecomManagerUnregisterPhoneAccountCmd = &cobra.Command{
 }
 
 func init() {
-	telecomTelecomManagerAcceptHandoverCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	telecomTelecomManagerAcceptHandoverCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	telecomTelecomManagerAcceptHandoverCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
-	telecomTelecomManagerCmd.AddCommand(telecomTelecomManagerAcceptHandoverCmd)
-	telecomTelecomManagerCmd.AddCommand(telecomTelecomManagerAcceptRingingCall0Cmd)
-	telecomTelecomManagerAcceptRingingCall1_1Cmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	telecomTelecomManagerCmd.AddCommand(telecomTelecomManagerAcceptRingingCall1_1Cmd)
-	telecomTelecomManagerAddCallCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	telecomTelecomManagerAddCallCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	telecomTelecomManagerAddCallCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
-	telecomTelecomManagerAddCallCmd.Flags().Int64("arg3", 0, "arg3 (int64)")
-	telecomTelecomManagerAddCallCmd.Flags().Int64("arg4", 0, "arg4 (int64)")
-	telecomTelecomManagerCmd.AddCommand(telecomTelecomManagerAddCallCmd)
-	telecomTelecomManagerAddNewIncomingCallCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	telecomTelecomManagerAddNewIncomingCallCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	telecomTelecomManagerCmd.AddCommand(telecomTelecomManagerAddNewIncomingCallCmd)
-	telecomTelecomManagerAddNewIncomingConferenceCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	telecomTelecomManagerAddNewIncomingConferenceCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	telecomTelecomManagerCmd.AddCommand(telecomTelecomManagerAddNewIncomingConferenceCmd)
-	telecomTelecomManagerCmd.AddCommand(telecomTelecomManagerCancelMissedCallsNotificationCmd)
-	telecomTelecomManagerCmd.AddCommand(telecomTelecomManagerCreateManageBlockedNumbersIntentCmd)
-	telecomTelecomManagerCmd.AddCommand(telecomTelecomManagerEndCallCmd)
-	telecomTelecomManagerGetAdnUriForPhoneAccountCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	telecomTelecomManagerCmd.AddCommand(telecomTelecomManagerGetAdnUriForPhoneAccountCmd)
-	telecomTelecomManagerCmd.AddCommand(telecomTelecomManagerGetCallCapablePhoneAccountsCmd)
-	telecomTelecomManagerCmd.AddCommand(telecomTelecomManagerGetDefaultDialerPackageCmd)
-	telecomTelecomManagerGetDefaultOutgoingPhoneAccountCmd.Flags().String("arg0", "", "arg0 (string)")
-	telecomTelecomManagerCmd.AddCommand(telecomTelecomManagerGetDefaultOutgoingPhoneAccountCmd)
-	telecomTelecomManagerGetLine1NumberCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	telecomTelecomManagerCmd.AddCommand(telecomTelecomManagerGetLine1NumberCmd)
-	telecomTelecomManagerCmd.AddCommand(telecomTelecomManagerGetOwnSelfManagedPhoneAccountsCmd)
-	telecomTelecomManagerGetPhoneAccountCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	telecomTelecomManagerCmd.AddCommand(telecomTelecomManagerGetPhoneAccountCmd)
-	telecomTelecomManagerCmd.AddCommand(telecomTelecomManagerGetRegisteredPhoneAccountsCmd)
-	telecomTelecomManagerCmd.AddCommand(telecomTelecomManagerGetSelfManagedPhoneAccountsCmd)
-	telecomTelecomManagerCmd.AddCommand(telecomTelecomManagerGetSimCallManagerCmd)
-	telecomTelecomManagerGetSimCallManagerForSubscriptionCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	telecomTelecomManagerCmd.AddCommand(telecomTelecomManagerGetSimCallManagerForSubscriptionCmd)
-	telecomTelecomManagerCmd.AddCommand(telecomTelecomManagerGetSystemDialerPackageCmd)
-	telecomTelecomManagerCmd.AddCommand(telecomTelecomManagerGetUserSelectedOutgoingPhoneAccountCmd)
-	telecomTelecomManagerGetVoiceMailNumberCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	telecomTelecomManagerCmd.AddCommand(telecomTelecomManagerGetVoiceMailNumberCmd)
-	telecomTelecomManagerHandleMmi1Cmd.Flags().String("arg0", "", "arg0 (string)")
-	telecomTelecomManagerCmd.AddCommand(telecomTelecomManagerHandleMmi1Cmd)
-	telecomTelecomManagerHandleMmi2_1Cmd.Flags().String("arg0", "", "arg0 (string)")
-	telecomTelecomManagerHandleMmi2_1Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	telecomTelecomManagerCmd.AddCommand(telecomTelecomManagerHandleMmi2_1Cmd)
-	telecomTelecomManagerCmd.AddCommand(telecomTelecomManagerHasManageOngoingCallsPermissionCmd)
-	telecomTelecomManagerCmd.AddCommand(telecomTelecomManagerIsInCallCmd)
-	telecomTelecomManagerCmd.AddCommand(telecomTelecomManagerIsInManagedCallCmd)
-	telecomTelecomManagerIsIncomingCallPermittedCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	telecomTelecomManagerCmd.AddCommand(telecomTelecomManagerIsIncomingCallPermittedCmd)
-	telecomTelecomManagerIsOutgoingCallPermittedCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	telecomTelecomManagerCmd.AddCommand(telecomTelecomManagerIsOutgoingCallPermittedCmd)
-	telecomTelecomManagerCmd.AddCommand(telecomTelecomManagerIsTtySupportedCmd)
-	telecomTelecomManagerIsVoiceMailNumberCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	telecomTelecomManagerIsVoiceMailNumberCmd.Flags().String("arg1", "", "arg1 (string)")
-	telecomTelecomManagerCmd.AddCommand(telecomTelecomManagerIsVoiceMailNumberCmd)
-	telecomTelecomManagerPlaceCallCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	telecomTelecomManagerPlaceCallCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	telecomTelecomManagerCmd.AddCommand(telecomTelecomManagerPlaceCallCmd)
-	telecomTelecomManagerRegisterPhoneAccountCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	telecomTelecomManagerCmd.AddCommand(telecomTelecomManagerRegisterPhoneAccountCmd)
-	telecomTelecomManagerShowInCallScreenCmd.Flags().Bool("arg0", false, "arg0 (bool)")
-	telecomTelecomManagerCmd.AddCommand(telecomTelecomManagerShowInCallScreenCmd)
-	telecomTelecomManagerCmd.AddCommand(telecomTelecomManagerSilenceRingerCmd)
-	telecomTelecomManagerStartConferenceCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	telecomTelecomManagerStartConferenceCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	telecomTelecomManagerCmd.AddCommand(telecomTelecomManagerStartConferenceCmd)
-	telecomTelecomManagerUnregisterPhoneAccountCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	telecomTelecomManagerCmd.AddCommand(telecomTelecomManagerUnregisterPhoneAccountCmd)
-	telecomCmd.AddCommand(telecomTelecomManagerCmd)
+	telecomManagerAcceptHandoverCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	telecomManagerAcceptHandoverCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	telecomManagerAcceptHandoverCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	telecomManagerCmd.AddCommand(telecomManagerAcceptHandoverCmd)
+	telecomManagerCmd.AddCommand(telecomManagerAcceptRingingCall0Cmd)
+	telecomManagerAcceptRingingCall1_1Cmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	telecomManagerCmd.AddCommand(telecomManagerAcceptRingingCall1_1Cmd)
+	telecomManagerAddCallCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	telecomManagerAddCallCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	telecomManagerAddCallCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	telecomManagerAddCallCmd.Flags().Int64("arg3", 0, "arg3 (int64)")
+	telecomManagerAddCallCmd.Flags().Int64("arg4", 0, "arg4 (int64)")
+	telecomManagerCmd.AddCommand(telecomManagerAddCallCmd)
+	telecomManagerAddNewIncomingCallCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	telecomManagerAddNewIncomingCallCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	telecomManagerCmd.AddCommand(telecomManagerAddNewIncomingCallCmd)
+	telecomManagerAddNewIncomingConferenceCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	telecomManagerAddNewIncomingConferenceCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	telecomManagerCmd.AddCommand(telecomManagerAddNewIncomingConferenceCmd)
+	telecomManagerCmd.AddCommand(telecomManagerCancelMissedCallsNotificationCmd)
+	telecomManagerCmd.AddCommand(telecomManagerCreateManageBlockedNumbersIntentCmd)
+	telecomManagerCmd.AddCommand(telecomManagerEndCallCmd)
+	telecomManagerGetAdnUriForPhoneAccountCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	telecomManagerCmd.AddCommand(telecomManagerGetAdnUriForPhoneAccountCmd)
+	telecomManagerCmd.AddCommand(telecomManagerGetCallCapablePhoneAccountsCmd)
+	telecomManagerCmd.AddCommand(telecomManagerGetDefaultDialerPackageCmd)
+	telecomManagerGetDefaultOutgoingPhoneAccountCmd.Flags().String("arg0", "", "arg0 (string)")
+	telecomManagerCmd.AddCommand(telecomManagerGetDefaultOutgoingPhoneAccountCmd)
+	telecomManagerGetLine1NumberCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	telecomManagerCmd.AddCommand(telecomManagerGetLine1NumberCmd)
+	telecomManagerCmd.AddCommand(telecomManagerGetOwnSelfManagedPhoneAccountsCmd)
+	telecomManagerGetPhoneAccountCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	telecomManagerCmd.AddCommand(telecomManagerGetPhoneAccountCmd)
+	telecomManagerCmd.AddCommand(telecomManagerGetRegisteredPhoneAccountsCmd)
+	telecomManagerCmd.AddCommand(telecomManagerGetSelfManagedPhoneAccountsCmd)
+	telecomManagerCmd.AddCommand(telecomManagerGetSimCallManagerCmd)
+	telecomManagerGetSimCallManagerForSubscriptionCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	telecomManagerCmd.AddCommand(telecomManagerGetSimCallManagerForSubscriptionCmd)
+	telecomManagerCmd.AddCommand(telecomManagerGetSystemDialerPackageCmd)
+	telecomManagerCmd.AddCommand(telecomManagerGetUserSelectedOutgoingPhoneAccountCmd)
+	telecomManagerGetVoiceMailNumberCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	telecomManagerCmd.AddCommand(telecomManagerGetVoiceMailNumberCmd)
+	telecomManagerHandleMmi1Cmd.Flags().String("arg0", "", "arg0 (string)")
+	telecomManagerCmd.AddCommand(telecomManagerHandleMmi1Cmd)
+	telecomManagerHandleMmi2_1Cmd.Flags().String("arg0", "", "arg0 (string)")
+	telecomManagerHandleMmi2_1Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	telecomManagerCmd.AddCommand(telecomManagerHandleMmi2_1Cmd)
+	telecomManagerCmd.AddCommand(telecomManagerHasManageOngoingCallsPermissionCmd)
+	telecomManagerCmd.AddCommand(telecomManagerIsInCallCmd)
+	telecomManagerCmd.AddCommand(telecomManagerIsInManagedCallCmd)
+	telecomManagerIsIncomingCallPermittedCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	telecomManagerCmd.AddCommand(telecomManagerIsIncomingCallPermittedCmd)
+	telecomManagerIsOutgoingCallPermittedCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	telecomManagerCmd.AddCommand(telecomManagerIsOutgoingCallPermittedCmd)
+	telecomManagerCmd.AddCommand(telecomManagerIsTtySupportedCmd)
+	telecomManagerIsVoiceMailNumberCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	telecomManagerIsVoiceMailNumberCmd.Flags().String("arg1", "", "arg1 (string)")
+	telecomManagerCmd.AddCommand(telecomManagerIsVoiceMailNumberCmd)
+	telecomManagerPlaceCallCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	telecomManagerPlaceCallCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	telecomManagerCmd.AddCommand(telecomManagerPlaceCallCmd)
+	telecomManagerRegisterPhoneAccountCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	telecomManagerCmd.AddCommand(telecomManagerRegisterPhoneAccountCmd)
+	telecomManagerShowInCallScreenCmd.Flags().Bool("arg0", false, "arg0 (bool)")
+	telecomManagerCmd.AddCommand(telecomManagerShowInCallScreenCmd)
+	telecomManagerCmd.AddCommand(telecomManagerSilenceRingerCmd)
+	telecomManagerStartConferenceCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	telecomManagerStartConferenceCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	telecomManagerCmd.AddCommand(telecomManagerStartConferenceCmd)
+	telecomManagerUnregisterPhoneAccountCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	telecomManagerCmd.AddCommand(telecomManagerUnregisterPhoneAccountCmd)
+	telecomCmd.AddCommand(telecomManagerCmd)
 	rootCmd.AddCommand(telecomCmd)
 }

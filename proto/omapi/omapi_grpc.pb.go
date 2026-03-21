@@ -21,590 +21,6 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
-	ChannelService_Close_FullMethodName             = "/omapi.ChannelService/Close"
-	ChannelService_GetSelectResponse_FullMethodName = "/omapi.ChannelService/GetSelectResponse"
-	ChannelService_GetSession_FullMethodName        = "/omapi.ChannelService/GetSession"
-	ChannelService_IsBasicChannel_FullMethodName    = "/omapi.ChannelService/IsBasicChannel"
-	ChannelService_IsOpen_FullMethodName            = "/omapi.ChannelService/IsOpen"
-	ChannelService_SelectNext_FullMethodName        = "/omapi.ChannelService/SelectNext"
-	ChannelService_Transmit_FullMethodName          = "/omapi.ChannelService/Transmit"
-)
-
-// ChannelServiceClient is the client API for ChannelService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type ChannelServiceClient interface {
-	Close(ctx context.Context, in *CloseRequest, opts ...grpc.CallOption) (*CloseResponse, error)
-	GetSelectResponse(ctx context.Context, in *GetSelectResponseRequest, opts ...grpc.CallOption) (*GetSelectResponseResponse, error)
-	GetSession(ctx context.Context, in *GetSessionRequest, opts ...grpc.CallOption) (*GetSessionResponse, error)
-	IsBasicChannel(ctx context.Context, in *IsBasicChannelRequest, opts ...grpc.CallOption) (*IsBasicChannelResponse, error)
-	IsOpen(ctx context.Context, in *IsOpenRequest, opts ...grpc.CallOption) (*IsOpenResponse, error)
-	SelectNext(ctx context.Context, in *SelectNextRequest, opts ...grpc.CallOption) (*SelectNextResponse, error)
-	Transmit(ctx context.Context, in *TransmitRequest, opts ...grpc.CallOption) (*TransmitResponse, error)
-}
-
-type channelServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewChannelServiceClient(cc grpc.ClientConnInterface) ChannelServiceClient {
-	return &channelServiceClient{cc}
-}
-
-func (c *channelServiceClient) Close(ctx context.Context, in *CloseRequest, opts ...grpc.CallOption) (*CloseResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(CloseResponse)
-	err := c.cc.Invoke(ctx, ChannelService_Close_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *channelServiceClient) GetSelectResponse(ctx context.Context, in *GetSelectResponseRequest, opts ...grpc.CallOption) (*GetSelectResponseResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetSelectResponseResponse)
-	err := c.cc.Invoke(ctx, ChannelService_GetSelectResponse_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *channelServiceClient) GetSession(ctx context.Context, in *GetSessionRequest, opts ...grpc.CallOption) (*GetSessionResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetSessionResponse)
-	err := c.cc.Invoke(ctx, ChannelService_GetSession_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *channelServiceClient) IsBasicChannel(ctx context.Context, in *IsBasicChannelRequest, opts ...grpc.CallOption) (*IsBasicChannelResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(IsBasicChannelResponse)
-	err := c.cc.Invoke(ctx, ChannelService_IsBasicChannel_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *channelServiceClient) IsOpen(ctx context.Context, in *IsOpenRequest, opts ...grpc.CallOption) (*IsOpenResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(IsOpenResponse)
-	err := c.cc.Invoke(ctx, ChannelService_IsOpen_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *channelServiceClient) SelectNext(ctx context.Context, in *SelectNextRequest, opts ...grpc.CallOption) (*SelectNextResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SelectNextResponse)
-	err := c.cc.Invoke(ctx, ChannelService_SelectNext_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *channelServiceClient) Transmit(ctx context.Context, in *TransmitRequest, opts ...grpc.CallOption) (*TransmitResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(TransmitResponse)
-	err := c.cc.Invoke(ctx, ChannelService_Transmit_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// ChannelServiceServer is the server API for ChannelService service.
-// All implementations must embed UnimplementedChannelServiceServer
-// for forward compatibility.
-type ChannelServiceServer interface {
-	Close(context.Context, *CloseRequest) (*CloseResponse, error)
-	GetSelectResponse(context.Context, *GetSelectResponseRequest) (*GetSelectResponseResponse, error)
-	GetSession(context.Context, *GetSessionRequest) (*GetSessionResponse, error)
-	IsBasicChannel(context.Context, *IsBasicChannelRequest) (*IsBasicChannelResponse, error)
-	IsOpen(context.Context, *IsOpenRequest) (*IsOpenResponse, error)
-	SelectNext(context.Context, *SelectNextRequest) (*SelectNextResponse, error)
-	Transmit(context.Context, *TransmitRequest) (*TransmitResponse, error)
-	mustEmbedUnimplementedChannelServiceServer()
-}
-
-// UnimplementedChannelServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedChannelServiceServer struct{}
-
-func (UnimplementedChannelServiceServer) Close(context.Context, *CloseRequest) (*CloseResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Close not implemented")
-}
-func (UnimplementedChannelServiceServer) GetSelectResponse(context.Context, *GetSelectResponseRequest) (*GetSelectResponseResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetSelectResponse not implemented")
-}
-func (UnimplementedChannelServiceServer) GetSession(context.Context, *GetSessionRequest) (*GetSessionResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetSession not implemented")
-}
-func (UnimplementedChannelServiceServer) IsBasicChannel(context.Context, *IsBasicChannelRequest) (*IsBasicChannelResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method IsBasicChannel not implemented")
-}
-func (UnimplementedChannelServiceServer) IsOpen(context.Context, *IsOpenRequest) (*IsOpenResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method IsOpen not implemented")
-}
-func (UnimplementedChannelServiceServer) SelectNext(context.Context, *SelectNextRequest) (*SelectNextResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SelectNext not implemented")
-}
-func (UnimplementedChannelServiceServer) Transmit(context.Context, *TransmitRequest) (*TransmitResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Transmit not implemented")
-}
-func (UnimplementedChannelServiceServer) mustEmbedUnimplementedChannelServiceServer() {}
-func (UnimplementedChannelServiceServer) testEmbeddedByValue()                        {}
-
-// UnsafeChannelServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to ChannelServiceServer will
-// result in compilation errors.
-type UnsafeChannelServiceServer interface {
-	mustEmbedUnimplementedChannelServiceServer()
-}
-
-func RegisterChannelServiceServer(s grpc.ServiceRegistrar, srv ChannelServiceServer) {
-	// If the following call panics, it indicates UnimplementedChannelServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&ChannelService_ServiceDesc, srv)
-}
-
-func _ChannelService_Close_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(CloseRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ChannelServiceServer).Close(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ChannelService_Close_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ChannelServiceServer).Close(ctx, req.(*CloseRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ChannelService_GetSelectResponse_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetSelectResponseRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ChannelServiceServer).GetSelectResponse(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ChannelService_GetSelectResponse_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ChannelServiceServer).GetSelectResponse(ctx, req.(*GetSelectResponseRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ChannelService_GetSession_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetSessionRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ChannelServiceServer).GetSession(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ChannelService_GetSession_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ChannelServiceServer).GetSession(ctx, req.(*GetSessionRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ChannelService_IsBasicChannel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(IsBasicChannelRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ChannelServiceServer).IsBasicChannel(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ChannelService_IsBasicChannel_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ChannelServiceServer).IsBasicChannel(ctx, req.(*IsBasicChannelRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ChannelService_IsOpen_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(IsOpenRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ChannelServiceServer).IsOpen(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ChannelService_IsOpen_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ChannelServiceServer).IsOpen(ctx, req.(*IsOpenRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ChannelService_SelectNext_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SelectNextRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ChannelServiceServer).SelectNext(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ChannelService_SelectNext_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ChannelServiceServer).SelectNext(ctx, req.(*SelectNextRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ChannelService_Transmit_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(TransmitRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ChannelServiceServer).Transmit(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ChannelService_Transmit_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ChannelServiceServer).Transmit(ctx, req.(*TransmitRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// ChannelService_ServiceDesc is the grpc.ServiceDesc for ChannelService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var ChannelService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "omapi.ChannelService",
-	HandlerType: (*ChannelServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "Close",
-			Handler:    _ChannelService_Close_Handler,
-		},
-		{
-			MethodName: "GetSelectResponse",
-			Handler:    _ChannelService_GetSelectResponse_Handler,
-		},
-		{
-			MethodName: "GetSession",
-			Handler:    _ChannelService_GetSession_Handler,
-		},
-		{
-			MethodName: "IsBasicChannel",
-			Handler:    _ChannelService_IsBasicChannel_Handler,
-		},
-		{
-			MethodName: "IsOpen",
-			Handler:    _ChannelService_IsOpen_Handler,
-		},
-		{
-			MethodName: "SelectNext",
-			Handler:    _ChannelService_SelectNext_Handler,
-		},
-		{
-			MethodName: "Transmit",
-			Handler:    _ChannelService_Transmit_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/omapi/omapi.proto",
-}
-
-const (
-	ReaderService_CloseSessions_FullMethodName          = "/omapi.ReaderService/CloseSessions"
-	ReaderService_GetName_FullMethodName                = "/omapi.ReaderService/GetName"
-	ReaderService_GetSEService_FullMethodName           = "/omapi.ReaderService/GetSEService"
-	ReaderService_IsSecureElementPresent_FullMethodName = "/omapi.ReaderService/IsSecureElementPresent"
-	ReaderService_OpenSession_FullMethodName            = "/omapi.ReaderService/OpenSession"
-)
-
-// ReaderServiceClient is the client API for ReaderService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type ReaderServiceClient interface {
-	CloseSessions(ctx context.Context, in *CloseSessionsRequest, opts ...grpc.CallOption) (*CloseSessionsResponse, error)
-	GetName(ctx context.Context, in *GetNameRequest, opts ...grpc.CallOption) (*GetNameResponse, error)
-	GetSEService(ctx context.Context, in *GetSEServiceRequest, opts ...grpc.CallOption) (*GetSEServiceResponse, error)
-	IsSecureElementPresent(ctx context.Context, in *IsSecureElementPresentRequest, opts ...grpc.CallOption) (*IsSecureElementPresentResponse, error)
-	OpenSession(ctx context.Context, in *OpenSessionRequest, opts ...grpc.CallOption) (*OpenSessionResponse, error)
-}
-
-type readerServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewReaderServiceClient(cc grpc.ClientConnInterface) ReaderServiceClient {
-	return &readerServiceClient{cc}
-}
-
-func (c *readerServiceClient) CloseSessions(ctx context.Context, in *CloseSessionsRequest, opts ...grpc.CallOption) (*CloseSessionsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(CloseSessionsResponse)
-	err := c.cc.Invoke(ctx, ReaderService_CloseSessions_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *readerServiceClient) GetName(ctx context.Context, in *GetNameRequest, opts ...grpc.CallOption) (*GetNameResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetNameResponse)
-	err := c.cc.Invoke(ctx, ReaderService_GetName_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *readerServiceClient) GetSEService(ctx context.Context, in *GetSEServiceRequest, opts ...grpc.CallOption) (*GetSEServiceResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetSEServiceResponse)
-	err := c.cc.Invoke(ctx, ReaderService_GetSEService_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *readerServiceClient) IsSecureElementPresent(ctx context.Context, in *IsSecureElementPresentRequest, opts ...grpc.CallOption) (*IsSecureElementPresentResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(IsSecureElementPresentResponse)
-	err := c.cc.Invoke(ctx, ReaderService_IsSecureElementPresent_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *readerServiceClient) OpenSession(ctx context.Context, in *OpenSessionRequest, opts ...grpc.CallOption) (*OpenSessionResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(OpenSessionResponse)
-	err := c.cc.Invoke(ctx, ReaderService_OpenSession_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// ReaderServiceServer is the server API for ReaderService service.
-// All implementations must embed UnimplementedReaderServiceServer
-// for forward compatibility.
-type ReaderServiceServer interface {
-	CloseSessions(context.Context, *CloseSessionsRequest) (*CloseSessionsResponse, error)
-	GetName(context.Context, *GetNameRequest) (*GetNameResponse, error)
-	GetSEService(context.Context, *GetSEServiceRequest) (*GetSEServiceResponse, error)
-	IsSecureElementPresent(context.Context, *IsSecureElementPresentRequest) (*IsSecureElementPresentResponse, error)
-	OpenSession(context.Context, *OpenSessionRequest) (*OpenSessionResponse, error)
-	mustEmbedUnimplementedReaderServiceServer()
-}
-
-// UnimplementedReaderServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedReaderServiceServer struct{}
-
-func (UnimplementedReaderServiceServer) CloseSessions(context.Context, *CloseSessionsRequest) (*CloseSessionsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method CloseSessions not implemented")
-}
-func (UnimplementedReaderServiceServer) GetName(context.Context, *GetNameRequest) (*GetNameResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetName not implemented")
-}
-func (UnimplementedReaderServiceServer) GetSEService(context.Context, *GetSEServiceRequest) (*GetSEServiceResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetSEService not implemented")
-}
-func (UnimplementedReaderServiceServer) IsSecureElementPresent(context.Context, *IsSecureElementPresentRequest) (*IsSecureElementPresentResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method IsSecureElementPresent not implemented")
-}
-func (UnimplementedReaderServiceServer) OpenSession(context.Context, *OpenSessionRequest) (*OpenSessionResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method OpenSession not implemented")
-}
-func (UnimplementedReaderServiceServer) mustEmbedUnimplementedReaderServiceServer() {}
-func (UnimplementedReaderServiceServer) testEmbeddedByValue()                       {}
-
-// UnsafeReaderServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to ReaderServiceServer will
-// result in compilation errors.
-type UnsafeReaderServiceServer interface {
-	mustEmbedUnimplementedReaderServiceServer()
-}
-
-func RegisterReaderServiceServer(s grpc.ServiceRegistrar, srv ReaderServiceServer) {
-	// If the following call panics, it indicates UnimplementedReaderServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&ReaderService_ServiceDesc, srv)
-}
-
-func _ReaderService_CloseSessions_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(CloseSessionsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ReaderServiceServer).CloseSessions(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ReaderService_CloseSessions_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ReaderServiceServer).CloseSessions(ctx, req.(*CloseSessionsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ReaderService_GetName_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetNameRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ReaderServiceServer).GetName(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ReaderService_GetName_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ReaderServiceServer).GetName(ctx, req.(*GetNameRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ReaderService_GetSEService_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetSEServiceRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ReaderServiceServer).GetSEService(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ReaderService_GetSEService_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ReaderServiceServer).GetSEService(ctx, req.(*GetSEServiceRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ReaderService_IsSecureElementPresent_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(IsSecureElementPresentRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ReaderServiceServer).IsSecureElementPresent(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ReaderService_IsSecureElementPresent_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ReaderServiceServer).IsSecureElementPresent(ctx, req.(*IsSecureElementPresentRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ReaderService_OpenSession_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(OpenSessionRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ReaderServiceServer).OpenSession(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ReaderService_OpenSession_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ReaderServiceServer).OpenSession(ctx, req.(*OpenSessionRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// ReaderService_ServiceDesc is the grpc.ServiceDesc for ReaderService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var ReaderService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "omapi.ReaderService",
-	HandlerType: (*ReaderServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "CloseSessions",
-			Handler:    _ReaderService_CloseSessions_Handler,
-		},
-		{
-			MethodName: "GetName",
-			Handler:    _ReaderService_GetName_Handler,
-		},
-		{
-			MethodName: "GetSEService",
-			Handler:    _ReaderService_GetSEService_Handler,
-		},
-		{
-			MethodName: "IsSecureElementPresent",
-			Handler:    _ReaderService_IsSecureElementPresent_Handler,
-		},
-		{
-			MethodName: "OpenSession",
-			Handler:    _ReaderService_OpenSession_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/omapi/omapi.proto",
-}
-
-const (
 	SEServiceService_GetReaders_FullMethodName    = "/omapi.SEServiceService/GetReaders"
 	SEServiceService_GetUiccReader_FullMethodName = "/omapi.SEServiceService/GetUiccReader"
 	SEServiceService_GetVersion_FullMethodName    = "/omapi.SEServiceService/GetVersion"
@@ -1258,6 +674,590 @@ var SessionService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "OpenLogicalChannel2_1",
 			Handler:    _SessionService_OpenLogicalChannel2_1_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/omapi/omapi.proto",
+}
+
+const (
+	ChannelService_Close_FullMethodName             = "/omapi.ChannelService/Close"
+	ChannelService_GetSelectResponse_FullMethodName = "/omapi.ChannelService/GetSelectResponse"
+	ChannelService_GetSession_FullMethodName        = "/omapi.ChannelService/GetSession"
+	ChannelService_IsBasicChannel_FullMethodName    = "/omapi.ChannelService/IsBasicChannel"
+	ChannelService_IsOpen_FullMethodName            = "/omapi.ChannelService/IsOpen"
+	ChannelService_SelectNext_FullMethodName        = "/omapi.ChannelService/SelectNext"
+	ChannelService_Transmit_FullMethodName          = "/omapi.ChannelService/Transmit"
+)
+
+// ChannelServiceClient is the client API for ChannelService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type ChannelServiceClient interface {
+	Close(ctx context.Context, in *CloseRequest, opts ...grpc.CallOption) (*CloseResponse, error)
+	GetSelectResponse(ctx context.Context, in *GetSelectResponseRequest, opts ...grpc.CallOption) (*GetSelectResponseResponse, error)
+	GetSession(ctx context.Context, in *GetSessionRequest, opts ...grpc.CallOption) (*GetSessionResponse, error)
+	IsBasicChannel(ctx context.Context, in *IsBasicChannelRequest, opts ...grpc.CallOption) (*IsBasicChannelResponse, error)
+	IsOpen(ctx context.Context, in *IsOpenRequest, opts ...grpc.CallOption) (*IsOpenResponse, error)
+	SelectNext(ctx context.Context, in *SelectNextRequest, opts ...grpc.CallOption) (*SelectNextResponse, error)
+	Transmit(ctx context.Context, in *TransmitRequest, opts ...grpc.CallOption) (*TransmitResponse, error)
+}
+
+type channelServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewChannelServiceClient(cc grpc.ClientConnInterface) ChannelServiceClient {
+	return &channelServiceClient{cc}
+}
+
+func (c *channelServiceClient) Close(ctx context.Context, in *CloseRequest, opts ...grpc.CallOption) (*CloseResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(CloseResponse)
+	err := c.cc.Invoke(ctx, ChannelService_Close_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *channelServiceClient) GetSelectResponse(ctx context.Context, in *GetSelectResponseRequest, opts ...grpc.CallOption) (*GetSelectResponseResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetSelectResponseResponse)
+	err := c.cc.Invoke(ctx, ChannelService_GetSelectResponse_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *channelServiceClient) GetSession(ctx context.Context, in *GetSessionRequest, opts ...grpc.CallOption) (*GetSessionResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetSessionResponse)
+	err := c.cc.Invoke(ctx, ChannelService_GetSession_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *channelServiceClient) IsBasicChannel(ctx context.Context, in *IsBasicChannelRequest, opts ...grpc.CallOption) (*IsBasicChannelResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IsBasicChannelResponse)
+	err := c.cc.Invoke(ctx, ChannelService_IsBasicChannel_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *channelServiceClient) IsOpen(ctx context.Context, in *IsOpenRequest, opts ...grpc.CallOption) (*IsOpenResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IsOpenResponse)
+	err := c.cc.Invoke(ctx, ChannelService_IsOpen_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *channelServiceClient) SelectNext(ctx context.Context, in *SelectNextRequest, opts ...grpc.CallOption) (*SelectNextResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SelectNextResponse)
+	err := c.cc.Invoke(ctx, ChannelService_SelectNext_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *channelServiceClient) Transmit(ctx context.Context, in *TransmitRequest, opts ...grpc.CallOption) (*TransmitResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(TransmitResponse)
+	err := c.cc.Invoke(ctx, ChannelService_Transmit_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// ChannelServiceServer is the server API for ChannelService service.
+// All implementations must embed UnimplementedChannelServiceServer
+// for forward compatibility.
+type ChannelServiceServer interface {
+	Close(context.Context, *CloseRequest) (*CloseResponse, error)
+	GetSelectResponse(context.Context, *GetSelectResponseRequest) (*GetSelectResponseResponse, error)
+	GetSession(context.Context, *GetSessionRequest) (*GetSessionResponse, error)
+	IsBasicChannel(context.Context, *IsBasicChannelRequest) (*IsBasicChannelResponse, error)
+	IsOpen(context.Context, *IsOpenRequest) (*IsOpenResponse, error)
+	SelectNext(context.Context, *SelectNextRequest) (*SelectNextResponse, error)
+	Transmit(context.Context, *TransmitRequest) (*TransmitResponse, error)
+	mustEmbedUnimplementedChannelServiceServer()
+}
+
+// UnimplementedChannelServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedChannelServiceServer struct{}
+
+func (UnimplementedChannelServiceServer) Close(context.Context, *CloseRequest) (*CloseResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Close not implemented")
+}
+func (UnimplementedChannelServiceServer) GetSelectResponse(context.Context, *GetSelectResponseRequest) (*GetSelectResponseResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetSelectResponse not implemented")
+}
+func (UnimplementedChannelServiceServer) GetSession(context.Context, *GetSessionRequest) (*GetSessionResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetSession not implemented")
+}
+func (UnimplementedChannelServiceServer) IsBasicChannel(context.Context, *IsBasicChannelRequest) (*IsBasicChannelResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsBasicChannel not implemented")
+}
+func (UnimplementedChannelServiceServer) IsOpen(context.Context, *IsOpenRequest) (*IsOpenResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsOpen not implemented")
+}
+func (UnimplementedChannelServiceServer) SelectNext(context.Context, *SelectNextRequest) (*SelectNextResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SelectNext not implemented")
+}
+func (UnimplementedChannelServiceServer) Transmit(context.Context, *TransmitRequest) (*TransmitResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Transmit not implemented")
+}
+func (UnimplementedChannelServiceServer) mustEmbedUnimplementedChannelServiceServer() {}
+func (UnimplementedChannelServiceServer) testEmbeddedByValue()                        {}
+
+// UnsafeChannelServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to ChannelServiceServer will
+// result in compilation errors.
+type UnsafeChannelServiceServer interface {
+	mustEmbedUnimplementedChannelServiceServer()
+}
+
+func RegisterChannelServiceServer(s grpc.ServiceRegistrar, srv ChannelServiceServer) {
+	// If the following call panics, it indicates UnimplementedChannelServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&ChannelService_ServiceDesc, srv)
+}
+
+func _ChannelService_Close_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CloseRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ChannelServiceServer).Close(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ChannelService_Close_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ChannelServiceServer).Close(ctx, req.(*CloseRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ChannelService_GetSelectResponse_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetSelectResponseRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ChannelServiceServer).GetSelectResponse(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ChannelService_GetSelectResponse_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ChannelServiceServer).GetSelectResponse(ctx, req.(*GetSelectResponseRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ChannelService_GetSession_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetSessionRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ChannelServiceServer).GetSession(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ChannelService_GetSession_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ChannelServiceServer).GetSession(ctx, req.(*GetSessionRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ChannelService_IsBasicChannel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsBasicChannelRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ChannelServiceServer).IsBasicChannel(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ChannelService_IsBasicChannel_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ChannelServiceServer).IsBasicChannel(ctx, req.(*IsBasicChannelRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ChannelService_IsOpen_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsOpenRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ChannelServiceServer).IsOpen(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ChannelService_IsOpen_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ChannelServiceServer).IsOpen(ctx, req.(*IsOpenRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ChannelService_SelectNext_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SelectNextRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ChannelServiceServer).SelectNext(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ChannelService_SelectNext_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ChannelServiceServer).SelectNext(ctx, req.(*SelectNextRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ChannelService_Transmit_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(TransmitRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ChannelServiceServer).Transmit(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ChannelService_Transmit_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ChannelServiceServer).Transmit(ctx, req.(*TransmitRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// ChannelService_ServiceDesc is the grpc.ServiceDesc for ChannelService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var ChannelService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "omapi.ChannelService",
+	HandlerType: (*ChannelServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "Close",
+			Handler:    _ChannelService_Close_Handler,
+		},
+		{
+			MethodName: "GetSelectResponse",
+			Handler:    _ChannelService_GetSelectResponse_Handler,
+		},
+		{
+			MethodName: "GetSession",
+			Handler:    _ChannelService_GetSession_Handler,
+		},
+		{
+			MethodName: "IsBasicChannel",
+			Handler:    _ChannelService_IsBasicChannel_Handler,
+		},
+		{
+			MethodName: "IsOpen",
+			Handler:    _ChannelService_IsOpen_Handler,
+		},
+		{
+			MethodName: "SelectNext",
+			Handler:    _ChannelService_SelectNext_Handler,
+		},
+		{
+			MethodName: "Transmit",
+			Handler:    _ChannelService_Transmit_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/omapi/omapi.proto",
+}
+
+const (
+	ReaderService_CloseSessions_FullMethodName          = "/omapi.ReaderService/CloseSessions"
+	ReaderService_GetName_FullMethodName                = "/omapi.ReaderService/GetName"
+	ReaderService_GetSEService_FullMethodName           = "/omapi.ReaderService/GetSEService"
+	ReaderService_IsSecureElementPresent_FullMethodName = "/omapi.ReaderService/IsSecureElementPresent"
+	ReaderService_OpenSession_FullMethodName            = "/omapi.ReaderService/OpenSession"
+)
+
+// ReaderServiceClient is the client API for ReaderService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type ReaderServiceClient interface {
+	CloseSessions(ctx context.Context, in *CloseSessionsRequest, opts ...grpc.CallOption) (*CloseSessionsResponse, error)
+	GetName(ctx context.Context, in *GetNameRequest, opts ...grpc.CallOption) (*GetNameResponse, error)
+	GetSEService(ctx context.Context, in *GetSEServiceRequest, opts ...grpc.CallOption) (*GetSEServiceResponse, error)
+	IsSecureElementPresent(ctx context.Context, in *IsSecureElementPresentRequest, opts ...grpc.CallOption) (*IsSecureElementPresentResponse, error)
+	OpenSession(ctx context.Context, in *OpenSessionRequest, opts ...grpc.CallOption) (*OpenSessionResponse, error)
+}
+
+type readerServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewReaderServiceClient(cc grpc.ClientConnInterface) ReaderServiceClient {
+	return &readerServiceClient{cc}
+}
+
+func (c *readerServiceClient) CloseSessions(ctx context.Context, in *CloseSessionsRequest, opts ...grpc.CallOption) (*CloseSessionsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(CloseSessionsResponse)
+	err := c.cc.Invoke(ctx, ReaderService_CloseSessions_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *readerServiceClient) GetName(ctx context.Context, in *GetNameRequest, opts ...grpc.CallOption) (*GetNameResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetNameResponse)
+	err := c.cc.Invoke(ctx, ReaderService_GetName_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *readerServiceClient) GetSEService(ctx context.Context, in *GetSEServiceRequest, opts ...grpc.CallOption) (*GetSEServiceResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetSEServiceResponse)
+	err := c.cc.Invoke(ctx, ReaderService_GetSEService_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *readerServiceClient) IsSecureElementPresent(ctx context.Context, in *IsSecureElementPresentRequest, opts ...grpc.CallOption) (*IsSecureElementPresentResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IsSecureElementPresentResponse)
+	err := c.cc.Invoke(ctx, ReaderService_IsSecureElementPresent_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *readerServiceClient) OpenSession(ctx context.Context, in *OpenSessionRequest, opts ...grpc.CallOption) (*OpenSessionResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OpenSessionResponse)
+	err := c.cc.Invoke(ctx, ReaderService_OpenSession_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// ReaderServiceServer is the server API for ReaderService service.
+// All implementations must embed UnimplementedReaderServiceServer
+// for forward compatibility.
+type ReaderServiceServer interface {
+	CloseSessions(context.Context, *CloseSessionsRequest) (*CloseSessionsResponse, error)
+	GetName(context.Context, *GetNameRequest) (*GetNameResponse, error)
+	GetSEService(context.Context, *GetSEServiceRequest) (*GetSEServiceResponse, error)
+	IsSecureElementPresent(context.Context, *IsSecureElementPresentRequest) (*IsSecureElementPresentResponse, error)
+	OpenSession(context.Context, *OpenSessionRequest) (*OpenSessionResponse, error)
+	mustEmbedUnimplementedReaderServiceServer()
+}
+
+// UnimplementedReaderServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedReaderServiceServer struct{}
+
+func (UnimplementedReaderServiceServer) CloseSessions(context.Context, *CloseSessionsRequest) (*CloseSessionsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method CloseSessions not implemented")
+}
+func (UnimplementedReaderServiceServer) GetName(context.Context, *GetNameRequest) (*GetNameResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetName not implemented")
+}
+func (UnimplementedReaderServiceServer) GetSEService(context.Context, *GetSEServiceRequest) (*GetSEServiceResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetSEService not implemented")
+}
+func (UnimplementedReaderServiceServer) IsSecureElementPresent(context.Context, *IsSecureElementPresentRequest) (*IsSecureElementPresentResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsSecureElementPresent not implemented")
+}
+func (UnimplementedReaderServiceServer) OpenSession(context.Context, *OpenSessionRequest) (*OpenSessionResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OpenSession not implemented")
+}
+func (UnimplementedReaderServiceServer) mustEmbedUnimplementedReaderServiceServer() {}
+func (UnimplementedReaderServiceServer) testEmbeddedByValue()                       {}
+
+// UnsafeReaderServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to ReaderServiceServer will
+// result in compilation errors.
+type UnsafeReaderServiceServer interface {
+	mustEmbedUnimplementedReaderServiceServer()
+}
+
+func RegisterReaderServiceServer(s grpc.ServiceRegistrar, srv ReaderServiceServer) {
+	// If the following call panics, it indicates UnimplementedReaderServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&ReaderService_ServiceDesc, srv)
+}
+
+func _ReaderService_CloseSessions_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CloseSessionsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ReaderServiceServer).CloseSessions(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ReaderService_CloseSessions_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ReaderServiceServer).CloseSessions(ctx, req.(*CloseSessionsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ReaderService_GetName_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetNameRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ReaderServiceServer).GetName(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ReaderService_GetName_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ReaderServiceServer).GetName(ctx, req.(*GetNameRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ReaderService_GetSEService_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetSEServiceRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ReaderServiceServer).GetSEService(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ReaderService_GetSEService_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ReaderServiceServer).GetSEService(ctx, req.(*GetSEServiceRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ReaderService_IsSecureElementPresent_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsSecureElementPresentRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ReaderServiceServer).IsSecureElementPresent(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ReaderService_IsSecureElementPresent_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ReaderServiceServer).IsSecureElementPresent(ctx, req.(*IsSecureElementPresentRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ReaderService_OpenSession_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OpenSessionRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ReaderServiceServer).OpenSession(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ReaderService_OpenSession_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ReaderServiceServer).OpenSession(ctx, req.(*OpenSessionRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// ReaderService_ServiceDesc is the grpc.ServiceDesc for ReaderService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var ReaderService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "omapi.ReaderService",
+	HandlerType: (*ReaderServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "CloseSessions",
+			Handler:    _ReaderService_CloseSessions_Handler,
+		},
+		{
+			MethodName: "GetName",
+			Handler:    _ReaderService_GetName_Handler,
+		},
+		{
+			MethodName: "GetSEService",
+			Handler:    _ReaderService_GetSEService_Handler,
+		},
+		{
+			MethodName: "IsSecureElementPresent",
+			Handler:    _ReaderService_IsSecureElementPresent_Handler,
+		},
+		{
+			MethodName: "OpenSession",
+			Handler:    _ReaderService_OpenSession_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

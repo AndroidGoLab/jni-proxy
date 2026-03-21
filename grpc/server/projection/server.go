@@ -7,10 +7,10 @@ import (
 
 	"github.com/AndroidGoLab/jni"
 
-	"github.com/AndroidGoLab/jni/app"
 	"github.com/AndroidGoLab/jni-proxy/handlestore"
-	jnipkg "github.com/AndroidGoLab/jni/media/projection"
 	pb "github.com/AndroidGoLab/jni-proxy/proto/projection"
+	"github.com/AndroidGoLab/jni/app"
+	jnipkg "github.com/AndroidGoLab/jni/media/projection"
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"
 )
@@ -23,7 +23,7 @@ type MediaProjectionManagerServer struct {
 }
 
 func (s *MediaProjectionManagerServer) CreateScreenCaptureIntent0(_ context.Context, req *pb.CreateScreenCaptureIntent0Request) (*pb.CreateScreenCaptureIntent0Response, error) {
-	mgr, err := jnipkg.NewmediaProjectionManager(s.Ctx)
+	mgr, err := jnipkg.NewMediaProjectionManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -46,7 +46,7 @@ func (s *MediaProjectionManagerServer) CreateScreenCaptureIntent0(_ context.Cont
 }
 
 func (s *MediaProjectionManagerServer) CreateScreenCaptureIntent1_1(_ context.Context, req *pb.CreateScreenCaptureIntent1_1Request) (*pb.CreateScreenCaptureIntent1_1Response, error) {
-	mgr, err := jnipkg.NewmediaProjectionManager(s.Ctx)
+	mgr, err := jnipkg.NewMediaProjectionManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -69,7 +69,7 @@ func (s *MediaProjectionManagerServer) CreateScreenCaptureIntent1_1(_ context.Co
 }
 
 func (s *MediaProjectionManagerServer) GetMediaProjection(_ context.Context, req *pb.GetMediaProjectionRequest) (*pb.GetMediaProjectionResponse, error) {
-	mgr, err := jnipkg.NewmediaProjectionManager(s.Ctx)
+	mgr, err := jnipkg.NewMediaProjectionManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}

@@ -9,17 +9,17 @@ import (
 	"google.golang.org/grpc"
 )
 
-// Client wraps the gRPC BatteryManagerService client.
+// Client wraps the gRPC ManagerService client.
 type Client struct {
 	cc  grpc.ClientConnInterface
-	svc pb.BatteryManagerServiceClient
+	svc pb.ManagerServiceClient
 }
 
 // NewClient creates a new battery client.
 func NewClient(cc grpc.ClientConnInterface) *Client {
 	return &Client{
 		cc:  cc,
-		svc: pb.NewBatteryManagerServiceClient(cc),
+		svc: pb.NewManagerServiceClient(cc),
 	}
 }
 

@@ -919,6 +919,406 @@ func (*WriteToParcelResponse) Descriptor() ([]byte, []int) {
 	return file_proto_lights_lights_proto_rawDescGZIP(), []int{21}
 }
 
+type GetLightStateRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetLightStateRequest) Reset() {
+	*x = GetLightStateRequest{}
+	mi := &file_proto_lights_lights_proto_msgTypes[22]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetLightStateRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetLightStateRequest) ProtoMessage() {}
+
+func (x *GetLightStateRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_lights_lights_proto_msgTypes[22]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetLightStateRequest.ProtoReflect.Descriptor instead.
+func (*GetLightStateRequest) Descriptor() ([]byte, []int) {
+	return file_proto_lights_lights_proto_rawDescGZIP(), []int{22}
+}
+
+func (x *GetLightStateRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type GetLightStateResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetLightStateResponse) Reset() {
+	*x = GetLightStateResponse{}
+	mi := &file_proto_lights_lights_proto_msgTypes[23]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetLightStateResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetLightStateResponse) ProtoMessage() {}
+
+func (x *GetLightStateResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_lights_lights_proto_msgTypes[23]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetLightStateResponse.ProtoReflect.Descriptor instead.
+func (*GetLightStateResponse) Descriptor() ([]byte, []int) {
+	return file_proto_lights_lights_proto_rawDescGZIP(), []int{23}
+}
+
+func (x *GetLightStateResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetLightsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetLightsRequest) Reset() {
+	*x = GetLightsRequest{}
+	mi := &file_proto_lights_lights_proto_msgTypes[24]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetLightsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetLightsRequest) ProtoMessage() {}
+
+func (x *GetLightsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_lights_lights_proto_msgTypes[24]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetLightsRequest.ProtoReflect.Descriptor instead.
+func (*GetLightsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_lights_lights_proto_rawDescGZIP(), []int{24}
+}
+
+type GetLightsResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetLightsResponse) Reset() {
+	*x = GetLightsResponse{}
+	mi := &file_proto_lights_lights_proto_msgTypes[25]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetLightsResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetLightsResponse) ProtoMessage() {}
+
+func (x *GetLightsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_lights_lights_proto_msgTypes[25]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetLightsResponse.ProtoReflect.Descriptor instead.
+func (*GetLightsResponse) Descriptor() ([]byte, []int) {
+	return file_proto_lights_lights_proto_rawDescGZIP(), []int{25}
+}
+
+func (x *GetLightsResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type OpenSessionRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OpenSessionRequest) Reset() {
+	*x = OpenSessionRequest{}
+	mi := &file_proto_lights_lights_proto_msgTypes[26]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OpenSessionRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OpenSessionRequest) ProtoMessage() {}
+
+func (x *OpenSessionRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_lights_lights_proto_msgTypes[26]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OpenSessionRequest.ProtoReflect.Descriptor instead.
+func (*OpenSessionRequest) Descriptor() ([]byte, []int) {
+	return file_proto_lights_lights_proto_rawDescGZIP(), []int{26}
+}
+
+type OpenSessionResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OpenSessionResponse) Reset() {
+	*x = OpenSessionResponse{}
+	mi := &file_proto_lights_lights_proto_msgTypes[27]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OpenSessionResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OpenSessionResponse) ProtoMessage() {}
+
+func (x *OpenSessionResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_lights_lights_proto_msgTypes[27]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OpenSessionResponse.ProtoReflect.Descriptor instead.
+func (*OpenSessionResponse) Descriptor() ([]byte, []int) {
+	return file_proto_lights_lights_proto_rawDescGZIP(), []int{27}
+}
+
+func (x *OpenSessionResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type CloseRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CloseRequest) Reset() {
+	*x = CloseRequest{}
+	mi := &file_proto_lights_lights_proto_msgTypes[28]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CloseRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CloseRequest) ProtoMessage() {}
+
+func (x *CloseRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_lights_lights_proto_msgTypes[28]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CloseRequest.ProtoReflect.Descriptor instead.
+func (*CloseRequest) Descriptor() ([]byte, []int) {
+	return file_proto_lights_lights_proto_rawDescGZIP(), []int{28}
+}
+
+type CloseResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CloseResponse) Reset() {
+	*x = CloseResponse{}
+	mi := &file_proto_lights_lights_proto_msgTypes[29]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CloseResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CloseResponse) ProtoMessage() {}
+
+func (x *CloseResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_lights_lights_proto_msgTypes[29]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CloseResponse.ProtoReflect.Descriptor instead.
+func (*CloseResponse) Descriptor() ([]byte, []int) {
+	return file_proto_lights_lights_proto_rawDescGZIP(), []int{29}
+}
+
+type RequestLightsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *RequestLightsRequest) Reset() {
+	*x = RequestLightsRequest{}
+	mi := &file_proto_lights_lights_proto_msgTypes[30]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *RequestLightsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*RequestLightsRequest) ProtoMessage() {}
+
+func (x *RequestLightsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_lights_lights_proto_msgTypes[30]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use RequestLightsRequest.ProtoReflect.Descriptor instead.
+func (*RequestLightsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_lights_lights_proto_rawDescGZIP(), []int{30}
+}
+
+func (x *RequestLightsRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type RequestLightsResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *RequestLightsResponse) Reset() {
+	*x = RequestLightsResponse{}
+	mi := &file_proto_lights_lights_proto_msgTypes[31]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *RequestLightsResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*RequestLightsResponse) ProtoMessage() {}
+
+func (x *RequestLightsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_lights_lights_proto_msgTypes[31]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use RequestLightsResponse.ProtoReflect.Descriptor instead.
+func (*RequestLightsResponse) Descriptor() ([]byte, []int) {
+	return file_proto_lights_lights_proto_rawDescGZIP(), []int{31}
+}
+
 type GetColorRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	unknownFields protoimpl.UnknownFields
@@ -927,7 +1327,7 @@ type GetColorRequest struct {
 
 func (x *GetColorRequest) Reset() {
 	*x = GetColorRequest{}
-	mi := &file_proto_lights_lights_proto_msgTypes[22]
+	mi := &file_proto_lights_lights_proto_msgTypes[32]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -939,7 +1339,7 @@ func (x *GetColorRequest) String() string {
 func (*GetColorRequest) ProtoMessage() {}
 
 func (x *GetColorRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_lights_lights_proto_msgTypes[22]
+	mi := &file_proto_lights_lights_proto_msgTypes[32]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -952,7 +1352,7 @@ func (x *GetColorRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetColorRequest.ProtoReflect.Descriptor instead.
 func (*GetColorRequest) Descriptor() ([]byte, []int) {
-	return file_proto_lights_lights_proto_rawDescGZIP(), []int{22}
+	return file_proto_lights_lights_proto_rawDescGZIP(), []int{32}
 }
 
 type GetColorResponse struct {
@@ -964,7 +1364,7 @@ type GetColorResponse struct {
 
 func (x *GetColorResponse) Reset() {
 	*x = GetColorResponse{}
-	mi := &file_proto_lights_lights_proto_msgTypes[23]
+	mi := &file_proto_lights_lights_proto_msgTypes[33]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -976,7 +1376,7 @@ func (x *GetColorResponse) String() string {
 func (*GetColorResponse) ProtoMessage() {}
 
 func (x *GetColorResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_lights_lights_proto_msgTypes[23]
+	mi := &file_proto_lights_lights_proto_msgTypes[33]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -989,7 +1389,7 @@ func (x *GetColorResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetColorResponse.ProtoReflect.Descriptor instead.
 func (*GetColorResponse) Descriptor() ([]byte, []int) {
-	return file_proto_lights_lights_proto_rawDescGZIP(), []int{23}
+	return file_proto_lights_lights_proto_rawDescGZIP(), []int{33}
 }
 
 func (x *GetColorResponse) GetResult() int32 {
@@ -1007,7 +1407,7 @@ type GetPlayerIdRequest struct {
 
 func (x *GetPlayerIdRequest) Reset() {
 	*x = GetPlayerIdRequest{}
-	mi := &file_proto_lights_lights_proto_msgTypes[24]
+	mi := &file_proto_lights_lights_proto_msgTypes[34]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1019,7 +1419,7 @@ func (x *GetPlayerIdRequest) String() string {
 func (*GetPlayerIdRequest) ProtoMessage() {}
 
 func (x *GetPlayerIdRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_lights_lights_proto_msgTypes[24]
+	mi := &file_proto_lights_lights_proto_msgTypes[34]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1032,7 +1432,7 @@ func (x *GetPlayerIdRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetPlayerIdRequest.ProtoReflect.Descriptor instead.
 func (*GetPlayerIdRequest) Descriptor() ([]byte, []int) {
-	return file_proto_lights_lights_proto_rawDescGZIP(), []int{24}
+	return file_proto_lights_lights_proto_rawDescGZIP(), []int{34}
 }
 
 type GetPlayerIdResponse struct {
@@ -1044,7 +1444,7 @@ type GetPlayerIdResponse struct {
 
 func (x *GetPlayerIdResponse) Reset() {
 	*x = GetPlayerIdResponse{}
-	mi := &file_proto_lights_lights_proto_msgTypes[25]
+	mi := &file_proto_lights_lights_proto_msgTypes[35]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1056,7 +1456,7 @@ func (x *GetPlayerIdResponse) String() string {
 func (*GetPlayerIdResponse) ProtoMessage() {}
 
 func (x *GetPlayerIdResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_lights_lights_proto_msgTypes[25]
+	mi := &file_proto_lights_lights_proto_msgTypes[35]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1069,7 +1469,7 @@ func (x *GetPlayerIdResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetPlayerIdResponse.ProtoReflect.Descriptor instead.
 func (*GetPlayerIdResponse) Descriptor() ([]byte, []int) {
-	return file_proto_lights_lights_proto_rawDescGZIP(), []int{25}
+	return file_proto_lights_lights_proto_rawDescGZIP(), []int{35}
 }
 
 func (x *GetPlayerIdResponse) GetResult() int32 {
@@ -1087,7 +1487,7 @@ type BuildRequest struct {
 
 func (x *BuildRequest) Reset() {
 	*x = BuildRequest{}
-	mi := &file_proto_lights_lights_proto_msgTypes[26]
+	mi := &file_proto_lights_lights_proto_msgTypes[36]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1099,7 +1499,7 @@ func (x *BuildRequest) String() string {
 func (*BuildRequest) ProtoMessage() {}
 
 func (x *BuildRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_lights_lights_proto_msgTypes[26]
+	mi := &file_proto_lights_lights_proto_msgTypes[36]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1112,7 +1512,7 @@ func (x *BuildRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use BuildRequest.ProtoReflect.Descriptor instead.
 func (*BuildRequest) Descriptor() ([]byte, []int) {
-	return file_proto_lights_lights_proto_rawDescGZIP(), []int{26}
+	return file_proto_lights_lights_proto_rawDescGZIP(), []int{36}
 }
 
 type BuildResponse struct {
@@ -1124,7 +1524,7 @@ type BuildResponse struct {
 
 func (x *BuildResponse) Reset() {
 	*x = BuildResponse{}
-	mi := &file_proto_lights_lights_proto_msgTypes[27]
+	mi := &file_proto_lights_lights_proto_msgTypes[37]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1136,7 +1536,7 @@ func (x *BuildResponse) String() string {
 func (*BuildResponse) ProtoMessage() {}
 
 func (x *BuildResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_lights_lights_proto_msgTypes[27]
+	mi := &file_proto_lights_lights_proto_msgTypes[37]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1149,7 +1549,7 @@ func (x *BuildResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use BuildResponse.ProtoReflect.Descriptor instead.
 func (*BuildResponse) Descriptor() ([]byte, []int) {
-	return file_proto_lights_lights_proto_rawDescGZIP(), []int{27}
+	return file_proto_lights_lights_proto_rawDescGZIP(), []int{37}
 }
 
 func (x *BuildResponse) GetResult() int64 {
@@ -1168,7 +1568,7 @@ type SetColorRequest struct {
 
 func (x *SetColorRequest) Reset() {
 	*x = SetColorRequest{}
-	mi := &file_proto_lights_lights_proto_msgTypes[28]
+	mi := &file_proto_lights_lights_proto_msgTypes[38]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1180,7 +1580,7 @@ func (x *SetColorRequest) String() string {
 func (*SetColorRequest) ProtoMessage() {}
 
 func (x *SetColorRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_lights_lights_proto_msgTypes[28]
+	mi := &file_proto_lights_lights_proto_msgTypes[38]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1193,7 +1593,7 @@ func (x *SetColorRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetColorRequest.ProtoReflect.Descriptor instead.
 func (*SetColorRequest) Descriptor() ([]byte, []int) {
-	return file_proto_lights_lights_proto_rawDescGZIP(), []int{28}
+	return file_proto_lights_lights_proto_rawDescGZIP(), []int{38}
 }
 
 func (x *SetColorRequest) GetArg0() int32 {
@@ -1212,7 +1612,7 @@ type SetColorResponse struct {
 
 func (x *SetColorResponse) Reset() {
 	*x = SetColorResponse{}
-	mi := &file_proto_lights_lights_proto_msgTypes[29]
+	mi := &file_proto_lights_lights_proto_msgTypes[39]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1224,7 +1624,7 @@ func (x *SetColorResponse) String() string {
 func (*SetColorResponse) ProtoMessage() {}
 
 func (x *SetColorResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_lights_lights_proto_msgTypes[29]
+	mi := &file_proto_lights_lights_proto_msgTypes[39]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1237,7 +1637,7 @@ func (x *SetColorResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetColorResponse.ProtoReflect.Descriptor instead.
 func (*SetColorResponse) Descriptor() ([]byte, []int) {
-	return file_proto_lights_lights_proto_rawDescGZIP(), []int{29}
+	return file_proto_lights_lights_proto_rawDescGZIP(), []int{39}
 }
 
 func (x *SetColorResponse) GetResult() int64 {
@@ -1256,7 +1656,7 @@ type SetPlayerIdRequest struct {
 
 func (x *SetPlayerIdRequest) Reset() {
 	*x = SetPlayerIdRequest{}
-	mi := &file_proto_lights_lights_proto_msgTypes[30]
+	mi := &file_proto_lights_lights_proto_msgTypes[40]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1268,7 +1668,7 @@ func (x *SetPlayerIdRequest) String() string {
 func (*SetPlayerIdRequest) ProtoMessage() {}
 
 func (x *SetPlayerIdRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_lights_lights_proto_msgTypes[30]
+	mi := &file_proto_lights_lights_proto_msgTypes[40]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1281,7 +1681,7 @@ func (x *SetPlayerIdRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetPlayerIdRequest.ProtoReflect.Descriptor instead.
 func (*SetPlayerIdRequest) Descriptor() ([]byte, []int) {
-	return file_proto_lights_lights_proto_rawDescGZIP(), []int{30}
+	return file_proto_lights_lights_proto_rawDescGZIP(), []int{40}
 }
 
 func (x *SetPlayerIdRequest) GetArg0() int32 {
@@ -1300,7 +1700,7 @@ type SetPlayerIdResponse struct {
 
 func (x *SetPlayerIdResponse) Reset() {
 	*x = SetPlayerIdResponse{}
-	mi := &file_proto_lights_lights_proto_msgTypes[31]
+	mi := &file_proto_lights_lights_proto_msgTypes[41]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1312,7 +1712,7 @@ func (x *SetPlayerIdResponse) String() string {
 func (*SetPlayerIdResponse) ProtoMessage() {}
 
 func (x *SetPlayerIdResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_lights_lights_proto_msgTypes[31]
+	mi := &file_proto_lights_lights_proto_msgTypes[41]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1325,7 +1725,7 @@ func (x *SetPlayerIdResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetPlayerIdResponse.ProtoReflect.Descriptor instead.
 func (*SetPlayerIdResponse) Descriptor() ([]byte, []int) {
-	return file_proto_lights_lights_proto_rawDescGZIP(), []int{31}
+	return file_proto_lights_lights_proto_rawDescGZIP(), []int{41}
 }
 
 func (x *SetPlayerIdResponse) GetResult() int64 {
@@ -1374,7 +1774,22 @@ const file_proto_lights_lights_proto_rawDesc = "" +
 	"\x14WriteToParcelRequest\x12\x12\n" +
 	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
 	"\x04arg1\x18\x02 \x01(\x05R\x04arg1\"\x17\n" +
-	"\x15WriteToParcelResponse\"\x11\n" +
+	"\x15WriteToParcelResponse\"*\n" +
+	"\x14GetLightStateRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"/\n" +
+	"\x15GetLightStateResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x12\n" +
+	"\x10GetLightsRequest\"+\n" +
+	"\x11GetLightsResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x14\n" +
+	"\x12OpenSessionRequest\"-\n" +
+	"\x13OpenSessionResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x0e\n" +
+	"\fCloseRequest\"\x0f\n" +
+	"\rCloseResponse\"*\n" +
+	"\x14RequestLightsRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"\x17\n" +
+	"\x15RequestLightsResponse\"\x11\n" +
 	"\x0fGetColorRequest\"*\n" +
 	"\x10GetColorResponse\x12\x16\n" +
 	"\x06result\x18\x01 \x01(\x05R\x06result\"\x14\n" +
@@ -1404,7 +1819,14 @@ const file_proto_lights_lights_proto_rawDesc = "" +
 	"\rHasRgbControl\x12\x1c.lights.HasRgbControlRequest\x1a\x1d.lights.HasRgbControlResponse\x12=\n" +
 	"\bHashCode\x12\x17.lights.HashCodeRequest\x1a\x18.lights.HashCodeResponse\x12=\n" +
 	"\bToString\x12\x17.lights.ToStringRequest\x1a\x18.lights.ToStringResponse\x12L\n" +
-	"\rWriteToParcel\x12\x1c.lights.WriteToParcelRequest\x1a\x1d.lights.WriteToParcelResponse2\xfe\x02\n" +
+	"\rWriteToParcel\x12\x1c.lights.WriteToParcelRequest\x1a\x1d.lights.WriteToParcelResponse2\xe8\x01\n" +
+	"\x0eManagerService\x12L\n" +
+	"\rGetLightState\x12\x1c.lights.GetLightStateRequest\x1a\x1d.lights.GetLightStateResponse\x12@\n" +
+	"\tGetLights\x12\x18.lights.GetLightsRequest\x1a\x19.lights.GetLightsResponse\x12F\n" +
+	"\vOpenSession\x12\x1a.lights.OpenSessionRequest\x1a\x1b.lights.OpenSessionResponse2\xa1\x01\n" +
+	"\x1bManagerLightsSessionService\x124\n" +
+	"\x05Close\x12\x14.lights.CloseRequest\x1a\x15.lights.CloseResponse\x12L\n" +
+	"\rRequestLights\x12\x1c.lights.RequestLightsRequest\x1a\x1d.lights.RequestLightsResponse2\xfe\x02\n" +
 	"\x11LightStateService\x12U\n" +
 	"\x10DescribeContents\x12\x1f.lights.DescribeContentsRequest\x1a .lights.DescribeContentsResponse\x12=\n" +
 	"\bGetColor\x12\x17.lights.GetColorRequest\x1a\x18.lights.GetColorResponse\x12F\n" +
@@ -1414,7 +1836,7 @@ const file_proto_lights_lights_proto_rawDesc = "" +
 	"\x18LightStateBuilderService\x124\n" +
 	"\x05Build\x12\x14.lights.BuildRequest\x1a\x15.lights.BuildResponse\x12=\n" +
 	"\bSetColor\x12\x17.lights.SetColorRequest\x1a\x18.lights.SetColorResponse\x12F\n" +
-	"\vSetPlayerId\x12\x1a.lights.SetPlayerIdRequest\x1a\x1b.lights.SetPlayerIdResponseB)Z'github.com/AndroidGoLab/jni-proxy/proto/lightsb\x06proto3"
+	"\vSetPlayerId\x12\x1a.lights.SetPlayerIdRequest\x1a\x1b.lights.SetPlayerIdResponseB0Z.github.com/AndroidGoLab/jni-proxy/proto/lightsb\x06proto3"
 
 var (
 	file_proto_lights_lights_proto_rawDescOnce sync.Once
@@ -1428,7 +1850,7 @@ func file_proto_lights_lights_proto_rawDescGZIP() []byte {
 	return file_proto_lights_lights_proto_rawDescData
 }
 
-var file_proto_lights_lights_proto_msgTypes = make([]protoimpl.MessageInfo, 32)
+var file_proto_lights_lights_proto_msgTypes = make([]protoimpl.MessageInfo, 42)
 var file_proto_lights_lights_proto_goTypes = []any{
 	(*DescribeContentsRequest)(nil),      // 0: lights.DescribeContentsRequest
 	(*DescribeContentsResponse)(nil),     // 1: lights.DescribeContentsResponse
@@ -1452,16 +1874,26 @@ var file_proto_lights_lights_proto_goTypes = []any{
 	(*ToStringResponse)(nil),             // 19: lights.ToStringResponse
 	(*WriteToParcelRequest)(nil),         // 20: lights.WriteToParcelRequest
 	(*WriteToParcelResponse)(nil),        // 21: lights.WriteToParcelResponse
-	(*GetColorRequest)(nil),              // 22: lights.GetColorRequest
-	(*GetColorResponse)(nil),             // 23: lights.GetColorResponse
-	(*GetPlayerIdRequest)(nil),           // 24: lights.GetPlayerIdRequest
-	(*GetPlayerIdResponse)(nil),          // 25: lights.GetPlayerIdResponse
-	(*BuildRequest)(nil),                 // 26: lights.BuildRequest
-	(*BuildResponse)(nil),                // 27: lights.BuildResponse
-	(*SetColorRequest)(nil),              // 28: lights.SetColorRequest
-	(*SetColorResponse)(nil),             // 29: lights.SetColorResponse
-	(*SetPlayerIdRequest)(nil),           // 30: lights.SetPlayerIdRequest
-	(*SetPlayerIdResponse)(nil),          // 31: lights.SetPlayerIdResponse
+	(*GetLightStateRequest)(nil),         // 22: lights.GetLightStateRequest
+	(*GetLightStateResponse)(nil),        // 23: lights.GetLightStateResponse
+	(*GetLightsRequest)(nil),             // 24: lights.GetLightsRequest
+	(*GetLightsResponse)(nil),            // 25: lights.GetLightsResponse
+	(*OpenSessionRequest)(nil),           // 26: lights.OpenSessionRequest
+	(*OpenSessionResponse)(nil),          // 27: lights.OpenSessionResponse
+	(*CloseRequest)(nil),                 // 28: lights.CloseRequest
+	(*CloseResponse)(nil),                // 29: lights.CloseResponse
+	(*RequestLightsRequest)(nil),         // 30: lights.RequestLightsRequest
+	(*RequestLightsResponse)(nil),        // 31: lights.RequestLightsResponse
+	(*GetColorRequest)(nil),              // 32: lights.GetColorRequest
+	(*GetColorResponse)(nil),             // 33: lights.GetColorResponse
+	(*GetPlayerIdRequest)(nil),           // 34: lights.GetPlayerIdRequest
+	(*GetPlayerIdResponse)(nil),          // 35: lights.GetPlayerIdResponse
+	(*BuildRequest)(nil),                 // 36: lights.BuildRequest
+	(*BuildResponse)(nil),                // 37: lights.BuildResponse
+	(*SetColorRequest)(nil),              // 38: lights.SetColorRequest
+	(*SetColorResponse)(nil),             // 39: lights.SetColorResponse
+	(*SetPlayerIdRequest)(nil),           // 40: lights.SetPlayerIdRequest
+	(*SetPlayerIdResponse)(nil),          // 41: lights.SetPlayerIdResponse
 }
 var file_proto_lights_lights_proto_depIdxs = []int32{
 	0,  // 0: lights.LightService.DescribeContents:input_type -> lights.DescribeContentsRequest
@@ -1475,35 +1907,45 @@ var file_proto_lights_lights_proto_depIdxs = []int32{
 	16, // 8: lights.LightService.HashCode:input_type -> lights.HashCodeRequest
 	18, // 9: lights.LightService.ToString:input_type -> lights.ToStringRequest
 	20, // 10: lights.LightService.WriteToParcel:input_type -> lights.WriteToParcelRequest
-	0,  // 11: lights.LightStateService.DescribeContents:input_type -> lights.DescribeContentsRequest
-	22, // 12: lights.LightStateService.GetColor:input_type -> lights.GetColorRequest
-	24, // 13: lights.LightStateService.GetPlayerId:input_type -> lights.GetPlayerIdRequest
-	18, // 14: lights.LightStateService.ToString:input_type -> lights.ToStringRequest
-	20, // 15: lights.LightStateService.WriteToParcel:input_type -> lights.WriteToParcelRequest
-	26, // 16: lights.LightStateBuilderService.Build:input_type -> lights.BuildRequest
-	28, // 17: lights.LightStateBuilderService.SetColor:input_type -> lights.SetColorRequest
-	30, // 18: lights.LightStateBuilderService.SetPlayerId:input_type -> lights.SetPlayerIdRequest
-	1,  // 19: lights.LightService.DescribeContents:output_type -> lights.DescribeContentsResponse
-	3,  // 20: lights.LightService.Equals:output_type -> lights.EqualsResponse
-	5,  // 21: lights.LightService.GetId:output_type -> lights.GetIdResponse
-	7,  // 22: lights.LightService.GetName:output_type -> lights.GetNameResponse
-	9,  // 23: lights.LightService.GetOrdinal:output_type -> lights.GetOrdinalResponse
-	11, // 24: lights.LightService.GetType:output_type -> lights.GetTypeResponse
-	13, // 25: lights.LightService.HasBrightnessControl:output_type -> lights.HasBrightnessControlResponse
-	15, // 26: lights.LightService.HasRgbControl:output_type -> lights.HasRgbControlResponse
-	17, // 27: lights.LightService.HashCode:output_type -> lights.HashCodeResponse
-	19, // 28: lights.LightService.ToString:output_type -> lights.ToStringResponse
-	21, // 29: lights.LightService.WriteToParcel:output_type -> lights.WriteToParcelResponse
-	1,  // 30: lights.LightStateService.DescribeContents:output_type -> lights.DescribeContentsResponse
-	23, // 31: lights.LightStateService.GetColor:output_type -> lights.GetColorResponse
-	25, // 32: lights.LightStateService.GetPlayerId:output_type -> lights.GetPlayerIdResponse
-	19, // 33: lights.LightStateService.ToString:output_type -> lights.ToStringResponse
-	21, // 34: lights.LightStateService.WriteToParcel:output_type -> lights.WriteToParcelResponse
-	27, // 35: lights.LightStateBuilderService.Build:output_type -> lights.BuildResponse
-	29, // 36: lights.LightStateBuilderService.SetColor:output_type -> lights.SetColorResponse
-	31, // 37: lights.LightStateBuilderService.SetPlayerId:output_type -> lights.SetPlayerIdResponse
-	19, // [19:38] is the sub-list for method output_type
-	0,  // [0:19] is the sub-list for method input_type
+	22, // 11: lights.ManagerService.GetLightState:input_type -> lights.GetLightStateRequest
+	24, // 12: lights.ManagerService.GetLights:input_type -> lights.GetLightsRequest
+	26, // 13: lights.ManagerService.OpenSession:input_type -> lights.OpenSessionRequest
+	28, // 14: lights.ManagerLightsSessionService.Close:input_type -> lights.CloseRequest
+	30, // 15: lights.ManagerLightsSessionService.RequestLights:input_type -> lights.RequestLightsRequest
+	0,  // 16: lights.LightStateService.DescribeContents:input_type -> lights.DescribeContentsRequest
+	32, // 17: lights.LightStateService.GetColor:input_type -> lights.GetColorRequest
+	34, // 18: lights.LightStateService.GetPlayerId:input_type -> lights.GetPlayerIdRequest
+	18, // 19: lights.LightStateService.ToString:input_type -> lights.ToStringRequest
+	20, // 20: lights.LightStateService.WriteToParcel:input_type -> lights.WriteToParcelRequest
+	36, // 21: lights.LightStateBuilderService.Build:input_type -> lights.BuildRequest
+	38, // 22: lights.LightStateBuilderService.SetColor:input_type -> lights.SetColorRequest
+	40, // 23: lights.LightStateBuilderService.SetPlayerId:input_type -> lights.SetPlayerIdRequest
+	1,  // 24: lights.LightService.DescribeContents:output_type -> lights.DescribeContentsResponse
+	3,  // 25: lights.LightService.Equals:output_type -> lights.EqualsResponse
+	5,  // 26: lights.LightService.GetId:output_type -> lights.GetIdResponse
+	7,  // 27: lights.LightService.GetName:output_type -> lights.GetNameResponse
+	9,  // 28: lights.LightService.GetOrdinal:output_type -> lights.GetOrdinalResponse
+	11, // 29: lights.LightService.GetType:output_type -> lights.GetTypeResponse
+	13, // 30: lights.LightService.HasBrightnessControl:output_type -> lights.HasBrightnessControlResponse
+	15, // 31: lights.LightService.HasRgbControl:output_type -> lights.HasRgbControlResponse
+	17, // 32: lights.LightService.HashCode:output_type -> lights.HashCodeResponse
+	19, // 33: lights.LightService.ToString:output_type -> lights.ToStringResponse
+	21, // 34: lights.LightService.WriteToParcel:output_type -> lights.WriteToParcelResponse
+	23, // 35: lights.ManagerService.GetLightState:output_type -> lights.GetLightStateResponse
+	25, // 36: lights.ManagerService.GetLights:output_type -> lights.GetLightsResponse
+	27, // 37: lights.ManagerService.OpenSession:output_type -> lights.OpenSessionResponse
+	29, // 38: lights.ManagerLightsSessionService.Close:output_type -> lights.CloseResponse
+	31, // 39: lights.ManagerLightsSessionService.RequestLights:output_type -> lights.RequestLightsResponse
+	1,  // 40: lights.LightStateService.DescribeContents:output_type -> lights.DescribeContentsResponse
+	33, // 41: lights.LightStateService.GetColor:output_type -> lights.GetColorResponse
+	35, // 42: lights.LightStateService.GetPlayerId:output_type -> lights.GetPlayerIdResponse
+	19, // 43: lights.LightStateService.ToString:output_type -> lights.ToStringResponse
+	21, // 44: lights.LightStateService.WriteToParcel:output_type -> lights.WriteToParcelResponse
+	37, // 45: lights.LightStateBuilderService.Build:output_type -> lights.BuildResponse
+	39, // 46: lights.LightStateBuilderService.SetColor:output_type -> lights.SetColorResponse
+	41, // 47: lights.LightStateBuilderService.SetPlayerId:output_type -> lights.SetPlayerIdResponse
+	24, // [24:48] is the sub-list for method output_type
+	0,  // [0:24] is the sub-list for method input_type
 	0,  // [0:0] is the sub-list for extension type_name
 	0,  // [0:0] is the sub-list for extension extendee
 	0,  // [0:0] is the sub-list for field type_name
@@ -1520,9 +1962,9 @@ func file_proto_lights_lights_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_proto_lights_lights_proto_rawDesc), len(file_proto_lights_lights_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   32,
+			NumMessages:   42,
 			NumExtensions: 0,
-			NumServices:   3,
+			NumServices:   5,
 		},
 		GoTypes:           file_proto_lights_lights_proto_goTypes,
 		DependencyIndexes: file_proto_lights_lights_proto_depIdxs,

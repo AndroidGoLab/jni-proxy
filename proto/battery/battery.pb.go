@@ -469,14 +469,14 @@ const file_proto_battery_battery_proto_rawDesc = "" +
 	"\x06result\x18\x01 \x01(\tR\x06result\"\x13\n" +
 	"\x11IsChargingRequest\",\n" +
 	"\x12IsChargingResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\bR\x06result2\xda\x03\n" +
-	"\x15BatteryManagerService\x12u\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result2\xd3\x03\n" +
+	"\x0eManagerService\x12u\n" +
 	"\x1aComputeChargeTimeRemaining\x12*.battery.ComputeChargeTimeRemainingRequest\x1a+.battery.ComputeChargeTimeRemainingResponse\x12Q\n" +
 	"\x0eGetIntProperty\x12\x1e.battery.GetIntPropertyRequest\x1a\x1f.battery.GetIntPropertyResponse\x12T\n" +
 	"\x0fGetLongProperty\x12\x1f.battery.GetLongPropertyRequest\x1a .battery.GetLongPropertyResponse\x12Z\n" +
 	"\x11GetStringProperty\x12!.battery.GetStringPropertyRequest\x1a\".battery.GetStringPropertyResponse\x12E\n" +
 	"\n" +
-	"IsCharging\x12\x1a.battery.IsChargingRequest\x1a\x1b.battery.IsChargingResponseB*Z(github.com/AndroidGoLab/jni-proxy/proto/batteryb\x06proto3"
+	"IsCharging\x12\x1a.battery.IsChargingRequest\x1a\x1b.battery.IsChargingResponseB1Z/github.com/AndroidGoLab/jni-proxy/proto/batteryb\x06proto3"
 
 var (
 	file_proto_battery_battery_proto_rawDescOnce sync.Once
@@ -504,16 +504,16 @@ var file_proto_battery_battery_proto_goTypes = []any{
 	(*IsChargingResponse)(nil),                 // 9: battery.IsChargingResponse
 }
 var file_proto_battery_battery_proto_depIdxs = []int32{
-	0, // 0: battery.BatteryManagerService.ComputeChargeTimeRemaining:input_type -> battery.ComputeChargeTimeRemainingRequest
-	2, // 1: battery.BatteryManagerService.GetIntProperty:input_type -> battery.GetIntPropertyRequest
-	4, // 2: battery.BatteryManagerService.GetLongProperty:input_type -> battery.GetLongPropertyRequest
-	6, // 3: battery.BatteryManagerService.GetStringProperty:input_type -> battery.GetStringPropertyRequest
-	8, // 4: battery.BatteryManagerService.IsCharging:input_type -> battery.IsChargingRequest
-	1, // 5: battery.BatteryManagerService.ComputeChargeTimeRemaining:output_type -> battery.ComputeChargeTimeRemainingResponse
-	3, // 6: battery.BatteryManagerService.GetIntProperty:output_type -> battery.GetIntPropertyResponse
-	5, // 7: battery.BatteryManagerService.GetLongProperty:output_type -> battery.GetLongPropertyResponse
-	7, // 8: battery.BatteryManagerService.GetStringProperty:output_type -> battery.GetStringPropertyResponse
-	9, // 9: battery.BatteryManagerService.IsCharging:output_type -> battery.IsChargingResponse
+	0, // 0: battery.ManagerService.ComputeChargeTimeRemaining:input_type -> battery.ComputeChargeTimeRemainingRequest
+	2, // 1: battery.ManagerService.GetIntProperty:input_type -> battery.GetIntPropertyRequest
+	4, // 2: battery.ManagerService.GetLongProperty:input_type -> battery.GetLongPropertyRequest
+	6, // 3: battery.ManagerService.GetStringProperty:input_type -> battery.GetStringPropertyRequest
+	8, // 4: battery.ManagerService.IsCharging:input_type -> battery.IsChargingRequest
+	1, // 5: battery.ManagerService.ComputeChargeTimeRemaining:output_type -> battery.ComputeChargeTimeRemainingResponse
+	3, // 6: battery.ManagerService.GetIntProperty:output_type -> battery.GetIntPropertyResponse
+	5, // 7: battery.ManagerService.GetLongProperty:output_type -> battery.GetLongPropertyResponse
+	7, // 8: battery.ManagerService.GetStringProperty:output_type -> battery.GetStringPropertyResponse
+	9, // 9: battery.ManagerService.IsCharging:output_type -> battery.IsChargingResponse
 	5, // [5:10] is the sub-list for method output_type
 	0, // [0:5] is the sub-list for method input_type
 	0, // [0:0] is the sub-list for extension type_name

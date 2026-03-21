@@ -178,7 +178,105 @@ message SetActualDefaultRingtoneUriRequest {
 message SetActualDefaultRingtoneUriResponse {
 }
 
-service RingtoneManagerService {
+message GetAudioAttributesRequest {
+}
+
+message GetAudioAttributesResponse {
+  int64 result = 1;
+}
+
+message GetStreamTypeRequest {
+}
+
+message GetStreamTypeResponse {
+  int32 result = 1;
+}
+
+message GetTitleRequest {
+  int64 arg0 = 1;
+}
+
+message GetTitleResponse {
+  string result = 1;
+}
+
+message GetVolumeRequest {
+}
+
+message GetVolumeResponse {
+  float result = 1;
+}
+
+message IsHapticGeneratorEnabledRequest {
+}
+
+message IsHapticGeneratorEnabledResponse {
+  bool result = 1;
+}
+
+message IsLoopingRequest {
+}
+
+message IsLoopingResponse {
+  bool result = 1;
+}
+
+message IsPlayingRequest {
+}
+
+message IsPlayingResponse {
+  bool result = 1;
+}
+
+message PlayRequest {
+}
+
+message PlayResponse {
+}
+
+message SetAudioAttributesRequest {
+  int64 arg0 = 1;
+}
+
+message SetAudioAttributesResponse {
+}
+
+message SetHapticGeneratorEnabledRequest {
+  bool arg0 = 1;
+}
+
+message SetHapticGeneratorEnabledResponse {
+  bool result = 1;
+}
+
+message SetLoopingRequest {
+  bool arg0 = 1;
+}
+
+message SetLoopingResponse {
+}
+
+message SetStreamTypeRequest {
+  int32 arg0 = 1;
+}
+
+message SetStreamTypeResponse {
+}
+
+message SetVolumeRequest {
+  float arg0 = 1;
+}
+
+message SetVolumeResponse {
+}
+
+message StopRequest {
+}
+
+message StopResponse {
+}
+
+service ManagerService {
   rpc GetCursor (GetCursorRequest) returns (GetCursorResponse);
   rpc GetIncludeDrm (GetIncludeDrmRequest) returns (GetIncludeDrmResponse);
   rpc GetRingtone1_1 (GetRingtone1_1Request) returns (GetRingtone1_1Response);
@@ -201,4 +299,21 @@ service RingtoneManagerService {
   rpc IsDefault (IsDefaultRequest) returns (IsDefaultResponse);
   rpc OpenDefaultRingtoneUri (OpenDefaultRingtoneUriRequest) returns (OpenDefaultRingtoneUriResponse);
   rpc SetActualDefaultRingtoneUri (SetActualDefaultRingtoneUriRequest) returns (SetActualDefaultRingtoneUriResponse);
+}
+
+service RingtoneService {
+  rpc GetAudioAttributes (GetAudioAttributesRequest) returns (GetAudioAttributesResponse);
+  rpc GetStreamType (GetStreamTypeRequest) returns (GetStreamTypeResponse);
+  rpc GetTitle (GetTitleRequest) returns (GetTitleResponse);
+  rpc GetVolume (GetVolumeRequest) returns (GetVolumeResponse);
+  rpc IsHapticGeneratorEnabled (IsHapticGeneratorEnabledRequest) returns (IsHapticGeneratorEnabledResponse);
+  rpc IsLooping (IsLoopingRequest) returns (IsLoopingResponse);
+  rpc IsPlaying (IsPlayingRequest) returns (IsPlayingResponse);
+  rpc Play (PlayRequest) returns (PlayResponse);
+  rpc SetAudioAttributes (SetAudioAttributesRequest) returns (SetAudioAttributesResponse);
+  rpc SetHapticGeneratorEnabled (SetHapticGeneratorEnabledRequest) returns (SetHapticGeneratorEnabledResponse);
+  rpc SetLooping (SetLoopingRequest) returns (SetLoopingResponse);
+  rpc SetStreamType (SetStreamTypeRequest) returns (SetStreamTypeResponse);
+  rpc SetVolume (SetVolumeRequest) returns (SetVolumeResponse);
+  rpc Stop (StopRequest) returns (StopResponse);
 }

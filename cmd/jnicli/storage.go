@@ -3,8 +3,8 @@
 package main
 
 import (
-	"github.com/spf13/cobra"
 	pb "github.com/AndroidGoLab/jni-proxy/proto/storage"
+	"github.com/spf13/cobra"
 )
 
 var storageCmd = &cobra.Command{
@@ -12,310 +12,18 @@ var storageCmd = &cobra.Command{
 	Short: "storage service operations",
 }
 
-var storageStorageVolumeCmd = &cobra.Command{
-	Use:   "storage-volume",
-	Short: "StorageVolumeService operations",
+var storageManagerCmd = &cobra.Command{
+	Use:   "manager",
+	Short: "ManagerService operations",
 }
 
-var storageStorageVolumeCreateAccessIntentCmd = &cobra.Command{
-	Use:   "create-access-intent",
-	Short: "CreateAccessIntent RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewStorageVolumeServiceClient(grpcConn)
-		req := &pb.CreateAccessIntentRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.CreateAccessIntent(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var storageStorageVolumeCreateOpenDocumentTreeIntentCmd = &cobra.Command{
-	Use:   "create-open-document-tree-intent",
-	Short: "CreateOpenDocumentTreeIntent RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewStorageVolumeServiceClient(grpcConn)
-		req := &pb.CreateOpenDocumentTreeIntentRequest{}
-		resp, err := client.CreateOpenDocumentTreeIntent(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var storageStorageVolumeDescribeContentsCmd = &cobra.Command{
-	Use:   "describe-contents",
-	Short: "DescribeContents RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewStorageVolumeServiceClient(grpcConn)
-		req := &pb.DescribeContentsRequest{}
-		resp, err := client.DescribeContents(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var storageStorageVolumeEqualsCmd = &cobra.Command{
-	Use:   "equals",
-	Short: "Equals RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewStorageVolumeServiceClient(grpcConn)
-		req := &pb.EqualsRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.Equals(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var storageStorageVolumeGetDescriptionCmd = &cobra.Command{
-	Use:   "get-description",
-	Short: "GetDescription RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewStorageVolumeServiceClient(grpcConn)
-		req := &pb.GetDescriptionRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.GetDescription(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var storageStorageVolumeGetDirectoryCmd = &cobra.Command{
-	Use:   "get-directory",
-	Short: "GetDirectory RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewStorageVolumeServiceClient(grpcConn)
-		req := &pb.GetDirectoryRequest{}
-		resp, err := client.GetDirectory(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var storageStorageVolumeGetMediaStoreVolumeNameCmd = &cobra.Command{
-	Use:   "get-media-store-volume-name",
-	Short: "GetMediaStoreVolumeName RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewStorageVolumeServiceClient(grpcConn)
-		req := &pb.GetMediaStoreVolumeNameRequest{}
-		resp, err := client.GetMediaStoreVolumeName(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var storageStorageVolumeGetOwnerCmd = &cobra.Command{
-	Use:   "get-owner",
-	Short: "GetOwner RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewStorageVolumeServiceClient(grpcConn)
-		req := &pb.GetOwnerRequest{}
-		resp, err := client.GetOwner(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var storageStorageVolumeGetStateCmd = &cobra.Command{
-	Use:   "get-state",
-	Short: "GetState RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewStorageVolumeServiceClient(grpcConn)
-		req := &pb.GetStateRequest{}
-		resp, err := client.GetState(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var storageStorageVolumeGetStorageUuidCmd = &cobra.Command{
-	Use:   "get-storage-uuid",
-	Short: "GetStorageUuid RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewStorageVolumeServiceClient(grpcConn)
-		req := &pb.GetStorageUuidRequest{}
-		resp, err := client.GetStorageUuid(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var storageStorageVolumeGetUuidCmd = &cobra.Command{
-	Use:   "get-uuid",
-	Short: "GetUuid RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewStorageVolumeServiceClient(grpcConn)
-		req := &pb.GetUuidRequest{}
-		resp, err := client.GetUuid(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var storageStorageVolumeHashCodeCmd = &cobra.Command{
-	Use:   "hash-code",
-	Short: "HashCode RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewStorageVolumeServiceClient(grpcConn)
-		req := &pb.HashCodeRequest{}
-		resp, err := client.HashCode(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var storageStorageVolumeIsEmulatedCmd = &cobra.Command{
-	Use:   "is-emulated",
-	Short: "IsEmulated RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewStorageVolumeServiceClient(grpcConn)
-		req := &pb.IsEmulatedRequest{}
-		resp, err := client.IsEmulated(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var storageStorageVolumeIsPrimaryCmd = &cobra.Command{
-	Use:   "is-primary",
-	Short: "IsPrimary RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewStorageVolumeServiceClient(grpcConn)
-		req := &pb.IsPrimaryRequest{}
-		resp, err := client.IsPrimary(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var storageStorageVolumeIsRemovableCmd = &cobra.Command{
-	Use:   "is-removable",
-	Short: "IsRemovable RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewStorageVolumeServiceClient(grpcConn)
-		req := &pb.IsRemovableRequest{}
-		resp, err := client.IsRemovable(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var storageStorageVolumeToStringCmd = &cobra.Command{
-	Use:   "to-string",
-	Short: "ToString RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewStorageVolumeServiceClient(grpcConn)
-		req := &pb.ToStringRequest{}
-		resp, err := client.ToString(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var storageStorageVolumeWriteToParcelCmd = &cobra.Command{
-	Use:   "write-to-parcel",
-	Short: "WriteToParcel RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewStorageVolumeServiceClient(grpcConn)
-		req := &pb.WriteToParcelRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.WriteToParcel(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var storageStorageManagerCmd = &cobra.Command{
-	Use:   "storage-manager",
-	Short: "StorageManagerService operations",
-}
-
-var storageStorageManagerAllocateBytes2Cmd = &cobra.Command{
+var storageManagerAllocateBytes2Cmd = &cobra.Command{
 	Use:   "allocate-bytes2",
 	Short: "AllocateBytes2 RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewStorageManagerServiceClient(grpcConn)
+		client := pb.NewManagerServiceClient(grpcConn)
 		req := &pb.AllocateBytes2Request{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
@@ -331,13 +39,13 @@ var storageStorageManagerAllocateBytes2Cmd = &cobra.Command{
 	},
 }
 
-var storageStorageManagerAllocateBytes2_1Cmd = &cobra.Command{
+var storageManagerAllocateBytes2_1Cmd = &cobra.Command{
 	Use:   "allocate-bytes2_1",
 	Short: "AllocateBytes2_1 RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewStorageManagerServiceClient(grpcConn)
+		client := pb.NewManagerServiceClient(grpcConn)
 		req := &pb.AllocateBytes2_1Request{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
@@ -353,13 +61,13 @@ var storageStorageManagerAllocateBytes2_1Cmd = &cobra.Command{
 	},
 }
 
-var storageStorageManagerGetAllocatableBytesCmd = &cobra.Command{
+var storageManagerGetAllocatableBytesCmd = &cobra.Command{
 	Use:   "get-allocatable-bytes",
 	Short: "GetAllocatableBytes RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewStorageManagerServiceClient(grpcConn)
+		client := pb.NewManagerServiceClient(grpcConn)
 		req := &pb.GetAllocatableBytesRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
@@ -372,13 +80,13 @@ var storageStorageManagerGetAllocatableBytesCmd = &cobra.Command{
 	},
 }
 
-var storageStorageManagerGetCacheQuotaBytesCmd = &cobra.Command{
+var storageManagerGetCacheQuotaBytesCmd = &cobra.Command{
 	Use:   "get-cache-quota-bytes",
 	Short: "GetCacheQuotaBytes RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewStorageManagerServiceClient(grpcConn)
+		client := pb.NewManagerServiceClient(grpcConn)
 		req := &pb.GetCacheQuotaBytesRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
@@ -391,13 +99,13 @@ var storageStorageManagerGetCacheQuotaBytesCmd = &cobra.Command{
 	},
 }
 
-var storageStorageManagerGetCacheSizeBytesCmd = &cobra.Command{
+var storageManagerGetCacheSizeBytesCmd = &cobra.Command{
 	Use:   "get-cache-size-bytes",
 	Short: "GetCacheSizeBytes RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewStorageManagerServiceClient(grpcConn)
+		client := pb.NewManagerServiceClient(grpcConn)
 		req := &pb.GetCacheSizeBytesRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
@@ -410,13 +118,13 @@ var storageStorageManagerGetCacheSizeBytesCmd = &cobra.Command{
 	},
 }
 
-var storageStorageManagerGetManageSpaceActivityIntentCmd = &cobra.Command{
+var storageManagerGetManageSpaceActivityIntentCmd = &cobra.Command{
 	Use:   "get-manage-space-activity-intent",
 	Short: "GetManageSpaceActivityIntent RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewStorageManagerServiceClient(grpcConn)
+		client := pb.NewManagerServiceClient(grpcConn)
 		req := &pb.GetManageSpaceActivityIntentRequest{}
 		if v, err := cmd.Flags().GetString("arg0"); err == nil {
 			req.Arg0 = v
@@ -432,13 +140,13 @@ var storageStorageManagerGetManageSpaceActivityIntentCmd = &cobra.Command{
 	},
 }
 
-var storageStorageManagerGetMountedObbPathCmd = &cobra.Command{
+var storageManagerGetMountedObbPathCmd = &cobra.Command{
 	Use:   "get-mounted-obb-path",
 	Short: "GetMountedObbPath RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewStorageManagerServiceClient(grpcConn)
+		client := pb.NewManagerServiceClient(grpcConn)
 		req := &pb.GetMountedObbPathRequest{}
 		if v, err := cmd.Flags().GetString("arg0"); err == nil {
 			req.Arg0 = v
@@ -451,13 +159,13 @@ var storageStorageManagerGetMountedObbPathCmd = &cobra.Command{
 	},
 }
 
-var storageStorageManagerGetPrimaryStorageVolumeCmd = &cobra.Command{
+var storageManagerGetPrimaryStorageVolumeCmd = &cobra.Command{
 	Use:   "get-primary-storage-volume",
 	Short: "GetPrimaryStorageVolume RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewStorageManagerServiceClient(grpcConn)
+		client := pb.NewManagerServiceClient(grpcConn)
 		req := &pb.GetPrimaryStorageVolumeRequest{}
 		resp, err := client.GetPrimaryStorageVolume(ctx, req)
 		if err != nil {
@@ -467,13 +175,13 @@ var storageStorageManagerGetPrimaryStorageVolumeCmd = &cobra.Command{
 	},
 }
 
-var storageStorageManagerGetRecentStorageVolumesCmd = &cobra.Command{
+var storageManagerGetRecentStorageVolumesCmd = &cobra.Command{
 	Use:   "get-recent-storage-volumes",
 	Short: "GetRecentStorageVolumes RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewStorageManagerServiceClient(grpcConn)
+		client := pb.NewManagerServiceClient(grpcConn)
 		req := &pb.GetRecentStorageVolumesRequest{}
 		resp, err := client.GetRecentStorageVolumes(ctx, req)
 		if err != nil {
@@ -483,13 +191,13 @@ var storageStorageManagerGetRecentStorageVolumesCmd = &cobra.Command{
 	},
 }
 
-var storageStorageManagerGetStorageVolume1Cmd = &cobra.Command{
+var storageManagerGetStorageVolume1Cmd = &cobra.Command{
 	Use:   "get-storage-volume1",
 	Short: "GetStorageVolume1 RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewStorageManagerServiceClient(grpcConn)
+		client := pb.NewManagerServiceClient(grpcConn)
 		req := &pb.GetStorageVolume1Request{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
@@ -502,13 +210,13 @@ var storageStorageManagerGetStorageVolume1Cmd = &cobra.Command{
 	},
 }
 
-var storageStorageManagerGetStorageVolume1_1Cmd = &cobra.Command{
+var storageManagerGetStorageVolume1_1Cmd = &cobra.Command{
 	Use:   "get-storage-volume1_1",
 	Short: "GetStorageVolume1_1 RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewStorageManagerServiceClient(grpcConn)
+		client := pb.NewManagerServiceClient(grpcConn)
 		req := &pb.GetStorageVolume1_1Request{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
@@ -521,13 +229,13 @@ var storageStorageManagerGetStorageVolume1_1Cmd = &cobra.Command{
 	},
 }
 
-var storageStorageManagerGetStorageVolumesCmd = &cobra.Command{
+var storageManagerGetStorageVolumesCmd = &cobra.Command{
 	Use:   "get-storage-volumes",
 	Short: "GetStorageVolumes RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewStorageManagerServiceClient(grpcConn)
+		client := pb.NewManagerServiceClient(grpcConn)
 		req := &pb.GetStorageVolumesRequest{}
 		resp, err := client.GetStorageVolumes(ctx, req)
 		if err != nil {
@@ -537,13 +245,13 @@ var storageStorageManagerGetStorageVolumesCmd = &cobra.Command{
 	},
 }
 
-var storageStorageManagerGetStorageVolumesIncludingSharedProfilesCmd = &cobra.Command{
+var storageManagerGetStorageVolumesIncludingSharedProfilesCmd = &cobra.Command{
 	Use:   "get-storage-volumes-including-shared-profiles",
 	Short: "GetStorageVolumesIncludingSharedProfiles RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewStorageManagerServiceClient(grpcConn)
+		client := pb.NewManagerServiceClient(grpcConn)
 		req := &pb.GetStorageVolumesIncludingSharedProfilesRequest{}
 		resp, err := client.GetStorageVolumesIncludingSharedProfiles(ctx, req)
 		if err != nil {
@@ -553,13 +261,13 @@ var storageStorageManagerGetStorageVolumesIncludingSharedProfilesCmd = &cobra.Co
 	},
 }
 
-var storageStorageManagerGetUuidForPathCmd = &cobra.Command{
+var storageManagerGetUuidForPathCmd = &cobra.Command{
 	Use:   "get-uuid-for-path",
 	Short: "GetUuidForPath RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewStorageManagerServiceClient(grpcConn)
+		client := pb.NewManagerServiceClient(grpcConn)
 		req := &pb.GetUuidForPathRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
@@ -572,13 +280,13 @@ var storageStorageManagerGetUuidForPathCmd = &cobra.Command{
 	},
 }
 
-var storageStorageManagerIsAllocationSupportedCmd = &cobra.Command{
+var storageManagerIsAllocationSupportedCmd = &cobra.Command{
 	Use:   "is-allocation-supported",
 	Short: "IsAllocationSupported RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewStorageManagerServiceClient(grpcConn)
+		client := pb.NewManagerServiceClient(grpcConn)
 		req := &pb.IsAllocationSupportedRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
@@ -591,13 +299,13 @@ var storageStorageManagerIsAllocationSupportedCmd = &cobra.Command{
 	},
 }
 
-var storageStorageManagerIsCacheBehaviorGroupCmd = &cobra.Command{
+var storageManagerIsCacheBehaviorGroupCmd = &cobra.Command{
 	Use:   "is-cache-behavior-group",
 	Short: "IsCacheBehaviorGroup RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewStorageManagerServiceClient(grpcConn)
+		client := pb.NewManagerServiceClient(grpcConn)
 		req := &pb.IsCacheBehaviorGroupRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
@@ -610,13 +318,13 @@ var storageStorageManagerIsCacheBehaviorGroupCmd = &cobra.Command{
 	},
 }
 
-var storageStorageManagerIsCacheBehaviorTombstoneCmd = &cobra.Command{
+var storageManagerIsCacheBehaviorTombstoneCmd = &cobra.Command{
 	Use:   "is-cache-behavior-tombstone",
 	Short: "IsCacheBehaviorTombstone RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewStorageManagerServiceClient(grpcConn)
+		client := pb.NewManagerServiceClient(grpcConn)
 		req := &pb.IsCacheBehaviorTombstoneRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
@@ -629,13 +337,13 @@ var storageStorageManagerIsCacheBehaviorTombstoneCmd = &cobra.Command{
 	},
 }
 
-var storageStorageManagerIsCheckpointSupportedCmd = &cobra.Command{
+var storageManagerIsCheckpointSupportedCmd = &cobra.Command{
 	Use:   "is-checkpoint-supported",
 	Short: "IsCheckpointSupported RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewStorageManagerServiceClient(grpcConn)
+		client := pb.NewManagerServiceClient(grpcConn)
 		req := &pb.IsCheckpointSupportedRequest{}
 		resp, err := client.IsCheckpointSupported(ctx, req)
 		if err != nil {
@@ -645,13 +353,13 @@ var storageStorageManagerIsCheckpointSupportedCmd = &cobra.Command{
 	},
 }
 
-var storageStorageManagerIsEncryptedCmd = &cobra.Command{
+var storageManagerIsEncryptedCmd = &cobra.Command{
 	Use:   "is-encrypted",
 	Short: "IsEncrypted RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewStorageManagerServiceClient(grpcConn)
+		client := pb.NewManagerServiceClient(grpcConn)
 		req := &pb.IsEncryptedRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
@@ -664,13 +372,13 @@ var storageStorageManagerIsEncryptedCmd = &cobra.Command{
 	},
 }
 
-var storageStorageManagerIsObbMountedCmd = &cobra.Command{
+var storageManagerIsObbMountedCmd = &cobra.Command{
 	Use:   "is-obb-mounted",
 	Short: "IsObbMounted RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewStorageManagerServiceClient(grpcConn)
+		client := pb.NewManagerServiceClient(grpcConn)
 		req := &pb.IsObbMountedRequest{}
 		if v, err := cmd.Flags().GetString("arg0"); err == nil {
 			req.Arg0 = v
@@ -683,13 +391,13 @@ var storageStorageManagerIsObbMountedCmd = &cobra.Command{
 	},
 }
 
-var storageStorageManagerMountObbCmd = &cobra.Command{
+var storageManagerMountObbCmd = &cobra.Command{
 	Use:   "mount-obb",
 	Short: "MountObb RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewStorageManagerServiceClient(grpcConn)
+		client := pb.NewManagerServiceClient(grpcConn)
 		req := &pb.MountObbRequest{}
 		if v, err := cmd.Flags().GetString("arg0"); err == nil {
 			req.Arg0 = v
@@ -708,13 +416,13 @@ var storageStorageManagerMountObbCmd = &cobra.Command{
 	},
 }
 
-var storageStorageManagerRegisterStorageVolumeCallbackCmd = &cobra.Command{
+var storageManagerRegisterStorageVolumeCallbackCmd = &cobra.Command{
 	Use:   "register-storage-volume-callback",
 	Short: "RegisterStorageVolumeCallback RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewStorageManagerServiceClient(grpcConn)
+		client := pb.NewManagerServiceClient(grpcConn)
 		req := &pb.RegisterStorageVolumeCallbackRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
@@ -730,13 +438,13 @@ var storageStorageManagerRegisterStorageVolumeCallbackCmd = &cobra.Command{
 	},
 }
 
-var storageStorageManagerSetCacheBehaviorGroupCmd = &cobra.Command{
+var storageManagerSetCacheBehaviorGroupCmd = &cobra.Command{
 	Use:   "set-cache-behavior-group",
 	Short: "SetCacheBehaviorGroup RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewStorageManagerServiceClient(grpcConn)
+		client := pb.NewManagerServiceClient(grpcConn)
 		req := &pb.SetCacheBehaviorGroupRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
@@ -752,13 +460,13 @@ var storageStorageManagerSetCacheBehaviorGroupCmd = &cobra.Command{
 	},
 }
 
-var storageStorageManagerSetCacheBehaviorTombstoneCmd = &cobra.Command{
+var storageManagerSetCacheBehaviorTombstoneCmd = &cobra.Command{
 	Use:   "set-cache-behavior-tombstone",
 	Short: "SetCacheBehaviorTombstone RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewStorageManagerServiceClient(grpcConn)
+		client := pb.NewManagerServiceClient(grpcConn)
 		req := &pb.SetCacheBehaviorTombstoneRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
@@ -774,13 +482,13 @@ var storageStorageManagerSetCacheBehaviorTombstoneCmd = &cobra.Command{
 	},
 }
 
-var storageStorageManagerUnmountObbCmd = &cobra.Command{
+var storageManagerUnmountObbCmd = &cobra.Command{
 	Use:   "unmount-obb",
 	Short: "UnmountObb RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewStorageManagerServiceClient(grpcConn)
+		client := pb.NewManagerServiceClient(grpcConn)
 		req := &pb.UnmountObbRequest{}
 		if v, err := cmd.Flags().GetString("arg0"); err == nil {
 			req.Arg0 = v
@@ -799,13 +507,13 @@ var storageStorageManagerUnmountObbCmd = &cobra.Command{
 	},
 }
 
-var storageStorageManagerUnregisterStorageVolumeCallbackCmd = &cobra.Command{
+var storageManagerUnregisterStorageVolumeCallbackCmd = &cobra.Command{
 	Use:   "unregister-storage-volume-callback",
 	Short: "UnregisterStorageVolumeCallback RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewStorageManagerServiceClient(grpcConn)
+		client := pb.NewManagerServiceClient(grpcConn)
 		req := &pb.UnregisterStorageVolumeCallbackRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
@@ -818,87 +526,379 @@ var storageStorageManagerUnregisterStorageVolumeCallbackCmd = &cobra.Command{
 	},
 }
 
+var storageVolumeCmd = &cobra.Command{
+	Use:   "volume",
+	Short: "VolumeService operations",
+}
+
+var storageVolumeCreateAccessIntentCmd = &cobra.Command{
+	Use:   "create-access-intent",
+	Short: "CreateAccessIntent RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewVolumeServiceClient(grpcConn)
+		req := &pb.CreateAccessIntentRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.CreateAccessIntent(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var storageVolumeCreateOpenDocumentTreeIntentCmd = &cobra.Command{
+	Use:   "create-open-document-tree-intent",
+	Short: "CreateOpenDocumentTreeIntent RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewVolumeServiceClient(grpcConn)
+		req := &pb.CreateOpenDocumentTreeIntentRequest{}
+		resp, err := client.CreateOpenDocumentTreeIntent(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var storageVolumeDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewVolumeServiceClient(grpcConn)
+		req := &pb.DescribeContentsRequest{}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var storageVolumeEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewVolumeServiceClient(grpcConn)
+		req := &pb.EqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var storageVolumeGetDescriptionCmd = &cobra.Command{
+	Use:   "get-description",
+	Short: "GetDescription RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewVolumeServiceClient(grpcConn)
+		req := &pb.GetDescriptionRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetDescription(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var storageVolumeGetDirectoryCmd = &cobra.Command{
+	Use:   "get-directory",
+	Short: "GetDirectory RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewVolumeServiceClient(grpcConn)
+		req := &pb.GetDirectoryRequest{}
+		resp, err := client.GetDirectory(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var storageVolumeGetMediaStoreVolumeNameCmd = &cobra.Command{
+	Use:   "get-media-store-volume-name",
+	Short: "GetMediaStoreVolumeName RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewVolumeServiceClient(grpcConn)
+		req := &pb.GetMediaStoreVolumeNameRequest{}
+		resp, err := client.GetMediaStoreVolumeName(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var storageVolumeGetOwnerCmd = &cobra.Command{
+	Use:   "get-owner",
+	Short: "GetOwner RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewVolumeServiceClient(grpcConn)
+		req := &pb.GetOwnerRequest{}
+		resp, err := client.GetOwner(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var storageVolumeGetStateCmd = &cobra.Command{
+	Use:   "get-state",
+	Short: "GetState RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewVolumeServiceClient(grpcConn)
+		req := &pb.GetStateRequest{}
+		resp, err := client.GetState(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var storageVolumeGetStorageUuidCmd = &cobra.Command{
+	Use:   "get-storage-uuid",
+	Short: "GetStorageUuid RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewVolumeServiceClient(grpcConn)
+		req := &pb.GetStorageUuidRequest{}
+		resp, err := client.GetStorageUuid(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var storageVolumeGetUuidCmd = &cobra.Command{
+	Use:   "get-uuid",
+	Short: "GetUuid RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewVolumeServiceClient(grpcConn)
+		req := &pb.GetUuidRequest{}
+		resp, err := client.GetUuid(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var storageVolumeHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewVolumeServiceClient(grpcConn)
+		req := &pb.HashCodeRequest{}
+		resp, err := client.HashCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var storageVolumeIsEmulatedCmd = &cobra.Command{
+	Use:   "is-emulated",
+	Short: "IsEmulated RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewVolumeServiceClient(grpcConn)
+		req := &pb.IsEmulatedRequest{}
+		resp, err := client.IsEmulated(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var storageVolumeIsPrimaryCmd = &cobra.Command{
+	Use:   "is-primary",
+	Short: "IsPrimary RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewVolumeServiceClient(grpcConn)
+		req := &pb.IsPrimaryRequest{}
+		resp, err := client.IsPrimary(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var storageVolumeIsRemovableCmd = &cobra.Command{
+	Use:   "is-removable",
+	Short: "IsRemovable RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewVolumeServiceClient(grpcConn)
+		req := &pb.IsRemovableRequest{}
+		resp, err := client.IsRemovable(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var storageVolumeToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewVolumeServiceClient(grpcConn)
+		req := &pb.ToStringRequest{}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var storageVolumeWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewVolumeServiceClient(grpcConn)
+		req := &pb.WriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
 func init() {
-	storageStorageVolumeCreateAccessIntentCmd.Flags().String("arg0", "", "arg0 (string)")
-	storageStorageVolumeCmd.AddCommand(storageStorageVolumeCreateAccessIntentCmd)
-	storageStorageVolumeCmd.AddCommand(storageStorageVolumeCreateOpenDocumentTreeIntentCmd)
-	storageStorageVolumeCmd.AddCommand(storageStorageVolumeDescribeContentsCmd)
-	storageStorageVolumeEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	storageStorageVolumeCmd.AddCommand(storageStorageVolumeEqualsCmd)
-	storageStorageVolumeGetDescriptionCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	storageStorageVolumeCmd.AddCommand(storageStorageVolumeGetDescriptionCmd)
-	storageStorageVolumeCmd.AddCommand(storageStorageVolumeGetDirectoryCmd)
-	storageStorageVolumeCmd.AddCommand(storageStorageVolumeGetMediaStoreVolumeNameCmd)
-	storageStorageVolumeCmd.AddCommand(storageStorageVolumeGetOwnerCmd)
-	storageStorageVolumeCmd.AddCommand(storageStorageVolumeGetStateCmd)
-	storageStorageVolumeCmd.AddCommand(storageStorageVolumeGetStorageUuidCmd)
-	storageStorageVolumeCmd.AddCommand(storageStorageVolumeGetUuidCmd)
-	storageStorageVolumeCmd.AddCommand(storageStorageVolumeHashCodeCmd)
-	storageStorageVolumeCmd.AddCommand(storageStorageVolumeIsEmulatedCmd)
-	storageStorageVolumeCmd.AddCommand(storageStorageVolumeIsPrimaryCmd)
-	storageStorageVolumeCmd.AddCommand(storageStorageVolumeIsRemovableCmd)
-	storageStorageVolumeCmd.AddCommand(storageStorageVolumeToStringCmd)
-	storageStorageVolumeWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	storageStorageVolumeWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	storageStorageVolumeCmd.AddCommand(storageStorageVolumeWriteToParcelCmd)
-	storageCmd.AddCommand(storageStorageVolumeCmd)
-	storageStorageManagerAllocateBytes2Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	storageStorageManagerAllocateBytes2Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	storageStorageManagerCmd.AddCommand(storageStorageManagerAllocateBytes2Cmd)
-	storageStorageManagerAllocateBytes2_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	storageStorageManagerAllocateBytes2_1Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	storageStorageManagerCmd.AddCommand(storageStorageManagerAllocateBytes2_1Cmd)
-	storageStorageManagerGetAllocatableBytesCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	storageStorageManagerCmd.AddCommand(storageStorageManagerGetAllocatableBytesCmd)
-	storageStorageManagerGetCacheQuotaBytesCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	storageStorageManagerCmd.AddCommand(storageStorageManagerGetCacheQuotaBytesCmd)
-	storageStorageManagerGetCacheSizeBytesCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	storageStorageManagerCmd.AddCommand(storageStorageManagerGetCacheSizeBytesCmd)
-	storageStorageManagerGetManageSpaceActivityIntentCmd.Flags().String("arg0", "", "arg0 (string)")
-	storageStorageManagerGetManageSpaceActivityIntentCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	storageStorageManagerCmd.AddCommand(storageStorageManagerGetManageSpaceActivityIntentCmd)
-	storageStorageManagerGetMountedObbPathCmd.Flags().String("arg0", "", "arg0 (string)")
-	storageStorageManagerCmd.AddCommand(storageStorageManagerGetMountedObbPathCmd)
-	storageStorageManagerCmd.AddCommand(storageStorageManagerGetPrimaryStorageVolumeCmd)
-	storageStorageManagerCmd.AddCommand(storageStorageManagerGetRecentStorageVolumesCmd)
-	storageStorageManagerGetStorageVolume1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	storageStorageManagerCmd.AddCommand(storageStorageManagerGetStorageVolume1Cmd)
-	storageStorageManagerGetStorageVolume1_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	storageStorageManagerCmd.AddCommand(storageStorageManagerGetStorageVolume1_1Cmd)
-	storageStorageManagerCmd.AddCommand(storageStorageManagerGetStorageVolumesCmd)
-	storageStorageManagerCmd.AddCommand(storageStorageManagerGetStorageVolumesIncludingSharedProfilesCmd)
-	storageStorageManagerGetUuidForPathCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	storageStorageManagerCmd.AddCommand(storageStorageManagerGetUuidForPathCmd)
-	storageStorageManagerIsAllocationSupportedCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	storageStorageManagerCmd.AddCommand(storageStorageManagerIsAllocationSupportedCmd)
-	storageStorageManagerIsCacheBehaviorGroupCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	storageStorageManagerCmd.AddCommand(storageStorageManagerIsCacheBehaviorGroupCmd)
-	storageStorageManagerIsCacheBehaviorTombstoneCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	storageStorageManagerCmd.AddCommand(storageStorageManagerIsCacheBehaviorTombstoneCmd)
-	storageStorageManagerCmd.AddCommand(storageStorageManagerIsCheckpointSupportedCmd)
-	storageStorageManagerIsEncryptedCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	storageStorageManagerCmd.AddCommand(storageStorageManagerIsEncryptedCmd)
-	storageStorageManagerIsObbMountedCmd.Flags().String("arg0", "", "arg0 (string)")
-	storageStorageManagerCmd.AddCommand(storageStorageManagerIsObbMountedCmd)
-	storageStorageManagerMountObbCmd.Flags().String("arg0", "", "arg0 (string)")
-	storageStorageManagerMountObbCmd.Flags().String("arg1", "", "arg1 (string)")
-	storageStorageManagerMountObbCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
-	storageStorageManagerCmd.AddCommand(storageStorageManagerMountObbCmd)
-	storageStorageManagerRegisterStorageVolumeCallbackCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	storageStorageManagerRegisterStorageVolumeCallbackCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	storageStorageManagerCmd.AddCommand(storageStorageManagerRegisterStorageVolumeCallbackCmd)
-	storageStorageManagerSetCacheBehaviorGroupCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	storageStorageManagerSetCacheBehaviorGroupCmd.Flags().Bool("arg1", false, "arg1 (bool)")
-	storageStorageManagerCmd.AddCommand(storageStorageManagerSetCacheBehaviorGroupCmd)
-	storageStorageManagerSetCacheBehaviorTombstoneCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	storageStorageManagerSetCacheBehaviorTombstoneCmd.Flags().Bool("arg1", false, "arg1 (bool)")
-	storageStorageManagerCmd.AddCommand(storageStorageManagerSetCacheBehaviorTombstoneCmd)
-	storageStorageManagerUnmountObbCmd.Flags().String("arg0", "", "arg0 (string)")
-	storageStorageManagerUnmountObbCmd.Flags().Bool("arg1", false, "arg1 (bool)")
-	storageStorageManagerUnmountObbCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
-	storageStorageManagerCmd.AddCommand(storageStorageManagerUnmountObbCmd)
-	storageStorageManagerUnregisterStorageVolumeCallbackCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	storageStorageManagerCmd.AddCommand(storageStorageManagerUnregisterStorageVolumeCallbackCmd)
-	storageCmd.AddCommand(storageStorageManagerCmd)
+	storageManagerAllocateBytes2Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	storageManagerAllocateBytes2Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	storageManagerCmd.AddCommand(storageManagerAllocateBytes2Cmd)
+	storageManagerAllocateBytes2_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	storageManagerAllocateBytes2_1Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	storageManagerCmd.AddCommand(storageManagerAllocateBytes2_1Cmd)
+	storageManagerGetAllocatableBytesCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	storageManagerCmd.AddCommand(storageManagerGetAllocatableBytesCmd)
+	storageManagerGetCacheQuotaBytesCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	storageManagerCmd.AddCommand(storageManagerGetCacheQuotaBytesCmd)
+	storageManagerGetCacheSizeBytesCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	storageManagerCmd.AddCommand(storageManagerGetCacheSizeBytesCmd)
+	storageManagerGetManageSpaceActivityIntentCmd.Flags().String("arg0", "", "arg0 (string)")
+	storageManagerGetManageSpaceActivityIntentCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	storageManagerCmd.AddCommand(storageManagerGetManageSpaceActivityIntentCmd)
+	storageManagerGetMountedObbPathCmd.Flags().String("arg0", "", "arg0 (string)")
+	storageManagerCmd.AddCommand(storageManagerGetMountedObbPathCmd)
+	storageManagerCmd.AddCommand(storageManagerGetPrimaryStorageVolumeCmd)
+	storageManagerCmd.AddCommand(storageManagerGetRecentStorageVolumesCmd)
+	storageManagerGetStorageVolume1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	storageManagerCmd.AddCommand(storageManagerGetStorageVolume1Cmd)
+	storageManagerGetStorageVolume1_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	storageManagerCmd.AddCommand(storageManagerGetStorageVolume1_1Cmd)
+	storageManagerCmd.AddCommand(storageManagerGetStorageVolumesCmd)
+	storageManagerCmd.AddCommand(storageManagerGetStorageVolumesIncludingSharedProfilesCmd)
+	storageManagerGetUuidForPathCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	storageManagerCmd.AddCommand(storageManagerGetUuidForPathCmd)
+	storageManagerIsAllocationSupportedCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	storageManagerCmd.AddCommand(storageManagerIsAllocationSupportedCmd)
+	storageManagerIsCacheBehaviorGroupCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	storageManagerCmd.AddCommand(storageManagerIsCacheBehaviorGroupCmd)
+	storageManagerIsCacheBehaviorTombstoneCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	storageManagerCmd.AddCommand(storageManagerIsCacheBehaviorTombstoneCmd)
+	storageManagerCmd.AddCommand(storageManagerIsCheckpointSupportedCmd)
+	storageManagerIsEncryptedCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	storageManagerCmd.AddCommand(storageManagerIsEncryptedCmd)
+	storageManagerIsObbMountedCmd.Flags().String("arg0", "", "arg0 (string)")
+	storageManagerCmd.AddCommand(storageManagerIsObbMountedCmd)
+	storageManagerMountObbCmd.Flags().String("arg0", "", "arg0 (string)")
+	storageManagerMountObbCmd.Flags().String("arg1", "", "arg1 (string)")
+	storageManagerMountObbCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	storageManagerCmd.AddCommand(storageManagerMountObbCmd)
+	storageManagerRegisterStorageVolumeCallbackCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	storageManagerRegisterStorageVolumeCallbackCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	storageManagerCmd.AddCommand(storageManagerRegisterStorageVolumeCallbackCmd)
+	storageManagerSetCacheBehaviorGroupCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	storageManagerSetCacheBehaviorGroupCmd.Flags().Bool("arg1", false, "arg1 (bool)")
+	storageManagerCmd.AddCommand(storageManagerSetCacheBehaviorGroupCmd)
+	storageManagerSetCacheBehaviorTombstoneCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	storageManagerSetCacheBehaviorTombstoneCmd.Flags().Bool("arg1", false, "arg1 (bool)")
+	storageManagerCmd.AddCommand(storageManagerSetCacheBehaviorTombstoneCmd)
+	storageManagerUnmountObbCmd.Flags().String("arg0", "", "arg0 (string)")
+	storageManagerUnmountObbCmd.Flags().Bool("arg1", false, "arg1 (bool)")
+	storageManagerUnmountObbCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	storageManagerCmd.AddCommand(storageManagerUnmountObbCmd)
+	storageManagerUnregisterStorageVolumeCallbackCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	storageManagerCmd.AddCommand(storageManagerUnregisterStorageVolumeCallbackCmd)
+	storageCmd.AddCommand(storageManagerCmd)
+	storageVolumeCreateAccessIntentCmd.Flags().String("arg0", "", "arg0 (string)")
+	storageVolumeCmd.AddCommand(storageVolumeCreateAccessIntentCmd)
+	storageVolumeCmd.AddCommand(storageVolumeCreateOpenDocumentTreeIntentCmd)
+	storageVolumeCmd.AddCommand(storageVolumeDescribeContentsCmd)
+	storageVolumeEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	storageVolumeCmd.AddCommand(storageVolumeEqualsCmd)
+	storageVolumeGetDescriptionCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	storageVolumeCmd.AddCommand(storageVolumeGetDescriptionCmd)
+	storageVolumeCmd.AddCommand(storageVolumeGetDirectoryCmd)
+	storageVolumeCmd.AddCommand(storageVolumeGetMediaStoreVolumeNameCmd)
+	storageVolumeCmd.AddCommand(storageVolumeGetOwnerCmd)
+	storageVolumeCmd.AddCommand(storageVolumeGetStateCmd)
+	storageVolumeCmd.AddCommand(storageVolumeGetStorageUuidCmd)
+	storageVolumeCmd.AddCommand(storageVolumeGetUuidCmd)
+	storageVolumeCmd.AddCommand(storageVolumeHashCodeCmd)
+	storageVolumeCmd.AddCommand(storageVolumeIsEmulatedCmd)
+	storageVolumeCmd.AddCommand(storageVolumeIsPrimaryCmd)
+	storageVolumeCmd.AddCommand(storageVolumeIsRemovableCmd)
+	storageVolumeCmd.AddCommand(storageVolumeToStringCmd)
+	storageVolumeWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	storageVolumeWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	storageVolumeCmd.AddCommand(storageVolumeWriteToParcelCmd)
+	storageCmd.AddCommand(storageVolumeCmd)
 	rootCmd.AddCommand(storageCmd)
 }

@@ -7,23 +7,23 @@ import (
 
 	"github.com/AndroidGoLab/jni"
 
-	"github.com/AndroidGoLab/jni/app"
 	"github.com/AndroidGoLab/jni-proxy/handlestore"
 	pb "github.com/AndroidGoLab/jni-proxy/proto/telephony"
+	"github.com/AndroidGoLab/jni/app"
 	jnipkg "github.com/AndroidGoLab/jni/telephony"
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"
 )
 
-// TelephonyManagerServer implements pb.TelephonyManagerServiceServer.
-type TelephonyManagerServer struct {
-	pb.UnimplementedTelephonyManagerServiceServer
+// ManagerServer implements pb.ManagerServiceServer.
+type ManagerServer struct {
+	pb.UnimplementedManagerServiceServer
 	Ctx     *app.Context
 	Handles *handlestore.HandleStore
 }
 
-func (s *TelephonyManagerServer) CanChangeDtmfToneLength(_ context.Context, req *pb.CanChangeDtmfToneLengthRequest) (*pb.CanChangeDtmfToneLengthResponse, error) {
-	mgr, err := jnipkg.NewtelephonyManager(s.Ctx)
+func (s *ManagerServer) CanChangeDtmfToneLength(_ context.Context, req *pb.CanChangeDtmfToneLengthRequest) (*pb.CanChangeDtmfToneLengthResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -36,8 +36,8 @@ func (s *TelephonyManagerServer) CanChangeDtmfToneLength(_ context.Context, req 
 	return &pb.CanChangeDtmfToneLengthResponse{Result: result}, nil
 }
 
-func (s *TelephonyManagerServer) ClearSignalStrengthUpdateRequest(_ context.Context, req *pb.ClearSignalStrengthUpdateRequestRequest) (*pb.ClearSignalStrengthUpdateRequestResponse, error) {
-	mgr, err := jnipkg.NewtelephonyManager(s.Ctx)
+func (s *ManagerServer) ClearSignalStrengthUpdateRequest(_ context.Context, req *pb.ClearSignalStrengthUpdateRequestRequest) (*pb.ClearSignalStrengthUpdateRequestResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -49,8 +49,8 @@ func (s *TelephonyManagerServer) ClearSignalStrengthUpdateRequest(_ context.Cont
 	return &pb.ClearSignalStrengthUpdateRequestResponse{}, nil
 }
 
-func (s *TelephonyManagerServer) CreateForPhoneAccountHandle(_ context.Context, req *pb.CreateForPhoneAccountHandleRequest) (*pb.CreateForPhoneAccountHandleResponse, error) {
-	mgr, err := jnipkg.NewtelephonyManager(s.Ctx)
+func (s *ManagerServer) CreateForPhoneAccountHandle(_ context.Context, req *pb.CreateForPhoneAccountHandleRequest) (*pb.CreateForPhoneAccountHandleResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -72,8 +72,8 @@ func (s *TelephonyManagerServer) CreateForPhoneAccountHandle(_ context.Context, 
 	return &pb.CreateForPhoneAccountHandleResponse{Result: handle}, nil
 }
 
-func (s *TelephonyManagerServer) CreateForSubscriptionId(_ context.Context, req *pb.CreateForSubscriptionIdRequest) (*pb.CreateForSubscriptionIdResponse, error) {
-	mgr, err := jnipkg.NewtelephonyManager(s.Ctx)
+func (s *ManagerServer) CreateForSubscriptionId(_ context.Context, req *pb.CreateForSubscriptionIdRequest) (*pb.CreateForSubscriptionIdResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -95,8 +95,8 @@ func (s *TelephonyManagerServer) CreateForSubscriptionId(_ context.Context, req 
 	return &pb.CreateForSubscriptionIdResponse{Result: handle}, nil
 }
 
-func (s *TelephonyManagerServer) DoesSwitchMultiSimConfigTriggerReboot(_ context.Context, req *pb.DoesSwitchMultiSimConfigTriggerRebootRequest) (*pb.DoesSwitchMultiSimConfigTriggerRebootResponse, error) {
-	mgr, err := jnipkg.NewtelephonyManager(s.Ctx)
+func (s *ManagerServer) DoesSwitchMultiSimConfigTriggerReboot(_ context.Context, req *pb.DoesSwitchMultiSimConfigTriggerRebootRequest) (*pb.DoesSwitchMultiSimConfigTriggerRebootResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -109,8 +109,8 @@ func (s *TelephonyManagerServer) DoesSwitchMultiSimConfigTriggerReboot(_ context
 	return &pb.DoesSwitchMultiSimConfigTriggerRebootResponse{Result: result}, nil
 }
 
-func (s *TelephonyManagerServer) GetActiveModemCount(_ context.Context, req *pb.GetActiveModemCountRequest) (*pb.GetActiveModemCountResponse, error) {
-	mgr, err := jnipkg.NewtelephonyManager(s.Ctx)
+func (s *ManagerServer) GetActiveModemCount(_ context.Context, req *pb.GetActiveModemCountRequest) (*pb.GetActiveModemCountResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -123,8 +123,8 @@ func (s *TelephonyManagerServer) GetActiveModemCount(_ context.Context, req *pb.
 	return &pb.GetActiveModemCountResponse{Result: result}, nil
 }
 
-func (s *TelephonyManagerServer) GetAllCellInfo(_ context.Context, req *pb.GetAllCellInfoRequest) (*pb.GetAllCellInfoResponse, error) {
-	mgr, err := jnipkg.NewtelephonyManager(s.Ctx)
+func (s *ManagerServer) GetAllCellInfo(_ context.Context, req *pb.GetAllCellInfoRequest) (*pb.GetAllCellInfoResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -146,8 +146,8 @@ func (s *TelephonyManagerServer) GetAllCellInfo(_ context.Context, req *pb.GetAl
 	return &pb.GetAllCellInfoResponse{Result: handle}, nil
 }
 
-func (s *TelephonyManagerServer) GetAllowedNetworkTypesForReason(_ context.Context, req *pb.GetAllowedNetworkTypesForReasonRequest) (*pb.GetAllowedNetworkTypesForReasonResponse, error) {
-	mgr, err := jnipkg.NewtelephonyManager(s.Ctx)
+func (s *ManagerServer) GetAllowedNetworkTypesForReason(_ context.Context, req *pb.GetAllowedNetworkTypesForReasonRequest) (*pb.GetAllowedNetworkTypesForReasonResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -160,8 +160,8 @@ func (s *TelephonyManagerServer) GetAllowedNetworkTypesForReason(_ context.Conte
 	return &pb.GetAllowedNetworkTypesForReasonResponse{Result: result}, nil
 }
 
-func (s *TelephonyManagerServer) GetCallComposerStatus(_ context.Context, req *pb.GetCallComposerStatusRequest) (*pb.GetCallComposerStatusResponse, error) {
-	mgr, err := jnipkg.NewtelephonyManager(s.Ctx)
+func (s *ManagerServer) GetCallComposerStatus(_ context.Context, req *pb.GetCallComposerStatusRequest) (*pb.GetCallComposerStatusResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -174,8 +174,8 @@ func (s *TelephonyManagerServer) GetCallComposerStatus(_ context.Context, req *p
 	return &pb.GetCallComposerStatusResponse{Result: result}, nil
 }
 
-func (s *TelephonyManagerServer) GetCallState(_ context.Context, req *pb.GetCallStateRequest) (*pb.GetCallStateResponse, error) {
-	mgr, err := jnipkg.NewtelephonyManager(s.Ctx)
+func (s *ManagerServer) GetCallState(_ context.Context, req *pb.GetCallStateRequest) (*pb.GetCallStateResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -188,8 +188,8 @@ func (s *TelephonyManagerServer) GetCallState(_ context.Context, req *pb.GetCall
 	return &pb.GetCallStateResponse{Result: result}, nil
 }
 
-func (s *TelephonyManagerServer) GetCallStateForSubscription(_ context.Context, req *pb.GetCallStateForSubscriptionRequest) (*pb.GetCallStateForSubscriptionResponse, error) {
-	mgr, err := jnipkg.NewtelephonyManager(s.Ctx)
+func (s *ManagerServer) GetCallStateForSubscription(_ context.Context, req *pb.GetCallStateForSubscriptionRequest) (*pb.GetCallStateForSubscriptionResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -202,8 +202,8 @@ func (s *TelephonyManagerServer) GetCallStateForSubscription(_ context.Context, 
 	return &pb.GetCallStateForSubscriptionResponse{Result: result}, nil
 }
 
-func (s *TelephonyManagerServer) GetCardIdForDefaultEuicc(_ context.Context, req *pb.GetCardIdForDefaultEuiccRequest) (*pb.GetCardIdForDefaultEuiccResponse, error) {
-	mgr, err := jnipkg.NewtelephonyManager(s.Ctx)
+func (s *ManagerServer) GetCardIdForDefaultEuicc(_ context.Context, req *pb.GetCardIdForDefaultEuiccRequest) (*pb.GetCardIdForDefaultEuiccResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -216,8 +216,8 @@ func (s *TelephonyManagerServer) GetCardIdForDefaultEuicc(_ context.Context, req
 	return &pb.GetCardIdForDefaultEuiccResponse{Result: result}, nil
 }
 
-func (s *TelephonyManagerServer) GetCarrierConfig(_ context.Context, req *pb.GetCarrierConfigRequest) (*pb.GetCarrierConfigResponse, error) {
-	mgr, err := jnipkg.NewtelephonyManager(s.Ctx)
+func (s *ManagerServer) GetCarrierConfig(_ context.Context, req *pb.GetCarrierConfigRequest) (*pb.GetCarrierConfigResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -239,8 +239,8 @@ func (s *TelephonyManagerServer) GetCarrierConfig(_ context.Context, req *pb.Get
 	return &pb.GetCarrierConfigResponse{Result: handle}, nil
 }
 
-func (s *TelephonyManagerServer) GetCarrierIdFromSimMccMnc(_ context.Context, req *pb.GetCarrierIdFromSimMccMncRequest) (*pb.GetCarrierIdFromSimMccMncResponse, error) {
-	mgr, err := jnipkg.NewtelephonyManager(s.Ctx)
+func (s *ManagerServer) GetCarrierIdFromSimMccMnc(_ context.Context, req *pb.GetCarrierIdFromSimMccMncRequest) (*pb.GetCarrierIdFromSimMccMncResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -253,8 +253,8 @@ func (s *TelephonyManagerServer) GetCarrierIdFromSimMccMnc(_ context.Context, re
 	return &pb.GetCarrierIdFromSimMccMncResponse{Result: result}, nil
 }
 
-func (s *TelephonyManagerServer) GetCarrierRestrictionStatus(_ context.Context, req *pb.GetCarrierRestrictionStatusRequest) (*pb.GetCarrierRestrictionStatusResponse, error) {
-	mgr, err := jnipkg.NewtelephonyManager(s.Ctx)
+func (s *ManagerServer) GetCarrierRestrictionStatus(_ context.Context, req *pb.GetCarrierRestrictionStatusRequest) (*pb.GetCarrierRestrictionStatusResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -266,8 +266,8 @@ func (s *TelephonyManagerServer) GetCarrierRestrictionStatus(_ context.Context, 
 	return &pb.GetCarrierRestrictionStatusResponse{}, nil
 }
 
-func (s *TelephonyManagerServer) GetCellLocation(_ context.Context, req *pb.GetCellLocationRequest) (*pb.GetCellLocationResponse, error) {
-	mgr, err := jnipkg.NewtelephonyManager(s.Ctx)
+func (s *ManagerServer) GetCellLocation(_ context.Context, req *pb.GetCellLocationRequest) (*pb.GetCellLocationResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -289,8 +289,8 @@ func (s *TelephonyManagerServer) GetCellLocation(_ context.Context, req *pb.GetC
 	return &pb.GetCellLocationResponse{Result: handle}, nil
 }
 
-func (s *TelephonyManagerServer) GetDataActivity(_ context.Context, req *pb.GetDataActivityRequest) (*pb.GetDataActivityResponse, error) {
-	mgr, err := jnipkg.NewtelephonyManager(s.Ctx)
+func (s *ManagerServer) GetDataActivity(_ context.Context, req *pb.GetDataActivityRequest) (*pb.GetDataActivityResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -303,8 +303,8 @@ func (s *TelephonyManagerServer) GetDataActivity(_ context.Context, req *pb.GetD
 	return &pb.GetDataActivityResponse{Result: result}, nil
 }
 
-func (s *TelephonyManagerServer) GetDataNetworkType(_ context.Context, req *pb.GetDataNetworkTypeRequest) (*pb.GetDataNetworkTypeResponse, error) {
-	mgr, err := jnipkg.NewtelephonyManager(s.Ctx)
+func (s *ManagerServer) GetDataNetworkType(_ context.Context, req *pb.GetDataNetworkTypeRequest) (*pb.GetDataNetworkTypeResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -317,8 +317,8 @@ func (s *TelephonyManagerServer) GetDataNetworkType(_ context.Context, req *pb.G
 	return &pb.GetDataNetworkTypeResponse{Result: result}, nil
 }
 
-func (s *TelephonyManagerServer) GetDataState(_ context.Context, req *pb.GetDataStateRequest) (*pb.GetDataStateResponse, error) {
-	mgr, err := jnipkg.NewtelephonyManager(s.Ctx)
+func (s *ManagerServer) GetDataState(_ context.Context, req *pb.GetDataStateRequest) (*pb.GetDataStateResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -331,8 +331,8 @@ func (s *TelephonyManagerServer) GetDataState(_ context.Context, req *pb.GetData
 	return &pb.GetDataStateResponse{Result: result}, nil
 }
 
-func (s *TelephonyManagerServer) GetDeviceId0(_ context.Context, req *pb.GetDeviceId0Request) (*pb.GetDeviceId0Response, error) {
-	mgr, err := jnipkg.NewtelephonyManager(s.Ctx)
+func (s *ManagerServer) GetDeviceId0(_ context.Context, req *pb.GetDeviceId0Request) (*pb.GetDeviceId0Response, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -345,8 +345,8 @@ func (s *TelephonyManagerServer) GetDeviceId0(_ context.Context, req *pb.GetDevi
 	return &pb.GetDeviceId0Response{Result: result}, nil
 }
 
-func (s *TelephonyManagerServer) GetDeviceId1_1(_ context.Context, req *pb.GetDeviceId1_1Request) (*pb.GetDeviceId1_1Response, error) {
-	mgr, err := jnipkg.NewtelephonyManager(s.Ctx)
+func (s *ManagerServer) GetDeviceId1_1(_ context.Context, req *pb.GetDeviceId1_1Request) (*pb.GetDeviceId1_1Response, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -359,8 +359,8 @@ func (s *TelephonyManagerServer) GetDeviceId1_1(_ context.Context, req *pb.GetDe
 	return &pb.GetDeviceId1_1Response{Result: result}, nil
 }
 
-func (s *TelephonyManagerServer) GetDeviceSoftwareVersion(_ context.Context, req *pb.GetDeviceSoftwareVersionRequest) (*pb.GetDeviceSoftwareVersionResponse, error) {
-	mgr, err := jnipkg.NewtelephonyManager(s.Ctx)
+func (s *ManagerServer) GetDeviceSoftwareVersion(_ context.Context, req *pb.GetDeviceSoftwareVersionRequest) (*pb.GetDeviceSoftwareVersionResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -373,8 +373,8 @@ func (s *TelephonyManagerServer) GetDeviceSoftwareVersion(_ context.Context, req
 	return &pb.GetDeviceSoftwareVersionResponse{Result: result}, nil
 }
 
-func (s *TelephonyManagerServer) GetEquivalentHomePlmns(_ context.Context, req *pb.GetEquivalentHomePlmnsRequest) (*pb.GetEquivalentHomePlmnsResponse, error) {
-	mgr, err := jnipkg.NewtelephonyManager(s.Ctx)
+func (s *ManagerServer) GetEquivalentHomePlmns(_ context.Context, req *pb.GetEquivalentHomePlmnsRequest) (*pb.GetEquivalentHomePlmnsResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -396,8 +396,8 @@ func (s *TelephonyManagerServer) GetEquivalentHomePlmns(_ context.Context, req *
 	return &pb.GetEquivalentHomePlmnsResponse{Result: handle}, nil
 }
 
-func (s *TelephonyManagerServer) GetForbiddenPlmns(_ context.Context, req *pb.GetForbiddenPlmnsRequest) (*pb.GetForbiddenPlmnsResponse, error) {
-	mgr, err := jnipkg.NewtelephonyManager(s.Ctx)
+func (s *ManagerServer) GetForbiddenPlmns(_ context.Context, req *pb.GetForbiddenPlmnsRequest) (*pb.GetForbiddenPlmnsResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -419,8 +419,8 @@ func (s *TelephonyManagerServer) GetForbiddenPlmns(_ context.Context, req *pb.Ge
 	return &pb.GetForbiddenPlmnsResponse{Result: handle}, nil
 }
 
-func (s *TelephonyManagerServer) GetGroupIdLevel1(_ context.Context, req *pb.GetGroupIdLevel1Request) (*pb.GetGroupIdLevel1Response, error) {
-	mgr, err := jnipkg.NewtelephonyManager(s.Ctx)
+func (s *ManagerServer) GetGroupIdLevel1(_ context.Context, req *pb.GetGroupIdLevel1Request) (*pb.GetGroupIdLevel1Response, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -433,8 +433,8 @@ func (s *TelephonyManagerServer) GetGroupIdLevel1(_ context.Context, req *pb.Get
 	return &pb.GetGroupIdLevel1Response{Result: result}, nil
 }
 
-func (s *TelephonyManagerServer) GetIccAuthentication(_ context.Context, req *pb.GetIccAuthenticationRequest) (*pb.GetIccAuthenticationResponse, error) {
-	mgr, err := jnipkg.NewtelephonyManager(s.Ctx)
+func (s *ManagerServer) GetIccAuthentication(_ context.Context, req *pb.GetIccAuthenticationRequest) (*pb.GetIccAuthenticationResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -447,8 +447,8 @@ func (s *TelephonyManagerServer) GetIccAuthentication(_ context.Context, req *pb
 	return &pb.GetIccAuthenticationResponse{Result: result}, nil
 }
 
-func (s *TelephonyManagerServer) GetImei0(_ context.Context, req *pb.GetImei0Request) (*pb.GetImei0Response, error) {
-	mgr, err := jnipkg.NewtelephonyManager(s.Ctx)
+func (s *ManagerServer) GetImei0(_ context.Context, req *pb.GetImei0Request) (*pb.GetImei0Response, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -461,8 +461,8 @@ func (s *TelephonyManagerServer) GetImei0(_ context.Context, req *pb.GetImei0Req
 	return &pb.GetImei0Response{Result: result}, nil
 }
 
-func (s *TelephonyManagerServer) GetImei1_1(_ context.Context, req *pb.GetImei1_1Request) (*pb.GetImei1_1Response, error) {
-	mgr, err := jnipkg.NewtelephonyManager(s.Ctx)
+func (s *ManagerServer) GetImei1_1(_ context.Context, req *pb.GetImei1_1Request) (*pb.GetImei1_1Response, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -475,8 +475,8 @@ func (s *TelephonyManagerServer) GetImei1_1(_ context.Context, req *pb.GetImei1_
 	return &pb.GetImei1_1Response{Result: result}, nil
 }
 
-func (s *TelephonyManagerServer) GetLine1Number(_ context.Context, req *pb.GetLine1NumberRequest) (*pb.GetLine1NumberResponse, error) {
-	mgr, err := jnipkg.NewtelephonyManager(s.Ctx)
+func (s *ManagerServer) GetLine1Number(_ context.Context, req *pb.GetLine1NumberRequest) (*pb.GetLine1NumberResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -489,8 +489,8 @@ func (s *TelephonyManagerServer) GetLine1Number(_ context.Context, req *pb.GetLi
 	return &pb.GetLine1NumberResponse{Result: result}, nil
 }
 
-func (s *TelephonyManagerServer) GetManualNetworkSelectionPlmn(_ context.Context, req *pb.GetManualNetworkSelectionPlmnRequest) (*pb.GetManualNetworkSelectionPlmnResponse, error) {
-	mgr, err := jnipkg.NewtelephonyManager(s.Ctx)
+func (s *ManagerServer) GetManualNetworkSelectionPlmn(_ context.Context, req *pb.GetManualNetworkSelectionPlmnRequest) (*pb.GetManualNetworkSelectionPlmnResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -503,8 +503,8 @@ func (s *TelephonyManagerServer) GetManualNetworkSelectionPlmn(_ context.Context
 	return &pb.GetManualNetworkSelectionPlmnResponse{Result: result}, nil
 }
 
-func (s *TelephonyManagerServer) GetManufacturerCode0(_ context.Context, req *pb.GetManufacturerCode0Request) (*pb.GetManufacturerCode0Response, error) {
-	mgr, err := jnipkg.NewtelephonyManager(s.Ctx)
+func (s *ManagerServer) GetManufacturerCode0(_ context.Context, req *pb.GetManufacturerCode0Request) (*pb.GetManufacturerCode0Response, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -517,8 +517,8 @@ func (s *TelephonyManagerServer) GetManufacturerCode0(_ context.Context, req *pb
 	return &pb.GetManufacturerCode0Response{Result: result}, nil
 }
 
-func (s *TelephonyManagerServer) GetManufacturerCode1_1(_ context.Context, req *pb.GetManufacturerCode1_1Request) (*pb.GetManufacturerCode1_1Response, error) {
-	mgr, err := jnipkg.NewtelephonyManager(s.Ctx)
+func (s *ManagerServer) GetManufacturerCode1_1(_ context.Context, req *pb.GetManufacturerCode1_1Request) (*pb.GetManufacturerCode1_1Response, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -531,8 +531,8 @@ func (s *TelephonyManagerServer) GetManufacturerCode1_1(_ context.Context, req *
 	return &pb.GetManufacturerCode1_1Response{Result: result}, nil
 }
 
-func (s *TelephonyManagerServer) GetMeid0(_ context.Context, req *pb.GetMeid0Request) (*pb.GetMeid0Response, error) {
-	mgr, err := jnipkg.NewtelephonyManager(s.Ctx)
+func (s *ManagerServer) GetMeid0(_ context.Context, req *pb.GetMeid0Request) (*pb.GetMeid0Response, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -545,8 +545,8 @@ func (s *TelephonyManagerServer) GetMeid0(_ context.Context, req *pb.GetMeid0Req
 	return &pb.GetMeid0Response{Result: result}, nil
 }
 
-func (s *TelephonyManagerServer) GetMeid1_1(_ context.Context, req *pb.GetMeid1_1Request) (*pb.GetMeid1_1Response, error) {
-	mgr, err := jnipkg.NewtelephonyManager(s.Ctx)
+func (s *ManagerServer) GetMeid1_1(_ context.Context, req *pb.GetMeid1_1Request) (*pb.GetMeid1_1Response, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -559,8 +559,8 @@ func (s *TelephonyManagerServer) GetMeid1_1(_ context.Context, req *pb.GetMeid1_
 	return &pb.GetMeid1_1Response{Result: result}, nil
 }
 
-func (s *TelephonyManagerServer) GetMmsUAProfUrl(_ context.Context, req *pb.GetMmsUAProfUrlRequest) (*pb.GetMmsUAProfUrlResponse, error) {
-	mgr, err := jnipkg.NewtelephonyManager(s.Ctx)
+func (s *ManagerServer) GetMmsUAProfUrl(_ context.Context, req *pb.GetMmsUAProfUrlRequest) (*pb.GetMmsUAProfUrlResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -573,8 +573,8 @@ func (s *TelephonyManagerServer) GetMmsUAProfUrl(_ context.Context, req *pb.GetM
 	return &pb.GetMmsUAProfUrlResponse{Result: result}, nil
 }
 
-func (s *TelephonyManagerServer) GetMmsUserAgent(_ context.Context, req *pb.GetMmsUserAgentRequest) (*pb.GetMmsUserAgentResponse, error) {
-	mgr, err := jnipkg.NewtelephonyManager(s.Ctx)
+func (s *ManagerServer) GetMmsUserAgent(_ context.Context, req *pb.GetMmsUserAgentRequest) (*pb.GetMmsUserAgentResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -587,8 +587,8 @@ func (s *TelephonyManagerServer) GetMmsUserAgent(_ context.Context, req *pb.GetM
 	return &pb.GetMmsUserAgentResponse{Result: result}, nil
 }
 
-func (s *TelephonyManagerServer) GetNai(_ context.Context, req *pb.GetNaiRequest) (*pb.GetNaiResponse, error) {
-	mgr, err := jnipkg.NewtelephonyManager(s.Ctx)
+func (s *ManagerServer) GetNai(_ context.Context, req *pb.GetNaiRequest) (*pb.GetNaiResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -601,8 +601,8 @@ func (s *TelephonyManagerServer) GetNai(_ context.Context, req *pb.GetNaiRequest
 	return &pb.GetNaiResponse{Result: result}, nil
 }
 
-func (s *TelephonyManagerServer) GetNetworkCountryIso0(_ context.Context, req *pb.GetNetworkCountryIso0Request) (*pb.GetNetworkCountryIso0Response, error) {
-	mgr, err := jnipkg.NewtelephonyManager(s.Ctx)
+func (s *ManagerServer) GetNetworkCountryIso0(_ context.Context, req *pb.GetNetworkCountryIso0Request) (*pb.GetNetworkCountryIso0Response, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -615,8 +615,8 @@ func (s *TelephonyManagerServer) GetNetworkCountryIso0(_ context.Context, req *p
 	return &pb.GetNetworkCountryIso0Response{Result: result}, nil
 }
 
-func (s *TelephonyManagerServer) GetNetworkCountryIso1_1(_ context.Context, req *pb.GetNetworkCountryIso1_1Request) (*pb.GetNetworkCountryIso1_1Response, error) {
-	mgr, err := jnipkg.NewtelephonyManager(s.Ctx)
+func (s *ManagerServer) GetNetworkCountryIso1_1(_ context.Context, req *pb.GetNetworkCountryIso1_1Request) (*pb.GetNetworkCountryIso1_1Response, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -629,8 +629,8 @@ func (s *TelephonyManagerServer) GetNetworkCountryIso1_1(_ context.Context, req 
 	return &pb.GetNetworkCountryIso1_1Response{Result: result}, nil
 }
 
-func (s *TelephonyManagerServer) GetNetworkOperator(_ context.Context, req *pb.GetNetworkOperatorRequest) (*pb.GetNetworkOperatorResponse, error) {
-	mgr, err := jnipkg.NewtelephonyManager(s.Ctx)
+func (s *ManagerServer) GetNetworkOperator(_ context.Context, req *pb.GetNetworkOperatorRequest) (*pb.GetNetworkOperatorResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -643,8 +643,8 @@ func (s *TelephonyManagerServer) GetNetworkOperator(_ context.Context, req *pb.G
 	return &pb.GetNetworkOperatorResponse{Result: result}, nil
 }
 
-func (s *TelephonyManagerServer) GetNetworkOperatorName(_ context.Context, req *pb.GetNetworkOperatorNameRequest) (*pb.GetNetworkOperatorNameResponse, error) {
-	mgr, err := jnipkg.NewtelephonyManager(s.Ctx)
+func (s *ManagerServer) GetNetworkOperatorName(_ context.Context, req *pb.GetNetworkOperatorNameRequest) (*pb.GetNetworkOperatorNameResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -657,8 +657,8 @@ func (s *TelephonyManagerServer) GetNetworkOperatorName(_ context.Context, req *
 	return &pb.GetNetworkOperatorNameResponse{Result: result}, nil
 }
 
-func (s *TelephonyManagerServer) GetNetworkSelectionMode(_ context.Context, req *pb.GetNetworkSelectionModeRequest) (*pb.GetNetworkSelectionModeResponse, error) {
-	mgr, err := jnipkg.NewtelephonyManager(s.Ctx)
+func (s *ManagerServer) GetNetworkSelectionMode(_ context.Context, req *pb.GetNetworkSelectionModeRequest) (*pb.GetNetworkSelectionModeResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -671,8 +671,8 @@ func (s *TelephonyManagerServer) GetNetworkSelectionMode(_ context.Context, req 
 	return &pb.GetNetworkSelectionModeResponse{Result: result}, nil
 }
 
-func (s *TelephonyManagerServer) GetNetworkSlicingConfiguration(_ context.Context, req *pb.GetNetworkSlicingConfigurationRequest) (*pb.GetNetworkSlicingConfigurationResponse, error) {
-	mgr, err := jnipkg.NewtelephonyManager(s.Ctx)
+func (s *ManagerServer) GetNetworkSlicingConfiguration(_ context.Context, req *pb.GetNetworkSlicingConfigurationRequest) (*pb.GetNetworkSlicingConfigurationResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -684,8 +684,8 @@ func (s *TelephonyManagerServer) GetNetworkSlicingConfiguration(_ context.Contex
 	return &pb.GetNetworkSlicingConfigurationResponse{}, nil
 }
 
-func (s *TelephonyManagerServer) GetNetworkSpecifier(_ context.Context, req *pb.GetNetworkSpecifierRequest) (*pb.GetNetworkSpecifierResponse, error) {
-	mgr, err := jnipkg.NewtelephonyManager(s.Ctx)
+func (s *ManagerServer) GetNetworkSpecifier(_ context.Context, req *pb.GetNetworkSpecifierRequest) (*pb.GetNetworkSpecifierResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -698,8 +698,8 @@ func (s *TelephonyManagerServer) GetNetworkSpecifier(_ context.Context, req *pb.
 	return &pb.GetNetworkSpecifierResponse{Result: result}, nil
 }
 
-func (s *TelephonyManagerServer) GetNetworkType(_ context.Context, req *pb.GetNetworkTypeRequest) (*pb.GetNetworkTypeResponse, error) {
-	mgr, err := jnipkg.NewtelephonyManager(s.Ctx)
+func (s *ManagerServer) GetNetworkType(_ context.Context, req *pb.GetNetworkTypeRequest) (*pb.GetNetworkTypeResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -712,8 +712,8 @@ func (s *TelephonyManagerServer) GetNetworkType(_ context.Context, req *pb.GetNe
 	return &pb.GetNetworkTypeResponse{Result: result}, nil
 }
 
-func (s *TelephonyManagerServer) GetPhoneAccountHandle(_ context.Context, req *pb.GetPhoneAccountHandleRequest) (*pb.GetPhoneAccountHandleResponse, error) {
-	mgr, err := jnipkg.NewtelephonyManager(s.Ctx)
+func (s *ManagerServer) GetPhoneAccountHandle(_ context.Context, req *pb.GetPhoneAccountHandleRequest) (*pb.GetPhoneAccountHandleResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -735,8 +735,8 @@ func (s *TelephonyManagerServer) GetPhoneAccountHandle(_ context.Context, req *p
 	return &pb.GetPhoneAccountHandleResponse{Result: handle}, nil
 }
 
-func (s *TelephonyManagerServer) GetPhoneCount(_ context.Context, req *pb.GetPhoneCountRequest) (*pb.GetPhoneCountResponse, error) {
-	mgr, err := jnipkg.NewtelephonyManager(s.Ctx)
+func (s *ManagerServer) GetPhoneCount(_ context.Context, req *pb.GetPhoneCountRequest) (*pb.GetPhoneCountResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -749,8 +749,8 @@ func (s *TelephonyManagerServer) GetPhoneCount(_ context.Context, req *pb.GetPho
 	return &pb.GetPhoneCountResponse{Result: result}, nil
 }
 
-func (s *TelephonyManagerServer) GetPhoneType(_ context.Context, req *pb.GetPhoneTypeRequest) (*pb.GetPhoneTypeResponse, error) {
-	mgr, err := jnipkg.NewtelephonyManager(s.Ctx)
+func (s *ManagerServer) GetPhoneType(_ context.Context, req *pb.GetPhoneTypeRequest) (*pb.GetPhoneTypeResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -763,8 +763,8 @@ func (s *TelephonyManagerServer) GetPhoneType(_ context.Context, req *pb.GetPhon
 	return &pb.GetPhoneTypeResponse{Result: result}, nil
 }
 
-func (s *TelephonyManagerServer) GetPreferredOpportunisticDataSubscription(_ context.Context, req *pb.GetPreferredOpportunisticDataSubscriptionRequest) (*pb.GetPreferredOpportunisticDataSubscriptionResponse, error) {
-	mgr, err := jnipkg.NewtelephonyManager(s.Ctx)
+func (s *ManagerServer) GetPreferredOpportunisticDataSubscription(_ context.Context, req *pb.GetPreferredOpportunisticDataSubscriptionRequest) (*pb.GetPreferredOpportunisticDataSubscriptionResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -777,8 +777,8 @@ func (s *TelephonyManagerServer) GetPreferredOpportunisticDataSubscription(_ con
 	return &pb.GetPreferredOpportunisticDataSubscriptionResponse{Result: result}, nil
 }
 
-func (s *TelephonyManagerServer) GetPrimaryImei(_ context.Context, req *pb.GetPrimaryImeiRequest) (*pb.GetPrimaryImeiResponse, error) {
-	mgr, err := jnipkg.NewtelephonyManager(s.Ctx)
+func (s *ManagerServer) GetPrimaryImei(_ context.Context, req *pb.GetPrimaryImeiRequest) (*pb.GetPrimaryImeiResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -791,8 +791,8 @@ func (s *TelephonyManagerServer) GetPrimaryImei(_ context.Context, req *pb.GetPr
 	return &pb.GetPrimaryImeiResponse{Result: result}, nil
 }
 
-func (s *TelephonyManagerServer) GetServiceState0(_ context.Context, req *pb.GetServiceState0Request) (*pb.GetServiceState0Response, error) {
-	mgr, err := jnipkg.NewtelephonyManager(s.Ctx)
+func (s *ManagerServer) GetServiceState0(_ context.Context, req *pb.GetServiceState0Request) (*pb.GetServiceState0Response, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -814,8 +814,8 @@ func (s *TelephonyManagerServer) GetServiceState0(_ context.Context, req *pb.Get
 	return &pb.GetServiceState0Response{Result: handle}, nil
 }
 
-func (s *TelephonyManagerServer) GetServiceState1_1(_ context.Context, req *pb.GetServiceState1_1Request) (*pb.GetServiceState1_1Response, error) {
-	mgr, err := jnipkg.NewtelephonyManager(s.Ctx)
+func (s *ManagerServer) GetServiceState1_1(_ context.Context, req *pb.GetServiceState1_1Request) (*pb.GetServiceState1_1Response, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -837,8 +837,8 @@ func (s *TelephonyManagerServer) GetServiceState1_1(_ context.Context, req *pb.G
 	return &pb.GetServiceState1_1Response{Result: handle}, nil
 }
 
-func (s *TelephonyManagerServer) GetSignalStrength(_ context.Context, req *pb.GetSignalStrengthRequest) (*pb.GetSignalStrengthResponse, error) {
-	mgr, err := jnipkg.NewtelephonyManager(s.Ctx)
+func (s *ManagerServer) GetSignalStrength(_ context.Context, req *pb.GetSignalStrengthRequest) (*pb.GetSignalStrengthResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -860,8 +860,8 @@ func (s *TelephonyManagerServer) GetSignalStrength(_ context.Context, req *pb.Ge
 	return &pb.GetSignalStrengthResponse{Result: handle}, nil
 }
 
-func (s *TelephonyManagerServer) GetSimCarrierId(_ context.Context, req *pb.GetSimCarrierIdRequest) (*pb.GetSimCarrierIdResponse, error) {
-	mgr, err := jnipkg.NewtelephonyManager(s.Ctx)
+func (s *ManagerServer) GetSimCarrierId(_ context.Context, req *pb.GetSimCarrierIdRequest) (*pb.GetSimCarrierIdResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -874,8 +874,8 @@ func (s *TelephonyManagerServer) GetSimCarrierId(_ context.Context, req *pb.GetS
 	return &pb.GetSimCarrierIdResponse{Result: result}, nil
 }
 
-func (s *TelephonyManagerServer) GetSimCarrierIdName(_ context.Context, req *pb.GetSimCarrierIdNameRequest) (*pb.GetSimCarrierIdNameResponse, error) {
-	mgr, err := jnipkg.NewtelephonyManager(s.Ctx)
+func (s *ManagerServer) GetSimCarrierIdName(_ context.Context, req *pb.GetSimCarrierIdNameRequest) (*pb.GetSimCarrierIdNameResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -888,8 +888,8 @@ func (s *TelephonyManagerServer) GetSimCarrierIdName(_ context.Context, req *pb.
 	return &pb.GetSimCarrierIdNameResponse{Result: result}, nil
 }
 
-func (s *TelephonyManagerServer) GetSimCountryIso(_ context.Context, req *pb.GetSimCountryIsoRequest) (*pb.GetSimCountryIsoResponse, error) {
-	mgr, err := jnipkg.NewtelephonyManager(s.Ctx)
+func (s *ManagerServer) GetSimCountryIso(_ context.Context, req *pb.GetSimCountryIsoRequest) (*pb.GetSimCountryIsoResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -902,8 +902,8 @@ func (s *TelephonyManagerServer) GetSimCountryIso(_ context.Context, req *pb.Get
 	return &pb.GetSimCountryIsoResponse{Result: result}, nil
 }
 
-func (s *TelephonyManagerServer) GetSimOperator(_ context.Context, req *pb.GetSimOperatorRequest) (*pb.GetSimOperatorResponse, error) {
-	mgr, err := jnipkg.NewtelephonyManager(s.Ctx)
+func (s *ManagerServer) GetSimOperator(_ context.Context, req *pb.GetSimOperatorRequest) (*pb.GetSimOperatorResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -916,8 +916,8 @@ func (s *TelephonyManagerServer) GetSimOperator(_ context.Context, req *pb.GetSi
 	return &pb.GetSimOperatorResponse{Result: result}, nil
 }
 
-func (s *TelephonyManagerServer) GetSimOperatorName(_ context.Context, req *pb.GetSimOperatorNameRequest) (*pb.GetSimOperatorNameResponse, error) {
-	mgr, err := jnipkg.NewtelephonyManager(s.Ctx)
+func (s *ManagerServer) GetSimOperatorName(_ context.Context, req *pb.GetSimOperatorNameRequest) (*pb.GetSimOperatorNameResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -930,8 +930,8 @@ func (s *TelephonyManagerServer) GetSimOperatorName(_ context.Context, req *pb.G
 	return &pb.GetSimOperatorNameResponse{Result: result}, nil
 }
 
-func (s *TelephonyManagerServer) GetSimSerialNumber(_ context.Context, req *pb.GetSimSerialNumberRequest) (*pb.GetSimSerialNumberResponse, error) {
-	mgr, err := jnipkg.NewtelephonyManager(s.Ctx)
+func (s *ManagerServer) GetSimSerialNumber(_ context.Context, req *pb.GetSimSerialNumberRequest) (*pb.GetSimSerialNumberResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -944,8 +944,8 @@ func (s *TelephonyManagerServer) GetSimSerialNumber(_ context.Context, req *pb.G
 	return &pb.GetSimSerialNumberResponse{Result: result}, nil
 }
 
-func (s *TelephonyManagerServer) GetSimSpecificCarrierId(_ context.Context, req *pb.GetSimSpecificCarrierIdRequest) (*pb.GetSimSpecificCarrierIdResponse, error) {
-	mgr, err := jnipkg.NewtelephonyManager(s.Ctx)
+func (s *ManagerServer) GetSimSpecificCarrierId(_ context.Context, req *pb.GetSimSpecificCarrierIdRequest) (*pb.GetSimSpecificCarrierIdResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -958,8 +958,8 @@ func (s *TelephonyManagerServer) GetSimSpecificCarrierId(_ context.Context, req 
 	return &pb.GetSimSpecificCarrierIdResponse{Result: result}, nil
 }
 
-func (s *TelephonyManagerServer) GetSimSpecificCarrierIdName(_ context.Context, req *pb.GetSimSpecificCarrierIdNameRequest) (*pb.GetSimSpecificCarrierIdNameResponse, error) {
-	mgr, err := jnipkg.NewtelephonyManager(s.Ctx)
+func (s *ManagerServer) GetSimSpecificCarrierIdName(_ context.Context, req *pb.GetSimSpecificCarrierIdNameRequest) (*pb.GetSimSpecificCarrierIdNameResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -972,8 +972,8 @@ func (s *TelephonyManagerServer) GetSimSpecificCarrierIdName(_ context.Context, 
 	return &pb.GetSimSpecificCarrierIdNameResponse{Result: result}, nil
 }
 
-func (s *TelephonyManagerServer) GetSimState0(_ context.Context, req *pb.GetSimState0Request) (*pb.GetSimState0Response, error) {
-	mgr, err := jnipkg.NewtelephonyManager(s.Ctx)
+func (s *ManagerServer) GetSimState0(_ context.Context, req *pb.GetSimState0Request) (*pb.GetSimState0Response, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -986,8 +986,8 @@ func (s *TelephonyManagerServer) GetSimState0(_ context.Context, req *pb.GetSimS
 	return &pb.GetSimState0Response{Result: result}, nil
 }
 
-func (s *TelephonyManagerServer) GetSimState1_1(_ context.Context, req *pb.GetSimState1_1Request) (*pb.GetSimState1_1Response, error) {
-	mgr, err := jnipkg.NewtelephonyManager(s.Ctx)
+func (s *ManagerServer) GetSimState1_1(_ context.Context, req *pb.GetSimState1_1Request) (*pb.GetSimState1_1Response, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -1000,8 +1000,8 @@ func (s *TelephonyManagerServer) GetSimState1_1(_ context.Context, req *pb.GetSi
 	return &pb.GetSimState1_1Response{Result: result}, nil
 }
 
-func (s *TelephonyManagerServer) GetSubscriberId(_ context.Context, req *pb.GetSubscriberIdRequest) (*pb.GetSubscriberIdResponse, error) {
-	mgr, err := jnipkg.NewtelephonyManager(s.Ctx)
+func (s *ManagerServer) GetSubscriberId(_ context.Context, req *pb.GetSubscriberIdRequest) (*pb.GetSubscriberIdResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -1014,8 +1014,8 @@ func (s *TelephonyManagerServer) GetSubscriberId(_ context.Context, req *pb.GetS
 	return &pb.GetSubscriberIdResponse{Result: result}, nil
 }
 
-func (s *TelephonyManagerServer) GetSubscriptionId0(_ context.Context, req *pb.GetSubscriptionId0Request) (*pb.GetSubscriptionId0Response, error) {
-	mgr, err := jnipkg.NewtelephonyManager(s.Ctx)
+func (s *ManagerServer) GetSubscriptionId0(_ context.Context, req *pb.GetSubscriptionId0Request) (*pb.GetSubscriptionId0Response, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -1028,8 +1028,8 @@ func (s *TelephonyManagerServer) GetSubscriptionId0(_ context.Context, req *pb.G
 	return &pb.GetSubscriptionId0Response{Result: result}, nil
 }
 
-func (s *TelephonyManagerServer) GetSubscriptionId1_1(_ context.Context, req *pb.GetSubscriptionId1_1Request) (*pb.GetSubscriptionId1_1Response, error) {
-	mgr, err := jnipkg.NewtelephonyManager(s.Ctx)
+func (s *ManagerServer) GetSubscriptionId1_1(_ context.Context, req *pb.GetSubscriptionId1_1Request) (*pb.GetSubscriptionId1_1Response, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -1042,8 +1042,8 @@ func (s *TelephonyManagerServer) GetSubscriptionId1_1(_ context.Context, req *pb
 	return &pb.GetSubscriptionId1_1Response{Result: result}, nil
 }
 
-func (s *TelephonyManagerServer) GetSupportedModemCount(_ context.Context, req *pb.GetSupportedModemCountRequest) (*pb.GetSupportedModemCountResponse, error) {
-	mgr, err := jnipkg.NewtelephonyManager(s.Ctx)
+func (s *ManagerServer) GetSupportedModemCount(_ context.Context, req *pb.GetSupportedModemCountRequest) (*pb.GetSupportedModemCountResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -1056,8 +1056,8 @@ func (s *TelephonyManagerServer) GetSupportedModemCount(_ context.Context, req *
 	return &pb.GetSupportedModemCountResponse{Result: result}, nil
 }
 
-func (s *TelephonyManagerServer) GetSupportedRadioAccessFamily(_ context.Context, req *pb.GetSupportedRadioAccessFamilyRequest) (*pb.GetSupportedRadioAccessFamilyResponse, error) {
-	mgr, err := jnipkg.NewtelephonyManager(s.Ctx)
+func (s *ManagerServer) GetSupportedRadioAccessFamily(_ context.Context, req *pb.GetSupportedRadioAccessFamilyRequest) (*pb.GetSupportedRadioAccessFamilyResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -1070,8 +1070,8 @@ func (s *TelephonyManagerServer) GetSupportedRadioAccessFamily(_ context.Context
 	return &pb.GetSupportedRadioAccessFamilyResponse{Result: result}, nil
 }
 
-func (s *TelephonyManagerServer) GetTypeAllocationCode0(_ context.Context, req *pb.GetTypeAllocationCode0Request) (*pb.GetTypeAllocationCode0Response, error) {
-	mgr, err := jnipkg.NewtelephonyManager(s.Ctx)
+func (s *ManagerServer) GetTypeAllocationCode0(_ context.Context, req *pb.GetTypeAllocationCode0Request) (*pb.GetTypeAllocationCode0Response, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -1084,8 +1084,8 @@ func (s *TelephonyManagerServer) GetTypeAllocationCode0(_ context.Context, req *
 	return &pb.GetTypeAllocationCode0Response{Result: result}, nil
 }
 
-func (s *TelephonyManagerServer) GetTypeAllocationCode1_1(_ context.Context, req *pb.GetTypeAllocationCode1_1Request) (*pb.GetTypeAllocationCode1_1Response, error) {
-	mgr, err := jnipkg.NewtelephonyManager(s.Ctx)
+func (s *ManagerServer) GetTypeAllocationCode1_1(_ context.Context, req *pb.GetTypeAllocationCode1_1Request) (*pb.GetTypeAllocationCode1_1Response, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -1098,8 +1098,8 @@ func (s *TelephonyManagerServer) GetTypeAllocationCode1_1(_ context.Context, req
 	return &pb.GetTypeAllocationCode1_1Response{Result: result}, nil
 }
 
-func (s *TelephonyManagerServer) GetUiccCardsInfo(_ context.Context, req *pb.GetUiccCardsInfoRequest) (*pb.GetUiccCardsInfoResponse, error) {
-	mgr, err := jnipkg.NewtelephonyManager(s.Ctx)
+func (s *ManagerServer) GetUiccCardsInfo(_ context.Context, req *pb.GetUiccCardsInfoRequest) (*pb.GetUiccCardsInfoResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -1121,8 +1121,8 @@ func (s *TelephonyManagerServer) GetUiccCardsInfo(_ context.Context, req *pb.Get
 	return &pb.GetUiccCardsInfoResponse{Result: handle}, nil
 }
 
-func (s *TelephonyManagerServer) GetVisualVoicemailPackageName(_ context.Context, req *pb.GetVisualVoicemailPackageNameRequest) (*pb.GetVisualVoicemailPackageNameResponse, error) {
-	mgr, err := jnipkg.NewtelephonyManager(s.Ctx)
+func (s *ManagerServer) GetVisualVoicemailPackageName(_ context.Context, req *pb.GetVisualVoicemailPackageNameRequest) (*pb.GetVisualVoicemailPackageNameResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -1135,8 +1135,8 @@ func (s *TelephonyManagerServer) GetVisualVoicemailPackageName(_ context.Context
 	return &pb.GetVisualVoicemailPackageNameResponse{Result: result}, nil
 }
 
-func (s *TelephonyManagerServer) GetVoiceMailAlphaTag(_ context.Context, req *pb.GetVoiceMailAlphaTagRequest) (*pb.GetVoiceMailAlphaTagResponse, error) {
-	mgr, err := jnipkg.NewtelephonyManager(s.Ctx)
+func (s *ManagerServer) GetVoiceMailAlphaTag(_ context.Context, req *pb.GetVoiceMailAlphaTagRequest) (*pb.GetVoiceMailAlphaTagResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -1149,8 +1149,8 @@ func (s *TelephonyManagerServer) GetVoiceMailAlphaTag(_ context.Context, req *pb
 	return &pb.GetVoiceMailAlphaTagResponse{Result: result}, nil
 }
 
-func (s *TelephonyManagerServer) GetVoiceMailNumber(_ context.Context, req *pb.GetVoiceMailNumberRequest) (*pb.GetVoiceMailNumberResponse, error) {
-	mgr, err := jnipkg.NewtelephonyManager(s.Ctx)
+func (s *ManagerServer) GetVoiceMailNumber(_ context.Context, req *pb.GetVoiceMailNumberRequest) (*pb.GetVoiceMailNumberResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -1163,8 +1163,8 @@ func (s *TelephonyManagerServer) GetVoiceMailNumber(_ context.Context, req *pb.G
 	return &pb.GetVoiceMailNumberResponse{Result: result}, nil
 }
 
-func (s *TelephonyManagerServer) GetVoiceNetworkType(_ context.Context, req *pb.GetVoiceNetworkTypeRequest) (*pb.GetVoiceNetworkTypeResponse, error) {
-	mgr, err := jnipkg.NewtelephonyManager(s.Ctx)
+func (s *ManagerServer) GetVoiceNetworkType(_ context.Context, req *pb.GetVoiceNetworkTypeRequest) (*pb.GetVoiceNetworkTypeResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -1177,8 +1177,8 @@ func (s *TelephonyManagerServer) GetVoiceNetworkType(_ context.Context, req *pb.
 	return &pb.GetVoiceNetworkTypeResponse{Result: result}, nil
 }
 
-func (s *TelephonyManagerServer) GetVoicemailRingtoneUri(_ context.Context, req *pb.GetVoicemailRingtoneUriRequest) (*pb.GetVoicemailRingtoneUriResponse, error) {
-	mgr, err := jnipkg.NewtelephonyManager(s.Ctx)
+func (s *ManagerServer) GetVoicemailRingtoneUri(_ context.Context, req *pb.GetVoicemailRingtoneUriRequest) (*pb.GetVoicemailRingtoneUriResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -1200,8 +1200,8 @@ func (s *TelephonyManagerServer) GetVoicemailRingtoneUri(_ context.Context, req 
 	return &pb.GetVoicemailRingtoneUriResponse{Result: handle}, nil
 }
 
-func (s *TelephonyManagerServer) HasCarrierPrivileges(_ context.Context, req *pb.HasCarrierPrivilegesRequest) (*pb.HasCarrierPrivilegesResponse, error) {
-	mgr, err := jnipkg.NewtelephonyManager(s.Ctx)
+func (s *ManagerServer) HasCarrierPrivileges(_ context.Context, req *pb.HasCarrierPrivilegesRequest) (*pb.HasCarrierPrivilegesResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -1214,8 +1214,8 @@ func (s *TelephonyManagerServer) HasCarrierPrivileges(_ context.Context, req *pb
 	return &pb.HasCarrierPrivilegesResponse{Result: result}, nil
 }
 
-func (s *TelephonyManagerServer) HasIccCard(_ context.Context, req *pb.HasIccCardRequest) (*pb.HasIccCardResponse, error) {
-	mgr, err := jnipkg.NewtelephonyManager(s.Ctx)
+func (s *ManagerServer) HasIccCard(_ context.Context, req *pb.HasIccCardRequest) (*pb.HasIccCardResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -1228,8 +1228,8 @@ func (s *TelephonyManagerServer) HasIccCard(_ context.Context, req *pb.HasIccCar
 	return &pb.HasIccCardResponse{Result: result}, nil
 }
 
-func (s *TelephonyManagerServer) IccCloseLogicalChannel(_ context.Context, req *pb.IccCloseLogicalChannelRequest) (*pb.IccCloseLogicalChannelResponse, error) {
-	mgr, err := jnipkg.NewtelephonyManager(s.Ctx)
+func (s *ManagerServer) IccCloseLogicalChannel(_ context.Context, req *pb.IccCloseLogicalChannelRequest) (*pb.IccCloseLogicalChannelResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -1242,8 +1242,8 @@ func (s *TelephonyManagerServer) IccCloseLogicalChannel(_ context.Context, req *
 	return &pb.IccCloseLogicalChannelResponse{Result: result}, nil
 }
 
-func (s *TelephonyManagerServer) IccExchangeSimIO(_ context.Context, req *pb.IccExchangeSimIORequest) (*pb.IccExchangeSimIOResponse, error) {
-	mgr, err := jnipkg.NewtelephonyManager(s.Ctx)
+func (s *ManagerServer) IccExchangeSimIO(_ context.Context, req *pb.IccExchangeSimIORequest) (*pb.IccExchangeSimIOResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -1265,8 +1265,8 @@ func (s *TelephonyManagerServer) IccExchangeSimIO(_ context.Context, req *pb.Icc
 	return &pb.IccExchangeSimIOResponse{Result: handle}, nil
 }
 
-func (s *TelephonyManagerServer) IccOpenLogicalChannel1(_ context.Context, req *pb.IccOpenLogicalChannel1Request) (*pb.IccOpenLogicalChannel1Response, error) {
-	mgr, err := jnipkg.NewtelephonyManager(s.Ctx)
+func (s *ManagerServer) IccOpenLogicalChannel1(_ context.Context, req *pb.IccOpenLogicalChannel1Request) (*pb.IccOpenLogicalChannel1Response, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -1288,8 +1288,8 @@ func (s *TelephonyManagerServer) IccOpenLogicalChannel1(_ context.Context, req *
 	return &pb.IccOpenLogicalChannel1Response{Result: handle}, nil
 }
 
-func (s *TelephonyManagerServer) IccOpenLogicalChannel2_1(_ context.Context, req *pb.IccOpenLogicalChannel2_1Request) (*pb.IccOpenLogicalChannel2_1Response, error) {
-	mgr, err := jnipkg.NewtelephonyManager(s.Ctx)
+func (s *ManagerServer) IccOpenLogicalChannel2_1(_ context.Context, req *pb.IccOpenLogicalChannel2_1Request) (*pb.IccOpenLogicalChannel2_1Response, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -1311,8 +1311,8 @@ func (s *TelephonyManagerServer) IccOpenLogicalChannel2_1(_ context.Context, req
 	return &pb.IccOpenLogicalChannel2_1Response{Result: handle}, nil
 }
 
-func (s *TelephonyManagerServer) IccTransmitApduBasicChannel(_ context.Context, req *pb.IccTransmitApduBasicChannelRequest) (*pb.IccTransmitApduBasicChannelResponse, error) {
-	mgr, err := jnipkg.NewtelephonyManager(s.Ctx)
+func (s *ManagerServer) IccTransmitApduBasicChannel(_ context.Context, req *pb.IccTransmitApduBasicChannelRequest) (*pb.IccTransmitApduBasicChannelResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -1325,8 +1325,8 @@ func (s *TelephonyManagerServer) IccTransmitApduBasicChannel(_ context.Context, 
 	return &pb.IccTransmitApduBasicChannelResponse{Result: result}, nil
 }
 
-func (s *TelephonyManagerServer) IccTransmitApduLogicalChannel(_ context.Context, req *pb.IccTransmitApduLogicalChannelRequest) (*pb.IccTransmitApduLogicalChannelResponse, error) {
-	mgr, err := jnipkg.NewtelephonyManager(s.Ctx)
+func (s *ManagerServer) IccTransmitApduLogicalChannel(_ context.Context, req *pb.IccTransmitApduLogicalChannelRequest) (*pb.IccTransmitApduLogicalChannelResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -1339,8 +1339,8 @@ func (s *TelephonyManagerServer) IccTransmitApduLogicalChannel(_ context.Context
 	return &pb.IccTransmitApduLogicalChannelResponse{Result: result}, nil
 }
 
-func (s *TelephonyManagerServer) IsConcurrentVoiceAndDataSupported(_ context.Context, req *pb.IsConcurrentVoiceAndDataSupportedRequest) (*pb.IsConcurrentVoiceAndDataSupportedResponse, error) {
-	mgr, err := jnipkg.NewtelephonyManager(s.Ctx)
+func (s *ManagerServer) IsConcurrentVoiceAndDataSupported(_ context.Context, req *pb.IsConcurrentVoiceAndDataSupportedRequest) (*pb.IsConcurrentVoiceAndDataSupportedResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -1353,8 +1353,8 @@ func (s *TelephonyManagerServer) IsConcurrentVoiceAndDataSupported(_ context.Con
 	return &pb.IsConcurrentVoiceAndDataSupportedResponse{Result: result}, nil
 }
 
-func (s *TelephonyManagerServer) IsDataCapable(_ context.Context, req *pb.IsDataCapableRequest) (*pb.IsDataCapableResponse, error) {
-	mgr, err := jnipkg.NewtelephonyManager(s.Ctx)
+func (s *ManagerServer) IsDataCapable(_ context.Context, req *pb.IsDataCapableRequest) (*pb.IsDataCapableResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -1367,8 +1367,8 @@ func (s *TelephonyManagerServer) IsDataCapable(_ context.Context, req *pb.IsData
 	return &pb.IsDataCapableResponse{Result: result}, nil
 }
 
-func (s *TelephonyManagerServer) IsDataConnectionAllowed(_ context.Context, req *pb.IsDataConnectionAllowedRequest) (*pb.IsDataConnectionAllowedResponse, error) {
-	mgr, err := jnipkg.NewtelephonyManager(s.Ctx)
+func (s *ManagerServer) IsDataConnectionAllowed(_ context.Context, req *pb.IsDataConnectionAllowedRequest) (*pb.IsDataConnectionAllowedResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -1381,8 +1381,8 @@ func (s *TelephonyManagerServer) IsDataConnectionAllowed(_ context.Context, req 
 	return &pb.IsDataConnectionAllowedResponse{Result: result}, nil
 }
 
-func (s *TelephonyManagerServer) IsDataEnabled(_ context.Context, req *pb.IsDataEnabledRequest) (*pb.IsDataEnabledResponse, error) {
-	mgr, err := jnipkg.NewtelephonyManager(s.Ctx)
+func (s *ManagerServer) IsDataEnabled(_ context.Context, req *pb.IsDataEnabledRequest) (*pb.IsDataEnabledResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -1395,8 +1395,8 @@ func (s *TelephonyManagerServer) IsDataEnabled(_ context.Context, req *pb.IsData
 	return &pb.IsDataEnabledResponse{Result: result}, nil
 }
 
-func (s *TelephonyManagerServer) IsDataEnabledForReason(_ context.Context, req *pb.IsDataEnabledForReasonRequest) (*pb.IsDataEnabledForReasonResponse, error) {
-	mgr, err := jnipkg.NewtelephonyManager(s.Ctx)
+func (s *ManagerServer) IsDataEnabledForReason(_ context.Context, req *pb.IsDataEnabledForReasonRequest) (*pb.IsDataEnabledForReasonResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -1409,8 +1409,8 @@ func (s *TelephonyManagerServer) IsDataEnabledForReason(_ context.Context, req *
 	return &pb.IsDataEnabledForReasonResponse{Result: result}, nil
 }
 
-func (s *TelephonyManagerServer) IsDataRoamingEnabled(_ context.Context, req *pb.IsDataRoamingEnabledRequest) (*pb.IsDataRoamingEnabledResponse, error) {
-	mgr, err := jnipkg.NewtelephonyManager(s.Ctx)
+func (s *ManagerServer) IsDataRoamingEnabled(_ context.Context, req *pb.IsDataRoamingEnabledRequest) (*pb.IsDataRoamingEnabledResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -1423,8 +1423,8 @@ func (s *TelephonyManagerServer) IsDataRoamingEnabled(_ context.Context, req *pb
 	return &pb.IsDataRoamingEnabledResponse{Result: result}, nil
 }
 
-func (s *TelephonyManagerServer) IsDeviceSmsCapable(_ context.Context, req *pb.IsDeviceSmsCapableRequest) (*pb.IsDeviceSmsCapableResponse, error) {
-	mgr, err := jnipkg.NewtelephonyManager(s.Ctx)
+func (s *ManagerServer) IsDeviceSmsCapable(_ context.Context, req *pb.IsDeviceSmsCapableRequest) (*pb.IsDeviceSmsCapableResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -1437,8 +1437,8 @@ func (s *TelephonyManagerServer) IsDeviceSmsCapable(_ context.Context, req *pb.I
 	return &pb.IsDeviceSmsCapableResponse{Result: result}, nil
 }
 
-func (s *TelephonyManagerServer) IsDeviceVoiceCapable(_ context.Context, req *pb.IsDeviceVoiceCapableRequest) (*pb.IsDeviceVoiceCapableResponse, error) {
-	mgr, err := jnipkg.NewtelephonyManager(s.Ctx)
+func (s *ManagerServer) IsDeviceVoiceCapable(_ context.Context, req *pb.IsDeviceVoiceCapableRequest) (*pb.IsDeviceVoiceCapableResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -1451,8 +1451,8 @@ func (s *TelephonyManagerServer) IsDeviceVoiceCapable(_ context.Context, req *pb
 	return &pb.IsDeviceVoiceCapableResponse{Result: result}, nil
 }
 
-func (s *TelephonyManagerServer) IsEmergencyNumber(_ context.Context, req *pb.IsEmergencyNumberRequest) (*pb.IsEmergencyNumberResponse, error) {
-	mgr, err := jnipkg.NewtelephonyManager(s.Ctx)
+func (s *ManagerServer) IsEmergencyNumber(_ context.Context, req *pb.IsEmergencyNumberRequest) (*pb.IsEmergencyNumberResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -1465,8 +1465,8 @@ func (s *TelephonyManagerServer) IsEmergencyNumber(_ context.Context, req *pb.Is
 	return &pb.IsEmergencyNumberResponse{Result: result}, nil
 }
 
-func (s *TelephonyManagerServer) IsHearingAidCompatibilitySupported(_ context.Context, req *pb.IsHearingAidCompatibilitySupportedRequest) (*pb.IsHearingAidCompatibilitySupportedResponse, error) {
-	mgr, err := jnipkg.NewtelephonyManager(s.Ctx)
+func (s *ManagerServer) IsHearingAidCompatibilitySupported(_ context.Context, req *pb.IsHearingAidCompatibilitySupportedRequest) (*pb.IsHearingAidCompatibilitySupportedResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -1479,8 +1479,8 @@ func (s *TelephonyManagerServer) IsHearingAidCompatibilitySupported(_ context.Co
 	return &pb.IsHearingAidCompatibilitySupportedResponse{Result: result}, nil
 }
 
-func (s *TelephonyManagerServer) IsManualNetworkSelectionAllowed(_ context.Context, req *pb.IsManualNetworkSelectionAllowedRequest) (*pb.IsManualNetworkSelectionAllowedResponse, error) {
-	mgr, err := jnipkg.NewtelephonyManager(s.Ctx)
+func (s *ManagerServer) IsManualNetworkSelectionAllowed(_ context.Context, req *pb.IsManualNetworkSelectionAllowedRequest) (*pb.IsManualNetworkSelectionAllowedResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -1493,8 +1493,8 @@ func (s *TelephonyManagerServer) IsManualNetworkSelectionAllowed(_ context.Conte
 	return &pb.IsManualNetworkSelectionAllowedResponse{Result: result}, nil
 }
 
-func (s *TelephonyManagerServer) IsModemEnabledForSlot(_ context.Context, req *pb.IsModemEnabledForSlotRequest) (*pb.IsModemEnabledForSlotResponse, error) {
-	mgr, err := jnipkg.NewtelephonyManager(s.Ctx)
+func (s *ManagerServer) IsModemEnabledForSlot(_ context.Context, req *pb.IsModemEnabledForSlotRequest) (*pb.IsModemEnabledForSlotResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -1507,8 +1507,8 @@ func (s *TelephonyManagerServer) IsModemEnabledForSlot(_ context.Context, req *p
 	return &pb.IsModemEnabledForSlotResponse{Result: result}, nil
 }
 
-func (s *TelephonyManagerServer) IsMultiSimSupported(_ context.Context, req *pb.IsMultiSimSupportedRequest) (*pb.IsMultiSimSupportedResponse, error) {
-	mgr, err := jnipkg.NewtelephonyManager(s.Ctx)
+func (s *ManagerServer) IsMultiSimSupported(_ context.Context, req *pb.IsMultiSimSupportedRequest) (*pb.IsMultiSimSupportedResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -1521,8 +1521,8 @@ func (s *TelephonyManagerServer) IsMultiSimSupported(_ context.Context, req *pb.
 	return &pb.IsMultiSimSupportedResponse{Result: result}, nil
 }
 
-func (s *TelephonyManagerServer) IsNetworkRoaming(_ context.Context, req *pb.IsNetworkRoamingRequest) (*pb.IsNetworkRoamingResponse, error) {
-	mgr, err := jnipkg.NewtelephonyManager(s.Ctx)
+func (s *ManagerServer) IsNetworkRoaming(_ context.Context, req *pb.IsNetworkRoamingRequest) (*pb.IsNetworkRoamingResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -1535,8 +1535,8 @@ func (s *TelephonyManagerServer) IsNetworkRoaming(_ context.Context, req *pb.IsN
 	return &pb.IsNetworkRoamingResponse{Result: result}, nil
 }
 
-func (s *TelephonyManagerServer) IsPremiumCapabilityAvailableForPurchase(_ context.Context, req *pb.IsPremiumCapabilityAvailableForPurchaseRequest) (*pb.IsPremiumCapabilityAvailableForPurchaseResponse, error) {
-	mgr, err := jnipkg.NewtelephonyManager(s.Ctx)
+func (s *ManagerServer) IsPremiumCapabilityAvailableForPurchase(_ context.Context, req *pb.IsPremiumCapabilityAvailableForPurchaseRequest) (*pb.IsPremiumCapabilityAvailableForPurchaseResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -1549,8 +1549,8 @@ func (s *TelephonyManagerServer) IsPremiumCapabilityAvailableForPurchase(_ conte
 	return &pb.IsPremiumCapabilityAvailableForPurchaseResponse{Result: result}, nil
 }
 
-func (s *TelephonyManagerServer) IsRadioInterfaceCapabilitySupported(_ context.Context, req *pb.IsRadioInterfaceCapabilitySupportedRequest) (*pb.IsRadioInterfaceCapabilitySupportedResponse, error) {
-	mgr, err := jnipkg.NewtelephonyManager(s.Ctx)
+func (s *ManagerServer) IsRadioInterfaceCapabilitySupported(_ context.Context, req *pb.IsRadioInterfaceCapabilitySupportedRequest) (*pb.IsRadioInterfaceCapabilitySupportedResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -1563,8 +1563,8 @@ func (s *TelephonyManagerServer) IsRadioInterfaceCapabilitySupported(_ context.C
 	return &pb.IsRadioInterfaceCapabilitySupportedResponse{Result: result}, nil
 }
 
-func (s *TelephonyManagerServer) IsRttSupported(_ context.Context, req *pb.IsRttSupportedRequest) (*pb.IsRttSupportedResponse, error) {
-	mgr, err := jnipkg.NewtelephonyManager(s.Ctx)
+func (s *ManagerServer) IsRttSupported(_ context.Context, req *pb.IsRttSupportedRequest) (*pb.IsRttSupportedResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -1577,8 +1577,8 @@ func (s *TelephonyManagerServer) IsRttSupported(_ context.Context, req *pb.IsRtt
 	return &pb.IsRttSupportedResponse{Result: result}, nil
 }
 
-func (s *TelephonyManagerServer) IsSmsCapable(_ context.Context, req *pb.IsSmsCapableRequest) (*pb.IsSmsCapableResponse, error) {
-	mgr, err := jnipkg.NewtelephonyManager(s.Ctx)
+func (s *ManagerServer) IsSmsCapable(_ context.Context, req *pb.IsSmsCapableRequest) (*pb.IsSmsCapableResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -1591,8 +1591,8 @@ func (s *TelephonyManagerServer) IsSmsCapable(_ context.Context, req *pb.IsSmsCa
 	return &pb.IsSmsCapableResponse{Result: result}, nil
 }
 
-func (s *TelephonyManagerServer) IsTtyModeSupported(_ context.Context, req *pb.IsTtyModeSupportedRequest) (*pb.IsTtyModeSupportedResponse, error) {
-	mgr, err := jnipkg.NewtelephonyManager(s.Ctx)
+func (s *ManagerServer) IsTtyModeSupported(_ context.Context, req *pb.IsTtyModeSupportedRequest) (*pb.IsTtyModeSupportedResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -1605,8 +1605,8 @@ func (s *TelephonyManagerServer) IsTtyModeSupported(_ context.Context, req *pb.I
 	return &pb.IsTtyModeSupportedResponse{Result: result}, nil
 }
 
-func (s *TelephonyManagerServer) IsVoiceCapable(_ context.Context, req *pb.IsVoiceCapableRequest) (*pb.IsVoiceCapableResponse, error) {
-	mgr, err := jnipkg.NewtelephonyManager(s.Ctx)
+func (s *ManagerServer) IsVoiceCapable(_ context.Context, req *pb.IsVoiceCapableRequest) (*pb.IsVoiceCapableResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -1619,8 +1619,8 @@ func (s *TelephonyManagerServer) IsVoiceCapable(_ context.Context, req *pb.IsVoi
 	return &pb.IsVoiceCapableResponse{Result: result}, nil
 }
 
-func (s *TelephonyManagerServer) IsVoicemailVibrationEnabled(_ context.Context, req *pb.IsVoicemailVibrationEnabledRequest) (*pb.IsVoicemailVibrationEnabledResponse, error) {
-	mgr, err := jnipkg.NewtelephonyManager(s.Ctx)
+func (s *ManagerServer) IsVoicemailVibrationEnabled(_ context.Context, req *pb.IsVoicemailVibrationEnabledRequest) (*pb.IsVoicemailVibrationEnabledResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -1633,8 +1633,8 @@ func (s *TelephonyManagerServer) IsVoicemailVibrationEnabled(_ context.Context, 
 	return &pb.IsVoicemailVibrationEnabledResponse{Result: result}, nil
 }
 
-func (s *TelephonyManagerServer) IsWorldPhone(_ context.Context, req *pb.IsWorldPhoneRequest) (*pb.IsWorldPhoneResponse, error) {
-	mgr, err := jnipkg.NewtelephonyManager(s.Ctx)
+func (s *ManagerServer) IsWorldPhone(_ context.Context, req *pb.IsWorldPhoneRequest) (*pb.IsWorldPhoneResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -1647,8 +1647,8 @@ func (s *TelephonyManagerServer) IsWorldPhone(_ context.Context, req *pb.IsWorld
 	return &pb.IsWorldPhoneResponse{Result: result}, nil
 }
 
-func (s *TelephonyManagerServer) Listen(_ context.Context, req *pb.ListenRequest) (*pb.ListenResponse, error) {
-	mgr, err := jnipkg.NewtelephonyManager(s.Ctx)
+func (s *ManagerServer) Listen(_ context.Context, req *pb.ListenRequest) (*pb.ListenResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -1660,8 +1660,8 @@ func (s *TelephonyManagerServer) Listen(_ context.Context, req *pb.ListenRequest
 	return &pb.ListenResponse{}, nil
 }
 
-func (s *TelephonyManagerServer) PurchasePremiumCapability(_ context.Context, req *pb.PurchasePremiumCapabilityRequest) (*pb.PurchasePremiumCapabilityResponse, error) {
-	mgr, err := jnipkg.NewtelephonyManager(s.Ctx)
+func (s *ManagerServer) PurchasePremiumCapability(_ context.Context, req *pb.PurchasePremiumCapabilityRequest) (*pb.PurchasePremiumCapabilityResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -1673,8 +1673,8 @@ func (s *TelephonyManagerServer) PurchasePremiumCapability(_ context.Context, re
 	return &pb.PurchasePremiumCapabilityResponse{}, nil
 }
 
-func (s *TelephonyManagerServer) RebootModem(_ context.Context, req *pb.RebootModemRequest) (*pb.RebootModemResponse, error) {
-	mgr, err := jnipkg.NewtelephonyManager(s.Ctx)
+func (s *ManagerServer) RebootModem(_ context.Context, req *pb.RebootModemRequest) (*pb.RebootModemResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -1686,8 +1686,8 @@ func (s *TelephonyManagerServer) RebootModem(_ context.Context, req *pb.RebootMo
 	return &pb.RebootModemResponse{}, nil
 }
 
-func (s *TelephonyManagerServer) RegisterTelephonyCallback3(_ context.Context, req *pb.RegisterTelephonyCallback3Request) (*pb.RegisterTelephonyCallback3Response, error) {
-	mgr, err := jnipkg.NewtelephonyManager(s.Ctx)
+func (s *ManagerServer) RegisterTelephonyCallback3(_ context.Context, req *pb.RegisterTelephonyCallback3Request) (*pb.RegisterTelephonyCallback3Response, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -1699,8 +1699,8 @@ func (s *TelephonyManagerServer) RegisterTelephonyCallback3(_ context.Context, r
 	return &pb.RegisterTelephonyCallback3Response{}, nil
 }
 
-func (s *TelephonyManagerServer) RegisterTelephonyCallback2_1(_ context.Context, req *pb.RegisterTelephonyCallback2_1Request) (*pb.RegisterTelephonyCallback2_1Response, error) {
-	mgr, err := jnipkg.NewtelephonyManager(s.Ctx)
+func (s *ManagerServer) RegisterTelephonyCallback2_1(_ context.Context, req *pb.RegisterTelephonyCallback2_1Request) (*pb.RegisterTelephonyCallback2_1Response, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -1712,8 +1712,8 @@ func (s *TelephonyManagerServer) RegisterTelephonyCallback2_1(_ context.Context,
 	return &pb.RegisterTelephonyCallback2_1Response{}, nil
 }
 
-func (s *TelephonyManagerServer) RequestCellInfoUpdate(_ context.Context, req *pb.RequestCellInfoUpdateRequest) (*pb.RequestCellInfoUpdateResponse, error) {
-	mgr, err := jnipkg.NewtelephonyManager(s.Ctx)
+func (s *ManagerServer) RequestCellInfoUpdate(_ context.Context, req *pb.RequestCellInfoUpdateRequest) (*pb.RequestCellInfoUpdateResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -1725,8 +1725,8 @@ func (s *TelephonyManagerServer) RequestCellInfoUpdate(_ context.Context, req *p
 	return &pb.RequestCellInfoUpdateResponse{}, nil
 }
 
-func (s *TelephonyManagerServer) RequestNetworkScan3(_ context.Context, req *pb.RequestNetworkScan3Request) (*pb.RequestNetworkScan3Response, error) {
-	mgr, err := jnipkg.NewtelephonyManager(s.Ctx)
+func (s *ManagerServer) RequestNetworkScan3(_ context.Context, req *pb.RequestNetworkScan3Request) (*pb.RequestNetworkScan3Response, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -1748,8 +1748,8 @@ func (s *TelephonyManagerServer) RequestNetworkScan3(_ context.Context, req *pb.
 	return &pb.RequestNetworkScan3Response{Result: handle}, nil
 }
 
-func (s *TelephonyManagerServer) RequestNetworkScan4_1(_ context.Context, req *pb.RequestNetworkScan4_1Request) (*pb.RequestNetworkScan4_1Response, error) {
-	mgr, err := jnipkg.NewtelephonyManager(s.Ctx)
+func (s *ManagerServer) RequestNetworkScan4_1(_ context.Context, req *pb.RequestNetworkScan4_1Request) (*pb.RequestNetworkScan4_1Response, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -1771,8 +1771,8 @@ func (s *TelephonyManagerServer) RequestNetworkScan4_1(_ context.Context, req *p
 	return &pb.RequestNetworkScan4_1Response{Result: handle}, nil
 }
 
-func (s *TelephonyManagerServer) SendDialerSpecialCode(_ context.Context, req *pb.SendDialerSpecialCodeRequest) (*pb.SendDialerSpecialCodeResponse, error) {
-	mgr, err := jnipkg.NewtelephonyManager(s.Ctx)
+func (s *ManagerServer) SendDialerSpecialCode(_ context.Context, req *pb.SendDialerSpecialCodeRequest) (*pb.SendDialerSpecialCodeResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -1784,8 +1784,8 @@ func (s *TelephonyManagerServer) SendDialerSpecialCode(_ context.Context, req *p
 	return &pb.SendDialerSpecialCodeResponse{}, nil
 }
 
-func (s *TelephonyManagerServer) SendEnvelopeWithStatus(_ context.Context, req *pb.SendEnvelopeWithStatusRequest) (*pb.SendEnvelopeWithStatusResponse, error) {
-	mgr, err := jnipkg.NewtelephonyManager(s.Ctx)
+func (s *ManagerServer) SendEnvelopeWithStatus(_ context.Context, req *pb.SendEnvelopeWithStatusRequest) (*pb.SendEnvelopeWithStatusResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -1798,8 +1798,8 @@ func (s *TelephonyManagerServer) SendEnvelopeWithStatus(_ context.Context, req *
 	return &pb.SendEnvelopeWithStatusResponse{Result: result}, nil
 }
 
-func (s *TelephonyManagerServer) SendVisualVoicemailSms(_ context.Context, req *pb.SendVisualVoicemailSmsRequest) (*pb.SendVisualVoicemailSmsResponse, error) {
-	mgr, err := jnipkg.NewtelephonyManager(s.Ctx)
+func (s *ManagerServer) SendVisualVoicemailSms(_ context.Context, req *pb.SendVisualVoicemailSmsRequest) (*pb.SendVisualVoicemailSmsResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -1811,8 +1811,8 @@ func (s *TelephonyManagerServer) SendVisualVoicemailSms(_ context.Context, req *
 	return &pb.SendVisualVoicemailSmsResponse{}, nil
 }
 
-func (s *TelephonyManagerServer) SetAllowedNetworkTypesForReason(_ context.Context, req *pb.SetAllowedNetworkTypesForReasonRequest) (*pb.SetAllowedNetworkTypesForReasonResponse, error) {
-	mgr, err := jnipkg.NewtelephonyManager(s.Ctx)
+func (s *ManagerServer) SetAllowedNetworkTypesForReason(_ context.Context, req *pb.SetAllowedNetworkTypesForReasonRequest) (*pb.SetAllowedNetworkTypesForReasonResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -1824,8 +1824,8 @@ func (s *TelephonyManagerServer) SetAllowedNetworkTypesForReason(_ context.Conte
 	return &pb.SetAllowedNetworkTypesForReasonResponse{}, nil
 }
 
-func (s *TelephonyManagerServer) SetCallComposerStatus(_ context.Context, req *pb.SetCallComposerStatusRequest) (*pb.SetCallComposerStatusResponse, error) {
-	mgr, err := jnipkg.NewtelephonyManager(s.Ctx)
+func (s *ManagerServer) SetCallComposerStatus(_ context.Context, req *pb.SetCallComposerStatusRequest) (*pb.SetCallComposerStatusResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -1837,8 +1837,8 @@ func (s *TelephonyManagerServer) SetCallComposerStatus(_ context.Context, req *p
 	return &pb.SetCallComposerStatusResponse{}, nil
 }
 
-func (s *TelephonyManagerServer) SetDataEnabled(_ context.Context, req *pb.SetDataEnabledRequest) (*pb.SetDataEnabledResponse, error) {
-	mgr, err := jnipkg.NewtelephonyManager(s.Ctx)
+func (s *ManagerServer) SetDataEnabled(_ context.Context, req *pb.SetDataEnabledRequest) (*pb.SetDataEnabledResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -1850,8 +1850,8 @@ func (s *TelephonyManagerServer) SetDataEnabled(_ context.Context, req *pb.SetDa
 	return &pb.SetDataEnabledResponse{}, nil
 }
 
-func (s *TelephonyManagerServer) SetDataEnabledForReason(_ context.Context, req *pb.SetDataEnabledForReasonRequest) (*pb.SetDataEnabledForReasonResponse, error) {
-	mgr, err := jnipkg.NewtelephonyManager(s.Ctx)
+func (s *ManagerServer) SetDataEnabledForReason(_ context.Context, req *pb.SetDataEnabledForReasonRequest) (*pb.SetDataEnabledForReasonResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -1863,8 +1863,8 @@ func (s *TelephonyManagerServer) SetDataEnabledForReason(_ context.Context, req 
 	return &pb.SetDataEnabledForReasonResponse{}, nil
 }
 
-func (s *TelephonyManagerServer) SetForbiddenPlmns(_ context.Context, req *pb.SetForbiddenPlmnsRequest) (*pb.SetForbiddenPlmnsResponse, error) {
-	mgr, err := jnipkg.NewtelephonyManager(s.Ctx)
+func (s *ManagerServer) SetForbiddenPlmns(_ context.Context, req *pb.SetForbiddenPlmnsRequest) (*pb.SetForbiddenPlmnsResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -1877,8 +1877,8 @@ func (s *TelephonyManagerServer) SetForbiddenPlmns(_ context.Context, req *pb.Se
 	return &pb.SetForbiddenPlmnsResponse{Result: result}, nil
 }
 
-func (s *TelephonyManagerServer) SetLine1NumberForDisplay(_ context.Context, req *pb.SetLine1NumberForDisplayRequest) (*pb.SetLine1NumberForDisplayResponse, error) {
-	mgr, err := jnipkg.NewtelephonyManager(s.Ctx)
+func (s *ManagerServer) SetLine1NumberForDisplay(_ context.Context, req *pb.SetLine1NumberForDisplayRequest) (*pb.SetLine1NumberForDisplayResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -1891,8 +1891,8 @@ func (s *TelephonyManagerServer) SetLine1NumberForDisplay(_ context.Context, req
 	return &pb.SetLine1NumberForDisplayResponse{Result: result}, nil
 }
 
-func (s *TelephonyManagerServer) SetNetworkSelectionModeAutomatic(_ context.Context, req *pb.SetNetworkSelectionModeAutomaticRequest) (*pb.SetNetworkSelectionModeAutomaticResponse, error) {
-	mgr, err := jnipkg.NewtelephonyManager(s.Ctx)
+func (s *ManagerServer) SetNetworkSelectionModeAutomatic(_ context.Context, req *pb.SetNetworkSelectionModeAutomaticRequest) (*pb.SetNetworkSelectionModeAutomaticResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -1904,8 +1904,8 @@ func (s *TelephonyManagerServer) SetNetworkSelectionModeAutomatic(_ context.Cont
 	return &pb.SetNetworkSelectionModeAutomaticResponse{}, nil
 }
 
-func (s *TelephonyManagerServer) SetNetworkSelectionModeManual2(_ context.Context, req *pb.SetNetworkSelectionModeManual2Request) (*pb.SetNetworkSelectionModeManual2Response, error) {
-	mgr, err := jnipkg.NewtelephonyManager(s.Ctx)
+func (s *ManagerServer) SetNetworkSelectionModeManual2(_ context.Context, req *pb.SetNetworkSelectionModeManual2Request) (*pb.SetNetworkSelectionModeManual2Response, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -1918,8 +1918,8 @@ func (s *TelephonyManagerServer) SetNetworkSelectionModeManual2(_ context.Contex
 	return &pb.SetNetworkSelectionModeManual2Response{Result: result}, nil
 }
 
-func (s *TelephonyManagerServer) SetNetworkSelectionModeManual3_1(_ context.Context, req *pb.SetNetworkSelectionModeManual3_1Request) (*pb.SetNetworkSelectionModeManual3_1Response, error) {
-	mgr, err := jnipkg.NewtelephonyManager(s.Ctx)
+func (s *ManagerServer) SetNetworkSelectionModeManual3_1(_ context.Context, req *pb.SetNetworkSelectionModeManual3_1Request) (*pb.SetNetworkSelectionModeManual3_1Response, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -1932,8 +1932,8 @@ func (s *TelephonyManagerServer) SetNetworkSelectionModeManual3_1(_ context.Cont
 	return &pb.SetNetworkSelectionModeManual3_1Response{Result: result}, nil
 }
 
-func (s *TelephonyManagerServer) SetOperatorBrandOverride(_ context.Context, req *pb.SetOperatorBrandOverrideRequest) (*pb.SetOperatorBrandOverrideResponse, error) {
-	mgr, err := jnipkg.NewtelephonyManager(s.Ctx)
+func (s *ManagerServer) SetOperatorBrandOverride(_ context.Context, req *pb.SetOperatorBrandOverrideRequest) (*pb.SetOperatorBrandOverrideResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -1946,8 +1946,8 @@ func (s *TelephonyManagerServer) SetOperatorBrandOverride(_ context.Context, req
 	return &pb.SetOperatorBrandOverrideResponse{Result: result}, nil
 }
 
-func (s *TelephonyManagerServer) SetPreferredNetworkTypeToGlobal(_ context.Context, req *pb.SetPreferredNetworkTypeToGlobalRequest) (*pb.SetPreferredNetworkTypeToGlobalResponse, error) {
-	mgr, err := jnipkg.NewtelephonyManager(s.Ctx)
+func (s *ManagerServer) SetPreferredNetworkTypeToGlobal(_ context.Context, req *pb.SetPreferredNetworkTypeToGlobalRequest) (*pb.SetPreferredNetworkTypeToGlobalResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -1960,8 +1960,8 @@ func (s *TelephonyManagerServer) SetPreferredNetworkTypeToGlobal(_ context.Conte
 	return &pb.SetPreferredNetworkTypeToGlobalResponse{Result: result}, nil
 }
 
-func (s *TelephonyManagerServer) SetPreferredOpportunisticDataSubscription(_ context.Context, req *pb.SetPreferredOpportunisticDataSubscriptionRequest) (*pb.SetPreferredOpportunisticDataSubscriptionResponse, error) {
-	mgr, err := jnipkg.NewtelephonyManager(s.Ctx)
+func (s *ManagerServer) SetPreferredOpportunisticDataSubscription(_ context.Context, req *pb.SetPreferredOpportunisticDataSubscriptionRequest) (*pb.SetPreferredOpportunisticDataSubscriptionResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -1973,8 +1973,8 @@ func (s *TelephonyManagerServer) SetPreferredOpportunisticDataSubscription(_ con
 	return &pb.SetPreferredOpportunisticDataSubscriptionResponse{}, nil
 }
 
-func (s *TelephonyManagerServer) SetSignalStrengthUpdateRequest(_ context.Context, req *pb.SetSignalStrengthUpdateRequestRequest) (*pb.SetSignalStrengthUpdateRequestResponse, error) {
-	mgr, err := jnipkg.NewtelephonyManager(s.Ctx)
+func (s *ManagerServer) SetSignalStrengthUpdateRequest(_ context.Context, req *pb.SetSignalStrengthUpdateRequestRequest) (*pb.SetSignalStrengthUpdateRequestResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -1986,8 +1986,8 @@ func (s *TelephonyManagerServer) SetSignalStrengthUpdateRequest(_ context.Contex
 	return &pb.SetSignalStrengthUpdateRequestResponse{}, nil
 }
 
-func (s *TelephonyManagerServer) SetVisualVoicemailSmsFilterSettings(_ context.Context, req *pb.SetVisualVoicemailSmsFilterSettingsRequest) (*pb.SetVisualVoicemailSmsFilterSettingsResponse, error) {
-	mgr, err := jnipkg.NewtelephonyManager(s.Ctx)
+func (s *ManagerServer) SetVisualVoicemailSmsFilterSettings(_ context.Context, req *pb.SetVisualVoicemailSmsFilterSettingsRequest) (*pb.SetVisualVoicemailSmsFilterSettingsResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -1999,8 +1999,8 @@ func (s *TelephonyManagerServer) SetVisualVoicemailSmsFilterSettings(_ context.C
 	return &pb.SetVisualVoicemailSmsFilterSettingsResponse{}, nil
 }
 
-func (s *TelephonyManagerServer) SetVoiceMailNumber(_ context.Context, req *pb.SetVoiceMailNumberRequest) (*pb.SetVoiceMailNumberResponse, error) {
-	mgr, err := jnipkg.NewtelephonyManager(s.Ctx)
+func (s *ManagerServer) SetVoiceMailNumber(_ context.Context, req *pb.SetVoiceMailNumberRequest) (*pb.SetVoiceMailNumberResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -2013,8 +2013,8 @@ func (s *TelephonyManagerServer) SetVoiceMailNumber(_ context.Context, req *pb.S
 	return &pb.SetVoiceMailNumberResponse{Result: result}, nil
 }
 
-func (s *TelephonyManagerServer) SetVoicemailRingtoneUri(_ context.Context, req *pb.SetVoicemailRingtoneUriRequest) (*pb.SetVoicemailRingtoneUriResponse, error) {
-	mgr, err := jnipkg.NewtelephonyManager(s.Ctx)
+func (s *ManagerServer) SetVoicemailRingtoneUri(_ context.Context, req *pb.SetVoicemailRingtoneUriRequest) (*pb.SetVoicemailRingtoneUriResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -2026,8 +2026,8 @@ func (s *TelephonyManagerServer) SetVoicemailRingtoneUri(_ context.Context, req 
 	return &pb.SetVoicemailRingtoneUriResponse{}, nil
 }
 
-func (s *TelephonyManagerServer) SetVoicemailVibrationEnabled(_ context.Context, req *pb.SetVoicemailVibrationEnabledRequest) (*pb.SetVoicemailVibrationEnabledResponse, error) {
-	mgr, err := jnipkg.NewtelephonyManager(s.Ctx)
+func (s *ManagerServer) SetVoicemailVibrationEnabled(_ context.Context, req *pb.SetVoicemailVibrationEnabledRequest) (*pb.SetVoicemailVibrationEnabledResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -2039,8 +2039,8 @@ func (s *TelephonyManagerServer) SetVoicemailVibrationEnabled(_ context.Context,
 	return &pb.SetVoicemailVibrationEnabledResponse{}, nil
 }
 
-func (s *TelephonyManagerServer) SwitchMultiSimConfig(_ context.Context, req *pb.SwitchMultiSimConfigRequest) (*pb.SwitchMultiSimConfigResponse, error) {
-	mgr, err := jnipkg.NewtelephonyManager(s.Ctx)
+func (s *ManagerServer) SwitchMultiSimConfig(_ context.Context, req *pb.SwitchMultiSimConfigRequest) (*pb.SwitchMultiSimConfigResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -2052,8 +2052,8 @@ func (s *TelephonyManagerServer) SwitchMultiSimConfig(_ context.Context, req *pb
 	return &pb.SwitchMultiSimConfigResponse{}, nil
 }
 
-func (s *TelephonyManagerServer) UnregisterTelephonyCallback(_ context.Context, req *pb.UnregisterTelephonyCallbackRequest) (*pb.UnregisterTelephonyCallbackResponse, error) {
-	mgr, err := jnipkg.NewtelephonyManager(s.Ctx)
+func (s *ManagerServer) UnregisterTelephonyCallback(_ context.Context, req *pb.UnregisterTelephonyCallbackRequest) (*pb.UnregisterTelephonyCallbackResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -2065,8 +2065,8 @@ func (s *TelephonyManagerServer) UnregisterTelephonyCallback(_ context.Context, 
 	return &pb.UnregisterTelephonyCallbackResponse{}, nil
 }
 
-func (s *TelephonyManagerServer) UpdateAvailableNetworks(_ context.Context, req *pb.UpdateAvailableNetworksRequest) (*pb.UpdateAvailableNetworksResponse, error) {
-	mgr, err := jnipkg.NewtelephonyManager(s.Ctx)
+func (s *ManagerServer) UpdateAvailableNetworks(_ context.Context, req *pb.UpdateAvailableNetworksRequest) (*pb.UpdateAvailableNetworksResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -2078,8 +2078,8 @@ func (s *TelephonyManagerServer) UpdateAvailableNetworks(_ context.Context, req 
 	return &pb.UpdateAvailableNetworksResponse{}, nil
 }
 
-func (s *TelephonyManagerServer) UploadCallComposerPicture4(_ context.Context, req *pb.UploadCallComposerPicture4Request) (*pb.UploadCallComposerPicture4Response, error) {
-	mgr, err := jnipkg.NewtelephonyManager(s.Ctx)
+func (s *ManagerServer) UploadCallComposerPicture4(_ context.Context, req *pb.UploadCallComposerPicture4Request) (*pb.UploadCallComposerPicture4Response, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -2091,8 +2091,8 @@ func (s *TelephonyManagerServer) UploadCallComposerPicture4(_ context.Context, r
 	return &pb.UploadCallComposerPicture4Response{}, nil
 }
 
-func (s *TelephonyManagerServer) UploadCallComposerPicture4_1(_ context.Context, req *pb.UploadCallComposerPicture4_1Request) (*pb.UploadCallComposerPicture4_1Response, error) {
-	mgr, err := jnipkg.NewtelephonyManager(s.Ctx)
+func (s *ManagerServer) UploadCallComposerPicture4_1(_ context.Context, req *pb.UploadCallComposerPicture4_1Request) (*pb.UploadCallComposerPicture4_1Response, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -2104,8 +2104,8 @@ func (s *TelephonyManagerServer) UploadCallComposerPicture4_1(_ context.Context,
 	return &pb.UploadCallComposerPicture4_1Response{}, nil
 }
 
-func (s *TelephonyManagerServer) GetMaximumCallComposerPictureSize(_ context.Context, req *pb.GetMaximumCallComposerPictureSizeRequest) (*pb.GetMaximumCallComposerPictureSizeResponse, error) {
-	mgr, err := jnipkg.NewtelephonyManager(s.Ctx)
+func (s *ManagerServer) GetMaximumCallComposerPictureSize(_ context.Context, req *pb.GetMaximumCallComposerPictureSizeRequest) (*pb.GetMaximumCallComposerPictureSizeResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}

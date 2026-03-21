@@ -3,8 +3,8 @@
 package main
 
 import (
-	"github.com/spf13/cobra"
 	pb "github.com/AndroidGoLab/jni-proxy/proto/blob"
+	"github.com/spf13/cobra"
 )
 
 var blobCmd = &cobra.Command{
@@ -12,18 +12,18 @@ var blobCmd = &cobra.Command{
 	Short: "blob service operations",
 }
 
-var blobBlobStoreManagerCmd = &cobra.Command{
-	Use:   "blob-store-manager",
-	Short: "BlobStoreManagerService operations",
+var blobStoreManagerCmd = &cobra.Command{
+	Use:   "store-manager",
+	Short: "StoreManagerService operations",
 }
 
-var blobBlobStoreManagerAbandonSessionCmd = &cobra.Command{
+var blobStoreManagerAbandonSessionCmd = &cobra.Command{
 	Use:   "abandon-session",
 	Short: "AbandonSession RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewBlobStoreManagerServiceClient(grpcConn)
+		client := pb.NewStoreManagerServiceClient(grpcConn)
 		req := &pb.AbandonSessionRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
@@ -36,13 +36,13 @@ var blobBlobStoreManagerAbandonSessionCmd = &cobra.Command{
 	},
 }
 
-var blobBlobStoreManagerAcquireLease2Cmd = &cobra.Command{
+var blobStoreManagerAcquireLease2Cmd = &cobra.Command{
 	Use:   "acquire-lease2",
 	Short: "AcquireLease2 RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewBlobStoreManagerServiceClient(grpcConn)
+		client := pb.NewStoreManagerServiceClient(grpcConn)
 		req := &pb.AcquireLease2Request{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
@@ -58,13 +58,13 @@ var blobBlobStoreManagerAcquireLease2Cmd = &cobra.Command{
 	},
 }
 
-var blobBlobStoreManagerAcquireLease3_1Cmd = &cobra.Command{
+var blobStoreManagerAcquireLease3_1Cmd = &cobra.Command{
 	Use:   "acquire-lease3_1",
 	Short: "AcquireLease3_1 RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewBlobStoreManagerServiceClient(grpcConn)
+		client := pb.NewStoreManagerServiceClient(grpcConn)
 		req := &pb.AcquireLease3_1Request{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
@@ -83,13 +83,13 @@ var blobBlobStoreManagerAcquireLease3_1Cmd = &cobra.Command{
 	},
 }
 
-var blobBlobStoreManagerAcquireLease2_2Cmd = &cobra.Command{
+var blobStoreManagerAcquireLease2_2Cmd = &cobra.Command{
 	Use:   "acquire-lease2_2",
 	Short: "AcquireLease2_2 RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewBlobStoreManagerServiceClient(grpcConn)
+		client := pb.NewStoreManagerServiceClient(grpcConn)
 		req := &pb.AcquireLease2_2Request{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
@@ -105,13 +105,13 @@ var blobBlobStoreManagerAcquireLease2_2Cmd = &cobra.Command{
 	},
 }
 
-var blobBlobStoreManagerAcquireLease3_3Cmd = &cobra.Command{
+var blobStoreManagerAcquireLease3_3Cmd = &cobra.Command{
 	Use:   "acquire-lease3_3",
 	Short: "AcquireLease3_3 RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewBlobStoreManagerServiceClient(grpcConn)
+		client := pb.NewStoreManagerServiceClient(grpcConn)
 		req := &pb.AcquireLease3_3Request{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
@@ -130,13 +130,13 @@ var blobBlobStoreManagerAcquireLease3_3Cmd = &cobra.Command{
 	},
 }
 
-var blobBlobStoreManagerCreateSessionCmd = &cobra.Command{
+var blobStoreManagerCreateSessionCmd = &cobra.Command{
 	Use:   "create-session",
 	Short: "CreateSession RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewBlobStoreManagerServiceClient(grpcConn)
+		client := pb.NewStoreManagerServiceClient(grpcConn)
 		req := &pb.CreateSessionRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
@@ -149,13 +149,13 @@ var blobBlobStoreManagerCreateSessionCmd = &cobra.Command{
 	},
 }
 
-var blobBlobStoreManagerGetLeasedBlobsCmd = &cobra.Command{
+var blobStoreManagerGetLeasedBlobsCmd = &cobra.Command{
 	Use:   "get-leased-blobs",
 	Short: "GetLeasedBlobs RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewBlobStoreManagerServiceClient(grpcConn)
+		client := pb.NewStoreManagerServiceClient(grpcConn)
 		req := &pb.GetLeasedBlobsRequest{}
 		resp, err := client.GetLeasedBlobs(ctx, req)
 		if err != nil {
@@ -165,13 +165,13 @@ var blobBlobStoreManagerGetLeasedBlobsCmd = &cobra.Command{
 	},
 }
 
-var blobBlobStoreManagerGetRemainingLeaseQuotaBytesCmd = &cobra.Command{
+var blobStoreManagerGetRemainingLeaseQuotaBytesCmd = &cobra.Command{
 	Use:   "get-remaining-lease-quota-bytes",
 	Short: "GetRemainingLeaseQuotaBytes RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewBlobStoreManagerServiceClient(grpcConn)
+		client := pb.NewStoreManagerServiceClient(grpcConn)
 		req := &pb.GetRemainingLeaseQuotaBytesRequest{}
 		resp, err := client.GetRemainingLeaseQuotaBytes(ctx, req)
 		if err != nil {
@@ -181,13 +181,13 @@ var blobBlobStoreManagerGetRemainingLeaseQuotaBytesCmd = &cobra.Command{
 	},
 }
 
-var blobBlobStoreManagerOpenBlobCmd = &cobra.Command{
+var blobStoreManagerOpenBlobCmd = &cobra.Command{
 	Use:   "open-blob",
 	Short: "OpenBlob RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewBlobStoreManagerServiceClient(grpcConn)
+		client := pb.NewStoreManagerServiceClient(grpcConn)
 		req := &pb.OpenBlobRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
@@ -200,13 +200,13 @@ var blobBlobStoreManagerOpenBlobCmd = &cobra.Command{
 	},
 }
 
-var blobBlobStoreManagerOpenSessionCmd = &cobra.Command{
+var blobStoreManagerOpenSessionCmd = &cobra.Command{
 	Use:   "open-session",
 	Short: "OpenSession RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewBlobStoreManagerServiceClient(grpcConn)
+		client := pb.NewStoreManagerServiceClient(grpcConn)
 		req := &pb.OpenSessionRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
@@ -219,13 +219,13 @@ var blobBlobStoreManagerOpenSessionCmd = &cobra.Command{
 	},
 }
 
-var blobBlobStoreManagerReleaseLeaseCmd = &cobra.Command{
+var blobStoreManagerReleaseLeaseCmd = &cobra.Command{
 	Use:   "release-lease",
 	Short: "ReleaseLease RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewBlobStoreManagerServiceClient(grpcConn)
+		client := pb.NewStoreManagerServiceClient(grpcConn)
 		req := &pb.ReleaseLeaseRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
@@ -239,32 +239,32 @@ var blobBlobStoreManagerReleaseLeaseCmd = &cobra.Command{
 }
 
 func init() {
-	blobBlobStoreManagerAbandonSessionCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	blobBlobStoreManagerCmd.AddCommand(blobBlobStoreManagerAbandonSessionCmd)
-	blobBlobStoreManagerAcquireLease2Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	blobBlobStoreManagerAcquireLease2Cmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	blobBlobStoreManagerCmd.AddCommand(blobBlobStoreManagerAcquireLease2Cmd)
-	blobBlobStoreManagerAcquireLease3_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	blobBlobStoreManagerAcquireLease3_1Cmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	blobBlobStoreManagerAcquireLease3_1Cmd.Flags().Int64("arg2", 0, "arg2 (int64)")
-	blobBlobStoreManagerCmd.AddCommand(blobBlobStoreManagerAcquireLease3_1Cmd)
-	blobBlobStoreManagerAcquireLease2_2Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	blobBlobStoreManagerAcquireLease2_2Cmd.Flags().String("arg1", "", "arg1 (string)")
-	blobBlobStoreManagerCmd.AddCommand(blobBlobStoreManagerAcquireLease2_2Cmd)
-	blobBlobStoreManagerAcquireLease3_3Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	blobBlobStoreManagerAcquireLease3_3Cmd.Flags().String("arg1", "", "arg1 (string)")
-	blobBlobStoreManagerAcquireLease3_3Cmd.Flags().Int64("arg2", 0, "arg2 (int64)")
-	blobBlobStoreManagerCmd.AddCommand(blobBlobStoreManagerAcquireLease3_3Cmd)
-	blobBlobStoreManagerCreateSessionCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	blobBlobStoreManagerCmd.AddCommand(blobBlobStoreManagerCreateSessionCmd)
-	blobBlobStoreManagerCmd.AddCommand(blobBlobStoreManagerGetLeasedBlobsCmd)
-	blobBlobStoreManagerCmd.AddCommand(blobBlobStoreManagerGetRemainingLeaseQuotaBytesCmd)
-	blobBlobStoreManagerOpenBlobCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	blobBlobStoreManagerCmd.AddCommand(blobBlobStoreManagerOpenBlobCmd)
-	blobBlobStoreManagerOpenSessionCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	blobBlobStoreManagerCmd.AddCommand(blobBlobStoreManagerOpenSessionCmd)
-	blobBlobStoreManagerReleaseLeaseCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	blobBlobStoreManagerCmd.AddCommand(blobBlobStoreManagerReleaseLeaseCmd)
-	blobCmd.AddCommand(blobBlobStoreManagerCmd)
+	blobStoreManagerAbandonSessionCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	blobStoreManagerCmd.AddCommand(blobStoreManagerAbandonSessionCmd)
+	blobStoreManagerAcquireLease2Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	blobStoreManagerAcquireLease2Cmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	blobStoreManagerCmd.AddCommand(blobStoreManagerAcquireLease2Cmd)
+	blobStoreManagerAcquireLease3_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	blobStoreManagerAcquireLease3_1Cmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	blobStoreManagerAcquireLease3_1Cmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	blobStoreManagerCmd.AddCommand(blobStoreManagerAcquireLease3_1Cmd)
+	blobStoreManagerAcquireLease2_2Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	blobStoreManagerAcquireLease2_2Cmd.Flags().String("arg1", "", "arg1 (string)")
+	blobStoreManagerCmd.AddCommand(blobStoreManagerAcquireLease2_2Cmd)
+	blobStoreManagerAcquireLease3_3Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	blobStoreManagerAcquireLease3_3Cmd.Flags().String("arg1", "", "arg1 (string)")
+	blobStoreManagerAcquireLease3_3Cmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	blobStoreManagerCmd.AddCommand(blobStoreManagerAcquireLease3_3Cmd)
+	blobStoreManagerCreateSessionCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	blobStoreManagerCmd.AddCommand(blobStoreManagerCreateSessionCmd)
+	blobStoreManagerCmd.AddCommand(blobStoreManagerGetLeasedBlobsCmd)
+	blobStoreManagerCmd.AddCommand(blobStoreManagerGetRemainingLeaseQuotaBytesCmd)
+	blobStoreManagerOpenBlobCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	blobStoreManagerCmd.AddCommand(blobStoreManagerOpenBlobCmd)
+	blobStoreManagerOpenSessionCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	blobStoreManagerCmd.AddCommand(blobStoreManagerOpenSessionCmd)
+	blobStoreManagerReleaseLeaseCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	blobStoreManagerCmd.AddCommand(blobStoreManagerReleaseLeaseCmd)
+	blobCmd.AddCommand(blobStoreManagerCmd)
 	rootCmd.AddCommand(blobCmd)
 }

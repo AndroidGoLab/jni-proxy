@@ -7,9 +7,9 @@ import (
 
 	"github.com/AndroidGoLab/jni"
 
-	"github.com/AndroidGoLab/jni/app"
 	"github.com/AndroidGoLab/jni-proxy/handlestore"
 	pb "github.com/AndroidGoLab/jni-proxy/proto/inputmethod"
+	"github.com/AndroidGoLab/jni/app"
 	jnipkg "github.com/AndroidGoLab/jni/view/inputmethod"
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"
@@ -23,7 +23,7 @@ type InputMethodManagerServer struct {
 }
 
 func (s *InputMethodManagerServer) AcceptStylusHandwritingDelegation1(_ context.Context, req *pb.AcceptStylusHandwritingDelegation1Request) (*pb.AcceptStylusHandwritingDelegation1Response, error) {
-	mgr, err := jnipkg.NewinputMethodManager(s.Ctx)
+	mgr, err := jnipkg.NewInputMethodManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -37,7 +37,7 @@ func (s *InputMethodManagerServer) AcceptStylusHandwritingDelegation1(_ context.
 }
 
 func (s *InputMethodManagerServer) AcceptStylusHandwritingDelegation2_1(_ context.Context, req *pb.AcceptStylusHandwritingDelegation2_1Request) (*pb.AcceptStylusHandwritingDelegation2_1Response, error) {
-	mgr, err := jnipkg.NewinputMethodManager(s.Ctx)
+	mgr, err := jnipkg.NewInputMethodManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -51,7 +51,7 @@ func (s *InputMethodManagerServer) AcceptStylusHandwritingDelegation2_1(_ contex
 }
 
 func (s *InputMethodManagerServer) AcceptStylusHandwritingDelegation5_2(_ context.Context, req *pb.AcceptStylusHandwritingDelegation5_2Request) (*pb.AcceptStylusHandwritingDelegation5_2Response, error) {
-	mgr, err := jnipkg.NewinputMethodManager(s.Ctx)
+	mgr, err := jnipkg.NewInputMethodManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -64,7 +64,7 @@ func (s *InputMethodManagerServer) AcceptStylusHandwritingDelegation5_2(_ contex
 }
 
 func (s *InputMethodManagerServer) AcceptStylusHandwritingDelegation4_3(_ context.Context, req *pb.AcceptStylusHandwritingDelegation4_3Request) (*pb.AcceptStylusHandwritingDelegation4_3Response, error) {
-	mgr, err := jnipkg.NewinputMethodManager(s.Ctx)
+	mgr, err := jnipkg.NewInputMethodManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -77,7 +77,7 @@ func (s *InputMethodManagerServer) AcceptStylusHandwritingDelegation4_3(_ contex
 }
 
 func (s *InputMethodManagerServer) DispatchKeyEventFromInputMethod(_ context.Context, req *pb.DispatchKeyEventFromInputMethodRequest) (*pb.DispatchKeyEventFromInputMethodResponse, error) {
-	mgr, err := jnipkg.NewinputMethodManager(s.Ctx)
+	mgr, err := jnipkg.NewInputMethodManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -90,7 +90,7 @@ func (s *InputMethodManagerServer) DispatchKeyEventFromInputMethod(_ context.Con
 }
 
 func (s *InputMethodManagerServer) DisplayCompletions(_ context.Context, req *pb.DisplayCompletionsRequest) (*pb.DisplayCompletionsResponse, error) {
-	mgr, err := jnipkg.NewinputMethodManager(s.Ctx)
+	mgr, err := jnipkg.NewInputMethodManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -103,7 +103,7 @@ func (s *InputMethodManagerServer) DisplayCompletions(_ context.Context, req *pb
 }
 
 func (s *InputMethodManagerServer) GetCurrentInputMethodInfo(_ context.Context, req *pb.GetCurrentInputMethodInfoRequest) (*pb.GetCurrentInputMethodInfoResponse, error) {
-	mgr, err := jnipkg.NewinputMethodManager(s.Ctx)
+	mgr, err := jnipkg.NewInputMethodManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -126,7 +126,7 @@ func (s *InputMethodManagerServer) GetCurrentInputMethodInfo(_ context.Context, 
 }
 
 func (s *InputMethodManagerServer) GetCurrentInputMethodSubtype(_ context.Context, req *pb.GetCurrentInputMethodSubtypeRequest) (*pb.GetCurrentInputMethodSubtypeResponse, error) {
-	mgr, err := jnipkg.NewinputMethodManager(s.Ctx)
+	mgr, err := jnipkg.NewInputMethodManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -149,7 +149,7 @@ func (s *InputMethodManagerServer) GetCurrentInputMethodSubtype(_ context.Contex
 }
 
 func (s *InputMethodManagerServer) GetEnabledInputMethodList(_ context.Context, req *pb.GetEnabledInputMethodListRequest) (*pb.GetEnabledInputMethodListResponse, error) {
-	mgr, err := jnipkg.NewinputMethodManager(s.Ctx)
+	mgr, err := jnipkg.NewInputMethodManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -172,7 +172,7 @@ func (s *InputMethodManagerServer) GetEnabledInputMethodList(_ context.Context, 
 }
 
 func (s *InputMethodManagerServer) GetEnabledInputMethodSubtypeList(_ context.Context, req *pb.GetEnabledInputMethodSubtypeListRequest) (*pb.GetEnabledInputMethodSubtypeListResponse, error) {
-	mgr, err := jnipkg.NewinputMethodManager(s.Ctx)
+	mgr, err := jnipkg.NewInputMethodManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -195,7 +195,7 @@ func (s *InputMethodManagerServer) GetEnabledInputMethodSubtypeList(_ context.Co
 }
 
 func (s *InputMethodManagerServer) GetInputMethodList(_ context.Context, req *pb.GetInputMethodListRequest) (*pb.GetInputMethodListResponse, error) {
-	mgr, err := jnipkg.NewinputMethodManager(s.Ctx)
+	mgr, err := jnipkg.NewInputMethodManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -218,7 +218,7 @@ func (s *InputMethodManagerServer) GetInputMethodList(_ context.Context, req *pb
 }
 
 func (s *InputMethodManagerServer) GetLastInputMethodSubtype(_ context.Context, req *pb.GetLastInputMethodSubtypeRequest) (*pb.GetLastInputMethodSubtypeResponse, error) {
-	mgr, err := jnipkg.NewinputMethodManager(s.Ctx)
+	mgr, err := jnipkg.NewInputMethodManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -241,7 +241,7 @@ func (s *InputMethodManagerServer) GetLastInputMethodSubtype(_ context.Context, 
 }
 
 func (s *InputMethodManagerServer) HideSoftInputFromInputMethod(_ context.Context, req *pb.HideSoftInputFromInputMethodRequest) (*pb.HideSoftInputFromInputMethodResponse, error) {
-	mgr, err := jnipkg.NewinputMethodManager(s.Ctx)
+	mgr, err := jnipkg.NewInputMethodManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -254,7 +254,7 @@ func (s *InputMethodManagerServer) HideSoftInputFromInputMethod(_ context.Contex
 }
 
 func (s *InputMethodManagerServer) HideSoftInputFromWindow2(_ context.Context, req *pb.HideSoftInputFromWindow2Request) (*pb.HideSoftInputFromWindow2Response, error) {
-	mgr, err := jnipkg.NewinputMethodManager(s.Ctx)
+	mgr, err := jnipkg.NewInputMethodManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -268,7 +268,7 @@ func (s *InputMethodManagerServer) HideSoftInputFromWindow2(_ context.Context, r
 }
 
 func (s *InputMethodManagerServer) HideSoftInputFromWindow3_1(_ context.Context, req *pb.HideSoftInputFromWindow3_1Request) (*pb.HideSoftInputFromWindow3_1Response, error) {
-	mgr, err := jnipkg.NewinputMethodManager(s.Ctx)
+	mgr, err := jnipkg.NewInputMethodManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -282,7 +282,7 @@ func (s *InputMethodManagerServer) HideSoftInputFromWindow3_1(_ context.Context,
 }
 
 func (s *InputMethodManagerServer) HideStatusIcon(_ context.Context, req *pb.HideStatusIconRequest) (*pb.HideStatusIconResponse, error) {
-	mgr, err := jnipkg.NewinputMethodManager(s.Ctx)
+	mgr, err := jnipkg.NewInputMethodManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -295,7 +295,7 @@ func (s *InputMethodManagerServer) HideStatusIcon(_ context.Context, req *pb.Hid
 }
 
 func (s *InputMethodManagerServer) InvalidateInput(_ context.Context, req *pb.InvalidateInputRequest) (*pb.InvalidateInputResponse, error) {
-	mgr, err := jnipkg.NewinputMethodManager(s.Ctx)
+	mgr, err := jnipkg.NewInputMethodManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -308,7 +308,7 @@ func (s *InputMethodManagerServer) InvalidateInput(_ context.Context, req *pb.In
 }
 
 func (s *InputMethodManagerServer) IsAcceptingText(_ context.Context, req *pb.IsAcceptingTextRequest) (*pb.IsAcceptingTextResponse, error) {
-	mgr, err := jnipkg.NewinputMethodManager(s.Ctx)
+	mgr, err := jnipkg.NewInputMethodManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -322,7 +322,7 @@ func (s *InputMethodManagerServer) IsAcceptingText(_ context.Context, req *pb.Is
 }
 
 func (s *InputMethodManagerServer) IsActive0(_ context.Context, req *pb.IsActive0Request) (*pb.IsActive0Response, error) {
-	mgr, err := jnipkg.NewinputMethodManager(s.Ctx)
+	mgr, err := jnipkg.NewInputMethodManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -336,7 +336,7 @@ func (s *InputMethodManagerServer) IsActive0(_ context.Context, req *pb.IsActive
 }
 
 func (s *InputMethodManagerServer) IsActive1_1(_ context.Context, req *pb.IsActive1_1Request) (*pb.IsActive1_1Response, error) {
-	mgr, err := jnipkg.NewinputMethodManager(s.Ctx)
+	mgr, err := jnipkg.NewInputMethodManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -350,7 +350,7 @@ func (s *InputMethodManagerServer) IsActive1_1(_ context.Context, req *pb.IsActi
 }
 
 func (s *InputMethodManagerServer) IsConnectionlessStylusHandwritingAvailable(_ context.Context, req *pb.IsConnectionlessStylusHandwritingAvailableRequest) (*pb.IsConnectionlessStylusHandwritingAvailableResponse, error) {
-	mgr, err := jnipkg.NewinputMethodManager(s.Ctx)
+	mgr, err := jnipkg.NewInputMethodManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -364,7 +364,7 @@ func (s *InputMethodManagerServer) IsConnectionlessStylusHandwritingAvailable(_ 
 }
 
 func (s *InputMethodManagerServer) IsFullscreenMode(_ context.Context, req *pb.IsFullscreenModeRequest) (*pb.IsFullscreenModeResponse, error) {
-	mgr, err := jnipkg.NewinputMethodManager(s.Ctx)
+	mgr, err := jnipkg.NewInputMethodManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -378,7 +378,7 @@ func (s *InputMethodManagerServer) IsFullscreenMode(_ context.Context, req *pb.I
 }
 
 func (s *InputMethodManagerServer) IsInputMethodSuppressingSpellChecker(_ context.Context, req *pb.IsInputMethodSuppressingSpellCheckerRequest) (*pb.IsInputMethodSuppressingSpellCheckerResponse, error) {
-	mgr, err := jnipkg.NewinputMethodManager(s.Ctx)
+	mgr, err := jnipkg.NewInputMethodManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -392,7 +392,7 @@ func (s *InputMethodManagerServer) IsInputMethodSuppressingSpellChecker(_ contex
 }
 
 func (s *InputMethodManagerServer) IsStylusHandwritingAvailable(_ context.Context, req *pb.IsStylusHandwritingAvailableRequest) (*pb.IsStylusHandwritingAvailableResponse, error) {
-	mgr, err := jnipkg.NewinputMethodManager(s.Ctx)
+	mgr, err := jnipkg.NewInputMethodManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -406,7 +406,7 @@ func (s *InputMethodManagerServer) IsStylusHandwritingAvailable(_ context.Contex
 }
 
 func (s *InputMethodManagerServer) IsWatchingCursor(_ context.Context, req *pb.IsWatchingCursorRequest) (*pb.IsWatchingCursorResponse, error) {
-	mgr, err := jnipkg.NewinputMethodManager(s.Ctx)
+	mgr, err := jnipkg.NewInputMethodManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -420,7 +420,7 @@ func (s *InputMethodManagerServer) IsWatchingCursor(_ context.Context, req *pb.I
 }
 
 func (s *InputMethodManagerServer) PrepareStylusHandwritingDelegation1(_ context.Context, req *pb.PrepareStylusHandwritingDelegation1Request) (*pb.PrepareStylusHandwritingDelegation1Response, error) {
-	mgr, err := jnipkg.NewinputMethodManager(s.Ctx)
+	mgr, err := jnipkg.NewInputMethodManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -433,7 +433,7 @@ func (s *InputMethodManagerServer) PrepareStylusHandwritingDelegation1(_ context
 }
 
 func (s *InputMethodManagerServer) PrepareStylusHandwritingDelegation2_1(_ context.Context, req *pb.PrepareStylusHandwritingDelegation2_1Request) (*pb.PrepareStylusHandwritingDelegation2_1Response, error) {
-	mgr, err := jnipkg.NewinputMethodManager(s.Ctx)
+	mgr, err := jnipkg.NewInputMethodManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -446,7 +446,7 @@ func (s *InputMethodManagerServer) PrepareStylusHandwritingDelegation2_1(_ conte
 }
 
 func (s *InputMethodManagerServer) RestartInput(_ context.Context, req *pb.RestartInputRequest) (*pb.RestartInputResponse, error) {
-	mgr, err := jnipkg.NewinputMethodManager(s.Ctx)
+	mgr, err := jnipkg.NewInputMethodManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -459,7 +459,7 @@ func (s *InputMethodManagerServer) RestartInput(_ context.Context, req *pb.Resta
 }
 
 func (s *InputMethodManagerServer) SendAppPrivateCommand(_ context.Context, req *pb.SendAppPrivateCommandRequest) (*pb.SendAppPrivateCommandResponse, error) {
-	mgr, err := jnipkg.NewinputMethodManager(s.Ctx)
+	mgr, err := jnipkg.NewInputMethodManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -472,7 +472,7 @@ func (s *InputMethodManagerServer) SendAppPrivateCommand(_ context.Context, req 
 }
 
 func (s *InputMethodManagerServer) SetAdditionalInputMethodSubtypes(_ context.Context, req *pb.SetAdditionalInputMethodSubtypesRequest) (*pb.SetAdditionalInputMethodSubtypesResponse, error) {
-	mgr, err := jnipkg.NewinputMethodManager(s.Ctx)
+	mgr, err := jnipkg.NewInputMethodManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -485,7 +485,7 @@ func (s *InputMethodManagerServer) SetAdditionalInputMethodSubtypes(_ context.Co
 }
 
 func (s *InputMethodManagerServer) SetCurrentInputMethodSubtype(_ context.Context, req *pb.SetCurrentInputMethodSubtypeRequest) (*pb.SetCurrentInputMethodSubtypeResponse, error) {
-	mgr, err := jnipkg.NewinputMethodManager(s.Ctx)
+	mgr, err := jnipkg.NewInputMethodManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -499,7 +499,7 @@ func (s *InputMethodManagerServer) SetCurrentInputMethodSubtype(_ context.Contex
 }
 
 func (s *InputMethodManagerServer) SetExplicitlyEnabledInputMethodSubtypes(_ context.Context, req *pb.SetExplicitlyEnabledInputMethodSubtypesRequest) (*pb.SetExplicitlyEnabledInputMethodSubtypesResponse, error) {
-	mgr, err := jnipkg.NewinputMethodManager(s.Ctx)
+	mgr, err := jnipkg.NewInputMethodManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -512,7 +512,7 @@ func (s *InputMethodManagerServer) SetExplicitlyEnabledInputMethodSubtypes(_ con
 }
 
 func (s *InputMethodManagerServer) SetInputMethod(_ context.Context, req *pb.SetInputMethodRequest) (*pb.SetInputMethodResponse, error) {
-	mgr, err := jnipkg.NewinputMethodManager(s.Ctx)
+	mgr, err := jnipkg.NewInputMethodManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -525,7 +525,7 @@ func (s *InputMethodManagerServer) SetInputMethod(_ context.Context, req *pb.Set
 }
 
 func (s *InputMethodManagerServer) SetInputMethodAndSubtype(_ context.Context, req *pb.SetInputMethodAndSubtypeRequest) (*pb.SetInputMethodAndSubtypeResponse, error) {
-	mgr, err := jnipkg.NewinputMethodManager(s.Ctx)
+	mgr, err := jnipkg.NewInputMethodManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -538,7 +538,7 @@ func (s *InputMethodManagerServer) SetInputMethodAndSubtype(_ context.Context, r
 }
 
 func (s *InputMethodManagerServer) ShouldOfferSwitchingToNextInputMethod(_ context.Context, req *pb.ShouldOfferSwitchingToNextInputMethodRequest) (*pb.ShouldOfferSwitchingToNextInputMethodResponse, error) {
-	mgr, err := jnipkg.NewinputMethodManager(s.Ctx)
+	mgr, err := jnipkg.NewInputMethodManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -552,7 +552,7 @@ func (s *InputMethodManagerServer) ShouldOfferSwitchingToNextInputMethod(_ conte
 }
 
 func (s *InputMethodManagerServer) ShowInputMethodAndSubtypeEnabler(_ context.Context, req *pb.ShowInputMethodAndSubtypeEnablerRequest) (*pb.ShowInputMethodAndSubtypeEnablerResponse, error) {
-	mgr, err := jnipkg.NewinputMethodManager(s.Ctx)
+	mgr, err := jnipkg.NewInputMethodManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -565,7 +565,7 @@ func (s *InputMethodManagerServer) ShowInputMethodAndSubtypeEnabler(_ context.Co
 }
 
 func (s *InputMethodManagerServer) ShowInputMethodPicker(_ context.Context, req *pb.ShowInputMethodPickerRequest) (*pb.ShowInputMethodPickerResponse, error) {
-	mgr, err := jnipkg.NewinputMethodManager(s.Ctx)
+	mgr, err := jnipkg.NewInputMethodManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -578,7 +578,7 @@ func (s *InputMethodManagerServer) ShowInputMethodPicker(_ context.Context, req 
 }
 
 func (s *InputMethodManagerServer) ShowSoftInput2(_ context.Context, req *pb.ShowSoftInput2Request) (*pb.ShowSoftInput2Response, error) {
-	mgr, err := jnipkg.NewinputMethodManager(s.Ctx)
+	mgr, err := jnipkg.NewInputMethodManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -592,7 +592,7 @@ func (s *InputMethodManagerServer) ShowSoftInput2(_ context.Context, req *pb.Sho
 }
 
 func (s *InputMethodManagerServer) ShowSoftInput3_1(_ context.Context, req *pb.ShowSoftInput3_1Request) (*pb.ShowSoftInput3_1Response, error) {
-	mgr, err := jnipkg.NewinputMethodManager(s.Ctx)
+	mgr, err := jnipkg.NewInputMethodManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -606,7 +606,7 @@ func (s *InputMethodManagerServer) ShowSoftInput3_1(_ context.Context, req *pb.S
 }
 
 func (s *InputMethodManagerServer) ShowSoftInputFromInputMethod(_ context.Context, req *pb.ShowSoftInputFromInputMethodRequest) (*pb.ShowSoftInputFromInputMethodResponse, error) {
-	mgr, err := jnipkg.NewinputMethodManager(s.Ctx)
+	mgr, err := jnipkg.NewInputMethodManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -619,7 +619,7 @@ func (s *InputMethodManagerServer) ShowSoftInputFromInputMethod(_ context.Contex
 }
 
 func (s *InputMethodManagerServer) ShowStatusIcon(_ context.Context, req *pb.ShowStatusIconRequest) (*pb.ShowStatusIconResponse, error) {
-	mgr, err := jnipkg.NewinputMethodManager(s.Ctx)
+	mgr, err := jnipkg.NewInputMethodManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -632,7 +632,7 @@ func (s *InputMethodManagerServer) ShowStatusIcon(_ context.Context, req *pb.Sho
 }
 
 func (s *InputMethodManagerServer) StartConnectionlessStylusHandwriting(_ context.Context, req *pb.StartConnectionlessStylusHandwritingRequest) (*pb.StartConnectionlessStylusHandwritingResponse, error) {
-	mgr, err := jnipkg.NewinputMethodManager(s.Ctx)
+	mgr, err := jnipkg.NewInputMethodManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -645,7 +645,7 @@ func (s *InputMethodManagerServer) StartConnectionlessStylusHandwriting(_ contex
 }
 
 func (s *InputMethodManagerServer) StartConnectionlessStylusHandwritingForDelegation5(_ context.Context, req *pb.StartConnectionlessStylusHandwritingForDelegation5Request) (*pb.StartConnectionlessStylusHandwritingForDelegation5Response, error) {
-	mgr, err := jnipkg.NewinputMethodManager(s.Ctx)
+	mgr, err := jnipkg.NewInputMethodManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -658,7 +658,7 @@ func (s *InputMethodManagerServer) StartConnectionlessStylusHandwritingForDelega
 }
 
 func (s *InputMethodManagerServer) StartConnectionlessStylusHandwritingForDelegation4_1(_ context.Context, req *pb.StartConnectionlessStylusHandwritingForDelegation4_1Request) (*pb.StartConnectionlessStylusHandwritingForDelegation4_1Response, error) {
-	mgr, err := jnipkg.NewinputMethodManager(s.Ctx)
+	mgr, err := jnipkg.NewInputMethodManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -671,7 +671,7 @@ func (s *InputMethodManagerServer) StartConnectionlessStylusHandwritingForDelega
 }
 
 func (s *InputMethodManagerServer) StartStylusHandwriting(_ context.Context, req *pb.StartStylusHandwritingRequest) (*pb.StartStylusHandwritingResponse, error) {
-	mgr, err := jnipkg.NewinputMethodManager(s.Ctx)
+	mgr, err := jnipkg.NewInputMethodManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -684,7 +684,7 @@ func (s *InputMethodManagerServer) StartStylusHandwriting(_ context.Context, req
 }
 
 func (s *InputMethodManagerServer) SwitchToLastInputMethod(_ context.Context, req *pb.SwitchToLastInputMethodRequest) (*pb.SwitchToLastInputMethodResponse, error) {
-	mgr, err := jnipkg.NewinputMethodManager(s.Ctx)
+	mgr, err := jnipkg.NewInputMethodManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -698,7 +698,7 @@ func (s *InputMethodManagerServer) SwitchToLastInputMethod(_ context.Context, re
 }
 
 func (s *InputMethodManagerServer) SwitchToNextInputMethod(_ context.Context, req *pb.SwitchToNextInputMethodRequest) (*pb.SwitchToNextInputMethodResponse, error) {
-	mgr, err := jnipkg.NewinputMethodManager(s.Ctx)
+	mgr, err := jnipkg.NewInputMethodManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -712,7 +712,7 @@ func (s *InputMethodManagerServer) SwitchToNextInputMethod(_ context.Context, re
 }
 
 func (s *InputMethodManagerServer) ToggleSoftInput(_ context.Context, req *pb.ToggleSoftInputRequest) (*pb.ToggleSoftInputResponse, error) {
-	mgr, err := jnipkg.NewinputMethodManager(s.Ctx)
+	mgr, err := jnipkg.NewInputMethodManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -725,7 +725,7 @@ func (s *InputMethodManagerServer) ToggleSoftInput(_ context.Context, req *pb.To
 }
 
 func (s *InputMethodManagerServer) ToggleSoftInputFromWindow(_ context.Context, req *pb.ToggleSoftInputFromWindowRequest) (*pb.ToggleSoftInputFromWindowResponse, error) {
-	mgr, err := jnipkg.NewinputMethodManager(s.Ctx)
+	mgr, err := jnipkg.NewInputMethodManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -738,7 +738,7 @@ func (s *InputMethodManagerServer) ToggleSoftInputFromWindow(_ context.Context, 
 }
 
 func (s *InputMethodManagerServer) UpdateCursor(_ context.Context, req *pb.UpdateCursorRequest) (*pb.UpdateCursorResponse, error) {
-	mgr, err := jnipkg.NewinputMethodManager(s.Ctx)
+	mgr, err := jnipkg.NewInputMethodManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -751,7 +751,7 @@ func (s *InputMethodManagerServer) UpdateCursor(_ context.Context, req *pb.Updat
 }
 
 func (s *InputMethodManagerServer) UpdateCursorAnchorInfo(_ context.Context, req *pb.UpdateCursorAnchorInfoRequest) (*pb.UpdateCursorAnchorInfoResponse, error) {
-	mgr, err := jnipkg.NewinputMethodManager(s.Ctx)
+	mgr, err := jnipkg.NewInputMethodManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -764,7 +764,7 @@ func (s *InputMethodManagerServer) UpdateCursorAnchorInfo(_ context.Context, req
 }
 
 func (s *InputMethodManagerServer) UpdateExtractedText(_ context.Context, req *pb.UpdateExtractedTextRequest) (*pb.UpdateExtractedTextResponse, error) {
-	mgr, err := jnipkg.NewinputMethodManager(s.Ctx)
+	mgr, err := jnipkg.NewInputMethodManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -777,7 +777,7 @@ func (s *InputMethodManagerServer) UpdateExtractedText(_ context.Context, req *p
 }
 
 func (s *InputMethodManagerServer) UpdateSelection(_ context.Context, req *pb.UpdateSelectionRequest) (*pb.UpdateSelectionResponse, error) {
-	mgr, err := jnipkg.NewinputMethodManager(s.Ctx)
+	mgr, err := jnipkg.NewInputMethodManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -790,7 +790,7 @@ func (s *InputMethodManagerServer) UpdateSelection(_ context.Context, req *pb.Up
 }
 
 func (s *InputMethodManagerServer) ViewClicked(_ context.Context, req *pb.ViewClickedRequest) (*pb.ViewClickedResponse, error) {
-	mgr, err := jnipkg.NewinputMethodManager(s.Ctx)
+	mgr, err := jnipkg.NewInputMethodManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}

@@ -123,7 +123,7 @@ message UnregisterTorchCallbackRequest {
 message UnregisterTorchCallbackResponse {
 }
 
-service CameraManagerService {
+service ManagerService {
   rpc GetCameraCharacteristics (GetCameraCharacteristicsRequest) returns (GetCameraCharacteristicsResponse);
   rpc GetCameraDeviceSetup (GetCameraDeviceSetupRequest) returns (GetCameraDeviceSetupResponse);
   rpc GetCameraExtensionCharacteristics (GetCameraExtensionCharacteristicsRequest) returns (GetCameraExtensionCharacteristicsResponse);

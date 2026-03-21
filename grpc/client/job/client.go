@@ -9,17 +9,17 @@ import (
 	"google.golang.org/grpc"
 )
 
-// Client wraps the gRPC JobSchedulerService client.
+// Client wraps the gRPC SchedulerService client.
 type Client struct {
 	cc  grpc.ClientConnInterface
-	svc pb.JobSchedulerServiceClient
+	svc pb.SchedulerServiceClient
 }
 
 // NewClient creates a new job client.
 func NewClient(cc grpc.ClientConnInterface) *Client {
 	return &Client{
 		cc:  cc,
-		svc: pb.NewJobSchedulerServiceClient(cc),
+		svc: pb.NewSchedulerServiceClient(cc),
 	}
 }
 
@@ -32,10 +32,36 @@ func (c *Client) CanRunUserInitiatedJobs(ctx context.Context) (bool, error) {
 	return resp.GetResult(), nil
 }
 
+// Cancel calls the Cancel RPC.
+func (c *Client) Cancel(ctx context.Context, arg0 int32) error {
+	_, err := c.svc.Cancel(ctx, &pb.CancelRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// CancelAll calls the CancelAll RPC.
+func (c *Client) CancelAll(ctx context.Context) error {
+	_, err := c.svc.CancelAll(ctx, &pb.CancelAllRequest{})
+	return err
+}
+
 // CancelInAllNamespaces calls the CancelInAllNamespaces RPC.
 func (c *Client) CancelInAllNamespaces(ctx context.Context) error {
 	_, err := c.svc.CancelInAllNamespaces(ctx, &pb.CancelInAllNamespacesRequest{})
 	return err
+}
+
+// Enqueue calls the Enqueue RPC.
+func (c *Client) Enqueue(ctx context.Context, arg0 int64, arg1 int64) (int32, error) {
+	resp, err := c.svc.Enqueue(ctx, &pb.EnqueueRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
 }
 
 // ForNamespace calls the ForNamespace RPC.
@@ -49,11 +75,31 @@ func (c *Client) ForNamespace(ctx context.Context, arg0 string) (int64, error) {
 	return resp.GetResult(), nil
 }
 
+// GetAllPendingJobs calls the GetAllPendingJobs RPC.
+func (c *Client) GetAllPendingJobs(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetAllPendingJobs(ctx, &pb.GetAllPendingJobsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
 // GetNamespace calls the GetNamespace RPC.
 func (c *Client) GetNamespace(ctx context.Context) (string, error) {
 	resp, err := c.svc.GetNamespace(ctx, &pb.GetNamespaceRequest{})
 	if err != nil {
 		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetPendingJob calls the GetPendingJob RPC.
+func (c *Client) GetPendingJob(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.GetPendingJob(ctx, &pb.GetPendingJobRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
 	}
 	return resp.GetResult(), nil
 }
@@ -83,6 +129,17 @@ func (c *Client) GetPendingJobReasons(ctx context.Context, arg0 int32) (int64, e
 // GetPendingJobReasonsHistory calls the GetPendingJobReasonsHistory RPC.
 func (c *Client) GetPendingJobReasonsHistory(ctx context.Context, arg0 int32) (int64, error) {
 	resp, err := c.svc.GetPendingJobReasonsHistory(ctx, &pb.GetPendingJobReasonsHistoryRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Schedule calls the Schedule RPC.
+func (c *Client) Schedule(ctx context.Context, arg0 int64) (int32, error) {
+	resp, err := c.svc.Schedule(ctx, &pb.ScheduleRequest{
 		Arg0: arg0,
 	})
 	if err != nil {

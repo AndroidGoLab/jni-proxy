@@ -62,11 +62,11 @@ func (s *Server) putObject(env *jni.Env, obj *jni.Object) int64 {
 }
 
 func methodID(id int64) jni.MethodID {
-	return jni.MethodID(unsafe.Pointer(uintptr(id)))
+	return jni.MethodID(unsafe.Pointer(uintptr(id))) //nolint:govet // intentional int64↔JNI opaque pointer conversion
 }
 
 func fieldID(id int64) jni.FieldID {
-	return jni.FieldID(unsafe.Pointer(uintptr(id)))
+	return jni.FieldID(unsafe.Pointer(uintptr(id))) //nolint:govet // intentional int64↔JNI opaque pointer conversion
 }
 
 func methodIDToInt64(id jni.MethodID) int64 {

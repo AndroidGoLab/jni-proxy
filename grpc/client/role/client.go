@@ -9,17 +9,17 @@ import (
 	"google.golang.org/grpc"
 )
 
-// Client wraps the gRPC RoleManagerService client.
+// Client wraps the gRPC ManagerService client.
 type Client struct {
 	cc  grpc.ClientConnInterface
-	svc pb.RoleManagerServiceClient
+	svc pb.ManagerServiceClient
 }
 
 // NewClient creates a new role client.
 func NewClient(cc grpc.ClientConnInterface) *Client {
 	return &Client{
 		cc:  cc,
-		svc: pb.NewRoleManagerServiceClient(cc),
+		svc: pb.NewManagerServiceClient(cc),
 	}
 }
 

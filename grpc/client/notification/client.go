@@ -9,17 +9,17 @@ import (
 	"google.golang.org/grpc"
 )
 
-// Client wraps the gRPC NotificationManagerService client.
+// Client wraps the gRPC ManagerService client.
 type Client struct {
 	cc  grpc.ClientConnInterface
-	svc pb.NotificationManagerServiceClient
+	svc pb.ManagerServiceClient
 }
 
 // NewClient creates a new notification client.
 func NewClient(cc grpc.ClientConnInterface) *Client {
 	return &Client{
 		cc:  cc,
-		svc: pb.NewNotificationManagerServiceClient(cc),
+		svc: pb.NewManagerServiceClient(cc),
 	}
 }
 
@@ -238,6 +238,15 @@ func (c *Client) GetConsolidatedNotificationPolicy(ctx context.Context) (int64, 
 	return resp.GetResult(), nil
 }
 
+// GetCurrentInterruptionFilter calls the GetCurrentInterruptionFilter RPC.
+func (c *Client) GetCurrentInterruptionFilter(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetCurrentInterruptionFilter(ctx, &pb.GetCurrentInterruptionFilterRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
 // GetImportance calls the GetImportance RPC.
 func (c *Client) GetImportance(ctx context.Context) (int32, error) {
 	resp, err := c.svc.GetImportance(ctx, &pb.GetImportanceRequest{})
@@ -394,6 +403,14 @@ func (c *Client) SetAutomaticZenRuleState(ctx context.Context, arg0 string, arg1
 	_, err := c.svc.SetAutomaticZenRuleState(ctx, &pb.SetAutomaticZenRuleStateRequest{
 		Arg0: arg0,
 		Arg1: arg1,
+	})
+	return err
+}
+
+// SetInterruptionFilter calls the SetInterruptionFilter RPC.
+func (c *Client) SetInterruptionFilter(ctx context.Context, arg0 int32) error {
+	_, err := c.svc.SetInterruptionFilter(ctx, &pb.SetInterruptionFilterRequest{
+		Arg0: arg0,
 	})
 	return err
 }

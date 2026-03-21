@@ -3,8 +3,8 @@
 package main
 
 import (
-	"github.com/spf13/cobra"
 	pb "github.com/AndroidGoLab/jni-proxy/proto/nsd"
+	"github.com/spf13/cobra"
 )
 
 var nsdCmd = &cobra.Command{
@@ -12,18 +12,18 @@ var nsdCmd = &cobra.Command{
 	Short: "nsd service operations",
 }
 
-var nsdNsdManagerCmd = &cobra.Command{
-	Use:   "nsd-manager",
-	Short: "NsdManagerService operations",
+var nsdManagerCmd = &cobra.Command{
+	Use:   "manager",
+	Short: "ManagerService operations",
 }
 
-var nsdNsdManagerDiscoverServices3Cmd = &cobra.Command{
+var nsdManagerDiscoverServices3Cmd = &cobra.Command{
 	Use:   "discover-services3",
 	Short: "DiscoverServices3 RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewNsdManagerServiceClient(grpcConn)
+		client := pb.NewManagerServiceClient(grpcConn)
 		req := &pb.DiscoverServices3Request{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
@@ -42,13 +42,13 @@ var nsdNsdManagerDiscoverServices3Cmd = &cobra.Command{
 	},
 }
 
-var nsdNsdManagerDiscoverServices5_1Cmd = &cobra.Command{
+var nsdManagerDiscoverServices5_1Cmd = &cobra.Command{
 	Use:   "discover-services5_1",
 	Short: "DiscoverServices5_1 RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewNsdManagerServiceClient(grpcConn)
+		client := pb.NewManagerServiceClient(grpcConn)
 		req := &pb.DiscoverServices5_1Request{}
 		if v, err := cmd.Flags().GetString("arg0"); err == nil {
 			req.Arg0 = v
@@ -73,13 +73,13 @@ var nsdNsdManagerDiscoverServices5_1Cmd = &cobra.Command{
 	},
 }
 
-var nsdNsdManagerDiscoverServices5_2Cmd = &cobra.Command{
+var nsdManagerDiscoverServices5_2Cmd = &cobra.Command{
 	Use:   "discover-services5_2",
 	Short: "DiscoverServices5_2 RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewNsdManagerServiceClient(grpcConn)
+		client := pb.NewManagerServiceClient(grpcConn)
 		req := &pb.DiscoverServices5_2Request{}
 		if v, err := cmd.Flags().GetString("arg0"); err == nil {
 			req.Arg0 = v
@@ -104,13 +104,13 @@ var nsdNsdManagerDiscoverServices5_2Cmd = &cobra.Command{
 	},
 }
 
-var nsdNsdManagerDiscoverServices3_3Cmd = &cobra.Command{
+var nsdManagerDiscoverServices3_3Cmd = &cobra.Command{
 	Use:   "discover-services3_3",
 	Short: "DiscoverServices3_3 RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewNsdManagerServiceClient(grpcConn)
+		client := pb.NewManagerServiceClient(grpcConn)
 		req := &pb.DiscoverServices3_3Request{}
 		if v, err := cmd.Flags().GetString("arg0"); err == nil {
 			req.Arg0 = v
@@ -129,13 +129,13 @@ var nsdNsdManagerDiscoverServices3_3Cmd = &cobra.Command{
 	},
 }
 
-var nsdNsdManagerRegisterService3Cmd = &cobra.Command{
+var nsdManagerRegisterService3Cmd = &cobra.Command{
 	Use:   "register-service3",
 	Short: "RegisterService3 RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewNsdManagerServiceClient(grpcConn)
+		client := pb.NewManagerServiceClient(grpcConn)
 		req := &pb.RegisterService3Request{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
@@ -154,13 +154,13 @@ var nsdNsdManagerRegisterService3Cmd = &cobra.Command{
 	},
 }
 
-var nsdNsdManagerRegisterService4_1Cmd = &cobra.Command{
+var nsdManagerRegisterService4_1Cmd = &cobra.Command{
 	Use:   "register-service4_1",
 	Short: "RegisterService4_1 RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewNsdManagerServiceClient(grpcConn)
+		client := pb.NewManagerServiceClient(grpcConn)
 		req := &pb.RegisterService4_1Request{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
@@ -182,13 +182,13 @@ var nsdNsdManagerRegisterService4_1Cmd = &cobra.Command{
 	},
 }
 
-var nsdNsdManagerRegisterServiceInfoCallbackCmd = &cobra.Command{
+var nsdManagerRegisterServiceInfoCallbackCmd = &cobra.Command{
 	Use:   "register-service-info-callback",
 	Short: "RegisterServiceInfoCallback RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewNsdManagerServiceClient(grpcConn)
+		client := pb.NewManagerServiceClient(grpcConn)
 		req := &pb.RegisterServiceInfoCallbackRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
@@ -207,13 +207,13 @@ var nsdNsdManagerRegisterServiceInfoCallbackCmd = &cobra.Command{
 	},
 }
 
-var nsdNsdManagerResolveService2Cmd = &cobra.Command{
+var nsdManagerResolveService2Cmd = &cobra.Command{
 	Use:   "resolve-service2",
 	Short: "ResolveService2 RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewNsdManagerServiceClient(grpcConn)
+		client := pb.NewManagerServiceClient(grpcConn)
 		req := &pb.ResolveService2Request{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
@@ -229,13 +229,13 @@ var nsdNsdManagerResolveService2Cmd = &cobra.Command{
 	},
 }
 
-var nsdNsdManagerResolveService3_1Cmd = &cobra.Command{
+var nsdManagerResolveService3_1Cmd = &cobra.Command{
 	Use:   "resolve-service3_1",
 	Short: "ResolveService3_1 RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewNsdManagerServiceClient(grpcConn)
+		client := pb.NewManagerServiceClient(grpcConn)
 		req := &pb.ResolveService3_1Request{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
@@ -254,13 +254,13 @@ var nsdNsdManagerResolveService3_1Cmd = &cobra.Command{
 	},
 }
 
-var nsdNsdManagerStopServiceDiscoveryCmd = &cobra.Command{
+var nsdManagerStopServiceDiscoveryCmd = &cobra.Command{
 	Use:   "stop-service-discovery",
 	Short: "StopServiceDiscovery RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewNsdManagerServiceClient(grpcConn)
+		client := pb.NewManagerServiceClient(grpcConn)
 		req := &pb.StopServiceDiscoveryRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
@@ -273,13 +273,13 @@ var nsdNsdManagerStopServiceDiscoveryCmd = &cobra.Command{
 	},
 }
 
-var nsdNsdManagerStopServiceResolutionCmd = &cobra.Command{
+var nsdManagerStopServiceResolutionCmd = &cobra.Command{
 	Use:   "stop-service-resolution",
 	Short: "StopServiceResolution RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewNsdManagerServiceClient(grpcConn)
+		client := pb.NewManagerServiceClient(grpcConn)
 		req := &pb.StopServiceResolutionRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
@@ -292,13 +292,13 @@ var nsdNsdManagerStopServiceResolutionCmd = &cobra.Command{
 	},
 }
 
-var nsdNsdManagerUnregisterServiceCmd = &cobra.Command{
+var nsdManagerUnregisterServiceCmd = &cobra.Command{
 	Use:   "unregister-service",
 	Short: "UnregisterService RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewNsdManagerServiceClient(grpcConn)
+		client := pb.NewManagerServiceClient(grpcConn)
 		req := &pb.UnregisterServiceRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
@@ -311,13 +311,13 @@ var nsdNsdManagerUnregisterServiceCmd = &cobra.Command{
 	},
 }
 
-var nsdNsdManagerUnregisterServiceInfoCallbackCmd = &cobra.Command{
+var nsdManagerUnregisterServiceInfoCallbackCmd = &cobra.Command{
 	Use:   "unregister-service-info-callback",
 	Short: "UnregisterServiceInfoCallback RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewNsdManagerServiceClient(grpcConn)
+		client := pb.NewManagerServiceClient(grpcConn)
 		req := &pb.UnregisterServiceInfoCallbackRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
@@ -330,18 +330,18 @@ var nsdNsdManagerUnregisterServiceInfoCallbackCmd = &cobra.Command{
 	},
 }
 
-var nsdNsdServiceInfoCmd = &cobra.Command{
-	Use:   "nsd-service-info",
-	Short: "NsdServiceInfoService operations",
+var nsdServiceInfoCmd = &cobra.Command{
+	Use:   "service-info",
+	Short: "ServiceInfoService operations",
 }
 
-var nsdNsdServiceInfoDescribeContentsCmd = &cobra.Command{
+var nsdServiceInfoDescribeContentsCmd = &cobra.Command{
 	Use:   "describe-contents",
 	Short: "DescribeContents RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewNsdServiceInfoServiceClient(grpcConn)
+		client := pb.NewServiceInfoServiceClient(grpcConn)
 		req := &pb.DescribeContentsRequest{}
 		resp, err := client.DescribeContents(ctx, req)
 		if err != nil {
@@ -351,13 +351,13 @@ var nsdNsdServiceInfoDescribeContentsCmd = &cobra.Command{
 	},
 }
 
-var nsdNsdServiceInfoGetHostCmd = &cobra.Command{
+var nsdServiceInfoGetHostCmd = &cobra.Command{
 	Use:   "get-host",
 	Short: "GetHost RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewNsdServiceInfoServiceClient(grpcConn)
+		client := pb.NewServiceInfoServiceClient(grpcConn)
 		req := &pb.GetHostRequest{}
 		resp, err := client.GetHost(ctx, req)
 		if err != nil {
@@ -367,13 +367,13 @@ var nsdNsdServiceInfoGetHostCmd = &cobra.Command{
 	},
 }
 
-var nsdNsdServiceInfoGetHostAddressesCmd = &cobra.Command{
+var nsdServiceInfoGetHostAddressesCmd = &cobra.Command{
 	Use:   "get-host-addresses",
 	Short: "GetHostAddresses RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewNsdServiceInfoServiceClient(grpcConn)
+		client := pb.NewServiceInfoServiceClient(grpcConn)
 		req := &pb.GetHostAddressesRequest{}
 		resp, err := client.GetHostAddresses(ctx, req)
 		if err != nil {
@@ -383,13 +383,13 @@ var nsdNsdServiceInfoGetHostAddressesCmd = &cobra.Command{
 	},
 }
 
-var nsdNsdServiceInfoGetHostnameCmd = &cobra.Command{
+var nsdServiceInfoGetHostnameCmd = &cobra.Command{
 	Use:   "get-hostname",
 	Short: "GetHostname RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewNsdServiceInfoServiceClient(grpcConn)
+		client := pb.NewServiceInfoServiceClient(grpcConn)
 		req := &pb.GetHostnameRequest{}
 		resp, err := client.GetHostname(ctx, req)
 		if err != nil {
@@ -399,13 +399,13 @@ var nsdNsdServiceInfoGetHostnameCmd = &cobra.Command{
 	},
 }
 
-var nsdNsdServiceInfoGetNetworkCmd = &cobra.Command{
+var nsdServiceInfoGetNetworkCmd = &cobra.Command{
 	Use:   "get-network",
 	Short: "GetNetwork RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewNsdServiceInfoServiceClient(grpcConn)
+		client := pb.NewServiceInfoServiceClient(grpcConn)
 		req := &pb.GetNetworkRequest{}
 		resp, err := client.GetNetwork(ctx, req)
 		if err != nil {
@@ -415,13 +415,13 @@ var nsdNsdServiceInfoGetNetworkCmd = &cobra.Command{
 	},
 }
 
-var nsdNsdServiceInfoGetPortCmd = &cobra.Command{
+var nsdServiceInfoGetPortCmd = &cobra.Command{
 	Use:   "get-port",
 	Short: "GetPort RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewNsdServiceInfoServiceClient(grpcConn)
+		client := pb.NewServiceInfoServiceClient(grpcConn)
 		req := &pb.GetPortRequest{}
 		resp, err := client.GetPort(ctx, req)
 		if err != nil {
@@ -431,13 +431,13 @@ var nsdNsdServiceInfoGetPortCmd = &cobra.Command{
 	},
 }
 
-var nsdNsdServiceInfoGetServiceNameCmd = &cobra.Command{
+var nsdServiceInfoGetServiceNameCmd = &cobra.Command{
 	Use:   "get-service-name",
 	Short: "GetServiceName RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewNsdServiceInfoServiceClient(grpcConn)
+		client := pb.NewServiceInfoServiceClient(grpcConn)
 		req := &pb.GetServiceNameRequest{}
 		resp, err := client.GetServiceName(ctx, req)
 		if err != nil {
@@ -447,13 +447,13 @@ var nsdNsdServiceInfoGetServiceNameCmd = &cobra.Command{
 	},
 }
 
-var nsdNsdServiceInfoGetServiceTypeCmd = &cobra.Command{
+var nsdServiceInfoGetServiceTypeCmd = &cobra.Command{
 	Use:   "get-service-type",
 	Short: "GetServiceType RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewNsdServiceInfoServiceClient(grpcConn)
+		client := pb.NewServiceInfoServiceClient(grpcConn)
 		req := &pb.GetServiceTypeRequest{}
 		resp, err := client.GetServiceType(ctx, req)
 		if err != nil {
@@ -463,13 +463,13 @@ var nsdNsdServiceInfoGetServiceTypeCmd = &cobra.Command{
 	},
 }
 
-var nsdNsdServiceInfoGetSubtypesCmd = &cobra.Command{
+var nsdServiceInfoGetSubtypesCmd = &cobra.Command{
 	Use:   "get-subtypes",
 	Short: "GetSubtypes RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewNsdServiceInfoServiceClient(grpcConn)
+		client := pb.NewServiceInfoServiceClient(grpcConn)
 		req := &pb.GetSubtypesRequest{}
 		resp, err := client.GetSubtypes(ctx, req)
 		if err != nil {
@@ -479,13 +479,13 @@ var nsdNsdServiceInfoGetSubtypesCmd = &cobra.Command{
 	},
 }
 
-var nsdNsdServiceInfoRemoveAttributeCmd = &cobra.Command{
+var nsdServiceInfoRemoveAttributeCmd = &cobra.Command{
 	Use:   "remove-attribute",
 	Short: "RemoveAttribute RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewNsdServiceInfoServiceClient(grpcConn)
+		client := pb.NewServiceInfoServiceClient(grpcConn)
 		req := &pb.RemoveAttributeRequest{}
 		if v, err := cmd.Flags().GetString("arg0"); err == nil {
 			req.Arg0 = v
@@ -498,13 +498,13 @@ var nsdNsdServiceInfoRemoveAttributeCmd = &cobra.Command{
 	},
 }
 
-var nsdNsdServiceInfoSetAttributeCmd = &cobra.Command{
+var nsdServiceInfoSetAttributeCmd = &cobra.Command{
 	Use:   "set-attribute",
 	Short: "SetAttribute RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewNsdServiceInfoServiceClient(grpcConn)
+		client := pb.NewServiceInfoServiceClient(grpcConn)
 		req := &pb.SetAttributeRequest{}
 		if v, err := cmd.Flags().GetString("arg0"); err == nil {
 			req.Arg0 = v
@@ -520,13 +520,13 @@ var nsdNsdServiceInfoSetAttributeCmd = &cobra.Command{
 	},
 }
 
-var nsdNsdServiceInfoSetHostCmd = &cobra.Command{
+var nsdServiceInfoSetHostCmd = &cobra.Command{
 	Use:   "set-host",
 	Short: "SetHost RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewNsdServiceInfoServiceClient(grpcConn)
+		client := pb.NewServiceInfoServiceClient(grpcConn)
 		req := &pb.SetHostRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
@@ -539,13 +539,13 @@ var nsdNsdServiceInfoSetHostCmd = &cobra.Command{
 	},
 }
 
-var nsdNsdServiceInfoSetHostAddressesCmd = &cobra.Command{
+var nsdServiceInfoSetHostAddressesCmd = &cobra.Command{
 	Use:   "set-host-addresses",
 	Short: "SetHostAddresses RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewNsdServiceInfoServiceClient(grpcConn)
+		client := pb.NewServiceInfoServiceClient(grpcConn)
 		req := &pb.SetHostAddressesRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
@@ -558,13 +558,13 @@ var nsdNsdServiceInfoSetHostAddressesCmd = &cobra.Command{
 	},
 }
 
-var nsdNsdServiceInfoSetNetworkCmd = &cobra.Command{
+var nsdServiceInfoSetNetworkCmd = &cobra.Command{
 	Use:   "set-network",
 	Short: "SetNetwork RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewNsdServiceInfoServiceClient(grpcConn)
+		client := pb.NewServiceInfoServiceClient(grpcConn)
 		req := &pb.SetNetworkRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
@@ -577,13 +577,13 @@ var nsdNsdServiceInfoSetNetworkCmd = &cobra.Command{
 	},
 }
 
-var nsdNsdServiceInfoSetPortCmd = &cobra.Command{
+var nsdServiceInfoSetPortCmd = &cobra.Command{
 	Use:   "set-port",
 	Short: "SetPort RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewNsdServiceInfoServiceClient(grpcConn)
+		client := pb.NewServiceInfoServiceClient(grpcConn)
 		req := &pb.SetPortRequest{}
 		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
 			req.Arg0 = v
@@ -596,13 +596,13 @@ var nsdNsdServiceInfoSetPortCmd = &cobra.Command{
 	},
 }
 
-var nsdNsdServiceInfoSetServiceNameCmd = &cobra.Command{
+var nsdServiceInfoSetServiceNameCmd = &cobra.Command{
 	Use:   "set-service-name",
 	Short: "SetServiceName RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewNsdServiceInfoServiceClient(grpcConn)
+		client := pb.NewServiceInfoServiceClient(grpcConn)
 		req := &pb.SetServiceNameRequest{}
 		if v, err := cmd.Flags().GetString("arg0"); err == nil {
 			req.Arg0 = v
@@ -615,13 +615,13 @@ var nsdNsdServiceInfoSetServiceNameCmd = &cobra.Command{
 	},
 }
 
-var nsdNsdServiceInfoSetServiceTypeCmd = &cobra.Command{
+var nsdServiceInfoSetServiceTypeCmd = &cobra.Command{
 	Use:   "set-service-type",
 	Short: "SetServiceType RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewNsdServiceInfoServiceClient(grpcConn)
+		client := pb.NewServiceInfoServiceClient(grpcConn)
 		req := &pb.SetServiceTypeRequest{}
 		if v, err := cmd.Flags().GetString("arg0"); err == nil {
 			req.Arg0 = v
@@ -634,13 +634,13 @@ var nsdNsdServiceInfoSetServiceTypeCmd = &cobra.Command{
 	},
 }
 
-var nsdNsdServiceInfoSetSubtypesCmd = &cobra.Command{
+var nsdServiceInfoSetSubtypesCmd = &cobra.Command{
 	Use:   "set-subtypes",
 	Short: "SetSubtypes RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewNsdServiceInfoServiceClient(grpcConn)
+		client := pb.NewServiceInfoServiceClient(grpcConn)
 		req := &pb.SetSubtypesRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
@@ -653,13 +653,13 @@ var nsdNsdServiceInfoSetSubtypesCmd = &cobra.Command{
 	},
 }
 
-var nsdNsdServiceInfoToStringCmd = &cobra.Command{
+var nsdServiceInfoToStringCmd = &cobra.Command{
 	Use:   "to-string",
 	Short: "ToString RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewNsdServiceInfoServiceClient(grpcConn)
+		client := pb.NewServiceInfoServiceClient(grpcConn)
 		req := &pb.ToStringRequest{}
 		resp, err := client.ToString(ctx, req)
 		if err != nil {
@@ -669,13 +669,13 @@ var nsdNsdServiceInfoToStringCmd = &cobra.Command{
 	},
 }
 
-var nsdNsdServiceInfoWriteToParcelCmd = &cobra.Command{
+var nsdServiceInfoWriteToParcelCmd = &cobra.Command{
 	Use:   "write-to-parcel",
 	Short: "WriteToParcel RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewNsdServiceInfoServiceClient(grpcConn)
+		client := pb.NewServiceInfoServiceClient(grpcConn)
 		req := &pb.WriteToParcelRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
@@ -692,87 +692,87 @@ var nsdNsdServiceInfoWriteToParcelCmd = &cobra.Command{
 }
 
 func init() {
-	nsdNsdManagerDiscoverServices3Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	nsdNsdManagerDiscoverServices3Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	nsdNsdManagerDiscoverServices3Cmd.Flags().Int64("arg2", 0, "arg2 (int64)")
-	nsdNsdManagerCmd.AddCommand(nsdNsdManagerDiscoverServices3Cmd)
-	nsdNsdManagerDiscoverServices5_1Cmd.Flags().String("arg0", "", "arg0 (string)")
-	nsdNsdManagerDiscoverServices5_1Cmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	nsdNsdManagerDiscoverServices5_1Cmd.Flags().Int64("arg2", 0, "arg2 (int64)")
-	nsdNsdManagerDiscoverServices5_1Cmd.Flags().Int64("arg3", 0, "arg3 (int64)")
-	nsdNsdManagerDiscoverServices5_1Cmd.Flags().Int64("arg4", 0, "arg4 (int64)")
-	nsdNsdManagerCmd.AddCommand(nsdNsdManagerDiscoverServices5_1Cmd)
-	nsdNsdManagerDiscoverServices5_2Cmd.Flags().String("arg0", "", "arg0 (string)")
-	nsdNsdManagerDiscoverServices5_2Cmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	nsdNsdManagerDiscoverServices5_2Cmd.Flags().Int64("arg2", 0, "arg2 (int64)")
-	nsdNsdManagerDiscoverServices5_2Cmd.Flags().Int64("arg3", 0, "arg3 (int64)")
-	nsdNsdManagerDiscoverServices5_2Cmd.Flags().Int64("arg4", 0, "arg4 (int64)")
-	nsdNsdManagerCmd.AddCommand(nsdNsdManagerDiscoverServices5_2Cmd)
-	nsdNsdManagerDiscoverServices3_3Cmd.Flags().String("arg0", "", "arg0 (string)")
-	nsdNsdManagerDiscoverServices3_3Cmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	nsdNsdManagerDiscoverServices3_3Cmd.Flags().Int64("arg2", 0, "arg2 (int64)")
-	nsdNsdManagerCmd.AddCommand(nsdNsdManagerDiscoverServices3_3Cmd)
-	nsdNsdManagerRegisterService3Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	nsdNsdManagerRegisterService3Cmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	nsdNsdManagerRegisterService3Cmd.Flags().Int64("arg2", 0, "arg2 (int64)")
-	nsdNsdManagerCmd.AddCommand(nsdNsdManagerRegisterService3Cmd)
-	nsdNsdManagerRegisterService4_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	nsdNsdManagerRegisterService4_1Cmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	nsdNsdManagerRegisterService4_1Cmd.Flags().Int64("arg2", 0, "arg2 (int64)")
-	nsdNsdManagerRegisterService4_1Cmd.Flags().Int64("arg3", 0, "arg3 (int64)")
-	nsdNsdManagerCmd.AddCommand(nsdNsdManagerRegisterService4_1Cmd)
-	nsdNsdManagerRegisterServiceInfoCallbackCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	nsdNsdManagerRegisterServiceInfoCallbackCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	nsdNsdManagerRegisterServiceInfoCallbackCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
-	nsdNsdManagerCmd.AddCommand(nsdNsdManagerRegisterServiceInfoCallbackCmd)
-	nsdNsdManagerResolveService2Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	nsdNsdManagerResolveService2Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	nsdNsdManagerCmd.AddCommand(nsdNsdManagerResolveService2Cmd)
-	nsdNsdManagerResolveService3_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	nsdNsdManagerResolveService3_1Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	nsdNsdManagerResolveService3_1Cmd.Flags().Int64("arg2", 0, "arg2 (int64)")
-	nsdNsdManagerCmd.AddCommand(nsdNsdManagerResolveService3_1Cmd)
-	nsdNsdManagerStopServiceDiscoveryCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	nsdNsdManagerCmd.AddCommand(nsdNsdManagerStopServiceDiscoveryCmd)
-	nsdNsdManagerStopServiceResolutionCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	nsdNsdManagerCmd.AddCommand(nsdNsdManagerStopServiceResolutionCmd)
-	nsdNsdManagerUnregisterServiceCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	nsdNsdManagerCmd.AddCommand(nsdNsdManagerUnregisterServiceCmd)
-	nsdNsdManagerUnregisterServiceInfoCallbackCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	nsdNsdManagerCmd.AddCommand(nsdNsdManagerUnregisterServiceInfoCallbackCmd)
-	nsdCmd.AddCommand(nsdNsdManagerCmd)
-	nsdNsdServiceInfoCmd.AddCommand(nsdNsdServiceInfoDescribeContentsCmd)
-	nsdNsdServiceInfoCmd.AddCommand(nsdNsdServiceInfoGetHostCmd)
-	nsdNsdServiceInfoCmd.AddCommand(nsdNsdServiceInfoGetHostAddressesCmd)
-	nsdNsdServiceInfoCmd.AddCommand(nsdNsdServiceInfoGetHostnameCmd)
-	nsdNsdServiceInfoCmd.AddCommand(nsdNsdServiceInfoGetNetworkCmd)
-	nsdNsdServiceInfoCmd.AddCommand(nsdNsdServiceInfoGetPortCmd)
-	nsdNsdServiceInfoCmd.AddCommand(nsdNsdServiceInfoGetServiceNameCmd)
-	nsdNsdServiceInfoCmd.AddCommand(nsdNsdServiceInfoGetServiceTypeCmd)
-	nsdNsdServiceInfoCmd.AddCommand(nsdNsdServiceInfoGetSubtypesCmd)
-	nsdNsdServiceInfoRemoveAttributeCmd.Flags().String("arg0", "", "arg0 (string)")
-	nsdNsdServiceInfoCmd.AddCommand(nsdNsdServiceInfoRemoveAttributeCmd)
-	nsdNsdServiceInfoSetAttributeCmd.Flags().String("arg0", "", "arg0 (string)")
-	nsdNsdServiceInfoSetAttributeCmd.Flags().String("arg1", "", "arg1 (string)")
-	nsdNsdServiceInfoCmd.AddCommand(nsdNsdServiceInfoSetAttributeCmd)
-	nsdNsdServiceInfoSetHostCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	nsdNsdServiceInfoCmd.AddCommand(nsdNsdServiceInfoSetHostCmd)
-	nsdNsdServiceInfoSetHostAddressesCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	nsdNsdServiceInfoCmd.AddCommand(nsdNsdServiceInfoSetHostAddressesCmd)
-	nsdNsdServiceInfoSetNetworkCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	nsdNsdServiceInfoCmd.AddCommand(nsdNsdServiceInfoSetNetworkCmd)
-	nsdNsdServiceInfoSetPortCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	nsdNsdServiceInfoCmd.AddCommand(nsdNsdServiceInfoSetPortCmd)
-	nsdNsdServiceInfoSetServiceNameCmd.Flags().String("arg0", "", "arg0 (string)")
-	nsdNsdServiceInfoCmd.AddCommand(nsdNsdServiceInfoSetServiceNameCmd)
-	nsdNsdServiceInfoSetServiceTypeCmd.Flags().String("arg0", "", "arg0 (string)")
-	nsdNsdServiceInfoCmd.AddCommand(nsdNsdServiceInfoSetServiceTypeCmd)
-	nsdNsdServiceInfoSetSubtypesCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	nsdNsdServiceInfoCmd.AddCommand(nsdNsdServiceInfoSetSubtypesCmd)
-	nsdNsdServiceInfoCmd.AddCommand(nsdNsdServiceInfoToStringCmd)
-	nsdNsdServiceInfoWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	nsdNsdServiceInfoWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	nsdNsdServiceInfoCmd.AddCommand(nsdNsdServiceInfoWriteToParcelCmd)
-	nsdCmd.AddCommand(nsdNsdServiceInfoCmd)
+	nsdManagerDiscoverServices3Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	nsdManagerDiscoverServices3Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	nsdManagerDiscoverServices3Cmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	nsdManagerCmd.AddCommand(nsdManagerDiscoverServices3Cmd)
+	nsdManagerDiscoverServices5_1Cmd.Flags().String("arg0", "", "arg0 (string)")
+	nsdManagerDiscoverServices5_1Cmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	nsdManagerDiscoverServices5_1Cmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	nsdManagerDiscoverServices5_1Cmd.Flags().Int64("arg3", 0, "arg3 (int64)")
+	nsdManagerDiscoverServices5_1Cmd.Flags().Int64("arg4", 0, "arg4 (int64)")
+	nsdManagerCmd.AddCommand(nsdManagerDiscoverServices5_1Cmd)
+	nsdManagerDiscoverServices5_2Cmd.Flags().String("arg0", "", "arg0 (string)")
+	nsdManagerDiscoverServices5_2Cmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	nsdManagerDiscoverServices5_2Cmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	nsdManagerDiscoverServices5_2Cmd.Flags().Int64("arg3", 0, "arg3 (int64)")
+	nsdManagerDiscoverServices5_2Cmd.Flags().Int64("arg4", 0, "arg4 (int64)")
+	nsdManagerCmd.AddCommand(nsdManagerDiscoverServices5_2Cmd)
+	nsdManagerDiscoverServices3_3Cmd.Flags().String("arg0", "", "arg0 (string)")
+	nsdManagerDiscoverServices3_3Cmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	nsdManagerDiscoverServices3_3Cmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	nsdManagerCmd.AddCommand(nsdManagerDiscoverServices3_3Cmd)
+	nsdManagerRegisterService3Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	nsdManagerRegisterService3Cmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	nsdManagerRegisterService3Cmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	nsdManagerCmd.AddCommand(nsdManagerRegisterService3Cmd)
+	nsdManagerRegisterService4_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	nsdManagerRegisterService4_1Cmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	nsdManagerRegisterService4_1Cmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	nsdManagerRegisterService4_1Cmd.Flags().Int64("arg3", 0, "arg3 (int64)")
+	nsdManagerCmd.AddCommand(nsdManagerRegisterService4_1Cmd)
+	nsdManagerRegisterServiceInfoCallbackCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	nsdManagerRegisterServiceInfoCallbackCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	nsdManagerRegisterServiceInfoCallbackCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	nsdManagerCmd.AddCommand(nsdManagerRegisterServiceInfoCallbackCmd)
+	nsdManagerResolveService2Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	nsdManagerResolveService2Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	nsdManagerCmd.AddCommand(nsdManagerResolveService2Cmd)
+	nsdManagerResolveService3_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	nsdManagerResolveService3_1Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	nsdManagerResolveService3_1Cmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	nsdManagerCmd.AddCommand(nsdManagerResolveService3_1Cmd)
+	nsdManagerStopServiceDiscoveryCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	nsdManagerCmd.AddCommand(nsdManagerStopServiceDiscoveryCmd)
+	nsdManagerStopServiceResolutionCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	nsdManagerCmd.AddCommand(nsdManagerStopServiceResolutionCmd)
+	nsdManagerUnregisterServiceCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	nsdManagerCmd.AddCommand(nsdManagerUnregisterServiceCmd)
+	nsdManagerUnregisterServiceInfoCallbackCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	nsdManagerCmd.AddCommand(nsdManagerUnregisterServiceInfoCallbackCmd)
+	nsdCmd.AddCommand(nsdManagerCmd)
+	nsdServiceInfoCmd.AddCommand(nsdServiceInfoDescribeContentsCmd)
+	nsdServiceInfoCmd.AddCommand(nsdServiceInfoGetHostCmd)
+	nsdServiceInfoCmd.AddCommand(nsdServiceInfoGetHostAddressesCmd)
+	nsdServiceInfoCmd.AddCommand(nsdServiceInfoGetHostnameCmd)
+	nsdServiceInfoCmd.AddCommand(nsdServiceInfoGetNetworkCmd)
+	nsdServiceInfoCmd.AddCommand(nsdServiceInfoGetPortCmd)
+	nsdServiceInfoCmd.AddCommand(nsdServiceInfoGetServiceNameCmd)
+	nsdServiceInfoCmd.AddCommand(nsdServiceInfoGetServiceTypeCmd)
+	nsdServiceInfoCmd.AddCommand(nsdServiceInfoGetSubtypesCmd)
+	nsdServiceInfoRemoveAttributeCmd.Flags().String("arg0", "", "arg0 (string)")
+	nsdServiceInfoCmd.AddCommand(nsdServiceInfoRemoveAttributeCmd)
+	nsdServiceInfoSetAttributeCmd.Flags().String("arg0", "", "arg0 (string)")
+	nsdServiceInfoSetAttributeCmd.Flags().String("arg1", "", "arg1 (string)")
+	nsdServiceInfoCmd.AddCommand(nsdServiceInfoSetAttributeCmd)
+	nsdServiceInfoSetHostCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	nsdServiceInfoCmd.AddCommand(nsdServiceInfoSetHostCmd)
+	nsdServiceInfoSetHostAddressesCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	nsdServiceInfoCmd.AddCommand(nsdServiceInfoSetHostAddressesCmd)
+	nsdServiceInfoSetNetworkCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	nsdServiceInfoCmd.AddCommand(nsdServiceInfoSetNetworkCmd)
+	nsdServiceInfoSetPortCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	nsdServiceInfoCmd.AddCommand(nsdServiceInfoSetPortCmd)
+	nsdServiceInfoSetServiceNameCmd.Flags().String("arg0", "", "arg0 (string)")
+	nsdServiceInfoCmd.AddCommand(nsdServiceInfoSetServiceNameCmd)
+	nsdServiceInfoSetServiceTypeCmd.Flags().String("arg0", "", "arg0 (string)")
+	nsdServiceInfoCmd.AddCommand(nsdServiceInfoSetServiceTypeCmd)
+	nsdServiceInfoSetSubtypesCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	nsdServiceInfoCmd.AddCommand(nsdServiceInfoSetSubtypesCmd)
+	nsdServiceInfoCmd.AddCommand(nsdServiceInfoToStringCmd)
+	nsdServiceInfoWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	nsdServiceInfoWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	nsdServiceInfoCmd.AddCommand(nsdServiceInfoWriteToParcelCmd)
+	nsdCmd.AddCommand(nsdServiceInfoCmd)
 	rootCmd.AddCommand(nsdCmd)
 }

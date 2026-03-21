@@ -6,6 +6,20 @@ package vpn;
 
 option go_package = "github.com/AndroidGoLab/jni-proxy/proto/vpn";
 
+message IsAlwaysOnRequest {
+}
+
+message IsAlwaysOnResponse {
+  bool result = 1;
+}
+
+message IsLockdownEnabledRequest {
+}
+
+message IsLockdownEnabledResponse {
+  bool result = 1;
+}
+
 message OnBindRequest {
   int64 arg0 = 1;
 }
@@ -60,7 +74,9 @@ message PrepareResponse {
   int64 result = 1;
 }
 
-service VpnServiceService {
+service ServiceService {
+  rpc IsAlwaysOn (IsAlwaysOnRequest) returns (IsAlwaysOnResponse);
+  rpc IsLockdownEnabled (IsLockdownEnabledRequest) returns (IsLockdownEnabledResponse);
   rpc OnBind (OnBindRequest) returns (OnBindResponse);
   rpc OnRevoke (OnRevokeRequest) returns (OnRevokeResponse);
   rpc Protect1 (Protect1Request) returns (Protect1Response);

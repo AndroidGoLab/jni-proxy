@@ -8,14 +8,18 @@ import (
 	handlepb "github.com/AndroidGoLab/jni-proxy/proto/handlestore"
 	"google.golang.org/grpc"
 
+	accountsclient "github.com/AndroidGoLab/jni-proxy/grpc/client/accounts"
 	adminclient "github.com/AndroidGoLab/jni-proxy/grpc/client/admin"
 	alarmclient "github.com/AndroidGoLab/jni-proxy/grpc/client/alarm"
 	audiomanagerclient "github.com/AndroidGoLab/jni-proxy/grpc/client/audiomanager"
 	batteryclient "github.com/AndroidGoLab/jni-proxy/grpc/client/battery"
+	biometricclient "github.com/AndroidGoLab/jni-proxy/grpc/client/biometric"
 	blobclient "github.com/AndroidGoLab/jni-proxy/grpc/client/blob"
 	cameraclient "github.com/AndroidGoLab/jni-proxy/grpc/client/camera"
 	clipboardclient "github.com/AndroidGoLab/jni-proxy/grpc/client/clipboard"
 	companionclient "github.com/AndroidGoLab/jni-proxy/grpc/client/companion"
+	displayclient "github.com/AndroidGoLab/jni-proxy/grpc/client/display"
+	downloadclient "github.com/AndroidGoLab/jni-proxy/grpc/client/download"
 	inputmethodclient "github.com/AndroidGoLab/jni-proxy/grpc/client/inputmethod"
 	irclient "github.com/AndroidGoLab/jni-proxy/grpc/client/ir"
 	jobclient "github.com/AndroidGoLab/jni-proxy/grpc/client/job"
@@ -23,6 +27,7 @@ import (
 	locationclient "github.com/AndroidGoLab/jni-proxy/grpc/client/location"
 	netclient "github.com/AndroidGoLab/jni-proxy/grpc/client/net"
 	notificationclient "github.com/AndroidGoLab/jni-proxy/grpc/client/notification"
+	nsdclient "github.com/AndroidGoLab/jni-proxy/grpc/client/nsd"
 	powerclient "github.com/AndroidGoLab/jni-proxy/grpc/client/power"
 	printclient "github.com/AndroidGoLab/jni-proxy/grpc/client/print"
 	projectionclient "github.com/AndroidGoLab/jni-proxy/grpc/client/projection"
@@ -32,6 +37,7 @@ import (
 	telecomclient "github.com/AndroidGoLab/jni-proxy/grpc/client/telecom"
 	telephonyclient "github.com/AndroidGoLab/jni-proxy/grpc/client/telephony"
 	usageclient "github.com/AndroidGoLab/jni-proxy/grpc/client/usage"
+	usbclient "github.com/AndroidGoLab/jni-proxy/grpc/client/usb"
 	vibratorclient "github.com/AndroidGoLab/jni-proxy/grpc/client/vibrator"
 	wificlient "github.com/AndroidGoLab/jni-proxy/grpc/client/wifi"
 	wifi_p2pclient "github.com/AndroidGoLab/jni-proxy/grpc/client/wifi_p2p"
@@ -41,14 +47,18 @@ import (
 // Client provides access to all Android API services over gRPC.
 type Client struct {
 	handles      handlepb.HandleStoreServiceClient
+	Accounts     *accountsclient.Client
 	Admin        *adminclient.Client
 	Alarm        *alarmclient.Client
 	Audiomanager *audiomanagerclient.Client
 	Battery      *batteryclient.Client
+	Biometric    *biometricclient.Client
 	Blob         *blobclient.Client
 	Camera       *cameraclient.Client
 	Clipboard    *clipboardclient.Client
 	Companion    *companionclient.Client
+	Display      *displayclient.Client
+	Download     *downloadclient.Client
 	Inputmethod  *inputmethodclient.Client
 	Ir           *irclient.Client
 	Job          *jobclient.Client
@@ -56,6 +66,7 @@ type Client struct {
 	Location     *locationclient.Client
 	Net          *netclient.Client
 	Notification *notificationclient.Client
+	Nsd          *nsdclient.Client
 	Power        *powerclient.Client
 	Print        *printclient.Client
 	Projection   *projectionclient.Client
@@ -65,6 +76,7 @@ type Client struct {
 	Telecom      *telecomclient.Client
 	Telephony    *telephonyclient.Client
 	Usage        *usageclient.Client
+	Usb          *usbclient.Client
 	Vibrator     *vibratorclient.Client
 	Wifi         *wificlient.Client
 	Wifi_p2p     *wifi_p2pclient.Client
@@ -75,14 +87,18 @@ type Client struct {
 func NewClient(cc grpc.ClientConnInterface) *Client {
 	return &Client{
 		handles:      handlepb.NewHandleStoreServiceClient(cc),
+		Accounts:     accountsclient.NewClient(cc),
 		Admin:        adminclient.NewClient(cc),
 		Alarm:        alarmclient.NewClient(cc),
 		Audiomanager: audiomanagerclient.NewClient(cc),
 		Battery:      batteryclient.NewClient(cc),
+		Biometric:    biometricclient.NewClient(cc),
 		Blob:         blobclient.NewClient(cc),
 		Camera:       cameraclient.NewClient(cc),
 		Clipboard:    clipboardclient.NewClient(cc),
 		Companion:    companionclient.NewClient(cc),
+		Display:      displayclient.NewClient(cc),
+		Download:     downloadclient.NewClient(cc),
 		Inputmethod:  inputmethodclient.NewClient(cc),
 		Ir:           irclient.NewClient(cc),
 		Job:          jobclient.NewClient(cc),
@@ -90,6 +106,7 @@ func NewClient(cc grpc.ClientConnInterface) *Client {
 		Location:     locationclient.NewClient(cc),
 		Net:          netclient.NewClient(cc),
 		Notification: notificationclient.NewClient(cc),
+		Nsd:          nsdclient.NewClient(cc),
 		Power:        powerclient.NewClient(cc),
 		Print:        printclient.NewClient(cc),
 		Projection:   projectionclient.NewClient(cc),
@@ -99,6 +116,7 @@ func NewClient(cc grpc.ClientConnInterface) *Client {
 		Telecom:      telecomclient.NewClient(cc),
 		Telephony:    telephonyclient.NewClient(cc),
 		Usage:        usageclient.NewClient(cc),
+		Usb:          usbclient.NewClient(cc),
 		Vibrator:     vibratorclient.NewClient(cc),
 		Wifi:         wificlient.NewClient(cc),
 		Wifi_p2p:     wifi_p2pclient.NewClient(cc),

@@ -3,8 +3,8 @@
 package main
 
 import (
-	"github.com/spf13/cobra"
 	pb "github.com/AndroidGoLab/jni-proxy/proto/contacts"
+	"github.com/spf13/cobra"
 )
 
 var contactsCmd = &cobra.Command{
@@ -12,18 +12,18 @@ var contactsCmd = &cobra.Command{
 	Short: "contacts service operations",
 }
 
-var contactsContactsContractCmd = &cobra.Command{
-	Use:   "contacts-contract",
-	Short: "ContactsContractService operations",
+var contactsContractCmd = &cobra.Command{
+	Use:   "contract",
+	Short: "ContractService operations",
 }
 
-var contactsContactsContractIsProfileIdCmd = &cobra.Command{
+var contactsContractIsProfileIdCmd = &cobra.Command{
 	Use:   "is-profile-id",
 	Short: "IsProfileId RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewContactsContractServiceClient(grpcConn)
+		client := pb.NewContractServiceClient(grpcConn)
 		req := &pb.IsProfileIdRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
@@ -37,8 +37,8 @@ var contactsContactsContractIsProfileIdCmd = &cobra.Command{
 }
 
 func init() {
-	contactsContactsContractIsProfileIdCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	contactsContactsContractCmd.AddCommand(contactsContactsContractIsProfileIdCmd)
-	contactsCmd.AddCommand(contactsContactsContractCmd)
+	contactsContractIsProfileIdCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	contactsContractCmd.AddCommand(contactsContractIsProfileIdCmd)
+	contactsCmd.AddCommand(contactsContractCmd)
 	rootCmd.AddCommand(contactsCmd)
 }

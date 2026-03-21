@@ -5167,9 +5167,9 @@ const file_proto_speech_speech_proto_rawDesc = "" +
 	"\x11SynthesizeToFile4\x12 .speech.SynthesizeToFile4Request\x1a!.speech.SynthesizeToFile4Response\x12^\n" +
 	"\x13SynthesizeToFile4_1\x12\".speech.SynthesizeToFile4_1Request\x1a#.speech.SynthesizeToFile4_1Response\x12^\n" +
 	"\x13SynthesizeToFile3_2\x12\".speech.SynthesizeToFile3_2Request\x1a#.speech.SynthesizeToFile3_2Response\x12j\n" +
-	"\x17GetMaxSpeechInputLength\x12&.speech.GetMaxSpeechInputLengthRequest\x1a'.speech.GetMaxSpeechInputLengthResponse2\x9d\n" +
+	"\x17GetMaxSpeechInputLength\x12&.speech.GetMaxSpeechInputLengthRequest\x1a'.speech.GetMaxSpeechInputLengthResponse2\x97\n" +
 	"\n" +
-	"\x17SpeechRecognizerService\x127\n" +
+	"\x11RecognizerService\x127\n" +
 	"\x06Cancel\x12\x15.speech.CancelRequest\x1a\x16.speech.CancelResponse\x12j\n" +
 	"\x17CheckRecognitionSupport\x12&.speech.CheckRecognitionSupportRequest\x1a'.speech.CheckRecognitionSupportResponse\x12:\n" +
 	"\aDestroy\x12\x16.speech.DestroyRequest\x1a\x17.speech.DestroyResponse\x12g\n" +
@@ -5182,7 +5182,7 @@ const file_proto_speech_speech_proto_rawDesc = "" +
 	"\x17CreateSpeechRecognizer1\x12&.speech.CreateSpeechRecognizer1Request\x1a'.speech.CreateSpeechRecognizer1Response\x12p\n" +
 	"\x19CreateSpeechRecognizer2_1\x12(.speech.CreateSpeechRecognizer2_1Request\x1a).speech.CreateSpeechRecognizer2_1Response\x12\x7f\n" +
 	"\x1eIsOnDeviceRecognitionAvailable\x12-.speech.IsOnDeviceRecognitionAvailableRequest\x1a..speech.IsOnDeviceRecognitionAvailableResponse\x12g\n" +
-	"\x16IsRecognitionAvailable\x12%.speech.IsRecognitionAvailableRequest\x1a&.speech.IsRecognitionAvailableResponseB)Z'github.com/AndroidGoLab/jni-proxy/proto/speechb\x06proto3"
+	"\x16IsRecognitionAvailable\x12%.speech.IsRecognitionAvailableRequest\x1a&.speech.IsRecognitionAvailableResponseB0Z.github.com/AndroidGoLab/jni-proxy/proto/speechb\x06proto3"
 
 var (
 	file_proto_speech_speech_proto_rawDescOnce sync.Once
@@ -5349,19 +5349,19 @@ var file_proto_speech_speech_proto_depIdxs = []int32{
 	76,  // 38: speech.TextToSpeechService.SynthesizeToFile4_1:input_type -> speech.SynthesizeToFile4_1Request
 	78,  // 39: speech.TextToSpeechService.SynthesizeToFile3_2:input_type -> speech.SynthesizeToFile3_2Request
 	80,  // 40: speech.TextToSpeechService.GetMaxSpeechInputLength:input_type -> speech.GetMaxSpeechInputLengthRequest
-	82,  // 41: speech.SpeechRecognizerService.Cancel:input_type -> speech.CancelRequest
-	84,  // 42: speech.SpeechRecognizerService.CheckRecognitionSupport:input_type -> speech.CheckRecognitionSupportRequest
-	86,  // 43: speech.SpeechRecognizerService.Destroy:input_type -> speech.DestroyRequest
-	88,  // 44: speech.SpeechRecognizerService.SetRecognitionListener:input_type -> speech.SetRecognitionListenerRequest
-	90,  // 45: speech.SpeechRecognizerService.StartListening:input_type -> speech.StartListeningRequest
-	92,  // 46: speech.SpeechRecognizerService.StopListening:input_type -> speech.StopListeningRequest
-	94,  // 47: speech.SpeechRecognizerService.TriggerModelDownload1:input_type -> speech.TriggerModelDownload1Request
-	96,  // 48: speech.SpeechRecognizerService.TriggerModelDownload3_1:input_type -> speech.TriggerModelDownload3_1Request
-	98,  // 49: speech.SpeechRecognizerService.CreateOnDeviceSpeechRecognizer:input_type -> speech.CreateOnDeviceSpeechRecognizerRequest
-	100, // 50: speech.SpeechRecognizerService.CreateSpeechRecognizer1:input_type -> speech.CreateSpeechRecognizer1Request
-	102, // 51: speech.SpeechRecognizerService.CreateSpeechRecognizer2_1:input_type -> speech.CreateSpeechRecognizer2_1Request
-	104, // 52: speech.SpeechRecognizerService.IsOnDeviceRecognitionAvailable:input_type -> speech.IsOnDeviceRecognitionAvailableRequest
-	106, // 53: speech.SpeechRecognizerService.IsRecognitionAvailable:input_type -> speech.IsRecognitionAvailableRequest
+	82,  // 41: speech.RecognizerService.Cancel:input_type -> speech.CancelRequest
+	84,  // 42: speech.RecognizerService.CheckRecognitionSupport:input_type -> speech.CheckRecognitionSupportRequest
+	86,  // 43: speech.RecognizerService.Destroy:input_type -> speech.DestroyRequest
+	88,  // 44: speech.RecognizerService.SetRecognitionListener:input_type -> speech.SetRecognitionListenerRequest
+	90,  // 45: speech.RecognizerService.StartListening:input_type -> speech.StartListeningRequest
+	92,  // 46: speech.RecognizerService.StopListening:input_type -> speech.StopListeningRequest
+	94,  // 47: speech.RecognizerService.TriggerModelDownload1:input_type -> speech.TriggerModelDownload1Request
+	96,  // 48: speech.RecognizerService.TriggerModelDownload3_1:input_type -> speech.TriggerModelDownload3_1Request
+	98,  // 49: speech.RecognizerService.CreateOnDeviceSpeechRecognizer:input_type -> speech.CreateOnDeviceSpeechRecognizerRequest
+	100, // 50: speech.RecognizerService.CreateSpeechRecognizer1:input_type -> speech.CreateSpeechRecognizer1Request
+	102, // 51: speech.RecognizerService.CreateSpeechRecognizer2_1:input_type -> speech.CreateSpeechRecognizer2_1Request
+	104, // 52: speech.RecognizerService.IsOnDeviceRecognitionAvailable:input_type -> speech.IsOnDeviceRecognitionAvailableRequest
+	106, // 53: speech.RecognizerService.IsRecognitionAvailable:input_type -> speech.IsRecognitionAvailableRequest
 	1,   // 54: speech.TextToSpeechService.AddEarcon2:output_type -> speech.AddEarcon2Response
 	3,   // 55: speech.TextToSpeechService.AddEarcon2_1:output_type -> speech.AddEarcon2_1Response
 	5,   // 56: speech.TextToSpeechService.AddEarcon2_2:output_type -> speech.AddEarcon2_2Response
@@ -5403,19 +5403,19 @@ var file_proto_speech_speech_proto_depIdxs = []int32{
 	77,  // 92: speech.TextToSpeechService.SynthesizeToFile4_1:output_type -> speech.SynthesizeToFile4_1Response
 	79,  // 93: speech.TextToSpeechService.SynthesizeToFile3_2:output_type -> speech.SynthesizeToFile3_2Response
 	81,  // 94: speech.TextToSpeechService.GetMaxSpeechInputLength:output_type -> speech.GetMaxSpeechInputLengthResponse
-	83,  // 95: speech.SpeechRecognizerService.Cancel:output_type -> speech.CancelResponse
-	85,  // 96: speech.SpeechRecognizerService.CheckRecognitionSupport:output_type -> speech.CheckRecognitionSupportResponse
-	87,  // 97: speech.SpeechRecognizerService.Destroy:output_type -> speech.DestroyResponse
-	89,  // 98: speech.SpeechRecognizerService.SetRecognitionListener:output_type -> speech.SetRecognitionListenerResponse
-	91,  // 99: speech.SpeechRecognizerService.StartListening:output_type -> speech.StartListeningResponse
-	93,  // 100: speech.SpeechRecognizerService.StopListening:output_type -> speech.StopListeningResponse
-	95,  // 101: speech.SpeechRecognizerService.TriggerModelDownload1:output_type -> speech.TriggerModelDownload1Response
-	97,  // 102: speech.SpeechRecognizerService.TriggerModelDownload3_1:output_type -> speech.TriggerModelDownload3_1Response
-	99,  // 103: speech.SpeechRecognizerService.CreateOnDeviceSpeechRecognizer:output_type -> speech.CreateOnDeviceSpeechRecognizerResponse
-	101, // 104: speech.SpeechRecognizerService.CreateSpeechRecognizer1:output_type -> speech.CreateSpeechRecognizer1Response
-	103, // 105: speech.SpeechRecognizerService.CreateSpeechRecognizer2_1:output_type -> speech.CreateSpeechRecognizer2_1Response
-	105, // 106: speech.SpeechRecognizerService.IsOnDeviceRecognitionAvailable:output_type -> speech.IsOnDeviceRecognitionAvailableResponse
-	107, // 107: speech.SpeechRecognizerService.IsRecognitionAvailable:output_type -> speech.IsRecognitionAvailableResponse
+	83,  // 95: speech.RecognizerService.Cancel:output_type -> speech.CancelResponse
+	85,  // 96: speech.RecognizerService.CheckRecognitionSupport:output_type -> speech.CheckRecognitionSupportResponse
+	87,  // 97: speech.RecognizerService.Destroy:output_type -> speech.DestroyResponse
+	89,  // 98: speech.RecognizerService.SetRecognitionListener:output_type -> speech.SetRecognitionListenerResponse
+	91,  // 99: speech.RecognizerService.StartListening:output_type -> speech.StartListeningResponse
+	93,  // 100: speech.RecognizerService.StopListening:output_type -> speech.StopListeningResponse
+	95,  // 101: speech.RecognizerService.TriggerModelDownload1:output_type -> speech.TriggerModelDownload1Response
+	97,  // 102: speech.RecognizerService.TriggerModelDownload3_1:output_type -> speech.TriggerModelDownload3_1Response
+	99,  // 103: speech.RecognizerService.CreateOnDeviceSpeechRecognizer:output_type -> speech.CreateOnDeviceSpeechRecognizerResponse
+	101, // 104: speech.RecognizerService.CreateSpeechRecognizer1:output_type -> speech.CreateSpeechRecognizer1Response
+	103, // 105: speech.RecognizerService.CreateSpeechRecognizer2_1:output_type -> speech.CreateSpeechRecognizer2_1Response
+	105, // 106: speech.RecognizerService.IsOnDeviceRecognitionAvailable:output_type -> speech.IsOnDeviceRecognitionAvailableResponse
+	107, // 107: speech.RecognizerService.IsRecognitionAvailable:output_type -> speech.IsRecognitionAvailableResponse
 	54,  // [54:108] is the sub-list for method output_type
 	0,   // [0:54] is the sub-list for method input_type
 	0,   // [0:0] is the sub-list for extension type_name

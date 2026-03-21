@@ -7,10 +7,10 @@ import (
 
 	"github.com/AndroidGoLab/jni"
 
-	"github.com/AndroidGoLab/jni/app"
 	"github.com/AndroidGoLab/jni-proxy/handlestore"
-	jnipkg "github.com/AndroidGoLab/jni/media/session"
 	pb "github.com/AndroidGoLab/jni-proxy/proto/session"
+	"github.com/AndroidGoLab/jni/app"
+	jnipkg "github.com/AndroidGoLab/jni/media/session"
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"
 )
@@ -23,7 +23,7 @@ type MediaSessionManagerServer struct {
 }
 
 func (s *MediaSessionManagerServer) AddOnActiveSessionsChangedListener(_ context.Context, req *pb.AddOnActiveSessionsChangedListenerRequest) (*pb.AddOnActiveSessionsChangedListenerResponse, error) {
-	mgr, err := jnipkg.NewmediaSessionManager(s.Ctx)
+	mgr, err := jnipkg.NewMediaSessionManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -36,7 +36,7 @@ func (s *MediaSessionManagerServer) AddOnActiveSessionsChangedListener(_ context
 }
 
 func (s *MediaSessionManagerServer) AddOnMediaKeyEventSessionChangedListener(_ context.Context, req *pb.AddOnMediaKeyEventSessionChangedListenerRequest) (*pb.AddOnMediaKeyEventSessionChangedListenerResponse, error) {
-	mgr, err := jnipkg.NewmediaSessionManager(s.Ctx)
+	mgr, err := jnipkg.NewMediaSessionManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -49,7 +49,7 @@ func (s *MediaSessionManagerServer) AddOnMediaKeyEventSessionChangedListener(_ c
 }
 
 func (s *MediaSessionManagerServer) AddOnSession2TokensChangedListener(_ context.Context, req *pb.AddOnSession2TokensChangedListenerRequest) (*pb.AddOnSession2TokensChangedListenerResponse, error) {
-	mgr, err := jnipkg.NewmediaSessionManager(s.Ctx)
+	mgr, err := jnipkg.NewMediaSessionManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -62,7 +62,7 @@ func (s *MediaSessionManagerServer) AddOnSession2TokensChangedListener(_ context
 }
 
 func (s *MediaSessionManagerServer) GetActiveSessions(_ context.Context, req *pb.GetActiveSessionsRequest) (*pb.GetActiveSessionsResponse, error) {
-	mgr, err := jnipkg.NewmediaSessionManager(s.Ctx)
+	mgr, err := jnipkg.NewMediaSessionManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -85,7 +85,7 @@ func (s *MediaSessionManagerServer) GetActiveSessions(_ context.Context, req *pb
 }
 
 func (s *MediaSessionManagerServer) GetMediaKeyEventSession(_ context.Context, req *pb.GetMediaKeyEventSessionRequest) (*pb.GetMediaKeyEventSessionResponse, error) {
-	mgr, err := jnipkg.NewmediaSessionManager(s.Ctx)
+	mgr, err := jnipkg.NewMediaSessionManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -108,7 +108,7 @@ func (s *MediaSessionManagerServer) GetMediaKeyEventSession(_ context.Context, r
 }
 
 func (s *MediaSessionManagerServer) GetMediaKeyEventSessionPackageName(_ context.Context, req *pb.GetMediaKeyEventSessionPackageNameRequest) (*pb.GetMediaKeyEventSessionPackageNameResponse, error) {
-	mgr, err := jnipkg.NewmediaSessionManager(s.Ctx)
+	mgr, err := jnipkg.NewMediaSessionManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -122,7 +122,7 @@ func (s *MediaSessionManagerServer) GetMediaKeyEventSessionPackageName(_ context
 }
 
 func (s *MediaSessionManagerServer) GetSession2Tokens(_ context.Context, req *pb.GetSession2TokensRequest) (*pb.GetSession2TokensResponse, error) {
-	mgr, err := jnipkg.NewmediaSessionManager(s.Ctx)
+	mgr, err := jnipkg.NewMediaSessionManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -145,7 +145,7 @@ func (s *MediaSessionManagerServer) GetSession2Tokens(_ context.Context, req *pb
 }
 
 func (s *MediaSessionManagerServer) IsTrustedForMediaControl(_ context.Context, req *pb.IsTrustedForMediaControlRequest) (*pb.IsTrustedForMediaControlResponse, error) {
-	mgr, err := jnipkg.NewmediaSessionManager(s.Ctx)
+	mgr, err := jnipkg.NewMediaSessionManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -159,7 +159,7 @@ func (s *MediaSessionManagerServer) IsTrustedForMediaControl(_ context.Context, 
 }
 
 func (s *MediaSessionManagerServer) NotifySession2Created(_ context.Context, req *pb.NotifySession2CreatedRequest) (*pb.NotifySession2CreatedResponse, error) {
-	mgr, err := jnipkg.NewmediaSessionManager(s.Ctx)
+	mgr, err := jnipkg.NewMediaSessionManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -172,7 +172,7 @@ func (s *MediaSessionManagerServer) NotifySession2Created(_ context.Context, req
 }
 
 func (s *MediaSessionManagerServer) RemoveOnActiveSessionsChangedListener(_ context.Context, req *pb.RemoveOnActiveSessionsChangedListenerRequest) (*pb.RemoveOnActiveSessionsChangedListenerResponse, error) {
-	mgr, err := jnipkg.NewmediaSessionManager(s.Ctx)
+	mgr, err := jnipkg.NewMediaSessionManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -185,7 +185,7 @@ func (s *MediaSessionManagerServer) RemoveOnActiveSessionsChangedListener(_ cont
 }
 
 func (s *MediaSessionManagerServer) RemoveOnMediaKeyEventSessionChangedListener(_ context.Context, req *pb.RemoveOnMediaKeyEventSessionChangedListenerRequest) (*pb.RemoveOnMediaKeyEventSessionChangedListenerResponse, error) {
-	mgr, err := jnipkg.NewmediaSessionManager(s.Ctx)
+	mgr, err := jnipkg.NewMediaSessionManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -198,7 +198,7 @@ func (s *MediaSessionManagerServer) RemoveOnMediaKeyEventSessionChangedListener(
 }
 
 func (s *MediaSessionManagerServer) RemoveOnSession2TokensChangedListener(_ context.Context, req *pb.RemoveOnSession2TokensChangedListenerRequest) (*pb.RemoveOnSession2TokensChangedListenerResponse, error) {
-	mgr, err := jnipkg.NewmediaSessionManager(s.Ctx)
+	mgr, err := jnipkg.NewMediaSessionManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}

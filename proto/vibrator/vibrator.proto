@@ -6,6 +6,22 @@ package vibrator;
 
 option go_package = "github.com/AndroidGoLab/jni-proxy/proto/vibrator";
 
+message AreAllEffectsSupportedRequest {
+  int64 arg0 = 1;
+}
+
+message AreAllEffectsSupportedResponse {
+  int32 result = 1;
+}
+
+message AreAllPrimitivesSupportedRequest {
+  int64 arg0 = 1;
+}
+
+message AreAllPrimitivesSupportedResponse {
+  bool result = 1;
+}
+
 message AreEffectsSupportedRequest {
   int64 arg0 = 1;
 }
@@ -27,6 +43,12 @@ message ArePrimitivesSupportedRequest {
 
 message ArePrimitivesSupportedResponse {
   int64 result = 1;
+}
+
+message CancelRequest {
+}
+
+message CancelResponse {
 }
 
 message GetEnvelopeEffectInfoRequest {
@@ -70,6 +92,20 @@ message GetResonantFrequencyRequest {
 
 message GetResonantFrequencyResponse {
   float result = 1;
+}
+
+message HasAmplitudeControlRequest {
+}
+
+message HasAmplitudeControlResponse {
+  bool result = 1;
+}
+
+message HasVibratorRequest {
+}
+
+message HasVibratorResponse {
+  bool result = 1;
 }
 
 message Vibrate1Request {
@@ -128,15 +164,20 @@ message Vibrate3_6Response {
 }
 
 service VibratorService {
+  rpc AreAllEffectsSupported (AreAllEffectsSupportedRequest) returns (AreAllEffectsSupportedResponse);
+  rpc AreAllPrimitivesSupported (AreAllPrimitivesSupportedRequest) returns (AreAllPrimitivesSupportedResponse);
   rpc AreEffectsSupported (AreEffectsSupportedRequest) returns (AreEffectsSupportedResponse);
   rpc AreEnvelopeEffectsSupported (AreEnvelopeEffectsSupportedRequest) returns (AreEnvelopeEffectsSupportedResponse);
   rpc ArePrimitivesSupported (ArePrimitivesSupportedRequest) returns (ArePrimitivesSupportedResponse);
+  rpc Cancel (CancelRequest) returns (CancelResponse);
   rpc GetEnvelopeEffectInfo (GetEnvelopeEffectInfoRequest) returns (GetEnvelopeEffectInfoResponse);
   rpc GetFrequencyProfile (GetFrequencyProfileRequest) returns (GetFrequencyProfileResponse);
   rpc GetId (GetIdRequest) returns (GetIdResponse);
   rpc GetPrimitiveDurations (GetPrimitiveDurationsRequest) returns (GetPrimitiveDurationsResponse);
   rpc GetQFactor (GetQFactorRequest) returns (GetQFactorResponse);
   rpc GetResonantFrequency (GetResonantFrequencyRequest) returns (GetResonantFrequencyResponse);
+  rpc HasAmplitudeControl (HasAmplitudeControlRequest) returns (HasAmplitudeControlResponse);
+  rpc HasVibrator (HasVibratorRequest) returns (HasVibratorResponse);
   rpc Vibrate1 (Vibrate1Request) returns (Vibrate1Response);
   rpc Vibrate2_1 (Vibrate2_1Request) returns (Vibrate2_1Response);
   rpc Vibrate2_2 (Vibrate2_2Request) returns (Vibrate2_2Response);

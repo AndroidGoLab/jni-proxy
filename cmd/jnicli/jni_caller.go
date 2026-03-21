@@ -11,19 +11,18 @@ import (
 // for common JNI operations (find class, get method, call method, etc.).
 type jniCaller struct {
 	client pb.JNIServiceClient
-	ctx    context.Context
 }
 
-func (j *jniCaller) getAppContext() (int64, error) {
-	resp, err := j.client.GetAppContext(j.ctx, &pb.GetAppContextRequest{})
+func (j *jniCaller) getAppContext(ctx context.Context) (int64, error) {
+	resp, err := j.client.GetAppContext(ctx, &pb.GetAppContextRequest{})
 	if err != nil {
 		return 0, fmt.Errorf("GetAppContext: %w", err)
 	}
 	return resp.GetContextHandle(), nil
 }
 
-func (j *jniCaller) findClass(name string) (int64, error) {
-	resp, err := j.client.FindClass(j.ctx, &pb.FindClassRequest{Name: name})
+func (j *jniCaller) findClass(ctx context.Context, name string) (int64, error) {
+	resp, err := j.client.FindClass(ctx, &pb.FindClassRequest{Name: name})
 	if err != nil {
 		return 0, fmt.Errorf("FindClass(%q): %w", name, err)
 	}
@@ -31,10 +30,11 @@ func (j *jniCaller) findClass(name string) (int64, error) {
 }
 
 func (j *jniCaller) getMethodID(
+	ctx context.Context,
 	cls int64,
 	name, sig string,
 ) (int64, error) {
-	resp, err := j.client.GetMethodID(j.ctx, &pb.GetMethodIDRequest{
+	resp, err := j.client.GetMethodID(ctx, &pb.GetMethodIDRequest{
 		ClassHandle: cls,
 		Name:        name,
 		Sig:         sig,
@@ -46,10 +46,11 @@ func (j *jniCaller) getMethodID(
 }
 
 func (j *jniCaller) getStaticMethodID(
+	ctx context.Context,
 	cls int64,
 	name, sig string,
 ) (int64, error) {
-	resp, err := j.client.GetStaticMethodID(j.ctx, &pb.GetStaticMethodIDRequest{
+	resp, err := j.client.GetStaticMethodID(ctx, &pb.GetStaticMethodIDRequest{
 		ClassHandle: cls,
 		Name:        name,
 		Sig:         sig,
@@ -61,11 +62,12 @@ func (j *jniCaller) getStaticMethodID(
 }
 
 func (j *jniCaller) callMethod(
+	ctx context.Context,
 	obj, method int64,
 	retType pb.JType,
 	args ...*pb.JValue,
 ) (*pb.JValue, error) {
-	resp, err := j.client.CallMethod(j.ctx, &pb.CallMethodRequest{
+	resp, err := j.client.CallMethod(ctx, &pb.CallMethodRequest{
 		ObjectHandle: obj,
 		MethodId:     method,
 		ReturnType:   retType,
@@ -78,11 +80,12 @@ func (j *jniCaller) callMethod(
 }
 
 func (j *jniCaller) callStaticMethod(
+	ctx context.Context,
 	cls, method int64,
 	retType pb.JType,
 	args ...*pb.JValue,
 ) (*pb.JValue, error) {
-	resp, err := j.client.CallStaticMethod(j.ctx, &pb.CallStaticMethodRequest{
+	resp, err := j.client.CallStaticMethod(ctx, &pb.CallStaticMethodRequest{
 		ClassHandle: cls,
 		MethodId:    method,
 		ReturnType:  retType,
@@ -95,18 +98,20 @@ func (j *jniCaller) callStaticMethod(
 }
 
 func (j *jniCaller) callVoidMethod(
+	ctx context.Context,
 	obj, method int64,
 	args ...*pb.JValue,
 ) error {
-	_, err := j.callMethod(obj, method, pb.JType_VOID, args...)
+	_, err := j.callMethod(ctx, obj, method, pb.JType_VOID, args...)
 	return err
 }
 
 func (j *jniCaller) callObjectMethod(
+	ctx context.Context,
 	obj, method int64,
 	args ...*pb.JValue,
 ) (int64, error) {
-	v, err := j.callMethod(obj, method, pb.JType_OBJECT, args...)
+	v, err := j.callMethod(ctx, obj, method, pb.JType_OBJECT, args...)
 	if err != nil {
 		return 0, err
 	}
@@ -114,18 +119,19 @@ func (j *jniCaller) callObjectMethod(
 }
 
 func (j *jniCaller) callIntMethod(
+	ctx context.Context,
 	obj, method int64,
 	args ...*pb.JValue,
 ) (int32, error) {
-	v, err := j.callMethod(obj, method, pb.JType_INT, args...)
+	v, err := j.callMethod(ctx, obj, method, pb.JType_INT, args...)
 	if err != nil {
 		return 0, err
 	}
 	return v.GetI(), nil
 }
 
-func (j *jniCaller) newString(s string) (int64, error) {
-	resp, err := j.client.NewStringUTF(j.ctx, &pb.NewStringUTFRequest{Value: s})
+func (j *jniCaller) newString(ctx context.Context, s string) (int64, error) {
+	resp, err := j.client.NewStringUTF(ctx, &pb.NewStringUTFRequest{Value: s})
 	if err != nil {
 		return 0, fmt.Errorf("NewStringUTF(%q): %w", s, err)
 	}
@@ -133,10 +139,11 @@ func (j *jniCaller) newString(s string) (int64, error) {
 }
 
 func (j *jniCaller) newObject(
+	ctx context.Context,
 	cls, constructor int64,
 	args ...*pb.JValue,
 ) (int64, error) {
-	resp, err := j.client.NewObject(j.ctx, &pb.NewObjectRequest{
+	resp, err := j.client.NewObject(ctx, &pb.NewObjectRequest{
 		ClassHandle: cls,
 		MethodId:    constructor,
 		Args:        args,
@@ -148,10 +155,11 @@ func (j *jniCaller) newObject(
 }
 
 func (j *jniCaller) getObjectArrayElement(
+	ctx context.Context,
 	arrayHandle int64,
 	index int32,
 ) (int64, error) {
-	resp, err := j.client.GetObjectArrayElement(j.ctx, &pb.GetObjectArrayElementRequest{
+	resp, err := j.client.GetObjectArrayElement(ctx, &pb.GetObjectArrayElementRequest{
 		ArrayHandle: arrayHandle,
 		Index:       index,
 	})
@@ -162,11 +170,12 @@ func (j *jniCaller) getObjectArrayElement(
 }
 
 func (j *jniCaller) newObjectArray(
+	ctx context.Context,
 	length int32,
 	classHandle int64,
 	initElement int64,
 ) (int64, error) {
-	resp, err := j.client.NewObjectArray(j.ctx, &pb.NewObjectArrayRequest{
+	resp, err := j.client.NewObjectArray(ctx, &pb.NewObjectArrayRequest{
 		Length:      length,
 		ClassHandle: classHandle,
 		InitElement: initElement,
@@ -178,11 +187,12 @@ func (j *jniCaller) newObjectArray(
 }
 
 func (j *jniCaller) setObjectArrayElement(
+	ctx context.Context,
 	arrayHandle int64,
 	index int32,
 	elementHandle int64,
 ) error {
-	_, err := j.client.SetObjectArrayElement(j.ctx, &pb.SetObjectArrayElementRequest{
+	_, err := j.client.SetObjectArrayElement(ctx, &pb.SetObjectArrayElementRequest{
 		ArrayHandle:   arrayHandle,
 		Index:         index,
 		ElementHandle: elementHandle,
@@ -193,8 +203,8 @@ func (j *jniCaller) setObjectArrayElement(
 	return nil
 }
 
-func (j *jniCaller) getByteArrayData(arrayHandle int64) ([]byte, error) {
-	resp, err := j.client.GetByteArrayData(j.ctx, &pb.GetByteArrayDataRequest{
+func (j *jniCaller) getByteArrayData(ctx context.Context, arrayHandle int64) ([]byte, error) {
+	resp, err := j.client.GetByteArrayData(ctx, &pb.GetByteArrayDataRequest{
 		ArrayHandle: arrayHandle,
 	})
 	if err != nil {
@@ -203,8 +213,8 @@ func (j *jniCaller) getByteArrayData(arrayHandle int64) ([]byte, error) {
 	return resp.GetData(), nil
 }
 
-func (j *jniCaller) getStringUTFChars(stringHandle int64) (string, error) {
-	resp, err := j.client.GetStringUTFChars(j.ctx, &pb.GetStringUTFCharsRequest{
+func (j *jniCaller) getStringUTFChars(ctx context.Context, stringHandle int64) (string, error) {
+	resp, err := j.client.GetStringUTFChars(ctx, &pb.GetStringUTFCharsRequest{
 		StringHandle: stringHandle,
 	})
 	if err != nil {
@@ -222,4 +232,3 @@ func objVal(handle int64) *pb.JValue {
 func intVal(v int32) *pb.JValue {
 	return &pb.JValue{Value: &pb.JValue_I{I: v}}
 }
-

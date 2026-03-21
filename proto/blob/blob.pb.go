@@ -1021,8 +1021,8 @@ const file_proto_blob_blob_proto_rawDesc = "" +
 	"\x06result\x18\x01 \x01(\x03R\x06result\")\n" +
 	"\x13ReleaseLeaseRequest\x12\x12\n" +
 	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"\x16\n" +
-	"\x14ReleaseLeaseResponse2\xf1\x06\n" +
-	"\x17BlobStoreManagerService\x12K\n" +
+	"\x14ReleaseLeaseResponse2\xed\x06\n" +
+	"\x13StoreManagerService\x12K\n" +
 	"\x0eAbandonSession\x12\x1b.blob.AbandonSessionRequest\x1a\x1c.blob.AbandonSessionResponse\x12H\n" +
 	"\rAcquireLease2\x12\x1a.blob.AcquireLease2Request\x1a\x1b.blob.AcquireLease2Response\x12N\n" +
 	"\x0fAcquireLease3_1\x12\x1c.blob.AcquireLease3_1Request\x1a\x1d.blob.AcquireLease3_1Response\x12N\n" +
@@ -1033,7 +1033,7 @@ const file_proto_blob_blob_proto_rawDesc = "" +
 	"\x1bGetRemainingLeaseQuotaBytes\x12(.blob.GetRemainingLeaseQuotaBytesRequest\x1a).blob.GetRemainingLeaseQuotaBytesResponse\x129\n" +
 	"\bOpenBlob\x12\x15.blob.OpenBlobRequest\x1a\x16.blob.OpenBlobResponse\x12B\n" +
 	"\vOpenSession\x12\x18.blob.OpenSessionRequest\x1a\x19.blob.OpenSessionResponse\x12E\n" +
-	"\fReleaseLease\x12\x19.blob.ReleaseLeaseRequest\x1a\x1a.blob.ReleaseLeaseResponseB'Z%github.com/AndroidGoLab/jni-proxy/proto/blobb\x06proto3"
+	"\fReleaseLease\x12\x19.blob.ReleaseLeaseRequest\x1a\x1a.blob.ReleaseLeaseResponseB.Z,github.com/AndroidGoLab/jni-proxy/proto/blobb\x06proto3"
 
 var (
 	file_proto_blob_blob_proto_rawDescOnce sync.Once
@@ -1073,28 +1073,28 @@ var file_proto_blob_blob_proto_goTypes = []any{
 	(*ReleaseLeaseResponse)(nil),                // 21: blob.ReleaseLeaseResponse
 }
 var file_proto_blob_blob_proto_depIdxs = []int32{
-	0,  // 0: blob.BlobStoreManagerService.AbandonSession:input_type -> blob.AbandonSessionRequest
-	2,  // 1: blob.BlobStoreManagerService.AcquireLease2:input_type -> blob.AcquireLease2Request
-	4,  // 2: blob.BlobStoreManagerService.AcquireLease3_1:input_type -> blob.AcquireLease3_1Request
-	6,  // 3: blob.BlobStoreManagerService.AcquireLease2_2:input_type -> blob.AcquireLease2_2Request
-	8,  // 4: blob.BlobStoreManagerService.AcquireLease3_3:input_type -> blob.AcquireLease3_3Request
-	10, // 5: blob.BlobStoreManagerService.CreateSession:input_type -> blob.CreateSessionRequest
-	12, // 6: blob.BlobStoreManagerService.GetLeasedBlobs:input_type -> blob.GetLeasedBlobsRequest
-	14, // 7: blob.BlobStoreManagerService.GetRemainingLeaseQuotaBytes:input_type -> blob.GetRemainingLeaseQuotaBytesRequest
-	16, // 8: blob.BlobStoreManagerService.OpenBlob:input_type -> blob.OpenBlobRequest
-	18, // 9: blob.BlobStoreManagerService.OpenSession:input_type -> blob.OpenSessionRequest
-	20, // 10: blob.BlobStoreManagerService.ReleaseLease:input_type -> blob.ReleaseLeaseRequest
-	1,  // 11: blob.BlobStoreManagerService.AbandonSession:output_type -> blob.AbandonSessionResponse
-	3,  // 12: blob.BlobStoreManagerService.AcquireLease2:output_type -> blob.AcquireLease2Response
-	5,  // 13: blob.BlobStoreManagerService.AcquireLease3_1:output_type -> blob.AcquireLease3_1Response
-	7,  // 14: blob.BlobStoreManagerService.AcquireLease2_2:output_type -> blob.AcquireLease2_2Response
-	9,  // 15: blob.BlobStoreManagerService.AcquireLease3_3:output_type -> blob.AcquireLease3_3Response
-	11, // 16: blob.BlobStoreManagerService.CreateSession:output_type -> blob.CreateSessionResponse
-	13, // 17: blob.BlobStoreManagerService.GetLeasedBlobs:output_type -> blob.GetLeasedBlobsResponse
-	15, // 18: blob.BlobStoreManagerService.GetRemainingLeaseQuotaBytes:output_type -> blob.GetRemainingLeaseQuotaBytesResponse
-	17, // 19: blob.BlobStoreManagerService.OpenBlob:output_type -> blob.OpenBlobResponse
-	19, // 20: blob.BlobStoreManagerService.OpenSession:output_type -> blob.OpenSessionResponse
-	21, // 21: blob.BlobStoreManagerService.ReleaseLease:output_type -> blob.ReleaseLeaseResponse
+	0,  // 0: blob.StoreManagerService.AbandonSession:input_type -> blob.AbandonSessionRequest
+	2,  // 1: blob.StoreManagerService.AcquireLease2:input_type -> blob.AcquireLease2Request
+	4,  // 2: blob.StoreManagerService.AcquireLease3_1:input_type -> blob.AcquireLease3_1Request
+	6,  // 3: blob.StoreManagerService.AcquireLease2_2:input_type -> blob.AcquireLease2_2Request
+	8,  // 4: blob.StoreManagerService.AcquireLease3_3:input_type -> blob.AcquireLease3_3Request
+	10, // 5: blob.StoreManagerService.CreateSession:input_type -> blob.CreateSessionRequest
+	12, // 6: blob.StoreManagerService.GetLeasedBlobs:input_type -> blob.GetLeasedBlobsRequest
+	14, // 7: blob.StoreManagerService.GetRemainingLeaseQuotaBytes:input_type -> blob.GetRemainingLeaseQuotaBytesRequest
+	16, // 8: blob.StoreManagerService.OpenBlob:input_type -> blob.OpenBlobRequest
+	18, // 9: blob.StoreManagerService.OpenSession:input_type -> blob.OpenSessionRequest
+	20, // 10: blob.StoreManagerService.ReleaseLease:input_type -> blob.ReleaseLeaseRequest
+	1,  // 11: blob.StoreManagerService.AbandonSession:output_type -> blob.AbandonSessionResponse
+	3,  // 12: blob.StoreManagerService.AcquireLease2:output_type -> blob.AcquireLease2Response
+	5,  // 13: blob.StoreManagerService.AcquireLease3_1:output_type -> blob.AcquireLease3_1Response
+	7,  // 14: blob.StoreManagerService.AcquireLease2_2:output_type -> blob.AcquireLease2_2Response
+	9,  // 15: blob.StoreManagerService.AcquireLease3_3:output_type -> blob.AcquireLease3_3Response
+	11, // 16: blob.StoreManagerService.CreateSession:output_type -> blob.CreateSessionResponse
+	13, // 17: blob.StoreManagerService.GetLeasedBlobs:output_type -> blob.GetLeasedBlobsResponse
+	15, // 18: blob.StoreManagerService.GetRemainingLeaseQuotaBytes:output_type -> blob.GetRemainingLeaseQuotaBytesResponse
+	17, // 19: blob.StoreManagerService.OpenBlob:output_type -> blob.OpenBlobResponse
+	19, // 20: blob.StoreManagerService.OpenSession:output_type -> blob.OpenSessionResponse
+	21, // 21: blob.StoreManagerService.ReleaseLease:output_type -> blob.ReleaseLeaseResponse
 	11, // [11:22] is the sub-list for method output_type
 	0,  // [0:11] is the sub-list for method input_type
 	0,  // [0:0] is the sub-list for extension type_name

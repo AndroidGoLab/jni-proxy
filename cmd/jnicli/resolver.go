@@ -3,8 +3,8 @@
 package main
 
 import (
-	"github.com/spf13/cobra"
 	pb "github.com/AndroidGoLab/jni-proxy/proto/resolver"
+	"github.com/spf13/cobra"
 )
 
 var resolverCmd = &cobra.Command{
@@ -15,6 +15,22 @@ var resolverCmd = &cobra.Command{
 var resolverUriCmd = &cobra.Command{
 	Use:   "uri",
 	Short: "UriService operations",
+}
+
+var resolverUriBuildUponCmd = &cobra.Command{
+	Use:   "build-upon",
+	Short: "BuildUpon RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewUriServiceClient(grpcConn)
+		req := &pb.BuildUponRequest{}
+		resp, err := client.BuildUpon(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
 }
 
 var resolverUriCompareTo1Cmd = &cobra.Command{
@@ -55,6 +71,22 @@ var resolverUriEqualsCmd = &cobra.Command{
 	},
 }
 
+var resolverUriGetAuthorityCmd = &cobra.Command{
+	Use:   "get-authority",
+	Short: "GetAuthority RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewUriServiceClient(grpcConn)
+		req := &pb.GetAuthorityRequest{}
+		resp, err := client.GetAuthority(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
 var resolverUriGetBooleanQueryParameterCmd = &cobra.Command{
 	Use:   "get-boolean-query-parameter",
 	Short: "GetBooleanQueryParameter RPC",
@@ -70,6 +102,214 @@ var resolverUriGetBooleanQueryParameterCmd = &cobra.Command{
 			req.Arg1 = v
 		}
 		resp, err := client.GetBooleanQueryParameter(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var resolverUriGetEncodedAuthorityCmd = &cobra.Command{
+	Use:   "get-encoded-authority",
+	Short: "GetEncodedAuthority RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewUriServiceClient(grpcConn)
+		req := &pb.GetEncodedAuthorityRequest{}
+		resp, err := client.GetEncodedAuthority(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var resolverUriGetEncodedFragmentCmd = &cobra.Command{
+	Use:   "get-encoded-fragment",
+	Short: "GetEncodedFragment RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewUriServiceClient(grpcConn)
+		req := &pb.GetEncodedFragmentRequest{}
+		resp, err := client.GetEncodedFragment(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var resolverUriGetEncodedPathCmd = &cobra.Command{
+	Use:   "get-encoded-path",
+	Short: "GetEncodedPath RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewUriServiceClient(grpcConn)
+		req := &pb.GetEncodedPathRequest{}
+		resp, err := client.GetEncodedPath(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var resolverUriGetEncodedQueryCmd = &cobra.Command{
+	Use:   "get-encoded-query",
+	Short: "GetEncodedQuery RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewUriServiceClient(grpcConn)
+		req := &pb.GetEncodedQueryRequest{}
+		resp, err := client.GetEncodedQuery(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var resolverUriGetEncodedSchemeSpecificPartCmd = &cobra.Command{
+	Use:   "get-encoded-scheme-specific-part",
+	Short: "GetEncodedSchemeSpecificPart RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewUriServiceClient(grpcConn)
+		req := &pb.GetEncodedSchemeSpecificPartRequest{}
+		resp, err := client.GetEncodedSchemeSpecificPart(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var resolverUriGetEncodedUserInfoCmd = &cobra.Command{
+	Use:   "get-encoded-user-info",
+	Short: "GetEncodedUserInfo RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewUriServiceClient(grpcConn)
+		req := &pb.GetEncodedUserInfoRequest{}
+		resp, err := client.GetEncodedUserInfo(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var resolverUriGetFragmentCmd = &cobra.Command{
+	Use:   "get-fragment",
+	Short: "GetFragment RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewUriServiceClient(grpcConn)
+		req := &pb.GetFragmentRequest{}
+		resp, err := client.GetFragment(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var resolverUriGetHostCmd = &cobra.Command{
+	Use:   "get-host",
+	Short: "GetHost RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewUriServiceClient(grpcConn)
+		req := &pb.GetHostRequest{}
+		resp, err := client.GetHost(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var resolverUriGetLastPathSegmentCmd = &cobra.Command{
+	Use:   "get-last-path-segment",
+	Short: "GetLastPathSegment RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewUriServiceClient(grpcConn)
+		req := &pb.GetLastPathSegmentRequest{}
+		resp, err := client.GetLastPathSegment(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var resolverUriGetPathCmd = &cobra.Command{
+	Use:   "get-path",
+	Short: "GetPath RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewUriServiceClient(grpcConn)
+		req := &pb.GetPathRequest{}
+		resp, err := client.GetPath(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var resolverUriGetPathSegmentsCmd = &cobra.Command{
+	Use:   "get-path-segments",
+	Short: "GetPathSegments RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewUriServiceClient(grpcConn)
+		req := &pb.GetPathSegmentsRequest{}
+		resp, err := client.GetPathSegments(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var resolverUriGetPortCmd = &cobra.Command{
+	Use:   "get-port",
+	Short: "GetPort RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewUriServiceClient(grpcConn)
+		req := &pb.GetPortRequest{}
+		resp, err := client.GetPort(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var resolverUriGetQueryCmd = &cobra.Command{
+	Use:   "get-query",
+	Short: "GetQuery RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewUriServiceClient(grpcConn)
+		req := &pb.GetQueryRequest{}
+		resp, err := client.GetQuery(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -131,6 +371,54 @@ var resolverUriGetQueryParametersCmd = &cobra.Command{
 	},
 }
 
+var resolverUriGetSchemeCmd = &cobra.Command{
+	Use:   "get-scheme",
+	Short: "GetScheme RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewUriServiceClient(grpcConn)
+		req := &pb.GetSchemeRequest{}
+		resp, err := client.GetScheme(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var resolverUriGetSchemeSpecificPartCmd = &cobra.Command{
+	Use:   "get-scheme-specific-part",
+	Short: "GetSchemeSpecificPart RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewUriServiceClient(grpcConn)
+		req := &pb.GetSchemeSpecificPartRequest{}
+		resp, err := client.GetSchemeSpecificPart(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var resolverUriGetUserInfoCmd = &cobra.Command{
+	Use:   "get-user-info",
+	Short: "GetUserInfo RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewUriServiceClient(grpcConn)
+		req := &pb.GetUserInfoRequest{}
+		resp, err := client.GetUserInfo(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
 var resolverUriHashCodeCmd = &cobra.Command{
 	Use:   "hash-code",
 	Short: "HashCode RPC",
@@ -163,6 +451,22 @@ var resolverUriIsAbsoluteCmd = &cobra.Command{
 	},
 }
 
+var resolverUriIsHierarchicalCmd = &cobra.Command{
+	Use:   "is-hierarchical",
+	Short: "IsHierarchical RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewUriServiceClient(grpcConn)
+		req := &pb.IsHierarchicalRequest{}
+		resp, err := client.IsHierarchical(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
 var resolverUriIsOpaqueCmd = &cobra.Command{
 	Use:   "is-opaque",
 	Short: "IsOpaque RPC",
@@ -179,6 +483,22 @@ var resolverUriIsOpaqueCmd = &cobra.Command{
 	},
 }
 
+var resolverUriIsRelativeCmd = &cobra.Command{
+	Use:   "is-relative",
+	Short: "IsRelative RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewUriServiceClient(grpcConn)
+		req := &pb.IsRelativeRequest{}
+		resp, err := client.IsRelative(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
 var resolverUriNormalizeSchemeCmd = &cobra.Command{
 	Use:   "normalize-scheme",
 	Short: "NormalizeScheme RPC",
@@ -188,6 +508,22 @@ var resolverUriNormalizeSchemeCmd = &cobra.Command{
 		client := pb.NewUriServiceClient(grpcConn)
 		req := &pb.NormalizeSchemeRequest{}
 		resp, err := client.NormalizeScheme(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var resolverUriToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewUriServiceClient(grpcConn)
+		req := &pb.ToStringRequest{}
+		resp, err := client.ToString(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -386,6 +722,82 @@ var resolverContentResolverCmd = &cobra.Command{
 	Short: "ContentResolverService operations",
 }
 
+var resolverContentResolverAcquireContentProviderClient1Cmd = &cobra.Command{
+	Use:   "acquire-content-provider-client1",
+	Short: "AcquireContentProviderClient1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewContentResolverServiceClient(grpcConn)
+		req := &pb.AcquireContentProviderClient1Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.AcquireContentProviderClient1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var resolverContentResolverAcquireContentProviderClient1_1Cmd = &cobra.Command{
+	Use:   "acquire-content-provider-client1_1",
+	Short: "AcquireContentProviderClient1_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewContentResolverServiceClient(grpcConn)
+		req := &pb.AcquireContentProviderClient1_1Request{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.AcquireContentProviderClient1_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var resolverContentResolverAcquireUnstableContentProviderClient1Cmd = &cobra.Command{
+	Use:   "acquire-unstable-content-provider-client1",
+	Short: "AcquireUnstableContentProviderClient1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewContentResolverServiceClient(grpcConn)
+		req := &pb.AcquireUnstableContentProviderClient1Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.AcquireUnstableContentProviderClient1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var resolverContentResolverAcquireUnstableContentProviderClient1_1Cmd = &cobra.Command{
+	Use:   "acquire-unstable-content-provider-client1_1",
+	Short: "AcquireUnstableContentProviderClient1_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewContentResolverServiceClient(grpcConn)
+		req := &pb.AcquireUnstableContentProviderClient1_1Request{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.AcquireUnstableContentProviderClient1_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
 var resolverContentResolverApplyBatchCmd = &cobra.Command{
 	Use:   "apply-batch",
 	Short: "ApplyBatch RPC",
@@ -408,6 +820,84 @@ var resolverContentResolverApplyBatchCmd = &cobra.Command{
 	},
 }
 
+var resolverContentResolverBulkInsertCmd = &cobra.Command{
+	Use:   "bulk-insert",
+	Short: "BulkInsert RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewContentResolverServiceClient(grpcConn)
+		req := &pb.BulkInsertRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.BulkInsert(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var resolverContentResolverCall4Cmd = &cobra.Command{
+	Use:   "call4",
+	Short: "Call4 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewContentResolverServiceClient(grpcConn)
+		req := &pb.Call4Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetString("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetString("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		resp, err := client.Call4(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var resolverContentResolverCall4_1Cmd = &cobra.Command{
+	Use:   "call4_1",
+	Short: "Call4_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewContentResolverServiceClient(grpcConn)
+		req := &pb.Call4_1Request{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetString("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetString("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		resp, err := client.Call4_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
 var resolverContentResolverCancelSync1_2Cmd = &cobra.Command{
 	Use:   "cancel-sync1_2",
 	Short: "CancelSync1_2 RPC",
@@ -420,6 +910,72 @@ var resolverContentResolverCancelSync1_2Cmd = &cobra.Command{
 			req.Arg0 = v
 		}
 		resp, err := client.CancelSync1_2(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var resolverContentResolverCanonicalizeCmd = &cobra.Command{
+	Use:   "canonicalize",
+	Short: "Canonicalize RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewContentResolverServiceClient(grpcConn)
+		req := &pb.CanonicalizeRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Canonicalize(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var resolverContentResolverDelete2Cmd = &cobra.Command{
+	Use:   "delete2",
+	Short: "Delete2 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewContentResolverServiceClient(grpcConn)
+		req := &pb.Delete2Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.Delete2(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var resolverContentResolverDelete3_1Cmd = &cobra.Command{
+	Use:   "delete3_1",
+	Short: "Delete3_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewContentResolverServiceClient(grpcConn)
+		req := &pb.Delete3_1Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetString("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.Delete3_1(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -474,6 +1030,91 @@ var resolverContentResolverGetStreamTypesCmd = &cobra.Command{
 			req.Arg1 = v
 		}
 		resp, err := client.GetStreamTypes(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var resolverContentResolverGetTypeCmd = &cobra.Command{
+	Use:   "get-type",
+	Short: "GetType RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewContentResolverServiceClient(grpcConn)
+		req := &pb.GetTypeRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetType(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var resolverContentResolverGetTypeInfoCmd = &cobra.Command{
+	Use:   "get-type-info",
+	Short: "GetTypeInfo RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewContentResolverServiceClient(grpcConn)
+		req := &pb.GetTypeInfoRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetTypeInfo(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var resolverContentResolverInsert2Cmd = &cobra.Command{
+	Use:   "insert2",
+	Short: "Insert2 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewContentResolverServiceClient(grpcConn)
+		req := &pb.Insert2Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.Insert2(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var resolverContentResolverInsert3_1Cmd = &cobra.Command{
+	Use:   "insert3_1",
+	Short: "Insert3_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewContentResolverServiceClient(grpcConn)
+		req := &pb.Insert3_1Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.Insert3_1(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -603,6 +1244,434 @@ var resolverContentResolverNotifyChange3_3Cmd = &cobra.Command{
 	},
 }
 
+var resolverContentResolverOpenAssetFileCmd = &cobra.Command{
+	Use:   "open-asset-file",
+	Short: "OpenAssetFile RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewContentResolverServiceClient(grpcConn)
+		req := &pb.OpenAssetFileRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetString("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.OpenAssetFile(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var resolverContentResolverOpenAssetFileDescriptor2Cmd = &cobra.Command{
+	Use:   "open-asset-file-descriptor2",
+	Short: "OpenAssetFileDescriptor2 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewContentResolverServiceClient(grpcConn)
+		req := &pb.OpenAssetFileDescriptor2Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetString("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.OpenAssetFileDescriptor2(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var resolverContentResolverOpenAssetFileDescriptor3_1Cmd = &cobra.Command{
+	Use:   "open-asset-file-descriptor3_1",
+	Short: "OpenAssetFileDescriptor3_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewContentResolverServiceClient(grpcConn)
+		req := &pb.OpenAssetFileDescriptor3_1Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetString("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.OpenAssetFileDescriptor3_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var resolverContentResolverOpenFileCmd = &cobra.Command{
+	Use:   "open-file",
+	Short: "OpenFile RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewContentResolverServiceClient(grpcConn)
+		req := &pb.OpenFileRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetString("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.OpenFile(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var resolverContentResolverOpenFileDescriptor2Cmd = &cobra.Command{
+	Use:   "open-file-descriptor2",
+	Short: "OpenFileDescriptor2 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewContentResolverServiceClient(grpcConn)
+		req := &pb.OpenFileDescriptor2Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetString("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.OpenFileDescriptor2(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var resolverContentResolverOpenFileDescriptor3_1Cmd = &cobra.Command{
+	Use:   "open-file-descriptor3_1",
+	Short: "OpenFileDescriptor3_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewContentResolverServiceClient(grpcConn)
+		req := &pb.OpenFileDescriptor3_1Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetString("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.OpenFileDescriptor3_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var resolverContentResolverOpenInputStreamCmd = &cobra.Command{
+	Use:   "open-input-stream",
+	Short: "OpenInputStream RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewContentResolverServiceClient(grpcConn)
+		req := &pb.OpenInputStreamRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.OpenInputStream(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var resolverContentResolverOpenOutputStream1Cmd = &cobra.Command{
+	Use:   "open-output-stream1",
+	Short: "OpenOutputStream1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewContentResolverServiceClient(grpcConn)
+		req := &pb.OpenOutputStream1Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.OpenOutputStream1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var resolverContentResolverOpenOutputStream2_1Cmd = &cobra.Command{
+	Use:   "open-output-stream2_1",
+	Short: "OpenOutputStream2_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewContentResolverServiceClient(grpcConn)
+		req := &pb.OpenOutputStream2_1Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetString("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.OpenOutputStream2_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var resolverContentResolverOpenTypedAssetFileCmd = &cobra.Command{
+	Use:   "open-typed-asset-file",
+	Short: "OpenTypedAssetFile RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewContentResolverServiceClient(grpcConn)
+		req := &pb.OpenTypedAssetFileRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetString("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		resp, err := client.OpenTypedAssetFile(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var resolverContentResolverOpenTypedAssetFileDescriptor3Cmd = &cobra.Command{
+	Use:   "open-typed-asset-file-descriptor3",
+	Short: "OpenTypedAssetFileDescriptor3 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewContentResolverServiceClient(grpcConn)
+		req := &pb.OpenTypedAssetFileDescriptor3Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetString("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.OpenTypedAssetFileDescriptor3(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var resolverContentResolverOpenTypedAssetFileDescriptor4_1Cmd = &cobra.Command{
+	Use:   "open-typed-asset-file-descriptor4_1",
+	Short: "OpenTypedAssetFileDescriptor4_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewContentResolverServiceClient(grpcConn)
+		req := &pb.OpenTypedAssetFileDescriptor4_1Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetString("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		resp, err := client.OpenTypedAssetFileDescriptor4_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var resolverContentResolverQuery4Cmd = &cobra.Command{
+	Use:   "query4",
+	Short: "Query4 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewContentResolverServiceClient(grpcConn)
+		req := &pb.Query4Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		resp, err := client.Query4(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var resolverContentResolverQuery5_1Cmd = &cobra.Command{
+	Use:   "query5_1",
+	Short: "Query5_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewContentResolverServiceClient(grpcConn)
+		req := &pb.Query5_1Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetString("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		if v, err := cmd.Flags().GetString("arg4"); err == nil {
+			req.Arg4 = v
+		}
+		resp, err := client.Query5_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var resolverContentResolverQuery6_2Cmd = &cobra.Command{
+	Use:   "query6_2",
+	Short: "Query6_2 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewContentResolverServiceClient(grpcConn)
+		req := &pb.Query6_2Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetString("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		if v, err := cmd.Flags().GetString("arg4"); err == nil {
+			req.Arg4 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg5"); err == nil {
+			req.Arg5 = v
+		}
+		resp, err := client.Query6_2(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var resolverContentResolverRefreshCmd = &cobra.Command{
+	Use:   "refresh",
+	Short: "Refresh RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewContentResolverServiceClient(grpcConn)
+		req := &pb.RefreshRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.Refresh(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var resolverContentResolverRegisterContentObserverCmd = &cobra.Command{
+	Use:   "register-content-observer",
+	Short: "RegisterContentObserver RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewContentResolverServiceClient(grpcConn)
+		req := &pb.RegisterContentObserverRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetBool("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.RegisterContentObserver(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
 var resolverContentResolverReleasePersistableUriPermissionCmd = &cobra.Command{
 	Use:   "release-persistable-uri-permission",
 	Short: "ReleasePersistableUriPermission RPC",
@@ -662,6 +1731,97 @@ var resolverContentResolverTakePersistableUriPermissionCmd = &cobra.Command{
 			req.Arg1 = v
 		}
 		resp, err := client.TakePersistableUriPermission(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var resolverContentResolverUncanonicalizeCmd = &cobra.Command{
+	Use:   "uncanonicalize",
+	Short: "Uncanonicalize RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewContentResolverServiceClient(grpcConn)
+		req := &pb.UncanonicalizeRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Uncanonicalize(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var resolverContentResolverUnregisterContentObserverCmd = &cobra.Command{
+	Use:   "unregister-content-observer",
+	Short: "UnregisterContentObserver RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewContentResolverServiceClient(grpcConn)
+		req := &pb.UnregisterContentObserverRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.UnregisterContentObserver(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var resolverContentResolverUpdate3Cmd = &cobra.Command{
+	Use:   "update3",
+	Short: "Update3 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewContentResolverServiceClient(grpcConn)
+		req := &pb.Update3Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.Update3(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var resolverContentResolverUpdate4_1Cmd = &cobra.Command{
+	Use:   "update4_1",
+	Short: "Update4_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewContentResolverServiceClient(grpcConn)
+		req := &pb.Update4_1Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetString("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		resp, err := client.Update4_1(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -1148,23 +2308,777 @@ var resolverContentResolverWrap1_1Cmd = &cobra.Command{
 	},
 }
 
+var resolverCursorCmd = &cobra.Command{
+	Use:   "cursor",
+	Short: "CursorService operations",
+}
+
+var resolverCursorCloseCmd = &cobra.Command{
+	Use:   "close",
+	Short: "Close RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCursorServiceClient(grpcConn)
+		req := &pb.CloseRequest{}
+		resp, err := client.Close(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var resolverCursorCopyStringToBufferCmd = &cobra.Command{
+	Use:   "copy-string-to-buffer",
+	Short: "CopyStringToBuffer RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCursorServiceClient(grpcConn)
+		req := &pb.CopyStringToBufferRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.CopyStringToBuffer(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var resolverCursorDeactivateCmd = &cobra.Command{
+	Use:   "deactivate",
+	Short: "Deactivate RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCursorServiceClient(grpcConn)
+		req := &pb.DeactivateRequest{}
+		resp, err := client.Deactivate(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var resolverCursorGetBlobCmd = &cobra.Command{
+	Use:   "get-blob",
+	Short: "GetBlob RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCursorServiceClient(grpcConn)
+		req := &pb.GetBlobRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetBlob(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var resolverCursorGetColumnCountCmd = &cobra.Command{
+	Use:   "get-column-count",
+	Short: "GetColumnCount RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCursorServiceClient(grpcConn)
+		req := &pb.GetColumnCountRequest{}
+		resp, err := client.GetColumnCount(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var resolverCursorGetColumnIndexCmd = &cobra.Command{
+	Use:   "get-column-index",
+	Short: "GetColumnIndex RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCursorServiceClient(grpcConn)
+		req := &pb.GetColumnIndexRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetColumnIndex(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var resolverCursorGetColumnIndexOrThrowCmd = &cobra.Command{
+	Use:   "get-column-index-or-throw",
+	Short: "GetColumnIndexOrThrow RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCursorServiceClient(grpcConn)
+		req := &pb.GetColumnIndexOrThrowRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetColumnIndexOrThrow(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var resolverCursorGetColumnNameCmd = &cobra.Command{
+	Use:   "get-column-name",
+	Short: "GetColumnName RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCursorServiceClient(grpcConn)
+		req := &pb.GetColumnNameRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetColumnName(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var resolverCursorGetColumnNamesCmd = &cobra.Command{
+	Use:   "get-column-names",
+	Short: "GetColumnNames RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCursorServiceClient(grpcConn)
+		req := &pb.GetColumnNamesRequest{}
+		resp, err := client.GetColumnNames(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var resolverCursorGetCountCmd = &cobra.Command{
+	Use:   "get-count",
+	Short: "GetCount RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCursorServiceClient(grpcConn)
+		req := &pb.GetCountRequest{}
+		resp, err := client.GetCount(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var resolverCursorGetDoubleCmd = &cobra.Command{
+	Use:   "get-double",
+	Short: "GetDouble RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCursorServiceClient(grpcConn)
+		req := &pb.GetDoubleRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetDouble(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var resolverCursorGetExtrasCmd = &cobra.Command{
+	Use:   "get-extras",
+	Short: "GetExtras RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCursorServiceClient(grpcConn)
+		req := &pb.GetExtrasRequest{}
+		resp, err := client.GetExtras(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var resolverCursorGetFloatCmd = &cobra.Command{
+	Use:   "get-float",
+	Short: "GetFloat RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCursorServiceClient(grpcConn)
+		req := &pb.GetFloatRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetFloat(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var resolverCursorGetIntCmd = &cobra.Command{
+	Use:   "get-int",
+	Short: "GetInt RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCursorServiceClient(grpcConn)
+		req := &pb.GetIntRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetInt(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var resolverCursorGetLongCmd = &cobra.Command{
+	Use:   "get-long",
+	Short: "GetLong RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCursorServiceClient(grpcConn)
+		req := &pb.GetLongRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetLong(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var resolverCursorGetNotificationUriCmd = &cobra.Command{
+	Use:   "get-notification-uri",
+	Short: "GetNotificationUri RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCursorServiceClient(grpcConn)
+		req := &pb.GetNotificationUriRequest{}
+		resp, err := client.GetNotificationUri(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var resolverCursorGetPositionCmd = &cobra.Command{
+	Use:   "get-position",
+	Short: "GetPosition RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCursorServiceClient(grpcConn)
+		req := &pb.GetPositionRequest{}
+		resp, err := client.GetPosition(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var resolverCursorGetShortCmd = &cobra.Command{
+	Use:   "get-short",
+	Short: "GetShort RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCursorServiceClient(grpcConn)
+		req := &pb.GetShortRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetShort(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var resolverCursorGetStringCmd = &cobra.Command{
+	Use:   "get-string",
+	Short: "GetString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCursorServiceClient(grpcConn)
+		req := &pb.GetStringRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var resolverCursorGetTypeCmd = &cobra.Command{
+	Use:   "get-type",
+	Short: "GetType RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCursorServiceClient(grpcConn)
+		req := &pb.CursorGetTypeRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetType(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var resolverCursorGetWantsAllOnMoveCallsCmd = &cobra.Command{
+	Use:   "get-wants-all-on-move-calls",
+	Short: "GetWantsAllOnMoveCalls RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCursorServiceClient(grpcConn)
+		req := &pb.GetWantsAllOnMoveCallsRequest{}
+		resp, err := client.GetWantsAllOnMoveCalls(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var resolverCursorIsAfterLastCmd = &cobra.Command{
+	Use:   "is-after-last",
+	Short: "IsAfterLast RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCursorServiceClient(grpcConn)
+		req := &pb.IsAfterLastRequest{}
+		resp, err := client.IsAfterLast(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var resolverCursorIsBeforeFirstCmd = &cobra.Command{
+	Use:   "is-before-first",
+	Short: "IsBeforeFirst RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCursorServiceClient(grpcConn)
+		req := &pb.IsBeforeFirstRequest{}
+		resp, err := client.IsBeforeFirst(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var resolverCursorIsClosedCmd = &cobra.Command{
+	Use:   "is-closed",
+	Short: "IsClosed RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCursorServiceClient(grpcConn)
+		req := &pb.IsClosedRequest{}
+		resp, err := client.IsClosed(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var resolverCursorIsFirstCmd = &cobra.Command{
+	Use:   "is-first",
+	Short: "IsFirst RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCursorServiceClient(grpcConn)
+		req := &pb.IsFirstRequest{}
+		resp, err := client.IsFirst(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var resolverCursorIsLastCmd = &cobra.Command{
+	Use:   "is-last",
+	Short: "IsLast RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCursorServiceClient(grpcConn)
+		req := &pb.IsLastRequest{}
+		resp, err := client.IsLast(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var resolverCursorIsNullCmd = &cobra.Command{
+	Use:   "is-null",
+	Short: "IsNull RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCursorServiceClient(grpcConn)
+		req := &pb.IsNullRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.IsNull(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var resolverCursorMoveCmd = &cobra.Command{
+	Use:   "move",
+	Short: "Move RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCursorServiceClient(grpcConn)
+		req := &pb.MoveRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Move(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var resolverCursorMoveToFirstCmd = &cobra.Command{
+	Use:   "move-to-first",
+	Short: "MoveToFirst RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCursorServiceClient(grpcConn)
+		req := &pb.MoveToFirstRequest{}
+		resp, err := client.MoveToFirst(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var resolverCursorMoveToLastCmd = &cobra.Command{
+	Use:   "move-to-last",
+	Short: "MoveToLast RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCursorServiceClient(grpcConn)
+		req := &pb.MoveToLastRequest{}
+		resp, err := client.MoveToLast(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var resolverCursorMoveToNextCmd = &cobra.Command{
+	Use:   "move-to-next",
+	Short: "MoveToNext RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCursorServiceClient(grpcConn)
+		req := &pb.MoveToNextRequest{}
+		resp, err := client.MoveToNext(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var resolverCursorMoveToPositionCmd = &cobra.Command{
+	Use:   "move-to-position",
+	Short: "MoveToPosition RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCursorServiceClient(grpcConn)
+		req := &pb.MoveToPositionRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.MoveToPosition(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var resolverCursorMoveToPreviousCmd = &cobra.Command{
+	Use:   "move-to-previous",
+	Short: "MoveToPrevious RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCursorServiceClient(grpcConn)
+		req := &pb.MoveToPreviousRequest{}
+		resp, err := client.MoveToPrevious(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var resolverCursorRegisterContentObserverCmd = &cobra.Command{
+	Use:   "register-content-observer",
+	Short: "RegisterContentObserver RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCursorServiceClient(grpcConn)
+		req := &pb.CursorRegisterContentObserverRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.RegisterContentObserver(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var resolverCursorRegisterDataSetObserverCmd = &cobra.Command{
+	Use:   "register-data-set-observer",
+	Short: "RegisterDataSetObserver RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCursorServiceClient(grpcConn)
+		req := &pb.RegisterDataSetObserverRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.RegisterDataSetObserver(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var resolverCursorRequeryCmd = &cobra.Command{
+	Use:   "requery",
+	Short: "Requery RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCursorServiceClient(grpcConn)
+		req := &pb.RequeryRequest{}
+		resp, err := client.Requery(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var resolverCursorRespondCmd = &cobra.Command{
+	Use:   "respond",
+	Short: "Respond RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCursorServiceClient(grpcConn)
+		req := &pb.RespondRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Respond(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var resolverCursorSetExtrasCmd = &cobra.Command{
+	Use:   "set-extras",
+	Short: "SetExtras RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCursorServiceClient(grpcConn)
+		req := &pb.SetExtrasRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetExtras(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var resolverCursorSetNotificationUriCmd = &cobra.Command{
+	Use:   "set-notification-uri",
+	Short: "SetNotificationUri RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCursorServiceClient(grpcConn)
+		req := &pb.SetNotificationUriRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.SetNotificationUri(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var resolverCursorUnregisterContentObserverCmd = &cobra.Command{
+	Use:   "unregister-content-observer",
+	Short: "UnregisterContentObserver RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCursorServiceClient(grpcConn)
+		req := &pb.UnregisterContentObserverRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.UnregisterContentObserver(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var resolverCursorUnregisterDataSetObserverCmd = &cobra.Command{
+	Use:   "unregister-data-set-observer",
+	Short: "UnregisterDataSetObserver RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCursorServiceClient(grpcConn)
+		req := &pb.UnregisterDataSetObserverRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.UnregisterDataSetObserver(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
 func init() {
+	resolverUriCmd.AddCommand(resolverUriBuildUponCmd)
 	resolverUriCompareTo1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	resolverUriCmd.AddCommand(resolverUriCompareTo1Cmd)
 	resolverUriEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	resolverUriCmd.AddCommand(resolverUriEqualsCmd)
+	resolverUriCmd.AddCommand(resolverUriGetAuthorityCmd)
 	resolverUriGetBooleanQueryParameterCmd.Flags().String("arg0", "", "arg0 (string)")
 	resolverUriGetBooleanQueryParameterCmd.Flags().Bool("arg1", false, "arg1 (bool)")
 	resolverUriCmd.AddCommand(resolverUriGetBooleanQueryParameterCmd)
+	resolverUriCmd.AddCommand(resolverUriGetEncodedAuthorityCmd)
+	resolverUriCmd.AddCommand(resolverUriGetEncodedFragmentCmd)
+	resolverUriCmd.AddCommand(resolverUriGetEncodedPathCmd)
+	resolverUriCmd.AddCommand(resolverUriGetEncodedQueryCmd)
+	resolverUriCmd.AddCommand(resolverUriGetEncodedSchemeSpecificPartCmd)
+	resolverUriCmd.AddCommand(resolverUriGetEncodedUserInfoCmd)
+	resolverUriCmd.AddCommand(resolverUriGetFragmentCmd)
+	resolverUriCmd.AddCommand(resolverUriGetHostCmd)
+	resolverUriCmd.AddCommand(resolverUriGetLastPathSegmentCmd)
+	resolverUriCmd.AddCommand(resolverUriGetPathCmd)
+	resolverUriCmd.AddCommand(resolverUriGetPathSegmentsCmd)
+	resolverUriCmd.AddCommand(resolverUriGetPortCmd)
+	resolverUriCmd.AddCommand(resolverUriGetQueryCmd)
 	resolverUriGetQueryParameterCmd.Flags().String("arg0", "", "arg0 (string)")
 	resolverUriCmd.AddCommand(resolverUriGetQueryParameterCmd)
 	resolverUriCmd.AddCommand(resolverUriGetQueryParameterNamesCmd)
 	resolverUriGetQueryParametersCmd.Flags().String("arg0", "", "arg0 (string)")
 	resolverUriCmd.AddCommand(resolverUriGetQueryParametersCmd)
+	resolverUriCmd.AddCommand(resolverUriGetSchemeCmd)
+	resolverUriCmd.AddCommand(resolverUriGetSchemeSpecificPartCmd)
+	resolverUriCmd.AddCommand(resolverUriGetUserInfoCmd)
 	resolverUriCmd.AddCommand(resolverUriHashCodeCmd)
 	resolverUriCmd.AddCommand(resolverUriIsAbsoluteCmd)
+	resolverUriCmd.AddCommand(resolverUriIsHierarchicalCmd)
 	resolverUriCmd.AddCommand(resolverUriIsOpaqueCmd)
+	resolverUriCmd.AddCommand(resolverUriIsRelativeCmd)
 	resolverUriCmd.AddCommand(resolverUriNormalizeSchemeCmd)
+	resolverUriCmd.AddCommand(resolverUriToStringCmd)
 	resolverUriCompareTo1_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	resolverUriCmd.AddCommand(resolverUriCompareTo1_1Cmd)
 	resolverUriDecodeCmd.Flags().String("arg0", "", "arg0 (string)")
@@ -1189,16 +3103,57 @@ func init() {
 	resolverUriWriteToParcelCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
 	resolverUriCmd.AddCommand(resolverUriWriteToParcelCmd)
 	resolverCmd.AddCommand(resolverUriCmd)
+	resolverContentResolverAcquireContentProviderClient1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	resolverContentResolverCmd.AddCommand(resolverContentResolverAcquireContentProviderClient1Cmd)
+	resolverContentResolverAcquireContentProviderClient1_1Cmd.Flags().String("arg0", "", "arg0 (string)")
+	resolverContentResolverCmd.AddCommand(resolverContentResolverAcquireContentProviderClient1_1Cmd)
+	resolverContentResolverAcquireUnstableContentProviderClient1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	resolverContentResolverCmd.AddCommand(resolverContentResolverAcquireUnstableContentProviderClient1Cmd)
+	resolverContentResolverAcquireUnstableContentProviderClient1_1Cmd.Flags().String("arg0", "", "arg0 (string)")
+	resolverContentResolverCmd.AddCommand(resolverContentResolverAcquireUnstableContentProviderClient1_1Cmd)
 	resolverContentResolverApplyBatchCmd.Flags().String("arg0", "", "arg0 (string)")
 	resolverContentResolverApplyBatchCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
 	resolverContentResolverCmd.AddCommand(resolverContentResolverApplyBatchCmd)
+	resolverContentResolverBulkInsertCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	resolverContentResolverBulkInsertCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	resolverContentResolverCmd.AddCommand(resolverContentResolverBulkInsertCmd)
+	resolverContentResolverCall4Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	resolverContentResolverCall4Cmd.Flags().String("arg1", "", "arg1 (string)")
+	resolverContentResolverCall4Cmd.Flags().String("arg2", "", "arg2 (string)")
+	resolverContentResolverCall4Cmd.Flags().Int64("arg3", 0, "arg3 (int64)")
+	resolverContentResolverCmd.AddCommand(resolverContentResolverCall4Cmd)
+	resolverContentResolverCall4_1Cmd.Flags().String("arg0", "", "arg0 (string)")
+	resolverContentResolverCall4_1Cmd.Flags().String("arg1", "", "arg1 (string)")
+	resolverContentResolverCall4_1Cmd.Flags().String("arg2", "", "arg2 (string)")
+	resolverContentResolverCall4_1Cmd.Flags().Int64("arg3", 0, "arg3 (int64)")
+	resolverContentResolverCmd.AddCommand(resolverContentResolverCall4_1Cmd)
 	resolverContentResolverCancelSync1_2Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	resolverContentResolverCmd.AddCommand(resolverContentResolverCancelSync1_2Cmd)
+	resolverContentResolverCanonicalizeCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	resolverContentResolverCmd.AddCommand(resolverContentResolverCanonicalizeCmd)
+	resolverContentResolverDelete2Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	resolverContentResolverDelete2Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	resolverContentResolverCmd.AddCommand(resolverContentResolverDelete2Cmd)
+	resolverContentResolverDelete3_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	resolverContentResolverDelete3_1Cmd.Flags().String("arg1", "", "arg1 (string)")
+	resolverContentResolverDelete3_1Cmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	resolverContentResolverCmd.AddCommand(resolverContentResolverDelete3_1Cmd)
 	resolverContentResolverCmd.AddCommand(resolverContentResolverGetOutgoingPersistedUriPermissionsCmd)
 	resolverContentResolverCmd.AddCommand(resolverContentResolverGetPersistedUriPermissionsCmd)
 	resolverContentResolverGetStreamTypesCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	resolverContentResolverGetStreamTypesCmd.Flags().String("arg1", "", "arg1 (string)")
 	resolverContentResolverCmd.AddCommand(resolverContentResolverGetStreamTypesCmd)
+	resolverContentResolverGetTypeCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	resolverContentResolverCmd.AddCommand(resolverContentResolverGetTypeCmd)
+	resolverContentResolverGetTypeInfoCmd.Flags().String("arg0", "", "arg0 (string)")
+	resolverContentResolverCmd.AddCommand(resolverContentResolverGetTypeInfoCmd)
+	resolverContentResolverInsert2Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	resolverContentResolverInsert2Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	resolverContentResolverCmd.AddCommand(resolverContentResolverInsert2Cmd)
+	resolverContentResolverInsert3_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	resolverContentResolverInsert3_1Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	resolverContentResolverInsert3_1Cmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	resolverContentResolverCmd.AddCommand(resolverContentResolverInsert3_1Cmd)
 	resolverContentResolverLoadThumbnailCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	resolverContentResolverLoadThumbnailCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
 	resolverContentResolverLoadThumbnailCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
@@ -1218,6 +3173,75 @@ func init() {
 	resolverContentResolverNotifyChange3_3Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
 	resolverContentResolverNotifyChange3_3Cmd.Flags().Int32("arg2", 0, "arg2 (int32)")
 	resolverContentResolverCmd.AddCommand(resolverContentResolverNotifyChange3_3Cmd)
+	resolverContentResolverOpenAssetFileCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	resolverContentResolverOpenAssetFileCmd.Flags().String("arg1", "", "arg1 (string)")
+	resolverContentResolverOpenAssetFileCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	resolverContentResolverCmd.AddCommand(resolverContentResolverOpenAssetFileCmd)
+	resolverContentResolverOpenAssetFileDescriptor2Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	resolverContentResolverOpenAssetFileDescriptor2Cmd.Flags().String("arg1", "", "arg1 (string)")
+	resolverContentResolverCmd.AddCommand(resolverContentResolverOpenAssetFileDescriptor2Cmd)
+	resolverContentResolverOpenAssetFileDescriptor3_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	resolverContentResolverOpenAssetFileDescriptor3_1Cmd.Flags().String("arg1", "", "arg1 (string)")
+	resolverContentResolverOpenAssetFileDescriptor3_1Cmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	resolverContentResolverCmd.AddCommand(resolverContentResolverOpenAssetFileDescriptor3_1Cmd)
+	resolverContentResolverOpenFileCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	resolverContentResolverOpenFileCmd.Flags().String("arg1", "", "arg1 (string)")
+	resolverContentResolverOpenFileCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	resolverContentResolverCmd.AddCommand(resolverContentResolverOpenFileCmd)
+	resolverContentResolverOpenFileDescriptor2Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	resolverContentResolverOpenFileDescriptor2Cmd.Flags().String("arg1", "", "arg1 (string)")
+	resolverContentResolverCmd.AddCommand(resolverContentResolverOpenFileDescriptor2Cmd)
+	resolverContentResolverOpenFileDescriptor3_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	resolverContentResolverOpenFileDescriptor3_1Cmd.Flags().String("arg1", "", "arg1 (string)")
+	resolverContentResolverOpenFileDescriptor3_1Cmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	resolverContentResolverCmd.AddCommand(resolverContentResolverOpenFileDescriptor3_1Cmd)
+	resolverContentResolverOpenInputStreamCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	resolverContentResolverCmd.AddCommand(resolverContentResolverOpenInputStreamCmd)
+	resolverContentResolverOpenOutputStream1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	resolverContentResolverCmd.AddCommand(resolverContentResolverOpenOutputStream1Cmd)
+	resolverContentResolverOpenOutputStream2_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	resolverContentResolverOpenOutputStream2_1Cmd.Flags().String("arg1", "", "arg1 (string)")
+	resolverContentResolverCmd.AddCommand(resolverContentResolverOpenOutputStream2_1Cmd)
+	resolverContentResolverOpenTypedAssetFileCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	resolverContentResolverOpenTypedAssetFileCmd.Flags().String("arg1", "", "arg1 (string)")
+	resolverContentResolverOpenTypedAssetFileCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	resolverContentResolverOpenTypedAssetFileCmd.Flags().Int64("arg3", 0, "arg3 (int64)")
+	resolverContentResolverCmd.AddCommand(resolverContentResolverOpenTypedAssetFileCmd)
+	resolverContentResolverOpenTypedAssetFileDescriptor3Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	resolverContentResolverOpenTypedAssetFileDescriptor3Cmd.Flags().String("arg1", "", "arg1 (string)")
+	resolverContentResolverOpenTypedAssetFileDescriptor3Cmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	resolverContentResolverCmd.AddCommand(resolverContentResolverOpenTypedAssetFileDescriptor3Cmd)
+	resolverContentResolverOpenTypedAssetFileDescriptor4_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	resolverContentResolverOpenTypedAssetFileDescriptor4_1Cmd.Flags().String("arg1", "", "arg1 (string)")
+	resolverContentResolverOpenTypedAssetFileDescriptor4_1Cmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	resolverContentResolverOpenTypedAssetFileDescriptor4_1Cmd.Flags().Int64("arg3", 0, "arg3 (int64)")
+	resolverContentResolverCmd.AddCommand(resolverContentResolverOpenTypedAssetFileDescriptor4_1Cmd)
+	resolverContentResolverQuery4Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	resolverContentResolverQuery4Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	resolverContentResolverQuery4Cmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	resolverContentResolverQuery4Cmd.Flags().Int64("arg3", 0, "arg3 (int64)")
+	resolverContentResolverCmd.AddCommand(resolverContentResolverQuery4Cmd)
+	resolverContentResolverQuery5_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	resolverContentResolverQuery5_1Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	resolverContentResolverQuery5_1Cmd.Flags().String("arg2", "", "arg2 (string)")
+	resolverContentResolverQuery5_1Cmd.Flags().Int64("arg3", 0, "arg3 (int64)")
+	resolverContentResolverQuery5_1Cmd.Flags().String("arg4", "", "arg4 (string)")
+	resolverContentResolverCmd.AddCommand(resolverContentResolverQuery5_1Cmd)
+	resolverContentResolverQuery6_2Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	resolverContentResolverQuery6_2Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	resolverContentResolverQuery6_2Cmd.Flags().String("arg2", "", "arg2 (string)")
+	resolverContentResolverQuery6_2Cmd.Flags().Int64("arg3", 0, "arg3 (int64)")
+	resolverContentResolverQuery6_2Cmd.Flags().String("arg4", "", "arg4 (string)")
+	resolverContentResolverQuery6_2Cmd.Flags().Int64("arg5", 0, "arg5 (int64)")
+	resolverContentResolverCmd.AddCommand(resolverContentResolverQuery6_2Cmd)
+	resolverContentResolverRefreshCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	resolverContentResolverRefreshCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	resolverContentResolverRefreshCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	resolverContentResolverCmd.AddCommand(resolverContentResolverRefreshCmd)
+	resolverContentResolverRegisterContentObserverCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	resolverContentResolverRegisterContentObserverCmd.Flags().Bool("arg1", false, "arg1 (bool)")
+	resolverContentResolverRegisterContentObserverCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	resolverContentResolverCmd.AddCommand(resolverContentResolverRegisterContentObserverCmd)
 	resolverContentResolverReleasePersistableUriPermissionCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	resolverContentResolverReleasePersistableUriPermissionCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
 	resolverContentResolverCmd.AddCommand(resolverContentResolverReleasePersistableUriPermissionCmd)
@@ -1227,6 +3251,19 @@ func init() {
 	resolverContentResolverTakePersistableUriPermissionCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	resolverContentResolverTakePersistableUriPermissionCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
 	resolverContentResolverCmd.AddCommand(resolverContentResolverTakePersistableUriPermissionCmd)
+	resolverContentResolverUncanonicalizeCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	resolverContentResolverCmd.AddCommand(resolverContentResolverUncanonicalizeCmd)
+	resolverContentResolverUnregisterContentObserverCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	resolverContentResolverCmd.AddCommand(resolverContentResolverUnregisterContentObserverCmd)
+	resolverContentResolverUpdate3Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	resolverContentResolverUpdate3Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	resolverContentResolverUpdate3Cmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	resolverContentResolverCmd.AddCommand(resolverContentResolverUpdate3Cmd)
+	resolverContentResolverUpdate4_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	resolverContentResolverUpdate4_1Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	resolverContentResolverUpdate4_1Cmd.Flags().String("arg2", "", "arg2 (string)")
+	resolverContentResolverUpdate4_1Cmd.Flags().Int64("arg3", 0, "arg3 (int64)")
+	resolverContentResolverCmd.AddCommand(resolverContentResolverUpdate4_1Cmd)
 	resolverContentResolverAddPeriodicSyncCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	resolverContentResolverAddPeriodicSyncCmd.Flags().String("arg1", "", "arg1 (string)")
 	resolverContentResolverAddPeriodicSyncCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
@@ -1288,5 +3325,71 @@ func init() {
 	resolverContentResolverWrap1_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	resolverContentResolverCmd.AddCommand(resolverContentResolverWrap1_1Cmd)
 	resolverCmd.AddCommand(resolverContentResolverCmd)
+	resolverCursorCmd.AddCommand(resolverCursorCloseCmd)
+	resolverCursorCopyStringToBufferCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	resolverCursorCopyStringToBufferCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	resolverCursorCmd.AddCommand(resolverCursorCopyStringToBufferCmd)
+	resolverCursorCmd.AddCommand(resolverCursorDeactivateCmd)
+	resolverCursorGetBlobCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	resolverCursorCmd.AddCommand(resolverCursorGetBlobCmd)
+	resolverCursorCmd.AddCommand(resolverCursorGetColumnCountCmd)
+	resolverCursorGetColumnIndexCmd.Flags().String("arg0", "", "arg0 (string)")
+	resolverCursorCmd.AddCommand(resolverCursorGetColumnIndexCmd)
+	resolverCursorGetColumnIndexOrThrowCmd.Flags().String("arg0", "", "arg0 (string)")
+	resolverCursorCmd.AddCommand(resolverCursorGetColumnIndexOrThrowCmd)
+	resolverCursorGetColumnNameCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	resolverCursorCmd.AddCommand(resolverCursorGetColumnNameCmd)
+	resolverCursorCmd.AddCommand(resolverCursorGetColumnNamesCmd)
+	resolverCursorCmd.AddCommand(resolverCursorGetCountCmd)
+	resolverCursorGetDoubleCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	resolverCursorCmd.AddCommand(resolverCursorGetDoubleCmd)
+	resolverCursorCmd.AddCommand(resolverCursorGetExtrasCmd)
+	resolverCursorGetFloatCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	resolverCursorCmd.AddCommand(resolverCursorGetFloatCmd)
+	resolverCursorGetIntCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	resolverCursorCmd.AddCommand(resolverCursorGetIntCmd)
+	resolverCursorGetLongCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	resolverCursorCmd.AddCommand(resolverCursorGetLongCmd)
+	resolverCursorCmd.AddCommand(resolverCursorGetNotificationUriCmd)
+	resolverCursorCmd.AddCommand(resolverCursorGetPositionCmd)
+	resolverCursorGetShortCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	resolverCursorCmd.AddCommand(resolverCursorGetShortCmd)
+	resolverCursorGetStringCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	resolverCursorCmd.AddCommand(resolverCursorGetStringCmd)
+	resolverCursorGetTypeCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	resolverCursorCmd.AddCommand(resolverCursorGetTypeCmd)
+	resolverCursorCmd.AddCommand(resolverCursorGetWantsAllOnMoveCallsCmd)
+	resolverCursorCmd.AddCommand(resolverCursorIsAfterLastCmd)
+	resolverCursorCmd.AddCommand(resolverCursorIsBeforeFirstCmd)
+	resolverCursorCmd.AddCommand(resolverCursorIsClosedCmd)
+	resolverCursorCmd.AddCommand(resolverCursorIsFirstCmd)
+	resolverCursorCmd.AddCommand(resolverCursorIsLastCmd)
+	resolverCursorIsNullCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	resolverCursorCmd.AddCommand(resolverCursorIsNullCmd)
+	resolverCursorMoveCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	resolverCursorCmd.AddCommand(resolverCursorMoveCmd)
+	resolverCursorCmd.AddCommand(resolverCursorMoveToFirstCmd)
+	resolverCursorCmd.AddCommand(resolverCursorMoveToLastCmd)
+	resolverCursorCmd.AddCommand(resolverCursorMoveToNextCmd)
+	resolverCursorMoveToPositionCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	resolverCursorCmd.AddCommand(resolverCursorMoveToPositionCmd)
+	resolverCursorCmd.AddCommand(resolverCursorMoveToPreviousCmd)
+	resolverCursorRegisterContentObserverCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	resolverCursorCmd.AddCommand(resolverCursorRegisterContentObserverCmd)
+	resolverCursorRegisterDataSetObserverCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	resolverCursorCmd.AddCommand(resolverCursorRegisterDataSetObserverCmd)
+	resolverCursorCmd.AddCommand(resolverCursorRequeryCmd)
+	resolverCursorRespondCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	resolverCursorCmd.AddCommand(resolverCursorRespondCmd)
+	resolverCursorSetExtrasCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	resolverCursorCmd.AddCommand(resolverCursorSetExtrasCmd)
+	resolverCursorSetNotificationUriCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	resolverCursorSetNotificationUriCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	resolverCursorCmd.AddCommand(resolverCursorSetNotificationUriCmd)
+	resolverCursorUnregisterContentObserverCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	resolverCursorCmd.AddCommand(resolverCursorUnregisterContentObserverCmd)
+	resolverCursorUnregisterDataSetObserverCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	resolverCursorCmd.AddCommand(resolverCursorUnregisterDataSetObserverCmd)
+	resolverCmd.AddCommand(resolverCursorCmd)
 	rootCmd.AddCommand(resolverCmd)
 }

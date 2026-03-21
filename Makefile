@@ -1,16 +1,47 @@
-.PHONY: generate callbacks clean lint test test-e2e test-emulator \
+.PHONY: generate callbacks proto protoc grpc cli clean lint test test-tools test-e2e test-emulator \
 	build build-server list-commands dist dist-jnicli-linux dist-jnicli-android dist-jniserviceadmin dist-jniservice dist-dex \
 	magisk apk deploy push start-server stop-server forward
+
+# Path to the jni repo checkout (sibling directory by default).
+JNI_DIR ?= ../jni
 
 # Android SDK platform JAR for specgen.
 ANDROID_JAR ?= $(ANDROID_HOME)/platforms/android-36/android.jar
 
-# Run callbackgen — generates Java callback adapter classes
-generate: callbacks
+# Run all generators
+generate: callbacks proto protoc grpc cli
 
 # Run callbackgen — generates Java callback adapter classes
 callbacks:
 	go run ./tools/cmd/callbackgen/
+
+# Run protogen — generates .proto files from Java API specs
+proto:
+	go run ./tools/cmd/protogen/ -specs $(JNI_DIR)/spec/java/ -overlays $(JNI_DIR)/spec/overlays/java/ -output proto/ -go-module github.com/AndroidGoLab/jni-proxy
+	@mkdir -p proto/handlestore
+	@cp $(JNI_DIR)/spec/handlestore.proto proto/handlestore/handlestore.proto
+
+# Run protoc — compiles .proto files to Go stubs
+protoc: proto
+	@command -v protoc >/dev/null 2>&1 || { echo "protoc not found. Install: https://grpc.io/docs/protoc-installation/"; exit 1; }
+	@for dir in proto/*/; do \
+		pkg=$$(basename "$$dir"); \
+		protoc -I. --go_out=. --go_opt=paths=source_relative \
+			--go-grpc_out=. --go-grpc_opt=paths=source_relative \
+			"$$dir$$pkg.proto"; \
+	done
+
+# Run grpcgen — generates gRPC server and client wrappers
+grpc: protoc
+	go run ./tools/cmd/grpcgen/ -specs $(JNI_DIR)/spec/java/ -overlays $(JNI_DIR)/spec/overlays/java/ -output . -go-module github.com/AndroidGoLab/jni-proxy -jni-module github.com/AndroidGoLab/jni
+
+# Run cligen — generates jnicli cobra commands from Java API specs
+cli: grpc
+	go run ./tools/cmd/cligen/ -specs $(JNI_DIR)/spec/java/ -overlays $(JNI_DIR)/spec/overlays/java/ -output cmd/jnicli/ -go-module github.com/AndroidGoLab/jni-proxy
+
+# Run only tool tests (no JDK needed)
+test-tools:
+	go test ./tools/...
 
 # List all jnicli leaf commands as full paths
 list-commands:

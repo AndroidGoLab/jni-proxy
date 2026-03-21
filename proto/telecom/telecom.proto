@@ -292,7 +292,7 @@ message UnregisterPhoneAccountRequest {
 message UnregisterPhoneAccountResponse {
 }
 
-service TelecomManagerService {
+service ManagerService {
   rpc AcceptHandover (AcceptHandoverRequest) returns (AcceptHandoverResponse);
   rpc AcceptRingingCall0 (AcceptRingingCall0Request) returns (AcceptRingingCall0Response);
   rpc AcceptRingingCall1_1 (AcceptRingingCall1_1Request) returns (AcceptRingingCall1_1Response);

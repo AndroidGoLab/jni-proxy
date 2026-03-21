@@ -21,41 +21,83 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
-	UriService_CompareTo1_FullMethodName               = "/resolver.UriService/CompareTo1"
-	UriService_Equals_FullMethodName                   = "/resolver.UriService/Equals"
-	UriService_GetBooleanQueryParameter_FullMethodName = "/resolver.UriService/GetBooleanQueryParameter"
-	UriService_GetQueryParameter_FullMethodName        = "/resolver.UriService/GetQueryParameter"
-	UriService_GetQueryParameterNames_FullMethodName   = "/resolver.UriService/GetQueryParameterNames"
-	UriService_GetQueryParameters_FullMethodName       = "/resolver.UriService/GetQueryParameters"
-	UriService_HashCode_FullMethodName                 = "/resolver.UriService/HashCode"
-	UriService_IsAbsolute_FullMethodName               = "/resolver.UriService/IsAbsolute"
-	UriService_IsOpaque_FullMethodName                 = "/resolver.UriService/IsOpaque"
-	UriService_NormalizeScheme_FullMethodName          = "/resolver.UriService/NormalizeScheme"
-	UriService_CompareTo1_1_FullMethodName             = "/resolver.UriService/CompareTo1_1"
-	UriService_Decode_FullMethodName                   = "/resolver.UriService/Decode"
-	UriService_Encode1_FullMethodName                  = "/resolver.UriService/Encode1"
-	UriService_Encode2_1_FullMethodName                = "/resolver.UriService/Encode2_1"
-	UriService_FromFile_FullMethodName                 = "/resolver.UriService/FromFile"
-	UriService_FromParts_FullMethodName                = "/resolver.UriService/FromParts"
-	UriService_Parse_FullMethodName                    = "/resolver.UriService/Parse"
-	UriService_WithAppendedPath_FullMethodName         = "/resolver.UriService/WithAppendedPath"
-	UriService_WriteToParcel_FullMethodName            = "/resolver.UriService/WriteToParcel"
+	UriService_BuildUpon_FullMethodName                    = "/resolver.UriService/BuildUpon"
+	UriService_CompareTo1_FullMethodName                   = "/resolver.UriService/CompareTo1"
+	UriService_Equals_FullMethodName                       = "/resolver.UriService/Equals"
+	UriService_GetAuthority_FullMethodName                 = "/resolver.UriService/GetAuthority"
+	UriService_GetBooleanQueryParameter_FullMethodName     = "/resolver.UriService/GetBooleanQueryParameter"
+	UriService_GetEncodedAuthority_FullMethodName          = "/resolver.UriService/GetEncodedAuthority"
+	UriService_GetEncodedFragment_FullMethodName           = "/resolver.UriService/GetEncodedFragment"
+	UriService_GetEncodedPath_FullMethodName               = "/resolver.UriService/GetEncodedPath"
+	UriService_GetEncodedQuery_FullMethodName              = "/resolver.UriService/GetEncodedQuery"
+	UriService_GetEncodedSchemeSpecificPart_FullMethodName = "/resolver.UriService/GetEncodedSchemeSpecificPart"
+	UriService_GetEncodedUserInfo_FullMethodName           = "/resolver.UriService/GetEncodedUserInfo"
+	UriService_GetFragment_FullMethodName                  = "/resolver.UriService/GetFragment"
+	UriService_GetHost_FullMethodName                      = "/resolver.UriService/GetHost"
+	UriService_GetLastPathSegment_FullMethodName           = "/resolver.UriService/GetLastPathSegment"
+	UriService_GetPath_FullMethodName                      = "/resolver.UriService/GetPath"
+	UriService_GetPathSegments_FullMethodName              = "/resolver.UriService/GetPathSegments"
+	UriService_GetPort_FullMethodName                      = "/resolver.UriService/GetPort"
+	UriService_GetQuery_FullMethodName                     = "/resolver.UriService/GetQuery"
+	UriService_GetQueryParameter_FullMethodName            = "/resolver.UriService/GetQueryParameter"
+	UriService_GetQueryParameterNames_FullMethodName       = "/resolver.UriService/GetQueryParameterNames"
+	UriService_GetQueryParameters_FullMethodName           = "/resolver.UriService/GetQueryParameters"
+	UriService_GetScheme_FullMethodName                    = "/resolver.UriService/GetScheme"
+	UriService_GetSchemeSpecificPart_FullMethodName        = "/resolver.UriService/GetSchemeSpecificPart"
+	UriService_GetUserInfo_FullMethodName                  = "/resolver.UriService/GetUserInfo"
+	UriService_HashCode_FullMethodName                     = "/resolver.UriService/HashCode"
+	UriService_IsAbsolute_FullMethodName                   = "/resolver.UriService/IsAbsolute"
+	UriService_IsHierarchical_FullMethodName               = "/resolver.UriService/IsHierarchical"
+	UriService_IsOpaque_FullMethodName                     = "/resolver.UriService/IsOpaque"
+	UriService_IsRelative_FullMethodName                   = "/resolver.UriService/IsRelative"
+	UriService_NormalizeScheme_FullMethodName              = "/resolver.UriService/NormalizeScheme"
+	UriService_ToString_FullMethodName                     = "/resolver.UriService/ToString"
+	UriService_CompareTo1_1_FullMethodName                 = "/resolver.UriService/CompareTo1_1"
+	UriService_Decode_FullMethodName                       = "/resolver.UriService/Decode"
+	UriService_Encode1_FullMethodName                      = "/resolver.UriService/Encode1"
+	UriService_Encode2_1_FullMethodName                    = "/resolver.UriService/Encode2_1"
+	UriService_FromFile_FullMethodName                     = "/resolver.UriService/FromFile"
+	UriService_FromParts_FullMethodName                    = "/resolver.UriService/FromParts"
+	UriService_Parse_FullMethodName                        = "/resolver.UriService/Parse"
+	UriService_WithAppendedPath_FullMethodName             = "/resolver.UriService/WithAppendedPath"
+	UriService_WriteToParcel_FullMethodName                = "/resolver.UriService/WriteToParcel"
 )
 
 // UriServiceClient is the client API for UriService service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type UriServiceClient interface {
+	BuildUpon(ctx context.Context, in *BuildUponRequest, opts ...grpc.CallOption) (*BuildUponResponse, error)
 	CompareTo1(ctx context.Context, in *CompareTo1Request, opts ...grpc.CallOption) (*CompareTo1Response, error)
 	Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
+	GetAuthority(ctx context.Context, in *GetAuthorityRequest, opts ...grpc.CallOption) (*GetAuthorityResponse, error)
 	GetBooleanQueryParameter(ctx context.Context, in *GetBooleanQueryParameterRequest, opts ...grpc.CallOption) (*GetBooleanQueryParameterResponse, error)
+	GetEncodedAuthority(ctx context.Context, in *GetEncodedAuthorityRequest, opts ...grpc.CallOption) (*GetEncodedAuthorityResponse, error)
+	GetEncodedFragment(ctx context.Context, in *GetEncodedFragmentRequest, opts ...grpc.CallOption) (*GetEncodedFragmentResponse, error)
+	GetEncodedPath(ctx context.Context, in *GetEncodedPathRequest, opts ...grpc.CallOption) (*GetEncodedPathResponse, error)
+	GetEncodedQuery(ctx context.Context, in *GetEncodedQueryRequest, opts ...grpc.CallOption) (*GetEncodedQueryResponse, error)
+	GetEncodedSchemeSpecificPart(ctx context.Context, in *GetEncodedSchemeSpecificPartRequest, opts ...grpc.CallOption) (*GetEncodedSchemeSpecificPartResponse, error)
+	GetEncodedUserInfo(ctx context.Context, in *GetEncodedUserInfoRequest, opts ...grpc.CallOption) (*GetEncodedUserInfoResponse, error)
+	GetFragment(ctx context.Context, in *GetFragmentRequest, opts ...grpc.CallOption) (*GetFragmentResponse, error)
+	GetHost(ctx context.Context, in *GetHostRequest, opts ...grpc.CallOption) (*GetHostResponse, error)
+	GetLastPathSegment(ctx context.Context, in *GetLastPathSegmentRequest, opts ...grpc.CallOption) (*GetLastPathSegmentResponse, error)
+	GetPath(ctx context.Context, in *GetPathRequest, opts ...grpc.CallOption) (*GetPathResponse, error)
+	GetPathSegments(ctx context.Context, in *GetPathSegmentsRequest, opts ...grpc.CallOption) (*GetPathSegmentsResponse, error)
+	GetPort(ctx context.Context, in *GetPortRequest, opts ...grpc.CallOption) (*GetPortResponse, error)
+	GetQuery(ctx context.Context, in *GetQueryRequest, opts ...grpc.CallOption) (*GetQueryResponse, error)
 	GetQueryParameter(ctx context.Context, in *GetQueryParameterRequest, opts ...grpc.CallOption) (*GetQueryParameterResponse, error)
 	GetQueryParameterNames(ctx context.Context, in *GetQueryParameterNamesRequest, opts ...grpc.CallOption) (*GetQueryParameterNamesResponse, error)
 	GetQueryParameters(ctx context.Context, in *GetQueryParametersRequest, opts ...grpc.CallOption) (*GetQueryParametersResponse, error)
+	GetScheme(ctx context.Context, in *GetSchemeRequest, opts ...grpc.CallOption) (*GetSchemeResponse, error)
+	GetSchemeSpecificPart(ctx context.Context, in *GetSchemeSpecificPartRequest, opts ...grpc.CallOption) (*GetSchemeSpecificPartResponse, error)
+	GetUserInfo(ctx context.Context, in *GetUserInfoRequest, opts ...grpc.CallOption) (*GetUserInfoResponse, error)
 	HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
 	IsAbsolute(ctx context.Context, in *IsAbsoluteRequest, opts ...grpc.CallOption) (*IsAbsoluteResponse, error)
+	IsHierarchical(ctx context.Context, in *IsHierarchicalRequest, opts ...grpc.CallOption) (*IsHierarchicalResponse, error)
 	IsOpaque(ctx context.Context, in *IsOpaqueRequest, opts ...grpc.CallOption) (*IsOpaqueResponse, error)
+	IsRelative(ctx context.Context, in *IsRelativeRequest, opts ...grpc.CallOption) (*IsRelativeResponse, error)
 	NormalizeScheme(ctx context.Context, in *NormalizeSchemeRequest, opts ...grpc.CallOption) (*NormalizeSchemeResponse, error)
+	ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
 	CompareTo1_1(ctx context.Context, in *CompareTo1_1Request, opts ...grpc.CallOption) (*CompareTo1_1Response, error)
 	Decode(ctx context.Context, in *DecodeRequest, opts ...grpc.CallOption) (*DecodeResponse, error)
 	Encode1(ctx context.Context, in *Encode1Request, opts ...grpc.CallOption) (*Encode1Response, error)
@@ -73,6 +115,16 @@ type uriServiceClient struct {
 
 func NewUriServiceClient(cc grpc.ClientConnInterface) UriServiceClient {
 	return &uriServiceClient{cc}
+}
+
+func (c *uriServiceClient) BuildUpon(ctx context.Context, in *BuildUponRequest, opts ...grpc.CallOption) (*BuildUponResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(BuildUponResponse)
+	err := c.cc.Invoke(ctx, UriService_BuildUpon_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
 }
 
 func (c *uriServiceClient) CompareTo1(ctx context.Context, in *CompareTo1Request, opts ...grpc.CallOption) (*CompareTo1Response, error) {
@@ -95,10 +147,150 @@ func (c *uriServiceClient) Equals(ctx context.Context, in *EqualsRequest, opts .
 	return out, nil
 }
 
+func (c *uriServiceClient) GetAuthority(ctx context.Context, in *GetAuthorityRequest, opts ...grpc.CallOption) (*GetAuthorityResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetAuthorityResponse)
+	err := c.cc.Invoke(ctx, UriService_GetAuthority_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 func (c *uriServiceClient) GetBooleanQueryParameter(ctx context.Context, in *GetBooleanQueryParameterRequest, opts ...grpc.CallOption) (*GetBooleanQueryParameterResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(GetBooleanQueryParameterResponse)
 	err := c.cc.Invoke(ctx, UriService_GetBooleanQueryParameter_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *uriServiceClient) GetEncodedAuthority(ctx context.Context, in *GetEncodedAuthorityRequest, opts ...grpc.CallOption) (*GetEncodedAuthorityResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetEncodedAuthorityResponse)
+	err := c.cc.Invoke(ctx, UriService_GetEncodedAuthority_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *uriServiceClient) GetEncodedFragment(ctx context.Context, in *GetEncodedFragmentRequest, opts ...grpc.CallOption) (*GetEncodedFragmentResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetEncodedFragmentResponse)
+	err := c.cc.Invoke(ctx, UriService_GetEncodedFragment_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *uriServiceClient) GetEncodedPath(ctx context.Context, in *GetEncodedPathRequest, opts ...grpc.CallOption) (*GetEncodedPathResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetEncodedPathResponse)
+	err := c.cc.Invoke(ctx, UriService_GetEncodedPath_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *uriServiceClient) GetEncodedQuery(ctx context.Context, in *GetEncodedQueryRequest, opts ...grpc.CallOption) (*GetEncodedQueryResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetEncodedQueryResponse)
+	err := c.cc.Invoke(ctx, UriService_GetEncodedQuery_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *uriServiceClient) GetEncodedSchemeSpecificPart(ctx context.Context, in *GetEncodedSchemeSpecificPartRequest, opts ...grpc.CallOption) (*GetEncodedSchemeSpecificPartResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetEncodedSchemeSpecificPartResponse)
+	err := c.cc.Invoke(ctx, UriService_GetEncodedSchemeSpecificPart_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *uriServiceClient) GetEncodedUserInfo(ctx context.Context, in *GetEncodedUserInfoRequest, opts ...grpc.CallOption) (*GetEncodedUserInfoResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetEncodedUserInfoResponse)
+	err := c.cc.Invoke(ctx, UriService_GetEncodedUserInfo_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *uriServiceClient) GetFragment(ctx context.Context, in *GetFragmentRequest, opts ...grpc.CallOption) (*GetFragmentResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetFragmentResponse)
+	err := c.cc.Invoke(ctx, UriService_GetFragment_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *uriServiceClient) GetHost(ctx context.Context, in *GetHostRequest, opts ...grpc.CallOption) (*GetHostResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetHostResponse)
+	err := c.cc.Invoke(ctx, UriService_GetHost_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *uriServiceClient) GetLastPathSegment(ctx context.Context, in *GetLastPathSegmentRequest, opts ...grpc.CallOption) (*GetLastPathSegmentResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetLastPathSegmentResponse)
+	err := c.cc.Invoke(ctx, UriService_GetLastPathSegment_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *uriServiceClient) GetPath(ctx context.Context, in *GetPathRequest, opts ...grpc.CallOption) (*GetPathResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetPathResponse)
+	err := c.cc.Invoke(ctx, UriService_GetPath_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *uriServiceClient) GetPathSegments(ctx context.Context, in *GetPathSegmentsRequest, opts ...grpc.CallOption) (*GetPathSegmentsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetPathSegmentsResponse)
+	err := c.cc.Invoke(ctx, UriService_GetPathSegments_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *uriServiceClient) GetPort(ctx context.Context, in *GetPortRequest, opts ...grpc.CallOption) (*GetPortResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetPortResponse)
+	err := c.cc.Invoke(ctx, UriService_GetPort_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *uriServiceClient) GetQuery(ctx context.Context, in *GetQueryRequest, opts ...grpc.CallOption) (*GetQueryResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetQueryResponse)
+	err := c.cc.Invoke(ctx, UriService_GetQuery_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
@@ -135,6 +327,36 @@ func (c *uriServiceClient) GetQueryParameters(ctx context.Context, in *GetQueryP
 	return out, nil
 }
 
+func (c *uriServiceClient) GetScheme(ctx context.Context, in *GetSchemeRequest, opts ...grpc.CallOption) (*GetSchemeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetSchemeResponse)
+	err := c.cc.Invoke(ctx, UriService_GetScheme_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *uriServiceClient) GetSchemeSpecificPart(ctx context.Context, in *GetSchemeSpecificPartRequest, opts ...grpc.CallOption) (*GetSchemeSpecificPartResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetSchemeSpecificPartResponse)
+	err := c.cc.Invoke(ctx, UriService_GetSchemeSpecificPart_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *uriServiceClient) GetUserInfo(ctx context.Context, in *GetUserInfoRequest, opts ...grpc.CallOption) (*GetUserInfoResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetUserInfoResponse)
+	err := c.cc.Invoke(ctx, UriService_GetUserInfo_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 func (c *uriServiceClient) HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(HashCodeResponse)
@@ -155,6 +377,16 @@ func (c *uriServiceClient) IsAbsolute(ctx context.Context, in *IsAbsoluteRequest
 	return out, nil
 }
 
+func (c *uriServiceClient) IsHierarchical(ctx context.Context, in *IsHierarchicalRequest, opts ...grpc.CallOption) (*IsHierarchicalResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IsHierarchicalResponse)
+	err := c.cc.Invoke(ctx, UriService_IsHierarchical_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 func (c *uriServiceClient) IsOpaque(ctx context.Context, in *IsOpaqueRequest, opts ...grpc.CallOption) (*IsOpaqueResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(IsOpaqueResponse)
@@ -165,10 +397,30 @@ func (c *uriServiceClient) IsOpaque(ctx context.Context, in *IsOpaqueRequest, op
 	return out, nil
 }
 
+func (c *uriServiceClient) IsRelative(ctx context.Context, in *IsRelativeRequest, opts ...grpc.CallOption) (*IsRelativeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IsRelativeResponse)
+	err := c.cc.Invoke(ctx, UriService_IsRelative_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 func (c *uriServiceClient) NormalizeScheme(ctx context.Context, in *NormalizeSchemeRequest, opts ...grpc.CallOption) (*NormalizeSchemeResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(NormalizeSchemeResponse)
 	err := c.cc.Invoke(ctx, UriService_NormalizeScheme_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *uriServiceClient) ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ToStringResponse)
+	err := c.cc.Invoke(ctx, UriService_ToString_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
@@ -269,16 +521,37 @@ func (c *uriServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelR
 // All implementations must embed UnimplementedUriServiceServer
 // for forward compatibility.
 type UriServiceServer interface {
+	BuildUpon(context.Context, *BuildUponRequest) (*BuildUponResponse, error)
 	CompareTo1(context.Context, *CompareTo1Request) (*CompareTo1Response, error)
 	Equals(context.Context, *EqualsRequest) (*EqualsResponse, error)
+	GetAuthority(context.Context, *GetAuthorityRequest) (*GetAuthorityResponse, error)
 	GetBooleanQueryParameter(context.Context, *GetBooleanQueryParameterRequest) (*GetBooleanQueryParameterResponse, error)
+	GetEncodedAuthority(context.Context, *GetEncodedAuthorityRequest) (*GetEncodedAuthorityResponse, error)
+	GetEncodedFragment(context.Context, *GetEncodedFragmentRequest) (*GetEncodedFragmentResponse, error)
+	GetEncodedPath(context.Context, *GetEncodedPathRequest) (*GetEncodedPathResponse, error)
+	GetEncodedQuery(context.Context, *GetEncodedQueryRequest) (*GetEncodedQueryResponse, error)
+	GetEncodedSchemeSpecificPart(context.Context, *GetEncodedSchemeSpecificPartRequest) (*GetEncodedSchemeSpecificPartResponse, error)
+	GetEncodedUserInfo(context.Context, *GetEncodedUserInfoRequest) (*GetEncodedUserInfoResponse, error)
+	GetFragment(context.Context, *GetFragmentRequest) (*GetFragmentResponse, error)
+	GetHost(context.Context, *GetHostRequest) (*GetHostResponse, error)
+	GetLastPathSegment(context.Context, *GetLastPathSegmentRequest) (*GetLastPathSegmentResponse, error)
+	GetPath(context.Context, *GetPathRequest) (*GetPathResponse, error)
+	GetPathSegments(context.Context, *GetPathSegmentsRequest) (*GetPathSegmentsResponse, error)
+	GetPort(context.Context, *GetPortRequest) (*GetPortResponse, error)
+	GetQuery(context.Context, *GetQueryRequest) (*GetQueryResponse, error)
 	GetQueryParameter(context.Context, *GetQueryParameterRequest) (*GetQueryParameterResponse, error)
 	GetQueryParameterNames(context.Context, *GetQueryParameterNamesRequest) (*GetQueryParameterNamesResponse, error)
 	GetQueryParameters(context.Context, *GetQueryParametersRequest) (*GetQueryParametersResponse, error)
+	GetScheme(context.Context, *GetSchemeRequest) (*GetSchemeResponse, error)
+	GetSchemeSpecificPart(context.Context, *GetSchemeSpecificPartRequest) (*GetSchemeSpecificPartResponse, error)
+	GetUserInfo(context.Context, *GetUserInfoRequest) (*GetUserInfoResponse, error)
 	HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error)
 	IsAbsolute(context.Context, *IsAbsoluteRequest) (*IsAbsoluteResponse, error)
+	IsHierarchical(context.Context, *IsHierarchicalRequest) (*IsHierarchicalResponse, error)
 	IsOpaque(context.Context, *IsOpaqueRequest) (*IsOpaqueResponse, error)
+	IsRelative(context.Context, *IsRelativeRequest) (*IsRelativeResponse, error)
 	NormalizeScheme(context.Context, *NormalizeSchemeRequest) (*NormalizeSchemeResponse, error)
+	ToString(context.Context, *ToStringRequest) (*ToStringResponse, error)
 	CompareTo1_1(context.Context, *CompareTo1_1Request) (*CompareTo1_1Response, error)
 	Decode(context.Context, *DecodeRequest) (*DecodeResponse, error)
 	Encode1(context.Context, *Encode1Request) (*Encode1Response, error)
@@ -298,14 +571,59 @@ type UriServiceServer interface {
 // pointer dereference when methods are called.
 type UnimplementedUriServiceServer struct{}
 
+func (UnimplementedUriServiceServer) BuildUpon(context.Context, *BuildUponRequest) (*BuildUponResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method BuildUpon not implemented")
+}
 func (UnimplementedUriServiceServer) CompareTo1(context.Context, *CompareTo1Request) (*CompareTo1Response, error) {
 	return nil, status.Error(codes.Unimplemented, "method CompareTo1 not implemented")
 }
 func (UnimplementedUriServiceServer) Equals(context.Context, *EqualsRequest) (*EqualsResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method Equals not implemented")
 }
+func (UnimplementedUriServiceServer) GetAuthority(context.Context, *GetAuthorityRequest) (*GetAuthorityResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetAuthority not implemented")
+}
 func (UnimplementedUriServiceServer) GetBooleanQueryParameter(context.Context, *GetBooleanQueryParameterRequest) (*GetBooleanQueryParameterResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetBooleanQueryParameter not implemented")
+}
+func (UnimplementedUriServiceServer) GetEncodedAuthority(context.Context, *GetEncodedAuthorityRequest) (*GetEncodedAuthorityResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetEncodedAuthority not implemented")
+}
+func (UnimplementedUriServiceServer) GetEncodedFragment(context.Context, *GetEncodedFragmentRequest) (*GetEncodedFragmentResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetEncodedFragment not implemented")
+}
+func (UnimplementedUriServiceServer) GetEncodedPath(context.Context, *GetEncodedPathRequest) (*GetEncodedPathResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetEncodedPath not implemented")
+}
+func (UnimplementedUriServiceServer) GetEncodedQuery(context.Context, *GetEncodedQueryRequest) (*GetEncodedQueryResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetEncodedQuery not implemented")
+}
+func (UnimplementedUriServiceServer) GetEncodedSchemeSpecificPart(context.Context, *GetEncodedSchemeSpecificPartRequest) (*GetEncodedSchemeSpecificPartResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetEncodedSchemeSpecificPart not implemented")
+}
+func (UnimplementedUriServiceServer) GetEncodedUserInfo(context.Context, *GetEncodedUserInfoRequest) (*GetEncodedUserInfoResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetEncodedUserInfo not implemented")
+}
+func (UnimplementedUriServiceServer) GetFragment(context.Context, *GetFragmentRequest) (*GetFragmentResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetFragment not implemented")
+}
+func (UnimplementedUriServiceServer) GetHost(context.Context, *GetHostRequest) (*GetHostResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetHost not implemented")
+}
+func (UnimplementedUriServiceServer) GetLastPathSegment(context.Context, *GetLastPathSegmentRequest) (*GetLastPathSegmentResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetLastPathSegment not implemented")
+}
+func (UnimplementedUriServiceServer) GetPath(context.Context, *GetPathRequest) (*GetPathResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetPath not implemented")
+}
+func (UnimplementedUriServiceServer) GetPathSegments(context.Context, *GetPathSegmentsRequest) (*GetPathSegmentsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetPathSegments not implemented")
+}
+func (UnimplementedUriServiceServer) GetPort(context.Context, *GetPortRequest) (*GetPortResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetPort not implemented")
+}
+func (UnimplementedUriServiceServer) GetQuery(context.Context, *GetQueryRequest) (*GetQueryResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetQuery not implemented")
 }
 func (UnimplementedUriServiceServer) GetQueryParameter(context.Context, *GetQueryParameterRequest) (*GetQueryParameterResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetQueryParameter not implemented")
@@ -316,17 +634,35 @@ func (UnimplementedUriServiceServer) GetQueryParameterNames(context.Context, *Ge
 func (UnimplementedUriServiceServer) GetQueryParameters(context.Context, *GetQueryParametersRequest) (*GetQueryParametersResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetQueryParameters not implemented")
 }
+func (UnimplementedUriServiceServer) GetScheme(context.Context, *GetSchemeRequest) (*GetSchemeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetScheme not implemented")
+}
+func (UnimplementedUriServiceServer) GetSchemeSpecificPart(context.Context, *GetSchemeSpecificPartRequest) (*GetSchemeSpecificPartResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetSchemeSpecificPart not implemented")
+}
+func (UnimplementedUriServiceServer) GetUserInfo(context.Context, *GetUserInfoRequest) (*GetUserInfoResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetUserInfo not implemented")
+}
 func (UnimplementedUriServiceServer) HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method HashCode not implemented")
 }
 func (UnimplementedUriServiceServer) IsAbsolute(context.Context, *IsAbsoluteRequest) (*IsAbsoluteResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method IsAbsolute not implemented")
 }
+func (UnimplementedUriServiceServer) IsHierarchical(context.Context, *IsHierarchicalRequest) (*IsHierarchicalResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsHierarchical not implemented")
+}
 func (UnimplementedUriServiceServer) IsOpaque(context.Context, *IsOpaqueRequest) (*IsOpaqueResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method IsOpaque not implemented")
 }
+func (UnimplementedUriServiceServer) IsRelative(context.Context, *IsRelativeRequest) (*IsRelativeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsRelative not implemented")
+}
 func (UnimplementedUriServiceServer) NormalizeScheme(context.Context, *NormalizeSchemeRequest) (*NormalizeSchemeResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method NormalizeScheme not implemented")
+}
+func (UnimplementedUriServiceServer) ToString(context.Context, *ToStringRequest) (*ToStringResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
 }
 func (UnimplementedUriServiceServer) CompareTo1_1(context.Context, *CompareTo1_1Request) (*CompareTo1_1Response, error) {
 	return nil, status.Error(codes.Unimplemented, "method CompareTo1_1 not implemented")
@@ -376,6 +712,24 @@ func RegisterUriServiceServer(s grpc.ServiceRegistrar, srv UriServiceServer) {
 	s.RegisterService(&UriService_ServiceDesc, srv)
 }
 
+func _UriService_BuildUpon_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(BuildUponRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(UriServiceServer).BuildUpon(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: UriService_BuildUpon_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(UriServiceServer).BuildUpon(ctx, req.(*BuildUponRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 func _UriService_CompareTo1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(CompareTo1Request)
 	if err := dec(in); err != nil {
@@ -412,6 +766,24 @@ func _UriService_Equals_Handler(srv interface{}, ctx context.Context, dec func(i
 	return interceptor(ctx, in, info, handler)
 }
 
+func _UriService_GetAuthority_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetAuthorityRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(UriServiceServer).GetAuthority(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: UriService_GetAuthority_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(UriServiceServer).GetAuthority(ctx, req.(*GetAuthorityRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 func _UriService_GetBooleanQueryParameter_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(GetBooleanQueryParameterRequest)
 	if err := dec(in); err != nil {
@@ -426,6 +798,240 @@ func _UriService_GetBooleanQueryParameter_Handler(srv interface{}, ctx context.C
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(UriServiceServer).GetBooleanQueryParameter(ctx, req.(*GetBooleanQueryParameterRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _UriService_GetEncodedAuthority_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetEncodedAuthorityRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(UriServiceServer).GetEncodedAuthority(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: UriService_GetEncodedAuthority_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(UriServiceServer).GetEncodedAuthority(ctx, req.(*GetEncodedAuthorityRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _UriService_GetEncodedFragment_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetEncodedFragmentRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(UriServiceServer).GetEncodedFragment(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: UriService_GetEncodedFragment_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(UriServiceServer).GetEncodedFragment(ctx, req.(*GetEncodedFragmentRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _UriService_GetEncodedPath_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetEncodedPathRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(UriServiceServer).GetEncodedPath(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: UriService_GetEncodedPath_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(UriServiceServer).GetEncodedPath(ctx, req.(*GetEncodedPathRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _UriService_GetEncodedQuery_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetEncodedQueryRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(UriServiceServer).GetEncodedQuery(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: UriService_GetEncodedQuery_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(UriServiceServer).GetEncodedQuery(ctx, req.(*GetEncodedQueryRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _UriService_GetEncodedSchemeSpecificPart_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetEncodedSchemeSpecificPartRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(UriServiceServer).GetEncodedSchemeSpecificPart(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: UriService_GetEncodedSchemeSpecificPart_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(UriServiceServer).GetEncodedSchemeSpecificPart(ctx, req.(*GetEncodedSchemeSpecificPartRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _UriService_GetEncodedUserInfo_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetEncodedUserInfoRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(UriServiceServer).GetEncodedUserInfo(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: UriService_GetEncodedUserInfo_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(UriServiceServer).GetEncodedUserInfo(ctx, req.(*GetEncodedUserInfoRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _UriService_GetFragment_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetFragmentRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(UriServiceServer).GetFragment(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: UriService_GetFragment_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(UriServiceServer).GetFragment(ctx, req.(*GetFragmentRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _UriService_GetHost_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetHostRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(UriServiceServer).GetHost(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: UriService_GetHost_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(UriServiceServer).GetHost(ctx, req.(*GetHostRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _UriService_GetLastPathSegment_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetLastPathSegmentRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(UriServiceServer).GetLastPathSegment(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: UriService_GetLastPathSegment_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(UriServiceServer).GetLastPathSegment(ctx, req.(*GetLastPathSegmentRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _UriService_GetPath_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetPathRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(UriServiceServer).GetPath(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: UriService_GetPath_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(UriServiceServer).GetPath(ctx, req.(*GetPathRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _UriService_GetPathSegments_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetPathSegmentsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(UriServiceServer).GetPathSegments(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: UriService_GetPathSegments_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(UriServiceServer).GetPathSegments(ctx, req.(*GetPathSegmentsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _UriService_GetPort_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetPortRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(UriServiceServer).GetPort(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: UriService_GetPort_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(UriServiceServer).GetPort(ctx, req.(*GetPortRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _UriService_GetQuery_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetQueryRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(UriServiceServer).GetQuery(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: UriService_GetQuery_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(UriServiceServer).GetQuery(ctx, req.(*GetQueryRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -484,6 +1090,60 @@ func _UriService_GetQueryParameters_Handler(srv interface{}, ctx context.Context
 	return interceptor(ctx, in, info, handler)
 }
 
+func _UriService_GetScheme_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetSchemeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(UriServiceServer).GetScheme(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: UriService_GetScheme_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(UriServiceServer).GetScheme(ctx, req.(*GetSchemeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _UriService_GetSchemeSpecificPart_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetSchemeSpecificPartRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(UriServiceServer).GetSchemeSpecificPart(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: UriService_GetSchemeSpecificPart_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(UriServiceServer).GetSchemeSpecificPart(ctx, req.(*GetSchemeSpecificPartRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _UriService_GetUserInfo_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetUserInfoRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(UriServiceServer).GetUserInfo(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: UriService_GetUserInfo_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(UriServiceServer).GetUserInfo(ctx, req.(*GetUserInfoRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 func _UriService_HashCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(HashCodeRequest)
 	if err := dec(in); err != nil {
@@ -520,6 +1180,24 @@ func _UriService_IsAbsolute_Handler(srv interface{}, ctx context.Context, dec fu
 	return interceptor(ctx, in, info, handler)
 }
 
+func _UriService_IsHierarchical_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsHierarchicalRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(UriServiceServer).IsHierarchical(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: UriService_IsHierarchical_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(UriServiceServer).IsHierarchical(ctx, req.(*IsHierarchicalRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 func _UriService_IsOpaque_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(IsOpaqueRequest)
 	if err := dec(in); err != nil {
@@ -538,6 +1216,24 @@ func _UriService_IsOpaque_Handler(srv interface{}, ctx context.Context, dec func
 	return interceptor(ctx, in, info, handler)
 }
 
+func _UriService_IsRelative_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsRelativeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(UriServiceServer).IsRelative(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: UriService_IsRelative_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(UriServiceServer).IsRelative(ctx, req.(*IsRelativeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 func _UriService_NormalizeScheme_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(NormalizeSchemeRequest)
 	if err := dec(in); err != nil {
@@ -552,6 +1248,24 @@ func _UriService_NormalizeScheme_Handler(srv interface{}, ctx context.Context, d
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(UriServiceServer).NormalizeScheme(ctx, req.(*NormalizeSchemeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _UriService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ToStringRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(UriServiceServer).ToString(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: UriService_ToString_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(UriServiceServer).ToString(ctx, req.(*ToStringRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -726,6 +1440,10 @@ var UriService_ServiceDesc = grpc.ServiceDesc{
 	HandlerType: (*UriServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
+			MethodName: "BuildUpon",
+			Handler:    _UriService_BuildUpon_Handler,
+		},
+		{
 			MethodName: "CompareTo1",
 			Handler:    _UriService_CompareTo1_Handler,
 		},
@@ -734,8 +1452,64 @@ var UriService_ServiceDesc = grpc.ServiceDesc{
 			Handler:    _UriService_Equals_Handler,
 		},
 		{
+			MethodName: "GetAuthority",
+			Handler:    _UriService_GetAuthority_Handler,
+		},
+		{
 			MethodName: "GetBooleanQueryParameter",
 			Handler:    _UriService_GetBooleanQueryParameter_Handler,
+		},
+		{
+			MethodName: "GetEncodedAuthority",
+			Handler:    _UriService_GetEncodedAuthority_Handler,
+		},
+		{
+			MethodName: "GetEncodedFragment",
+			Handler:    _UriService_GetEncodedFragment_Handler,
+		},
+		{
+			MethodName: "GetEncodedPath",
+			Handler:    _UriService_GetEncodedPath_Handler,
+		},
+		{
+			MethodName: "GetEncodedQuery",
+			Handler:    _UriService_GetEncodedQuery_Handler,
+		},
+		{
+			MethodName: "GetEncodedSchemeSpecificPart",
+			Handler:    _UriService_GetEncodedSchemeSpecificPart_Handler,
+		},
+		{
+			MethodName: "GetEncodedUserInfo",
+			Handler:    _UriService_GetEncodedUserInfo_Handler,
+		},
+		{
+			MethodName: "GetFragment",
+			Handler:    _UriService_GetFragment_Handler,
+		},
+		{
+			MethodName: "GetHost",
+			Handler:    _UriService_GetHost_Handler,
+		},
+		{
+			MethodName: "GetLastPathSegment",
+			Handler:    _UriService_GetLastPathSegment_Handler,
+		},
+		{
+			MethodName: "GetPath",
+			Handler:    _UriService_GetPath_Handler,
+		},
+		{
+			MethodName: "GetPathSegments",
+			Handler:    _UriService_GetPathSegments_Handler,
+		},
+		{
+			MethodName: "GetPort",
+			Handler:    _UriService_GetPort_Handler,
+		},
+		{
+			MethodName: "GetQuery",
+			Handler:    _UriService_GetQuery_Handler,
 		},
 		{
 			MethodName: "GetQueryParameter",
@@ -750,6 +1524,18 @@ var UriService_ServiceDesc = grpc.ServiceDesc{
 			Handler:    _UriService_GetQueryParameters_Handler,
 		},
 		{
+			MethodName: "GetScheme",
+			Handler:    _UriService_GetScheme_Handler,
+		},
+		{
+			MethodName: "GetSchemeSpecificPart",
+			Handler:    _UriService_GetSchemeSpecificPart_Handler,
+		},
+		{
+			MethodName: "GetUserInfo",
+			Handler:    _UriService_GetUserInfo_Handler,
+		},
+		{
 			MethodName: "HashCode",
 			Handler:    _UriService_HashCode_Handler,
 		},
@@ -758,12 +1544,24 @@ var UriService_ServiceDesc = grpc.ServiceDesc{
 			Handler:    _UriService_IsAbsolute_Handler,
 		},
 		{
+			MethodName: "IsHierarchical",
+			Handler:    _UriService_IsHierarchical_Handler,
+		},
+		{
 			MethodName: "IsOpaque",
 			Handler:    _UriService_IsOpaque_Handler,
 		},
 		{
+			MethodName: "IsRelative",
+			Handler:    _UriService_IsRelative_Handler,
+		},
+		{
 			MethodName: "NormalizeScheme",
 			Handler:    _UriService_NormalizeScheme_Handler,
+		},
+		{
+			MethodName: "ToString",
+			Handler:    _UriService_ToString_Handler,
 		},
 		{
 			MethodName: "CompareTo1_1",
@@ -807,61 +1605,131 @@ var UriService_ServiceDesc = grpc.ServiceDesc{
 }
 
 const (
-	ContentResolverService_ApplyBatch_FullMethodName                         = "/resolver.ContentResolverService/ApplyBatch"
-	ContentResolverService_CancelSync1_2_FullMethodName                      = "/resolver.ContentResolverService/CancelSync1_2"
-	ContentResolverService_GetOutgoingPersistedUriPermissions_FullMethodName = "/resolver.ContentResolverService/GetOutgoingPersistedUriPermissions"
-	ContentResolverService_GetPersistedUriPermissions_FullMethodName         = "/resolver.ContentResolverService/GetPersistedUriPermissions"
-	ContentResolverService_GetStreamTypes_FullMethodName                     = "/resolver.ContentResolverService/GetStreamTypes"
-	ContentResolverService_LoadThumbnail_FullMethodName                      = "/resolver.ContentResolverService/LoadThumbnail"
-	ContentResolverService_NotifyChange2_FullMethodName                      = "/resolver.ContentResolverService/NotifyChange2"
-	ContentResolverService_NotifyChange3_1_FullMethodName                    = "/resolver.ContentResolverService/NotifyChange3_1"
-	ContentResolverService_NotifyChange3_2_FullMethodName                    = "/resolver.ContentResolverService/NotifyChange3_2"
-	ContentResolverService_NotifyChange3_3_FullMethodName                    = "/resolver.ContentResolverService/NotifyChange3_3"
-	ContentResolverService_ReleasePersistableUriPermission_FullMethodName    = "/resolver.ContentResolverService/ReleasePersistableUriPermission"
-	ContentResolverService_StartSync_FullMethodName                          = "/resolver.ContentResolverService/StartSync"
-	ContentResolverService_TakePersistableUriPermission_FullMethodName       = "/resolver.ContentResolverService/TakePersistableUriPermission"
-	ContentResolverService_AddPeriodicSync_FullMethodName                    = "/resolver.ContentResolverService/AddPeriodicSync"
-	ContentResolverService_AddStatusChangeListener_FullMethodName            = "/resolver.ContentResolverService/AddStatusChangeListener"
-	ContentResolverService_CancelSync2_FullMethodName                        = "/resolver.ContentResolverService/CancelSync2"
-	ContentResolverService_CancelSync1_1_FullMethodName                      = "/resolver.ContentResolverService/CancelSync1_1"
-	ContentResolverService_GetCurrentSync_FullMethodName                     = "/resolver.ContentResolverService/GetCurrentSync"
-	ContentResolverService_GetCurrentSyncs_FullMethodName                    = "/resolver.ContentResolverService/GetCurrentSyncs"
-	ContentResolverService_GetIsSyncable_FullMethodName                      = "/resolver.ContentResolverService/GetIsSyncable"
-	ContentResolverService_GetMasterSyncAutomatically_FullMethodName         = "/resolver.ContentResolverService/GetMasterSyncAutomatically"
-	ContentResolverService_GetPeriodicSyncs_FullMethodName                   = "/resolver.ContentResolverService/GetPeriodicSyncs"
-	ContentResolverService_GetSyncAdapterTypes_FullMethodName                = "/resolver.ContentResolverService/GetSyncAdapterTypes"
-	ContentResolverService_GetSyncAutomatically_FullMethodName               = "/resolver.ContentResolverService/GetSyncAutomatically"
-	ContentResolverService_IsSyncActive_FullMethodName                       = "/resolver.ContentResolverService/IsSyncActive"
-	ContentResolverService_IsSyncPending_FullMethodName                      = "/resolver.ContentResolverService/IsSyncPending"
-	ContentResolverService_RemovePeriodicSync_FullMethodName                 = "/resolver.ContentResolverService/RemovePeriodicSync"
-	ContentResolverService_RemoveStatusChangeListener_FullMethodName         = "/resolver.ContentResolverService/RemoveStatusChangeListener"
-	ContentResolverService_RequestSync3_FullMethodName                       = "/resolver.ContentResolverService/RequestSync3"
-	ContentResolverService_RequestSync1_1_FullMethodName                     = "/resolver.ContentResolverService/RequestSync1_1"
-	ContentResolverService_SetIsSyncable_FullMethodName                      = "/resolver.ContentResolverService/SetIsSyncable"
-	ContentResolverService_SetMasterSyncAutomatically_FullMethodName         = "/resolver.ContentResolverService/SetMasterSyncAutomatically"
-	ContentResolverService_SetSyncAutomatically_FullMethodName               = "/resolver.ContentResolverService/SetSyncAutomatically"
-	ContentResolverService_ValidateSyncExtrasBundle_FullMethodName           = "/resolver.ContentResolverService/ValidateSyncExtrasBundle"
-	ContentResolverService_Wrap1_FullMethodName                              = "/resolver.ContentResolverService/Wrap1"
-	ContentResolverService_Wrap1_1_FullMethodName                            = "/resolver.ContentResolverService/Wrap1_1"
+	ContentResolverService_AcquireContentProviderClient1_FullMethodName           = "/resolver.ContentResolverService/AcquireContentProviderClient1"
+	ContentResolverService_AcquireContentProviderClient1_1_FullMethodName         = "/resolver.ContentResolverService/AcquireContentProviderClient1_1"
+	ContentResolverService_AcquireUnstableContentProviderClient1_FullMethodName   = "/resolver.ContentResolverService/AcquireUnstableContentProviderClient1"
+	ContentResolverService_AcquireUnstableContentProviderClient1_1_FullMethodName = "/resolver.ContentResolverService/AcquireUnstableContentProviderClient1_1"
+	ContentResolverService_ApplyBatch_FullMethodName                              = "/resolver.ContentResolverService/ApplyBatch"
+	ContentResolverService_BulkInsert_FullMethodName                              = "/resolver.ContentResolverService/BulkInsert"
+	ContentResolverService_Call4_FullMethodName                                   = "/resolver.ContentResolverService/Call4"
+	ContentResolverService_Call4_1_FullMethodName                                 = "/resolver.ContentResolverService/Call4_1"
+	ContentResolverService_CancelSync1_2_FullMethodName                           = "/resolver.ContentResolverService/CancelSync1_2"
+	ContentResolverService_Canonicalize_FullMethodName                            = "/resolver.ContentResolverService/Canonicalize"
+	ContentResolverService_Delete2_FullMethodName                                 = "/resolver.ContentResolverService/Delete2"
+	ContentResolverService_Delete3_1_FullMethodName                               = "/resolver.ContentResolverService/Delete3_1"
+	ContentResolverService_GetOutgoingPersistedUriPermissions_FullMethodName      = "/resolver.ContentResolverService/GetOutgoingPersistedUriPermissions"
+	ContentResolverService_GetPersistedUriPermissions_FullMethodName              = "/resolver.ContentResolverService/GetPersistedUriPermissions"
+	ContentResolverService_GetStreamTypes_FullMethodName                          = "/resolver.ContentResolverService/GetStreamTypes"
+	ContentResolverService_GetType_FullMethodName                                 = "/resolver.ContentResolverService/GetType"
+	ContentResolverService_GetTypeInfo_FullMethodName                             = "/resolver.ContentResolverService/GetTypeInfo"
+	ContentResolverService_Insert2_FullMethodName                                 = "/resolver.ContentResolverService/Insert2"
+	ContentResolverService_Insert3_1_FullMethodName                               = "/resolver.ContentResolverService/Insert3_1"
+	ContentResolverService_LoadThumbnail_FullMethodName                           = "/resolver.ContentResolverService/LoadThumbnail"
+	ContentResolverService_NotifyChange2_FullMethodName                           = "/resolver.ContentResolverService/NotifyChange2"
+	ContentResolverService_NotifyChange3_1_FullMethodName                         = "/resolver.ContentResolverService/NotifyChange3_1"
+	ContentResolverService_NotifyChange3_2_FullMethodName                         = "/resolver.ContentResolverService/NotifyChange3_2"
+	ContentResolverService_NotifyChange3_3_FullMethodName                         = "/resolver.ContentResolverService/NotifyChange3_3"
+	ContentResolverService_OpenAssetFile_FullMethodName                           = "/resolver.ContentResolverService/OpenAssetFile"
+	ContentResolverService_OpenAssetFileDescriptor2_FullMethodName                = "/resolver.ContentResolverService/OpenAssetFileDescriptor2"
+	ContentResolverService_OpenAssetFileDescriptor3_1_FullMethodName              = "/resolver.ContentResolverService/OpenAssetFileDescriptor3_1"
+	ContentResolverService_OpenFile_FullMethodName                                = "/resolver.ContentResolverService/OpenFile"
+	ContentResolverService_OpenFileDescriptor2_FullMethodName                     = "/resolver.ContentResolverService/OpenFileDescriptor2"
+	ContentResolverService_OpenFileDescriptor3_1_FullMethodName                   = "/resolver.ContentResolverService/OpenFileDescriptor3_1"
+	ContentResolverService_OpenInputStream_FullMethodName                         = "/resolver.ContentResolverService/OpenInputStream"
+	ContentResolverService_OpenOutputStream1_FullMethodName                       = "/resolver.ContentResolverService/OpenOutputStream1"
+	ContentResolverService_OpenOutputStream2_1_FullMethodName                     = "/resolver.ContentResolverService/OpenOutputStream2_1"
+	ContentResolverService_OpenTypedAssetFile_FullMethodName                      = "/resolver.ContentResolverService/OpenTypedAssetFile"
+	ContentResolverService_OpenTypedAssetFileDescriptor3_FullMethodName           = "/resolver.ContentResolverService/OpenTypedAssetFileDescriptor3"
+	ContentResolverService_OpenTypedAssetFileDescriptor4_1_FullMethodName         = "/resolver.ContentResolverService/OpenTypedAssetFileDescriptor4_1"
+	ContentResolverService_Query4_FullMethodName                                  = "/resolver.ContentResolverService/Query4"
+	ContentResolverService_Query5_1_FullMethodName                                = "/resolver.ContentResolverService/Query5_1"
+	ContentResolverService_Query6_2_FullMethodName                                = "/resolver.ContentResolverService/Query6_2"
+	ContentResolverService_Refresh_FullMethodName                                 = "/resolver.ContentResolverService/Refresh"
+	ContentResolverService_RegisterContentObserver_FullMethodName                 = "/resolver.ContentResolverService/RegisterContentObserver"
+	ContentResolverService_ReleasePersistableUriPermission_FullMethodName         = "/resolver.ContentResolverService/ReleasePersistableUriPermission"
+	ContentResolverService_StartSync_FullMethodName                               = "/resolver.ContentResolverService/StartSync"
+	ContentResolverService_TakePersistableUriPermission_FullMethodName            = "/resolver.ContentResolverService/TakePersistableUriPermission"
+	ContentResolverService_Uncanonicalize_FullMethodName                          = "/resolver.ContentResolverService/Uncanonicalize"
+	ContentResolverService_UnregisterContentObserver_FullMethodName               = "/resolver.ContentResolverService/UnregisterContentObserver"
+	ContentResolverService_Update3_FullMethodName                                 = "/resolver.ContentResolverService/Update3"
+	ContentResolverService_Update4_1_FullMethodName                               = "/resolver.ContentResolverService/Update4_1"
+	ContentResolverService_AddPeriodicSync_FullMethodName                         = "/resolver.ContentResolverService/AddPeriodicSync"
+	ContentResolverService_AddStatusChangeListener_FullMethodName                 = "/resolver.ContentResolverService/AddStatusChangeListener"
+	ContentResolverService_CancelSync2_FullMethodName                             = "/resolver.ContentResolverService/CancelSync2"
+	ContentResolverService_CancelSync1_1_FullMethodName                           = "/resolver.ContentResolverService/CancelSync1_1"
+	ContentResolverService_GetCurrentSync_FullMethodName                          = "/resolver.ContentResolverService/GetCurrentSync"
+	ContentResolverService_GetCurrentSyncs_FullMethodName                         = "/resolver.ContentResolverService/GetCurrentSyncs"
+	ContentResolverService_GetIsSyncable_FullMethodName                           = "/resolver.ContentResolverService/GetIsSyncable"
+	ContentResolverService_GetMasterSyncAutomatically_FullMethodName              = "/resolver.ContentResolverService/GetMasterSyncAutomatically"
+	ContentResolverService_GetPeriodicSyncs_FullMethodName                        = "/resolver.ContentResolverService/GetPeriodicSyncs"
+	ContentResolverService_GetSyncAdapterTypes_FullMethodName                     = "/resolver.ContentResolverService/GetSyncAdapterTypes"
+	ContentResolverService_GetSyncAutomatically_FullMethodName                    = "/resolver.ContentResolverService/GetSyncAutomatically"
+	ContentResolverService_IsSyncActive_FullMethodName                            = "/resolver.ContentResolverService/IsSyncActive"
+	ContentResolverService_IsSyncPending_FullMethodName                           = "/resolver.ContentResolverService/IsSyncPending"
+	ContentResolverService_RemovePeriodicSync_FullMethodName                      = "/resolver.ContentResolverService/RemovePeriodicSync"
+	ContentResolverService_RemoveStatusChangeListener_FullMethodName              = "/resolver.ContentResolverService/RemoveStatusChangeListener"
+	ContentResolverService_RequestSync3_FullMethodName                            = "/resolver.ContentResolverService/RequestSync3"
+	ContentResolverService_RequestSync1_1_FullMethodName                          = "/resolver.ContentResolverService/RequestSync1_1"
+	ContentResolverService_SetIsSyncable_FullMethodName                           = "/resolver.ContentResolverService/SetIsSyncable"
+	ContentResolverService_SetMasterSyncAutomatically_FullMethodName              = "/resolver.ContentResolverService/SetMasterSyncAutomatically"
+	ContentResolverService_SetSyncAutomatically_FullMethodName                    = "/resolver.ContentResolverService/SetSyncAutomatically"
+	ContentResolverService_ValidateSyncExtrasBundle_FullMethodName                = "/resolver.ContentResolverService/ValidateSyncExtrasBundle"
+	ContentResolverService_Wrap1_FullMethodName                                   = "/resolver.ContentResolverService/Wrap1"
+	ContentResolverService_Wrap1_1_FullMethodName                                 = "/resolver.ContentResolverService/Wrap1_1"
 )
 
 // ContentResolverServiceClient is the client API for ContentResolverService service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type ContentResolverServiceClient interface {
+	AcquireContentProviderClient1(ctx context.Context, in *AcquireContentProviderClient1Request, opts ...grpc.CallOption) (*AcquireContentProviderClient1Response, error)
+	AcquireContentProviderClient1_1(ctx context.Context, in *AcquireContentProviderClient1_1Request, opts ...grpc.CallOption) (*AcquireContentProviderClient1_1Response, error)
+	AcquireUnstableContentProviderClient1(ctx context.Context, in *AcquireUnstableContentProviderClient1Request, opts ...grpc.CallOption) (*AcquireUnstableContentProviderClient1Response, error)
+	AcquireUnstableContentProviderClient1_1(ctx context.Context, in *AcquireUnstableContentProviderClient1_1Request, opts ...grpc.CallOption) (*AcquireUnstableContentProviderClient1_1Response, error)
 	ApplyBatch(ctx context.Context, in *ApplyBatchRequest, opts ...grpc.CallOption) (*ApplyBatchResponse, error)
+	BulkInsert(ctx context.Context, in *BulkInsertRequest, opts ...grpc.CallOption) (*BulkInsertResponse, error)
+	Call4(ctx context.Context, in *Call4Request, opts ...grpc.CallOption) (*Call4Response, error)
+	Call4_1(ctx context.Context, in *Call4_1Request, opts ...grpc.CallOption) (*Call4_1Response, error)
 	CancelSync1_2(ctx context.Context, in *CancelSync1_2Request, opts ...grpc.CallOption) (*CancelSync1_2Response, error)
+	Canonicalize(ctx context.Context, in *CanonicalizeRequest, opts ...grpc.CallOption) (*CanonicalizeResponse, error)
+	Delete2(ctx context.Context, in *Delete2Request, opts ...grpc.CallOption) (*Delete2Response, error)
+	Delete3_1(ctx context.Context, in *Delete3_1Request, opts ...grpc.CallOption) (*Delete3_1Response, error)
 	GetOutgoingPersistedUriPermissions(ctx context.Context, in *GetOutgoingPersistedUriPermissionsRequest, opts ...grpc.CallOption) (*GetOutgoingPersistedUriPermissionsResponse, error)
 	GetPersistedUriPermissions(ctx context.Context, in *GetPersistedUriPermissionsRequest, opts ...grpc.CallOption) (*GetPersistedUriPermissionsResponse, error)
 	GetStreamTypes(ctx context.Context, in *GetStreamTypesRequest, opts ...grpc.CallOption) (*GetStreamTypesResponse, error)
+	GetType(ctx context.Context, in *GetTypeRequest, opts ...grpc.CallOption) (*GetTypeResponse, error)
+	GetTypeInfo(ctx context.Context, in *GetTypeInfoRequest, opts ...grpc.CallOption) (*GetTypeInfoResponse, error)
+	Insert2(ctx context.Context, in *Insert2Request, opts ...grpc.CallOption) (*Insert2Response, error)
+	Insert3_1(ctx context.Context, in *Insert3_1Request, opts ...grpc.CallOption) (*Insert3_1Response, error)
 	LoadThumbnail(ctx context.Context, in *LoadThumbnailRequest, opts ...grpc.CallOption) (*LoadThumbnailResponse, error)
 	NotifyChange2(ctx context.Context, in *NotifyChange2Request, opts ...grpc.CallOption) (*NotifyChange2Response, error)
 	NotifyChange3_1(ctx context.Context, in *NotifyChange3_1Request, opts ...grpc.CallOption) (*NotifyChange3_1Response, error)
 	NotifyChange3_2(ctx context.Context, in *NotifyChange3_2Request, opts ...grpc.CallOption) (*NotifyChange3_2Response, error)
 	NotifyChange3_3(ctx context.Context, in *NotifyChange3_3Request, opts ...grpc.CallOption) (*NotifyChange3_3Response, error)
+	OpenAssetFile(ctx context.Context, in *OpenAssetFileRequest, opts ...grpc.CallOption) (*OpenAssetFileResponse, error)
+	OpenAssetFileDescriptor2(ctx context.Context, in *OpenAssetFileDescriptor2Request, opts ...grpc.CallOption) (*OpenAssetFileDescriptor2Response, error)
+	OpenAssetFileDescriptor3_1(ctx context.Context, in *OpenAssetFileDescriptor3_1Request, opts ...grpc.CallOption) (*OpenAssetFileDescriptor3_1Response, error)
+	OpenFile(ctx context.Context, in *OpenFileRequest, opts ...grpc.CallOption) (*OpenFileResponse, error)
+	OpenFileDescriptor2(ctx context.Context, in *OpenFileDescriptor2Request, opts ...grpc.CallOption) (*OpenFileDescriptor2Response, error)
+	OpenFileDescriptor3_1(ctx context.Context, in *OpenFileDescriptor3_1Request, opts ...grpc.CallOption) (*OpenFileDescriptor3_1Response, error)
+	OpenInputStream(ctx context.Context, in *OpenInputStreamRequest, opts ...grpc.CallOption) (*OpenInputStreamResponse, error)
+	OpenOutputStream1(ctx context.Context, in *OpenOutputStream1Request, opts ...grpc.CallOption) (*OpenOutputStream1Response, error)
+	OpenOutputStream2_1(ctx context.Context, in *OpenOutputStream2_1Request, opts ...grpc.CallOption) (*OpenOutputStream2_1Response, error)
+	OpenTypedAssetFile(ctx context.Context, in *OpenTypedAssetFileRequest, opts ...grpc.CallOption) (*OpenTypedAssetFileResponse, error)
+	OpenTypedAssetFileDescriptor3(ctx context.Context, in *OpenTypedAssetFileDescriptor3Request, opts ...grpc.CallOption) (*OpenTypedAssetFileDescriptor3Response, error)
+	OpenTypedAssetFileDescriptor4_1(ctx context.Context, in *OpenTypedAssetFileDescriptor4_1Request, opts ...grpc.CallOption) (*OpenTypedAssetFileDescriptor4_1Response, error)
+	Query4(ctx context.Context, in *Query4Request, opts ...grpc.CallOption) (*Query4Response, error)
+	Query5_1(ctx context.Context, in *Query5_1Request, opts ...grpc.CallOption) (*Query5_1Response, error)
+	Query6_2(ctx context.Context, in *Query6_2Request, opts ...grpc.CallOption) (*Query6_2Response, error)
+	Refresh(ctx context.Context, in *RefreshRequest, opts ...grpc.CallOption) (*RefreshResponse, error)
+	RegisterContentObserver(ctx context.Context, in *RegisterContentObserverRequest, opts ...grpc.CallOption) (*RegisterContentObserverResponse, error)
 	ReleasePersistableUriPermission(ctx context.Context, in *ReleasePersistableUriPermissionRequest, opts ...grpc.CallOption) (*ReleasePersistableUriPermissionResponse, error)
 	StartSync(ctx context.Context, in *StartSyncRequest, opts ...grpc.CallOption) (*StartSyncResponse, error)
 	TakePersistableUriPermission(ctx context.Context, in *TakePersistableUriPermissionRequest, opts ...grpc.CallOption) (*TakePersistableUriPermissionResponse, error)
+	Uncanonicalize(ctx context.Context, in *UncanonicalizeRequest, opts ...grpc.CallOption) (*UncanonicalizeResponse, error)
+	UnregisterContentObserver(ctx context.Context, in *UnregisterContentObserverRequest, opts ...grpc.CallOption) (*UnregisterContentObserverResponse, error)
+	Update3(ctx context.Context, in *Update3Request, opts ...grpc.CallOption) (*Update3Response, error)
+	Update4_1(ctx context.Context, in *Update4_1Request, opts ...grpc.CallOption) (*Update4_1Response, error)
 	AddPeriodicSync(ctx context.Context, in *AddPeriodicSyncRequest, opts ...grpc.CallOption) (*AddPeriodicSyncResponse, error)
 	AddStatusChangeListener(ctx context.Context, in *AddStatusChangeListenerRequest, opts ...grpc.CallOption) (*AddStatusChangeListenerResponse, error)
 	CancelSync2(ctx context.Context, in *CancelSync2Request, opts ...grpc.CallOption) (*CancelSync2Response, error)
@@ -895,6 +1763,46 @@ func NewContentResolverServiceClient(cc grpc.ClientConnInterface) ContentResolve
 	return &contentResolverServiceClient{cc}
 }
 
+func (c *contentResolverServiceClient) AcquireContentProviderClient1(ctx context.Context, in *AcquireContentProviderClient1Request, opts ...grpc.CallOption) (*AcquireContentProviderClient1Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(AcquireContentProviderClient1Response)
+	err := c.cc.Invoke(ctx, ContentResolverService_AcquireContentProviderClient1_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *contentResolverServiceClient) AcquireContentProviderClient1_1(ctx context.Context, in *AcquireContentProviderClient1_1Request, opts ...grpc.CallOption) (*AcquireContentProviderClient1_1Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(AcquireContentProviderClient1_1Response)
+	err := c.cc.Invoke(ctx, ContentResolverService_AcquireContentProviderClient1_1_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *contentResolverServiceClient) AcquireUnstableContentProviderClient1(ctx context.Context, in *AcquireUnstableContentProviderClient1Request, opts ...grpc.CallOption) (*AcquireUnstableContentProviderClient1Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(AcquireUnstableContentProviderClient1Response)
+	err := c.cc.Invoke(ctx, ContentResolverService_AcquireUnstableContentProviderClient1_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *contentResolverServiceClient) AcquireUnstableContentProviderClient1_1(ctx context.Context, in *AcquireUnstableContentProviderClient1_1Request, opts ...grpc.CallOption) (*AcquireUnstableContentProviderClient1_1Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(AcquireUnstableContentProviderClient1_1Response)
+	err := c.cc.Invoke(ctx, ContentResolverService_AcquireUnstableContentProviderClient1_1_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 func (c *contentResolverServiceClient) ApplyBatch(ctx context.Context, in *ApplyBatchRequest, opts ...grpc.CallOption) (*ApplyBatchResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(ApplyBatchResponse)
@@ -905,10 +1813,70 @@ func (c *contentResolverServiceClient) ApplyBatch(ctx context.Context, in *Apply
 	return out, nil
 }
 
+func (c *contentResolverServiceClient) BulkInsert(ctx context.Context, in *BulkInsertRequest, opts ...grpc.CallOption) (*BulkInsertResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(BulkInsertResponse)
+	err := c.cc.Invoke(ctx, ContentResolverService_BulkInsert_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *contentResolverServiceClient) Call4(ctx context.Context, in *Call4Request, opts ...grpc.CallOption) (*Call4Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(Call4Response)
+	err := c.cc.Invoke(ctx, ContentResolverService_Call4_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *contentResolverServiceClient) Call4_1(ctx context.Context, in *Call4_1Request, opts ...grpc.CallOption) (*Call4_1Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(Call4_1Response)
+	err := c.cc.Invoke(ctx, ContentResolverService_Call4_1_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 func (c *contentResolverServiceClient) CancelSync1_2(ctx context.Context, in *CancelSync1_2Request, opts ...grpc.CallOption) (*CancelSync1_2Response, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(CancelSync1_2Response)
 	err := c.cc.Invoke(ctx, ContentResolverService_CancelSync1_2_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *contentResolverServiceClient) Canonicalize(ctx context.Context, in *CanonicalizeRequest, opts ...grpc.CallOption) (*CanonicalizeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(CanonicalizeResponse)
+	err := c.cc.Invoke(ctx, ContentResolverService_Canonicalize_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *contentResolverServiceClient) Delete2(ctx context.Context, in *Delete2Request, opts ...grpc.CallOption) (*Delete2Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(Delete2Response)
+	err := c.cc.Invoke(ctx, ContentResolverService_Delete2_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *contentResolverServiceClient) Delete3_1(ctx context.Context, in *Delete3_1Request, opts ...grpc.CallOption) (*Delete3_1Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(Delete3_1Response)
+	err := c.cc.Invoke(ctx, ContentResolverService_Delete3_1_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
@@ -939,6 +1907,46 @@ func (c *contentResolverServiceClient) GetStreamTypes(ctx context.Context, in *G
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(GetStreamTypesResponse)
 	err := c.cc.Invoke(ctx, ContentResolverService_GetStreamTypes_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *contentResolverServiceClient) GetType(ctx context.Context, in *GetTypeRequest, opts ...grpc.CallOption) (*GetTypeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetTypeResponse)
+	err := c.cc.Invoke(ctx, ContentResolverService_GetType_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *contentResolverServiceClient) GetTypeInfo(ctx context.Context, in *GetTypeInfoRequest, opts ...grpc.CallOption) (*GetTypeInfoResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetTypeInfoResponse)
+	err := c.cc.Invoke(ctx, ContentResolverService_GetTypeInfo_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *contentResolverServiceClient) Insert2(ctx context.Context, in *Insert2Request, opts ...grpc.CallOption) (*Insert2Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(Insert2Response)
+	err := c.cc.Invoke(ctx, ContentResolverService_Insert2_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *contentResolverServiceClient) Insert3_1(ctx context.Context, in *Insert3_1Request, opts ...grpc.CallOption) (*Insert3_1Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(Insert3_1Response)
+	err := c.cc.Invoke(ctx, ContentResolverService_Insert3_1_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
@@ -995,6 +2003,176 @@ func (c *contentResolverServiceClient) NotifyChange3_3(ctx context.Context, in *
 	return out, nil
 }
 
+func (c *contentResolverServiceClient) OpenAssetFile(ctx context.Context, in *OpenAssetFileRequest, opts ...grpc.CallOption) (*OpenAssetFileResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OpenAssetFileResponse)
+	err := c.cc.Invoke(ctx, ContentResolverService_OpenAssetFile_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *contentResolverServiceClient) OpenAssetFileDescriptor2(ctx context.Context, in *OpenAssetFileDescriptor2Request, opts ...grpc.CallOption) (*OpenAssetFileDescriptor2Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OpenAssetFileDescriptor2Response)
+	err := c.cc.Invoke(ctx, ContentResolverService_OpenAssetFileDescriptor2_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *contentResolverServiceClient) OpenAssetFileDescriptor3_1(ctx context.Context, in *OpenAssetFileDescriptor3_1Request, opts ...grpc.CallOption) (*OpenAssetFileDescriptor3_1Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OpenAssetFileDescriptor3_1Response)
+	err := c.cc.Invoke(ctx, ContentResolverService_OpenAssetFileDescriptor3_1_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *contentResolverServiceClient) OpenFile(ctx context.Context, in *OpenFileRequest, opts ...grpc.CallOption) (*OpenFileResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OpenFileResponse)
+	err := c.cc.Invoke(ctx, ContentResolverService_OpenFile_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *contentResolverServiceClient) OpenFileDescriptor2(ctx context.Context, in *OpenFileDescriptor2Request, opts ...grpc.CallOption) (*OpenFileDescriptor2Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OpenFileDescriptor2Response)
+	err := c.cc.Invoke(ctx, ContentResolverService_OpenFileDescriptor2_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *contentResolverServiceClient) OpenFileDescriptor3_1(ctx context.Context, in *OpenFileDescriptor3_1Request, opts ...grpc.CallOption) (*OpenFileDescriptor3_1Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OpenFileDescriptor3_1Response)
+	err := c.cc.Invoke(ctx, ContentResolverService_OpenFileDescriptor3_1_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *contentResolverServiceClient) OpenInputStream(ctx context.Context, in *OpenInputStreamRequest, opts ...grpc.CallOption) (*OpenInputStreamResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OpenInputStreamResponse)
+	err := c.cc.Invoke(ctx, ContentResolverService_OpenInputStream_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *contentResolverServiceClient) OpenOutputStream1(ctx context.Context, in *OpenOutputStream1Request, opts ...grpc.CallOption) (*OpenOutputStream1Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OpenOutputStream1Response)
+	err := c.cc.Invoke(ctx, ContentResolverService_OpenOutputStream1_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *contentResolverServiceClient) OpenOutputStream2_1(ctx context.Context, in *OpenOutputStream2_1Request, opts ...grpc.CallOption) (*OpenOutputStream2_1Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OpenOutputStream2_1Response)
+	err := c.cc.Invoke(ctx, ContentResolverService_OpenOutputStream2_1_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *contentResolverServiceClient) OpenTypedAssetFile(ctx context.Context, in *OpenTypedAssetFileRequest, opts ...grpc.CallOption) (*OpenTypedAssetFileResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OpenTypedAssetFileResponse)
+	err := c.cc.Invoke(ctx, ContentResolverService_OpenTypedAssetFile_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *contentResolverServiceClient) OpenTypedAssetFileDescriptor3(ctx context.Context, in *OpenTypedAssetFileDescriptor3Request, opts ...grpc.CallOption) (*OpenTypedAssetFileDescriptor3Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OpenTypedAssetFileDescriptor3Response)
+	err := c.cc.Invoke(ctx, ContentResolverService_OpenTypedAssetFileDescriptor3_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *contentResolverServiceClient) OpenTypedAssetFileDescriptor4_1(ctx context.Context, in *OpenTypedAssetFileDescriptor4_1Request, opts ...grpc.CallOption) (*OpenTypedAssetFileDescriptor4_1Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OpenTypedAssetFileDescriptor4_1Response)
+	err := c.cc.Invoke(ctx, ContentResolverService_OpenTypedAssetFileDescriptor4_1_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *contentResolverServiceClient) Query4(ctx context.Context, in *Query4Request, opts ...grpc.CallOption) (*Query4Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(Query4Response)
+	err := c.cc.Invoke(ctx, ContentResolverService_Query4_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *contentResolverServiceClient) Query5_1(ctx context.Context, in *Query5_1Request, opts ...grpc.CallOption) (*Query5_1Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(Query5_1Response)
+	err := c.cc.Invoke(ctx, ContentResolverService_Query5_1_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *contentResolverServiceClient) Query6_2(ctx context.Context, in *Query6_2Request, opts ...grpc.CallOption) (*Query6_2Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(Query6_2Response)
+	err := c.cc.Invoke(ctx, ContentResolverService_Query6_2_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *contentResolverServiceClient) Refresh(ctx context.Context, in *RefreshRequest, opts ...grpc.CallOption) (*RefreshResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(RefreshResponse)
+	err := c.cc.Invoke(ctx, ContentResolverService_Refresh_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *contentResolverServiceClient) RegisterContentObserver(ctx context.Context, in *RegisterContentObserverRequest, opts ...grpc.CallOption) (*RegisterContentObserverResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(RegisterContentObserverResponse)
+	err := c.cc.Invoke(ctx, ContentResolverService_RegisterContentObserver_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 func (c *contentResolverServiceClient) ReleasePersistableUriPermission(ctx context.Context, in *ReleasePersistableUriPermissionRequest, opts ...grpc.CallOption) (*ReleasePersistableUriPermissionResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(ReleasePersistableUriPermissionResponse)
@@ -1019,6 +2197,46 @@ func (c *contentResolverServiceClient) TakePersistableUriPermission(ctx context.
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(TakePersistableUriPermissionResponse)
 	err := c.cc.Invoke(ctx, ContentResolverService_TakePersistableUriPermission_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *contentResolverServiceClient) Uncanonicalize(ctx context.Context, in *UncanonicalizeRequest, opts ...grpc.CallOption) (*UncanonicalizeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(UncanonicalizeResponse)
+	err := c.cc.Invoke(ctx, ContentResolverService_Uncanonicalize_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *contentResolverServiceClient) UnregisterContentObserver(ctx context.Context, in *UnregisterContentObserverRequest, opts ...grpc.CallOption) (*UnregisterContentObserverResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(UnregisterContentObserverResponse)
+	err := c.cc.Invoke(ctx, ContentResolverService_UnregisterContentObserver_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *contentResolverServiceClient) Update3(ctx context.Context, in *Update3Request, opts ...grpc.CallOption) (*Update3Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(Update3Response)
+	err := c.cc.Invoke(ctx, ContentResolverService_Update3_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *contentResolverServiceClient) Update4_1(ctx context.Context, in *Update4_1Request, opts ...grpc.CallOption) (*Update4_1Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(Update4_1Response)
+	err := c.cc.Invoke(ctx, ContentResolverService_Update4_1_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
@@ -1259,19 +2477,54 @@ func (c *contentResolverServiceClient) Wrap1_1(ctx context.Context, in *Wrap1_1R
 // All implementations must embed UnimplementedContentResolverServiceServer
 // for forward compatibility.
 type ContentResolverServiceServer interface {
+	AcquireContentProviderClient1(context.Context, *AcquireContentProviderClient1Request) (*AcquireContentProviderClient1Response, error)
+	AcquireContentProviderClient1_1(context.Context, *AcquireContentProviderClient1_1Request) (*AcquireContentProviderClient1_1Response, error)
+	AcquireUnstableContentProviderClient1(context.Context, *AcquireUnstableContentProviderClient1Request) (*AcquireUnstableContentProviderClient1Response, error)
+	AcquireUnstableContentProviderClient1_1(context.Context, *AcquireUnstableContentProviderClient1_1Request) (*AcquireUnstableContentProviderClient1_1Response, error)
 	ApplyBatch(context.Context, *ApplyBatchRequest) (*ApplyBatchResponse, error)
+	BulkInsert(context.Context, *BulkInsertRequest) (*BulkInsertResponse, error)
+	Call4(context.Context, *Call4Request) (*Call4Response, error)
+	Call4_1(context.Context, *Call4_1Request) (*Call4_1Response, error)
 	CancelSync1_2(context.Context, *CancelSync1_2Request) (*CancelSync1_2Response, error)
+	Canonicalize(context.Context, *CanonicalizeRequest) (*CanonicalizeResponse, error)
+	Delete2(context.Context, *Delete2Request) (*Delete2Response, error)
+	Delete3_1(context.Context, *Delete3_1Request) (*Delete3_1Response, error)
 	GetOutgoingPersistedUriPermissions(context.Context, *GetOutgoingPersistedUriPermissionsRequest) (*GetOutgoingPersistedUriPermissionsResponse, error)
 	GetPersistedUriPermissions(context.Context, *GetPersistedUriPermissionsRequest) (*GetPersistedUriPermissionsResponse, error)
 	GetStreamTypes(context.Context, *GetStreamTypesRequest) (*GetStreamTypesResponse, error)
+	GetType(context.Context, *GetTypeRequest) (*GetTypeResponse, error)
+	GetTypeInfo(context.Context, *GetTypeInfoRequest) (*GetTypeInfoResponse, error)
+	Insert2(context.Context, *Insert2Request) (*Insert2Response, error)
+	Insert3_1(context.Context, *Insert3_1Request) (*Insert3_1Response, error)
 	LoadThumbnail(context.Context, *LoadThumbnailRequest) (*LoadThumbnailResponse, error)
 	NotifyChange2(context.Context, *NotifyChange2Request) (*NotifyChange2Response, error)
 	NotifyChange3_1(context.Context, *NotifyChange3_1Request) (*NotifyChange3_1Response, error)
 	NotifyChange3_2(context.Context, *NotifyChange3_2Request) (*NotifyChange3_2Response, error)
 	NotifyChange3_3(context.Context, *NotifyChange3_3Request) (*NotifyChange3_3Response, error)
+	OpenAssetFile(context.Context, *OpenAssetFileRequest) (*OpenAssetFileResponse, error)
+	OpenAssetFileDescriptor2(context.Context, *OpenAssetFileDescriptor2Request) (*OpenAssetFileDescriptor2Response, error)
+	OpenAssetFileDescriptor3_1(context.Context, *OpenAssetFileDescriptor3_1Request) (*OpenAssetFileDescriptor3_1Response, error)
+	OpenFile(context.Context, *OpenFileRequest) (*OpenFileResponse, error)
+	OpenFileDescriptor2(context.Context, *OpenFileDescriptor2Request) (*OpenFileDescriptor2Response, error)
+	OpenFileDescriptor3_1(context.Context, *OpenFileDescriptor3_1Request) (*OpenFileDescriptor3_1Response, error)
+	OpenInputStream(context.Context, *OpenInputStreamRequest) (*OpenInputStreamResponse, error)
+	OpenOutputStream1(context.Context, *OpenOutputStream1Request) (*OpenOutputStream1Response, error)
+	OpenOutputStream2_1(context.Context, *OpenOutputStream2_1Request) (*OpenOutputStream2_1Response, error)
+	OpenTypedAssetFile(context.Context, *OpenTypedAssetFileRequest) (*OpenTypedAssetFileResponse, error)
+	OpenTypedAssetFileDescriptor3(context.Context, *OpenTypedAssetFileDescriptor3Request) (*OpenTypedAssetFileDescriptor3Response, error)
+	OpenTypedAssetFileDescriptor4_1(context.Context, *OpenTypedAssetFileDescriptor4_1Request) (*OpenTypedAssetFileDescriptor4_1Response, error)
+	Query4(context.Context, *Query4Request) (*Query4Response, error)
+	Query5_1(context.Context, *Query5_1Request) (*Query5_1Response, error)
+	Query6_2(context.Context, *Query6_2Request) (*Query6_2Response, error)
+	Refresh(context.Context, *RefreshRequest) (*RefreshResponse, error)
+	RegisterContentObserver(context.Context, *RegisterContentObserverRequest) (*RegisterContentObserverResponse, error)
 	ReleasePersistableUriPermission(context.Context, *ReleasePersistableUriPermissionRequest) (*ReleasePersistableUriPermissionResponse, error)
 	StartSync(context.Context, *StartSyncRequest) (*StartSyncResponse, error)
 	TakePersistableUriPermission(context.Context, *TakePersistableUriPermissionRequest) (*TakePersistableUriPermissionResponse, error)
+	Uncanonicalize(context.Context, *UncanonicalizeRequest) (*UncanonicalizeResponse, error)
+	UnregisterContentObserver(context.Context, *UnregisterContentObserverRequest) (*UnregisterContentObserverResponse, error)
+	Update3(context.Context, *Update3Request) (*Update3Response, error)
+	Update4_1(context.Context, *Update4_1Request) (*Update4_1Response, error)
 	AddPeriodicSync(context.Context, *AddPeriodicSyncRequest) (*AddPeriodicSyncResponse, error)
 	AddStatusChangeListener(context.Context, *AddStatusChangeListenerRequest) (*AddStatusChangeListenerResponse, error)
 	CancelSync2(context.Context, *CancelSync2Request) (*CancelSync2Response, error)
@@ -1305,11 +2558,41 @@ type ContentResolverServiceServer interface {
 // pointer dereference when methods are called.
 type UnimplementedContentResolverServiceServer struct{}
 
+func (UnimplementedContentResolverServiceServer) AcquireContentProviderClient1(context.Context, *AcquireContentProviderClient1Request) (*AcquireContentProviderClient1Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method AcquireContentProviderClient1 not implemented")
+}
+func (UnimplementedContentResolverServiceServer) AcquireContentProviderClient1_1(context.Context, *AcquireContentProviderClient1_1Request) (*AcquireContentProviderClient1_1Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method AcquireContentProviderClient1_1 not implemented")
+}
+func (UnimplementedContentResolverServiceServer) AcquireUnstableContentProviderClient1(context.Context, *AcquireUnstableContentProviderClient1Request) (*AcquireUnstableContentProviderClient1Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method AcquireUnstableContentProviderClient1 not implemented")
+}
+func (UnimplementedContentResolverServiceServer) AcquireUnstableContentProviderClient1_1(context.Context, *AcquireUnstableContentProviderClient1_1Request) (*AcquireUnstableContentProviderClient1_1Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method AcquireUnstableContentProviderClient1_1 not implemented")
+}
 func (UnimplementedContentResolverServiceServer) ApplyBatch(context.Context, *ApplyBatchRequest) (*ApplyBatchResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method ApplyBatch not implemented")
 }
+func (UnimplementedContentResolverServiceServer) BulkInsert(context.Context, *BulkInsertRequest) (*BulkInsertResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method BulkInsert not implemented")
+}
+func (UnimplementedContentResolverServiceServer) Call4(context.Context, *Call4Request) (*Call4Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method Call4 not implemented")
+}
+func (UnimplementedContentResolverServiceServer) Call4_1(context.Context, *Call4_1Request) (*Call4_1Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method Call4_1 not implemented")
+}
 func (UnimplementedContentResolverServiceServer) CancelSync1_2(context.Context, *CancelSync1_2Request) (*CancelSync1_2Response, error) {
 	return nil, status.Error(codes.Unimplemented, "method CancelSync1_2 not implemented")
+}
+func (UnimplementedContentResolverServiceServer) Canonicalize(context.Context, *CanonicalizeRequest) (*CanonicalizeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Canonicalize not implemented")
+}
+func (UnimplementedContentResolverServiceServer) Delete2(context.Context, *Delete2Request) (*Delete2Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method Delete2 not implemented")
+}
+func (UnimplementedContentResolverServiceServer) Delete3_1(context.Context, *Delete3_1Request) (*Delete3_1Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method Delete3_1 not implemented")
 }
 func (UnimplementedContentResolverServiceServer) GetOutgoingPersistedUriPermissions(context.Context, *GetOutgoingPersistedUriPermissionsRequest) (*GetOutgoingPersistedUriPermissionsResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetOutgoingPersistedUriPermissions not implemented")
@@ -1319,6 +2602,18 @@ func (UnimplementedContentResolverServiceServer) GetPersistedUriPermissions(cont
 }
 func (UnimplementedContentResolverServiceServer) GetStreamTypes(context.Context, *GetStreamTypesRequest) (*GetStreamTypesResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetStreamTypes not implemented")
+}
+func (UnimplementedContentResolverServiceServer) GetType(context.Context, *GetTypeRequest) (*GetTypeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetType not implemented")
+}
+func (UnimplementedContentResolverServiceServer) GetTypeInfo(context.Context, *GetTypeInfoRequest) (*GetTypeInfoResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetTypeInfo not implemented")
+}
+func (UnimplementedContentResolverServiceServer) Insert2(context.Context, *Insert2Request) (*Insert2Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method Insert2 not implemented")
+}
+func (UnimplementedContentResolverServiceServer) Insert3_1(context.Context, *Insert3_1Request) (*Insert3_1Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method Insert3_1 not implemented")
 }
 func (UnimplementedContentResolverServiceServer) LoadThumbnail(context.Context, *LoadThumbnailRequest) (*LoadThumbnailResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method LoadThumbnail not implemented")
@@ -1335,6 +2630,57 @@ func (UnimplementedContentResolverServiceServer) NotifyChange3_2(context.Context
 func (UnimplementedContentResolverServiceServer) NotifyChange3_3(context.Context, *NotifyChange3_3Request) (*NotifyChange3_3Response, error) {
 	return nil, status.Error(codes.Unimplemented, "method NotifyChange3_3 not implemented")
 }
+func (UnimplementedContentResolverServiceServer) OpenAssetFile(context.Context, *OpenAssetFileRequest) (*OpenAssetFileResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OpenAssetFile not implemented")
+}
+func (UnimplementedContentResolverServiceServer) OpenAssetFileDescriptor2(context.Context, *OpenAssetFileDescriptor2Request) (*OpenAssetFileDescriptor2Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method OpenAssetFileDescriptor2 not implemented")
+}
+func (UnimplementedContentResolverServiceServer) OpenAssetFileDescriptor3_1(context.Context, *OpenAssetFileDescriptor3_1Request) (*OpenAssetFileDescriptor3_1Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method OpenAssetFileDescriptor3_1 not implemented")
+}
+func (UnimplementedContentResolverServiceServer) OpenFile(context.Context, *OpenFileRequest) (*OpenFileResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OpenFile not implemented")
+}
+func (UnimplementedContentResolverServiceServer) OpenFileDescriptor2(context.Context, *OpenFileDescriptor2Request) (*OpenFileDescriptor2Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method OpenFileDescriptor2 not implemented")
+}
+func (UnimplementedContentResolverServiceServer) OpenFileDescriptor3_1(context.Context, *OpenFileDescriptor3_1Request) (*OpenFileDescriptor3_1Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method OpenFileDescriptor3_1 not implemented")
+}
+func (UnimplementedContentResolverServiceServer) OpenInputStream(context.Context, *OpenInputStreamRequest) (*OpenInputStreamResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OpenInputStream not implemented")
+}
+func (UnimplementedContentResolverServiceServer) OpenOutputStream1(context.Context, *OpenOutputStream1Request) (*OpenOutputStream1Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method OpenOutputStream1 not implemented")
+}
+func (UnimplementedContentResolverServiceServer) OpenOutputStream2_1(context.Context, *OpenOutputStream2_1Request) (*OpenOutputStream2_1Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method OpenOutputStream2_1 not implemented")
+}
+func (UnimplementedContentResolverServiceServer) OpenTypedAssetFile(context.Context, *OpenTypedAssetFileRequest) (*OpenTypedAssetFileResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OpenTypedAssetFile not implemented")
+}
+func (UnimplementedContentResolverServiceServer) OpenTypedAssetFileDescriptor3(context.Context, *OpenTypedAssetFileDescriptor3Request) (*OpenTypedAssetFileDescriptor3Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method OpenTypedAssetFileDescriptor3 not implemented")
+}
+func (UnimplementedContentResolverServiceServer) OpenTypedAssetFileDescriptor4_1(context.Context, *OpenTypedAssetFileDescriptor4_1Request) (*OpenTypedAssetFileDescriptor4_1Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method OpenTypedAssetFileDescriptor4_1 not implemented")
+}
+func (UnimplementedContentResolverServiceServer) Query4(context.Context, *Query4Request) (*Query4Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method Query4 not implemented")
+}
+func (UnimplementedContentResolverServiceServer) Query5_1(context.Context, *Query5_1Request) (*Query5_1Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method Query5_1 not implemented")
+}
+func (UnimplementedContentResolverServiceServer) Query6_2(context.Context, *Query6_2Request) (*Query6_2Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method Query6_2 not implemented")
+}
+func (UnimplementedContentResolverServiceServer) Refresh(context.Context, *RefreshRequest) (*RefreshResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Refresh not implemented")
+}
+func (UnimplementedContentResolverServiceServer) RegisterContentObserver(context.Context, *RegisterContentObserverRequest) (*RegisterContentObserverResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method RegisterContentObserver not implemented")
+}
 func (UnimplementedContentResolverServiceServer) ReleasePersistableUriPermission(context.Context, *ReleasePersistableUriPermissionRequest) (*ReleasePersistableUriPermissionResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method ReleasePersistableUriPermission not implemented")
 }
@@ -1343,6 +2689,18 @@ func (UnimplementedContentResolverServiceServer) StartSync(context.Context, *Sta
 }
 func (UnimplementedContentResolverServiceServer) TakePersistableUriPermission(context.Context, *TakePersistableUriPermissionRequest) (*TakePersistableUriPermissionResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method TakePersistableUriPermission not implemented")
+}
+func (UnimplementedContentResolverServiceServer) Uncanonicalize(context.Context, *UncanonicalizeRequest) (*UncanonicalizeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Uncanonicalize not implemented")
+}
+func (UnimplementedContentResolverServiceServer) UnregisterContentObserver(context.Context, *UnregisterContentObserverRequest) (*UnregisterContentObserverResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method UnregisterContentObserver not implemented")
+}
+func (UnimplementedContentResolverServiceServer) Update3(context.Context, *Update3Request) (*Update3Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method Update3 not implemented")
+}
+func (UnimplementedContentResolverServiceServer) Update4_1(context.Context, *Update4_1Request) (*Update4_1Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method Update4_1 not implemented")
 }
 func (UnimplementedContentResolverServiceServer) AddPeriodicSync(context.Context, *AddPeriodicSyncRequest) (*AddPeriodicSyncResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method AddPeriodicSync not implemented")
@@ -1435,6 +2793,78 @@ func RegisterContentResolverServiceServer(s grpc.ServiceRegistrar, srv ContentRe
 	s.RegisterService(&ContentResolverService_ServiceDesc, srv)
 }
 
+func _ContentResolverService_AcquireContentProviderClient1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(AcquireContentProviderClient1Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ContentResolverServiceServer).AcquireContentProviderClient1(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ContentResolverService_AcquireContentProviderClient1_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ContentResolverServiceServer).AcquireContentProviderClient1(ctx, req.(*AcquireContentProviderClient1Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ContentResolverService_AcquireContentProviderClient1_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(AcquireContentProviderClient1_1Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ContentResolverServiceServer).AcquireContentProviderClient1_1(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ContentResolverService_AcquireContentProviderClient1_1_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ContentResolverServiceServer).AcquireContentProviderClient1_1(ctx, req.(*AcquireContentProviderClient1_1Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ContentResolverService_AcquireUnstableContentProviderClient1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(AcquireUnstableContentProviderClient1Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ContentResolverServiceServer).AcquireUnstableContentProviderClient1(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ContentResolverService_AcquireUnstableContentProviderClient1_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ContentResolverServiceServer).AcquireUnstableContentProviderClient1(ctx, req.(*AcquireUnstableContentProviderClient1Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ContentResolverService_AcquireUnstableContentProviderClient1_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(AcquireUnstableContentProviderClient1_1Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ContentResolverServiceServer).AcquireUnstableContentProviderClient1_1(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ContentResolverService_AcquireUnstableContentProviderClient1_1_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ContentResolverServiceServer).AcquireUnstableContentProviderClient1_1(ctx, req.(*AcquireUnstableContentProviderClient1_1Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 func _ContentResolverService_ApplyBatch_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(ApplyBatchRequest)
 	if err := dec(in); err != nil {
@@ -1453,6 +2883,60 @@ func _ContentResolverService_ApplyBatch_Handler(srv interface{}, ctx context.Con
 	return interceptor(ctx, in, info, handler)
 }
 
+func _ContentResolverService_BulkInsert_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(BulkInsertRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ContentResolverServiceServer).BulkInsert(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ContentResolverService_BulkInsert_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ContentResolverServiceServer).BulkInsert(ctx, req.(*BulkInsertRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ContentResolverService_Call4_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(Call4Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ContentResolverServiceServer).Call4(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ContentResolverService_Call4_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ContentResolverServiceServer).Call4(ctx, req.(*Call4Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ContentResolverService_Call4_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(Call4_1Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ContentResolverServiceServer).Call4_1(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ContentResolverService_Call4_1_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ContentResolverServiceServer).Call4_1(ctx, req.(*Call4_1Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 func _ContentResolverService_CancelSync1_2_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(CancelSync1_2Request)
 	if err := dec(in); err != nil {
@@ -1467,6 +2951,60 @@ func _ContentResolverService_CancelSync1_2_Handler(srv interface{}, ctx context.
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(ContentResolverServiceServer).CancelSync1_2(ctx, req.(*CancelSync1_2Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ContentResolverService_Canonicalize_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CanonicalizeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ContentResolverServiceServer).Canonicalize(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ContentResolverService_Canonicalize_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ContentResolverServiceServer).Canonicalize(ctx, req.(*CanonicalizeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ContentResolverService_Delete2_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(Delete2Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ContentResolverServiceServer).Delete2(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ContentResolverService_Delete2_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ContentResolverServiceServer).Delete2(ctx, req.(*Delete2Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ContentResolverService_Delete3_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(Delete3_1Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ContentResolverServiceServer).Delete3_1(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ContentResolverService_Delete3_1_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ContentResolverServiceServer).Delete3_1(ctx, req.(*Delete3_1Request))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -1521,6 +3059,78 @@ func _ContentResolverService_GetStreamTypes_Handler(srv interface{}, ctx context
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(ContentResolverServiceServer).GetStreamTypes(ctx, req.(*GetStreamTypesRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ContentResolverService_GetType_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetTypeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ContentResolverServiceServer).GetType(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ContentResolverService_GetType_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ContentResolverServiceServer).GetType(ctx, req.(*GetTypeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ContentResolverService_GetTypeInfo_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetTypeInfoRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ContentResolverServiceServer).GetTypeInfo(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ContentResolverService_GetTypeInfo_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ContentResolverServiceServer).GetTypeInfo(ctx, req.(*GetTypeInfoRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ContentResolverService_Insert2_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(Insert2Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ContentResolverServiceServer).Insert2(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ContentResolverService_Insert2_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ContentResolverServiceServer).Insert2(ctx, req.(*Insert2Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ContentResolverService_Insert3_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(Insert3_1Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ContentResolverServiceServer).Insert3_1(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ContentResolverService_Insert3_1_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ContentResolverServiceServer).Insert3_1(ctx, req.(*Insert3_1Request))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -1615,6 +3225,312 @@ func _ContentResolverService_NotifyChange3_3_Handler(srv interface{}, ctx contex
 	return interceptor(ctx, in, info, handler)
 }
 
+func _ContentResolverService_OpenAssetFile_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OpenAssetFileRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ContentResolverServiceServer).OpenAssetFile(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ContentResolverService_OpenAssetFile_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ContentResolverServiceServer).OpenAssetFile(ctx, req.(*OpenAssetFileRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ContentResolverService_OpenAssetFileDescriptor2_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OpenAssetFileDescriptor2Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ContentResolverServiceServer).OpenAssetFileDescriptor2(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ContentResolverService_OpenAssetFileDescriptor2_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ContentResolverServiceServer).OpenAssetFileDescriptor2(ctx, req.(*OpenAssetFileDescriptor2Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ContentResolverService_OpenAssetFileDescriptor3_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OpenAssetFileDescriptor3_1Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ContentResolverServiceServer).OpenAssetFileDescriptor3_1(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ContentResolverService_OpenAssetFileDescriptor3_1_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ContentResolverServiceServer).OpenAssetFileDescriptor3_1(ctx, req.(*OpenAssetFileDescriptor3_1Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ContentResolverService_OpenFile_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OpenFileRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ContentResolverServiceServer).OpenFile(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ContentResolverService_OpenFile_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ContentResolverServiceServer).OpenFile(ctx, req.(*OpenFileRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ContentResolverService_OpenFileDescriptor2_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OpenFileDescriptor2Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ContentResolverServiceServer).OpenFileDescriptor2(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ContentResolverService_OpenFileDescriptor2_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ContentResolverServiceServer).OpenFileDescriptor2(ctx, req.(*OpenFileDescriptor2Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ContentResolverService_OpenFileDescriptor3_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OpenFileDescriptor3_1Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ContentResolverServiceServer).OpenFileDescriptor3_1(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ContentResolverService_OpenFileDescriptor3_1_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ContentResolverServiceServer).OpenFileDescriptor3_1(ctx, req.(*OpenFileDescriptor3_1Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ContentResolverService_OpenInputStream_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OpenInputStreamRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ContentResolverServiceServer).OpenInputStream(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ContentResolverService_OpenInputStream_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ContentResolverServiceServer).OpenInputStream(ctx, req.(*OpenInputStreamRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ContentResolverService_OpenOutputStream1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OpenOutputStream1Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ContentResolverServiceServer).OpenOutputStream1(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ContentResolverService_OpenOutputStream1_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ContentResolverServiceServer).OpenOutputStream1(ctx, req.(*OpenOutputStream1Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ContentResolverService_OpenOutputStream2_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OpenOutputStream2_1Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ContentResolverServiceServer).OpenOutputStream2_1(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ContentResolverService_OpenOutputStream2_1_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ContentResolverServiceServer).OpenOutputStream2_1(ctx, req.(*OpenOutputStream2_1Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ContentResolverService_OpenTypedAssetFile_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OpenTypedAssetFileRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ContentResolverServiceServer).OpenTypedAssetFile(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ContentResolverService_OpenTypedAssetFile_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ContentResolverServiceServer).OpenTypedAssetFile(ctx, req.(*OpenTypedAssetFileRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ContentResolverService_OpenTypedAssetFileDescriptor3_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OpenTypedAssetFileDescriptor3Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ContentResolverServiceServer).OpenTypedAssetFileDescriptor3(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ContentResolverService_OpenTypedAssetFileDescriptor3_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ContentResolverServiceServer).OpenTypedAssetFileDescriptor3(ctx, req.(*OpenTypedAssetFileDescriptor3Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ContentResolverService_OpenTypedAssetFileDescriptor4_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OpenTypedAssetFileDescriptor4_1Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ContentResolverServiceServer).OpenTypedAssetFileDescriptor4_1(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ContentResolverService_OpenTypedAssetFileDescriptor4_1_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ContentResolverServiceServer).OpenTypedAssetFileDescriptor4_1(ctx, req.(*OpenTypedAssetFileDescriptor4_1Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ContentResolverService_Query4_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(Query4Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ContentResolverServiceServer).Query4(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ContentResolverService_Query4_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ContentResolverServiceServer).Query4(ctx, req.(*Query4Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ContentResolverService_Query5_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(Query5_1Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ContentResolverServiceServer).Query5_1(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ContentResolverService_Query5_1_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ContentResolverServiceServer).Query5_1(ctx, req.(*Query5_1Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ContentResolverService_Query6_2_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(Query6_2Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ContentResolverServiceServer).Query6_2(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ContentResolverService_Query6_2_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ContentResolverServiceServer).Query6_2(ctx, req.(*Query6_2Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ContentResolverService_Refresh_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(RefreshRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ContentResolverServiceServer).Refresh(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ContentResolverService_Refresh_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ContentResolverServiceServer).Refresh(ctx, req.(*RefreshRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ContentResolverService_RegisterContentObserver_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(RegisterContentObserverRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ContentResolverServiceServer).RegisterContentObserver(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ContentResolverService_RegisterContentObserver_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ContentResolverServiceServer).RegisterContentObserver(ctx, req.(*RegisterContentObserverRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 func _ContentResolverService_ReleasePersistableUriPermission_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(ReleasePersistableUriPermissionRequest)
 	if err := dec(in); err != nil {
@@ -1665,6 +3581,78 @@ func _ContentResolverService_TakePersistableUriPermission_Handler(srv interface{
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(ContentResolverServiceServer).TakePersistableUriPermission(ctx, req.(*TakePersistableUriPermissionRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ContentResolverService_Uncanonicalize_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(UncanonicalizeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ContentResolverServiceServer).Uncanonicalize(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ContentResolverService_Uncanonicalize_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ContentResolverServiceServer).Uncanonicalize(ctx, req.(*UncanonicalizeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ContentResolverService_UnregisterContentObserver_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(UnregisterContentObserverRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ContentResolverServiceServer).UnregisterContentObserver(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ContentResolverService_UnregisterContentObserver_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ContentResolverServiceServer).UnregisterContentObserver(ctx, req.(*UnregisterContentObserverRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ContentResolverService_Update3_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(Update3Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ContentResolverServiceServer).Update3(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ContentResolverService_Update3_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ContentResolverServiceServer).Update3(ctx, req.(*Update3Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ContentResolverService_Update4_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(Update4_1Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ContentResolverServiceServer).Update4_1(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ContentResolverService_Update4_1_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ContentResolverServiceServer).Update4_1(ctx, req.(*Update4_1Request))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -2091,12 +4079,52 @@ var ContentResolverService_ServiceDesc = grpc.ServiceDesc{
 	HandlerType: (*ContentResolverServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
+			MethodName: "AcquireContentProviderClient1",
+			Handler:    _ContentResolverService_AcquireContentProviderClient1_Handler,
+		},
+		{
+			MethodName: "AcquireContentProviderClient1_1",
+			Handler:    _ContentResolverService_AcquireContentProviderClient1_1_Handler,
+		},
+		{
+			MethodName: "AcquireUnstableContentProviderClient1",
+			Handler:    _ContentResolverService_AcquireUnstableContentProviderClient1_Handler,
+		},
+		{
+			MethodName: "AcquireUnstableContentProviderClient1_1",
+			Handler:    _ContentResolverService_AcquireUnstableContentProviderClient1_1_Handler,
+		},
+		{
 			MethodName: "ApplyBatch",
 			Handler:    _ContentResolverService_ApplyBatch_Handler,
 		},
 		{
+			MethodName: "BulkInsert",
+			Handler:    _ContentResolverService_BulkInsert_Handler,
+		},
+		{
+			MethodName: "Call4",
+			Handler:    _ContentResolverService_Call4_Handler,
+		},
+		{
+			MethodName: "Call4_1",
+			Handler:    _ContentResolverService_Call4_1_Handler,
+		},
+		{
 			MethodName: "CancelSync1_2",
 			Handler:    _ContentResolverService_CancelSync1_2_Handler,
+		},
+		{
+			MethodName: "Canonicalize",
+			Handler:    _ContentResolverService_Canonicalize_Handler,
+		},
+		{
+			MethodName: "Delete2",
+			Handler:    _ContentResolverService_Delete2_Handler,
+		},
+		{
+			MethodName: "Delete3_1",
+			Handler:    _ContentResolverService_Delete3_1_Handler,
 		},
 		{
 			MethodName: "GetOutgoingPersistedUriPermissions",
@@ -2109,6 +4137,22 @@ var ContentResolverService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "GetStreamTypes",
 			Handler:    _ContentResolverService_GetStreamTypes_Handler,
+		},
+		{
+			MethodName: "GetType",
+			Handler:    _ContentResolverService_GetType_Handler,
+		},
+		{
+			MethodName: "GetTypeInfo",
+			Handler:    _ContentResolverService_GetTypeInfo_Handler,
+		},
+		{
+			MethodName: "Insert2",
+			Handler:    _ContentResolverService_Insert2_Handler,
+		},
+		{
+			MethodName: "Insert3_1",
+			Handler:    _ContentResolverService_Insert3_1_Handler,
 		},
 		{
 			MethodName: "LoadThumbnail",
@@ -2131,6 +4175,74 @@ var ContentResolverService_ServiceDesc = grpc.ServiceDesc{
 			Handler:    _ContentResolverService_NotifyChange3_3_Handler,
 		},
 		{
+			MethodName: "OpenAssetFile",
+			Handler:    _ContentResolverService_OpenAssetFile_Handler,
+		},
+		{
+			MethodName: "OpenAssetFileDescriptor2",
+			Handler:    _ContentResolverService_OpenAssetFileDescriptor2_Handler,
+		},
+		{
+			MethodName: "OpenAssetFileDescriptor3_1",
+			Handler:    _ContentResolverService_OpenAssetFileDescriptor3_1_Handler,
+		},
+		{
+			MethodName: "OpenFile",
+			Handler:    _ContentResolverService_OpenFile_Handler,
+		},
+		{
+			MethodName: "OpenFileDescriptor2",
+			Handler:    _ContentResolverService_OpenFileDescriptor2_Handler,
+		},
+		{
+			MethodName: "OpenFileDescriptor3_1",
+			Handler:    _ContentResolverService_OpenFileDescriptor3_1_Handler,
+		},
+		{
+			MethodName: "OpenInputStream",
+			Handler:    _ContentResolverService_OpenInputStream_Handler,
+		},
+		{
+			MethodName: "OpenOutputStream1",
+			Handler:    _ContentResolverService_OpenOutputStream1_Handler,
+		},
+		{
+			MethodName: "OpenOutputStream2_1",
+			Handler:    _ContentResolverService_OpenOutputStream2_1_Handler,
+		},
+		{
+			MethodName: "OpenTypedAssetFile",
+			Handler:    _ContentResolverService_OpenTypedAssetFile_Handler,
+		},
+		{
+			MethodName: "OpenTypedAssetFileDescriptor3",
+			Handler:    _ContentResolverService_OpenTypedAssetFileDescriptor3_Handler,
+		},
+		{
+			MethodName: "OpenTypedAssetFileDescriptor4_1",
+			Handler:    _ContentResolverService_OpenTypedAssetFileDescriptor4_1_Handler,
+		},
+		{
+			MethodName: "Query4",
+			Handler:    _ContentResolverService_Query4_Handler,
+		},
+		{
+			MethodName: "Query5_1",
+			Handler:    _ContentResolverService_Query5_1_Handler,
+		},
+		{
+			MethodName: "Query6_2",
+			Handler:    _ContentResolverService_Query6_2_Handler,
+		},
+		{
+			MethodName: "Refresh",
+			Handler:    _ContentResolverService_Refresh_Handler,
+		},
+		{
+			MethodName: "RegisterContentObserver",
+			Handler:    _ContentResolverService_RegisterContentObserver_Handler,
+		},
+		{
 			MethodName: "ReleasePersistableUriPermission",
 			Handler:    _ContentResolverService_ReleasePersistableUriPermission_Handler,
 		},
@@ -2141,6 +4253,22 @@ var ContentResolverService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "TakePersistableUriPermission",
 			Handler:    _ContentResolverService_TakePersistableUriPermission_Handler,
+		},
+		{
+			MethodName: "Uncanonicalize",
+			Handler:    _ContentResolverService_Uncanonicalize_Handler,
+		},
+		{
+			MethodName: "UnregisterContentObserver",
+			Handler:    _ContentResolverService_UnregisterContentObserver_Handler,
+		},
+		{
+			MethodName: "Update3",
+			Handler:    _ContentResolverService_Update3_Handler,
+		},
+		{
+			MethodName: "Update4_1",
+			Handler:    _ContentResolverService_Update4_1_Handler,
 		},
 		{
 			MethodName: "AddPeriodicSync",
@@ -2233,6 +4361,1628 @@ var ContentResolverService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "Wrap1_1",
 			Handler:    _ContentResolverService_Wrap1_1_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/resolver/resolver.proto",
+}
+
+const (
+	CursorService_Close_FullMethodName                     = "/resolver.CursorService/Close"
+	CursorService_CopyStringToBuffer_FullMethodName        = "/resolver.CursorService/CopyStringToBuffer"
+	CursorService_Deactivate_FullMethodName                = "/resolver.CursorService/Deactivate"
+	CursorService_GetBlob_FullMethodName                   = "/resolver.CursorService/GetBlob"
+	CursorService_GetColumnCount_FullMethodName            = "/resolver.CursorService/GetColumnCount"
+	CursorService_GetColumnIndex_FullMethodName            = "/resolver.CursorService/GetColumnIndex"
+	CursorService_GetColumnIndexOrThrow_FullMethodName     = "/resolver.CursorService/GetColumnIndexOrThrow"
+	CursorService_GetColumnName_FullMethodName             = "/resolver.CursorService/GetColumnName"
+	CursorService_GetColumnNames_FullMethodName            = "/resolver.CursorService/GetColumnNames"
+	CursorService_GetCount_FullMethodName                  = "/resolver.CursorService/GetCount"
+	CursorService_GetDouble_FullMethodName                 = "/resolver.CursorService/GetDouble"
+	CursorService_GetExtras_FullMethodName                 = "/resolver.CursorService/GetExtras"
+	CursorService_GetFloat_FullMethodName                  = "/resolver.CursorService/GetFloat"
+	CursorService_GetInt_FullMethodName                    = "/resolver.CursorService/GetInt"
+	CursorService_GetLong_FullMethodName                   = "/resolver.CursorService/GetLong"
+	CursorService_GetNotificationUri_FullMethodName        = "/resolver.CursorService/GetNotificationUri"
+	CursorService_GetPosition_FullMethodName               = "/resolver.CursorService/GetPosition"
+	CursorService_GetShort_FullMethodName                  = "/resolver.CursorService/GetShort"
+	CursorService_GetString_FullMethodName                 = "/resolver.CursorService/GetString"
+	CursorService_GetType_FullMethodName                   = "/resolver.CursorService/GetType"
+	CursorService_GetWantsAllOnMoveCalls_FullMethodName    = "/resolver.CursorService/GetWantsAllOnMoveCalls"
+	CursorService_IsAfterLast_FullMethodName               = "/resolver.CursorService/IsAfterLast"
+	CursorService_IsBeforeFirst_FullMethodName             = "/resolver.CursorService/IsBeforeFirst"
+	CursorService_IsClosed_FullMethodName                  = "/resolver.CursorService/IsClosed"
+	CursorService_IsFirst_FullMethodName                   = "/resolver.CursorService/IsFirst"
+	CursorService_IsLast_FullMethodName                    = "/resolver.CursorService/IsLast"
+	CursorService_IsNull_FullMethodName                    = "/resolver.CursorService/IsNull"
+	CursorService_Move_FullMethodName                      = "/resolver.CursorService/Move"
+	CursorService_MoveToFirst_FullMethodName               = "/resolver.CursorService/MoveToFirst"
+	CursorService_MoveToLast_FullMethodName                = "/resolver.CursorService/MoveToLast"
+	CursorService_MoveToNext_FullMethodName                = "/resolver.CursorService/MoveToNext"
+	CursorService_MoveToPosition_FullMethodName            = "/resolver.CursorService/MoveToPosition"
+	CursorService_MoveToPrevious_FullMethodName            = "/resolver.CursorService/MoveToPrevious"
+	CursorService_RegisterContentObserver_FullMethodName   = "/resolver.CursorService/RegisterContentObserver"
+	CursorService_RegisterDataSetObserver_FullMethodName   = "/resolver.CursorService/RegisterDataSetObserver"
+	CursorService_Requery_FullMethodName                   = "/resolver.CursorService/Requery"
+	CursorService_Respond_FullMethodName                   = "/resolver.CursorService/Respond"
+	CursorService_SetExtras_FullMethodName                 = "/resolver.CursorService/SetExtras"
+	CursorService_SetNotificationUri_FullMethodName        = "/resolver.CursorService/SetNotificationUri"
+	CursorService_UnregisterContentObserver_FullMethodName = "/resolver.CursorService/UnregisterContentObserver"
+	CursorService_UnregisterDataSetObserver_FullMethodName = "/resolver.CursorService/UnregisterDataSetObserver"
+)
+
+// CursorServiceClient is the client API for CursorService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type CursorServiceClient interface {
+	Close(ctx context.Context, in *CloseRequest, opts ...grpc.CallOption) (*CloseResponse, error)
+	CopyStringToBuffer(ctx context.Context, in *CopyStringToBufferRequest, opts ...grpc.CallOption) (*CopyStringToBufferResponse, error)
+	Deactivate(ctx context.Context, in *DeactivateRequest, opts ...grpc.CallOption) (*DeactivateResponse, error)
+	GetBlob(ctx context.Context, in *GetBlobRequest, opts ...grpc.CallOption) (*GetBlobResponse, error)
+	GetColumnCount(ctx context.Context, in *GetColumnCountRequest, opts ...grpc.CallOption) (*GetColumnCountResponse, error)
+	GetColumnIndex(ctx context.Context, in *GetColumnIndexRequest, opts ...grpc.CallOption) (*GetColumnIndexResponse, error)
+	GetColumnIndexOrThrow(ctx context.Context, in *GetColumnIndexOrThrowRequest, opts ...grpc.CallOption) (*GetColumnIndexOrThrowResponse, error)
+	GetColumnName(ctx context.Context, in *GetColumnNameRequest, opts ...grpc.CallOption) (*GetColumnNameResponse, error)
+	GetColumnNames(ctx context.Context, in *GetColumnNamesRequest, opts ...grpc.CallOption) (*GetColumnNamesResponse, error)
+	GetCount(ctx context.Context, in *GetCountRequest, opts ...grpc.CallOption) (*GetCountResponse, error)
+	GetDouble(ctx context.Context, in *GetDoubleRequest, opts ...grpc.CallOption) (*GetDoubleResponse, error)
+	GetExtras(ctx context.Context, in *GetExtrasRequest, opts ...grpc.CallOption) (*GetExtrasResponse, error)
+	GetFloat(ctx context.Context, in *GetFloatRequest, opts ...grpc.CallOption) (*GetFloatResponse, error)
+	GetInt(ctx context.Context, in *GetIntRequest, opts ...grpc.CallOption) (*GetIntResponse, error)
+	GetLong(ctx context.Context, in *GetLongRequest, opts ...grpc.CallOption) (*GetLongResponse, error)
+	GetNotificationUri(ctx context.Context, in *GetNotificationUriRequest, opts ...grpc.CallOption) (*GetNotificationUriResponse, error)
+	GetPosition(ctx context.Context, in *GetPositionRequest, opts ...grpc.CallOption) (*GetPositionResponse, error)
+	GetShort(ctx context.Context, in *GetShortRequest, opts ...grpc.CallOption) (*GetShortResponse, error)
+	GetString(ctx context.Context, in *GetStringRequest, opts ...grpc.CallOption) (*GetStringResponse, error)
+	GetType(ctx context.Context, in *CursorGetTypeRequest, opts ...grpc.CallOption) (*CursorGetTypeResponse, error)
+	GetWantsAllOnMoveCalls(ctx context.Context, in *GetWantsAllOnMoveCallsRequest, opts ...grpc.CallOption) (*GetWantsAllOnMoveCallsResponse, error)
+	IsAfterLast(ctx context.Context, in *IsAfterLastRequest, opts ...grpc.CallOption) (*IsAfterLastResponse, error)
+	IsBeforeFirst(ctx context.Context, in *IsBeforeFirstRequest, opts ...grpc.CallOption) (*IsBeforeFirstResponse, error)
+	IsClosed(ctx context.Context, in *IsClosedRequest, opts ...grpc.CallOption) (*IsClosedResponse, error)
+	IsFirst(ctx context.Context, in *IsFirstRequest, opts ...grpc.CallOption) (*IsFirstResponse, error)
+	IsLast(ctx context.Context, in *IsLastRequest, opts ...grpc.CallOption) (*IsLastResponse, error)
+	IsNull(ctx context.Context, in *IsNullRequest, opts ...grpc.CallOption) (*IsNullResponse, error)
+	Move(ctx context.Context, in *MoveRequest, opts ...grpc.CallOption) (*MoveResponse, error)
+	MoveToFirst(ctx context.Context, in *MoveToFirstRequest, opts ...grpc.CallOption) (*MoveToFirstResponse, error)
+	MoveToLast(ctx context.Context, in *MoveToLastRequest, opts ...grpc.CallOption) (*MoveToLastResponse, error)
+	MoveToNext(ctx context.Context, in *MoveToNextRequest, opts ...grpc.CallOption) (*MoveToNextResponse, error)
+	MoveToPosition(ctx context.Context, in *MoveToPositionRequest, opts ...grpc.CallOption) (*MoveToPositionResponse, error)
+	MoveToPrevious(ctx context.Context, in *MoveToPreviousRequest, opts ...grpc.CallOption) (*MoveToPreviousResponse, error)
+	RegisterContentObserver(ctx context.Context, in *CursorRegisterContentObserverRequest, opts ...grpc.CallOption) (*RegisterContentObserverResponse, error)
+	RegisterDataSetObserver(ctx context.Context, in *RegisterDataSetObserverRequest, opts ...grpc.CallOption) (*RegisterDataSetObserverResponse, error)
+	Requery(ctx context.Context, in *RequeryRequest, opts ...grpc.CallOption) (*RequeryResponse, error)
+	Respond(ctx context.Context, in *RespondRequest, opts ...grpc.CallOption) (*RespondResponse, error)
+	SetExtras(ctx context.Context, in *SetExtrasRequest, opts ...grpc.CallOption) (*SetExtrasResponse, error)
+	SetNotificationUri(ctx context.Context, in *SetNotificationUriRequest, opts ...grpc.CallOption) (*SetNotificationUriResponse, error)
+	UnregisterContentObserver(ctx context.Context, in *UnregisterContentObserverRequest, opts ...grpc.CallOption) (*UnregisterContentObserverResponse, error)
+	UnregisterDataSetObserver(ctx context.Context, in *UnregisterDataSetObserverRequest, opts ...grpc.CallOption) (*UnregisterDataSetObserverResponse, error)
+}
+
+type cursorServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewCursorServiceClient(cc grpc.ClientConnInterface) CursorServiceClient {
+	return &cursorServiceClient{cc}
+}
+
+func (c *cursorServiceClient) Close(ctx context.Context, in *CloseRequest, opts ...grpc.CallOption) (*CloseResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(CloseResponse)
+	err := c.cc.Invoke(ctx, CursorService_Close_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cursorServiceClient) CopyStringToBuffer(ctx context.Context, in *CopyStringToBufferRequest, opts ...grpc.CallOption) (*CopyStringToBufferResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(CopyStringToBufferResponse)
+	err := c.cc.Invoke(ctx, CursorService_CopyStringToBuffer_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cursorServiceClient) Deactivate(ctx context.Context, in *DeactivateRequest, opts ...grpc.CallOption) (*DeactivateResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(DeactivateResponse)
+	err := c.cc.Invoke(ctx, CursorService_Deactivate_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cursorServiceClient) GetBlob(ctx context.Context, in *GetBlobRequest, opts ...grpc.CallOption) (*GetBlobResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetBlobResponse)
+	err := c.cc.Invoke(ctx, CursorService_GetBlob_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cursorServiceClient) GetColumnCount(ctx context.Context, in *GetColumnCountRequest, opts ...grpc.CallOption) (*GetColumnCountResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetColumnCountResponse)
+	err := c.cc.Invoke(ctx, CursorService_GetColumnCount_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cursorServiceClient) GetColumnIndex(ctx context.Context, in *GetColumnIndexRequest, opts ...grpc.CallOption) (*GetColumnIndexResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetColumnIndexResponse)
+	err := c.cc.Invoke(ctx, CursorService_GetColumnIndex_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cursorServiceClient) GetColumnIndexOrThrow(ctx context.Context, in *GetColumnIndexOrThrowRequest, opts ...grpc.CallOption) (*GetColumnIndexOrThrowResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetColumnIndexOrThrowResponse)
+	err := c.cc.Invoke(ctx, CursorService_GetColumnIndexOrThrow_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cursorServiceClient) GetColumnName(ctx context.Context, in *GetColumnNameRequest, opts ...grpc.CallOption) (*GetColumnNameResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetColumnNameResponse)
+	err := c.cc.Invoke(ctx, CursorService_GetColumnName_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cursorServiceClient) GetColumnNames(ctx context.Context, in *GetColumnNamesRequest, opts ...grpc.CallOption) (*GetColumnNamesResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetColumnNamesResponse)
+	err := c.cc.Invoke(ctx, CursorService_GetColumnNames_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cursorServiceClient) GetCount(ctx context.Context, in *GetCountRequest, opts ...grpc.CallOption) (*GetCountResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetCountResponse)
+	err := c.cc.Invoke(ctx, CursorService_GetCount_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cursorServiceClient) GetDouble(ctx context.Context, in *GetDoubleRequest, opts ...grpc.CallOption) (*GetDoubleResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetDoubleResponse)
+	err := c.cc.Invoke(ctx, CursorService_GetDouble_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cursorServiceClient) GetExtras(ctx context.Context, in *GetExtrasRequest, opts ...grpc.CallOption) (*GetExtrasResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetExtrasResponse)
+	err := c.cc.Invoke(ctx, CursorService_GetExtras_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cursorServiceClient) GetFloat(ctx context.Context, in *GetFloatRequest, opts ...grpc.CallOption) (*GetFloatResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetFloatResponse)
+	err := c.cc.Invoke(ctx, CursorService_GetFloat_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cursorServiceClient) GetInt(ctx context.Context, in *GetIntRequest, opts ...grpc.CallOption) (*GetIntResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetIntResponse)
+	err := c.cc.Invoke(ctx, CursorService_GetInt_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cursorServiceClient) GetLong(ctx context.Context, in *GetLongRequest, opts ...grpc.CallOption) (*GetLongResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetLongResponse)
+	err := c.cc.Invoke(ctx, CursorService_GetLong_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cursorServiceClient) GetNotificationUri(ctx context.Context, in *GetNotificationUriRequest, opts ...grpc.CallOption) (*GetNotificationUriResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetNotificationUriResponse)
+	err := c.cc.Invoke(ctx, CursorService_GetNotificationUri_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cursorServiceClient) GetPosition(ctx context.Context, in *GetPositionRequest, opts ...grpc.CallOption) (*GetPositionResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetPositionResponse)
+	err := c.cc.Invoke(ctx, CursorService_GetPosition_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cursorServiceClient) GetShort(ctx context.Context, in *GetShortRequest, opts ...grpc.CallOption) (*GetShortResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetShortResponse)
+	err := c.cc.Invoke(ctx, CursorService_GetShort_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cursorServiceClient) GetString(ctx context.Context, in *GetStringRequest, opts ...grpc.CallOption) (*GetStringResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetStringResponse)
+	err := c.cc.Invoke(ctx, CursorService_GetString_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cursorServiceClient) GetType(ctx context.Context, in *CursorGetTypeRequest, opts ...grpc.CallOption) (*CursorGetTypeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(CursorGetTypeResponse)
+	err := c.cc.Invoke(ctx, CursorService_GetType_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cursorServiceClient) GetWantsAllOnMoveCalls(ctx context.Context, in *GetWantsAllOnMoveCallsRequest, opts ...grpc.CallOption) (*GetWantsAllOnMoveCallsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetWantsAllOnMoveCallsResponse)
+	err := c.cc.Invoke(ctx, CursorService_GetWantsAllOnMoveCalls_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cursorServiceClient) IsAfterLast(ctx context.Context, in *IsAfterLastRequest, opts ...grpc.CallOption) (*IsAfterLastResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IsAfterLastResponse)
+	err := c.cc.Invoke(ctx, CursorService_IsAfterLast_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cursorServiceClient) IsBeforeFirst(ctx context.Context, in *IsBeforeFirstRequest, opts ...grpc.CallOption) (*IsBeforeFirstResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IsBeforeFirstResponse)
+	err := c.cc.Invoke(ctx, CursorService_IsBeforeFirst_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cursorServiceClient) IsClosed(ctx context.Context, in *IsClosedRequest, opts ...grpc.CallOption) (*IsClosedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IsClosedResponse)
+	err := c.cc.Invoke(ctx, CursorService_IsClosed_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cursorServiceClient) IsFirst(ctx context.Context, in *IsFirstRequest, opts ...grpc.CallOption) (*IsFirstResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IsFirstResponse)
+	err := c.cc.Invoke(ctx, CursorService_IsFirst_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cursorServiceClient) IsLast(ctx context.Context, in *IsLastRequest, opts ...grpc.CallOption) (*IsLastResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IsLastResponse)
+	err := c.cc.Invoke(ctx, CursorService_IsLast_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cursorServiceClient) IsNull(ctx context.Context, in *IsNullRequest, opts ...grpc.CallOption) (*IsNullResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IsNullResponse)
+	err := c.cc.Invoke(ctx, CursorService_IsNull_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cursorServiceClient) Move(ctx context.Context, in *MoveRequest, opts ...grpc.CallOption) (*MoveResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(MoveResponse)
+	err := c.cc.Invoke(ctx, CursorService_Move_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cursorServiceClient) MoveToFirst(ctx context.Context, in *MoveToFirstRequest, opts ...grpc.CallOption) (*MoveToFirstResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(MoveToFirstResponse)
+	err := c.cc.Invoke(ctx, CursorService_MoveToFirst_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cursorServiceClient) MoveToLast(ctx context.Context, in *MoveToLastRequest, opts ...grpc.CallOption) (*MoveToLastResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(MoveToLastResponse)
+	err := c.cc.Invoke(ctx, CursorService_MoveToLast_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cursorServiceClient) MoveToNext(ctx context.Context, in *MoveToNextRequest, opts ...grpc.CallOption) (*MoveToNextResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(MoveToNextResponse)
+	err := c.cc.Invoke(ctx, CursorService_MoveToNext_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cursorServiceClient) MoveToPosition(ctx context.Context, in *MoveToPositionRequest, opts ...grpc.CallOption) (*MoveToPositionResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(MoveToPositionResponse)
+	err := c.cc.Invoke(ctx, CursorService_MoveToPosition_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cursorServiceClient) MoveToPrevious(ctx context.Context, in *MoveToPreviousRequest, opts ...grpc.CallOption) (*MoveToPreviousResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(MoveToPreviousResponse)
+	err := c.cc.Invoke(ctx, CursorService_MoveToPrevious_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cursorServiceClient) RegisterContentObserver(ctx context.Context, in *CursorRegisterContentObserverRequest, opts ...grpc.CallOption) (*RegisterContentObserverResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(RegisterContentObserverResponse)
+	err := c.cc.Invoke(ctx, CursorService_RegisterContentObserver_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cursorServiceClient) RegisterDataSetObserver(ctx context.Context, in *RegisterDataSetObserverRequest, opts ...grpc.CallOption) (*RegisterDataSetObserverResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(RegisterDataSetObserverResponse)
+	err := c.cc.Invoke(ctx, CursorService_RegisterDataSetObserver_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cursorServiceClient) Requery(ctx context.Context, in *RequeryRequest, opts ...grpc.CallOption) (*RequeryResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(RequeryResponse)
+	err := c.cc.Invoke(ctx, CursorService_Requery_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cursorServiceClient) Respond(ctx context.Context, in *RespondRequest, opts ...grpc.CallOption) (*RespondResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(RespondResponse)
+	err := c.cc.Invoke(ctx, CursorService_Respond_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cursorServiceClient) SetExtras(ctx context.Context, in *SetExtrasRequest, opts ...grpc.CallOption) (*SetExtrasResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetExtrasResponse)
+	err := c.cc.Invoke(ctx, CursorService_SetExtras_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cursorServiceClient) SetNotificationUri(ctx context.Context, in *SetNotificationUriRequest, opts ...grpc.CallOption) (*SetNotificationUriResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetNotificationUriResponse)
+	err := c.cc.Invoke(ctx, CursorService_SetNotificationUri_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cursorServiceClient) UnregisterContentObserver(ctx context.Context, in *UnregisterContentObserverRequest, opts ...grpc.CallOption) (*UnregisterContentObserverResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(UnregisterContentObserverResponse)
+	err := c.cc.Invoke(ctx, CursorService_UnregisterContentObserver_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cursorServiceClient) UnregisterDataSetObserver(ctx context.Context, in *UnregisterDataSetObserverRequest, opts ...grpc.CallOption) (*UnregisterDataSetObserverResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(UnregisterDataSetObserverResponse)
+	err := c.cc.Invoke(ctx, CursorService_UnregisterDataSetObserver_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// CursorServiceServer is the server API for CursorService service.
+// All implementations must embed UnimplementedCursorServiceServer
+// for forward compatibility.
+type CursorServiceServer interface {
+	Close(context.Context, *CloseRequest) (*CloseResponse, error)
+	CopyStringToBuffer(context.Context, *CopyStringToBufferRequest) (*CopyStringToBufferResponse, error)
+	Deactivate(context.Context, *DeactivateRequest) (*DeactivateResponse, error)
+	GetBlob(context.Context, *GetBlobRequest) (*GetBlobResponse, error)
+	GetColumnCount(context.Context, *GetColumnCountRequest) (*GetColumnCountResponse, error)
+	GetColumnIndex(context.Context, *GetColumnIndexRequest) (*GetColumnIndexResponse, error)
+	GetColumnIndexOrThrow(context.Context, *GetColumnIndexOrThrowRequest) (*GetColumnIndexOrThrowResponse, error)
+	GetColumnName(context.Context, *GetColumnNameRequest) (*GetColumnNameResponse, error)
+	GetColumnNames(context.Context, *GetColumnNamesRequest) (*GetColumnNamesResponse, error)
+	GetCount(context.Context, *GetCountRequest) (*GetCountResponse, error)
+	GetDouble(context.Context, *GetDoubleRequest) (*GetDoubleResponse, error)
+	GetExtras(context.Context, *GetExtrasRequest) (*GetExtrasResponse, error)
+	GetFloat(context.Context, *GetFloatRequest) (*GetFloatResponse, error)
+	GetInt(context.Context, *GetIntRequest) (*GetIntResponse, error)
+	GetLong(context.Context, *GetLongRequest) (*GetLongResponse, error)
+	GetNotificationUri(context.Context, *GetNotificationUriRequest) (*GetNotificationUriResponse, error)
+	GetPosition(context.Context, *GetPositionRequest) (*GetPositionResponse, error)
+	GetShort(context.Context, *GetShortRequest) (*GetShortResponse, error)
+	GetString(context.Context, *GetStringRequest) (*GetStringResponse, error)
+	GetType(context.Context, *CursorGetTypeRequest) (*CursorGetTypeResponse, error)
+	GetWantsAllOnMoveCalls(context.Context, *GetWantsAllOnMoveCallsRequest) (*GetWantsAllOnMoveCallsResponse, error)
+	IsAfterLast(context.Context, *IsAfterLastRequest) (*IsAfterLastResponse, error)
+	IsBeforeFirst(context.Context, *IsBeforeFirstRequest) (*IsBeforeFirstResponse, error)
+	IsClosed(context.Context, *IsClosedRequest) (*IsClosedResponse, error)
+	IsFirst(context.Context, *IsFirstRequest) (*IsFirstResponse, error)
+	IsLast(context.Context, *IsLastRequest) (*IsLastResponse, error)
+	IsNull(context.Context, *IsNullRequest) (*IsNullResponse, error)
+	Move(context.Context, *MoveRequest) (*MoveResponse, error)
+	MoveToFirst(context.Context, *MoveToFirstRequest) (*MoveToFirstResponse, error)
+	MoveToLast(context.Context, *MoveToLastRequest) (*MoveToLastResponse, error)
+	MoveToNext(context.Context, *MoveToNextRequest) (*MoveToNextResponse, error)
+	MoveToPosition(context.Context, *MoveToPositionRequest) (*MoveToPositionResponse, error)
+	MoveToPrevious(context.Context, *MoveToPreviousRequest) (*MoveToPreviousResponse, error)
+	RegisterContentObserver(context.Context, *CursorRegisterContentObserverRequest) (*RegisterContentObserverResponse, error)
+	RegisterDataSetObserver(context.Context, *RegisterDataSetObserverRequest) (*RegisterDataSetObserverResponse, error)
+	Requery(context.Context, *RequeryRequest) (*RequeryResponse, error)
+	Respond(context.Context, *RespondRequest) (*RespondResponse, error)
+	SetExtras(context.Context, *SetExtrasRequest) (*SetExtrasResponse, error)
+	SetNotificationUri(context.Context, *SetNotificationUriRequest) (*SetNotificationUriResponse, error)
+	UnregisterContentObserver(context.Context, *UnregisterContentObserverRequest) (*UnregisterContentObserverResponse, error)
+	UnregisterDataSetObserver(context.Context, *UnregisterDataSetObserverRequest) (*UnregisterDataSetObserverResponse, error)
+	mustEmbedUnimplementedCursorServiceServer()
+}
+
+// UnimplementedCursorServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedCursorServiceServer struct{}
+
+func (UnimplementedCursorServiceServer) Close(context.Context, *CloseRequest) (*CloseResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Close not implemented")
+}
+func (UnimplementedCursorServiceServer) CopyStringToBuffer(context.Context, *CopyStringToBufferRequest) (*CopyStringToBufferResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method CopyStringToBuffer not implemented")
+}
+func (UnimplementedCursorServiceServer) Deactivate(context.Context, *DeactivateRequest) (*DeactivateResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Deactivate not implemented")
+}
+func (UnimplementedCursorServiceServer) GetBlob(context.Context, *GetBlobRequest) (*GetBlobResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetBlob not implemented")
+}
+func (UnimplementedCursorServiceServer) GetColumnCount(context.Context, *GetColumnCountRequest) (*GetColumnCountResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetColumnCount not implemented")
+}
+func (UnimplementedCursorServiceServer) GetColumnIndex(context.Context, *GetColumnIndexRequest) (*GetColumnIndexResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetColumnIndex not implemented")
+}
+func (UnimplementedCursorServiceServer) GetColumnIndexOrThrow(context.Context, *GetColumnIndexOrThrowRequest) (*GetColumnIndexOrThrowResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetColumnIndexOrThrow not implemented")
+}
+func (UnimplementedCursorServiceServer) GetColumnName(context.Context, *GetColumnNameRequest) (*GetColumnNameResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetColumnName not implemented")
+}
+func (UnimplementedCursorServiceServer) GetColumnNames(context.Context, *GetColumnNamesRequest) (*GetColumnNamesResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetColumnNames not implemented")
+}
+func (UnimplementedCursorServiceServer) GetCount(context.Context, *GetCountRequest) (*GetCountResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetCount not implemented")
+}
+func (UnimplementedCursorServiceServer) GetDouble(context.Context, *GetDoubleRequest) (*GetDoubleResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetDouble not implemented")
+}
+func (UnimplementedCursorServiceServer) GetExtras(context.Context, *GetExtrasRequest) (*GetExtrasResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetExtras not implemented")
+}
+func (UnimplementedCursorServiceServer) GetFloat(context.Context, *GetFloatRequest) (*GetFloatResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetFloat not implemented")
+}
+func (UnimplementedCursorServiceServer) GetInt(context.Context, *GetIntRequest) (*GetIntResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetInt not implemented")
+}
+func (UnimplementedCursorServiceServer) GetLong(context.Context, *GetLongRequest) (*GetLongResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetLong not implemented")
+}
+func (UnimplementedCursorServiceServer) GetNotificationUri(context.Context, *GetNotificationUriRequest) (*GetNotificationUriResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetNotificationUri not implemented")
+}
+func (UnimplementedCursorServiceServer) GetPosition(context.Context, *GetPositionRequest) (*GetPositionResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetPosition not implemented")
+}
+func (UnimplementedCursorServiceServer) GetShort(context.Context, *GetShortRequest) (*GetShortResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetShort not implemented")
+}
+func (UnimplementedCursorServiceServer) GetString(context.Context, *GetStringRequest) (*GetStringResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetString not implemented")
+}
+func (UnimplementedCursorServiceServer) GetType(context.Context, *CursorGetTypeRequest) (*CursorGetTypeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetType not implemented")
+}
+func (UnimplementedCursorServiceServer) GetWantsAllOnMoveCalls(context.Context, *GetWantsAllOnMoveCallsRequest) (*GetWantsAllOnMoveCallsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetWantsAllOnMoveCalls not implemented")
+}
+func (UnimplementedCursorServiceServer) IsAfterLast(context.Context, *IsAfterLastRequest) (*IsAfterLastResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsAfterLast not implemented")
+}
+func (UnimplementedCursorServiceServer) IsBeforeFirst(context.Context, *IsBeforeFirstRequest) (*IsBeforeFirstResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsBeforeFirst not implemented")
+}
+func (UnimplementedCursorServiceServer) IsClosed(context.Context, *IsClosedRequest) (*IsClosedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsClosed not implemented")
+}
+func (UnimplementedCursorServiceServer) IsFirst(context.Context, *IsFirstRequest) (*IsFirstResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsFirst not implemented")
+}
+func (UnimplementedCursorServiceServer) IsLast(context.Context, *IsLastRequest) (*IsLastResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsLast not implemented")
+}
+func (UnimplementedCursorServiceServer) IsNull(context.Context, *IsNullRequest) (*IsNullResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsNull not implemented")
+}
+func (UnimplementedCursorServiceServer) Move(context.Context, *MoveRequest) (*MoveResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Move not implemented")
+}
+func (UnimplementedCursorServiceServer) MoveToFirst(context.Context, *MoveToFirstRequest) (*MoveToFirstResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method MoveToFirst not implemented")
+}
+func (UnimplementedCursorServiceServer) MoveToLast(context.Context, *MoveToLastRequest) (*MoveToLastResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method MoveToLast not implemented")
+}
+func (UnimplementedCursorServiceServer) MoveToNext(context.Context, *MoveToNextRequest) (*MoveToNextResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method MoveToNext not implemented")
+}
+func (UnimplementedCursorServiceServer) MoveToPosition(context.Context, *MoveToPositionRequest) (*MoveToPositionResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method MoveToPosition not implemented")
+}
+func (UnimplementedCursorServiceServer) MoveToPrevious(context.Context, *MoveToPreviousRequest) (*MoveToPreviousResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method MoveToPrevious not implemented")
+}
+func (UnimplementedCursorServiceServer) RegisterContentObserver(context.Context, *CursorRegisterContentObserverRequest) (*RegisterContentObserverResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method RegisterContentObserver not implemented")
+}
+func (UnimplementedCursorServiceServer) RegisterDataSetObserver(context.Context, *RegisterDataSetObserverRequest) (*RegisterDataSetObserverResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method RegisterDataSetObserver not implemented")
+}
+func (UnimplementedCursorServiceServer) Requery(context.Context, *RequeryRequest) (*RequeryResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Requery not implemented")
+}
+func (UnimplementedCursorServiceServer) Respond(context.Context, *RespondRequest) (*RespondResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Respond not implemented")
+}
+func (UnimplementedCursorServiceServer) SetExtras(context.Context, *SetExtrasRequest) (*SetExtrasResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetExtras not implemented")
+}
+func (UnimplementedCursorServiceServer) SetNotificationUri(context.Context, *SetNotificationUriRequest) (*SetNotificationUriResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetNotificationUri not implemented")
+}
+func (UnimplementedCursorServiceServer) UnregisterContentObserver(context.Context, *UnregisterContentObserverRequest) (*UnregisterContentObserverResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method UnregisterContentObserver not implemented")
+}
+func (UnimplementedCursorServiceServer) UnregisterDataSetObserver(context.Context, *UnregisterDataSetObserverRequest) (*UnregisterDataSetObserverResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method UnregisterDataSetObserver not implemented")
+}
+func (UnimplementedCursorServiceServer) mustEmbedUnimplementedCursorServiceServer() {}
+func (UnimplementedCursorServiceServer) testEmbeddedByValue()                       {}
+
+// UnsafeCursorServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to CursorServiceServer will
+// result in compilation errors.
+type UnsafeCursorServiceServer interface {
+	mustEmbedUnimplementedCursorServiceServer()
+}
+
+func RegisterCursorServiceServer(s grpc.ServiceRegistrar, srv CursorServiceServer) {
+	// If the following call panics, it indicates UnimplementedCursorServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&CursorService_ServiceDesc, srv)
+}
+
+func _CursorService_Close_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CloseRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CursorServiceServer).Close(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CursorService_Close_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CursorServiceServer).Close(ctx, req.(*CloseRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CursorService_CopyStringToBuffer_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CopyStringToBufferRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CursorServiceServer).CopyStringToBuffer(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CursorService_CopyStringToBuffer_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CursorServiceServer).CopyStringToBuffer(ctx, req.(*CopyStringToBufferRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CursorService_Deactivate_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DeactivateRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CursorServiceServer).Deactivate(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CursorService_Deactivate_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CursorServiceServer).Deactivate(ctx, req.(*DeactivateRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CursorService_GetBlob_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetBlobRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CursorServiceServer).GetBlob(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CursorService_GetBlob_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CursorServiceServer).GetBlob(ctx, req.(*GetBlobRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CursorService_GetColumnCount_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetColumnCountRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CursorServiceServer).GetColumnCount(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CursorService_GetColumnCount_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CursorServiceServer).GetColumnCount(ctx, req.(*GetColumnCountRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CursorService_GetColumnIndex_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetColumnIndexRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CursorServiceServer).GetColumnIndex(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CursorService_GetColumnIndex_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CursorServiceServer).GetColumnIndex(ctx, req.(*GetColumnIndexRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CursorService_GetColumnIndexOrThrow_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetColumnIndexOrThrowRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CursorServiceServer).GetColumnIndexOrThrow(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CursorService_GetColumnIndexOrThrow_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CursorServiceServer).GetColumnIndexOrThrow(ctx, req.(*GetColumnIndexOrThrowRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CursorService_GetColumnName_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetColumnNameRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CursorServiceServer).GetColumnName(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CursorService_GetColumnName_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CursorServiceServer).GetColumnName(ctx, req.(*GetColumnNameRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CursorService_GetColumnNames_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetColumnNamesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CursorServiceServer).GetColumnNames(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CursorService_GetColumnNames_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CursorServiceServer).GetColumnNames(ctx, req.(*GetColumnNamesRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CursorService_GetCount_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetCountRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CursorServiceServer).GetCount(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CursorService_GetCount_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CursorServiceServer).GetCount(ctx, req.(*GetCountRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CursorService_GetDouble_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetDoubleRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CursorServiceServer).GetDouble(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CursorService_GetDouble_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CursorServiceServer).GetDouble(ctx, req.(*GetDoubleRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CursorService_GetExtras_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetExtrasRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CursorServiceServer).GetExtras(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CursorService_GetExtras_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CursorServiceServer).GetExtras(ctx, req.(*GetExtrasRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CursorService_GetFloat_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetFloatRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CursorServiceServer).GetFloat(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CursorService_GetFloat_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CursorServiceServer).GetFloat(ctx, req.(*GetFloatRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CursorService_GetInt_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetIntRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CursorServiceServer).GetInt(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CursorService_GetInt_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CursorServiceServer).GetInt(ctx, req.(*GetIntRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CursorService_GetLong_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetLongRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CursorServiceServer).GetLong(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CursorService_GetLong_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CursorServiceServer).GetLong(ctx, req.(*GetLongRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CursorService_GetNotificationUri_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetNotificationUriRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CursorServiceServer).GetNotificationUri(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CursorService_GetNotificationUri_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CursorServiceServer).GetNotificationUri(ctx, req.(*GetNotificationUriRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CursorService_GetPosition_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetPositionRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CursorServiceServer).GetPosition(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CursorService_GetPosition_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CursorServiceServer).GetPosition(ctx, req.(*GetPositionRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CursorService_GetShort_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetShortRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CursorServiceServer).GetShort(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CursorService_GetShort_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CursorServiceServer).GetShort(ctx, req.(*GetShortRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CursorService_GetString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetStringRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CursorServiceServer).GetString(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CursorService_GetString_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CursorServiceServer).GetString(ctx, req.(*GetStringRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CursorService_GetType_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CursorGetTypeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CursorServiceServer).GetType(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CursorService_GetType_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CursorServiceServer).GetType(ctx, req.(*CursorGetTypeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CursorService_GetWantsAllOnMoveCalls_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetWantsAllOnMoveCallsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CursorServiceServer).GetWantsAllOnMoveCalls(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CursorService_GetWantsAllOnMoveCalls_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CursorServiceServer).GetWantsAllOnMoveCalls(ctx, req.(*GetWantsAllOnMoveCallsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CursorService_IsAfterLast_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsAfterLastRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CursorServiceServer).IsAfterLast(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CursorService_IsAfterLast_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CursorServiceServer).IsAfterLast(ctx, req.(*IsAfterLastRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CursorService_IsBeforeFirst_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsBeforeFirstRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CursorServiceServer).IsBeforeFirst(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CursorService_IsBeforeFirst_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CursorServiceServer).IsBeforeFirst(ctx, req.(*IsBeforeFirstRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CursorService_IsClosed_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsClosedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CursorServiceServer).IsClosed(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CursorService_IsClosed_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CursorServiceServer).IsClosed(ctx, req.(*IsClosedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CursorService_IsFirst_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsFirstRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CursorServiceServer).IsFirst(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CursorService_IsFirst_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CursorServiceServer).IsFirst(ctx, req.(*IsFirstRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CursorService_IsLast_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsLastRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CursorServiceServer).IsLast(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CursorService_IsLast_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CursorServiceServer).IsLast(ctx, req.(*IsLastRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CursorService_IsNull_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsNullRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CursorServiceServer).IsNull(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CursorService_IsNull_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CursorServiceServer).IsNull(ctx, req.(*IsNullRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CursorService_Move_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(MoveRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CursorServiceServer).Move(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CursorService_Move_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CursorServiceServer).Move(ctx, req.(*MoveRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CursorService_MoveToFirst_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(MoveToFirstRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CursorServiceServer).MoveToFirst(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CursorService_MoveToFirst_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CursorServiceServer).MoveToFirst(ctx, req.(*MoveToFirstRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CursorService_MoveToLast_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(MoveToLastRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CursorServiceServer).MoveToLast(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CursorService_MoveToLast_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CursorServiceServer).MoveToLast(ctx, req.(*MoveToLastRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CursorService_MoveToNext_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(MoveToNextRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CursorServiceServer).MoveToNext(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CursorService_MoveToNext_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CursorServiceServer).MoveToNext(ctx, req.(*MoveToNextRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CursorService_MoveToPosition_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(MoveToPositionRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CursorServiceServer).MoveToPosition(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CursorService_MoveToPosition_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CursorServiceServer).MoveToPosition(ctx, req.(*MoveToPositionRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CursorService_MoveToPrevious_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(MoveToPreviousRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CursorServiceServer).MoveToPrevious(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CursorService_MoveToPrevious_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CursorServiceServer).MoveToPrevious(ctx, req.(*MoveToPreviousRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CursorService_RegisterContentObserver_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CursorRegisterContentObserverRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CursorServiceServer).RegisterContentObserver(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CursorService_RegisterContentObserver_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CursorServiceServer).RegisterContentObserver(ctx, req.(*CursorRegisterContentObserverRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CursorService_RegisterDataSetObserver_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(RegisterDataSetObserverRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CursorServiceServer).RegisterDataSetObserver(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CursorService_RegisterDataSetObserver_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CursorServiceServer).RegisterDataSetObserver(ctx, req.(*RegisterDataSetObserverRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CursorService_Requery_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(RequeryRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CursorServiceServer).Requery(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CursorService_Requery_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CursorServiceServer).Requery(ctx, req.(*RequeryRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CursorService_Respond_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(RespondRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CursorServiceServer).Respond(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CursorService_Respond_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CursorServiceServer).Respond(ctx, req.(*RespondRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CursorService_SetExtras_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetExtrasRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CursorServiceServer).SetExtras(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CursorService_SetExtras_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CursorServiceServer).SetExtras(ctx, req.(*SetExtrasRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CursorService_SetNotificationUri_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetNotificationUriRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CursorServiceServer).SetNotificationUri(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CursorService_SetNotificationUri_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CursorServiceServer).SetNotificationUri(ctx, req.(*SetNotificationUriRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CursorService_UnregisterContentObserver_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(UnregisterContentObserverRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CursorServiceServer).UnregisterContentObserver(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CursorService_UnregisterContentObserver_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CursorServiceServer).UnregisterContentObserver(ctx, req.(*UnregisterContentObserverRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CursorService_UnregisterDataSetObserver_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(UnregisterDataSetObserverRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CursorServiceServer).UnregisterDataSetObserver(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CursorService_UnregisterDataSetObserver_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CursorServiceServer).UnregisterDataSetObserver(ctx, req.(*UnregisterDataSetObserverRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// CursorService_ServiceDesc is the grpc.ServiceDesc for CursorService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var CursorService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "resolver.CursorService",
+	HandlerType: (*CursorServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "Close",
+			Handler:    _CursorService_Close_Handler,
+		},
+		{
+			MethodName: "CopyStringToBuffer",
+			Handler:    _CursorService_CopyStringToBuffer_Handler,
+		},
+		{
+			MethodName: "Deactivate",
+			Handler:    _CursorService_Deactivate_Handler,
+		},
+		{
+			MethodName: "GetBlob",
+			Handler:    _CursorService_GetBlob_Handler,
+		},
+		{
+			MethodName: "GetColumnCount",
+			Handler:    _CursorService_GetColumnCount_Handler,
+		},
+		{
+			MethodName: "GetColumnIndex",
+			Handler:    _CursorService_GetColumnIndex_Handler,
+		},
+		{
+			MethodName: "GetColumnIndexOrThrow",
+			Handler:    _CursorService_GetColumnIndexOrThrow_Handler,
+		},
+		{
+			MethodName: "GetColumnName",
+			Handler:    _CursorService_GetColumnName_Handler,
+		},
+		{
+			MethodName: "GetColumnNames",
+			Handler:    _CursorService_GetColumnNames_Handler,
+		},
+		{
+			MethodName: "GetCount",
+			Handler:    _CursorService_GetCount_Handler,
+		},
+		{
+			MethodName: "GetDouble",
+			Handler:    _CursorService_GetDouble_Handler,
+		},
+		{
+			MethodName: "GetExtras",
+			Handler:    _CursorService_GetExtras_Handler,
+		},
+		{
+			MethodName: "GetFloat",
+			Handler:    _CursorService_GetFloat_Handler,
+		},
+		{
+			MethodName: "GetInt",
+			Handler:    _CursorService_GetInt_Handler,
+		},
+		{
+			MethodName: "GetLong",
+			Handler:    _CursorService_GetLong_Handler,
+		},
+		{
+			MethodName: "GetNotificationUri",
+			Handler:    _CursorService_GetNotificationUri_Handler,
+		},
+		{
+			MethodName: "GetPosition",
+			Handler:    _CursorService_GetPosition_Handler,
+		},
+		{
+			MethodName: "GetShort",
+			Handler:    _CursorService_GetShort_Handler,
+		},
+		{
+			MethodName: "GetString",
+			Handler:    _CursorService_GetString_Handler,
+		},
+		{
+			MethodName: "GetType",
+			Handler:    _CursorService_GetType_Handler,
+		},
+		{
+			MethodName: "GetWantsAllOnMoveCalls",
+			Handler:    _CursorService_GetWantsAllOnMoveCalls_Handler,
+		},
+		{
+			MethodName: "IsAfterLast",
+			Handler:    _CursorService_IsAfterLast_Handler,
+		},
+		{
+			MethodName: "IsBeforeFirst",
+			Handler:    _CursorService_IsBeforeFirst_Handler,
+		},
+		{
+			MethodName: "IsClosed",
+			Handler:    _CursorService_IsClosed_Handler,
+		},
+		{
+			MethodName: "IsFirst",
+			Handler:    _CursorService_IsFirst_Handler,
+		},
+		{
+			MethodName: "IsLast",
+			Handler:    _CursorService_IsLast_Handler,
+		},
+		{
+			MethodName: "IsNull",
+			Handler:    _CursorService_IsNull_Handler,
+		},
+		{
+			MethodName: "Move",
+			Handler:    _CursorService_Move_Handler,
+		},
+		{
+			MethodName: "MoveToFirst",
+			Handler:    _CursorService_MoveToFirst_Handler,
+		},
+		{
+			MethodName: "MoveToLast",
+			Handler:    _CursorService_MoveToLast_Handler,
+		},
+		{
+			MethodName: "MoveToNext",
+			Handler:    _CursorService_MoveToNext_Handler,
+		},
+		{
+			MethodName: "MoveToPosition",
+			Handler:    _CursorService_MoveToPosition_Handler,
+		},
+		{
+			MethodName: "MoveToPrevious",
+			Handler:    _CursorService_MoveToPrevious_Handler,
+		},
+		{
+			MethodName: "RegisterContentObserver",
+			Handler:    _CursorService_RegisterContentObserver_Handler,
+		},
+		{
+			MethodName: "RegisterDataSetObserver",
+			Handler:    _CursorService_RegisterDataSetObserver_Handler,
+		},
+		{
+			MethodName: "Requery",
+			Handler:    _CursorService_Requery_Handler,
+		},
+		{
+			MethodName: "Respond",
+			Handler:    _CursorService_Respond_Handler,
+		},
+		{
+			MethodName: "SetExtras",
+			Handler:    _CursorService_SetExtras_Handler,
+		},
+		{
+			MethodName: "SetNotificationUri",
+			Handler:    _CursorService_SetNotificationUri_Handler,
+		},
+		{
+			MethodName: "UnregisterContentObserver",
+			Handler:    _CursorService_UnregisterContentObserver_Handler,
+		},
+		{
+			MethodName: "UnregisterDataSetObserver",
+			Handler:    _CursorService_UnregisterDataSetObserver_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

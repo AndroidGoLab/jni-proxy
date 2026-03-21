@@ -3,8 +3,8 @@
 package main
 
 import (
-	"github.com/spf13/cobra"
 	pb "github.com/AndroidGoLab/jni-proxy/proto/inputmethod"
+	"github.com/spf13/cobra"
 )
 
 var inputmethodCmd = &cobra.Command{

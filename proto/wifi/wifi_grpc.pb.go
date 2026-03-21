@@ -21,46 +21,46 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
-	WifiInfoService_DescribeContents_FullMethodName                 = "/wifi.WifiInfoService/DescribeContents"
-	WifiInfoService_Equals_FullMethodName                           = "/wifi.WifiInfoService/Equals"
-	WifiInfoService_GetAffiliatedMloLinks_FullMethodName            = "/wifi.WifiInfoService/GetAffiliatedMloLinks"
-	WifiInfoService_GetApMldMacAddress_FullMethodName               = "/wifi.WifiInfoService/GetApMldMacAddress"
-	WifiInfoService_GetApMloLinkId_FullMethodName                   = "/wifi.WifiInfoService/GetApMloLinkId"
-	WifiInfoService_GetApplicableRedactions_FullMethodName          = "/wifi.WifiInfoService/GetApplicableRedactions"
-	WifiInfoService_GetAssociatedMloLinks_FullMethodName            = "/wifi.WifiInfoService/GetAssociatedMloLinks"
-	WifiInfoService_GetBSSID_FullMethodName                         = "/wifi.WifiInfoService/GetBSSID"
-	WifiInfoService_GetCurrentSecurityType_FullMethodName           = "/wifi.WifiInfoService/GetCurrentSecurityType"
-	WifiInfoService_GetFrequency_FullMethodName                     = "/wifi.WifiInfoService/GetFrequency"
-	WifiInfoService_GetHiddenSSID_FullMethodName                    = "/wifi.WifiInfoService/GetHiddenSSID"
-	WifiInfoService_GetInformationElements_FullMethodName           = "/wifi.WifiInfoService/GetInformationElements"
-	WifiInfoService_GetIpAddress_FullMethodName                     = "/wifi.WifiInfoService/GetIpAddress"
-	WifiInfoService_GetLinkSpeed_FullMethodName                     = "/wifi.WifiInfoService/GetLinkSpeed"
-	WifiInfoService_GetMacAddress_FullMethodName                    = "/wifi.WifiInfoService/GetMacAddress"
-	WifiInfoService_GetMaxSupportedRxLinkSpeedMbps_FullMethodName   = "/wifi.WifiInfoService/GetMaxSupportedRxLinkSpeedMbps"
-	WifiInfoService_GetMaxSupportedTxLinkSpeedMbps_FullMethodName   = "/wifi.WifiInfoService/GetMaxSupportedTxLinkSpeedMbps"
-	WifiInfoService_GetNetworkId_FullMethodName                     = "/wifi.WifiInfoService/GetNetworkId"
-	WifiInfoService_GetPasspointFqdn_FullMethodName                 = "/wifi.WifiInfoService/GetPasspointFqdn"
-	WifiInfoService_GetPasspointProviderFriendlyName_FullMethodName = "/wifi.WifiInfoService/GetPasspointProviderFriendlyName"
-	WifiInfoService_GetPasspointUniqueId_FullMethodName             = "/wifi.WifiInfoService/GetPasspointUniqueId"
-	WifiInfoService_GetRssi_FullMethodName                          = "/wifi.WifiInfoService/GetRssi"
-	WifiInfoService_GetRxLinkSpeedMbps_FullMethodName               = "/wifi.WifiInfoService/GetRxLinkSpeedMbps"
-	WifiInfoService_GetSSID_FullMethodName                          = "/wifi.WifiInfoService/GetSSID"
-	WifiInfoService_GetSubscriptionId_FullMethodName                = "/wifi.WifiInfoService/GetSubscriptionId"
-	WifiInfoService_GetSupplicantState_FullMethodName               = "/wifi.WifiInfoService/GetSupplicantState"
-	WifiInfoService_GetTxLinkSpeedMbps_FullMethodName               = "/wifi.WifiInfoService/GetTxLinkSpeedMbps"
-	WifiInfoService_GetWifiStandard_FullMethodName                  = "/wifi.WifiInfoService/GetWifiStandard"
-	WifiInfoService_HashCode_FullMethodName                         = "/wifi.WifiInfoService/HashCode"
-	WifiInfoService_IsRestricted_FullMethodName                     = "/wifi.WifiInfoService/IsRestricted"
-	WifiInfoService_MakeCopy_FullMethodName                         = "/wifi.WifiInfoService/MakeCopy"
-	WifiInfoService_ToString_FullMethodName                         = "/wifi.WifiInfoService/ToString"
-	WifiInfoService_WriteToParcel_FullMethodName                    = "/wifi.WifiInfoService/WriteToParcel"
-	WifiInfoService_GetDetailedStateOf_FullMethodName               = "/wifi.WifiInfoService/GetDetailedStateOf"
+	InfoService_DescribeContents_FullMethodName                 = "/wifi.InfoService/DescribeContents"
+	InfoService_Equals_FullMethodName                           = "/wifi.InfoService/Equals"
+	InfoService_GetAffiliatedMloLinks_FullMethodName            = "/wifi.InfoService/GetAffiliatedMloLinks"
+	InfoService_GetApMldMacAddress_FullMethodName               = "/wifi.InfoService/GetApMldMacAddress"
+	InfoService_GetApMloLinkId_FullMethodName                   = "/wifi.InfoService/GetApMloLinkId"
+	InfoService_GetApplicableRedactions_FullMethodName          = "/wifi.InfoService/GetApplicableRedactions"
+	InfoService_GetAssociatedMloLinks_FullMethodName            = "/wifi.InfoService/GetAssociatedMloLinks"
+	InfoService_GetBSSID_FullMethodName                         = "/wifi.InfoService/GetBSSID"
+	InfoService_GetCurrentSecurityType_FullMethodName           = "/wifi.InfoService/GetCurrentSecurityType"
+	InfoService_GetFrequency_FullMethodName                     = "/wifi.InfoService/GetFrequency"
+	InfoService_GetHiddenSSID_FullMethodName                    = "/wifi.InfoService/GetHiddenSSID"
+	InfoService_GetInformationElements_FullMethodName           = "/wifi.InfoService/GetInformationElements"
+	InfoService_GetIpAddress_FullMethodName                     = "/wifi.InfoService/GetIpAddress"
+	InfoService_GetLinkSpeed_FullMethodName                     = "/wifi.InfoService/GetLinkSpeed"
+	InfoService_GetMacAddress_FullMethodName                    = "/wifi.InfoService/GetMacAddress"
+	InfoService_GetMaxSupportedRxLinkSpeedMbps_FullMethodName   = "/wifi.InfoService/GetMaxSupportedRxLinkSpeedMbps"
+	InfoService_GetMaxSupportedTxLinkSpeedMbps_FullMethodName   = "/wifi.InfoService/GetMaxSupportedTxLinkSpeedMbps"
+	InfoService_GetNetworkId_FullMethodName                     = "/wifi.InfoService/GetNetworkId"
+	InfoService_GetPasspointFqdn_FullMethodName                 = "/wifi.InfoService/GetPasspointFqdn"
+	InfoService_GetPasspointProviderFriendlyName_FullMethodName = "/wifi.InfoService/GetPasspointProviderFriendlyName"
+	InfoService_GetPasspointUniqueId_FullMethodName             = "/wifi.InfoService/GetPasspointUniqueId"
+	InfoService_GetRssi_FullMethodName                          = "/wifi.InfoService/GetRssi"
+	InfoService_GetRxLinkSpeedMbps_FullMethodName               = "/wifi.InfoService/GetRxLinkSpeedMbps"
+	InfoService_GetSSID_FullMethodName                          = "/wifi.InfoService/GetSSID"
+	InfoService_GetSubscriptionId_FullMethodName                = "/wifi.InfoService/GetSubscriptionId"
+	InfoService_GetSupplicantState_FullMethodName               = "/wifi.InfoService/GetSupplicantState"
+	InfoService_GetTxLinkSpeedMbps_FullMethodName               = "/wifi.InfoService/GetTxLinkSpeedMbps"
+	InfoService_GetWifiStandard_FullMethodName                  = "/wifi.InfoService/GetWifiStandard"
+	InfoService_HashCode_FullMethodName                         = "/wifi.InfoService/HashCode"
+	InfoService_IsRestricted_FullMethodName                     = "/wifi.InfoService/IsRestricted"
+	InfoService_MakeCopy_FullMethodName                         = "/wifi.InfoService/MakeCopy"
+	InfoService_ToString_FullMethodName                         = "/wifi.InfoService/ToString"
+	InfoService_WriteToParcel_FullMethodName                    = "/wifi.InfoService/WriteToParcel"
+	InfoService_GetDetailedStateOf_FullMethodName               = "/wifi.InfoService/GetDetailedStateOf"
 )
 
-// WifiInfoServiceClient is the client API for WifiInfoService service.
+// InfoServiceClient is the client API for InfoService service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type WifiInfoServiceClient interface {
+type InfoServiceClient interface {
 	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
 	Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
 	GetAffiliatedMloLinks(ctx context.Context, in *GetAffiliatedMloLinksRequest, opts ...grpc.CallOption) (*GetAffiliatedMloLinksResponse, error)
@@ -97,358 +97,358 @@ type WifiInfoServiceClient interface {
 	GetDetailedStateOf(ctx context.Context, in *GetDetailedStateOfRequest, opts ...grpc.CallOption) (*GetDetailedStateOfResponse, error)
 }
 
-type wifiInfoServiceClient struct {
+type infoServiceClient struct {
 	cc grpc.ClientConnInterface
 }
 
-func NewWifiInfoServiceClient(cc grpc.ClientConnInterface) WifiInfoServiceClient {
-	return &wifiInfoServiceClient{cc}
+func NewInfoServiceClient(cc grpc.ClientConnInterface) InfoServiceClient {
+	return &infoServiceClient{cc}
 }
 
-func (c *wifiInfoServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
+func (c *infoServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(DescribeContentsResponse)
-	err := c.cc.Invoke(ctx, WifiInfoService_DescribeContents_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, InfoService_DescribeContents_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *wifiInfoServiceClient) Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error) {
+func (c *infoServiceClient) Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(EqualsResponse)
-	err := c.cc.Invoke(ctx, WifiInfoService_Equals_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, InfoService_Equals_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *wifiInfoServiceClient) GetAffiliatedMloLinks(ctx context.Context, in *GetAffiliatedMloLinksRequest, opts ...grpc.CallOption) (*GetAffiliatedMloLinksResponse, error) {
+func (c *infoServiceClient) GetAffiliatedMloLinks(ctx context.Context, in *GetAffiliatedMloLinksRequest, opts ...grpc.CallOption) (*GetAffiliatedMloLinksResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(GetAffiliatedMloLinksResponse)
-	err := c.cc.Invoke(ctx, WifiInfoService_GetAffiliatedMloLinks_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, InfoService_GetAffiliatedMloLinks_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *wifiInfoServiceClient) GetApMldMacAddress(ctx context.Context, in *GetApMldMacAddressRequest, opts ...grpc.CallOption) (*GetApMldMacAddressResponse, error) {
+func (c *infoServiceClient) GetApMldMacAddress(ctx context.Context, in *GetApMldMacAddressRequest, opts ...grpc.CallOption) (*GetApMldMacAddressResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(GetApMldMacAddressResponse)
-	err := c.cc.Invoke(ctx, WifiInfoService_GetApMldMacAddress_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, InfoService_GetApMldMacAddress_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *wifiInfoServiceClient) GetApMloLinkId(ctx context.Context, in *GetApMloLinkIdRequest, opts ...grpc.CallOption) (*GetApMloLinkIdResponse, error) {
+func (c *infoServiceClient) GetApMloLinkId(ctx context.Context, in *GetApMloLinkIdRequest, opts ...grpc.CallOption) (*GetApMloLinkIdResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(GetApMloLinkIdResponse)
-	err := c.cc.Invoke(ctx, WifiInfoService_GetApMloLinkId_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, InfoService_GetApMloLinkId_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *wifiInfoServiceClient) GetApplicableRedactions(ctx context.Context, in *GetApplicableRedactionsRequest, opts ...grpc.CallOption) (*GetApplicableRedactionsResponse, error) {
+func (c *infoServiceClient) GetApplicableRedactions(ctx context.Context, in *GetApplicableRedactionsRequest, opts ...grpc.CallOption) (*GetApplicableRedactionsResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(GetApplicableRedactionsResponse)
-	err := c.cc.Invoke(ctx, WifiInfoService_GetApplicableRedactions_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, InfoService_GetApplicableRedactions_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *wifiInfoServiceClient) GetAssociatedMloLinks(ctx context.Context, in *GetAssociatedMloLinksRequest, opts ...grpc.CallOption) (*GetAssociatedMloLinksResponse, error) {
+func (c *infoServiceClient) GetAssociatedMloLinks(ctx context.Context, in *GetAssociatedMloLinksRequest, opts ...grpc.CallOption) (*GetAssociatedMloLinksResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(GetAssociatedMloLinksResponse)
-	err := c.cc.Invoke(ctx, WifiInfoService_GetAssociatedMloLinks_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, InfoService_GetAssociatedMloLinks_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *wifiInfoServiceClient) GetBSSID(ctx context.Context, in *GetBSSIDRequest, opts ...grpc.CallOption) (*GetBSSIDResponse, error) {
+func (c *infoServiceClient) GetBSSID(ctx context.Context, in *GetBSSIDRequest, opts ...grpc.CallOption) (*GetBSSIDResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(GetBSSIDResponse)
-	err := c.cc.Invoke(ctx, WifiInfoService_GetBSSID_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, InfoService_GetBSSID_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *wifiInfoServiceClient) GetCurrentSecurityType(ctx context.Context, in *GetCurrentSecurityTypeRequest, opts ...grpc.CallOption) (*GetCurrentSecurityTypeResponse, error) {
+func (c *infoServiceClient) GetCurrentSecurityType(ctx context.Context, in *GetCurrentSecurityTypeRequest, opts ...grpc.CallOption) (*GetCurrentSecurityTypeResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(GetCurrentSecurityTypeResponse)
-	err := c.cc.Invoke(ctx, WifiInfoService_GetCurrentSecurityType_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, InfoService_GetCurrentSecurityType_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *wifiInfoServiceClient) GetFrequency(ctx context.Context, in *GetFrequencyRequest, opts ...grpc.CallOption) (*GetFrequencyResponse, error) {
+func (c *infoServiceClient) GetFrequency(ctx context.Context, in *GetFrequencyRequest, opts ...grpc.CallOption) (*GetFrequencyResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(GetFrequencyResponse)
-	err := c.cc.Invoke(ctx, WifiInfoService_GetFrequency_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, InfoService_GetFrequency_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *wifiInfoServiceClient) GetHiddenSSID(ctx context.Context, in *GetHiddenSSIDRequest, opts ...grpc.CallOption) (*GetHiddenSSIDResponse, error) {
+func (c *infoServiceClient) GetHiddenSSID(ctx context.Context, in *GetHiddenSSIDRequest, opts ...grpc.CallOption) (*GetHiddenSSIDResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(GetHiddenSSIDResponse)
-	err := c.cc.Invoke(ctx, WifiInfoService_GetHiddenSSID_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, InfoService_GetHiddenSSID_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *wifiInfoServiceClient) GetInformationElements(ctx context.Context, in *GetInformationElementsRequest, opts ...grpc.CallOption) (*GetInformationElementsResponse, error) {
+func (c *infoServiceClient) GetInformationElements(ctx context.Context, in *GetInformationElementsRequest, opts ...grpc.CallOption) (*GetInformationElementsResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(GetInformationElementsResponse)
-	err := c.cc.Invoke(ctx, WifiInfoService_GetInformationElements_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, InfoService_GetInformationElements_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *wifiInfoServiceClient) GetIpAddress(ctx context.Context, in *GetIpAddressRequest, opts ...grpc.CallOption) (*GetIpAddressResponse, error) {
+func (c *infoServiceClient) GetIpAddress(ctx context.Context, in *GetIpAddressRequest, opts ...grpc.CallOption) (*GetIpAddressResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(GetIpAddressResponse)
-	err := c.cc.Invoke(ctx, WifiInfoService_GetIpAddress_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, InfoService_GetIpAddress_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *wifiInfoServiceClient) GetLinkSpeed(ctx context.Context, in *GetLinkSpeedRequest, opts ...grpc.CallOption) (*GetLinkSpeedResponse, error) {
+func (c *infoServiceClient) GetLinkSpeed(ctx context.Context, in *GetLinkSpeedRequest, opts ...grpc.CallOption) (*GetLinkSpeedResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(GetLinkSpeedResponse)
-	err := c.cc.Invoke(ctx, WifiInfoService_GetLinkSpeed_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, InfoService_GetLinkSpeed_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *wifiInfoServiceClient) GetMacAddress(ctx context.Context, in *GetMacAddressRequest, opts ...grpc.CallOption) (*GetMacAddressResponse, error) {
+func (c *infoServiceClient) GetMacAddress(ctx context.Context, in *GetMacAddressRequest, opts ...grpc.CallOption) (*GetMacAddressResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(GetMacAddressResponse)
-	err := c.cc.Invoke(ctx, WifiInfoService_GetMacAddress_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, InfoService_GetMacAddress_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *wifiInfoServiceClient) GetMaxSupportedRxLinkSpeedMbps(ctx context.Context, in *GetMaxSupportedRxLinkSpeedMbpsRequest, opts ...grpc.CallOption) (*GetMaxSupportedRxLinkSpeedMbpsResponse, error) {
+func (c *infoServiceClient) GetMaxSupportedRxLinkSpeedMbps(ctx context.Context, in *GetMaxSupportedRxLinkSpeedMbpsRequest, opts ...grpc.CallOption) (*GetMaxSupportedRxLinkSpeedMbpsResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(GetMaxSupportedRxLinkSpeedMbpsResponse)
-	err := c.cc.Invoke(ctx, WifiInfoService_GetMaxSupportedRxLinkSpeedMbps_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, InfoService_GetMaxSupportedRxLinkSpeedMbps_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *wifiInfoServiceClient) GetMaxSupportedTxLinkSpeedMbps(ctx context.Context, in *GetMaxSupportedTxLinkSpeedMbpsRequest, opts ...grpc.CallOption) (*GetMaxSupportedTxLinkSpeedMbpsResponse, error) {
+func (c *infoServiceClient) GetMaxSupportedTxLinkSpeedMbps(ctx context.Context, in *GetMaxSupportedTxLinkSpeedMbpsRequest, opts ...grpc.CallOption) (*GetMaxSupportedTxLinkSpeedMbpsResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(GetMaxSupportedTxLinkSpeedMbpsResponse)
-	err := c.cc.Invoke(ctx, WifiInfoService_GetMaxSupportedTxLinkSpeedMbps_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, InfoService_GetMaxSupportedTxLinkSpeedMbps_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *wifiInfoServiceClient) GetNetworkId(ctx context.Context, in *GetNetworkIdRequest, opts ...grpc.CallOption) (*GetNetworkIdResponse, error) {
+func (c *infoServiceClient) GetNetworkId(ctx context.Context, in *GetNetworkIdRequest, opts ...grpc.CallOption) (*GetNetworkIdResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(GetNetworkIdResponse)
-	err := c.cc.Invoke(ctx, WifiInfoService_GetNetworkId_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, InfoService_GetNetworkId_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *wifiInfoServiceClient) GetPasspointFqdn(ctx context.Context, in *GetPasspointFqdnRequest, opts ...grpc.CallOption) (*GetPasspointFqdnResponse, error) {
+func (c *infoServiceClient) GetPasspointFqdn(ctx context.Context, in *GetPasspointFqdnRequest, opts ...grpc.CallOption) (*GetPasspointFqdnResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(GetPasspointFqdnResponse)
-	err := c.cc.Invoke(ctx, WifiInfoService_GetPasspointFqdn_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, InfoService_GetPasspointFqdn_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *wifiInfoServiceClient) GetPasspointProviderFriendlyName(ctx context.Context, in *GetPasspointProviderFriendlyNameRequest, opts ...grpc.CallOption) (*GetPasspointProviderFriendlyNameResponse, error) {
+func (c *infoServiceClient) GetPasspointProviderFriendlyName(ctx context.Context, in *GetPasspointProviderFriendlyNameRequest, opts ...grpc.CallOption) (*GetPasspointProviderFriendlyNameResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(GetPasspointProviderFriendlyNameResponse)
-	err := c.cc.Invoke(ctx, WifiInfoService_GetPasspointProviderFriendlyName_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, InfoService_GetPasspointProviderFriendlyName_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *wifiInfoServiceClient) GetPasspointUniqueId(ctx context.Context, in *GetPasspointUniqueIdRequest, opts ...grpc.CallOption) (*GetPasspointUniqueIdResponse, error) {
+func (c *infoServiceClient) GetPasspointUniqueId(ctx context.Context, in *GetPasspointUniqueIdRequest, opts ...grpc.CallOption) (*GetPasspointUniqueIdResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(GetPasspointUniqueIdResponse)
-	err := c.cc.Invoke(ctx, WifiInfoService_GetPasspointUniqueId_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, InfoService_GetPasspointUniqueId_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *wifiInfoServiceClient) GetRssi(ctx context.Context, in *GetRssiRequest, opts ...grpc.CallOption) (*GetRssiResponse, error) {
+func (c *infoServiceClient) GetRssi(ctx context.Context, in *GetRssiRequest, opts ...grpc.CallOption) (*GetRssiResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(GetRssiResponse)
-	err := c.cc.Invoke(ctx, WifiInfoService_GetRssi_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, InfoService_GetRssi_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *wifiInfoServiceClient) GetRxLinkSpeedMbps(ctx context.Context, in *GetRxLinkSpeedMbpsRequest, opts ...grpc.CallOption) (*GetRxLinkSpeedMbpsResponse, error) {
+func (c *infoServiceClient) GetRxLinkSpeedMbps(ctx context.Context, in *GetRxLinkSpeedMbpsRequest, opts ...grpc.CallOption) (*GetRxLinkSpeedMbpsResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(GetRxLinkSpeedMbpsResponse)
-	err := c.cc.Invoke(ctx, WifiInfoService_GetRxLinkSpeedMbps_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, InfoService_GetRxLinkSpeedMbps_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *wifiInfoServiceClient) GetSSID(ctx context.Context, in *GetSSIDRequest, opts ...grpc.CallOption) (*GetSSIDResponse, error) {
+func (c *infoServiceClient) GetSSID(ctx context.Context, in *GetSSIDRequest, opts ...grpc.CallOption) (*GetSSIDResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(GetSSIDResponse)
-	err := c.cc.Invoke(ctx, WifiInfoService_GetSSID_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, InfoService_GetSSID_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *wifiInfoServiceClient) GetSubscriptionId(ctx context.Context, in *GetSubscriptionIdRequest, opts ...grpc.CallOption) (*GetSubscriptionIdResponse, error) {
+func (c *infoServiceClient) GetSubscriptionId(ctx context.Context, in *GetSubscriptionIdRequest, opts ...grpc.CallOption) (*GetSubscriptionIdResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(GetSubscriptionIdResponse)
-	err := c.cc.Invoke(ctx, WifiInfoService_GetSubscriptionId_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, InfoService_GetSubscriptionId_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *wifiInfoServiceClient) GetSupplicantState(ctx context.Context, in *GetSupplicantStateRequest, opts ...grpc.CallOption) (*GetSupplicantStateResponse, error) {
+func (c *infoServiceClient) GetSupplicantState(ctx context.Context, in *GetSupplicantStateRequest, opts ...grpc.CallOption) (*GetSupplicantStateResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(GetSupplicantStateResponse)
-	err := c.cc.Invoke(ctx, WifiInfoService_GetSupplicantState_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, InfoService_GetSupplicantState_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *wifiInfoServiceClient) GetTxLinkSpeedMbps(ctx context.Context, in *GetTxLinkSpeedMbpsRequest, opts ...grpc.CallOption) (*GetTxLinkSpeedMbpsResponse, error) {
+func (c *infoServiceClient) GetTxLinkSpeedMbps(ctx context.Context, in *GetTxLinkSpeedMbpsRequest, opts ...grpc.CallOption) (*GetTxLinkSpeedMbpsResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(GetTxLinkSpeedMbpsResponse)
-	err := c.cc.Invoke(ctx, WifiInfoService_GetTxLinkSpeedMbps_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, InfoService_GetTxLinkSpeedMbps_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *wifiInfoServiceClient) GetWifiStandard(ctx context.Context, in *GetWifiStandardRequest, opts ...grpc.CallOption) (*GetWifiStandardResponse, error) {
+func (c *infoServiceClient) GetWifiStandard(ctx context.Context, in *GetWifiStandardRequest, opts ...grpc.CallOption) (*GetWifiStandardResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(GetWifiStandardResponse)
-	err := c.cc.Invoke(ctx, WifiInfoService_GetWifiStandard_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, InfoService_GetWifiStandard_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *wifiInfoServiceClient) HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
+func (c *infoServiceClient) HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(HashCodeResponse)
-	err := c.cc.Invoke(ctx, WifiInfoService_HashCode_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, InfoService_HashCode_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *wifiInfoServiceClient) IsRestricted(ctx context.Context, in *IsRestrictedRequest, opts ...grpc.CallOption) (*IsRestrictedResponse, error) {
+func (c *infoServiceClient) IsRestricted(ctx context.Context, in *IsRestrictedRequest, opts ...grpc.CallOption) (*IsRestrictedResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(IsRestrictedResponse)
-	err := c.cc.Invoke(ctx, WifiInfoService_IsRestricted_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, InfoService_IsRestricted_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *wifiInfoServiceClient) MakeCopy(ctx context.Context, in *MakeCopyRequest, opts ...grpc.CallOption) (*MakeCopyResponse, error) {
+func (c *infoServiceClient) MakeCopy(ctx context.Context, in *MakeCopyRequest, opts ...grpc.CallOption) (*MakeCopyResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(MakeCopyResponse)
-	err := c.cc.Invoke(ctx, WifiInfoService_MakeCopy_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, InfoService_MakeCopy_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *wifiInfoServiceClient) ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
+func (c *infoServiceClient) ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(ToStringResponse)
-	err := c.cc.Invoke(ctx, WifiInfoService_ToString_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, InfoService_ToString_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *wifiInfoServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
+func (c *infoServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(WriteToParcelResponse)
-	err := c.cc.Invoke(ctx, WifiInfoService_WriteToParcel_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, InfoService_WriteToParcel_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *wifiInfoServiceClient) GetDetailedStateOf(ctx context.Context, in *GetDetailedStateOfRequest, opts ...grpc.CallOption) (*GetDetailedStateOfResponse, error) {
+func (c *infoServiceClient) GetDetailedStateOf(ctx context.Context, in *GetDetailedStateOfRequest, opts ...grpc.CallOption) (*GetDetailedStateOfResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(GetDetailedStateOfResponse)
-	err := c.cc.Invoke(ctx, WifiInfoService_GetDetailedStateOf_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, InfoService_GetDetailedStateOf_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-// WifiInfoServiceServer is the server API for WifiInfoService service.
-// All implementations must embed UnimplementedWifiInfoServiceServer
+// InfoServiceServer is the server API for InfoService service.
+// All implementations must embed UnimplementedInfoServiceServer
 // for forward compatibility.
-type WifiInfoServiceServer interface {
+type InfoServiceServer interface {
 	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
 	Equals(context.Context, *EqualsRequest) (*EqualsResponse, error)
 	GetAffiliatedMloLinks(context.Context, *GetAffiliatedMloLinksRequest) (*GetAffiliatedMloLinksResponse, error)
@@ -483,893 +483,893 @@ type WifiInfoServiceServer interface {
 	ToString(context.Context, *ToStringRequest) (*ToStringResponse, error)
 	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
 	GetDetailedStateOf(context.Context, *GetDetailedStateOfRequest) (*GetDetailedStateOfResponse, error)
-	mustEmbedUnimplementedWifiInfoServiceServer()
+	mustEmbedUnimplementedInfoServiceServer()
 }
 
-// UnimplementedWifiInfoServiceServer must be embedded to have
+// UnimplementedInfoServiceServer must be embedded to have
 // forward compatible implementations.
 //
 // NOTE: this should be embedded by value instead of pointer to avoid a nil
 // pointer dereference when methods are called.
-type UnimplementedWifiInfoServiceServer struct{}
+type UnimplementedInfoServiceServer struct{}
 
-func (UnimplementedWifiInfoServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
+func (UnimplementedInfoServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
 }
-func (UnimplementedWifiInfoServiceServer) Equals(context.Context, *EqualsRequest) (*EqualsResponse, error) {
+func (UnimplementedInfoServiceServer) Equals(context.Context, *EqualsRequest) (*EqualsResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method Equals not implemented")
 }
-func (UnimplementedWifiInfoServiceServer) GetAffiliatedMloLinks(context.Context, *GetAffiliatedMloLinksRequest) (*GetAffiliatedMloLinksResponse, error) {
+func (UnimplementedInfoServiceServer) GetAffiliatedMloLinks(context.Context, *GetAffiliatedMloLinksRequest) (*GetAffiliatedMloLinksResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetAffiliatedMloLinks not implemented")
 }
-func (UnimplementedWifiInfoServiceServer) GetApMldMacAddress(context.Context, *GetApMldMacAddressRequest) (*GetApMldMacAddressResponse, error) {
+func (UnimplementedInfoServiceServer) GetApMldMacAddress(context.Context, *GetApMldMacAddressRequest) (*GetApMldMacAddressResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetApMldMacAddress not implemented")
 }
-func (UnimplementedWifiInfoServiceServer) GetApMloLinkId(context.Context, *GetApMloLinkIdRequest) (*GetApMloLinkIdResponse, error) {
+func (UnimplementedInfoServiceServer) GetApMloLinkId(context.Context, *GetApMloLinkIdRequest) (*GetApMloLinkIdResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetApMloLinkId not implemented")
 }
-func (UnimplementedWifiInfoServiceServer) GetApplicableRedactions(context.Context, *GetApplicableRedactionsRequest) (*GetApplicableRedactionsResponse, error) {
+func (UnimplementedInfoServiceServer) GetApplicableRedactions(context.Context, *GetApplicableRedactionsRequest) (*GetApplicableRedactionsResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetApplicableRedactions not implemented")
 }
-func (UnimplementedWifiInfoServiceServer) GetAssociatedMloLinks(context.Context, *GetAssociatedMloLinksRequest) (*GetAssociatedMloLinksResponse, error) {
+func (UnimplementedInfoServiceServer) GetAssociatedMloLinks(context.Context, *GetAssociatedMloLinksRequest) (*GetAssociatedMloLinksResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetAssociatedMloLinks not implemented")
 }
-func (UnimplementedWifiInfoServiceServer) GetBSSID(context.Context, *GetBSSIDRequest) (*GetBSSIDResponse, error) {
+func (UnimplementedInfoServiceServer) GetBSSID(context.Context, *GetBSSIDRequest) (*GetBSSIDResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetBSSID not implemented")
 }
-func (UnimplementedWifiInfoServiceServer) GetCurrentSecurityType(context.Context, *GetCurrentSecurityTypeRequest) (*GetCurrentSecurityTypeResponse, error) {
+func (UnimplementedInfoServiceServer) GetCurrentSecurityType(context.Context, *GetCurrentSecurityTypeRequest) (*GetCurrentSecurityTypeResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetCurrentSecurityType not implemented")
 }
-func (UnimplementedWifiInfoServiceServer) GetFrequency(context.Context, *GetFrequencyRequest) (*GetFrequencyResponse, error) {
+func (UnimplementedInfoServiceServer) GetFrequency(context.Context, *GetFrequencyRequest) (*GetFrequencyResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetFrequency not implemented")
 }
-func (UnimplementedWifiInfoServiceServer) GetHiddenSSID(context.Context, *GetHiddenSSIDRequest) (*GetHiddenSSIDResponse, error) {
+func (UnimplementedInfoServiceServer) GetHiddenSSID(context.Context, *GetHiddenSSIDRequest) (*GetHiddenSSIDResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetHiddenSSID not implemented")
 }
-func (UnimplementedWifiInfoServiceServer) GetInformationElements(context.Context, *GetInformationElementsRequest) (*GetInformationElementsResponse, error) {
+func (UnimplementedInfoServiceServer) GetInformationElements(context.Context, *GetInformationElementsRequest) (*GetInformationElementsResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetInformationElements not implemented")
 }
-func (UnimplementedWifiInfoServiceServer) GetIpAddress(context.Context, *GetIpAddressRequest) (*GetIpAddressResponse, error) {
+func (UnimplementedInfoServiceServer) GetIpAddress(context.Context, *GetIpAddressRequest) (*GetIpAddressResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetIpAddress not implemented")
 }
-func (UnimplementedWifiInfoServiceServer) GetLinkSpeed(context.Context, *GetLinkSpeedRequest) (*GetLinkSpeedResponse, error) {
+func (UnimplementedInfoServiceServer) GetLinkSpeed(context.Context, *GetLinkSpeedRequest) (*GetLinkSpeedResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetLinkSpeed not implemented")
 }
-func (UnimplementedWifiInfoServiceServer) GetMacAddress(context.Context, *GetMacAddressRequest) (*GetMacAddressResponse, error) {
+func (UnimplementedInfoServiceServer) GetMacAddress(context.Context, *GetMacAddressRequest) (*GetMacAddressResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetMacAddress not implemented")
 }
-func (UnimplementedWifiInfoServiceServer) GetMaxSupportedRxLinkSpeedMbps(context.Context, *GetMaxSupportedRxLinkSpeedMbpsRequest) (*GetMaxSupportedRxLinkSpeedMbpsResponse, error) {
+func (UnimplementedInfoServiceServer) GetMaxSupportedRxLinkSpeedMbps(context.Context, *GetMaxSupportedRxLinkSpeedMbpsRequest) (*GetMaxSupportedRxLinkSpeedMbpsResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetMaxSupportedRxLinkSpeedMbps not implemented")
 }
-func (UnimplementedWifiInfoServiceServer) GetMaxSupportedTxLinkSpeedMbps(context.Context, *GetMaxSupportedTxLinkSpeedMbpsRequest) (*GetMaxSupportedTxLinkSpeedMbpsResponse, error) {
+func (UnimplementedInfoServiceServer) GetMaxSupportedTxLinkSpeedMbps(context.Context, *GetMaxSupportedTxLinkSpeedMbpsRequest) (*GetMaxSupportedTxLinkSpeedMbpsResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetMaxSupportedTxLinkSpeedMbps not implemented")
 }
-func (UnimplementedWifiInfoServiceServer) GetNetworkId(context.Context, *GetNetworkIdRequest) (*GetNetworkIdResponse, error) {
+func (UnimplementedInfoServiceServer) GetNetworkId(context.Context, *GetNetworkIdRequest) (*GetNetworkIdResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetNetworkId not implemented")
 }
-func (UnimplementedWifiInfoServiceServer) GetPasspointFqdn(context.Context, *GetPasspointFqdnRequest) (*GetPasspointFqdnResponse, error) {
+func (UnimplementedInfoServiceServer) GetPasspointFqdn(context.Context, *GetPasspointFqdnRequest) (*GetPasspointFqdnResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetPasspointFqdn not implemented")
 }
-func (UnimplementedWifiInfoServiceServer) GetPasspointProviderFriendlyName(context.Context, *GetPasspointProviderFriendlyNameRequest) (*GetPasspointProviderFriendlyNameResponse, error) {
+func (UnimplementedInfoServiceServer) GetPasspointProviderFriendlyName(context.Context, *GetPasspointProviderFriendlyNameRequest) (*GetPasspointProviderFriendlyNameResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetPasspointProviderFriendlyName not implemented")
 }
-func (UnimplementedWifiInfoServiceServer) GetPasspointUniqueId(context.Context, *GetPasspointUniqueIdRequest) (*GetPasspointUniqueIdResponse, error) {
+func (UnimplementedInfoServiceServer) GetPasspointUniqueId(context.Context, *GetPasspointUniqueIdRequest) (*GetPasspointUniqueIdResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetPasspointUniqueId not implemented")
 }
-func (UnimplementedWifiInfoServiceServer) GetRssi(context.Context, *GetRssiRequest) (*GetRssiResponse, error) {
+func (UnimplementedInfoServiceServer) GetRssi(context.Context, *GetRssiRequest) (*GetRssiResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetRssi not implemented")
 }
-func (UnimplementedWifiInfoServiceServer) GetRxLinkSpeedMbps(context.Context, *GetRxLinkSpeedMbpsRequest) (*GetRxLinkSpeedMbpsResponse, error) {
+func (UnimplementedInfoServiceServer) GetRxLinkSpeedMbps(context.Context, *GetRxLinkSpeedMbpsRequest) (*GetRxLinkSpeedMbpsResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetRxLinkSpeedMbps not implemented")
 }
-func (UnimplementedWifiInfoServiceServer) GetSSID(context.Context, *GetSSIDRequest) (*GetSSIDResponse, error) {
+func (UnimplementedInfoServiceServer) GetSSID(context.Context, *GetSSIDRequest) (*GetSSIDResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetSSID not implemented")
 }
-func (UnimplementedWifiInfoServiceServer) GetSubscriptionId(context.Context, *GetSubscriptionIdRequest) (*GetSubscriptionIdResponse, error) {
+func (UnimplementedInfoServiceServer) GetSubscriptionId(context.Context, *GetSubscriptionIdRequest) (*GetSubscriptionIdResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetSubscriptionId not implemented")
 }
-func (UnimplementedWifiInfoServiceServer) GetSupplicantState(context.Context, *GetSupplicantStateRequest) (*GetSupplicantStateResponse, error) {
+func (UnimplementedInfoServiceServer) GetSupplicantState(context.Context, *GetSupplicantStateRequest) (*GetSupplicantStateResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetSupplicantState not implemented")
 }
-func (UnimplementedWifiInfoServiceServer) GetTxLinkSpeedMbps(context.Context, *GetTxLinkSpeedMbpsRequest) (*GetTxLinkSpeedMbpsResponse, error) {
+func (UnimplementedInfoServiceServer) GetTxLinkSpeedMbps(context.Context, *GetTxLinkSpeedMbpsRequest) (*GetTxLinkSpeedMbpsResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetTxLinkSpeedMbps not implemented")
 }
-func (UnimplementedWifiInfoServiceServer) GetWifiStandard(context.Context, *GetWifiStandardRequest) (*GetWifiStandardResponse, error) {
+func (UnimplementedInfoServiceServer) GetWifiStandard(context.Context, *GetWifiStandardRequest) (*GetWifiStandardResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetWifiStandard not implemented")
 }
-func (UnimplementedWifiInfoServiceServer) HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error) {
+func (UnimplementedInfoServiceServer) HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method HashCode not implemented")
 }
-func (UnimplementedWifiInfoServiceServer) IsRestricted(context.Context, *IsRestrictedRequest) (*IsRestrictedResponse, error) {
+func (UnimplementedInfoServiceServer) IsRestricted(context.Context, *IsRestrictedRequest) (*IsRestrictedResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method IsRestricted not implemented")
 }
-func (UnimplementedWifiInfoServiceServer) MakeCopy(context.Context, *MakeCopyRequest) (*MakeCopyResponse, error) {
+func (UnimplementedInfoServiceServer) MakeCopy(context.Context, *MakeCopyRequest) (*MakeCopyResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method MakeCopy not implemented")
 }
-func (UnimplementedWifiInfoServiceServer) ToString(context.Context, *ToStringRequest) (*ToStringResponse, error) {
+func (UnimplementedInfoServiceServer) ToString(context.Context, *ToStringRequest) (*ToStringResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
 }
-func (UnimplementedWifiInfoServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
+func (UnimplementedInfoServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
 }
-func (UnimplementedWifiInfoServiceServer) GetDetailedStateOf(context.Context, *GetDetailedStateOfRequest) (*GetDetailedStateOfResponse, error) {
+func (UnimplementedInfoServiceServer) GetDetailedStateOf(context.Context, *GetDetailedStateOfRequest) (*GetDetailedStateOfResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetDetailedStateOf not implemented")
 }
-func (UnimplementedWifiInfoServiceServer) mustEmbedUnimplementedWifiInfoServiceServer() {}
-func (UnimplementedWifiInfoServiceServer) testEmbeddedByValue()                         {}
+func (UnimplementedInfoServiceServer) mustEmbedUnimplementedInfoServiceServer() {}
+func (UnimplementedInfoServiceServer) testEmbeddedByValue()                     {}
 
-// UnsafeWifiInfoServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to WifiInfoServiceServer will
+// UnsafeInfoServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to InfoServiceServer will
 // result in compilation errors.
-type UnsafeWifiInfoServiceServer interface {
-	mustEmbedUnimplementedWifiInfoServiceServer()
+type UnsafeInfoServiceServer interface {
+	mustEmbedUnimplementedInfoServiceServer()
 }
 
-func RegisterWifiInfoServiceServer(s grpc.ServiceRegistrar, srv WifiInfoServiceServer) {
-	// If the following call panics, it indicates UnimplementedWifiInfoServiceServer was
+func RegisterInfoServiceServer(s grpc.ServiceRegistrar, srv InfoServiceServer) {
+	// If the following call panics, it indicates UnimplementedInfoServiceServer was
 	// embedded by pointer and is nil.  This will cause panics if an
 	// unimplemented method is ever invoked, so we test this at initialization
 	// time to prevent it from happening at runtime later due to I/O.
 	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
 		t.testEmbeddedByValue()
 	}
-	s.RegisterService(&WifiInfoService_ServiceDesc, srv)
+	s.RegisterService(&InfoService_ServiceDesc, srv)
 }
 
-func _WifiInfoService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _InfoService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(DescribeContentsRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(WifiInfoServiceServer).DescribeContents(ctx, in)
+		return srv.(InfoServiceServer).DescribeContents(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: WifiInfoService_DescribeContents_FullMethodName,
+		FullMethod: InfoService_DescribeContents_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WifiInfoServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
+		return srv.(InfoServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _WifiInfoService_Equals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _InfoService_Equals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(EqualsRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(WifiInfoServiceServer).Equals(ctx, in)
+		return srv.(InfoServiceServer).Equals(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: WifiInfoService_Equals_FullMethodName,
+		FullMethod: InfoService_Equals_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WifiInfoServiceServer).Equals(ctx, req.(*EqualsRequest))
+		return srv.(InfoServiceServer).Equals(ctx, req.(*EqualsRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _WifiInfoService_GetAffiliatedMloLinks_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _InfoService_GetAffiliatedMloLinks_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(GetAffiliatedMloLinksRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(WifiInfoServiceServer).GetAffiliatedMloLinks(ctx, in)
+		return srv.(InfoServiceServer).GetAffiliatedMloLinks(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: WifiInfoService_GetAffiliatedMloLinks_FullMethodName,
+		FullMethod: InfoService_GetAffiliatedMloLinks_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WifiInfoServiceServer).GetAffiliatedMloLinks(ctx, req.(*GetAffiliatedMloLinksRequest))
+		return srv.(InfoServiceServer).GetAffiliatedMloLinks(ctx, req.(*GetAffiliatedMloLinksRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _WifiInfoService_GetApMldMacAddress_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _InfoService_GetApMldMacAddress_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(GetApMldMacAddressRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(WifiInfoServiceServer).GetApMldMacAddress(ctx, in)
+		return srv.(InfoServiceServer).GetApMldMacAddress(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: WifiInfoService_GetApMldMacAddress_FullMethodName,
+		FullMethod: InfoService_GetApMldMacAddress_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WifiInfoServiceServer).GetApMldMacAddress(ctx, req.(*GetApMldMacAddressRequest))
+		return srv.(InfoServiceServer).GetApMldMacAddress(ctx, req.(*GetApMldMacAddressRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _WifiInfoService_GetApMloLinkId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _InfoService_GetApMloLinkId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(GetApMloLinkIdRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(WifiInfoServiceServer).GetApMloLinkId(ctx, in)
+		return srv.(InfoServiceServer).GetApMloLinkId(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: WifiInfoService_GetApMloLinkId_FullMethodName,
+		FullMethod: InfoService_GetApMloLinkId_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WifiInfoServiceServer).GetApMloLinkId(ctx, req.(*GetApMloLinkIdRequest))
+		return srv.(InfoServiceServer).GetApMloLinkId(ctx, req.(*GetApMloLinkIdRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _WifiInfoService_GetApplicableRedactions_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _InfoService_GetApplicableRedactions_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(GetApplicableRedactionsRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(WifiInfoServiceServer).GetApplicableRedactions(ctx, in)
+		return srv.(InfoServiceServer).GetApplicableRedactions(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: WifiInfoService_GetApplicableRedactions_FullMethodName,
+		FullMethod: InfoService_GetApplicableRedactions_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WifiInfoServiceServer).GetApplicableRedactions(ctx, req.(*GetApplicableRedactionsRequest))
+		return srv.(InfoServiceServer).GetApplicableRedactions(ctx, req.(*GetApplicableRedactionsRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _WifiInfoService_GetAssociatedMloLinks_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _InfoService_GetAssociatedMloLinks_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(GetAssociatedMloLinksRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(WifiInfoServiceServer).GetAssociatedMloLinks(ctx, in)
+		return srv.(InfoServiceServer).GetAssociatedMloLinks(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: WifiInfoService_GetAssociatedMloLinks_FullMethodName,
+		FullMethod: InfoService_GetAssociatedMloLinks_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WifiInfoServiceServer).GetAssociatedMloLinks(ctx, req.(*GetAssociatedMloLinksRequest))
+		return srv.(InfoServiceServer).GetAssociatedMloLinks(ctx, req.(*GetAssociatedMloLinksRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _WifiInfoService_GetBSSID_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _InfoService_GetBSSID_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(GetBSSIDRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(WifiInfoServiceServer).GetBSSID(ctx, in)
+		return srv.(InfoServiceServer).GetBSSID(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: WifiInfoService_GetBSSID_FullMethodName,
+		FullMethod: InfoService_GetBSSID_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WifiInfoServiceServer).GetBSSID(ctx, req.(*GetBSSIDRequest))
+		return srv.(InfoServiceServer).GetBSSID(ctx, req.(*GetBSSIDRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _WifiInfoService_GetCurrentSecurityType_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _InfoService_GetCurrentSecurityType_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(GetCurrentSecurityTypeRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(WifiInfoServiceServer).GetCurrentSecurityType(ctx, in)
+		return srv.(InfoServiceServer).GetCurrentSecurityType(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: WifiInfoService_GetCurrentSecurityType_FullMethodName,
+		FullMethod: InfoService_GetCurrentSecurityType_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WifiInfoServiceServer).GetCurrentSecurityType(ctx, req.(*GetCurrentSecurityTypeRequest))
+		return srv.(InfoServiceServer).GetCurrentSecurityType(ctx, req.(*GetCurrentSecurityTypeRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _WifiInfoService_GetFrequency_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _InfoService_GetFrequency_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(GetFrequencyRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(WifiInfoServiceServer).GetFrequency(ctx, in)
+		return srv.(InfoServiceServer).GetFrequency(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: WifiInfoService_GetFrequency_FullMethodName,
+		FullMethod: InfoService_GetFrequency_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WifiInfoServiceServer).GetFrequency(ctx, req.(*GetFrequencyRequest))
+		return srv.(InfoServiceServer).GetFrequency(ctx, req.(*GetFrequencyRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _WifiInfoService_GetHiddenSSID_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _InfoService_GetHiddenSSID_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(GetHiddenSSIDRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(WifiInfoServiceServer).GetHiddenSSID(ctx, in)
+		return srv.(InfoServiceServer).GetHiddenSSID(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: WifiInfoService_GetHiddenSSID_FullMethodName,
+		FullMethod: InfoService_GetHiddenSSID_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WifiInfoServiceServer).GetHiddenSSID(ctx, req.(*GetHiddenSSIDRequest))
+		return srv.(InfoServiceServer).GetHiddenSSID(ctx, req.(*GetHiddenSSIDRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _WifiInfoService_GetInformationElements_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _InfoService_GetInformationElements_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(GetInformationElementsRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(WifiInfoServiceServer).GetInformationElements(ctx, in)
+		return srv.(InfoServiceServer).GetInformationElements(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: WifiInfoService_GetInformationElements_FullMethodName,
+		FullMethod: InfoService_GetInformationElements_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WifiInfoServiceServer).GetInformationElements(ctx, req.(*GetInformationElementsRequest))
+		return srv.(InfoServiceServer).GetInformationElements(ctx, req.(*GetInformationElementsRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _WifiInfoService_GetIpAddress_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _InfoService_GetIpAddress_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(GetIpAddressRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(WifiInfoServiceServer).GetIpAddress(ctx, in)
+		return srv.(InfoServiceServer).GetIpAddress(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: WifiInfoService_GetIpAddress_FullMethodName,
+		FullMethod: InfoService_GetIpAddress_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WifiInfoServiceServer).GetIpAddress(ctx, req.(*GetIpAddressRequest))
+		return srv.(InfoServiceServer).GetIpAddress(ctx, req.(*GetIpAddressRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _WifiInfoService_GetLinkSpeed_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _InfoService_GetLinkSpeed_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(GetLinkSpeedRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(WifiInfoServiceServer).GetLinkSpeed(ctx, in)
+		return srv.(InfoServiceServer).GetLinkSpeed(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: WifiInfoService_GetLinkSpeed_FullMethodName,
+		FullMethod: InfoService_GetLinkSpeed_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WifiInfoServiceServer).GetLinkSpeed(ctx, req.(*GetLinkSpeedRequest))
+		return srv.(InfoServiceServer).GetLinkSpeed(ctx, req.(*GetLinkSpeedRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _WifiInfoService_GetMacAddress_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _InfoService_GetMacAddress_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(GetMacAddressRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(WifiInfoServiceServer).GetMacAddress(ctx, in)
+		return srv.(InfoServiceServer).GetMacAddress(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: WifiInfoService_GetMacAddress_FullMethodName,
+		FullMethod: InfoService_GetMacAddress_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WifiInfoServiceServer).GetMacAddress(ctx, req.(*GetMacAddressRequest))
+		return srv.(InfoServiceServer).GetMacAddress(ctx, req.(*GetMacAddressRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _WifiInfoService_GetMaxSupportedRxLinkSpeedMbps_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _InfoService_GetMaxSupportedRxLinkSpeedMbps_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(GetMaxSupportedRxLinkSpeedMbpsRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(WifiInfoServiceServer).GetMaxSupportedRxLinkSpeedMbps(ctx, in)
+		return srv.(InfoServiceServer).GetMaxSupportedRxLinkSpeedMbps(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: WifiInfoService_GetMaxSupportedRxLinkSpeedMbps_FullMethodName,
+		FullMethod: InfoService_GetMaxSupportedRxLinkSpeedMbps_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WifiInfoServiceServer).GetMaxSupportedRxLinkSpeedMbps(ctx, req.(*GetMaxSupportedRxLinkSpeedMbpsRequest))
+		return srv.(InfoServiceServer).GetMaxSupportedRxLinkSpeedMbps(ctx, req.(*GetMaxSupportedRxLinkSpeedMbpsRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _WifiInfoService_GetMaxSupportedTxLinkSpeedMbps_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _InfoService_GetMaxSupportedTxLinkSpeedMbps_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(GetMaxSupportedTxLinkSpeedMbpsRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(WifiInfoServiceServer).GetMaxSupportedTxLinkSpeedMbps(ctx, in)
+		return srv.(InfoServiceServer).GetMaxSupportedTxLinkSpeedMbps(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: WifiInfoService_GetMaxSupportedTxLinkSpeedMbps_FullMethodName,
+		FullMethod: InfoService_GetMaxSupportedTxLinkSpeedMbps_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WifiInfoServiceServer).GetMaxSupportedTxLinkSpeedMbps(ctx, req.(*GetMaxSupportedTxLinkSpeedMbpsRequest))
+		return srv.(InfoServiceServer).GetMaxSupportedTxLinkSpeedMbps(ctx, req.(*GetMaxSupportedTxLinkSpeedMbpsRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _WifiInfoService_GetNetworkId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _InfoService_GetNetworkId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(GetNetworkIdRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(WifiInfoServiceServer).GetNetworkId(ctx, in)
+		return srv.(InfoServiceServer).GetNetworkId(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: WifiInfoService_GetNetworkId_FullMethodName,
+		FullMethod: InfoService_GetNetworkId_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WifiInfoServiceServer).GetNetworkId(ctx, req.(*GetNetworkIdRequest))
+		return srv.(InfoServiceServer).GetNetworkId(ctx, req.(*GetNetworkIdRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _WifiInfoService_GetPasspointFqdn_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _InfoService_GetPasspointFqdn_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(GetPasspointFqdnRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(WifiInfoServiceServer).GetPasspointFqdn(ctx, in)
+		return srv.(InfoServiceServer).GetPasspointFqdn(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: WifiInfoService_GetPasspointFqdn_FullMethodName,
+		FullMethod: InfoService_GetPasspointFqdn_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WifiInfoServiceServer).GetPasspointFqdn(ctx, req.(*GetPasspointFqdnRequest))
+		return srv.(InfoServiceServer).GetPasspointFqdn(ctx, req.(*GetPasspointFqdnRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _WifiInfoService_GetPasspointProviderFriendlyName_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _InfoService_GetPasspointProviderFriendlyName_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(GetPasspointProviderFriendlyNameRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(WifiInfoServiceServer).GetPasspointProviderFriendlyName(ctx, in)
+		return srv.(InfoServiceServer).GetPasspointProviderFriendlyName(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: WifiInfoService_GetPasspointProviderFriendlyName_FullMethodName,
+		FullMethod: InfoService_GetPasspointProviderFriendlyName_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WifiInfoServiceServer).GetPasspointProviderFriendlyName(ctx, req.(*GetPasspointProviderFriendlyNameRequest))
+		return srv.(InfoServiceServer).GetPasspointProviderFriendlyName(ctx, req.(*GetPasspointProviderFriendlyNameRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _WifiInfoService_GetPasspointUniqueId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _InfoService_GetPasspointUniqueId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(GetPasspointUniqueIdRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(WifiInfoServiceServer).GetPasspointUniqueId(ctx, in)
+		return srv.(InfoServiceServer).GetPasspointUniqueId(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: WifiInfoService_GetPasspointUniqueId_FullMethodName,
+		FullMethod: InfoService_GetPasspointUniqueId_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WifiInfoServiceServer).GetPasspointUniqueId(ctx, req.(*GetPasspointUniqueIdRequest))
+		return srv.(InfoServiceServer).GetPasspointUniqueId(ctx, req.(*GetPasspointUniqueIdRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _WifiInfoService_GetRssi_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _InfoService_GetRssi_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(GetRssiRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(WifiInfoServiceServer).GetRssi(ctx, in)
+		return srv.(InfoServiceServer).GetRssi(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: WifiInfoService_GetRssi_FullMethodName,
+		FullMethod: InfoService_GetRssi_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WifiInfoServiceServer).GetRssi(ctx, req.(*GetRssiRequest))
+		return srv.(InfoServiceServer).GetRssi(ctx, req.(*GetRssiRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _WifiInfoService_GetRxLinkSpeedMbps_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _InfoService_GetRxLinkSpeedMbps_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(GetRxLinkSpeedMbpsRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(WifiInfoServiceServer).GetRxLinkSpeedMbps(ctx, in)
+		return srv.(InfoServiceServer).GetRxLinkSpeedMbps(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: WifiInfoService_GetRxLinkSpeedMbps_FullMethodName,
+		FullMethod: InfoService_GetRxLinkSpeedMbps_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WifiInfoServiceServer).GetRxLinkSpeedMbps(ctx, req.(*GetRxLinkSpeedMbpsRequest))
+		return srv.(InfoServiceServer).GetRxLinkSpeedMbps(ctx, req.(*GetRxLinkSpeedMbpsRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _WifiInfoService_GetSSID_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _InfoService_GetSSID_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(GetSSIDRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(WifiInfoServiceServer).GetSSID(ctx, in)
+		return srv.(InfoServiceServer).GetSSID(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: WifiInfoService_GetSSID_FullMethodName,
+		FullMethod: InfoService_GetSSID_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WifiInfoServiceServer).GetSSID(ctx, req.(*GetSSIDRequest))
+		return srv.(InfoServiceServer).GetSSID(ctx, req.(*GetSSIDRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _WifiInfoService_GetSubscriptionId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _InfoService_GetSubscriptionId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(GetSubscriptionIdRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(WifiInfoServiceServer).GetSubscriptionId(ctx, in)
+		return srv.(InfoServiceServer).GetSubscriptionId(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: WifiInfoService_GetSubscriptionId_FullMethodName,
+		FullMethod: InfoService_GetSubscriptionId_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WifiInfoServiceServer).GetSubscriptionId(ctx, req.(*GetSubscriptionIdRequest))
+		return srv.(InfoServiceServer).GetSubscriptionId(ctx, req.(*GetSubscriptionIdRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _WifiInfoService_GetSupplicantState_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _InfoService_GetSupplicantState_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(GetSupplicantStateRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(WifiInfoServiceServer).GetSupplicantState(ctx, in)
+		return srv.(InfoServiceServer).GetSupplicantState(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: WifiInfoService_GetSupplicantState_FullMethodName,
+		FullMethod: InfoService_GetSupplicantState_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WifiInfoServiceServer).GetSupplicantState(ctx, req.(*GetSupplicantStateRequest))
+		return srv.(InfoServiceServer).GetSupplicantState(ctx, req.(*GetSupplicantStateRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _WifiInfoService_GetTxLinkSpeedMbps_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _InfoService_GetTxLinkSpeedMbps_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(GetTxLinkSpeedMbpsRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(WifiInfoServiceServer).GetTxLinkSpeedMbps(ctx, in)
+		return srv.(InfoServiceServer).GetTxLinkSpeedMbps(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: WifiInfoService_GetTxLinkSpeedMbps_FullMethodName,
+		FullMethod: InfoService_GetTxLinkSpeedMbps_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WifiInfoServiceServer).GetTxLinkSpeedMbps(ctx, req.(*GetTxLinkSpeedMbpsRequest))
+		return srv.(InfoServiceServer).GetTxLinkSpeedMbps(ctx, req.(*GetTxLinkSpeedMbpsRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _WifiInfoService_GetWifiStandard_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _InfoService_GetWifiStandard_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(GetWifiStandardRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(WifiInfoServiceServer).GetWifiStandard(ctx, in)
+		return srv.(InfoServiceServer).GetWifiStandard(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: WifiInfoService_GetWifiStandard_FullMethodName,
+		FullMethod: InfoService_GetWifiStandard_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WifiInfoServiceServer).GetWifiStandard(ctx, req.(*GetWifiStandardRequest))
+		return srv.(InfoServiceServer).GetWifiStandard(ctx, req.(*GetWifiStandardRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _WifiInfoService_HashCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _InfoService_HashCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(HashCodeRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(WifiInfoServiceServer).HashCode(ctx, in)
+		return srv.(InfoServiceServer).HashCode(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: WifiInfoService_HashCode_FullMethodName,
+		FullMethod: InfoService_HashCode_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WifiInfoServiceServer).HashCode(ctx, req.(*HashCodeRequest))
+		return srv.(InfoServiceServer).HashCode(ctx, req.(*HashCodeRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _WifiInfoService_IsRestricted_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _InfoService_IsRestricted_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(IsRestrictedRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(WifiInfoServiceServer).IsRestricted(ctx, in)
+		return srv.(InfoServiceServer).IsRestricted(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: WifiInfoService_IsRestricted_FullMethodName,
+		FullMethod: InfoService_IsRestricted_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WifiInfoServiceServer).IsRestricted(ctx, req.(*IsRestrictedRequest))
+		return srv.(InfoServiceServer).IsRestricted(ctx, req.(*IsRestrictedRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _WifiInfoService_MakeCopy_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _InfoService_MakeCopy_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(MakeCopyRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(WifiInfoServiceServer).MakeCopy(ctx, in)
+		return srv.(InfoServiceServer).MakeCopy(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: WifiInfoService_MakeCopy_FullMethodName,
+		FullMethod: InfoService_MakeCopy_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WifiInfoServiceServer).MakeCopy(ctx, req.(*MakeCopyRequest))
+		return srv.(InfoServiceServer).MakeCopy(ctx, req.(*MakeCopyRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _WifiInfoService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _InfoService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(ToStringRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(WifiInfoServiceServer).ToString(ctx, in)
+		return srv.(InfoServiceServer).ToString(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: WifiInfoService_ToString_FullMethodName,
+		FullMethod: InfoService_ToString_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WifiInfoServiceServer).ToString(ctx, req.(*ToStringRequest))
+		return srv.(InfoServiceServer).ToString(ctx, req.(*ToStringRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _WifiInfoService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _InfoService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(WriteToParcelRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(WifiInfoServiceServer).WriteToParcel(ctx, in)
+		return srv.(InfoServiceServer).WriteToParcel(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: WifiInfoService_WriteToParcel_FullMethodName,
+		FullMethod: InfoService_WriteToParcel_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WifiInfoServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
+		return srv.(InfoServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _WifiInfoService_GetDetailedStateOf_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _InfoService_GetDetailedStateOf_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(GetDetailedStateOfRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(WifiInfoServiceServer).GetDetailedStateOf(ctx, in)
+		return srv.(InfoServiceServer).GetDetailedStateOf(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: WifiInfoService_GetDetailedStateOf_FullMethodName,
+		FullMethod: InfoService_GetDetailedStateOf_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WifiInfoServiceServer).GetDetailedStateOf(ctx, req.(*GetDetailedStateOfRequest))
+		return srv.(InfoServiceServer).GetDetailedStateOf(ctx, req.(*GetDetailedStateOfRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-// WifiInfoService_ServiceDesc is the grpc.ServiceDesc for WifiInfoService service.
+// InfoService_ServiceDesc is the grpc.ServiceDesc for InfoService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
-var WifiInfoService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "wifi.WifiInfoService",
-	HandlerType: (*WifiInfoServiceServer)(nil),
+var InfoService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "wifi.InfoService",
+	HandlerType: (*InfoServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
 			MethodName: "DescribeContents",
-			Handler:    _WifiInfoService_DescribeContents_Handler,
+			Handler:    _InfoService_DescribeContents_Handler,
 		},
 		{
 			MethodName: "Equals",
-			Handler:    _WifiInfoService_Equals_Handler,
+			Handler:    _InfoService_Equals_Handler,
 		},
 		{
 			MethodName: "GetAffiliatedMloLinks",
-			Handler:    _WifiInfoService_GetAffiliatedMloLinks_Handler,
+			Handler:    _InfoService_GetAffiliatedMloLinks_Handler,
 		},
 		{
 			MethodName: "GetApMldMacAddress",
-			Handler:    _WifiInfoService_GetApMldMacAddress_Handler,
+			Handler:    _InfoService_GetApMldMacAddress_Handler,
 		},
 		{
 			MethodName: "GetApMloLinkId",
-			Handler:    _WifiInfoService_GetApMloLinkId_Handler,
+			Handler:    _InfoService_GetApMloLinkId_Handler,
 		},
 		{
 			MethodName: "GetApplicableRedactions",
-			Handler:    _WifiInfoService_GetApplicableRedactions_Handler,
+			Handler:    _InfoService_GetApplicableRedactions_Handler,
 		},
 		{
 			MethodName: "GetAssociatedMloLinks",
-			Handler:    _WifiInfoService_GetAssociatedMloLinks_Handler,
+			Handler:    _InfoService_GetAssociatedMloLinks_Handler,
 		},
 		{
 			MethodName: "GetBSSID",
-			Handler:    _WifiInfoService_GetBSSID_Handler,
+			Handler:    _InfoService_GetBSSID_Handler,
 		},
 		{
 			MethodName: "GetCurrentSecurityType",
-			Handler:    _WifiInfoService_GetCurrentSecurityType_Handler,
+			Handler:    _InfoService_GetCurrentSecurityType_Handler,
 		},
 		{
 			MethodName: "GetFrequency",
-			Handler:    _WifiInfoService_GetFrequency_Handler,
+			Handler:    _InfoService_GetFrequency_Handler,
 		},
 		{
 			MethodName: "GetHiddenSSID",
-			Handler:    _WifiInfoService_GetHiddenSSID_Handler,
+			Handler:    _InfoService_GetHiddenSSID_Handler,
 		},
 		{
 			MethodName: "GetInformationElements",
-			Handler:    _WifiInfoService_GetInformationElements_Handler,
+			Handler:    _InfoService_GetInformationElements_Handler,
 		},
 		{
 			MethodName: "GetIpAddress",
-			Handler:    _WifiInfoService_GetIpAddress_Handler,
+			Handler:    _InfoService_GetIpAddress_Handler,
 		},
 		{
 			MethodName: "GetLinkSpeed",
-			Handler:    _WifiInfoService_GetLinkSpeed_Handler,
+			Handler:    _InfoService_GetLinkSpeed_Handler,
 		},
 		{
 			MethodName: "GetMacAddress",
-			Handler:    _WifiInfoService_GetMacAddress_Handler,
+			Handler:    _InfoService_GetMacAddress_Handler,
 		},
 		{
 			MethodName: "GetMaxSupportedRxLinkSpeedMbps",
-			Handler:    _WifiInfoService_GetMaxSupportedRxLinkSpeedMbps_Handler,
+			Handler:    _InfoService_GetMaxSupportedRxLinkSpeedMbps_Handler,
 		},
 		{
 			MethodName: "GetMaxSupportedTxLinkSpeedMbps",
-			Handler:    _WifiInfoService_GetMaxSupportedTxLinkSpeedMbps_Handler,
+			Handler:    _InfoService_GetMaxSupportedTxLinkSpeedMbps_Handler,
 		},
 		{
 			MethodName: "GetNetworkId",
-			Handler:    _WifiInfoService_GetNetworkId_Handler,
+			Handler:    _InfoService_GetNetworkId_Handler,
 		},
 		{
 			MethodName: "GetPasspointFqdn",
-			Handler:    _WifiInfoService_GetPasspointFqdn_Handler,
+			Handler:    _InfoService_GetPasspointFqdn_Handler,
 		},
 		{
 			MethodName: "GetPasspointProviderFriendlyName",
-			Handler:    _WifiInfoService_GetPasspointProviderFriendlyName_Handler,
+			Handler:    _InfoService_GetPasspointProviderFriendlyName_Handler,
 		},
 		{
 			MethodName: "GetPasspointUniqueId",
-			Handler:    _WifiInfoService_GetPasspointUniqueId_Handler,
+			Handler:    _InfoService_GetPasspointUniqueId_Handler,
 		},
 		{
 			MethodName: "GetRssi",
-			Handler:    _WifiInfoService_GetRssi_Handler,
+			Handler:    _InfoService_GetRssi_Handler,
 		},
 		{
 			MethodName: "GetRxLinkSpeedMbps",
-			Handler:    _WifiInfoService_GetRxLinkSpeedMbps_Handler,
+			Handler:    _InfoService_GetRxLinkSpeedMbps_Handler,
 		},
 		{
 			MethodName: "GetSSID",
-			Handler:    _WifiInfoService_GetSSID_Handler,
+			Handler:    _InfoService_GetSSID_Handler,
 		},
 		{
 			MethodName: "GetSubscriptionId",
-			Handler:    _WifiInfoService_GetSubscriptionId_Handler,
+			Handler:    _InfoService_GetSubscriptionId_Handler,
 		},
 		{
 			MethodName: "GetSupplicantState",
-			Handler:    _WifiInfoService_GetSupplicantState_Handler,
+			Handler:    _InfoService_GetSupplicantState_Handler,
 		},
 		{
 			MethodName: "GetTxLinkSpeedMbps",
-			Handler:    _WifiInfoService_GetTxLinkSpeedMbps_Handler,
+			Handler:    _InfoService_GetTxLinkSpeedMbps_Handler,
 		},
 		{
 			MethodName: "GetWifiStandard",
-			Handler:    _WifiInfoService_GetWifiStandard_Handler,
+			Handler:    _InfoService_GetWifiStandard_Handler,
 		},
 		{
 			MethodName: "HashCode",
-			Handler:    _WifiInfoService_HashCode_Handler,
+			Handler:    _InfoService_HashCode_Handler,
 		},
 		{
 			MethodName: "IsRestricted",
-			Handler:    _WifiInfoService_IsRestricted_Handler,
+			Handler:    _InfoService_IsRestricted_Handler,
 		},
 		{
 			MethodName: "MakeCopy",
-			Handler:    _WifiInfoService_MakeCopy_Handler,
+			Handler:    _InfoService_MakeCopy_Handler,
 		},
 		{
 			MethodName: "ToString",
-			Handler:    _WifiInfoService_ToString_Handler,
+			Handler:    _InfoService_ToString_Handler,
 		},
 		{
 			MethodName: "WriteToParcel",
-			Handler:    _WifiInfoService_WriteToParcel_Handler,
+			Handler:    _InfoService_WriteToParcel_Handler,
 		},
 		{
 			MethodName: "GetDetailedStateOf",
-			Handler:    _WifiInfoService_GetDetailedStateOf_Handler,
+			Handler:    _InfoService_GetDetailedStateOf_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
@@ -1377,128 +1377,128 @@ var WifiInfoService_ServiceDesc = grpc.ServiceDesc{
 }
 
 const (
-	WifiManagerService_AddLocalOnlyConnectionFailureListener_FullMethodName            = "/wifi.WifiManagerService/AddLocalOnlyConnectionFailureListener"
-	WifiManagerService_AddNetwork_FullMethodName                                       = "/wifi.WifiManagerService/AddNetwork"
-	WifiManagerService_AddNetworkPrivileged_FullMethodName                             = "/wifi.WifiManagerService/AddNetworkPrivileged"
-	WifiManagerService_AddNetworkSuggestions_FullMethodName                            = "/wifi.WifiManagerService/AddNetworkSuggestions"
-	WifiManagerService_AddOrUpdatePasspointConfiguration_FullMethodName                = "/wifi.WifiManagerService/AddOrUpdatePasspointConfiguration"
-	WifiManagerService_AddSuggestionConnectionStatusListener_FullMethodName            = "/wifi.WifiManagerService/AddSuggestionConnectionStatusListener"
-	WifiManagerService_AddSuggestionUserApprovalStatusListener_FullMethodName          = "/wifi.WifiManagerService/AddSuggestionUserApprovalStatusListener"
-	WifiManagerService_AddWifiStateChangedListener_FullMethodName                      = "/wifi.WifiManagerService/AddWifiStateChangedListener"
-	WifiManagerService_AllowAutojoinGlobal_FullMethodName                              = "/wifi.WifiManagerService/AllowAutojoinGlobal"
-	WifiManagerService_CalculateSignalLevel1_FullMethodName                            = "/wifi.WifiManagerService/CalculateSignalLevel1"
-	WifiManagerService_CancelWps_FullMethodName                                        = "/wifi.WifiManagerService/CancelWps"
-	WifiManagerService_CreateMulticastLock_FullMethodName                              = "/wifi.WifiManagerService/CreateMulticastLock"
-	WifiManagerService_CreateWifiLock2_FullMethodName                                  = "/wifi.WifiManagerService/CreateWifiLock2"
-	WifiManagerService_CreateWifiLock1_1_FullMethodName                                = "/wifi.WifiManagerService/CreateWifiLock1_1"
-	WifiManagerService_DisableNetwork_FullMethodName                                   = "/wifi.WifiManagerService/DisableNetwork"
-	WifiManagerService_DisallowCurrentSuggestedNetwork_FullMethodName                  = "/wifi.WifiManagerService/DisallowCurrentSuggestedNetwork"
-	WifiManagerService_Disconnect_FullMethodName                                       = "/wifi.WifiManagerService/Disconnect"
-	WifiManagerService_EnableNetwork_FullMethodName                                    = "/wifi.WifiManagerService/EnableNetwork"
-	WifiManagerService_FlushPasspointAnqpCache_FullMethodName                          = "/wifi.WifiManagerService/FlushPasspointAnqpCache"
-	WifiManagerService_GetAllowedChannels_FullMethodName                               = "/wifi.WifiManagerService/GetAllowedChannels"
-	WifiManagerService_GetCallerConfiguredNetworks_FullMethodName                      = "/wifi.WifiManagerService/GetCallerConfiguredNetworks"
-	WifiManagerService_GetChannelData_FullMethodName                                   = "/wifi.WifiManagerService/GetChannelData"
-	WifiManagerService_GetConfiguredNetworks_FullMethodName                            = "/wifi.WifiManagerService/GetConfiguredNetworks"
-	WifiManagerService_GetConnectionInfo_FullMethodName                                = "/wifi.WifiManagerService/GetConnectionInfo"
-	WifiManagerService_GetDhcpInfo_FullMethodName                                      = "/wifi.WifiManagerService/GetDhcpInfo"
-	WifiManagerService_GetMaxNumberOfChannelsPerNetworkSpecifierRequest_FullMethodName = "/wifi.WifiManagerService/GetMaxNumberOfChannelsPerNetworkSpecifierRequest"
-	WifiManagerService_GetMaxNumberOfNetworkSuggestionsPerApp_FullMethodName           = "/wifi.WifiManagerService/GetMaxNumberOfNetworkSuggestionsPerApp"
-	WifiManagerService_GetMaxSignalLevel_FullMethodName                                = "/wifi.WifiManagerService/GetMaxSignalLevel"
-	WifiManagerService_GetMaxSupportedConcurrentTdlsSessions_FullMethodName            = "/wifi.WifiManagerService/GetMaxSupportedConcurrentTdlsSessions"
-	WifiManagerService_GetNetworkSuggestions_FullMethodName                            = "/wifi.WifiManagerService/GetNetworkSuggestions"
-	WifiManagerService_GetNumberOfEnabledTdlsSessions_FullMethodName                   = "/wifi.WifiManagerService/GetNumberOfEnabledTdlsSessions"
-	WifiManagerService_GetPasspointConfigurations_FullMethodName                       = "/wifi.WifiManagerService/GetPasspointConfigurations"
-	WifiManagerService_GetPerSsidRoamingModes_FullMethodName                           = "/wifi.WifiManagerService/GetPerSsidRoamingModes"
-	WifiManagerService_GetScanResults_FullMethodName                                   = "/wifi.WifiManagerService/GetScanResults"
-	WifiManagerService_GetStaConcurrencyForMultiInternetMode_FullMethodName            = "/wifi.WifiManagerService/GetStaConcurrencyForMultiInternetMode"
-	WifiManagerService_GetUsableChannels_FullMethodName                                = "/wifi.WifiManagerService/GetUsableChannels"
-	WifiManagerService_GetWifiState_FullMethodName                                     = "/wifi.WifiManagerService/GetWifiState"
-	WifiManagerService_Is24GHzBandSupported_FullMethodName                             = "/wifi.WifiManagerService/Is24GHzBandSupported"
-	WifiManagerService_Is5GHzBandSupported_FullMethodName                              = "/wifi.WifiManagerService/Is5GHzBandSupported"
-	WifiManagerService_Is60GHzBandSupported_FullMethodName                             = "/wifi.WifiManagerService/Is60GHzBandSupported"
-	WifiManagerService_Is6GHzBandSupported_FullMethodName                              = "/wifi.WifiManagerService/Is6GHzBandSupported"
-	WifiManagerService_IsAggressiveRoamingModeSupported_FullMethodName                 = "/wifi.WifiManagerService/IsAggressiveRoamingModeSupported"
-	WifiManagerService_IsAutoWakeupEnabled_FullMethodName                              = "/wifi.WifiManagerService/IsAutoWakeupEnabled"
-	WifiManagerService_IsBridgedApConcurrencySupported_FullMethodName                  = "/wifi.WifiManagerService/IsBridgedApConcurrencySupported"
-	WifiManagerService_IsCarrierNetworkOffloadEnabled_FullMethodName                   = "/wifi.WifiManagerService/IsCarrierNetworkOffloadEnabled"
-	WifiManagerService_IsD2DSupportedWhenInfraStaDisabled_FullMethodName               = "/wifi.WifiManagerService/IsD2dSupportedWhenInfraStaDisabled"
-	WifiManagerService_IsDecoratedIdentitySupported_FullMethodName                     = "/wifi.WifiManagerService/IsDecoratedIdentitySupported"
-	WifiManagerService_IsDeviceToApRttSupported_FullMethodName                         = "/wifi.WifiManagerService/IsDeviceToApRttSupported"
-	WifiManagerService_IsDualBandSimultaneousSupported_FullMethodName                  = "/wifi.WifiManagerService/IsDualBandSimultaneousSupported"
-	WifiManagerService_IsEasyConnectDppAkmSupported_FullMethodName                     = "/wifi.WifiManagerService/IsEasyConnectDppAkmSupported"
-	WifiManagerService_IsEasyConnectEnrolleeResponderModeSupported_FullMethodName      = "/wifi.WifiManagerService/IsEasyConnectEnrolleeResponderModeSupported"
-	WifiManagerService_IsEasyConnectSupported_FullMethodName                           = "/wifi.WifiManagerService/IsEasyConnectSupported"
-	WifiManagerService_IsEnhancedOpenSupported_FullMethodName                          = "/wifi.WifiManagerService/IsEnhancedOpenSupported"
-	WifiManagerService_IsEnhancedPowerReportingSupported_FullMethodName                = "/wifi.WifiManagerService/IsEnhancedPowerReportingSupported"
-	WifiManagerService_IsMakeBeforeBreakWifiSwitchingSupported_FullMethodName          = "/wifi.WifiManagerService/IsMakeBeforeBreakWifiSwitchingSupported"
-	WifiManagerService_IsP2PSupported_FullMethodName                                   = "/wifi.WifiManagerService/IsP2pSupported"
-	WifiManagerService_IsPasspointTermsAndConditionsSupported_FullMethodName           = "/wifi.WifiManagerService/IsPasspointTermsAndConditionsSupported"
-	WifiManagerService_IsPreferredNetworkOffloadSupported_FullMethodName               = "/wifi.WifiManagerService/IsPreferredNetworkOffloadSupported"
-	WifiManagerService_IsScanAlwaysAvailable_FullMethodName                            = "/wifi.WifiManagerService/IsScanAlwaysAvailable"
-	WifiManagerService_IsScanThrottleEnabled_FullMethodName                            = "/wifi.WifiManagerService/IsScanThrottleEnabled"
-	WifiManagerService_IsStaApConcurrencySupported_FullMethodName                      = "/wifi.WifiManagerService/IsStaApConcurrencySupported"
-	WifiManagerService_IsStaBridgedApConcurrencySupported_FullMethodName               = "/wifi.WifiManagerService/IsStaBridgedApConcurrencySupported"
-	WifiManagerService_IsStaConcurrencyForLocalOnlyConnectionsSupported_FullMethodName = "/wifi.WifiManagerService/IsStaConcurrencyForLocalOnlyConnectionsSupported"
-	WifiManagerService_IsStaConcurrencyForMultiInternetSupported_FullMethodName        = "/wifi.WifiManagerService/IsStaConcurrencyForMultiInternetSupported"
-	WifiManagerService_IsTdlsOperationCurrentlyAvailable_FullMethodName                = "/wifi.WifiManagerService/IsTdlsOperationCurrentlyAvailable"
-	WifiManagerService_IsTdlsSupported_FullMethodName                                  = "/wifi.WifiManagerService/IsTdlsSupported"
-	WifiManagerService_IsTidToLinkMappingNegotiationSupported_FullMethodName           = "/wifi.WifiManagerService/IsTidToLinkMappingNegotiationSupported"
-	WifiManagerService_IsTlsMinimumVersionSupported_FullMethodName                     = "/wifi.WifiManagerService/IsTlsMinimumVersionSupported"
-	WifiManagerService_IsTlsV13Supported_FullMethodName                                = "/wifi.WifiManagerService/IsTlsV13Supported"
-	WifiManagerService_IsTrustOnFirstUseSupported_FullMethodName                       = "/wifi.WifiManagerService/IsTrustOnFirstUseSupported"
-	WifiManagerService_IsWapiSupported_FullMethodName                                  = "/wifi.WifiManagerService/IsWapiSupported"
-	WifiManagerService_IsWepSupported_FullMethodName                                   = "/wifi.WifiManagerService/IsWepSupported"
-	WifiManagerService_IsWifiDisplayR2Supported_FullMethodName                         = "/wifi.WifiManagerService/IsWifiDisplayR2Supported"
-	WifiManagerService_IsWifiEnabled_FullMethodName                                    = "/wifi.WifiManagerService/IsWifiEnabled"
-	WifiManagerService_IsWifiPasspointEnabled_FullMethodName                           = "/wifi.WifiManagerService/IsWifiPasspointEnabled"
-	WifiManagerService_IsWifiStandardSupported_FullMethodName                          = "/wifi.WifiManagerService/IsWifiStandardSupported"
-	WifiManagerService_IsWpa3SaeH2ESupported_FullMethodName                            = "/wifi.WifiManagerService/IsWpa3SaeH2eSupported"
-	WifiManagerService_IsWpa3SaePublicKeySupported_FullMethodName                      = "/wifi.WifiManagerService/IsWpa3SaePublicKeySupported"
-	WifiManagerService_IsWpa3SaeSupported_FullMethodName                               = "/wifi.WifiManagerService/IsWpa3SaeSupported"
-	WifiManagerService_IsWpa3SuiteBSupported_FullMethodName                            = "/wifi.WifiManagerService/IsWpa3SuiteBSupported"
-	WifiManagerService_IsWpaPersonalSupported_FullMethodName                           = "/wifi.WifiManagerService/IsWpaPersonalSupported"
-	WifiManagerService_PingSupplicant_FullMethodName                                   = "/wifi.WifiManagerService/PingSupplicant"
-	WifiManagerService_QueryAutojoinGlobal_FullMethodName                              = "/wifi.WifiManagerService/QueryAutojoinGlobal"
-	WifiManagerService_QuerySendDhcpHostnameRestriction_FullMethodName                 = "/wifi.WifiManagerService/QuerySendDhcpHostnameRestriction"
-	WifiManagerService_Reassociate_FullMethodName                                      = "/wifi.WifiManagerService/Reassociate"
-	WifiManagerService_Reconnect_FullMethodName                                        = "/wifi.WifiManagerService/Reconnect"
-	WifiManagerService_RegisterScanResultsCallback_FullMethodName                      = "/wifi.WifiManagerService/RegisterScanResultsCallback"
-	WifiManagerService_RegisterSubsystemRestartTrackingCallback_FullMethodName         = "/wifi.WifiManagerService/RegisterSubsystemRestartTrackingCallback"
-	WifiManagerService_RemoveLocalOnlyConnectionFailureListener_FullMethodName         = "/wifi.WifiManagerService/RemoveLocalOnlyConnectionFailureListener"
-	WifiManagerService_RemoveNetwork_FullMethodName                                    = "/wifi.WifiManagerService/RemoveNetwork"
-	WifiManagerService_RemoveNetworkSuggestions1_FullMethodName                        = "/wifi.WifiManagerService/RemoveNetworkSuggestions1"
-	WifiManagerService_RemoveNetworkSuggestions2_1_FullMethodName                      = "/wifi.WifiManagerService/RemoveNetworkSuggestions2_1"
-	WifiManagerService_RemoveNonCallerConfiguredNetworks_FullMethodName                = "/wifi.WifiManagerService/RemoveNonCallerConfiguredNetworks"
-	WifiManagerService_RemovePasspointConfiguration_FullMethodName                     = "/wifi.WifiManagerService/RemovePasspointConfiguration"
-	WifiManagerService_RemovePerSsidRoamingMode_FullMethodName                         = "/wifi.WifiManagerService/RemovePerSsidRoamingMode"
-	WifiManagerService_RemoveSuggestionConnectionStatusListener_FullMethodName         = "/wifi.WifiManagerService/RemoveSuggestionConnectionStatusListener"
-	WifiManagerService_RemoveSuggestionUserApprovalStatusListener_FullMethodName       = "/wifi.WifiManagerService/RemoveSuggestionUserApprovalStatusListener"
-	WifiManagerService_RemoveWifiStateChangedListener_FullMethodName                   = "/wifi.WifiManagerService/RemoveWifiStateChangedListener"
-	WifiManagerService_ReportCreateInterfaceImpact_FullMethodName                      = "/wifi.WifiManagerService/ReportCreateInterfaceImpact"
-	WifiManagerService_SaveConfiguration_FullMethodName                                = "/wifi.WifiManagerService/SaveConfiguration"
-	WifiManagerService_SetPerSsidRoamingMode_FullMethodName                            = "/wifi.WifiManagerService/SetPerSsidRoamingMode"
-	WifiManagerService_SetSendDhcpHostnameRestriction_FullMethodName                   = "/wifi.WifiManagerService/SetSendDhcpHostnameRestriction"
-	WifiManagerService_SetTdlsEnabled2_FullMethodName                                  = "/wifi.WifiManagerService/SetTdlsEnabled2"
-	WifiManagerService_SetTdlsEnabled4_1_FullMethodName                                = "/wifi.WifiManagerService/SetTdlsEnabled4_1"
-	WifiManagerService_SetTdlsEnabledWithMacAddress2_FullMethodName                    = "/wifi.WifiManagerService/SetTdlsEnabledWithMacAddress2"
-	WifiManagerService_SetTdlsEnabledWithMacAddress4_1_FullMethodName                  = "/wifi.WifiManagerService/SetTdlsEnabledWithMacAddress4_1"
-	WifiManagerService_SetWifiEnabled_FullMethodName                                   = "/wifi.WifiManagerService/SetWifiEnabled"
-	WifiManagerService_StartLocalOnlyHotspotWithConfiguration_FullMethodName           = "/wifi.WifiManagerService/StartLocalOnlyHotspotWithConfiguration"
-	WifiManagerService_StartScan_FullMethodName                                        = "/wifi.WifiManagerService/StartScan"
-	WifiManagerService_StartWps_FullMethodName                                         = "/wifi.WifiManagerService/StartWps"
-	WifiManagerService_UnregisterScanResultsCallback_FullMethodName                    = "/wifi.WifiManagerService/UnregisterScanResultsCallback"
-	WifiManagerService_UnregisterSubsystemRestartTrackingCallback_FullMethodName       = "/wifi.WifiManagerService/UnregisterSubsystemRestartTrackingCallback"
-	WifiManagerService_UpdateNetwork_FullMethodName                                    = "/wifi.WifiManagerService/UpdateNetwork"
-	WifiManagerService_ValidateSoftApConfiguration_FullMethodName                      = "/wifi.WifiManagerService/ValidateSoftApConfiguration"
-	WifiManagerService_CalculateSignalLevel2_1_FullMethodName                          = "/wifi.WifiManagerService/CalculateSignalLevel2_1"
-	WifiManagerService_CompareSignalLevel_FullMethodName                               = "/wifi.WifiManagerService/CompareSignalLevel"
+	ManagerService_AddLocalOnlyConnectionFailureListener_FullMethodName            = "/wifi.ManagerService/AddLocalOnlyConnectionFailureListener"
+	ManagerService_AddNetwork_FullMethodName                                       = "/wifi.ManagerService/AddNetwork"
+	ManagerService_AddNetworkPrivileged_FullMethodName                             = "/wifi.ManagerService/AddNetworkPrivileged"
+	ManagerService_AddNetworkSuggestions_FullMethodName                            = "/wifi.ManagerService/AddNetworkSuggestions"
+	ManagerService_AddOrUpdatePasspointConfiguration_FullMethodName                = "/wifi.ManagerService/AddOrUpdatePasspointConfiguration"
+	ManagerService_AddSuggestionConnectionStatusListener_FullMethodName            = "/wifi.ManagerService/AddSuggestionConnectionStatusListener"
+	ManagerService_AddSuggestionUserApprovalStatusListener_FullMethodName          = "/wifi.ManagerService/AddSuggestionUserApprovalStatusListener"
+	ManagerService_AddWifiStateChangedListener_FullMethodName                      = "/wifi.ManagerService/AddWifiStateChangedListener"
+	ManagerService_AllowAutojoinGlobal_FullMethodName                              = "/wifi.ManagerService/AllowAutojoinGlobal"
+	ManagerService_CalculateSignalLevel1_FullMethodName                            = "/wifi.ManagerService/CalculateSignalLevel1"
+	ManagerService_CancelWps_FullMethodName                                        = "/wifi.ManagerService/CancelWps"
+	ManagerService_CreateMulticastLock_FullMethodName                              = "/wifi.ManagerService/CreateMulticastLock"
+	ManagerService_CreateWifiLock2_FullMethodName                                  = "/wifi.ManagerService/CreateWifiLock2"
+	ManagerService_CreateWifiLock1_1_FullMethodName                                = "/wifi.ManagerService/CreateWifiLock1_1"
+	ManagerService_DisableNetwork_FullMethodName                                   = "/wifi.ManagerService/DisableNetwork"
+	ManagerService_DisallowCurrentSuggestedNetwork_FullMethodName                  = "/wifi.ManagerService/DisallowCurrentSuggestedNetwork"
+	ManagerService_Disconnect_FullMethodName                                       = "/wifi.ManagerService/Disconnect"
+	ManagerService_EnableNetwork_FullMethodName                                    = "/wifi.ManagerService/EnableNetwork"
+	ManagerService_FlushPasspointAnqpCache_FullMethodName                          = "/wifi.ManagerService/FlushPasspointAnqpCache"
+	ManagerService_GetAllowedChannels_FullMethodName                               = "/wifi.ManagerService/GetAllowedChannels"
+	ManagerService_GetCallerConfiguredNetworks_FullMethodName                      = "/wifi.ManagerService/GetCallerConfiguredNetworks"
+	ManagerService_GetChannelData_FullMethodName                                   = "/wifi.ManagerService/GetChannelData"
+	ManagerService_GetConfiguredNetworks_FullMethodName                            = "/wifi.ManagerService/GetConfiguredNetworks"
+	ManagerService_GetConnectionInfo_FullMethodName                                = "/wifi.ManagerService/GetConnectionInfo"
+	ManagerService_GetDhcpInfo_FullMethodName                                      = "/wifi.ManagerService/GetDhcpInfo"
+	ManagerService_GetMaxNumberOfChannelsPerNetworkSpecifierRequest_FullMethodName = "/wifi.ManagerService/GetMaxNumberOfChannelsPerNetworkSpecifierRequest"
+	ManagerService_GetMaxNumberOfNetworkSuggestionsPerApp_FullMethodName           = "/wifi.ManagerService/GetMaxNumberOfNetworkSuggestionsPerApp"
+	ManagerService_GetMaxSignalLevel_FullMethodName                                = "/wifi.ManagerService/GetMaxSignalLevel"
+	ManagerService_GetMaxSupportedConcurrentTdlsSessions_FullMethodName            = "/wifi.ManagerService/GetMaxSupportedConcurrentTdlsSessions"
+	ManagerService_GetNetworkSuggestions_FullMethodName                            = "/wifi.ManagerService/GetNetworkSuggestions"
+	ManagerService_GetNumberOfEnabledTdlsSessions_FullMethodName                   = "/wifi.ManagerService/GetNumberOfEnabledTdlsSessions"
+	ManagerService_GetPasspointConfigurations_FullMethodName                       = "/wifi.ManagerService/GetPasspointConfigurations"
+	ManagerService_GetPerSsidRoamingModes_FullMethodName                           = "/wifi.ManagerService/GetPerSsidRoamingModes"
+	ManagerService_GetScanResults_FullMethodName                                   = "/wifi.ManagerService/GetScanResults"
+	ManagerService_GetStaConcurrencyForMultiInternetMode_FullMethodName            = "/wifi.ManagerService/GetStaConcurrencyForMultiInternetMode"
+	ManagerService_GetUsableChannels_FullMethodName                                = "/wifi.ManagerService/GetUsableChannels"
+	ManagerService_GetWifiState_FullMethodName                                     = "/wifi.ManagerService/GetWifiState"
+	ManagerService_Is24GHzBandSupported_FullMethodName                             = "/wifi.ManagerService/Is24GHzBandSupported"
+	ManagerService_Is5GHzBandSupported_FullMethodName                              = "/wifi.ManagerService/Is5GHzBandSupported"
+	ManagerService_Is60GHzBandSupported_FullMethodName                             = "/wifi.ManagerService/Is60GHzBandSupported"
+	ManagerService_Is6GHzBandSupported_FullMethodName                              = "/wifi.ManagerService/Is6GHzBandSupported"
+	ManagerService_IsAggressiveRoamingModeSupported_FullMethodName                 = "/wifi.ManagerService/IsAggressiveRoamingModeSupported"
+	ManagerService_IsAutoWakeupEnabled_FullMethodName                              = "/wifi.ManagerService/IsAutoWakeupEnabled"
+	ManagerService_IsBridgedApConcurrencySupported_FullMethodName                  = "/wifi.ManagerService/IsBridgedApConcurrencySupported"
+	ManagerService_IsCarrierNetworkOffloadEnabled_FullMethodName                   = "/wifi.ManagerService/IsCarrierNetworkOffloadEnabled"
+	ManagerService_IsD2DSupportedWhenInfraStaDisabled_FullMethodName               = "/wifi.ManagerService/IsD2dSupportedWhenInfraStaDisabled"
+	ManagerService_IsDecoratedIdentitySupported_FullMethodName                     = "/wifi.ManagerService/IsDecoratedIdentitySupported"
+	ManagerService_IsDeviceToApRttSupported_FullMethodName                         = "/wifi.ManagerService/IsDeviceToApRttSupported"
+	ManagerService_IsDualBandSimultaneousSupported_FullMethodName                  = "/wifi.ManagerService/IsDualBandSimultaneousSupported"
+	ManagerService_IsEasyConnectDppAkmSupported_FullMethodName                     = "/wifi.ManagerService/IsEasyConnectDppAkmSupported"
+	ManagerService_IsEasyConnectEnrolleeResponderModeSupported_FullMethodName      = "/wifi.ManagerService/IsEasyConnectEnrolleeResponderModeSupported"
+	ManagerService_IsEasyConnectSupported_FullMethodName                           = "/wifi.ManagerService/IsEasyConnectSupported"
+	ManagerService_IsEnhancedOpenSupported_FullMethodName                          = "/wifi.ManagerService/IsEnhancedOpenSupported"
+	ManagerService_IsEnhancedPowerReportingSupported_FullMethodName                = "/wifi.ManagerService/IsEnhancedPowerReportingSupported"
+	ManagerService_IsMakeBeforeBreakWifiSwitchingSupported_FullMethodName          = "/wifi.ManagerService/IsMakeBeforeBreakWifiSwitchingSupported"
+	ManagerService_IsP2PSupported_FullMethodName                                   = "/wifi.ManagerService/IsP2pSupported"
+	ManagerService_IsPasspointTermsAndConditionsSupported_FullMethodName           = "/wifi.ManagerService/IsPasspointTermsAndConditionsSupported"
+	ManagerService_IsPreferredNetworkOffloadSupported_FullMethodName               = "/wifi.ManagerService/IsPreferredNetworkOffloadSupported"
+	ManagerService_IsScanAlwaysAvailable_FullMethodName                            = "/wifi.ManagerService/IsScanAlwaysAvailable"
+	ManagerService_IsScanThrottleEnabled_FullMethodName                            = "/wifi.ManagerService/IsScanThrottleEnabled"
+	ManagerService_IsStaApConcurrencySupported_FullMethodName                      = "/wifi.ManagerService/IsStaApConcurrencySupported"
+	ManagerService_IsStaBridgedApConcurrencySupported_FullMethodName               = "/wifi.ManagerService/IsStaBridgedApConcurrencySupported"
+	ManagerService_IsStaConcurrencyForLocalOnlyConnectionsSupported_FullMethodName = "/wifi.ManagerService/IsStaConcurrencyForLocalOnlyConnectionsSupported"
+	ManagerService_IsStaConcurrencyForMultiInternetSupported_FullMethodName        = "/wifi.ManagerService/IsStaConcurrencyForMultiInternetSupported"
+	ManagerService_IsTdlsOperationCurrentlyAvailable_FullMethodName                = "/wifi.ManagerService/IsTdlsOperationCurrentlyAvailable"
+	ManagerService_IsTdlsSupported_FullMethodName                                  = "/wifi.ManagerService/IsTdlsSupported"
+	ManagerService_IsTidToLinkMappingNegotiationSupported_FullMethodName           = "/wifi.ManagerService/IsTidToLinkMappingNegotiationSupported"
+	ManagerService_IsTlsMinimumVersionSupported_FullMethodName                     = "/wifi.ManagerService/IsTlsMinimumVersionSupported"
+	ManagerService_IsTlsV13Supported_FullMethodName                                = "/wifi.ManagerService/IsTlsV13Supported"
+	ManagerService_IsTrustOnFirstUseSupported_FullMethodName                       = "/wifi.ManagerService/IsTrustOnFirstUseSupported"
+	ManagerService_IsWapiSupported_FullMethodName                                  = "/wifi.ManagerService/IsWapiSupported"
+	ManagerService_IsWepSupported_FullMethodName                                   = "/wifi.ManagerService/IsWepSupported"
+	ManagerService_IsWifiDisplayR2Supported_FullMethodName                         = "/wifi.ManagerService/IsWifiDisplayR2Supported"
+	ManagerService_IsWifiEnabled_FullMethodName                                    = "/wifi.ManagerService/IsWifiEnabled"
+	ManagerService_IsWifiPasspointEnabled_FullMethodName                           = "/wifi.ManagerService/IsWifiPasspointEnabled"
+	ManagerService_IsWifiStandardSupported_FullMethodName                          = "/wifi.ManagerService/IsWifiStandardSupported"
+	ManagerService_IsWpa3SaeH2ESupported_FullMethodName                            = "/wifi.ManagerService/IsWpa3SaeH2eSupported"
+	ManagerService_IsWpa3SaePublicKeySupported_FullMethodName                      = "/wifi.ManagerService/IsWpa3SaePublicKeySupported"
+	ManagerService_IsWpa3SaeSupported_FullMethodName                               = "/wifi.ManagerService/IsWpa3SaeSupported"
+	ManagerService_IsWpa3SuiteBSupported_FullMethodName                            = "/wifi.ManagerService/IsWpa3SuiteBSupported"
+	ManagerService_IsWpaPersonalSupported_FullMethodName                           = "/wifi.ManagerService/IsWpaPersonalSupported"
+	ManagerService_PingSupplicant_FullMethodName                                   = "/wifi.ManagerService/PingSupplicant"
+	ManagerService_QueryAutojoinGlobal_FullMethodName                              = "/wifi.ManagerService/QueryAutojoinGlobal"
+	ManagerService_QuerySendDhcpHostnameRestriction_FullMethodName                 = "/wifi.ManagerService/QuerySendDhcpHostnameRestriction"
+	ManagerService_Reassociate_FullMethodName                                      = "/wifi.ManagerService/Reassociate"
+	ManagerService_Reconnect_FullMethodName                                        = "/wifi.ManagerService/Reconnect"
+	ManagerService_RegisterScanResultsCallback_FullMethodName                      = "/wifi.ManagerService/RegisterScanResultsCallback"
+	ManagerService_RegisterSubsystemRestartTrackingCallback_FullMethodName         = "/wifi.ManagerService/RegisterSubsystemRestartTrackingCallback"
+	ManagerService_RemoveLocalOnlyConnectionFailureListener_FullMethodName         = "/wifi.ManagerService/RemoveLocalOnlyConnectionFailureListener"
+	ManagerService_RemoveNetwork_FullMethodName                                    = "/wifi.ManagerService/RemoveNetwork"
+	ManagerService_RemoveNetworkSuggestions1_FullMethodName                        = "/wifi.ManagerService/RemoveNetworkSuggestions1"
+	ManagerService_RemoveNetworkSuggestions2_1_FullMethodName                      = "/wifi.ManagerService/RemoveNetworkSuggestions2_1"
+	ManagerService_RemoveNonCallerConfiguredNetworks_FullMethodName                = "/wifi.ManagerService/RemoveNonCallerConfiguredNetworks"
+	ManagerService_RemovePasspointConfiguration_FullMethodName                     = "/wifi.ManagerService/RemovePasspointConfiguration"
+	ManagerService_RemovePerSsidRoamingMode_FullMethodName                         = "/wifi.ManagerService/RemovePerSsidRoamingMode"
+	ManagerService_RemoveSuggestionConnectionStatusListener_FullMethodName         = "/wifi.ManagerService/RemoveSuggestionConnectionStatusListener"
+	ManagerService_RemoveSuggestionUserApprovalStatusListener_FullMethodName       = "/wifi.ManagerService/RemoveSuggestionUserApprovalStatusListener"
+	ManagerService_RemoveWifiStateChangedListener_FullMethodName                   = "/wifi.ManagerService/RemoveWifiStateChangedListener"
+	ManagerService_ReportCreateInterfaceImpact_FullMethodName                      = "/wifi.ManagerService/ReportCreateInterfaceImpact"
+	ManagerService_SaveConfiguration_FullMethodName                                = "/wifi.ManagerService/SaveConfiguration"
+	ManagerService_SetPerSsidRoamingMode_FullMethodName                            = "/wifi.ManagerService/SetPerSsidRoamingMode"
+	ManagerService_SetSendDhcpHostnameRestriction_FullMethodName                   = "/wifi.ManagerService/SetSendDhcpHostnameRestriction"
+	ManagerService_SetTdlsEnabled2_FullMethodName                                  = "/wifi.ManagerService/SetTdlsEnabled2"
+	ManagerService_SetTdlsEnabled4_1_FullMethodName                                = "/wifi.ManagerService/SetTdlsEnabled4_1"
+	ManagerService_SetTdlsEnabledWithMacAddress2_FullMethodName                    = "/wifi.ManagerService/SetTdlsEnabledWithMacAddress2"
+	ManagerService_SetTdlsEnabledWithMacAddress4_1_FullMethodName                  = "/wifi.ManagerService/SetTdlsEnabledWithMacAddress4_1"
+	ManagerService_SetWifiEnabled_FullMethodName                                   = "/wifi.ManagerService/SetWifiEnabled"
+	ManagerService_StartLocalOnlyHotspotWithConfiguration_FullMethodName           = "/wifi.ManagerService/StartLocalOnlyHotspotWithConfiguration"
+	ManagerService_StartScan_FullMethodName                                        = "/wifi.ManagerService/StartScan"
+	ManagerService_StartWps_FullMethodName                                         = "/wifi.ManagerService/StartWps"
+	ManagerService_UnregisterScanResultsCallback_FullMethodName                    = "/wifi.ManagerService/UnregisterScanResultsCallback"
+	ManagerService_UnregisterSubsystemRestartTrackingCallback_FullMethodName       = "/wifi.ManagerService/UnregisterSubsystemRestartTrackingCallback"
+	ManagerService_UpdateNetwork_FullMethodName                                    = "/wifi.ManagerService/UpdateNetwork"
+	ManagerService_ValidateSoftApConfiguration_FullMethodName                      = "/wifi.ManagerService/ValidateSoftApConfiguration"
+	ManagerService_CalculateSignalLevel2_1_FullMethodName                          = "/wifi.ManagerService/CalculateSignalLevel2_1"
+	ManagerService_CompareSignalLevel_FullMethodName                               = "/wifi.ManagerService/CompareSignalLevel"
 )
 
-// WifiManagerServiceClient is the client API for WifiManagerService service.
+// ManagerServiceClient is the client API for ManagerService service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type WifiManagerServiceClient interface {
+type ManagerServiceClient interface {
 	AddLocalOnlyConnectionFailureListener(ctx context.Context, in *AddLocalOnlyConnectionFailureListenerRequest, opts ...grpc.CallOption) (*AddLocalOnlyConnectionFailureListenerResponse, error)
 	AddNetwork(ctx context.Context, in *AddNetworkRequest, opts ...grpc.CallOption) (*AddNetworkResponse, error)
 	AddNetworkPrivileged(ctx context.Context, in *AddNetworkPrivilegedRequest, opts ...grpc.CallOption) (*AddNetworkPrivilegedResponse, error)
@@ -1617,1178 +1617,1178 @@ type WifiManagerServiceClient interface {
 	CompareSignalLevel(ctx context.Context, in *CompareSignalLevelRequest, opts ...grpc.CallOption) (*CompareSignalLevelResponse, error)
 }
 
-type wifiManagerServiceClient struct {
+type managerServiceClient struct {
 	cc grpc.ClientConnInterface
 }
 
-func NewWifiManagerServiceClient(cc grpc.ClientConnInterface) WifiManagerServiceClient {
-	return &wifiManagerServiceClient{cc}
+func NewManagerServiceClient(cc grpc.ClientConnInterface) ManagerServiceClient {
+	return &managerServiceClient{cc}
 }
 
-func (c *wifiManagerServiceClient) AddLocalOnlyConnectionFailureListener(ctx context.Context, in *AddLocalOnlyConnectionFailureListenerRequest, opts ...grpc.CallOption) (*AddLocalOnlyConnectionFailureListenerResponse, error) {
+func (c *managerServiceClient) AddLocalOnlyConnectionFailureListener(ctx context.Context, in *AddLocalOnlyConnectionFailureListenerRequest, opts ...grpc.CallOption) (*AddLocalOnlyConnectionFailureListenerResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(AddLocalOnlyConnectionFailureListenerResponse)
-	err := c.cc.Invoke(ctx, WifiManagerService_AddLocalOnlyConnectionFailureListener_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, ManagerService_AddLocalOnlyConnectionFailureListener_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *wifiManagerServiceClient) AddNetwork(ctx context.Context, in *AddNetworkRequest, opts ...grpc.CallOption) (*AddNetworkResponse, error) {
+func (c *managerServiceClient) AddNetwork(ctx context.Context, in *AddNetworkRequest, opts ...grpc.CallOption) (*AddNetworkResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(AddNetworkResponse)
-	err := c.cc.Invoke(ctx, WifiManagerService_AddNetwork_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, ManagerService_AddNetwork_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *wifiManagerServiceClient) AddNetworkPrivileged(ctx context.Context, in *AddNetworkPrivilegedRequest, opts ...grpc.CallOption) (*AddNetworkPrivilegedResponse, error) {
+func (c *managerServiceClient) AddNetworkPrivileged(ctx context.Context, in *AddNetworkPrivilegedRequest, opts ...grpc.CallOption) (*AddNetworkPrivilegedResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(AddNetworkPrivilegedResponse)
-	err := c.cc.Invoke(ctx, WifiManagerService_AddNetworkPrivileged_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, ManagerService_AddNetworkPrivileged_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *wifiManagerServiceClient) AddNetworkSuggestions(ctx context.Context, in *AddNetworkSuggestionsRequest, opts ...grpc.CallOption) (*AddNetworkSuggestionsResponse, error) {
+func (c *managerServiceClient) AddNetworkSuggestions(ctx context.Context, in *AddNetworkSuggestionsRequest, opts ...grpc.CallOption) (*AddNetworkSuggestionsResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(AddNetworkSuggestionsResponse)
-	err := c.cc.Invoke(ctx, WifiManagerService_AddNetworkSuggestions_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, ManagerService_AddNetworkSuggestions_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *wifiManagerServiceClient) AddOrUpdatePasspointConfiguration(ctx context.Context, in *AddOrUpdatePasspointConfigurationRequest, opts ...grpc.CallOption) (*AddOrUpdatePasspointConfigurationResponse, error) {
+func (c *managerServiceClient) AddOrUpdatePasspointConfiguration(ctx context.Context, in *AddOrUpdatePasspointConfigurationRequest, opts ...grpc.CallOption) (*AddOrUpdatePasspointConfigurationResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(AddOrUpdatePasspointConfigurationResponse)
-	err := c.cc.Invoke(ctx, WifiManagerService_AddOrUpdatePasspointConfiguration_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, ManagerService_AddOrUpdatePasspointConfiguration_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *wifiManagerServiceClient) AddSuggestionConnectionStatusListener(ctx context.Context, in *AddSuggestionConnectionStatusListenerRequest, opts ...grpc.CallOption) (*AddSuggestionConnectionStatusListenerResponse, error) {
+func (c *managerServiceClient) AddSuggestionConnectionStatusListener(ctx context.Context, in *AddSuggestionConnectionStatusListenerRequest, opts ...grpc.CallOption) (*AddSuggestionConnectionStatusListenerResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(AddSuggestionConnectionStatusListenerResponse)
-	err := c.cc.Invoke(ctx, WifiManagerService_AddSuggestionConnectionStatusListener_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, ManagerService_AddSuggestionConnectionStatusListener_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *wifiManagerServiceClient) AddSuggestionUserApprovalStatusListener(ctx context.Context, in *AddSuggestionUserApprovalStatusListenerRequest, opts ...grpc.CallOption) (*AddSuggestionUserApprovalStatusListenerResponse, error) {
+func (c *managerServiceClient) AddSuggestionUserApprovalStatusListener(ctx context.Context, in *AddSuggestionUserApprovalStatusListenerRequest, opts ...grpc.CallOption) (*AddSuggestionUserApprovalStatusListenerResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(AddSuggestionUserApprovalStatusListenerResponse)
-	err := c.cc.Invoke(ctx, WifiManagerService_AddSuggestionUserApprovalStatusListener_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, ManagerService_AddSuggestionUserApprovalStatusListener_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *wifiManagerServiceClient) AddWifiStateChangedListener(ctx context.Context, in *AddWifiStateChangedListenerRequest, opts ...grpc.CallOption) (*AddWifiStateChangedListenerResponse, error) {
+func (c *managerServiceClient) AddWifiStateChangedListener(ctx context.Context, in *AddWifiStateChangedListenerRequest, opts ...grpc.CallOption) (*AddWifiStateChangedListenerResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(AddWifiStateChangedListenerResponse)
-	err := c.cc.Invoke(ctx, WifiManagerService_AddWifiStateChangedListener_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, ManagerService_AddWifiStateChangedListener_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *wifiManagerServiceClient) AllowAutojoinGlobal(ctx context.Context, in *AllowAutojoinGlobalRequest, opts ...grpc.CallOption) (*AllowAutojoinGlobalResponse, error) {
+func (c *managerServiceClient) AllowAutojoinGlobal(ctx context.Context, in *AllowAutojoinGlobalRequest, opts ...grpc.CallOption) (*AllowAutojoinGlobalResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(AllowAutojoinGlobalResponse)
-	err := c.cc.Invoke(ctx, WifiManagerService_AllowAutojoinGlobal_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, ManagerService_AllowAutojoinGlobal_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *wifiManagerServiceClient) CalculateSignalLevel1(ctx context.Context, in *CalculateSignalLevel1Request, opts ...grpc.CallOption) (*CalculateSignalLevel1Response, error) {
+func (c *managerServiceClient) CalculateSignalLevel1(ctx context.Context, in *CalculateSignalLevel1Request, opts ...grpc.CallOption) (*CalculateSignalLevel1Response, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(CalculateSignalLevel1Response)
-	err := c.cc.Invoke(ctx, WifiManagerService_CalculateSignalLevel1_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, ManagerService_CalculateSignalLevel1_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *wifiManagerServiceClient) CancelWps(ctx context.Context, in *CancelWpsRequest, opts ...grpc.CallOption) (*CancelWpsResponse, error) {
+func (c *managerServiceClient) CancelWps(ctx context.Context, in *CancelWpsRequest, opts ...grpc.CallOption) (*CancelWpsResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(CancelWpsResponse)
-	err := c.cc.Invoke(ctx, WifiManagerService_CancelWps_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, ManagerService_CancelWps_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *wifiManagerServiceClient) CreateMulticastLock(ctx context.Context, in *CreateMulticastLockRequest, opts ...grpc.CallOption) (*CreateMulticastLockResponse, error) {
+func (c *managerServiceClient) CreateMulticastLock(ctx context.Context, in *CreateMulticastLockRequest, opts ...grpc.CallOption) (*CreateMulticastLockResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(CreateMulticastLockResponse)
-	err := c.cc.Invoke(ctx, WifiManagerService_CreateMulticastLock_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, ManagerService_CreateMulticastLock_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *wifiManagerServiceClient) CreateWifiLock2(ctx context.Context, in *CreateWifiLock2Request, opts ...grpc.CallOption) (*CreateWifiLock2Response, error) {
+func (c *managerServiceClient) CreateWifiLock2(ctx context.Context, in *CreateWifiLock2Request, opts ...grpc.CallOption) (*CreateWifiLock2Response, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(CreateWifiLock2Response)
-	err := c.cc.Invoke(ctx, WifiManagerService_CreateWifiLock2_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, ManagerService_CreateWifiLock2_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *wifiManagerServiceClient) CreateWifiLock1_1(ctx context.Context, in *CreateWifiLock1_1Request, opts ...grpc.CallOption) (*CreateWifiLock1_1Response, error) {
+func (c *managerServiceClient) CreateWifiLock1_1(ctx context.Context, in *CreateWifiLock1_1Request, opts ...grpc.CallOption) (*CreateWifiLock1_1Response, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(CreateWifiLock1_1Response)
-	err := c.cc.Invoke(ctx, WifiManagerService_CreateWifiLock1_1_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, ManagerService_CreateWifiLock1_1_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *wifiManagerServiceClient) DisableNetwork(ctx context.Context, in *DisableNetworkRequest, opts ...grpc.CallOption) (*DisableNetworkResponse, error) {
+func (c *managerServiceClient) DisableNetwork(ctx context.Context, in *DisableNetworkRequest, opts ...grpc.CallOption) (*DisableNetworkResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(DisableNetworkResponse)
-	err := c.cc.Invoke(ctx, WifiManagerService_DisableNetwork_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, ManagerService_DisableNetwork_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *wifiManagerServiceClient) DisallowCurrentSuggestedNetwork(ctx context.Context, in *DisallowCurrentSuggestedNetworkRequest, opts ...grpc.CallOption) (*DisallowCurrentSuggestedNetworkResponse, error) {
+func (c *managerServiceClient) DisallowCurrentSuggestedNetwork(ctx context.Context, in *DisallowCurrentSuggestedNetworkRequest, opts ...grpc.CallOption) (*DisallowCurrentSuggestedNetworkResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(DisallowCurrentSuggestedNetworkResponse)
-	err := c.cc.Invoke(ctx, WifiManagerService_DisallowCurrentSuggestedNetwork_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, ManagerService_DisallowCurrentSuggestedNetwork_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *wifiManagerServiceClient) Disconnect(ctx context.Context, in *DisconnectRequest, opts ...grpc.CallOption) (*DisconnectResponse, error) {
+func (c *managerServiceClient) Disconnect(ctx context.Context, in *DisconnectRequest, opts ...grpc.CallOption) (*DisconnectResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(DisconnectResponse)
-	err := c.cc.Invoke(ctx, WifiManagerService_Disconnect_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, ManagerService_Disconnect_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *wifiManagerServiceClient) EnableNetwork(ctx context.Context, in *EnableNetworkRequest, opts ...grpc.CallOption) (*EnableNetworkResponse, error) {
+func (c *managerServiceClient) EnableNetwork(ctx context.Context, in *EnableNetworkRequest, opts ...grpc.CallOption) (*EnableNetworkResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(EnableNetworkResponse)
-	err := c.cc.Invoke(ctx, WifiManagerService_EnableNetwork_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, ManagerService_EnableNetwork_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *wifiManagerServiceClient) FlushPasspointAnqpCache(ctx context.Context, in *FlushPasspointAnqpCacheRequest, opts ...grpc.CallOption) (*FlushPasspointAnqpCacheResponse, error) {
+func (c *managerServiceClient) FlushPasspointAnqpCache(ctx context.Context, in *FlushPasspointAnqpCacheRequest, opts ...grpc.CallOption) (*FlushPasspointAnqpCacheResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(FlushPasspointAnqpCacheResponse)
-	err := c.cc.Invoke(ctx, WifiManagerService_FlushPasspointAnqpCache_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, ManagerService_FlushPasspointAnqpCache_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *wifiManagerServiceClient) GetAllowedChannels(ctx context.Context, in *GetAllowedChannelsRequest, opts ...grpc.CallOption) (*GetAllowedChannelsResponse, error) {
+func (c *managerServiceClient) GetAllowedChannels(ctx context.Context, in *GetAllowedChannelsRequest, opts ...grpc.CallOption) (*GetAllowedChannelsResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(GetAllowedChannelsResponse)
-	err := c.cc.Invoke(ctx, WifiManagerService_GetAllowedChannels_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, ManagerService_GetAllowedChannels_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *wifiManagerServiceClient) GetCallerConfiguredNetworks(ctx context.Context, in *GetCallerConfiguredNetworksRequest, opts ...grpc.CallOption) (*GetCallerConfiguredNetworksResponse, error) {
+func (c *managerServiceClient) GetCallerConfiguredNetworks(ctx context.Context, in *GetCallerConfiguredNetworksRequest, opts ...grpc.CallOption) (*GetCallerConfiguredNetworksResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(GetCallerConfiguredNetworksResponse)
-	err := c.cc.Invoke(ctx, WifiManagerService_GetCallerConfiguredNetworks_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, ManagerService_GetCallerConfiguredNetworks_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *wifiManagerServiceClient) GetChannelData(ctx context.Context, in *GetChannelDataRequest, opts ...grpc.CallOption) (*GetChannelDataResponse, error) {
+func (c *managerServiceClient) GetChannelData(ctx context.Context, in *GetChannelDataRequest, opts ...grpc.CallOption) (*GetChannelDataResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(GetChannelDataResponse)
-	err := c.cc.Invoke(ctx, WifiManagerService_GetChannelData_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, ManagerService_GetChannelData_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *wifiManagerServiceClient) GetConfiguredNetworks(ctx context.Context, in *GetConfiguredNetworksRequest, opts ...grpc.CallOption) (*GetConfiguredNetworksResponse, error) {
+func (c *managerServiceClient) GetConfiguredNetworks(ctx context.Context, in *GetConfiguredNetworksRequest, opts ...grpc.CallOption) (*GetConfiguredNetworksResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(GetConfiguredNetworksResponse)
-	err := c.cc.Invoke(ctx, WifiManagerService_GetConfiguredNetworks_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, ManagerService_GetConfiguredNetworks_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *wifiManagerServiceClient) GetConnectionInfo(ctx context.Context, in *GetConnectionInfoRequest, opts ...grpc.CallOption) (*GetConnectionInfoResponse, error) {
+func (c *managerServiceClient) GetConnectionInfo(ctx context.Context, in *GetConnectionInfoRequest, opts ...grpc.CallOption) (*GetConnectionInfoResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(GetConnectionInfoResponse)
-	err := c.cc.Invoke(ctx, WifiManagerService_GetConnectionInfo_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, ManagerService_GetConnectionInfo_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *wifiManagerServiceClient) GetDhcpInfo(ctx context.Context, in *GetDhcpInfoRequest, opts ...grpc.CallOption) (*GetDhcpInfoResponse, error) {
+func (c *managerServiceClient) GetDhcpInfo(ctx context.Context, in *GetDhcpInfoRequest, opts ...grpc.CallOption) (*GetDhcpInfoResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(GetDhcpInfoResponse)
-	err := c.cc.Invoke(ctx, WifiManagerService_GetDhcpInfo_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, ManagerService_GetDhcpInfo_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *wifiManagerServiceClient) GetMaxNumberOfChannelsPerNetworkSpecifierRequest(ctx context.Context, in *GetMaxNumberOfChannelsPerNetworkSpecifierRequestRequest, opts ...grpc.CallOption) (*GetMaxNumberOfChannelsPerNetworkSpecifierRequestResponse, error) {
+func (c *managerServiceClient) GetMaxNumberOfChannelsPerNetworkSpecifierRequest(ctx context.Context, in *GetMaxNumberOfChannelsPerNetworkSpecifierRequestRequest, opts ...grpc.CallOption) (*GetMaxNumberOfChannelsPerNetworkSpecifierRequestResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(GetMaxNumberOfChannelsPerNetworkSpecifierRequestResponse)
-	err := c.cc.Invoke(ctx, WifiManagerService_GetMaxNumberOfChannelsPerNetworkSpecifierRequest_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, ManagerService_GetMaxNumberOfChannelsPerNetworkSpecifierRequest_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *wifiManagerServiceClient) GetMaxNumberOfNetworkSuggestionsPerApp(ctx context.Context, in *GetMaxNumberOfNetworkSuggestionsPerAppRequest, opts ...grpc.CallOption) (*GetMaxNumberOfNetworkSuggestionsPerAppResponse, error) {
+func (c *managerServiceClient) GetMaxNumberOfNetworkSuggestionsPerApp(ctx context.Context, in *GetMaxNumberOfNetworkSuggestionsPerAppRequest, opts ...grpc.CallOption) (*GetMaxNumberOfNetworkSuggestionsPerAppResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(GetMaxNumberOfNetworkSuggestionsPerAppResponse)
-	err := c.cc.Invoke(ctx, WifiManagerService_GetMaxNumberOfNetworkSuggestionsPerApp_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, ManagerService_GetMaxNumberOfNetworkSuggestionsPerApp_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *wifiManagerServiceClient) GetMaxSignalLevel(ctx context.Context, in *GetMaxSignalLevelRequest, opts ...grpc.CallOption) (*GetMaxSignalLevelResponse, error) {
+func (c *managerServiceClient) GetMaxSignalLevel(ctx context.Context, in *GetMaxSignalLevelRequest, opts ...grpc.CallOption) (*GetMaxSignalLevelResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(GetMaxSignalLevelResponse)
-	err := c.cc.Invoke(ctx, WifiManagerService_GetMaxSignalLevel_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, ManagerService_GetMaxSignalLevel_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *wifiManagerServiceClient) GetMaxSupportedConcurrentTdlsSessions(ctx context.Context, in *GetMaxSupportedConcurrentTdlsSessionsRequest, opts ...grpc.CallOption) (*GetMaxSupportedConcurrentTdlsSessionsResponse, error) {
+func (c *managerServiceClient) GetMaxSupportedConcurrentTdlsSessions(ctx context.Context, in *GetMaxSupportedConcurrentTdlsSessionsRequest, opts ...grpc.CallOption) (*GetMaxSupportedConcurrentTdlsSessionsResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(GetMaxSupportedConcurrentTdlsSessionsResponse)
-	err := c.cc.Invoke(ctx, WifiManagerService_GetMaxSupportedConcurrentTdlsSessions_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, ManagerService_GetMaxSupportedConcurrentTdlsSessions_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *wifiManagerServiceClient) GetNetworkSuggestions(ctx context.Context, in *GetNetworkSuggestionsRequest, opts ...grpc.CallOption) (*GetNetworkSuggestionsResponse, error) {
+func (c *managerServiceClient) GetNetworkSuggestions(ctx context.Context, in *GetNetworkSuggestionsRequest, opts ...grpc.CallOption) (*GetNetworkSuggestionsResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(GetNetworkSuggestionsResponse)
-	err := c.cc.Invoke(ctx, WifiManagerService_GetNetworkSuggestions_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, ManagerService_GetNetworkSuggestions_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *wifiManagerServiceClient) GetNumberOfEnabledTdlsSessions(ctx context.Context, in *GetNumberOfEnabledTdlsSessionsRequest, opts ...grpc.CallOption) (*GetNumberOfEnabledTdlsSessionsResponse, error) {
+func (c *managerServiceClient) GetNumberOfEnabledTdlsSessions(ctx context.Context, in *GetNumberOfEnabledTdlsSessionsRequest, opts ...grpc.CallOption) (*GetNumberOfEnabledTdlsSessionsResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(GetNumberOfEnabledTdlsSessionsResponse)
-	err := c.cc.Invoke(ctx, WifiManagerService_GetNumberOfEnabledTdlsSessions_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, ManagerService_GetNumberOfEnabledTdlsSessions_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *wifiManagerServiceClient) GetPasspointConfigurations(ctx context.Context, in *GetPasspointConfigurationsRequest, opts ...grpc.CallOption) (*GetPasspointConfigurationsResponse, error) {
+func (c *managerServiceClient) GetPasspointConfigurations(ctx context.Context, in *GetPasspointConfigurationsRequest, opts ...grpc.CallOption) (*GetPasspointConfigurationsResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(GetPasspointConfigurationsResponse)
-	err := c.cc.Invoke(ctx, WifiManagerService_GetPasspointConfigurations_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, ManagerService_GetPasspointConfigurations_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *wifiManagerServiceClient) GetPerSsidRoamingModes(ctx context.Context, in *GetPerSsidRoamingModesRequest, opts ...grpc.CallOption) (*GetPerSsidRoamingModesResponse, error) {
+func (c *managerServiceClient) GetPerSsidRoamingModes(ctx context.Context, in *GetPerSsidRoamingModesRequest, opts ...grpc.CallOption) (*GetPerSsidRoamingModesResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(GetPerSsidRoamingModesResponse)
-	err := c.cc.Invoke(ctx, WifiManagerService_GetPerSsidRoamingModes_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, ManagerService_GetPerSsidRoamingModes_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *wifiManagerServiceClient) GetScanResults(ctx context.Context, in *GetScanResultsRequest, opts ...grpc.CallOption) (*GetScanResultsResponse, error) {
+func (c *managerServiceClient) GetScanResults(ctx context.Context, in *GetScanResultsRequest, opts ...grpc.CallOption) (*GetScanResultsResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(GetScanResultsResponse)
-	err := c.cc.Invoke(ctx, WifiManagerService_GetScanResults_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, ManagerService_GetScanResults_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *wifiManagerServiceClient) GetStaConcurrencyForMultiInternetMode(ctx context.Context, in *GetStaConcurrencyForMultiInternetModeRequest, opts ...grpc.CallOption) (*GetStaConcurrencyForMultiInternetModeResponse, error) {
+func (c *managerServiceClient) GetStaConcurrencyForMultiInternetMode(ctx context.Context, in *GetStaConcurrencyForMultiInternetModeRequest, opts ...grpc.CallOption) (*GetStaConcurrencyForMultiInternetModeResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(GetStaConcurrencyForMultiInternetModeResponse)
-	err := c.cc.Invoke(ctx, WifiManagerService_GetStaConcurrencyForMultiInternetMode_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, ManagerService_GetStaConcurrencyForMultiInternetMode_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *wifiManagerServiceClient) GetUsableChannels(ctx context.Context, in *GetUsableChannelsRequest, opts ...grpc.CallOption) (*GetUsableChannelsResponse, error) {
+func (c *managerServiceClient) GetUsableChannels(ctx context.Context, in *GetUsableChannelsRequest, opts ...grpc.CallOption) (*GetUsableChannelsResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(GetUsableChannelsResponse)
-	err := c.cc.Invoke(ctx, WifiManagerService_GetUsableChannels_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, ManagerService_GetUsableChannels_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *wifiManagerServiceClient) GetWifiState(ctx context.Context, in *GetWifiStateRequest, opts ...grpc.CallOption) (*GetWifiStateResponse, error) {
+func (c *managerServiceClient) GetWifiState(ctx context.Context, in *GetWifiStateRequest, opts ...grpc.CallOption) (*GetWifiStateResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(GetWifiStateResponse)
-	err := c.cc.Invoke(ctx, WifiManagerService_GetWifiState_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, ManagerService_GetWifiState_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *wifiManagerServiceClient) Is24GHzBandSupported(ctx context.Context, in *Is24GHzBandSupportedRequest, opts ...grpc.CallOption) (*Is24GHzBandSupportedResponse, error) {
+func (c *managerServiceClient) Is24GHzBandSupported(ctx context.Context, in *Is24GHzBandSupportedRequest, opts ...grpc.CallOption) (*Is24GHzBandSupportedResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(Is24GHzBandSupportedResponse)
-	err := c.cc.Invoke(ctx, WifiManagerService_Is24GHzBandSupported_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, ManagerService_Is24GHzBandSupported_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *wifiManagerServiceClient) Is5GHzBandSupported(ctx context.Context, in *Is5GHzBandSupportedRequest, opts ...grpc.CallOption) (*Is5GHzBandSupportedResponse, error) {
+func (c *managerServiceClient) Is5GHzBandSupported(ctx context.Context, in *Is5GHzBandSupportedRequest, opts ...grpc.CallOption) (*Is5GHzBandSupportedResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(Is5GHzBandSupportedResponse)
-	err := c.cc.Invoke(ctx, WifiManagerService_Is5GHzBandSupported_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, ManagerService_Is5GHzBandSupported_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *wifiManagerServiceClient) Is60GHzBandSupported(ctx context.Context, in *Is60GHzBandSupportedRequest, opts ...grpc.CallOption) (*Is60GHzBandSupportedResponse, error) {
+func (c *managerServiceClient) Is60GHzBandSupported(ctx context.Context, in *Is60GHzBandSupportedRequest, opts ...grpc.CallOption) (*Is60GHzBandSupportedResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(Is60GHzBandSupportedResponse)
-	err := c.cc.Invoke(ctx, WifiManagerService_Is60GHzBandSupported_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, ManagerService_Is60GHzBandSupported_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *wifiManagerServiceClient) Is6GHzBandSupported(ctx context.Context, in *Is6GHzBandSupportedRequest, opts ...grpc.CallOption) (*Is6GHzBandSupportedResponse, error) {
+func (c *managerServiceClient) Is6GHzBandSupported(ctx context.Context, in *Is6GHzBandSupportedRequest, opts ...grpc.CallOption) (*Is6GHzBandSupportedResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(Is6GHzBandSupportedResponse)
-	err := c.cc.Invoke(ctx, WifiManagerService_Is6GHzBandSupported_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, ManagerService_Is6GHzBandSupported_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *wifiManagerServiceClient) IsAggressiveRoamingModeSupported(ctx context.Context, in *IsAggressiveRoamingModeSupportedRequest, opts ...grpc.CallOption) (*IsAggressiveRoamingModeSupportedResponse, error) {
+func (c *managerServiceClient) IsAggressiveRoamingModeSupported(ctx context.Context, in *IsAggressiveRoamingModeSupportedRequest, opts ...grpc.CallOption) (*IsAggressiveRoamingModeSupportedResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(IsAggressiveRoamingModeSupportedResponse)
-	err := c.cc.Invoke(ctx, WifiManagerService_IsAggressiveRoamingModeSupported_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, ManagerService_IsAggressiveRoamingModeSupported_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *wifiManagerServiceClient) IsAutoWakeupEnabled(ctx context.Context, in *IsAutoWakeupEnabledRequest, opts ...grpc.CallOption) (*IsAutoWakeupEnabledResponse, error) {
+func (c *managerServiceClient) IsAutoWakeupEnabled(ctx context.Context, in *IsAutoWakeupEnabledRequest, opts ...grpc.CallOption) (*IsAutoWakeupEnabledResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(IsAutoWakeupEnabledResponse)
-	err := c.cc.Invoke(ctx, WifiManagerService_IsAutoWakeupEnabled_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, ManagerService_IsAutoWakeupEnabled_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *wifiManagerServiceClient) IsBridgedApConcurrencySupported(ctx context.Context, in *IsBridgedApConcurrencySupportedRequest, opts ...grpc.CallOption) (*IsBridgedApConcurrencySupportedResponse, error) {
+func (c *managerServiceClient) IsBridgedApConcurrencySupported(ctx context.Context, in *IsBridgedApConcurrencySupportedRequest, opts ...grpc.CallOption) (*IsBridgedApConcurrencySupportedResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(IsBridgedApConcurrencySupportedResponse)
-	err := c.cc.Invoke(ctx, WifiManagerService_IsBridgedApConcurrencySupported_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, ManagerService_IsBridgedApConcurrencySupported_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *wifiManagerServiceClient) IsCarrierNetworkOffloadEnabled(ctx context.Context, in *IsCarrierNetworkOffloadEnabledRequest, opts ...grpc.CallOption) (*IsCarrierNetworkOffloadEnabledResponse, error) {
+func (c *managerServiceClient) IsCarrierNetworkOffloadEnabled(ctx context.Context, in *IsCarrierNetworkOffloadEnabledRequest, opts ...grpc.CallOption) (*IsCarrierNetworkOffloadEnabledResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(IsCarrierNetworkOffloadEnabledResponse)
-	err := c.cc.Invoke(ctx, WifiManagerService_IsCarrierNetworkOffloadEnabled_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, ManagerService_IsCarrierNetworkOffloadEnabled_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *wifiManagerServiceClient) IsD2DSupportedWhenInfraStaDisabled(ctx context.Context, in *IsD2DSupportedWhenInfraStaDisabledRequest, opts ...grpc.CallOption) (*IsD2DSupportedWhenInfraStaDisabledResponse, error) {
+func (c *managerServiceClient) IsD2DSupportedWhenInfraStaDisabled(ctx context.Context, in *IsD2DSupportedWhenInfraStaDisabledRequest, opts ...grpc.CallOption) (*IsD2DSupportedWhenInfraStaDisabledResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(IsD2DSupportedWhenInfraStaDisabledResponse)
-	err := c.cc.Invoke(ctx, WifiManagerService_IsD2DSupportedWhenInfraStaDisabled_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, ManagerService_IsD2DSupportedWhenInfraStaDisabled_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *wifiManagerServiceClient) IsDecoratedIdentitySupported(ctx context.Context, in *IsDecoratedIdentitySupportedRequest, opts ...grpc.CallOption) (*IsDecoratedIdentitySupportedResponse, error) {
+func (c *managerServiceClient) IsDecoratedIdentitySupported(ctx context.Context, in *IsDecoratedIdentitySupportedRequest, opts ...grpc.CallOption) (*IsDecoratedIdentitySupportedResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(IsDecoratedIdentitySupportedResponse)
-	err := c.cc.Invoke(ctx, WifiManagerService_IsDecoratedIdentitySupported_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, ManagerService_IsDecoratedIdentitySupported_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *wifiManagerServiceClient) IsDeviceToApRttSupported(ctx context.Context, in *IsDeviceToApRttSupportedRequest, opts ...grpc.CallOption) (*IsDeviceToApRttSupportedResponse, error) {
+func (c *managerServiceClient) IsDeviceToApRttSupported(ctx context.Context, in *IsDeviceToApRttSupportedRequest, opts ...grpc.CallOption) (*IsDeviceToApRttSupportedResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(IsDeviceToApRttSupportedResponse)
-	err := c.cc.Invoke(ctx, WifiManagerService_IsDeviceToApRttSupported_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, ManagerService_IsDeviceToApRttSupported_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *wifiManagerServiceClient) IsDualBandSimultaneousSupported(ctx context.Context, in *IsDualBandSimultaneousSupportedRequest, opts ...grpc.CallOption) (*IsDualBandSimultaneousSupportedResponse, error) {
+func (c *managerServiceClient) IsDualBandSimultaneousSupported(ctx context.Context, in *IsDualBandSimultaneousSupportedRequest, opts ...grpc.CallOption) (*IsDualBandSimultaneousSupportedResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(IsDualBandSimultaneousSupportedResponse)
-	err := c.cc.Invoke(ctx, WifiManagerService_IsDualBandSimultaneousSupported_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, ManagerService_IsDualBandSimultaneousSupported_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *wifiManagerServiceClient) IsEasyConnectDppAkmSupported(ctx context.Context, in *IsEasyConnectDppAkmSupportedRequest, opts ...grpc.CallOption) (*IsEasyConnectDppAkmSupportedResponse, error) {
+func (c *managerServiceClient) IsEasyConnectDppAkmSupported(ctx context.Context, in *IsEasyConnectDppAkmSupportedRequest, opts ...grpc.CallOption) (*IsEasyConnectDppAkmSupportedResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(IsEasyConnectDppAkmSupportedResponse)
-	err := c.cc.Invoke(ctx, WifiManagerService_IsEasyConnectDppAkmSupported_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, ManagerService_IsEasyConnectDppAkmSupported_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *wifiManagerServiceClient) IsEasyConnectEnrolleeResponderModeSupported(ctx context.Context, in *IsEasyConnectEnrolleeResponderModeSupportedRequest, opts ...grpc.CallOption) (*IsEasyConnectEnrolleeResponderModeSupportedResponse, error) {
+func (c *managerServiceClient) IsEasyConnectEnrolleeResponderModeSupported(ctx context.Context, in *IsEasyConnectEnrolleeResponderModeSupportedRequest, opts ...grpc.CallOption) (*IsEasyConnectEnrolleeResponderModeSupportedResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(IsEasyConnectEnrolleeResponderModeSupportedResponse)
-	err := c.cc.Invoke(ctx, WifiManagerService_IsEasyConnectEnrolleeResponderModeSupported_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, ManagerService_IsEasyConnectEnrolleeResponderModeSupported_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *wifiManagerServiceClient) IsEasyConnectSupported(ctx context.Context, in *IsEasyConnectSupportedRequest, opts ...grpc.CallOption) (*IsEasyConnectSupportedResponse, error) {
+func (c *managerServiceClient) IsEasyConnectSupported(ctx context.Context, in *IsEasyConnectSupportedRequest, opts ...grpc.CallOption) (*IsEasyConnectSupportedResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(IsEasyConnectSupportedResponse)
-	err := c.cc.Invoke(ctx, WifiManagerService_IsEasyConnectSupported_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, ManagerService_IsEasyConnectSupported_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *wifiManagerServiceClient) IsEnhancedOpenSupported(ctx context.Context, in *IsEnhancedOpenSupportedRequest, opts ...grpc.CallOption) (*IsEnhancedOpenSupportedResponse, error) {
+func (c *managerServiceClient) IsEnhancedOpenSupported(ctx context.Context, in *IsEnhancedOpenSupportedRequest, opts ...grpc.CallOption) (*IsEnhancedOpenSupportedResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(IsEnhancedOpenSupportedResponse)
-	err := c.cc.Invoke(ctx, WifiManagerService_IsEnhancedOpenSupported_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, ManagerService_IsEnhancedOpenSupported_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *wifiManagerServiceClient) IsEnhancedPowerReportingSupported(ctx context.Context, in *IsEnhancedPowerReportingSupportedRequest, opts ...grpc.CallOption) (*IsEnhancedPowerReportingSupportedResponse, error) {
+func (c *managerServiceClient) IsEnhancedPowerReportingSupported(ctx context.Context, in *IsEnhancedPowerReportingSupportedRequest, opts ...grpc.CallOption) (*IsEnhancedPowerReportingSupportedResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(IsEnhancedPowerReportingSupportedResponse)
-	err := c.cc.Invoke(ctx, WifiManagerService_IsEnhancedPowerReportingSupported_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, ManagerService_IsEnhancedPowerReportingSupported_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *wifiManagerServiceClient) IsMakeBeforeBreakWifiSwitchingSupported(ctx context.Context, in *IsMakeBeforeBreakWifiSwitchingSupportedRequest, opts ...grpc.CallOption) (*IsMakeBeforeBreakWifiSwitchingSupportedResponse, error) {
+func (c *managerServiceClient) IsMakeBeforeBreakWifiSwitchingSupported(ctx context.Context, in *IsMakeBeforeBreakWifiSwitchingSupportedRequest, opts ...grpc.CallOption) (*IsMakeBeforeBreakWifiSwitchingSupportedResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(IsMakeBeforeBreakWifiSwitchingSupportedResponse)
-	err := c.cc.Invoke(ctx, WifiManagerService_IsMakeBeforeBreakWifiSwitchingSupported_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, ManagerService_IsMakeBeforeBreakWifiSwitchingSupported_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *wifiManagerServiceClient) IsP2PSupported(ctx context.Context, in *IsP2PSupportedRequest, opts ...grpc.CallOption) (*IsP2PSupportedResponse, error) {
+func (c *managerServiceClient) IsP2PSupported(ctx context.Context, in *IsP2PSupportedRequest, opts ...grpc.CallOption) (*IsP2PSupportedResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(IsP2PSupportedResponse)
-	err := c.cc.Invoke(ctx, WifiManagerService_IsP2PSupported_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, ManagerService_IsP2PSupported_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *wifiManagerServiceClient) IsPasspointTermsAndConditionsSupported(ctx context.Context, in *IsPasspointTermsAndConditionsSupportedRequest, opts ...grpc.CallOption) (*IsPasspointTermsAndConditionsSupportedResponse, error) {
+func (c *managerServiceClient) IsPasspointTermsAndConditionsSupported(ctx context.Context, in *IsPasspointTermsAndConditionsSupportedRequest, opts ...grpc.CallOption) (*IsPasspointTermsAndConditionsSupportedResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(IsPasspointTermsAndConditionsSupportedResponse)
-	err := c.cc.Invoke(ctx, WifiManagerService_IsPasspointTermsAndConditionsSupported_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, ManagerService_IsPasspointTermsAndConditionsSupported_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *wifiManagerServiceClient) IsPreferredNetworkOffloadSupported(ctx context.Context, in *IsPreferredNetworkOffloadSupportedRequest, opts ...grpc.CallOption) (*IsPreferredNetworkOffloadSupportedResponse, error) {
+func (c *managerServiceClient) IsPreferredNetworkOffloadSupported(ctx context.Context, in *IsPreferredNetworkOffloadSupportedRequest, opts ...grpc.CallOption) (*IsPreferredNetworkOffloadSupportedResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(IsPreferredNetworkOffloadSupportedResponse)
-	err := c.cc.Invoke(ctx, WifiManagerService_IsPreferredNetworkOffloadSupported_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, ManagerService_IsPreferredNetworkOffloadSupported_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *wifiManagerServiceClient) IsScanAlwaysAvailable(ctx context.Context, in *IsScanAlwaysAvailableRequest, opts ...grpc.CallOption) (*IsScanAlwaysAvailableResponse, error) {
+func (c *managerServiceClient) IsScanAlwaysAvailable(ctx context.Context, in *IsScanAlwaysAvailableRequest, opts ...grpc.CallOption) (*IsScanAlwaysAvailableResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(IsScanAlwaysAvailableResponse)
-	err := c.cc.Invoke(ctx, WifiManagerService_IsScanAlwaysAvailable_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, ManagerService_IsScanAlwaysAvailable_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *wifiManagerServiceClient) IsScanThrottleEnabled(ctx context.Context, in *IsScanThrottleEnabledRequest, opts ...grpc.CallOption) (*IsScanThrottleEnabledResponse, error) {
+func (c *managerServiceClient) IsScanThrottleEnabled(ctx context.Context, in *IsScanThrottleEnabledRequest, opts ...grpc.CallOption) (*IsScanThrottleEnabledResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(IsScanThrottleEnabledResponse)
-	err := c.cc.Invoke(ctx, WifiManagerService_IsScanThrottleEnabled_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, ManagerService_IsScanThrottleEnabled_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *wifiManagerServiceClient) IsStaApConcurrencySupported(ctx context.Context, in *IsStaApConcurrencySupportedRequest, opts ...grpc.CallOption) (*IsStaApConcurrencySupportedResponse, error) {
+func (c *managerServiceClient) IsStaApConcurrencySupported(ctx context.Context, in *IsStaApConcurrencySupportedRequest, opts ...grpc.CallOption) (*IsStaApConcurrencySupportedResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(IsStaApConcurrencySupportedResponse)
-	err := c.cc.Invoke(ctx, WifiManagerService_IsStaApConcurrencySupported_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, ManagerService_IsStaApConcurrencySupported_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *wifiManagerServiceClient) IsStaBridgedApConcurrencySupported(ctx context.Context, in *IsStaBridgedApConcurrencySupportedRequest, opts ...grpc.CallOption) (*IsStaBridgedApConcurrencySupportedResponse, error) {
+func (c *managerServiceClient) IsStaBridgedApConcurrencySupported(ctx context.Context, in *IsStaBridgedApConcurrencySupportedRequest, opts ...grpc.CallOption) (*IsStaBridgedApConcurrencySupportedResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(IsStaBridgedApConcurrencySupportedResponse)
-	err := c.cc.Invoke(ctx, WifiManagerService_IsStaBridgedApConcurrencySupported_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, ManagerService_IsStaBridgedApConcurrencySupported_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *wifiManagerServiceClient) IsStaConcurrencyForLocalOnlyConnectionsSupported(ctx context.Context, in *IsStaConcurrencyForLocalOnlyConnectionsSupportedRequest, opts ...grpc.CallOption) (*IsStaConcurrencyForLocalOnlyConnectionsSupportedResponse, error) {
+func (c *managerServiceClient) IsStaConcurrencyForLocalOnlyConnectionsSupported(ctx context.Context, in *IsStaConcurrencyForLocalOnlyConnectionsSupportedRequest, opts ...grpc.CallOption) (*IsStaConcurrencyForLocalOnlyConnectionsSupportedResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(IsStaConcurrencyForLocalOnlyConnectionsSupportedResponse)
-	err := c.cc.Invoke(ctx, WifiManagerService_IsStaConcurrencyForLocalOnlyConnectionsSupported_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, ManagerService_IsStaConcurrencyForLocalOnlyConnectionsSupported_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *wifiManagerServiceClient) IsStaConcurrencyForMultiInternetSupported(ctx context.Context, in *IsStaConcurrencyForMultiInternetSupportedRequest, opts ...grpc.CallOption) (*IsStaConcurrencyForMultiInternetSupportedResponse, error) {
+func (c *managerServiceClient) IsStaConcurrencyForMultiInternetSupported(ctx context.Context, in *IsStaConcurrencyForMultiInternetSupportedRequest, opts ...grpc.CallOption) (*IsStaConcurrencyForMultiInternetSupportedResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(IsStaConcurrencyForMultiInternetSupportedResponse)
-	err := c.cc.Invoke(ctx, WifiManagerService_IsStaConcurrencyForMultiInternetSupported_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, ManagerService_IsStaConcurrencyForMultiInternetSupported_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *wifiManagerServiceClient) IsTdlsOperationCurrentlyAvailable(ctx context.Context, in *IsTdlsOperationCurrentlyAvailableRequest, opts ...grpc.CallOption) (*IsTdlsOperationCurrentlyAvailableResponse, error) {
+func (c *managerServiceClient) IsTdlsOperationCurrentlyAvailable(ctx context.Context, in *IsTdlsOperationCurrentlyAvailableRequest, opts ...grpc.CallOption) (*IsTdlsOperationCurrentlyAvailableResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(IsTdlsOperationCurrentlyAvailableResponse)
-	err := c.cc.Invoke(ctx, WifiManagerService_IsTdlsOperationCurrentlyAvailable_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, ManagerService_IsTdlsOperationCurrentlyAvailable_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *wifiManagerServiceClient) IsTdlsSupported(ctx context.Context, in *IsTdlsSupportedRequest, opts ...grpc.CallOption) (*IsTdlsSupportedResponse, error) {
+func (c *managerServiceClient) IsTdlsSupported(ctx context.Context, in *IsTdlsSupportedRequest, opts ...grpc.CallOption) (*IsTdlsSupportedResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(IsTdlsSupportedResponse)
-	err := c.cc.Invoke(ctx, WifiManagerService_IsTdlsSupported_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, ManagerService_IsTdlsSupported_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *wifiManagerServiceClient) IsTidToLinkMappingNegotiationSupported(ctx context.Context, in *IsTidToLinkMappingNegotiationSupportedRequest, opts ...grpc.CallOption) (*IsTidToLinkMappingNegotiationSupportedResponse, error) {
+func (c *managerServiceClient) IsTidToLinkMappingNegotiationSupported(ctx context.Context, in *IsTidToLinkMappingNegotiationSupportedRequest, opts ...grpc.CallOption) (*IsTidToLinkMappingNegotiationSupportedResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(IsTidToLinkMappingNegotiationSupportedResponse)
-	err := c.cc.Invoke(ctx, WifiManagerService_IsTidToLinkMappingNegotiationSupported_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, ManagerService_IsTidToLinkMappingNegotiationSupported_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *wifiManagerServiceClient) IsTlsMinimumVersionSupported(ctx context.Context, in *IsTlsMinimumVersionSupportedRequest, opts ...grpc.CallOption) (*IsTlsMinimumVersionSupportedResponse, error) {
+func (c *managerServiceClient) IsTlsMinimumVersionSupported(ctx context.Context, in *IsTlsMinimumVersionSupportedRequest, opts ...grpc.CallOption) (*IsTlsMinimumVersionSupportedResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(IsTlsMinimumVersionSupportedResponse)
-	err := c.cc.Invoke(ctx, WifiManagerService_IsTlsMinimumVersionSupported_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, ManagerService_IsTlsMinimumVersionSupported_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *wifiManagerServiceClient) IsTlsV13Supported(ctx context.Context, in *IsTlsV13SupportedRequest, opts ...grpc.CallOption) (*IsTlsV13SupportedResponse, error) {
+func (c *managerServiceClient) IsTlsV13Supported(ctx context.Context, in *IsTlsV13SupportedRequest, opts ...grpc.CallOption) (*IsTlsV13SupportedResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(IsTlsV13SupportedResponse)
-	err := c.cc.Invoke(ctx, WifiManagerService_IsTlsV13Supported_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, ManagerService_IsTlsV13Supported_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *wifiManagerServiceClient) IsTrustOnFirstUseSupported(ctx context.Context, in *IsTrustOnFirstUseSupportedRequest, opts ...grpc.CallOption) (*IsTrustOnFirstUseSupportedResponse, error) {
+func (c *managerServiceClient) IsTrustOnFirstUseSupported(ctx context.Context, in *IsTrustOnFirstUseSupportedRequest, opts ...grpc.CallOption) (*IsTrustOnFirstUseSupportedResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(IsTrustOnFirstUseSupportedResponse)
-	err := c.cc.Invoke(ctx, WifiManagerService_IsTrustOnFirstUseSupported_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, ManagerService_IsTrustOnFirstUseSupported_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *wifiManagerServiceClient) IsWapiSupported(ctx context.Context, in *IsWapiSupportedRequest, opts ...grpc.CallOption) (*IsWapiSupportedResponse, error) {
+func (c *managerServiceClient) IsWapiSupported(ctx context.Context, in *IsWapiSupportedRequest, opts ...grpc.CallOption) (*IsWapiSupportedResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(IsWapiSupportedResponse)
-	err := c.cc.Invoke(ctx, WifiManagerService_IsWapiSupported_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, ManagerService_IsWapiSupported_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *wifiManagerServiceClient) IsWepSupported(ctx context.Context, in *IsWepSupportedRequest, opts ...grpc.CallOption) (*IsWepSupportedResponse, error) {
+func (c *managerServiceClient) IsWepSupported(ctx context.Context, in *IsWepSupportedRequest, opts ...grpc.CallOption) (*IsWepSupportedResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(IsWepSupportedResponse)
-	err := c.cc.Invoke(ctx, WifiManagerService_IsWepSupported_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, ManagerService_IsWepSupported_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *wifiManagerServiceClient) IsWifiDisplayR2Supported(ctx context.Context, in *IsWifiDisplayR2SupportedRequest, opts ...grpc.CallOption) (*IsWifiDisplayR2SupportedResponse, error) {
+func (c *managerServiceClient) IsWifiDisplayR2Supported(ctx context.Context, in *IsWifiDisplayR2SupportedRequest, opts ...grpc.CallOption) (*IsWifiDisplayR2SupportedResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(IsWifiDisplayR2SupportedResponse)
-	err := c.cc.Invoke(ctx, WifiManagerService_IsWifiDisplayR2Supported_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, ManagerService_IsWifiDisplayR2Supported_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *wifiManagerServiceClient) IsWifiEnabled(ctx context.Context, in *IsWifiEnabledRequest, opts ...grpc.CallOption) (*IsWifiEnabledResponse, error) {
+func (c *managerServiceClient) IsWifiEnabled(ctx context.Context, in *IsWifiEnabledRequest, opts ...grpc.CallOption) (*IsWifiEnabledResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(IsWifiEnabledResponse)
-	err := c.cc.Invoke(ctx, WifiManagerService_IsWifiEnabled_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, ManagerService_IsWifiEnabled_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *wifiManagerServiceClient) IsWifiPasspointEnabled(ctx context.Context, in *IsWifiPasspointEnabledRequest, opts ...grpc.CallOption) (*IsWifiPasspointEnabledResponse, error) {
+func (c *managerServiceClient) IsWifiPasspointEnabled(ctx context.Context, in *IsWifiPasspointEnabledRequest, opts ...grpc.CallOption) (*IsWifiPasspointEnabledResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(IsWifiPasspointEnabledResponse)
-	err := c.cc.Invoke(ctx, WifiManagerService_IsWifiPasspointEnabled_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, ManagerService_IsWifiPasspointEnabled_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *wifiManagerServiceClient) IsWifiStandardSupported(ctx context.Context, in *IsWifiStandardSupportedRequest, opts ...grpc.CallOption) (*IsWifiStandardSupportedResponse, error) {
+func (c *managerServiceClient) IsWifiStandardSupported(ctx context.Context, in *IsWifiStandardSupportedRequest, opts ...grpc.CallOption) (*IsWifiStandardSupportedResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(IsWifiStandardSupportedResponse)
-	err := c.cc.Invoke(ctx, WifiManagerService_IsWifiStandardSupported_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, ManagerService_IsWifiStandardSupported_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *wifiManagerServiceClient) IsWpa3SaeH2ESupported(ctx context.Context, in *IsWpa3SaeH2ESupportedRequest, opts ...grpc.CallOption) (*IsWpa3SaeH2ESupportedResponse, error) {
+func (c *managerServiceClient) IsWpa3SaeH2ESupported(ctx context.Context, in *IsWpa3SaeH2ESupportedRequest, opts ...grpc.CallOption) (*IsWpa3SaeH2ESupportedResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(IsWpa3SaeH2ESupportedResponse)
-	err := c.cc.Invoke(ctx, WifiManagerService_IsWpa3SaeH2ESupported_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, ManagerService_IsWpa3SaeH2ESupported_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *wifiManagerServiceClient) IsWpa3SaePublicKeySupported(ctx context.Context, in *IsWpa3SaePublicKeySupportedRequest, opts ...grpc.CallOption) (*IsWpa3SaePublicKeySupportedResponse, error) {
+func (c *managerServiceClient) IsWpa3SaePublicKeySupported(ctx context.Context, in *IsWpa3SaePublicKeySupportedRequest, opts ...grpc.CallOption) (*IsWpa3SaePublicKeySupportedResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(IsWpa3SaePublicKeySupportedResponse)
-	err := c.cc.Invoke(ctx, WifiManagerService_IsWpa3SaePublicKeySupported_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, ManagerService_IsWpa3SaePublicKeySupported_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *wifiManagerServiceClient) IsWpa3SaeSupported(ctx context.Context, in *IsWpa3SaeSupportedRequest, opts ...grpc.CallOption) (*IsWpa3SaeSupportedResponse, error) {
+func (c *managerServiceClient) IsWpa3SaeSupported(ctx context.Context, in *IsWpa3SaeSupportedRequest, opts ...grpc.CallOption) (*IsWpa3SaeSupportedResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(IsWpa3SaeSupportedResponse)
-	err := c.cc.Invoke(ctx, WifiManagerService_IsWpa3SaeSupported_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, ManagerService_IsWpa3SaeSupported_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *wifiManagerServiceClient) IsWpa3SuiteBSupported(ctx context.Context, in *IsWpa3SuiteBSupportedRequest, opts ...grpc.CallOption) (*IsWpa3SuiteBSupportedResponse, error) {
+func (c *managerServiceClient) IsWpa3SuiteBSupported(ctx context.Context, in *IsWpa3SuiteBSupportedRequest, opts ...grpc.CallOption) (*IsWpa3SuiteBSupportedResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(IsWpa3SuiteBSupportedResponse)
-	err := c.cc.Invoke(ctx, WifiManagerService_IsWpa3SuiteBSupported_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, ManagerService_IsWpa3SuiteBSupported_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *wifiManagerServiceClient) IsWpaPersonalSupported(ctx context.Context, in *IsWpaPersonalSupportedRequest, opts ...grpc.CallOption) (*IsWpaPersonalSupportedResponse, error) {
+func (c *managerServiceClient) IsWpaPersonalSupported(ctx context.Context, in *IsWpaPersonalSupportedRequest, opts ...grpc.CallOption) (*IsWpaPersonalSupportedResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(IsWpaPersonalSupportedResponse)
-	err := c.cc.Invoke(ctx, WifiManagerService_IsWpaPersonalSupported_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, ManagerService_IsWpaPersonalSupported_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *wifiManagerServiceClient) PingSupplicant(ctx context.Context, in *PingSupplicantRequest, opts ...grpc.CallOption) (*PingSupplicantResponse, error) {
+func (c *managerServiceClient) PingSupplicant(ctx context.Context, in *PingSupplicantRequest, opts ...grpc.CallOption) (*PingSupplicantResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(PingSupplicantResponse)
-	err := c.cc.Invoke(ctx, WifiManagerService_PingSupplicant_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, ManagerService_PingSupplicant_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *wifiManagerServiceClient) QueryAutojoinGlobal(ctx context.Context, in *QueryAutojoinGlobalRequest, opts ...grpc.CallOption) (*QueryAutojoinGlobalResponse, error) {
+func (c *managerServiceClient) QueryAutojoinGlobal(ctx context.Context, in *QueryAutojoinGlobalRequest, opts ...grpc.CallOption) (*QueryAutojoinGlobalResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(QueryAutojoinGlobalResponse)
-	err := c.cc.Invoke(ctx, WifiManagerService_QueryAutojoinGlobal_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, ManagerService_QueryAutojoinGlobal_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *wifiManagerServiceClient) QuerySendDhcpHostnameRestriction(ctx context.Context, in *QuerySendDhcpHostnameRestrictionRequest, opts ...grpc.CallOption) (*QuerySendDhcpHostnameRestrictionResponse, error) {
+func (c *managerServiceClient) QuerySendDhcpHostnameRestriction(ctx context.Context, in *QuerySendDhcpHostnameRestrictionRequest, opts ...grpc.CallOption) (*QuerySendDhcpHostnameRestrictionResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(QuerySendDhcpHostnameRestrictionResponse)
-	err := c.cc.Invoke(ctx, WifiManagerService_QuerySendDhcpHostnameRestriction_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, ManagerService_QuerySendDhcpHostnameRestriction_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *wifiManagerServiceClient) Reassociate(ctx context.Context, in *ReassociateRequest, opts ...grpc.CallOption) (*ReassociateResponse, error) {
+func (c *managerServiceClient) Reassociate(ctx context.Context, in *ReassociateRequest, opts ...grpc.CallOption) (*ReassociateResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(ReassociateResponse)
-	err := c.cc.Invoke(ctx, WifiManagerService_Reassociate_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, ManagerService_Reassociate_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *wifiManagerServiceClient) Reconnect(ctx context.Context, in *ReconnectRequest, opts ...grpc.CallOption) (*ReconnectResponse, error) {
+func (c *managerServiceClient) Reconnect(ctx context.Context, in *ReconnectRequest, opts ...grpc.CallOption) (*ReconnectResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(ReconnectResponse)
-	err := c.cc.Invoke(ctx, WifiManagerService_Reconnect_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, ManagerService_Reconnect_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *wifiManagerServiceClient) RegisterScanResultsCallback(ctx context.Context, in *RegisterScanResultsCallbackRequest, opts ...grpc.CallOption) (*RegisterScanResultsCallbackResponse, error) {
+func (c *managerServiceClient) RegisterScanResultsCallback(ctx context.Context, in *RegisterScanResultsCallbackRequest, opts ...grpc.CallOption) (*RegisterScanResultsCallbackResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(RegisterScanResultsCallbackResponse)
-	err := c.cc.Invoke(ctx, WifiManagerService_RegisterScanResultsCallback_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, ManagerService_RegisterScanResultsCallback_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *wifiManagerServiceClient) RegisterSubsystemRestartTrackingCallback(ctx context.Context, in *RegisterSubsystemRestartTrackingCallbackRequest, opts ...grpc.CallOption) (*RegisterSubsystemRestartTrackingCallbackResponse, error) {
+func (c *managerServiceClient) RegisterSubsystemRestartTrackingCallback(ctx context.Context, in *RegisterSubsystemRestartTrackingCallbackRequest, opts ...grpc.CallOption) (*RegisterSubsystemRestartTrackingCallbackResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(RegisterSubsystemRestartTrackingCallbackResponse)
-	err := c.cc.Invoke(ctx, WifiManagerService_RegisterSubsystemRestartTrackingCallback_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, ManagerService_RegisterSubsystemRestartTrackingCallback_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *wifiManagerServiceClient) RemoveLocalOnlyConnectionFailureListener(ctx context.Context, in *RemoveLocalOnlyConnectionFailureListenerRequest, opts ...grpc.CallOption) (*RemoveLocalOnlyConnectionFailureListenerResponse, error) {
+func (c *managerServiceClient) RemoveLocalOnlyConnectionFailureListener(ctx context.Context, in *RemoveLocalOnlyConnectionFailureListenerRequest, opts ...grpc.CallOption) (*RemoveLocalOnlyConnectionFailureListenerResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(RemoveLocalOnlyConnectionFailureListenerResponse)
-	err := c.cc.Invoke(ctx, WifiManagerService_RemoveLocalOnlyConnectionFailureListener_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, ManagerService_RemoveLocalOnlyConnectionFailureListener_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *wifiManagerServiceClient) RemoveNetwork(ctx context.Context, in *RemoveNetworkRequest, opts ...grpc.CallOption) (*RemoveNetworkResponse, error) {
+func (c *managerServiceClient) RemoveNetwork(ctx context.Context, in *RemoveNetworkRequest, opts ...grpc.CallOption) (*RemoveNetworkResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(RemoveNetworkResponse)
-	err := c.cc.Invoke(ctx, WifiManagerService_RemoveNetwork_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, ManagerService_RemoveNetwork_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *wifiManagerServiceClient) RemoveNetworkSuggestions1(ctx context.Context, in *RemoveNetworkSuggestions1Request, opts ...grpc.CallOption) (*RemoveNetworkSuggestions1Response, error) {
+func (c *managerServiceClient) RemoveNetworkSuggestions1(ctx context.Context, in *RemoveNetworkSuggestions1Request, opts ...grpc.CallOption) (*RemoveNetworkSuggestions1Response, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(RemoveNetworkSuggestions1Response)
-	err := c.cc.Invoke(ctx, WifiManagerService_RemoveNetworkSuggestions1_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, ManagerService_RemoveNetworkSuggestions1_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *wifiManagerServiceClient) RemoveNetworkSuggestions2_1(ctx context.Context, in *RemoveNetworkSuggestions2_1Request, opts ...grpc.CallOption) (*RemoveNetworkSuggestions2_1Response, error) {
+func (c *managerServiceClient) RemoveNetworkSuggestions2_1(ctx context.Context, in *RemoveNetworkSuggestions2_1Request, opts ...grpc.CallOption) (*RemoveNetworkSuggestions2_1Response, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(RemoveNetworkSuggestions2_1Response)
-	err := c.cc.Invoke(ctx, WifiManagerService_RemoveNetworkSuggestions2_1_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, ManagerService_RemoveNetworkSuggestions2_1_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *wifiManagerServiceClient) RemoveNonCallerConfiguredNetworks(ctx context.Context, in *RemoveNonCallerConfiguredNetworksRequest, opts ...grpc.CallOption) (*RemoveNonCallerConfiguredNetworksResponse, error) {
+func (c *managerServiceClient) RemoveNonCallerConfiguredNetworks(ctx context.Context, in *RemoveNonCallerConfiguredNetworksRequest, opts ...grpc.CallOption) (*RemoveNonCallerConfiguredNetworksResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(RemoveNonCallerConfiguredNetworksResponse)
-	err := c.cc.Invoke(ctx, WifiManagerService_RemoveNonCallerConfiguredNetworks_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, ManagerService_RemoveNonCallerConfiguredNetworks_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *wifiManagerServiceClient) RemovePasspointConfiguration(ctx context.Context, in *RemovePasspointConfigurationRequest, opts ...grpc.CallOption) (*RemovePasspointConfigurationResponse, error) {
+func (c *managerServiceClient) RemovePasspointConfiguration(ctx context.Context, in *RemovePasspointConfigurationRequest, opts ...grpc.CallOption) (*RemovePasspointConfigurationResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(RemovePasspointConfigurationResponse)
-	err := c.cc.Invoke(ctx, WifiManagerService_RemovePasspointConfiguration_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, ManagerService_RemovePasspointConfiguration_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *wifiManagerServiceClient) RemovePerSsidRoamingMode(ctx context.Context, in *RemovePerSsidRoamingModeRequest, opts ...grpc.CallOption) (*RemovePerSsidRoamingModeResponse, error) {
+func (c *managerServiceClient) RemovePerSsidRoamingMode(ctx context.Context, in *RemovePerSsidRoamingModeRequest, opts ...grpc.CallOption) (*RemovePerSsidRoamingModeResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(RemovePerSsidRoamingModeResponse)
-	err := c.cc.Invoke(ctx, WifiManagerService_RemovePerSsidRoamingMode_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, ManagerService_RemovePerSsidRoamingMode_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *wifiManagerServiceClient) RemoveSuggestionConnectionStatusListener(ctx context.Context, in *RemoveSuggestionConnectionStatusListenerRequest, opts ...grpc.CallOption) (*RemoveSuggestionConnectionStatusListenerResponse, error) {
+func (c *managerServiceClient) RemoveSuggestionConnectionStatusListener(ctx context.Context, in *RemoveSuggestionConnectionStatusListenerRequest, opts ...grpc.CallOption) (*RemoveSuggestionConnectionStatusListenerResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(RemoveSuggestionConnectionStatusListenerResponse)
-	err := c.cc.Invoke(ctx, WifiManagerService_RemoveSuggestionConnectionStatusListener_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, ManagerService_RemoveSuggestionConnectionStatusListener_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *wifiManagerServiceClient) RemoveSuggestionUserApprovalStatusListener(ctx context.Context, in *RemoveSuggestionUserApprovalStatusListenerRequest, opts ...grpc.CallOption) (*RemoveSuggestionUserApprovalStatusListenerResponse, error) {
+func (c *managerServiceClient) RemoveSuggestionUserApprovalStatusListener(ctx context.Context, in *RemoveSuggestionUserApprovalStatusListenerRequest, opts ...grpc.CallOption) (*RemoveSuggestionUserApprovalStatusListenerResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(RemoveSuggestionUserApprovalStatusListenerResponse)
-	err := c.cc.Invoke(ctx, WifiManagerService_RemoveSuggestionUserApprovalStatusListener_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, ManagerService_RemoveSuggestionUserApprovalStatusListener_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *wifiManagerServiceClient) RemoveWifiStateChangedListener(ctx context.Context, in *RemoveWifiStateChangedListenerRequest, opts ...grpc.CallOption) (*RemoveWifiStateChangedListenerResponse, error) {
+func (c *managerServiceClient) RemoveWifiStateChangedListener(ctx context.Context, in *RemoveWifiStateChangedListenerRequest, opts ...grpc.CallOption) (*RemoveWifiStateChangedListenerResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(RemoveWifiStateChangedListenerResponse)
-	err := c.cc.Invoke(ctx, WifiManagerService_RemoveWifiStateChangedListener_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, ManagerService_RemoveWifiStateChangedListener_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *wifiManagerServiceClient) ReportCreateInterfaceImpact(ctx context.Context, in *ReportCreateInterfaceImpactRequest, opts ...grpc.CallOption) (*ReportCreateInterfaceImpactResponse, error) {
+func (c *managerServiceClient) ReportCreateInterfaceImpact(ctx context.Context, in *ReportCreateInterfaceImpactRequest, opts ...grpc.CallOption) (*ReportCreateInterfaceImpactResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(ReportCreateInterfaceImpactResponse)
-	err := c.cc.Invoke(ctx, WifiManagerService_ReportCreateInterfaceImpact_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, ManagerService_ReportCreateInterfaceImpact_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *wifiManagerServiceClient) SaveConfiguration(ctx context.Context, in *SaveConfigurationRequest, opts ...grpc.CallOption) (*SaveConfigurationResponse, error) {
+func (c *managerServiceClient) SaveConfiguration(ctx context.Context, in *SaveConfigurationRequest, opts ...grpc.CallOption) (*SaveConfigurationResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(SaveConfigurationResponse)
-	err := c.cc.Invoke(ctx, WifiManagerService_SaveConfiguration_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, ManagerService_SaveConfiguration_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *wifiManagerServiceClient) SetPerSsidRoamingMode(ctx context.Context, in *SetPerSsidRoamingModeRequest, opts ...grpc.CallOption) (*SetPerSsidRoamingModeResponse, error) {
+func (c *managerServiceClient) SetPerSsidRoamingMode(ctx context.Context, in *SetPerSsidRoamingModeRequest, opts ...grpc.CallOption) (*SetPerSsidRoamingModeResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(SetPerSsidRoamingModeResponse)
-	err := c.cc.Invoke(ctx, WifiManagerService_SetPerSsidRoamingMode_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, ManagerService_SetPerSsidRoamingMode_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *wifiManagerServiceClient) SetSendDhcpHostnameRestriction(ctx context.Context, in *SetSendDhcpHostnameRestrictionRequest, opts ...grpc.CallOption) (*SetSendDhcpHostnameRestrictionResponse, error) {
+func (c *managerServiceClient) SetSendDhcpHostnameRestriction(ctx context.Context, in *SetSendDhcpHostnameRestrictionRequest, opts ...grpc.CallOption) (*SetSendDhcpHostnameRestrictionResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(SetSendDhcpHostnameRestrictionResponse)
-	err := c.cc.Invoke(ctx, WifiManagerService_SetSendDhcpHostnameRestriction_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, ManagerService_SetSendDhcpHostnameRestriction_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *wifiManagerServiceClient) SetTdlsEnabled2(ctx context.Context, in *SetTdlsEnabled2Request, opts ...grpc.CallOption) (*SetTdlsEnabled2Response, error) {
+func (c *managerServiceClient) SetTdlsEnabled2(ctx context.Context, in *SetTdlsEnabled2Request, opts ...grpc.CallOption) (*SetTdlsEnabled2Response, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(SetTdlsEnabled2Response)
-	err := c.cc.Invoke(ctx, WifiManagerService_SetTdlsEnabled2_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, ManagerService_SetTdlsEnabled2_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *wifiManagerServiceClient) SetTdlsEnabled4_1(ctx context.Context, in *SetTdlsEnabled4_1Request, opts ...grpc.CallOption) (*SetTdlsEnabled4_1Response, error) {
+func (c *managerServiceClient) SetTdlsEnabled4_1(ctx context.Context, in *SetTdlsEnabled4_1Request, opts ...grpc.CallOption) (*SetTdlsEnabled4_1Response, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(SetTdlsEnabled4_1Response)
-	err := c.cc.Invoke(ctx, WifiManagerService_SetTdlsEnabled4_1_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, ManagerService_SetTdlsEnabled4_1_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *wifiManagerServiceClient) SetTdlsEnabledWithMacAddress2(ctx context.Context, in *SetTdlsEnabledWithMacAddress2Request, opts ...grpc.CallOption) (*SetTdlsEnabledWithMacAddress2Response, error) {
+func (c *managerServiceClient) SetTdlsEnabledWithMacAddress2(ctx context.Context, in *SetTdlsEnabledWithMacAddress2Request, opts ...grpc.CallOption) (*SetTdlsEnabledWithMacAddress2Response, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(SetTdlsEnabledWithMacAddress2Response)
-	err := c.cc.Invoke(ctx, WifiManagerService_SetTdlsEnabledWithMacAddress2_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, ManagerService_SetTdlsEnabledWithMacAddress2_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *wifiManagerServiceClient) SetTdlsEnabledWithMacAddress4_1(ctx context.Context, in *SetTdlsEnabledWithMacAddress4_1Request, opts ...grpc.CallOption) (*SetTdlsEnabledWithMacAddress4_1Response, error) {
+func (c *managerServiceClient) SetTdlsEnabledWithMacAddress4_1(ctx context.Context, in *SetTdlsEnabledWithMacAddress4_1Request, opts ...grpc.CallOption) (*SetTdlsEnabledWithMacAddress4_1Response, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(SetTdlsEnabledWithMacAddress4_1Response)
-	err := c.cc.Invoke(ctx, WifiManagerService_SetTdlsEnabledWithMacAddress4_1_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, ManagerService_SetTdlsEnabledWithMacAddress4_1_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *wifiManagerServiceClient) SetWifiEnabled(ctx context.Context, in *SetWifiEnabledRequest, opts ...grpc.CallOption) (*SetWifiEnabledResponse, error) {
+func (c *managerServiceClient) SetWifiEnabled(ctx context.Context, in *SetWifiEnabledRequest, opts ...grpc.CallOption) (*SetWifiEnabledResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(SetWifiEnabledResponse)
-	err := c.cc.Invoke(ctx, WifiManagerService_SetWifiEnabled_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, ManagerService_SetWifiEnabled_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *wifiManagerServiceClient) StartLocalOnlyHotspotWithConfiguration(ctx context.Context, in *StartLocalOnlyHotspotWithConfigurationRequest, opts ...grpc.CallOption) (*StartLocalOnlyHotspotWithConfigurationResponse, error) {
+func (c *managerServiceClient) StartLocalOnlyHotspotWithConfiguration(ctx context.Context, in *StartLocalOnlyHotspotWithConfigurationRequest, opts ...grpc.CallOption) (*StartLocalOnlyHotspotWithConfigurationResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(StartLocalOnlyHotspotWithConfigurationResponse)
-	err := c.cc.Invoke(ctx, WifiManagerService_StartLocalOnlyHotspotWithConfiguration_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, ManagerService_StartLocalOnlyHotspotWithConfiguration_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *wifiManagerServiceClient) StartScan(ctx context.Context, in *StartScanRequest, opts ...grpc.CallOption) (*StartScanResponse, error) {
+func (c *managerServiceClient) StartScan(ctx context.Context, in *StartScanRequest, opts ...grpc.CallOption) (*StartScanResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(StartScanResponse)
-	err := c.cc.Invoke(ctx, WifiManagerService_StartScan_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, ManagerService_StartScan_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *wifiManagerServiceClient) StartWps(ctx context.Context, in *StartWpsRequest, opts ...grpc.CallOption) (*StartWpsResponse, error) {
+func (c *managerServiceClient) StartWps(ctx context.Context, in *StartWpsRequest, opts ...grpc.CallOption) (*StartWpsResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(StartWpsResponse)
-	err := c.cc.Invoke(ctx, WifiManagerService_StartWps_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, ManagerService_StartWps_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *wifiManagerServiceClient) UnregisterScanResultsCallback(ctx context.Context, in *UnregisterScanResultsCallbackRequest, opts ...grpc.CallOption) (*UnregisterScanResultsCallbackResponse, error) {
+func (c *managerServiceClient) UnregisterScanResultsCallback(ctx context.Context, in *UnregisterScanResultsCallbackRequest, opts ...grpc.CallOption) (*UnregisterScanResultsCallbackResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(UnregisterScanResultsCallbackResponse)
-	err := c.cc.Invoke(ctx, WifiManagerService_UnregisterScanResultsCallback_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, ManagerService_UnregisterScanResultsCallback_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *wifiManagerServiceClient) UnregisterSubsystemRestartTrackingCallback(ctx context.Context, in *UnregisterSubsystemRestartTrackingCallbackRequest, opts ...grpc.CallOption) (*UnregisterSubsystemRestartTrackingCallbackResponse, error) {
+func (c *managerServiceClient) UnregisterSubsystemRestartTrackingCallback(ctx context.Context, in *UnregisterSubsystemRestartTrackingCallbackRequest, opts ...grpc.CallOption) (*UnregisterSubsystemRestartTrackingCallbackResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(UnregisterSubsystemRestartTrackingCallbackResponse)
-	err := c.cc.Invoke(ctx, WifiManagerService_UnregisterSubsystemRestartTrackingCallback_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, ManagerService_UnregisterSubsystemRestartTrackingCallback_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *wifiManagerServiceClient) UpdateNetwork(ctx context.Context, in *UpdateNetworkRequest, opts ...grpc.CallOption) (*UpdateNetworkResponse, error) {
+func (c *managerServiceClient) UpdateNetwork(ctx context.Context, in *UpdateNetworkRequest, opts ...grpc.CallOption) (*UpdateNetworkResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(UpdateNetworkResponse)
-	err := c.cc.Invoke(ctx, WifiManagerService_UpdateNetwork_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, ManagerService_UpdateNetwork_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *wifiManagerServiceClient) ValidateSoftApConfiguration(ctx context.Context, in *ValidateSoftApConfigurationRequest, opts ...grpc.CallOption) (*ValidateSoftApConfigurationResponse, error) {
+func (c *managerServiceClient) ValidateSoftApConfiguration(ctx context.Context, in *ValidateSoftApConfigurationRequest, opts ...grpc.CallOption) (*ValidateSoftApConfigurationResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(ValidateSoftApConfigurationResponse)
-	err := c.cc.Invoke(ctx, WifiManagerService_ValidateSoftApConfiguration_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, ManagerService_ValidateSoftApConfiguration_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *wifiManagerServiceClient) CalculateSignalLevel2_1(ctx context.Context, in *CalculateSignalLevel2_1Request, opts ...grpc.CallOption) (*CalculateSignalLevel2_1Response, error) {
+func (c *managerServiceClient) CalculateSignalLevel2_1(ctx context.Context, in *CalculateSignalLevel2_1Request, opts ...grpc.CallOption) (*CalculateSignalLevel2_1Response, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(CalculateSignalLevel2_1Response)
-	err := c.cc.Invoke(ctx, WifiManagerService_CalculateSignalLevel2_1_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, ManagerService_CalculateSignalLevel2_1_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *wifiManagerServiceClient) CompareSignalLevel(ctx context.Context, in *CompareSignalLevelRequest, opts ...grpc.CallOption) (*CompareSignalLevelResponse, error) {
+func (c *managerServiceClient) CompareSignalLevel(ctx context.Context, in *CompareSignalLevelRequest, opts ...grpc.CallOption) (*CompareSignalLevelResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(CompareSignalLevelResponse)
-	err := c.cc.Invoke(ctx, WifiManagerService_CompareSignalLevel_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, ManagerService_CompareSignalLevel_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-// WifiManagerServiceServer is the server API for WifiManagerService service.
-// All implementations must embed UnimplementedWifiManagerServiceServer
+// ManagerServiceServer is the server API for ManagerService service.
+// All implementations must embed UnimplementedManagerServiceServer
 // for forward compatibility.
-type WifiManagerServiceServer interface {
+type ManagerServiceServer interface {
 	AddLocalOnlyConnectionFailureListener(context.Context, *AddLocalOnlyConnectionFailureListenerRequest) (*AddLocalOnlyConnectionFailureListenerResponse, error)
 	AddNetwork(context.Context, *AddNetworkRequest) (*AddNetworkResponse, error)
 	AddNetworkPrivileged(context.Context, *AddNetworkPrivilegedRequest) (*AddNetworkPrivilegedResponse, error)
@@ -2905,2943 +2905,2943 @@ type WifiManagerServiceServer interface {
 	ValidateSoftApConfiguration(context.Context, *ValidateSoftApConfigurationRequest) (*ValidateSoftApConfigurationResponse, error)
 	CalculateSignalLevel2_1(context.Context, *CalculateSignalLevel2_1Request) (*CalculateSignalLevel2_1Response, error)
 	CompareSignalLevel(context.Context, *CompareSignalLevelRequest) (*CompareSignalLevelResponse, error)
-	mustEmbedUnimplementedWifiManagerServiceServer()
+	mustEmbedUnimplementedManagerServiceServer()
 }
 
-// UnimplementedWifiManagerServiceServer must be embedded to have
+// UnimplementedManagerServiceServer must be embedded to have
 // forward compatible implementations.
 //
 // NOTE: this should be embedded by value instead of pointer to avoid a nil
 // pointer dereference when methods are called.
-type UnimplementedWifiManagerServiceServer struct{}
+type UnimplementedManagerServiceServer struct{}
 
-func (UnimplementedWifiManagerServiceServer) AddLocalOnlyConnectionFailureListener(context.Context, *AddLocalOnlyConnectionFailureListenerRequest) (*AddLocalOnlyConnectionFailureListenerResponse, error) {
+func (UnimplementedManagerServiceServer) AddLocalOnlyConnectionFailureListener(context.Context, *AddLocalOnlyConnectionFailureListenerRequest) (*AddLocalOnlyConnectionFailureListenerResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method AddLocalOnlyConnectionFailureListener not implemented")
 }
-func (UnimplementedWifiManagerServiceServer) AddNetwork(context.Context, *AddNetworkRequest) (*AddNetworkResponse, error) {
+func (UnimplementedManagerServiceServer) AddNetwork(context.Context, *AddNetworkRequest) (*AddNetworkResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method AddNetwork not implemented")
 }
-func (UnimplementedWifiManagerServiceServer) AddNetworkPrivileged(context.Context, *AddNetworkPrivilegedRequest) (*AddNetworkPrivilegedResponse, error) {
+func (UnimplementedManagerServiceServer) AddNetworkPrivileged(context.Context, *AddNetworkPrivilegedRequest) (*AddNetworkPrivilegedResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method AddNetworkPrivileged not implemented")
 }
-func (UnimplementedWifiManagerServiceServer) AddNetworkSuggestions(context.Context, *AddNetworkSuggestionsRequest) (*AddNetworkSuggestionsResponse, error) {
+func (UnimplementedManagerServiceServer) AddNetworkSuggestions(context.Context, *AddNetworkSuggestionsRequest) (*AddNetworkSuggestionsResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method AddNetworkSuggestions not implemented")
 }
-func (UnimplementedWifiManagerServiceServer) AddOrUpdatePasspointConfiguration(context.Context, *AddOrUpdatePasspointConfigurationRequest) (*AddOrUpdatePasspointConfigurationResponse, error) {
+func (UnimplementedManagerServiceServer) AddOrUpdatePasspointConfiguration(context.Context, *AddOrUpdatePasspointConfigurationRequest) (*AddOrUpdatePasspointConfigurationResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method AddOrUpdatePasspointConfiguration not implemented")
 }
-func (UnimplementedWifiManagerServiceServer) AddSuggestionConnectionStatusListener(context.Context, *AddSuggestionConnectionStatusListenerRequest) (*AddSuggestionConnectionStatusListenerResponse, error) {
+func (UnimplementedManagerServiceServer) AddSuggestionConnectionStatusListener(context.Context, *AddSuggestionConnectionStatusListenerRequest) (*AddSuggestionConnectionStatusListenerResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method AddSuggestionConnectionStatusListener not implemented")
 }
-func (UnimplementedWifiManagerServiceServer) AddSuggestionUserApprovalStatusListener(context.Context, *AddSuggestionUserApprovalStatusListenerRequest) (*AddSuggestionUserApprovalStatusListenerResponse, error) {
+func (UnimplementedManagerServiceServer) AddSuggestionUserApprovalStatusListener(context.Context, *AddSuggestionUserApprovalStatusListenerRequest) (*AddSuggestionUserApprovalStatusListenerResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method AddSuggestionUserApprovalStatusListener not implemented")
 }
-func (UnimplementedWifiManagerServiceServer) AddWifiStateChangedListener(context.Context, *AddWifiStateChangedListenerRequest) (*AddWifiStateChangedListenerResponse, error) {
+func (UnimplementedManagerServiceServer) AddWifiStateChangedListener(context.Context, *AddWifiStateChangedListenerRequest) (*AddWifiStateChangedListenerResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method AddWifiStateChangedListener not implemented")
 }
-func (UnimplementedWifiManagerServiceServer) AllowAutojoinGlobal(context.Context, *AllowAutojoinGlobalRequest) (*AllowAutojoinGlobalResponse, error) {
+func (UnimplementedManagerServiceServer) AllowAutojoinGlobal(context.Context, *AllowAutojoinGlobalRequest) (*AllowAutojoinGlobalResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method AllowAutojoinGlobal not implemented")
 }
-func (UnimplementedWifiManagerServiceServer) CalculateSignalLevel1(context.Context, *CalculateSignalLevel1Request) (*CalculateSignalLevel1Response, error) {
+func (UnimplementedManagerServiceServer) CalculateSignalLevel1(context.Context, *CalculateSignalLevel1Request) (*CalculateSignalLevel1Response, error) {
 	return nil, status.Error(codes.Unimplemented, "method CalculateSignalLevel1 not implemented")
 }
-func (UnimplementedWifiManagerServiceServer) CancelWps(context.Context, *CancelWpsRequest) (*CancelWpsResponse, error) {
+func (UnimplementedManagerServiceServer) CancelWps(context.Context, *CancelWpsRequest) (*CancelWpsResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method CancelWps not implemented")
 }
-func (UnimplementedWifiManagerServiceServer) CreateMulticastLock(context.Context, *CreateMulticastLockRequest) (*CreateMulticastLockResponse, error) {
+func (UnimplementedManagerServiceServer) CreateMulticastLock(context.Context, *CreateMulticastLockRequest) (*CreateMulticastLockResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method CreateMulticastLock not implemented")
 }
-func (UnimplementedWifiManagerServiceServer) CreateWifiLock2(context.Context, *CreateWifiLock2Request) (*CreateWifiLock2Response, error) {
+func (UnimplementedManagerServiceServer) CreateWifiLock2(context.Context, *CreateWifiLock2Request) (*CreateWifiLock2Response, error) {
 	return nil, status.Error(codes.Unimplemented, "method CreateWifiLock2 not implemented")
 }
-func (UnimplementedWifiManagerServiceServer) CreateWifiLock1_1(context.Context, *CreateWifiLock1_1Request) (*CreateWifiLock1_1Response, error) {
+func (UnimplementedManagerServiceServer) CreateWifiLock1_1(context.Context, *CreateWifiLock1_1Request) (*CreateWifiLock1_1Response, error) {
 	return nil, status.Error(codes.Unimplemented, "method CreateWifiLock1_1 not implemented")
 }
-func (UnimplementedWifiManagerServiceServer) DisableNetwork(context.Context, *DisableNetworkRequest) (*DisableNetworkResponse, error) {
+func (UnimplementedManagerServiceServer) DisableNetwork(context.Context, *DisableNetworkRequest) (*DisableNetworkResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method DisableNetwork not implemented")
 }
-func (UnimplementedWifiManagerServiceServer) DisallowCurrentSuggestedNetwork(context.Context, *DisallowCurrentSuggestedNetworkRequest) (*DisallowCurrentSuggestedNetworkResponse, error) {
+func (UnimplementedManagerServiceServer) DisallowCurrentSuggestedNetwork(context.Context, *DisallowCurrentSuggestedNetworkRequest) (*DisallowCurrentSuggestedNetworkResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method DisallowCurrentSuggestedNetwork not implemented")
 }
-func (UnimplementedWifiManagerServiceServer) Disconnect(context.Context, *DisconnectRequest) (*DisconnectResponse, error) {
+func (UnimplementedManagerServiceServer) Disconnect(context.Context, *DisconnectRequest) (*DisconnectResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method Disconnect not implemented")
 }
-func (UnimplementedWifiManagerServiceServer) EnableNetwork(context.Context, *EnableNetworkRequest) (*EnableNetworkResponse, error) {
+func (UnimplementedManagerServiceServer) EnableNetwork(context.Context, *EnableNetworkRequest) (*EnableNetworkResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method EnableNetwork not implemented")
 }
-func (UnimplementedWifiManagerServiceServer) FlushPasspointAnqpCache(context.Context, *FlushPasspointAnqpCacheRequest) (*FlushPasspointAnqpCacheResponse, error) {
+func (UnimplementedManagerServiceServer) FlushPasspointAnqpCache(context.Context, *FlushPasspointAnqpCacheRequest) (*FlushPasspointAnqpCacheResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method FlushPasspointAnqpCache not implemented")
 }
-func (UnimplementedWifiManagerServiceServer) GetAllowedChannels(context.Context, *GetAllowedChannelsRequest) (*GetAllowedChannelsResponse, error) {
+func (UnimplementedManagerServiceServer) GetAllowedChannels(context.Context, *GetAllowedChannelsRequest) (*GetAllowedChannelsResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetAllowedChannels not implemented")
 }
-func (UnimplementedWifiManagerServiceServer) GetCallerConfiguredNetworks(context.Context, *GetCallerConfiguredNetworksRequest) (*GetCallerConfiguredNetworksResponse, error) {
+func (UnimplementedManagerServiceServer) GetCallerConfiguredNetworks(context.Context, *GetCallerConfiguredNetworksRequest) (*GetCallerConfiguredNetworksResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetCallerConfiguredNetworks not implemented")
 }
-func (UnimplementedWifiManagerServiceServer) GetChannelData(context.Context, *GetChannelDataRequest) (*GetChannelDataResponse, error) {
+func (UnimplementedManagerServiceServer) GetChannelData(context.Context, *GetChannelDataRequest) (*GetChannelDataResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetChannelData not implemented")
 }
-func (UnimplementedWifiManagerServiceServer) GetConfiguredNetworks(context.Context, *GetConfiguredNetworksRequest) (*GetConfiguredNetworksResponse, error) {
+func (UnimplementedManagerServiceServer) GetConfiguredNetworks(context.Context, *GetConfiguredNetworksRequest) (*GetConfiguredNetworksResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetConfiguredNetworks not implemented")
 }
-func (UnimplementedWifiManagerServiceServer) GetConnectionInfo(context.Context, *GetConnectionInfoRequest) (*GetConnectionInfoResponse, error) {
+func (UnimplementedManagerServiceServer) GetConnectionInfo(context.Context, *GetConnectionInfoRequest) (*GetConnectionInfoResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetConnectionInfo not implemented")
 }
-func (UnimplementedWifiManagerServiceServer) GetDhcpInfo(context.Context, *GetDhcpInfoRequest) (*GetDhcpInfoResponse, error) {
+func (UnimplementedManagerServiceServer) GetDhcpInfo(context.Context, *GetDhcpInfoRequest) (*GetDhcpInfoResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetDhcpInfo not implemented")
 }
-func (UnimplementedWifiManagerServiceServer) GetMaxNumberOfChannelsPerNetworkSpecifierRequest(context.Context, *GetMaxNumberOfChannelsPerNetworkSpecifierRequestRequest) (*GetMaxNumberOfChannelsPerNetworkSpecifierRequestResponse, error) {
+func (UnimplementedManagerServiceServer) GetMaxNumberOfChannelsPerNetworkSpecifierRequest(context.Context, *GetMaxNumberOfChannelsPerNetworkSpecifierRequestRequest) (*GetMaxNumberOfChannelsPerNetworkSpecifierRequestResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetMaxNumberOfChannelsPerNetworkSpecifierRequest not implemented")
 }
-func (UnimplementedWifiManagerServiceServer) GetMaxNumberOfNetworkSuggestionsPerApp(context.Context, *GetMaxNumberOfNetworkSuggestionsPerAppRequest) (*GetMaxNumberOfNetworkSuggestionsPerAppResponse, error) {
+func (UnimplementedManagerServiceServer) GetMaxNumberOfNetworkSuggestionsPerApp(context.Context, *GetMaxNumberOfNetworkSuggestionsPerAppRequest) (*GetMaxNumberOfNetworkSuggestionsPerAppResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetMaxNumberOfNetworkSuggestionsPerApp not implemented")
 }
-func (UnimplementedWifiManagerServiceServer) GetMaxSignalLevel(context.Context, *GetMaxSignalLevelRequest) (*GetMaxSignalLevelResponse, error) {
+func (UnimplementedManagerServiceServer) GetMaxSignalLevel(context.Context, *GetMaxSignalLevelRequest) (*GetMaxSignalLevelResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetMaxSignalLevel not implemented")
 }
-func (UnimplementedWifiManagerServiceServer) GetMaxSupportedConcurrentTdlsSessions(context.Context, *GetMaxSupportedConcurrentTdlsSessionsRequest) (*GetMaxSupportedConcurrentTdlsSessionsResponse, error) {
+func (UnimplementedManagerServiceServer) GetMaxSupportedConcurrentTdlsSessions(context.Context, *GetMaxSupportedConcurrentTdlsSessionsRequest) (*GetMaxSupportedConcurrentTdlsSessionsResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetMaxSupportedConcurrentTdlsSessions not implemented")
 }
-func (UnimplementedWifiManagerServiceServer) GetNetworkSuggestions(context.Context, *GetNetworkSuggestionsRequest) (*GetNetworkSuggestionsResponse, error) {
+func (UnimplementedManagerServiceServer) GetNetworkSuggestions(context.Context, *GetNetworkSuggestionsRequest) (*GetNetworkSuggestionsResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetNetworkSuggestions not implemented")
 }
-func (UnimplementedWifiManagerServiceServer) GetNumberOfEnabledTdlsSessions(context.Context, *GetNumberOfEnabledTdlsSessionsRequest) (*GetNumberOfEnabledTdlsSessionsResponse, error) {
+func (UnimplementedManagerServiceServer) GetNumberOfEnabledTdlsSessions(context.Context, *GetNumberOfEnabledTdlsSessionsRequest) (*GetNumberOfEnabledTdlsSessionsResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetNumberOfEnabledTdlsSessions not implemented")
 }
-func (UnimplementedWifiManagerServiceServer) GetPasspointConfigurations(context.Context, *GetPasspointConfigurationsRequest) (*GetPasspointConfigurationsResponse, error) {
+func (UnimplementedManagerServiceServer) GetPasspointConfigurations(context.Context, *GetPasspointConfigurationsRequest) (*GetPasspointConfigurationsResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetPasspointConfigurations not implemented")
 }
-func (UnimplementedWifiManagerServiceServer) GetPerSsidRoamingModes(context.Context, *GetPerSsidRoamingModesRequest) (*GetPerSsidRoamingModesResponse, error) {
+func (UnimplementedManagerServiceServer) GetPerSsidRoamingModes(context.Context, *GetPerSsidRoamingModesRequest) (*GetPerSsidRoamingModesResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetPerSsidRoamingModes not implemented")
 }
-func (UnimplementedWifiManagerServiceServer) GetScanResults(context.Context, *GetScanResultsRequest) (*GetScanResultsResponse, error) {
+func (UnimplementedManagerServiceServer) GetScanResults(context.Context, *GetScanResultsRequest) (*GetScanResultsResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetScanResults not implemented")
 }
-func (UnimplementedWifiManagerServiceServer) GetStaConcurrencyForMultiInternetMode(context.Context, *GetStaConcurrencyForMultiInternetModeRequest) (*GetStaConcurrencyForMultiInternetModeResponse, error) {
+func (UnimplementedManagerServiceServer) GetStaConcurrencyForMultiInternetMode(context.Context, *GetStaConcurrencyForMultiInternetModeRequest) (*GetStaConcurrencyForMultiInternetModeResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetStaConcurrencyForMultiInternetMode not implemented")
 }
-func (UnimplementedWifiManagerServiceServer) GetUsableChannels(context.Context, *GetUsableChannelsRequest) (*GetUsableChannelsResponse, error) {
+func (UnimplementedManagerServiceServer) GetUsableChannels(context.Context, *GetUsableChannelsRequest) (*GetUsableChannelsResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetUsableChannels not implemented")
 }
-func (UnimplementedWifiManagerServiceServer) GetWifiState(context.Context, *GetWifiStateRequest) (*GetWifiStateResponse, error) {
+func (UnimplementedManagerServiceServer) GetWifiState(context.Context, *GetWifiStateRequest) (*GetWifiStateResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetWifiState not implemented")
 }
-func (UnimplementedWifiManagerServiceServer) Is24GHzBandSupported(context.Context, *Is24GHzBandSupportedRequest) (*Is24GHzBandSupportedResponse, error) {
+func (UnimplementedManagerServiceServer) Is24GHzBandSupported(context.Context, *Is24GHzBandSupportedRequest) (*Is24GHzBandSupportedResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method Is24GHzBandSupported not implemented")
 }
-func (UnimplementedWifiManagerServiceServer) Is5GHzBandSupported(context.Context, *Is5GHzBandSupportedRequest) (*Is5GHzBandSupportedResponse, error) {
+func (UnimplementedManagerServiceServer) Is5GHzBandSupported(context.Context, *Is5GHzBandSupportedRequest) (*Is5GHzBandSupportedResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method Is5GHzBandSupported not implemented")
 }
-func (UnimplementedWifiManagerServiceServer) Is60GHzBandSupported(context.Context, *Is60GHzBandSupportedRequest) (*Is60GHzBandSupportedResponse, error) {
+func (UnimplementedManagerServiceServer) Is60GHzBandSupported(context.Context, *Is60GHzBandSupportedRequest) (*Is60GHzBandSupportedResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method Is60GHzBandSupported not implemented")
 }
-func (UnimplementedWifiManagerServiceServer) Is6GHzBandSupported(context.Context, *Is6GHzBandSupportedRequest) (*Is6GHzBandSupportedResponse, error) {
+func (UnimplementedManagerServiceServer) Is6GHzBandSupported(context.Context, *Is6GHzBandSupportedRequest) (*Is6GHzBandSupportedResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method Is6GHzBandSupported not implemented")
 }
-func (UnimplementedWifiManagerServiceServer) IsAggressiveRoamingModeSupported(context.Context, *IsAggressiveRoamingModeSupportedRequest) (*IsAggressiveRoamingModeSupportedResponse, error) {
+func (UnimplementedManagerServiceServer) IsAggressiveRoamingModeSupported(context.Context, *IsAggressiveRoamingModeSupportedRequest) (*IsAggressiveRoamingModeSupportedResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method IsAggressiveRoamingModeSupported not implemented")
 }
-func (UnimplementedWifiManagerServiceServer) IsAutoWakeupEnabled(context.Context, *IsAutoWakeupEnabledRequest) (*IsAutoWakeupEnabledResponse, error) {
+func (UnimplementedManagerServiceServer) IsAutoWakeupEnabled(context.Context, *IsAutoWakeupEnabledRequest) (*IsAutoWakeupEnabledResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method IsAutoWakeupEnabled not implemented")
 }
-func (UnimplementedWifiManagerServiceServer) IsBridgedApConcurrencySupported(context.Context, *IsBridgedApConcurrencySupportedRequest) (*IsBridgedApConcurrencySupportedResponse, error) {
+func (UnimplementedManagerServiceServer) IsBridgedApConcurrencySupported(context.Context, *IsBridgedApConcurrencySupportedRequest) (*IsBridgedApConcurrencySupportedResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method IsBridgedApConcurrencySupported not implemented")
 }
-func (UnimplementedWifiManagerServiceServer) IsCarrierNetworkOffloadEnabled(context.Context, *IsCarrierNetworkOffloadEnabledRequest) (*IsCarrierNetworkOffloadEnabledResponse, error) {
+func (UnimplementedManagerServiceServer) IsCarrierNetworkOffloadEnabled(context.Context, *IsCarrierNetworkOffloadEnabledRequest) (*IsCarrierNetworkOffloadEnabledResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method IsCarrierNetworkOffloadEnabled not implemented")
 }
-func (UnimplementedWifiManagerServiceServer) IsD2DSupportedWhenInfraStaDisabled(context.Context, *IsD2DSupportedWhenInfraStaDisabledRequest) (*IsD2DSupportedWhenInfraStaDisabledResponse, error) {
+func (UnimplementedManagerServiceServer) IsD2DSupportedWhenInfraStaDisabled(context.Context, *IsD2DSupportedWhenInfraStaDisabledRequest) (*IsD2DSupportedWhenInfraStaDisabledResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method IsD2DSupportedWhenInfraStaDisabled not implemented")
 }
-func (UnimplementedWifiManagerServiceServer) IsDecoratedIdentitySupported(context.Context, *IsDecoratedIdentitySupportedRequest) (*IsDecoratedIdentitySupportedResponse, error) {
+func (UnimplementedManagerServiceServer) IsDecoratedIdentitySupported(context.Context, *IsDecoratedIdentitySupportedRequest) (*IsDecoratedIdentitySupportedResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method IsDecoratedIdentitySupported not implemented")
 }
-func (UnimplementedWifiManagerServiceServer) IsDeviceToApRttSupported(context.Context, *IsDeviceToApRttSupportedRequest) (*IsDeviceToApRttSupportedResponse, error) {
+func (UnimplementedManagerServiceServer) IsDeviceToApRttSupported(context.Context, *IsDeviceToApRttSupportedRequest) (*IsDeviceToApRttSupportedResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method IsDeviceToApRttSupported not implemented")
 }
-func (UnimplementedWifiManagerServiceServer) IsDualBandSimultaneousSupported(context.Context, *IsDualBandSimultaneousSupportedRequest) (*IsDualBandSimultaneousSupportedResponse, error) {
+func (UnimplementedManagerServiceServer) IsDualBandSimultaneousSupported(context.Context, *IsDualBandSimultaneousSupportedRequest) (*IsDualBandSimultaneousSupportedResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method IsDualBandSimultaneousSupported not implemented")
 }
-func (UnimplementedWifiManagerServiceServer) IsEasyConnectDppAkmSupported(context.Context, *IsEasyConnectDppAkmSupportedRequest) (*IsEasyConnectDppAkmSupportedResponse, error) {
+func (UnimplementedManagerServiceServer) IsEasyConnectDppAkmSupported(context.Context, *IsEasyConnectDppAkmSupportedRequest) (*IsEasyConnectDppAkmSupportedResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method IsEasyConnectDppAkmSupported not implemented")
 }
-func (UnimplementedWifiManagerServiceServer) IsEasyConnectEnrolleeResponderModeSupported(context.Context, *IsEasyConnectEnrolleeResponderModeSupportedRequest) (*IsEasyConnectEnrolleeResponderModeSupportedResponse, error) {
+func (UnimplementedManagerServiceServer) IsEasyConnectEnrolleeResponderModeSupported(context.Context, *IsEasyConnectEnrolleeResponderModeSupportedRequest) (*IsEasyConnectEnrolleeResponderModeSupportedResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method IsEasyConnectEnrolleeResponderModeSupported not implemented")
 }
-func (UnimplementedWifiManagerServiceServer) IsEasyConnectSupported(context.Context, *IsEasyConnectSupportedRequest) (*IsEasyConnectSupportedResponse, error) {
+func (UnimplementedManagerServiceServer) IsEasyConnectSupported(context.Context, *IsEasyConnectSupportedRequest) (*IsEasyConnectSupportedResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method IsEasyConnectSupported not implemented")
 }
-func (UnimplementedWifiManagerServiceServer) IsEnhancedOpenSupported(context.Context, *IsEnhancedOpenSupportedRequest) (*IsEnhancedOpenSupportedResponse, error) {
+func (UnimplementedManagerServiceServer) IsEnhancedOpenSupported(context.Context, *IsEnhancedOpenSupportedRequest) (*IsEnhancedOpenSupportedResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method IsEnhancedOpenSupported not implemented")
 }
-func (UnimplementedWifiManagerServiceServer) IsEnhancedPowerReportingSupported(context.Context, *IsEnhancedPowerReportingSupportedRequest) (*IsEnhancedPowerReportingSupportedResponse, error) {
+func (UnimplementedManagerServiceServer) IsEnhancedPowerReportingSupported(context.Context, *IsEnhancedPowerReportingSupportedRequest) (*IsEnhancedPowerReportingSupportedResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method IsEnhancedPowerReportingSupported not implemented")
 }
-func (UnimplementedWifiManagerServiceServer) IsMakeBeforeBreakWifiSwitchingSupported(context.Context, *IsMakeBeforeBreakWifiSwitchingSupportedRequest) (*IsMakeBeforeBreakWifiSwitchingSupportedResponse, error) {
+func (UnimplementedManagerServiceServer) IsMakeBeforeBreakWifiSwitchingSupported(context.Context, *IsMakeBeforeBreakWifiSwitchingSupportedRequest) (*IsMakeBeforeBreakWifiSwitchingSupportedResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method IsMakeBeforeBreakWifiSwitchingSupported not implemented")
 }
-func (UnimplementedWifiManagerServiceServer) IsP2PSupported(context.Context, *IsP2PSupportedRequest) (*IsP2PSupportedResponse, error) {
+func (UnimplementedManagerServiceServer) IsP2PSupported(context.Context, *IsP2PSupportedRequest) (*IsP2PSupportedResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method IsP2PSupported not implemented")
 }
-func (UnimplementedWifiManagerServiceServer) IsPasspointTermsAndConditionsSupported(context.Context, *IsPasspointTermsAndConditionsSupportedRequest) (*IsPasspointTermsAndConditionsSupportedResponse, error) {
+func (UnimplementedManagerServiceServer) IsPasspointTermsAndConditionsSupported(context.Context, *IsPasspointTermsAndConditionsSupportedRequest) (*IsPasspointTermsAndConditionsSupportedResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method IsPasspointTermsAndConditionsSupported not implemented")
 }
-func (UnimplementedWifiManagerServiceServer) IsPreferredNetworkOffloadSupported(context.Context, *IsPreferredNetworkOffloadSupportedRequest) (*IsPreferredNetworkOffloadSupportedResponse, error) {
+func (UnimplementedManagerServiceServer) IsPreferredNetworkOffloadSupported(context.Context, *IsPreferredNetworkOffloadSupportedRequest) (*IsPreferredNetworkOffloadSupportedResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method IsPreferredNetworkOffloadSupported not implemented")
 }
-func (UnimplementedWifiManagerServiceServer) IsScanAlwaysAvailable(context.Context, *IsScanAlwaysAvailableRequest) (*IsScanAlwaysAvailableResponse, error) {
+func (UnimplementedManagerServiceServer) IsScanAlwaysAvailable(context.Context, *IsScanAlwaysAvailableRequest) (*IsScanAlwaysAvailableResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method IsScanAlwaysAvailable not implemented")
 }
-func (UnimplementedWifiManagerServiceServer) IsScanThrottleEnabled(context.Context, *IsScanThrottleEnabledRequest) (*IsScanThrottleEnabledResponse, error) {
+func (UnimplementedManagerServiceServer) IsScanThrottleEnabled(context.Context, *IsScanThrottleEnabledRequest) (*IsScanThrottleEnabledResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method IsScanThrottleEnabled not implemented")
 }
-func (UnimplementedWifiManagerServiceServer) IsStaApConcurrencySupported(context.Context, *IsStaApConcurrencySupportedRequest) (*IsStaApConcurrencySupportedResponse, error) {
+func (UnimplementedManagerServiceServer) IsStaApConcurrencySupported(context.Context, *IsStaApConcurrencySupportedRequest) (*IsStaApConcurrencySupportedResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method IsStaApConcurrencySupported not implemented")
 }
-func (UnimplementedWifiManagerServiceServer) IsStaBridgedApConcurrencySupported(context.Context, *IsStaBridgedApConcurrencySupportedRequest) (*IsStaBridgedApConcurrencySupportedResponse, error) {
+func (UnimplementedManagerServiceServer) IsStaBridgedApConcurrencySupported(context.Context, *IsStaBridgedApConcurrencySupportedRequest) (*IsStaBridgedApConcurrencySupportedResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method IsStaBridgedApConcurrencySupported not implemented")
 }
-func (UnimplementedWifiManagerServiceServer) IsStaConcurrencyForLocalOnlyConnectionsSupported(context.Context, *IsStaConcurrencyForLocalOnlyConnectionsSupportedRequest) (*IsStaConcurrencyForLocalOnlyConnectionsSupportedResponse, error) {
+func (UnimplementedManagerServiceServer) IsStaConcurrencyForLocalOnlyConnectionsSupported(context.Context, *IsStaConcurrencyForLocalOnlyConnectionsSupportedRequest) (*IsStaConcurrencyForLocalOnlyConnectionsSupportedResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method IsStaConcurrencyForLocalOnlyConnectionsSupported not implemented")
 }
-func (UnimplementedWifiManagerServiceServer) IsStaConcurrencyForMultiInternetSupported(context.Context, *IsStaConcurrencyForMultiInternetSupportedRequest) (*IsStaConcurrencyForMultiInternetSupportedResponse, error) {
+func (UnimplementedManagerServiceServer) IsStaConcurrencyForMultiInternetSupported(context.Context, *IsStaConcurrencyForMultiInternetSupportedRequest) (*IsStaConcurrencyForMultiInternetSupportedResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method IsStaConcurrencyForMultiInternetSupported not implemented")
 }
-func (UnimplementedWifiManagerServiceServer) IsTdlsOperationCurrentlyAvailable(context.Context, *IsTdlsOperationCurrentlyAvailableRequest) (*IsTdlsOperationCurrentlyAvailableResponse, error) {
+func (UnimplementedManagerServiceServer) IsTdlsOperationCurrentlyAvailable(context.Context, *IsTdlsOperationCurrentlyAvailableRequest) (*IsTdlsOperationCurrentlyAvailableResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method IsTdlsOperationCurrentlyAvailable not implemented")
 }
-func (UnimplementedWifiManagerServiceServer) IsTdlsSupported(context.Context, *IsTdlsSupportedRequest) (*IsTdlsSupportedResponse, error) {
+func (UnimplementedManagerServiceServer) IsTdlsSupported(context.Context, *IsTdlsSupportedRequest) (*IsTdlsSupportedResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method IsTdlsSupported not implemented")
 }
-func (UnimplementedWifiManagerServiceServer) IsTidToLinkMappingNegotiationSupported(context.Context, *IsTidToLinkMappingNegotiationSupportedRequest) (*IsTidToLinkMappingNegotiationSupportedResponse, error) {
+func (UnimplementedManagerServiceServer) IsTidToLinkMappingNegotiationSupported(context.Context, *IsTidToLinkMappingNegotiationSupportedRequest) (*IsTidToLinkMappingNegotiationSupportedResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method IsTidToLinkMappingNegotiationSupported not implemented")
 }
-func (UnimplementedWifiManagerServiceServer) IsTlsMinimumVersionSupported(context.Context, *IsTlsMinimumVersionSupportedRequest) (*IsTlsMinimumVersionSupportedResponse, error) {
+func (UnimplementedManagerServiceServer) IsTlsMinimumVersionSupported(context.Context, *IsTlsMinimumVersionSupportedRequest) (*IsTlsMinimumVersionSupportedResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method IsTlsMinimumVersionSupported not implemented")
 }
-func (UnimplementedWifiManagerServiceServer) IsTlsV13Supported(context.Context, *IsTlsV13SupportedRequest) (*IsTlsV13SupportedResponse, error) {
+func (UnimplementedManagerServiceServer) IsTlsV13Supported(context.Context, *IsTlsV13SupportedRequest) (*IsTlsV13SupportedResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method IsTlsV13Supported not implemented")
 }
-func (UnimplementedWifiManagerServiceServer) IsTrustOnFirstUseSupported(context.Context, *IsTrustOnFirstUseSupportedRequest) (*IsTrustOnFirstUseSupportedResponse, error) {
+func (UnimplementedManagerServiceServer) IsTrustOnFirstUseSupported(context.Context, *IsTrustOnFirstUseSupportedRequest) (*IsTrustOnFirstUseSupportedResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method IsTrustOnFirstUseSupported not implemented")
 }
-func (UnimplementedWifiManagerServiceServer) IsWapiSupported(context.Context, *IsWapiSupportedRequest) (*IsWapiSupportedResponse, error) {
+func (UnimplementedManagerServiceServer) IsWapiSupported(context.Context, *IsWapiSupportedRequest) (*IsWapiSupportedResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method IsWapiSupported not implemented")
 }
-func (UnimplementedWifiManagerServiceServer) IsWepSupported(context.Context, *IsWepSupportedRequest) (*IsWepSupportedResponse, error) {
+func (UnimplementedManagerServiceServer) IsWepSupported(context.Context, *IsWepSupportedRequest) (*IsWepSupportedResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method IsWepSupported not implemented")
 }
-func (UnimplementedWifiManagerServiceServer) IsWifiDisplayR2Supported(context.Context, *IsWifiDisplayR2SupportedRequest) (*IsWifiDisplayR2SupportedResponse, error) {
+func (UnimplementedManagerServiceServer) IsWifiDisplayR2Supported(context.Context, *IsWifiDisplayR2SupportedRequest) (*IsWifiDisplayR2SupportedResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method IsWifiDisplayR2Supported not implemented")
 }
-func (UnimplementedWifiManagerServiceServer) IsWifiEnabled(context.Context, *IsWifiEnabledRequest) (*IsWifiEnabledResponse, error) {
+func (UnimplementedManagerServiceServer) IsWifiEnabled(context.Context, *IsWifiEnabledRequest) (*IsWifiEnabledResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method IsWifiEnabled not implemented")
 }
-func (UnimplementedWifiManagerServiceServer) IsWifiPasspointEnabled(context.Context, *IsWifiPasspointEnabledRequest) (*IsWifiPasspointEnabledResponse, error) {
+func (UnimplementedManagerServiceServer) IsWifiPasspointEnabled(context.Context, *IsWifiPasspointEnabledRequest) (*IsWifiPasspointEnabledResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method IsWifiPasspointEnabled not implemented")
 }
-func (UnimplementedWifiManagerServiceServer) IsWifiStandardSupported(context.Context, *IsWifiStandardSupportedRequest) (*IsWifiStandardSupportedResponse, error) {
+func (UnimplementedManagerServiceServer) IsWifiStandardSupported(context.Context, *IsWifiStandardSupportedRequest) (*IsWifiStandardSupportedResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method IsWifiStandardSupported not implemented")
 }
-func (UnimplementedWifiManagerServiceServer) IsWpa3SaeH2ESupported(context.Context, *IsWpa3SaeH2ESupportedRequest) (*IsWpa3SaeH2ESupportedResponse, error) {
+func (UnimplementedManagerServiceServer) IsWpa3SaeH2ESupported(context.Context, *IsWpa3SaeH2ESupportedRequest) (*IsWpa3SaeH2ESupportedResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method IsWpa3SaeH2ESupported not implemented")
 }
-func (UnimplementedWifiManagerServiceServer) IsWpa3SaePublicKeySupported(context.Context, *IsWpa3SaePublicKeySupportedRequest) (*IsWpa3SaePublicKeySupportedResponse, error) {
+func (UnimplementedManagerServiceServer) IsWpa3SaePublicKeySupported(context.Context, *IsWpa3SaePublicKeySupportedRequest) (*IsWpa3SaePublicKeySupportedResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method IsWpa3SaePublicKeySupported not implemented")
 }
-func (UnimplementedWifiManagerServiceServer) IsWpa3SaeSupported(context.Context, *IsWpa3SaeSupportedRequest) (*IsWpa3SaeSupportedResponse, error) {
+func (UnimplementedManagerServiceServer) IsWpa3SaeSupported(context.Context, *IsWpa3SaeSupportedRequest) (*IsWpa3SaeSupportedResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method IsWpa3SaeSupported not implemented")
 }
-func (UnimplementedWifiManagerServiceServer) IsWpa3SuiteBSupported(context.Context, *IsWpa3SuiteBSupportedRequest) (*IsWpa3SuiteBSupportedResponse, error) {
+func (UnimplementedManagerServiceServer) IsWpa3SuiteBSupported(context.Context, *IsWpa3SuiteBSupportedRequest) (*IsWpa3SuiteBSupportedResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method IsWpa3SuiteBSupported not implemented")
 }
-func (UnimplementedWifiManagerServiceServer) IsWpaPersonalSupported(context.Context, *IsWpaPersonalSupportedRequest) (*IsWpaPersonalSupportedResponse, error) {
+func (UnimplementedManagerServiceServer) IsWpaPersonalSupported(context.Context, *IsWpaPersonalSupportedRequest) (*IsWpaPersonalSupportedResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method IsWpaPersonalSupported not implemented")
 }
-func (UnimplementedWifiManagerServiceServer) PingSupplicant(context.Context, *PingSupplicantRequest) (*PingSupplicantResponse, error) {
+func (UnimplementedManagerServiceServer) PingSupplicant(context.Context, *PingSupplicantRequest) (*PingSupplicantResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method PingSupplicant not implemented")
 }
-func (UnimplementedWifiManagerServiceServer) QueryAutojoinGlobal(context.Context, *QueryAutojoinGlobalRequest) (*QueryAutojoinGlobalResponse, error) {
+func (UnimplementedManagerServiceServer) QueryAutojoinGlobal(context.Context, *QueryAutojoinGlobalRequest) (*QueryAutojoinGlobalResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method QueryAutojoinGlobal not implemented")
 }
-func (UnimplementedWifiManagerServiceServer) QuerySendDhcpHostnameRestriction(context.Context, *QuerySendDhcpHostnameRestrictionRequest) (*QuerySendDhcpHostnameRestrictionResponse, error) {
+func (UnimplementedManagerServiceServer) QuerySendDhcpHostnameRestriction(context.Context, *QuerySendDhcpHostnameRestrictionRequest) (*QuerySendDhcpHostnameRestrictionResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method QuerySendDhcpHostnameRestriction not implemented")
 }
-func (UnimplementedWifiManagerServiceServer) Reassociate(context.Context, *ReassociateRequest) (*ReassociateResponse, error) {
+func (UnimplementedManagerServiceServer) Reassociate(context.Context, *ReassociateRequest) (*ReassociateResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method Reassociate not implemented")
 }
-func (UnimplementedWifiManagerServiceServer) Reconnect(context.Context, *ReconnectRequest) (*ReconnectResponse, error) {
+func (UnimplementedManagerServiceServer) Reconnect(context.Context, *ReconnectRequest) (*ReconnectResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method Reconnect not implemented")
 }
-func (UnimplementedWifiManagerServiceServer) RegisterScanResultsCallback(context.Context, *RegisterScanResultsCallbackRequest) (*RegisterScanResultsCallbackResponse, error) {
+func (UnimplementedManagerServiceServer) RegisterScanResultsCallback(context.Context, *RegisterScanResultsCallbackRequest) (*RegisterScanResultsCallbackResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method RegisterScanResultsCallback not implemented")
 }
-func (UnimplementedWifiManagerServiceServer) RegisterSubsystemRestartTrackingCallback(context.Context, *RegisterSubsystemRestartTrackingCallbackRequest) (*RegisterSubsystemRestartTrackingCallbackResponse, error) {
+func (UnimplementedManagerServiceServer) RegisterSubsystemRestartTrackingCallback(context.Context, *RegisterSubsystemRestartTrackingCallbackRequest) (*RegisterSubsystemRestartTrackingCallbackResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method RegisterSubsystemRestartTrackingCallback not implemented")
 }
-func (UnimplementedWifiManagerServiceServer) RemoveLocalOnlyConnectionFailureListener(context.Context, *RemoveLocalOnlyConnectionFailureListenerRequest) (*RemoveLocalOnlyConnectionFailureListenerResponse, error) {
+func (UnimplementedManagerServiceServer) RemoveLocalOnlyConnectionFailureListener(context.Context, *RemoveLocalOnlyConnectionFailureListenerRequest) (*RemoveLocalOnlyConnectionFailureListenerResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method RemoveLocalOnlyConnectionFailureListener not implemented")
 }
-func (UnimplementedWifiManagerServiceServer) RemoveNetwork(context.Context, *RemoveNetworkRequest) (*RemoveNetworkResponse, error) {
+func (UnimplementedManagerServiceServer) RemoveNetwork(context.Context, *RemoveNetworkRequest) (*RemoveNetworkResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method RemoveNetwork not implemented")
 }
-func (UnimplementedWifiManagerServiceServer) RemoveNetworkSuggestions1(context.Context, *RemoveNetworkSuggestions1Request) (*RemoveNetworkSuggestions1Response, error) {
+func (UnimplementedManagerServiceServer) RemoveNetworkSuggestions1(context.Context, *RemoveNetworkSuggestions1Request) (*RemoveNetworkSuggestions1Response, error) {
 	return nil, status.Error(codes.Unimplemented, "method RemoveNetworkSuggestions1 not implemented")
 }
-func (UnimplementedWifiManagerServiceServer) RemoveNetworkSuggestions2_1(context.Context, *RemoveNetworkSuggestions2_1Request) (*RemoveNetworkSuggestions2_1Response, error) {
+func (UnimplementedManagerServiceServer) RemoveNetworkSuggestions2_1(context.Context, *RemoveNetworkSuggestions2_1Request) (*RemoveNetworkSuggestions2_1Response, error) {
 	return nil, status.Error(codes.Unimplemented, "method RemoveNetworkSuggestions2_1 not implemented")
 }
-func (UnimplementedWifiManagerServiceServer) RemoveNonCallerConfiguredNetworks(context.Context, *RemoveNonCallerConfiguredNetworksRequest) (*RemoveNonCallerConfiguredNetworksResponse, error) {
+func (UnimplementedManagerServiceServer) RemoveNonCallerConfiguredNetworks(context.Context, *RemoveNonCallerConfiguredNetworksRequest) (*RemoveNonCallerConfiguredNetworksResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method RemoveNonCallerConfiguredNetworks not implemented")
 }
-func (UnimplementedWifiManagerServiceServer) RemovePasspointConfiguration(context.Context, *RemovePasspointConfigurationRequest) (*RemovePasspointConfigurationResponse, error) {
+func (UnimplementedManagerServiceServer) RemovePasspointConfiguration(context.Context, *RemovePasspointConfigurationRequest) (*RemovePasspointConfigurationResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method RemovePasspointConfiguration not implemented")
 }
-func (UnimplementedWifiManagerServiceServer) RemovePerSsidRoamingMode(context.Context, *RemovePerSsidRoamingModeRequest) (*RemovePerSsidRoamingModeResponse, error) {
+func (UnimplementedManagerServiceServer) RemovePerSsidRoamingMode(context.Context, *RemovePerSsidRoamingModeRequest) (*RemovePerSsidRoamingModeResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method RemovePerSsidRoamingMode not implemented")
 }
-func (UnimplementedWifiManagerServiceServer) RemoveSuggestionConnectionStatusListener(context.Context, *RemoveSuggestionConnectionStatusListenerRequest) (*RemoveSuggestionConnectionStatusListenerResponse, error) {
+func (UnimplementedManagerServiceServer) RemoveSuggestionConnectionStatusListener(context.Context, *RemoveSuggestionConnectionStatusListenerRequest) (*RemoveSuggestionConnectionStatusListenerResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method RemoveSuggestionConnectionStatusListener not implemented")
 }
-func (UnimplementedWifiManagerServiceServer) RemoveSuggestionUserApprovalStatusListener(context.Context, *RemoveSuggestionUserApprovalStatusListenerRequest) (*RemoveSuggestionUserApprovalStatusListenerResponse, error) {
+func (UnimplementedManagerServiceServer) RemoveSuggestionUserApprovalStatusListener(context.Context, *RemoveSuggestionUserApprovalStatusListenerRequest) (*RemoveSuggestionUserApprovalStatusListenerResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method RemoveSuggestionUserApprovalStatusListener not implemented")
 }
-func (UnimplementedWifiManagerServiceServer) RemoveWifiStateChangedListener(context.Context, *RemoveWifiStateChangedListenerRequest) (*RemoveWifiStateChangedListenerResponse, error) {
+func (UnimplementedManagerServiceServer) RemoveWifiStateChangedListener(context.Context, *RemoveWifiStateChangedListenerRequest) (*RemoveWifiStateChangedListenerResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method RemoveWifiStateChangedListener not implemented")
 }
-func (UnimplementedWifiManagerServiceServer) ReportCreateInterfaceImpact(context.Context, *ReportCreateInterfaceImpactRequest) (*ReportCreateInterfaceImpactResponse, error) {
+func (UnimplementedManagerServiceServer) ReportCreateInterfaceImpact(context.Context, *ReportCreateInterfaceImpactRequest) (*ReportCreateInterfaceImpactResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method ReportCreateInterfaceImpact not implemented")
 }
-func (UnimplementedWifiManagerServiceServer) SaveConfiguration(context.Context, *SaveConfigurationRequest) (*SaveConfigurationResponse, error) {
+func (UnimplementedManagerServiceServer) SaveConfiguration(context.Context, *SaveConfigurationRequest) (*SaveConfigurationResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method SaveConfiguration not implemented")
 }
-func (UnimplementedWifiManagerServiceServer) SetPerSsidRoamingMode(context.Context, *SetPerSsidRoamingModeRequest) (*SetPerSsidRoamingModeResponse, error) {
+func (UnimplementedManagerServiceServer) SetPerSsidRoamingMode(context.Context, *SetPerSsidRoamingModeRequest) (*SetPerSsidRoamingModeResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method SetPerSsidRoamingMode not implemented")
 }
-func (UnimplementedWifiManagerServiceServer) SetSendDhcpHostnameRestriction(context.Context, *SetSendDhcpHostnameRestrictionRequest) (*SetSendDhcpHostnameRestrictionResponse, error) {
+func (UnimplementedManagerServiceServer) SetSendDhcpHostnameRestriction(context.Context, *SetSendDhcpHostnameRestrictionRequest) (*SetSendDhcpHostnameRestrictionResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method SetSendDhcpHostnameRestriction not implemented")
 }
-func (UnimplementedWifiManagerServiceServer) SetTdlsEnabled2(context.Context, *SetTdlsEnabled2Request) (*SetTdlsEnabled2Response, error) {
+func (UnimplementedManagerServiceServer) SetTdlsEnabled2(context.Context, *SetTdlsEnabled2Request) (*SetTdlsEnabled2Response, error) {
 	return nil, status.Error(codes.Unimplemented, "method SetTdlsEnabled2 not implemented")
 }
-func (UnimplementedWifiManagerServiceServer) SetTdlsEnabled4_1(context.Context, *SetTdlsEnabled4_1Request) (*SetTdlsEnabled4_1Response, error) {
+func (UnimplementedManagerServiceServer) SetTdlsEnabled4_1(context.Context, *SetTdlsEnabled4_1Request) (*SetTdlsEnabled4_1Response, error) {
 	return nil, status.Error(codes.Unimplemented, "method SetTdlsEnabled4_1 not implemented")
 }
-func (UnimplementedWifiManagerServiceServer) SetTdlsEnabledWithMacAddress2(context.Context, *SetTdlsEnabledWithMacAddress2Request) (*SetTdlsEnabledWithMacAddress2Response, error) {
+func (UnimplementedManagerServiceServer) SetTdlsEnabledWithMacAddress2(context.Context, *SetTdlsEnabledWithMacAddress2Request) (*SetTdlsEnabledWithMacAddress2Response, error) {
 	return nil, status.Error(codes.Unimplemented, "method SetTdlsEnabledWithMacAddress2 not implemented")
 }
-func (UnimplementedWifiManagerServiceServer) SetTdlsEnabledWithMacAddress4_1(context.Context, *SetTdlsEnabledWithMacAddress4_1Request) (*SetTdlsEnabledWithMacAddress4_1Response, error) {
+func (UnimplementedManagerServiceServer) SetTdlsEnabledWithMacAddress4_1(context.Context, *SetTdlsEnabledWithMacAddress4_1Request) (*SetTdlsEnabledWithMacAddress4_1Response, error) {
 	return nil, status.Error(codes.Unimplemented, "method SetTdlsEnabledWithMacAddress4_1 not implemented")
 }
-func (UnimplementedWifiManagerServiceServer) SetWifiEnabled(context.Context, *SetWifiEnabledRequest) (*SetWifiEnabledResponse, error) {
+func (UnimplementedManagerServiceServer) SetWifiEnabled(context.Context, *SetWifiEnabledRequest) (*SetWifiEnabledResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method SetWifiEnabled not implemented")
 }
-func (UnimplementedWifiManagerServiceServer) StartLocalOnlyHotspotWithConfiguration(context.Context, *StartLocalOnlyHotspotWithConfigurationRequest) (*StartLocalOnlyHotspotWithConfigurationResponse, error) {
+func (UnimplementedManagerServiceServer) StartLocalOnlyHotspotWithConfiguration(context.Context, *StartLocalOnlyHotspotWithConfigurationRequest) (*StartLocalOnlyHotspotWithConfigurationResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method StartLocalOnlyHotspotWithConfiguration not implemented")
 }
-func (UnimplementedWifiManagerServiceServer) StartScan(context.Context, *StartScanRequest) (*StartScanResponse, error) {
+func (UnimplementedManagerServiceServer) StartScan(context.Context, *StartScanRequest) (*StartScanResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method StartScan not implemented")
 }
-func (UnimplementedWifiManagerServiceServer) StartWps(context.Context, *StartWpsRequest) (*StartWpsResponse, error) {
+func (UnimplementedManagerServiceServer) StartWps(context.Context, *StartWpsRequest) (*StartWpsResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method StartWps not implemented")
 }
-func (UnimplementedWifiManagerServiceServer) UnregisterScanResultsCallback(context.Context, *UnregisterScanResultsCallbackRequest) (*UnregisterScanResultsCallbackResponse, error) {
+func (UnimplementedManagerServiceServer) UnregisterScanResultsCallback(context.Context, *UnregisterScanResultsCallbackRequest) (*UnregisterScanResultsCallbackResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method UnregisterScanResultsCallback not implemented")
 }
-func (UnimplementedWifiManagerServiceServer) UnregisterSubsystemRestartTrackingCallback(context.Context, *UnregisterSubsystemRestartTrackingCallbackRequest) (*UnregisterSubsystemRestartTrackingCallbackResponse, error) {
+func (UnimplementedManagerServiceServer) UnregisterSubsystemRestartTrackingCallback(context.Context, *UnregisterSubsystemRestartTrackingCallbackRequest) (*UnregisterSubsystemRestartTrackingCallbackResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method UnregisterSubsystemRestartTrackingCallback not implemented")
 }
-func (UnimplementedWifiManagerServiceServer) UpdateNetwork(context.Context, *UpdateNetworkRequest) (*UpdateNetworkResponse, error) {
+func (UnimplementedManagerServiceServer) UpdateNetwork(context.Context, *UpdateNetworkRequest) (*UpdateNetworkResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method UpdateNetwork not implemented")
 }
-func (UnimplementedWifiManagerServiceServer) ValidateSoftApConfiguration(context.Context, *ValidateSoftApConfigurationRequest) (*ValidateSoftApConfigurationResponse, error) {
+func (UnimplementedManagerServiceServer) ValidateSoftApConfiguration(context.Context, *ValidateSoftApConfigurationRequest) (*ValidateSoftApConfigurationResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method ValidateSoftApConfiguration not implemented")
 }
-func (UnimplementedWifiManagerServiceServer) CalculateSignalLevel2_1(context.Context, *CalculateSignalLevel2_1Request) (*CalculateSignalLevel2_1Response, error) {
+func (UnimplementedManagerServiceServer) CalculateSignalLevel2_1(context.Context, *CalculateSignalLevel2_1Request) (*CalculateSignalLevel2_1Response, error) {
 	return nil, status.Error(codes.Unimplemented, "method CalculateSignalLevel2_1 not implemented")
 }
-func (UnimplementedWifiManagerServiceServer) CompareSignalLevel(context.Context, *CompareSignalLevelRequest) (*CompareSignalLevelResponse, error) {
+func (UnimplementedManagerServiceServer) CompareSignalLevel(context.Context, *CompareSignalLevelRequest) (*CompareSignalLevelResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method CompareSignalLevel not implemented")
 }
-func (UnimplementedWifiManagerServiceServer) mustEmbedUnimplementedWifiManagerServiceServer() {}
-func (UnimplementedWifiManagerServiceServer) testEmbeddedByValue()                            {}
+func (UnimplementedManagerServiceServer) mustEmbedUnimplementedManagerServiceServer() {}
+func (UnimplementedManagerServiceServer) testEmbeddedByValue()                        {}
 
-// UnsafeWifiManagerServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to WifiManagerServiceServer will
+// UnsafeManagerServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to ManagerServiceServer will
 // result in compilation errors.
-type UnsafeWifiManagerServiceServer interface {
-	mustEmbedUnimplementedWifiManagerServiceServer()
+type UnsafeManagerServiceServer interface {
+	mustEmbedUnimplementedManagerServiceServer()
 }
 
-func RegisterWifiManagerServiceServer(s grpc.ServiceRegistrar, srv WifiManagerServiceServer) {
-	// If the following call panics, it indicates UnimplementedWifiManagerServiceServer was
+func RegisterManagerServiceServer(s grpc.ServiceRegistrar, srv ManagerServiceServer) {
+	// If the following call panics, it indicates UnimplementedManagerServiceServer was
 	// embedded by pointer and is nil.  This will cause panics if an
 	// unimplemented method is ever invoked, so we test this at initialization
 	// time to prevent it from happening at runtime later due to I/O.
 	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
 		t.testEmbeddedByValue()
 	}
-	s.RegisterService(&WifiManagerService_ServiceDesc, srv)
+	s.RegisterService(&ManagerService_ServiceDesc, srv)
 }
 
-func _WifiManagerService_AddLocalOnlyConnectionFailureListener_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _ManagerService_AddLocalOnlyConnectionFailureListener_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(AddLocalOnlyConnectionFailureListenerRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(WifiManagerServiceServer).AddLocalOnlyConnectionFailureListener(ctx, in)
+		return srv.(ManagerServiceServer).AddLocalOnlyConnectionFailureListener(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: WifiManagerService_AddLocalOnlyConnectionFailureListener_FullMethodName,
+		FullMethod: ManagerService_AddLocalOnlyConnectionFailureListener_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WifiManagerServiceServer).AddLocalOnlyConnectionFailureListener(ctx, req.(*AddLocalOnlyConnectionFailureListenerRequest))
+		return srv.(ManagerServiceServer).AddLocalOnlyConnectionFailureListener(ctx, req.(*AddLocalOnlyConnectionFailureListenerRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _WifiManagerService_AddNetwork_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _ManagerService_AddNetwork_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(AddNetworkRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(WifiManagerServiceServer).AddNetwork(ctx, in)
+		return srv.(ManagerServiceServer).AddNetwork(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: WifiManagerService_AddNetwork_FullMethodName,
+		FullMethod: ManagerService_AddNetwork_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WifiManagerServiceServer).AddNetwork(ctx, req.(*AddNetworkRequest))
+		return srv.(ManagerServiceServer).AddNetwork(ctx, req.(*AddNetworkRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _WifiManagerService_AddNetworkPrivileged_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _ManagerService_AddNetworkPrivileged_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(AddNetworkPrivilegedRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(WifiManagerServiceServer).AddNetworkPrivileged(ctx, in)
+		return srv.(ManagerServiceServer).AddNetworkPrivileged(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: WifiManagerService_AddNetworkPrivileged_FullMethodName,
+		FullMethod: ManagerService_AddNetworkPrivileged_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WifiManagerServiceServer).AddNetworkPrivileged(ctx, req.(*AddNetworkPrivilegedRequest))
+		return srv.(ManagerServiceServer).AddNetworkPrivileged(ctx, req.(*AddNetworkPrivilegedRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _WifiManagerService_AddNetworkSuggestions_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _ManagerService_AddNetworkSuggestions_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(AddNetworkSuggestionsRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(WifiManagerServiceServer).AddNetworkSuggestions(ctx, in)
+		return srv.(ManagerServiceServer).AddNetworkSuggestions(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: WifiManagerService_AddNetworkSuggestions_FullMethodName,
+		FullMethod: ManagerService_AddNetworkSuggestions_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WifiManagerServiceServer).AddNetworkSuggestions(ctx, req.(*AddNetworkSuggestionsRequest))
+		return srv.(ManagerServiceServer).AddNetworkSuggestions(ctx, req.(*AddNetworkSuggestionsRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _WifiManagerService_AddOrUpdatePasspointConfiguration_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _ManagerService_AddOrUpdatePasspointConfiguration_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(AddOrUpdatePasspointConfigurationRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(WifiManagerServiceServer).AddOrUpdatePasspointConfiguration(ctx, in)
+		return srv.(ManagerServiceServer).AddOrUpdatePasspointConfiguration(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: WifiManagerService_AddOrUpdatePasspointConfiguration_FullMethodName,
+		FullMethod: ManagerService_AddOrUpdatePasspointConfiguration_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WifiManagerServiceServer).AddOrUpdatePasspointConfiguration(ctx, req.(*AddOrUpdatePasspointConfigurationRequest))
+		return srv.(ManagerServiceServer).AddOrUpdatePasspointConfiguration(ctx, req.(*AddOrUpdatePasspointConfigurationRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _WifiManagerService_AddSuggestionConnectionStatusListener_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _ManagerService_AddSuggestionConnectionStatusListener_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(AddSuggestionConnectionStatusListenerRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(WifiManagerServiceServer).AddSuggestionConnectionStatusListener(ctx, in)
+		return srv.(ManagerServiceServer).AddSuggestionConnectionStatusListener(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: WifiManagerService_AddSuggestionConnectionStatusListener_FullMethodName,
+		FullMethod: ManagerService_AddSuggestionConnectionStatusListener_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WifiManagerServiceServer).AddSuggestionConnectionStatusListener(ctx, req.(*AddSuggestionConnectionStatusListenerRequest))
+		return srv.(ManagerServiceServer).AddSuggestionConnectionStatusListener(ctx, req.(*AddSuggestionConnectionStatusListenerRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _WifiManagerService_AddSuggestionUserApprovalStatusListener_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _ManagerService_AddSuggestionUserApprovalStatusListener_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(AddSuggestionUserApprovalStatusListenerRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(WifiManagerServiceServer).AddSuggestionUserApprovalStatusListener(ctx, in)
+		return srv.(ManagerServiceServer).AddSuggestionUserApprovalStatusListener(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: WifiManagerService_AddSuggestionUserApprovalStatusListener_FullMethodName,
+		FullMethod: ManagerService_AddSuggestionUserApprovalStatusListener_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WifiManagerServiceServer).AddSuggestionUserApprovalStatusListener(ctx, req.(*AddSuggestionUserApprovalStatusListenerRequest))
+		return srv.(ManagerServiceServer).AddSuggestionUserApprovalStatusListener(ctx, req.(*AddSuggestionUserApprovalStatusListenerRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _WifiManagerService_AddWifiStateChangedListener_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _ManagerService_AddWifiStateChangedListener_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(AddWifiStateChangedListenerRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(WifiManagerServiceServer).AddWifiStateChangedListener(ctx, in)
+		return srv.(ManagerServiceServer).AddWifiStateChangedListener(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: WifiManagerService_AddWifiStateChangedListener_FullMethodName,
+		FullMethod: ManagerService_AddWifiStateChangedListener_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WifiManagerServiceServer).AddWifiStateChangedListener(ctx, req.(*AddWifiStateChangedListenerRequest))
+		return srv.(ManagerServiceServer).AddWifiStateChangedListener(ctx, req.(*AddWifiStateChangedListenerRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _WifiManagerService_AllowAutojoinGlobal_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _ManagerService_AllowAutojoinGlobal_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(AllowAutojoinGlobalRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(WifiManagerServiceServer).AllowAutojoinGlobal(ctx, in)
+		return srv.(ManagerServiceServer).AllowAutojoinGlobal(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: WifiManagerService_AllowAutojoinGlobal_FullMethodName,
+		FullMethod: ManagerService_AllowAutojoinGlobal_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WifiManagerServiceServer).AllowAutojoinGlobal(ctx, req.(*AllowAutojoinGlobalRequest))
+		return srv.(ManagerServiceServer).AllowAutojoinGlobal(ctx, req.(*AllowAutojoinGlobalRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _WifiManagerService_CalculateSignalLevel1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _ManagerService_CalculateSignalLevel1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(CalculateSignalLevel1Request)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(WifiManagerServiceServer).CalculateSignalLevel1(ctx, in)
+		return srv.(ManagerServiceServer).CalculateSignalLevel1(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: WifiManagerService_CalculateSignalLevel1_FullMethodName,
+		FullMethod: ManagerService_CalculateSignalLevel1_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WifiManagerServiceServer).CalculateSignalLevel1(ctx, req.(*CalculateSignalLevel1Request))
+		return srv.(ManagerServiceServer).CalculateSignalLevel1(ctx, req.(*CalculateSignalLevel1Request))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _WifiManagerService_CancelWps_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _ManagerService_CancelWps_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(CancelWpsRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(WifiManagerServiceServer).CancelWps(ctx, in)
+		return srv.(ManagerServiceServer).CancelWps(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: WifiManagerService_CancelWps_FullMethodName,
+		FullMethod: ManagerService_CancelWps_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WifiManagerServiceServer).CancelWps(ctx, req.(*CancelWpsRequest))
+		return srv.(ManagerServiceServer).CancelWps(ctx, req.(*CancelWpsRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _WifiManagerService_CreateMulticastLock_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _ManagerService_CreateMulticastLock_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(CreateMulticastLockRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(WifiManagerServiceServer).CreateMulticastLock(ctx, in)
+		return srv.(ManagerServiceServer).CreateMulticastLock(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: WifiManagerService_CreateMulticastLock_FullMethodName,
+		FullMethod: ManagerService_CreateMulticastLock_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WifiManagerServiceServer).CreateMulticastLock(ctx, req.(*CreateMulticastLockRequest))
+		return srv.(ManagerServiceServer).CreateMulticastLock(ctx, req.(*CreateMulticastLockRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _WifiManagerService_CreateWifiLock2_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _ManagerService_CreateWifiLock2_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(CreateWifiLock2Request)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(WifiManagerServiceServer).CreateWifiLock2(ctx, in)
+		return srv.(ManagerServiceServer).CreateWifiLock2(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: WifiManagerService_CreateWifiLock2_FullMethodName,
+		FullMethod: ManagerService_CreateWifiLock2_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WifiManagerServiceServer).CreateWifiLock2(ctx, req.(*CreateWifiLock2Request))
+		return srv.(ManagerServiceServer).CreateWifiLock2(ctx, req.(*CreateWifiLock2Request))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _WifiManagerService_CreateWifiLock1_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _ManagerService_CreateWifiLock1_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(CreateWifiLock1_1Request)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(WifiManagerServiceServer).CreateWifiLock1_1(ctx, in)
+		return srv.(ManagerServiceServer).CreateWifiLock1_1(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: WifiManagerService_CreateWifiLock1_1_FullMethodName,
+		FullMethod: ManagerService_CreateWifiLock1_1_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WifiManagerServiceServer).CreateWifiLock1_1(ctx, req.(*CreateWifiLock1_1Request))
+		return srv.(ManagerServiceServer).CreateWifiLock1_1(ctx, req.(*CreateWifiLock1_1Request))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _WifiManagerService_DisableNetwork_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _ManagerService_DisableNetwork_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(DisableNetworkRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(WifiManagerServiceServer).DisableNetwork(ctx, in)
+		return srv.(ManagerServiceServer).DisableNetwork(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: WifiManagerService_DisableNetwork_FullMethodName,
+		FullMethod: ManagerService_DisableNetwork_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WifiManagerServiceServer).DisableNetwork(ctx, req.(*DisableNetworkRequest))
+		return srv.(ManagerServiceServer).DisableNetwork(ctx, req.(*DisableNetworkRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _WifiManagerService_DisallowCurrentSuggestedNetwork_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _ManagerService_DisallowCurrentSuggestedNetwork_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(DisallowCurrentSuggestedNetworkRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(WifiManagerServiceServer).DisallowCurrentSuggestedNetwork(ctx, in)
+		return srv.(ManagerServiceServer).DisallowCurrentSuggestedNetwork(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: WifiManagerService_DisallowCurrentSuggestedNetwork_FullMethodName,
+		FullMethod: ManagerService_DisallowCurrentSuggestedNetwork_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WifiManagerServiceServer).DisallowCurrentSuggestedNetwork(ctx, req.(*DisallowCurrentSuggestedNetworkRequest))
+		return srv.(ManagerServiceServer).DisallowCurrentSuggestedNetwork(ctx, req.(*DisallowCurrentSuggestedNetworkRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _WifiManagerService_Disconnect_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _ManagerService_Disconnect_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(DisconnectRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(WifiManagerServiceServer).Disconnect(ctx, in)
+		return srv.(ManagerServiceServer).Disconnect(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: WifiManagerService_Disconnect_FullMethodName,
+		FullMethod: ManagerService_Disconnect_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WifiManagerServiceServer).Disconnect(ctx, req.(*DisconnectRequest))
+		return srv.(ManagerServiceServer).Disconnect(ctx, req.(*DisconnectRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _WifiManagerService_EnableNetwork_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _ManagerService_EnableNetwork_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(EnableNetworkRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(WifiManagerServiceServer).EnableNetwork(ctx, in)
+		return srv.(ManagerServiceServer).EnableNetwork(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: WifiManagerService_EnableNetwork_FullMethodName,
+		FullMethod: ManagerService_EnableNetwork_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WifiManagerServiceServer).EnableNetwork(ctx, req.(*EnableNetworkRequest))
+		return srv.(ManagerServiceServer).EnableNetwork(ctx, req.(*EnableNetworkRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _WifiManagerService_FlushPasspointAnqpCache_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _ManagerService_FlushPasspointAnqpCache_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(FlushPasspointAnqpCacheRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(WifiManagerServiceServer).FlushPasspointAnqpCache(ctx, in)
+		return srv.(ManagerServiceServer).FlushPasspointAnqpCache(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: WifiManagerService_FlushPasspointAnqpCache_FullMethodName,
+		FullMethod: ManagerService_FlushPasspointAnqpCache_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WifiManagerServiceServer).FlushPasspointAnqpCache(ctx, req.(*FlushPasspointAnqpCacheRequest))
+		return srv.(ManagerServiceServer).FlushPasspointAnqpCache(ctx, req.(*FlushPasspointAnqpCacheRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _WifiManagerService_GetAllowedChannels_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _ManagerService_GetAllowedChannels_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(GetAllowedChannelsRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(WifiManagerServiceServer).GetAllowedChannels(ctx, in)
+		return srv.(ManagerServiceServer).GetAllowedChannels(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: WifiManagerService_GetAllowedChannels_FullMethodName,
+		FullMethod: ManagerService_GetAllowedChannels_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WifiManagerServiceServer).GetAllowedChannels(ctx, req.(*GetAllowedChannelsRequest))
+		return srv.(ManagerServiceServer).GetAllowedChannels(ctx, req.(*GetAllowedChannelsRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _WifiManagerService_GetCallerConfiguredNetworks_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _ManagerService_GetCallerConfiguredNetworks_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(GetCallerConfiguredNetworksRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(WifiManagerServiceServer).GetCallerConfiguredNetworks(ctx, in)
+		return srv.(ManagerServiceServer).GetCallerConfiguredNetworks(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: WifiManagerService_GetCallerConfiguredNetworks_FullMethodName,
+		FullMethod: ManagerService_GetCallerConfiguredNetworks_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WifiManagerServiceServer).GetCallerConfiguredNetworks(ctx, req.(*GetCallerConfiguredNetworksRequest))
+		return srv.(ManagerServiceServer).GetCallerConfiguredNetworks(ctx, req.(*GetCallerConfiguredNetworksRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _WifiManagerService_GetChannelData_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _ManagerService_GetChannelData_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(GetChannelDataRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(WifiManagerServiceServer).GetChannelData(ctx, in)
+		return srv.(ManagerServiceServer).GetChannelData(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: WifiManagerService_GetChannelData_FullMethodName,
+		FullMethod: ManagerService_GetChannelData_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WifiManagerServiceServer).GetChannelData(ctx, req.(*GetChannelDataRequest))
+		return srv.(ManagerServiceServer).GetChannelData(ctx, req.(*GetChannelDataRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _WifiManagerService_GetConfiguredNetworks_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _ManagerService_GetConfiguredNetworks_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(GetConfiguredNetworksRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(WifiManagerServiceServer).GetConfiguredNetworks(ctx, in)
+		return srv.(ManagerServiceServer).GetConfiguredNetworks(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: WifiManagerService_GetConfiguredNetworks_FullMethodName,
+		FullMethod: ManagerService_GetConfiguredNetworks_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WifiManagerServiceServer).GetConfiguredNetworks(ctx, req.(*GetConfiguredNetworksRequest))
+		return srv.(ManagerServiceServer).GetConfiguredNetworks(ctx, req.(*GetConfiguredNetworksRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _WifiManagerService_GetConnectionInfo_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _ManagerService_GetConnectionInfo_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(GetConnectionInfoRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(WifiManagerServiceServer).GetConnectionInfo(ctx, in)
+		return srv.(ManagerServiceServer).GetConnectionInfo(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: WifiManagerService_GetConnectionInfo_FullMethodName,
+		FullMethod: ManagerService_GetConnectionInfo_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WifiManagerServiceServer).GetConnectionInfo(ctx, req.(*GetConnectionInfoRequest))
+		return srv.(ManagerServiceServer).GetConnectionInfo(ctx, req.(*GetConnectionInfoRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _WifiManagerService_GetDhcpInfo_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _ManagerService_GetDhcpInfo_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(GetDhcpInfoRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(WifiManagerServiceServer).GetDhcpInfo(ctx, in)
+		return srv.(ManagerServiceServer).GetDhcpInfo(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: WifiManagerService_GetDhcpInfo_FullMethodName,
+		FullMethod: ManagerService_GetDhcpInfo_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WifiManagerServiceServer).GetDhcpInfo(ctx, req.(*GetDhcpInfoRequest))
+		return srv.(ManagerServiceServer).GetDhcpInfo(ctx, req.(*GetDhcpInfoRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _WifiManagerService_GetMaxNumberOfChannelsPerNetworkSpecifierRequest_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _ManagerService_GetMaxNumberOfChannelsPerNetworkSpecifierRequest_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(GetMaxNumberOfChannelsPerNetworkSpecifierRequestRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(WifiManagerServiceServer).GetMaxNumberOfChannelsPerNetworkSpecifierRequest(ctx, in)
+		return srv.(ManagerServiceServer).GetMaxNumberOfChannelsPerNetworkSpecifierRequest(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: WifiManagerService_GetMaxNumberOfChannelsPerNetworkSpecifierRequest_FullMethodName,
+		FullMethod: ManagerService_GetMaxNumberOfChannelsPerNetworkSpecifierRequest_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WifiManagerServiceServer).GetMaxNumberOfChannelsPerNetworkSpecifierRequest(ctx, req.(*GetMaxNumberOfChannelsPerNetworkSpecifierRequestRequest))
+		return srv.(ManagerServiceServer).GetMaxNumberOfChannelsPerNetworkSpecifierRequest(ctx, req.(*GetMaxNumberOfChannelsPerNetworkSpecifierRequestRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _WifiManagerService_GetMaxNumberOfNetworkSuggestionsPerApp_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _ManagerService_GetMaxNumberOfNetworkSuggestionsPerApp_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(GetMaxNumberOfNetworkSuggestionsPerAppRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(WifiManagerServiceServer).GetMaxNumberOfNetworkSuggestionsPerApp(ctx, in)
+		return srv.(ManagerServiceServer).GetMaxNumberOfNetworkSuggestionsPerApp(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: WifiManagerService_GetMaxNumberOfNetworkSuggestionsPerApp_FullMethodName,
+		FullMethod: ManagerService_GetMaxNumberOfNetworkSuggestionsPerApp_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WifiManagerServiceServer).GetMaxNumberOfNetworkSuggestionsPerApp(ctx, req.(*GetMaxNumberOfNetworkSuggestionsPerAppRequest))
+		return srv.(ManagerServiceServer).GetMaxNumberOfNetworkSuggestionsPerApp(ctx, req.(*GetMaxNumberOfNetworkSuggestionsPerAppRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _WifiManagerService_GetMaxSignalLevel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _ManagerService_GetMaxSignalLevel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(GetMaxSignalLevelRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(WifiManagerServiceServer).GetMaxSignalLevel(ctx, in)
+		return srv.(ManagerServiceServer).GetMaxSignalLevel(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: WifiManagerService_GetMaxSignalLevel_FullMethodName,
+		FullMethod: ManagerService_GetMaxSignalLevel_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WifiManagerServiceServer).GetMaxSignalLevel(ctx, req.(*GetMaxSignalLevelRequest))
+		return srv.(ManagerServiceServer).GetMaxSignalLevel(ctx, req.(*GetMaxSignalLevelRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _WifiManagerService_GetMaxSupportedConcurrentTdlsSessions_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _ManagerService_GetMaxSupportedConcurrentTdlsSessions_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(GetMaxSupportedConcurrentTdlsSessionsRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(WifiManagerServiceServer).GetMaxSupportedConcurrentTdlsSessions(ctx, in)
+		return srv.(ManagerServiceServer).GetMaxSupportedConcurrentTdlsSessions(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: WifiManagerService_GetMaxSupportedConcurrentTdlsSessions_FullMethodName,
+		FullMethod: ManagerService_GetMaxSupportedConcurrentTdlsSessions_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WifiManagerServiceServer).GetMaxSupportedConcurrentTdlsSessions(ctx, req.(*GetMaxSupportedConcurrentTdlsSessionsRequest))
+		return srv.(ManagerServiceServer).GetMaxSupportedConcurrentTdlsSessions(ctx, req.(*GetMaxSupportedConcurrentTdlsSessionsRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _WifiManagerService_GetNetworkSuggestions_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _ManagerService_GetNetworkSuggestions_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(GetNetworkSuggestionsRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(WifiManagerServiceServer).GetNetworkSuggestions(ctx, in)
+		return srv.(ManagerServiceServer).GetNetworkSuggestions(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: WifiManagerService_GetNetworkSuggestions_FullMethodName,
+		FullMethod: ManagerService_GetNetworkSuggestions_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WifiManagerServiceServer).GetNetworkSuggestions(ctx, req.(*GetNetworkSuggestionsRequest))
+		return srv.(ManagerServiceServer).GetNetworkSuggestions(ctx, req.(*GetNetworkSuggestionsRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _WifiManagerService_GetNumberOfEnabledTdlsSessions_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _ManagerService_GetNumberOfEnabledTdlsSessions_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(GetNumberOfEnabledTdlsSessionsRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(WifiManagerServiceServer).GetNumberOfEnabledTdlsSessions(ctx, in)
+		return srv.(ManagerServiceServer).GetNumberOfEnabledTdlsSessions(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: WifiManagerService_GetNumberOfEnabledTdlsSessions_FullMethodName,
+		FullMethod: ManagerService_GetNumberOfEnabledTdlsSessions_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WifiManagerServiceServer).GetNumberOfEnabledTdlsSessions(ctx, req.(*GetNumberOfEnabledTdlsSessionsRequest))
+		return srv.(ManagerServiceServer).GetNumberOfEnabledTdlsSessions(ctx, req.(*GetNumberOfEnabledTdlsSessionsRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _WifiManagerService_GetPasspointConfigurations_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _ManagerService_GetPasspointConfigurations_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(GetPasspointConfigurationsRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(WifiManagerServiceServer).GetPasspointConfigurations(ctx, in)
+		return srv.(ManagerServiceServer).GetPasspointConfigurations(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: WifiManagerService_GetPasspointConfigurations_FullMethodName,
+		FullMethod: ManagerService_GetPasspointConfigurations_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WifiManagerServiceServer).GetPasspointConfigurations(ctx, req.(*GetPasspointConfigurationsRequest))
+		return srv.(ManagerServiceServer).GetPasspointConfigurations(ctx, req.(*GetPasspointConfigurationsRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _WifiManagerService_GetPerSsidRoamingModes_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _ManagerService_GetPerSsidRoamingModes_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(GetPerSsidRoamingModesRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(WifiManagerServiceServer).GetPerSsidRoamingModes(ctx, in)
+		return srv.(ManagerServiceServer).GetPerSsidRoamingModes(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: WifiManagerService_GetPerSsidRoamingModes_FullMethodName,
+		FullMethod: ManagerService_GetPerSsidRoamingModes_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WifiManagerServiceServer).GetPerSsidRoamingModes(ctx, req.(*GetPerSsidRoamingModesRequest))
+		return srv.(ManagerServiceServer).GetPerSsidRoamingModes(ctx, req.(*GetPerSsidRoamingModesRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _WifiManagerService_GetScanResults_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _ManagerService_GetScanResults_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(GetScanResultsRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(WifiManagerServiceServer).GetScanResults(ctx, in)
+		return srv.(ManagerServiceServer).GetScanResults(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: WifiManagerService_GetScanResults_FullMethodName,
+		FullMethod: ManagerService_GetScanResults_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WifiManagerServiceServer).GetScanResults(ctx, req.(*GetScanResultsRequest))
+		return srv.(ManagerServiceServer).GetScanResults(ctx, req.(*GetScanResultsRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _WifiManagerService_GetStaConcurrencyForMultiInternetMode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _ManagerService_GetStaConcurrencyForMultiInternetMode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(GetStaConcurrencyForMultiInternetModeRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(WifiManagerServiceServer).GetStaConcurrencyForMultiInternetMode(ctx, in)
+		return srv.(ManagerServiceServer).GetStaConcurrencyForMultiInternetMode(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: WifiManagerService_GetStaConcurrencyForMultiInternetMode_FullMethodName,
+		FullMethod: ManagerService_GetStaConcurrencyForMultiInternetMode_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WifiManagerServiceServer).GetStaConcurrencyForMultiInternetMode(ctx, req.(*GetStaConcurrencyForMultiInternetModeRequest))
+		return srv.(ManagerServiceServer).GetStaConcurrencyForMultiInternetMode(ctx, req.(*GetStaConcurrencyForMultiInternetModeRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _WifiManagerService_GetUsableChannels_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _ManagerService_GetUsableChannels_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(GetUsableChannelsRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(WifiManagerServiceServer).GetUsableChannels(ctx, in)
+		return srv.(ManagerServiceServer).GetUsableChannels(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: WifiManagerService_GetUsableChannels_FullMethodName,
+		FullMethod: ManagerService_GetUsableChannels_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WifiManagerServiceServer).GetUsableChannels(ctx, req.(*GetUsableChannelsRequest))
+		return srv.(ManagerServiceServer).GetUsableChannels(ctx, req.(*GetUsableChannelsRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _WifiManagerService_GetWifiState_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _ManagerService_GetWifiState_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(GetWifiStateRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(WifiManagerServiceServer).GetWifiState(ctx, in)
+		return srv.(ManagerServiceServer).GetWifiState(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: WifiManagerService_GetWifiState_FullMethodName,
+		FullMethod: ManagerService_GetWifiState_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WifiManagerServiceServer).GetWifiState(ctx, req.(*GetWifiStateRequest))
+		return srv.(ManagerServiceServer).GetWifiState(ctx, req.(*GetWifiStateRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _WifiManagerService_Is24GHzBandSupported_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _ManagerService_Is24GHzBandSupported_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(Is24GHzBandSupportedRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(WifiManagerServiceServer).Is24GHzBandSupported(ctx, in)
+		return srv.(ManagerServiceServer).Is24GHzBandSupported(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: WifiManagerService_Is24GHzBandSupported_FullMethodName,
+		FullMethod: ManagerService_Is24GHzBandSupported_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WifiManagerServiceServer).Is24GHzBandSupported(ctx, req.(*Is24GHzBandSupportedRequest))
+		return srv.(ManagerServiceServer).Is24GHzBandSupported(ctx, req.(*Is24GHzBandSupportedRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _WifiManagerService_Is5GHzBandSupported_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _ManagerService_Is5GHzBandSupported_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(Is5GHzBandSupportedRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(WifiManagerServiceServer).Is5GHzBandSupported(ctx, in)
+		return srv.(ManagerServiceServer).Is5GHzBandSupported(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: WifiManagerService_Is5GHzBandSupported_FullMethodName,
+		FullMethod: ManagerService_Is5GHzBandSupported_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WifiManagerServiceServer).Is5GHzBandSupported(ctx, req.(*Is5GHzBandSupportedRequest))
+		return srv.(ManagerServiceServer).Is5GHzBandSupported(ctx, req.(*Is5GHzBandSupportedRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _WifiManagerService_Is60GHzBandSupported_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _ManagerService_Is60GHzBandSupported_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(Is60GHzBandSupportedRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(WifiManagerServiceServer).Is60GHzBandSupported(ctx, in)
+		return srv.(ManagerServiceServer).Is60GHzBandSupported(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: WifiManagerService_Is60GHzBandSupported_FullMethodName,
+		FullMethod: ManagerService_Is60GHzBandSupported_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WifiManagerServiceServer).Is60GHzBandSupported(ctx, req.(*Is60GHzBandSupportedRequest))
+		return srv.(ManagerServiceServer).Is60GHzBandSupported(ctx, req.(*Is60GHzBandSupportedRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _WifiManagerService_Is6GHzBandSupported_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _ManagerService_Is6GHzBandSupported_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(Is6GHzBandSupportedRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(WifiManagerServiceServer).Is6GHzBandSupported(ctx, in)
+		return srv.(ManagerServiceServer).Is6GHzBandSupported(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: WifiManagerService_Is6GHzBandSupported_FullMethodName,
+		FullMethod: ManagerService_Is6GHzBandSupported_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WifiManagerServiceServer).Is6GHzBandSupported(ctx, req.(*Is6GHzBandSupportedRequest))
+		return srv.(ManagerServiceServer).Is6GHzBandSupported(ctx, req.(*Is6GHzBandSupportedRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _WifiManagerService_IsAggressiveRoamingModeSupported_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _ManagerService_IsAggressiveRoamingModeSupported_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(IsAggressiveRoamingModeSupportedRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(WifiManagerServiceServer).IsAggressiveRoamingModeSupported(ctx, in)
+		return srv.(ManagerServiceServer).IsAggressiveRoamingModeSupported(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: WifiManagerService_IsAggressiveRoamingModeSupported_FullMethodName,
+		FullMethod: ManagerService_IsAggressiveRoamingModeSupported_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WifiManagerServiceServer).IsAggressiveRoamingModeSupported(ctx, req.(*IsAggressiveRoamingModeSupportedRequest))
+		return srv.(ManagerServiceServer).IsAggressiveRoamingModeSupported(ctx, req.(*IsAggressiveRoamingModeSupportedRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _WifiManagerService_IsAutoWakeupEnabled_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _ManagerService_IsAutoWakeupEnabled_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(IsAutoWakeupEnabledRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(WifiManagerServiceServer).IsAutoWakeupEnabled(ctx, in)
+		return srv.(ManagerServiceServer).IsAutoWakeupEnabled(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: WifiManagerService_IsAutoWakeupEnabled_FullMethodName,
+		FullMethod: ManagerService_IsAutoWakeupEnabled_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WifiManagerServiceServer).IsAutoWakeupEnabled(ctx, req.(*IsAutoWakeupEnabledRequest))
+		return srv.(ManagerServiceServer).IsAutoWakeupEnabled(ctx, req.(*IsAutoWakeupEnabledRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _WifiManagerService_IsBridgedApConcurrencySupported_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _ManagerService_IsBridgedApConcurrencySupported_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(IsBridgedApConcurrencySupportedRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(WifiManagerServiceServer).IsBridgedApConcurrencySupported(ctx, in)
+		return srv.(ManagerServiceServer).IsBridgedApConcurrencySupported(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: WifiManagerService_IsBridgedApConcurrencySupported_FullMethodName,
+		FullMethod: ManagerService_IsBridgedApConcurrencySupported_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WifiManagerServiceServer).IsBridgedApConcurrencySupported(ctx, req.(*IsBridgedApConcurrencySupportedRequest))
+		return srv.(ManagerServiceServer).IsBridgedApConcurrencySupported(ctx, req.(*IsBridgedApConcurrencySupportedRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _WifiManagerService_IsCarrierNetworkOffloadEnabled_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _ManagerService_IsCarrierNetworkOffloadEnabled_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(IsCarrierNetworkOffloadEnabledRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(WifiManagerServiceServer).IsCarrierNetworkOffloadEnabled(ctx, in)
+		return srv.(ManagerServiceServer).IsCarrierNetworkOffloadEnabled(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: WifiManagerService_IsCarrierNetworkOffloadEnabled_FullMethodName,
+		FullMethod: ManagerService_IsCarrierNetworkOffloadEnabled_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WifiManagerServiceServer).IsCarrierNetworkOffloadEnabled(ctx, req.(*IsCarrierNetworkOffloadEnabledRequest))
+		return srv.(ManagerServiceServer).IsCarrierNetworkOffloadEnabled(ctx, req.(*IsCarrierNetworkOffloadEnabledRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _WifiManagerService_IsD2DSupportedWhenInfraStaDisabled_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _ManagerService_IsD2DSupportedWhenInfraStaDisabled_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(IsD2DSupportedWhenInfraStaDisabledRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(WifiManagerServiceServer).IsD2DSupportedWhenInfraStaDisabled(ctx, in)
+		return srv.(ManagerServiceServer).IsD2DSupportedWhenInfraStaDisabled(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: WifiManagerService_IsD2DSupportedWhenInfraStaDisabled_FullMethodName,
+		FullMethod: ManagerService_IsD2DSupportedWhenInfraStaDisabled_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WifiManagerServiceServer).IsD2DSupportedWhenInfraStaDisabled(ctx, req.(*IsD2DSupportedWhenInfraStaDisabledRequest))
+		return srv.(ManagerServiceServer).IsD2DSupportedWhenInfraStaDisabled(ctx, req.(*IsD2DSupportedWhenInfraStaDisabledRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _WifiManagerService_IsDecoratedIdentitySupported_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _ManagerService_IsDecoratedIdentitySupported_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(IsDecoratedIdentitySupportedRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(WifiManagerServiceServer).IsDecoratedIdentitySupported(ctx, in)
+		return srv.(ManagerServiceServer).IsDecoratedIdentitySupported(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: WifiManagerService_IsDecoratedIdentitySupported_FullMethodName,
+		FullMethod: ManagerService_IsDecoratedIdentitySupported_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WifiManagerServiceServer).IsDecoratedIdentitySupported(ctx, req.(*IsDecoratedIdentitySupportedRequest))
+		return srv.(ManagerServiceServer).IsDecoratedIdentitySupported(ctx, req.(*IsDecoratedIdentitySupportedRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _WifiManagerService_IsDeviceToApRttSupported_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _ManagerService_IsDeviceToApRttSupported_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(IsDeviceToApRttSupportedRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(WifiManagerServiceServer).IsDeviceToApRttSupported(ctx, in)
+		return srv.(ManagerServiceServer).IsDeviceToApRttSupported(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: WifiManagerService_IsDeviceToApRttSupported_FullMethodName,
+		FullMethod: ManagerService_IsDeviceToApRttSupported_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WifiManagerServiceServer).IsDeviceToApRttSupported(ctx, req.(*IsDeviceToApRttSupportedRequest))
+		return srv.(ManagerServiceServer).IsDeviceToApRttSupported(ctx, req.(*IsDeviceToApRttSupportedRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _WifiManagerService_IsDualBandSimultaneousSupported_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _ManagerService_IsDualBandSimultaneousSupported_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(IsDualBandSimultaneousSupportedRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(WifiManagerServiceServer).IsDualBandSimultaneousSupported(ctx, in)
+		return srv.(ManagerServiceServer).IsDualBandSimultaneousSupported(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: WifiManagerService_IsDualBandSimultaneousSupported_FullMethodName,
+		FullMethod: ManagerService_IsDualBandSimultaneousSupported_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WifiManagerServiceServer).IsDualBandSimultaneousSupported(ctx, req.(*IsDualBandSimultaneousSupportedRequest))
+		return srv.(ManagerServiceServer).IsDualBandSimultaneousSupported(ctx, req.(*IsDualBandSimultaneousSupportedRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _WifiManagerService_IsEasyConnectDppAkmSupported_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _ManagerService_IsEasyConnectDppAkmSupported_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(IsEasyConnectDppAkmSupportedRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(WifiManagerServiceServer).IsEasyConnectDppAkmSupported(ctx, in)
+		return srv.(ManagerServiceServer).IsEasyConnectDppAkmSupported(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: WifiManagerService_IsEasyConnectDppAkmSupported_FullMethodName,
+		FullMethod: ManagerService_IsEasyConnectDppAkmSupported_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WifiManagerServiceServer).IsEasyConnectDppAkmSupported(ctx, req.(*IsEasyConnectDppAkmSupportedRequest))
+		return srv.(ManagerServiceServer).IsEasyConnectDppAkmSupported(ctx, req.(*IsEasyConnectDppAkmSupportedRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _WifiManagerService_IsEasyConnectEnrolleeResponderModeSupported_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _ManagerService_IsEasyConnectEnrolleeResponderModeSupported_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(IsEasyConnectEnrolleeResponderModeSupportedRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(WifiManagerServiceServer).IsEasyConnectEnrolleeResponderModeSupported(ctx, in)
+		return srv.(ManagerServiceServer).IsEasyConnectEnrolleeResponderModeSupported(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: WifiManagerService_IsEasyConnectEnrolleeResponderModeSupported_FullMethodName,
+		FullMethod: ManagerService_IsEasyConnectEnrolleeResponderModeSupported_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WifiManagerServiceServer).IsEasyConnectEnrolleeResponderModeSupported(ctx, req.(*IsEasyConnectEnrolleeResponderModeSupportedRequest))
+		return srv.(ManagerServiceServer).IsEasyConnectEnrolleeResponderModeSupported(ctx, req.(*IsEasyConnectEnrolleeResponderModeSupportedRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _WifiManagerService_IsEasyConnectSupported_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _ManagerService_IsEasyConnectSupported_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(IsEasyConnectSupportedRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(WifiManagerServiceServer).IsEasyConnectSupported(ctx, in)
+		return srv.(ManagerServiceServer).IsEasyConnectSupported(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: WifiManagerService_IsEasyConnectSupported_FullMethodName,
+		FullMethod: ManagerService_IsEasyConnectSupported_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WifiManagerServiceServer).IsEasyConnectSupported(ctx, req.(*IsEasyConnectSupportedRequest))
+		return srv.(ManagerServiceServer).IsEasyConnectSupported(ctx, req.(*IsEasyConnectSupportedRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _WifiManagerService_IsEnhancedOpenSupported_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _ManagerService_IsEnhancedOpenSupported_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(IsEnhancedOpenSupportedRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(WifiManagerServiceServer).IsEnhancedOpenSupported(ctx, in)
+		return srv.(ManagerServiceServer).IsEnhancedOpenSupported(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: WifiManagerService_IsEnhancedOpenSupported_FullMethodName,
+		FullMethod: ManagerService_IsEnhancedOpenSupported_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WifiManagerServiceServer).IsEnhancedOpenSupported(ctx, req.(*IsEnhancedOpenSupportedRequest))
+		return srv.(ManagerServiceServer).IsEnhancedOpenSupported(ctx, req.(*IsEnhancedOpenSupportedRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _WifiManagerService_IsEnhancedPowerReportingSupported_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _ManagerService_IsEnhancedPowerReportingSupported_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(IsEnhancedPowerReportingSupportedRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(WifiManagerServiceServer).IsEnhancedPowerReportingSupported(ctx, in)
+		return srv.(ManagerServiceServer).IsEnhancedPowerReportingSupported(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: WifiManagerService_IsEnhancedPowerReportingSupported_FullMethodName,
+		FullMethod: ManagerService_IsEnhancedPowerReportingSupported_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WifiManagerServiceServer).IsEnhancedPowerReportingSupported(ctx, req.(*IsEnhancedPowerReportingSupportedRequest))
+		return srv.(ManagerServiceServer).IsEnhancedPowerReportingSupported(ctx, req.(*IsEnhancedPowerReportingSupportedRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _WifiManagerService_IsMakeBeforeBreakWifiSwitchingSupported_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _ManagerService_IsMakeBeforeBreakWifiSwitchingSupported_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(IsMakeBeforeBreakWifiSwitchingSupportedRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(WifiManagerServiceServer).IsMakeBeforeBreakWifiSwitchingSupported(ctx, in)
+		return srv.(ManagerServiceServer).IsMakeBeforeBreakWifiSwitchingSupported(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: WifiManagerService_IsMakeBeforeBreakWifiSwitchingSupported_FullMethodName,
+		FullMethod: ManagerService_IsMakeBeforeBreakWifiSwitchingSupported_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WifiManagerServiceServer).IsMakeBeforeBreakWifiSwitchingSupported(ctx, req.(*IsMakeBeforeBreakWifiSwitchingSupportedRequest))
+		return srv.(ManagerServiceServer).IsMakeBeforeBreakWifiSwitchingSupported(ctx, req.(*IsMakeBeforeBreakWifiSwitchingSupportedRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _WifiManagerService_IsP2PSupported_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _ManagerService_IsP2PSupported_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(IsP2PSupportedRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(WifiManagerServiceServer).IsP2PSupported(ctx, in)
+		return srv.(ManagerServiceServer).IsP2PSupported(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: WifiManagerService_IsP2PSupported_FullMethodName,
+		FullMethod: ManagerService_IsP2PSupported_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WifiManagerServiceServer).IsP2PSupported(ctx, req.(*IsP2PSupportedRequest))
+		return srv.(ManagerServiceServer).IsP2PSupported(ctx, req.(*IsP2PSupportedRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _WifiManagerService_IsPasspointTermsAndConditionsSupported_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _ManagerService_IsPasspointTermsAndConditionsSupported_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(IsPasspointTermsAndConditionsSupportedRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(WifiManagerServiceServer).IsPasspointTermsAndConditionsSupported(ctx, in)
+		return srv.(ManagerServiceServer).IsPasspointTermsAndConditionsSupported(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: WifiManagerService_IsPasspointTermsAndConditionsSupported_FullMethodName,
+		FullMethod: ManagerService_IsPasspointTermsAndConditionsSupported_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WifiManagerServiceServer).IsPasspointTermsAndConditionsSupported(ctx, req.(*IsPasspointTermsAndConditionsSupportedRequest))
+		return srv.(ManagerServiceServer).IsPasspointTermsAndConditionsSupported(ctx, req.(*IsPasspointTermsAndConditionsSupportedRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _WifiManagerService_IsPreferredNetworkOffloadSupported_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _ManagerService_IsPreferredNetworkOffloadSupported_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(IsPreferredNetworkOffloadSupportedRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(WifiManagerServiceServer).IsPreferredNetworkOffloadSupported(ctx, in)
+		return srv.(ManagerServiceServer).IsPreferredNetworkOffloadSupported(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: WifiManagerService_IsPreferredNetworkOffloadSupported_FullMethodName,
+		FullMethod: ManagerService_IsPreferredNetworkOffloadSupported_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WifiManagerServiceServer).IsPreferredNetworkOffloadSupported(ctx, req.(*IsPreferredNetworkOffloadSupportedRequest))
+		return srv.(ManagerServiceServer).IsPreferredNetworkOffloadSupported(ctx, req.(*IsPreferredNetworkOffloadSupportedRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _WifiManagerService_IsScanAlwaysAvailable_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _ManagerService_IsScanAlwaysAvailable_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(IsScanAlwaysAvailableRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(WifiManagerServiceServer).IsScanAlwaysAvailable(ctx, in)
+		return srv.(ManagerServiceServer).IsScanAlwaysAvailable(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: WifiManagerService_IsScanAlwaysAvailable_FullMethodName,
+		FullMethod: ManagerService_IsScanAlwaysAvailable_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WifiManagerServiceServer).IsScanAlwaysAvailable(ctx, req.(*IsScanAlwaysAvailableRequest))
+		return srv.(ManagerServiceServer).IsScanAlwaysAvailable(ctx, req.(*IsScanAlwaysAvailableRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _WifiManagerService_IsScanThrottleEnabled_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _ManagerService_IsScanThrottleEnabled_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(IsScanThrottleEnabledRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(WifiManagerServiceServer).IsScanThrottleEnabled(ctx, in)
+		return srv.(ManagerServiceServer).IsScanThrottleEnabled(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: WifiManagerService_IsScanThrottleEnabled_FullMethodName,
+		FullMethod: ManagerService_IsScanThrottleEnabled_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WifiManagerServiceServer).IsScanThrottleEnabled(ctx, req.(*IsScanThrottleEnabledRequest))
+		return srv.(ManagerServiceServer).IsScanThrottleEnabled(ctx, req.(*IsScanThrottleEnabledRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _WifiManagerService_IsStaApConcurrencySupported_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _ManagerService_IsStaApConcurrencySupported_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(IsStaApConcurrencySupportedRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(WifiManagerServiceServer).IsStaApConcurrencySupported(ctx, in)
+		return srv.(ManagerServiceServer).IsStaApConcurrencySupported(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: WifiManagerService_IsStaApConcurrencySupported_FullMethodName,
+		FullMethod: ManagerService_IsStaApConcurrencySupported_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WifiManagerServiceServer).IsStaApConcurrencySupported(ctx, req.(*IsStaApConcurrencySupportedRequest))
+		return srv.(ManagerServiceServer).IsStaApConcurrencySupported(ctx, req.(*IsStaApConcurrencySupportedRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _WifiManagerService_IsStaBridgedApConcurrencySupported_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _ManagerService_IsStaBridgedApConcurrencySupported_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(IsStaBridgedApConcurrencySupportedRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(WifiManagerServiceServer).IsStaBridgedApConcurrencySupported(ctx, in)
+		return srv.(ManagerServiceServer).IsStaBridgedApConcurrencySupported(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: WifiManagerService_IsStaBridgedApConcurrencySupported_FullMethodName,
+		FullMethod: ManagerService_IsStaBridgedApConcurrencySupported_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WifiManagerServiceServer).IsStaBridgedApConcurrencySupported(ctx, req.(*IsStaBridgedApConcurrencySupportedRequest))
+		return srv.(ManagerServiceServer).IsStaBridgedApConcurrencySupported(ctx, req.(*IsStaBridgedApConcurrencySupportedRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _WifiManagerService_IsStaConcurrencyForLocalOnlyConnectionsSupported_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _ManagerService_IsStaConcurrencyForLocalOnlyConnectionsSupported_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(IsStaConcurrencyForLocalOnlyConnectionsSupportedRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(WifiManagerServiceServer).IsStaConcurrencyForLocalOnlyConnectionsSupported(ctx, in)
+		return srv.(ManagerServiceServer).IsStaConcurrencyForLocalOnlyConnectionsSupported(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: WifiManagerService_IsStaConcurrencyForLocalOnlyConnectionsSupported_FullMethodName,
+		FullMethod: ManagerService_IsStaConcurrencyForLocalOnlyConnectionsSupported_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WifiManagerServiceServer).IsStaConcurrencyForLocalOnlyConnectionsSupported(ctx, req.(*IsStaConcurrencyForLocalOnlyConnectionsSupportedRequest))
+		return srv.(ManagerServiceServer).IsStaConcurrencyForLocalOnlyConnectionsSupported(ctx, req.(*IsStaConcurrencyForLocalOnlyConnectionsSupportedRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _WifiManagerService_IsStaConcurrencyForMultiInternetSupported_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _ManagerService_IsStaConcurrencyForMultiInternetSupported_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(IsStaConcurrencyForMultiInternetSupportedRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(WifiManagerServiceServer).IsStaConcurrencyForMultiInternetSupported(ctx, in)
+		return srv.(ManagerServiceServer).IsStaConcurrencyForMultiInternetSupported(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: WifiManagerService_IsStaConcurrencyForMultiInternetSupported_FullMethodName,
+		FullMethod: ManagerService_IsStaConcurrencyForMultiInternetSupported_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WifiManagerServiceServer).IsStaConcurrencyForMultiInternetSupported(ctx, req.(*IsStaConcurrencyForMultiInternetSupportedRequest))
+		return srv.(ManagerServiceServer).IsStaConcurrencyForMultiInternetSupported(ctx, req.(*IsStaConcurrencyForMultiInternetSupportedRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _WifiManagerService_IsTdlsOperationCurrentlyAvailable_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _ManagerService_IsTdlsOperationCurrentlyAvailable_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(IsTdlsOperationCurrentlyAvailableRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(WifiManagerServiceServer).IsTdlsOperationCurrentlyAvailable(ctx, in)
+		return srv.(ManagerServiceServer).IsTdlsOperationCurrentlyAvailable(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: WifiManagerService_IsTdlsOperationCurrentlyAvailable_FullMethodName,
+		FullMethod: ManagerService_IsTdlsOperationCurrentlyAvailable_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WifiManagerServiceServer).IsTdlsOperationCurrentlyAvailable(ctx, req.(*IsTdlsOperationCurrentlyAvailableRequest))
+		return srv.(ManagerServiceServer).IsTdlsOperationCurrentlyAvailable(ctx, req.(*IsTdlsOperationCurrentlyAvailableRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _WifiManagerService_IsTdlsSupported_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _ManagerService_IsTdlsSupported_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(IsTdlsSupportedRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(WifiManagerServiceServer).IsTdlsSupported(ctx, in)
+		return srv.(ManagerServiceServer).IsTdlsSupported(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: WifiManagerService_IsTdlsSupported_FullMethodName,
+		FullMethod: ManagerService_IsTdlsSupported_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WifiManagerServiceServer).IsTdlsSupported(ctx, req.(*IsTdlsSupportedRequest))
+		return srv.(ManagerServiceServer).IsTdlsSupported(ctx, req.(*IsTdlsSupportedRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _WifiManagerService_IsTidToLinkMappingNegotiationSupported_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _ManagerService_IsTidToLinkMappingNegotiationSupported_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(IsTidToLinkMappingNegotiationSupportedRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(WifiManagerServiceServer).IsTidToLinkMappingNegotiationSupported(ctx, in)
+		return srv.(ManagerServiceServer).IsTidToLinkMappingNegotiationSupported(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: WifiManagerService_IsTidToLinkMappingNegotiationSupported_FullMethodName,
+		FullMethod: ManagerService_IsTidToLinkMappingNegotiationSupported_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WifiManagerServiceServer).IsTidToLinkMappingNegotiationSupported(ctx, req.(*IsTidToLinkMappingNegotiationSupportedRequest))
+		return srv.(ManagerServiceServer).IsTidToLinkMappingNegotiationSupported(ctx, req.(*IsTidToLinkMappingNegotiationSupportedRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _WifiManagerService_IsTlsMinimumVersionSupported_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _ManagerService_IsTlsMinimumVersionSupported_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(IsTlsMinimumVersionSupportedRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(WifiManagerServiceServer).IsTlsMinimumVersionSupported(ctx, in)
+		return srv.(ManagerServiceServer).IsTlsMinimumVersionSupported(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: WifiManagerService_IsTlsMinimumVersionSupported_FullMethodName,
+		FullMethod: ManagerService_IsTlsMinimumVersionSupported_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WifiManagerServiceServer).IsTlsMinimumVersionSupported(ctx, req.(*IsTlsMinimumVersionSupportedRequest))
+		return srv.(ManagerServiceServer).IsTlsMinimumVersionSupported(ctx, req.(*IsTlsMinimumVersionSupportedRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _WifiManagerService_IsTlsV13Supported_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _ManagerService_IsTlsV13Supported_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(IsTlsV13SupportedRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(WifiManagerServiceServer).IsTlsV13Supported(ctx, in)
+		return srv.(ManagerServiceServer).IsTlsV13Supported(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: WifiManagerService_IsTlsV13Supported_FullMethodName,
+		FullMethod: ManagerService_IsTlsV13Supported_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WifiManagerServiceServer).IsTlsV13Supported(ctx, req.(*IsTlsV13SupportedRequest))
+		return srv.(ManagerServiceServer).IsTlsV13Supported(ctx, req.(*IsTlsV13SupportedRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _WifiManagerService_IsTrustOnFirstUseSupported_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _ManagerService_IsTrustOnFirstUseSupported_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(IsTrustOnFirstUseSupportedRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(WifiManagerServiceServer).IsTrustOnFirstUseSupported(ctx, in)
+		return srv.(ManagerServiceServer).IsTrustOnFirstUseSupported(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: WifiManagerService_IsTrustOnFirstUseSupported_FullMethodName,
+		FullMethod: ManagerService_IsTrustOnFirstUseSupported_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WifiManagerServiceServer).IsTrustOnFirstUseSupported(ctx, req.(*IsTrustOnFirstUseSupportedRequest))
+		return srv.(ManagerServiceServer).IsTrustOnFirstUseSupported(ctx, req.(*IsTrustOnFirstUseSupportedRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _WifiManagerService_IsWapiSupported_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _ManagerService_IsWapiSupported_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(IsWapiSupportedRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(WifiManagerServiceServer).IsWapiSupported(ctx, in)
+		return srv.(ManagerServiceServer).IsWapiSupported(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: WifiManagerService_IsWapiSupported_FullMethodName,
+		FullMethod: ManagerService_IsWapiSupported_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WifiManagerServiceServer).IsWapiSupported(ctx, req.(*IsWapiSupportedRequest))
+		return srv.(ManagerServiceServer).IsWapiSupported(ctx, req.(*IsWapiSupportedRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _WifiManagerService_IsWepSupported_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _ManagerService_IsWepSupported_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(IsWepSupportedRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(WifiManagerServiceServer).IsWepSupported(ctx, in)
+		return srv.(ManagerServiceServer).IsWepSupported(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: WifiManagerService_IsWepSupported_FullMethodName,
+		FullMethod: ManagerService_IsWepSupported_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WifiManagerServiceServer).IsWepSupported(ctx, req.(*IsWepSupportedRequest))
+		return srv.(ManagerServiceServer).IsWepSupported(ctx, req.(*IsWepSupportedRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _WifiManagerService_IsWifiDisplayR2Supported_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _ManagerService_IsWifiDisplayR2Supported_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(IsWifiDisplayR2SupportedRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(WifiManagerServiceServer).IsWifiDisplayR2Supported(ctx, in)
+		return srv.(ManagerServiceServer).IsWifiDisplayR2Supported(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: WifiManagerService_IsWifiDisplayR2Supported_FullMethodName,
+		FullMethod: ManagerService_IsWifiDisplayR2Supported_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WifiManagerServiceServer).IsWifiDisplayR2Supported(ctx, req.(*IsWifiDisplayR2SupportedRequest))
+		return srv.(ManagerServiceServer).IsWifiDisplayR2Supported(ctx, req.(*IsWifiDisplayR2SupportedRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _WifiManagerService_IsWifiEnabled_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _ManagerService_IsWifiEnabled_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(IsWifiEnabledRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(WifiManagerServiceServer).IsWifiEnabled(ctx, in)
+		return srv.(ManagerServiceServer).IsWifiEnabled(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: WifiManagerService_IsWifiEnabled_FullMethodName,
+		FullMethod: ManagerService_IsWifiEnabled_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WifiManagerServiceServer).IsWifiEnabled(ctx, req.(*IsWifiEnabledRequest))
+		return srv.(ManagerServiceServer).IsWifiEnabled(ctx, req.(*IsWifiEnabledRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _WifiManagerService_IsWifiPasspointEnabled_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _ManagerService_IsWifiPasspointEnabled_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(IsWifiPasspointEnabledRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(WifiManagerServiceServer).IsWifiPasspointEnabled(ctx, in)
+		return srv.(ManagerServiceServer).IsWifiPasspointEnabled(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: WifiManagerService_IsWifiPasspointEnabled_FullMethodName,
+		FullMethod: ManagerService_IsWifiPasspointEnabled_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WifiManagerServiceServer).IsWifiPasspointEnabled(ctx, req.(*IsWifiPasspointEnabledRequest))
+		return srv.(ManagerServiceServer).IsWifiPasspointEnabled(ctx, req.(*IsWifiPasspointEnabledRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _WifiManagerService_IsWifiStandardSupported_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _ManagerService_IsWifiStandardSupported_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(IsWifiStandardSupportedRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(WifiManagerServiceServer).IsWifiStandardSupported(ctx, in)
+		return srv.(ManagerServiceServer).IsWifiStandardSupported(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: WifiManagerService_IsWifiStandardSupported_FullMethodName,
+		FullMethod: ManagerService_IsWifiStandardSupported_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WifiManagerServiceServer).IsWifiStandardSupported(ctx, req.(*IsWifiStandardSupportedRequest))
+		return srv.(ManagerServiceServer).IsWifiStandardSupported(ctx, req.(*IsWifiStandardSupportedRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _WifiManagerService_IsWpa3SaeH2ESupported_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _ManagerService_IsWpa3SaeH2ESupported_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(IsWpa3SaeH2ESupportedRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(WifiManagerServiceServer).IsWpa3SaeH2ESupported(ctx, in)
+		return srv.(ManagerServiceServer).IsWpa3SaeH2ESupported(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: WifiManagerService_IsWpa3SaeH2ESupported_FullMethodName,
+		FullMethod: ManagerService_IsWpa3SaeH2ESupported_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WifiManagerServiceServer).IsWpa3SaeH2ESupported(ctx, req.(*IsWpa3SaeH2ESupportedRequest))
+		return srv.(ManagerServiceServer).IsWpa3SaeH2ESupported(ctx, req.(*IsWpa3SaeH2ESupportedRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _WifiManagerService_IsWpa3SaePublicKeySupported_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _ManagerService_IsWpa3SaePublicKeySupported_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(IsWpa3SaePublicKeySupportedRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(WifiManagerServiceServer).IsWpa3SaePublicKeySupported(ctx, in)
+		return srv.(ManagerServiceServer).IsWpa3SaePublicKeySupported(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: WifiManagerService_IsWpa3SaePublicKeySupported_FullMethodName,
+		FullMethod: ManagerService_IsWpa3SaePublicKeySupported_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WifiManagerServiceServer).IsWpa3SaePublicKeySupported(ctx, req.(*IsWpa3SaePublicKeySupportedRequest))
+		return srv.(ManagerServiceServer).IsWpa3SaePublicKeySupported(ctx, req.(*IsWpa3SaePublicKeySupportedRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _WifiManagerService_IsWpa3SaeSupported_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _ManagerService_IsWpa3SaeSupported_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(IsWpa3SaeSupportedRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(WifiManagerServiceServer).IsWpa3SaeSupported(ctx, in)
+		return srv.(ManagerServiceServer).IsWpa3SaeSupported(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: WifiManagerService_IsWpa3SaeSupported_FullMethodName,
+		FullMethod: ManagerService_IsWpa3SaeSupported_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WifiManagerServiceServer).IsWpa3SaeSupported(ctx, req.(*IsWpa3SaeSupportedRequest))
+		return srv.(ManagerServiceServer).IsWpa3SaeSupported(ctx, req.(*IsWpa3SaeSupportedRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _WifiManagerService_IsWpa3SuiteBSupported_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _ManagerService_IsWpa3SuiteBSupported_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(IsWpa3SuiteBSupportedRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(WifiManagerServiceServer).IsWpa3SuiteBSupported(ctx, in)
+		return srv.(ManagerServiceServer).IsWpa3SuiteBSupported(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: WifiManagerService_IsWpa3SuiteBSupported_FullMethodName,
+		FullMethod: ManagerService_IsWpa3SuiteBSupported_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WifiManagerServiceServer).IsWpa3SuiteBSupported(ctx, req.(*IsWpa3SuiteBSupportedRequest))
+		return srv.(ManagerServiceServer).IsWpa3SuiteBSupported(ctx, req.(*IsWpa3SuiteBSupportedRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _WifiManagerService_IsWpaPersonalSupported_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _ManagerService_IsWpaPersonalSupported_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(IsWpaPersonalSupportedRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(WifiManagerServiceServer).IsWpaPersonalSupported(ctx, in)
+		return srv.(ManagerServiceServer).IsWpaPersonalSupported(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: WifiManagerService_IsWpaPersonalSupported_FullMethodName,
+		FullMethod: ManagerService_IsWpaPersonalSupported_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WifiManagerServiceServer).IsWpaPersonalSupported(ctx, req.(*IsWpaPersonalSupportedRequest))
+		return srv.(ManagerServiceServer).IsWpaPersonalSupported(ctx, req.(*IsWpaPersonalSupportedRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _WifiManagerService_PingSupplicant_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _ManagerService_PingSupplicant_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(PingSupplicantRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(WifiManagerServiceServer).PingSupplicant(ctx, in)
+		return srv.(ManagerServiceServer).PingSupplicant(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: WifiManagerService_PingSupplicant_FullMethodName,
+		FullMethod: ManagerService_PingSupplicant_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WifiManagerServiceServer).PingSupplicant(ctx, req.(*PingSupplicantRequest))
+		return srv.(ManagerServiceServer).PingSupplicant(ctx, req.(*PingSupplicantRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _WifiManagerService_QueryAutojoinGlobal_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _ManagerService_QueryAutojoinGlobal_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(QueryAutojoinGlobalRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(WifiManagerServiceServer).QueryAutojoinGlobal(ctx, in)
+		return srv.(ManagerServiceServer).QueryAutojoinGlobal(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: WifiManagerService_QueryAutojoinGlobal_FullMethodName,
+		FullMethod: ManagerService_QueryAutojoinGlobal_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WifiManagerServiceServer).QueryAutojoinGlobal(ctx, req.(*QueryAutojoinGlobalRequest))
+		return srv.(ManagerServiceServer).QueryAutojoinGlobal(ctx, req.(*QueryAutojoinGlobalRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _WifiManagerService_QuerySendDhcpHostnameRestriction_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _ManagerService_QuerySendDhcpHostnameRestriction_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(QuerySendDhcpHostnameRestrictionRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(WifiManagerServiceServer).QuerySendDhcpHostnameRestriction(ctx, in)
+		return srv.(ManagerServiceServer).QuerySendDhcpHostnameRestriction(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: WifiManagerService_QuerySendDhcpHostnameRestriction_FullMethodName,
+		FullMethod: ManagerService_QuerySendDhcpHostnameRestriction_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WifiManagerServiceServer).QuerySendDhcpHostnameRestriction(ctx, req.(*QuerySendDhcpHostnameRestrictionRequest))
+		return srv.(ManagerServiceServer).QuerySendDhcpHostnameRestriction(ctx, req.(*QuerySendDhcpHostnameRestrictionRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _WifiManagerService_Reassociate_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _ManagerService_Reassociate_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(ReassociateRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(WifiManagerServiceServer).Reassociate(ctx, in)
+		return srv.(ManagerServiceServer).Reassociate(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: WifiManagerService_Reassociate_FullMethodName,
+		FullMethod: ManagerService_Reassociate_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WifiManagerServiceServer).Reassociate(ctx, req.(*ReassociateRequest))
+		return srv.(ManagerServiceServer).Reassociate(ctx, req.(*ReassociateRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _WifiManagerService_Reconnect_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _ManagerService_Reconnect_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(ReconnectRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(WifiManagerServiceServer).Reconnect(ctx, in)
+		return srv.(ManagerServiceServer).Reconnect(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: WifiManagerService_Reconnect_FullMethodName,
+		FullMethod: ManagerService_Reconnect_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WifiManagerServiceServer).Reconnect(ctx, req.(*ReconnectRequest))
+		return srv.(ManagerServiceServer).Reconnect(ctx, req.(*ReconnectRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _WifiManagerService_RegisterScanResultsCallback_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _ManagerService_RegisterScanResultsCallback_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(RegisterScanResultsCallbackRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(WifiManagerServiceServer).RegisterScanResultsCallback(ctx, in)
+		return srv.(ManagerServiceServer).RegisterScanResultsCallback(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: WifiManagerService_RegisterScanResultsCallback_FullMethodName,
+		FullMethod: ManagerService_RegisterScanResultsCallback_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WifiManagerServiceServer).RegisterScanResultsCallback(ctx, req.(*RegisterScanResultsCallbackRequest))
+		return srv.(ManagerServiceServer).RegisterScanResultsCallback(ctx, req.(*RegisterScanResultsCallbackRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _WifiManagerService_RegisterSubsystemRestartTrackingCallback_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _ManagerService_RegisterSubsystemRestartTrackingCallback_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(RegisterSubsystemRestartTrackingCallbackRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(WifiManagerServiceServer).RegisterSubsystemRestartTrackingCallback(ctx, in)
+		return srv.(ManagerServiceServer).RegisterSubsystemRestartTrackingCallback(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: WifiManagerService_RegisterSubsystemRestartTrackingCallback_FullMethodName,
+		FullMethod: ManagerService_RegisterSubsystemRestartTrackingCallback_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WifiManagerServiceServer).RegisterSubsystemRestartTrackingCallback(ctx, req.(*RegisterSubsystemRestartTrackingCallbackRequest))
+		return srv.(ManagerServiceServer).RegisterSubsystemRestartTrackingCallback(ctx, req.(*RegisterSubsystemRestartTrackingCallbackRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _WifiManagerService_RemoveLocalOnlyConnectionFailureListener_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _ManagerService_RemoveLocalOnlyConnectionFailureListener_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(RemoveLocalOnlyConnectionFailureListenerRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(WifiManagerServiceServer).RemoveLocalOnlyConnectionFailureListener(ctx, in)
+		return srv.(ManagerServiceServer).RemoveLocalOnlyConnectionFailureListener(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: WifiManagerService_RemoveLocalOnlyConnectionFailureListener_FullMethodName,
+		FullMethod: ManagerService_RemoveLocalOnlyConnectionFailureListener_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WifiManagerServiceServer).RemoveLocalOnlyConnectionFailureListener(ctx, req.(*RemoveLocalOnlyConnectionFailureListenerRequest))
+		return srv.(ManagerServiceServer).RemoveLocalOnlyConnectionFailureListener(ctx, req.(*RemoveLocalOnlyConnectionFailureListenerRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _WifiManagerService_RemoveNetwork_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _ManagerService_RemoveNetwork_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(RemoveNetworkRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(WifiManagerServiceServer).RemoveNetwork(ctx, in)
+		return srv.(ManagerServiceServer).RemoveNetwork(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: WifiManagerService_RemoveNetwork_FullMethodName,
+		FullMethod: ManagerService_RemoveNetwork_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WifiManagerServiceServer).RemoveNetwork(ctx, req.(*RemoveNetworkRequest))
+		return srv.(ManagerServiceServer).RemoveNetwork(ctx, req.(*RemoveNetworkRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _WifiManagerService_RemoveNetworkSuggestions1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _ManagerService_RemoveNetworkSuggestions1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(RemoveNetworkSuggestions1Request)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(WifiManagerServiceServer).RemoveNetworkSuggestions1(ctx, in)
+		return srv.(ManagerServiceServer).RemoveNetworkSuggestions1(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: WifiManagerService_RemoveNetworkSuggestions1_FullMethodName,
+		FullMethod: ManagerService_RemoveNetworkSuggestions1_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WifiManagerServiceServer).RemoveNetworkSuggestions1(ctx, req.(*RemoveNetworkSuggestions1Request))
+		return srv.(ManagerServiceServer).RemoveNetworkSuggestions1(ctx, req.(*RemoveNetworkSuggestions1Request))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _WifiManagerService_RemoveNetworkSuggestions2_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _ManagerService_RemoveNetworkSuggestions2_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(RemoveNetworkSuggestions2_1Request)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(WifiManagerServiceServer).RemoveNetworkSuggestions2_1(ctx, in)
+		return srv.(ManagerServiceServer).RemoveNetworkSuggestions2_1(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: WifiManagerService_RemoveNetworkSuggestions2_1_FullMethodName,
+		FullMethod: ManagerService_RemoveNetworkSuggestions2_1_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WifiManagerServiceServer).RemoveNetworkSuggestions2_1(ctx, req.(*RemoveNetworkSuggestions2_1Request))
+		return srv.(ManagerServiceServer).RemoveNetworkSuggestions2_1(ctx, req.(*RemoveNetworkSuggestions2_1Request))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _WifiManagerService_RemoveNonCallerConfiguredNetworks_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _ManagerService_RemoveNonCallerConfiguredNetworks_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(RemoveNonCallerConfiguredNetworksRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(WifiManagerServiceServer).RemoveNonCallerConfiguredNetworks(ctx, in)
+		return srv.(ManagerServiceServer).RemoveNonCallerConfiguredNetworks(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: WifiManagerService_RemoveNonCallerConfiguredNetworks_FullMethodName,
+		FullMethod: ManagerService_RemoveNonCallerConfiguredNetworks_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WifiManagerServiceServer).RemoveNonCallerConfiguredNetworks(ctx, req.(*RemoveNonCallerConfiguredNetworksRequest))
+		return srv.(ManagerServiceServer).RemoveNonCallerConfiguredNetworks(ctx, req.(*RemoveNonCallerConfiguredNetworksRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _WifiManagerService_RemovePasspointConfiguration_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _ManagerService_RemovePasspointConfiguration_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(RemovePasspointConfigurationRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(WifiManagerServiceServer).RemovePasspointConfiguration(ctx, in)
+		return srv.(ManagerServiceServer).RemovePasspointConfiguration(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: WifiManagerService_RemovePasspointConfiguration_FullMethodName,
+		FullMethod: ManagerService_RemovePasspointConfiguration_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WifiManagerServiceServer).RemovePasspointConfiguration(ctx, req.(*RemovePasspointConfigurationRequest))
+		return srv.(ManagerServiceServer).RemovePasspointConfiguration(ctx, req.(*RemovePasspointConfigurationRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _WifiManagerService_RemovePerSsidRoamingMode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _ManagerService_RemovePerSsidRoamingMode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(RemovePerSsidRoamingModeRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(WifiManagerServiceServer).RemovePerSsidRoamingMode(ctx, in)
+		return srv.(ManagerServiceServer).RemovePerSsidRoamingMode(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: WifiManagerService_RemovePerSsidRoamingMode_FullMethodName,
+		FullMethod: ManagerService_RemovePerSsidRoamingMode_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WifiManagerServiceServer).RemovePerSsidRoamingMode(ctx, req.(*RemovePerSsidRoamingModeRequest))
+		return srv.(ManagerServiceServer).RemovePerSsidRoamingMode(ctx, req.(*RemovePerSsidRoamingModeRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _WifiManagerService_RemoveSuggestionConnectionStatusListener_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _ManagerService_RemoveSuggestionConnectionStatusListener_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(RemoveSuggestionConnectionStatusListenerRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(WifiManagerServiceServer).RemoveSuggestionConnectionStatusListener(ctx, in)
+		return srv.(ManagerServiceServer).RemoveSuggestionConnectionStatusListener(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: WifiManagerService_RemoveSuggestionConnectionStatusListener_FullMethodName,
+		FullMethod: ManagerService_RemoveSuggestionConnectionStatusListener_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WifiManagerServiceServer).RemoveSuggestionConnectionStatusListener(ctx, req.(*RemoveSuggestionConnectionStatusListenerRequest))
+		return srv.(ManagerServiceServer).RemoveSuggestionConnectionStatusListener(ctx, req.(*RemoveSuggestionConnectionStatusListenerRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _WifiManagerService_RemoveSuggestionUserApprovalStatusListener_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _ManagerService_RemoveSuggestionUserApprovalStatusListener_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(RemoveSuggestionUserApprovalStatusListenerRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(WifiManagerServiceServer).RemoveSuggestionUserApprovalStatusListener(ctx, in)
+		return srv.(ManagerServiceServer).RemoveSuggestionUserApprovalStatusListener(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: WifiManagerService_RemoveSuggestionUserApprovalStatusListener_FullMethodName,
+		FullMethod: ManagerService_RemoveSuggestionUserApprovalStatusListener_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WifiManagerServiceServer).RemoveSuggestionUserApprovalStatusListener(ctx, req.(*RemoveSuggestionUserApprovalStatusListenerRequest))
+		return srv.(ManagerServiceServer).RemoveSuggestionUserApprovalStatusListener(ctx, req.(*RemoveSuggestionUserApprovalStatusListenerRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _WifiManagerService_RemoveWifiStateChangedListener_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _ManagerService_RemoveWifiStateChangedListener_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(RemoveWifiStateChangedListenerRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(WifiManagerServiceServer).RemoveWifiStateChangedListener(ctx, in)
+		return srv.(ManagerServiceServer).RemoveWifiStateChangedListener(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: WifiManagerService_RemoveWifiStateChangedListener_FullMethodName,
+		FullMethod: ManagerService_RemoveWifiStateChangedListener_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WifiManagerServiceServer).RemoveWifiStateChangedListener(ctx, req.(*RemoveWifiStateChangedListenerRequest))
+		return srv.(ManagerServiceServer).RemoveWifiStateChangedListener(ctx, req.(*RemoveWifiStateChangedListenerRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _WifiManagerService_ReportCreateInterfaceImpact_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _ManagerService_ReportCreateInterfaceImpact_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(ReportCreateInterfaceImpactRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(WifiManagerServiceServer).ReportCreateInterfaceImpact(ctx, in)
+		return srv.(ManagerServiceServer).ReportCreateInterfaceImpact(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: WifiManagerService_ReportCreateInterfaceImpact_FullMethodName,
+		FullMethod: ManagerService_ReportCreateInterfaceImpact_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WifiManagerServiceServer).ReportCreateInterfaceImpact(ctx, req.(*ReportCreateInterfaceImpactRequest))
+		return srv.(ManagerServiceServer).ReportCreateInterfaceImpact(ctx, req.(*ReportCreateInterfaceImpactRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _WifiManagerService_SaveConfiguration_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _ManagerService_SaveConfiguration_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(SaveConfigurationRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(WifiManagerServiceServer).SaveConfiguration(ctx, in)
+		return srv.(ManagerServiceServer).SaveConfiguration(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: WifiManagerService_SaveConfiguration_FullMethodName,
+		FullMethod: ManagerService_SaveConfiguration_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WifiManagerServiceServer).SaveConfiguration(ctx, req.(*SaveConfigurationRequest))
+		return srv.(ManagerServiceServer).SaveConfiguration(ctx, req.(*SaveConfigurationRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _WifiManagerService_SetPerSsidRoamingMode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _ManagerService_SetPerSsidRoamingMode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(SetPerSsidRoamingModeRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(WifiManagerServiceServer).SetPerSsidRoamingMode(ctx, in)
+		return srv.(ManagerServiceServer).SetPerSsidRoamingMode(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: WifiManagerService_SetPerSsidRoamingMode_FullMethodName,
+		FullMethod: ManagerService_SetPerSsidRoamingMode_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WifiManagerServiceServer).SetPerSsidRoamingMode(ctx, req.(*SetPerSsidRoamingModeRequest))
+		return srv.(ManagerServiceServer).SetPerSsidRoamingMode(ctx, req.(*SetPerSsidRoamingModeRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _WifiManagerService_SetSendDhcpHostnameRestriction_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _ManagerService_SetSendDhcpHostnameRestriction_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(SetSendDhcpHostnameRestrictionRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(WifiManagerServiceServer).SetSendDhcpHostnameRestriction(ctx, in)
+		return srv.(ManagerServiceServer).SetSendDhcpHostnameRestriction(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: WifiManagerService_SetSendDhcpHostnameRestriction_FullMethodName,
+		FullMethod: ManagerService_SetSendDhcpHostnameRestriction_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WifiManagerServiceServer).SetSendDhcpHostnameRestriction(ctx, req.(*SetSendDhcpHostnameRestrictionRequest))
+		return srv.(ManagerServiceServer).SetSendDhcpHostnameRestriction(ctx, req.(*SetSendDhcpHostnameRestrictionRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _WifiManagerService_SetTdlsEnabled2_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _ManagerService_SetTdlsEnabled2_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(SetTdlsEnabled2Request)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(WifiManagerServiceServer).SetTdlsEnabled2(ctx, in)
+		return srv.(ManagerServiceServer).SetTdlsEnabled2(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: WifiManagerService_SetTdlsEnabled2_FullMethodName,
+		FullMethod: ManagerService_SetTdlsEnabled2_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WifiManagerServiceServer).SetTdlsEnabled2(ctx, req.(*SetTdlsEnabled2Request))
+		return srv.(ManagerServiceServer).SetTdlsEnabled2(ctx, req.(*SetTdlsEnabled2Request))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _WifiManagerService_SetTdlsEnabled4_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _ManagerService_SetTdlsEnabled4_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(SetTdlsEnabled4_1Request)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(WifiManagerServiceServer).SetTdlsEnabled4_1(ctx, in)
+		return srv.(ManagerServiceServer).SetTdlsEnabled4_1(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: WifiManagerService_SetTdlsEnabled4_1_FullMethodName,
+		FullMethod: ManagerService_SetTdlsEnabled4_1_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WifiManagerServiceServer).SetTdlsEnabled4_1(ctx, req.(*SetTdlsEnabled4_1Request))
+		return srv.(ManagerServiceServer).SetTdlsEnabled4_1(ctx, req.(*SetTdlsEnabled4_1Request))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _WifiManagerService_SetTdlsEnabledWithMacAddress2_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _ManagerService_SetTdlsEnabledWithMacAddress2_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(SetTdlsEnabledWithMacAddress2Request)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(WifiManagerServiceServer).SetTdlsEnabledWithMacAddress2(ctx, in)
+		return srv.(ManagerServiceServer).SetTdlsEnabledWithMacAddress2(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: WifiManagerService_SetTdlsEnabledWithMacAddress2_FullMethodName,
+		FullMethod: ManagerService_SetTdlsEnabledWithMacAddress2_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WifiManagerServiceServer).SetTdlsEnabledWithMacAddress2(ctx, req.(*SetTdlsEnabledWithMacAddress2Request))
+		return srv.(ManagerServiceServer).SetTdlsEnabledWithMacAddress2(ctx, req.(*SetTdlsEnabledWithMacAddress2Request))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _WifiManagerService_SetTdlsEnabledWithMacAddress4_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _ManagerService_SetTdlsEnabledWithMacAddress4_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(SetTdlsEnabledWithMacAddress4_1Request)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(WifiManagerServiceServer).SetTdlsEnabledWithMacAddress4_1(ctx, in)
+		return srv.(ManagerServiceServer).SetTdlsEnabledWithMacAddress4_1(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: WifiManagerService_SetTdlsEnabledWithMacAddress4_1_FullMethodName,
+		FullMethod: ManagerService_SetTdlsEnabledWithMacAddress4_1_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WifiManagerServiceServer).SetTdlsEnabledWithMacAddress4_1(ctx, req.(*SetTdlsEnabledWithMacAddress4_1Request))
+		return srv.(ManagerServiceServer).SetTdlsEnabledWithMacAddress4_1(ctx, req.(*SetTdlsEnabledWithMacAddress4_1Request))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _WifiManagerService_SetWifiEnabled_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _ManagerService_SetWifiEnabled_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(SetWifiEnabledRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(WifiManagerServiceServer).SetWifiEnabled(ctx, in)
+		return srv.(ManagerServiceServer).SetWifiEnabled(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: WifiManagerService_SetWifiEnabled_FullMethodName,
+		FullMethod: ManagerService_SetWifiEnabled_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WifiManagerServiceServer).SetWifiEnabled(ctx, req.(*SetWifiEnabledRequest))
+		return srv.(ManagerServiceServer).SetWifiEnabled(ctx, req.(*SetWifiEnabledRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _WifiManagerService_StartLocalOnlyHotspotWithConfiguration_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _ManagerService_StartLocalOnlyHotspotWithConfiguration_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(StartLocalOnlyHotspotWithConfigurationRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(WifiManagerServiceServer).StartLocalOnlyHotspotWithConfiguration(ctx, in)
+		return srv.(ManagerServiceServer).StartLocalOnlyHotspotWithConfiguration(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: WifiManagerService_StartLocalOnlyHotspotWithConfiguration_FullMethodName,
+		FullMethod: ManagerService_StartLocalOnlyHotspotWithConfiguration_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WifiManagerServiceServer).StartLocalOnlyHotspotWithConfiguration(ctx, req.(*StartLocalOnlyHotspotWithConfigurationRequest))
+		return srv.(ManagerServiceServer).StartLocalOnlyHotspotWithConfiguration(ctx, req.(*StartLocalOnlyHotspotWithConfigurationRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _WifiManagerService_StartScan_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _ManagerService_StartScan_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(StartScanRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(WifiManagerServiceServer).StartScan(ctx, in)
+		return srv.(ManagerServiceServer).StartScan(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: WifiManagerService_StartScan_FullMethodName,
+		FullMethod: ManagerService_StartScan_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WifiManagerServiceServer).StartScan(ctx, req.(*StartScanRequest))
+		return srv.(ManagerServiceServer).StartScan(ctx, req.(*StartScanRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _WifiManagerService_StartWps_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _ManagerService_StartWps_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(StartWpsRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(WifiManagerServiceServer).StartWps(ctx, in)
+		return srv.(ManagerServiceServer).StartWps(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: WifiManagerService_StartWps_FullMethodName,
+		FullMethod: ManagerService_StartWps_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WifiManagerServiceServer).StartWps(ctx, req.(*StartWpsRequest))
+		return srv.(ManagerServiceServer).StartWps(ctx, req.(*StartWpsRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _WifiManagerService_UnregisterScanResultsCallback_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _ManagerService_UnregisterScanResultsCallback_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(UnregisterScanResultsCallbackRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(WifiManagerServiceServer).UnregisterScanResultsCallback(ctx, in)
+		return srv.(ManagerServiceServer).UnregisterScanResultsCallback(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: WifiManagerService_UnregisterScanResultsCallback_FullMethodName,
+		FullMethod: ManagerService_UnregisterScanResultsCallback_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WifiManagerServiceServer).UnregisterScanResultsCallback(ctx, req.(*UnregisterScanResultsCallbackRequest))
+		return srv.(ManagerServiceServer).UnregisterScanResultsCallback(ctx, req.(*UnregisterScanResultsCallbackRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _WifiManagerService_UnregisterSubsystemRestartTrackingCallback_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _ManagerService_UnregisterSubsystemRestartTrackingCallback_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(UnregisterSubsystemRestartTrackingCallbackRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(WifiManagerServiceServer).UnregisterSubsystemRestartTrackingCallback(ctx, in)
+		return srv.(ManagerServiceServer).UnregisterSubsystemRestartTrackingCallback(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: WifiManagerService_UnregisterSubsystemRestartTrackingCallback_FullMethodName,
+		FullMethod: ManagerService_UnregisterSubsystemRestartTrackingCallback_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WifiManagerServiceServer).UnregisterSubsystemRestartTrackingCallback(ctx, req.(*UnregisterSubsystemRestartTrackingCallbackRequest))
+		return srv.(ManagerServiceServer).UnregisterSubsystemRestartTrackingCallback(ctx, req.(*UnregisterSubsystemRestartTrackingCallbackRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _WifiManagerService_UpdateNetwork_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _ManagerService_UpdateNetwork_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(UpdateNetworkRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(WifiManagerServiceServer).UpdateNetwork(ctx, in)
+		return srv.(ManagerServiceServer).UpdateNetwork(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: WifiManagerService_UpdateNetwork_FullMethodName,
+		FullMethod: ManagerService_UpdateNetwork_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WifiManagerServiceServer).UpdateNetwork(ctx, req.(*UpdateNetworkRequest))
+		return srv.(ManagerServiceServer).UpdateNetwork(ctx, req.(*UpdateNetworkRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _WifiManagerService_ValidateSoftApConfiguration_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _ManagerService_ValidateSoftApConfiguration_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(ValidateSoftApConfigurationRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(WifiManagerServiceServer).ValidateSoftApConfiguration(ctx, in)
+		return srv.(ManagerServiceServer).ValidateSoftApConfiguration(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: WifiManagerService_ValidateSoftApConfiguration_FullMethodName,
+		FullMethod: ManagerService_ValidateSoftApConfiguration_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WifiManagerServiceServer).ValidateSoftApConfiguration(ctx, req.(*ValidateSoftApConfigurationRequest))
+		return srv.(ManagerServiceServer).ValidateSoftApConfiguration(ctx, req.(*ValidateSoftApConfigurationRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _WifiManagerService_CalculateSignalLevel2_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _ManagerService_CalculateSignalLevel2_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(CalculateSignalLevel2_1Request)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(WifiManagerServiceServer).CalculateSignalLevel2_1(ctx, in)
+		return srv.(ManagerServiceServer).CalculateSignalLevel2_1(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: WifiManagerService_CalculateSignalLevel2_1_FullMethodName,
+		FullMethod: ManagerService_CalculateSignalLevel2_1_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WifiManagerServiceServer).CalculateSignalLevel2_1(ctx, req.(*CalculateSignalLevel2_1Request))
+		return srv.(ManagerServiceServer).CalculateSignalLevel2_1(ctx, req.(*CalculateSignalLevel2_1Request))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _WifiManagerService_CompareSignalLevel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _ManagerService_CompareSignalLevel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(CompareSignalLevelRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(WifiManagerServiceServer).CompareSignalLevel(ctx, in)
+		return srv.(ManagerServiceServer).CompareSignalLevel(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: WifiManagerService_CompareSignalLevel_FullMethodName,
+		FullMethod: ManagerService_CompareSignalLevel_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WifiManagerServiceServer).CompareSignalLevel(ctx, req.(*CompareSignalLevelRequest))
+		return srv.(ManagerServiceServer).CompareSignalLevel(ctx, req.(*CompareSignalLevelRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-// WifiManagerService_ServiceDesc is the grpc.ServiceDesc for WifiManagerService service.
+// ManagerService_ServiceDesc is the grpc.ServiceDesc for ManagerService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
-var WifiManagerService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "wifi.WifiManagerService",
-	HandlerType: (*WifiManagerServiceServer)(nil),
+var ManagerService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "wifi.ManagerService",
+	HandlerType: (*ManagerServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
 			MethodName: "AddLocalOnlyConnectionFailureListener",
-			Handler:    _WifiManagerService_AddLocalOnlyConnectionFailureListener_Handler,
+			Handler:    _ManagerService_AddLocalOnlyConnectionFailureListener_Handler,
 		},
 		{
 			MethodName: "AddNetwork",
-			Handler:    _WifiManagerService_AddNetwork_Handler,
+			Handler:    _ManagerService_AddNetwork_Handler,
 		},
 		{
 			MethodName: "AddNetworkPrivileged",
-			Handler:    _WifiManagerService_AddNetworkPrivileged_Handler,
+			Handler:    _ManagerService_AddNetworkPrivileged_Handler,
 		},
 		{
 			MethodName: "AddNetworkSuggestions",
-			Handler:    _WifiManagerService_AddNetworkSuggestions_Handler,
+			Handler:    _ManagerService_AddNetworkSuggestions_Handler,
 		},
 		{
 			MethodName: "AddOrUpdatePasspointConfiguration",
-			Handler:    _WifiManagerService_AddOrUpdatePasspointConfiguration_Handler,
+			Handler:    _ManagerService_AddOrUpdatePasspointConfiguration_Handler,
 		},
 		{
 			MethodName: "AddSuggestionConnectionStatusListener",
-			Handler:    _WifiManagerService_AddSuggestionConnectionStatusListener_Handler,
+			Handler:    _ManagerService_AddSuggestionConnectionStatusListener_Handler,
 		},
 		{
 			MethodName: "AddSuggestionUserApprovalStatusListener",
-			Handler:    _WifiManagerService_AddSuggestionUserApprovalStatusListener_Handler,
+			Handler:    _ManagerService_AddSuggestionUserApprovalStatusListener_Handler,
 		},
 		{
 			MethodName: "AddWifiStateChangedListener",
-			Handler:    _WifiManagerService_AddWifiStateChangedListener_Handler,
+			Handler:    _ManagerService_AddWifiStateChangedListener_Handler,
 		},
 		{
 			MethodName: "AllowAutojoinGlobal",
-			Handler:    _WifiManagerService_AllowAutojoinGlobal_Handler,
+			Handler:    _ManagerService_AllowAutojoinGlobal_Handler,
 		},
 		{
 			MethodName: "CalculateSignalLevel1",
-			Handler:    _WifiManagerService_CalculateSignalLevel1_Handler,
+			Handler:    _ManagerService_CalculateSignalLevel1_Handler,
 		},
 		{
 			MethodName: "CancelWps",
-			Handler:    _WifiManagerService_CancelWps_Handler,
+			Handler:    _ManagerService_CancelWps_Handler,
 		},
 		{
 			MethodName: "CreateMulticastLock",
-			Handler:    _WifiManagerService_CreateMulticastLock_Handler,
+			Handler:    _ManagerService_CreateMulticastLock_Handler,
 		},
 		{
 			MethodName: "CreateWifiLock2",
-			Handler:    _WifiManagerService_CreateWifiLock2_Handler,
+			Handler:    _ManagerService_CreateWifiLock2_Handler,
 		},
 		{
 			MethodName: "CreateWifiLock1_1",
-			Handler:    _WifiManagerService_CreateWifiLock1_1_Handler,
+			Handler:    _ManagerService_CreateWifiLock1_1_Handler,
 		},
 		{
 			MethodName: "DisableNetwork",
-			Handler:    _WifiManagerService_DisableNetwork_Handler,
+			Handler:    _ManagerService_DisableNetwork_Handler,
 		},
 		{
 			MethodName: "DisallowCurrentSuggestedNetwork",
-			Handler:    _WifiManagerService_DisallowCurrentSuggestedNetwork_Handler,
+			Handler:    _ManagerService_DisallowCurrentSuggestedNetwork_Handler,
 		},
 		{
 			MethodName: "Disconnect",
-			Handler:    _WifiManagerService_Disconnect_Handler,
+			Handler:    _ManagerService_Disconnect_Handler,
 		},
 		{
 			MethodName: "EnableNetwork",
-			Handler:    _WifiManagerService_EnableNetwork_Handler,
+			Handler:    _ManagerService_EnableNetwork_Handler,
 		},
 		{
 			MethodName: "FlushPasspointAnqpCache",
-			Handler:    _WifiManagerService_FlushPasspointAnqpCache_Handler,
+			Handler:    _ManagerService_FlushPasspointAnqpCache_Handler,
 		},
 		{
 			MethodName: "GetAllowedChannels",
-			Handler:    _WifiManagerService_GetAllowedChannels_Handler,
+			Handler:    _ManagerService_GetAllowedChannels_Handler,
 		},
 		{
 			MethodName: "GetCallerConfiguredNetworks",
-			Handler:    _WifiManagerService_GetCallerConfiguredNetworks_Handler,
+			Handler:    _ManagerService_GetCallerConfiguredNetworks_Handler,
 		},
 		{
 			MethodName: "GetChannelData",
-			Handler:    _WifiManagerService_GetChannelData_Handler,
+			Handler:    _ManagerService_GetChannelData_Handler,
 		},
 		{
 			MethodName: "GetConfiguredNetworks",
-			Handler:    _WifiManagerService_GetConfiguredNetworks_Handler,
+			Handler:    _ManagerService_GetConfiguredNetworks_Handler,
 		},
 		{
 			MethodName: "GetConnectionInfo",
-			Handler:    _WifiManagerService_GetConnectionInfo_Handler,
+			Handler:    _ManagerService_GetConnectionInfo_Handler,
 		},
 		{
 			MethodName: "GetDhcpInfo",
-			Handler:    _WifiManagerService_GetDhcpInfo_Handler,
+			Handler:    _ManagerService_GetDhcpInfo_Handler,
 		},
 		{
 			MethodName: "GetMaxNumberOfChannelsPerNetworkSpecifierRequest",
-			Handler:    _WifiManagerService_GetMaxNumberOfChannelsPerNetworkSpecifierRequest_Handler,
+			Handler:    _ManagerService_GetMaxNumberOfChannelsPerNetworkSpecifierRequest_Handler,
 		},
 		{
 			MethodName: "GetMaxNumberOfNetworkSuggestionsPerApp",
-			Handler:    _WifiManagerService_GetMaxNumberOfNetworkSuggestionsPerApp_Handler,
+			Handler:    _ManagerService_GetMaxNumberOfNetworkSuggestionsPerApp_Handler,
 		},
 		{
 			MethodName: "GetMaxSignalLevel",
-			Handler:    _WifiManagerService_GetMaxSignalLevel_Handler,
+			Handler:    _ManagerService_GetMaxSignalLevel_Handler,
 		},
 		{
 			MethodName: "GetMaxSupportedConcurrentTdlsSessions",
-			Handler:    _WifiManagerService_GetMaxSupportedConcurrentTdlsSessions_Handler,
+			Handler:    _ManagerService_GetMaxSupportedConcurrentTdlsSessions_Handler,
 		},
 		{
 			MethodName: "GetNetworkSuggestions",
-			Handler:    _WifiManagerService_GetNetworkSuggestions_Handler,
+			Handler:    _ManagerService_GetNetworkSuggestions_Handler,
 		},
 		{
 			MethodName: "GetNumberOfEnabledTdlsSessions",
-			Handler:    _WifiManagerService_GetNumberOfEnabledTdlsSessions_Handler,
+			Handler:    _ManagerService_GetNumberOfEnabledTdlsSessions_Handler,
 		},
 		{
 			MethodName: "GetPasspointConfigurations",
-			Handler:    _WifiManagerService_GetPasspointConfigurations_Handler,
+			Handler:    _ManagerService_GetPasspointConfigurations_Handler,
 		},
 		{
 			MethodName: "GetPerSsidRoamingModes",
-			Handler:    _WifiManagerService_GetPerSsidRoamingModes_Handler,
+			Handler:    _ManagerService_GetPerSsidRoamingModes_Handler,
 		},
 		{
 			MethodName: "GetScanResults",
-			Handler:    _WifiManagerService_GetScanResults_Handler,
+			Handler:    _ManagerService_GetScanResults_Handler,
 		},
 		{
 			MethodName: "GetStaConcurrencyForMultiInternetMode",
-			Handler:    _WifiManagerService_GetStaConcurrencyForMultiInternetMode_Handler,
+			Handler:    _ManagerService_GetStaConcurrencyForMultiInternetMode_Handler,
 		},
 		{
 			MethodName: "GetUsableChannels",
-			Handler:    _WifiManagerService_GetUsableChannels_Handler,
+			Handler:    _ManagerService_GetUsableChannels_Handler,
 		},
 		{
 			MethodName: "GetWifiState",
-			Handler:    _WifiManagerService_GetWifiState_Handler,
+			Handler:    _ManagerService_GetWifiState_Handler,
 		},
 		{
 			MethodName: "Is24GHzBandSupported",
-			Handler:    _WifiManagerService_Is24GHzBandSupported_Handler,
+			Handler:    _ManagerService_Is24GHzBandSupported_Handler,
 		},
 		{
 			MethodName: "Is5GHzBandSupported",
-			Handler:    _WifiManagerService_Is5GHzBandSupported_Handler,
+			Handler:    _ManagerService_Is5GHzBandSupported_Handler,
 		},
 		{
 			MethodName: "Is60GHzBandSupported",
-			Handler:    _WifiManagerService_Is60GHzBandSupported_Handler,
+			Handler:    _ManagerService_Is60GHzBandSupported_Handler,
 		},
 		{
 			MethodName: "Is6GHzBandSupported",
-			Handler:    _WifiManagerService_Is6GHzBandSupported_Handler,
+			Handler:    _ManagerService_Is6GHzBandSupported_Handler,
 		},
 		{
 			MethodName: "IsAggressiveRoamingModeSupported",
-			Handler:    _WifiManagerService_IsAggressiveRoamingModeSupported_Handler,
+			Handler:    _ManagerService_IsAggressiveRoamingModeSupported_Handler,
 		},
 		{
 			MethodName: "IsAutoWakeupEnabled",
-			Handler:    _WifiManagerService_IsAutoWakeupEnabled_Handler,
+			Handler:    _ManagerService_IsAutoWakeupEnabled_Handler,
 		},
 		{
 			MethodName: "IsBridgedApConcurrencySupported",
-			Handler:    _WifiManagerService_IsBridgedApConcurrencySupported_Handler,
+			Handler:    _ManagerService_IsBridgedApConcurrencySupported_Handler,
 		},
 		{
 			MethodName: "IsCarrierNetworkOffloadEnabled",
-			Handler:    _WifiManagerService_IsCarrierNetworkOffloadEnabled_Handler,
+			Handler:    _ManagerService_IsCarrierNetworkOffloadEnabled_Handler,
 		},
 		{
 			MethodName: "IsD2dSupportedWhenInfraStaDisabled",
-			Handler:    _WifiManagerService_IsD2DSupportedWhenInfraStaDisabled_Handler,
+			Handler:    _ManagerService_IsD2DSupportedWhenInfraStaDisabled_Handler,
 		},
 		{
 			MethodName: "IsDecoratedIdentitySupported",
-			Handler:    _WifiManagerService_IsDecoratedIdentitySupported_Handler,
+			Handler:    _ManagerService_IsDecoratedIdentitySupported_Handler,
 		},
 		{
 			MethodName: "IsDeviceToApRttSupported",
-			Handler:    _WifiManagerService_IsDeviceToApRttSupported_Handler,
+			Handler:    _ManagerService_IsDeviceToApRttSupported_Handler,
 		},
 		{
 			MethodName: "IsDualBandSimultaneousSupported",
-			Handler:    _WifiManagerService_IsDualBandSimultaneousSupported_Handler,
+			Handler:    _ManagerService_IsDualBandSimultaneousSupported_Handler,
 		},
 		{
 			MethodName: "IsEasyConnectDppAkmSupported",
-			Handler:    _WifiManagerService_IsEasyConnectDppAkmSupported_Handler,
+			Handler:    _ManagerService_IsEasyConnectDppAkmSupported_Handler,
 		},
 		{
 			MethodName: "IsEasyConnectEnrolleeResponderModeSupported",
-			Handler:    _WifiManagerService_IsEasyConnectEnrolleeResponderModeSupported_Handler,
+			Handler:    _ManagerService_IsEasyConnectEnrolleeResponderModeSupported_Handler,
 		},
 		{
 			MethodName: "IsEasyConnectSupported",
-			Handler:    _WifiManagerService_IsEasyConnectSupported_Handler,
+			Handler:    _ManagerService_IsEasyConnectSupported_Handler,
 		},
 		{
 			MethodName: "IsEnhancedOpenSupported",
-			Handler:    _WifiManagerService_IsEnhancedOpenSupported_Handler,
+			Handler:    _ManagerService_IsEnhancedOpenSupported_Handler,
 		},
 		{
 			MethodName: "IsEnhancedPowerReportingSupported",
-			Handler:    _WifiManagerService_IsEnhancedPowerReportingSupported_Handler,
+			Handler:    _ManagerService_IsEnhancedPowerReportingSupported_Handler,
 		},
 		{
 			MethodName: "IsMakeBeforeBreakWifiSwitchingSupported",
-			Handler:    _WifiManagerService_IsMakeBeforeBreakWifiSwitchingSupported_Handler,
+			Handler:    _ManagerService_IsMakeBeforeBreakWifiSwitchingSupported_Handler,
 		},
 		{
 			MethodName: "IsP2pSupported",
-			Handler:    _WifiManagerService_IsP2PSupported_Handler,
+			Handler:    _ManagerService_IsP2PSupported_Handler,
 		},
 		{
 			MethodName: "IsPasspointTermsAndConditionsSupported",
-			Handler:    _WifiManagerService_IsPasspointTermsAndConditionsSupported_Handler,
+			Handler:    _ManagerService_IsPasspointTermsAndConditionsSupported_Handler,
 		},
 		{
 			MethodName: "IsPreferredNetworkOffloadSupported",
-			Handler:    _WifiManagerService_IsPreferredNetworkOffloadSupported_Handler,
+			Handler:    _ManagerService_IsPreferredNetworkOffloadSupported_Handler,
 		},
 		{
 			MethodName: "IsScanAlwaysAvailable",
-			Handler:    _WifiManagerService_IsScanAlwaysAvailable_Handler,
+			Handler:    _ManagerService_IsScanAlwaysAvailable_Handler,
 		},
 		{
 			MethodName: "IsScanThrottleEnabled",
-			Handler:    _WifiManagerService_IsScanThrottleEnabled_Handler,
+			Handler:    _ManagerService_IsScanThrottleEnabled_Handler,
 		},
 		{
 			MethodName: "IsStaApConcurrencySupported",
-			Handler:    _WifiManagerService_IsStaApConcurrencySupported_Handler,
+			Handler:    _ManagerService_IsStaApConcurrencySupported_Handler,
 		},
 		{
 			MethodName: "IsStaBridgedApConcurrencySupported",
-			Handler:    _WifiManagerService_IsStaBridgedApConcurrencySupported_Handler,
+			Handler:    _ManagerService_IsStaBridgedApConcurrencySupported_Handler,
 		},
 		{
 			MethodName: "IsStaConcurrencyForLocalOnlyConnectionsSupported",
-			Handler:    _WifiManagerService_IsStaConcurrencyForLocalOnlyConnectionsSupported_Handler,
+			Handler:    _ManagerService_IsStaConcurrencyForLocalOnlyConnectionsSupported_Handler,
 		},
 		{
 			MethodName: "IsStaConcurrencyForMultiInternetSupported",
-			Handler:    _WifiManagerService_IsStaConcurrencyForMultiInternetSupported_Handler,
+			Handler:    _ManagerService_IsStaConcurrencyForMultiInternetSupported_Handler,
 		},
 		{
 			MethodName: "IsTdlsOperationCurrentlyAvailable",
-			Handler:    _WifiManagerService_IsTdlsOperationCurrentlyAvailable_Handler,
+			Handler:    _ManagerService_IsTdlsOperationCurrentlyAvailable_Handler,
 		},
 		{
 			MethodName: "IsTdlsSupported",
-			Handler:    _WifiManagerService_IsTdlsSupported_Handler,
+			Handler:    _ManagerService_IsTdlsSupported_Handler,
 		},
 		{
 			MethodName: "IsTidToLinkMappingNegotiationSupported",
-			Handler:    _WifiManagerService_IsTidToLinkMappingNegotiationSupported_Handler,
+			Handler:    _ManagerService_IsTidToLinkMappingNegotiationSupported_Handler,
 		},
 		{
 			MethodName: "IsTlsMinimumVersionSupported",
-			Handler:    _WifiManagerService_IsTlsMinimumVersionSupported_Handler,
+			Handler:    _ManagerService_IsTlsMinimumVersionSupported_Handler,
 		},
 		{
 			MethodName: "IsTlsV13Supported",
-			Handler:    _WifiManagerService_IsTlsV13Supported_Handler,
+			Handler:    _ManagerService_IsTlsV13Supported_Handler,
 		},
 		{
 			MethodName: "IsTrustOnFirstUseSupported",
-			Handler:    _WifiManagerService_IsTrustOnFirstUseSupported_Handler,
+			Handler:    _ManagerService_IsTrustOnFirstUseSupported_Handler,
 		},
 		{
 			MethodName: "IsWapiSupported",
-			Handler:    _WifiManagerService_IsWapiSupported_Handler,
+			Handler:    _ManagerService_IsWapiSupported_Handler,
 		},
 		{
 			MethodName: "IsWepSupported",
-			Handler:    _WifiManagerService_IsWepSupported_Handler,
+			Handler:    _ManagerService_IsWepSupported_Handler,
 		},
 		{
 			MethodName: "IsWifiDisplayR2Supported",
-			Handler:    _WifiManagerService_IsWifiDisplayR2Supported_Handler,
+			Handler:    _ManagerService_IsWifiDisplayR2Supported_Handler,
 		},
 		{
 			MethodName: "IsWifiEnabled",
-			Handler:    _WifiManagerService_IsWifiEnabled_Handler,
+			Handler:    _ManagerService_IsWifiEnabled_Handler,
 		},
 		{
 			MethodName: "IsWifiPasspointEnabled",
-			Handler:    _WifiManagerService_IsWifiPasspointEnabled_Handler,
+			Handler:    _ManagerService_IsWifiPasspointEnabled_Handler,
 		},
 		{
 			MethodName: "IsWifiStandardSupported",
-			Handler:    _WifiManagerService_IsWifiStandardSupported_Handler,
+			Handler:    _ManagerService_IsWifiStandardSupported_Handler,
 		},
 		{
 			MethodName: "IsWpa3SaeH2eSupported",
-			Handler:    _WifiManagerService_IsWpa3SaeH2ESupported_Handler,
+			Handler:    _ManagerService_IsWpa3SaeH2ESupported_Handler,
 		},
 		{
 			MethodName: "IsWpa3SaePublicKeySupported",
-			Handler:    _WifiManagerService_IsWpa3SaePublicKeySupported_Handler,
+			Handler:    _ManagerService_IsWpa3SaePublicKeySupported_Handler,
 		},
 		{
 			MethodName: "IsWpa3SaeSupported",
-			Handler:    _WifiManagerService_IsWpa3SaeSupported_Handler,
+			Handler:    _ManagerService_IsWpa3SaeSupported_Handler,
 		},
 		{
 			MethodName: "IsWpa3SuiteBSupported",
-			Handler:    _WifiManagerService_IsWpa3SuiteBSupported_Handler,
+			Handler:    _ManagerService_IsWpa3SuiteBSupported_Handler,
 		},
 		{
 			MethodName: "IsWpaPersonalSupported",
-			Handler:    _WifiManagerService_IsWpaPersonalSupported_Handler,
+			Handler:    _ManagerService_IsWpaPersonalSupported_Handler,
 		},
 		{
 			MethodName: "PingSupplicant",
-			Handler:    _WifiManagerService_PingSupplicant_Handler,
+			Handler:    _ManagerService_PingSupplicant_Handler,
 		},
 		{
 			MethodName: "QueryAutojoinGlobal",
-			Handler:    _WifiManagerService_QueryAutojoinGlobal_Handler,
+			Handler:    _ManagerService_QueryAutojoinGlobal_Handler,
 		},
 		{
 			MethodName: "QuerySendDhcpHostnameRestriction",
-			Handler:    _WifiManagerService_QuerySendDhcpHostnameRestriction_Handler,
+			Handler:    _ManagerService_QuerySendDhcpHostnameRestriction_Handler,
 		},
 		{
 			MethodName: "Reassociate",
-			Handler:    _WifiManagerService_Reassociate_Handler,
+			Handler:    _ManagerService_Reassociate_Handler,
 		},
 		{
 			MethodName: "Reconnect",
-			Handler:    _WifiManagerService_Reconnect_Handler,
+			Handler:    _ManagerService_Reconnect_Handler,
 		},
 		{
 			MethodName: "RegisterScanResultsCallback",
-			Handler:    _WifiManagerService_RegisterScanResultsCallback_Handler,
+			Handler:    _ManagerService_RegisterScanResultsCallback_Handler,
 		},
 		{
 			MethodName: "RegisterSubsystemRestartTrackingCallback",
-			Handler:    _WifiManagerService_RegisterSubsystemRestartTrackingCallback_Handler,
+			Handler:    _ManagerService_RegisterSubsystemRestartTrackingCallback_Handler,
 		},
 		{
 			MethodName: "RemoveLocalOnlyConnectionFailureListener",
-			Handler:    _WifiManagerService_RemoveLocalOnlyConnectionFailureListener_Handler,
+			Handler:    _ManagerService_RemoveLocalOnlyConnectionFailureListener_Handler,
 		},
 		{
 			MethodName: "RemoveNetwork",
-			Handler:    _WifiManagerService_RemoveNetwork_Handler,
+			Handler:    _ManagerService_RemoveNetwork_Handler,
 		},
 		{
 			MethodName: "RemoveNetworkSuggestions1",
-			Handler:    _WifiManagerService_RemoveNetworkSuggestions1_Handler,
+			Handler:    _ManagerService_RemoveNetworkSuggestions1_Handler,
 		},
 		{
 			MethodName: "RemoveNetworkSuggestions2_1",
-			Handler:    _WifiManagerService_RemoveNetworkSuggestions2_1_Handler,
+			Handler:    _ManagerService_RemoveNetworkSuggestions2_1_Handler,
 		},
 		{
 			MethodName: "RemoveNonCallerConfiguredNetworks",
-			Handler:    _WifiManagerService_RemoveNonCallerConfiguredNetworks_Handler,
+			Handler:    _ManagerService_RemoveNonCallerConfiguredNetworks_Handler,
 		},
 		{
 			MethodName: "RemovePasspointConfiguration",
-			Handler:    _WifiManagerService_RemovePasspointConfiguration_Handler,
+			Handler:    _ManagerService_RemovePasspointConfiguration_Handler,
 		},
 		{
 			MethodName: "RemovePerSsidRoamingMode",
-			Handler:    _WifiManagerService_RemovePerSsidRoamingMode_Handler,
+			Handler:    _ManagerService_RemovePerSsidRoamingMode_Handler,
 		},
 		{
 			MethodName: "RemoveSuggestionConnectionStatusListener",
-			Handler:    _WifiManagerService_RemoveSuggestionConnectionStatusListener_Handler,
+			Handler:    _ManagerService_RemoveSuggestionConnectionStatusListener_Handler,
 		},
 		{
 			MethodName: "RemoveSuggestionUserApprovalStatusListener",
-			Handler:    _WifiManagerService_RemoveSuggestionUserApprovalStatusListener_Handler,
+			Handler:    _ManagerService_RemoveSuggestionUserApprovalStatusListener_Handler,
 		},
 		{
 			MethodName: "RemoveWifiStateChangedListener",
-			Handler:    _WifiManagerService_RemoveWifiStateChangedListener_Handler,
+			Handler:    _ManagerService_RemoveWifiStateChangedListener_Handler,
 		},
 		{
 			MethodName: "ReportCreateInterfaceImpact",
-			Handler:    _WifiManagerService_ReportCreateInterfaceImpact_Handler,
+			Handler:    _ManagerService_ReportCreateInterfaceImpact_Handler,
 		},
 		{
 			MethodName: "SaveConfiguration",
-			Handler:    _WifiManagerService_SaveConfiguration_Handler,
+			Handler:    _ManagerService_SaveConfiguration_Handler,
 		},
 		{
 			MethodName: "SetPerSsidRoamingMode",
-			Handler:    _WifiManagerService_SetPerSsidRoamingMode_Handler,
+			Handler:    _ManagerService_SetPerSsidRoamingMode_Handler,
 		},
 		{
 			MethodName: "SetSendDhcpHostnameRestriction",
-			Handler:    _WifiManagerService_SetSendDhcpHostnameRestriction_Handler,
+			Handler:    _ManagerService_SetSendDhcpHostnameRestriction_Handler,
 		},
 		{
 			MethodName: "SetTdlsEnabled2",
-			Handler:    _WifiManagerService_SetTdlsEnabled2_Handler,
+			Handler:    _ManagerService_SetTdlsEnabled2_Handler,
 		},
 		{
 			MethodName: "SetTdlsEnabled4_1",
-			Handler:    _WifiManagerService_SetTdlsEnabled4_1_Handler,
+			Handler:    _ManagerService_SetTdlsEnabled4_1_Handler,
 		},
 		{
 			MethodName: "SetTdlsEnabledWithMacAddress2",
-			Handler:    _WifiManagerService_SetTdlsEnabledWithMacAddress2_Handler,
+			Handler:    _ManagerService_SetTdlsEnabledWithMacAddress2_Handler,
 		},
 		{
 			MethodName: "SetTdlsEnabledWithMacAddress4_1",
-			Handler:    _WifiManagerService_SetTdlsEnabledWithMacAddress4_1_Handler,
+			Handler:    _ManagerService_SetTdlsEnabledWithMacAddress4_1_Handler,
 		},
 		{
 			MethodName: "SetWifiEnabled",
-			Handler:    _WifiManagerService_SetWifiEnabled_Handler,
+			Handler:    _ManagerService_SetWifiEnabled_Handler,
 		},
 		{
 			MethodName: "StartLocalOnlyHotspotWithConfiguration",
-			Handler:    _WifiManagerService_StartLocalOnlyHotspotWithConfiguration_Handler,
+			Handler:    _ManagerService_StartLocalOnlyHotspotWithConfiguration_Handler,
 		},
 		{
 			MethodName: "StartScan",
-			Handler:    _WifiManagerService_StartScan_Handler,
+			Handler:    _ManagerService_StartScan_Handler,
 		},
 		{
 			MethodName: "StartWps",
-			Handler:    _WifiManagerService_StartWps_Handler,
+			Handler:    _ManagerService_StartWps_Handler,
 		},
 		{
 			MethodName: "UnregisterScanResultsCallback",
-			Handler:    _WifiManagerService_UnregisterScanResultsCallback_Handler,
+			Handler:    _ManagerService_UnregisterScanResultsCallback_Handler,
 		},
 		{
 			MethodName: "UnregisterSubsystemRestartTrackingCallback",
-			Handler:    _WifiManagerService_UnregisterSubsystemRestartTrackingCallback_Handler,
+			Handler:    _ManagerService_UnregisterSubsystemRestartTrackingCallback_Handler,
 		},
 		{
 			MethodName: "UpdateNetwork",
-			Handler:    _WifiManagerService_UpdateNetwork_Handler,
+			Handler:    _ManagerService_UpdateNetwork_Handler,
 		},
 		{
 			MethodName: "ValidateSoftApConfiguration",
-			Handler:    _WifiManagerService_ValidateSoftApConfiguration_Handler,
+			Handler:    _ManagerService_ValidateSoftApConfiguration_Handler,
 		},
 		{
 			MethodName: "CalculateSignalLevel2_1",
-			Handler:    _WifiManagerService_CalculateSignalLevel2_1_Handler,
+			Handler:    _ManagerService_CalculateSignalLevel2_1_Handler,
 		},
 		{
 			MethodName: "CompareSignalLevel",
-			Handler:    _WifiManagerService_CompareSignalLevel_Handler,
+			Handler:    _ManagerService_CompareSignalLevel_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

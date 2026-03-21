@@ -6,6 +6,211 @@ package wifi_p2p;
 
 option go_package = "github.com/AndroidGoLab/jni-proxy/proto/wifi_p2p";
 
+message DescribeContentsRequest {
+}
+
+message DescribeContentsResponse {
+  int32 result = 1;
+}
+
+message GetGroupClientIpProvisioningModeRequest {
+}
+
+message GetGroupClientIpProvisioningModeResponse {
+  int32 result = 1;
+}
+
+message GetGroupOwnerBandRequest {
+}
+
+message GetGroupOwnerBandResponse {
+  int32 result = 1;
+}
+
+message GetGroupOwnerVersionRequest {
+}
+
+message GetGroupOwnerVersionResponse {
+  int32 result = 1;
+}
+
+message GetNetworkIdRequest {
+}
+
+message GetNetworkIdResponse {
+  int32 result = 1;
+}
+
+message GetNetworkNameRequest {
+}
+
+message GetNetworkNameResponse {
+  string result = 1;
+}
+
+message GetPairingBootstrappingConfigRequest {
+}
+
+message GetPairingBootstrappingConfigResponse {
+  int64 result = 1;
+}
+
+message GetPassphraseRequest {
+}
+
+message GetPassphraseResponse {
+  string result = 1;
+}
+
+message GetPccModeConnectionTypeRequest {
+}
+
+message GetPccModeConnectionTypeResponse {
+  int32 result = 1;
+}
+
+message IsAuthorizeConnectionFromPeerEnabledRequest {
+}
+
+message IsAuthorizeConnectionFromPeerEnabledResponse {
+  bool result = 1;
+}
+
+message SetGroupOwnerVersionRequest {
+  int32 arg0 = 1;
+}
+
+message SetGroupOwnerVersionResponse {
+}
+
+message ToStringRequest {
+}
+
+message ToStringResponse {
+  string result = 1;
+}
+
+message WriteToParcelRequest {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message WriteToParcelResponse {
+}
+
+message EqualsRequest {
+  int64 arg0 = 1;
+}
+
+message EqualsResponse {
+  bool result = 1;
+}
+
+message GetIpAddressRequest {
+}
+
+message GetIpAddressResponse {
+  int64 result = 1;
+}
+
+message GetVendorElementsRequest {
+}
+
+message GetVendorElementsResponse {
+  int64 result = 1;
+}
+
+message GetWfdInfoRequest {
+}
+
+message GetWfdInfoResponse {
+  int64 result = 1;
+}
+
+message HashCodeRequest {
+}
+
+message HashCodeResponse {
+  int32 result = 1;
+}
+
+message IsGroupOwnerRequest {
+}
+
+message IsGroupOwnerResponse {
+  bool result = 1;
+}
+
+message IsOpportunisticBootstrappingMethodSupportedRequest {
+}
+
+message IsOpportunisticBootstrappingMethodSupportedResponse {
+  bool result = 1;
+}
+
+message IsPassphraseDisplayBootstrappingMethodSupportedRequest {
+}
+
+message IsPassphraseDisplayBootstrappingMethodSupportedResponse {
+  bool result = 1;
+}
+
+message IsPassphraseKeypadBootstrappingMethodSupportedRequest {
+}
+
+message IsPassphraseKeypadBootstrappingMethodSupportedResponse {
+  bool result = 1;
+}
+
+message IsPinCodeDisplayBootstrappingMethodSupportedRequest {
+}
+
+message IsPinCodeDisplayBootstrappingMethodSupportedResponse {
+  bool result = 1;
+}
+
+message IsPinCodeKeypadBootstrappingMethodSupportedRequest {
+}
+
+message IsPinCodeKeypadBootstrappingMethodSupportedResponse {
+  bool result = 1;
+}
+
+message IsServiceDiscoveryCapableRequest {
+}
+
+message IsServiceDiscoveryCapableResponse {
+  bool result = 1;
+}
+
+message UpdateRequest {
+  int64 arg0 = 1;
+}
+
+message UpdateResponse {
+}
+
+message WpsDisplaySupportedRequest {
+}
+
+message WpsDisplaySupportedResponse {
+  bool result = 1;
+}
+
+message WpsKeypadSupportedRequest {
+}
+
+message WpsKeypadSupportedResponse {
+  bool result = 1;
+}
+
+message WpsPbcSupportedRequest {
+}
+
+message WpsPbcSupportedResponse {
+  bool result = 1;
+}
+
 message AddExternalApproverRequest {
   int64 arg0 = 1;
   int64 arg1 = 2;
@@ -434,211 +639,6 @@ message GetP2pMaxAllowedVendorElementsLengthBytesResponse {
   int32 result = 1;
 }
 
-message DescribeContentsRequest {
-}
-
-message DescribeContentsResponse {
-  int32 result = 1;
-}
-
-message EqualsRequest {
-  int64 arg0 = 1;
-}
-
-message EqualsResponse {
-  bool result = 1;
-}
-
-message GetIpAddressRequest {
-}
-
-message GetIpAddressResponse {
-  int64 result = 1;
-}
-
-message GetVendorElementsRequest {
-}
-
-message GetVendorElementsResponse {
-  int64 result = 1;
-}
-
-message GetWfdInfoRequest {
-}
-
-message GetWfdInfoResponse {
-  int64 result = 1;
-}
-
-message HashCodeRequest {
-}
-
-message HashCodeResponse {
-  int32 result = 1;
-}
-
-message IsGroupOwnerRequest {
-}
-
-message IsGroupOwnerResponse {
-  bool result = 1;
-}
-
-message IsOpportunisticBootstrappingMethodSupportedRequest {
-}
-
-message IsOpportunisticBootstrappingMethodSupportedResponse {
-  bool result = 1;
-}
-
-message IsPassphraseDisplayBootstrappingMethodSupportedRequest {
-}
-
-message IsPassphraseDisplayBootstrappingMethodSupportedResponse {
-  bool result = 1;
-}
-
-message IsPassphraseKeypadBootstrappingMethodSupportedRequest {
-}
-
-message IsPassphraseKeypadBootstrappingMethodSupportedResponse {
-  bool result = 1;
-}
-
-message IsPinCodeDisplayBootstrappingMethodSupportedRequest {
-}
-
-message IsPinCodeDisplayBootstrappingMethodSupportedResponse {
-  bool result = 1;
-}
-
-message IsPinCodeKeypadBootstrappingMethodSupportedRequest {
-}
-
-message IsPinCodeKeypadBootstrappingMethodSupportedResponse {
-  bool result = 1;
-}
-
-message IsServiceDiscoveryCapableRequest {
-}
-
-message IsServiceDiscoveryCapableResponse {
-  bool result = 1;
-}
-
-message ToStringRequest {
-}
-
-message ToStringResponse {
-  string result = 1;
-}
-
-message UpdateRequest {
-  int64 arg0 = 1;
-}
-
-message UpdateResponse {
-}
-
-message WpsDisplaySupportedRequest {
-}
-
-message WpsDisplaySupportedResponse {
-  bool result = 1;
-}
-
-message WpsKeypadSupportedRequest {
-}
-
-message WpsKeypadSupportedResponse {
-  bool result = 1;
-}
-
-message WpsPbcSupportedRequest {
-}
-
-message WpsPbcSupportedResponse {
-  bool result = 1;
-}
-
-message WriteToParcelRequest {
-  int64 arg0 = 1;
-  int32 arg1 = 2;
-}
-
-message WriteToParcelResponse {
-}
-
-message GetGroupClientIpProvisioningModeRequest {
-}
-
-message GetGroupClientIpProvisioningModeResponse {
-  int32 result = 1;
-}
-
-message GetGroupOwnerBandRequest {
-}
-
-message GetGroupOwnerBandResponse {
-  int32 result = 1;
-}
-
-message GetGroupOwnerVersionRequest {
-}
-
-message GetGroupOwnerVersionResponse {
-  int32 result = 1;
-}
-
-message GetNetworkIdRequest {
-}
-
-message GetNetworkIdResponse {
-  int32 result = 1;
-}
-
-message GetNetworkNameRequest {
-}
-
-message GetNetworkNameResponse {
-  string result = 1;
-}
-
-message GetPairingBootstrappingConfigRequest {
-}
-
-message GetPairingBootstrappingConfigResponse {
-  int64 result = 1;
-}
-
-message GetPassphraseRequest {
-}
-
-message GetPassphraseResponse {
-  string result = 1;
-}
-
-message GetPccModeConnectionTypeRequest {
-}
-
-message GetPccModeConnectionTypeResponse {
-  int32 result = 1;
-}
-
-message IsAuthorizeConnectionFromPeerEnabledRequest {
-}
-
-message IsAuthorizeConnectionFromPeerEnabledResponse {
-  bool result = 1;
-}
-
-message SetGroupOwnerVersionRequest {
-  int32 arg0 = 1;
-}
-
-message SetGroupOwnerVersionResponse {
-}
-
 message GetClientListRequest {
 }
 
@@ -679,6 +679,44 @@ message GetSecurityTypeRequest {
 
 message GetSecurityTypeResponse {
   int32 result = 1;
+}
+
+service WifiP2pConfigService {
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc GetGroupClientIpProvisioningMode (GetGroupClientIpProvisioningModeRequest) returns (GetGroupClientIpProvisioningModeResponse);
+  rpc GetGroupOwnerBand (GetGroupOwnerBandRequest) returns (GetGroupOwnerBandResponse);
+  rpc GetGroupOwnerVersion (GetGroupOwnerVersionRequest) returns (GetGroupOwnerVersionResponse);
+  rpc GetNetworkId (GetNetworkIdRequest) returns (GetNetworkIdResponse);
+  rpc GetNetworkName (GetNetworkNameRequest) returns (GetNetworkNameResponse);
+  rpc GetPairingBootstrappingConfig (GetPairingBootstrappingConfigRequest) returns (GetPairingBootstrappingConfigResponse);
+  rpc GetPassphrase (GetPassphraseRequest) returns (GetPassphraseResponse);
+  rpc GetPccModeConnectionType (GetPccModeConnectionTypeRequest) returns (GetPccModeConnectionTypeResponse);
+  rpc IsAuthorizeConnectionFromPeerEnabled (IsAuthorizeConnectionFromPeerEnabledRequest) returns (IsAuthorizeConnectionFromPeerEnabledResponse);
+  rpc SetGroupOwnerVersion (SetGroupOwnerVersionRequest) returns (SetGroupOwnerVersionResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service WifiP2pDeviceService {
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetIpAddress (GetIpAddressRequest) returns (GetIpAddressResponse);
+  rpc GetVendorElements (GetVendorElementsRequest) returns (GetVendorElementsResponse);
+  rpc GetWfdInfo (GetWfdInfoRequest) returns (GetWfdInfoResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+  rpc IsGroupOwner (IsGroupOwnerRequest) returns (IsGroupOwnerResponse);
+  rpc IsOpportunisticBootstrappingMethodSupported (IsOpportunisticBootstrappingMethodSupportedRequest) returns (IsOpportunisticBootstrappingMethodSupportedResponse);
+  rpc IsPassphraseDisplayBootstrappingMethodSupported (IsPassphraseDisplayBootstrappingMethodSupportedRequest) returns (IsPassphraseDisplayBootstrappingMethodSupportedResponse);
+  rpc IsPassphraseKeypadBootstrappingMethodSupported (IsPassphraseKeypadBootstrappingMethodSupportedRequest) returns (IsPassphraseKeypadBootstrappingMethodSupportedResponse);
+  rpc IsPinCodeDisplayBootstrappingMethodSupported (IsPinCodeDisplayBootstrappingMethodSupportedRequest) returns (IsPinCodeDisplayBootstrappingMethodSupportedResponse);
+  rpc IsPinCodeKeypadBootstrappingMethodSupported (IsPinCodeKeypadBootstrappingMethodSupportedRequest) returns (IsPinCodeKeypadBootstrappingMethodSupportedResponse);
+  rpc IsServiceDiscoveryCapable (IsServiceDiscoveryCapableRequest) returns (IsServiceDiscoveryCapableResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+  rpc Update (UpdateRequest) returns (UpdateResponse);
+  rpc WpsDisplaySupported (WpsDisplaySupportedRequest) returns (WpsDisplaySupportedResponse);
+  rpc WpsKeypadSupported (WpsKeypadSupportedRequest) returns (WpsKeypadSupportedResponse);
+  rpc WpsPbcSupported (WpsPbcSupportedRequest) returns (WpsPbcSupportedResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
 }
 
 service WifiP2pManagerService {
@@ -733,44 +771,6 @@ service WifiP2pManagerService {
   rpc UnregisterWifiP2pListener (UnregisterWifiP2pListenerRequest) returns (UnregisterWifiP2pListenerResponse);
   rpc ValidateDirInfo (ValidateDirInfoRequest) returns (ValidateDirInfoResponse);
   rpc GetP2pMaxAllowedVendorElementsLengthBytes (GetP2pMaxAllowedVendorElementsLengthBytesRequest) returns (GetP2pMaxAllowedVendorElementsLengthBytesResponse);
-}
-
-service WifiP2pDeviceService {
-  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
-  rpc Equals (EqualsRequest) returns (EqualsResponse);
-  rpc GetIpAddress (GetIpAddressRequest) returns (GetIpAddressResponse);
-  rpc GetVendorElements (GetVendorElementsRequest) returns (GetVendorElementsResponse);
-  rpc GetWfdInfo (GetWfdInfoRequest) returns (GetWfdInfoResponse);
-  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
-  rpc IsGroupOwner (IsGroupOwnerRequest) returns (IsGroupOwnerResponse);
-  rpc IsOpportunisticBootstrappingMethodSupported (IsOpportunisticBootstrappingMethodSupportedRequest) returns (IsOpportunisticBootstrappingMethodSupportedResponse);
-  rpc IsPassphraseDisplayBootstrappingMethodSupported (IsPassphraseDisplayBootstrappingMethodSupportedRequest) returns (IsPassphraseDisplayBootstrappingMethodSupportedResponse);
-  rpc IsPassphraseKeypadBootstrappingMethodSupported (IsPassphraseKeypadBootstrappingMethodSupportedRequest) returns (IsPassphraseKeypadBootstrappingMethodSupportedResponse);
-  rpc IsPinCodeDisplayBootstrappingMethodSupported (IsPinCodeDisplayBootstrappingMethodSupportedRequest) returns (IsPinCodeDisplayBootstrappingMethodSupportedResponse);
-  rpc IsPinCodeKeypadBootstrappingMethodSupported (IsPinCodeKeypadBootstrappingMethodSupportedRequest) returns (IsPinCodeKeypadBootstrappingMethodSupportedResponse);
-  rpc IsServiceDiscoveryCapable (IsServiceDiscoveryCapableRequest) returns (IsServiceDiscoveryCapableResponse);
-  rpc ToString (ToStringRequest) returns (ToStringResponse);
-  rpc Update (UpdateRequest) returns (UpdateResponse);
-  rpc WpsDisplaySupported (WpsDisplaySupportedRequest) returns (WpsDisplaySupportedResponse);
-  rpc WpsKeypadSupported (WpsKeypadSupportedRequest) returns (WpsKeypadSupportedResponse);
-  rpc WpsPbcSupported (WpsPbcSupportedRequest) returns (WpsPbcSupportedResponse);
-  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
-}
-
-service WifiP2pConfigService {
-  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
-  rpc GetGroupClientIpProvisioningMode (GetGroupClientIpProvisioningModeRequest) returns (GetGroupClientIpProvisioningModeResponse);
-  rpc GetGroupOwnerBand (GetGroupOwnerBandRequest) returns (GetGroupOwnerBandResponse);
-  rpc GetGroupOwnerVersion (GetGroupOwnerVersionRequest) returns (GetGroupOwnerVersionResponse);
-  rpc GetNetworkId (GetNetworkIdRequest) returns (GetNetworkIdResponse);
-  rpc GetNetworkName (GetNetworkNameRequest) returns (GetNetworkNameResponse);
-  rpc GetPairingBootstrappingConfig (GetPairingBootstrappingConfigRequest) returns (GetPairingBootstrappingConfigResponse);
-  rpc GetPassphrase (GetPassphraseRequest) returns (GetPassphraseResponse);
-  rpc GetPccModeConnectionType (GetPccModeConnectionTypeRequest) returns (GetPccModeConnectionTypeResponse);
-  rpc IsAuthorizeConnectionFromPeerEnabled (IsAuthorizeConnectionFromPeerEnabledRequest) returns (IsAuthorizeConnectionFromPeerEnabledResponse);
-  rpc SetGroupOwnerVersion (SetGroupOwnerVersionRequest) returns (SetGroupOwnerVersionResponse);
-  rpc ToString (ToStringRequest) returns (ToStringResponse);
-  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
 }
 
 service WifiP2pGroupService {

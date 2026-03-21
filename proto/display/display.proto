@@ -6,49 +6,6 @@ package display;
 
 option go_package = "github.com/AndroidGoLab/jni-proxy/proto/display";
 
-message Equals1Request {
-  int64 arg0 = 1;
-}
-
-message Equals1Response {
-  bool result = 1;
-}
-
-message Equals1_1Request {
-  int64 arg0 = 1;
-}
-
-message Equals1_1Response {
-  bool result = 1;
-}
-
-message HashCodeRequest {
-}
-
-message HashCodeResponse {
-  int32 result = 1;
-}
-
-message SetToRequest {
-  int64 arg0 = 1;
-}
-
-message SetToResponse {
-}
-
-message SetToDefaultsRequest {
-}
-
-message SetToDefaultsResponse {
-}
-
-message ToStringRequest {
-}
-
-message ToStringResponse {
-  string result = 1;
-}
-
 message GetAppVsyncOffsetNanosRequest {
 }
 
@@ -319,6 +276,13 @@ message RegisterHdrSdrRatioChangedListenerRequest {
 message RegisterHdrSdrRatioChangedListenerResponse {
 }
 
+message ToStringRequest {
+}
+
+message ToStringResponse {
+  string result = 1;
+}
+
 message UnregisterHdrSdrRatioChangedListenerRequest {
   int64 arg0 = 1;
 }
@@ -326,13 +290,54 @@ message UnregisterHdrSdrRatioChangedListenerRequest {
 message UnregisterHdrSdrRatioChangedListenerResponse {
 }
 
-service DisplayMetricsService {
-  rpc Equals1 (Equals1Request) returns (Equals1Response);
-  rpc Equals1_1 (Equals1_1Request) returns (Equals1_1Response);
-  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
-  rpc SetTo (SetToRequest) returns (SetToResponse);
-  rpc SetToDefaults (SetToDefaultsRequest) returns (SetToDefaultsResponse);
-  rpc ToString (ToStringRequest) returns (ToStringResponse);
+message GetDefaultDisplayRequest {
+}
+
+message GetDefaultDisplayResponse {
+  int64 result = 1;
+}
+
+message RemoveViewImmediateRequest {
+  int64 arg0 = 1;
+}
+
+message RemoveViewImmediateResponse {
+}
+
+message Equals1Request {
+  int64 arg0 = 1;
+}
+
+message Equals1Response {
+  bool result = 1;
+}
+
+message Equals1_1Request {
+  int64 arg0 = 1;
+}
+
+message Equals1_1Response {
+  bool result = 1;
+}
+
+message HashCodeRequest {
+}
+
+message HashCodeResponse {
+  int32 result = 1;
+}
+
+message SetToRequest {
+  int64 arg0 = 1;
+}
+
+message SetToResponse {
+}
+
+message SetToDefaultsRequest {
+}
+
+message SetToDefaultsResponse {
 }
 
 service DisplayService {
@@ -376,4 +381,18 @@ service DisplayService {
   rpc RegisterHdrSdrRatioChangedListener (RegisterHdrSdrRatioChangedListenerRequest) returns (RegisterHdrSdrRatioChangedListenerResponse);
   rpc ToString (ToStringRequest) returns (ToStringResponse);
   rpc UnregisterHdrSdrRatioChangedListener (UnregisterHdrSdrRatioChangedListenerRequest) returns (UnregisterHdrSdrRatioChangedListenerResponse);
+}
+
+service WindowManagerService {
+  rpc GetDefaultDisplay (GetDefaultDisplayRequest) returns (GetDefaultDisplayResponse);
+  rpc RemoveViewImmediate (RemoveViewImmediateRequest) returns (RemoveViewImmediateResponse);
+}
+
+service MetricsService {
+  rpc Equals1 (Equals1Request) returns (Equals1Response);
+  rpc Equals1_1 (Equals1_1Request) returns (Equals1_1Response);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+  rpc SetTo (SetToRequest) returns (SetToResponse);
+  rpc SetToDefaults (SetToDefaultsRequest) returns (SetToDefaultsResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
 }

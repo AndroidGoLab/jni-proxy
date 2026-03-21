@@ -85,6 +85,41 @@ message WriteToParcelRequest {
 message WriteToParcelResponse {
 }
 
+message GetLightStateRequest {
+  int64 arg0 = 1;
+}
+
+message GetLightStateResponse {
+  int64 result = 1;
+}
+
+message GetLightsRequest {
+}
+
+message GetLightsResponse {
+  int64 result = 1;
+}
+
+message OpenSessionRequest {
+}
+
+message OpenSessionResponse {
+  int64 result = 1;
+}
+
+message CloseRequest {
+}
+
+message CloseResponse {
+}
+
+message RequestLightsRequest {
+  int64 arg0 = 1;
+}
+
+message RequestLightsResponse {
+}
+
 message GetColorRequest {
 }
 
@@ -134,6 +169,17 @@ service LightService {
   rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
   rpc ToString (ToStringRequest) returns (ToStringResponse);
   rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service ManagerService {
+  rpc GetLightState (GetLightStateRequest) returns (GetLightStateResponse);
+  rpc GetLights (GetLightsRequest) returns (GetLightsResponse);
+  rpc OpenSession (OpenSessionRequest) returns (OpenSessionResponse);
+}
+
+service ManagerLightsSessionService {
+  rpc Close (CloseRequest) returns (CloseResponse);
+  rpc RequestLights (RequestLightsRequest) returns (RequestLightsResponse);
 }
 
 service LightStateService {

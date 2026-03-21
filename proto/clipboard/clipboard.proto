@@ -240,7 +240,7 @@ message GetUriResponse {
   int64 result = 1;
 }
 
-service ClipboardManagerService {
+service ManagerService {
   rpc AddPrimaryClipChangedListener (AddPrimaryClipChangedListenerRequest) returns (AddPrimaryClipChangedListenerResponse);
   rpc ClearPrimaryClip (ClearPrimaryClipRequest) returns (ClearPrimaryClipResponse);
   rpc GetPrimaryClip (GetPrimaryClipRequest) returns (GetPrimaryClipResponse);

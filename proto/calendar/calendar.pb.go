@@ -164,9 +164,9 @@ const file_proto_calendar_calendar_proto_rawDesc = "" +
 	"\x04arg4\x18\x05 \x01(\bR\x04arg4\x12\x12\n" +
 	"\x04arg5\x18\x06 \x01(\x05R\x04arg5\"H\n" +
 	".StartViewCalendarEventInManagedProfileResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\bR\x06result2\xb7\x01\n" +
-	"\x17CalendarContractService\x12\x9b\x01\n" +
-	"&StartViewCalendarEventInManagedProfile\x127.calendar.StartViewCalendarEventInManagedProfileRequest\x1a8.calendar.StartViewCalendarEventInManagedProfileResponseB+Z)github.com/AndroidGoLab/jni-proxy/proto/calendarb\x06proto3"
+	"\x06result\x18\x01 \x01(\bR\x06result2\xaf\x01\n" +
+	"\x0fContractService\x12\x9b\x01\n" +
+	"&StartViewCalendarEventInManagedProfile\x127.calendar.StartViewCalendarEventInManagedProfileRequest\x1a8.calendar.StartViewCalendarEventInManagedProfileResponseB2Z0github.com/AndroidGoLab/jni-proxy/proto/calendarb\x06proto3"
 
 var (
 	file_proto_calendar_calendar_proto_rawDescOnce sync.Once
@@ -186,8 +186,8 @@ var file_proto_calendar_calendar_proto_goTypes = []any{
 	(*StartViewCalendarEventInManagedProfileResponse)(nil), // 1: calendar.StartViewCalendarEventInManagedProfileResponse
 }
 var file_proto_calendar_calendar_proto_depIdxs = []int32{
-	0, // 0: calendar.CalendarContractService.StartViewCalendarEventInManagedProfile:input_type -> calendar.StartViewCalendarEventInManagedProfileRequest
-	1, // 1: calendar.CalendarContractService.StartViewCalendarEventInManagedProfile:output_type -> calendar.StartViewCalendarEventInManagedProfileResponse
+	0, // 0: calendar.ContractService.StartViewCalendarEventInManagedProfile:input_type -> calendar.StartViewCalendarEventInManagedProfileRequest
+	1, // 1: calendar.ContractService.StartViewCalendarEventInManagedProfile:output_type -> calendar.StartViewCalendarEventInManagedProfileResponse
 	1, // [1:2] is the sub-list for method output_type
 	0, // [0:1] is the sub-list for method input_type
 	0, // [0:0] is the sub-list for extension type_name

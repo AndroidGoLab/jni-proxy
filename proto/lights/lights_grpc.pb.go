@@ -503,6 +503,325 @@ var LightService_ServiceDesc = grpc.ServiceDesc{
 }
 
 const (
+	ManagerService_GetLightState_FullMethodName = "/lights.ManagerService/GetLightState"
+	ManagerService_GetLights_FullMethodName     = "/lights.ManagerService/GetLights"
+	ManagerService_OpenSession_FullMethodName   = "/lights.ManagerService/OpenSession"
+)
+
+// ManagerServiceClient is the client API for ManagerService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type ManagerServiceClient interface {
+	GetLightState(ctx context.Context, in *GetLightStateRequest, opts ...grpc.CallOption) (*GetLightStateResponse, error)
+	GetLights(ctx context.Context, in *GetLightsRequest, opts ...grpc.CallOption) (*GetLightsResponse, error)
+	OpenSession(ctx context.Context, in *OpenSessionRequest, opts ...grpc.CallOption) (*OpenSessionResponse, error)
+}
+
+type managerServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewManagerServiceClient(cc grpc.ClientConnInterface) ManagerServiceClient {
+	return &managerServiceClient{cc}
+}
+
+func (c *managerServiceClient) GetLightState(ctx context.Context, in *GetLightStateRequest, opts ...grpc.CallOption) (*GetLightStateResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetLightStateResponse)
+	err := c.cc.Invoke(ctx, ManagerService_GetLightState_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *managerServiceClient) GetLights(ctx context.Context, in *GetLightsRequest, opts ...grpc.CallOption) (*GetLightsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetLightsResponse)
+	err := c.cc.Invoke(ctx, ManagerService_GetLights_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *managerServiceClient) OpenSession(ctx context.Context, in *OpenSessionRequest, opts ...grpc.CallOption) (*OpenSessionResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OpenSessionResponse)
+	err := c.cc.Invoke(ctx, ManagerService_OpenSession_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// ManagerServiceServer is the server API for ManagerService service.
+// All implementations must embed UnimplementedManagerServiceServer
+// for forward compatibility.
+type ManagerServiceServer interface {
+	GetLightState(context.Context, *GetLightStateRequest) (*GetLightStateResponse, error)
+	GetLights(context.Context, *GetLightsRequest) (*GetLightsResponse, error)
+	OpenSession(context.Context, *OpenSessionRequest) (*OpenSessionResponse, error)
+	mustEmbedUnimplementedManagerServiceServer()
+}
+
+// UnimplementedManagerServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedManagerServiceServer struct{}
+
+func (UnimplementedManagerServiceServer) GetLightState(context.Context, *GetLightStateRequest) (*GetLightStateResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetLightState not implemented")
+}
+func (UnimplementedManagerServiceServer) GetLights(context.Context, *GetLightsRequest) (*GetLightsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetLights not implemented")
+}
+func (UnimplementedManagerServiceServer) OpenSession(context.Context, *OpenSessionRequest) (*OpenSessionResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OpenSession not implemented")
+}
+func (UnimplementedManagerServiceServer) mustEmbedUnimplementedManagerServiceServer() {}
+func (UnimplementedManagerServiceServer) testEmbeddedByValue()                        {}
+
+// UnsafeManagerServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to ManagerServiceServer will
+// result in compilation errors.
+type UnsafeManagerServiceServer interface {
+	mustEmbedUnimplementedManagerServiceServer()
+}
+
+func RegisterManagerServiceServer(s grpc.ServiceRegistrar, srv ManagerServiceServer) {
+	// If the following call panics, it indicates UnimplementedManagerServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&ManagerService_ServiceDesc, srv)
+}
+
+func _ManagerService_GetLightState_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetLightStateRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ManagerServiceServer).GetLightState(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ManagerService_GetLightState_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ManagerServiceServer).GetLightState(ctx, req.(*GetLightStateRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ManagerService_GetLights_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetLightsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ManagerServiceServer).GetLights(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ManagerService_GetLights_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ManagerServiceServer).GetLights(ctx, req.(*GetLightsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ManagerService_OpenSession_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OpenSessionRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ManagerServiceServer).OpenSession(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ManagerService_OpenSession_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ManagerServiceServer).OpenSession(ctx, req.(*OpenSessionRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// ManagerService_ServiceDesc is the grpc.ServiceDesc for ManagerService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var ManagerService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "lights.ManagerService",
+	HandlerType: (*ManagerServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "GetLightState",
+			Handler:    _ManagerService_GetLightState_Handler,
+		},
+		{
+			MethodName: "GetLights",
+			Handler:    _ManagerService_GetLights_Handler,
+		},
+		{
+			MethodName: "OpenSession",
+			Handler:    _ManagerService_OpenSession_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/lights/lights.proto",
+}
+
+const (
+	ManagerLightsSessionService_Close_FullMethodName         = "/lights.ManagerLightsSessionService/Close"
+	ManagerLightsSessionService_RequestLights_FullMethodName = "/lights.ManagerLightsSessionService/RequestLights"
+)
+
+// ManagerLightsSessionServiceClient is the client API for ManagerLightsSessionService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type ManagerLightsSessionServiceClient interface {
+	Close(ctx context.Context, in *CloseRequest, opts ...grpc.CallOption) (*CloseResponse, error)
+	RequestLights(ctx context.Context, in *RequestLightsRequest, opts ...grpc.CallOption) (*RequestLightsResponse, error)
+}
+
+type managerLightsSessionServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewManagerLightsSessionServiceClient(cc grpc.ClientConnInterface) ManagerLightsSessionServiceClient {
+	return &managerLightsSessionServiceClient{cc}
+}
+
+func (c *managerLightsSessionServiceClient) Close(ctx context.Context, in *CloseRequest, opts ...grpc.CallOption) (*CloseResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(CloseResponse)
+	err := c.cc.Invoke(ctx, ManagerLightsSessionService_Close_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *managerLightsSessionServiceClient) RequestLights(ctx context.Context, in *RequestLightsRequest, opts ...grpc.CallOption) (*RequestLightsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(RequestLightsResponse)
+	err := c.cc.Invoke(ctx, ManagerLightsSessionService_RequestLights_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// ManagerLightsSessionServiceServer is the server API for ManagerLightsSessionService service.
+// All implementations must embed UnimplementedManagerLightsSessionServiceServer
+// for forward compatibility.
+type ManagerLightsSessionServiceServer interface {
+	Close(context.Context, *CloseRequest) (*CloseResponse, error)
+	RequestLights(context.Context, *RequestLightsRequest) (*RequestLightsResponse, error)
+	mustEmbedUnimplementedManagerLightsSessionServiceServer()
+}
+
+// UnimplementedManagerLightsSessionServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedManagerLightsSessionServiceServer struct{}
+
+func (UnimplementedManagerLightsSessionServiceServer) Close(context.Context, *CloseRequest) (*CloseResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Close not implemented")
+}
+func (UnimplementedManagerLightsSessionServiceServer) RequestLights(context.Context, *RequestLightsRequest) (*RequestLightsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method RequestLights not implemented")
+}
+func (UnimplementedManagerLightsSessionServiceServer) mustEmbedUnimplementedManagerLightsSessionServiceServer() {
+}
+func (UnimplementedManagerLightsSessionServiceServer) testEmbeddedByValue() {}
+
+// UnsafeManagerLightsSessionServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to ManagerLightsSessionServiceServer will
+// result in compilation errors.
+type UnsafeManagerLightsSessionServiceServer interface {
+	mustEmbedUnimplementedManagerLightsSessionServiceServer()
+}
+
+func RegisterManagerLightsSessionServiceServer(s grpc.ServiceRegistrar, srv ManagerLightsSessionServiceServer) {
+	// If the following call panics, it indicates UnimplementedManagerLightsSessionServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&ManagerLightsSessionService_ServiceDesc, srv)
+}
+
+func _ManagerLightsSessionService_Close_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CloseRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ManagerLightsSessionServiceServer).Close(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ManagerLightsSessionService_Close_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ManagerLightsSessionServiceServer).Close(ctx, req.(*CloseRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ManagerLightsSessionService_RequestLights_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(RequestLightsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ManagerLightsSessionServiceServer).RequestLights(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ManagerLightsSessionService_RequestLights_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ManagerLightsSessionServiceServer).RequestLights(ctx, req.(*RequestLightsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// ManagerLightsSessionService_ServiceDesc is the grpc.ServiceDesc for ManagerLightsSessionService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var ManagerLightsSessionService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "lights.ManagerLightsSessionService",
+	HandlerType: (*ManagerLightsSessionServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "Close",
+			Handler:    _ManagerLightsSessionService_Close_Handler,
+		},
+		{
+			MethodName: "RequestLights",
+			Handler:    _ManagerLightsSessionService_RequestLights_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/lights/lights.proto",
+}
+
+const (
 	LightStateService_DescribeContents_FullMethodName = "/lights.LightStateService/DescribeContents"
 	LightStateService_GetColor_FullMethodName         = "/lights.LightStateService/GetColor"
 	LightStateService_GetPlayerId_FullMethodName      = "/lights.LightStateService/GetPlayerId"

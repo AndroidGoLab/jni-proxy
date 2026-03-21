@@ -7,10 +7,10 @@ import (
 
 	"github.com/AndroidGoLab/jni"
 
-	"github.com/AndroidGoLab/jni/app"
-	jnipkg "github.com/AndroidGoLab/jni/app/admin"
 	"github.com/AndroidGoLab/jni-proxy/handlestore"
 	pb "github.com/AndroidGoLab/jni-proxy/proto/admin"
+	"github.com/AndroidGoLab/jni/app"
+	jnipkg "github.com/AndroidGoLab/jni/app/admin"
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"
 )
@@ -23,7 +23,7 @@ type DevicePolicyManagerServer struct {
 }
 
 func (s *DevicePolicyManagerServer) AcknowledgeDeviceCompliant(_ context.Context, req *pb.AcknowledgeDeviceCompliantRequest) (*pb.AcknowledgeDeviceCompliantResponse, error) {
-	mgr, err := jnipkg.NewdevicePolicyManager(s.Ctx)
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -36,7 +36,7 @@ func (s *DevicePolicyManagerServer) AcknowledgeDeviceCompliant(_ context.Context
 }
 
 func (s *DevicePolicyManagerServer) AddCrossProfileIntentFilter(_ context.Context, req *pb.AddCrossProfileIntentFilterRequest) (*pb.AddCrossProfileIntentFilterResponse, error) {
-	mgr, err := jnipkg.NewdevicePolicyManager(s.Ctx)
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -49,7 +49,7 @@ func (s *DevicePolicyManagerServer) AddCrossProfileIntentFilter(_ context.Contex
 }
 
 func (s *DevicePolicyManagerServer) AddCrossProfileWidgetProvider(_ context.Context, req *pb.AddCrossProfileWidgetProviderRequest) (*pb.AddCrossProfileWidgetProviderResponse, error) {
-	mgr, err := jnipkg.NewdevicePolicyManager(s.Ctx)
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -63,7 +63,7 @@ func (s *DevicePolicyManagerServer) AddCrossProfileWidgetProvider(_ context.Cont
 }
 
 func (s *DevicePolicyManagerServer) AddOverrideApn(_ context.Context, req *pb.AddOverrideApnRequest) (*pb.AddOverrideApnResponse, error) {
-	mgr, err := jnipkg.NewdevicePolicyManager(s.Ctx)
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -77,7 +77,7 @@ func (s *DevicePolicyManagerServer) AddOverrideApn(_ context.Context, req *pb.Ad
 }
 
 func (s *DevicePolicyManagerServer) AddPersistentPreferredActivity(_ context.Context, req *pb.AddPersistentPreferredActivityRequest) (*pb.AddPersistentPreferredActivityResponse, error) {
-	mgr, err := jnipkg.NewdevicePolicyManager(s.Ctx)
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -90,7 +90,7 @@ func (s *DevicePolicyManagerServer) AddPersistentPreferredActivity(_ context.Con
 }
 
 func (s *DevicePolicyManagerServer) AddUserRestriction(_ context.Context, req *pb.AddUserRestrictionRequest) (*pb.AddUserRestrictionResponse, error) {
-	mgr, err := jnipkg.NewdevicePolicyManager(s.Ctx)
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -103,7 +103,7 @@ func (s *DevicePolicyManagerServer) AddUserRestriction(_ context.Context, req *p
 }
 
 func (s *DevicePolicyManagerServer) AddUserRestrictionGlobally(_ context.Context, req *pb.AddUserRestrictionGloballyRequest) (*pb.AddUserRestrictionGloballyResponse, error) {
-	mgr, err := jnipkg.NewdevicePolicyManager(s.Ctx)
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -116,7 +116,7 @@ func (s *DevicePolicyManagerServer) AddUserRestrictionGlobally(_ context.Context
 }
 
 func (s *DevicePolicyManagerServer) BindDeviceAdminServiceAsUser5(_ context.Context, req *pb.BindDeviceAdminServiceAsUser5Request) (*pb.BindDeviceAdminServiceAsUser5Response, error) {
-	mgr, err := jnipkg.NewdevicePolicyManager(s.Ctx)
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -130,7 +130,7 @@ func (s *DevicePolicyManagerServer) BindDeviceAdminServiceAsUser5(_ context.Cont
 }
 
 func (s *DevicePolicyManagerServer) BindDeviceAdminServiceAsUser5_1(_ context.Context, req *pb.BindDeviceAdminServiceAsUser5_1Request) (*pb.BindDeviceAdminServiceAsUser5_1Response, error) {
-	mgr, err := jnipkg.NewdevicePolicyManager(s.Ctx)
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -144,7 +144,7 @@ func (s *DevicePolicyManagerServer) BindDeviceAdminServiceAsUser5_1(_ context.Co
 }
 
 func (s *DevicePolicyManagerServer) CanAdminGrantSensorsPermissions(_ context.Context, req *pb.CanAdminGrantSensorsPermissionsRequest) (*pb.CanAdminGrantSensorsPermissionsResponse, error) {
-	mgr, err := jnipkg.NewdevicePolicyManager(s.Ctx)
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -158,7 +158,7 @@ func (s *DevicePolicyManagerServer) CanAdminGrantSensorsPermissions(_ context.Co
 }
 
 func (s *DevicePolicyManagerServer) CanUsbDataSignalingBeDisabled(_ context.Context, req *pb.CanUsbDataSignalingBeDisabledRequest) (*pb.CanUsbDataSignalingBeDisabledResponse, error) {
-	mgr, err := jnipkg.NewdevicePolicyManager(s.Ctx)
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -172,7 +172,7 @@ func (s *DevicePolicyManagerServer) CanUsbDataSignalingBeDisabled(_ context.Cont
 }
 
 func (s *DevicePolicyManagerServer) ClearApplicationUserData(_ context.Context, req *pb.ClearApplicationUserDataRequest) (*pb.ClearApplicationUserDataResponse, error) {
-	mgr, err := jnipkg.NewdevicePolicyManager(s.Ctx)
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -185,7 +185,7 @@ func (s *DevicePolicyManagerServer) ClearApplicationUserData(_ context.Context, 
 }
 
 func (s *DevicePolicyManagerServer) ClearCrossProfileIntentFilters(_ context.Context, req *pb.ClearCrossProfileIntentFiltersRequest) (*pb.ClearCrossProfileIntentFiltersResponse, error) {
-	mgr, err := jnipkg.NewdevicePolicyManager(s.Ctx)
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -198,7 +198,7 @@ func (s *DevicePolicyManagerServer) ClearCrossProfileIntentFilters(_ context.Con
 }
 
 func (s *DevicePolicyManagerServer) ClearDeviceOwnerApp(_ context.Context, req *pb.ClearDeviceOwnerAppRequest) (*pb.ClearDeviceOwnerAppResponse, error) {
-	mgr, err := jnipkg.NewdevicePolicyManager(s.Ctx)
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -211,7 +211,7 @@ func (s *DevicePolicyManagerServer) ClearDeviceOwnerApp(_ context.Context, req *
 }
 
 func (s *DevicePolicyManagerServer) ClearPackagePersistentPreferredActivities(_ context.Context, req *pb.ClearPackagePersistentPreferredActivitiesRequest) (*pb.ClearPackagePersistentPreferredActivitiesResponse, error) {
-	mgr, err := jnipkg.NewdevicePolicyManager(s.Ctx)
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -224,7 +224,7 @@ func (s *DevicePolicyManagerServer) ClearPackagePersistentPreferredActivities(_ 
 }
 
 func (s *DevicePolicyManagerServer) ClearProfileOwner(_ context.Context, req *pb.ClearProfileOwnerRequest) (*pb.ClearProfileOwnerResponse, error) {
-	mgr, err := jnipkg.NewdevicePolicyManager(s.Ctx)
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -237,7 +237,7 @@ func (s *DevicePolicyManagerServer) ClearProfileOwner(_ context.Context, req *pb
 }
 
 func (s *DevicePolicyManagerServer) ClearResetPasswordToken(_ context.Context, req *pb.ClearResetPasswordTokenRequest) (*pb.ClearResetPasswordTokenResponse, error) {
-	mgr, err := jnipkg.NewdevicePolicyManager(s.Ctx)
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -251,7 +251,7 @@ func (s *DevicePolicyManagerServer) ClearResetPasswordToken(_ context.Context, r
 }
 
 func (s *DevicePolicyManagerServer) ClearUserRestriction(_ context.Context, req *pb.ClearUserRestrictionRequest) (*pb.ClearUserRestrictionResponse, error) {
-	mgr, err := jnipkg.NewdevicePolicyManager(s.Ctx)
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -264,7 +264,7 @@ func (s *DevicePolicyManagerServer) ClearUserRestriction(_ context.Context, req 
 }
 
 func (s *DevicePolicyManagerServer) CreateAdminSupportIntent(_ context.Context, req *pb.CreateAdminSupportIntentRequest) (*pb.CreateAdminSupportIntentResponse, error) {
-	mgr, err := jnipkg.NewdevicePolicyManager(s.Ctx)
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -287,7 +287,7 @@ func (s *DevicePolicyManagerServer) CreateAdminSupportIntent(_ context.Context, 
 }
 
 func (s *DevicePolicyManagerServer) CreateAndManageUser(_ context.Context, req *pb.CreateAndManageUserRequest) (*pb.CreateAndManageUserResponse, error) {
-	mgr, err := jnipkg.NewdevicePolicyManager(s.Ctx)
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -310,7 +310,7 @@ func (s *DevicePolicyManagerServer) CreateAndManageUser(_ context.Context, req *
 }
 
 func (s *DevicePolicyManagerServer) EnableSystemApp2(_ context.Context, req *pb.EnableSystemApp2Request) (*pb.EnableSystemApp2Response, error) {
-	mgr, err := jnipkg.NewdevicePolicyManager(s.Ctx)
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -324,7 +324,7 @@ func (s *DevicePolicyManagerServer) EnableSystemApp2(_ context.Context, req *pb.
 }
 
 func (s *DevicePolicyManagerServer) EnableSystemApp2_1(_ context.Context, req *pb.EnableSystemApp2_1Request) (*pb.EnableSystemApp2_1Response, error) {
-	mgr, err := jnipkg.NewdevicePolicyManager(s.Ctx)
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -337,7 +337,7 @@ func (s *DevicePolicyManagerServer) EnableSystemApp2_1(_ context.Context, req *p
 }
 
 func (s *DevicePolicyManagerServer) GenerateKeyPair(_ context.Context, req *pb.GenerateKeyPairRequest) (*pb.GenerateKeyPairResponse, error) {
-	mgr, err := jnipkg.NewdevicePolicyManager(s.Ctx)
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -360,7 +360,7 @@ func (s *DevicePolicyManagerServer) GenerateKeyPair(_ context.Context, req *pb.G
 }
 
 func (s *DevicePolicyManagerServer) GetAccountTypesWithManagementDisabled(_ context.Context, req *pb.GetAccountTypesWithManagementDisabledRequest) (*pb.GetAccountTypesWithManagementDisabledResponse, error) {
-	mgr, err := jnipkg.NewdevicePolicyManager(s.Ctx)
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -383,7 +383,7 @@ func (s *DevicePolicyManagerServer) GetAccountTypesWithManagementDisabled(_ cont
 }
 
 func (s *DevicePolicyManagerServer) GetActiveAdmins(_ context.Context, req *pb.GetActiveAdminsRequest) (*pb.GetActiveAdminsResponse, error) {
-	mgr, err := jnipkg.NewdevicePolicyManager(s.Ctx)
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -406,7 +406,7 @@ func (s *DevicePolicyManagerServer) GetActiveAdmins(_ context.Context, req *pb.G
 }
 
 func (s *DevicePolicyManagerServer) GetAffiliationIds(_ context.Context, req *pb.GetAffiliationIdsRequest) (*pb.GetAffiliationIdsResponse, error) {
-	mgr, err := jnipkg.NewdevicePolicyManager(s.Ctx)
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -429,7 +429,7 @@ func (s *DevicePolicyManagerServer) GetAffiliationIds(_ context.Context, req *pb
 }
 
 func (s *DevicePolicyManagerServer) GetAlwaysOnVpnLockdownWhitelist(_ context.Context, req *pb.GetAlwaysOnVpnLockdownWhitelistRequest) (*pb.GetAlwaysOnVpnLockdownWhitelistResponse, error) {
-	mgr, err := jnipkg.NewdevicePolicyManager(s.Ctx)
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -452,7 +452,7 @@ func (s *DevicePolicyManagerServer) GetAlwaysOnVpnLockdownWhitelist(_ context.Co
 }
 
 func (s *DevicePolicyManagerServer) GetAlwaysOnVpnPackage(_ context.Context, req *pb.GetAlwaysOnVpnPackageRequest) (*pb.GetAlwaysOnVpnPackageResponse, error) {
-	mgr, err := jnipkg.NewdevicePolicyManager(s.Ctx)
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -466,7 +466,7 @@ func (s *DevicePolicyManagerServer) GetAlwaysOnVpnPackage(_ context.Context, req
 }
 
 func (s *DevicePolicyManagerServer) GetAppFunctionsPolicy(_ context.Context, req *pb.GetAppFunctionsPolicyRequest) (*pb.GetAppFunctionsPolicyResponse, error) {
-	mgr, err := jnipkg.NewdevicePolicyManager(s.Ctx)
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -480,7 +480,7 @@ func (s *DevicePolicyManagerServer) GetAppFunctionsPolicy(_ context.Context, req
 }
 
 func (s *DevicePolicyManagerServer) GetApplicationRestrictions(_ context.Context, req *pb.GetApplicationRestrictionsRequest) (*pb.GetApplicationRestrictionsResponse, error) {
-	mgr, err := jnipkg.NewdevicePolicyManager(s.Ctx)
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -503,7 +503,7 @@ func (s *DevicePolicyManagerServer) GetApplicationRestrictions(_ context.Context
 }
 
 func (s *DevicePolicyManagerServer) GetApplicationRestrictionsManagingPackage(_ context.Context, req *pb.GetApplicationRestrictionsManagingPackageRequest) (*pb.GetApplicationRestrictionsManagingPackageResponse, error) {
-	mgr, err := jnipkg.NewdevicePolicyManager(s.Ctx)
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -517,7 +517,7 @@ func (s *DevicePolicyManagerServer) GetApplicationRestrictionsManagingPackage(_ 
 }
 
 func (s *DevicePolicyManagerServer) GetAutoTimeEnabled(_ context.Context, req *pb.GetAutoTimeEnabledRequest) (*pb.GetAutoTimeEnabledResponse, error) {
-	mgr, err := jnipkg.NewdevicePolicyManager(s.Ctx)
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -531,7 +531,7 @@ func (s *DevicePolicyManagerServer) GetAutoTimeEnabled(_ context.Context, req *p
 }
 
 func (s *DevicePolicyManagerServer) GetAutoTimePolicy(_ context.Context, req *pb.GetAutoTimePolicyRequest) (*pb.GetAutoTimePolicyResponse, error) {
-	mgr, err := jnipkg.NewdevicePolicyManager(s.Ctx)
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -545,7 +545,7 @@ func (s *DevicePolicyManagerServer) GetAutoTimePolicy(_ context.Context, req *pb
 }
 
 func (s *DevicePolicyManagerServer) GetAutoTimeRequired(_ context.Context, req *pb.GetAutoTimeRequiredRequest) (*pb.GetAutoTimeRequiredResponse, error) {
-	mgr, err := jnipkg.NewdevicePolicyManager(s.Ctx)
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -559,7 +559,7 @@ func (s *DevicePolicyManagerServer) GetAutoTimeRequired(_ context.Context, req *
 }
 
 func (s *DevicePolicyManagerServer) GetAutoTimeZoneEnabled(_ context.Context, req *pb.GetAutoTimeZoneEnabledRequest) (*pb.GetAutoTimeZoneEnabledResponse, error) {
-	mgr, err := jnipkg.NewdevicePolicyManager(s.Ctx)
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -573,7 +573,7 @@ func (s *DevicePolicyManagerServer) GetAutoTimeZoneEnabled(_ context.Context, re
 }
 
 func (s *DevicePolicyManagerServer) GetAutoTimeZonePolicy(_ context.Context, req *pb.GetAutoTimeZonePolicyRequest) (*pb.GetAutoTimeZonePolicyResponse, error) {
-	mgr, err := jnipkg.NewdevicePolicyManager(s.Ctx)
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -587,7 +587,7 @@ func (s *DevicePolicyManagerServer) GetAutoTimeZonePolicy(_ context.Context, req
 }
 
 func (s *DevicePolicyManagerServer) GetBindDeviceAdminTargetUsers(_ context.Context, req *pb.GetBindDeviceAdminTargetUsersRequest) (*pb.GetBindDeviceAdminTargetUsersResponse, error) {
-	mgr, err := jnipkg.NewdevicePolicyManager(s.Ctx)
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -610,7 +610,7 @@ func (s *DevicePolicyManagerServer) GetBindDeviceAdminTargetUsers(_ context.Cont
 }
 
 func (s *DevicePolicyManagerServer) GetBluetoothContactSharingDisabled(_ context.Context, req *pb.GetBluetoothContactSharingDisabledRequest) (*pb.GetBluetoothContactSharingDisabledResponse, error) {
-	mgr, err := jnipkg.NewdevicePolicyManager(s.Ctx)
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -624,7 +624,7 @@ func (s *DevicePolicyManagerServer) GetBluetoothContactSharingDisabled(_ context
 }
 
 func (s *DevicePolicyManagerServer) GetCameraDisabled(_ context.Context, req *pb.GetCameraDisabledRequest) (*pb.GetCameraDisabledResponse, error) {
-	mgr, err := jnipkg.NewdevicePolicyManager(s.Ctx)
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -638,7 +638,7 @@ func (s *DevicePolicyManagerServer) GetCameraDisabled(_ context.Context, req *pb
 }
 
 func (s *DevicePolicyManagerServer) GetCertInstallerPackage(_ context.Context, req *pb.GetCertInstallerPackageRequest) (*pb.GetCertInstallerPackageResponse, error) {
-	mgr, err := jnipkg.NewdevicePolicyManager(s.Ctx)
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -652,7 +652,7 @@ func (s *DevicePolicyManagerServer) GetCertInstallerPackage(_ context.Context, r
 }
 
 func (s *DevicePolicyManagerServer) GetContentProtectionPolicy(_ context.Context, req *pb.GetContentProtectionPolicyRequest) (*pb.GetContentProtectionPolicyResponse, error) {
-	mgr, err := jnipkg.NewdevicePolicyManager(s.Ctx)
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -666,7 +666,7 @@ func (s *DevicePolicyManagerServer) GetContentProtectionPolicy(_ context.Context
 }
 
 func (s *DevicePolicyManagerServer) GetCredentialManagerPolicy(_ context.Context, req *pb.GetCredentialManagerPolicyRequest) (*pb.GetCredentialManagerPolicyResponse, error) {
-	mgr, err := jnipkg.NewdevicePolicyManager(s.Ctx)
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -689,7 +689,7 @@ func (s *DevicePolicyManagerServer) GetCredentialManagerPolicy(_ context.Context
 }
 
 func (s *DevicePolicyManagerServer) GetCrossProfileCalendarPackages(_ context.Context, req *pb.GetCrossProfileCalendarPackagesRequest) (*pb.GetCrossProfileCalendarPackagesResponse, error) {
-	mgr, err := jnipkg.NewdevicePolicyManager(s.Ctx)
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -712,7 +712,7 @@ func (s *DevicePolicyManagerServer) GetCrossProfileCalendarPackages(_ context.Co
 }
 
 func (s *DevicePolicyManagerServer) GetCrossProfileCallerIdDisabled(_ context.Context, req *pb.GetCrossProfileCallerIdDisabledRequest) (*pb.GetCrossProfileCallerIdDisabledResponse, error) {
-	mgr, err := jnipkg.NewdevicePolicyManager(s.Ctx)
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -726,7 +726,7 @@ func (s *DevicePolicyManagerServer) GetCrossProfileCallerIdDisabled(_ context.Co
 }
 
 func (s *DevicePolicyManagerServer) GetCrossProfileContactsSearchDisabled(_ context.Context, req *pb.GetCrossProfileContactsSearchDisabledRequest) (*pb.GetCrossProfileContactsSearchDisabledResponse, error) {
-	mgr, err := jnipkg.NewdevicePolicyManager(s.Ctx)
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -740,7 +740,7 @@ func (s *DevicePolicyManagerServer) GetCrossProfileContactsSearchDisabled(_ cont
 }
 
 func (s *DevicePolicyManagerServer) GetCrossProfilePackages(_ context.Context, req *pb.GetCrossProfilePackagesRequest) (*pb.GetCrossProfilePackagesResponse, error) {
-	mgr, err := jnipkg.NewdevicePolicyManager(s.Ctx)
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -763,7 +763,7 @@ func (s *DevicePolicyManagerServer) GetCrossProfilePackages(_ context.Context, r
 }
 
 func (s *DevicePolicyManagerServer) GetCrossProfileWidgetProviders(_ context.Context, req *pb.GetCrossProfileWidgetProvidersRequest) (*pb.GetCrossProfileWidgetProvidersResponse, error) {
-	mgr, err := jnipkg.NewdevicePolicyManager(s.Ctx)
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -786,7 +786,7 @@ func (s *DevicePolicyManagerServer) GetCrossProfileWidgetProviders(_ context.Con
 }
 
 func (s *DevicePolicyManagerServer) GetCurrentFailedPasswordAttempts(_ context.Context, req *pb.GetCurrentFailedPasswordAttemptsRequest) (*pb.GetCurrentFailedPasswordAttemptsResponse, error) {
-	mgr, err := jnipkg.NewdevicePolicyManager(s.Ctx)
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -800,7 +800,7 @@ func (s *DevicePolicyManagerServer) GetCurrentFailedPasswordAttempts(_ context.C
 }
 
 func (s *DevicePolicyManagerServer) GetDelegatePackages(_ context.Context, req *pb.GetDelegatePackagesRequest) (*pb.GetDelegatePackagesResponse, error) {
-	mgr, err := jnipkg.NewdevicePolicyManager(s.Ctx)
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -823,7 +823,7 @@ func (s *DevicePolicyManagerServer) GetDelegatePackages(_ context.Context, req *
 }
 
 func (s *DevicePolicyManagerServer) GetDelegatedScopes(_ context.Context, req *pb.GetDelegatedScopesRequest) (*pb.GetDelegatedScopesResponse, error) {
-	mgr, err := jnipkg.NewdevicePolicyManager(s.Ctx)
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -846,7 +846,7 @@ func (s *DevicePolicyManagerServer) GetDelegatedScopes(_ context.Context, req *p
 }
 
 func (s *DevicePolicyManagerServer) GetDeviceOwnerLockScreenInfo(_ context.Context, req *pb.GetDeviceOwnerLockScreenInfoRequest) (*pb.GetDeviceOwnerLockScreenInfoResponse, error) {
-	mgr, err := jnipkg.NewdevicePolicyManager(s.Ctx)
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -860,7 +860,7 @@ func (s *DevicePolicyManagerServer) GetDeviceOwnerLockScreenInfo(_ context.Conte
 }
 
 func (s *DevicePolicyManagerServer) GetDevicePolicyManagementRoleHolderPackage(_ context.Context, req *pb.GetDevicePolicyManagementRoleHolderPackageRequest) (*pb.GetDevicePolicyManagementRoleHolderPackageResponse, error) {
-	mgr, err := jnipkg.NewdevicePolicyManager(s.Ctx)
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -874,7 +874,7 @@ func (s *DevicePolicyManagerServer) GetDevicePolicyManagementRoleHolderPackage(_
 }
 
 func (s *DevicePolicyManagerServer) GetEndUserSessionMessage(_ context.Context, req *pb.GetEndUserSessionMessageRequest) (*pb.GetEndUserSessionMessageResponse, error) {
-	mgr, err := jnipkg.NewdevicePolicyManager(s.Ctx)
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -888,7 +888,7 @@ func (s *DevicePolicyManagerServer) GetEndUserSessionMessage(_ context.Context, 
 }
 
 func (s *DevicePolicyManagerServer) GetEnrollmentSpecificId(_ context.Context, req *pb.GetEnrollmentSpecificIdRequest) (*pb.GetEnrollmentSpecificIdResponse, error) {
-	mgr, err := jnipkg.NewdevicePolicyManager(s.Ctx)
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -902,7 +902,7 @@ func (s *DevicePolicyManagerServer) GetEnrollmentSpecificId(_ context.Context, r
 }
 
 func (s *DevicePolicyManagerServer) GetFactoryResetProtectionPolicy(_ context.Context, req *pb.GetFactoryResetProtectionPolicyRequest) (*pb.GetFactoryResetProtectionPolicyResponse, error) {
-	mgr, err := jnipkg.NewdevicePolicyManager(s.Ctx)
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -925,7 +925,7 @@ func (s *DevicePolicyManagerServer) GetFactoryResetProtectionPolicy(_ context.Co
 }
 
 func (s *DevicePolicyManagerServer) GetGlobalPrivateDnsHost(_ context.Context, req *pb.GetGlobalPrivateDnsHostRequest) (*pb.GetGlobalPrivateDnsHostResponse, error) {
-	mgr, err := jnipkg.NewdevicePolicyManager(s.Ctx)
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -939,7 +939,7 @@ func (s *DevicePolicyManagerServer) GetGlobalPrivateDnsHost(_ context.Context, r
 }
 
 func (s *DevicePolicyManagerServer) GetGlobalPrivateDnsMode(_ context.Context, req *pb.GetGlobalPrivateDnsModeRequest) (*pb.GetGlobalPrivateDnsModeResponse, error) {
-	mgr, err := jnipkg.NewdevicePolicyManager(s.Ctx)
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -953,7 +953,7 @@ func (s *DevicePolicyManagerServer) GetGlobalPrivateDnsMode(_ context.Context, r
 }
 
 func (s *DevicePolicyManagerServer) GetInstalledCaCerts(_ context.Context, req *pb.GetInstalledCaCertsRequest) (*pb.GetInstalledCaCertsResponse, error) {
-	mgr, err := jnipkg.NewdevicePolicyManager(s.Ctx)
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -976,7 +976,7 @@ func (s *DevicePolicyManagerServer) GetInstalledCaCerts(_ context.Context, req *
 }
 
 func (s *DevicePolicyManagerServer) GetKeepUninstalledPackages(_ context.Context, req *pb.GetKeepUninstalledPackagesRequest) (*pb.GetKeepUninstalledPackagesResponse, error) {
-	mgr, err := jnipkg.NewdevicePolicyManager(s.Ctx)
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -999,7 +999,7 @@ func (s *DevicePolicyManagerServer) GetKeepUninstalledPackages(_ context.Context
 }
 
 func (s *DevicePolicyManagerServer) GetKeyguardDisabledFeatures(_ context.Context, req *pb.GetKeyguardDisabledFeaturesRequest) (*pb.GetKeyguardDisabledFeaturesResponse, error) {
-	mgr, err := jnipkg.NewdevicePolicyManager(s.Ctx)
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -1013,7 +1013,7 @@ func (s *DevicePolicyManagerServer) GetKeyguardDisabledFeatures(_ context.Contex
 }
 
 func (s *DevicePolicyManagerServer) GetLockTaskFeatures(_ context.Context, req *pb.GetLockTaskFeaturesRequest) (*pb.GetLockTaskFeaturesResponse, error) {
-	mgr, err := jnipkg.NewdevicePolicyManager(s.Ctx)
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -1027,7 +1027,7 @@ func (s *DevicePolicyManagerServer) GetLockTaskFeatures(_ context.Context, req *
 }
 
 func (s *DevicePolicyManagerServer) GetLockTaskPackages(_ context.Context, req *pb.GetLockTaskPackagesRequest) (*pb.GetLockTaskPackagesResponse, error) {
-	mgr, err := jnipkg.NewdevicePolicyManager(s.Ctx)
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -1050,7 +1050,7 @@ func (s *DevicePolicyManagerServer) GetLockTaskPackages(_ context.Context, req *
 }
 
 func (s *DevicePolicyManagerServer) GetLongSupportMessage(_ context.Context, req *pb.GetLongSupportMessageRequest) (*pb.GetLongSupportMessageResponse, error) {
-	mgr, err := jnipkg.NewdevicePolicyManager(s.Ctx)
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -1064,7 +1064,7 @@ func (s *DevicePolicyManagerServer) GetLongSupportMessage(_ context.Context, req
 }
 
 func (s *DevicePolicyManagerServer) GetManagedProfileCallerIdAccessPolicy(_ context.Context, req *pb.GetManagedProfileCallerIdAccessPolicyRequest) (*pb.GetManagedProfileCallerIdAccessPolicyResponse, error) {
-	mgr, err := jnipkg.NewdevicePolicyManager(s.Ctx)
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -1087,7 +1087,7 @@ func (s *DevicePolicyManagerServer) GetManagedProfileCallerIdAccessPolicy(_ cont
 }
 
 func (s *DevicePolicyManagerServer) GetManagedProfileContactsAccessPolicy(_ context.Context, req *pb.GetManagedProfileContactsAccessPolicyRequest) (*pb.GetManagedProfileContactsAccessPolicyResponse, error) {
-	mgr, err := jnipkg.NewdevicePolicyManager(s.Ctx)
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -1110,7 +1110,7 @@ func (s *DevicePolicyManagerServer) GetManagedProfileContactsAccessPolicy(_ cont
 }
 
 func (s *DevicePolicyManagerServer) GetManagedProfileMaximumTimeOff(_ context.Context, req *pb.GetManagedProfileMaximumTimeOffRequest) (*pb.GetManagedProfileMaximumTimeOffResponse, error) {
-	mgr, err := jnipkg.NewdevicePolicyManager(s.Ctx)
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -1124,7 +1124,7 @@ func (s *DevicePolicyManagerServer) GetManagedProfileMaximumTimeOff(_ context.Co
 }
 
 func (s *DevicePolicyManagerServer) GetManagedSubscriptionsPolicy(_ context.Context, req *pb.GetManagedSubscriptionsPolicyRequest) (*pb.GetManagedSubscriptionsPolicyResponse, error) {
-	mgr, err := jnipkg.NewdevicePolicyManager(s.Ctx)
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -1147,7 +1147,7 @@ func (s *DevicePolicyManagerServer) GetManagedSubscriptionsPolicy(_ context.Cont
 }
 
 func (s *DevicePolicyManagerServer) GetMaximumFailedPasswordsForWipe(_ context.Context, req *pb.GetMaximumFailedPasswordsForWipeRequest) (*pb.GetMaximumFailedPasswordsForWipeResponse, error) {
-	mgr, err := jnipkg.NewdevicePolicyManager(s.Ctx)
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -1161,7 +1161,7 @@ func (s *DevicePolicyManagerServer) GetMaximumFailedPasswordsForWipe(_ context.C
 }
 
 func (s *DevicePolicyManagerServer) GetMaximumTimeToLock(_ context.Context, req *pb.GetMaximumTimeToLockRequest) (*pb.GetMaximumTimeToLockResponse, error) {
-	mgr, err := jnipkg.NewdevicePolicyManager(s.Ctx)
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -1175,7 +1175,7 @@ func (s *DevicePolicyManagerServer) GetMaximumTimeToLock(_ context.Context, req 
 }
 
 func (s *DevicePolicyManagerServer) GetMeteredDataDisabledPackages(_ context.Context, req *pb.GetMeteredDataDisabledPackagesRequest) (*pb.GetMeteredDataDisabledPackagesResponse, error) {
-	mgr, err := jnipkg.NewdevicePolicyManager(s.Ctx)
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -1198,7 +1198,7 @@ func (s *DevicePolicyManagerServer) GetMeteredDataDisabledPackages(_ context.Con
 }
 
 func (s *DevicePolicyManagerServer) GetMinimumRequiredWifiSecurityLevel(_ context.Context, req *pb.GetMinimumRequiredWifiSecurityLevelRequest) (*pb.GetMinimumRequiredWifiSecurityLevelResponse, error) {
-	mgr, err := jnipkg.NewdevicePolicyManager(s.Ctx)
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -1212,7 +1212,7 @@ func (s *DevicePolicyManagerServer) GetMinimumRequiredWifiSecurityLevel(_ contex
 }
 
 func (s *DevicePolicyManagerServer) GetMtePolicy(_ context.Context, req *pb.GetMtePolicyRequest) (*pb.GetMtePolicyResponse, error) {
-	mgr, err := jnipkg.NewdevicePolicyManager(s.Ctx)
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -1226,7 +1226,7 @@ func (s *DevicePolicyManagerServer) GetMtePolicy(_ context.Context, req *pb.GetM
 }
 
 func (s *DevicePolicyManagerServer) GetNearbyAppStreamingPolicy(_ context.Context, req *pb.GetNearbyAppStreamingPolicyRequest) (*pb.GetNearbyAppStreamingPolicyResponse, error) {
-	mgr, err := jnipkg.NewdevicePolicyManager(s.Ctx)
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -1240,7 +1240,7 @@ func (s *DevicePolicyManagerServer) GetNearbyAppStreamingPolicy(_ context.Contex
 }
 
 func (s *DevicePolicyManagerServer) GetNearbyNotificationStreamingPolicy(_ context.Context, req *pb.GetNearbyNotificationStreamingPolicyRequest) (*pb.GetNearbyNotificationStreamingPolicyResponse, error) {
-	mgr, err := jnipkg.NewdevicePolicyManager(s.Ctx)
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -1254,7 +1254,7 @@ func (s *DevicePolicyManagerServer) GetNearbyNotificationStreamingPolicy(_ conte
 }
 
 func (s *DevicePolicyManagerServer) GetOrganizationColor(_ context.Context, req *pb.GetOrganizationColorRequest) (*pb.GetOrganizationColorResponse, error) {
-	mgr, err := jnipkg.NewdevicePolicyManager(s.Ctx)
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -1268,7 +1268,7 @@ func (s *DevicePolicyManagerServer) GetOrganizationColor(_ context.Context, req 
 }
 
 func (s *DevicePolicyManagerServer) GetOrganizationName(_ context.Context, req *pb.GetOrganizationNameRequest) (*pb.GetOrganizationNameResponse, error) {
-	mgr, err := jnipkg.NewdevicePolicyManager(s.Ctx)
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -1282,7 +1282,7 @@ func (s *DevicePolicyManagerServer) GetOrganizationName(_ context.Context, req *
 }
 
 func (s *DevicePolicyManagerServer) GetOverrideApns(_ context.Context, req *pb.GetOverrideApnsRequest) (*pb.GetOverrideApnsResponse, error) {
-	mgr, err := jnipkg.NewdevicePolicyManager(s.Ctx)
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -1305,7 +1305,7 @@ func (s *DevicePolicyManagerServer) GetOverrideApns(_ context.Context, req *pb.G
 }
 
 func (s *DevicePolicyManagerServer) GetParentProfileInstance(_ context.Context, req *pb.GetParentProfileInstanceRequest) (*pb.GetParentProfileInstanceResponse, error) {
-	mgr, err := jnipkg.NewdevicePolicyManager(s.Ctx)
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -1328,7 +1328,7 @@ func (s *DevicePolicyManagerServer) GetParentProfileInstance(_ context.Context, 
 }
 
 func (s *DevicePolicyManagerServer) GetPasswordComplexity(_ context.Context, req *pb.GetPasswordComplexityRequest) (*pb.GetPasswordComplexityResponse, error) {
-	mgr, err := jnipkg.NewdevicePolicyManager(s.Ctx)
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -1342,7 +1342,7 @@ func (s *DevicePolicyManagerServer) GetPasswordComplexity(_ context.Context, req
 }
 
 func (s *DevicePolicyManagerServer) GetPasswordExpiration(_ context.Context, req *pb.GetPasswordExpirationRequest) (*pb.GetPasswordExpirationResponse, error) {
-	mgr, err := jnipkg.NewdevicePolicyManager(s.Ctx)
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -1356,7 +1356,7 @@ func (s *DevicePolicyManagerServer) GetPasswordExpiration(_ context.Context, req
 }
 
 func (s *DevicePolicyManagerServer) GetPasswordExpirationTimeout(_ context.Context, req *pb.GetPasswordExpirationTimeoutRequest) (*pb.GetPasswordExpirationTimeoutResponse, error) {
-	mgr, err := jnipkg.NewdevicePolicyManager(s.Ctx)
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -1370,7 +1370,7 @@ func (s *DevicePolicyManagerServer) GetPasswordExpirationTimeout(_ context.Conte
 }
 
 func (s *DevicePolicyManagerServer) GetPasswordHistoryLength(_ context.Context, req *pb.GetPasswordHistoryLengthRequest) (*pb.GetPasswordHistoryLengthResponse, error) {
-	mgr, err := jnipkg.NewdevicePolicyManager(s.Ctx)
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -1384,7 +1384,7 @@ func (s *DevicePolicyManagerServer) GetPasswordHistoryLength(_ context.Context, 
 }
 
 func (s *DevicePolicyManagerServer) GetPasswordMaximumLength(_ context.Context, req *pb.GetPasswordMaximumLengthRequest) (*pb.GetPasswordMaximumLengthResponse, error) {
-	mgr, err := jnipkg.NewdevicePolicyManager(s.Ctx)
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -1398,7 +1398,7 @@ func (s *DevicePolicyManagerServer) GetPasswordMaximumLength(_ context.Context, 
 }
 
 func (s *DevicePolicyManagerServer) GetPasswordMinimumLength(_ context.Context, req *pb.GetPasswordMinimumLengthRequest) (*pb.GetPasswordMinimumLengthResponse, error) {
-	mgr, err := jnipkg.NewdevicePolicyManager(s.Ctx)
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -1412,7 +1412,7 @@ func (s *DevicePolicyManagerServer) GetPasswordMinimumLength(_ context.Context, 
 }
 
 func (s *DevicePolicyManagerServer) GetPasswordMinimumLetters(_ context.Context, req *pb.GetPasswordMinimumLettersRequest) (*pb.GetPasswordMinimumLettersResponse, error) {
-	mgr, err := jnipkg.NewdevicePolicyManager(s.Ctx)
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -1426,7 +1426,7 @@ func (s *DevicePolicyManagerServer) GetPasswordMinimumLetters(_ context.Context,
 }
 
 func (s *DevicePolicyManagerServer) GetPasswordMinimumLowerCase(_ context.Context, req *pb.GetPasswordMinimumLowerCaseRequest) (*pb.GetPasswordMinimumLowerCaseResponse, error) {
-	mgr, err := jnipkg.NewdevicePolicyManager(s.Ctx)
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -1440,7 +1440,7 @@ func (s *DevicePolicyManagerServer) GetPasswordMinimumLowerCase(_ context.Contex
 }
 
 func (s *DevicePolicyManagerServer) GetPasswordMinimumNonLetter(_ context.Context, req *pb.GetPasswordMinimumNonLetterRequest) (*pb.GetPasswordMinimumNonLetterResponse, error) {
-	mgr, err := jnipkg.NewdevicePolicyManager(s.Ctx)
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -1454,7 +1454,7 @@ func (s *DevicePolicyManagerServer) GetPasswordMinimumNonLetter(_ context.Contex
 }
 
 func (s *DevicePolicyManagerServer) GetPasswordMinimumNumeric(_ context.Context, req *pb.GetPasswordMinimumNumericRequest) (*pb.GetPasswordMinimumNumericResponse, error) {
-	mgr, err := jnipkg.NewdevicePolicyManager(s.Ctx)
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -1468,7 +1468,7 @@ func (s *DevicePolicyManagerServer) GetPasswordMinimumNumeric(_ context.Context,
 }
 
 func (s *DevicePolicyManagerServer) GetPasswordMinimumSymbols(_ context.Context, req *pb.GetPasswordMinimumSymbolsRequest) (*pb.GetPasswordMinimumSymbolsResponse, error) {
-	mgr, err := jnipkg.NewdevicePolicyManager(s.Ctx)
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -1482,7 +1482,7 @@ func (s *DevicePolicyManagerServer) GetPasswordMinimumSymbols(_ context.Context,
 }
 
 func (s *DevicePolicyManagerServer) GetPasswordMinimumUpperCase(_ context.Context, req *pb.GetPasswordMinimumUpperCaseRequest) (*pb.GetPasswordMinimumUpperCaseResponse, error) {
-	mgr, err := jnipkg.NewdevicePolicyManager(s.Ctx)
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -1496,7 +1496,7 @@ func (s *DevicePolicyManagerServer) GetPasswordMinimumUpperCase(_ context.Contex
 }
 
 func (s *DevicePolicyManagerServer) GetPasswordQuality(_ context.Context, req *pb.GetPasswordQualityRequest) (*pb.GetPasswordQualityResponse, error) {
-	mgr, err := jnipkg.NewdevicePolicyManager(s.Ctx)
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -1510,7 +1510,7 @@ func (s *DevicePolicyManagerServer) GetPasswordQuality(_ context.Context, req *p
 }
 
 func (s *DevicePolicyManagerServer) GetPendingSystemUpdate(_ context.Context, req *pb.GetPendingSystemUpdateRequest) (*pb.GetPendingSystemUpdateResponse, error) {
-	mgr, err := jnipkg.NewdevicePolicyManager(s.Ctx)
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -1533,7 +1533,7 @@ func (s *DevicePolicyManagerServer) GetPendingSystemUpdate(_ context.Context, re
 }
 
 func (s *DevicePolicyManagerServer) GetPermissionGrantState(_ context.Context, req *pb.GetPermissionGrantStateRequest) (*pb.GetPermissionGrantStateResponse, error) {
-	mgr, err := jnipkg.NewdevicePolicyManager(s.Ctx)
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -1547,7 +1547,7 @@ func (s *DevicePolicyManagerServer) GetPermissionGrantState(_ context.Context, r
 }
 
 func (s *DevicePolicyManagerServer) GetPermissionPolicy(_ context.Context, req *pb.GetPermissionPolicyRequest) (*pb.GetPermissionPolicyResponse, error) {
-	mgr, err := jnipkg.NewdevicePolicyManager(s.Ctx)
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -1561,7 +1561,7 @@ func (s *DevicePolicyManagerServer) GetPermissionPolicy(_ context.Context, req *
 }
 
 func (s *DevicePolicyManagerServer) GetPermittedAccessibilityServices(_ context.Context, req *pb.GetPermittedAccessibilityServicesRequest) (*pb.GetPermittedAccessibilityServicesResponse, error) {
-	mgr, err := jnipkg.NewdevicePolicyManager(s.Ctx)
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -1584,7 +1584,7 @@ func (s *DevicePolicyManagerServer) GetPermittedAccessibilityServices(_ context.
 }
 
 func (s *DevicePolicyManagerServer) GetPermittedCrossProfileNotificationListeners(_ context.Context, req *pb.GetPermittedCrossProfileNotificationListenersRequest) (*pb.GetPermittedCrossProfileNotificationListenersResponse, error) {
-	mgr, err := jnipkg.NewdevicePolicyManager(s.Ctx)
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -1607,7 +1607,7 @@ func (s *DevicePolicyManagerServer) GetPermittedCrossProfileNotificationListener
 }
 
 func (s *DevicePolicyManagerServer) GetPermittedInputMethods(_ context.Context, req *pb.GetPermittedInputMethodsRequest) (*pb.GetPermittedInputMethodsResponse, error) {
-	mgr, err := jnipkg.NewdevicePolicyManager(s.Ctx)
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -1630,7 +1630,7 @@ func (s *DevicePolicyManagerServer) GetPermittedInputMethods(_ context.Context, 
 }
 
 func (s *DevicePolicyManagerServer) GetPersonalAppsSuspendedReasons(_ context.Context, req *pb.GetPersonalAppsSuspendedReasonsRequest) (*pb.GetPersonalAppsSuspendedReasonsResponse, error) {
-	mgr, err := jnipkg.NewdevicePolicyManager(s.Ctx)
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -1644,7 +1644,7 @@ func (s *DevicePolicyManagerServer) GetPersonalAppsSuspendedReasons(_ context.Co
 }
 
 func (s *DevicePolicyManagerServer) GetPreferentialNetworkServiceConfigs(_ context.Context, req *pb.GetPreferentialNetworkServiceConfigsRequest) (*pb.GetPreferentialNetworkServiceConfigsResponse, error) {
-	mgr, err := jnipkg.NewdevicePolicyManager(s.Ctx)
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -1667,7 +1667,7 @@ func (s *DevicePolicyManagerServer) GetPreferentialNetworkServiceConfigs(_ conte
 }
 
 func (s *DevicePolicyManagerServer) GetRequiredPasswordComplexity(_ context.Context, req *pb.GetRequiredPasswordComplexityRequest) (*pb.GetRequiredPasswordComplexityResponse, error) {
-	mgr, err := jnipkg.NewdevicePolicyManager(s.Ctx)
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -1681,7 +1681,7 @@ func (s *DevicePolicyManagerServer) GetRequiredPasswordComplexity(_ context.Cont
 }
 
 func (s *DevicePolicyManagerServer) GetRequiredStrongAuthTimeout(_ context.Context, req *pb.GetRequiredStrongAuthTimeoutRequest) (*pb.GetRequiredStrongAuthTimeoutResponse, error) {
-	mgr, err := jnipkg.NewdevicePolicyManager(s.Ctx)
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -1695,7 +1695,7 @@ func (s *DevicePolicyManagerServer) GetRequiredStrongAuthTimeout(_ context.Conte
 }
 
 func (s *DevicePolicyManagerServer) GetResources(_ context.Context, req *pb.GetResourcesRequest) (*pb.GetResourcesResponse, error) {
-	mgr, err := jnipkg.NewdevicePolicyManager(s.Ctx)
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -1718,7 +1718,7 @@ func (s *DevicePolicyManagerServer) GetResources(_ context.Context, req *pb.GetR
 }
 
 func (s *DevicePolicyManagerServer) GetScreenCaptureDisabled(_ context.Context, req *pb.GetScreenCaptureDisabledRequest) (*pb.GetScreenCaptureDisabledResponse, error) {
-	mgr, err := jnipkg.NewdevicePolicyManager(s.Ctx)
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -1732,7 +1732,7 @@ func (s *DevicePolicyManagerServer) GetScreenCaptureDisabled(_ context.Context, 
 }
 
 func (s *DevicePolicyManagerServer) GetSecondaryUsers(_ context.Context, req *pb.GetSecondaryUsersRequest) (*pb.GetSecondaryUsersResponse, error) {
-	mgr, err := jnipkg.NewdevicePolicyManager(s.Ctx)
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -1755,7 +1755,7 @@ func (s *DevicePolicyManagerServer) GetSecondaryUsers(_ context.Context, req *pb
 }
 
 func (s *DevicePolicyManagerServer) GetShortSupportMessage(_ context.Context, req *pb.GetShortSupportMessageRequest) (*pb.GetShortSupportMessageResponse, error) {
-	mgr, err := jnipkg.NewdevicePolicyManager(s.Ctx)
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -1769,7 +1769,7 @@ func (s *DevicePolicyManagerServer) GetShortSupportMessage(_ context.Context, re
 }
 
 func (s *DevicePolicyManagerServer) GetStartUserSessionMessage(_ context.Context, req *pb.GetStartUserSessionMessageRequest) (*pb.GetStartUserSessionMessageResponse, error) {
-	mgr, err := jnipkg.NewdevicePolicyManager(s.Ctx)
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -1783,7 +1783,7 @@ func (s *DevicePolicyManagerServer) GetStartUserSessionMessage(_ context.Context
 }
 
 func (s *DevicePolicyManagerServer) GetStorageEncryption(_ context.Context, req *pb.GetStorageEncryptionRequest) (*pb.GetStorageEncryptionResponse, error) {
-	mgr, err := jnipkg.NewdevicePolicyManager(s.Ctx)
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -1797,7 +1797,7 @@ func (s *DevicePolicyManagerServer) GetStorageEncryption(_ context.Context, req 
 }
 
 func (s *DevicePolicyManagerServer) GetStorageEncryptionStatus(_ context.Context, req *pb.GetStorageEncryptionStatusRequest) (*pb.GetStorageEncryptionStatusResponse, error) {
-	mgr, err := jnipkg.NewdevicePolicyManager(s.Ctx)
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -1811,7 +1811,7 @@ func (s *DevicePolicyManagerServer) GetStorageEncryptionStatus(_ context.Context
 }
 
 func (s *DevicePolicyManagerServer) GetSubscriptionIds(_ context.Context, req *pb.GetSubscriptionIdsRequest) (*pb.GetSubscriptionIdsResponse, error) {
-	mgr, err := jnipkg.NewdevicePolicyManager(s.Ctx)
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -1834,7 +1834,7 @@ func (s *DevicePolicyManagerServer) GetSubscriptionIds(_ context.Context, req *p
 }
 
 func (s *DevicePolicyManagerServer) GetSystemUpdatePolicy(_ context.Context, req *pb.GetSystemUpdatePolicyRequest) (*pb.GetSystemUpdatePolicyResponse, error) {
-	mgr, err := jnipkg.NewdevicePolicyManager(s.Ctx)
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -1857,7 +1857,7 @@ func (s *DevicePolicyManagerServer) GetSystemUpdatePolicy(_ context.Context, req
 }
 
 func (s *DevicePolicyManagerServer) GetTransferOwnershipBundle(_ context.Context, req *pb.GetTransferOwnershipBundleRequest) (*pb.GetTransferOwnershipBundleResponse, error) {
-	mgr, err := jnipkg.NewdevicePolicyManager(s.Ctx)
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -1880,7 +1880,7 @@ func (s *DevicePolicyManagerServer) GetTransferOwnershipBundle(_ context.Context
 }
 
 func (s *DevicePolicyManagerServer) GetTrustAgentConfiguration(_ context.Context, req *pb.GetTrustAgentConfigurationRequest) (*pb.GetTrustAgentConfigurationResponse, error) {
-	mgr, err := jnipkg.NewdevicePolicyManager(s.Ctx)
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -1903,7 +1903,7 @@ func (s *DevicePolicyManagerServer) GetTrustAgentConfiguration(_ context.Context
 }
 
 func (s *DevicePolicyManagerServer) GetUserControlDisabledPackages(_ context.Context, req *pb.GetUserControlDisabledPackagesRequest) (*pb.GetUserControlDisabledPackagesResponse, error) {
-	mgr, err := jnipkg.NewdevicePolicyManager(s.Ctx)
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -1926,7 +1926,7 @@ func (s *DevicePolicyManagerServer) GetUserControlDisabledPackages(_ context.Con
 }
 
 func (s *DevicePolicyManagerServer) GetUserRestrictions(_ context.Context, req *pb.GetUserRestrictionsRequest) (*pb.GetUserRestrictionsResponse, error) {
-	mgr, err := jnipkg.NewdevicePolicyManager(s.Ctx)
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -1949,7 +1949,7 @@ func (s *DevicePolicyManagerServer) GetUserRestrictions(_ context.Context, req *
 }
 
 func (s *DevicePolicyManagerServer) GetUserRestrictionsGlobally(_ context.Context, req *pb.GetUserRestrictionsGloballyRequest) (*pb.GetUserRestrictionsGloballyResponse, error) {
-	mgr, err := jnipkg.NewdevicePolicyManager(s.Ctx)
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -1972,7 +1972,7 @@ func (s *DevicePolicyManagerServer) GetUserRestrictionsGlobally(_ context.Contex
 }
 
 func (s *DevicePolicyManagerServer) GetWifiMacAddress(_ context.Context, req *pb.GetWifiMacAddressRequest) (*pb.GetWifiMacAddressResponse, error) {
-	mgr, err := jnipkg.NewdevicePolicyManager(s.Ctx)
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -1986,7 +1986,7 @@ func (s *DevicePolicyManagerServer) GetWifiMacAddress(_ context.Context, req *pb
 }
 
 func (s *DevicePolicyManagerServer) GetWifiSsidPolicy(_ context.Context, req *pb.GetWifiSsidPolicyRequest) (*pb.GetWifiSsidPolicyResponse, error) {
-	mgr, err := jnipkg.NewdevicePolicyManager(s.Ctx)
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -2009,7 +2009,7 @@ func (s *DevicePolicyManagerServer) GetWifiSsidPolicy(_ context.Context, req *pb
 }
 
 func (s *DevicePolicyManagerServer) GrantKeyPairToApp(_ context.Context, req *pb.GrantKeyPairToAppRequest) (*pb.GrantKeyPairToAppResponse, error) {
-	mgr, err := jnipkg.NewdevicePolicyManager(s.Ctx)
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -2023,7 +2023,7 @@ func (s *DevicePolicyManagerServer) GrantKeyPairToApp(_ context.Context, req *pb
 }
 
 func (s *DevicePolicyManagerServer) GrantKeyPairToWifiAuth(_ context.Context, req *pb.GrantKeyPairToWifiAuthRequest) (*pb.GrantKeyPairToWifiAuthResponse, error) {
-	mgr, err := jnipkg.NewdevicePolicyManager(s.Ctx)
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -2037,7 +2037,7 @@ func (s *DevicePolicyManagerServer) GrantKeyPairToWifiAuth(_ context.Context, re
 }
 
 func (s *DevicePolicyManagerServer) HasCaCertInstalled(_ context.Context, req *pb.HasCaCertInstalledRequest) (*pb.HasCaCertInstalledResponse, error) {
-	mgr, err := jnipkg.NewdevicePolicyManager(s.Ctx)
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -2051,7 +2051,7 @@ func (s *DevicePolicyManagerServer) HasCaCertInstalled(_ context.Context, req *p
 }
 
 func (s *DevicePolicyManagerServer) HasGrantedPolicy(_ context.Context, req *pb.HasGrantedPolicyRequest) (*pb.HasGrantedPolicyResponse, error) {
-	mgr, err := jnipkg.NewdevicePolicyManager(s.Ctx)
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -2065,7 +2065,7 @@ func (s *DevicePolicyManagerServer) HasGrantedPolicy(_ context.Context, req *pb.
 }
 
 func (s *DevicePolicyManagerServer) HasKeyPair(_ context.Context, req *pb.HasKeyPairRequest) (*pb.HasKeyPairResponse, error) {
-	mgr, err := jnipkg.NewdevicePolicyManager(s.Ctx)
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -2079,7 +2079,7 @@ func (s *DevicePolicyManagerServer) HasKeyPair(_ context.Context, req *pb.HasKey
 }
 
 func (s *DevicePolicyManagerServer) HasLockdownAdminConfiguredNetworks(_ context.Context, req *pb.HasLockdownAdminConfiguredNetworksRequest) (*pb.HasLockdownAdminConfiguredNetworksResponse, error) {
-	mgr, err := jnipkg.NewdevicePolicyManager(s.Ctx)
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -2093,7 +2093,7 @@ func (s *DevicePolicyManagerServer) HasLockdownAdminConfiguredNetworks(_ context
 }
 
 func (s *DevicePolicyManagerServer) InstallCaCert(_ context.Context, req *pb.InstallCaCertRequest) (*pb.InstallCaCertResponse, error) {
-	mgr, err := jnipkg.NewdevicePolicyManager(s.Ctx)
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -2107,7 +2107,7 @@ func (s *DevicePolicyManagerServer) InstallCaCert(_ context.Context, req *pb.Ins
 }
 
 func (s *DevicePolicyManagerServer) InstallExistingPackage(_ context.Context, req *pb.InstallExistingPackageRequest) (*pb.InstallExistingPackageResponse, error) {
-	mgr, err := jnipkg.NewdevicePolicyManager(s.Ctx)
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -2121,7 +2121,7 @@ func (s *DevicePolicyManagerServer) InstallExistingPackage(_ context.Context, re
 }
 
 func (s *DevicePolicyManagerServer) InstallKeyPair4(_ context.Context, req *pb.InstallKeyPair4Request) (*pb.InstallKeyPair4Response, error) {
-	mgr, err := jnipkg.NewdevicePolicyManager(s.Ctx)
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -2135,7 +2135,7 @@ func (s *DevicePolicyManagerServer) InstallKeyPair4(_ context.Context, req *pb.I
 }
 
 func (s *DevicePolicyManagerServer) InstallKeyPair5_1(_ context.Context, req *pb.InstallKeyPair5_1Request) (*pb.InstallKeyPair5_1Response, error) {
-	mgr, err := jnipkg.NewdevicePolicyManager(s.Ctx)
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -2149,7 +2149,7 @@ func (s *DevicePolicyManagerServer) InstallKeyPair5_1(_ context.Context, req *pb
 }
 
 func (s *DevicePolicyManagerServer) InstallKeyPair5_2(_ context.Context, req *pb.InstallKeyPair5_2Request) (*pb.InstallKeyPair5_2Response, error) {
-	mgr, err := jnipkg.NewdevicePolicyManager(s.Ctx)
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -2163,7 +2163,7 @@ func (s *DevicePolicyManagerServer) InstallKeyPair5_2(_ context.Context, req *pb
 }
 
 func (s *DevicePolicyManagerServer) InstallSystemUpdate(_ context.Context, req *pb.InstallSystemUpdateRequest) (*pb.InstallSystemUpdateResponse, error) {
-	mgr, err := jnipkg.NewdevicePolicyManager(s.Ctx)
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -2176,7 +2176,7 @@ func (s *DevicePolicyManagerServer) InstallSystemUpdate(_ context.Context, req *
 }
 
 func (s *DevicePolicyManagerServer) IsActivePasswordSufficient(_ context.Context, req *pb.IsActivePasswordSufficientRequest) (*pb.IsActivePasswordSufficientResponse, error) {
-	mgr, err := jnipkg.NewdevicePolicyManager(s.Ctx)
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -2190,7 +2190,7 @@ func (s *DevicePolicyManagerServer) IsActivePasswordSufficient(_ context.Context
 }
 
 func (s *DevicePolicyManagerServer) IsActivePasswordSufficientForDeviceRequirement(_ context.Context, req *pb.IsActivePasswordSufficientForDeviceRequirementRequest) (*pb.IsActivePasswordSufficientForDeviceRequirementResponse, error) {
-	mgr, err := jnipkg.NewdevicePolicyManager(s.Ctx)
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -2204,7 +2204,7 @@ func (s *DevicePolicyManagerServer) IsActivePasswordSufficientForDeviceRequireme
 }
 
 func (s *DevicePolicyManagerServer) IsAdminActive(_ context.Context, req *pb.IsAdminActiveRequest) (*pb.IsAdminActiveResponse, error) {
-	mgr, err := jnipkg.NewdevicePolicyManager(s.Ctx)
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -2218,7 +2218,7 @@ func (s *DevicePolicyManagerServer) IsAdminActive(_ context.Context, req *pb.IsA
 }
 
 func (s *DevicePolicyManagerServer) IsAffiliatedUser(_ context.Context, req *pb.IsAffiliatedUserRequest) (*pb.IsAffiliatedUserResponse, error) {
-	mgr, err := jnipkg.NewdevicePolicyManager(s.Ctx)
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -2232,7 +2232,7 @@ func (s *DevicePolicyManagerServer) IsAffiliatedUser(_ context.Context, req *pb.
 }
 
 func (s *DevicePolicyManagerServer) IsAlwaysOnVpnLockdownEnabled(_ context.Context, req *pb.IsAlwaysOnVpnLockdownEnabledRequest) (*pb.IsAlwaysOnVpnLockdownEnabledResponse, error) {
-	mgr, err := jnipkg.NewdevicePolicyManager(s.Ctx)
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -2246,7 +2246,7 @@ func (s *DevicePolicyManagerServer) IsAlwaysOnVpnLockdownEnabled(_ context.Conte
 }
 
 func (s *DevicePolicyManagerServer) IsApplicationHidden(_ context.Context, req *pb.IsApplicationHiddenRequest) (*pb.IsApplicationHiddenResponse, error) {
-	mgr, err := jnipkg.NewdevicePolicyManager(s.Ctx)
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -2260,7 +2260,7 @@ func (s *DevicePolicyManagerServer) IsApplicationHidden(_ context.Context, req *
 }
 
 func (s *DevicePolicyManagerServer) IsBackupServiceEnabled(_ context.Context, req *pb.IsBackupServiceEnabledRequest) (*pb.IsBackupServiceEnabledResponse, error) {
-	mgr, err := jnipkg.NewdevicePolicyManager(s.Ctx)
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -2274,7 +2274,7 @@ func (s *DevicePolicyManagerServer) IsBackupServiceEnabled(_ context.Context, re
 }
 
 func (s *DevicePolicyManagerServer) IsCallerApplicationRestrictionsManagingPackage(_ context.Context, req *pb.IsCallerApplicationRestrictionsManagingPackageRequest) (*pb.IsCallerApplicationRestrictionsManagingPackageResponse, error) {
-	mgr, err := jnipkg.NewdevicePolicyManager(s.Ctx)
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -2288,7 +2288,7 @@ func (s *DevicePolicyManagerServer) IsCallerApplicationRestrictionsManagingPacka
 }
 
 func (s *DevicePolicyManagerServer) IsCommonCriteriaModeEnabled(_ context.Context, req *pb.IsCommonCriteriaModeEnabledRequest) (*pb.IsCommonCriteriaModeEnabledResponse, error) {
-	mgr, err := jnipkg.NewdevicePolicyManager(s.Ctx)
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -2302,7 +2302,7 @@ func (s *DevicePolicyManagerServer) IsCommonCriteriaModeEnabled(_ context.Contex
 }
 
 func (s *DevicePolicyManagerServer) IsComplianceAcknowledgementRequired(_ context.Context, req *pb.IsComplianceAcknowledgementRequiredRequest) (*pb.IsComplianceAcknowledgementRequiredResponse, error) {
-	mgr, err := jnipkg.NewdevicePolicyManager(s.Ctx)
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -2316,7 +2316,7 @@ func (s *DevicePolicyManagerServer) IsComplianceAcknowledgementRequired(_ contex
 }
 
 func (s *DevicePolicyManagerServer) IsDeviceFinanced(_ context.Context, req *pb.IsDeviceFinancedRequest) (*pb.IsDeviceFinancedResponse, error) {
-	mgr, err := jnipkg.NewdevicePolicyManager(s.Ctx)
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -2330,7 +2330,7 @@ func (s *DevicePolicyManagerServer) IsDeviceFinanced(_ context.Context, req *pb.
 }
 
 func (s *DevicePolicyManagerServer) IsDeviceIdAttestationSupported(_ context.Context, req *pb.IsDeviceIdAttestationSupportedRequest) (*pb.IsDeviceIdAttestationSupportedResponse, error) {
-	mgr, err := jnipkg.NewdevicePolicyManager(s.Ctx)
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -2344,7 +2344,7 @@ func (s *DevicePolicyManagerServer) IsDeviceIdAttestationSupported(_ context.Con
 }
 
 func (s *DevicePolicyManagerServer) IsDeviceOwnerApp(_ context.Context, req *pb.IsDeviceOwnerAppRequest) (*pb.IsDeviceOwnerAppResponse, error) {
-	mgr, err := jnipkg.NewdevicePolicyManager(s.Ctx)
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -2358,7 +2358,7 @@ func (s *DevicePolicyManagerServer) IsDeviceOwnerApp(_ context.Context, req *pb.
 }
 
 func (s *DevicePolicyManagerServer) IsEphemeralUser(_ context.Context, req *pb.IsEphemeralUserRequest) (*pb.IsEphemeralUserResponse, error) {
-	mgr, err := jnipkg.NewdevicePolicyManager(s.Ctx)
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -2372,7 +2372,7 @@ func (s *DevicePolicyManagerServer) IsEphemeralUser(_ context.Context, req *pb.I
 }
 
 func (s *DevicePolicyManagerServer) IsKeyPairGrantedToWifiAuth(_ context.Context, req *pb.IsKeyPairGrantedToWifiAuthRequest) (*pb.IsKeyPairGrantedToWifiAuthResponse, error) {
-	mgr, err := jnipkg.NewdevicePolicyManager(s.Ctx)
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -2386,7 +2386,7 @@ func (s *DevicePolicyManagerServer) IsKeyPairGrantedToWifiAuth(_ context.Context
 }
 
 func (s *DevicePolicyManagerServer) IsLockTaskPermitted(_ context.Context, req *pb.IsLockTaskPermittedRequest) (*pb.IsLockTaskPermittedResponse, error) {
-	mgr, err := jnipkg.NewdevicePolicyManager(s.Ctx)
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -2400,7 +2400,7 @@ func (s *DevicePolicyManagerServer) IsLockTaskPermitted(_ context.Context, req *
 }
 
 func (s *DevicePolicyManagerServer) IsLogoutEnabled(_ context.Context, req *pb.IsLogoutEnabledRequest) (*pb.IsLogoutEnabledResponse, error) {
-	mgr, err := jnipkg.NewdevicePolicyManager(s.Ctx)
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -2414,7 +2414,7 @@ func (s *DevicePolicyManagerServer) IsLogoutEnabled(_ context.Context, req *pb.I
 }
 
 func (s *DevicePolicyManagerServer) IsManagedProfile(_ context.Context, req *pb.IsManagedProfileRequest) (*pb.IsManagedProfileResponse, error) {
-	mgr, err := jnipkg.NewdevicePolicyManager(s.Ctx)
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -2428,7 +2428,7 @@ func (s *DevicePolicyManagerServer) IsManagedProfile(_ context.Context, req *pb.
 }
 
 func (s *DevicePolicyManagerServer) IsMasterVolumeMuted(_ context.Context, req *pb.IsMasterVolumeMutedRequest) (*pb.IsMasterVolumeMutedResponse, error) {
-	mgr, err := jnipkg.NewdevicePolicyManager(s.Ctx)
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -2442,7 +2442,7 @@ func (s *DevicePolicyManagerServer) IsMasterVolumeMuted(_ context.Context, req *
 }
 
 func (s *DevicePolicyManagerServer) IsNetworkLoggingEnabled(_ context.Context, req *pb.IsNetworkLoggingEnabledRequest) (*pb.IsNetworkLoggingEnabledResponse, error) {
-	mgr, err := jnipkg.NewdevicePolicyManager(s.Ctx)
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -2456,7 +2456,7 @@ func (s *DevicePolicyManagerServer) IsNetworkLoggingEnabled(_ context.Context, r
 }
 
 func (s *DevicePolicyManagerServer) IsOrganizationOwnedDeviceWithManagedProfile(_ context.Context, req *pb.IsOrganizationOwnedDeviceWithManagedProfileRequest) (*pb.IsOrganizationOwnedDeviceWithManagedProfileResponse, error) {
-	mgr, err := jnipkg.NewdevicePolicyManager(s.Ctx)
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -2470,7 +2470,7 @@ func (s *DevicePolicyManagerServer) IsOrganizationOwnedDeviceWithManagedProfile(
 }
 
 func (s *DevicePolicyManagerServer) IsOverrideApnEnabled(_ context.Context, req *pb.IsOverrideApnEnabledRequest) (*pb.IsOverrideApnEnabledResponse, error) {
-	mgr, err := jnipkg.NewdevicePolicyManager(s.Ctx)
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -2484,7 +2484,7 @@ func (s *DevicePolicyManagerServer) IsOverrideApnEnabled(_ context.Context, req 
 }
 
 func (s *DevicePolicyManagerServer) IsPackageSuspended(_ context.Context, req *pb.IsPackageSuspendedRequest) (*pb.IsPackageSuspendedResponse, error) {
-	mgr, err := jnipkg.NewdevicePolicyManager(s.Ctx)
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -2498,7 +2498,7 @@ func (s *DevicePolicyManagerServer) IsPackageSuspended(_ context.Context, req *p
 }
 
 func (s *DevicePolicyManagerServer) IsPreferentialNetworkServiceEnabled(_ context.Context, req *pb.IsPreferentialNetworkServiceEnabledRequest) (*pb.IsPreferentialNetworkServiceEnabledResponse, error) {
-	mgr, err := jnipkg.NewdevicePolicyManager(s.Ctx)
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -2512,7 +2512,7 @@ func (s *DevicePolicyManagerServer) IsPreferentialNetworkServiceEnabled(_ contex
 }
 
 func (s *DevicePolicyManagerServer) IsProfileOwnerApp(_ context.Context, req *pb.IsProfileOwnerAppRequest) (*pb.IsProfileOwnerAppResponse, error) {
-	mgr, err := jnipkg.NewdevicePolicyManager(s.Ctx)
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -2526,7 +2526,7 @@ func (s *DevicePolicyManagerServer) IsProfileOwnerApp(_ context.Context, req *pb
 }
 
 func (s *DevicePolicyManagerServer) IsProvisioningAllowed(_ context.Context, req *pb.IsProvisioningAllowedRequest) (*pb.IsProvisioningAllowedResponse, error) {
-	mgr, err := jnipkg.NewdevicePolicyManager(s.Ctx)
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -2540,7 +2540,7 @@ func (s *DevicePolicyManagerServer) IsProvisioningAllowed(_ context.Context, req
 }
 
 func (s *DevicePolicyManagerServer) IsResetPasswordTokenActive(_ context.Context, req *pb.IsResetPasswordTokenActiveRequest) (*pb.IsResetPasswordTokenActiveResponse, error) {
-	mgr, err := jnipkg.NewdevicePolicyManager(s.Ctx)
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -2554,7 +2554,7 @@ func (s *DevicePolicyManagerServer) IsResetPasswordTokenActive(_ context.Context
 }
 
 func (s *DevicePolicyManagerServer) IsSafeOperation(_ context.Context, req *pb.IsSafeOperationRequest) (*pb.IsSafeOperationResponse, error) {
-	mgr, err := jnipkg.NewdevicePolicyManager(s.Ctx)
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -2568,7 +2568,7 @@ func (s *DevicePolicyManagerServer) IsSafeOperation(_ context.Context, req *pb.I
 }
 
 func (s *DevicePolicyManagerServer) IsSecurityLoggingEnabled(_ context.Context, req *pb.IsSecurityLoggingEnabledRequest) (*pb.IsSecurityLoggingEnabledResponse, error) {
-	mgr, err := jnipkg.NewdevicePolicyManager(s.Ctx)
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -2582,7 +2582,7 @@ func (s *DevicePolicyManagerServer) IsSecurityLoggingEnabled(_ context.Context, 
 }
 
 func (s *DevicePolicyManagerServer) IsStatusBarDisabled(_ context.Context, req *pb.IsStatusBarDisabledRequest) (*pb.IsStatusBarDisabledResponse, error) {
-	mgr, err := jnipkg.NewdevicePolicyManager(s.Ctx)
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -2596,7 +2596,7 @@ func (s *DevicePolicyManagerServer) IsStatusBarDisabled(_ context.Context, req *
 }
 
 func (s *DevicePolicyManagerServer) IsUninstallBlocked(_ context.Context, req *pb.IsUninstallBlockedRequest) (*pb.IsUninstallBlockedResponse, error) {
-	mgr, err := jnipkg.NewdevicePolicyManager(s.Ctx)
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -2610,7 +2610,7 @@ func (s *DevicePolicyManagerServer) IsUninstallBlocked(_ context.Context, req *p
 }
 
 func (s *DevicePolicyManagerServer) IsUniqueDeviceAttestationSupported(_ context.Context, req *pb.IsUniqueDeviceAttestationSupportedRequest) (*pb.IsUniqueDeviceAttestationSupportedResponse, error) {
-	mgr, err := jnipkg.NewdevicePolicyManager(s.Ctx)
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -2624,7 +2624,7 @@ func (s *DevicePolicyManagerServer) IsUniqueDeviceAttestationSupported(_ context
 }
 
 func (s *DevicePolicyManagerServer) IsUsbDataSignalingEnabled(_ context.Context, req *pb.IsUsbDataSignalingEnabledRequest) (*pb.IsUsbDataSignalingEnabledResponse, error) {
-	mgr, err := jnipkg.NewdevicePolicyManager(s.Ctx)
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -2638,7 +2638,7 @@ func (s *DevicePolicyManagerServer) IsUsbDataSignalingEnabled(_ context.Context,
 }
 
 func (s *DevicePolicyManagerServer) IsUsingUnifiedPassword(_ context.Context, req *pb.IsUsingUnifiedPasswordRequest) (*pb.IsUsingUnifiedPasswordResponse, error) {
-	mgr, err := jnipkg.NewdevicePolicyManager(s.Ctx)
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -2652,7 +2652,7 @@ func (s *DevicePolicyManagerServer) IsUsingUnifiedPassword(_ context.Context, re
 }
 
 func (s *DevicePolicyManagerServer) ListForegroundAffiliatedUsers(_ context.Context, req *pb.ListForegroundAffiliatedUsersRequest) (*pb.ListForegroundAffiliatedUsersResponse, error) {
-	mgr, err := jnipkg.NewdevicePolicyManager(s.Ctx)
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -2675,7 +2675,7 @@ func (s *DevicePolicyManagerServer) ListForegroundAffiliatedUsers(_ context.Cont
 }
 
 func (s *DevicePolicyManagerServer) LockNow0(_ context.Context, req *pb.LockNow0Request) (*pb.LockNow0Response, error) {
-	mgr, err := jnipkg.NewdevicePolicyManager(s.Ctx)
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -2688,7 +2688,7 @@ func (s *DevicePolicyManagerServer) LockNow0(_ context.Context, req *pb.LockNow0
 }
 
 func (s *DevicePolicyManagerServer) LockNow1_1(_ context.Context, req *pb.LockNow1_1Request) (*pb.LockNow1_1Response, error) {
-	mgr, err := jnipkg.NewdevicePolicyManager(s.Ctx)
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -2701,7 +2701,7 @@ func (s *DevicePolicyManagerServer) LockNow1_1(_ context.Context, req *pb.LockNo
 }
 
 func (s *DevicePolicyManagerServer) LogoutUser(_ context.Context, req *pb.LogoutUserRequest) (*pb.LogoutUserResponse, error) {
-	mgr, err := jnipkg.NewdevicePolicyManager(s.Ctx)
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -2715,7 +2715,7 @@ func (s *DevicePolicyManagerServer) LogoutUser(_ context.Context, req *pb.Logout
 }
 
 func (s *DevicePolicyManagerServer) Reboot(_ context.Context, req *pb.RebootRequest) (*pb.RebootResponse, error) {
-	mgr, err := jnipkg.NewdevicePolicyManager(s.Ctx)
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -2728,7 +2728,7 @@ func (s *DevicePolicyManagerServer) Reboot(_ context.Context, req *pb.RebootRequ
 }
 
 func (s *DevicePolicyManagerServer) RemoveActiveAdmin(_ context.Context, req *pb.RemoveActiveAdminRequest) (*pb.RemoveActiveAdminResponse, error) {
-	mgr, err := jnipkg.NewdevicePolicyManager(s.Ctx)
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -2741,7 +2741,7 @@ func (s *DevicePolicyManagerServer) RemoveActiveAdmin(_ context.Context, req *pb
 }
 
 func (s *DevicePolicyManagerServer) RemoveCrossProfileWidgetProvider(_ context.Context, req *pb.RemoveCrossProfileWidgetProviderRequest) (*pb.RemoveCrossProfileWidgetProviderResponse, error) {
-	mgr, err := jnipkg.NewdevicePolicyManager(s.Ctx)
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -2755,7 +2755,7 @@ func (s *DevicePolicyManagerServer) RemoveCrossProfileWidgetProvider(_ context.C
 }
 
 func (s *DevicePolicyManagerServer) RemoveKeyPair(_ context.Context, req *pb.RemoveKeyPairRequest) (*pb.RemoveKeyPairResponse, error) {
-	mgr, err := jnipkg.NewdevicePolicyManager(s.Ctx)
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -2769,7 +2769,7 @@ func (s *DevicePolicyManagerServer) RemoveKeyPair(_ context.Context, req *pb.Rem
 }
 
 func (s *DevicePolicyManagerServer) RemoveOverrideApn(_ context.Context, req *pb.RemoveOverrideApnRequest) (*pb.RemoveOverrideApnResponse, error) {
-	mgr, err := jnipkg.NewdevicePolicyManager(s.Ctx)
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -2783,7 +2783,7 @@ func (s *DevicePolicyManagerServer) RemoveOverrideApn(_ context.Context, req *pb
 }
 
 func (s *DevicePolicyManagerServer) RemoveUser(_ context.Context, req *pb.RemoveUserRequest) (*pb.RemoveUserResponse, error) {
-	mgr, err := jnipkg.NewdevicePolicyManager(s.Ctx)
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -2797,7 +2797,7 @@ func (s *DevicePolicyManagerServer) RemoveUser(_ context.Context, req *pb.Remove
 }
 
 func (s *DevicePolicyManagerServer) RequestBugreport(_ context.Context, req *pb.RequestBugreportRequest) (*pb.RequestBugreportResponse, error) {
-	mgr, err := jnipkg.NewdevicePolicyManager(s.Ctx)
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -2811,7 +2811,7 @@ func (s *DevicePolicyManagerServer) RequestBugreport(_ context.Context, req *pb.
 }
 
 func (s *DevicePolicyManagerServer) ResetPassword(_ context.Context, req *pb.ResetPasswordRequest) (*pb.ResetPasswordResponse, error) {
-	mgr, err := jnipkg.NewdevicePolicyManager(s.Ctx)
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -2825,7 +2825,7 @@ func (s *DevicePolicyManagerServer) ResetPassword(_ context.Context, req *pb.Res
 }
 
 func (s *DevicePolicyManagerServer) ResetPasswordWithToken(_ context.Context, req *pb.ResetPasswordWithTokenRequest) (*pb.ResetPasswordWithTokenResponse, error) {
-	mgr, err := jnipkg.NewdevicePolicyManager(s.Ctx)
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -2839,7 +2839,7 @@ func (s *DevicePolicyManagerServer) ResetPasswordWithToken(_ context.Context, re
 }
 
 func (s *DevicePolicyManagerServer) RetrieveNetworkLogs(_ context.Context, req *pb.RetrieveNetworkLogsRequest) (*pb.RetrieveNetworkLogsResponse, error) {
-	mgr, err := jnipkg.NewdevicePolicyManager(s.Ctx)
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -2862,7 +2862,7 @@ func (s *DevicePolicyManagerServer) RetrieveNetworkLogs(_ context.Context, req *
 }
 
 func (s *DevicePolicyManagerServer) RetrievePreRebootSecurityLogs(_ context.Context, req *pb.RetrievePreRebootSecurityLogsRequest) (*pb.RetrievePreRebootSecurityLogsResponse, error) {
-	mgr, err := jnipkg.NewdevicePolicyManager(s.Ctx)
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -2885,7 +2885,7 @@ func (s *DevicePolicyManagerServer) RetrievePreRebootSecurityLogs(_ context.Cont
 }
 
 func (s *DevicePolicyManagerServer) RetrieveSecurityLogs(_ context.Context, req *pb.RetrieveSecurityLogsRequest) (*pb.RetrieveSecurityLogsResponse, error) {
-	mgr, err := jnipkg.NewdevicePolicyManager(s.Ctx)
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -2908,7 +2908,7 @@ func (s *DevicePolicyManagerServer) RetrieveSecurityLogs(_ context.Context, req 
 }
 
 func (s *DevicePolicyManagerServer) RevokeKeyPairFromApp(_ context.Context, req *pb.RevokeKeyPairFromAppRequest) (*pb.RevokeKeyPairFromAppResponse, error) {
-	mgr, err := jnipkg.NewdevicePolicyManager(s.Ctx)
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -2922,7 +2922,7 @@ func (s *DevicePolicyManagerServer) RevokeKeyPairFromApp(_ context.Context, req 
 }
 
 func (s *DevicePolicyManagerServer) RevokeKeyPairFromWifiAuth(_ context.Context, req *pb.RevokeKeyPairFromWifiAuthRequest) (*pb.RevokeKeyPairFromWifiAuthResponse, error) {
-	mgr, err := jnipkg.NewdevicePolicyManager(s.Ctx)
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -2936,7 +2936,7 @@ func (s *DevicePolicyManagerServer) RevokeKeyPairFromWifiAuth(_ context.Context,
 }
 
 func (s *DevicePolicyManagerServer) SetAccountManagementDisabled(_ context.Context, req *pb.SetAccountManagementDisabledRequest) (*pb.SetAccountManagementDisabledResponse, error) {
-	mgr, err := jnipkg.NewdevicePolicyManager(s.Ctx)
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -2949,7 +2949,7 @@ func (s *DevicePolicyManagerServer) SetAccountManagementDisabled(_ context.Conte
 }
 
 func (s *DevicePolicyManagerServer) SetAffiliationIds(_ context.Context, req *pb.SetAffiliationIdsRequest) (*pb.SetAffiliationIdsResponse, error) {
-	mgr, err := jnipkg.NewdevicePolicyManager(s.Ctx)
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -2962,7 +2962,7 @@ func (s *DevicePolicyManagerServer) SetAffiliationIds(_ context.Context, req *pb
 }
 
 func (s *DevicePolicyManagerServer) SetAlwaysOnVpnPackage3(_ context.Context, req *pb.SetAlwaysOnVpnPackage3Request) (*pb.SetAlwaysOnVpnPackage3Response, error) {
-	mgr, err := jnipkg.NewdevicePolicyManager(s.Ctx)
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -2975,7 +2975,7 @@ func (s *DevicePolicyManagerServer) SetAlwaysOnVpnPackage3(_ context.Context, re
 }
 
 func (s *DevicePolicyManagerServer) SetAlwaysOnVpnPackage4_1(_ context.Context, req *pb.SetAlwaysOnVpnPackage4_1Request) (*pb.SetAlwaysOnVpnPackage4_1Response, error) {
-	mgr, err := jnipkg.NewdevicePolicyManager(s.Ctx)
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -2988,7 +2988,7 @@ func (s *DevicePolicyManagerServer) SetAlwaysOnVpnPackage4_1(_ context.Context, 
 }
 
 func (s *DevicePolicyManagerServer) SetAppFunctionsPolicy(_ context.Context, req *pb.SetAppFunctionsPolicyRequest) (*pb.SetAppFunctionsPolicyResponse, error) {
-	mgr, err := jnipkg.NewdevicePolicyManager(s.Ctx)
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -3001,7 +3001,7 @@ func (s *DevicePolicyManagerServer) SetAppFunctionsPolicy(_ context.Context, req
 }
 
 func (s *DevicePolicyManagerServer) SetApplicationHidden(_ context.Context, req *pb.SetApplicationHiddenRequest) (*pb.SetApplicationHiddenResponse, error) {
-	mgr, err := jnipkg.NewdevicePolicyManager(s.Ctx)
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -3015,7 +3015,7 @@ func (s *DevicePolicyManagerServer) SetApplicationHidden(_ context.Context, req 
 }
 
 func (s *DevicePolicyManagerServer) SetApplicationRestrictions(_ context.Context, req *pb.SetApplicationRestrictionsRequest) (*pb.SetApplicationRestrictionsResponse, error) {
-	mgr, err := jnipkg.NewdevicePolicyManager(s.Ctx)
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -3028,7 +3028,7 @@ func (s *DevicePolicyManagerServer) SetApplicationRestrictions(_ context.Context
 }
 
 func (s *DevicePolicyManagerServer) SetApplicationRestrictionsManagingPackage(_ context.Context, req *pb.SetApplicationRestrictionsManagingPackageRequest) (*pb.SetApplicationRestrictionsManagingPackageResponse, error) {
-	mgr, err := jnipkg.NewdevicePolicyManager(s.Ctx)
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -3041,7 +3041,7 @@ func (s *DevicePolicyManagerServer) SetApplicationRestrictionsManagingPackage(_ 
 }
 
 func (s *DevicePolicyManagerServer) SetAutoTimeEnabled(_ context.Context, req *pb.SetAutoTimeEnabledRequest) (*pb.SetAutoTimeEnabledResponse, error) {
-	mgr, err := jnipkg.NewdevicePolicyManager(s.Ctx)
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -3054,7 +3054,7 @@ func (s *DevicePolicyManagerServer) SetAutoTimeEnabled(_ context.Context, req *p
 }
 
 func (s *DevicePolicyManagerServer) SetAutoTimePolicy(_ context.Context, req *pb.SetAutoTimePolicyRequest) (*pb.SetAutoTimePolicyResponse, error) {
-	mgr, err := jnipkg.NewdevicePolicyManager(s.Ctx)
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -3067,7 +3067,7 @@ func (s *DevicePolicyManagerServer) SetAutoTimePolicy(_ context.Context, req *pb
 }
 
 func (s *DevicePolicyManagerServer) SetAutoTimeRequired(_ context.Context, req *pb.SetAutoTimeRequiredRequest) (*pb.SetAutoTimeRequiredResponse, error) {
-	mgr, err := jnipkg.NewdevicePolicyManager(s.Ctx)
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -3080,7 +3080,7 @@ func (s *DevicePolicyManagerServer) SetAutoTimeRequired(_ context.Context, req *
 }
 
 func (s *DevicePolicyManagerServer) SetAutoTimeZoneEnabled(_ context.Context, req *pb.SetAutoTimeZoneEnabledRequest) (*pb.SetAutoTimeZoneEnabledResponse, error) {
-	mgr, err := jnipkg.NewdevicePolicyManager(s.Ctx)
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -3093,7 +3093,7 @@ func (s *DevicePolicyManagerServer) SetAutoTimeZoneEnabled(_ context.Context, re
 }
 
 func (s *DevicePolicyManagerServer) SetAutoTimeZonePolicy(_ context.Context, req *pb.SetAutoTimeZonePolicyRequest) (*pb.SetAutoTimeZonePolicyResponse, error) {
-	mgr, err := jnipkg.NewdevicePolicyManager(s.Ctx)
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -3106,7 +3106,7 @@ func (s *DevicePolicyManagerServer) SetAutoTimeZonePolicy(_ context.Context, req
 }
 
 func (s *DevicePolicyManagerServer) SetBackupServiceEnabled(_ context.Context, req *pb.SetBackupServiceEnabledRequest) (*pb.SetBackupServiceEnabledResponse, error) {
-	mgr, err := jnipkg.NewdevicePolicyManager(s.Ctx)
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -3119,7 +3119,7 @@ func (s *DevicePolicyManagerServer) SetBackupServiceEnabled(_ context.Context, r
 }
 
 func (s *DevicePolicyManagerServer) SetBluetoothContactSharingDisabled(_ context.Context, req *pb.SetBluetoothContactSharingDisabledRequest) (*pb.SetBluetoothContactSharingDisabledResponse, error) {
-	mgr, err := jnipkg.NewdevicePolicyManager(s.Ctx)
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -3132,7 +3132,7 @@ func (s *DevicePolicyManagerServer) SetBluetoothContactSharingDisabled(_ context
 }
 
 func (s *DevicePolicyManagerServer) SetCameraDisabled(_ context.Context, req *pb.SetCameraDisabledRequest) (*pb.SetCameraDisabledResponse, error) {
-	mgr, err := jnipkg.NewdevicePolicyManager(s.Ctx)
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -3145,7 +3145,7 @@ func (s *DevicePolicyManagerServer) SetCameraDisabled(_ context.Context, req *pb
 }
 
 func (s *DevicePolicyManagerServer) SetCertInstallerPackage(_ context.Context, req *pb.SetCertInstallerPackageRequest) (*pb.SetCertInstallerPackageResponse, error) {
-	mgr, err := jnipkg.NewdevicePolicyManager(s.Ctx)
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -3158,7 +3158,7 @@ func (s *DevicePolicyManagerServer) SetCertInstallerPackage(_ context.Context, r
 }
 
 func (s *DevicePolicyManagerServer) SetCommonCriteriaModeEnabled(_ context.Context, req *pb.SetCommonCriteriaModeEnabledRequest) (*pb.SetCommonCriteriaModeEnabledResponse, error) {
-	mgr, err := jnipkg.NewdevicePolicyManager(s.Ctx)
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -3171,7 +3171,7 @@ func (s *DevicePolicyManagerServer) SetCommonCriteriaModeEnabled(_ context.Conte
 }
 
 func (s *DevicePolicyManagerServer) SetConfiguredNetworksLockdownState(_ context.Context, req *pb.SetConfiguredNetworksLockdownStateRequest) (*pb.SetConfiguredNetworksLockdownStateResponse, error) {
-	mgr, err := jnipkg.NewdevicePolicyManager(s.Ctx)
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -3184,7 +3184,7 @@ func (s *DevicePolicyManagerServer) SetConfiguredNetworksLockdownState(_ context
 }
 
 func (s *DevicePolicyManagerServer) SetContentProtectionPolicy(_ context.Context, req *pb.SetContentProtectionPolicyRequest) (*pb.SetContentProtectionPolicyResponse, error) {
-	mgr, err := jnipkg.NewdevicePolicyManager(s.Ctx)
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -3197,7 +3197,7 @@ func (s *DevicePolicyManagerServer) SetContentProtectionPolicy(_ context.Context
 }
 
 func (s *DevicePolicyManagerServer) SetCredentialManagerPolicy(_ context.Context, req *pb.SetCredentialManagerPolicyRequest) (*pb.SetCredentialManagerPolicyResponse, error) {
-	mgr, err := jnipkg.NewdevicePolicyManager(s.Ctx)
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -3210,7 +3210,7 @@ func (s *DevicePolicyManagerServer) SetCredentialManagerPolicy(_ context.Context
 }
 
 func (s *DevicePolicyManagerServer) SetCrossProfileCalendarPackages(_ context.Context, req *pb.SetCrossProfileCalendarPackagesRequest) (*pb.SetCrossProfileCalendarPackagesResponse, error) {
-	mgr, err := jnipkg.NewdevicePolicyManager(s.Ctx)
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -3223,7 +3223,7 @@ func (s *DevicePolicyManagerServer) SetCrossProfileCalendarPackages(_ context.Co
 }
 
 func (s *DevicePolicyManagerServer) SetCrossProfileCallerIdDisabled(_ context.Context, req *pb.SetCrossProfileCallerIdDisabledRequest) (*pb.SetCrossProfileCallerIdDisabledResponse, error) {
-	mgr, err := jnipkg.NewdevicePolicyManager(s.Ctx)
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -3236,7 +3236,7 @@ func (s *DevicePolicyManagerServer) SetCrossProfileCallerIdDisabled(_ context.Co
 }
 
 func (s *DevicePolicyManagerServer) SetCrossProfileContactsSearchDisabled(_ context.Context, req *pb.SetCrossProfileContactsSearchDisabledRequest) (*pb.SetCrossProfileContactsSearchDisabledResponse, error) {
-	mgr, err := jnipkg.NewdevicePolicyManager(s.Ctx)
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -3249,7 +3249,7 @@ func (s *DevicePolicyManagerServer) SetCrossProfileContactsSearchDisabled(_ cont
 }
 
 func (s *DevicePolicyManagerServer) SetCrossProfilePackages(_ context.Context, req *pb.SetCrossProfilePackagesRequest) (*pb.SetCrossProfilePackagesResponse, error) {
-	mgr, err := jnipkg.NewdevicePolicyManager(s.Ctx)
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -3262,7 +3262,7 @@ func (s *DevicePolicyManagerServer) SetCrossProfilePackages(_ context.Context, r
 }
 
 func (s *DevicePolicyManagerServer) SetDefaultDialerApplication(_ context.Context, req *pb.SetDefaultDialerApplicationRequest) (*pb.SetDefaultDialerApplicationResponse, error) {
-	mgr, err := jnipkg.NewdevicePolicyManager(s.Ctx)
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -3275,7 +3275,7 @@ func (s *DevicePolicyManagerServer) SetDefaultDialerApplication(_ context.Contex
 }
 
 func (s *DevicePolicyManagerServer) SetDefaultSmsApplication(_ context.Context, req *pb.SetDefaultSmsApplicationRequest) (*pb.SetDefaultSmsApplicationResponse, error) {
-	mgr, err := jnipkg.NewdevicePolicyManager(s.Ctx)
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -3288,7 +3288,7 @@ func (s *DevicePolicyManagerServer) SetDefaultSmsApplication(_ context.Context, 
 }
 
 func (s *DevicePolicyManagerServer) SetDelegatedScopes(_ context.Context, req *pb.SetDelegatedScopesRequest) (*pb.SetDelegatedScopesResponse, error) {
-	mgr, err := jnipkg.NewdevicePolicyManager(s.Ctx)
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -3301,7 +3301,7 @@ func (s *DevicePolicyManagerServer) SetDelegatedScopes(_ context.Context, req *p
 }
 
 func (s *DevicePolicyManagerServer) SetDeviceOwnerLockScreenInfo(_ context.Context, req *pb.SetDeviceOwnerLockScreenInfoRequest) (*pb.SetDeviceOwnerLockScreenInfoResponse, error) {
-	mgr, err := jnipkg.NewdevicePolicyManager(s.Ctx)
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -3314,7 +3314,7 @@ func (s *DevicePolicyManagerServer) SetDeviceOwnerLockScreenInfo(_ context.Conte
 }
 
 func (s *DevicePolicyManagerServer) SetEndUserSessionMessage(_ context.Context, req *pb.SetEndUserSessionMessageRequest) (*pb.SetEndUserSessionMessageResponse, error) {
-	mgr, err := jnipkg.NewdevicePolicyManager(s.Ctx)
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -3327,7 +3327,7 @@ func (s *DevicePolicyManagerServer) SetEndUserSessionMessage(_ context.Context, 
 }
 
 func (s *DevicePolicyManagerServer) SetFactoryResetProtectionPolicy(_ context.Context, req *pb.SetFactoryResetProtectionPolicyRequest) (*pb.SetFactoryResetProtectionPolicyResponse, error) {
-	mgr, err := jnipkg.NewdevicePolicyManager(s.Ctx)
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -3340,7 +3340,7 @@ func (s *DevicePolicyManagerServer) SetFactoryResetProtectionPolicy(_ context.Co
 }
 
 func (s *DevicePolicyManagerServer) SetGlobalPrivateDnsModeOpportunistic(_ context.Context, req *pb.SetGlobalPrivateDnsModeOpportunisticRequest) (*pb.SetGlobalPrivateDnsModeOpportunisticResponse, error) {
-	mgr, err := jnipkg.NewdevicePolicyManager(s.Ctx)
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -3354,7 +3354,7 @@ func (s *DevicePolicyManagerServer) SetGlobalPrivateDnsModeOpportunistic(_ conte
 }
 
 func (s *DevicePolicyManagerServer) SetGlobalPrivateDnsModeSpecifiedHost(_ context.Context, req *pb.SetGlobalPrivateDnsModeSpecifiedHostRequest) (*pb.SetGlobalPrivateDnsModeSpecifiedHostResponse, error) {
-	mgr, err := jnipkg.NewdevicePolicyManager(s.Ctx)
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -3368,7 +3368,7 @@ func (s *DevicePolicyManagerServer) SetGlobalPrivateDnsModeSpecifiedHost(_ conte
 }
 
 func (s *DevicePolicyManagerServer) SetGlobalSetting(_ context.Context, req *pb.SetGlobalSettingRequest) (*pb.SetGlobalSettingResponse, error) {
-	mgr, err := jnipkg.NewdevicePolicyManager(s.Ctx)
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -3381,7 +3381,7 @@ func (s *DevicePolicyManagerServer) SetGlobalSetting(_ context.Context, req *pb.
 }
 
 func (s *DevicePolicyManagerServer) SetKeepUninstalledPackages(_ context.Context, req *pb.SetKeepUninstalledPackagesRequest) (*pb.SetKeepUninstalledPackagesResponse, error) {
-	mgr, err := jnipkg.NewdevicePolicyManager(s.Ctx)
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -3394,7 +3394,7 @@ func (s *DevicePolicyManagerServer) SetKeepUninstalledPackages(_ context.Context
 }
 
 func (s *DevicePolicyManagerServer) SetKeyPairCertificate(_ context.Context, req *pb.SetKeyPairCertificateRequest) (*pb.SetKeyPairCertificateResponse, error) {
-	mgr, err := jnipkg.NewdevicePolicyManager(s.Ctx)
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -3408,7 +3408,7 @@ func (s *DevicePolicyManagerServer) SetKeyPairCertificate(_ context.Context, req
 }
 
 func (s *DevicePolicyManagerServer) SetKeyguardDisabled(_ context.Context, req *pb.SetKeyguardDisabledRequest) (*pb.SetKeyguardDisabledResponse, error) {
-	mgr, err := jnipkg.NewdevicePolicyManager(s.Ctx)
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -3422,7 +3422,7 @@ func (s *DevicePolicyManagerServer) SetKeyguardDisabled(_ context.Context, req *
 }
 
 func (s *DevicePolicyManagerServer) SetKeyguardDisabledFeatures(_ context.Context, req *pb.SetKeyguardDisabledFeaturesRequest) (*pb.SetKeyguardDisabledFeaturesResponse, error) {
-	mgr, err := jnipkg.NewdevicePolicyManager(s.Ctx)
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -3435,7 +3435,7 @@ func (s *DevicePolicyManagerServer) SetKeyguardDisabledFeatures(_ context.Contex
 }
 
 func (s *DevicePolicyManagerServer) SetLocationEnabled(_ context.Context, req *pb.SetLocationEnabledRequest) (*pb.SetLocationEnabledResponse, error) {
-	mgr, err := jnipkg.NewdevicePolicyManager(s.Ctx)
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -3448,7 +3448,7 @@ func (s *DevicePolicyManagerServer) SetLocationEnabled(_ context.Context, req *p
 }
 
 func (s *DevicePolicyManagerServer) SetLockTaskFeatures(_ context.Context, req *pb.SetLockTaskFeaturesRequest) (*pb.SetLockTaskFeaturesResponse, error) {
-	mgr, err := jnipkg.NewdevicePolicyManager(s.Ctx)
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -3461,7 +3461,7 @@ func (s *DevicePolicyManagerServer) SetLockTaskFeatures(_ context.Context, req *
 }
 
 func (s *DevicePolicyManagerServer) SetLockTaskPackages(_ context.Context, req *pb.SetLockTaskPackagesRequest) (*pb.SetLockTaskPackagesResponse, error) {
-	mgr, err := jnipkg.NewdevicePolicyManager(s.Ctx)
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -3474,7 +3474,7 @@ func (s *DevicePolicyManagerServer) SetLockTaskPackages(_ context.Context, req *
 }
 
 func (s *DevicePolicyManagerServer) SetLogoutEnabled(_ context.Context, req *pb.SetLogoutEnabledRequest) (*pb.SetLogoutEnabledResponse, error) {
-	mgr, err := jnipkg.NewdevicePolicyManager(s.Ctx)
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -3487,7 +3487,7 @@ func (s *DevicePolicyManagerServer) SetLogoutEnabled(_ context.Context, req *pb.
 }
 
 func (s *DevicePolicyManagerServer) SetLongSupportMessage(_ context.Context, req *pb.SetLongSupportMessageRequest) (*pb.SetLongSupportMessageResponse, error) {
-	mgr, err := jnipkg.NewdevicePolicyManager(s.Ctx)
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -3500,7 +3500,7 @@ func (s *DevicePolicyManagerServer) SetLongSupportMessage(_ context.Context, req
 }
 
 func (s *DevicePolicyManagerServer) SetManagedProfileCallerIdAccessPolicy(_ context.Context, req *pb.SetManagedProfileCallerIdAccessPolicyRequest) (*pb.SetManagedProfileCallerIdAccessPolicyResponse, error) {
-	mgr, err := jnipkg.NewdevicePolicyManager(s.Ctx)
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -3513,7 +3513,7 @@ func (s *DevicePolicyManagerServer) SetManagedProfileCallerIdAccessPolicy(_ cont
 }
 
 func (s *DevicePolicyManagerServer) SetManagedProfileContactsAccessPolicy(_ context.Context, req *pb.SetManagedProfileContactsAccessPolicyRequest) (*pb.SetManagedProfileContactsAccessPolicyResponse, error) {
-	mgr, err := jnipkg.NewdevicePolicyManager(s.Ctx)
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -3526,7 +3526,7 @@ func (s *DevicePolicyManagerServer) SetManagedProfileContactsAccessPolicy(_ cont
 }
 
 func (s *DevicePolicyManagerServer) SetManagedProfileMaximumTimeOff(_ context.Context, req *pb.SetManagedProfileMaximumTimeOffRequest) (*pb.SetManagedProfileMaximumTimeOffResponse, error) {
-	mgr, err := jnipkg.NewdevicePolicyManager(s.Ctx)
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -3539,7 +3539,7 @@ func (s *DevicePolicyManagerServer) SetManagedProfileMaximumTimeOff(_ context.Co
 }
 
 func (s *DevicePolicyManagerServer) SetManagedSubscriptionsPolicy(_ context.Context, req *pb.SetManagedSubscriptionsPolicyRequest) (*pb.SetManagedSubscriptionsPolicyResponse, error) {
-	mgr, err := jnipkg.NewdevicePolicyManager(s.Ctx)
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -3552,7 +3552,7 @@ func (s *DevicePolicyManagerServer) SetManagedSubscriptionsPolicy(_ context.Cont
 }
 
 func (s *DevicePolicyManagerServer) SetMasterVolumeMuted(_ context.Context, req *pb.SetMasterVolumeMutedRequest) (*pb.SetMasterVolumeMutedResponse, error) {
-	mgr, err := jnipkg.NewdevicePolicyManager(s.Ctx)
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -3565,7 +3565,7 @@ func (s *DevicePolicyManagerServer) SetMasterVolumeMuted(_ context.Context, req 
 }
 
 func (s *DevicePolicyManagerServer) SetMaximumFailedPasswordsForWipe(_ context.Context, req *pb.SetMaximumFailedPasswordsForWipeRequest) (*pb.SetMaximumFailedPasswordsForWipeResponse, error) {
-	mgr, err := jnipkg.NewdevicePolicyManager(s.Ctx)
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -3578,7 +3578,7 @@ func (s *DevicePolicyManagerServer) SetMaximumFailedPasswordsForWipe(_ context.C
 }
 
 func (s *DevicePolicyManagerServer) SetMaximumTimeToLock(_ context.Context, req *pb.SetMaximumTimeToLockRequest) (*pb.SetMaximumTimeToLockResponse, error) {
-	mgr, err := jnipkg.NewdevicePolicyManager(s.Ctx)
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -3591,7 +3591,7 @@ func (s *DevicePolicyManagerServer) SetMaximumTimeToLock(_ context.Context, req 
 }
 
 func (s *DevicePolicyManagerServer) SetMeteredDataDisabledPackages(_ context.Context, req *pb.SetMeteredDataDisabledPackagesRequest) (*pb.SetMeteredDataDisabledPackagesResponse, error) {
-	mgr, err := jnipkg.NewdevicePolicyManager(s.Ctx)
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -3614,7 +3614,7 @@ func (s *DevicePolicyManagerServer) SetMeteredDataDisabledPackages(_ context.Con
 }
 
 func (s *DevicePolicyManagerServer) SetMinimumRequiredWifiSecurityLevel(_ context.Context, req *pb.SetMinimumRequiredWifiSecurityLevelRequest) (*pb.SetMinimumRequiredWifiSecurityLevelResponse, error) {
-	mgr, err := jnipkg.NewdevicePolicyManager(s.Ctx)
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -3627,7 +3627,7 @@ func (s *DevicePolicyManagerServer) SetMinimumRequiredWifiSecurityLevel(_ contex
 }
 
 func (s *DevicePolicyManagerServer) SetMtePolicy(_ context.Context, req *pb.SetMtePolicyRequest) (*pb.SetMtePolicyResponse, error) {
-	mgr, err := jnipkg.NewdevicePolicyManager(s.Ctx)
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -3640,7 +3640,7 @@ func (s *DevicePolicyManagerServer) SetMtePolicy(_ context.Context, req *pb.SetM
 }
 
 func (s *DevicePolicyManagerServer) SetNearbyAppStreamingPolicy(_ context.Context, req *pb.SetNearbyAppStreamingPolicyRequest) (*pb.SetNearbyAppStreamingPolicyResponse, error) {
-	mgr, err := jnipkg.NewdevicePolicyManager(s.Ctx)
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -3653,7 +3653,7 @@ func (s *DevicePolicyManagerServer) SetNearbyAppStreamingPolicy(_ context.Contex
 }
 
 func (s *DevicePolicyManagerServer) SetNearbyNotificationStreamingPolicy(_ context.Context, req *pb.SetNearbyNotificationStreamingPolicyRequest) (*pb.SetNearbyNotificationStreamingPolicyResponse, error) {
-	mgr, err := jnipkg.NewdevicePolicyManager(s.Ctx)
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -3666,7 +3666,7 @@ func (s *DevicePolicyManagerServer) SetNearbyNotificationStreamingPolicy(_ conte
 }
 
 func (s *DevicePolicyManagerServer) SetNetworkLoggingEnabled(_ context.Context, req *pb.SetNetworkLoggingEnabledRequest) (*pb.SetNetworkLoggingEnabledResponse, error) {
-	mgr, err := jnipkg.NewdevicePolicyManager(s.Ctx)
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -3679,7 +3679,7 @@ func (s *DevicePolicyManagerServer) SetNetworkLoggingEnabled(_ context.Context, 
 }
 
 func (s *DevicePolicyManagerServer) SetOrganizationColor(_ context.Context, req *pb.SetOrganizationColorRequest) (*pb.SetOrganizationColorResponse, error) {
-	mgr, err := jnipkg.NewdevicePolicyManager(s.Ctx)
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -3692,7 +3692,7 @@ func (s *DevicePolicyManagerServer) SetOrganizationColor(_ context.Context, req 
 }
 
 func (s *DevicePolicyManagerServer) SetOrganizationId(_ context.Context, req *pb.SetOrganizationIdRequest) (*pb.SetOrganizationIdResponse, error) {
-	mgr, err := jnipkg.NewdevicePolicyManager(s.Ctx)
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -3705,7 +3705,7 @@ func (s *DevicePolicyManagerServer) SetOrganizationId(_ context.Context, req *pb
 }
 
 func (s *DevicePolicyManagerServer) SetOrganizationName(_ context.Context, req *pb.SetOrganizationNameRequest) (*pb.SetOrganizationNameResponse, error) {
-	mgr, err := jnipkg.NewdevicePolicyManager(s.Ctx)
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -3718,7 +3718,7 @@ func (s *DevicePolicyManagerServer) SetOrganizationName(_ context.Context, req *
 }
 
 func (s *DevicePolicyManagerServer) SetOverrideApnsEnabled(_ context.Context, req *pb.SetOverrideApnsEnabledRequest) (*pb.SetOverrideApnsEnabledResponse, error) {
-	mgr, err := jnipkg.NewdevicePolicyManager(s.Ctx)
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -3731,7 +3731,7 @@ func (s *DevicePolicyManagerServer) SetOverrideApnsEnabled(_ context.Context, re
 }
 
 func (s *DevicePolicyManagerServer) SetPackagesSuspended(_ context.Context, req *pb.SetPackagesSuspendedRequest) (*pb.SetPackagesSuspendedResponse, error) {
-	mgr, err := jnipkg.NewdevicePolicyManager(s.Ctx)
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -3754,7 +3754,7 @@ func (s *DevicePolicyManagerServer) SetPackagesSuspended(_ context.Context, req 
 }
 
 func (s *DevicePolicyManagerServer) SetPasswordExpirationTimeout(_ context.Context, req *pb.SetPasswordExpirationTimeoutRequest) (*pb.SetPasswordExpirationTimeoutResponse, error) {
-	mgr, err := jnipkg.NewdevicePolicyManager(s.Ctx)
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -3767,7 +3767,7 @@ func (s *DevicePolicyManagerServer) SetPasswordExpirationTimeout(_ context.Conte
 }
 
 func (s *DevicePolicyManagerServer) SetPasswordHistoryLength(_ context.Context, req *pb.SetPasswordHistoryLengthRequest) (*pb.SetPasswordHistoryLengthResponse, error) {
-	mgr, err := jnipkg.NewdevicePolicyManager(s.Ctx)
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -3780,7 +3780,7 @@ func (s *DevicePolicyManagerServer) SetPasswordHistoryLength(_ context.Context, 
 }
 
 func (s *DevicePolicyManagerServer) SetPasswordMinimumLength(_ context.Context, req *pb.SetPasswordMinimumLengthRequest) (*pb.SetPasswordMinimumLengthResponse, error) {
-	mgr, err := jnipkg.NewdevicePolicyManager(s.Ctx)
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -3793,7 +3793,7 @@ func (s *DevicePolicyManagerServer) SetPasswordMinimumLength(_ context.Context, 
 }
 
 func (s *DevicePolicyManagerServer) SetPasswordMinimumLetters(_ context.Context, req *pb.SetPasswordMinimumLettersRequest) (*pb.SetPasswordMinimumLettersResponse, error) {
-	mgr, err := jnipkg.NewdevicePolicyManager(s.Ctx)
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -3806,7 +3806,7 @@ func (s *DevicePolicyManagerServer) SetPasswordMinimumLetters(_ context.Context,
 }
 
 func (s *DevicePolicyManagerServer) SetPasswordMinimumLowerCase(_ context.Context, req *pb.SetPasswordMinimumLowerCaseRequest) (*pb.SetPasswordMinimumLowerCaseResponse, error) {
-	mgr, err := jnipkg.NewdevicePolicyManager(s.Ctx)
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -3819,7 +3819,7 @@ func (s *DevicePolicyManagerServer) SetPasswordMinimumLowerCase(_ context.Contex
 }
 
 func (s *DevicePolicyManagerServer) SetPasswordMinimumNonLetter(_ context.Context, req *pb.SetPasswordMinimumNonLetterRequest) (*pb.SetPasswordMinimumNonLetterResponse, error) {
-	mgr, err := jnipkg.NewdevicePolicyManager(s.Ctx)
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -3832,7 +3832,7 @@ func (s *DevicePolicyManagerServer) SetPasswordMinimumNonLetter(_ context.Contex
 }
 
 func (s *DevicePolicyManagerServer) SetPasswordMinimumNumeric(_ context.Context, req *pb.SetPasswordMinimumNumericRequest) (*pb.SetPasswordMinimumNumericResponse, error) {
-	mgr, err := jnipkg.NewdevicePolicyManager(s.Ctx)
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -3845,7 +3845,7 @@ func (s *DevicePolicyManagerServer) SetPasswordMinimumNumeric(_ context.Context,
 }
 
 func (s *DevicePolicyManagerServer) SetPasswordMinimumSymbols(_ context.Context, req *pb.SetPasswordMinimumSymbolsRequest) (*pb.SetPasswordMinimumSymbolsResponse, error) {
-	mgr, err := jnipkg.NewdevicePolicyManager(s.Ctx)
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -3858,7 +3858,7 @@ func (s *DevicePolicyManagerServer) SetPasswordMinimumSymbols(_ context.Context,
 }
 
 func (s *DevicePolicyManagerServer) SetPasswordMinimumUpperCase(_ context.Context, req *pb.SetPasswordMinimumUpperCaseRequest) (*pb.SetPasswordMinimumUpperCaseResponse, error) {
-	mgr, err := jnipkg.NewdevicePolicyManager(s.Ctx)
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -3871,7 +3871,7 @@ func (s *DevicePolicyManagerServer) SetPasswordMinimumUpperCase(_ context.Contex
 }
 
 func (s *DevicePolicyManagerServer) SetPasswordQuality(_ context.Context, req *pb.SetPasswordQualityRequest) (*pb.SetPasswordQualityResponse, error) {
-	mgr, err := jnipkg.NewdevicePolicyManager(s.Ctx)
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -3884,7 +3884,7 @@ func (s *DevicePolicyManagerServer) SetPasswordQuality(_ context.Context, req *p
 }
 
 func (s *DevicePolicyManagerServer) SetPermissionGrantState(_ context.Context, req *pb.SetPermissionGrantStateRequest) (*pb.SetPermissionGrantStateResponse, error) {
-	mgr, err := jnipkg.NewdevicePolicyManager(s.Ctx)
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -3898,7 +3898,7 @@ func (s *DevicePolicyManagerServer) SetPermissionGrantState(_ context.Context, r
 }
 
 func (s *DevicePolicyManagerServer) SetPermissionPolicy(_ context.Context, req *pb.SetPermissionPolicyRequest) (*pb.SetPermissionPolicyResponse, error) {
-	mgr, err := jnipkg.NewdevicePolicyManager(s.Ctx)
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -3911,7 +3911,7 @@ func (s *DevicePolicyManagerServer) SetPermissionPolicy(_ context.Context, req *
 }
 
 func (s *DevicePolicyManagerServer) SetPermittedAccessibilityServices(_ context.Context, req *pb.SetPermittedAccessibilityServicesRequest) (*pb.SetPermittedAccessibilityServicesResponse, error) {
-	mgr, err := jnipkg.NewdevicePolicyManager(s.Ctx)
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -3925,7 +3925,7 @@ func (s *DevicePolicyManagerServer) SetPermittedAccessibilityServices(_ context.
 }
 
 func (s *DevicePolicyManagerServer) SetPermittedCrossProfileNotificationListeners(_ context.Context, req *pb.SetPermittedCrossProfileNotificationListenersRequest) (*pb.SetPermittedCrossProfileNotificationListenersResponse, error) {
-	mgr, err := jnipkg.NewdevicePolicyManager(s.Ctx)
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -3939,7 +3939,7 @@ func (s *DevicePolicyManagerServer) SetPermittedCrossProfileNotificationListener
 }
 
 func (s *DevicePolicyManagerServer) SetPermittedInputMethods(_ context.Context, req *pb.SetPermittedInputMethodsRequest) (*pb.SetPermittedInputMethodsResponse, error) {
-	mgr, err := jnipkg.NewdevicePolicyManager(s.Ctx)
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -3953,7 +3953,7 @@ func (s *DevicePolicyManagerServer) SetPermittedInputMethods(_ context.Context, 
 }
 
 func (s *DevicePolicyManagerServer) SetPersonalAppsSuspended(_ context.Context, req *pb.SetPersonalAppsSuspendedRequest) (*pb.SetPersonalAppsSuspendedResponse, error) {
-	mgr, err := jnipkg.NewdevicePolicyManager(s.Ctx)
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -3966,7 +3966,7 @@ func (s *DevicePolicyManagerServer) SetPersonalAppsSuspended(_ context.Context, 
 }
 
 func (s *DevicePolicyManagerServer) SetPreferentialNetworkServiceConfigs(_ context.Context, req *pb.SetPreferentialNetworkServiceConfigsRequest) (*pb.SetPreferentialNetworkServiceConfigsResponse, error) {
-	mgr, err := jnipkg.NewdevicePolicyManager(s.Ctx)
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -3979,7 +3979,7 @@ func (s *DevicePolicyManagerServer) SetPreferentialNetworkServiceConfigs(_ conte
 }
 
 func (s *DevicePolicyManagerServer) SetPreferentialNetworkServiceEnabled(_ context.Context, req *pb.SetPreferentialNetworkServiceEnabledRequest) (*pb.SetPreferentialNetworkServiceEnabledResponse, error) {
-	mgr, err := jnipkg.NewdevicePolicyManager(s.Ctx)
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -3992,7 +3992,7 @@ func (s *DevicePolicyManagerServer) SetPreferentialNetworkServiceEnabled(_ conte
 }
 
 func (s *DevicePolicyManagerServer) SetProfileEnabled(_ context.Context, req *pb.SetProfileEnabledRequest) (*pb.SetProfileEnabledResponse, error) {
-	mgr, err := jnipkg.NewdevicePolicyManager(s.Ctx)
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -4005,7 +4005,7 @@ func (s *DevicePolicyManagerServer) SetProfileEnabled(_ context.Context, req *pb
 }
 
 func (s *DevicePolicyManagerServer) SetProfileName(_ context.Context, req *pb.SetProfileNameRequest) (*pb.SetProfileNameResponse, error) {
-	mgr, err := jnipkg.NewdevicePolicyManager(s.Ctx)
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -4018,7 +4018,7 @@ func (s *DevicePolicyManagerServer) SetProfileName(_ context.Context, req *pb.Se
 }
 
 func (s *DevicePolicyManagerServer) SetRecommendedGlobalProxy(_ context.Context, req *pb.SetRecommendedGlobalProxyRequest) (*pb.SetRecommendedGlobalProxyResponse, error) {
-	mgr, err := jnipkg.NewdevicePolicyManager(s.Ctx)
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -4031,7 +4031,7 @@ func (s *DevicePolicyManagerServer) SetRecommendedGlobalProxy(_ context.Context,
 }
 
 func (s *DevicePolicyManagerServer) SetRequiredPasswordComplexity(_ context.Context, req *pb.SetRequiredPasswordComplexityRequest) (*pb.SetRequiredPasswordComplexityResponse, error) {
-	mgr, err := jnipkg.NewdevicePolicyManager(s.Ctx)
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -4044,7 +4044,7 @@ func (s *DevicePolicyManagerServer) SetRequiredPasswordComplexity(_ context.Cont
 }
 
 func (s *DevicePolicyManagerServer) SetRequiredStrongAuthTimeout(_ context.Context, req *pb.SetRequiredStrongAuthTimeoutRequest) (*pb.SetRequiredStrongAuthTimeoutResponse, error) {
-	mgr, err := jnipkg.NewdevicePolicyManager(s.Ctx)
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -4057,7 +4057,7 @@ func (s *DevicePolicyManagerServer) SetRequiredStrongAuthTimeout(_ context.Conte
 }
 
 func (s *DevicePolicyManagerServer) SetResetPasswordToken(_ context.Context, req *pb.SetResetPasswordTokenRequest) (*pb.SetResetPasswordTokenResponse, error) {
-	mgr, err := jnipkg.NewdevicePolicyManager(s.Ctx)
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -4071,7 +4071,7 @@ func (s *DevicePolicyManagerServer) SetResetPasswordToken(_ context.Context, req
 }
 
 func (s *DevicePolicyManagerServer) SetRestrictionsProvider(_ context.Context, req *pb.SetRestrictionsProviderRequest) (*pb.SetRestrictionsProviderResponse, error) {
-	mgr, err := jnipkg.NewdevicePolicyManager(s.Ctx)
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -4084,7 +4084,7 @@ func (s *DevicePolicyManagerServer) SetRestrictionsProvider(_ context.Context, r
 }
 
 func (s *DevicePolicyManagerServer) SetScreenCaptureDisabled(_ context.Context, req *pb.SetScreenCaptureDisabledRequest) (*pb.SetScreenCaptureDisabledResponse, error) {
-	mgr, err := jnipkg.NewdevicePolicyManager(s.Ctx)
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -4097,7 +4097,7 @@ func (s *DevicePolicyManagerServer) SetScreenCaptureDisabled(_ context.Context, 
 }
 
 func (s *DevicePolicyManagerServer) SetSecureSetting(_ context.Context, req *pb.SetSecureSettingRequest) (*pb.SetSecureSettingResponse, error) {
-	mgr, err := jnipkg.NewdevicePolicyManager(s.Ctx)
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -4110,7 +4110,7 @@ func (s *DevicePolicyManagerServer) SetSecureSetting(_ context.Context, req *pb.
 }
 
 func (s *DevicePolicyManagerServer) SetSecurityLoggingEnabled(_ context.Context, req *pb.SetSecurityLoggingEnabledRequest) (*pb.SetSecurityLoggingEnabledResponse, error) {
-	mgr, err := jnipkg.NewdevicePolicyManager(s.Ctx)
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -4123,7 +4123,7 @@ func (s *DevicePolicyManagerServer) SetSecurityLoggingEnabled(_ context.Context,
 }
 
 func (s *DevicePolicyManagerServer) SetShortSupportMessage(_ context.Context, req *pb.SetShortSupportMessageRequest) (*pb.SetShortSupportMessageResponse, error) {
-	mgr, err := jnipkg.NewdevicePolicyManager(s.Ctx)
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -4136,7 +4136,7 @@ func (s *DevicePolicyManagerServer) SetShortSupportMessage(_ context.Context, re
 }
 
 func (s *DevicePolicyManagerServer) SetStartUserSessionMessage(_ context.Context, req *pb.SetStartUserSessionMessageRequest) (*pb.SetStartUserSessionMessageResponse, error) {
-	mgr, err := jnipkg.NewdevicePolicyManager(s.Ctx)
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -4149,7 +4149,7 @@ func (s *DevicePolicyManagerServer) SetStartUserSessionMessage(_ context.Context
 }
 
 func (s *DevicePolicyManagerServer) SetStatusBarDisabled(_ context.Context, req *pb.SetStatusBarDisabledRequest) (*pb.SetStatusBarDisabledResponse, error) {
-	mgr, err := jnipkg.NewdevicePolicyManager(s.Ctx)
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -4163,7 +4163,7 @@ func (s *DevicePolicyManagerServer) SetStatusBarDisabled(_ context.Context, req 
 }
 
 func (s *DevicePolicyManagerServer) SetStorageEncryption(_ context.Context, req *pb.SetStorageEncryptionRequest) (*pb.SetStorageEncryptionResponse, error) {
-	mgr, err := jnipkg.NewdevicePolicyManager(s.Ctx)
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -4177,7 +4177,7 @@ func (s *DevicePolicyManagerServer) SetStorageEncryption(_ context.Context, req 
 }
 
 func (s *DevicePolicyManagerServer) SetSystemSetting(_ context.Context, req *pb.SetSystemSettingRequest) (*pb.SetSystemSettingResponse, error) {
-	mgr, err := jnipkg.NewdevicePolicyManager(s.Ctx)
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -4190,7 +4190,7 @@ func (s *DevicePolicyManagerServer) SetSystemSetting(_ context.Context, req *pb.
 }
 
 func (s *DevicePolicyManagerServer) SetSystemUpdatePolicy(_ context.Context, req *pb.SetSystemUpdatePolicyRequest) (*pb.SetSystemUpdatePolicyResponse, error) {
-	mgr, err := jnipkg.NewdevicePolicyManager(s.Ctx)
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -4203,7 +4203,7 @@ func (s *DevicePolicyManagerServer) SetSystemUpdatePolicy(_ context.Context, req
 }
 
 func (s *DevicePolicyManagerServer) SetTime(_ context.Context, req *pb.SetTimeRequest) (*pb.SetTimeResponse, error) {
-	mgr, err := jnipkg.NewdevicePolicyManager(s.Ctx)
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -4217,7 +4217,7 @@ func (s *DevicePolicyManagerServer) SetTime(_ context.Context, req *pb.SetTimeRe
 }
 
 func (s *DevicePolicyManagerServer) SetTimeZone(_ context.Context, req *pb.SetTimeZoneRequest) (*pb.SetTimeZoneResponse, error) {
-	mgr, err := jnipkg.NewdevicePolicyManager(s.Ctx)
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -4231,7 +4231,7 @@ func (s *DevicePolicyManagerServer) SetTimeZone(_ context.Context, req *pb.SetTi
 }
 
 func (s *DevicePolicyManagerServer) SetTrustAgentConfiguration(_ context.Context, req *pb.SetTrustAgentConfigurationRequest) (*pb.SetTrustAgentConfigurationResponse, error) {
-	mgr, err := jnipkg.NewdevicePolicyManager(s.Ctx)
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -4244,7 +4244,7 @@ func (s *DevicePolicyManagerServer) SetTrustAgentConfiguration(_ context.Context
 }
 
 func (s *DevicePolicyManagerServer) SetUninstallBlocked(_ context.Context, req *pb.SetUninstallBlockedRequest) (*pb.SetUninstallBlockedResponse, error) {
-	mgr, err := jnipkg.NewdevicePolicyManager(s.Ctx)
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -4257,7 +4257,7 @@ func (s *DevicePolicyManagerServer) SetUninstallBlocked(_ context.Context, req *
 }
 
 func (s *DevicePolicyManagerServer) SetUsbDataSignalingEnabled(_ context.Context, req *pb.SetUsbDataSignalingEnabledRequest) (*pb.SetUsbDataSignalingEnabledResponse, error) {
-	mgr, err := jnipkg.NewdevicePolicyManager(s.Ctx)
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -4270,7 +4270,7 @@ func (s *DevicePolicyManagerServer) SetUsbDataSignalingEnabled(_ context.Context
 }
 
 func (s *DevicePolicyManagerServer) SetUserControlDisabledPackages(_ context.Context, req *pb.SetUserControlDisabledPackagesRequest) (*pb.SetUserControlDisabledPackagesResponse, error) {
-	mgr, err := jnipkg.NewdevicePolicyManager(s.Ctx)
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -4283,7 +4283,7 @@ func (s *DevicePolicyManagerServer) SetUserControlDisabledPackages(_ context.Con
 }
 
 func (s *DevicePolicyManagerServer) SetUserIcon(_ context.Context, req *pb.SetUserIconRequest) (*pb.SetUserIconResponse, error) {
-	mgr, err := jnipkg.NewdevicePolicyManager(s.Ctx)
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -4296,7 +4296,7 @@ func (s *DevicePolicyManagerServer) SetUserIcon(_ context.Context, req *pb.SetUs
 }
 
 func (s *DevicePolicyManagerServer) SetWifiSsidPolicy(_ context.Context, req *pb.SetWifiSsidPolicyRequest) (*pb.SetWifiSsidPolicyResponse, error) {
-	mgr, err := jnipkg.NewdevicePolicyManager(s.Ctx)
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -4309,7 +4309,7 @@ func (s *DevicePolicyManagerServer) SetWifiSsidPolicy(_ context.Context, req *pb
 }
 
 func (s *DevicePolicyManagerServer) StartUserInBackground(_ context.Context, req *pb.StartUserInBackgroundRequest) (*pb.StartUserInBackgroundResponse, error) {
-	mgr, err := jnipkg.NewdevicePolicyManager(s.Ctx)
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -4323,7 +4323,7 @@ func (s *DevicePolicyManagerServer) StartUserInBackground(_ context.Context, req
 }
 
 func (s *DevicePolicyManagerServer) StopUser(_ context.Context, req *pb.StopUserRequest) (*pb.StopUserResponse, error) {
-	mgr, err := jnipkg.NewdevicePolicyManager(s.Ctx)
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -4337,7 +4337,7 @@ func (s *DevicePolicyManagerServer) StopUser(_ context.Context, req *pb.StopUser
 }
 
 func (s *DevicePolicyManagerServer) SwitchUser(_ context.Context, req *pb.SwitchUserRequest) (*pb.SwitchUserResponse, error) {
-	mgr, err := jnipkg.NewdevicePolicyManager(s.Ctx)
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -4351,7 +4351,7 @@ func (s *DevicePolicyManagerServer) SwitchUser(_ context.Context, req *pb.Switch
 }
 
 func (s *DevicePolicyManagerServer) TransferOwnership(_ context.Context, req *pb.TransferOwnershipRequest) (*pb.TransferOwnershipResponse, error) {
-	mgr, err := jnipkg.NewdevicePolicyManager(s.Ctx)
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -4364,7 +4364,7 @@ func (s *DevicePolicyManagerServer) TransferOwnership(_ context.Context, req *pb
 }
 
 func (s *DevicePolicyManagerServer) UninstallAllUserCaCerts(_ context.Context, req *pb.UninstallAllUserCaCertsRequest) (*pb.UninstallAllUserCaCertsResponse, error) {
-	mgr, err := jnipkg.NewdevicePolicyManager(s.Ctx)
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -4377,7 +4377,7 @@ func (s *DevicePolicyManagerServer) UninstallAllUserCaCerts(_ context.Context, r
 }
 
 func (s *DevicePolicyManagerServer) UninstallCaCert(_ context.Context, req *pb.UninstallCaCertRequest) (*pb.UninstallCaCertResponse, error) {
-	mgr, err := jnipkg.NewdevicePolicyManager(s.Ctx)
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -4390,7 +4390,7 @@ func (s *DevicePolicyManagerServer) UninstallCaCert(_ context.Context, req *pb.U
 }
 
 func (s *DevicePolicyManagerServer) UpdateOverrideApn(_ context.Context, req *pb.UpdateOverrideApnRequest) (*pb.UpdateOverrideApnResponse, error) {
-	mgr, err := jnipkg.NewdevicePolicyManager(s.Ctx)
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -4404,7 +4404,7 @@ func (s *DevicePolicyManagerServer) UpdateOverrideApn(_ context.Context, req *pb
 }
 
 func (s *DevicePolicyManagerServer) WipeData1(_ context.Context, req *pb.WipeData1Request) (*pb.WipeData1Response, error) {
-	mgr, err := jnipkg.NewdevicePolicyManager(s.Ctx)
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -4417,7 +4417,7 @@ func (s *DevicePolicyManagerServer) WipeData1(_ context.Context, req *pb.WipeDat
 }
 
 func (s *DevicePolicyManagerServer) WipeData2_1(_ context.Context, req *pb.WipeData2_1Request) (*pb.WipeData2_1Response, error) {
-	mgr, err := jnipkg.NewdevicePolicyManager(s.Ctx)
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -4430,7 +4430,7 @@ func (s *DevicePolicyManagerServer) WipeData2_1(_ context.Context, req *pb.WipeD
 }
 
 func (s *DevicePolicyManagerServer) WipeDevice(_ context.Context, req *pb.WipeDeviceRequest) (*pb.WipeDeviceResponse, error) {
-	mgr, err := jnipkg.NewdevicePolicyManager(s.Ctx)
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -4443,7 +4443,7 @@ func (s *DevicePolicyManagerServer) WipeDevice(_ context.Context, req *pb.WipeDe
 }
 
 func (s *DevicePolicyManagerServer) IsMtePolicyEnforced(_ context.Context, req *pb.IsMtePolicyEnforcedRequest) (*pb.IsMtePolicyEnforcedResponse, error) {
-	mgr, err := jnipkg.NewdevicePolicyManager(s.Ctx)
+	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}

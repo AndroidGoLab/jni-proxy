@@ -7,23 +7,23 @@ import (
 
 	"github.com/AndroidGoLab/jni"
 
-	"github.com/AndroidGoLab/jni/app"
 	"github.com/AndroidGoLab/jni-proxy/handlestore"
-	jnipkg "github.com/AndroidGoLab/jni/os/storage"
 	pb "github.com/AndroidGoLab/jni-proxy/proto/storage"
+	"github.com/AndroidGoLab/jni/app"
+	jnipkg "github.com/AndroidGoLab/jni/os/storage"
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"
 )
 
-// StorageManagerServer implements pb.StorageManagerServiceServer.
-type StorageManagerServer struct {
-	pb.UnimplementedStorageManagerServiceServer
+// ManagerServer implements pb.ManagerServiceServer.
+type ManagerServer struct {
+	pb.UnimplementedManagerServiceServer
 	Ctx     *app.Context
 	Handles *handlestore.HandleStore
 }
 
-func (s *StorageManagerServer) AllocateBytes2(_ context.Context, req *pb.AllocateBytes2Request) (*pb.AllocateBytes2Response, error) {
-	mgr, err := jnipkg.NewstorageManager(s.Ctx)
+func (s *ManagerServer) AllocateBytes2(_ context.Context, req *pb.AllocateBytes2Request) (*pb.AllocateBytes2Response, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -35,8 +35,8 @@ func (s *StorageManagerServer) AllocateBytes2(_ context.Context, req *pb.Allocat
 	return &pb.AllocateBytes2Response{}, nil
 }
 
-func (s *StorageManagerServer) AllocateBytes2_1(_ context.Context, req *pb.AllocateBytes2_1Request) (*pb.AllocateBytes2_1Response, error) {
-	mgr, err := jnipkg.NewstorageManager(s.Ctx)
+func (s *ManagerServer) AllocateBytes2_1(_ context.Context, req *pb.AllocateBytes2_1Request) (*pb.AllocateBytes2_1Response, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -48,8 +48,8 @@ func (s *StorageManagerServer) AllocateBytes2_1(_ context.Context, req *pb.Alloc
 	return &pb.AllocateBytes2_1Response{}, nil
 }
 
-func (s *StorageManagerServer) GetAllocatableBytes(_ context.Context, req *pb.GetAllocatableBytesRequest) (*pb.GetAllocatableBytesResponse, error) {
-	mgr, err := jnipkg.NewstorageManager(s.Ctx)
+func (s *ManagerServer) GetAllocatableBytes(_ context.Context, req *pb.GetAllocatableBytesRequest) (*pb.GetAllocatableBytesResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -62,8 +62,8 @@ func (s *StorageManagerServer) GetAllocatableBytes(_ context.Context, req *pb.Ge
 	return &pb.GetAllocatableBytesResponse{Result: result}, nil
 }
 
-func (s *StorageManagerServer) GetCacheQuotaBytes(_ context.Context, req *pb.GetCacheQuotaBytesRequest) (*pb.GetCacheQuotaBytesResponse, error) {
-	mgr, err := jnipkg.NewstorageManager(s.Ctx)
+func (s *ManagerServer) GetCacheQuotaBytes(_ context.Context, req *pb.GetCacheQuotaBytesRequest) (*pb.GetCacheQuotaBytesResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -76,8 +76,8 @@ func (s *StorageManagerServer) GetCacheQuotaBytes(_ context.Context, req *pb.Get
 	return &pb.GetCacheQuotaBytesResponse{Result: result}, nil
 }
 
-func (s *StorageManagerServer) GetCacheSizeBytes(_ context.Context, req *pb.GetCacheSizeBytesRequest) (*pb.GetCacheSizeBytesResponse, error) {
-	mgr, err := jnipkg.NewstorageManager(s.Ctx)
+func (s *ManagerServer) GetCacheSizeBytes(_ context.Context, req *pb.GetCacheSizeBytesRequest) (*pb.GetCacheSizeBytesResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -90,8 +90,8 @@ func (s *StorageManagerServer) GetCacheSizeBytes(_ context.Context, req *pb.GetC
 	return &pb.GetCacheSizeBytesResponse{Result: result}, nil
 }
 
-func (s *StorageManagerServer) GetManageSpaceActivityIntent(_ context.Context, req *pb.GetManageSpaceActivityIntentRequest) (*pb.GetManageSpaceActivityIntentResponse, error) {
-	mgr, err := jnipkg.NewstorageManager(s.Ctx)
+func (s *ManagerServer) GetManageSpaceActivityIntent(_ context.Context, req *pb.GetManageSpaceActivityIntentRequest) (*pb.GetManageSpaceActivityIntentResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -113,8 +113,8 @@ func (s *StorageManagerServer) GetManageSpaceActivityIntent(_ context.Context, r
 	return &pb.GetManageSpaceActivityIntentResponse{Result: handle}, nil
 }
 
-func (s *StorageManagerServer) GetMountedObbPath(_ context.Context, req *pb.GetMountedObbPathRequest) (*pb.GetMountedObbPathResponse, error) {
-	mgr, err := jnipkg.NewstorageManager(s.Ctx)
+func (s *ManagerServer) GetMountedObbPath(_ context.Context, req *pb.GetMountedObbPathRequest) (*pb.GetMountedObbPathResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -127,8 +127,8 @@ func (s *StorageManagerServer) GetMountedObbPath(_ context.Context, req *pb.GetM
 	return &pb.GetMountedObbPathResponse{Result: result}, nil
 }
 
-func (s *StorageManagerServer) GetPrimaryStorageVolume(_ context.Context, req *pb.GetPrimaryStorageVolumeRequest) (*pb.GetPrimaryStorageVolumeResponse, error) {
-	mgr, err := jnipkg.NewstorageManager(s.Ctx)
+func (s *ManagerServer) GetPrimaryStorageVolume(_ context.Context, req *pb.GetPrimaryStorageVolumeRequest) (*pb.GetPrimaryStorageVolumeResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -150,8 +150,8 @@ func (s *StorageManagerServer) GetPrimaryStorageVolume(_ context.Context, req *p
 	return &pb.GetPrimaryStorageVolumeResponse{Result: handle}, nil
 }
 
-func (s *StorageManagerServer) GetRecentStorageVolumes(_ context.Context, req *pb.GetRecentStorageVolumesRequest) (*pb.GetRecentStorageVolumesResponse, error) {
-	mgr, err := jnipkg.NewstorageManager(s.Ctx)
+func (s *ManagerServer) GetRecentStorageVolumes(_ context.Context, req *pb.GetRecentStorageVolumesRequest) (*pb.GetRecentStorageVolumesResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -173,8 +173,8 @@ func (s *StorageManagerServer) GetRecentStorageVolumes(_ context.Context, req *p
 	return &pb.GetRecentStorageVolumesResponse{Result: handle}, nil
 }
 
-func (s *StorageManagerServer) GetStorageVolume1(_ context.Context, req *pb.GetStorageVolume1Request) (*pb.GetStorageVolume1Response, error) {
-	mgr, err := jnipkg.NewstorageManager(s.Ctx)
+func (s *ManagerServer) GetStorageVolume1(_ context.Context, req *pb.GetStorageVolume1Request) (*pb.GetStorageVolume1Response, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -196,8 +196,8 @@ func (s *StorageManagerServer) GetStorageVolume1(_ context.Context, req *pb.GetS
 	return &pb.GetStorageVolume1Response{Result: handle}, nil
 }
 
-func (s *StorageManagerServer) GetStorageVolume1_1(_ context.Context, req *pb.GetStorageVolume1_1Request) (*pb.GetStorageVolume1_1Response, error) {
-	mgr, err := jnipkg.NewstorageManager(s.Ctx)
+func (s *ManagerServer) GetStorageVolume1_1(_ context.Context, req *pb.GetStorageVolume1_1Request) (*pb.GetStorageVolume1_1Response, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -219,8 +219,8 @@ func (s *StorageManagerServer) GetStorageVolume1_1(_ context.Context, req *pb.Ge
 	return &pb.GetStorageVolume1_1Response{Result: handle}, nil
 }
 
-func (s *StorageManagerServer) GetStorageVolumes(_ context.Context, req *pb.GetStorageVolumesRequest) (*pb.GetStorageVolumesResponse, error) {
-	mgr, err := jnipkg.NewstorageManager(s.Ctx)
+func (s *ManagerServer) GetStorageVolumes(_ context.Context, req *pb.GetStorageVolumesRequest) (*pb.GetStorageVolumesResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -242,8 +242,8 @@ func (s *StorageManagerServer) GetStorageVolumes(_ context.Context, req *pb.GetS
 	return &pb.GetStorageVolumesResponse{Result: handle}, nil
 }
 
-func (s *StorageManagerServer) GetStorageVolumesIncludingSharedProfiles(_ context.Context, req *pb.GetStorageVolumesIncludingSharedProfilesRequest) (*pb.GetStorageVolumesIncludingSharedProfilesResponse, error) {
-	mgr, err := jnipkg.NewstorageManager(s.Ctx)
+func (s *ManagerServer) GetStorageVolumesIncludingSharedProfiles(_ context.Context, req *pb.GetStorageVolumesIncludingSharedProfilesRequest) (*pb.GetStorageVolumesIncludingSharedProfilesResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -265,8 +265,8 @@ func (s *StorageManagerServer) GetStorageVolumesIncludingSharedProfiles(_ contex
 	return &pb.GetStorageVolumesIncludingSharedProfilesResponse{Result: handle}, nil
 }
 
-func (s *StorageManagerServer) GetUuidForPath(_ context.Context, req *pb.GetUuidForPathRequest) (*pb.GetUuidForPathResponse, error) {
-	mgr, err := jnipkg.NewstorageManager(s.Ctx)
+func (s *ManagerServer) GetUuidForPath(_ context.Context, req *pb.GetUuidForPathRequest) (*pb.GetUuidForPathResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -288,8 +288,8 @@ func (s *StorageManagerServer) GetUuidForPath(_ context.Context, req *pb.GetUuid
 	return &pb.GetUuidForPathResponse{Result: handle}, nil
 }
 
-func (s *StorageManagerServer) IsAllocationSupported(_ context.Context, req *pb.IsAllocationSupportedRequest) (*pb.IsAllocationSupportedResponse, error) {
-	mgr, err := jnipkg.NewstorageManager(s.Ctx)
+func (s *ManagerServer) IsAllocationSupported(_ context.Context, req *pb.IsAllocationSupportedRequest) (*pb.IsAllocationSupportedResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -302,8 +302,8 @@ func (s *StorageManagerServer) IsAllocationSupported(_ context.Context, req *pb.
 	return &pb.IsAllocationSupportedResponse{Result: result}, nil
 }
 
-func (s *StorageManagerServer) IsCacheBehaviorGroup(_ context.Context, req *pb.IsCacheBehaviorGroupRequest) (*pb.IsCacheBehaviorGroupResponse, error) {
-	mgr, err := jnipkg.NewstorageManager(s.Ctx)
+func (s *ManagerServer) IsCacheBehaviorGroup(_ context.Context, req *pb.IsCacheBehaviorGroupRequest) (*pb.IsCacheBehaviorGroupResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -316,8 +316,8 @@ func (s *StorageManagerServer) IsCacheBehaviorGroup(_ context.Context, req *pb.I
 	return &pb.IsCacheBehaviorGroupResponse{Result: result}, nil
 }
 
-func (s *StorageManagerServer) IsCacheBehaviorTombstone(_ context.Context, req *pb.IsCacheBehaviorTombstoneRequest) (*pb.IsCacheBehaviorTombstoneResponse, error) {
-	mgr, err := jnipkg.NewstorageManager(s.Ctx)
+func (s *ManagerServer) IsCacheBehaviorTombstone(_ context.Context, req *pb.IsCacheBehaviorTombstoneRequest) (*pb.IsCacheBehaviorTombstoneResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -330,8 +330,8 @@ func (s *StorageManagerServer) IsCacheBehaviorTombstone(_ context.Context, req *
 	return &pb.IsCacheBehaviorTombstoneResponse{Result: result}, nil
 }
 
-func (s *StorageManagerServer) IsCheckpointSupported(_ context.Context, req *pb.IsCheckpointSupportedRequest) (*pb.IsCheckpointSupportedResponse, error) {
-	mgr, err := jnipkg.NewstorageManager(s.Ctx)
+func (s *ManagerServer) IsCheckpointSupported(_ context.Context, req *pb.IsCheckpointSupportedRequest) (*pb.IsCheckpointSupportedResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -344,8 +344,8 @@ func (s *StorageManagerServer) IsCheckpointSupported(_ context.Context, req *pb.
 	return &pb.IsCheckpointSupportedResponse{Result: result}, nil
 }
 
-func (s *StorageManagerServer) IsEncrypted(_ context.Context, req *pb.IsEncryptedRequest) (*pb.IsEncryptedResponse, error) {
-	mgr, err := jnipkg.NewstorageManager(s.Ctx)
+func (s *ManagerServer) IsEncrypted(_ context.Context, req *pb.IsEncryptedRequest) (*pb.IsEncryptedResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -358,8 +358,8 @@ func (s *StorageManagerServer) IsEncrypted(_ context.Context, req *pb.IsEncrypte
 	return &pb.IsEncryptedResponse{Result: result}, nil
 }
 
-func (s *StorageManagerServer) IsObbMounted(_ context.Context, req *pb.IsObbMountedRequest) (*pb.IsObbMountedResponse, error) {
-	mgr, err := jnipkg.NewstorageManager(s.Ctx)
+func (s *ManagerServer) IsObbMounted(_ context.Context, req *pb.IsObbMountedRequest) (*pb.IsObbMountedResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -372,8 +372,8 @@ func (s *StorageManagerServer) IsObbMounted(_ context.Context, req *pb.IsObbMoun
 	return &pb.IsObbMountedResponse{Result: result}, nil
 }
 
-func (s *StorageManagerServer) MountObb(_ context.Context, req *pb.MountObbRequest) (*pb.MountObbResponse, error) {
-	mgr, err := jnipkg.NewstorageManager(s.Ctx)
+func (s *ManagerServer) MountObb(_ context.Context, req *pb.MountObbRequest) (*pb.MountObbResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -386,8 +386,8 @@ func (s *StorageManagerServer) MountObb(_ context.Context, req *pb.MountObbReque
 	return &pb.MountObbResponse{Result: result}, nil
 }
 
-func (s *StorageManagerServer) RegisterStorageVolumeCallback(_ context.Context, req *pb.RegisterStorageVolumeCallbackRequest) (*pb.RegisterStorageVolumeCallbackResponse, error) {
-	mgr, err := jnipkg.NewstorageManager(s.Ctx)
+func (s *ManagerServer) RegisterStorageVolumeCallback(_ context.Context, req *pb.RegisterStorageVolumeCallbackRequest) (*pb.RegisterStorageVolumeCallbackResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -399,8 +399,8 @@ func (s *StorageManagerServer) RegisterStorageVolumeCallback(_ context.Context, 
 	return &pb.RegisterStorageVolumeCallbackResponse{}, nil
 }
 
-func (s *StorageManagerServer) SetCacheBehaviorGroup(_ context.Context, req *pb.SetCacheBehaviorGroupRequest) (*pb.SetCacheBehaviorGroupResponse, error) {
-	mgr, err := jnipkg.NewstorageManager(s.Ctx)
+func (s *ManagerServer) SetCacheBehaviorGroup(_ context.Context, req *pb.SetCacheBehaviorGroupRequest) (*pb.SetCacheBehaviorGroupResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -412,8 +412,8 @@ func (s *StorageManagerServer) SetCacheBehaviorGroup(_ context.Context, req *pb.
 	return &pb.SetCacheBehaviorGroupResponse{}, nil
 }
 
-func (s *StorageManagerServer) SetCacheBehaviorTombstone(_ context.Context, req *pb.SetCacheBehaviorTombstoneRequest) (*pb.SetCacheBehaviorTombstoneResponse, error) {
-	mgr, err := jnipkg.NewstorageManager(s.Ctx)
+func (s *ManagerServer) SetCacheBehaviorTombstone(_ context.Context, req *pb.SetCacheBehaviorTombstoneRequest) (*pb.SetCacheBehaviorTombstoneResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -425,8 +425,8 @@ func (s *StorageManagerServer) SetCacheBehaviorTombstone(_ context.Context, req 
 	return &pb.SetCacheBehaviorTombstoneResponse{}, nil
 }
 
-func (s *StorageManagerServer) UnmountObb(_ context.Context, req *pb.UnmountObbRequest) (*pb.UnmountObbResponse, error) {
-	mgr, err := jnipkg.NewstorageManager(s.Ctx)
+func (s *ManagerServer) UnmountObb(_ context.Context, req *pb.UnmountObbRequest) (*pb.UnmountObbResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -439,8 +439,8 @@ func (s *StorageManagerServer) UnmountObb(_ context.Context, req *pb.UnmountObbR
 	return &pb.UnmountObbResponse{Result: result}, nil
 }
 
-func (s *StorageManagerServer) UnregisterStorageVolumeCallback(_ context.Context, req *pb.UnregisterStorageVolumeCallbackRequest) (*pb.UnregisterStorageVolumeCallbackResponse, error) {
-	mgr, err := jnipkg.NewstorageManager(s.Ctx)
+func (s *ManagerServer) UnregisterStorageVolumeCallback(_ context.Context, req *pb.UnregisterStorageVolumeCallbackRequest) (*pb.UnregisterStorageVolumeCallbackResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}

@@ -211,10 +211,10 @@ const file_proto_altitude_altitude_proto_rawDesc = "" +
 	"\"TryAddMslAltitudeToLocationRequest\x12\x12\n" +
 	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"=\n" +
 	"#TryAddMslAltitudeToLocationResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\bR\x06result2\x89\x02\n" +
-	"\x18AltitudeConverterService\x12q\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result2\x81\x02\n" +
+	"\x10ConverterService\x12q\n" +
 	"\x18AddMslAltitudeToLocation\x12).altitude.AddMslAltitudeToLocationRequest\x1a*.altitude.AddMslAltitudeToLocationResponse\x12z\n" +
-	"\x1bTryAddMslAltitudeToLocation\x12,.altitude.TryAddMslAltitudeToLocationRequest\x1a-.altitude.TryAddMslAltitudeToLocationResponseB+Z)github.com/AndroidGoLab/jni-proxy/proto/altitudeb\x06proto3"
+	"\x1bTryAddMslAltitudeToLocation\x12,.altitude.TryAddMslAltitudeToLocationRequest\x1a-.altitude.TryAddMslAltitudeToLocationResponseB2Z0github.com/AndroidGoLab/jni-proxy/proto/altitudeb\x06proto3"
 
 var (
 	file_proto_altitude_altitude_proto_rawDescOnce sync.Once
@@ -236,10 +236,10 @@ var file_proto_altitude_altitude_proto_goTypes = []any{
 	(*TryAddMslAltitudeToLocationResponse)(nil), // 3: altitude.TryAddMslAltitudeToLocationResponse
 }
 var file_proto_altitude_altitude_proto_depIdxs = []int32{
-	0, // 0: altitude.AltitudeConverterService.AddMslAltitudeToLocation:input_type -> altitude.AddMslAltitudeToLocationRequest
-	2, // 1: altitude.AltitudeConverterService.TryAddMslAltitudeToLocation:input_type -> altitude.TryAddMslAltitudeToLocationRequest
-	1, // 2: altitude.AltitudeConverterService.AddMslAltitudeToLocation:output_type -> altitude.AddMslAltitudeToLocationResponse
-	3, // 3: altitude.AltitudeConverterService.TryAddMslAltitudeToLocation:output_type -> altitude.TryAddMslAltitudeToLocationResponse
+	0, // 0: altitude.ConverterService.AddMslAltitudeToLocation:input_type -> altitude.AddMslAltitudeToLocationRequest
+	2, // 1: altitude.ConverterService.TryAddMslAltitudeToLocation:input_type -> altitude.TryAddMslAltitudeToLocationRequest
+	1, // 2: altitude.ConverterService.AddMslAltitudeToLocation:output_type -> altitude.AddMslAltitudeToLocationResponse
+	3, // 3: altitude.ConverterService.TryAddMslAltitudeToLocation:output_type -> altitude.TryAddMslAltitudeToLocationResponse
 	2, // [2:4] is the sub-list for method output_type
 	0, // [0:2] is the sub-list for method input_type
 	0, // [0:0] is the sub-list for extension type_name

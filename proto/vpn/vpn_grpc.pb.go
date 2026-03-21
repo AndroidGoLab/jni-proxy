@@ -21,19 +21,23 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
-	VpnServiceService_OnBind_FullMethodName                = "/vpn.VpnServiceService/OnBind"
-	VpnServiceService_OnRevoke_FullMethodName              = "/vpn.VpnServiceService/OnRevoke"
-	VpnServiceService_Protect1_FullMethodName              = "/vpn.VpnServiceService/Protect1"
-	VpnServiceService_Protect1_1_FullMethodName            = "/vpn.VpnServiceService/Protect1_1"
-	VpnServiceService_Protect1_2_FullMethodName            = "/vpn.VpnServiceService/Protect1_2"
-	VpnServiceService_SetUnderlyingNetworks_FullMethodName = "/vpn.VpnServiceService/SetUnderlyingNetworks"
-	VpnServiceService_Prepare_FullMethodName               = "/vpn.VpnServiceService/Prepare"
+	ServiceService_IsAlwaysOn_FullMethodName            = "/vpn.ServiceService/IsAlwaysOn"
+	ServiceService_IsLockdownEnabled_FullMethodName     = "/vpn.ServiceService/IsLockdownEnabled"
+	ServiceService_OnBind_FullMethodName                = "/vpn.ServiceService/OnBind"
+	ServiceService_OnRevoke_FullMethodName              = "/vpn.ServiceService/OnRevoke"
+	ServiceService_Protect1_FullMethodName              = "/vpn.ServiceService/Protect1"
+	ServiceService_Protect1_1_FullMethodName            = "/vpn.ServiceService/Protect1_1"
+	ServiceService_Protect1_2_FullMethodName            = "/vpn.ServiceService/Protect1_2"
+	ServiceService_SetUnderlyingNetworks_FullMethodName = "/vpn.ServiceService/SetUnderlyingNetworks"
+	ServiceService_Prepare_FullMethodName               = "/vpn.ServiceService/Prepare"
 )
 
-// VpnServiceServiceClient is the client API for VpnServiceService service.
+// ServiceServiceClient is the client API for ServiceService service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type VpnServiceServiceClient interface {
+type ServiceServiceClient interface {
+	IsAlwaysOn(ctx context.Context, in *IsAlwaysOnRequest, opts ...grpc.CallOption) (*IsAlwaysOnResponse, error)
+	IsLockdownEnabled(ctx context.Context, in *IsLockdownEnabledRequest, opts ...grpc.CallOption) (*IsLockdownEnabledResponse, error)
 	OnBind(ctx context.Context, in *OnBindRequest, opts ...grpc.CallOption) (*OnBindResponse, error)
 	OnRevoke(ctx context.Context, in *OnRevokeRequest, opts ...grpc.CallOption) (*OnRevokeResponse, error)
 	Protect1(ctx context.Context, in *Protect1Request, opts ...grpc.CallOption) (*Protect1Response, error)
@@ -43,88 +47,110 @@ type VpnServiceServiceClient interface {
 	Prepare(ctx context.Context, in *PrepareRequest, opts ...grpc.CallOption) (*PrepareResponse, error)
 }
 
-type vpnServiceServiceClient struct {
+type serviceServiceClient struct {
 	cc grpc.ClientConnInterface
 }
 
-func NewVpnServiceServiceClient(cc grpc.ClientConnInterface) VpnServiceServiceClient {
-	return &vpnServiceServiceClient{cc}
+func NewServiceServiceClient(cc grpc.ClientConnInterface) ServiceServiceClient {
+	return &serviceServiceClient{cc}
 }
 
-func (c *vpnServiceServiceClient) OnBind(ctx context.Context, in *OnBindRequest, opts ...grpc.CallOption) (*OnBindResponse, error) {
+func (c *serviceServiceClient) IsAlwaysOn(ctx context.Context, in *IsAlwaysOnRequest, opts ...grpc.CallOption) (*IsAlwaysOnResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IsAlwaysOnResponse)
+	err := c.cc.Invoke(ctx, ServiceService_IsAlwaysOn_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *serviceServiceClient) IsLockdownEnabled(ctx context.Context, in *IsLockdownEnabledRequest, opts ...grpc.CallOption) (*IsLockdownEnabledResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IsLockdownEnabledResponse)
+	err := c.cc.Invoke(ctx, ServiceService_IsLockdownEnabled_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *serviceServiceClient) OnBind(ctx context.Context, in *OnBindRequest, opts ...grpc.CallOption) (*OnBindResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(OnBindResponse)
-	err := c.cc.Invoke(ctx, VpnServiceService_OnBind_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, ServiceService_OnBind_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *vpnServiceServiceClient) OnRevoke(ctx context.Context, in *OnRevokeRequest, opts ...grpc.CallOption) (*OnRevokeResponse, error) {
+func (c *serviceServiceClient) OnRevoke(ctx context.Context, in *OnRevokeRequest, opts ...grpc.CallOption) (*OnRevokeResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(OnRevokeResponse)
-	err := c.cc.Invoke(ctx, VpnServiceService_OnRevoke_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, ServiceService_OnRevoke_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *vpnServiceServiceClient) Protect1(ctx context.Context, in *Protect1Request, opts ...grpc.CallOption) (*Protect1Response, error) {
+func (c *serviceServiceClient) Protect1(ctx context.Context, in *Protect1Request, opts ...grpc.CallOption) (*Protect1Response, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(Protect1Response)
-	err := c.cc.Invoke(ctx, VpnServiceService_Protect1_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, ServiceService_Protect1_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *vpnServiceServiceClient) Protect1_1(ctx context.Context, in *Protect1_1Request, opts ...grpc.CallOption) (*Protect1_1Response, error) {
+func (c *serviceServiceClient) Protect1_1(ctx context.Context, in *Protect1_1Request, opts ...grpc.CallOption) (*Protect1_1Response, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(Protect1_1Response)
-	err := c.cc.Invoke(ctx, VpnServiceService_Protect1_1_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, ServiceService_Protect1_1_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *vpnServiceServiceClient) Protect1_2(ctx context.Context, in *Protect1_2Request, opts ...grpc.CallOption) (*Protect1_2Response, error) {
+func (c *serviceServiceClient) Protect1_2(ctx context.Context, in *Protect1_2Request, opts ...grpc.CallOption) (*Protect1_2Response, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(Protect1_2Response)
-	err := c.cc.Invoke(ctx, VpnServiceService_Protect1_2_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, ServiceService_Protect1_2_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *vpnServiceServiceClient) SetUnderlyingNetworks(ctx context.Context, in *SetUnderlyingNetworksRequest, opts ...grpc.CallOption) (*SetUnderlyingNetworksResponse, error) {
+func (c *serviceServiceClient) SetUnderlyingNetworks(ctx context.Context, in *SetUnderlyingNetworksRequest, opts ...grpc.CallOption) (*SetUnderlyingNetworksResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(SetUnderlyingNetworksResponse)
-	err := c.cc.Invoke(ctx, VpnServiceService_SetUnderlyingNetworks_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, ServiceService_SetUnderlyingNetworks_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *vpnServiceServiceClient) Prepare(ctx context.Context, in *PrepareRequest, opts ...grpc.CallOption) (*PrepareResponse, error) {
+func (c *serviceServiceClient) Prepare(ctx context.Context, in *PrepareRequest, opts ...grpc.CallOption) (*PrepareResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(PrepareResponse)
-	err := c.cc.Invoke(ctx, VpnServiceService_Prepare_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, ServiceService_Prepare_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-// VpnServiceServiceServer is the server API for VpnServiceService service.
-// All implementations must embed UnimplementedVpnServiceServiceServer
+// ServiceServiceServer is the server API for ServiceService service.
+// All implementations must embed UnimplementedServiceServiceServer
 // for forward compatibility.
-type VpnServiceServiceServer interface {
+type ServiceServiceServer interface {
+	IsAlwaysOn(context.Context, *IsAlwaysOnRequest) (*IsAlwaysOnResponse, error)
+	IsLockdownEnabled(context.Context, *IsLockdownEnabledRequest) (*IsLockdownEnabledResponse, error)
 	OnBind(context.Context, *OnBindRequest) (*OnBindResponse, error)
 	OnRevoke(context.Context, *OnRevokeRequest) (*OnRevokeResponse, error)
 	Protect1(context.Context, *Protect1Request) (*Protect1Response, error)
@@ -132,218 +158,268 @@ type VpnServiceServiceServer interface {
 	Protect1_2(context.Context, *Protect1_2Request) (*Protect1_2Response, error)
 	SetUnderlyingNetworks(context.Context, *SetUnderlyingNetworksRequest) (*SetUnderlyingNetworksResponse, error)
 	Prepare(context.Context, *PrepareRequest) (*PrepareResponse, error)
-	mustEmbedUnimplementedVpnServiceServiceServer()
+	mustEmbedUnimplementedServiceServiceServer()
 }
 
-// UnimplementedVpnServiceServiceServer must be embedded to have
+// UnimplementedServiceServiceServer must be embedded to have
 // forward compatible implementations.
 //
 // NOTE: this should be embedded by value instead of pointer to avoid a nil
 // pointer dereference when methods are called.
-type UnimplementedVpnServiceServiceServer struct{}
+type UnimplementedServiceServiceServer struct{}
 
-func (UnimplementedVpnServiceServiceServer) OnBind(context.Context, *OnBindRequest) (*OnBindResponse, error) {
+func (UnimplementedServiceServiceServer) IsAlwaysOn(context.Context, *IsAlwaysOnRequest) (*IsAlwaysOnResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsAlwaysOn not implemented")
+}
+func (UnimplementedServiceServiceServer) IsLockdownEnabled(context.Context, *IsLockdownEnabledRequest) (*IsLockdownEnabledResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsLockdownEnabled not implemented")
+}
+func (UnimplementedServiceServiceServer) OnBind(context.Context, *OnBindRequest) (*OnBindResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method OnBind not implemented")
 }
-func (UnimplementedVpnServiceServiceServer) OnRevoke(context.Context, *OnRevokeRequest) (*OnRevokeResponse, error) {
+func (UnimplementedServiceServiceServer) OnRevoke(context.Context, *OnRevokeRequest) (*OnRevokeResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method OnRevoke not implemented")
 }
-func (UnimplementedVpnServiceServiceServer) Protect1(context.Context, *Protect1Request) (*Protect1Response, error) {
+func (UnimplementedServiceServiceServer) Protect1(context.Context, *Protect1Request) (*Protect1Response, error) {
 	return nil, status.Error(codes.Unimplemented, "method Protect1 not implemented")
 }
-func (UnimplementedVpnServiceServiceServer) Protect1_1(context.Context, *Protect1_1Request) (*Protect1_1Response, error) {
+func (UnimplementedServiceServiceServer) Protect1_1(context.Context, *Protect1_1Request) (*Protect1_1Response, error) {
 	return nil, status.Error(codes.Unimplemented, "method Protect1_1 not implemented")
 }
-func (UnimplementedVpnServiceServiceServer) Protect1_2(context.Context, *Protect1_2Request) (*Protect1_2Response, error) {
+func (UnimplementedServiceServiceServer) Protect1_2(context.Context, *Protect1_2Request) (*Protect1_2Response, error) {
 	return nil, status.Error(codes.Unimplemented, "method Protect1_2 not implemented")
 }
-func (UnimplementedVpnServiceServiceServer) SetUnderlyingNetworks(context.Context, *SetUnderlyingNetworksRequest) (*SetUnderlyingNetworksResponse, error) {
+func (UnimplementedServiceServiceServer) SetUnderlyingNetworks(context.Context, *SetUnderlyingNetworksRequest) (*SetUnderlyingNetworksResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method SetUnderlyingNetworks not implemented")
 }
-func (UnimplementedVpnServiceServiceServer) Prepare(context.Context, *PrepareRequest) (*PrepareResponse, error) {
+func (UnimplementedServiceServiceServer) Prepare(context.Context, *PrepareRequest) (*PrepareResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method Prepare not implemented")
 }
-func (UnimplementedVpnServiceServiceServer) mustEmbedUnimplementedVpnServiceServiceServer() {}
-func (UnimplementedVpnServiceServiceServer) testEmbeddedByValue()                           {}
+func (UnimplementedServiceServiceServer) mustEmbedUnimplementedServiceServiceServer() {}
+func (UnimplementedServiceServiceServer) testEmbeddedByValue()                        {}
 
-// UnsafeVpnServiceServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to VpnServiceServiceServer will
+// UnsafeServiceServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to ServiceServiceServer will
 // result in compilation errors.
-type UnsafeVpnServiceServiceServer interface {
-	mustEmbedUnimplementedVpnServiceServiceServer()
+type UnsafeServiceServiceServer interface {
+	mustEmbedUnimplementedServiceServiceServer()
 }
 
-func RegisterVpnServiceServiceServer(s grpc.ServiceRegistrar, srv VpnServiceServiceServer) {
-	// If the following call panics, it indicates UnimplementedVpnServiceServiceServer was
+func RegisterServiceServiceServer(s grpc.ServiceRegistrar, srv ServiceServiceServer) {
+	// If the following call panics, it indicates UnimplementedServiceServiceServer was
 	// embedded by pointer and is nil.  This will cause panics if an
 	// unimplemented method is ever invoked, so we test this at initialization
 	// time to prevent it from happening at runtime later due to I/O.
 	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
 		t.testEmbeddedByValue()
 	}
-	s.RegisterService(&VpnServiceService_ServiceDesc, srv)
+	s.RegisterService(&ServiceService_ServiceDesc, srv)
 }
 
-func _VpnServiceService_OnBind_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _ServiceService_IsAlwaysOn_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsAlwaysOnRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ServiceServiceServer).IsAlwaysOn(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ServiceService_IsAlwaysOn_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ServiceServiceServer).IsAlwaysOn(ctx, req.(*IsAlwaysOnRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ServiceService_IsLockdownEnabled_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsLockdownEnabledRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ServiceServiceServer).IsLockdownEnabled(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ServiceService_IsLockdownEnabled_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ServiceServiceServer).IsLockdownEnabled(ctx, req.(*IsLockdownEnabledRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ServiceService_OnBind_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(OnBindRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(VpnServiceServiceServer).OnBind(ctx, in)
+		return srv.(ServiceServiceServer).OnBind(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: VpnServiceService_OnBind_FullMethodName,
+		FullMethod: ServiceService_OnBind_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(VpnServiceServiceServer).OnBind(ctx, req.(*OnBindRequest))
+		return srv.(ServiceServiceServer).OnBind(ctx, req.(*OnBindRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _VpnServiceService_OnRevoke_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _ServiceService_OnRevoke_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(OnRevokeRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(VpnServiceServiceServer).OnRevoke(ctx, in)
+		return srv.(ServiceServiceServer).OnRevoke(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: VpnServiceService_OnRevoke_FullMethodName,
+		FullMethod: ServiceService_OnRevoke_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(VpnServiceServiceServer).OnRevoke(ctx, req.(*OnRevokeRequest))
+		return srv.(ServiceServiceServer).OnRevoke(ctx, req.(*OnRevokeRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _VpnServiceService_Protect1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _ServiceService_Protect1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(Protect1Request)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(VpnServiceServiceServer).Protect1(ctx, in)
+		return srv.(ServiceServiceServer).Protect1(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: VpnServiceService_Protect1_FullMethodName,
+		FullMethod: ServiceService_Protect1_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(VpnServiceServiceServer).Protect1(ctx, req.(*Protect1Request))
+		return srv.(ServiceServiceServer).Protect1(ctx, req.(*Protect1Request))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _VpnServiceService_Protect1_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _ServiceService_Protect1_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(Protect1_1Request)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(VpnServiceServiceServer).Protect1_1(ctx, in)
+		return srv.(ServiceServiceServer).Protect1_1(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: VpnServiceService_Protect1_1_FullMethodName,
+		FullMethod: ServiceService_Protect1_1_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(VpnServiceServiceServer).Protect1_1(ctx, req.(*Protect1_1Request))
+		return srv.(ServiceServiceServer).Protect1_1(ctx, req.(*Protect1_1Request))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _VpnServiceService_Protect1_2_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _ServiceService_Protect1_2_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(Protect1_2Request)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(VpnServiceServiceServer).Protect1_2(ctx, in)
+		return srv.(ServiceServiceServer).Protect1_2(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: VpnServiceService_Protect1_2_FullMethodName,
+		FullMethod: ServiceService_Protect1_2_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(VpnServiceServiceServer).Protect1_2(ctx, req.(*Protect1_2Request))
+		return srv.(ServiceServiceServer).Protect1_2(ctx, req.(*Protect1_2Request))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _VpnServiceService_SetUnderlyingNetworks_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _ServiceService_SetUnderlyingNetworks_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(SetUnderlyingNetworksRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(VpnServiceServiceServer).SetUnderlyingNetworks(ctx, in)
+		return srv.(ServiceServiceServer).SetUnderlyingNetworks(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: VpnServiceService_SetUnderlyingNetworks_FullMethodName,
+		FullMethod: ServiceService_SetUnderlyingNetworks_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(VpnServiceServiceServer).SetUnderlyingNetworks(ctx, req.(*SetUnderlyingNetworksRequest))
+		return srv.(ServiceServiceServer).SetUnderlyingNetworks(ctx, req.(*SetUnderlyingNetworksRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _VpnServiceService_Prepare_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _ServiceService_Prepare_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(PrepareRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(VpnServiceServiceServer).Prepare(ctx, in)
+		return srv.(ServiceServiceServer).Prepare(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: VpnServiceService_Prepare_FullMethodName,
+		FullMethod: ServiceService_Prepare_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(VpnServiceServiceServer).Prepare(ctx, req.(*PrepareRequest))
+		return srv.(ServiceServiceServer).Prepare(ctx, req.(*PrepareRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-// VpnServiceService_ServiceDesc is the grpc.ServiceDesc for VpnServiceService service.
+// ServiceService_ServiceDesc is the grpc.ServiceDesc for ServiceService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
-var VpnServiceService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "vpn.VpnServiceService",
-	HandlerType: (*VpnServiceServiceServer)(nil),
+var ServiceService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "vpn.ServiceService",
+	HandlerType: (*ServiceServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
+			MethodName: "IsAlwaysOn",
+			Handler:    _ServiceService_IsAlwaysOn_Handler,
+		},
+		{
+			MethodName: "IsLockdownEnabled",
+			Handler:    _ServiceService_IsLockdownEnabled_Handler,
+		},
+		{
 			MethodName: "OnBind",
-			Handler:    _VpnServiceService_OnBind_Handler,
+			Handler:    _ServiceService_OnBind_Handler,
 		},
 		{
 			MethodName: "OnRevoke",
-			Handler:    _VpnServiceService_OnRevoke_Handler,
+			Handler:    _ServiceService_OnRevoke_Handler,
 		},
 		{
 			MethodName: "Protect1",
-			Handler:    _VpnServiceService_Protect1_Handler,
+			Handler:    _ServiceService_Protect1_Handler,
 		},
 		{
 			MethodName: "Protect1_1",
-			Handler:    _VpnServiceService_Protect1_1_Handler,
+			Handler:    _ServiceService_Protect1_1_Handler,
 		},
 		{
 			MethodName: "Protect1_2",
-			Handler:    _VpnServiceService_Protect1_2_Handler,
+			Handler:    _ServiceService_Protect1_2_Handler,
 		},
 		{
 			MethodName: "SetUnderlyingNetworks",
-			Handler:    _VpnServiceService_SetUnderlyingNetworks_Handler,
+			Handler:    _ServiceService_SetUnderlyingNetworks_Handler,
 		},
 		{
 			MethodName: "Prepare",
-			Handler:    _VpnServiceService_Prepare_Handler,
+			Handler:    _ServiceService_Prepare_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

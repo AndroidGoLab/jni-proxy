@@ -37,12 +37,12 @@ The resulting M4A is written to stdout or a file.`,
 		}
 		output, _ := cmd.Flags().GetString("output")
 
-		// Recording duration + 60s for setup/teardown.
-		ctx, cancel := context.WithTimeout(cmd.Context(), duration+60*time.Second)
+		// Recording duration + margin for setup/teardown.
+		ctx, cancel := context.WithTimeout(cmd.Context(), duration+setupTeardownMargin)
 		defer cancel()
 
 		client := pb.NewJNIServiceClient(grpcConn)
-		j := &jniCaller{client: client, ctx: ctx}
+		j := &jniCaller{client: client}
 
 		data, err := recordAudio(ctx, j, duration)
 		if err != nil {
@@ -76,39 +76,39 @@ func recordAudio(
 	j *jniCaller,
 	duration time.Duration,
 ) ([]byte, error) {
-	appCtx, err := j.getAppContext()
+	appCtx, err := j.getAppContext(ctx)
 	if err != nil {
 		return nil, fmt.Errorf("getting app context: %w", err)
 	}
 
 	// Resolve output path on the device.
-	outputPath, err := getAudioOutputPath(j, appCtx)
+	outputPath, err := getAudioOutputPath(ctx, j, appCtx)
 	if err != nil {
 		return nil, fmt.Errorf("getting output path: %w", err)
 	}
 
 	// Create, configure, and prepare the MediaRecorder.
-	recorder, err := setupAudioRecorder(j, appCtx, outputPath)
+	recorder, err := setupAudioRecorder(ctx, j, appCtx, outputPath)
 	if err != nil {
 		return nil, fmt.Errorf("setting up MediaRecorder: %w", err)
 	}
 	defer func() {
-		if releaseErr := releaseMediaRecorder(j, recorder); releaseErr != nil {
+		if releaseErr := releaseMediaRecorder(ctx, j, recorder); releaseErr != nil {
 			fmt.Fprintf(os.Stderr, "warning: releasing MediaRecorder: %v\n", releaseErr)
 		}
 	}()
 
 	// Start recording.
-	mrCls, err := j.findClass("android/media/MediaRecorder")
+	mrCls, err := j.findClass(ctx, "android/media/MediaRecorder")
 	if err != nil {
 		return nil, fmt.Errorf("finding MediaRecorder class: %w", err)
 	}
 
-	startMid, err := j.getMethodID(mrCls, "start", "()V")
+	startMid, err := j.getMethodID(ctx, mrCls, "start", "()V")
 	if err != nil {
 		return nil, fmt.Errorf("getting MediaRecorder.start method: %w", err)
 	}
-	if err := j.callVoidMethod(recorder, startMid); err != nil {
+	if err := j.callVoidMethod(ctx, recorder, startMid); err != nil {
 		return nil, fmt.Errorf("calling MediaRecorder.start: %w", err)
 	}
 
@@ -120,67 +120,84 @@ func recordAudio(
 	}
 
 	// Stop recording.
-	stopMid, err := j.getMethodID(mrCls, "stop", "()V")
+	stopMid, err := j.getMethodID(ctx, mrCls, "stop", "()V")
 	if err != nil {
 		return nil, fmt.Errorf("getting MediaRecorder.stop method: %w", err)
 	}
-	if err := j.callVoidMethod(recorder, stopMid); err != nil {
+	if err := j.callVoidMethod(ctx, recorder, stopMid); err != nil {
 		return nil, fmt.Errorf("calling MediaRecorder.stop: %w", err)
 	}
 	fmt.Fprintf(os.Stderr, "Recording stopped.\n")
 
 	// Read the recorded file back via JNI.
 	fmt.Fprintf(os.Stderr, "Reading recorded file...\n")
-	return readFileViaJNI(j, outputPath)
+	return readFileViaJNI(ctx, j, outputPath)
 }
 
-// getAudioOutputPath returns a path in the app's cache directory for the audio recording.
-func getAudioOutputPath(j *jniCaller, appCtx int64) (string, error) {
-	contextCls, err := j.findClass("android/content/Context")
+// audioRecordingFallbackDir is used when getCacheDir fails (e.g. when
+// running as the "android" package which has no data directory).
+const audioRecordingFallbackDir = "/data/local/tmp"
+
+// getAudioOutputPath returns a device-side path for the audio recording.
+// It tries the app's cache directory first and falls back to
+// audioRecordingFallbackDir when getCacheDir fails.
+func getAudioOutputPath(ctx context.Context, j *jniCaller, appCtx int64) (string, error) {
+	cachePath, err := getCacheDirPath(ctx, j, appCtx)
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "warning: getCacheDir failed (%v), falling back to %s\n", err, audioRecordingFallbackDir)
+		return audioRecordingFallbackDir + "/recording.m4a", nil
+	}
+	return cachePath + "/recording.m4a", nil
+}
+
+// getCacheDirPath resolves the app's cache directory via JNI.
+func getCacheDirPath(ctx context.Context, j *jniCaller, appCtx int64) (string, error) {
+	contextCls, err := j.findClass(ctx, "android/content/Context")
 	if err != nil {
 		return "", fmt.Errorf("finding Context class: %w", err)
 	}
 
-	getCacheDirMid, err := j.getMethodID(contextCls, "getCacheDir", "()Ljava/io/File;")
+	getCacheDirMid, err := j.getMethodID(ctx, contextCls, "getCacheDir", "()Ljava/io/File;")
 	if err != nil {
 		return "", fmt.Errorf("getting getCacheDir method: %w", err)
 	}
 
-	cacheDir, err := j.callObjectMethod(appCtx, getCacheDirMid)
+	cacheDir, err := j.callObjectMethod(ctx, appCtx, getCacheDirMid)
 	if err != nil {
 		return "", fmt.Errorf("calling getCacheDir: %w", err)
 	}
 
-	fileCls, err := j.findClass("java/io/File")
+	fileCls, err := j.findClass(ctx, "java/io/File")
 	if err != nil {
 		return "", fmt.Errorf("finding File class: %w", err)
 	}
 
-	getAbsolutePathMid, err := j.getMethodID(fileCls, "getAbsolutePath", "()Ljava/lang/String;")
+	getAbsolutePathMid, err := j.getMethodID(ctx, fileCls, "getAbsolutePath", "()Ljava/lang/String;")
 	if err != nil {
 		return "", fmt.Errorf("getting getAbsolutePath method: %w", err)
 	}
 
-	pathHandle, err := j.callObjectMethod(cacheDir, getAbsolutePathMid)
+	pathHandle, err := j.callObjectMethod(ctx, cacheDir, getAbsolutePathMid)
 	if err != nil {
 		return "", fmt.Errorf("calling getAbsolutePath: %w", err)
 	}
 
-	cachePath, err := j.getStringUTFChars(pathHandle)
+	cachePath, err := j.getStringUTFChars(ctx, pathHandle)
 	if err != nil {
 		return "", fmt.Errorf("reading cache dir path: %w", err)
 	}
 
-	return cachePath + "/recording.m4a", nil
+	return cachePath, nil
 }
 
 // setupAudioRecorder creates and configures a MediaRecorder for audio-only recording.
 func setupAudioRecorder(
+	ctx context.Context,
 	j *jniCaller,
 	appCtx int64,
 	outputPath string,
 ) (int64, error) {
-	mrCls, err := j.findClass("android/media/MediaRecorder")
+	mrCls, err := j.findClass(ctx, "android/media/MediaRecorder")
 	if err != nil {
 		return 0, fmt.Errorf("finding MediaRecorder class: %w", err)
 	}
@@ -188,22 +205,22 @@ func setupAudioRecorder(
 	// MediaRecorder(Context) constructor (API 31+).
 	// Fall back to no-arg constructor for older APIs.
 	var recorder int64
-	ctor, ctorErr := j.getMethodID(mrCls, "<init>", "(Landroid/content/Context;)V")
+	ctor, ctorErr := j.getMethodID(ctx, mrCls, "<init>", "(Landroid/content/Context;)V")
 	if ctorErr == nil {
-		recorder, err = j.newObject(mrCls, ctor, objVal(appCtx))
+		recorder, err = j.newObject(ctx, mrCls, ctor, objVal(appCtx))
 	}
 	if ctorErr != nil || err != nil {
-		ctor, err = j.getMethodID(mrCls, "<init>", "()V")
+		ctor, err = j.getMethodID(ctx, mrCls, "<init>", "()V")
 		if err != nil {
 			return 0, fmt.Errorf("getting MediaRecorder constructor: %w", err)
 		}
-		recorder, err = j.newObject(mrCls, ctor)
+		recorder, err = j.newObject(ctx, mrCls, ctor)
 		if err != nil {
 			return 0, fmt.Errorf("creating MediaRecorder: %w", err)
 		}
 	}
 
-	outputPathStr, err := j.newString(outputPath)
+	outputPathStr, err := j.newString(ctx, outputPath)
 	if err != nil {
 		return 0, fmt.Errorf("creating output path string: %w", err)
 	}
@@ -225,11 +242,11 @@ func setupAudioRecorder(
 	}
 
 	for _, c := range calls {
-		mid, err := j.getMethodID(mrCls, c.name, c.sig)
+		mid, err := j.getMethodID(ctx, mrCls, c.name, c.sig)
 		if err != nil {
 			return 0, fmt.Errorf("getting MediaRecorder.%s method: %w", c.name, err)
 		}
-		if err := j.callVoidMethod(recorder, mid, c.args...); err != nil {
+		if err := j.callVoidMethod(ctx, recorder, mid, c.args...); err != nil {
 			return 0, fmt.Errorf("calling MediaRecorder.%s: %w", c.name, err)
 		}
 	}

@@ -3001,8 +3001,8 @@ const file_proto_documents_documents_proto_rawDesc = "" +
 	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\x12\x12\n" +
 	"\x04arg2\x18\x03 \x01(\tR\x04arg2\"0\n" +
 	"\x16RenameDocumentResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result2\xaa\x15\n" +
-	"\x18DocumentsContractService\x12m\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result2\xa1\x15\n" +
+	"\x0fContractService\x12m\n" +
 	"\x16BuildChildDocumentsUri\x12(.documents.BuildChildDocumentsUriRequest\x1a).documents.BuildChildDocumentsUriResponse\x12\x88\x01\n" +
 	"\x1fBuildChildDocumentsUriUsingTree\x121.documents.BuildChildDocumentsUriUsingTreeRequest\x1a2.documents.BuildChildDocumentsUriUsingTreeResponse\x12[\n" +
 	"\x10BuildDocumentUri\x12\".documents.BuildDocumentUriRequest\x1a#.documents.BuildDocumentUriResponse\x12v\n" +
@@ -3032,7 +3032,7 @@ const file_proto_documents_documents_proto_rawDesc = "" +
 	"\tIsTreeUri\x12\x1b.documents.IsTreeUriRequest\x1a\x1c.documents.IsTreeUriResponse\x12O\n" +
 	"\fMoveDocument\x12\x1e.documents.MoveDocumentRequest\x1a\x1f.documents.MoveDocumentResponse\x12U\n" +
 	"\x0eRemoveDocument\x12 .documents.RemoveDocumentRequest\x1a!.documents.RemoveDocumentResponse\x12U\n" +
-	"\x0eRenameDocument\x12 .documents.RenameDocumentRequest\x1a!.documents.RenameDocumentResponseB,Z*github.com/AndroidGoLab/jni-proxy/proto/documentsb\x06proto3"
+	"\x0eRenameDocument\x12 .documents.RenameDocumentRequest\x1a!.documents.RenameDocumentResponseB3Z1github.com/AndroidGoLab/jni-proxy/proto/documentsb\x06proto3"
 
 var (
 	file_proto_documents_documents_proto_rawDescOnce sync.Once
@@ -3108,64 +3108,64 @@ var file_proto_documents_documents_proto_goTypes = []any{
 	(*RenameDocumentResponse)(nil),                  // 57: documents.RenameDocumentResponse
 }
 var file_proto_documents_documents_proto_depIdxs = []int32{
-	0,  // 0: documents.DocumentsContractService.BuildChildDocumentsUri:input_type -> documents.BuildChildDocumentsUriRequest
-	2,  // 1: documents.DocumentsContractService.BuildChildDocumentsUriUsingTree:input_type -> documents.BuildChildDocumentsUriUsingTreeRequest
-	4,  // 2: documents.DocumentsContractService.BuildDocumentUri:input_type -> documents.BuildDocumentUriRequest
-	6,  // 3: documents.DocumentsContractService.BuildDocumentUriUsingTree:input_type -> documents.BuildDocumentUriUsingTreeRequest
-	8,  // 4: documents.DocumentsContractService.BuildRecentDocumentsUri:input_type -> documents.BuildRecentDocumentsUriRequest
-	10, // 5: documents.DocumentsContractService.BuildRootUri:input_type -> documents.BuildRootUriRequest
-	12, // 6: documents.DocumentsContractService.BuildRootsUri:input_type -> documents.BuildRootsUriRequest
-	14, // 7: documents.DocumentsContractService.BuildSearchDocumentsUri:input_type -> documents.BuildSearchDocumentsUriRequest
-	16, // 8: documents.DocumentsContractService.BuildTreeDocumentUri:input_type -> documents.BuildTreeDocumentUriRequest
-	18, // 9: documents.DocumentsContractService.CopyDocument:input_type -> documents.CopyDocumentRequest
-	20, // 10: documents.DocumentsContractService.CreateDocument:input_type -> documents.CreateDocumentRequest
-	22, // 11: documents.DocumentsContractService.CreateWebLinkIntent:input_type -> documents.CreateWebLinkIntentRequest
-	24, // 12: documents.DocumentsContractService.DeleteDocument:input_type -> documents.DeleteDocumentRequest
-	26, // 13: documents.DocumentsContractService.EjectRoot:input_type -> documents.EjectRootRequest
-	28, // 14: documents.DocumentsContractService.FindDocumentPath:input_type -> documents.FindDocumentPathRequest
-	30, // 15: documents.DocumentsContractService.GetDocumentId:input_type -> documents.GetDocumentIdRequest
-	32, // 16: documents.DocumentsContractService.GetDocumentMetadata:input_type -> documents.GetDocumentMetadataRequest
-	34, // 17: documents.DocumentsContractService.GetDocumentThumbnail:input_type -> documents.GetDocumentThumbnailRequest
-	36, // 18: documents.DocumentsContractService.GetRootId:input_type -> documents.GetRootIdRequest
-	38, // 19: documents.DocumentsContractService.GetSearchDocumentsQuery:input_type -> documents.GetSearchDocumentsQueryRequest
-	40, // 20: documents.DocumentsContractService.GetTreeDocumentId:input_type -> documents.GetTreeDocumentIdRequest
-	42, // 21: documents.DocumentsContractService.IsChildDocument:input_type -> documents.IsChildDocumentRequest
-	44, // 22: documents.DocumentsContractService.IsDocumentUri:input_type -> documents.IsDocumentUriRequest
-	46, // 23: documents.DocumentsContractService.IsRootUri:input_type -> documents.IsRootUriRequest
-	48, // 24: documents.DocumentsContractService.IsRootsUri:input_type -> documents.IsRootsUriRequest
-	50, // 25: documents.DocumentsContractService.IsTreeUri:input_type -> documents.IsTreeUriRequest
-	52, // 26: documents.DocumentsContractService.MoveDocument:input_type -> documents.MoveDocumentRequest
-	54, // 27: documents.DocumentsContractService.RemoveDocument:input_type -> documents.RemoveDocumentRequest
-	56, // 28: documents.DocumentsContractService.RenameDocument:input_type -> documents.RenameDocumentRequest
-	1,  // 29: documents.DocumentsContractService.BuildChildDocumentsUri:output_type -> documents.BuildChildDocumentsUriResponse
-	3,  // 30: documents.DocumentsContractService.BuildChildDocumentsUriUsingTree:output_type -> documents.BuildChildDocumentsUriUsingTreeResponse
-	5,  // 31: documents.DocumentsContractService.BuildDocumentUri:output_type -> documents.BuildDocumentUriResponse
-	7,  // 32: documents.DocumentsContractService.BuildDocumentUriUsingTree:output_type -> documents.BuildDocumentUriUsingTreeResponse
-	9,  // 33: documents.DocumentsContractService.BuildRecentDocumentsUri:output_type -> documents.BuildRecentDocumentsUriResponse
-	11, // 34: documents.DocumentsContractService.BuildRootUri:output_type -> documents.BuildRootUriResponse
-	13, // 35: documents.DocumentsContractService.BuildRootsUri:output_type -> documents.BuildRootsUriResponse
-	15, // 36: documents.DocumentsContractService.BuildSearchDocumentsUri:output_type -> documents.BuildSearchDocumentsUriResponse
-	17, // 37: documents.DocumentsContractService.BuildTreeDocumentUri:output_type -> documents.BuildTreeDocumentUriResponse
-	19, // 38: documents.DocumentsContractService.CopyDocument:output_type -> documents.CopyDocumentResponse
-	21, // 39: documents.DocumentsContractService.CreateDocument:output_type -> documents.CreateDocumentResponse
-	23, // 40: documents.DocumentsContractService.CreateWebLinkIntent:output_type -> documents.CreateWebLinkIntentResponse
-	25, // 41: documents.DocumentsContractService.DeleteDocument:output_type -> documents.DeleteDocumentResponse
-	27, // 42: documents.DocumentsContractService.EjectRoot:output_type -> documents.EjectRootResponse
-	29, // 43: documents.DocumentsContractService.FindDocumentPath:output_type -> documents.FindDocumentPathResponse
-	31, // 44: documents.DocumentsContractService.GetDocumentId:output_type -> documents.GetDocumentIdResponse
-	33, // 45: documents.DocumentsContractService.GetDocumentMetadata:output_type -> documents.GetDocumentMetadataResponse
-	35, // 46: documents.DocumentsContractService.GetDocumentThumbnail:output_type -> documents.GetDocumentThumbnailResponse
-	37, // 47: documents.DocumentsContractService.GetRootId:output_type -> documents.GetRootIdResponse
-	39, // 48: documents.DocumentsContractService.GetSearchDocumentsQuery:output_type -> documents.GetSearchDocumentsQueryResponse
-	41, // 49: documents.DocumentsContractService.GetTreeDocumentId:output_type -> documents.GetTreeDocumentIdResponse
-	43, // 50: documents.DocumentsContractService.IsChildDocument:output_type -> documents.IsChildDocumentResponse
-	45, // 51: documents.DocumentsContractService.IsDocumentUri:output_type -> documents.IsDocumentUriResponse
-	47, // 52: documents.DocumentsContractService.IsRootUri:output_type -> documents.IsRootUriResponse
-	49, // 53: documents.DocumentsContractService.IsRootsUri:output_type -> documents.IsRootsUriResponse
-	51, // 54: documents.DocumentsContractService.IsTreeUri:output_type -> documents.IsTreeUriResponse
-	53, // 55: documents.DocumentsContractService.MoveDocument:output_type -> documents.MoveDocumentResponse
-	55, // 56: documents.DocumentsContractService.RemoveDocument:output_type -> documents.RemoveDocumentResponse
-	57, // 57: documents.DocumentsContractService.RenameDocument:output_type -> documents.RenameDocumentResponse
+	0,  // 0: documents.ContractService.BuildChildDocumentsUri:input_type -> documents.BuildChildDocumentsUriRequest
+	2,  // 1: documents.ContractService.BuildChildDocumentsUriUsingTree:input_type -> documents.BuildChildDocumentsUriUsingTreeRequest
+	4,  // 2: documents.ContractService.BuildDocumentUri:input_type -> documents.BuildDocumentUriRequest
+	6,  // 3: documents.ContractService.BuildDocumentUriUsingTree:input_type -> documents.BuildDocumentUriUsingTreeRequest
+	8,  // 4: documents.ContractService.BuildRecentDocumentsUri:input_type -> documents.BuildRecentDocumentsUriRequest
+	10, // 5: documents.ContractService.BuildRootUri:input_type -> documents.BuildRootUriRequest
+	12, // 6: documents.ContractService.BuildRootsUri:input_type -> documents.BuildRootsUriRequest
+	14, // 7: documents.ContractService.BuildSearchDocumentsUri:input_type -> documents.BuildSearchDocumentsUriRequest
+	16, // 8: documents.ContractService.BuildTreeDocumentUri:input_type -> documents.BuildTreeDocumentUriRequest
+	18, // 9: documents.ContractService.CopyDocument:input_type -> documents.CopyDocumentRequest
+	20, // 10: documents.ContractService.CreateDocument:input_type -> documents.CreateDocumentRequest
+	22, // 11: documents.ContractService.CreateWebLinkIntent:input_type -> documents.CreateWebLinkIntentRequest
+	24, // 12: documents.ContractService.DeleteDocument:input_type -> documents.DeleteDocumentRequest
+	26, // 13: documents.ContractService.EjectRoot:input_type -> documents.EjectRootRequest
+	28, // 14: documents.ContractService.FindDocumentPath:input_type -> documents.FindDocumentPathRequest
+	30, // 15: documents.ContractService.GetDocumentId:input_type -> documents.GetDocumentIdRequest
+	32, // 16: documents.ContractService.GetDocumentMetadata:input_type -> documents.GetDocumentMetadataRequest
+	34, // 17: documents.ContractService.GetDocumentThumbnail:input_type -> documents.GetDocumentThumbnailRequest
+	36, // 18: documents.ContractService.GetRootId:input_type -> documents.GetRootIdRequest
+	38, // 19: documents.ContractService.GetSearchDocumentsQuery:input_type -> documents.GetSearchDocumentsQueryRequest
+	40, // 20: documents.ContractService.GetTreeDocumentId:input_type -> documents.GetTreeDocumentIdRequest
+	42, // 21: documents.ContractService.IsChildDocument:input_type -> documents.IsChildDocumentRequest
+	44, // 22: documents.ContractService.IsDocumentUri:input_type -> documents.IsDocumentUriRequest
+	46, // 23: documents.ContractService.IsRootUri:input_type -> documents.IsRootUriRequest
+	48, // 24: documents.ContractService.IsRootsUri:input_type -> documents.IsRootsUriRequest
+	50, // 25: documents.ContractService.IsTreeUri:input_type -> documents.IsTreeUriRequest
+	52, // 26: documents.ContractService.MoveDocument:input_type -> documents.MoveDocumentRequest
+	54, // 27: documents.ContractService.RemoveDocument:input_type -> documents.RemoveDocumentRequest
+	56, // 28: documents.ContractService.RenameDocument:input_type -> documents.RenameDocumentRequest
+	1,  // 29: documents.ContractService.BuildChildDocumentsUri:output_type -> documents.BuildChildDocumentsUriResponse
+	3,  // 30: documents.ContractService.BuildChildDocumentsUriUsingTree:output_type -> documents.BuildChildDocumentsUriUsingTreeResponse
+	5,  // 31: documents.ContractService.BuildDocumentUri:output_type -> documents.BuildDocumentUriResponse
+	7,  // 32: documents.ContractService.BuildDocumentUriUsingTree:output_type -> documents.BuildDocumentUriUsingTreeResponse
+	9,  // 33: documents.ContractService.BuildRecentDocumentsUri:output_type -> documents.BuildRecentDocumentsUriResponse
+	11, // 34: documents.ContractService.BuildRootUri:output_type -> documents.BuildRootUriResponse
+	13, // 35: documents.ContractService.BuildRootsUri:output_type -> documents.BuildRootsUriResponse
+	15, // 36: documents.ContractService.BuildSearchDocumentsUri:output_type -> documents.BuildSearchDocumentsUriResponse
+	17, // 37: documents.ContractService.BuildTreeDocumentUri:output_type -> documents.BuildTreeDocumentUriResponse
+	19, // 38: documents.ContractService.CopyDocument:output_type -> documents.CopyDocumentResponse
+	21, // 39: documents.ContractService.CreateDocument:output_type -> documents.CreateDocumentResponse
+	23, // 40: documents.ContractService.CreateWebLinkIntent:output_type -> documents.CreateWebLinkIntentResponse
+	25, // 41: documents.ContractService.DeleteDocument:output_type -> documents.DeleteDocumentResponse
+	27, // 42: documents.ContractService.EjectRoot:output_type -> documents.EjectRootResponse
+	29, // 43: documents.ContractService.FindDocumentPath:output_type -> documents.FindDocumentPathResponse
+	31, // 44: documents.ContractService.GetDocumentId:output_type -> documents.GetDocumentIdResponse
+	33, // 45: documents.ContractService.GetDocumentMetadata:output_type -> documents.GetDocumentMetadataResponse
+	35, // 46: documents.ContractService.GetDocumentThumbnail:output_type -> documents.GetDocumentThumbnailResponse
+	37, // 47: documents.ContractService.GetRootId:output_type -> documents.GetRootIdResponse
+	39, // 48: documents.ContractService.GetSearchDocumentsQuery:output_type -> documents.GetSearchDocumentsQueryResponse
+	41, // 49: documents.ContractService.GetTreeDocumentId:output_type -> documents.GetTreeDocumentIdResponse
+	43, // 50: documents.ContractService.IsChildDocument:output_type -> documents.IsChildDocumentResponse
+	45, // 51: documents.ContractService.IsDocumentUri:output_type -> documents.IsDocumentUriResponse
+	47, // 52: documents.ContractService.IsRootUri:output_type -> documents.IsRootUriResponse
+	49, // 53: documents.ContractService.IsRootsUri:output_type -> documents.IsRootsUriResponse
+	51, // 54: documents.ContractService.IsTreeUri:output_type -> documents.IsTreeUriResponse
+	53, // 55: documents.ContractService.MoveDocument:output_type -> documents.MoveDocumentResponse
+	55, // 56: documents.ContractService.RemoveDocument:output_type -> documents.RemoveDocumentResponse
+	57, // 57: documents.ContractService.RenameDocument:output_type -> documents.RenameDocumentResponse
 	29, // [29:58] is the sub-list for method output_type
 	0,  // [0:29] is the sub-list for method input_type
 	0,  // [0:0] is the sub-list for extension type_name

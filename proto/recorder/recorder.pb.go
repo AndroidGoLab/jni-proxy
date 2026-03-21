@@ -2935,6 +2935,86 @@ func (*UnregisterAudioRecordingCallbackResponse) Descriptor() ([]byte, []int) {
 	return file_proto_recorder_recorder_proto_rawDescGZIP(), []int{71}
 }
 
+type GetAudioSourceMaxRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetAudioSourceMaxRequest) Reset() {
+	*x = GetAudioSourceMaxRequest{}
+	mi := &file_proto_recorder_recorder_proto_msgTypes[72]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetAudioSourceMaxRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetAudioSourceMaxRequest) ProtoMessage() {}
+
+func (x *GetAudioSourceMaxRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_recorder_recorder_proto_msgTypes[72]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetAudioSourceMaxRequest.ProtoReflect.Descriptor instead.
+func (*GetAudioSourceMaxRequest) Descriptor() ([]byte, []int) {
+	return file_proto_recorder_recorder_proto_rawDescGZIP(), []int{72}
+}
+
+type GetAudioSourceMaxResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetAudioSourceMaxResponse) Reset() {
+	*x = GetAudioSourceMaxResponse{}
+	mi := &file_proto_recorder_recorder_proto_msgTypes[73]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetAudioSourceMaxResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetAudioSourceMaxResponse) ProtoMessage() {}
+
+func (x *GetAudioSourceMaxResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_recorder_recorder_proto_msgTypes[73]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetAudioSourceMaxResponse.ProtoReflect.Descriptor instead.
+func (*GetAudioSourceMaxResponse) Descriptor() ([]byte, []int) {
+	return file_proto_recorder_recorder_proto_rawDescGZIP(), []int{73}
+}
+
+func (x *GetAudioSourceMaxResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
 var File_proto_recorder_recorder_proto protoreflect.FileDescriptor
 
 const file_proto_recorder_recorder_proto_rawDesc = "" +
@@ -3051,7 +3131,10 @@ const file_proto_recorder_recorder_proto_rawDesc = "" +
 	"\x17SetVideoProfileResponse\"=\n" +
 	"'UnregisterAudioRecordingCallbackRequest\x12\x12\n" +
 	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"*\n" +
-	"(UnregisterAudioRecordingCallbackResponse2\x8b\x1c\n" +
+	"(UnregisterAudioRecordingCallbackResponse\"\x1a\n" +
+	"\x18GetAudioSourceMaxRequest\"3\n" +
+	"\x19GetAudioSourceMaxResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result2\xe9\x1c\n" +
 	"\x14MediaRecorderService\x12e\n" +
 	"\x14GetActiveMicrophones\x12%.recorder.GetActiveMicrophonesRequest\x1a&.recorder.GetActiveMicrophonesResponse\x12\x86\x01\n" +
 	"\x1fGetActiveRecordingConfiguration\x120.recorder.GetActiveRecordingConfigurationRequest\x1a1.recorder.GetActiveRecordingConfigurationResponse\x12V\n" +
@@ -3090,7 +3173,8 @@ const file_proto_recorder_recorder_proto_rawDesc = "" +
 	"\x17SetVideoEncodingBitRate\x12(.recorder.SetVideoEncodingBitRateRequest\x1a).recorder.SetVideoEncodingBitRateResponse\x12}\n" +
 	"\x1cSetVideoEncodingProfileLevel\x12-.recorder.SetVideoEncodingProfileLevelRequest\x1a..recorder.SetVideoEncodingProfileLevelResponse\x12V\n" +
 	"\x0fSetVideoProfile\x12 .recorder.SetVideoProfileRequest\x1a!.recorder.SetVideoProfileResponse\x12\x89\x01\n" +
-	" UnregisterAudioRecordingCallback\x121.recorder.UnregisterAudioRecordingCallbackRequest\x1a2.recorder.UnregisterAudioRecordingCallbackResponseB+Z)github.com/AndroidGoLab/jni-proxy/proto/recorderb\x06proto3"
+	" UnregisterAudioRecordingCallback\x121.recorder.UnregisterAudioRecordingCallbackRequest\x1a2.recorder.UnregisterAudioRecordingCallbackResponse\x12\\\n" +
+	"\x11GetAudioSourceMax\x12\".recorder.GetAudioSourceMaxRequest\x1a#.recorder.GetAudioSourceMaxResponseB2Z0github.com/AndroidGoLab/jni-proxy/proto/recorderb\x06proto3"
 
 var (
 	file_proto_recorder_recorder_proto_rawDescOnce sync.Once
@@ -3104,7 +3188,7 @@ func file_proto_recorder_recorder_proto_rawDescGZIP() []byte {
 	return file_proto_recorder_recorder_proto_rawDescData
 }
 
-var file_proto_recorder_recorder_proto_msgTypes = make([]protoimpl.MessageInfo, 72)
+var file_proto_recorder_recorder_proto_msgTypes = make([]protoimpl.MessageInfo, 74)
 var file_proto_recorder_recorder_proto_goTypes = []any{
 	(*GetActiveMicrophonesRequest)(nil),                  // 0: recorder.GetActiveMicrophonesRequest
 	(*GetActiveMicrophonesResponse)(nil),                 // 1: recorder.GetActiveMicrophonesResponse
@@ -3178,6 +3262,8 @@ var file_proto_recorder_recorder_proto_goTypes = []any{
 	(*SetVideoProfileResponse)(nil),                      // 69: recorder.SetVideoProfileResponse
 	(*UnregisterAudioRecordingCallbackRequest)(nil),      // 70: recorder.UnregisterAudioRecordingCallbackRequest
 	(*UnregisterAudioRecordingCallbackResponse)(nil),     // 71: recorder.UnregisterAudioRecordingCallbackResponse
+	(*GetAudioSourceMaxRequest)(nil),                     // 72: recorder.GetAudioSourceMaxRequest
+	(*GetAudioSourceMaxResponse)(nil),                    // 73: recorder.GetAudioSourceMaxResponse
 }
 var file_proto_recorder_recorder_proto_depIdxs = []int32{
 	0,  // 0: recorder.MediaRecorderService.GetActiveMicrophones:input_type -> recorder.GetActiveMicrophonesRequest
@@ -3216,44 +3302,46 @@ var file_proto_recorder_recorder_proto_depIdxs = []int32{
 	66, // 33: recorder.MediaRecorderService.SetVideoEncodingProfileLevel:input_type -> recorder.SetVideoEncodingProfileLevelRequest
 	68, // 34: recorder.MediaRecorderService.SetVideoProfile:input_type -> recorder.SetVideoProfileRequest
 	70, // 35: recorder.MediaRecorderService.UnregisterAudioRecordingCallback:input_type -> recorder.UnregisterAudioRecordingCallbackRequest
-	1,  // 36: recorder.MediaRecorderService.GetActiveMicrophones:output_type -> recorder.GetActiveMicrophonesResponse
-	3,  // 37: recorder.MediaRecorderService.GetActiveRecordingConfiguration:output_type -> recorder.GetActiveRecordingConfigurationResponse
-	5,  // 38: recorder.MediaRecorderService.GetLogSessionId:output_type -> recorder.GetLogSessionIdResponse
-	7,  // 39: recorder.MediaRecorderService.GetMetrics:output_type -> recorder.GetMetricsResponse
-	9,  // 40: recorder.MediaRecorderService.GetPreferredDevice:output_type -> recorder.GetPreferredDeviceResponse
-	11, // 41: recorder.MediaRecorderService.GetRoutedDevice:output_type -> recorder.GetRoutedDeviceResponse
-	13, // 42: recorder.MediaRecorderService.GetRoutedDevices:output_type -> recorder.GetRoutedDevicesResponse
-	15, // 43: recorder.MediaRecorderService.Prepare:output_type -> recorder.PrepareResponse
-	17, // 44: recorder.MediaRecorderService.RegisterAudioRecordingCallback:output_type -> recorder.RegisterAudioRecordingCallbackResponse
-	19, // 45: recorder.MediaRecorderService.RemoveOnRoutingChangedListener:output_type -> recorder.RemoveOnRoutingChangedListenerResponse
-	21, // 46: recorder.MediaRecorderService.Reset:output_type -> recorder.ResetResponse
-	23, // 47: recorder.MediaRecorderService.SetAudioChannels:output_type -> recorder.SetAudioChannelsResponse
-	25, // 48: recorder.MediaRecorderService.SetAudioEncodingBitRate:output_type -> recorder.SetAudioEncodingBitRateResponse
-	27, // 49: recorder.MediaRecorderService.SetAudioProfile:output_type -> recorder.SetAudioProfileResponse
-	29, // 50: recorder.MediaRecorderService.SetAudioSamplingRate:output_type -> recorder.SetAudioSamplingRateResponse
-	31, // 51: recorder.MediaRecorderService.SetCaptureRate:output_type -> recorder.SetCaptureRateResponse
-	33, // 52: recorder.MediaRecorderService.SetInputSurface:output_type -> recorder.SetInputSurfaceResponse
-	35, // 53: recorder.MediaRecorderService.SetLocation:output_type -> recorder.SetLocationResponse
-	37, // 54: recorder.MediaRecorderService.SetLogSessionId:output_type -> recorder.SetLogSessionIdResponse
-	39, // 55: recorder.MediaRecorderService.SetNextOutputFile1:output_type -> recorder.SetNextOutputFile1Response
-	41, // 56: recorder.MediaRecorderService.SetNextOutputFile1_1:output_type -> recorder.SetNextOutputFile1_1Response
-	43, // 57: recorder.MediaRecorderService.SetOnErrorListener:output_type -> recorder.SetOnErrorListenerResponse
-	45, // 58: recorder.MediaRecorderService.SetOnInfoListener:output_type -> recorder.SetOnInfoListenerResponse
-	47, // 59: recorder.MediaRecorderService.SetOrientationHint:output_type -> recorder.SetOrientationHintResponse
-	49, // 60: recorder.MediaRecorderService.SetOutputFile1:output_type -> recorder.SetOutputFile1Response
-	51, // 61: recorder.MediaRecorderService.SetOutputFile1_1:output_type -> recorder.SetOutputFile1_1Response
-	53, // 62: recorder.MediaRecorderService.SetOutputFile1_2:output_type -> recorder.SetOutputFile1_2Response
-	55, // 63: recorder.MediaRecorderService.SetPreferredDevice:output_type -> recorder.SetPreferredDeviceResponse
-	57, // 64: recorder.MediaRecorderService.SetPreferredMicrophoneDirection:output_type -> recorder.SetPreferredMicrophoneDirectionResponse
-	59, // 65: recorder.MediaRecorderService.SetPreferredMicrophoneFieldDimension:output_type -> recorder.SetPreferredMicrophoneFieldDimensionResponse
-	61, // 66: recorder.MediaRecorderService.SetPreviewDisplay:output_type -> recorder.SetPreviewDisplayResponse
-	63, // 67: recorder.MediaRecorderService.SetProfile:output_type -> recorder.SetProfileResponse
-	65, // 68: recorder.MediaRecorderService.SetVideoEncodingBitRate:output_type -> recorder.SetVideoEncodingBitRateResponse
-	67, // 69: recorder.MediaRecorderService.SetVideoEncodingProfileLevel:output_type -> recorder.SetVideoEncodingProfileLevelResponse
-	69, // 70: recorder.MediaRecorderService.SetVideoProfile:output_type -> recorder.SetVideoProfileResponse
-	71, // 71: recorder.MediaRecorderService.UnregisterAudioRecordingCallback:output_type -> recorder.UnregisterAudioRecordingCallbackResponse
-	36, // [36:72] is the sub-list for method output_type
-	0,  // [0:36] is the sub-list for method input_type
+	72, // 36: recorder.MediaRecorderService.GetAudioSourceMax:input_type -> recorder.GetAudioSourceMaxRequest
+	1,  // 37: recorder.MediaRecorderService.GetActiveMicrophones:output_type -> recorder.GetActiveMicrophonesResponse
+	3,  // 38: recorder.MediaRecorderService.GetActiveRecordingConfiguration:output_type -> recorder.GetActiveRecordingConfigurationResponse
+	5,  // 39: recorder.MediaRecorderService.GetLogSessionId:output_type -> recorder.GetLogSessionIdResponse
+	7,  // 40: recorder.MediaRecorderService.GetMetrics:output_type -> recorder.GetMetricsResponse
+	9,  // 41: recorder.MediaRecorderService.GetPreferredDevice:output_type -> recorder.GetPreferredDeviceResponse
+	11, // 42: recorder.MediaRecorderService.GetRoutedDevice:output_type -> recorder.GetRoutedDeviceResponse
+	13, // 43: recorder.MediaRecorderService.GetRoutedDevices:output_type -> recorder.GetRoutedDevicesResponse
+	15, // 44: recorder.MediaRecorderService.Prepare:output_type -> recorder.PrepareResponse
+	17, // 45: recorder.MediaRecorderService.RegisterAudioRecordingCallback:output_type -> recorder.RegisterAudioRecordingCallbackResponse
+	19, // 46: recorder.MediaRecorderService.RemoveOnRoutingChangedListener:output_type -> recorder.RemoveOnRoutingChangedListenerResponse
+	21, // 47: recorder.MediaRecorderService.Reset:output_type -> recorder.ResetResponse
+	23, // 48: recorder.MediaRecorderService.SetAudioChannels:output_type -> recorder.SetAudioChannelsResponse
+	25, // 49: recorder.MediaRecorderService.SetAudioEncodingBitRate:output_type -> recorder.SetAudioEncodingBitRateResponse
+	27, // 50: recorder.MediaRecorderService.SetAudioProfile:output_type -> recorder.SetAudioProfileResponse
+	29, // 51: recorder.MediaRecorderService.SetAudioSamplingRate:output_type -> recorder.SetAudioSamplingRateResponse
+	31, // 52: recorder.MediaRecorderService.SetCaptureRate:output_type -> recorder.SetCaptureRateResponse
+	33, // 53: recorder.MediaRecorderService.SetInputSurface:output_type -> recorder.SetInputSurfaceResponse
+	35, // 54: recorder.MediaRecorderService.SetLocation:output_type -> recorder.SetLocationResponse
+	37, // 55: recorder.MediaRecorderService.SetLogSessionId:output_type -> recorder.SetLogSessionIdResponse
+	39, // 56: recorder.MediaRecorderService.SetNextOutputFile1:output_type -> recorder.SetNextOutputFile1Response
+	41, // 57: recorder.MediaRecorderService.SetNextOutputFile1_1:output_type -> recorder.SetNextOutputFile1_1Response
+	43, // 58: recorder.MediaRecorderService.SetOnErrorListener:output_type -> recorder.SetOnErrorListenerResponse
+	45, // 59: recorder.MediaRecorderService.SetOnInfoListener:output_type -> recorder.SetOnInfoListenerResponse
+	47, // 60: recorder.MediaRecorderService.SetOrientationHint:output_type -> recorder.SetOrientationHintResponse
+	49, // 61: recorder.MediaRecorderService.SetOutputFile1:output_type -> recorder.SetOutputFile1Response
+	51, // 62: recorder.MediaRecorderService.SetOutputFile1_1:output_type -> recorder.SetOutputFile1_1Response
+	53, // 63: recorder.MediaRecorderService.SetOutputFile1_2:output_type -> recorder.SetOutputFile1_2Response
+	55, // 64: recorder.MediaRecorderService.SetPreferredDevice:output_type -> recorder.SetPreferredDeviceResponse
+	57, // 65: recorder.MediaRecorderService.SetPreferredMicrophoneDirection:output_type -> recorder.SetPreferredMicrophoneDirectionResponse
+	59, // 66: recorder.MediaRecorderService.SetPreferredMicrophoneFieldDimension:output_type -> recorder.SetPreferredMicrophoneFieldDimensionResponse
+	61, // 67: recorder.MediaRecorderService.SetPreviewDisplay:output_type -> recorder.SetPreviewDisplayResponse
+	63, // 68: recorder.MediaRecorderService.SetProfile:output_type -> recorder.SetProfileResponse
+	65, // 69: recorder.MediaRecorderService.SetVideoEncodingBitRate:output_type -> recorder.SetVideoEncodingBitRateResponse
+	67, // 70: recorder.MediaRecorderService.SetVideoEncodingProfileLevel:output_type -> recorder.SetVideoEncodingProfileLevelResponse
+	69, // 71: recorder.MediaRecorderService.SetVideoProfile:output_type -> recorder.SetVideoProfileResponse
+	71, // 72: recorder.MediaRecorderService.UnregisterAudioRecordingCallback:output_type -> recorder.UnregisterAudioRecordingCallbackResponse
+	73, // 73: recorder.MediaRecorderService.GetAudioSourceMax:output_type -> recorder.GetAudioSourceMaxResponse
+	37, // [37:74] is the sub-list for method output_type
+	0,  // [0:37] is the sub-list for method input_type
 	0,  // [0:0] is the sub-list for extension type_name
 	0,  // [0:0] is the sub-list for extension extendee
 	0,  // [0:0] is the sub-list for field type_name
@@ -3270,7 +3358,7 @@ func file_proto_recorder_recorder_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_proto_recorder_recorder_proto_rawDesc), len(file_proto_recorder_recorder_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   72,
+			NumMessages:   74,
 			NumExtensions: 0,
 			NumServices:   1,
 		},

@@ -1887,8 +1887,8 @@ const file_proto_companion_companion_proto_rawDesc = "" +
 	"$StopObservingDevicePresence1Response\";\n" +
 	"%StopObservingDevicePresence1_1Request\x12\x12\n" +
 	"\x04arg0\x18\x01 \x01(\tR\x04arg0\"(\n" +
-	"&StopObservingDevicePresence1_1Response2\x98\x13\n" +
-	"\x1dCompanionDeviceManagerService\x12F\n" +
+	"&StopObservingDevicePresence1_1Response2\x8f\x13\n" +
+	"\x14DeviceManagerService\x12F\n" +
 	"\tAssociate\x12\x1b.companion.AssociateRequest\x1a\x1c.companion.AssociateResponse\x12v\n" +
 	"\x19AttachSystemDataTransport\x12+.companion.AttachSystemDataTransportRequest\x1a,.companion.AttachSystemDataTransportResponse\x12\x91\x01\n" +
 	"\"BuildAssociationCancellationIntent\x124.companion.BuildAssociationCancellationIntentRequest\x1a5.companion.BuildAssociationCancellationIntentResponse\x12\xa3\x01\n" +
@@ -1910,7 +1910,7 @@ const file_proto_companion_companion_proto_rawDesc = "" +
 	"\x1fStartObservingDevicePresence1_1\x121.companion.StartObservingDevicePresence1_1Request\x1a2.companion.StartObservingDevicePresence1_1Response\x12p\n" +
 	"\x17StartSystemDataTransfer\x12).companion.StartSystemDataTransferRequest\x1a*.companion.StartSystemDataTransferResponse\x12\x7f\n" +
 	"\x1cStopObservingDevicePresence1\x12..companion.StopObservingDevicePresence1Request\x1a/.companion.StopObservingDevicePresence1Response\x12\x85\x01\n" +
-	"\x1eStopObservingDevicePresence1_1\x120.companion.StopObservingDevicePresence1_1Request\x1a1.companion.StopObservingDevicePresence1_1ResponseB,Z*github.com/AndroidGoLab/jni-proxy/proto/companionb\x06proto3"
+	"\x1eStopObservingDevicePresence1_1\x120.companion.StopObservingDevicePresence1_1Request\x1a1.companion.StopObservingDevicePresence1_1ResponseB3Z1github.com/AndroidGoLab/jni-proxy/proto/companionb\x06proto3"
 
 var (
 	file_proto_companion_companion_proto_rawDescOnce sync.Once
@@ -1970,48 +1970,48 @@ var file_proto_companion_companion_proto_goTypes = []any{
 	(*StopObservingDevicePresence1_1Response)(nil),           // 41: companion.StopObservingDevicePresence1_1Response
 }
 var file_proto_companion_companion_proto_depIdxs = []int32{
-	0,  // 0: companion.CompanionDeviceManagerService.Associate:input_type -> companion.AssociateRequest
-	2,  // 1: companion.CompanionDeviceManagerService.AttachSystemDataTransport:input_type -> companion.AttachSystemDataTransportRequest
-	4,  // 2: companion.CompanionDeviceManagerService.BuildAssociationCancellationIntent:input_type -> companion.BuildAssociationCancellationIntentRequest
-	6,  // 3: companion.CompanionDeviceManagerService.BuildPermissionTransferUserConsentIntent:input_type -> companion.BuildPermissionTransferUserConsentIntentRequest
-	8,  // 4: companion.CompanionDeviceManagerService.DetachSystemDataTransport:input_type -> companion.DetachSystemDataTransportRequest
-	10, // 5: companion.CompanionDeviceManagerService.DisableSystemDataSyncForTypes:input_type -> companion.DisableSystemDataSyncForTypesRequest
-	12, // 6: companion.CompanionDeviceManagerService.Disassociate1:input_type -> companion.Disassociate1Request
-	14, // 7: companion.CompanionDeviceManagerService.Disassociate1_1:input_type -> companion.Disassociate1_1Request
-	16, // 8: companion.CompanionDeviceManagerService.EnableSystemDataSyncForTypes:input_type -> companion.EnableSystemDataSyncForTypesRequest
-	18, // 9: companion.CompanionDeviceManagerService.GetAssociations:input_type -> companion.GetAssociationsRequest
-	20, // 10: companion.CompanionDeviceManagerService.GetMyAssociations:input_type -> companion.GetMyAssociationsRequest
-	22, // 11: companion.CompanionDeviceManagerService.HasNotificationAccess:input_type -> companion.HasNotificationAccessRequest
-	24, // 12: companion.CompanionDeviceManagerService.IsPermissionTransferUserConsented:input_type -> companion.IsPermissionTransferUserConsentedRequest
-	26, // 13: companion.CompanionDeviceManagerService.RemoveBond:input_type -> companion.RemoveBondRequest
-	28, // 14: companion.CompanionDeviceManagerService.RequestNotificationAccess:input_type -> companion.RequestNotificationAccessRequest
-	30, // 15: companion.CompanionDeviceManagerService.SetDeviceId:input_type -> companion.SetDeviceIdRequest
-	32, // 16: companion.CompanionDeviceManagerService.StartObservingDevicePresence1:input_type -> companion.StartObservingDevicePresence1Request
-	34, // 17: companion.CompanionDeviceManagerService.StartObservingDevicePresence1_1:input_type -> companion.StartObservingDevicePresence1_1Request
-	36, // 18: companion.CompanionDeviceManagerService.StartSystemDataTransfer:input_type -> companion.StartSystemDataTransferRequest
-	38, // 19: companion.CompanionDeviceManagerService.StopObservingDevicePresence1:input_type -> companion.StopObservingDevicePresence1Request
-	40, // 20: companion.CompanionDeviceManagerService.StopObservingDevicePresence1_1:input_type -> companion.StopObservingDevicePresence1_1Request
-	1,  // 21: companion.CompanionDeviceManagerService.Associate:output_type -> companion.AssociateResponse
-	3,  // 22: companion.CompanionDeviceManagerService.AttachSystemDataTransport:output_type -> companion.AttachSystemDataTransportResponse
-	5,  // 23: companion.CompanionDeviceManagerService.BuildAssociationCancellationIntent:output_type -> companion.BuildAssociationCancellationIntentResponse
-	7,  // 24: companion.CompanionDeviceManagerService.BuildPermissionTransferUserConsentIntent:output_type -> companion.BuildPermissionTransferUserConsentIntentResponse
-	9,  // 25: companion.CompanionDeviceManagerService.DetachSystemDataTransport:output_type -> companion.DetachSystemDataTransportResponse
-	11, // 26: companion.CompanionDeviceManagerService.DisableSystemDataSyncForTypes:output_type -> companion.DisableSystemDataSyncForTypesResponse
-	13, // 27: companion.CompanionDeviceManagerService.Disassociate1:output_type -> companion.Disassociate1Response
-	15, // 28: companion.CompanionDeviceManagerService.Disassociate1_1:output_type -> companion.Disassociate1_1Response
-	17, // 29: companion.CompanionDeviceManagerService.EnableSystemDataSyncForTypes:output_type -> companion.EnableSystemDataSyncForTypesResponse
-	19, // 30: companion.CompanionDeviceManagerService.GetAssociations:output_type -> companion.GetAssociationsResponse
-	21, // 31: companion.CompanionDeviceManagerService.GetMyAssociations:output_type -> companion.GetMyAssociationsResponse
-	23, // 32: companion.CompanionDeviceManagerService.HasNotificationAccess:output_type -> companion.HasNotificationAccessResponse
-	25, // 33: companion.CompanionDeviceManagerService.IsPermissionTransferUserConsented:output_type -> companion.IsPermissionTransferUserConsentedResponse
-	27, // 34: companion.CompanionDeviceManagerService.RemoveBond:output_type -> companion.RemoveBondResponse
-	29, // 35: companion.CompanionDeviceManagerService.RequestNotificationAccess:output_type -> companion.RequestNotificationAccessResponse
-	31, // 36: companion.CompanionDeviceManagerService.SetDeviceId:output_type -> companion.SetDeviceIdResponse
-	33, // 37: companion.CompanionDeviceManagerService.StartObservingDevicePresence1:output_type -> companion.StartObservingDevicePresence1Response
-	35, // 38: companion.CompanionDeviceManagerService.StartObservingDevicePresence1_1:output_type -> companion.StartObservingDevicePresence1_1Response
-	37, // 39: companion.CompanionDeviceManagerService.StartSystemDataTransfer:output_type -> companion.StartSystemDataTransferResponse
-	39, // 40: companion.CompanionDeviceManagerService.StopObservingDevicePresence1:output_type -> companion.StopObservingDevicePresence1Response
-	41, // 41: companion.CompanionDeviceManagerService.StopObservingDevicePresence1_1:output_type -> companion.StopObservingDevicePresence1_1Response
+	0,  // 0: companion.DeviceManagerService.Associate:input_type -> companion.AssociateRequest
+	2,  // 1: companion.DeviceManagerService.AttachSystemDataTransport:input_type -> companion.AttachSystemDataTransportRequest
+	4,  // 2: companion.DeviceManagerService.BuildAssociationCancellationIntent:input_type -> companion.BuildAssociationCancellationIntentRequest
+	6,  // 3: companion.DeviceManagerService.BuildPermissionTransferUserConsentIntent:input_type -> companion.BuildPermissionTransferUserConsentIntentRequest
+	8,  // 4: companion.DeviceManagerService.DetachSystemDataTransport:input_type -> companion.DetachSystemDataTransportRequest
+	10, // 5: companion.DeviceManagerService.DisableSystemDataSyncForTypes:input_type -> companion.DisableSystemDataSyncForTypesRequest
+	12, // 6: companion.DeviceManagerService.Disassociate1:input_type -> companion.Disassociate1Request
+	14, // 7: companion.DeviceManagerService.Disassociate1_1:input_type -> companion.Disassociate1_1Request
+	16, // 8: companion.DeviceManagerService.EnableSystemDataSyncForTypes:input_type -> companion.EnableSystemDataSyncForTypesRequest
+	18, // 9: companion.DeviceManagerService.GetAssociations:input_type -> companion.GetAssociationsRequest
+	20, // 10: companion.DeviceManagerService.GetMyAssociations:input_type -> companion.GetMyAssociationsRequest
+	22, // 11: companion.DeviceManagerService.HasNotificationAccess:input_type -> companion.HasNotificationAccessRequest
+	24, // 12: companion.DeviceManagerService.IsPermissionTransferUserConsented:input_type -> companion.IsPermissionTransferUserConsentedRequest
+	26, // 13: companion.DeviceManagerService.RemoveBond:input_type -> companion.RemoveBondRequest
+	28, // 14: companion.DeviceManagerService.RequestNotificationAccess:input_type -> companion.RequestNotificationAccessRequest
+	30, // 15: companion.DeviceManagerService.SetDeviceId:input_type -> companion.SetDeviceIdRequest
+	32, // 16: companion.DeviceManagerService.StartObservingDevicePresence1:input_type -> companion.StartObservingDevicePresence1Request
+	34, // 17: companion.DeviceManagerService.StartObservingDevicePresence1_1:input_type -> companion.StartObservingDevicePresence1_1Request
+	36, // 18: companion.DeviceManagerService.StartSystemDataTransfer:input_type -> companion.StartSystemDataTransferRequest
+	38, // 19: companion.DeviceManagerService.StopObservingDevicePresence1:input_type -> companion.StopObservingDevicePresence1Request
+	40, // 20: companion.DeviceManagerService.StopObservingDevicePresence1_1:input_type -> companion.StopObservingDevicePresence1_1Request
+	1,  // 21: companion.DeviceManagerService.Associate:output_type -> companion.AssociateResponse
+	3,  // 22: companion.DeviceManagerService.AttachSystemDataTransport:output_type -> companion.AttachSystemDataTransportResponse
+	5,  // 23: companion.DeviceManagerService.BuildAssociationCancellationIntent:output_type -> companion.BuildAssociationCancellationIntentResponse
+	7,  // 24: companion.DeviceManagerService.BuildPermissionTransferUserConsentIntent:output_type -> companion.BuildPermissionTransferUserConsentIntentResponse
+	9,  // 25: companion.DeviceManagerService.DetachSystemDataTransport:output_type -> companion.DetachSystemDataTransportResponse
+	11, // 26: companion.DeviceManagerService.DisableSystemDataSyncForTypes:output_type -> companion.DisableSystemDataSyncForTypesResponse
+	13, // 27: companion.DeviceManagerService.Disassociate1:output_type -> companion.Disassociate1Response
+	15, // 28: companion.DeviceManagerService.Disassociate1_1:output_type -> companion.Disassociate1_1Response
+	17, // 29: companion.DeviceManagerService.EnableSystemDataSyncForTypes:output_type -> companion.EnableSystemDataSyncForTypesResponse
+	19, // 30: companion.DeviceManagerService.GetAssociations:output_type -> companion.GetAssociationsResponse
+	21, // 31: companion.DeviceManagerService.GetMyAssociations:output_type -> companion.GetMyAssociationsResponse
+	23, // 32: companion.DeviceManagerService.HasNotificationAccess:output_type -> companion.HasNotificationAccessResponse
+	25, // 33: companion.DeviceManagerService.IsPermissionTransferUserConsented:output_type -> companion.IsPermissionTransferUserConsentedResponse
+	27, // 34: companion.DeviceManagerService.RemoveBond:output_type -> companion.RemoveBondResponse
+	29, // 35: companion.DeviceManagerService.RequestNotificationAccess:output_type -> companion.RequestNotificationAccessResponse
+	31, // 36: companion.DeviceManagerService.SetDeviceId:output_type -> companion.SetDeviceIdResponse
+	33, // 37: companion.DeviceManagerService.StartObservingDevicePresence1:output_type -> companion.StartObservingDevicePresence1Response
+	35, // 38: companion.DeviceManagerService.StartObservingDevicePresence1_1:output_type -> companion.StartObservingDevicePresence1_1Response
+	37, // 39: companion.DeviceManagerService.StartSystemDataTransfer:output_type -> companion.StartSystemDataTransferResponse
+	39, // 40: companion.DeviceManagerService.StopObservingDevicePresence1:output_type -> companion.StopObservingDevicePresence1Response
+	41, // 41: companion.DeviceManagerService.StopObservingDevicePresence1_1:output_type -> companion.StopObservingDevicePresence1_1Response
 	21, // [21:42] is the sub-list for method output_type
 	0,  // [0:21] is the sub-list for method input_type
 	0,  // [0:0] is the sub-list for extension type_name

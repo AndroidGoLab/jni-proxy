@@ -21,177 +21,177 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
-	RoleManagerService_CreateRequestRoleIntent_FullMethodName = "/role.RoleManagerService/CreateRequestRoleIntent"
-	RoleManagerService_IsRoleAvailable_FullMethodName         = "/role.RoleManagerService/IsRoleAvailable"
-	RoleManagerService_IsRoleHeld_FullMethodName              = "/role.RoleManagerService/IsRoleHeld"
+	ManagerService_CreateRequestRoleIntent_FullMethodName = "/role.ManagerService/CreateRequestRoleIntent"
+	ManagerService_IsRoleAvailable_FullMethodName         = "/role.ManagerService/IsRoleAvailable"
+	ManagerService_IsRoleHeld_FullMethodName              = "/role.ManagerService/IsRoleHeld"
 )
 
-// RoleManagerServiceClient is the client API for RoleManagerService service.
+// ManagerServiceClient is the client API for ManagerService service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type RoleManagerServiceClient interface {
+type ManagerServiceClient interface {
 	CreateRequestRoleIntent(ctx context.Context, in *CreateRequestRoleIntentRequest, opts ...grpc.CallOption) (*CreateRequestRoleIntentResponse, error)
 	IsRoleAvailable(ctx context.Context, in *IsRoleAvailableRequest, opts ...grpc.CallOption) (*IsRoleAvailableResponse, error)
 	IsRoleHeld(ctx context.Context, in *IsRoleHeldRequest, opts ...grpc.CallOption) (*IsRoleHeldResponse, error)
 }
 
-type roleManagerServiceClient struct {
+type managerServiceClient struct {
 	cc grpc.ClientConnInterface
 }
 
-func NewRoleManagerServiceClient(cc grpc.ClientConnInterface) RoleManagerServiceClient {
-	return &roleManagerServiceClient{cc}
+func NewManagerServiceClient(cc grpc.ClientConnInterface) ManagerServiceClient {
+	return &managerServiceClient{cc}
 }
 
-func (c *roleManagerServiceClient) CreateRequestRoleIntent(ctx context.Context, in *CreateRequestRoleIntentRequest, opts ...grpc.CallOption) (*CreateRequestRoleIntentResponse, error) {
+func (c *managerServiceClient) CreateRequestRoleIntent(ctx context.Context, in *CreateRequestRoleIntentRequest, opts ...grpc.CallOption) (*CreateRequestRoleIntentResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(CreateRequestRoleIntentResponse)
-	err := c.cc.Invoke(ctx, RoleManagerService_CreateRequestRoleIntent_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, ManagerService_CreateRequestRoleIntent_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *roleManagerServiceClient) IsRoleAvailable(ctx context.Context, in *IsRoleAvailableRequest, opts ...grpc.CallOption) (*IsRoleAvailableResponse, error) {
+func (c *managerServiceClient) IsRoleAvailable(ctx context.Context, in *IsRoleAvailableRequest, opts ...grpc.CallOption) (*IsRoleAvailableResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(IsRoleAvailableResponse)
-	err := c.cc.Invoke(ctx, RoleManagerService_IsRoleAvailable_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, ManagerService_IsRoleAvailable_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *roleManagerServiceClient) IsRoleHeld(ctx context.Context, in *IsRoleHeldRequest, opts ...grpc.CallOption) (*IsRoleHeldResponse, error) {
+func (c *managerServiceClient) IsRoleHeld(ctx context.Context, in *IsRoleHeldRequest, opts ...grpc.CallOption) (*IsRoleHeldResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(IsRoleHeldResponse)
-	err := c.cc.Invoke(ctx, RoleManagerService_IsRoleHeld_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, ManagerService_IsRoleHeld_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-// RoleManagerServiceServer is the server API for RoleManagerService service.
-// All implementations must embed UnimplementedRoleManagerServiceServer
+// ManagerServiceServer is the server API for ManagerService service.
+// All implementations must embed UnimplementedManagerServiceServer
 // for forward compatibility.
-type RoleManagerServiceServer interface {
+type ManagerServiceServer interface {
 	CreateRequestRoleIntent(context.Context, *CreateRequestRoleIntentRequest) (*CreateRequestRoleIntentResponse, error)
 	IsRoleAvailable(context.Context, *IsRoleAvailableRequest) (*IsRoleAvailableResponse, error)
 	IsRoleHeld(context.Context, *IsRoleHeldRequest) (*IsRoleHeldResponse, error)
-	mustEmbedUnimplementedRoleManagerServiceServer()
+	mustEmbedUnimplementedManagerServiceServer()
 }
 
-// UnimplementedRoleManagerServiceServer must be embedded to have
+// UnimplementedManagerServiceServer must be embedded to have
 // forward compatible implementations.
 //
 // NOTE: this should be embedded by value instead of pointer to avoid a nil
 // pointer dereference when methods are called.
-type UnimplementedRoleManagerServiceServer struct{}
+type UnimplementedManagerServiceServer struct{}
 
-func (UnimplementedRoleManagerServiceServer) CreateRequestRoleIntent(context.Context, *CreateRequestRoleIntentRequest) (*CreateRequestRoleIntentResponse, error) {
+func (UnimplementedManagerServiceServer) CreateRequestRoleIntent(context.Context, *CreateRequestRoleIntentRequest) (*CreateRequestRoleIntentResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method CreateRequestRoleIntent not implemented")
 }
-func (UnimplementedRoleManagerServiceServer) IsRoleAvailable(context.Context, *IsRoleAvailableRequest) (*IsRoleAvailableResponse, error) {
+func (UnimplementedManagerServiceServer) IsRoleAvailable(context.Context, *IsRoleAvailableRequest) (*IsRoleAvailableResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method IsRoleAvailable not implemented")
 }
-func (UnimplementedRoleManagerServiceServer) IsRoleHeld(context.Context, *IsRoleHeldRequest) (*IsRoleHeldResponse, error) {
+func (UnimplementedManagerServiceServer) IsRoleHeld(context.Context, *IsRoleHeldRequest) (*IsRoleHeldResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method IsRoleHeld not implemented")
 }
-func (UnimplementedRoleManagerServiceServer) mustEmbedUnimplementedRoleManagerServiceServer() {}
-func (UnimplementedRoleManagerServiceServer) testEmbeddedByValue()                            {}
+func (UnimplementedManagerServiceServer) mustEmbedUnimplementedManagerServiceServer() {}
+func (UnimplementedManagerServiceServer) testEmbeddedByValue()                        {}
 
-// UnsafeRoleManagerServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to RoleManagerServiceServer will
+// UnsafeManagerServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to ManagerServiceServer will
 // result in compilation errors.
-type UnsafeRoleManagerServiceServer interface {
-	mustEmbedUnimplementedRoleManagerServiceServer()
+type UnsafeManagerServiceServer interface {
+	mustEmbedUnimplementedManagerServiceServer()
 }
 
-func RegisterRoleManagerServiceServer(s grpc.ServiceRegistrar, srv RoleManagerServiceServer) {
-	// If the following call panics, it indicates UnimplementedRoleManagerServiceServer was
+func RegisterManagerServiceServer(s grpc.ServiceRegistrar, srv ManagerServiceServer) {
+	// If the following call panics, it indicates UnimplementedManagerServiceServer was
 	// embedded by pointer and is nil.  This will cause panics if an
 	// unimplemented method is ever invoked, so we test this at initialization
 	// time to prevent it from happening at runtime later due to I/O.
 	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
 		t.testEmbeddedByValue()
 	}
-	s.RegisterService(&RoleManagerService_ServiceDesc, srv)
+	s.RegisterService(&ManagerService_ServiceDesc, srv)
 }
 
-func _RoleManagerService_CreateRequestRoleIntent_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _ManagerService_CreateRequestRoleIntent_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(CreateRequestRoleIntentRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(RoleManagerServiceServer).CreateRequestRoleIntent(ctx, in)
+		return srv.(ManagerServiceServer).CreateRequestRoleIntent(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: RoleManagerService_CreateRequestRoleIntent_FullMethodName,
+		FullMethod: ManagerService_CreateRequestRoleIntent_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(RoleManagerServiceServer).CreateRequestRoleIntent(ctx, req.(*CreateRequestRoleIntentRequest))
+		return srv.(ManagerServiceServer).CreateRequestRoleIntent(ctx, req.(*CreateRequestRoleIntentRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _RoleManagerService_IsRoleAvailable_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _ManagerService_IsRoleAvailable_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(IsRoleAvailableRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(RoleManagerServiceServer).IsRoleAvailable(ctx, in)
+		return srv.(ManagerServiceServer).IsRoleAvailable(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: RoleManagerService_IsRoleAvailable_FullMethodName,
+		FullMethod: ManagerService_IsRoleAvailable_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(RoleManagerServiceServer).IsRoleAvailable(ctx, req.(*IsRoleAvailableRequest))
+		return srv.(ManagerServiceServer).IsRoleAvailable(ctx, req.(*IsRoleAvailableRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _RoleManagerService_IsRoleHeld_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _ManagerService_IsRoleHeld_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(IsRoleHeldRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(RoleManagerServiceServer).IsRoleHeld(ctx, in)
+		return srv.(ManagerServiceServer).IsRoleHeld(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: RoleManagerService_IsRoleHeld_FullMethodName,
+		FullMethod: ManagerService_IsRoleHeld_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(RoleManagerServiceServer).IsRoleHeld(ctx, req.(*IsRoleHeldRequest))
+		return srv.(ManagerServiceServer).IsRoleHeld(ctx, req.(*IsRoleHeldRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-// RoleManagerService_ServiceDesc is the grpc.ServiceDesc for RoleManagerService service.
+// ManagerService_ServiceDesc is the grpc.ServiceDesc for ManagerService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
-var RoleManagerService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "role.RoleManagerService",
-	HandlerType: (*RoleManagerServiceServer)(nil),
+var ManagerService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "role.ManagerService",
+	HandlerType: (*ManagerServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
 			MethodName: "CreateRequestRoleIntent",
-			Handler:    _RoleManagerService_CreateRequestRoleIntent_Handler,
+			Handler:    _ManagerService_CreateRequestRoleIntent_Handler,
 		},
 		{
 			MethodName: "IsRoleAvailable",
-			Handler:    _RoleManagerService_IsRoleAvailable_Handler,
+			Handler:    _ManagerService_IsRoleAvailable_Handler,
 		},
 		{
 			MethodName: "IsRoleHeld",
-			Handler:    _RoleManagerService_IsRoleHeld_Handler,
+			Handler:    _ManagerService_IsRoleHeld_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

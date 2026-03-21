@@ -7,23 +7,23 @@ import (
 
 	"github.com/AndroidGoLab/jni"
 
-	"github.com/AndroidGoLab/jni/app"
 	"github.com/AndroidGoLab/jni-proxy/handlestore"
-	jnipkg "github.com/AndroidGoLab/jni/hardware/camera"
 	pb "github.com/AndroidGoLab/jni-proxy/proto/camera"
+	"github.com/AndroidGoLab/jni/app"
+	jnipkg "github.com/AndroidGoLab/jni/hardware/camera"
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"
 )
 
-// CameraManagerServer implements pb.CameraManagerServiceServer.
-type CameraManagerServer struct {
-	pb.UnimplementedCameraManagerServiceServer
+// ManagerServer implements pb.ManagerServiceServer.
+type ManagerServer struct {
+	pb.UnimplementedManagerServiceServer
 	Ctx     *app.Context
 	Handles *handlestore.HandleStore
 }
 
-func (s *CameraManagerServer) GetCameraCharacteristics(_ context.Context, req *pb.GetCameraCharacteristicsRequest) (*pb.GetCameraCharacteristicsResponse, error) {
-	mgr, err := jnipkg.NewcameraManager(s.Ctx)
+func (s *ManagerServer) GetCameraCharacteristics(_ context.Context, req *pb.GetCameraCharacteristicsRequest) (*pb.GetCameraCharacteristicsResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -45,8 +45,8 @@ func (s *CameraManagerServer) GetCameraCharacteristics(_ context.Context, req *p
 	return &pb.GetCameraCharacteristicsResponse{Result: handle}, nil
 }
 
-func (s *CameraManagerServer) GetCameraDeviceSetup(_ context.Context, req *pb.GetCameraDeviceSetupRequest) (*pb.GetCameraDeviceSetupResponse, error) {
-	mgr, err := jnipkg.NewcameraManager(s.Ctx)
+func (s *ManagerServer) GetCameraDeviceSetup(_ context.Context, req *pb.GetCameraDeviceSetupRequest) (*pb.GetCameraDeviceSetupResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -68,8 +68,8 @@ func (s *CameraManagerServer) GetCameraDeviceSetup(_ context.Context, req *pb.Ge
 	return &pb.GetCameraDeviceSetupResponse{Result: handle}, nil
 }
 
-func (s *CameraManagerServer) GetCameraExtensionCharacteristics(_ context.Context, req *pb.GetCameraExtensionCharacteristicsRequest) (*pb.GetCameraExtensionCharacteristicsResponse, error) {
-	mgr, err := jnipkg.NewcameraManager(s.Ctx)
+func (s *ManagerServer) GetCameraExtensionCharacteristics(_ context.Context, req *pb.GetCameraExtensionCharacteristicsRequest) (*pb.GetCameraExtensionCharacteristicsResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -91,8 +91,8 @@ func (s *CameraManagerServer) GetCameraExtensionCharacteristics(_ context.Contex
 	return &pb.GetCameraExtensionCharacteristicsResponse{Result: handle}, nil
 }
 
-func (s *CameraManagerServer) GetCameraIdList(_ context.Context, req *pb.GetCameraIdListRequest) (*pb.GetCameraIdListResponse, error) {
-	mgr, err := jnipkg.NewcameraManager(s.Ctx)
+func (s *ManagerServer) GetCameraIdList(_ context.Context, req *pb.GetCameraIdListRequest) (*pb.GetCameraIdListResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -114,8 +114,8 @@ func (s *CameraManagerServer) GetCameraIdList(_ context.Context, req *pb.GetCame
 	return &pb.GetCameraIdListResponse{Result: handle}, nil
 }
 
-func (s *CameraManagerServer) GetConcurrentCameraIds(_ context.Context, req *pb.GetConcurrentCameraIdsRequest) (*pb.GetConcurrentCameraIdsResponse, error) {
-	mgr, err := jnipkg.NewcameraManager(s.Ctx)
+func (s *ManagerServer) GetConcurrentCameraIds(_ context.Context, req *pb.GetConcurrentCameraIdsRequest) (*pb.GetConcurrentCameraIdsResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -137,8 +137,8 @@ func (s *CameraManagerServer) GetConcurrentCameraIds(_ context.Context, req *pb.
 	return &pb.GetConcurrentCameraIdsResponse{Result: handle}, nil
 }
 
-func (s *CameraManagerServer) GetTorchStrengthLevel(_ context.Context, req *pb.GetTorchStrengthLevelRequest) (*pb.GetTorchStrengthLevelResponse, error) {
-	mgr, err := jnipkg.NewcameraManager(s.Ctx)
+func (s *ManagerServer) GetTorchStrengthLevel(_ context.Context, req *pb.GetTorchStrengthLevelRequest) (*pb.GetTorchStrengthLevelResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -151,8 +151,8 @@ func (s *CameraManagerServer) GetTorchStrengthLevel(_ context.Context, req *pb.G
 	return &pb.GetTorchStrengthLevelResponse{Result: result}, nil
 }
 
-func (s *CameraManagerServer) IsCameraDeviceSetupSupported(_ context.Context, req *pb.IsCameraDeviceSetupSupportedRequest) (*pb.IsCameraDeviceSetupSupportedResponse, error) {
-	mgr, err := jnipkg.NewcameraManager(s.Ctx)
+func (s *ManagerServer) IsCameraDeviceSetupSupported(_ context.Context, req *pb.IsCameraDeviceSetupSupportedRequest) (*pb.IsCameraDeviceSetupSupportedResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -165,8 +165,8 @@ func (s *CameraManagerServer) IsCameraDeviceSetupSupported(_ context.Context, re
 	return &pb.IsCameraDeviceSetupSupportedResponse{Result: result}, nil
 }
 
-func (s *CameraManagerServer) IsConcurrentSessionConfigurationSupported(_ context.Context, req *pb.IsConcurrentSessionConfigurationSupportedRequest) (*pb.IsConcurrentSessionConfigurationSupportedResponse, error) {
-	mgr, err := jnipkg.NewcameraManager(s.Ctx)
+func (s *ManagerServer) IsConcurrentSessionConfigurationSupported(_ context.Context, req *pb.IsConcurrentSessionConfigurationSupportedRequest) (*pb.IsConcurrentSessionConfigurationSupportedResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -179,8 +179,8 @@ func (s *CameraManagerServer) IsConcurrentSessionConfigurationSupported(_ contex
 	return &pb.IsConcurrentSessionConfigurationSupportedResponse{Result: result}, nil
 }
 
-func (s *CameraManagerServer) OpenCamera(_ context.Context, req *pb.OpenCameraRequest) (*pb.OpenCameraResponse, error) {
-	mgr, err := jnipkg.NewcameraManager(s.Ctx)
+func (s *ManagerServer) OpenCamera(_ context.Context, req *pb.OpenCameraRequest) (*pb.OpenCameraResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -192,8 +192,8 @@ func (s *CameraManagerServer) OpenCamera(_ context.Context, req *pb.OpenCameraRe
 	return &pb.OpenCameraResponse{}, nil
 }
 
-func (s *CameraManagerServer) RegisterAvailabilityCallback(_ context.Context, req *pb.RegisterAvailabilityCallbackRequest) (*pb.RegisterAvailabilityCallbackResponse, error) {
-	mgr, err := jnipkg.NewcameraManager(s.Ctx)
+func (s *ManagerServer) RegisterAvailabilityCallback(_ context.Context, req *pb.RegisterAvailabilityCallbackRequest) (*pb.RegisterAvailabilityCallbackResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -205,8 +205,8 @@ func (s *CameraManagerServer) RegisterAvailabilityCallback(_ context.Context, re
 	return &pb.RegisterAvailabilityCallbackResponse{}, nil
 }
 
-func (s *CameraManagerServer) RegisterTorchCallback(_ context.Context, req *pb.RegisterTorchCallbackRequest) (*pb.RegisterTorchCallbackResponse, error) {
-	mgr, err := jnipkg.NewcameraManager(s.Ctx)
+func (s *ManagerServer) RegisterTorchCallback(_ context.Context, req *pb.RegisterTorchCallbackRequest) (*pb.RegisterTorchCallbackResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -218,8 +218,8 @@ func (s *CameraManagerServer) RegisterTorchCallback(_ context.Context, req *pb.R
 	return &pb.RegisterTorchCallbackResponse{}, nil
 }
 
-func (s *CameraManagerServer) SetTorchMode(_ context.Context, req *pb.SetTorchModeRequest) (*pb.SetTorchModeResponse, error) {
-	mgr, err := jnipkg.NewcameraManager(s.Ctx)
+func (s *ManagerServer) SetTorchMode(_ context.Context, req *pb.SetTorchModeRequest) (*pb.SetTorchModeResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -231,8 +231,8 @@ func (s *CameraManagerServer) SetTorchMode(_ context.Context, req *pb.SetTorchMo
 	return &pb.SetTorchModeResponse{}, nil
 }
 
-func (s *CameraManagerServer) TurnOnTorchWithStrengthLevel(_ context.Context, req *pb.TurnOnTorchWithStrengthLevelRequest) (*pb.TurnOnTorchWithStrengthLevelResponse, error) {
-	mgr, err := jnipkg.NewcameraManager(s.Ctx)
+func (s *ManagerServer) TurnOnTorchWithStrengthLevel(_ context.Context, req *pb.TurnOnTorchWithStrengthLevelRequest) (*pb.TurnOnTorchWithStrengthLevelResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -244,8 +244,8 @@ func (s *CameraManagerServer) TurnOnTorchWithStrengthLevel(_ context.Context, re
 	return &pb.TurnOnTorchWithStrengthLevelResponse{}, nil
 }
 
-func (s *CameraManagerServer) UnregisterAvailabilityCallback(_ context.Context, req *pb.UnregisterAvailabilityCallbackRequest) (*pb.UnregisterAvailabilityCallbackResponse, error) {
-	mgr, err := jnipkg.NewcameraManager(s.Ctx)
+func (s *ManagerServer) UnregisterAvailabilityCallback(_ context.Context, req *pb.UnregisterAvailabilityCallbackRequest) (*pb.UnregisterAvailabilityCallbackResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -257,8 +257,8 @@ func (s *CameraManagerServer) UnregisterAvailabilityCallback(_ context.Context, 
 	return &pb.UnregisterAvailabilityCallbackResponse{}, nil
 }
 
-func (s *CameraManagerServer) UnregisterTorchCallback(_ context.Context, req *pb.UnregisterTorchCallbackRequest) (*pb.UnregisterTorchCallbackResponse, error) {
-	mgr, err := jnipkg.NewcameraManager(s.Ctx)
+func (s *ManagerServer) UnregisterTorchCallback(_ context.Context, req *pb.UnregisterTorchCallbackRequest) (*pb.UnregisterTorchCallbackResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}

@@ -272,7 +272,7 @@ message RenameDocumentResponse {
   int64 result = 1;
 }
 
-service DocumentsContractService {
+service ContractService {
   rpc BuildChildDocumentsUri (BuildChildDocumentsUriRequest) returns (BuildChildDocumentsUriResponse);
   rpc BuildChildDocumentsUriUsingTree (BuildChildDocumentsUriUsingTreeRequest) returns (BuildChildDocumentsUriUsingTreeResponse);
   rpc BuildDocumentUri (BuildDocumentUriRequest) returns (BuildDocumentUriResponse);

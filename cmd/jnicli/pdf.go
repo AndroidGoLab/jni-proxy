@@ -3,8 +3,8 @@
 package main
 
 import (
-	"github.com/spf13/cobra"
 	pb "github.com/AndroidGoLab/jni-proxy/proto/pdf"
+	"github.com/spf13/cobra"
 )
 
 var pdfCmd = &cobra.Command{
@@ -12,18 +12,18 @@ var pdfCmd = &cobra.Command{
 	Short: "pdf service operations",
 }
 
-var pdfPdfRendererCmd = &cobra.Command{
-	Use:   "pdf-renderer",
-	Short: "PdfRendererService operations",
+var pdfRendererCmd = &cobra.Command{
+	Use:   "renderer",
+	Short: "RendererService operations",
 }
 
-var pdfPdfRendererCloseCmd = &cobra.Command{
+var pdfRendererCloseCmd = &cobra.Command{
 	Use:   "close",
 	Short: "Close RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewPdfRendererServiceClient(grpcConn)
+		client := pb.NewRendererServiceClient(grpcConn)
 		req := &pb.CloseRequest{}
 		resp, err := client.Close(ctx, req)
 		if err != nil {
@@ -33,13 +33,13 @@ var pdfPdfRendererCloseCmd = &cobra.Command{
 	},
 }
 
-var pdfPdfRendererGetDocumentLinearizationTypeCmd = &cobra.Command{
+var pdfRendererGetDocumentLinearizationTypeCmd = &cobra.Command{
 	Use:   "get-document-linearization-type",
 	Short: "GetDocumentLinearizationType RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewPdfRendererServiceClient(grpcConn)
+		client := pb.NewRendererServiceClient(grpcConn)
 		req := &pb.GetDocumentLinearizationTypeRequest{}
 		resp, err := client.GetDocumentLinearizationType(ctx, req)
 		if err != nil {
@@ -49,13 +49,13 @@ var pdfPdfRendererGetDocumentLinearizationTypeCmd = &cobra.Command{
 	},
 }
 
-var pdfPdfRendererGetPageCountCmd = &cobra.Command{
+var pdfRendererGetPageCountCmd = &cobra.Command{
 	Use:   "get-page-count",
 	Short: "GetPageCount RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewPdfRendererServiceClient(grpcConn)
+		client := pb.NewRendererServiceClient(grpcConn)
 		req := &pb.GetPageCountRequest{}
 		resp, err := client.GetPageCount(ctx, req)
 		if err != nil {
@@ -65,13 +65,13 @@ var pdfPdfRendererGetPageCountCmd = &cobra.Command{
 	},
 }
 
-var pdfPdfRendererGetPdfFormTypeCmd = &cobra.Command{
+var pdfRendererGetPdfFormTypeCmd = &cobra.Command{
 	Use:   "get-pdf-form-type",
 	Short: "GetPdfFormType RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewPdfRendererServiceClient(grpcConn)
+		client := pb.NewRendererServiceClient(grpcConn)
 		req := &pb.GetPdfFormTypeRequest{}
 		resp, err := client.GetPdfFormType(ctx, req)
 		if err != nil {
@@ -81,13 +81,13 @@ var pdfPdfRendererGetPdfFormTypeCmd = &cobra.Command{
 	},
 }
 
-var pdfPdfRendererOpenPageCmd = &cobra.Command{
+var pdfRendererOpenPageCmd = &cobra.Command{
 	Use:   "open-page",
 	Short: "OpenPage RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewPdfRendererServiceClient(grpcConn)
+		client := pb.NewRendererServiceClient(grpcConn)
 		req := &pb.OpenPageRequest{}
 		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
 			req.Arg0 = v
@@ -100,13 +100,13 @@ var pdfPdfRendererOpenPageCmd = &cobra.Command{
 	},
 }
 
-var pdfPdfRendererShouldScaleForPrintingCmd = &cobra.Command{
+var pdfRendererShouldScaleForPrintingCmd = &cobra.Command{
 	Use:   "should-scale-for-printing",
 	Short: "ShouldScaleForPrinting RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewPdfRendererServiceClient(grpcConn)
+		client := pb.NewRendererServiceClient(grpcConn)
 		req := &pb.ShouldScaleForPrintingRequest{}
 		resp, err := client.ShouldScaleForPrinting(ctx, req)
 		if err != nil {
@@ -116,13 +116,13 @@ var pdfPdfRendererShouldScaleForPrintingCmd = &cobra.Command{
 	},
 }
 
-var pdfPdfRendererWriteCmd = &cobra.Command{
+var pdfRendererWriteCmd = &cobra.Command{
 	Use:   "write",
 	Short: "Write RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewPdfRendererServiceClient(grpcConn)
+		client := pb.NewRendererServiceClient(grpcConn)
 		req := &pb.WriteRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
@@ -138,18 +138,18 @@ var pdfPdfRendererWriteCmd = &cobra.Command{
 	},
 }
 
-var pdfPdfRendererPageCmd = &cobra.Command{
-	Use:   "pdf-renderer-page",
-	Short: "PdfRendererPageService operations",
+var pdfRendererPageCmd = &cobra.Command{
+	Use:   "renderer-page",
+	Short: "RendererPageService operations",
 }
 
-var pdfPdfRendererPageApplyEditCmd = &cobra.Command{
+var pdfRendererPageApplyEditCmd = &cobra.Command{
 	Use:   "apply-edit",
 	Short: "ApplyEdit RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewPdfRendererPageServiceClient(grpcConn)
+		client := pb.NewRendererPageServiceClient(grpcConn)
 		req := &pb.ApplyEditRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
@@ -162,13 +162,13 @@ var pdfPdfRendererPageApplyEditCmd = &cobra.Command{
 	},
 }
 
-var pdfPdfRendererPageCloseCmd = &cobra.Command{
+var pdfRendererPageCloseCmd = &cobra.Command{
 	Use:   "close",
 	Short: "Close RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewPdfRendererPageServiceClient(grpcConn)
+		client := pb.NewRendererPageServiceClient(grpcConn)
 		req := &pb.CloseRequest{}
 		resp, err := client.Close(ctx, req)
 		if err != nil {
@@ -178,13 +178,13 @@ var pdfPdfRendererPageCloseCmd = &cobra.Command{
 	},
 }
 
-var pdfPdfRendererPageGetFormWidgetInfoAtIndexCmd = &cobra.Command{
+var pdfRendererPageGetFormWidgetInfoAtIndexCmd = &cobra.Command{
 	Use:   "get-form-widget-info-at-index",
 	Short: "GetFormWidgetInfoAtIndex RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewPdfRendererPageServiceClient(grpcConn)
+		client := pb.NewRendererPageServiceClient(grpcConn)
 		req := &pb.GetFormWidgetInfoAtIndexRequest{}
 		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
 			req.Arg0 = v
@@ -197,13 +197,13 @@ var pdfPdfRendererPageGetFormWidgetInfoAtIndexCmd = &cobra.Command{
 	},
 }
 
-var pdfPdfRendererPageGetFormWidgetInfoAtPositionCmd = &cobra.Command{
+var pdfRendererPageGetFormWidgetInfoAtPositionCmd = &cobra.Command{
 	Use:   "get-form-widget-info-at-position",
 	Short: "GetFormWidgetInfoAtPosition RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewPdfRendererPageServiceClient(grpcConn)
+		client := pb.NewRendererPageServiceClient(grpcConn)
 		req := &pb.GetFormWidgetInfoAtPositionRequest{}
 		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
 			req.Arg0 = v
@@ -219,13 +219,13 @@ var pdfPdfRendererPageGetFormWidgetInfoAtPositionCmd = &cobra.Command{
 	},
 }
 
-var pdfPdfRendererPageGetFormWidgetInfos0Cmd = &cobra.Command{
+var pdfRendererPageGetFormWidgetInfos0Cmd = &cobra.Command{
 	Use:   "get-form-widget-infos0",
 	Short: "GetFormWidgetInfos0 RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewPdfRendererPageServiceClient(grpcConn)
+		client := pb.NewRendererPageServiceClient(grpcConn)
 		req := &pb.GetFormWidgetInfos0Request{}
 		resp, err := client.GetFormWidgetInfos0(ctx, req)
 		if err != nil {
@@ -235,13 +235,13 @@ var pdfPdfRendererPageGetFormWidgetInfos0Cmd = &cobra.Command{
 	},
 }
 
-var pdfPdfRendererPageGetFormWidgetInfos1_1Cmd = &cobra.Command{
+var pdfRendererPageGetFormWidgetInfos1_1Cmd = &cobra.Command{
 	Use:   "get-form-widget-infos1_1",
 	Short: "GetFormWidgetInfos1_1 RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewPdfRendererPageServiceClient(grpcConn)
+		client := pb.NewRendererPageServiceClient(grpcConn)
 		req := &pb.GetFormWidgetInfos1_1Request{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
@@ -254,13 +254,13 @@ var pdfPdfRendererPageGetFormWidgetInfos1_1Cmd = &cobra.Command{
 	},
 }
 
-var pdfPdfRendererPageGetGotoLinksCmd = &cobra.Command{
+var pdfRendererPageGetGotoLinksCmd = &cobra.Command{
 	Use:   "get-goto-links",
 	Short: "GetGotoLinks RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewPdfRendererPageServiceClient(grpcConn)
+		client := pb.NewRendererPageServiceClient(grpcConn)
 		req := &pb.GetGotoLinksRequest{}
 		resp, err := client.GetGotoLinks(ctx, req)
 		if err != nil {
@@ -270,13 +270,13 @@ var pdfPdfRendererPageGetGotoLinksCmd = &cobra.Command{
 	},
 }
 
-var pdfPdfRendererPageGetHeightCmd = &cobra.Command{
+var pdfRendererPageGetHeightCmd = &cobra.Command{
 	Use:   "get-height",
 	Short: "GetHeight RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewPdfRendererPageServiceClient(grpcConn)
+		client := pb.NewRendererPageServiceClient(grpcConn)
 		req := &pb.GetHeightRequest{}
 		resp, err := client.GetHeight(ctx, req)
 		if err != nil {
@@ -286,13 +286,13 @@ var pdfPdfRendererPageGetHeightCmd = &cobra.Command{
 	},
 }
 
-var pdfPdfRendererPageGetImageContentsCmd = &cobra.Command{
+var pdfRendererPageGetImageContentsCmd = &cobra.Command{
 	Use:   "get-image-contents",
 	Short: "GetImageContents RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewPdfRendererPageServiceClient(grpcConn)
+		client := pb.NewRendererPageServiceClient(grpcConn)
 		req := &pb.GetImageContentsRequest{}
 		resp, err := client.GetImageContents(ctx, req)
 		if err != nil {
@@ -302,13 +302,13 @@ var pdfPdfRendererPageGetImageContentsCmd = &cobra.Command{
 	},
 }
 
-var pdfPdfRendererPageGetIndexCmd = &cobra.Command{
+var pdfRendererPageGetIndexCmd = &cobra.Command{
 	Use:   "get-index",
 	Short: "GetIndex RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewPdfRendererPageServiceClient(grpcConn)
+		client := pb.NewRendererPageServiceClient(grpcConn)
 		req := &pb.GetIndexRequest{}
 		resp, err := client.GetIndex(ctx, req)
 		if err != nil {
@@ -318,13 +318,13 @@ var pdfPdfRendererPageGetIndexCmd = &cobra.Command{
 	},
 }
 
-var pdfPdfRendererPageGetLinkContentsCmd = &cobra.Command{
+var pdfRendererPageGetLinkContentsCmd = &cobra.Command{
 	Use:   "get-link-contents",
 	Short: "GetLinkContents RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewPdfRendererPageServiceClient(grpcConn)
+		client := pb.NewRendererPageServiceClient(grpcConn)
 		req := &pb.GetLinkContentsRequest{}
 		resp, err := client.GetLinkContents(ctx, req)
 		if err != nil {
@@ -334,13 +334,13 @@ var pdfPdfRendererPageGetLinkContentsCmd = &cobra.Command{
 	},
 }
 
-var pdfPdfRendererPageGetTextContentsCmd = &cobra.Command{
+var pdfRendererPageGetTextContentsCmd = &cobra.Command{
 	Use:   "get-text-contents",
 	Short: "GetTextContents RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewPdfRendererPageServiceClient(grpcConn)
+		client := pb.NewRendererPageServiceClient(grpcConn)
 		req := &pb.GetTextContentsRequest{}
 		resp, err := client.GetTextContents(ctx, req)
 		if err != nil {
@@ -350,13 +350,13 @@ var pdfPdfRendererPageGetTextContentsCmd = &cobra.Command{
 	},
 }
 
-var pdfPdfRendererPageGetWidthCmd = &cobra.Command{
+var pdfRendererPageGetWidthCmd = &cobra.Command{
 	Use:   "get-width",
 	Short: "GetWidth RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewPdfRendererPageServiceClient(grpcConn)
+		client := pb.NewRendererPageServiceClient(grpcConn)
 		req := &pb.GetWidthRequest{}
 		resp, err := client.GetWidth(ctx, req)
 		if err != nil {
@@ -366,13 +366,13 @@ var pdfPdfRendererPageGetWidthCmd = &cobra.Command{
 	},
 }
 
-var pdfPdfRendererPageRender4Cmd = &cobra.Command{
+var pdfRendererPageRender4Cmd = &cobra.Command{
 	Use:   "render4",
 	Short: "Render4 RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewPdfRendererPageServiceClient(grpcConn)
+		client := pb.NewRendererPageServiceClient(grpcConn)
 		req := &pb.Render4Request{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
@@ -394,13 +394,13 @@ var pdfPdfRendererPageRender4Cmd = &cobra.Command{
 	},
 }
 
-var pdfPdfRendererPageRender4_1Cmd = &cobra.Command{
+var pdfRendererPageRender4_1Cmd = &cobra.Command{
 	Use:   "render4_1",
 	Short: "Render4_1 RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewPdfRendererPageServiceClient(grpcConn)
+		client := pb.NewRendererPageServiceClient(grpcConn)
 		req := &pb.Render4_1Request{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
@@ -422,13 +422,13 @@ var pdfPdfRendererPageRender4_1Cmd = &cobra.Command{
 	},
 }
 
-var pdfPdfRendererPageSearchTextCmd = &cobra.Command{
+var pdfRendererPageSearchTextCmd = &cobra.Command{
 	Use:   "search-text",
 	Short: "SearchText RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewPdfRendererPageServiceClient(grpcConn)
+		client := pb.NewRendererPageServiceClient(grpcConn)
 		req := &pb.SearchTextRequest{}
 		if v, err := cmd.Flags().GetString("arg0"); err == nil {
 			req.Arg0 = v
@@ -441,13 +441,13 @@ var pdfPdfRendererPageSearchTextCmd = &cobra.Command{
 	},
 }
 
-var pdfPdfRendererPageSelectContentCmd = &cobra.Command{
+var pdfRendererPageSelectContentCmd = &cobra.Command{
 	Use:   "select-content",
 	Short: "SelectContent RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewPdfRendererPageServiceClient(grpcConn)
+		client := pb.NewRendererPageServiceClient(grpcConn)
 		req := &pb.SelectContentRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
@@ -456,6 +456,3560 @@ var pdfPdfRendererPageSelectContentCmd = &cobra.Command{
 			req.Arg1 = v
 		}
 		resp, err := client.SelectContent(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pdfCanvasCmd = &cobra.Command{
+	Use:   "canvas",
+	Short: "CanvasService operations",
+}
+
+var pdfCanvasClipOutPathCmd = &cobra.Command{
+	Use:   "clip-out-path",
+	Short: "ClipOutPath RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCanvasServiceClient(grpcConn)
+		req := &pb.ClipOutPathRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.ClipOutPath(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pdfCanvasClipOutRect1Cmd = &cobra.Command{
+	Use:   "clip-out-rect1",
+	Short: "ClipOutRect1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCanvasServiceClient(grpcConn)
+		req := &pb.ClipOutRect1Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.ClipOutRect1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pdfCanvasClipOutRect1_1Cmd = &cobra.Command{
+	Use:   "clip-out-rect1_1",
+	Short: "ClipOutRect1_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCanvasServiceClient(grpcConn)
+		req := &pb.ClipOutRect1_1Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.ClipOutRect1_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pdfCanvasClipOutRect4_2Cmd = &cobra.Command{
+	Use:   "clip-out-rect4_2",
+	Short: "ClipOutRect4_2 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCanvasServiceClient(grpcConn)
+		req := &pb.ClipOutRect4_2Request{}
+		if v, err := cmd.Flags().GetFloat32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetFloat32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetFloat32("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetFloat32("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		resp, err := client.ClipOutRect4_2(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pdfCanvasClipOutRect4_3Cmd = &cobra.Command{
+	Use:   "clip-out-rect4_3",
+	Short: "ClipOutRect4_3 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCanvasServiceClient(grpcConn)
+		req := &pb.ClipOutRect4_3Request{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		resp, err := client.ClipOutRect4_3(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pdfCanvasClipOutShaderCmd = &cobra.Command{
+	Use:   "clip-out-shader",
+	Short: "ClipOutShader RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCanvasServiceClient(grpcConn)
+		req := &pb.ClipOutShaderRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.ClipOutShader(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pdfCanvasClipPath1Cmd = &cobra.Command{
+	Use:   "clip-path1",
+	Short: "ClipPath1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCanvasServiceClient(grpcConn)
+		req := &pb.ClipPath1Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.ClipPath1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pdfCanvasClipPath2_1Cmd = &cobra.Command{
+	Use:   "clip-path2_1",
+	Short: "ClipPath2_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCanvasServiceClient(grpcConn)
+		req := &pb.ClipPath2_1Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.ClipPath2_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pdfCanvasClipRect1Cmd = &cobra.Command{
+	Use:   "clip-rect1",
+	Short: "ClipRect1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCanvasServiceClient(grpcConn)
+		req := &pb.ClipRect1Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.ClipRect1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pdfCanvasClipRect2_1Cmd = &cobra.Command{
+	Use:   "clip-rect2_1",
+	Short: "ClipRect2_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCanvasServiceClient(grpcConn)
+		req := &pb.ClipRect2_1Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.ClipRect2_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pdfCanvasClipRect1_2Cmd = &cobra.Command{
+	Use:   "clip-rect1_2",
+	Short: "ClipRect1_2 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCanvasServiceClient(grpcConn)
+		req := &pb.ClipRect1_2Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.ClipRect1_2(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pdfCanvasClipRect2_3Cmd = &cobra.Command{
+	Use:   "clip-rect2_3",
+	Short: "ClipRect2_3 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCanvasServiceClient(grpcConn)
+		req := &pb.ClipRect2_3Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.ClipRect2_3(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pdfCanvasClipRect4_4Cmd = &cobra.Command{
+	Use:   "clip-rect4_4",
+	Short: "ClipRect4_4 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCanvasServiceClient(grpcConn)
+		req := &pb.ClipRect4_4Request{}
+		if v, err := cmd.Flags().GetFloat32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetFloat32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetFloat32("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetFloat32("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		resp, err := client.ClipRect4_4(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pdfCanvasClipRect5_5Cmd = &cobra.Command{
+	Use:   "clip-rect5_5",
+	Short: "ClipRect5_5 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCanvasServiceClient(grpcConn)
+		req := &pb.ClipRect5_5Request{}
+		if v, err := cmd.Flags().GetFloat32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetFloat32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetFloat32("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetFloat32("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg4"); err == nil {
+			req.Arg4 = v
+		}
+		resp, err := client.ClipRect5_5(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pdfCanvasClipRect4_6Cmd = &cobra.Command{
+	Use:   "clip-rect4_6",
+	Short: "ClipRect4_6 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCanvasServiceClient(grpcConn)
+		req := &pb.ClipRect4_6Request{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		resp, err := client.ClipRect4_6(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pdfCanvasClipShaderCmd = &cobra.Command{
+	Use:   "clip-shader",
+	Short: "ClipShader RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCanvasServiceClient(grpcConn)
+		req := &pb.ClipShaderRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.ClipShader(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pdfCanvasConcat1Cmd = &cobra.Command{
+	Use:   "concat1",
+	Short: "Concat1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCanvasServiceClient(grpcConn)
+		req := &pb.Concat1Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Concat1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pdfCanvasConcat1_1Cmd = &cobra.Command{
+	Use:   "concat1_1",
+	Short: "Concat1_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCanvasServiceClient(grpcConn)
+		req := &pb.Concat1_1Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Concat1_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pdfCanvasDisableZCmd = &cobra.Command{
+	Use:   "disable-z",
+	Short: "DisableZ RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCanvasServiceClient(grpcConn)
+		req := &pb.DisableZRequest{}
+		resp, err := client.DisableZ(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pdfCanvasDrawARGBCmd = &cobra.Command{
+	Use:   "draw-argb",
+	Short: "DrawARGB RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCanvasServiceClient(grpcConn)
+		req := &pb.DrawARGBRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		resp, err := client.DrawARGB(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pdfCanvasDrawArc5Cmd = &cobra.Command{
+	Use:   "draw-arc5",
+	Short: "DrawArc5 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCanvasServiceClient(grpcConn)
+		req := &pb.DrawArc5Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetFloat32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetFloat32("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetBool("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg4"); err == nil {
+			req.Arg4 = v
+		}
+		resp, err := client.DrawArc5(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pdfCanvasDrawArc8_1Cmd = &cobra.Command{
+	Use:   "draw-arc8_1",
+	Short: "DrawArc8_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCanvasServiceClient(grpcConn)
+		req := &pb.DrawArc8_1Request{}
+		if v, err := cmd.Flags().GetFloat32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetFloat32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetFloat32("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetFloat32("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		if v, err := cmd.Flags().GetFloat32("arg4"); err == nil {
+			req.Arg4 = v
+		}
+		if v, err := cmd.Flags().GetFloat32("arg5"); err == nil {
+			req.Arg5 = v
+		}
+		if v, err := cmd.Flags().GetBool("arg6"); err == nil {
+			req.Arg6 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg7"); err == nil {
+			req.Arg7 = v
+		}
+		resp, err := client.DrawArc8_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pdfCanvasDrawBitmap3Cmd = &cobra.Command{
+	Use:   "draw-bitmap3",
+	Short: "DrawBitmap3 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCanvasServiceClient(grpcConn)
+		req := &pb.DrawBitmap3Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.DrawBitmap3(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pdfCanvasDrawBitmap4_1Cmd = &cobra.Command{
+	Use:   "draw-bitmap4_1",
+	Short: "DrawBitmap4_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCanvasServiceClient(grpcConn)
+		req := &pb.DrawBitmap4_1Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		resp, err := client.DrawBitmap4_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pdfCanvasDrawBitmap4_2Cmd = &cobra.Command{
+	Use:   "draw-bitmap4_2",
+	Short: "DrawBitmap4_2 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCanvasServiceClient(grpcConn)
+		req := &pb.DrawBitmap4_2Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		resp, err := client.DrawBitmap4_2(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pdfCanvasDrawBitmap4_3Cmd = &cobra.Command{
+	Use:   "draw-bitmap4_3",
+	Short: "DrawBitmap4_3 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCanvasServiceClient(grpcConn)
+		req := &pb.DrawBitmap4_3Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetFloat32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetFloat32("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		resp, err := client.DrawBitmap4_3(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pdfCanvasDrawBitmap9_4Cmd = &cobra.Command{
+	Use:   "draw-bitmap9_4",
+	Short: "DrawBitmap9_4 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCanvasServiceClient(grpcConn)
+		req := &pb.DrawBitmap9_4Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetFloat32("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		if v, err := cmd.Flags().GetFloat32("arg4"); err == nil {
+			req.Arg4 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg5"); err == nil {
+			req.Arg5 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg6"); err == nil {
+			req.Arg6 = v
+		}
+		if v, err := cmd.Flags().GetBool("arg7"); err == nil {
+			req.Arg7 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg8"); err == nil {
+			req.Arg8 = v
+		}
+		resp, err := client.DrawBitmap9_4(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pdfCanvasDrawBitmap9_5Cmd = &cobra.Command{
+	Use:   "draw-bitmap9_5",
+	Short: "DrawBitmap9_5 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCanvasServiceClient(grpcConn)
+		req := &pb.DrawBitmap9_5Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg4"); err == nil {
+			req.Arg4 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg5"); err == nil {
+			req.Arg5 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg6"); err == nil {
+			req.Arg6 = v
+		}
+		if v, err := cmd.Flags().GetBool("arg7"); err == nil {
+			req.Arg7 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg8"); err == nil {
+			req.Arg8 = v
+		}
+		resp, err := client.DrawBitmap9_5(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pdfCanvasDrawBitmapMeshCmd = &cobra.Command{
+	Use:   "draw-bitmap-mesh",
+	Short: "DrawBitmapMesh RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCanvasServiceClient(grpcConn)
+		req := &pb.DrawBitmapMeshRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg4"); err == nil {
+			req.Arg4 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg5"); err == nil {
+			req.Arg5 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg6"); err == nil {
+			req.Arg6 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg7"); err == nil {
+			req.Arg7 = v
+		}
+		resp, err := client.DrawBitmapMesh(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pdfCanvasDrawCircleCmd = &cobra.Command{
+	Use:   "draw-circle",
+	Short: "DrawCircle RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCanvasServiceClient(grpcConn)
+		req := &pb.DrawCircleRequest{}
+		if v, err := cmd.Flags().GetFloat32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetFloat32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetFloat32("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		resp, err := client.DrawCircle(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pdfCanvasDrawColor1Cmd = &cobra.Command{
+	Use:   "draw-color1",
+	Short: "DrawColor1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCanvasServiceClient(grpcConn)
+		req := &pb.DrawColor1Request{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.DrawColor1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pdfCanvasDrawColor2_1Cmd = &cobra.Command{
+	Use:   "draw-color2_1",
+	Short: "DrawColor2_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCanvasServiceClient(grpcConn)
+		req := &pb.DrawColor2_1Request{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.DrawColor2_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pdfCanvasDrawColor2_2Cmd = &cobra.Command{
+	Use:   "draw-color2_2",
+	Short: "DrawColor2_2 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCanvasServiceClient(grpcConn)
+		req := &pb.DrawColor2_2Request{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.DrawColor2_2(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pdfCanvasDrawColor1_3Cmd = &cobra.Command{
+	Use:   "draw-color1_3",
+	Short: "DrawColor1_3 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCanvasServiceClient(grpcConn)
+		req := &pb.DrawColor1_3Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.DrawColor1_3(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pdfCanvasDrawColor2_4Cmd = &cobra.Command{
+	Use:   "draw-color2_4",
+	Short: "DrawColor2_4 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCanvasServiceClient(grpcConn)
+		req := &pb.DrawColor2_4Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.DrawColor2_4(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pdfCanvasDrawDoubleRoundRect7Cmd = &cobra.Command{
+	Use:   "draw-double-round-rect7",
+	Short: "DrawDoubleRoundRect7 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCanvasServiceClient(grpcConn)
+		req := &pb.DrawDoubleRoundRect7Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetFloat32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetFloat32("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		if v, err := cmd.Flags().GetFloat32("arg4"); err == nil {
+			req.Arg4 = v
+		}
+		if v, err := cmd.Flags().GetFloat32("arg5"); err == nil {
+			req.Arg5 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg6"); err == nil {
+			req.Arg6 = v
+		}
+		resp, err := client.DrawDoubleRoundRect7(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pdfCanvasDrawDoubleRoundRect5_1Cmd = &cobra.Command{
+	Use:   "draw-double-round-rect5_1",
+	Short: "DrawDoubleRoundRect5_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCanvasServiceClient(grpcConn)
+		req := &pb.DrawDoubleRoundRect5_1Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg4"); err == nil {
+			req.Arg4 = v
+		}
+		resp, err := client.DrawDoubleRoundRect5_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pdfCanvasDrawGlyphsCmd = &cobra.Command{
+	Use:   "draw-glyphs",
+	Short: "DrawGlyphs RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCanvasServiceClient(grpcConn)
+		req := &pb.DrawGlyphsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg4"); err == nil {
+			req.Arg4 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg5"); err == nil {
+			req.Arg5 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg6"); err == nil {
+			req.Arg6 = v
+		}
+		resp, err := client.DrawGlyphs(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pdfCanvasDrawLineCmd = &cobra.Command{
+	Use:   "draw-line",
+	Short: "DrawLine RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCanvasServiceClient(grpcConn)
+		req := &pb.DrawLineRequest{}
+		if v, err := cmd.Flags().GetFloat32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetFloat32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetFloat32("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetFloat32("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg4"); err == nil {
+			req.Arg4 = v
+		}
+		resp, err := client.DrawLine(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pdfCanvasDrawLines2Cmd = &cobra.Command{
+	Use:   "draw-lines2",
+	Short: "DrawLines2 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCanvasServiceClient(grpcConn)
+		req := &pb.DrawLines2Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.DrawLines2(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pdfCanvasDrawLines4_1Cmd = &cobra.Command{
+	Use:   "draw-lines4_1",
+	Short: "DrawLines4_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCanvasServiceClient(grpcConn)
+		req := &pb.DrawLines4_1Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		resp, err := client.DrawLines4_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pdfCanvasDrawMeshCmd = &cobra.Command{
+	Use:   "draw-mesh",
+	Short: "DrawMesh RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCanvasServiceClient(grpcConn)
+		req := &pb.DrawMeshRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.DrawMesh(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pdfCanvasDrawOval2Cmd = &cobra.Command{
+	Use:   "draw-oval2",
+	Short: "DrawOval2 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCanvasServiceClient(grpcConn)
+		req := &pb.DrawOval2Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.DrawOval2(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pdfCanvasDrawOval5_1Cmd = &cobra.Command{
+	Use:   "draw-oval5_1",
+	Short: "DrawOval5_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCanvasServiceClient(grpcConn)
+		req := &pb.DrawOval5_1Request{}
+		if v, err := cmd.Flags().GetFloat32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetFloat32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetFloat32("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetFloat32("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg4"); err == nil {
+			req.Arg4 = v
+		}
+		resp, err := client.DrawOval5_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pdfCanvasDrawPaintCmd = &cobra.Command{
+	Use:   "draw-paint",
+	Short: "DrawPaint RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCanvasServiceClient(grpcConn)
+		req := &pb.DrawPaintRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.DrawPaint(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pdfCanvasDrawPatch3Cmd = &cobra.Command{
+	Use:   "draw-patch3",
+	Short: "DrawPatch3 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCanvasServiceClient(grpcConn)
+		req := &pb.DrawPatch3Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.DrawPatch3(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pdfCanvasDrawPatch3_1Cmd = &cobra.Command{
+	Use:   "draw-patch3_1",
+	Short: "DrawPatch3_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCanvasServiceClient(grpcConn)
+		req := &pb.DrawPatch3_1Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.DrawPatch3_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pdfCanvasDrawPathCmd = &cobra.Command{
+	Use:   "draw-path",
+	Short: "DrawPath RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCanvasServiceClient(grpcConn)
+		req := &pb.DrawPathRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.DrawPath(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pdfCanvasDrawPicture1Cmd = &cobra.Command{
+	Use:   "draw-picture1",
+	Short: "DrawPicture1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCanvasServiceClient(grpcConn)
+		req := &pb.DrawPicture1Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.DrawPicture1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pdfCanvasDrawPicture2_1Cmd = &cobra.Command{
+	Use:   "draw-picture2_1",
+	Short: "DrawPicture2_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCanvasServiceClient(grpcConn)
+		req := &pb.DrawPicture2_1Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.DrawPicture2_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pdfCanvasDrawPicture2_2Cmd = &cobra.Command{
+	Use:   "draw-picture2_2",
+	Short: "DrawPicture2_2 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCanvasServiceClient(grpcConn)
+		req := &pb.DrawPicture2_2Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.DrawPicture2_2(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pdfCanvasDrawPointCmd = &cobra.Command{
+	Use:   "draw-point",
+	Short: "DrawPoint RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCanvasServiceClient(grpcConn)
+		req := &pb.DrawPointRequest{}
+		if v, err := cmd.Flags().GetFloat32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetFloat32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.DrawPoint(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pdfCanvasDrawPoints2Cmd = &cobra.Command{
+	Use:   "draw-points2",
+	Short: "DrawPoints2 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCanvasServiceClient(grpcConn)
+		req := &pb.DrawPoints2Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.DrawPoints2(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pdfCanvasDrawPoints4_1Cmd = &cobra.Command{
+	Use:   "draw-points4_1",
+	Short: "DrawPoints4_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCanvasServiceClient(grpcConn)
+		req := &pb.DrawPoints4_1Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		resp, err := client.DrawPoints4_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pdfCanvasDrawPosText5Cmd = &cobra.Command{
+	Use:   "draw-pos-text5",
+	Short: "DrawPosText5 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCanvasServiceClient(grpcConn)
+		req := &pb.DrawPosText5Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg4"); err == nil {
+			req.Arg4 = v
+		}
+		resp, err := client.DrawPosText5(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pdfCanvasDrawPosText3_1Cmd = &cobra.Command{
+	Use:   "draw-pos-text3_1",
+	Short: "DrawPosText3_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCanvasServiceClient(grpcConn)
+		req := &pb.DrawPosText3_1Request{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.DrawPosText3_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pdfCanvasDrawRGBCmd = &cobra.Command{
+	Use:   "draw-rgb",
+	Short: "DrawRGB RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCanvasServiceClient(grpcConn)
+		req := &pb.DrawRGBRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.DrawRGB(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pdfCanvasDrawRect2Cmd = &cobra.Command{
+	Use:   "draw-rect2",
+	Short: "DrawRect2 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCanvasServiceClient(grpcConn)
+		req := &pb.DrawRect2Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.DrawRect2(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pdfCanvasDrawRect2_1Cmd = &cobra.Command{
+	Use:   "draw-rect2_1",
+	Short: "DrawRect2_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCanvasServiceClient(grpcConn)
+		req := &pb.DrawRect2_1Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.DrawRect2_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pdfCanvasDrawRect5_2Cmd = &cobra.Command{
+	Use:   "draw-rect5_2",
+	Short: "DrawRect5_2 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCanvasServiceClient(grpcConn)
+		req := &pb.DrawRect5_2Request{}
+		if v, err := cmd.Flags().GetFloat32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetFloat32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetFloat32("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetFloat32("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg4"); err == nil {
+			req.Arg4 = v
+		}
+		resp, err := client.DrawRect5_2(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pdfCanvasDrawRegionCmd = &cobra.Command{
+	Use:   "draw-region",
+	Short: "DrawRegion RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCanvasServiceClient(grpcConn)
+		req := &pb.DrawRegionRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.DrawRegion(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pdfCanvasDrawRenderNodeCmd = &cobra.Command{
+	Use:   "draw-render-node",
+	Short: "DrawRenderNode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCanvasServiceClient(grpcConn)
+		req := &pb.DrawRenderNodeRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.DrawRenderNode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pdfCanvasDrawRoundRect4Cmd = &cobra.Command{
+	Use:   "draw-round-rect4",
+	Short: "DrawRoundRect4 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCanvasServiceClient(grpcConn)
+		req := &pb.DrawRoundRect4Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetFloat32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetFloat32("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		resp, err := client.DrawRoundRect4(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pdfCanvasDrawRoundRect7_1Cmd = &cobra.Command{
+	Use:   "draw-round-rect7_1",
+	Short: "DrawRoundRect7_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCanvasServiceClient(grpcConn)
+		req := &pb.DrawRoundRect7_1Request{}
+		if v, err := cmd.Flags().GetFloat32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetFloat32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetFloat32("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetFloat32("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		if v, err := cmd.Flags().GetFloat32("arg4"); err == nil {
+			req.Arg4 = v
+		}
+		if v, err := cmd.Flags().GetFloat32("arg5"); err == nil {
+			req.Arg5 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg6"); err == nil {
+			req.Arg6 = v
+		}
+		resp, err := client.DrawRoundRect7_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pdfCanvasDrawText6Cmd = &cobra.Command{
+	Use:   "draw-text6",
+	Short: "DrawText6 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCanvasServiceClient(grpcConn)
+		req := &pb.DrawText6Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetFloat32("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		if v, err := cmd.Flags().GetFloat32("arg4"); err == nil {
+			req.Arg4 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg5"); err == nil {
+			req.Arg5 = v
+		}
+		resp, err := client.DrawText6(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pdfCanvasDrawText6_1Cmd = &cobra.Command{
+	Use:   "draw-text6_1",
+	Short: "DrawText6_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCanvasServiceClient(grpcConn)
+		req := &pb.DrawText6_1Request{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetFloat32("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		if v, err := cmd.Flags().GetFloat32("arg4"); err == nil {
+			req.Arg4 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg5"); err == nil {
+			req.Arg5 = v
+		}
+		resp, err := client.DrawText6_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pdfCanvasDrawText4_2Cmd = &cobra.Command{
+	Use:   "draw-text4_2",
+	Short: "DrawText4_2 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCanvasServiceClient(grpcConn)
+		req := &pb.DrawText4_2Request{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetFloat32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetFloat32("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		resp, err := client.DrawText4_2(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pdfCanvasDrawText6_3Cmd = &cobra.Command{
+	Use:   "draw-text6_3",
+	Short: "DrawText6_3 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCanvasServiceClient(grpcConn)
+		req := &pb.DrawText6_3Request{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetFloat32("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		if v, err := cmd.Flags().GetFloat32("arg4"); err == nil {
+			req.Arg4 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg5"); err == nil {
+			req.Arg5 = v
+		}
+		resp, err := client.DrawText6_3(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pdfCanvasDrawTextOnPath7Cmd = &cobra.Command{
+	Use:   "draw-text-on-path7",
+	Short: "DrawTextOnPath7 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCanvasServiceClient(grpcConn)
+		req := &pb.DrawTextOnPath7Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		if v, err := cmd.Flags().GetFloat32("arg4"); err == nil {
+			req.Arg4 = v
+		}
+		if v, err := cmd.Flags().GetFloat32("arg5"); err == nil {
+			req.Arg5 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg6"); err == nil {
+			req.Arg6 = v
+		}
+		resp, err := client.DrawTextOnPath7(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pdfCanvasDrawTextOnPath5_1Cmd = &cobra.Command{
+	Use:   "draw-text-on-path5_1",
+	Short: "DrawTextOnPath5_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCanvasServiceClient(grpcConn)
+		req := &pb.DrawTextOnPath5_1Request{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetFloat32("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetFloat32("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg4"); err == nil {
+			req.Arg4 = v
+		}
+		resp, err := client.DrawTextOnPath5_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pdfCanvasDrawTextRun9Cmd = &cobra.Command{
+	Use:   "draw-text-run9",
+	Short: "DrawTextRun9 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCanvasServiceClient(grpcConn)
+		req := &pb.DrawTextRun9Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg4"); err == nil {
+			req.Arg4 = v
+		}
+		if v, err := cmd.Flags().GetFloat32("arg5"); err == nil {
+			req.Arg5 = v
+		}
+		if v, err := cmd.Flags().GetFloat32("arg6"); err == nil {
+			req.Arg6 = v
+		}
+		if v, err := cmd.Flags().GetBool("arg7"); err == nil {
+			req.Arg7 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg8"); err == nil {
+			req.Arg8 = v
+		}
+		resp, err := client.DrawTextRun9(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pdfCanvasDrawTextRun9_1Cmd = &cobra.Command{
+	Use:   "draw-text-run9_1",
+	Short: "DrawTextRun9_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCanvasServiceClient(grpcConn)
+		req := &pb.DrawTextRun9_1Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg4"); err == nil {
+			req.Arg4 = v
+		}
+		if v, err := cmd.Flags().GetFloat32("arg5"); err == nil {
+			req.Arg5 = v
+		}
+		if v, err := cmd.Flags().GetFloat32("arg6"); err == nil {
+			req.Arg6 = v
+		}
+		if v, err := cmd.Flags().GetBool("arg7"); err == nil {
+			req.Arg7 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg8"); err == nil {
+			req.Arg8 = v
+		}
+		resp, err := client.DrawTextRun9_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pdfCanvasDrawTextRun9_2Cmd = &cobra.Command{
+	Use:   "draw-text-run9_2",
+	Short: "DrawTextRun9_2 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCanvasServiceClient(grpcConn)
+		req := &pb.DrawTextRun9_2Request{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg4"); err == nil {
+			req.Arg4 = v
+		}
+		if v, err := cmd.Flags().GetFloat32("arg5"); err == nil {
+			req.Arg5 = v
+		}
+		if v, err := cmd.Flags().GetFloat32("arg6"); err == nil {
+			req.Arg6 = v
+		}
+		if v, err := cmd.Flags().GetBool("arg7"); err == nil {
+			req.Arg7 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg8"); err == nil {
+			req.Arg8 = v
+		}
+		resp, err := client.DrawTextRun9_2(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pdfCanvasDrawVerticesCmd = &cobra.Command{
+	Use:   "draw-vertices",
+	Short: "DrawVertices RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCanvasServiceClient(grpcConn)
+		req := &pb.DrawVerticesRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg4"); err == nil {
+			req.Arg4 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg5"); err == nil {
+			req.Arg5 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg6"); err == nil {
+			req.Arg6 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg7"); err == nil {
+			req.Arg7 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg8"); err == nil {
+			req.Arg8 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg9"); err == nil {
+			req.Arg9 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg10"); err == nil {
+			req.Arg10 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg11"); err == nil {
+			req.Arg11 = v
+		}
+		resp, err := client.DrawVertices(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pdfCanvasEnableZCmd = &cobra.Command{
+	Use:   "enable-z",
+	Short: "EnableZ RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCanvasServiceClient(grpcConn)
+		req := &pb.EnableZRequest{}
+		resp, err := client.EnableZ(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pdfCanvasGetClipBounds0Cmd = &cobra.Command{
+	Use:   "get-clip-bounds0",
+	Short: "GetClipBounds0 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCanvasServiceClient(grpcConn)
+		req := &pb.GetClipBounds0Request{}
+		resp, err := client.GetClipBounds0(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pdfCanvasGetClipBounds1_1Cmd = &cobra.Command{
+	Use:   "get-clip-bounds1_1",
+	Short: "GetClipBounds1_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCanvasServiceClient(grpcConn)
+		req := &pb.GetClipBounds1_1Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetClipBounds1_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pdfCanvasGetDensityCmd = &cobra.Command{
+	Use:   "get-density",
+	Short: "GetDensity RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCanvasServiceClient(grpcConn)
+		req := &pb.GetDensityRequest{}
+		resp, err := client.GetDensity(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pdfCanvasGetDrawFilterCmd = &cobra.Command{
+	Use:   "get-draw-filter",
+	Short: "GetDrawFilter RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCanvasServiceClient(grpcConn)
+		req := &pb.GetDrawFilterRequest{}
+		resp, err := client.GetDrawFilter(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pdfCanvasGetHeightCmd = &cobra.Command{
+	Use:   "get-height",
+	Short: "GetHeight RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCanvasServiceClient(grpcConn)
+		req := &pb.GetHeightRequest{}
+		resp, err := client.GetHeight(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pdfCanvasGetMatrix0Cmd = &cobra.Command{
+	Use:   "get-matrix0",
+	Short: "GetMatrix0 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCanvasServiceClient(grpcConn)
+		req := &pb.GetMatrix0Request{}
+		resp, err := client.GetMatrix0(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pdfCanvasGetMatrix1_1Cmd = &cobra.Command{
+	Use:   "get-matrix1_1",
+	Short: "GetMatrix1_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCanvasServiceClient(grpcConn)
+		req := &pb.GetMatrix1_1Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetMatrix1_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pdfCanvasGetMaximumBitmapHeightCmd = &cobra.Command{
+	Use:   "get-maximum-bitmap-height",
+	Short: "GetMaximumBitmapHeight RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCanvasServiceClient(grpcConn)
+		req := &pb.GetMaximumBitmapHeightRequest{}
+		resp, err := client.GetMaximumBitmapHeight(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pdfCanvasGetMaximumBitmapWidthCmd = &cobra.Command{
+	Use:   "get-maximum-bitmap-width",
+	Short: "GetMaximumBitmapWidth RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCanvasServiceClient(grpcConn)
+		req := &pb.GetMaximumBitmapWidthRequest{}
+		resp, err := client.GetMaximumBitmapWidth(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pdfCanvasGetSaveCountCmd = &cobra.Command{
+	Use:   "get-save-count",
+	Short: "GetSaveCount RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCanvasServiceClient(grpcConn)
+		req := &pb.GetSaveCountRequest{}
+		resp, err := client.GetSaveCount(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pdfCanvasGetWidthCmd = &cobra.Command{
+	Use:   "get-width",
+	Short: "GetWidth RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCanvasServiceClient(grpcConn)
+		req := &pb.GetWidthRequest{}
+		resp, err := client.GetWidth(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pdfCanvasIsHardwareAcceleratedCmd = &cobra.Command{
+	Use:   "is-hardware-accelerated",
+	Short: "IsHardwareAccelerated RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCanvasServiceClient(grpcConn)
+		req := &pb.IsHardwareAcceleratedRequest{}
+		resp, err := client.IsHardwareAccelerated(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pdfCanvasIsOpaqueCmd = &cobra.Command{
+	Use:   "is-opaque",
+	Short: "IsOpaque RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCanvasServiceClient(grpcConn)
+		req := &pb.IsOpaqueRequest{}
+		resp, err := client.IsOpaque(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pdfCanvasQuickReject1Cmd = &cobra.Command{
+	Use:   "quick-reject1",
+	Short: "QuickReject1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCanvasServiceClient(grpcConn)
+		req := &pb.QuickReject1Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.QuickReject1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pdfCanvasQuickReject2_1Cmd = &cobra.Command{
+	Use:   "quick-reject2_1",
+	Short: "QuickReject2_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCanvasServiceClient(grpcConn)
+		req := &pb.QuickReject2_1Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.QuickReject2_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pdfCanvasQuickReject1_2Cmd = &cobra.Command{
+	Use:   "quick-reject1_2",
+	Short: "QuickReject1_2 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCanvasServiceClient(grpcConn)
+		req := &pb.QuickReject1_2Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.QuickReject1_2(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pdfCanvasQuickReject2_3Cmd = &cobra.Command{
+	Use:   "quick-reject2_3",
+	Short: "QuickReject2_3 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCanvasServiceClient(grpcConn)
+		req := &pb.QuickReject2_3Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.QuickReject2_3(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pdfCanvasQuickReject4_4Cmd = &cobra.Command{
+	Use:   "quick-reject4_4",
+	Short: "QuickReject4_4 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCanvasServiceClient(grpcConn)
+		req := &pb.QuickReject4_4Request{}
+		if v, err := cmd.Flags().GetFloat32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetFloat32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetFloat32("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetFloat32("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		resp, err := client.QuickReject4_4(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pdfCanvasQuickReject5_5Cmd = &cobra.Command{
+	Use:   "quick-reject5_5",
+	Short: "QuickReject5_5 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCanvasServiceClient(grpcConn)
+		req := &pb.QuickReject5_5Request{}
+		if v, err := cmd.Flags().GetFloat32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetFloat32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetFloat32("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetFloat32("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg4"); err == nil {
+			req.Arg4 = v
+		}
+		resp, err := client.QuickReject5_5(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pdfCanvasRestoreCmd = &cobra.Command{
+	Use:   "restore",
+	Short: "Restore RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCanvasServiceClient(grpcConn)
+		req := &pb.RestoreRequest{}
+		resp, err := client.Restore(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pdfCanvasRestoreToCountCmd = &cobra.Command{
+	Use:   "restore-to-count",
+	Short: "RestoreToCount RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCanvasServiceClient(grpcConn)
+		req := &pb.RestoreToCountRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.RestoreToCount(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pdfCanvasRotate1Cmd = &cobra.Command{
+	Use:   "rotate1",
+	Short: "Rotate1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCanvasServiceClient(grpcConn)
+		req := &pb.Rotate1Request{}
+		if v, err := cmd.Flags().GetFloat32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Rotate1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pdfCanvasRotate3_1Cmd = &cobra.Command{
+	Use:   "rotate3_1",
+	Short: "Rotate3_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCanvasServiceClient(grpcConn)
+		req := &pb.Rotate3_1Request{}
+		if v, err := cmd.Flags().GetFloat32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetFloat32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetFloat32("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.Rotate3_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pdfCanvasSaveCmd = &cobra.Command{
+	Use:   "save",
+	Short: "Save RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCanvasServiceClient(grpcConn)
+		req := &pb.SaveRequest{}
+		resp, err := client.Save(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pdfCanvasSaveLayer2Cmd = &cobra.Command{
+	Use:   "save-layer2",
+	Short: "SaveLayer2 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCanvasServiceClient(grpcConn)
+		req := &pb.SaveLayer2Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.SaveLayer2(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pdfCanvasSaveLayer3_1Cmd = &cobra.Command{
+	Use:   "save-layer3_1",
+	Short: "SaveLayer3_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCanvasServiceClient(grpcConn)
+		req := &pb.SaveLayer3_1Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.SaveLayer3_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pdfCanvasSaveLayer5_2Cmd = &cobra.Command{
+	Use:   "save-layer5_2",
+	Short: "SaveLayer5_2 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCanvasServiceClient(grpcConn)
+		req := &pb.SaveLayer5_2Request{}
+		if v, err := cmd.Flags().GetFloat32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetFloat32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetFloat32("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetFloat32("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg4"); err == nil {
+			req.Arg4 = v
+		}
+		resp, err := client.SaveLayer5_2(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pdfCanvasSaveLayer6_3Cmd = &cobra.Command{
+	Use:   "save-layer6_3",
+	Short: "SaveLayer6_3 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCanvasServiceClient(grpcConn)
+		req := &pb.SaveLayer6_3Request{}
+		if v, err := cmd.Flags().GetFloat32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetFloat32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetFloat32("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetFloat32("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg4"); err == nil {
+			req.Arg4 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg5"); err == nil {
+			req.Arg5 = v
+		}
+		resp, err := client.SaveLayer6_3(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pdfCanvasSaveLayerAlpha2Cmd = &cobra.Command{
+	Use:   "save-layer-alpha2",
+	Short: "SaveLayerAlpha2 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCanvasServiceClient(grpcConn)
+		req := &pb.SaveLayerAlpha2Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.SaveLayerAlpha2(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pdfCanvasSaveLayerAlpha3_1Cmd = &cobra.Command{
+	Use:   "save-layer-alpha3_1",
+	Short: "SaveLayerAlpha3_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCanvasServiceClient(grpcConn)
+		req := &pb.SaveLayerAlpha3_1Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.SaveLayerAlpha3_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pdfCanvasSaveLayerAlpha5_2Cmd = &cobra.Command{
+	Use:   "save-layer-alpha5_2",
+	Short: "SaveLayerAlpha5_2 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCanvasServiceClient(grpcConn)
+		req := &pb.SaveLayerAlpha5_2Request{}
+		if v, err := cmd.Flags().GetFloat32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetFloat32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetFloat32("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetFloat32("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg4"); err == nil {
+			req.Arg4 = v
+		}
+		resp, err := client.SaveLayerAlpha5_2(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pdfCanvasSaveLayerAlpha6_3Cmd = &cobra.Command{
+	Use:   "save-layer-alpha6_3",
+	Short: "SaveLayerAlpha6_3 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCanvasServiceClient(grpcConn)
+		req := &pb.SaveLayerAlpha6_3Request{}
+		if v, err := cmd.Flags().GetFloat32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetFloat32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetFloat32("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetFloat32("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg4"); err == nil {
+			req.Arg4 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg5"); err == nil {
+			req.Arg5 = v
+		}
+		resp, err := client.SaveLayerAlpha6_3(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pdfCanvasScale2Cmd = &cobra.Command{
+	Use:   "scale2",
+	Short: "Scale2 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCanvasServiceClient(grpcConn)
+		req := &pb.Scale2Request{}
+		if v, err := cmd.Flags().GetFloat32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetFloat32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.Scale2(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pdfCanvasScale4_1Cmd = &cobra.Command{
+	Use:   "scale4_1",
+	Short: "Scale4_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCanvasServiceClient(grpcConn)
+		req := &pb.Scale4_1Request{}
+		if v, err := cmd.Flags().GetFloat32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetFloat32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetFloat32("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetFloat32("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		resp, err := client.Scale4_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pdfCanvasSetBitmapCmd = &cobra.Command{
+	Use:   "set-bitmap",
+	Short: "SetBitmap RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCanvasServiceClient(grpcConn)
+		req := &pb.SetBitmapRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetBitmap(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pdfCanvasSetDensityCmd = &cobra.Command{
+	Use:   "set-density",
+	Short: "SetDensity RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCanvasServiceClient(grpcConn)
+		req := &pb.SetDensityRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetDensity(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pdfCanvasSetDrawFilterCmd = &cobra.Command{
+	Use:   "set-draw-filter",
+	Short: "SetDrawFilter RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCanvasServiceClient(grpcConn)
+		req := &pb.SetDrawFilterRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetDrawFilter(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pdfCanvasSetMatrixCmd = &cobra.Command{
+	Use:   "set-matrix",
+	Short: "SetMatrix RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCanvasServiceClient(grpcConn)
+		req := &pb.SetMatrixRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetMatrix(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pdfCanvasSkewCmd = &cobra.Command{
+	Use:   "skew",
+	Short: "Skew RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCanvasServiceClient(grpcConn)
+		req := &pb.SkewRequest{}
+		if v, err := cmd.Flags().GetFloat32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetFloat32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.Skew(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pdfCanvasTranslateCmd = &cobra.Command{
+	Use:   "translate",
+	Short: "Translate RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCanvasServiceClient(grpcConn)
+		req := &pb.TranslateRequest{}
+		if v, err := cmd.Flags().GetFloat32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetFloat32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.Translate(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pdfParcelFileDescriptorCmd = &cobra.Command{
+	Use:   "parcel-file-descriptor",
+	Short: "ParcelFileDescriptorService operations",
+}
+
+var pdfParcelFileDescriptorCanDetectErrorsCmd = &cobra.Command{
+	Use:   "can-detect-errors",
+	Short: "CanDetectErrors RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewParcelFileDescriptorServiceClient(grpcConn)
+		req := &pb.CanDetectErrorsRequest{}
+		resp, err := client.CanDetectErrors(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pdfParcelFileDescriptorCheckErrorCmd = &cobra.Command{
+	Use:   "check-error",
+	Short: "CheckError RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewParcelFileDescriptorServiceClient(grpcConn)
+		req := &pb.CheckErrorRequest{}
+		resp, err := client.CheckError(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pdfParcelFileDescriptorCloseCmd = &cobra.Command{
+	Use:   "close",
+	Short: "Close RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewParcelFileDescriptorServiceClient(grpcConn)
+		req := &pb.CloseRequest{}
+		resp, err := client.Close(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pdfParcelFileDescriptorCloseWithErrorCmd = &cobra.Command{
+	Use:   "close-with-error",
+	Short: "CloseWithError RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewParcelFileDescriptorServiceClient(grpcConn)
+		req := &pb.CloseWithErrorRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.CloseWithError(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pdfParcelFileDescriptorDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewParcelFileDescriptorServiceClient(grpcConn)
+		req := &pb.DescribeContentsRequest{}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pdfParcelFileDescriptorDetachFdCmd = &cobra.Command{
+	Use:   "detach-fd",
+	Short: "DetachFd RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewParcelFileDescriptorServiceClient(grpcConn)
+		req := &pb.DetachFdRequest{}
+		resp, err := client.DetachFd(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pdfParcelFileDescriptorDup0Cmd = &cobra.Command{
+	Use:   "dup0",
+	Short: "Dup0 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewParcelFileDescriptorServiceClient(grpcConn)
+		req := &pb.Dup0Request{}
+		resp, err := client.Dup0(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pdfParcelFileDescriptorGetFdCmd = &cobra.Command{
+	Use:   "get-fd",
+	Short: "GetFd RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewParcelFileDescriptorServiceClient(grpcConn)
+		req := &pb.GetFdRequest{}
+		resp, err := client.GetFd(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pdfParcelFileDescriptorGetFileDescriptorCmd = &cobra.Command{
+	Use:   "get-file-descriptor",
+	Short: "GetFileDescriptor RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewParcelFileDescriptorServiceClient(grpcConn)
+		req := &pb.GetFileDescriptorRequest{}
+		resp, err := client.GetFileDescriptor(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pdfParcelFileDescriptorGetStatSizeCmd = &cobra.Command{
+	Use:   "get-stat-size",
+	Short: "GetStatSize RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewParcelFileDescriptorServiceClient(grpcConn)
+		req := &pb.GetStatSizeRequest{}
+		resp, err := client.GetStatSize(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pdfParcelFileDescriptorToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewParcelFileDescriptorServiceClient(grpcConn)
+		req := &pb.ToStringRequest{}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pdfParcelFileDescriptorWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewParcelFileDescriptorServiceClient(grpcConn)
+		req := &pb.WriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pdfParcelFileDescriptorAdoptFdCmd = &cobra.Command{
+	Use:   "adopt-fd",
+	Short: "AdoptFd RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewParcelFileDescriptorServiceClient(grpcConn)
+		req := &pb.AdoptFdRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.AdoptFd(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pdfParcelFileDescriptorCreatePipeCmd = &cobra.Command{
+	Use:   "create-pipe",
+	Short: "CreatePipe RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewParcelFileDescriptorServiceClient(grpcConn)
+		req := &pb.CreatePipeRequest{}
+		resp, err := client.CreatePipe(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pdfParcelFileDescriptorCreateReliablePipeCmd = &cobra.Command{
+	Use:   "create-reliable-pipe",
+	Short: "CreateReliablePipe RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewParcelFileDescriptorServiceClient(grpcConn)
+		req := &pb.CreateReliablePipeRequest{}
+		resp, err := client.CreateReliablePipe(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pdfParcelFileDescriptorCreateReliableSocketPairCmd = &cobra.Command{
+	Use:   "create-reliable-socket-pair",
+	Short: "CreateReliableSocketPair RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewParcelFileDescriptorServiceClient(grpcConn)
+		req := &pb.CreateReliableSocketPairRequest{}
+		resp, err := client.CreateReliableSocketPair(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pdfParcelFileDescriptorCreateSocketPairCmd = &cobra.Command{
+	Use:   "create-socket-pair",
+	Short: "CreateSocketPair RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewParcelFileDescriptorServiceClient(grpcConn)
+		req := &pb.CreateSocketPairRequest{}
+		resp, err := client.CreateSocketPair(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pdfParcelFileDescriptorDup1_1Cmd = &cobra.Command{
+	Use:   "dup1_1",
+	Short: "Dup1_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewParcelFileDescriptorServiceClient(grpcConn)
+		req := &pb.Dup1_1Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Dup1_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pdfParcelFileDescriptorFromDatagramSocketCmd = &cobra.Command{
+	Use:   "from-datagram-socket",
+	Short: "FromDatagramSocket RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewParcelFileDescriptorServiceClient(grpcConn)
+		req := &pb.FromDatagramSocketRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.FromDatagramSocket(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pdfParcelFileDescriptorFromFdCmd = &cobra.Command{
+	Use:   "from-fd",
+	Short: "FromFd RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewParcelFileDescriptorServiceClient(grpcConn)
+		req := &pb.FromFdRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.FromFd(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pdfParcelFileDescriptorFromSocketCmd = &cobra.Command{
+	Use:   "from-socket",
+	Short: "FromSocket RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewParcelFileDescriptorServiceClient(grpcConn)
+		req := &pb.FromSocketRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.FromSocket(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pdfParcelFileDescriptorOpenCmd = &cobra.Command{
+	Use:   "open",
+	Short: "Open RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewParcelFileDescriptorServiceClient(grpcConn)
+		req := &pb.OpenRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.Open(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pdfParcelFileDescriptorParseModeCmd = &cobra.Command{
+	Use:   "parse-mode",
+	Short: "ParseMode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewParcelFileDescriptorServiceClient(grpcConn)
+		req := &pb.ParseModeRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.ParseMode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pdfTypefaceCmd = &cobra.Command{
+	Use:   "typeface",
+	Short: "TypefaceService operations",
+}
+
+var pdfTypefaceEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTypefaceServiceClient(grpcConn)
+		req := &pb.EqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pdfTypefaceGetStyleCmd = &cobra.Command{
+	Use:   "get-style",
+	Short: "GetStyle RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTypefaceServiceClient(grpcConn)
+		req := &pb.GetStyleRequest{}
+		resp, err := client.GetStyle(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pdfTypefaceGetSystemFontFamilyNameCmd = &cobra.Command{
+	Use:   "get-system-font-family-name",
+	Short: "GetSystemFontFamilyName RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTypefaceServiceClient(grpcConn)
+		req := &pb.GetSystemFontFamilyNameRequest{}
+		resp, err := client.GetSystemFontFamilyName(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pdfTypefaceGetWeightCmd = &cobra.Command{
+	Use:   "get-weight",
+	Short: "GetWeight RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTypefaceServiceClient(grpcConn)
+		req := &pb.GetWeightRequest{}
+		resp, err := client.GetWeight(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pdfTypefaceHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTypefaceServiceClient(grpcConn)
+		req := &pb.HashCodeRequest{}
+		resp, err := client.HashCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pdfTypefaceIsBoldCmd = &cobra.Command{
+	Use:   "is-bold",
+	Short: "IsBold RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTypefaceServiceClient(grpcConn)
+		req := &pb.IsBoldRequest{}
+		resp, err := client.IsBold(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pdfTypefaceIsItalicCmd = &cobra.Command{
+	Use:   "is-italic",
+	Short: "IsItalic RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTypefaceServiceClient(grpcConn)
+		req := &pb.IsItalicRequest{}
+		resp, err := client.IsItalic(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pdfTypefaceCreate2Cmd = &cobra.Command{
+	Use:   "create2",
+	Short: "Create2 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTypefaceServiceClient(grpcConn)
+		req := &pb.Create2Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.Create2(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pdfTypefaceCreate3_1Cmd = &cobra.Command{
+	Use:   "create3_1",
+	Short: "Create3_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTypefaceServiceClient(grpcConn)
+		req := &pb.Create3_1Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetBool("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.Create3_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pdfTypefaceCreate2_2Cmd = &cobra.Command{
+	Use:   "create2_2",
+	Short: "Create2_2 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTypefaceServiceClient(grpcConn)
+		req := &pb.Create2_2Request{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.Create2_2(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pdfTypefaceCreateFromAssetCmd = &cobra.Command{
+	Use:   "create-from-asset",
+	Short: "CreateFromAsset RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTypefaceServiceClient(grpcConn)
+		req := &pb.CreateFromAssetRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetString("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.CreateFromAsset(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pdfTypefaceCreateFromFile1Cmd = &cobra.Command{
+	Use:   "create-from-file1",
+	Short: "CreateFromFile1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTypefaceServiceClient(grpcConn)
+		req := &pb.CreateFromFile1Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.CreateFromFile1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pdfTypefaceCreateFromFile1_1Cmd = &cobra.Command{
+	Use:   "create-from-file1_1",
+	Short: "CreateFromFile1_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTypefaceServiceClient(grpcConn)
+		req := &pb.CreateFromFile1_1Request{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.CreateFromFile1_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pdfTypefaceDefaultFromStyleCmd = &cobra.Command{
+	Use:   "default-from-style",
+	Short: "DefaultFromStyle RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTypefaceServiceClient(grpcConn)
+		req := &pb.DefaultFromStyleRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.DefaultFromStyle(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -1966,20 +5520,20 @@ var pdfBitmapWrapHardwareBufferCmd = &cobra.Command{
 	},
 }
 
-var pdfParcelFileDescriptorCmd = &cobra.Command{
-	Use:   "parcel-file-descriptor",
-	Short: "ParcelFileDescriptorService operations",
+var pdfBitmapConfigCmd = &cobra.Command{
+	Use:   "bitmap-config",
+	Short: "BitmapConfigService operations",
 }
 
-var pdfParcelFileDescriptorCanDetectErrorsCmd = &cobra.Command{
-	Use:   "can-detect-errors",
-	Short: "CanDetectErrors RPC",
+var pdfBitmapConfigValuesCmd = &cobra.Command{
+	Use:   "values",
+	Short: "Values RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewParcelFileDescriptorServiceClient(grpcConn)
-		req := &pb.CanDetectErrorsRequest{}
-		resp, err := client.CanDetectErrors(ctx, req)
+		client := pb.NewBitmapConfigServiceClient(grpcConn)
+		req := &pb.ValuesRequest{}
+		resp, err := client.Values(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -1987,50 +5541,18 @@ var pdfParcelFileDescriptorCanDetectErrorsCmd = &cobra.Command{
 	},
 }
 
-var pdfParcelFileDescriptorCheckErrorCmd = &cobra.Command{
-	Use:   "check-error",
-	Short: "CheckError RPC",
+var pdfBitmapConfigValueOfCmd = &cobra.Command{
+	Use:   "value-of",
+	Short: "ValueOf RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewParcelFileDescriptorServiceClient(grpcConn)
-		req := &pb.CheckErrorRequest{}
-		resp, err := client.CheckError(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pdfParcelFileDescriptorCloseCmd = &cobra.Command{
-	Use:   "close",
-	Short: "Close RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewParcelFileDescriptorServiceClient(grpcConn)
-		req := &pb.CloseRequest{}
-		resp, err := client.Close(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pdfParcelFileDescriptorCloseWithErrorCmd = &cobra.Command{
-	Use:   "close-with-error",
-	Short: "CloseWithError RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewParcelFileDescriptorServiceClient(grpcConn)
-		req := &pb.CloseWithErrorRequest{}
+		client := pb.NewBitmapConfigServiceClient(grpcConn)
+		req := &pb.ValueOfRequest{}
 		if v, err := cmd.Flags().GetString("arg0"); err == nil {
 			req.Arg0 = v
 		}
-		resp, err := client.CloseWithError(ctx, req)
+		resp, err := client.ValueOf(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -2038,15 +5560,20 @@ var pdfParcelFileDescriptorCloseWithErrorCmd = &cobra.Command{
 	},
 }
 
-var pdfParcelFileDescriptorDescribeContentsCmd = &cobra.Command{
-	Use:   "describe-contents",
-	Short: "DescribeContents RPC",
+var pdfPaintCmd = &cobra.Command{
+	Use:   "paint",
+	Short: "PaintService operations",
+}
+
+var pdfPaintAscentCmd = &cobra.Command{
+	Use:   "ascent",
+	Short: "Ascent RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewParcelFileDescriptorServiceClient(grpcConn)
-		req := &pb.DescribeContentsRequest{}
-		resp, err := client.DescribeContents(ctx, req)
+		client := pb.NewPaintServiceClient(grpcConn)
+		req := &pb.AscentRequest{}
+		resp, err := client.Ascent(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -2054,117 +5581,30 @@ var pdfParcelFileDescriptorDescribeContentsCmd = &cobra.Command{
 	},
 }
 
-var pdfParcelFileDescriptorDetachFdCmd = &cobra.Command{
-	Use:   "detach-fd",
-	Short: "DetachFd RPC",
+var pdfPaintBreakText5Cmd = &cobra.Command{
+	Use:   "break-text5",
+	Short: "BreakText5 RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewParcelFileDescriptorServiceClient(grpcConn)
-		req := &pb.DetachFdRequest{}
-		resp, err := client.DetachFd(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pdfParcelFileDescriptorDup0Cmd = &cobra.Command{
-	Use:   "dup0",
-	Short: "Dup0 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewParcelFileDescriptorServiceClient(grpcConn)
-		req := &pb.Dup0Request{}
-		resp, err := client.Dup0(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pdfParcelFileDescriptorGetFdCmd = &cobra.Command{
-	Use:   "get-fd",
-	Short: "GetFd RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewParcelFileDescriptorServiceClient(grpcConn)
-		req := &pb.GetFdRequest{}
-		resp, err := client.GetFd(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pdfParcelFileDescriptorGetFileDescriptorCmd = &cobra.Command{
-	Use:   "get-file-descriptor",
-	Short: "GetFileDescriptor RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewParcelFileDescriptorServiceClient(grpcConn)
-		req := &pb.GetFileDescriptorRequest{}
-		resp, err := client.GetFileDescriptor(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pdfParcelFileDescriptorGetStatSizeCmd = &cobra.Command{
-	Use:   "get-stat-size",
-	Short: "GetStatSize RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewParcelFileDescriptorServiceClient(grpcConn)
-		req := &pb.GetStatSizeRequest{}
-		resp, err := client.GetStatSize(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pdfParcelFileDescriptorToStringCmd = &cobra.Command{
-	Use:   "to-string",
-	Short: "ToString RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewParcelFileDescriptorServiceClient(grpcConn)
-		req := &pb.ToStringRequest{}
-		resp, err := client.ToString(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pdfParcelFileDescriptorWriteToParcelCmd = &cobra.Command{
-	Use:   "write-to-parcel",
-	Short: "WriteToParcel RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewParcelFileDescriptorServiceClient(grpcConn)
-		req := &pb.WriteToParcelRequest{}
+		client := pb.NewPaintServiceClient(grpcConn)
+		req := &pb.BreakText5Request{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
 		}
 		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
 			req.Arg1 = v
 		}
-		resp, err := client.WriteToParcel(ctx, req)
+		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetFloat32("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg4"); err == nil {
+			req.Arg4 = v
+		}
+		resp, err := client.BreakText5(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -2172,18 +5612,33 @@ var pdfParcelFileDescriptorWriteToParcelCmd = &cobra.Command{
 	},
 }
 
-var pdfParcelFileDescriptorAdoptFdCmd = &cobra.Command{
-	Use:   "adopt-fd",
-	Short: "AdoptFd RPC",
+var pdfPaintBreakText6_1Cmd = &cobra.Command{
+	Use:   "break-text6_1",
+	Short: "BreakText6_1 RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewParcelFileDescriptorServiceClient(grpcConn)
-		req := &pb.AdoptFdRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+		client := pb.NewPaintServiceClient(grpcConn)
+		req := &pb.BreakText6_1Request{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
 			req.Arg0 = v
 		}
-		resp, err := client.AdoptFd(ctx, req)
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetBool("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		if v, err := cmd.Flags().GetFloat32("arg4"); err == nil {
+			req.Arg4 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg5"); err == nil {
+			req.Arg5 = v
+		}
+		resp, err := client.BreakText6_1(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -2191,15 +5646,27 @@ var pdfParcelFileDescriptorAdoptFdCmd = &cobra.Command{
 	},
 }
 
-var pdfParcelFileDescriptorCreatePipeCmd = &cobra.Command{
-	Use:   "create-pipe",
-	Short: "CreatePipe RPC",
+var pdfPaintBreakText4_2Cmd = &cobra.Command{
+	Use:   "break-text4_2",
+	Short: "BreakText4_2 RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewParcelFileDescriptorServiceClient(grpcConn)
-		req := &pb.CreatePipeRequest{}
-		resp, err := client.CreatePipe(ctx, req)
+		client := pb.NewPaintServiceClient(grpcConn)
+		req := &pb.BreakText4_2Request{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetBool("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetFloat32("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		resp, err := client.BreakText4_2(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -2207,15 +5674,15 @@ var pdfParcelFileDescriptorCreatePipeCmd = &cobra.Command{
 	},
 }
 
-var pdfParcelFileDescriptorCreateReliablePipeCmd = &cobra.Command{
-	Use:   "create-reliable-pipe",
-	Short: "CreateReliablePipe RPC",
+var pdfPaintClearShadowLayerCmd = &cobra.Command{
+	Use:   "clear-shadow-layer",
+	Short: "ClearShadowLayer RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewParcelFileDescriptorServiceClient(grpcConn)
-		req := &pb.CreateReliablePipeRequest{}
-		resp, err := client.CreateReliablePipe(ctx, req)
+		client := pb.NewPaintServiceClient(grpcConn)
+		req := &pb.ClearShadowLayerRequest{}
+		resp, err := client.ClearShadowLayer(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -2223,15 +5690,15 @@ var pdfParcelFileDescriptorCreateReliablePipeCmd = &cobra.Command{
 	},
 }
 
-var pdfParcelFileDescriptorCreateReliableSocketPairCmd = &cobra.Command{
-	Use:   "create-reliable-socket-pair",
-	Short: "CreateReliableSocketPair RPC",
+var pdfPaintDescentCmd = &cobra.Command{
+	Use:   "descent",
+	Short: "Descent RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewParcelFileDescriptorServiceClient(grpcConn)
-		req := &pb.CreateReliableSocketPairRequest{}
-		resp, err := client.CreateReliableSocketPair(ctx, req)
+		client := pb.NewPaintServiceClient(grpcConn)
+		req := &pb.DescentRequest{}
+		resp, err := client.Descent(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -2239,34 +5706,18 @@ var pdfParcelFileDescriptorCreateReliableSocketPairCmd = &cobra.Command{
 	},
 }
 
-var pdfParcelFileDescriptorCreateSocketPairCmd = &cobra.Command{
-	Use:   "create-socket-pair",
-	Short: "CreateSocketPair RPC",
+var pdfPaintEqualsForTextMeasurementCmd = &cobra.Command{
+	Use:   "equals-for-text-measurement",
+	Short: "EqualsForTextMeasurement RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewParcelFileDescriptorServiceClient(grpcConn)
-		req := &pb.CreateSocketPairRequest{}
-		resp, err := client.CreateSocketPair(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pdfParcelFileDescriptorDup1_1Cmd = &cobra.Command{
-	Use:   "dup1_1",
-	Short: "Dup1_1 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewParcelFileDescriptorServiceClient(grpcConn)
-		req := &pb.Dup1_1Request{}
+		client := pb.NewPaintServiceClient(grpcConn)
+		req := &pb.EqualsForTextMeasurementRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
 		}
-		resp, err := client.Dup1_1(ctx, req)
+		resp, err := client.EqualsForTextMeasurement(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -2274,18 +5725,117 @@ var pdfParcelFileDescriptorDup1_1Cmd = &cobra.Command{
 	},
 }
 
-var pdfParcelFileDescriptorFromDatagramSocketCmd = &cobra.Command{
-	Use:   "from-datagram-socket",
-	Short: "FromDatagramSocket RPC",
+var pdfPaintGetAlphaCmd = &cobra.Command{
+	Use:   "get-alpha",
+	Short: "GetAlpha RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewParcelFileDescriptorServiceClient(grpcConn)
-		req := &pb.FromDatagramSocketRequest{}
+		client := pb.NewPaintServiceClient(grpcConn)
+		req := &pb.GetAlphaRequest{}
+		resp, err := client.GetAlpha(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pdfPaintGetBlendModeCmd = &cobra.Command{
+	Use:   "get-blend-mode",
+	Short: "GetBlendMode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPaintServiceClient(grpcConn)
+		req := &pb.GetBlendModeRequest{}
+		resp, err := client.GetBlendMode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pdfPaintGetColorCmd = &cobra.Command{
+	Use:   "get-color",
+	Short: "GetColor RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPaintServiceClient(grpcConn)
+		req := &pb.PaintGetColorRequest{}
+		resp, err := client.GetColor(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pdfPaintGetColorFilterCmd = &cobra.Command{
+	Use:   "get-color-filter",
+	Short: "GetColorFilter RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPaintServiceClient(grpcConn)
+		req := &pb.GetColorFilterRequest{}
+		resp, err := client.GetColorFilter(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pdfPaintGetColorLongCmd = &cobra.Command{
+	Use:   "get-color-long",
+	Short: "GetColorLong RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPaintServiceClient(grpcConn)
+		req := &pb.GetColorLongRequest{}
+		resp, err := client.GetColorLong(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pdfPaintGetEndHyphenEditCmd = &cobra.Command{
+	Use:   "get-end-hyphen-edit",
+	Short: "GetEndHyphenEdit RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPaintServiceClient(grpcConn)
+		req := &pb.GetEndHyphenEditRequest{}
+		resp, err := client.GetEndHyphenEdit(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pdfPaintGetFillPathCmd = &cobra.Command{
+	Use:   "get-fill-path",
+	Short: "GetFillPath RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPaintServiceClient(grpcConn)
+		req := &pb.GetFillPathRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
 		}
-		resp, err := client.FromDatagramSocket(ctx, req)
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.GetFillPath(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -2293,18 +5843,15 @@ var pdfParcelFileDescriptorFromDatagramSocketCmd = &cobra.Command{
 	},
 }
 
-var pdfParcelFileDescriptorFromFdCmd = &cobra.Command{
-	Use:   "from-fd",
-	Short: "FromFd RPC",
+var pdfPaintGetFlagsCmd = &cobra.Command{
+	Use:   "get-flags",
+	Short: "GetFlags RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewParcelFileDescriptorServiceClient(grpcConn)
-		req := &pb.FromFdRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.FromFd(ctx, req)
+		client := pb.NewPaintServiceClient(grpcConn)
+		req := &pb.GetFlagsRequest{}
+		resp, err := client.GetFlags(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -2312,18 +5859,50 @@ var pdfParcelFileDescriptorFromFdCmd = &cobra.Command{
 	},
 }
 
-var pdfParcelFileDescriptorFromSocketCmd = &cobra.Command{
-	Use:   "from-socket",
-	Short: "FromSocket RPC",
+var pdfPaintGetFontFeatureSettingsCmd = &cobra.Command{
+	Use:   "get-font-feature-settings",
+	Short: "GetFontFeatureSettings RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewParcelFileDescriptorServiceClient(grpcConn)
-		req := &pb.FromSocketRequest{}
+		client := pb.NewPaintServiceClient(grpcConn)
+		req := &pb.GetFontFeatureSettingsRequest{}
+		resp, err := client.GetFontFeatureSettings(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pdfPaintGetFontMetrics0Cmd = &cobra.Command{
+	Use:   "get-font-metrics0",
+	Short: "GetFontMetrics0 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPaintServiceClient(grpcConn)
+		req := &pb.GetFontMetrics0Request{}
+		resp, err := client.GetFontMetrics0(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pdfPaintGetFontMetrics1_1Cmd = &cobra.Command{
+	Use:   "get-font-metrics1_1",
+	Short: "GetFontMetrics1_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPaintServiceClient(grpcConn)
+		req := &pb.GetFontMetrics1_1Request{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
 		}
-		resp, err := client.FromSocket(ctx, req)
+		resp, err := client.GetFontMetrics1_1(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -2331,21 +5910,90 @@ var pdfParcelFileDescriptorFromSocketCmd = &cobra.Command{
 	},
 }
 
-var pdfParcelFileDescriptorOpenCmd = &cobra.Command{
-	Use:   "open",
-	Short: "Open RPC",
+var pdfPaintGetFontMetricsForLocaleCmd = &cobra.Command{
+	Use:   "get-font-metrics-for-locale",
+	Short: "GetFontMetricsForLocale RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewParcelFileDescriptorServiceClient(grpcConn)
-		req := &pb.OpenRequest{}
+		client := pb.NewPaintServiceClient(grpcConn)
+		req := &pb.GetFontMetricsForLocaleRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetFontMetricsForLocale(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pdfPaintGetFontMetricsInt0Cmd = &cobra.Command{
+	Use:   "get-font-metrics-int0",
+	Short: "GetFontMetricsInt0 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPaintServiceClient(grpcConn)
+		req := &pb.GetFontMetricsInt0Request{}
+		resp, err := client.GetFontMetricsInt0(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pdfPaintGetFontMetricsInt1_1Cmd = &cobra.Command{
+	Use:   "get-font-metrics-int1_1",
+	Short: "GetFontMetricsInt1_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPaintServiceClient(grpcConn)
+		req := &pb.GetFontMetricsInt1_1Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetFontMetricsInt1_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pdfPaintGetFontMetricsInt7_2Cmd = &cobra.Command{
+	Use:   "get-font-metrics-int7_2",
+	Short: "GetFontMetricsInt7_2 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPaintServiceClient(grpcConn)
+		req := &pb.GetFontMetricsInt7_2Request{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
 		}
 		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
 			req.Arg1 = v
 		}
-		resp, err := client.Open(ctx, req)
+		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg4"); err == nil {
+			req.Arg4 = v
+		}
+		if v, err := cmd.Flags().GetBool("arg5"); err == nil {
+			req.Arg5 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg6"); err == nil {
+			req.Arg6 = v
+		}
+		resp, err := client.GetFontMetricsInt7_2(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -2353,18 +6001,2249 @@ var pdfParcelFileDescriptorOpenCmd = &cobra.Command{
 	},
 }
 
-var pdfParcelFileDescriptorParseModeCmd = &cobra.Command{
-	Use:   "parse-mode",
-	Short: "ParseMode RPC",
+var pdfPaintGetFontMetricsInt7_3Cmd = &cobra.Command{
+	Use:   "get-font-metrics-int7_3",
+	Short: "GetFontMetricsInt7_3 RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewParcelFileDescriptorServiceClient(grpcConn)
-		req := &pb.ParseModeRequest{}
+		client := pb.NewPaintServiceClient(grpcConn)
+		req := &pb.GetFontMetricsInt7_3Request{}
 		if v, err := cmd.Flags().GetString("arg0"); err == nil {
 			req.Arg0 = v
 		}
-		resp, err := client.ParseMode(ctx, req)
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg4"); err == nil {
+			req.Arg4 = v
+		}
+		if v, err := cmd.Flags().GetBool("arg5"); err == nil {
+			req.Arg5 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg6"); err == nil {
+			req.Arg6 = v
+		}
+		resp, err := client.GetFontMetricsInt7_3(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pdfPaintGetFontMetricsIntForLocaleCmd = &cobra.Command{
+	Use:   "get-font-metrics-int-for-locale",
+	Short: "GetFontMetricsIntForLocale RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPaintServiceClient(grpcConn)
+		req := &pb.GetFontMetricsIntForLocaleRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetFontMetricsIntForLocale(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pdfPaintGetFontSpacingCmd = &cobra.Command{
+	Use:   "get-font-spacing",
+	Short: "GetFontSpacing RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPaintServiceClient(grpcConn)
+		req := &pb.GetFontSpacingRequest{}
+		resp, err := client.GetFontSpacing(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pdfPaintGetFontVariationSettingsCmd = &cobra.Command{
+	Use:   "get-font-variation-settings",
+	Short: "GetFontVariationSettings RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPaintServiceClient(grpcConn)
+		req := &pb.GetFontVariationSettingsRequest{}
+		resp, err := client.GetFontVariationSettings(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pdfPaintGetHintingCmd = &cobra.Command{
+	Use:   "get-hinting",
+	Short: "GetHinting RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPaintServiceClient(grpcConn)
+		req := &pb.GetHintingRequest{}
+		resp, err := client.GetHinting(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pdfPaintGetLetterSpacingCmd = &cobra.Command{
+	Use:   "get-letter-spacing",
+	Short: "GetLetterSpacing RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPaintServiceClient(grpcConn)
+		req := &pb.GetLetterSpacingRequest{}
+		resp, err := client.GetLetterSpacing(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pdfPaintGetMaskFilterCmd = &cobra.Command{
+	Use:   "get-mask-filter",
+	Short: "GetMaskFilter RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPaintServiceClient(grpcConn)
+		req := &pb.GetMaskFilterRequest{}
+		resp, err := client.GetMaskFilter(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pdfPaintGetOffsetForAdvance7Cmd = &cobra.Command{
+	Use:   "get-offset-for-advance7",
+	Short: "GetOffsetForAdvance7 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPaintServiceClient(grpcConn)
+		req := &pb.GetOffsetForAdvance7Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg4"); err == nil {
+			req.Arg4 = v
+		}
+		if v, err := cmd.Flags().GetBool("arg5"); err == nil {
+			req.Arg5 = v
+		}
+		if v, err := cmd.Flags().GetFloat32("arg6"); err == nil {
+			req.Arg6 = v
+		}
+		resp, err := client.GetOffsetForAdvance7(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pdfPaintGetOffsetForAdvance7_1Cmd = &cobra.Command{
+	Use:   "get-offset-for-advance7_1",
+	Short: "GetOffsetForAdvance7_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPaintServiceClient(grpcConn)
+		req := &pb.GetOffsetForAdvance7_1Request{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg4"); err == nil {
+			req.Arg4 = v
+		}
+		if v, err := cmd.Flags().GetBool("arg5"); err == nil {
+			req.Arg5 = v
+		}
+		if v, err := cmd.Flags().GetFloat32("arg6"); err == nil {
+			req.Arg6 = v
+		}
+		resp, err := client.GetOffsetForAdvance7_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pdfPaintGetPathEffectCmd = &cobra.Command{
+	Use:   "get-path-effect",
+	Short: "GetPathEffect RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPaintServiceClient(grpcConn)
+		req := &pb.GetPathEffectRequest{}
+		resp, err := client.GetPathEffect(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pdfPaintGetRunAdvance7Cmd = &cobra.Command{
+	Use:   "get-run-advance7",
+	Short: "GetRunAdvance7 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPaintServiceClient(grpcConn)
+		req := &pb.GetRunAdvance7Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg4"); err == nil {
+			req.Arg4 = v
+		}
+		if v, err := cmd.Flags().GetBool("arg5"); err == nil {
+			req.Arg5 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg6"); err == nil {
+			req.Arg6 = v
+		}
+		resp, err := client.GetRunAdvance7(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pdfPaintGetRunAdvance7_1Cmd = &cobra.Command{
+	Use:   "get-run-advance7_1",
+	Short: "GetRunAdvance7_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPaintServiceClient(grpcConn)
+		req := &pb.GetRunAdvance7_1Request{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg4"); err == nil {
+			req.Arg4 = v
+		}
+		if v, err := cmd.Flags().GetBool("arg5"); err == nil {
+			req.Arg5 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg6"); err == nil {
+			req.Arg6 = v
+		}
+		resp, err := client.GetRunAdvance7_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pdfPaintGetRunCharacterAdvance9Cmd = &cobra.Command{
+	Use:   "get-run-character-advance9",
+	Short: "GetRunCharacterAdvance9 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPaintServiceClient(grpcConn)
+		req := &pb.GetRunCharacterAdvance9Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg4"); err == nil {
+			req.Arg4 = v
+		}
+		if v, err := cmd.Flags().GetBool("arg5"); err == nil {
+			req.Arg5 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg6"); err == nil {
+			req.Arg6 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg7"); err == nil {
+			req.Arg7 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg8"); err == nil {
+			req.Arg8 = v
+		}
+		resp, err := client.GetRunCharacterAdvance9(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pdfPaintGetRunCharacterAdvance9_1Cmd = &cobra.Command{
+	Use:   "get-run-character-advance9_1",
+	Short: "GetRunCharacterAdvance9_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPaintServiceClient(grpcConn)
+		req := &pb.GetRunCharacterAdvance9_1Request{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg4"); err == nil {
+			req.Arg4 = v
+		}
+		if v, err := cmd.Flags().GetBool("arg5"); err == nil {
+			req.Arg5 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg6"); err == nil {
+			req.Arg6 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg7"); err == nil {
+			req.Arg7 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg8"); err == nil {
+			req.Arg8 = v
+		}
+		resp, err := client.GetRunCharacterAdvance9_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pdfPaintGetShaderCmd = &cobra.Command{
+	Use:   "get-shader",
+	Short: "GetShader RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPaintServiceClient(grpcConn)
+		req := &pb.GetShaderRequest{}
+		resp, err := client.GetShader(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pdfPaintGetShadowLayerColorCmd = &cobra.Command{
+	Use:   "get-shadow-layer-color",
+	Short: "GetShadowLayerColor RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPaintServiceClient(grpcConn)
+		req := &pb.GetShadowLayerColorRequest{}
+		resp, err := client.GetShadowLayerColor(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pdfPaintGetShadowLayerColorLongCmd = &cobra.Command{
+	Use:   "get-shadow-layer-color-long",
+	Short: "GetShadowLayerColorLong RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPaintServiceClient(grpcConn)
+		req := &pb.GetShadowLayerColorLongRequest{}
+		resp, err := client.GetShadowLayerColorLong(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pdfPaintGetShadowLayerDxCmd = &cobra.Command{
+	Use:   "get-shadow-layer-dx",
+	Short: "GetShadowLayerDx RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPaintServiceClient(grpcConn)
+		req := &pb.GetShadowLayerDxRequest{}
+		resp, err := client.GetShadowLayerDx(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pdfPaintGetShadowLayerDyCmd = &cobra.Command{
+	Use:   "get-shadow-layer-dy",
+	Short: "GetShadowLayerDy RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPaintServiceClient(grpcConn)
+		req := &pb.GetShadowLayerDyRequest{}
+		resp, err := client.GetShadowLayerDy(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pdfPaintGetShadowLayerRadiusCmd = &cobra.Command{
+	Use:   "get-shadow-layer-radius",
+	Short: "GetShadowLayerRadius RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPaintServiceClient(grpcConn)
+		req := &pb.GetShadowLayerRadiusRequest{}
+		resp, err := client.GetShadowLayerRadius(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pdfPaintGetStartHyphenEditCmd = &cobra.Command{
+	Use:   "get-start-hyphen-edit",
+	Short: "GetStartHyphenEdit RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPaintServiceClient(grpcConn)
+		req := &pb.GetStartHyphenEditRequest{}
+		resp, err := client.GetStartHyphenEdit(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pdfPaintGetStrikeThruPositionCmd = &cobra.Command{
+	Use:   "get-strike-thru-position",
+	Short: "GetStrikeThruPosition RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPaintServiceClient(grpcConn)
+		req := &pb.GetStrikeThruPositionRequest{}
+		resp, err := client.GetStrikeThruPosition(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pdfPaintGetStrikeThruThicknessCmd = &cobra.Command{
+	Use:   "get-strike-thru-thickness",
+	Short: "GetStrikeThruThickness RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPaintServiceClient(grpcConn)
+		req := &pb.GetStrikeThruThicknessRequest{}
+		resp, err := client.GetStrikeThruThickness(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pdfPaintGetStrokeCapCmd = &cobra.Command{
+	Use:   "get-stroke-cap",
+	Short: "GetStrokeCap RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPaintServiceClient(grpcConn)
+		req := &pb.GetStrokeCapRequest{}
+		resp, err := client.GetStrokeCap(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pdfPaintGetStrokeJoinCmd = &cobra.Command{
+	Use:   "get-stroke-join",
+	Short: "GetStrokeJoin RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPaintServiceClient(grpcConn)
+		req := &pb.GetStrokeJoinRequest{}
+		resp, err := client.GetStrokeJoin(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pdfPaintGetStrokeMiterCmd = &cobra.Command{
+	Use:   "get-stroke-miter",
+	Short: "GetStrokeMiter RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPaintServiceClient(grpcConn)
+		req := &pb.GetStrokeMiterRequest{}
+		resp, err := client.GetStrokeMiter(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pdfPaintGetStrokeWidthCmd = &cobra.Command{
+	Use:   "get-stroke-width",
+	Short: "GetStrokeWidth RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPaintServiceClient(grpcConn)
+		req := &pb.GetStrokeWidthRequest{}
+		resp, err := client.GetStrokeWidth(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pdfPaintGetStyleCmd = &cobra.Command{
+	Use:   "get-style",
+	Short: "GetStyle RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPaintServiceClient(grpcConn)
+		req := &pb.GetStyleRequest{}
+		resp, err := client.GetStyle(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pdfPaintGetTextAlignCmd = &cobra.Command{
+	Use:   "get-text-align",
+	Short: "GetTextAlign RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPaintServiceClient(grpcConn)
+		req := &pb.GetTextAlignRequest{}
+		resp, err := client.GetTextAlign(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pdfPaintGetTextBounds4Cmd = &cobra.Command{
+	Use:   "get-text-bounds4",
+	Short: "GetTextBounds4 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPaintServiceClient(grpcConn)
+		req := &pb.GetTextBounds4Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		resp, err := client.GetTextBounds4(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pdfPaintGetTextBounds4_1Cmd = &cobra.Command{
+	Use:   "get-text-bounds4_1",
+	Short: "GetTextBounds4_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPaintServiceClient(grpcConn)
+		req := &pb.GetTextBounds4_1Request{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		resp, err := client.GetTextBounds4_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pdfPaintGetTextBounds4_2Cmd = &cobra.Command{
+	Use:   "get-text-bounds4_2",
+	Short: "GetTextBounds4_2 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPaintServiceClient(grpcConn)
+		req := &pb.GetTextBounds4_2Request{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		resp, err := client.GetTextBounds4_2(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pdfPaintGetTextLocaleCmd = &cobra.Command{
+	Use:   "get-text-locale",
+	Short: "GetTextLocale RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPaintServiceClient(grpcConn)
+		req := &pb.GetTextLocaleRequest{}
+		resp, err := client.GetTextLocale(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pdfPaintGetTextLocalesCmd = &cobra.Command{
+	Use:   "get-text-locales",
+	Short: "GetTextLocales RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPaintServiceClient(grpcConn)
+		req := &pb.GetTextLocalesRequest{}
+		resp, err := client.GetTextLocales(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pdfPaintGetTextPath6Cmd = &cobra.Command{
+	Use:   "get-text-path6",
+	Short: "GetTextPath6 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPaintServiceClient(grpcConn)
+		req := &pb.GetTextPath6Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetFloat32("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		if v, err := cmd.Flags().GetFloat32("arg4"); err == nil {
+			req.Arg4 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg5"); err == nil {
+			req.Arg5 = v
+		}
+		resp, err := client.GetTextPath6(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pdfPaintGetTextPath6_1Cmd = &cobra.Command{
+	Use:   "get-text-path6_1",
+	Short: "GetTextPath6_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPaintServiceClient(grpcConn)
+		req := &pb.GetTextPath6_1Request{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetFloat32("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		if v, err := cmd.Flags().GetFloat32("arg4"); err == nil {
+			req.Arg4 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg5"); err == nil {
+			req.Arg5 = v
+		}
+		resp, err := client.GetTextPath6_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pdfPaintGetTextRunAdvancesCmd = &cobra.Command{
+	Use:   "get-text-run-advances",
+	Short: "GetTextRunAdvances RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPaintServiceClient(grpcConn)
+		req := &pb.GetTextRunAdvancesRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg4"); err == nil {
+			req.Arg4 = v
+		}
+		if v, err := cmd.Flags().GetBool("arg5"); err == nil {
+			req.Arg5 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg6"); err == nil {
+			req.Arg6 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg7"); err == nil {
+			req.Arg7 = v
+		}
+		resp, err := client.GetTextRunAdvances(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pdfPaintGetTextRunCursor6Cmd = &cobra.Command{
+	Use:   "get-text-run-cursor6",
+	Short: "GetTextRunCursor6 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPaintServiceClient(grpcConn)
+		req := &pb.GetTextRunCursor6Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetBool("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg4"); err == nil {
+			req.Arg4 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg5"); err == nil {
+			req.Arg5 = v
+		}
+		resp, err := client.GetTextRunCursor6(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pdfPaintGetTextRunCursor6_1Cmd = &cobra.Command{
+	Use:   "get-text-run-cursor6_1",
+	Short: "GetTextRunCursor6_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPaintServiceClient(grpcConn)
+		req := &pb.GetTextRunCursor6_1Request{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetBool("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg4"); err == nil {
+			req.Arg4 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg5"); err == nil {
+			req.Arg5 = v
+		}
+		resp, err := client.GetTextRunCursor6_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pdfPaintGetTextScaleXCmd = &cobra.Command{
+	Use:   "get-text-scale-x",
+	Short: "GetTextScaleX RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPaintServiceClient(grpcConn)
+		req := &pb.GetTextScaleXRequest{}
+		resp, err := client.GetTextScaleX(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pdfPaintGetTextSizeCmd = &cobra.Command{
+	Use:   "get-text-size",
+	Short: "GetTextSize RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPaintServiceClient(grpcConn)
+		req := &pb.GetTextSizeRequest{}
+		resp, err := client.GetTextSize(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pdfPaintGetTextSkewXCmd = &cobra.Command{
+	Use:   "get-text-skew-x",
+	Short: "GetTextSkewX RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPaintServiceClient(grpcConn)
+		req := &pb.GetTextSkewXRequest{}
+		resp, err := client.GetTextSkewX(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pdfPaintGetTextWidths4Cmd = &cobra.Command{
+	Use:   "get-text-widths4",
+	Short: "GetTextWidths4 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPaintServiceClient(grpcConn)
+		req := &pb.GetTextWidths4Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		resp, err := client.GetTextWidths4(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pdfPaintGetTextWidths4_1Cmd = &cobra.Command{
+	Use:   "get-text-widths4_1",
+	Short: "GetTextWidths4_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPaintServiceClient(grpcConn)
+		req := &pb.GetTextWidths4_1Request{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		resp, err := client.GetTextWidths4_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pdfPaintGetTextWidths2_2Cmd = &cobra.Command{
+	Use:   "get-text-widths2_2",
+	Short: "GetTextWidths2_2 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPaintServiceClient(grpcConn)
+		req := &pb.GetTextWidths2_2Request{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.GetTextWidths2_2(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pdfPaintGetTextWidths4_3Cmd = &cobra.Command{
+	Use:   "get-text-widths4_3",
+	Short: "GetTextWidths4_3 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPaintServiceClient(grpcConn)
+		req := &pb.GetTextWidths4_3Request{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		resp, err := client.GetTextWidths4_3(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pdfPaintGetTypefaceCmd = &cobra.Command{
+	Use:   "get-typeface",
+	Short: "GetTypeface RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPaintServiceClient(grpcConn)
+		req := &pb.GetTypefaceRequest{}
+		resp, err := client.GetTypeface(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pdfPaintGetUnderlinePositionCmd = &cobra.Command{
+	Use:   "get-underline-position",
+	Short: "GetUnderlinePosition RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPaintServiceClient(grpcConn)
+		req := &pb.GetUnderlinePositionRequest{}
+		resp, err := client.GetUnderlinePosition(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pdfPaintGetUnderlineThicknessCmd = &cobra.Command{
+	Use:   "get-underline-thickness",
+	Short: "GetUnderlineThickness RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPaintServiceClient(grpcConn)
+		req := &pb.GetUnderlineThicknessRequest{}
+		resp, err := client.GetUnderlineThickness(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pdfPaintGetWordSpacingCmd = &cobra.Command{
+	Use:   "get-word-spacing",
+	Short: "GetWordSpacing RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPaintServiceClient(grpcConn)
+		req := &pb.GetWordSpacingRequest{}
+		resp, err := client.GetWordSpacing(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pdfPaintGetXfermodeCmd = &cobra.Command{
+	Use:   "get-xfermode",
+	Short: "GetXfermode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPaintServiceClient(grpcConn)
+		req := &pb.GetXfermodeRequest{}
+		resp, err := client.GetXfermode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pdfPaintHasGlyphCmd = &cobra.Command{
+	Use:   "has-glyph",
+	Short: "HasGlyph RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPaintServiceClient(grpcConn)
+		req := &pb.HasGlyphRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.HasGlyph(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pdfPaintIsAntiAliasCmd = &cobra.Command{
+	Use:   "is-anti-alias",
+	Short: "IsAntiAlias RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPaintServiceClient(grpcConn)
+		req := &pb.IsAntiAliasRequest{}
+		resp, err := client.IsAntiAlias(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pdfPaintIsDitherCmd = &cobra.Command{
+	Use:   "is-dither",
+	Short: "IsDither RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPaintServiceClient(grpcConn)
+		req := &pb.IsDitherRequest{}
+		resp, err := client.IsDither(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pdfPaintIsElegantTextHeightCmd = &cobra.Command{
+	Use:   "is-elegant-text-height",
+	Short: "IsElegantTextHeight RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPaintServiceClient(grpcConn)
+		req := &pb.IsElegantTextHeightRequest{}
+		resp, err := client.IsElegantTextHeight(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pdfPaintIsFakeBoldTextCmd = &cobra.Command{
+	Use:   "is-fake-bold-text",
+	Short: "IsFakeBoldText RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPaintServiceClient(grpcConn)
+		req := &pb.IsFakeBoldTextRequest{}
+		resp, err := client.IsFakeBoldText(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pdfPaintIsFilterBitmapCmd = &cobra.Command{
+	Use:   "is-filter-bitmap",
+	Short: "IsFilterBitmap RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPaintServiceClient(grpcConn)
+		req := &pb.IsFilterBitmapRequest{}
+		resp, err := client.IsFilterBitmap(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pdfPaintIsLinearTextCmd = &cobra.Command{
+	Use:   "is-linear-text",
+	Short: "IsLinearText RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPaintServiceClient(grpcConn)
+		req := &pb.IsLinearTextRequest{}
+		resp, err := client.IsLinearText(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pdfPaintIsStrikeThruTextCmd = &cobra.Command{
+	Use:   "is-strike-thru-text",
+	Short: "IsStrikeThruText RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPaintServiceClient(grpcConn)
+		req := &pb.IsStrikeThruTextRequest{}
+		resp, err := client.IsStrikeThruText(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pdfPaintIsSubpixelTextCmd = &cobra.Command{
+	Use:   "is-subpixel-text",
+	Short: "IsSubpixelText RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPaintServiceClient(grpcConn)
+		req := &pb.IsSubpixelTextRequest{}
+		resp, err := client.IsSubpixelText(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pdfPaintIsUnderlineTextCmd = &cobra.Command{
+	Use:   "is-underline-text",
+	Short: "IsUnderlineText RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPaintServiceClient(grpcConn)
+		req := &pb.IsUnderlineTextRequest{}
+		resp, err := client.IsUnderlineText(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pdfPaintMeasureText3Cmd = &cobra.Command{
+	Use:   "measure-text3",
+	Short: "MeasureText3 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPaintServiceClient(grpcConn)
+		req := &pb.MeasureText3Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.MeasureText3(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pdfPaintMeasureText3_1Cmd = &cobra.Command{
+	Use:   "measure-text3_1",
+	Short: "MeasureText3_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPaintServiceClient(grpcConn)
+		req := &pb.MeasureText3_1Request{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.MeasureText3_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pdfPaintMeasureText1_2Cmd = &cobra.Command{
+	Use:   "measure-text1_2",
+	Short: "MeasureText1_2 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPaintServiceClient(grpcConn)
+		req := &pb.MeasureText1_2Request{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.MeasureText1_2(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pdfPaintMeasureText3_3Cmd = &cobra.Command{
+	Use:   "measure-text3_3",
+	Short: "MeasureText3_3 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPaintServiceClient(grpcConn)
+		req := &pb.MeasureText3_3Request{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.MeasureText3_3(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pdfPaintResetCmd = &cobra.Command{
+	Use:   "reset",
+	Short: "Reset RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPaintServiceClient(grpcConn)
+		req := &pb.ResetRequest{}
+		resp, err := client.Reset(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pdfPaintSetCmd = &cobra.Command{
+	Use:   "set",
+	Short: "Set RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPaintServiceClient(grpcConn)
+		req := &pb.SetRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Set(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pdfPaintSetARGBCmd = &cobra.Command{
+	Use:   "set-argb",
+	Short: "SetARGB RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPaintServiceClient(grpcConn)
+		req := &pb.SetARGBRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		resp, err := client.SetARGB(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pdfPaintSetAlphaCmd = &cobra.Command{
+	Use:   "set-alpha",
+	Short: "SetAlpha RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPaintServiceClient(grpcConn)
+		req := &pb.SetAlphaRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetAlpha(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pdfPaintSetAntiAliasCmd = &cobra.Command{
+	Use:   "set-anti-alias",
+	Short: "SetAntiAlias RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPaintServiceClient(grpcConn)
+		req := &pb.SetAntiAliasRequest{}
+		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetAntiAlias(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pdfPaintSetBlendModeCmd = &cobra.Command{
+	Use:   "set-blend-mode",
+	Short: "SetBlendMode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPaintServiceClient(grpcConn)
+		req := &pb.SetBlendModeRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetBlendMode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pdfPaintSetColor1Cmd = &cobra.Command{
+	Use:   "set-color1",
+	Short: "SetColor1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPaintServiceClient(grpcConn)
+		req := &pb.SetColor1Request{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetColor1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pdfPaintSetColor1_1Cmd = &cobra.Command{
+	Use:   "set-color1_1",
+	Short: "SetColor1_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPaintServiceClient(grpcConn)
+		req := &pb.SetColor1_1Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetColor1_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pdfPaintSetColorFilterCmd = &cobra.Command{
+	Use:   "set-color-filter",
+	Short: "SetColorFilter RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPaintServiceClient(grpcConn)
+		req := &pb.SetColorFilterRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetColorFilter(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pdfPaintSetDitherCmd = &cobra.Command{
+	Use:   "set-dither",
+	Short: "SetDither RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPaintServiceClient(grpcConn)
+		req := &pb.SetDitherRequest{}
+		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetDither(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pdfPaintSetElegantTextHeightCmd = &cobra.Command{
+	Use:   "set-elegant-text-height",
+	Short: "SetElegantTextHeight RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPaintServiceClient(grpcConn)
+		req := &pb.SetElegantTextHeightRequest{}
+		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetElegantTextHeight(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pdfPaintSetEndHyphenEditCmd = &cobra.Command{
+	Use:   "set-end-hyphen-edit",
+	Short: "SetEndHyphenEdit RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPaintServiceClient(grpcConn)
+		req := &pb.SetEndHyphenEditRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetEndHyphenEdit(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pdfPaintSetFakeBoldTextCmd = &cobra.Command{
+	Use:   "set-fake-bold-text",
+	Short: "SetFakeBoldText RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPaintServiceClient(grpcConn)
+		req := &pb.SetFakeBoldTextRequest{}
+		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetFakeBoldText(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pdfPaintSetFilterBitmapCmd = &cobra.Command{
+	Use:   "set-filter-bitmap",
+	Short: "SetFilterBitmap RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPaintServiceClient(grpcConn)
+		req := &pb.SetFilterBitmapRequest{}
+		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetFilterBitmap(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pdfPaintSetFlagsCmd = &cobra.Command{
+	Use:   "set-flags",
+	Short: "SetFlags RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPaintServiceClient(grpcConn)
+		req := &pb.SetFlagsRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetFlags(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pdfPaintSetFontFeatureSettingsCmd = &cobra.Command{
+	Use:   "set-font-feature-settings",
+	Short: "SetFontFeatureSettings RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPaintServiceClient(grpcConn)
+		req := &pb.SetFontFeatureSettingsRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetFontFeatureSettings(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pdfPaintSetFontVariationSettingsCmd = &cobra.Command{
+	Use:   "set-font-variation-settings",
+	Short: "SetFontVariationSettings RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPaintServiceClient(grpcConn)
+		req := &pb.SetFontVariationSettingsRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetFontVariationSettings(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pdfPaintSetHintingCmd = &cobra.Command{
+	Use:   "set-hinting",
+	Short: "SetHinting RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPaintServiceClient(grpcConn)
+		req := &pb.SetHintingRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetHinting(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pdfPaintSetLetterSpacingCmd = &cobra.Command{
+	Use:   "set-letter-spacing",
+	Short: "SetLetterSpacing RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPaintServiceClient(grpcConn)
+		req := &pb.SetLetterSpacingRequest{}
+		if v, err := cmd.Flags().GetFloat32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetLetterSpacing(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pdfPaintSetLinearTextCmd = &cobra.Command{
+	Use:   "set-linear-text",
+	Short: "SetLinearText RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPaintServiceClient(grpcConn)
+		req := &pb.SetLinearTextRequest{}
+		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetLinearText(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pdfPaintSetMaskFilterCmd = &cobra.Command{
+	Use:   "set-mask-filter",
+	Short: "SetMaskFilter RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPaintServiceClient(grpcConn)
+		req := &pb.SetMaskFilterRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetMaskFilter(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pdfPaintSetPathEffectCmd = &cobra.Command{
+	Use:   "set-path-effect",
+	Short: "SetPathEffect RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPaintServiceClient(grpcConn)
+		req := &pb.SetPathEffectRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetPathEffect(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pdfPaintSetShaderCmd = &cobra.Command{
+	Use:   "set-shader",
+	Short: "SetShader RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPaintServiceClient(grpcConn)
+		req := &pb.SetShaderRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetShader(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pdfPaintSetShadowLayer4Cmd = &cobra.Command{
+	Use:   "set-shadow-layer4",
+	Short: "SetShadowLayer4 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPaintServiceClient(grpcConn)
+		req := &pb.SetShadowLayer4Request{}
+		if v, err := cmd.Flags().GetFloat32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetFloat32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetFloat32("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		resp, err := client.SetShadowLayer4(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pdfPaintSetShadowLayer4_1Cmd = &cobra.Command{
+	Use:   "set-shadow-layer4_1",
+	Short: "SetShadowLayer4_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPaintServiceClient(grpcConn)
+		req := &pb.SetShadowLayer4_1Request{}
+		if v, err := cmd.Flags().GetFloat32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetFloat32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetFloat32("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		resp, err := client.SetShadowLayer4_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pdfPaintSetStartHyphenEditCmd = &cobra.Command{
+	Use:   "set-start-hyphen-edit",
+	Short: "SetStartHyphenEdit RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPaintServiceClient(grpcConn)
+		req := &pb.SetStartHyphenEditRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetStartHyphenEdit(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pdfPaintSetStrikeThruTextCmd = &cobra.Command{
+	Use:   "set-strike-thru-text",
+	Short: "SetStrikeThruText RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPaintServiceClient(grpcConn)
+		req := &pb.SetStrikeThruTextRequest{}
+		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetStrikeThruText(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pdfPaintSetStrokeCapCmd = &cobra.Command{
+	Use:   "set-stroke-cap",
+	Short: "SetStrokeCap RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPaintServiceClient(grpcConn)
+		req := &pb.SetStrokeCapRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetStrokeCap(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pdfPaintSetStrokeJoinCmd = &cobra.Command{
+	Use:   "set-stroke-join",
+	Short: "SetStrokeJoin RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPaintServiceClient(grpcConn)
+		req := &pb.SetStrokeJoinRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetStrokeJoin(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pdfPaintSetStrokeMiterCmd = &cobra.Command{
+	Use:   "set-stroke-miter",
+	Short: "SetStrokeMiter RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPaintServiceClient(grpcConn)
+		req := &pb.SetStrokeMiterRequest{}
+		if v, err := cmd.Flags().GetFloat32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetStrokeMiter(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pdfPaintSetStrokeWidthCmd = &cobra.Command{
+	Use:   "set-stroke-width",
+	Short: "SetStrokeWidth RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPaintServiceClient(grpcConn)
+		req := &pb.SetStrokeWidthRequest{}
+		if v, err := cmd.Flags().GetFloat32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetStrokeWidth(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pdfPaintSetStyleCmd = &cobra.Command{
+	Use:   "set-style",
+	Short: "SetStyle RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPaintServiceClient(grpcConn)
+		req := &pb.SetStyleRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetStyle(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pdfPaintSetSubpixelTextCmd = &cobra.Command{
+	Use:   "set-subpixel-text",
+	Short: "SetSubpixelText RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPaintServiceClient(grpcConn)
+		req := &pb.SetSubpixelTextRequest{}
+		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetSubpixelText(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pdfPaintSetTextAlignCmd = &cobra.Command{
+	Use:   "set-text-align",
+	Short: "SetTextAlign RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPaintServiceClient(grpcConn)
+		req := &pb.SetTextAlignRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetTextAlign(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pdfPaintSetTextLocaleCmd = &cobra.Command{
+	Use:   "set-text-locale",
+	Short: "SetTextLocale RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPaintServiceClient(grpcConn)
+		req := &pb.SetTextLocaleRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetTextLocale(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pdfPaintSetTextLocalesCmd = &cobra.Command{
+	Use:   "set-text-locales",
+	Short: "SetTextLocales RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPaintServiceClient(grpcConn)
+		req := &pb.SetTextLocalesRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetTextLocales(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pdfPaintSetTextScaleXCmd = &cobra.Command{
+	Use:   "set-text-scale-x",
+	Short: "SetTextScaleX RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPaintServiceClient(grpcConn)
+		req := &pb.SetTextScaleXRequest{}
+		if v, err := cmd.Flags().GetFloat32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetTextScaleX(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pdfPaintSetTextSizeCmd = &cobra.Command{
+	Use:   "set-text-size",
+	Short: "SetTextSize RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPaintServiceClient(grpcConn)
+		req := &pb.SetTextSizeRequest{}
+		if v, err := cmd.Flags().GetFloat32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetTextSize(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pdfPaintSetTextSkewXCmd = &cobra.Command{
+	Use:   "set-text-skew-x",
+	Short: "SetTextSkewX RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPaintServiceClient(grpcConn)
+		req := &pb.SetTextSkewXRequest{}
+		if v, err := cmd.Flags().GetFloat32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetTextSkewX(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pdfPaintSetTypefaceCmd = &cobra.Command{
+	Use:   "set-typeface",
+	Short: "SetTypeface RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPaintServiceClient(grpcConn)
+		req := &pb.SetTypefaceRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetTypeface(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pdfPaintSetUnderlineTextCmd = &cobra.Command{
+	Use:   "set-underline-text",
+	Short: "SetUnderlineText RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPaintServiceClient(grpcConn)
+		req := &pb.SetUnderlineTextRequest{}
+		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetUnderlineText(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pdfPaintSetWordSpacingCmd = &cobra.Command{
+	Use:   "set-word-spacing",
+	Short: "SetWordSpacing RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPaintServiceClient(grpcConn)
+		req := &pb.SetWordSpacingRequest{}
+		if v, err := cmd.Flags().GetFloat32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetWordSpacing(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pdfPaintSetXfermodeCmd = &cobra.Command{
+	Use:   "set-xfermode",
+	Short: "SetXfermode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPaintServiceClient(grpcConn)
+		req := &pb.SetXfermodeRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetXfermode(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -2373,51 +8252,575 @@ var pdfParcelFileDescriptorParseModeCmd = &cobra.Command{
 }
 
 func init() {
-	pdfPdfRendererCmd.AddCommand(pdfPdfRendererCloseCmd)
-	pdfPdfRendererCmd.AddCommand(pdfPdfRendererGetDocumentLinearizationTypeCmd)
-	pdfPdfRendererCmd.AddCommand(pdfPdfRendererGetPageCountCmd)
-	pdfPdfRendererCmd.AddCommand(pdfPdfRendererGetPdfFormTypeCmd)
-	pdfPdfRendererOpenPageCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	pdfPdfRendererCmd.AddCommand(pdfPdfRendererOpenPageCmd)
-	pdfPdfRendererCmd.AddCommand(pdfPdfRendererShouldScaleForPrintingCmd)
-	pdfPdfRendererWriteCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	pdfPdfRendererWriteCmd.Flags().Bool("arg1", false, "arg1 (bool)")
-	pdfPdfRendererCmd.AddCommand(pdfPdfRendererWriteCmd)
-	pdfCmd.AddCommand(pdfPdfRendererCmd)
-	pdfPdfRendererPageApplyEditCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	pdfPdfRendererPageCmd.AddCommand(pdfPdfRendererPageApplyEditCmd)
-	pdfPdfRendererPageCmd.AddCommand(pdfPdfRendererPageCloseCmd)
-	pdfPdfRendererPageGetFormWidgetInfoAtIndexCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	pdfPdfRendererPageCmd.AddCommand(pdfPdfRendererPageGetFormWidgetInfoAtIndexCmd)
-	pdfPdfRendererPageGetFormWidgetInfoAtPositionCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	pdfPdfRendererPageGetFormWidgetInfoAtPositionCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	pdfPdfRendererPageCmd.AddCommand(pdfPdfRendererPageGetFormWidgetInfoAtPositionCmd)
-	pdfPdfRendererPageCmd.AddCommand(pdfPdfRendererPageGetFormWidgetInfos0Cmd)
-	pdfPdfRendererPageGetFormWidgetInfos1_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	pdfPdfRendererPageCmd.AddCommand(pdfPdfRendererPageGetFormWidgetInfos1_1Cmd)
-	pdfPdfRendererPageCmd.AddCommand(pdfPdfRendererPageGetGotoLinksCmd)
-	pdfPdfRendererPageCmd.AddCommand(pdfPdfRendererPageGetHeightCmd)
-	pdfPdfRendererPageCmd.AddCommand(pdfPdfRendererPageGetImageContentsCmd)
-	pdfPdfRendererPageCmd.AddCommand(pdfPdfRendererPageGetIndexCmd)
-	pdfPdfRendererPageCmd.AddCommand(pdfPdfRendererPageGetLinkContentsCmd)
-	pdfPdfRendererPageCmd.AddCommand(pdfPdfRendererPageGetTextContentsCmd)
-	pdfPdfRendererPageCmd.AddCommand(pdfPdfRendererPageGetWidthCmd)
-	pdfPdfRendererPageRender4Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	pdfPdfRendererPageRender4Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	pdfPdfRendererPageRender4Cmd.Flags().Int64("arg2", 0, "arg2 (int64)")
-	pdfPdfRendererPageRender4Cmd.Flags().Int64("arg3", 0, "arg3 (int64)")
-	pdfPdfRendererPageCmd.AddCommand(pdfPdfRendererPageRender4Cmd)
-	pdfPdfRendererPageRender4_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	pdfPdfRendererPageRender4_1Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	pdfPdfRendererPageRender4_1Cmd.Flags().Int64("arg2", 0, "arg2 (int64)")
-	pdfPdfRendererPageRender4_1Cmd.Flags().Int32("arg3", 0, "arg3 (int32)")
-	pdfPdfRendererPageCmd.AddCommand(pdfPdfRendererPageRender4_1Cmd)
-	pdfPdfRendererPageSearchTextCmd.Flags().String("arg0", "", "arg0 (string)")
-	pdfPdfRendererPageCmd.AddCommand(pdfPdfRendererPageSearchTextCmd)
-	pdfPdfRendererPageSelectContentCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	pdfPdfRendererPageSelectContentCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	pdfPdfRendererPageCmd.AddCommand(pdfPdfRendererPageSelectContentCmd)
-	pdfCmd.AddCommand(pdfPdfRendererPageCmd)
+	pdfRendererCmd.AddCommand(pdfRendererCloseCmd)
+	pdfRendererCmd.AddCommand(pdfRendererGetDocumentLinearizationTypeCmd)
+	pdfRendererCmd.AddCommand(pdfRendererGetPageCountCmd)
+	pdfRendererCmd.AddCommand(pdfRendererGetPdfFormTypeCmd)
+	pdfRendererOpenPageCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	pdfRendererCmd.AddCommand(pdfRendererOpenPageCmd)
+	pdfRendererCmd.AddCommand(pdfRendererShouldScaleForPrintingCmd)
+	pdfRendererWriteCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	pdfRendererWriteCmd.Flags().Bool("arg1", false, "arg1 (bool)")
+	pdfRendererCmd.AddCommand(pdfRendererWriteCmd)
+	pdfCmd.AddCommand(pdfRendererCmd)
+	pdfRendererPageApplyEditCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	pdfRendererPageCmd.AddCommand(pdfRendererPageApplyEditCmd)
+	pdfRendererPageCmd.AddCommand(pdfRendererPageCloseCmd)
+	pdfRendererPageGetFormWidgetInfoAtIndexCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	pdfRendererPageCmd.AddCommand(pdfRendererPageGetFormWidgetInfoAtIndexCmd)
+	pdfRendererPageGetFormWidgetInfoAtPositionCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	pdfRendererPageGetFormWidgetInfoAtPositionCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	pdfRendererPageCmd.AddCommand(pdfRendererPageGetFormWidgetInfoAtPositionCmd)
+	pdfRendererPageCmd.AddCommand(pdfRendererPageGetFormWidgetInfos0Cmd)
+	pdfRendererPageGetFormWidgetInfos1_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	pdfRendererPageCmd.AddCommand(pdfRendererPageGetFormWidgetInfos1_1Cmd)
+	pdfRendererPageCmd.AddCommand(pdfRendererPageGetGotoLinksCmd)
+	pdfRendererPageCmd.AddCommand(pdfRendererPageGetHeightCmd)
+	pdfRendererPageCmd.AddCommand(pdfRendererPageGetImageContentsCmd)
+	pdfRendererPageCmd.AddCommand(pdfRendererPageGetIndexCmd)
+	pdfRendererPageCmd.AddCommand(pdfRendererPageGetLinkContentsCmd)
+	pdfRendererPageCmd.AddCommand(pdfRendererPageGetTextContentsCmd)
+	pdfRendererPageCmd.AddCommand(pdfRendererPageGetWidthCmd)
+	pdfRendererPageRender4Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	pdfRendererPageRender4Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	pdfRendererPageRender4Cmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	pdfRendererPageRender4Cmd.Flags().Int64("arg3", 0, "arg3 (int64)")
+	pdfRendererPageCmd.AddCommand(pdfRendererPageRender4Cmd)
+	pdfRendererPageRender4_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	pdfRendererPageRender4_1Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	pdfRendererPageRender4_1Cmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	pdfRendererPageRender4_1Cmd.Flags().Int32("arg3", 0, "arg3 (int32)")
+	pdfRendererPageCmd.AddCommand(pdfRendererPageRender4_1Cmd)
+	pdfRendererPageSearchTextCmd.Flags().String("arg0", "", "arg0 (string)")
+	pdfRendererPageCmd.AddCommand(pdfRendererPageSearchTextCmd)
+	pdfRendererPageSelectContentCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	pdfRendererPageSelectContentCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	pdfRendererPageCmd.AddCommand(pdfRendererPageSelectContentCmd)
+	pdfCmd.AddCommand(pdfRendererPageCmd)
+	pdfCanvasClipOutPathCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	pdfCanvasCmd.AddCommand(pdfCanvasClipOutPathCmd)
+	pdfCanvasClipOutRect1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	pdfCanvasCmd.AddCommand(pdfCanvasClipOutRect1Cmd)
+	pdfCanvasClipOutRect1_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	pdfCanvasCmd.AddCommand(pdfCanvasClipOutRect1_1Cmd)
+	pdfCanvasClipOutRect4_2Cmd.Flags().Float32("arg0", 0, "arg0 (float32)")
+	pdfCanvasClipOutRect4_2Cmd.Flags().Float32("arg1", 0, "arg1 (float32)")
+	pdfCanvasClipOutRect4_2Cmd.Flags().Float32("arg2", 0, "arg2 (float32)")
+	pdfCanvasClipOutRect4_2Cmd.Flags().Float32("arg3", 0, "arg3 (float32)")
+	pdfCanvasCmd.AddCommand(pdfCanvasClipOutRect4_2Cmd)
+	pdfCanvasClipOutRect4_3Cmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	pdfCanvasClipOutRect4_3Cmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	pdfCanvasClipOutRect4_3Cmd.Flags().Int32("arg2", 0, "arg2 (int32)")
+	pdfCanvasClipOutRect4_3Cmd.Flags().Int32("arg3", 0, "arg3 (int32)")
+	pdfCanvasCmd.AddCommand(pdfCanvasClipOutRect4_3Cmd)
+	pdfCanvasClipOutShaderCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	pdfCanvasCmd.AddCommand(pdfCanvasClipOutShaderCmd)
+	pdfCanvasClipPath1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	pdfCanvasCmd.AddCommand(pdfCanvasClipPath1Cmd)
+	pdfCanvasClipPath2_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	pdfCanvasClipPath2_1Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	pdfCanvasCmd.AddCommand(pdfCanvasClipPath2_1Cmd)
+	pdfCanvasClipRect1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	pdfCanvasCmd.AddCommand(pdfCanvasClipRect1Cmd)
+	pdfCanvasClipRect2_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	pdfCanvasClipRect2_1Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	pdfCanvasCmd.AddCommand(pdfCanvasClipRect2_1Cmd)
+	pdfCanvasClipRect1_2Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	pdfCanvasCmd.AddCommand(pdfCanvasClipRect1_2Cmd)
+	pdfCanvasClipRect2_3Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	pdfCanvasClipRect2_3Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	pdfCanvasCmd.AddCommand(pdfCanvasClipRect2_3Cmd)
+	pdfCanvasClipRect4_4Cmd.Flags().Float32("arg0", 0, "arg0 (float32)")
+	pdfCanvasClipRect4_4Cmd.Flags().Float32("arg1", 0, "arg1 (float32)")
+	pdfCanvasClipRect4_4Cmd.Flags().Float32("arg2", 0, "arg2 (float32)")
+	pdfCanvasClipRect4_4Cmd.Flags().Float32("arg3", 0, "arg3 (float32)")
+	pdfCanvasCmd.AddCommand(pdfCanvasClipRect4_4Cmd)
+	pdfCanvasClipRect5_5Cmd.Flags().Float32("arg0", 0, "arg0 (float32)")
+	pdfCanvasClipRect5_5Cmd.Flags().Float32("arg1", 0, "arg1 (float32)")
+	pdfCanvasClipRect5_5Cmd.Flags().Float32("arg2", 0, "arg2 (float32)")
+	pdfCanvasClipRect5_5Cmd.Flags().Float32("arg3", 0, "arg3 (float32)")
+	pdfCanvasClipRect5_5Cmd.Flags().Int64("arg4", 0, "arg4 (int64)")
+	pdfCanvasCmd.AddCommand(pdfCanvasClipRect5_5Cmd)
+	pdfCanvasClipRect4_6Cmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	pdfCanvasClipRect4_6Cmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	pdfCanvasClipRect4_6Cmd.Flags().Int32("arg2", 0, "arg2 (int32)")
+	pdfCanvasClipRect4_6Cmd.Flags().Int32("arg3", 0, "arg3 (int32)")
+	pdfCanvasCmd.AddCommand(pdfCanvasClipRect4_6Cmd)
+	pdfCanvasClipShaderCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	pdfCanvasCmd.AddCommand(pdfCanvasClipShaderCmd)
+	pdfCanvasConcat1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	pdfCanvasCmd.AddCommand(pdfCanvasConcat1Cmd)
+	pdfCanvasConcat1_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	pdfCanvasCmd.AddCommand(pdfCanvasConcat1_1Cmd)
+	pdfCanvasCmd.AddCommand(pdfCanvasDisableZCmd)
+	pdfCanvasDrawARGBCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	pdfCanvasDrawARGBCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	pdfCanvasDrawARGBCmd.Flags().Int32("arg2", 0, "arg2 (int32)")
+	pdfCanvasDrawARGBCmd.Flags().Int32("arg3", 0, "arg3 (int32)")
+	pdfCanvasCmd.AddCommand(pdfCanvasDrawARGBCmd)
+	pdfCanvasDrawArc5Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	pdfCanvasDrawArc5Cmd.Flags().Float32("arg1", 0, "arg1 (float32)")
+	pdfCanvasDrawArc5Cmd.Flags().Float32("arg2", 0, "arg2 (float32)")
+	pdfCanvasDrawArc5Cmd.Flags().Bool("arg3", false, "arg3 (bool)")
+	pdfCanvasDrawArc5Cmd.Flags().Int64("arg4", 0, "arg4 (int64)")
+	pdfCanvasCmd.AddCommand(pdfCanvasDrawArc5Cmd)
+	pdfCanvasDrawArc8_1Cmd.Flags().Float32("arg0", 0, "arg0 (float32)")
+	pdfCanvasDrawArc8_1Cmd.Flags().Float32("arg1", 0, "arg1 (float32)")
+	pdfCanvasDrawArc8_1Cmd.Flags().Float32("arg2", 0, "arg2 (float32)")
+	pdfCanvasDrawArc8_1Cmd.Flags().Float32("arg3", 0, "arg3 (float32)")
+	pdfCanvasDrawArc8_1Cmd.Flags().Float32("arg4", 0, "arg4 (float32)")
+	pdfCanvasDrawArc8_1Cmd.Flags().Float32("arg5", 0, "arg5 (float32)")
+	pdfCanvasDrawArc8_1Cmd.Flags().Bool("arg6", false, "arg6 (bool)")
+	pdfCanvasDrawArc8_1Cmd.Flags().Int64("arg7", 0, "arg7 (int64)")
+	pdfCanvasCmd.AddCommand(pdfCanvasDrawArc8_1Cmd)
+	pdfCanvasDrawBitmap3Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	pdfCanvasDrawBitmap3Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	pdfCanvasDrawBitmap3Cmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	pdfCanvasCmd.AddCommand(pdfCanvasDrawBitmap3Cmd)
+	pdfCanvasDrawBitmap4_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	pdfCanvasDrawBitmap4_1Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	pdfCanvasDrawBitmap4_1Cmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	pdfCanvasDrawBitmap4_1Cmd.Flags().Int64("arg3", 0, "arg3 (int64)")
+	pdfCanvasCmd.AddCommand(pdfCanvasDrawBitmap4_1Cmd)
+	pdfCanvasDrawBitmap4_2Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	pdfCanvasDrawBitmap4_2Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	pdfCanvasDrawBitmap4_2Cmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	pdfCanvasDrawBitmap4_2Cmd.Flags().Int64("arg3", 0, "arg3 (int64)")
+	pdfCanvasCmd.AddCommand(pdfCanvasDrawBitmap4_2Cmd)
+	pdfCanvasDrawBitmap4_3Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	pdfCanvasDrawBitmap4_3Cmd.Flags().Float32("arg1", 0, "arg1 (float32)")
+	pdfCanvasDrawBitmap4_3Cmd.Flags().Float32("arg2", 0, "arg2 (float32)")
+	pdfCanvasDrawBitmap4_3Cmd.Flags().Int64("arg3", 0, "arg3 (int64)")
+	pdfCanvasCmd.AddCommand(pdfCanvasDrawBitmap4_3Cmd)
+	pdfCanvasDrawBitmap9_4Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	pdfCanvasDrawBitmap9_4Cmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	pdfCanvasDrawBitmap9_4Cmd.Flags().Int32("arg2", 0, "arg2 (int32)")
+	pdfCanvasDrawBitmap9_4Cmd.Flags().Float32("arg3", 0, "arg3 (float32)")
+	pdfCanvasDrawBitmap9_4Cmd.Flags().Float32("arg4", 0, "arg4 (float32)")
+	pdfCanvasDrawBitmap9_4Cmd.Flags().Int32("arg5", 0, "arg5 (int32)")
+	pdfCanvasDrawBitmap9_4Cmd.Flags().Int32("arg6", 0, "arg6 (int32)")
+	pdfCanvasDrawBitmap9_4Cmd.Flags().Bool("arg7", false, "arg7 (bool)")
+	pdfCanvasDrawBitmap9_4Cmd.Flags().Int64("arg8", 0, "arg8 (int64)")
+	pdfCanvasCmd.AddCommand(pdfCanvasDrawBitmap9_4Cmd)
+	pdfCanvasDrawBitmap9_5Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	pdfCanvasDrawBitmap9_5Cmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	pdfCanvasDrawBitmap9_5Cmd.Flags().Int32("arg2", 0, "arg2 (int32)")
+	pdfCanvasDrawBitmap9_5Cmd.Flags().Int32("arg3", 0, "arg3 (int32)")
+	pdfCanvasDrawBitmap9_5Cmd.Flags().Int32("arg4", 0, "arg4 (int32)")
+	pdfCanvasDrawBitmap9_5Cmd.Flags().Int32("arg5", 0, "arg5 (int32)")
+	pdfCanvasDrawBitmap9_5Cmd.Flags().Int32("arg6", 0, "arg6 (int32)")
+	pdfCanvasDrawBitmap9_5Cmd.Flags().Bool("arg7", false, "arg7 (bool)")
+	pdfCanvasDrawBitmap9_5Cmd.Flags().Int64("arg8", 0, "arg8 (int64)")
+	pdfCanvasCmd.AddCommand(pdfCanvasDrawBitmap9_5Cmd)
+	pdfCanvasDrawBitmapMeshCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	pdfCanvasDrawBitmapMeshCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	pdfCanvasDrawBitmapMeshCmd.Flags().Int32("arg2", 0, "arg2 (int32)")
+	pdfCanvasDrawBitmapMeshCmd.Flags().Int64("arg3", 0, "arg3 (int64)")
+	pdfCanvasDrawBitmapMeshCmd.Flags().Int32("arg4", 0, "arg4 (int32)")
+	pdfCanvasDrawBitmapMeshCmd.Flags().Int64("arg5", 0, "arg5 (int64)")
+	pdfCanvasDrawBitmapMeshCmd.Flags().Int32("arg6", 0, "arg6 (int32)")
+	pdfCanvasDrawBitmapMeshCmd.Flags().Int64("arg7", 0, "arg7 (int64)")
+	pdfCanvasCmd.AddCommand(pdfCanvasDrawBitmapMeshCmd)
+	pdfCanvasDrawCircleCmd.Flags().Float32("arg0", 0, "arg0 (float32)")
+	pdfCanvasDrawCircleCmd.Flags().Float32("arg1", 0, "arg1 (float32)")
+	pdfCanvasDrawCircleCmd.Flags().Float32("arg2", 0, "arg2 (float32)")
+	pdfCanvasDrawCircleCmd.Flags().Int64("arg3", 0, "arg3 (int64)")
+	pdfCanvasCmd.AddCommand(pdfCanvasDrawCircleCmd)
+	pdfCanvasDrawColor1Cmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	pdfCanvasCmd.AddCommand(pdfCanvasDrawColor1Cmd)
+	pdfCanvasDrawColor2_1Cmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	pdfCanvasDrawColor2_1Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	pdfCanvasCmd.AddCommand(pdfCanvasDrawColor2_1Cmd)
+	pdfCanvasDrawColor2_2Cmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	pdfCanvasDrawColor2_2Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	pdfCanvasCmd.AddCommand(pdfCanvasDrawColor2_2Cmd)
+	pdfCanvasDrawColor1_3Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	pdfCanvasCmd.AddCommand(pdfCanvasDrawColor1_3Cmd)
+	pdfCanvasDrawColor2_4Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	pdfCanvasDrawColor2_4Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	pdfCanvasCmd.AddCommand(pdfCanvasDrawColor2_4Cmd)
+	pdfCanvasDrawDoubleRoundRect7Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	pdfCanvasDrawDoubleRoundRect7Cmd.Flags().Float32("arg1", 0, "arg1 (float32)")
+	pdfCanvasDrawDoubleRoundRect7Cmd.Flags().Float32("arg2", 0, "arg2 (float32)")
+	pdfCanvasDrawDoubleRoundRect7Cmd.Flags().Int64("arg3", 0, "arg3 (int64)")
+	pdfCanvasDrawDoubleRoundRect7Cmd.Flags().Float32("arg4", 0, "arg4 (float32)")
+	pdfCanvasDrawDoubleRoundRect7Cmd.Flags().Float32("arg5", 0, "arg5 (float32)")
+	pdfCanvasDrawDoubleRoundRect7Cmd.Flags().Int64("arg6", 0, "arg6 (int64)")
+	pdfCanvasCmd.AddCommand(pdfCanvasDrawDoubleRoundRect7Cmd)
+	pdfCanvasDrawDoubleRoundRect5_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	pdfCanvasDrawDoubleRoundRect5_1Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	pdfCanvasDrawDoubleRoundRect5_1Cmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	pdfCanvasDrawDoubleRoundRect5_1Cmd.Flags().Int64("arg3", 0, "arg3 (int64)")
+	pdfCanvasDrawDoubleRoundRect5_1Cmd.Flags().Int64("arg4", 0, "arg4 (int64)")
+	pdfCanvasCmd.AddCommand(pdfCanvasDrawDoubleRoundRect5_1Cmd)
+	pdfCanvasDrawGlyphsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	pdfCanvasDrawGlyphsCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	pdfCanvasDrawGlyphsCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	pdfCanvasDrawGlyphsCmd.Flags().Int32("arg3", 0, "arg3 (int32)")
+	pdfCanvasDrawGlyphsCmd.Flags().Int32("arg4", 0, "arg4 (int32)")
+	pdfCanvasDrawGlyphsCmd.Flags().Int64("arg5", 0, "arg5 (int64)")
+	pdfCanvasDrawGlyphsCmd.Flags().Int64("arg6", 0, "arg6 (int64)")
+	pdfCanvasCmd.AddCommand(pdfCanvasDrawGlyphsCmd)
+	pdfCanvasDrawLineCmd.Flags().Float32("arg0", 0, "arg0 (float32)")
+	pdfCanvasDrawLineCmd.Flags().Float32("arg1", 0, "arg1 (float32)")
+	pdfCanvasDrawLineCmd.Flags().Float32("arg2", 0, "arg2 (float32)")
+	pdfCanvasDrawLineCmd.Flags().Float32("arg3", 0, "arg3 (float32)")
+	pdfCanvasDrawLineCmd.Flags().Int64("arg4", 0, "arg4 (int64)")
+	pdfCanvasCmd.AddCommand(pdfCanvasDrawLineCmd)
+	pdfCanvasDrawLines2Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	pdfCanvasDrawLines2Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	pdfCanvasCmd.AddCommand(pdfCanvasDrawLines2Cmd)
+	pdfCanvasDrawLines4_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	pdfCanvasDrawLines4_1Cmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	pdfCanvasDrawLines4_1Cmd.Flags().Int32("arg2", 0, "arg2 (int32)")
+	pdfCanvasDrawLines4_1Cmd.Flags().Int64("arg3", 0, "arg3 (int64)")
+	pdfCanvasCmd.AddCommand(pdfCanvasDrawLines4_1Cmd)
+	pdfCanvasDrawMeshCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	pdfCanvasDrawMeshCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	pdfCanvasDrawMeshCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	pdfCanvasCmd.AddCommand(pdfCanvasDrawMeshCmd)
+	pdfCanvasDrawOval2Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	pdfCanvasDrawOval2Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	pdfCanvasCmd.AddCommand(pdfCanvasDrawOval2Cmd)
+	pdfCanvasDrawOval5_1Cmd.Flags().Float32("arg0", 0, "arg0 (float32)")
+	pdfCanvasDrawOval5_1Cmd.Flags().Float32("arg1", 0, "arg1 (float32)")
+	pdfCanvasDrawOval5_1Cmd.Flags().Float32("arg2", 0, "arg2 (float32)")
+	pdfCanvasDrawOval5_1Cmd.Flags().Float32("arg3", 0, "arg3 (float32)")
+	pdfCanvasDrawOval5_1Cmd.Flags().Int64("arg4", 0, "arg4 (int64)")
+	pdfCanvasCmd.AddCommand(pdfCanvasDrawOval5_1Cmd)
+	pdfCanvasDrawPaintCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	pdfCanvasCmd.AddCommand(pdfCanvasDrawPaintCmd)
+	pdfCanvasDrawPatch3Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	pdfCanvasDrawPatch3Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	pdfCanvasDrawPatch3Cmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	pdfCanvasCmd.AddCommand(pdfCanvasDrawPatch3Cmd)
+	pdfCanvasDrawPatch3_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	pdfCanvasDrawPatch3_1Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	pdfCanvasDrawPatch3_1Cmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	pdfCanvasCmd.AddCommand(pdfCanvasDrawPatch3_1Cmd)
+	pdfCanvasDrawPathCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	pdfCanvasDrawPathCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	pdfCanvasCmd.AddCommand(pdfCanvasDrawPathCmd)
+	pdfCanvasDrawPicture1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	pdfCanvasCmd.AddCommand(pdfCanvasDrawPicture1Cmd)
+	pdfCanvasDrawPicture2_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	pdfCanvasDrawPicture2_1Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	pdfCanvasCmd.AddCommand(pdfCanvasDrawPicture2_1Cmd)
+	pdfCanvasDrawPicture2_2Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	pdfCanvasDrawPicture2_2Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	pdfCanvasCmd.AddCommand(pdfCanvasDrawPicture2_2Cmd)
+	pdfCanvasDrawPointCmd.Flags().Float32("arg0", 0, "arg0 (float32)")
+	pdfCanvasDrawPointCmd.Flags().Float32("arg1", 0, "arg1 (float32)")
+	pdfCanvasDrawPointCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	pdfCanvasCmd.AddCommand(pdfCanvasDrawPointCmd)
+	pdfCanvasDrawPoints2Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	pdfCanvasDrawPoints2Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	pdfCanvasCmd.AddCommand(pdfCanvasDrawPoints2Cmd)
+	pdfCanvasDrawPoints4_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	pdfCanvasDrawPoints4_1Cmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	pdfCanvasDrawPoints4_1Cmd.Flags().Int32("arg2", 0, "arg2 (int32)")
+	pdfCanvasDrawPoints4_1Cmd.Flags().Int64("arg3", 0, "arg3 (int64)")
+	pdfCanvasCmd.AddCommand(pdfCanvasDrawPoints4_1Cmd)
+	pdfCanvasDrawPosText5Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	pdfCanvasDrawPosText5Cmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	pdfCanvasDrawPosText5Cmd.Flags().Int32("arg2", 0, "arg2 (int32)")
+	pdfCanvasDrawPosText5Cmd.Flags().Int64("arg3", 0, "arg3 (int64)")
+	pdfCanvasDrawPosText5Cmd.Flags().Int64("arg4", 0, "arg4 (int64)")
+	pdfCanvasCmd.AddCommand(pdfCanvasDrawPosText5Cmd)
+	pdfCanvasDrawPosText3_1Cmd.Flags().String("arg0", "", "arg0 (string)")
+	pdfCanvasDrawPosText3_1Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	pdfCanvasDrawPosText3_1Cmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	pdfCanvasCmd.AddCommand(pdfCanvasDrawPosText3_1Cmd)
+	pdfCanvasDrawRGBCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	pdfCanvasDrawRGBCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	pdfCanvasDrawRGBCmd.Flags().Int32("arg2", 0, "arg2 (int32)")
+	pdfCanvasCmd.AddCommand(pdfCanvasDrawRGBCmd)
+	pdfCanvasDrawRect2Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	pdfCanvasDrawRect2Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	pdfCanvasCmd.AddCommand(pdfCanvasDrawRect2Cmd)
+	pdfCanvasDrawRect2_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	pdfCanvasDrawRect2_1Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	pdfCanvasCmd.AddCommand(pdfCanvasDrawRect2_1Cmd)
+	pdfCanvasDrawRect5_2Cmd.Flags().Float32("arg0", 0, "arg0 (float32)")
+	pdfCanvasDrawRect5_2Cmd.Flags().Float32("arg1", 0, "arg1 (float32)")
+	pdfCanvasDrawRect5_2Cmd.Flags().Float32("arg2", 0, "arg2 (float32)")
+	pdfCanvasDrawRect5_2Cmd.Flags().Float32("arg3", 0, "arg3 (float32)")
+	pdfCanvasDrawRect5_2Cmd.Flags().Int64("arg4", 0, "arg4 (int64)")
+	pdfCanvasCmd.AddCommand(pdfCanvasDrawRect5_2Cmd)
+	pdfCanvasDrawRegionCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	pdfCanvasDrawRegionCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	pdfCanvasCmd.AddCommand(pdfCanvasDrawRegionCmd)
+	pdfCanvasDrawRenderNodeCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	pdfCanvasCmd.AddCommand(pdfCanvasDrawRenderNodeCmd)
+	pdfCanvasDrawRoundRect4Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	pdfCanvasDrawRoundRect4Cmd.Flags().Float32("arg1", 0, "arg1 (float32)")
+	pdfCanvasDrawRoundRect4Cmd.Flags().Float32("arg2", 0, "arg2 (float32)")
+	pdfCanvasDrawRoundRect4Cmd.Flags().Int64("arg3", 0, "arg3 (int64)")
+	pdfCanvasCmd.AddCommand(pdfCanvasDrawRoundRect4Cmd)
+	pdfCanvasDrawRoundRect7_1Cmd.Flags().Float32("arg0", 0, "arg0 (float32)")
+	pdfCanvasDrawRoundRect7_1Cmd.Flags().Float32("arg1", 0, "arg1 (float32)")
+	pdfCanvasDrawRoundRect7_1Cmd.Flags().Float32("arg2", 0, "arg2 (float32)")
+	pdfCanvasDrawRoundRect7_1Cmd.Flags().Float32("arg3", 0, "arg3 (float32)")
+	pdfCanvasDrawRoundRect7_1Cmd.Flags().Float32("arg4", 0, "arg4 (float32)")
+	pdfCanvasDrawRoundRect7_1Cmd.Flags().Float32("arg5", 0, "arg5 (float32)")
+	pdfCanvasDrawRoundRect7_1Cmd.Flags().Int64("arg6", 0, "arg6 (int64)")
+	pdfCanvasCmd.AddCommand(pdfCanvasDrawRoundRect7_1Cmd)
+	pdfCanvasDrawText6Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	pdfCanvasDrawText6Cmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	pdfCanvasDrawText6Cmd.Flags().Int32("arg2", 0, "arg2 (int32)")
+	pdfCanvasDrawText6Cmd.Flags().Float32("arg3", 0, "arg3 (float32)")
+	pdfCanvasDrawText6Cmd.Flags().Float32("arg4", 0, "arg4 (float32)")
+	pdfCanvasDrawText6Cmd.Flags().Int64("arg5", 0, "arg5 (int64)")
+	pdfCanvasCmd.AddCommand(pdfCanvasDrawText6Cmd)
+	pdfCanvasDrawText6_1Cmd.Flags().String("arg0", "", "arg0 (string)")
+	pdfCanvasDrawText6_1Cmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	pdfCanvasDrawText6_1Cmd.Flags().Int32("arg2", 0, "arg2 (int32)")
+	pdfCanvasDrawText6_1Cmd.Flags().Float32("arg3", 0, "arg3 (float32)")
+	pdfCanvasDrawText6_1Cmd.Flags().Float32("arg4", 0, "arg4 (float32)")
+	pdfCanvasDrawText6_1Cmd.Flags().Int64("arg5", 0, "arg5 (int64)")
+	pdfCanvasCmd.AddCommand(pdfCanvasDrawText6_1Cmd)
+	pdfCanvasDrawText4_2Cmd.Flags().String("arg0", "", "arg0 (string)")
+	pdfCanvasDrawText4_2Cmd.Flags().Float32("arg1", 0, "arg1 (float32)")
+	pdfCanvasDrawText4_2Cmd.Flags().Float32("arg2", 0, "arg2 (float32)")
+	pdfCanvasDrawText4_2Cmd.Flags().Int64("arg3", 0, "arg3 (int64)")
+	pdfCanvasCmd.AddCommand(pdfCanvasDrawText4_2Cmd)
+	pdfCanvasDrawText6_3Cmd.Flags().String("arg0", "", "arg0 (string)")
+	pdfCanvasDrawText6_3Cmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	pdfCanvasDrawText6_3Cmd.Flags().Int32("arg2", 0, "arg2 (int32)")
+	pdfCanvasDrawText6_3Cmd.Flags().Float32("arg3", 0, "arg3 (float32)")
+	pdfCanvasDrawText6_3Cmd.Flags().Float32("arg4", 0, "arg4 (float32)")
+	pdfCanvasDrawText6_3Cmd.Flags().Int64("arg5", 0, "arg5 (int64)")
+	pdfCanvasCmd.AddCommand(pdfCanvasDrawText6_3Cmd)
+	pdfCanvasDrawTextOnPath7Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	pdfCanvasDrawTextOnPath7Cmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	pdfCanvasDrawTextOnPath7Cmd.Flags().Int32("arg2", 0, "arg2 (int32)")
+	pdfCanvasDrawTextOnPath7Cmd.Flags().Int64("arg3", 0, "arg3 (int64)")
+	pdfCanvasDrawTextOnPath7Cmd.Flags().Float32("arg4", 0, "arg4 (float32)")
+	pdfCanvasDrawTextOnPath7Cmd.Flags().Float32("arg5", 0, "arg5 (float32)")
+	pdfCanvasDrawTextOnPath7Cmd.Flags().Int64("arg6", 0, "arg6 (int64)")
+	pdfCanvasCmd.AddCommand(pdfCanvasDrawTextOnPath7Cmd)
+	pdfCanvasDrawTextOnPath5_1Cmd.Flags().String("arg0", "", "arg0 (string)")
+	pdfCanvasDrawTextOnPath5_1Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	pdfCanvasDrawTextOnPath5_1Cmd.Flags().Float32("arg2", 0, "arg2 (float32)")
+	pdfCanvasDrawTextOnPath5_1Cmd.Flags().Float32("arg3", 0, "arg3 (float32)")
+	pdfCanvasDrawTextOnPath5_1Cmd.Flags().Int64("arg4", 0, "arg4 (int64)")
+	pdfCanvasCmd.AddCommand(pdfCanvasDrawTextOnPath5_1Cmd)
+	pdfCanvasDrawTextRun9Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	pdfCanvasDrawTextRun9Cmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	pdfCanvasDrawTextRun9Cmd.Flags().Int32("arg2", 0, "arg2 (int32)")
+	pdfCanvasDrawTextRun9Cmd.Flags().Int32("arg3", 0, "arg3 (int32)")
+	pdfCanvasDrawTextRun9Cmd.Flags().Int32("arg4", 0, "arg4 (int32)")
+	pdfCanvasDrawTextRun9Cmd.Flags().Float32("arg5", 0, "arg5 (float32)")
+	pdfCanvasDrawTextRun9Cmd.Flags().Float32("arg6", 0, "arg6 (float32)")
+	pdfCanvasDrawTextRun9Cmd.Flags().Bool("arg7", false, "arg7 (bool)")
+	pdfCanvasDrawTextRun9Cmd.Flags().Int64("arg8", 0, "arg8 (int64)")
+	pdfCanvasCmd.AddCommand(pdfCanvasDrawTextRun9Cmd)
+	pdfCanvasDrawTextRun9_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	pdfCanvasDrawTextRun9_1Cmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	pdfCanvasDrawTextRun9_1Cmd.Flags().Int32("arg2", 0, "arg2 (int32)")
+	pdfCanvasDrawTextRun9_1Cmd.Flags().Int32("arg3", 0, "arg3 (int32)")
+	pdfCanvasDrawTextRun9_1Cmd.Flags().Int32("arg4", 0, "arg4 (int32)")
+	pdfCanvasDrawTextRun9_1Cmd.Flags().Float32("arg5", 0, "arg5 (float32)")
+	pdfCanvasDrawTextRun9_1Cmd.Flags().Float32("arg6", 0, "arg6 (float32)")
+	pdfCanvasDrawTextRun9_1Cmd.Flags().Bool("arg7", false, "arg7 (bool)")
+	pdfCanvasDrawTextRun9_1Cmd.Flags().Int64("arg8", 0, "arg8 (int64)")
+	pdfCanvasCmd.AddCommand(pdfCanvasDrawTextRun9_1Cmd)
+	pdfCanvasDrawTextRun9_2Cmd.Flags().String("arg0", "", "arg0 (string)")
+	pdfCanvasDrawTextRun9_2Cmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	pdfCanvasDrawTextRun9_2Cmd.Flags().Int32("arg2", 0, "arg2 (int32)")
+	pdfCanvasDrawTextRun9_2Cmd.Flags().Int32("arg3", 0, "arg3 (int32)")
+	pdfCanvasDrawTextRun9_2Cmd.Flags().Int32("arg4", 0, "arg4 (int32)")
+	pdfCanvasDrawTextRun9_2Cmd.Flags().Float32("arg5", 0, "arg5 (float32)")
+	pdfCanvasDrawTextRun9_2Cmd.Flags().Float32("arg6", 0, "arg6 (float32)")
+	pdfCanvasDrawTextRun9_2Cmd.Flags().Bool("arg7", false, "arg7 (bool)")
+	pdfCanvasDrawTextRun9_2Cmd.Flags().Int64("arg8", 0, "arg8 (int64)")
+	pdfCanvasCmd.AddCommand(pdfCanvasDrawTextRun9_2Cmd)
+	pdfCanvasDrawVerticesCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	pdfCanvasDrawVerticesCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	pdfCanvasDrawVerticesCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	pdfCanvasDrawVerticesCmd.Flags().Int32("arg3", 0, "arg3 (int32)")
+	pdfCanvasDrawVerticesCmd.Flags().Int64("arg4", 0, "arg4 (int64)")
+	pdfCanvasDrawVerticesCmd.Flags().Int32("arg5", 0, "arg5 (int32)")
+	pdfCanvasDrawVerticesCmd.Flags().Int64("arg6", 0, "arg6 (int64)")
+	pdfCanvasDrawVerticesCmd.Flags().Int32("arg7", 0, "arg7 (int32)")
+	pdfCanvasDrawVerticesCmd.Flags().Int64("arg8", 0, "arg8 (int64)")
+	pdfCanvasDrawVerticesCmd.Flags().Int32("arg9", 0, "arg9 (int32)")
+	pdfCanvasDrawVerticesCmd.Flags().Int32("arg10", 0, "arg10 (int32)")
+	pdfCanvasDrawVerticesCmd.Flags().Int64("arg11", 0, "arg11 (int64)")
+	pdfCanvasCmd.AddCommand(pdfCanvasDrawVerticesCmd)
+	pdfCanvasCmd.AddCommand(pdfCanvasEnableZCmd)
+	pdfCanvasCmd.AddCommand(pdfCanvasGetClipBounds0Cmd)
+	pdfCanvasGetClipBounds1_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	pdfCanvasCmd.AddCommand(pdfCanvasGetClipBounds1_1Cmd)
+	pdfCanvasCmd.AddCommand(pdfCanvasGetDensityCmd)
+	pdfCanvasCmd.AddCommand(pdfCanvasGetDrawFilterCmd)
+	pdfCanvasCmd.AddCommand(pdfCanvasGetHeightCmd)
+	pdfCanvasCmd.AddCommand(pdfCanvasGetMatrix0Cmd)
+	pdfCanvasGetMatrix1_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	pdfCanvasCmd.AddCommand(pdfCanvasGetMatrix1_1Cmd)
+	pdfCanvasCmd.AddCommand(pdfCanvasGetMaximumBitmapHeightCmd)
+	pdfCanvasCmd.AddCommand(pdfCanvasGetMaximumBitmapWidthCmd)
+	pdfCanvasCmd.AddCommand(pdfCanvasGetSaveCountCmd)
+	pdfCanvasCmd.AddCommand(pdfCanvasGetWidthCmd)
+	pdfCanvasCmd.AddCommand(pdfCanvasIsHardwareAcceleratedCmd)
+	pdfCanvasCmd.AddCommand(pdfCanvasIsOpaqueCmd)
+	pdfCanvasQuickReject1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	pdfCanvasCmd.AddCommand(pdfCanvasQuickReject1Cmd)
+	pdfCanvasQuickReject2_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	pdfCanvasQuickReject2_1Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	pdfCanvasCmd.AddCommand(pdfCanvasQuickReject2_1Cmd)
+	pdfCanvasQuickReject1_2Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	pdfCanvasCmd.AddCommand(pdfCanvasQuickReject1_2Cmd)
+	pdfCanvasQuickReject2_3Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	pdfCanvasQuickReject2_3Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	pdfCanvasCmd.AddCommand(pdfCanvasQuickReject2_3Cmd)
+	pdfCanvasQuickReject4_4Cmd.Flags().Float32("arg0", 0, "arg0 (float32)")
+	pdfCanvasQuickReject4_4Cmd.Flags().Float32("arg1", 0, "arg1 (float32)")
+	pdfCanvasQuickReject4_4Cmd.Flags().Float32("arg2", 0, "arg2 (float32)")
+	pdfCanvasQuickReject4_4Cmd.Flags().Float32("arg3", 0, "arg3 (float32)")
+	pdfCanvasCmd.AddCommand(pdfCanvasQuickReject4_4Cmd)
+	pdfCanvasQuickReject5_5Cmd.Flags().Float32("arg0", 0, "arg0 (float32)")
+	pdfCanvasQuickReject5_5Cmd.Flags().Float32("arg1", 0, "arg1 (float32)")
+	pdfCanvasQuickReject5_5Cmd.Flags().Float32("arg2", 0, "arg2 (float32)")
+	pdfCanvasQuickReject5_5Cmd.Flags().Float32("arg3", 0, "arg3 (float32)")
+	pdfCanvasQuickReject5_5Cmd.Flags().Int64("arg4", 0, "arg4 (int64)")
+	pdfCanvasCmd.AddCommand(pdfCanvasQuickReject5_5Cmd)
+	pdfCanvasCmd.AddCommand(pdfCanvasRestoreCmd)
+	pdfCanvasRestoreToCountCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	pdfCanvasCmd.AddCommand(pdfCanvasRestoreToCountCmd)
+	pdfCanvasRotate1Cmd.Flags().Float32("arg0", 0, "arg0 (float32)")
+	pdfCanvasCmd.AddCommand(pdfCanvasRotate1Cmd)
+	pdfCanvasRotate3_1Cmd.Flags().Float32("arg0", 0, "arg0 (float32)")
+	pdfCanvasRotate3_1Cmd.Flags().Float32("arg1", 0, "arg1 (float32)")
+	pdfCanvasRotate3_1Cmd.Flags().Float32("arg2", 0, "arg2 (float32)")
+	pdfCanvasCmd.AddCommand(pdfCanvasRotate3_1Cmd)
+	pdfCanvasCmd.AddCommand(pdfCanvasSaveCmd)
+	pdfCanvasSaveLayer2Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	pdfCanvasSaveLayer2Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	pdfCanvasCmd.AddCommand(pdfCanvasSaveLayer2Cmd)
+	pdfCanvasSaveLayer3_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	pdfCanvasSaveLayer3_1Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	pdfCanvasSaveLayer3_1Cmd.Flags().Int32("arg2", 0, "arg2 (int32)")
+	pdfCanvasCmd.AddCommand(pdfCanvasSaveLayer3_1Cmd)
+	pdfCanvasSaveLayer5_2Cmd.Flags().Float32("arg0", 0, "arg0 (float32)")
+	pdfCanvasSaveLayer5_2Cmd.Flags().Float32("arg1", 0, "arg1 (float32)")
+	pdfCanvasSaveLayer5_2Cmd.Flags().Float32("arg2", 0, "arg2 (float32)")
+	pdfCanvasSaveLayer5_2Cmd.Flags().Float32("arg3", 0, "arg3 (float32)")
+	pdfCanvasSaveLayer5_2Cmd.Flags().Int64("arg4", 0, "arg4 (int64)")
+	pdfCanvasCmd.AddCommand(pdfCanvasSaveLayer5_2Cmd)
+	pdfCanvasSaveLayer6_3Cmd.Flags().Float32("arg0", 0, "arg0 (float32)")
+	pdfCanvasSaveLayer6_3Cmd.Flags().Float32("arg1", 0, "arg1 (float32)")
+	pdfCanvasSaveLayer6_3Cmd.Flags().Float32("arg2", 0, "arg2 (float32)")
+	pdfCanvasSaveLayer6_3Cmd.Flags().Float32("arg3", 0, "arg3 (float32)")
+	pdfCanvasSaveLayer6_3Cmd.Flags().Int64("arg4", 0, "arg4 (int64)")
+	pdfCanvasSaveLayer6_3Cmd.Flags().Int32("arg5", 0, "arg5 (int32)")
+	pdfCanvasCmd.AddCommand(pdfCanvasSaveLayer6_3Cmd)
+	pdfCanvasSaveLayerAlpha2Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	pdfCanvasSaveLayerAlpha2Cmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	pdfCanvasCmd.AddCommand(pdfCanvasSaveLayerAlpha2Cmd)
+	pdfCanvasSaveLayerAlpha3_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	pdfCanvasSaveLayerAlpha3_1Cmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	pdfCanvasSaveLayerAlpha3_1Cmd.Flags().Int32("arg2", 0, "arg2 (int32)")
+	pdfCanvasCmd.AddCommand(pdfCanvasSaveLayerAlpha3_1Cmd)
+	pdfCanvasSaveLayerAlpha5_2Cmd.Flags().Float32("arg0", 0, "arg0 (float32)")
+	pdfCanvasSaveLayerAlpha5_2Cmd.Flags().Float32("arg1", 0, "arg1 (float32)")
+	pdfCanvasSaveLayerAlpha5_2Cmd.Flags().Float32("arg2", 0, "arg2 (float32)")
+	pdfCanvasSaveLayerAlpha5_2Cmd.Flags().Float32("arg3", 0, "arg3 (float32)")
+	pdfCanvasSaveLayerAlpha5_2Cmd.Flags().Int32("arg4", 0, "arg4 (int32)")
+	pdfCanvasCmd.AddCommand(pdfCanvasSaveLayerAlpha5_2Cmd)
+	pdfCanvasSaveLayerAlpha6_3Cmd.Flags().Float32("arg0", 0, "arg0 (float32)")
+	pdfCanvasSaveLayerAlpha6_3Cmd.Flags().Float32("arg1", 0, "arg1 (float32)")
+	pdfCanvasSaveLayerAlpha6_3Cmd.Flags().Float32("arg2", 0, "arg2 (float32)")
+	pdfCanvasSaveLayerAlpha6_3Cmd.Flags().Float32("arg3", 0, "arg3 (float32)")
+	pdfCanvasSaveLayerAlpha6_3Cmd.Flags().Int32("arg4", 0, "arg4 (int32)")
+	pdfCanvasSaveLayerAlpha6_3Cmd.Flags().Int32("arg5", 0, "arg5 (int32)")
+	pdfCanvasCmd.AddCommand(pdfCanvasSaveLayerAlpha6_3Cmd)
+	pdfCanvasScale2Cmd.Flags().Float32("arg0", 0, "arg0 (float32)")
+	pdfCanvasScale2Cmd.Flags().Float32("arg1", 0, "arg1 (float32)")
+	pdfCanvasCmd.AddCommand(pdfCanvasScale2Cmd)
+	pdfCanvasScale4_1Cmd.Flags().Float32("arg0", 0, "arg0 (float32)")
+	pdfCanvasScale4_1Cmd.Flags().Float32("arg1", 0, "arg1 (float32)")
+	pdfCanvasScale4_1Cmd.Flags().Float32("arg2", 0, "arg2 (float32)")
+	pdfCanvasScale4_1Cmd.Flags().Float32("arg3", 0, "arg3 (float32)")
+	pdfCanvasCmd.AddCommand(pdfCanvasScale4_1Cmd)
+	pdfCanvasSetBitmapCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	pdfCanvasCmd.AddCommand(pdfCanvasSetBitmapCmd)
+	pdfCanvasSetDensityCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	pdfCanvasCmd.AddCommand(pdfCanvasSetDensityCmd)
+	pdfCanvasSetDrawFilterCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	pdfCanvasCmd.AddCommand(pdfCanvasSetDrawFilterCmd)
+	pdfCanvasSetMatrixCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	pdfCanvasCmd.AddCommand(pdfCanvasSetMatrixCmd)
+	pdfCanvasSkewCmd.Flags().Float32("arg0", 0, "arg0 (float32)")
+	pdfCanvasSkewCmd.Flags().Float32("arg1", 0, "arg1 (float32)")
+	pdfCanvasCmd.AddCommand(pdfCanvasSkewCmd)
+	pdfCanvasTranslateCmd.Flags().Float32("arg0", 0, "arg0 (float32)")
+	pdfCanvasTranslateCmd.Flags().Float32("arg1", 0, "arg1 (float32)")
+	pdfCanvasCmd.AddCommand(pdfCanvasTranslateCmd)
+	pdfCmd.AddCommand(pdfCanvasCmd)
+	pdfParcelFileDescriptorCmd.AddCommand(pdfParcelFileDescriptorCanDetectErrorsCmd)
+	pdfParcelFileDescriptorCmd.AddCommand(pdfParcelFileDescriptorCheckErrorCmd)
+	pdfParcelFileDescriptorCmd.AddCommand(pdfParcelFileDescriptorCloseCmd)
+	pdfParcelFileDescriptorCloseWithErrorCmd.Flags().String("arg0", "", "arg0 (string)")
+	pdfParcelFileDescriptorCmd.AddCommand(pdfParcelFileDescriptorCloseWithErrorCmd)
+	pdfParcelFileDescriptorCmd.AddCommand(pdfParcelFileDescriptorDescribeContentsCmd)
+	pdfParcelFileDescriptorCmd.AddCommand(pdfParcelFileDescriptorDetachFdCmd)
+	pdfParcelFileDescriptorCmd.AddCommand(pdfParcelFileDescriptorDup0Cmd)
+	pdfParcelFileDescriptorCmd.AddCommand(pdfParcelFileDescriptorGetFdCmd)
+	pdfParcelFileDescriptorCmd.AddCommand(pdfParcelFileDescriptorGetFileDescriptorCmd)
+	pdfParcelFileDescriptorCmd.AddCommand(pdfParcelFileDescriptorGetStatSizeCmd)
+	pdfParcelFileDescriptorCmd.AddCommand(pdfParcelFileDescriptorToStringCmd)
+	pdfParcelFileDescriptorWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	pdfParcelFileDescriptorWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	pdfParcelFileDescriptorCmd.AddCommand(pdfParcelFileDescriptorWriteToParcelCmd)
+	pdfParcelFileDescriptorAdoptFdCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	pdfParcelFileDescriptorCmd.AddCommand(pdfParcelFileDescriptorAdoptFdCmd)
+	pdfParcelFileDescriptorCmd.AddCommand(pdfParcelFileDescriptorCreatePipeCmd)
+	pdfParcelFileDescriptorCmd.AddCommand(pdfParcelFileDescriptorCreateReliablePipeCmd)
+	pdfParcelFileDescriptorCmd.AddCommand(pdfParcelFileDescriptorCreateReliableSocketPairCmd)
+	pdfParcelFileDescriptorCmd.AddCommand(pdfParcelFileDescriptorCreateSocketPairCmd)
+	pdfParcelFileDescriptorDup1_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	pdfParcelFileDescriptorCmd.AddCommand(pdfParcelFileDescriptorDup1_1Cmd)
+	pdfParcelFileDescriptorFromDatagramSocketCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	pdfParcelFileDescriptorCmd.AddCommand(pdfParcelFileDescriptorFromDatagramSocketCmd)
+	pdfParcelFileDescriptorFromFdCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	pdfParcelFileDescriptorCmd.AddCommand(pdfParcelFileDescriptorFromFdCmd)
+	pdfParcelFileDescriptorFromSocketCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	pdfParcelFileDescriptorCmd.AddCommand(pdfParcelFileDescriptorFromSocketCmd)
+	pdfParcelFileDescriptorOpenCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	pdfParcelFileDescriptorOpenCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	pdfParcelFileDescriptorCmd.AddCommand(pdfParcelFileDescriptorOpenCmd)
+	pdfParcelFileDescriptorParseModeCmd.Flags().String("arg0", "", "arg0 (string)")
+	pdfParcelFileDescriptorCmd.AddCommand(pdfParcelFileDescriptorParseModeCmd)
+	pdfCmd.AddCommand(pdfParcelFileDescriptorCmd)
+	pdfTypefaceEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	pdfTypefaceCmd.AddCommand(pdfTypefaceEqualsCmd)
+	pdfTypefaceCmd.AddCommand(pdfTypefaceGetStyleCmd)
+	pdfTypefaceCmd.AddCommand(pdfTypefaceGetSystemFontFamilyNameCmd)
+	pdfTypefaceCmd.AddCommand(pdfTypefaceGetWeightCmd)
+	pdfTypefaceCmd.AddCommand(pdfTypefaceHashCodeCmd)
+	pdfTypefaceCmd.AddCommand(pdfTypefaceIsBoldCmd)
+	pdfTypefaceCmd.AddCommand(pdfTypefaceIsItalicCmd)
+	pdfTypefaceCreate2Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	pdfTypefaceCreate2Cmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	pdfTypefaceCmd.AddCommand(pdfTypefaceCreate2Cmd)
+	pdfTypefaceCreate3_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	pdfTypefaceCreate3_1Cmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	pdfTypefaceCreate3_1Cmd.Flags().Bool("arg2", false, "arg2 (bool)")
+	pdfTypefaceCmd.AddCommand(pdfTypefaceCreate3_1Cmd)
+	pdfTypefaceCreate2_2Cmd.Flags().String("arg0", "", "arg0 (string)")
+	pdfTypefaceCreate2_2Cmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	pdfTypefaceCmd.AddCommand(pdfTypefaceCreate2_2Cmd)
+	pdfTypefaceCreateFromAssetCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	pdfTypefaceCreateFromAssetCmd.Flags().String("arg1", "", "arg1 (string)")
+	pdfTypefaceCmd.AddCommand(pdfTypefaceCreateFromAssetCmd)
+	pdfTypefaceCreateFromFile1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	pdfTypefaceCmd.AddCommand(pdfTypefaceCreateFromFile1Cmd)
+	pdfTypefaceCreateFromFile1_1Cmd.Flags().String("arg0", "", "arg0 (string)")
+	pdfTypefaceCmd.AddCommand(pdfTypefaceCreateFromFile1_1Cmd)
+	pdfTypefaceDefaultFromStyleCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	pdfTypefaceCmd.AddCommand(pdfTypefaceDefaultFromStyleCmd)
+	pdfCmd.AddCommand(pdfTypefaceCmd)
 	pdfBitmapCmd.AddCommand(pdfBitmapAsSharedCmd)
 	pdfBitmapCompressCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	pdfBitmapCompressCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
@@ -2615,40 +9018,342 @@ func init() {
 	pdfBitmapWrapHardwareBufferCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
 	pdfBitmapCmd.AddCommand(pdfBitmapWrapHardwareBufferCmd)
 	pdfCmd.AddCommand(pdfBitmapCmd)
-	pdfParcelFileDescriptorCmd.AddCommand(pdfParcelFileDescriptorCanDetectErrorsCmd)
-	pdfParcelFileDescriptorCmd.AddCommand(pdfParcelFileDescriptorCheckErrorCmd)
-	pdfParcelFileDescriptorCmd.AddCommand(pdfParcelFileDescriptorCloseCmd)
-	pdfParcelFileDescriptorCloseWithErrorCmd.Flags().String("arg0", "", "arg0 (string)")
-	pdfParcelFileDescriptorCmd.AddCommand(pdfParcelFileDescriptorCloseWithErrorCmd)
-	pdfParcelFileDescriptorCmd.AddCommand(pdfParcelFileDescriptorDescribeContentsCmd)
-	pdfParcelFileDescriptorCmd.AddCommand(pdfParcelFileDescriptorDetachFdCmd)
-	pdfParcelFileDescriptorCmd.AddCommand(pdfParcelFileDescriptorDup0Cmd)
-	pdfParcelFileDescriptorCmd.AddCommand(pdfParcelFileDescriptorGetFdCmd)
-	pdfParcelFileDescriptorCmd.AddCommand(pdfParcelFileDescriptorGetFileDescriptorCmd)
-	pdfParcelFileDescriptorCmd.AddCommand(pdfParcelFileDescriptorGetStatSizeCmd)
-	pdfParcelFileDescriptorCmd.AddCommand(pdfParcelFileDescriptorToStringCmd)
-	pdfParcelFileDescriptorWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	pdfParcelFileDescriptorWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	pdfParcelFileDescriptorCmd.AddCommand(pdfParcelFileDescriptorWriteToParcelCmd)
-	pdfParcelFileDescriptorAdoptFdCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	pdfParcelFileDescriptorCmd.AddCommand(pdfParcelFileDescriptorAdoptFdCmd)
-	pdfParcelFileDescriptorCmd.AddCommand(pdfParcelFileDescriptorCreatePipeCmd)
-	pdfParcelFileDescriptorCmd.AddCommand(pdfParcelFileDescriptorCreateReliablePipeCmd)
-	pdfParcelFileDescriptorCmd.AddCommand(pdfParcelFileDescriptorCreateReliableSocketPairCmd)
-	pdfParcelFileDescriptorCmd.AddCommand(pdfParcelFileDescriptorCreateSocketPairCmd)
-	pdfParcelFileDescriptorDup1_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	pdfParcelFileDescriptorCmd.AddCommand(pdfParcelFileDescriptorDup1_1Cmd)
-	pdfParcelFileDescriptorFromDatagramSocketCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	pdfParcelFileDescriptorCmd.AddCommand(pdfParcelFileDescriptorFromDatagramSocketCmd)
-	pdfParcelFileDescriptorFromFdCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	pdfParcelFileDescriptorCmd.AddCommand(pdfParcelFileDescriptorFromFdCmd)
-	pdfParcelFileDescriptorFromSocketCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	pdfParcelFileDescriptorCmd.AddCommand(pdfParcelFileDescriptorFromSocketCmd)
-	pdfParcelFileDescriptorOpenCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	pdfParcelFileDescriptorOpenCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	pdfParcelFileDescriptorCmd.AddCommand(pdfParcelFileDescriptorOpenCmd)
-	pdfParcelFileDescriptorParseModeCmd.Flags().String("arg0", "", "arg0 (string)")
-	pdfParcelFileDescriptorCmd.AddCommand(pdfParcelFileDescriptorParseModeCmd)
-	pdfCmd.AddCommand(pdfParcelFileDescriptorCmd)
+	pdfBitmapConfigCmd.AddCommand(pdfBitmapConfigValuesCmd)
+	pdfBitmapConfigValueOfCmd.Flags().String("arg0", "", "arg0 (string)")
+	pdfBitmapConfigCmd.AddCommand(pdfBitmapConfigValueOfCmd)
+	pdfCmd.AddCommand(pdfBitmapConfigCmd)
+	pdfPaintCmd.AddCommand(pdfPaintAscentCmd)
+	pdfPaintBreakText5Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	pdfPaintBreakText5Cmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	pdfPaintBreakText5Cmd.Flags().Int32("arg2", 0, "arg2 (int32)")
+	pdfPaintBreakText5Cmd.Flags().Float32("arg3", 0, "arg3 (float32)")
+	pdfPaintBreakText5Cmd.Flags().Int64("arg4", 0, "arg4 (int64)")
+	pdfPaintCmd.AddCommand(pdfPaintBreakText5Cmd)
+	pdfPaintBreakText6_1Cmd.Flags().String("arg0", "", "arg0 (string)")
+	pdfPaintBreakText6_1Cmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	pdfPaintBreakText6_1Cmd.Flags().Int32("arg2", 0, "arg2 (int32)")
+	pdfPaintBreakText6_1Cmd.Flags().Bool("arg3", false, "arg3 (bool)")
+	pdfPaintBreakText6_1Cmd.Flags().Float32("arg4", 0, "arg4 (float32)")
+	pdfPaintBreakText6_1Cmd.Flags().Int64("arg5", 0, "arg5 (int64)")
+	pdfPaintCmd.AddCommand(pdfPaintBreakText6_1Cmd)
+	pdfPaintBreakText4_2Cmd.Flags().String("arg0", "", "arg0 (string)")
+	pdfPaintBreakText4_2Cmd.Flags().Bool("arg1", false, "arg1 (bool)")
+	pdfPaintBreakText4_2Cmd.Flags().Float32("arg2", 0, "arg2 (float32)")
+	pdfPaintBreakText4_2Cmd.Flags().Int64("arg3", 0, "arg3 (int64)")
+	pdfPaintCmd.AddCommand(pdfPaintBreakText4_2Cmd)
+	pdfPaintCmd.AddCommand(pdfPaintClearShadowLayerCmd)
+	pdfPaintCmd.AddCommand(pdfPaintDescentCmd)
+	pdfPaintEqualsForTextMeasurementCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	pdfPaintCmd.AddCommand(pdfPaintEqualsForTextMeasurementCmd)
+	pdfPaintCmd.AddCommand(pdfPaintGetAlphaCmd)
+	pdfPaintCmd.AddCommand(pdfPaintGetBlendModeCmd)
+	pdfPaintCmd.AddCommand(pdfPaintGetColorCmd)
+	pdfPaintCmd.AddCommand(pdfPaintGetColorFilterCmd)
+	pdfPaintCmd.AddCommand(pdfPaintGetColorLongCmd)
+	pdfPaintCmd.AddCommand(pdfPaintGetEndHyphenEditCmd)
+	pdfPaintGetFillPathCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	pdfPaintGetFillPathCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	pdfPaintCmd.AddCommand(pdfPaintGetFillPathCmd)
+	pdfPaintCmd.AddCommand(pdfPaintGetFlagsCmd)
+	pdfPaintCmd.AddCommand(pdfPaintGetFontFeatureSettingsCmd)
+	pdfPaintCmd.AddCommand(pdfPaintGetFontMetrics0Cmd)
+	pdfPaintGetFontMetrics1_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	pdfPaintCmd.AddCommand(pdfPaintGetFontMetrics1_1Cmd)
+	pdfPaintGetFontMetricsForLocaleCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	pdfPaintCmd.AddCommand(pdfPaintGetFontMetricsForLocaleCmd)
+	pdfPaintCmd.AddCommand(pdfPaintGetFontMetricsInt0Cmd)
+	pdfPaintGetFontMetricsInt1_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	pdfPaintCmd.AddCommand(pdfPaintGetFontMetricsInt1_1Cmd)
+	pdfPaintGetFontMetricsInt7_2Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	pdfPaintGetFontMetricsInt7_2Cmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	pdfPaintGetFontMetricsInt7_2Cmd.Flags().Int32("arg2", 0, "arg2 (int32)")
+	pdfPaintGetFontMetricsInt7_2Cmd.Flags().Int32("arg3", 0, "arg3 (int32)")
+	pdfPaintGetFontMetricsInt7_2Cmd.Flags().Int32("arg4", 0, "arg4 (int32)")
+	pdfPaintGetFontMetricsInt7_2Cmd.Flags().Bool("arg5", false, "arg5 (bool)")
+	pdfPaintGetFontMetricsInt7_2Cmd.Flags().Int64("arg6", 0, "arg6 (int64)")
+	pdfPaintCmd.AddCommand(pdfPaintGetFontMetricsInt7_2Cmd)
+	pdfPaintGetFontMetricsInt7_3Cmd.Flags().String("arg0", "", "arg0 (string)")
+	pdfPaintGetFontMetricsInt7_3Cmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	pdfPaintGetFontMetricsInt7_3Cmd.Flags().Int32("arg2", 0, "arg2 (int32)")
+	pdfPaintGetFontMetricsInt7_3Cmd.Flags().Int32("arg3", 0, "arg3 (int32)")
+	pdfPaintGetFontMetricsInt7_3Cmd.Flags().Int32("arg4", 0, "arg4 (int32)")
+	pdfPaintGetFontMetricsInt7_3Cmd.Flags().Bool("arg5", false, "arg5 (bool)")
+	pdfPaintGetFontMetricsInt7_3Cmd.Flags().Int64("arg6", 0, "arg6 (int64)")
+	pdfPaintCmd.AddCommand(pdfPaintGetFontMetricsInt7_3Cmd)
+	pdfPaintGetFontMetricsIntForLocaleCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	pdfPaintCmd.AddCommand(pdfPaintGetFontMetricsIntForLocaleCmd)
+	pdfPaintCmd.AddCommand(pdfPaintGetFontSpacingCmd)
+	pdfPaintCmd.AddCommand(pdfPaintGetFontVariationSettingsCmd)
+	pdfPaintCmd.AddCommand(pdfPaintGetHintingCmd)
+	pdfPaintCmd.AddCommand(pdfPaintGetLetterSpacingCmd)
+	pdfPaintCmd.AddCommand(pdfPaintGetMaskFilterCmd)
+	pdfPaintGetOffsetForAdvance7Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	pdfPaintGetOffsetForAdvance7Cmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	pdfPaintGetOffsetForAdvance7Cmd.Flags().Int32("arg2", 0, "arg2 (int32)")
+	pdfPaintGetOffsetForAdvance7Cmd.Flags().Int32("arg3", 0, "arg3 (int32)")
+	pdfPaintGetOffsetForAdvance7Cmd.Flags().Int32("arg4", 0, "arg4 (int32)")
+	pdfPaintGetOffsetForAdvance7Cmd.Flags().Bool("arg5", false, "arg5 (bool)")
+	pdfPaintGetOffsetForAdvance7Cmd.Flags().Float32("arg6", 0, "arg6 (float32)")
+	pdfPaintCmd.AddCommand(pdfPaintGetOffsetForAdvance7Cmd)
+	pdfPaintGetOffsetForAdvance7_1Cmd.Flags().String("arg0", "", "arg0 (string)")
+	pdfPaintGetOffsetForAdvance7_1Cmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	pdfPaintGetOffsetForAdvance7_1Cmd.Flags().Int32("arg2", 0, "arg2 (int32)")
+	pdfPaintGetOffsetForAdvance7_1Cmd.Flags().Int32("arg3", 0, "arg3 (int32)")
+	pdfPaintGetOffsetForAdvance7_1Cmd.Flags().Int32("arg4", 0, "arg4 (int32)")
+	pdfPaintGetOffsetForAdvance7_1Cmd.Flags().Bool("arg5", false, "arg5 (bool)")
+	pdfPaintGetOffsetForAdvance7_1Cmd.Flags().Float32("arg6", 0, "arg6 (float32)")
+	pdfPaintCmd.AddCommand(pdfPaintGetOffsetForAdvance7_1Cmd)
+	pdfPaintCmd.AddCommand(pdfPaintGetPathEffectCmd)
+	pdfPaintGetRunAdvance7Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	pdfPaintGetRunAdvance7Cmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	pdfPaintGetRunAdvance7Cmd.Flags().Int32("arg2", 0, "arg2 (int32)")
+	pdfPaintGetRunAdvance7Cmd.Flags().Int32("arg3", 0, "arg3 (int32)")
+	pdfPaintGetRunAdvance7Cmd.Flags().Int32("arg4", 0, "arg4 (int32)")
+	pdfPaintGetRunAdvance7Cmd.Flags().Bool("arg5", false, "arg5 (bool)")
+	pdfPaintGetRunAdvance7Cmd.Flags().Int32("arg6", 0, "arg6 (int32)")
+	pdfPaintCmd.AddCommand(pdfPaintGetRunAdvance7Cmd)
+	pdfPaintGetRunAdvance7_1Cmd.Flags().String("arg0", "", "arg0 (string)")
+	pdfPaintGetRunAdvance7_1Cmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	pdfPaintGetRunAdvance7_1Cmd.Flags().Int32("arg2", 0, "arg2 (int32)")
+	pdfPaintGetRunAdvance7_1Cmd.Flags().Int32("arg3", 0, "arg3 (int32)")
+	pdfPaintGetRunAdvance7_1Cmd.Flags().Int32("arg4", 0, "arg4 (int32)")
+	pdfPaintGetRunAdvance7_1Cmd.Flags().Bool("arg5", false, "arg5 (bool)")
+	pdfPaintGetRunAdvance7_1Cmd.Flags().Int32("arg6", 0, "arg6 (int32)")
+	pdfPaintCmd.AddCommand(pdfPaintGetRunAdvance7_1Cmd)
+	pdfPaintGetRunCharacterAdvance9Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	pdfPaintGetRunCharacterAdvance9Cmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	pdfPaintGetRunCharacterAdvance9Cmd.Flags().Int32("arg2", 0, "arg2 (int32)")
+	pdfPaintGetRunCharacterAdvance9Cmd.Flags().Int32("arg3", 0, "arg3 (int32)")
+	pdfPaintGetRunCharacterAdvance9Cmd.Flags().Int32("arg4", 0, "arg4 (int32)")
+	pdfPaintGetRunCharacterAdvance9Cmd.Flags().Bool("arg5", false, "arg5 (bool)")
+	pdfPaintGetRunCharacterAdvance9Cmd.Flags().Int32("arg6", 0, "arg6 (int32)")
+	pdfPaintGetRunCharacterAdvance9Cmd.Flags().Int64("arg7", 0, "arg7 (int64)")
+	pdfPaintGetRunCharacterAdvance9Cmd.Flags().Int32("arg8", 0, "arg8 (int32)")
+	pdfPaintCmd.AddCommand(pdfPaintGetRunCharacterAdvance9Cmd)
+	pdfPaintGetRunCharacterAdvance9_1Cmd.Flags().String("arg0", "", "arg0 (string)")
+	pdfPaintGetRunCharacterAdvance9_1Cmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	pdfPaintGetRunCharacterAdvance9_1Cmd.Flags().Int32("arg2", 0, "arg2 (int32)")
+	pdfPaintGetRunCharacterAdvance9_1Cmd.Flags().Int32("arg3", 0, "arg3 (int32)")
+	pdfPaintGetRunCharacterAdvance9_1Cmd.Flags().Int32("arg4", 0, "arg4 (int32)")
+	pdfPaintGetRunCharacterAdvance9_1Cmd.Flags().Bool("arg5", false, "arg5 (bool)")
+	pdfPaintGetRunCharacterAdvance9_1Cmd.Flags().Int32("arg6", 0, "arg6 (int32)")
+	pdfPaintGetRunCharacterAdvance9_1Cmd.Flags().Int64("arg7", 0, "arg7 (int64)")
+	pdfPaintGetRunCharacterAdvance9_1Cmd.Flags().Int32("arg8", 0, "arg8 (int32)")
+	pdfPaintCmd.AddCommand(pdfPaintGetRunCharacterAdvance9_1Cmd)
+	pdfPaintCmd.AddCommand(pdfPaintGetShaderCmd)
+	pdfPaintCmd.AddCommand(pdfPaintGetShadowLayerColorCmd)
+	pdfPaintCmd.AddCommand(pdfPaintGetShadowLayerColorLongCmd)
+	pdfPaintCmd.AddCommand(pdfPaintGetShadowLayerDxCmd)
+	pdfPaintCmd.AddCommand(pdfPaintGetShadowLayerDyCmd)
+	pdfPaintCmd.AddCommand(pdfPaintGetShadowLayerRadiusCmd)
+	pdfPaintCmd.AddCommand(pdfPaintGetStartHyphenEditCmd)
+	pdfPaintCmd.AddCommand(pdfPaintGetStrikeThruPositionCmd)
+	pdfPaintCmd.AddCommand(pdfPaintGetStrikeThruThicknessCmd)
+	pdfPaintCmd.AddCommand(pdfPaintGetStrokeCapCmd)
+	pdfPaintCmd.AddCommand(pdfPaintGetStrokeJoinCmd)
+	pdfPaintCmd.AddCommand(pdfPaintGetStrokeMiterCmd)
+	pdfPaintCmd.AddCommand(pdfPaintGetStrokeWidthCmd)
+	pdfPaintCmd.AddCommand(pdfPaintGetStyleCmd)
+	pdfPaintCmd.AddCommand(pdfPaintGetTextAlignCmd)
+	pdfPaintGetTextBounds4Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	pdfPaintGetTextBounds4Cmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	pdfPaintGetTextBounds4Cmd.Flags().Int32("arg2", 0, "arg2 (int32)")
+	pdfPaintGetTextBounds4Cmd.Flags().Int64("arg3", 0, "arg3 (int64)")
+	pdfPaintCmd.AddCommand(pdfPaintGetTextBounds4Cmd)
+	pdfPaintGetTextBounds4_1Cmd.Flags().String("arg0", "", "arg0 (string)")
+	pdfPaintGetTextBounds4_1Cmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	pdfPaintGetTextBounds4_1Cmd.Flags().Int32("arg2", 0, "arg2 (int32)")
+	pdfPaintGetTextBounds4_1Cmd.Flags().Int64("arg3", 0, "arg3 (int64)")
+	pdfPaintCmd.AddCommand(pdfPaintGetTextBounds4_1Cmd)
+	pdfPaintGetTextBounds4_2Cmd.Flags().String("arg0", "", "arg0 (string)")
+	pdfPaintGetTextBounds4_2Cmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	pdfPaintGetTextBounds4_2Cmd.Flags().Int32("arg2", 0, "arg2 (int32)")
+	pdfPaintGetTextBounds4_2Cmd.Flags().Int64("arg3", 0, "arg3 (int64)")
+	pdfPaintCmd.AddCommand(pdfPaintGetTextBounds4_2Cmd)
+	pdfPaintCmd.AddCommand(pdfPaintGetTextLocaleCmd)
+	pdfPaintCmd.AddCommand(pdfPaintGetTextLocalesCmd)
+	pdfPaintGetTextPath6Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	pdfPaintGetTextPath6Cmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	pdfPaintGetTextPath6Cmd.Flags().Int32("arg2", 0, "arg2 (int32)")
+	pdfPaintGetTextPath6Cmd.Flags().Float32("arg3", 0, "arg3 (float32)")
+	pdfPaintGetTextPath6Cmd.Flags().Float32("arg4", 0, "arg4 (float32)")
+	pdfPaintGetTextPath6Cmd.Flags().Int64("arg5", 0, "arg5 (int64)")
+	pdfPaintCmd.AddCommand(pdfPaintGetTextPath6Cmd)
+	pdfPaintGetTextPath6_1Cmd.Flags().String("arg0", "", "arg0 (string)")
+	pdfPaintGetTextPath6_1Cmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	pdfPaintGetTextPath6_1Cmd.Flags().Int32("arg2", 0, "arg2 (int32)")
+	pdfPaintGetTextPath6_1Cmd.Flags().Float32("arg3", 0, "arg3 (float32)")
+	pdfPaintGetTextPath6_1Cmd.Flags().Float32("arg4", 0, "arg4 (float32)")
+	pdfPaintGetTextPath6_1Cmd.Flags().Int64("arg5", 0, "arg5 (int64)")
+	pdfPaintCmd.AddCommand(pdfPaintGetTextPath6_1Cmd)
+	pdfPaintGetTextRunAdvancesCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	pdfPaintGetTextRunAdvancesCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	pdfPaintGetTextRunAdvancesCmd.Flags().Int32("arg2", 0, "arg2 (int32)")
+	pdfPaintGetTextRunAdvancesCmd.Flags().Int32("arg3", 0, "arg3 (int32)")
+	pdfPaintGetTextRunAdvancesCmd.Flags().Int32("arg4", 0, "arg4 (int32)")
+	pdfPaintGetTextRunAdvancesCmd.Flags().Bool("arg5", false, "arg5 (bool)")
+	pdfPaintGetTextRunAdvancesCmd.Flags().Int64("arg6", 0, "arg6 (int64)")
+	pdfPaintGetTextRunAdvancesCmd.Flags().Int32("arg7", 0, "arg7 (int32)")
+	pdfPaintCmd.AddCommand(pdfPaintGetTextRunAdvancesCmd)
+	pdfPaintGetTextRunCursor6Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	pdfPaintGetTextRunCursor6Cmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	pdfPaintGetTextRunCursor6Cmd.Flags().Int32("arg2", 0, "arg2 (int32)")
+	pdfPaintGetTextRunCursor6Cmd.Flags().Bool("arg3", false, "arg3 (bool)")
+	pdfPaintGetTextRunCursor6Cmd.Flags().Int32("arg4", 0, "arg4 (int32)")
+	pdfPaintGetTextRunCursor6Cmd.Flags().Int32("arg5", 0, "arg5 (int32)")
+	pdfPaintCmd.AddCommand(pdfPaintGetTextRunCursor6Cmd)
+	pdfPaintGetTextRunCursor6_1Cmd.Flags().String("arg0", "", "arg0 (string)")
+	pdfPaintGetTextRunCursor6_1Cmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	pdfPaintGetTextRunCursor6_1Cmd.Flags().Int32("arg2", 0, "arg2 (int32)")
+	pdfPaintGetTextRunCursor6_1Cmd.Flags().Bool("arg3", false, "arg3 (bool)")
+	pdfPaintGetTextRunCursor6_1Cmd.Flags().Int32("arg4", 0, "arg4 (int32)")
+	pdfPaintGetTextRunCursor6_1Cmd.Flags().Int32("arg5", 0, "arg5 (int32)")
+	pdfPaintCmd.AddCommand(pdfPaintGetTextRunCursor6_1Cmd)
+	pdfPaintCmd.AddCommand(pdfPaintGetTextScaleXCmd)
+	pdfPaintCmd.AddCommand(pdfPaintGetTextSizeCmd)
+	pdfPaintCmd.AddCommand(pdfPaintGetTextSkewXCmd)
+	pdfPaintGetTextWidths4Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	pdfPaintGetTextWidths4Cmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	pdfPaintGetTextWidths4Cmd.Flags().Int32("arg2", 0, "arg2 (int32)")
+	pdfPaintGetTextWidths4Cmd.Flags().Int64("arg3", 0, "arg3 (int64)")
+	pdfPaintCmd.AddCommand(pdfPaintGetTextWidths4Cmd)
+	pdfPaintGetTextWidths4_1Cmd.Flags().String("arg0", "", "arg0 (string)")
+	pdfPaintGetTextWidths4_1Cmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	pdfPaintGetTextWidths4_1Cmd.Flags().Int32("arg2", 0, "arg2 (int32)")
+	pdfPaintGetTextWidths4_1Cmd.Flags().Int64("arg3", 0, "arg3 (int64)")
+	pdfPaintCmd.AddCommand(pdfPaintGetTextWidths4_1Cmd)
+	pdfPaintGetTextWidths2_2Cmd.Flags().String("arg0", "", "arg0 (string)")
+	pdfPaintGetTextWidths2_2Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	pdfPaintCmd.AddCommand(pdfPaintGetTextWidths2_2Cmd)
+	pdfPaintGetTextWidths4_3Cmd.Flags().String("arg0", "", "arg0 (string)")
+	pdfPaintGetTextWidths4_3Cmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	pdfPaintGetTextWidths4_3Cmd.Flags().Int32("arg2", 0, "arg2 (int32)")
+	pdfPaintGetTextWidths4_3Cmd.Flags().Int64("arg3", 0, "arg3 (int64)")
+	pdfPaintCmd.AddCommand(pdfPaintGetTextWidths4_3Cmd)
+	pdfPaintCmd.AddCommand(pdfPaintGetTypefaceCmd)
+	pdfPaintCmd.AddCommand(pdfPaintGetUnderlinePositionCmd)
+	pdfPaintCmd.AddCommand(pdfPaintGetUnderlineThicknessCmd)
+	pdfPaintCmd.AddCommand(pdfPaintGetWordSpacingCmd)
+	pdfPaintCmd.AddCommand(pdfPaintGetXfermodeCmd)
+	pdfPaintHasGlyphCmd.Flags().String("arg0", "", "arg0 (string)")
+	pdfPaintCmd.AddCommand(pdfPaintHasGlyphCmd)
+	pdfPaintCmd.AddCommand(pdfPaintIsAntiAliasCmd)
+	pdfPaintCmd.AddCommand(pdfPaintIsDitherCmd)
+	pdfPaintCmd.AddCommand(pdfPaintIsElegantTextHeightCmd)
+	pdfPaintCmd.AddCommand(pdfPaintIsFakeBoldTextCmd)
+	pdfPaintCmd.AddCommand(pdfPaintIsFilterBitmapCmd)
+	pdfPaintCmd.AddCommand(pdfPaintIsLinearTextCmd)
+	pdfPaintCmd.AddCommand(pdfPaintIsStrikeThruTextCmd)
+	pdfPaintCmd.AddCommand(pdfPaintIsSubpixelTextCmd)
+	pdfPaintCmd.AddCommand(pdfPaintIsUnderlineTextCmd)
+	pdfPaintMeasureText3Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	pdfPaintMeasureText3Cmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	pdfPaintMeasureText3Cmd.Flags().Int32("arg2", 0, "arg2 (int32)")
+	pdfPaintCmd.AddCommand(pdfPaintMeasureText3Cmd)
+	pdfPaintMeasureText3_1Cmd.Flags().String("arg0", "", "arg0 (string)")
+	pdfPaintMeasureText3_1Cmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	pdfPaintMeasureText3_1Cmd.Flags().Int32("arg2", 0, "arg2 (int32)")
+	pdfPaintCmd.AddCommand(pdfPaintMeasureText3_1Cmd)
+	pdfPaintMeasureText1_2Cmd.Flags().String("arg0", "", "arg0 (string)")
+	pdfPaintCmd.AddCommand(pdfPaintMeasureText1_2Cmd)
+	pdfPaintMeasureText3_3Cmd.Flags().String("arg0", "", "arg0 (string)")
+	pdfPaintMeasureText3_3Cmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	pdfPaintMeasureText3_3Cmd.Flags().Int32("arg2", 0, "arg2 (int32)")
+	pdfPaintCmd.AddCommand(pdfPaintMeasureText3_3Cmd)
+	pdfPaintCmd.AddCommand(pdfPaintResetCmd)
+	pdfPaintSetCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	pdfPaintCmd.AddCommand(pdfPaintSetCmd)
+	pdfPaintSetARGBCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	pdfPaintSetARGBCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	pdfPaintSetARGBCmd.Flags().Int32("arg2", 0, "arg2 (int32)")
+	pdfPaintSetARGBCmd.Flags().Int32("arg3", 0, "arg3 (int32)")
+	pdfPaintCmd.AddCommand(pdfPaintSetARGBCmd)
+	pdfPaintSetAlphaCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	pdfPaintCmd.AddCommand(pdfPaintSetAlphaCmd)
+	pdfPaintSetAntiAliasCmd.Flags().Bool("arg0", false, "arg0 (bool)")
+	pdfPaintCmd.AddCommand(pdfPaintSetAntiAliasCmd)
+	pdfPaintSetBlendModeCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	pdfPaintCmd.AddCommand(pdfPaintSetBlendModeCmd)
+	pdfPaintSetColor1Cmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	pdfPaintCmd.AddCommand(pdfPaintSetColor1Cmd)
+	pdfPaintSetColor1_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	pdfPaintCmd.AddCommand(pdfPaintSetColor1_1Cmd)
+	pdfPaintSetColorFilterCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	pdfPaintCmd.AddCommand(pdfPaintSetColorFilterCmd)
+	pdfPaintSetDitherCmd.Flags().Bool("arg0", false, "arg0 (bool)")
+	pdfPaintCmd.AddCommand(pdfPaintSetDitherCmd)
+	pdfPaintSetElegantTextHeightCmd.Flags().Bool("arg0", false, "arg0 (bool)")
+	pdfPaintCmd.AddCommand(pdfPaintSetElegantTextHeightCmd)
+	pdfPaintSetEndHyphenEditCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	pdfPaintCmd.AddCommand(pdfPaintSetEndHyphenEditCmd)
+	pdfPaintSetFakeBoldTextCmd.Flags().Bool("arg0", false, "arg0 (bool)")
+	pdfPaintCmd.AddCommand(pdfPaintSetFakeBoldTextCmd)
+	pdfPaintSetFilterBitmapCmd.Flags().Bool("arg0", false, "arg0 (bool)")
+	pdfPaintCmd.AddCommand(pdfPaintSetFilterBitmapCmd)
+	pdfPaintSetFlagsCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	pdfPaintCmd.AddCommand(pdfPaintSetFlagsCmd)
+	pdfPaintSetFontFeatureSettingsCmd.Flags().String("arg0", "", "arg0 (string)")
+	pdfPaintCmd.AddCommand(pdfPaintSetFontFeatureSettingsCmd)
+	pdfPaintSetFontVariationSettingsCmd.Flags().String("arg0", "", "arg0 (string)")
+	pdfPaintCmd.AddCommand(pdfPaintSetFontVariationSettingsCmd)
+	pdfPaintSetHintingCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	pdfPaintCmd.AddCommand(pdfPaintSetHintingCmd)
+	pdfPaintSetLetterSpacingCmd.Flags().Float32("arg0", 0, "arg0 (float32)")
+	pdfPaintCmd.AddCommand(pdfPaintSetLetterSpacingCmd)
+	pdfPaintSetLinearTextCmd.Flags().Bool("arg0", false, "arg0 (bool)")
+	pdfPaintCmd.AddCommand(pdfPaintSetLinearTextCmd)
+	pdfPaintSetMaskFilterCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	pdfPaintCmd.AddCommand(pdfPaintSetMaskFilterCmd)
+	pdfPaintSetPathEffectCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	pdfPaintCmd.AddCommand(pdfPaintSetPathEffectCmd)
+	pdfPaintSetShaderCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	pdfPaintCmd.AddCommand(pdfPaintSetShaderCmd)
+	pdfPaintSetShadowLayer4Cmd.Flags().Float32("arg0", 0, "arg0 (float32)")
+	pdfPaintSetShadowLayer4Cmd.Flags().Float32("arg1", 0, "arg1 (float32)")
+	pdfPaintSetShadowLayer4Cmd.Flags().Float32("arg2", 0, "arg2 (float32)")
+	pdfPaintSetShadowLayer4Cmd.Flags().Int32("arg3", 0, "arg3 (int32)")
+	pdfPaintCmd.AddCommand(pdfPaintSetShadowLayer4Cmd)
+	pdfPaintSetShadowLayer4_1Cmd.Flags().Float32("arg0", 0, "arg0 (float32)")
+	pdfPaintSetShadowLayer4_1Cmd.Flags().Float32("arg1", 0, "arg1 (float32)")
+	pdfPaintSetShadowLayer4_1Cmd.Flags().Float32("arg2", 0, "arg2 (float32)")
+	pdfPaintSetShadowLayer4_1Cmd.Flags().Int64("arg3", 0, "arg3 (int64)")
+	pdfPaintCmd.AddCommand(pdfPaintSetShadowLayer4_1Cmd)
+	pdfPaintSetStartHyphenEditCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	pdfPaintCmd.AddCommand(pdfPaintSetStartHyphenEditCmd)
+	pdfPaintSetStrikeThruTextCmd.Flags().Bool("arg0", false, "arg0 (bool)")
+	pdfPaintCmd.AddCommand(pdfPaintSetStrikeThruTextCmd)
+	pdfPaintSetStrokeCapCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	pdfPaintCmd.AddCommand(pdfPaintSetStrokeCapCmd)
+	pdfPaintSetStrokeJoinCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	pdfPaintCmd.AddCommand(pdfPaintSetStrokeJoinCmd)
+	pdfPaintSetStrokeMiterCmd.Flags().Float32("arg0", 0, "arg0 (float32)")
+	pdfPaintCmd.AddCommand(pdfPaintSetStrokeMiterCmd)
+	pdfPaintSetStrokeWidthCmd.Flags().Float32("arg0", 0, "arg0 (float32)")
+	pdfPaintCmd.AddCommand(pdfPaintSetStrokeWidthCmd)
+	pdfPaintSetStyleCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	pdfPaintCmd.AddCommand(pdfPaintSetStyleCmd)
+	pdfPaintSetSubpixelTextCmd.Flags().Bool("arg0", false, "arg0 (bool)")
+	pdfPaintCmd.AddCommand(pdfPaintSetSubpixelTextCmd)
+	pdfPaintSetTextAlignCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	pdfPaintCmd.AddCommand(pdfPaintSetTextAlignCmd)
+	pdfPaintSetTextLocaleCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	pdfPaintCmd.AddCommand(pdfPaintSetTextLocaleCmd)
+	pdfPaintSetTextLocalesCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	pdfPaintCmd.AddCommand(pdfPaintSetTextLocalesCmd)
+	pdfPaintSetTextScaleXCmd.Flags().Float32("arg0", 0, "arg0 (float32)")
+	pdfPaintCmd.AddCommand(pdfPaintSetTextScaleXCmd)
+	pdfPaintSetTextSizeCmd.Flags().Float32("arg0", 0, "arg0 (float32)")
+	pdfPaintCmd.AddCommand(pdfPaintSetTextSizeCmd)
+	pdfPaintSetTextSkewXCmd.Flags().Float32("arg0", 0, "arg0 (float32)")
+	pdfPaintCmd.AddCommand(pdfPaintSetTextSkewXCmd)
+	pdfPaintSetTypefaceCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	pdfPaintCmd.AddCommand(pdfPaintSetTypefaceCmd)
+	pdfPaintSetUnderlineTextCmd.Flags().Bool("arg0", false, "arg0 (bool)")
+	pdfPaintCmd.AddCommand(pdfPaintSetUnderlineTextCmd)
+	pdfPaintSetWordSpacingCmd.Flags().Float32("arg0", 0, "arg0 (float32)")
+	pdfPaintCmd.AddCommand(pdfPaintSetWordSpacingCmd)
+	pdfPaintSetXfermodeCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	pdfPaintCmd.AddCommand(pdfPaintSetXfermodeCmd)
+	pdfCmd.AddCommand(pdfPaintCmd)
 	rootCmd.AddCommand(pdfCmd)
 }

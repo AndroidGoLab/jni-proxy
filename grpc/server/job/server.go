@@ -7,23 +7,23 @@ import (
 
 	"github.com/AndroidGoLab/jni"
 
-	"github.com/AndroidGoLab/jni/app"
-	jnipkg "github.com/AndroidGoLab/jni/app/job"
 	"github.com/AndroidGoLab/jni-proxy/handlestore"
 	pb "github.com/AndroidGoLab/jni-proxy/proto/job"
+	"github.com/AndroidGoLab/jni/app"
+	jnipkg "github.com/AndroidGoLab/jni/app/job"
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"
 )
 
-// JobSchedulerServer implements pb.JobSchedulerServiceServer.
-type JobSchedulerServer struct {
-	pb.UnimplementedJobSchedulerServiceServer
+// SchedulerServer implements pb.SchedulerServiceServer.
+type SchedulerServer struct {
+	pb.UnimplementedSchedulerServiceServer
 	Ctx     *app.Context
 	Handles *handlestore.HandleStore
 }
 
-func (s *JobSchedulerServer) CanRunUserInitiatedJobs(_ context.Context, req *pb.CanRunUserInitiatedJobsRequest) (*pb.CanRunUserInitiatedJobsResponse, error) {
-	mgr, err := jnipkg.NewjobScheduler(s.Ctx)
+func (s *SchedulerServer) CanRunUserInitiatedJobs(_ context.Context, req *pb.CanRunUserInitiatedJobsRequest) (*pb.CanRunUserInitiatedJobsResponse, error) {
+	mgr, err := jnipkg.NewScheduler(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -36,8 +36,34 @@ func (s *JobSchedulerServer) CanRunUserInitiatedJobs(_ context.Context, req *pb.
 	return &pb.CanRunUserInitiatedJobsResponse{Result: result}, nil
 }
 
-func (s *JobSchedulerServer) CancelInAllNamespaces(_ context.Context, req *pb.CancelInAllNamespacesRequest) (*pb.CancelInAllNamespacesResponse, error) {
-	mgr, err := jnipkg.NewjobScheduler(s.Ctx)
+func (s *SchedulerServer) Cancel(_ context.Context, req *pb.CancelRequest) (*pb.CancelResponse, error) {
+	mgr, err := jnipkg.NewScheduler(s.Ctx)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
+	}
+	defer mgr.Close()
+
+	if err := mgr.Cancel(req.GetArg0()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.CancelResponse{}, nil
+}
+
+func (s *SchedulerServer) CancelAll(_ context.Context, req *pb.CancelAllRequest) (*pb.CancelAllResponse, error) {
+	mgr, err := jnipkg.NewScheduler(s.Ctx)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
+	}
+	defer mgr.Close()
+
+	if err := mgr.CancelAll(); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.CancelAllResponse{}, nil
+}
+
+func (s *SchedulerServer) CancelInAllNamespaces(_ context.Context, req *pb.CancelInAllNamespacesRequest) (*pb.CancelInAllNamespacesResponse, error) {
+	mgr, err := jnipkg.NewScheduler(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -49,8 +75,22 @@ func (s *JobSchedulerServer) CancelInAllNamespaces(_ context.Context, req *pb.Ca
 	return &pb.CancelInAllNamespacesResponse{}, nil
 }
 
-func (s *JobSchedulerServer) ForNamespace(_ context.Context, req *pb.ForNamespaceRequest) (*pb.ForNamespaceResponse, error) {
-	mgr, err := jnipkg.NewjobScheduler(s.Ctx)
+func (s *SchedulerServer) Enqueue(_ context.Context, req *pb.EnqueueRequest) (*pb.EnqueueResponse, error) {
+	mgr, err := jnipkg.NewScheduler(s.Ctx)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
+	}
+	defer mgr.Close()
+
+	result, err := mgr.Enqueue(s.Handles.Get(req.GetArg0()), s.Handles.Get(req.GetArg1()))
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.EnqueueResponse{Result: result}, nil
+}
+
+func (s *SchedulerServer) ForNamespace(_ context.Context, req *pb.ForNamespaceRequest) (*pb.ForNamespaceResponse, error) {
+	mgr, err := jnipkg.NewScheduler(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -72,8 +112,31 @@ func (s *JobSchedulerServer) ForNamespace(_ context.Context, req *pb.ForNamespac
 	return &pb.ForNamespaceResponse{Result: handle}, nil
 }
 
-func (s *JobSchedulerServer) GetNamespace(_ context.Context, req *pb.GetNamespaceRequest) (*pb.GetNamespaceResponse, error) {
-	mgr, err := jnipkg.NewjobScheduler(s.Ctx)
+func (s *SchedulerServer) GetAllPendingJobs(_ context.Context, req *pb.GetAllPendingJobsRequest) (*pb.GetAllPendingJobsResponse, error) {
+	mgr, err := jnipkg.NewScheduler(s.Ctx)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
+	}
+	defer mgr.Close()
+
+	result, err := mgr.GetAllPendingJobs()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetAllPendingJobsResponse{Result: handle}, nil
+}
+
+func (s *SchedulerServer) GetNamespace(_ context.Context, req *pb.GetNamespaceRequest) (*pb.GetNamespaceResponse, error) {
+	mgr, err := jnipkg.NewScheduler(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -86,8 +149,31 @@ func (s *JobSchedulerServer) GetNamespace(_ context.Context, req *pb.GetNamespac
 	return &pb.GetNamespaceResponse{Result: result}, nil
 }
 
-func (s *JobSchedulerServer) GetPendingJobReason(_ context.Context, req *pb.GetPendingJobReasonRequest) (*pb.GetPendingJobReasonResponse, error) {
-	mgr, err := jnipkg.NewjobScheduler(s.Ctx)
+func (s *SchedulerServer) GetPendingJob(_ context.Context, req *pb.GetPendingJobRequest) (*pb.GetPendingJobResponse, error) {
+	mgr, err := jnipkg.NewScheduler(s.Ctx)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
+	}
+	defer mgr.Close()
+
+	result, err := mgr.GetPendingJob(req.GetArg0())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetPendingJobResponse{Result: handle}, nil
+}
+
+func (s *SchedulerServer) GetPendingJobReason(_ context.Context, req *pb.GetPendingJobReasonRequest) (*pb.GetPendingJobReasonResponse, error) {
+	mgr, err := jnipkg.NewScheduler(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -100,8 +186,8 @@ func (s *JobSchedulerServer) GetPendingJobReason(_ context.Context, req *pb.GetP
 	return &pb.GetPendingJobReasonResponse{Result: result}, nil
 }
 
-func (s *JobSchedulerServer) GetPendingJobReasons(_ context.Context, req *pb.GetPendingJobReasonsRequest) (*pb.GetPendingJobReasonsResponse, error) {
-	mgr, err := jnipkg.NewjobScheduler(s.Ctx)
+func (s *SchedulerServer) GetPendingJobReasons(_ context.Context, req *pb.GetPendingJobReasonsRequest) (*pb.GetPendingJobReasonsResponse, error) {
+	mgr, err := jnipkg.NewScheduler(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -123,8 +209,8 @@ func (s *JobSchedulerServer) GetPendingJobReasons(_ context.Context, req *pb.Get
 	return &pb.GetPendingJobReasonsResponse{Result: handle}, nil
 }
 
-func (s *JobSchedulerServer) GetPendingJobReasonsHistory(_ context.Context, req *pb.GetPendingJobReasonsHistoryRequest) (*pb.GetPendingJobReasonsHistoryResponse, error) {
-	mgr, err := jnipkg.NewjobScheduler(s.Ctx)
+func (s *SchedulerServer) GetPendingJobReasonsHistory(_ context.Context, req *pb.GetPendingJobReasonsHistoryRequest) (*pb.GetPendingJobReasonsHistoryResponse, error) {
+	mgr, err := jnipkg.NewScheduler(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -144,4 +230,18 @@ func (s *JobSchedulerServer) GetPendingJobReasonsHistory(_ context.Context, req 
 		}
 	}
 	return &pb.GetPendingJobReasonsHistoryResponse{Result: handle}, nil
+}
+
+func (s *SchedulerServer) Schedule(_ context.Context, req *pb.ScheduleRequest) (*pb.ScheduleResponse, error) {
+	mgr, err := jnipkg.NewScheduler(s.Ctx)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
+	}
+	defer mgr.Close()
+
+	result, err := mgr.Schedule(s.Handles.Get(req.GetArg0()))
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.ScheduleResponse{Result: result}, nil
 }

@@ -21,23 +21,23 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
-	BlobStoreManagerService_AbandonSession_FullMethodName              = "/blob.BlobStoreManagerService/AbandonSession"
-	BlobStoreManagerService_AcquireLease2_FullMethodName               = "/blob.BlobStoreManagerService/AcquireLease2"
-	BlobStoreManagerService_AcquireLease3_1_FullMethodName             = "/blob.BlobStoreManagerService/AcquireLease3_1"
-	BlobStoreManagerService_AcquireLease2_2_FullMethodName             = "/blob.BlobStoreManagerService/AcquireLease2_2"
-	BlobStoreManagerService_AcquireLease3_3_FullMethodName             = "/blob.BlobStoreManagerService/AcquireLease3_3"
-	BlobStoreManagerService_CreateSession_FullMethodName               = "/blob.BlobStoreManagerService/CreateSession"
-	BlobStoreManagerService_GetLeasedBlobs_FullMethodName              = "/blob.BlobStoreManagerService/GetLeasedBlobs"
-	BlobStoreManagerService_GetRemainingLeaseQuotaBytes_FullMethodName = "/blob.BlobStoreManagerService/GetRemainingLeaseQuotaBytes"
-	BlobStoreManagerService_OpenBlob_FullMethodName                    = "/blob.BlobStoreManagerService/OpenBlob"
-	BlobStoreManagerService_OpenSession_FullMethodName                 = "/blob.BlobStoreManagerService/OpenSession"
-	BlobStoreManagerService_ReleaseLease_FullMethodName                = "/blob.BlobStoreManagerService/ReleaseLease"
+	StoreManagerService_AbandonSession_FullMethodName              = "/blob.StoreManagerService/AbandonSession"
+	StoreManagerService_AcquireLease2_FullMethodName               = "/blob.StoreManagerService/AcquireLease2"
+	StoreManagerService_AcquireLease3_1_FullMethodName             = "/blob.StoreManagerService/AcquireLease3_1"
+	StoreManagerService_AcquireLease2_2_FullMethodName             = "/blob.StoreManagerService/AcquireLease2_2"
+	StoreManagerService_AcquireLease3_3_FullMethodName             = "/blob.StoreManagerService/AcquireLease3_3"
+	StoreManagerService_CreateSession_FullMethodName               = "/blob.StoreManagerService/CreateSession"
+	StoreManagerService_GetLeasedBlobs_FullMethodName              = "/blob.StoreManagerService/GetLeasedBlobs"
+	StoreManagerService_GetRemainingLeaseQuotaBytes_FullMethodName = "/blob.StoreManagerService/GetRemainingLeaseQuotaBytes"
+	StoreManagerService_OpenBlob_FullMethodName                    = "/blob.StoreManagerService/OpenBlob"
+	StoreManagerService_OpenSession_FullMethodName                 = "/blob.StoreManagerService/OpenSession"
+	StoreManagerService_ReleaseLease_FullMethodName                = "/blob.StoreManagerService/ReleaseLease"
 )
 
-// BlobStoreManagerServiceClient is the client API for BlobStoreManagerService service.
+// StoreManagerServiceClient is the client API for StoreManagerService service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type BlobStoreManagerServiceClient interface {
+type StoreManagerServiceClient interface {
 	AbandonSession(ctx context.Context, in *AbandonSessionRequest, opts ...grpc.CallOption) (*AbandonSessionResponse, error)
 	AcquireLease2(ctx context.Context, in *AcquireLease2Request, opts ...grpc.CallOption) (*AcquireLease2Response, error)
 	AcquireLease3_1(ctx context.Context, in *AcquireLease3_1Request, opts ...grpc.CallOption) (*AcquireLease3_1Response, error)
@@ -51,128 +51,128 @@ type BlobStoreManagerServiceClient interface {
 	ReleaseLease(ctx context.Context, in *ReleaseLeaseRequest, opts ...grpc.CallOption) (*ReleaseLeaseResponse, error)
 }
 
-type blobStoreManagerServiceClient struct {
+type storeManagerServiceClient struct {
 	cc grpc.ClientConnInterface
 }
 
-func NewBlobStoreManagerServiceClient(cc grpc.ClientConnInterface) BlobStoreManagerServiceClient {
-	return &blobStoreManagerServiceClient{cc}
+func NewStoreManagerServiceClient(cc grpc.ClientConnInterface) StoreManagerServiceClient {
+	return &storeManagerServiceClient{cc}
 }
 
-func (c *blobStoreManagerServiceClient) AbandonSession(ctx context.Context, in *AbandonSessionRequest, opts ...grpc.CallOption) (*AbandonSessionResponse, error) {
+func (c *storeManagerServiceClient) AbandonSession(ctx context.Context, in *AbandonSessionRequest, opts ...grpc.CallOption) (*AbandonSessionResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(AbandonSessionResponse)
-	err := c.cc.Invoke(ctx, BlobStoreManagerService_AbandonSession_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, StoreManagerService_AbandonSession_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *blobStoreManagerServiceClient) AcquireLease2(ctx context.Context, in *AcquireLease2Request, opts ...grpc.CallOption) (*AcquireLease2Response, error) {
+func (c *storeManagerServiceClient) AcquireLease2(ctx context.Context, in *AcquireLease2Request, opts ...grpc.CallOption) (*AcquireLease2Response, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(AcquireLease2Response)
-	err := c.cc.Invoke(ctx, BlobStoreManagerService_AcquireLease2_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, StoreManagerService_AcquireLease2_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *blobStoreManagerServiceClient) AcquireLease3_1(ctx context.Context, in *AcquireLease3_1Request, opts ...grpc.CallOption) (*AcquireLease3_1Response, error) {
+func (c *storeManagerServiceClient) AcquireLease3_1(ctx context.Context, in *AcquireLease3_1Request, opts ...grpc.CallOption) (*AcquireLease3_1Response, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(AcquireLease3_1Response)
-	err := c.cc.Invoke(ctx, BlobStoreManagerService_AcquireLease3_1_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, StoreManagerService_AcquireLease3_1_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *blobStoreManagerServiceClient) AcquireLease2_2(ctx context.Context, in *AcquireLease2_2Request, opts ...grpc.CallOption) (*AcquireLease2_2Response, error) {
+func (c *storeManagerServiceClient) AcquireLease2_2(ctx context.Context, in *AcquireLease2_2Request, opts ...grpc.CallOption) (*AcquireLease2_2Response, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(AcquireLease2_2Response)
-	err := c.cc.Invoke(ctx, BlobStoreManagerService_AcquireLease2_2_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, StoreManagerService_AcquireLease2_2_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *blobStoreManagerServiceClient) AcquireLease3_3(ctx context.Context, in *AcquireLease3_3Request, opts ...grpc.CallOption) (*AcquireLease3_3Response, error) {
+func (c *storeManagerServiceClient) AcquireLease3_3(ctx context.Context, in *AcquireLease3_3Request, opts ...grpc.CallOption) (*AcquireLease3_3Response, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(AcquireLease3_3Response)
-	err := c.cc.Invoke(ctx, BlobStoreManagerService_AcquireLease3_3_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, StoreManagerService_AcquireLease3_3_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *blobStoreManagerServiceClient) CreateSession(ctx context.Context, in *CreateSessionRequest, opts ...grpc.CallOption) (*CreateSessionResponse, error) {
+func (c *storeManagerServiceClient) CreateSession(ctx context.Context, in *CreateSessionRequest, opts ...grpc.CallOption) (*CreateSessionResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(CreateSessionResponse)
-	err := c.cc.Invoke(ctx, BlobStoreManagerService_CreateSession_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, StoreManagerService_CreateSession_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *blobStoreManagerServiceClient) GetLeasedBlobs(ctx context.Context, in *GetLeasedBlobsRequest, opts ...grpc.CallOption) (*GetLeasedBlobsResponse, error) {
+func (c *storeManagerServiceClient) GetLeasedBlobs(ctx context.Context, in *GetLeasedBlobsRequest, opts ...grpc.CallOption) (*GetLeasedBlobsResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(GetLeasedBlobsResponse)
-	err := c.cc.Invoke(ctx, BlobStoreManagerService_GetLeasedBlobs_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, StoreManagerService_GetLeasedBlobs_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *blobStoreManagerServiceClient) GetRemainingLeaseQuotaBytes(ctx context.Context, in *GetRemainingLeaseQuotaBytesRequest, opts ...grpc.CallOption) (*GetRemainingLeaseQuotaBytesResponse, error) {
+func (c *storeManagerServiceClient) GetRemainingLeaseQuotaBytes(ctx context.Context, in *GetRemainingLeaseQuotaBytesRequest, opts ...grpc.CallOption) (*GetRemainingLeaseQuotaBytesResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(GetRemainingLeaseQuotaBytesResponse)
-	err := c.cc.Invoke(ctx, BlobStoreManagerService_GetRemainingLeaseQuotaBytes_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, StoreManagerService_GetRemainingLeaseQuotaBytes_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *blobStoreManagerServiceClient) OpenBlob(ctx context.Context, in *OpenBlobRequest, opts ...grpc.CallOption) (*OpenBlobResponse, error) {
+func (c *storeManagerServiceClient) OpenBlob(ctx context.Context, in *OpenBlobRequest, opts ...grpc.CallOption) (*OpenBlobResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(OpenBlobResponse)
-	err := c.cc.Invoke(ctx, BlobStoreManagerService_OpenBlob_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, StoreManagerService_OpenBlob_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *blobStoreManagerServiceClient) OpenSession(ctx context.Context, in *OpenSessionRequest, opts ...grpc.CallOption) (*OpenSessionResponse, error) {
+func (c *storeManagerServiceClient) OpenSession(ctx context.Context, in *OpenSessionRequest, opts ...grpc.CallOption) (*OpenSessionResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(OpenSessionResponse)
-	err := c.cc.Invoke(ctx, BlobStoreManagerService_OpenSession_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, StoreManagerService_OpenSession_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *blobStoreManagerServiceClient) ReleaseLease(ctx context.Context, in *ReleaseLeaseRequest, opts ...grpc.CallOption) (*ReleaseLeaseResponse, error) {
+func (c *storeManagerServiceClient) ReleaseLease(ctx context.Context, in *ReleaseLeaseRequest, opts ...grpc.CallOption) (*ReleaseLeaseResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(ReleaseLeaseResponse)
-	err := c.cc.Invoke(ctx, BlobStoreManagerService_ReleaseLease_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, StoreManagerService_ReleaseLease_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-// BlobStoreManagerServiceServer is the server API for BlobStoreManagerService service.
-// All implementations must embed UnimplementedBlobStoreManagerServiceServer
+// StoreManagerServiceServer is the server API for StoreManagerService service.
+// All implementations must embed UnimplementedStoreManagerServiceServer
 // for forward compatibility.
-type BlobStoreManagerServiceServer interface {
+type StoreManagerServiceServer interface {
 	AbandonSession(context.Context, *AbandonSessionRequest) (*AbandonSessionResponse, error)
 	AcquireLease2(context.Context, *AcquireLease2Request) (*AcquireLease2Response, error)
 	AcquireLease3_1(context.Context, *AcquireLease3_1Request) (*AcquireLease3_1Response, error)
@@ -184,319 +184,318 @@ type BlobStoreManagerServiceServer interface {
 	OpenBlob(context.Context, *OpenBlobRequest) (*OpenBlobResponse, error)
 	OpenSession(context.Context, *OpenSessionRequest) (*OpenSessionResponse, error)
 	ReleaseLease(context.Context, *ReleaseLeaseRequest) (*ReleaseLeaseResponse, error)
-	mustEmbedUnimplementedBlobStoreManagerServiceServer()
+	mustEmbedUnimplementedStoreManagerServiceServer()
 }
 
-// UnimplementedBlobStoreManagerServiceServer must be embedded to have
+// UnimplementedStoreManagerServiceServer must be embedded to have
 // forward compatible implementations.
 //
 // NOTE: this should be embedded by value instead of pointer to avoid a nil
 // pointer dereference when methods are called.
-type UnimplementedBlobStoreManagerServiceServer struct{}
+type UnimplementedStoreManagerServiceServer struct{}
 
-func (UnimplementedBlobStoreManagerServiceServer) AbandonSession(context.Context, *AbandonSessionRequest) (*AbandonSessionResponse, error) {
+func (UnimplementedStoreManagerServiceServer) AbandonSession(context.Context, *AbandonSessionRequest) (*AbandonSessionResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method AbandonSession not implemented")
 }
-func (UnimplementedBlobStoreManagerServiceServer) AcquireLease2(context.Context, *AcquireLease2Request) (*AcquireLease2Response, error) {
+func (UnimplementedStoreManagerServiceServer) AcquireLease2(context.Context, *AcquireLease2Request) (*AcquireLease2Response, error) {
 	return nil, status.Error(codes.Unimplemented, "method AcquireLease2 not implemented")
 }
-func (UnimplementedBlobStoreManagerServiceServer) AcquireLease3_1(context.Context, *AcquireLease3_1Request) (*AcquireLease3_1Response, error) {
+func (UnimplementedStoreManagerServiceServer) AcquireLease3_1(context.Context, *AcquireLease3_1Request) (*AcquireLease3_1Response, error) {
 	return nil, status.Error(codes.Unimplemented, "method AcquireLease3_1 not implemented")
 }
-func (UnimplementedBlobStoreManagerServiceServer) AcquireLease2_2(context.Context, *AcquireLease2_2Request) (*AcquireLease2_2Response, error) {
+func (UnimplementedStoreManagerServiceServer) AcquireLease2_2(context.Context, *AcquireLease2_2Request) (*AcquireLease2_2Response, error) {
 	return nil, status.Error(codes.Unimplemented, "method AcquireLease2_2 not implemented")
 }
-func (UnimplementedBlobStoreManagerServiceServer) AcquireLease3_3(context.Context, *AcquireLease3_3Request) (*AcquireLease3_3Response, error) {
+func (UnimplementedStoreManagerServiceServer) AcquireLease3_3(context.Context, *AcquireLease3_3Request) (*AcquireLease3_3Response, error) {
 	return nil, status.Error(codes.Unimplemented, "method AcquireLease3_3 not implemented")
 }
-func (UnimplementedBlobStoreManagerServiceServer) CreateSession(context.Context, *CreateSessionRequest) (*CreateSessionResponse, error) {
+func (UnimplementedStoreManagerServiceServer) CreateSession(context.Context, *CreateSessionRequest) (*CreateSessionResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method CreateSession not implemented")
 }
-func (UnimplementedBlobStoreManagerServiceServer) GetLeasedBlobs(context.Context, *GetLeasedBlobsRequest) (*GetLeasedBlobsResponse, error) {
+func (UnimplementedStoreManagerServiceServer) GetLeasedBlobs(context.Context, *GetLeasedBlobsRequest) (*GetLeasedBlobsResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetLeasedBlobs not implemented")
 }
-func (UnimplementedBlobStoreManagerServiceServer) GetRemainingLeaseQuotaBytes(context.Context, *GetRemainingLeaseQuotaBytesRequest) (*GetRemainingLeaseQuotaBytesResponse, error) {
+func (UnimplementedStoreManagerServiceServer) GetRemainingLeaseQuotaBytes(context.Context, *GetRemainingLeaseQuotaBytesRequest) (*GetRemainingLeaseQuotaBytesResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetRemainingLeaseQuotaBytes not implemented")
 }
-func (UnimplementedBlobStoreManagerServiceServer) OpenBlob(context.Context, *OpenBlobRequest) (*OpenBlobResponse, error) {
+func (UnimplementedStoreManagerServiceServer) OpenBlob(context.Context, *OpenBlobRequest) (*OpenBlobResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method OpenBlob not implemented")
 }
-func (UnimplementedBlobStoreManagerServiceServer) OpenSession(context.Context, *OpenSessionRequest) (*OpenSessionResponse, error) {
+func (UnimplementedStoreManagerServiceServer) OpenSession(context.Context, *OpenSessionRequest) (*OpenSessionResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method OpenSession not implemented")
 }
-func (UnimplementedBlobStoreManagerServiceServer) ReleaseLease(context.Context, *ReleaseLeaseRequest) (*ReleaseLeaseResponse, error) {
+func (UnimplementedStoreManagerServiceServer) ReleaseLease(context.Context, *ReleaseLeaseRequest) (*ReleaseLeaseResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method ReleaseLease not implemented")
 }
-func (UnimplementedBlobStoreManagerServiceServer) mustEmbedUnimplementedBlobStoreManagerServiceServer() {
-}
-func (UnimplementedBlobStoreManagerServiceServer) testEmbeddedByValue() {}
+func (UnimplementedStoreManagerServiceServer) mustEmbedUnimplementedStoreManagerServiceServer() {}
+func (UnimplementedStoreManagerServiceServer) testEmbeddedByValue()                             {}
 
-// UnsafeBlobStoreManagerServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to BlobStoreManagerServiceServer will
+// UnsafeStoreManagerServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to StoreManagerServiceServer will
 // result in compilation errors.
-type UnsafeBlobStoreManagerServiceServer interface {
-	mustEmbedUnimplementedBlobStoreManagerServiceServer()
+type UnsafeStoreManagerServiceServer interface {
+	mustEmbedUnimplementedStoreManagerServiceServer()
 }
 
-func RegisterBlobStoreManagerServiceServer(s grpc.ServiceRegistrar, srv BlobStoreManagerServiceServer) {
-	// If the following call panics, it indicates UnimplementedBlobStoreManagerServiceServer was
+func RegisterStoreManagerServiceServer(s grpc.ServiceRegistrar, srv StoreManagerServiceServer) {
+	// If the following call panics, it indicates UnimplementedStoreManagerServiceServer was
 	// embedded by pointer and is nil.  This will cause panics if an
 	// unimplemented method is ever invoked, so we test this at initialization
 	// time to prevent it from happening at runtime later due to I/O.
 	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
 		t.testEmbeddedByValue()
 	}
-	s.RegisterService(&BlobStoreManagerService_ServiceDesc, srv)
+	s.RegisterService(&StoreManagerService_ServiceDesc, srv)
 }
 
-func _BlobStoreManagerService_AbandonSession_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _StoreManagerService_AbandonSession_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(AbandonSessionRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(BlobStoreManagerServiceServer).AbandonSession(ctx, in)
+		return srv.(StoreManagerServiceServer).AbandonSession(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: BlobStoreManagerService_AbandonSession_FullMethodName,
+		FullMethod: StoreManagerService_AbandonSession_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(BlobStoreManagerServiceServer).AbandonSession(ctx, req.(*AbandonSessionRequest))
+		return srv.(StoreManagerServiceServer).AbandonSession(ctx, req.(*AbandonSessionRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _BlobStoreManagerService_AcquireLease2_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _StoreManagerService_AcquireLease2_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(AcquireLease2Request)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(BlobStoreManagerServiceServer).AcquireLease2(ctx, in)
+		return srv.(StoreManagerServiceServer).AcquireLease2(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: BlobStoreManagerService_AcquireLease2_FullMethodName,
+		FullMethod: StoreManagerService_AcquireLease2_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(BlobStoreManagerServiceServer).AcquireLease2(ctx, req.(*AcquireLease2Request))
+		return srv.(StoreManagerServiceServer).AcquireLease2(ctx, req.(*AcquireLease2Request))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _BlobStoreManagerService_AcquireLease3_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _StoreManagerService_AcquireLease3_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(AcquireLease3_1Request)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(BlobStoreManagerServiceServer).AcquireLease3_1(ctx, in)
+		return srv.(StoreManagerServiceServer).AcquireLease3_1(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: BlobStoreManagerService_AcquireLease3_1_FullMethodName,
+		FullMethod: StoreManagerService_AcquireLease3_1_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(BlobStoreManagerServiceServer).AcquireLease3_1(ctx, req.(*AcquireLease3_1Request))
+		return srv.(StoreManagerServiceServer).AcquireLease3_1(ctx, req.(*AcquireLease3_1Request))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _BlobStoreManagerService_AcquireLease2_2_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _StoreManagerService_AcquireLease2_2_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(AcquireLease2_2Request)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(BlobStoreManagerServiceServer).AcquireLease2_2(ctx, in)
+		return srv.(StoreManagerServiceServer).AcquireLease2_2(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: BlobStoreManagerService_AcquireLease2_2_FullMethodName,
+		FullMethod: StoreManagerService_AcquireLease2_2_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(BlobStoreManagerServiceServer).AcquireLease2_2(ctx, req.(*AcquireLease2_2Request))
+		return srv.(StoreManagerServiceServer).AcquireLease2_2(ctx, req.(*AcquireLease2_2Request))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _BlobStoreManagerService_AcquireLease3_3_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _StoreManagerService_AcquireLease3_3_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(AcquireLease3_3Request)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(BlobStoreManagerServiceServer).AcquireLease3_3(ctx, in)
+		return srv.(StoreManagerServiceServer).AcquireLease3_3(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: BlobStoreManagerService_AcquireLease3_3_FullMethodName,
+		FullMethod: StoreManagerService_AcquireLease3_3_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(BlobStoreManagerServiceServer).AcquireLease3_3(ctx, req.(*AcquireLease3_3Request))
+		return srv.(StoreManagerServiceServer).AcquireLease3_3(ctx, req.(*AcquireLease3_3Request))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _BlobStoreManagerService_CreateSession_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _StoreManagerService_CreateSession_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(CreateSessionRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(BlobStoreManagerServiceServer).CreateSession(ctx, in)
+		return srv.(StoreManagerServiceServer).CreateSession(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: BlobStoreManagerService_CreateSession_FullMethodName,
+		FullMethod: StoreManagerService_CreateSession_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(BlobStoreManagerServiceServer).CreateSession(ctx, req.(*CreateSessionRequest))
+		return srv.(StoreManagerServiceServer).CreateSession(ctx, req.(*CreateSessionRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _BlobStoreManagerService_GetLeasedBlobs_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _StoreManagerService_GetLeasedBlobs_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(GetLeasedBlobsRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(BlobStoreManagerServiceServer).GetLeasedBlobs(ctx, in)
+		return srv.(StoreManagerServiceServer).GetLeasedBlobs(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: BlobStoreManagerService_GetLeasedBlobs_FullMethodName,
+		FullMethod: StoreManagerService_GetLeasedBlobs_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(BlobStoreManagerServiceServer).GetLeasedBlobs(ctx, req.(*GetLeasedBlobsRequest))
+		return srv.(StoreManagerServiceServer).GetLeasedBlobs(ctx, req.(*GetLeasedBlobsRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _BlobStoreManagerService_GetRemainingLeaseQuotaBytes_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _StoreManagerService_GetRemainingLeaseQuotaBytes_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(GetRemainingLeaseQuotaBytesRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(BlobStoreManagerServiceServer).GetRemainingLeaseQuotaBytes(ctx, in)
+		return srv.(StoreManagerServiceServer).GetRemainingLeaseQuotaBytes(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: BlobStoreManagerService_GetRemainingLeaseQuotaBytes_FullMethodName,
+		FullMethod: StoreManagerService_GetRemainingLeaseQuotaBytes_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(BlobStoreManagerServiceServer).GetRemainingLeaseQuotaBytes(ctx, req.(*GetRemainingLeaseQuotaBytesRequest))
+		return srv.(StoreManagerServiceServer).GetRemainingLeaseQuotaBytes(ctx, req.(*GetRemainingLeaseQuotaBytesRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _BlobStoreManagerService_OpenBlob_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _StoreManagerService_OpenBlob_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(OpenBlobRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(BlobStoreManagerServiceServer).OpenBlob(ctx, in)
+		return srv.(StoreManagerServiceServer).OpenBlob(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: BlobStoreManagerService_OpenBlob_FullMethodName,
+		FullMethod: StoreManagerService_OpenBlob_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(BlobStoreManagerServiceServer).OpenBlob(ctx, req.(*OpenBlobRequest))
+		return srv.(StoreManagerServiceServer).OpenBlob(ctx, req.(*OpenBlobRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _BlobStoreManagerService_OpenSession_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _StoreManagerService_OpenSession_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(OpenSessionRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(BlobStoreManagerServiceServer).OpenSession(ctx, in)
+		return srv.(StoreManagerServiceServer).OpenSession(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: BlobStoreManagerService_OpenSession_FullMethodName,
+		FullMethod: StoreManagerService_OpenSession_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(BlobStoreManagerServiceServer).OpenSession(ctx, req.(*OpenSessionRequest))
+		return srv.(StoreManagerServiceServer).OpenSession(ctx, req.(*OpenSessionRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _BlobStoreManagerService_ReleaseLease_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _StoreManagerService_ReleaseLease_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(ReleaseLeaseRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(BlobStoreManagerServiceServer).ReleaseLease(ctx, in)
+		return srv.(StoreManagerServiceServer).ReleaseLease(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: BlobStoreManagerService_ReleaseLease_FullMethodName,
+		FullMethod: StoreManagerService_ReleaseLease_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(BlobStoreManagerServiceServer).ReleaseLease(ctx, req.(*ReleaseLeaseRequest))
+		return srv.(StoreManagerServiceServer).ReleaseLease(ctx, req.(*ReleaseLeaseRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-// BlobStoreManagerService_ServiceDesc is the grpc.ServiceDesc for BlobStoreManagerService service.
+// StoreManagerService_ServiceDesc is the grpc.ServiceDesc for StoreManagerService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
-var BlobStoreManagerService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "blob.BlobStoreManagerService",
-	HandlerType: (*BlobStoreManagerServiceServer)(nil),
+var StoreManagerService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "blob.StoreManagerService",
+	HandlerType: (*StoreManagerServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
 			MethodName: "AbandonSession",
-			Handler:    _BlobStoreManagerService_AbandonSession_Handler,
+			Handler:    _StoreManagerService_AbandonSession_Handler,
 		},
 		{
 			MethodName: "AcquireLease2",
-			Handler:    _BlobStoreManagerService_AcquireLease2_Handler,
+			Handler:    _StoreManagerService_AcquireLease2_Handler,
 		},
 		{
 			MethodName: "AcquireLease3_1",
-			Handler:    _BlobStoreManagerService_AcquireLease3_1_Handler,
+			Handler:    _StoreManagerService_AcquireLease3_1_Handler,
 		},
 		{
 			MethodName: "AcquireLease2_2",
-			Handler:    _BlobStoreManagerService_AcquireLease2_2_Handler,
+			Handler:    _StoreManagerService_AcquireLease2_2_Handler,
 		},
 		{
 			MethodName: "AcquireLease3_3",
-			Handler:    _BlobStoreManagerService_AcquireLease3_3_Handler,
+			Handler:    _StoreManagerService_AcquireLease3_3_Handler,
 		},
 		{
 			MethodName: "CreateSession",
-			Handler:    _BlobStoreManagerService_CreateSession_Handler,
+			Handler:    _StoreManagerService_CreateSession_Handler,
 		},
 		{
 			MethodName: "GetLeasedBlobs",
-			Handler:    _BlobStoreManagerService_GetLeasedBlobs_Handler,
+			Handler:    _StoreManagerService_GetLeasedBlobs_Handler,
 		},
 		{
 			MethodName: "GetRemainingLeaseQuotaBytes",
-			Handler:    _BlobStoreManagerService_GetRemainingLeaseQuotaBytes_Handler,
+			Handler:    _StoreManagerService_GetRemainingLeaseQuotaBytes_Handler,
 		},
 		{
 			MethodName: "OpenBlob",
-			Handler:    _BlobStoreManagerService_OpenBlob_Handler,
+			Handler:    _StoreManagerService_OpenBlob_Handler,
 		},
 		{
 			MethodName: "OpenSession",
-			Handler:    _BlobStoreManagerService_OpenSession_Handler,
+			Handler:    _StoreManagerService_OpenSession_Handler,
 		},
 		{
 			MethodName: "ReleaseLease",
-			Handler:    _BlobStoreManagerService_ReleaseLease_Handler,
+			Handler:    _StoreManagerService_ReleaseLease_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

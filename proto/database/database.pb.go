@@ -26,7 +26,7 @@ var File_proto_database_database_proto protoreflect.FileDescriptor
 
 const file_proto_database_database_proto_rawDesc = "" +
 	"\n" +
-	"\x1dproto/database/database.proto\x12\bdatabaseB+Z)github.com/AndroidGoLab/jni-proxy/proto/databaseb\x06proto3"
+	"\x1dproto/database/database.proto\x12\bdatabaseB2Z0github.com/AndroidGoLab/jni-proxy/proto/databaseb\x06proto3"
 
 var file_proto_database_database_proto_goTypes = []any{}
 var file_proto_database_database_proto_depIdxs = []int32{

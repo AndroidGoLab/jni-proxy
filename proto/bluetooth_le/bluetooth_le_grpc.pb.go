@@ -21,6 +21,299 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
+	BluetoothLeScannerService_FlushPendingScanResults_FullMethodName = "/bluetooth_le.BluetoothLeScannerService/FlushPendingScanResults"
+	BluetoothLeScannerService_StartScan1_FullMethodName              = "/bluetooth_le.BluetoothLeScannerService/StartScan1"
+	BluetoothLeScannerService_StartScan3_1_FullMethodName            = "/bluetooth_le.BluetoothLeScannerService/StartScan3_1"
+	BluetoothLeScannerService_StartScan3_2_FullMethodName            = "/bluetooth_le.BluetoothLeScannerService/StartScan3_2"
+	BluetoothLeScannerService_StopScan1_FullMethodName               = "/bluetooth_le.BluetoothLeScannerService/StopScan1"
+	BluetoothLeScannerService_StopScan1_1_FullMethodName             = "/bluetooth_le.BluetoothLeScannerService/StopScan1_1"
+)
+
+// BluetoothLeScannerServiceClient is the client API for BluetoothLeScannerService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type BluetoothLeScannerServiceClient interface {
+	FlushPendingScanResults(ctx context.Context, in *FlushPendingScanResultsRequest, opts ...grpc.CallOption) (*FlushPendingScanResultsResponse, error)
+	StartScan1(ctx context.Context, in *StartScan1Request, opts ...grpc.CallOption) (*StartScan1Response, error)
+	StartScan3_1(ctx context.Context, in *StartScan3_1Request, opts ...grpc.CallOption) (*StartScan3_1Response, error)
+	StartScan3_2(ctx context.Context, in *StartScan3_2Request, opts ...grpc.CallOption) (*StartScan3_2Response, error)
+	StopScan1(ctx context.Context, in *StopScan1Request, opts ...grpc.CallOption) (*StopScan1Response, error)
+	StopScan1_1(ctx context.Context, in *StopScan1_1Request, opts ...grpc.CallOption) (*StopScan1_1Response, error)
+}
+
+type bluetoothLeScannerServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewBluetoothLeScannerServiceClient(cc grpc.ClientConnInterface) BluetoothLeScannerServiceClient {
+	return &bluetoothLeScannerServiceClient{cc}
+}
+
+func (c *bluetoothLeScannerServiceClient) FlushPendingScanResults(ctx context.Context, in *FlushPendingScanResultsRequest, opts ...grpc.CallOption) (*FlushPendingScanResultsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(FlushPendingScanResultsResponse)
+	err := c.cc.Invoke(ctx, BluetoothLeScannerService_FlushPendingScanResults_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *bluetoothLeScannerServiceClient) StartScan1(ctx context.Context, in *StartScan1Request, opts ...grpc.CallOption) (*StartScan1Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(StartScan1Response)
+	err := c.cc.Invoke(ctx, BluetoothLeScannerService_StartScan1_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *bluetoothLeScannerServiceClient) StartScan3_1(ctx context.Context, in *StartScan3_1Request, opts ...grpc.CallOption) (*StartScan3_1Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(StartScan3_1Response)
+	err := c.cc.Invoke(ctx, BluetoothLeScannerService_StartScan3_1_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *bluetoothLeScannerServiceClient) StartScan3_2(ctx context.Context, in *StartScan3_2Request, opts ...grpc.CallOption) (*StartScan3_2Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(StartScan3_2Response)
+	err := c.cc.Invoke(ctx, BluetoothLeScannerService_StartScan3_2_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *bluetoothLeScannerServiceClient) StopScan1(ctx context.Context, in *StopScan1Request, opts ...grpc.CallOption) (*StopScan1Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(StopScan1Response)
+	err := c.cc.Invoke(ctx, BluetoothLeScannerService_StopScan1_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *bluetoothLeScannerServiceClient) StopScan1_1(ctx context.Context, in *StopScan1_1Request, opts ...grpc.CallOption) (*StopScan1_1Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(StopScan1_1Response)
+	err := c.cc.Invoke(ctx, BluetoothLeScannerService_StopScan1_1_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// BluetoothLeScannerServiceServer is the server API for BluetoothLeScannerService service.
+// All implementations must embed UnimplementedBluetoothLeScannerServiceServer
+// for forward compatibility.
+type BluetoothLeScannerServiceServer interface {
+	FlushPendingScanResults(context.Context, *FlushPendingScanResultsRequest) (*FlushPendingScanResultsResponse, error)
+	StartScan1(context.Context, *StartScan1Request) (*StartScan1Response, error)
+	StartScan3_1(context.Context, *StartScan3_1Request) (*StartScan3_1Response, error)
+	StartScan3_2(context.Context, *StartScan3_2Request) (*StartScan3_2Response, error)
+	StopScan1(context.Context, *StopScan1Request) (*StopScan1Response, error)
+	StopScan1_1(context.Context, *StopScan1_1Request) (*StopScan1_1Response, error)
+	mustEmbedUnimplementedBluetoothLeScannerServiceServer()
+}
+
+// UnimplementedBluetoothLeScannerServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedBluetoothLeScannerServiceServer struct{}
+
+func (UnimplementedBluetoothLeScannerServiceServer) FlushPendingScanResults(context.Context, *FlushPendingScanResultsRequest) (*FlushPendingScanResultsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method FlushPendingScanResults not implemented")
+}
+func (UnimplementedBluetoothLeScannerServiceServer) StartScan1(context.Context, *StartScan1Request) (*StartScan1Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method StartScan1 not implemented")
+}
+func (UnimplementedBluetoothLeScannerServiceServer) StartScan3_1(context.Context, *StartScan3_1Request) (*StartScan3_1Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method StartScan3_1 not implemented")
+}
+func (UnimplementedBluetoothLeScannerServiceServer) StartScan3_2(context.Context, *StartScan3_2Request) (*StartScan3_2Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method StartScan3_2 not implemented")
+}
+func (UnimplementedBluetoothLeScannerServiceServer) StopScan1(context.Context, *StopScan1Request) (*StopScan1Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method StopScan1 not implemented")
+}
+func (UnimplementedBluetoothLeScannerServiceServer) StopScan1_1(context.Context, *StopScan1_1Request) (*StopScan1_1Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method StopScan1_1 not implemented")
+}
+func (UnimplementedBluetoothLeScannerServiceServer) mustEmbedUnimplementedBluetoothLeScannerServiceServer() {
+}
+func (UnimplementedBluetoothLeScannerServiceServer) testEmbeddedByValue() {}
+
+// UnsafeBluetoothLeScannerServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to BluetoothLeScannerServiceServer will
+// result in compilation errors.
+type UnsafeBluetoothLeScannerServiceServer interface {
+	mustEmbedUnimplementedBluetoothLeScannerServiceServer()
+}
+
+func RegisterBluetoothLeScannerServiceServer(s grpc.ServiceRegistrar, srv BluetoothLeScannerServiceServer) {
+	// If the following call panics, it indicates UnimplementedBluetoothLeScannerServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&BluetoothLeScannerService_ServiceDesc, srv)
+}
+
+func _BluetoothLeScannerService_FlushPendingScanResults_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(FlushPendingScanResultsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(BluetoothLeScannerServiceServer).FlushPendingScanResults(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: BluetoothLeScannerService_FlushPendingScanResults_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(BluetoothLeScannerServiceServer).FlushPendingScanResults(ctx, req.(*FlushPendingScanResultsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _BluetoothLeScannerService_StartScan1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(StartScan1Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(BluetoothLeScannerServiceServer).StartScan1(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: BluetoothLeScannerService_StartScan1_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(BluetoothLeScannerServiceServer).StartScan1(ctx, req.(*StartScan1Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _BluetoothLeScannerService_StartScan3_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(StartScan3_1Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(BluetoothLeScannerServiceServer).StartScan3_1(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: BluetoothLeScannerService_StartScan3_1_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(BluetoothLeScannerServiceServer).StartScan3_1(ctx, req.(*StartScan3_1Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _BluetoothLeScannerService_StartScan3_2_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(StartScan3_2Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(BluetoothLeScannerServiceServer).StartScan3_2(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: BluetoothLeScannerService_StartScan3_2_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(BluetoothLeScannerServiceServer).StartScan3_2(ctx, req.(*StartScan3_2Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _BluetoothLeScannerService_StopScan1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(StopScan1Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(BluetoothLeScannerServiceServer).StopScan1(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: BluetoothLeScannerService_StopScan1_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(BluetoothLeScannerServiceServer).StopScan1(ctx, req.(*StopScan1Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _BluetoothLeScannerService_StopScan1_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(StopScan1_1Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(BluetoothLeScannerServiceServer).StopScan1_1(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: BluetoothLeScannerService_StopScan1_1_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(BluetoothLeScannerServiceServer).StopScan1_1(ctx, req.(*StopScan1_1Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// BluetoothLeScannerService_ServiceDesc is the grpc.ServiceDesc for BluetoothLeScannerService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var BluetoothLeScannerService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "bluetooth_le.BluetoothLeScannerService",
+	HandlerType: (*BluetoothLeScannerServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "FlushPendingScanResults",
+			Handler:    _BluetoothLeScannerService_FlushPendingScanResults_Handler,
+		},
+		{
+			MethodName: "StartScan1",
+			Handler:    _BluetoothLeScannerService_StartScan1_Handler,
+		},
+		{
+			MethodName: "StartScan3_1",
+			Handler:    _BluetoothLeScannerService_StartScan3_1_Handler,
+		},
+		{
+			MethodName: "StartScan3_2",
+			Handler:    _BluetoothLeScannerService_StartScan3_2_Handler,
+		},
+		{
+			MethodName: "StopScan1",
+			Handler:    _BluetoothLeScannerService_StopScan1_Handler,
+		},
+		{
+			MethodName: "StopScan1_1",
+			Handler:    _BluetoothLeScannerService_StopScan1_1_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/bluetooth_le/bluetooth_le.proto",
+}
+
+const (
 	ScanResultService_DescribeContents_FullMethodName               = "/bluetooth_le.ScanResultService/DescribeContents"
 	ScanResultService_Equals_FullMethodName                         = "/bluetooth_le.ScanResultService/Equals"
 	ScanResultService_GetAdvertisingSid_FullMethodName              = "/bluetooth_le.ScanResultService/GetAdvertisingSid"
@@ -724,299 +1017,6 @@ var ScanResultService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "WriteToParcel",
 			Handler:    _ScanResultService_WriteToParcel_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/bluetooth_le/bluetooth_le.proto",
-}
-
-const (
-	BluetoothLeScannerService_FlushPendingScanResults_FullMethodName = "/bluetooth_le.BluetoothLeScannerService/FlushPendingScanResults"
-	BluetoothLeScannerService_StartScan1_FullMethodName              = "/bluetooth_le.BluetoothLeScannerService/StartScan1"
-	BluetoothLeScannerService_StartScan3_1_FullMethodName            = "/bluetooth_le.BluetoothLeScannerService/StartScan3_1"
-	BluetoothLeScannerService_StartScan3_2_FullMethodName            = "/bluetooth_le.BluetoothLeScannerService/StartScan3_2"
-	BluetoothLeScannerService_StopScan1_FullMethodName               = "/bluetooth_le.BluetoothLeScannerService/StopScan1"
-	BluetoothLeScannerService_StopScan1_1_FullMethodName             = "/bluetooth_le.BluetoothLeScannerService/StopScan1_1"
-)
-
-// BluetoothLeScannerServiceClient is the client API for BluetoothLeScannerService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type BluetoothLeScannerServiceClient interface {
-	FlushPendingScanResults(ctx context.Context, in *FlushPendingScanResultsRequest, opts ...grpc.CallOption) (*FlushPendingScanResultsResponse, error)
-	StartScan1(ctx context.Context, in *StartScan1Request, opts ...grpc.CallOption) (*StartScan1Response, error)
-	StartScan3_1(ctx context.Context, in *StartScan3_1Request, opts ...grpc.CallOption) (*StartScan3_1Response, error)
-	StartScan3_2(ctx context.Context, in *StartScan3_2Request, opts ...grpc.CallOption) (*StartScan3_2Response, error)
-	StopScan1(ctx context.Context, in *StopScan1Request, opts ...grpc.CallOption) (*StopScan1Response, error)
-	StopScan1_1(ctx context.Context, in *StopScan1_1Request, opts ...grpc.CallOption) (*StopScan1_1Response, error)
-}
-
-type bluetoothLeScannerServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewBluetoothLeScannerServiceClient(cc grpc.ClientConnInterface) BluetoothLeScannerServiceClient {
-	return &bluetoothLeScannerServiceClient{cc}
-}
-
-func (c *bluetoothLeScannerServiceClient) FlushPendingScanResults(ctx context.Context, in *FlushPendingScanResultsRequest, opts ...grpc.CallOption) (*FlushPendingScanResultsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(FlushPendingScanResultsResponse)
-	err := c.cc.Invoke(ctx, BluetoothLeScannerService_FlushPendingScanResults_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *bluetoothLeScannerServiceClient) StartScan1(ctx context.Context, in *StartScan1Request, opts ...grpc.CallOption) (*StartScan1Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(StartScan1Response)
-	err := c.cc.Invoke(ctx, BluetoothLeScannerService_StartScan1_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *bluetoothLeScannerServiceClient) StartScan3_1(ctx context.Context, in *StartScan3_1Request, opts ...grpc.CallOption) (*StartScan3_1Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(StartScan3_1Response)
-	err := c.cc.Invoke(ctx, BluetoothLeScannerService_StartScan3_1_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *bluetoothLeScannerServiceClient) StartScan3_2(ctx context.Context, in *StartScan3_2Request, opts ...grpc.CallOption) (*StartScan3_2Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(StartScan3_2Response)
-	err := c.cc.Invoke(ctx, BluetoothLeScannerService_StartScan3_2_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *bluetoothLeScannerServiceClient) StopScan1(ctx context.Context, in *StopScan1Request, opts ...grpc.CallOption) (*StopScan1Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(StopScan1Response)
-	err := c.cc.Invoke(ctx, BluetoothLeScannerService_StopScan1_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *bluetoothLeScannerServiceClient) StopScan1_1(ctx context.Context, in *StopScan1_1Request, opts ...grpc.CallOption) (*StopScan1_1Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(StopScan1_1Response)
-	err := c.cc.Invoke(ctx, BluetoothLeScannerService_StopScan1_1_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// BluetoothLeScannerServiceServer is the server API for BluetoothLeScannerService service.
-// All implementations must embed UnimplementedBluetoothLeScannerServiceServer
-// for forward compatibility.
-type BluetoothLeScannerServiceServer interface {
-	FlushPendingScanResults(context.Context, *FlushPendingScanResultsRequest) (*FlushPendingScanResultsResponse, error)
-	StartScan1(context.Context, *StartScan1Request) (*StartScan1Response, error)
-	StartScan3_1(context.Context, *StartScan3_1Request) (*StartScan3_1Response, error)
-	StartScan3_2(context.Context, *StartScan3_2Request) (*StartScan3_2Response, error)
-	StopScan1(context.Context, *StopScan1Request) (*StopScan1Response, error)
-	StopScan1_1(context.Context, *StopScan1_1Request) (*StopScan1_1Response, error)
-	mustEmbedUnimplementedBluetoothLeScannerServiceServer()
-}
-
-// UnimplementedBluetoothLeScannerServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedBluetoothLeScannerServiceServer struct{}
-
-func (UnimplementedBluetoothLeScannerServiceServer) FlushPendingScanResults(context.Context, *FlushPendingScanResultsRequest) (*FlushPendingScanResultsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method FlushPendingScanResults not implemented")
-}
-func (UnimplementedBluetoothLeScannerServiceServer) StartScan1(context.Context, *StartScan1Request) (*StartScan1Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method StartScan1 not implemented")
-}
-func (UnimplementedBluetoothLeScannerServiceServer) StartScan3_1(context.Context, *StartScan3_1Request) (*StartScan3_1Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method StartScan3_1 not implemented")
-}
-func (UnimplementedBluetoothLeScannerServiceServer) StartScan3_2(context.Context, *StartScan3_2Request) (*StartScan3_2Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method StartScan3_2 not implemented")
-}
-func (UnimplementedBluetoothLeScannerServiceServer) StopScan1(context.Context, *StopScan1Request) (*StopScan1Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method StopScan1 not implemented")
-}
-func (UnimplementedBluetoothLeScannerServiceServer) StopScan1_1(context.Context, *StopScan1_1Request) (*StopScan1_1Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method StopScan1_1 not implemented")
-}
-func (UnimplementedBluetoothLeScannerServiceServer) mustEmbedUnimplementedBluetoothLeScannerServiceServer() {
-}
-func (UnimplementedBluetoothLeScannerServiceServer) testEmbeddedByValue() {}
-
-// UnsafeBluetoothLeScannerServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to BluetoothLeScannerServiceServer will
-// result in compilation errors.
-type UnsafeBluetoothLeScannerServiceServer interface {
-	mustEmbedUnimplementedBluetoothLeScannerServiceServer()
-}
-
-func RegisterBluetoothLeScannerServiceServer(s grpc.ServiceRegistrar, srv BluetoothLeScannerServiceServer) {
-	// If the following call panics, it indicates UnimplementedBluetoothLeScannerServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&BluetoothLeScannerService_ServiceDesc, srv)
-}
-
-func _BluetoothLeScannerService_FlushPendingScanResults_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(FlushPendingScanResultsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(BluetoothLeScannerServiceServer).FlushPendingScanResults(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: BluetoothLeScannerService_FlushPendingScanResults_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(BluetoothLeScannerServiceServer).FlushPendingScanResults(ctx, req.(*FlushPendingScanResultsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _BluetoothLeScannerService_StartScan1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(StartScan1Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(BluetoothLeScannerServiceServer).StartScan1(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: BluetoothLeScannerService_StartScan1_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(BluetoothLeScannerServiceServer).StartScan1(ctx, req.(*StartScan1Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _BluetoothLeScannerService_StartScan3_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(StartScan3_1Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(BluetoothLeScannerServiceServer).StartScan3_1(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: BluetoothLeScannerService_StartScan3_1_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(BluetoothLeScannerServiceServer).StartScan3_1(ctx, req.(*StartScan3_1Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _BluetoothLeScannerService_StartScan3_2_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(StartScan3_2Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(BluetoothLeScannerServiceServer).StartScan3_2(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: BluetoothLeScannerService_StartScan3_2_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(BluetoothLeScannerServiceServer).StartScan3_2(ctx, req.(*StartScan3_2Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _BluetoothLeScannerService_StopScan1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(StopScan1Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(BluetoothLeScannerServiceServer).StopScan1(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: BluetoothLeScannerService_StopScan1_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(BluetoothLeScannerServiceServer).StopScan1(ctx, req.(*StopScan1Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _BluetoothLeScannerService_StopScan1_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(StopScan1_1Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(BluetoothLeScannerServiceServer).StopScan1_1(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: BluetoothLeScannerService_StopScan1_1_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(BluetoothLeScannerServiceServer).StopScan1_1(ctx, req.(*StopScan1_1Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// BluetoothLeScannerService_ServiceDesc is the grpc.ServiceDesc for BluetoothLeScannerService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var BluetoothLeScannerService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "bluetooth_le.BluetoothLeScannerService",
-	HandlerType: (*BluetoothLeScannerServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "FlushPendingScanResults",
-			Handler:    _BluetoothLeScannerService_FlushPendingScanResults_Handler,
-		},
-		{
-			MethodName: "StartScan1",
-			Handler:    _BluetoothLeScannerService_StartScan1_Handler,
-		},
-		{
-			MethodName: "StartScan3_1",
-			Handler:    _BluetoothLeScannerService_StartScan3_1_Handler,
-		},
-		{
-			MethodName: "StartScan3_2",
-			Handler:    _BluetoothLeScannerService_StartScan3_2_Handler,
-		},
-		{
-			MethodName: "StopScan1",
-			Handler:    _BluetoothLeScannerService_StopScan1_Handler,
-		},
-		{
-			MethodName: "StopScan1_1",
-			Handler:    _BluetoothLeScannerService_StopScan1_1_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

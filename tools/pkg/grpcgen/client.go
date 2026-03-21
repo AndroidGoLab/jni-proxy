@@ -1,0 +1,289 @@
+package grpcgen
+
+import (
+	"fmt"
+	"os"
+	"path/filepath"
+	"strings"
+
+	"github.com/AndroidGoLab/jni/tools/pkg/javagen"
+	"github.com/AndroidGoLab/jni-proxy/tools/pkg/protogen"
+	"github.com/AndroidGoLab/jni-proxy/tools/pkg/protoscan"
+)
+
+// GenerateClient loads a Java API spec and overlay, merges them, builds client
+// data structures, and writes a gRPC client implementation file.
+// protoDir is the base directory containing compiled proto Go stubs (for name resolution).
+func GenerateClient(
+	specPath string,
+	overlayPath string,
+	outputDir string,
+	goModule string,
+	protoDir string,
+) error {
+	spec, err := javagen.LoadSpec(specPath)
+	if err != nil {
+		return fmt.Errorf("load spec: %w", err)
+	}
+
+	overlay, err := javagen.LoadOverlay(overlayPath)
+	if err != nil {
+		return fmt.Errorf("load overlay: %w", err)
+	}
+
+	merged, err := javagen.Merge(spec, overlay)
+	if err != nil {
+		return fmt.Errorf("merge: %w", err)
+	}
+
+	// Build proto data to get the canonical RPC names (with collision renames).
+	protoData := protogen.BuildProtoData(merged, goModule)
+
+	// Scan compiled proto stubs for actual Go names (handles protoc naming quirks).
+	goNames := protoscan.Scan(filepath.Join(protoDir, merged.Package))
+
+	data := buildClientData(merged, goModule, protoData, goNames)
+	if len(data.Services) == 0 {
+		return nil
+	}
+
+	pkgDir := filepath.Join(outputDir, "grpc", "client", merged.Package)
+	if err := os.MkdirAll(pkgDir, 0o755); err != nil {
+		return fmt.Errorf("mkdir %s: %w", pkgDir, err)
+	}
+
+	outputPath := filepath.Join(pkgDir, "client.go")
+	if err := renderClient(data, outputPath); err != nil {
+		return fmt.Errorf("render client: %w", err)
+	}
+
+	return nil
+}
+
+// buildClientData converts a MergedSpec into client template data.
+// protoData provides canonical RPC names (with collision renames).
+// goNames provides actual Go names from compiled proto stubs.
+func buildClientData(
+	merged *javagen.MergedSpec,
+	goModule string,
+	protoData *protogen.ProtoData,
+	goNames protoscan.GoNames,
+) *ClientData {
+	data := &ClientData{
+		Package:  merged.Package,
+		GoModule: goModule,
+	}
+
+	// Build data class field info for result conversion.
+	javaClassToDataClass := make(map[string]string)
+	dcFieldMap := make(map[string][]javagen.MergedField)
+	for _, dc := range merged.DataClasses {
+		if !isExported(dc.GoType) {
+			continue
+		}
+		javaClassToDataClass[dc.JavaClass] = dc.GoType
+		dcFieldMap[dc.GoType] = dc.Fields
+	}
+
+	// Build data classes for client-side proto->Go conversion.
+	for _, dc := range merged.DataClasses {
+		if !isExported(dc.GoType) {
+			continue
+		}
+		cdc := ClientDataClass{GoType: dc.GoType}
+		for _, f := range dc.Fields {
+			pt := protoGoType(f.CallSuffix, f.GoType)
+			cdc.Fields = append(cdc.Fields, ClientDataClassField{
+				GoName:    f.GoName,
+				ProtoName: protoGoFieldName(f.GoName),
+				GoType:    f.GoType,
+				ProtoType: pt,
+			})
+		}
+		data.DataClasses = append(data.DataClasses, cdc)
+	}
+
+	// Build RPC lookup from protogen data (handles collision renames and
+	// cross-class message name disambiguation).
+	protoRPCLookup := make(map[string]rpcInfo)
+	for _, ps := range protoData.Services {
+		for _, rpc := range ps.RPCs {
+			info := rpcInfo{
+				Name:       rpc.Name,
+				InputType:  rpc.InputType,
+				OutputType: rpc.OutputType,
+			}
+			key := ps.Name + "/" + strings.ToLower(rpc.Name)
+			protoRPCLookup[key] = info
+			if rpc.OriginalName != "" {
+				origKey := ps.Name + "/" + strings.ToLower(rpc.OriginalName)
+				protoRPCLookup[origKey] = info
+			}
+		}
+	}
+
+	// Build services from classes that have a NewXxx(ctx *app.Context) constructor.
+	for _, cls := range merged.Classes {
+		if !hasContextConstructor(cls) {
+			continue
+		}
+
+		rawServiceName := exportName(cls.GoType) + "Service"
+		serviceName := goNames.ResolveService(rawServiceName)
+		protoServiceName := rawServiceName
+		svc := ClientService{
+			GoType:      cls.GoType,
+			ServiceName: serviceName,
+		}
+
+		for _, m := range cls.Methods {
+			if !isExported(m.GoName) {
+				continue
+			}
+			cm := buildClientMethod(m, javaClassToDataClass, dcFieldMap, protoRPCLookup, protoServiceName, goNames)
+			svc.Methods = append(svc.Methods, cm)
+		}
+
+		if len(svc.Methods) == 0 {
+			continue
+		}
+		data.Services = append(data.Services, svc)
+	}
+
+	return data
+}
+
+// buildClientMethod converts a MergedMethod to a ClientMethod.
+func buildClientMethod(
+	m javagen.MergedMethod,
+	javaClassToDataMsg map[string]string,
+	dcFieldMap map[string][]javagen.MergedField,
+	protoRPCLookup map[string]rpcInfo,
+	protoServiceName string,
+	goNames protoscan.GoNames,
+) ClientMethod {
+	rawName := exportName(m.GoName)
+	goName := rawName
+
+	lookupKey := protoServiceName + "/" + strings.ToLower(rawName)
+	info, found := protoRPCLookup[lookupKey]
+	if found {
+		goName = info.Name
+	}
+	goName = goNames.ResolveRPC(goName)
+
+	reqType := goName + "Request"
+	respType := goName + "Response"
+	if found {
+		reqType = info.InputType
+		respType = info.OutputType
+	}
+	reqType = goNames.ResolveMessage(reqType)
+	respType = goNames.ResolveMessage(respType)
+
+	cm := ClientMethod{
+		GoName:       goName,
+		RequestType:  reqType,
+		ResponseType: respType,
+		HasError:     m.Error,
+		HasResult:    m.ReturnKind != javagen.ReturnVoid,
+		GoReturnType: m.GoReturn,
+	}
+
+	// Build params for the client API.
+	for _, p := range m.Params {
+		cp := ClientParam{
+			GoName:    p.GoName,
+			ProtoName: exportName(p.GoName),
+			IsObject:  p.IsObject && !p.IsString,
+		}
+		if cp.IsObject {
+			// Object handles are int64 in proto.
+			cp.GoType = "int64"
+		} else {
+			cp.GoType = p.GoType
+		}
+		cm.Params = append(cm.Params, cp)
+	}
+
+	// Determine return kind and result expression.
+	switch m.ReturnKind {
+	case javagen.ReturnVoid:
+		cm.ReturnKind = "void"
+	case javagen.ReturnString:
+		cm.ReturnKind = "string"
+		cm.ResultExpr = "resp.GetResult()"
+		cm.GoReturnType = "string"
+	case javagen.ReturnBool:
+		cm.ReturnKind = "bool"
+		cm.ResultExpr = "resp.GetResult()"
+		cm.GoReturnType = "bool"
+	case javagen.ReturnPrimitive:
+		cm.ReturnKind = "primitive"
+		cm.ResultExpr = clientPrimitiveResultExpr(m.GoReturn)
+		cm.GoReturnType = m.GoReturn
+	case javagen.ReturnObject:
+		if dcName, ok := javaClassToDataMsg[m.Returns]; ok {
+			cm.ReturnKind = "data_class"
+			cm.DataClass = dcName
+			cm.GoReturnType = "*" + dcName
+		} else {
+			cm.ReturnKind = "object"
+			cm.ResultExpr = "resp.GetResult()"
+			cm.GoReturnType = "int64"
+		}
+	}
+
+	return cm
+}
+
+// clientPrimitiveResultExpr returns the expression to extract and convert
+// a primitive result from the proto response.
+func clientPrimitiveResultExpr(goType string) string {
+	switch goType {
+	case "int32", "int64", "float32", "float64", "bool", "string":
+		return "resp.GetResult()"
+	case "int16":
+		return "int16(resp.GetResult())"
+	case "uint16":
+		return "uint16(resp.GetResult())"
+	case "byte":
+		return "byte(resp.GetResult())"
+	default:
+		return "resp.GetResult()"
+	}
+}
+
+// buildClientParamAssign generates the expression to assign a Go parameter
+// to a proto request field.
+func buildClientParamAssign(p ClientParam) string {
+	switch p.GoType {
+	case "int16":
+		return fmt.Sprintf("int32(%s)", p.GoName)
+	case "uint16":
+		return fmt.Sprintf("int32(%s)", p.GoName)
+	case "byte":
+		return fmt.Sprintf("int32(%s)", p.GoName)
+	default:
+		return p.GoName
+	}
+}
+
+// clientGoZero returns the zero value for a Go type.
+func clientGoZero(goType string) string {
+	switch goType {
+	case "string":
+		return `""`
+	case "bool":
+		return "false"
+	case "int", "int8", "int16", "int32", "int64",
+		"uint", "uint8", "uint16", "uint32", "uint64",
+		"float32", "float64", "byte":
+		return "0"
+	default:
+		if strings.HasPrefix(goType, "*") {
+			return "nil"
+		}
+		return goType + "{}"
+	}
+}

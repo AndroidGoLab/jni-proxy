@@ -6,6 +6,53 @@ package bluetooth_le;
 
 option go_package = "github.com/AndroidGoLab/jni-proxy/proto/bluetooth_le";
 
+message FlushPendingScanResultsRequest {
+  int64 arg0 = 1;
+}
+
+message FlushPendingScanResultsResponse {
+}
+
+message StartScan1Request {
+  int64 arg0 = 1;
+}
+
+message StartScan1Response {
+}
+
+message StartScan3_1Request {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+  int64 arg2 = 3;
+}
+
+message StartScan3_1Response {
+  int32 result = 1;
+}
+
+message StartScan3_2Request {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+  int64 arg2 = 3;
+}
+
+message StartScan3_2Response {
+}
+
+message StopScan1Request {
+  int64 arg0 = 1;
+}
+
+message StopScan1Response {
+}
+
+message StopScan1_1Request {
+  int64 arg0 = 1;
+}
+
+message StopScan1_1Response {
+}
+
 message DescribeContentsRequest {
 }
 
@@ -127,53 +174,6 @@ message WriteToParcelRequest {
 message WriteToParcelResponse {
 }
 
-message FlushPendingScanResultsRequest {
-  int64 arg0 = 1;
-}
-
-message FlushPendingScanResultsResponse {
-}
-
-message StartScan1Request {
-  int64 arg0 = 1;
-}
-
-message StartScan1Response {
-}
-
-message StartScan3_1Request {
-  int64 arg0 = 1;
-  int64 arg1 = 2;
-  int64 arg2 = 3;
-}
-
-message StartScan3_1Response {
-  int32 result = 1;
-}
-
-message StartScan3_2Request {
-  int64 arg0 = 1;
-  int64 arg1 = 2;
-  int64 arg2 = 3;
-}
-
-message StartScan3_2Response {
-}
-
-message StopScan1Request {
-  int64 arg0 = 1;
-}
-
-message StopScan1Response {
-}
-
-message StopScan1_1Request {
-  int64 arg0 = 1;
-}
-
-message StopScan1_1Response {
-}
-
 message StartAdvertising3Request {
   int64 arg0 = 1;
   int64 arg1 = 2;
@@ -233,6 +233,15 @@ message StopAdvertisingSetRequest {
 message StopAdvertisingSetResponse {
 }
 
+service BluetoothLeScannerService {
+  rpc FlushPendingScanResults (FlushPendingScanResultsRequest) returns (FlushPendingScanResultsResponse);
+  rpc StartScan1 (StartScan1Request) returns (StartScan1Response);
+  rpc StartScan3_1 (StartScan3_1Request) returns (StartScan3_1Response);
+  rpc StartScan3_2 (StartScan3_2Request) returns (StartScan3_2Response);
+  rpc StopScan1 (StopScan1Request) returns (StopScan1Response);
+  rpc StopScan1_1 (StopScan1_1Request) returns (StopScan1_1Response);
+}
+
 service ScanResultService {
   rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
   rpc Equals (EqualsRequest) returns (EqualsResponse);
@@ -251,15 +260,6 @@ service ScanResultService {
   rpc IsLegacy (IsLegacyRequest) returns (IsLegacyResponse);
   rpc ToString (ToStringRequest) returns (ToStringResponse);
   rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
-}
-
-service BluetoothLeScannerService {
-  rpc FlushPendingScanResults (FlushPendingScanResultsRequest) returns (FlushPendingScanResultsResponse);
-  rpc StartScan1 (StartScan1Request) returns (StartScan1Response);
-  rpc StartScan3_1 (StartScan3_1Request) returns (StartScan3_1Response);
-  rpc StartScan3_2 (StartScan3_2Request) returns (StartScan3_2Response);
-  rpc StopScan1 (StopScan1Request) returns (StopScan1Response);
-  rpc StopScan1_1 (StopScan1_1Request) returns (StopScan1_1Response);
 }
 
 service BluetoothLeAdvertiserService {

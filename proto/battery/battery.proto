@@ -44,7 +44,7 @@ message IsChargingResponse {
   bool result = 1;
 }
 
-service BatteryManagerService {
+service ManagerService {
   rpc ComputeChargeTimeRemaining (ComputeChargeTimeRemainingRequest) returns (ComputeChargeTimeRemainingResponse);
   rpc GetIntProperty (GetIntPropertyRequest) returns (GetIntPropertyResponse);
   rpc GetLongProperty (GetLongPropertyRequest) returns (GetLongPropertyResponse);

@@ -3,8 +3,8 @@
 package main
 
 import (
-	"github.com/spf13/cobra"
 	pb "github.com/AndroidGoLab/jni-proxy/proto/role"
+	"github.com/spf13/cobra"
 )
 
 var roleCmd = &cobra.Command{
@@ -12,18 +12,18 @@ var roleCmd = &cobra.Command{
 	Short: "role service operations",
 }
 
-var roleRoleManagerCmd = &cobra.Command{
-	Use:   "role-manager",
-	Short: "RoleManagerService operations",
+var roleManagerCmd = &cobra.Command{
+	Use:   "manager",
+	Short: "ManagerService operations",
 }
 
-var roleRoleManagerCreateRequestRoleIntentCmd = &cobra.Command{
+var roleManagerCreateRequestRoleIntentCmd = &cobra.Command{
 	Use:   "create-request-role-intent",
 	Short: "CreateRequestRoleIntent RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewRoleManagerServiceClient(grpcConn)
+		client := pb.NewManagerServiceClient(grpcConn)
 		req := &pb.CreateRequestRoleIntentRequest{}
 		if v, err := cmd.Flags().GetString("arg0"); err == nil {
 			req.Arg0 = v
@@ -36,13 +36,13 @@ var roleRoleManagerCreateRequestRoleIntentCmd = &cobra.Command{
 	},
 }
 
-var roleRoleManagerIsRoleAvailableCmd = &cobra.Command{
+var roleManagerIsRoleAvailableCmd = &cobra.Command{
 	Use:   "is-role-available",
 	Short: "IsRoleAvailable RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewRoleManagerServiceClient(grpcConn)
+		client := pb.NewManagerServiceClient(grpcConn)
 		req := &pb.IsRoleAvailableRequest{}
 		if v, err := cmd.Flags().GetString("arg0"); err == nil {
 			req.Arg0 = v
@@ -55,13 +55,13 @@ var roleRoleManagerIsRoleAvailableCmd = &cobra.Command{
 	},
 }
 
-var roleRoleManagerIsRoleHeldCmd = &cobra.Command{
+var roleManagerIsRoleHeldCmd = &cobra.Command{
 	Use:   "is-role-held",
 	Short: "IsRoleHeld RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewRoleManagerServiceClient(grpcConn)
+		client := pb.NewManagerServiceClient(grpcConn)
 		req := &pb.IsRoleHeldRequest{}
 		if v, err := cmd.Flags().GetString("arg0"); err == nil {
 			req.Arg0 = v
@@ -75,12 +75,12 @@ var roleRoleManagerIsRoleHeldCmd = &cobra.Command{
 }
 
 func init() {
-	roleRoleManagerCreateRequestRoleIntentCmd.Flags().String("arg0", "", "arg0 (string)")
-	roleRoleManagerCmd.AddCommand(roleRoleManagerCreateRequestRoleIntentCmd)
-	roleRoleManagerIsRoleAvailableCmd.Flags().String("arg0", "", "arg0 (string)")
-	roleRoleManagerCmd.AddCommand(roleRoleManagerIsRoleAvailableCmd)
-	roleRoleManagerIsRoleHeldCmd.Flags().String("arg0", "", "arg0 (string)")
-	roleRoleManagerCmd.AddCommand(roleRoleManagerIsRoleHeldCmd)
-	roleCmd.AddCommand(roleRoleManagerCmd)
+	roleManagerCreateRequestRoleIntentCmd.Flags().String("arg0", "", "arg0 (string)")
+	roleManagerCmd.AddCommand(roleManagerCreateRequestRoleIntentCmd)
+	roleManagerIsRoleAvailableCmd.Flags().String("arg0", "", "arg0 (string)")
+	roleManagerCmd.AddCommand(roleManagerIsRoleAvailableCmd)
+	roleManagerIsRoleHeldCmd.Flags().String("arg0", "", "arg0 (string)")
+	roleManagerCmd.AddCommand(roleManagerIsRoleHeldCmd)
+	roleCmd.AddCommand(roleManagerCmd)
 	rootCmd.AddCommand(roleCmd)
 }

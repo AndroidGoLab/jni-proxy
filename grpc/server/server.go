@@ -3,19 +3,23 @@
 package server
 
 import (
-	"github.com/AndroidGoLab/jni/app"
 	"github.com/AndroidGoLab/jni-proxy/handlestore"
 	handlepb "github.com/AndroidGoLab/jni-proxy/proto/handlestore"
+	"github.com/AndroidGoLab/jni/app"
 	"google.golang.org/grpc"
 
+	accountsserver "github.com/AndroidGoLab/jni-proxy/grpc/server/accounts"
 	adminserver "github.com/AndroidGoLab/jni-proxy/grpc/server/admin"
 	alarmserver "github.com/AndroidGoLab/jni-proxy/grpc/server/alarm"
 	audiomanagerserver "github.com/AndroidGoLab/jni-proxy/grpc/server/audiomanager"
 	batteryserver "github.com/AndroidGoLab/jni-proxy/grpc/server/battery"
+	biometricserver "github.com/AndroidGoLab/jni-proxy/grpc/server/biometric"
 	blobserver "github.com/AndroidGoLab/jni-proxy/grpc/server/blob"
 	cameraserver "github.com/AndroidGoLab/jni-proxy/grpc/server/camera"
 	clipboardserver "github.com/AndroidGoLab/jni-proxy/grpc/server/clipboard"
 	companionserver "github.com/AndroidGoLab/jni-proxy/grpc/server/companion"
+	displayserver "github.com/AndroidGoLab/jni-proxy/grpc/server/display"
+	downloadserver "github.com/AndroidGoLab/jni-proxy/grpc/server/download"
 	inputmethodserver "github.com/AndroidGoLab/jni-proxy/grpc/server/inputmethod"
 	irserver "github.com/AndroidGoLab/jni-proxy/grpc/server/ir"
 	jobserver "github.com/AndroidGoLab/jni-proxy/grpc/server/job"
@@ -23,6 +27,7 @@ import (
 	locationserver "github.com/AndroidGoLab/jni-proxy/grpc/server/location"
 	netserver "github.com/AndroidGoLab/jni-proxy/grpc/server/net"
 	notificationserver "github.com/AndroidGoLab/jni-proxy/grpc/server/notification"
+	nsdserver "github.com/AndroidGoLab/jni-proxy/grpc/server/nsd"
 	powerserver "github.com/AndroidGoLab/jni-proxy/grpc/server/power"
 	printserver "github.com/AndroidGoLab/jni-proxy/grpc/server/print"
 	projectionserver "github.com/AndroidGoLab/jni-proxy/grpc/server/projection"
@@ -32,18 +37,23 @@ import (
 	telecomserver "github.com/AndroidGoLab/jni-proxy/grpc/server/telecom"
 	telephonyserver "github.com/AndroidGoLab/jni-proxy/grpc/server/telephony"
 	usageserver "github.com/AndroidGoLab/jni-proxy/grpc/server/usage"
+	usbserver "github.com/AndroidGoLab/jni-proxy/grpc/server/usb"
 	vibratorserver "github.com/AndroidGoLab/jni-proxy/grpc/server/vibrator"
 	wifiserver "github.com/AndroidGoLab/jni-proxy/grpc/server/wifi"
 	wifi_p2pserver "github.com/AndroidGoLab/jni-proxy/grpc/server/wifi_p2p"
 	wifi_rttserver "github.com/AndroidGoLab/jni-proxy/grpc/server/wifi_rtt"
+	accountspb "github.com/AndroidGoLab/jni-proxy/proto/accounts"
 	adminpb "github.com/AndroidGoLab/jni-proxy/proto/admin"
 	alarmpb "github.com/AndroidGoLab/jni-proxy/proto/alarm"
 	audiomanagerpb "github.com/AndroidGoLab/jni-proxy/proto/audiomanager"
 	batterypb "github.com/AndroidGoLab/jni-proxy/proto/battery"
+	biometricpb "github.com/AndroidGoLab/jni-proxy/proto/biometric"
 	blobpb "github.com/AndroidGoLab/jni-proxy/proto/blob"
 	camerapb "github.com/AndroidGoLab/jni-proxy/proto/camera"
 	clipboardpb "github.com/AndroidGoLab/jni-proxy/proto/clipboard"
 	companionpb "github.com/AndroidGoLab/jni-proxy/proto/companion"
+	displaypb "github.com/AndroidGoLab/jni-proxy/proto/display"
+	downloadpb "github.com/AndroidGoLab/jni-proxy/proto/download"
 	inputmethodpb "github.com/AndroidGoLab/jni-proxy/proto/inputmethod"
 	irpb "github.com/AndroidGoLab/jni-proxy/proto/ir"
 	jobpb "github.com/AndroidGoLab/jni-proxy/proto/job"
@@ -51,6 +61,7 @@ import (
 	locationpb "github.com/AndroidGoLab/jni-proxy/proto/location"
 	netpb "github.com/AndroidGoLab/jni-proxy/proto/net"
 	notificationpb "github.com/AndroidGoLab/jni-proxy/proto/notification"
+	nsdpb "github.com/AndroidGoLab/jni-proxy/proto/nsd"
 	powerpb "github.com/AndroidGoLab/jni-proxy/proto/power"
 	printpb "github.com/AndroidGoLab/jni-proxy/proto/print"
 	projectionpb "github.com/AndroidGoLab/jni-proxy/proto/projection"
@@ -60,6 +71,7 @@ import (
 	telecompb "github.com/AndroidGoLab/jni-proxy/proto/telecom"
 	telephonypb "github.com/AndroidGoLab/jni-proxy/proto/telephony"
 	usagepb "github.com/AndroidGoLab/jni-proxy/proto/usage"
+	usbpb "github.com/AndroidGoLab/jni-proxy/proto/usb"
 	vibratorpb "github.com/AndroidGoLab/jni-proxy/proto/vibrator"
 	wifipb "github.com/AndroidGoLab/jni-proxy/proto/wifi"
 	wifi_p2ppb "github.com/AndroidGoLab/jni-proxy/proto/wifi_p2p"
@@ -71,32 +83,38 @@ import (
 // that pass JNI object references over gRPC.
 func RegisterAll(s grpc.ServiceRegistrar, ctx *app.Context, handles *handlestore.HandleStore) {
 	handlepb.RegisterHandleStoreServiceServer(s, &handlestore.Server{VM: ctx.VM, Handles: handles})
+	accountspb.RegisterAccountManagerServiceServer(s, &accountsserver.AccountManagerServer{Ctx: ctx, Handles: handles})
 	adminpb.RegisterDevicePolicyManagerServiceServer(s, &adminserver.DevicePolicyManagerServer{Ctx: ctx, Handles: handles})
-	alarmpb.RegisterAlarmManagerServiceServer(s, &alarmserver.AlarmManagerServer{Ctx: ctx, Handles: handles})
+	alarmpb.RegisterManagerServiceServer(s, &alarmserver.ManagerServer{Ctx: ctx, Handles: handles})
 	audiomanagerpb.RegisterAudioManagerServiceServer(s, &audiomanagerserver.AudioManagerServer{Ctx: ctx, Handles: handles})
-	batterypb.RegisterBatteryManagerServiceServer(s, &batteryserver.BatteryManagerServer{Ctx: ctx})
-	blobpb.RegisterBlobStoreManagerServiceServer(s, &blobserver.BlobStoreManagerServer{Ctx: ctx, Handles: handles})
-	camerapb.RegisterCameraManagerServiceServer(s, &cameraserver.CameraManagerServer{Ctx: ctx, Handles: handles})
-	clipboardpb.RegisterClipboardManagerServiceServer(s, &clipboardserver.ClipboardManagerServer{Ctx: ctx, Handles: handles})
-	companionpb.RegisterCompanionDeviceManagerServiceServer(s, &companionserver.CompanionDeviceManagerServer{Ctx: ctx, Handles: handles})
+	batterypb.RegisterManagerServiceServer(s, &batteryserver.ManagerServer{Ctx: ctx})
+	biometricpb.RegisterManagerServiceServer(s, &biometricserver.ManagerServer{Ctx: ctx, Handles: handles})
+	blobpb.RegisterStoreManagerServiceServer(s, &blobserver.StoreManagerServer{Ctx: ctx, Handles: handles})
+	camerapb.RegisterManagerServiceServer(s, &cameraserver.ManagerServer{Ctx: ctx, Handles: handles})
+	clipboardpb.RegisterManagerServiceServer(s, &clipboardserver.ManagerServer{Ctx: ctx, Handles: handles})
+	companionpb.RegisterDeviceManagerServiceServer(s, &companionserver.DeviceManagerServer{Ctx: ctx, Handles: handles})
+	displaypb.RegisterWindowManagerServiceServer(s, &displayserver.WindowManagerServer{Ctx: ctx, Handles: handles})
+	downloadpb.RegisterManagerServiceServer(s, &downloadserver.ManagerServer{Ctx: ctx, Handles: handles})
 	inputmethodpb.RegisterInputMethodManagerServiceServer(s, &inputmethodserver.InputMethodManagerServer{Ctx: ctx, Handles: handles})
 	irpb.RegisterConsumerIrManagerServiceServer(s, &irserver.ConsumerIrManagerServer{Ctx: ctx, Handles: handles})
-	jobpb.RegisterJobSchedulerServiceServer(s, &jobserver.JobSchedulerServer{Ctx: ctx, Handles: handles})
-	keyguardpb.RegisterKeyguardManagerServiceServer(s, &keyguardserver.KeyguardManagerServer{Ctx: ctx, Handles: handles})
-	locationpb.RegisterLocationManagerServiceServer(s, &locationserver.LocationManagerServer{Ctx: ctx, Handles: handles})
+	jobpb.RegisterSchedulerServiceServer(s, &jobserver.SchedulerServer{Ctx: ctx, Handles: handles})
+	keyguardpb.RegisterManagerServiceServer(s, &keyguardserver.ManagerServer{Ctx: ctx, Handles: handles})
+	locationpb.RegisterManagerServiceServer(s, &locationserver.ManagerServer{Ctx: ctx, Handles: handles})
 	netpb.RegisterConnectivityManagerServiceServer(s, &netserver.ConnectivityManagerServer{Ctx: ctx, Handles: handles})
-	notificationpb.RegisterNotificationManagerServiceServer(s, &notificationserver.NotificationManagerServer{Ctx: ctx, Handles: handles})
-	powerpb.RegisterPowerManagerServiceServer(s, &powerserver.PowerManagerServer{Ctx: ctx, Handles: handles})
-	printpb.RegisterPrintManagerServiceServer(s, &printserver.PrintManagerServer{Ctx: ctx, Handles: handles})
+	notificationpb.RegisterManagerServiceServer(s, &notificationserver.ManagerServer{Ctx: ctx, Handles: handles})
+	nsdpb.RegisterManagerServiceServer(s, &nsdserver.ManagerServer{Ctx: ctx, Handles: handles})
+	powerpb.RegisterManagerServiceServer(s, &powerserver.ManagerServer{Ctx: ctx, Handles: handles})
+	printpb.RegisterManagerServiceServer(s, &printserver.ManagerServer{Ctx: ctx, Handles: handles})
 	projectionpb.RegisterMediaProjectionManagerServiceServer(s, &projectionserver.MediaProjectionManagerServer{Ctx: ctx, Handles: handles})
-	rolepb.RegisterRoleManagerServiceServer(s, &roleserver.RoleManagerServer{Ctx: ctx, Handles: handles})
+	rolepb.RegisterManagerServiceServer(s, &roleserver.ManagerServer{Ctx: ctx, Handles: handles})
 	sessionpb.RegisterMediaSessionManagerServiceServer(s, &sessionserver.MediaSessionManagerServer{Ctx: ctx, Handles: handles})
-	storagepb.RegisterStorageManagerServiceServer(s, &storageserver.StorageManagerServer{Ctx: ctx, Handles: handles})
-	telecompb.RegisterTelecomManagerServiceServer(s, &telecomserver.TelecomManagerServer{Ctx: ctx, Handles: handles})
-	telephonypb.RegisterTelephonyManagerServiceServer(s, &telephonyserver.TelephonyManagerServer{Ctx: ctx, Handles: handles})
-	usagepb.RegisterUsageStatsManagerServiceServer(s, &usageserver.UsageStatsManagerServer{Ctx: ctx, Handles: handles})
+	storagepb.RegisterManagerServiceServer(s, &storageserver.ManagerServer{Ctx: ctx, Handles: handles})
+	telecompb.RegisterManagerServiceServer(s, &telecomserver.ManagerServer{Ctx: ctx, Handles: handles})
+	telephonypb.RegisterManagerServiceServer(s, &telephonyserver.ManagerServer{Ctx: ctx, Handles: handles})
+	usagepb.RegisterStatsManagerServiceServer(s, &usageserver.StatsManagerServer{Ctx: ctx, Handles: handles})
+	usbpb.RegisterManagerServiceServer(s, &usbserver.ManagerServer{Ctx: ctx, Handles: handles})
 	vibratorpb.RegisterVibratorServiceServer(s, &vibratorserver.VibratorServer{Ctx: ctx, Handles: handles})
-	wifipb.RegisterWifiManagerServiceServer(s, &wifiserver.WifiManagerServer{Ctx: ctx, Handles: handles})
+	wifipb.RegisterManagerServiceServer(s, &wifiserver.ManagerServer{Ctx: ctx, Handles: handles})
 	wifi_p2ppb.RegisterWifiP2PManagerServiceServer(s, &wifi_p2pserver.WifiP2pManagerServer{Ctx: ctx, Handles: handles})
 	wifi_rttpb.RegisterWifiRttManagerServiceServer(s, &wifi_rttserver.WifiRttManagerServer{Ctx: ctx, Handles: handles})
 }

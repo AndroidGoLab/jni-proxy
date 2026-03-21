@@ -246,7 +246,7 @@ message SetVisibleInDownloadsUiResponse {
   int64 result = 1;
 }
 
-service DownloadManagerService {
+service ManagerService {
   rpc AddCompletedDownload7 (AddCompletedDownload7Request) returns (AddCompletedDownload7Response);
   rpc AddCompletedDownload9_1 (AddCompletedDownload9_1Request) returns (AddCompletedDownload9_1Response);
   rpc Enqueue (EnqueueRequest) returns (EnqueueResponse);
@@ -259,12 +259,12 @@ service DownloadManagerService {
   rpc GetRecommendedMaxBytesOverMobile (GetRecommendedMaxBytesOverMobileRequest) returns (GetRecommendedMaxBytesOverMobileResponse);
 }
 
-service DownloadManagerQueryService {
+service ManagerQueryService {
   rpc SetFilterById (SetFilterByIdRequest) returns (SetFilterByIdResponse);
   rpc SetFilterByStatus (SetFilterByStatusRequest) returns (SetFilterByStatusResponse);
 }
 
-service DownloadManagerRequestService {
+service ManagerRequestService {
   rpc AddRequestHeader (AddRequestHeaderRequest) returns (AddRequestHeaderResponse);
   rpc AllowScanningByMediaScanner (AllowScanningByMediaScannerRequest) returns (AllowScanningByMediaScannerResponse);
   rpc SetAllowedNetworkTypes (SetAllowedNetworkTypesRequest) returns (SetAllowedNetworkTypesResponse);

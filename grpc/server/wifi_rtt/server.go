@@ -7,10 +7,10 @@ import (
 
 	"github.com/AndroidGoLab/jni"
 
-	"github.com/AndroidGoLab/jni/app"
 	"github.com/AndroidGoLab/jni-proxy/handlestore"
-	jnipkg "github.com/AndroidGoLab/jni/net/wifi/rtt"
 	pb "github.com/AndroidGoLab/jni-proxy/proto/wifi_rtt"
+	"github.com/AndroidGoLab/jni/app"
+	jnipkg "github.com/AndroidGoLab/jni/net/wifi/rtt"
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"
 )
@@ -23,7 +23,7 @@ type WifiRttManagerServer struct {
 }
 
 func (s *WifiRttManagerServer) GetRttCharacteristics(_ context.Context, req *pb.GetRttCharacteristicsRequest) (*pb.GetRttCharacteristicsResponse, error) {
-	mgr, err := jnipkg.NewwifiRttManager(s.Ctx)
+	mgr, err := jnipkg.NewWifiRttManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -46,7 +46,7 @@ func (s *WifiRttManagerServer) GetRttCharacteristics(_ context.Context, req *pb.
 }
 
 func (s *WifiRttManagerServer) IsAvailable(_ context.Context, req *pb.IsAvailableRequest) (*pb.IsAvailableResponse, error) {
-	mgr, err := jnipkg.NewwifiRttManager(s.Ctx)
+	mgr, err := jnipkg.NewWifiRttManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
@@ -60,7 +60,7 @@ func (s *WifiRttManagerServer) IsAvailable(_ context.Context, req *pb.IsAvailabl
 }
 
 func (s *WifiRttManagerServer) StartRanging(_ context.Context, req *pb.StartRangingRequest) (*pb.StartRangingResponse, error) {
-	mgr, err := jnipkg.NewwifiRttManager(s.Ctx)
+	mgr, err := jnipkg.NewWifiRttManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}

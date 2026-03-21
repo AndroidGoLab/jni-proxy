@@ -30,7 +30,7 @@ func TestMain(m *testing.M) {
 		fmt.Fprintf(os.Stderr, "E2E setup: creating temp dir: %v\n", err)
 		os.Exit(1)
 	}
-	defer os.RemoveAll(certDir)
+	defer func() { _ = os.RemoveAll(certDir) }()
 
 	testCertFile = filepath.Join(certDir, "client.crt")
 	testKeyFile = filepath.Join(certDir, "client.key")
@@ -126,9 +126,11 @@ func grantViaADB(adbAdminPath, cn string) error {
 	if err != nil {
 		return fmt.Errorf("creating grant script: %w", err)
 	}
-	defer os.Remove(scriptFile.Name())
-	scriptFile.WriteString(scriptContent)
-	scriptFile.Close()
+	defer func() { _ = os.Remove(scriptFile.Name()) }()
+	if _, err := scriptFile.WriteString(scriptContent); err != nil {
+		return fmt.Errorf("writing grant script: %w", err)
+	}
+	_ = scriptFile.Close()
 
 	// Push script to device.
 	pushArgs := append(adbParts[1:], "push", scriptFile.Name(), "/data/adb/jniservice/e2e-grant.sh")

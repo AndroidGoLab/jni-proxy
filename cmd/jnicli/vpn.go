@@ -3,8 +3,8 @@
 package main
 
 import (
-	"github.com/spf13/cobra"
 	pb "github.com/AndroidGoLab/jni-proxy/proto/vpn"
+	"github.com/spf13/cobra"
 )
 
 var vpnCmd = &cobra.Command{
@@ -12,18 +12,50 @@ var vpnCmd = &cobra.Command{
 	Short: "vpn service operations",
 }
 
-var vpnVpnServiceCmd = &cobra.Command{
-	Use:   "vpn-service",
-	Short: "VpnServiceService operations",
+var vpnServiceCmd = &cobra.Command{
+	Use:   "service",
+	Short: "ServiceService operations",
 }
 
-var vpnVpnServiceOnBindCmd = &cobra.Command{
+var vpnServiceIsAlwaysOnCmd = &cobra.Command{
+	Use:   "is-always-on",
+	Short: "IsAlwaysOn RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewServiceServiceClient(grpcConn)
+		req := &pb.IsAlwaysOnRequest{}
+		resp, err := client.IsAlwaysOn(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var vpnServiceIsLockdownEnabledCmd = &cobra.Command{
+	Use:   "is-lockdown-enabled",
+	Short: "IsLockdownEnabled RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewServiceServiceClient(grpcConn)
+		req := &pb.IsLockdownEnabledRequest{}
+		resp, err := client.IsLockdownEnabled(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var vpnServiceOnBindCmd = &cobra.Command{
 	Use:   "on-bind",
 	Short: "OnBind RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewVpnServiceServiceClient(grpcConn)
+		client := pb.NewServiceServiceClient(grpcConn)
 		req := &pb.OnBindRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
@@ -36,13 +68,13 @@ var vpnVpnServiceOnBindCmd = &cobra.Command{
 	},
 }
 
-var vpnVpnServiceOnRevokeCmd = &cobra.Command{
+var vpnServiceOnRevokeCmd = &cobra.Command{
 	Use:   "on-revoke",
 	Short: "OnRevoke RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewVpnServiceServiceClient(grpcConn)
+		client := pb.NewServiceServiceClient(grpcConn)
 		req := &pb.OnRevokeRequest{}
 		resp, err := client.OnRevoke(ctx, req)
 		if err != nil {
@@ -52,13 +84,13 @@ var vpnVpnServiceOnRevokeCmd = &cobra.Command{
 	},
 }
 
-var vpnVpnServiceProtect1Cmd = &cobra.Command{
+var vpnServiceProtect1Cmd = &cobra.Command{
 	Use:   "protect1",
 	Short: "Protect1 RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewVpnServiceServiceClient(grpcConn)
+		client := pb.NewServiceServiceClient(grpcConn)
 		req := &pb.Protect1Request{}
 		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
 			req.Arg0 = v
@@ -71,13 +103,13 @@ var vpnVpnServiceProtect1Cmd = &cobra.Command{
 	},
 }
 
-var vpnVpnServiceProtect1_1Cmd = &cobra.Command{
+var vpnServiceProtect1_1Cmd = &cobra.Command{
 	Use:   "protect1_1",
 	Short: "Protect1_1 RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewVpnServiceServiceClient(grpcConn)
+		client := pb.NewServiceServiceClient(grpcConn)
 		req := &pb.Protect1_1Request{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
@@ -90,13 +122,13 @@ var vpnVpnServiceProtect1_1Cmd = &cobra.Command{
 	},
 }
 
-var vpnVpnServiceProtect1_2Cmd = &cobra.Command{
+var vpnServiceProtect1_2Cmd = &cobra.Command{
 	Use:   "protect1_2",
 	Short: "Protect1_2 RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewVpnServiceServiceClient(grpcConn)
+		client := pb.NewServiceServiceClient(grpcConn)
 		req := &pb.Protect1_2Request{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
@@ -109,13 +141,13 @@ var vpnVpnServiceProtect1_2Cmd = &cobra.Command{
 	},
 }
 
-var vpnVpnServiceSetUnderlyingNetworksCmd = &cobra.Command{
+var vpnServiceSetUnderlyingNetworksCmd = &cobra.Command{
 	Use:   "set-underlying-networks",
 	Short: "SetUnderlyingNetworks RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewVpnServiceServiceClient(grpcConn)
+		client := pb.NewServiceServiceClient(grpcConn)
 		req := &pb.SetUnderlyingNetworksRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
@@ -128,13 +160,13 @@ var vpnVpnServiceSetUnderlyingNetworksCmd = &cobra.Command{
 	},
 }
 
-var vpnVpnServicePrepareCmd = &cobra.Command{
+var vpnServicePrepareCmd = &cobra.Command{
 	Use:   "prepare",
 	Short: "Prepare RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewVpnServiceServiceClient(grpcConn)
+		client := pb.NewServiceServiceClient(grpcConn)
 		req := &pb.PrepareRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
@@ -148,19 +180,21 @@ var vpnVpnServicePrepareCmd = &cobra.Command{
 }
 
 func init() {
-	vpnVpnServiceOnBindCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	vpnVpnServiceCmd.AddCommand(vpnVpnServiceOnBindCmd)
-	vpnVpnServiceCmd.AddCommand(vpnVpnServiceOnRevokeCmd)
-	vpnVpnServiceProtect1Cmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	vpnVpnServiceCmd.AddCommand(vpnVpnServiceProtect1Cmd)
-	vpnVpnServiceProtect1_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	vpnVpnServiceCmd.AddCommand(vpnVpnServiceProtect1_1Cmd)
-	vpnVpnServiceProtect1_2Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	vpnVpnServiceCmd.AddCommand(vpnVpnServiceProtect1_2Cmd)
-	vpnVpnServiceSetUnderlyingNetworksCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	vpnVpnServiceCmd.AddCommand(vpnVpnServiceSetUnderlyingNetworksCmd)
-	vpnVpnServicePrepareCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	vpnVpnServiceCmd.AddCommand(vpnVpnServicePrepareCmd)
-	vpnCmd.AddCommand(vpnVpnServiceCmd)
+	vpnServiceCmd.AddCommand(vpnServiceIsAlwaysOnCmd)
+	vpnServiceCmd.AddCommand(vpnServiceIsLockdownEnabledCmd)
+	vpnServiceOnBindCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	vpnServiceCmd.AddCommand(vpnServiceOnBindCmd)
+	vpnServiceCmd.AddCommand(vpnServiceOnRevokeCmd)
+	vpnServiceProtect1Cmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	vpnServiceCmd.AddCommand(vpnServiceProtect1Cmd)
+	vpnServiceProtect1_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	vpnServiceCmd.AddCommand(vpnServiceProtect1_1Cmd)
+	vpnServiceProtect1_2Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	vpnServiceCmd.AddCommand(vpnServiceProtect1_2Cmd)
+	vpnServiceSetUnderlyingNetworksCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	vpnServiceCmd.AddCommand(vpnServiceSetUnderlyingNetworksCmd)
+	vpnServicePrepareCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	vpnServiceCmd.AddCommand(vpnServicePrepareCmd)
+	vpnCmd.AddCommand(vpnServiceCmd)
 	rootCmd.AddCommand(vpnCmd)
 }

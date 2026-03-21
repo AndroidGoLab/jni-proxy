@@ -12,6 +12,8 @@ import (
 	"google.golang.org/grpc"
 )
 
+const setupTeardownMargin = 60 * time.Second
+
 // Android MediaRecorder / Camera2 constants used by the JNI calls below.
 const (
 	audioSourceMIC        = 1 // MediaRecorder.AudioSource.MIC
@@ -42,12 +44,12 @@ The resulting MP4 is written to stdout or a file.`,
 		width, _ := cmd.Flags().GetInt("width")
 		height, _ := cmd.Flags().GetInt("height")
 
-		// Use a generous timeout: recording duration + 60s for setup/teardown.
-		ctx, cancel := context.WithTimeout(cmd.Context(), duration+60*time.Second)
+		// Use a generous timeout: recording duration + margin for setup/teardown.
+		ctx, cancel := context.WithTimeout(cmd.Context(), duration+setupTeardownMargin)
 		defer cancel()
 
 		client := pb.NewJNIServiceClient(grpcConn)
-		j := &jniCaller{client: client, ctx: ctx}
+		j := &jniCaller{client: client}
 
 		data, err := recordVideo(ctx, j, client, grpcConn, cameraIndex, duration, width, height)
 		if err != nil {
@@ -85,25 +87,25 @@ func recordVideo(
 	duration time.Duration,
 	width, height int,
 ) (_ []byte, _err error) {
-	appContextHandle, err := j.getAppContext()
+	appContextHandle, err := j.getAppContext(ctx)
 	if err != nil {
 		return nil, fmt.Errorf("getting app context: %w", err)
 	}
 
 	// Step 1: Create HandlerThread + Handler for camera callbacks.
-	handlerThread, handler, err := createHandlerThread(j)
+	handlerThread, handler, err := createHandlerThread(ctx, j)
 	if err != nil {
 		return nil, fmt.Errorf("creating handler thread: %w", err)
 	}
 
 	// Step 2: Get CameraManager and camera ID.
-	cameraID, cameraManager, err := getCameraID(j, appContextHandle, cameraIndex)
+	cameraID, cameraManager, err := getCameraID(ctx, j, appContextHandle, cameraIndex)
 	if err != nil {
 		return nil, fmt.Errorf("getting camera ID: %w", err)
 	}
 
 	// Step 3: Create CameraDevice.StateCallback proxy and open camera.
-	stateCallbackCls, err := j.findClass("android/hardware/camera2/CameraDevice$StateCallback")
+	stateCallbackCls, err := j.findClass(ctx, "android/hardware/camera2/CameraDevice$StateCallback")
 	if err != nil {
 		return nil, fmt.Errorf("finding CameraDevice.StateCallback: %w", err)
 	}
@@ -138,16 +140,16 @@ func recordVideo(
 	}
 
 	// Step 4: Open camera.
-	cameraIDStr, err := j.newString(cameraID)
+	cameraIDStr, err := j.newString(ctx, cameraID)
 	if err != nil {
 		return nil, fmt.Errorf("creating camera ID string: %w", err)
 	}
 
-	cameraMgrCls, err := j.findClass("android/hardware/camera2/CameraManager")
+	cameraMgrCls, err := j.findClass(ctx, "android/hardware/camera2/CameraManager")
 	if err != nil {
 		return nil, fmt.Errorf("finding CameraManager class: %w", err)
 	}
-	openCameraMid, err := j.getMethodID(
+	openCameraMid, err := j.getMethodID(ctx, 
 		cameraMgrCls,
 		"openCamera",
 		"(Ljava/lang/String;Landroid/hardware/camera2/CameraDevice$StateCallback;Landroid/os/Handler;)V",
@@ -156,7 +158,7 @@ func recordVideo(
 		return nil, fmt.Errorf("getting openCamera method: %w", err)
 	}
 
-	if err := j.callVoidMethod(cameraManager, openCameraMid,
+	if err := j.callVoidMethod(ctx, cameraManager, openCameraMid,
 		objVal(cameraIDStr), objVal(stateCallbackHandle), objVal(handler),
 	); err != nil {
 		return nil, fmt.Errorf("calling openCamera: %w", err)
@@ -170,40 +172,40 @@ func recordVideo(
 
 	// From here on, ensure camera is closed on error.
 	defer func() {
-		if closeErr := closeCameraDevice(j, cameraDevice); closeErr != nil {
+		if closeErr := closeCameraDevice(ctx, j, cameraDevice); closeErr != nil {
 			fmt.Fprintf(os.Stderr, "warning: closing camera: %v\n", closeErr)
 		}
-		if closeErr := stopHandlerThread(j, handlerThread); closeErr != nil {
+		if closeErr := stopHandlerThread(ctx, j, handlerThread); closeErr != nil {
 			fmt.Fprintf(os.Stderr, "warning: stopping handler thread: %v\n", closeErr)
 		}
 	}()
 
 	// Step 6: Configure MediaRecorder.
-	outputPath, err := getOutputPath(j, appContextHandle)
+	outputPath, err := getOutputPath(ctx, j, appContextHandle)
 	if err != nil {
 		return nil, fmt.Errorf("getting output path: %w", err)
 	}
 
-	recorder, err := setupMediaRecorder(j, appContextHandle, outputPath, width, height)
+	recorder, err := setupMediaRecorder(ctx, j, appContextHandle, outputPath, width, height)
 	if err != nil {
 		return nil, fmt.Errorf("setting up MediaRecorder: %w", err)
 	}
 	defer func() {
-		if releaseErr := releaseMediaRecorder(j, recorder); releaseErr != nil {
+		if releaseErr := releaseMediaRecorder(ctx, j, recorder); releaseErr != nil {
 			fmt.Fprintf(os.Stderr, "warning: releasing MediaRecorder: %v\n", releaseErr)
 		}
 	}()
 
 	// Step 7: Get MediaRecorder surface.
-	mediaRecorderCls, err := j.findClass("android/media/MediaRecorder")
+	mediaRecorderCls, err := j.findClass(ctx, "android/media/MediaRecorder")
 	if err != nil {
 		return nil, fmt.Errorf("finding MediaRecorder class: %w", err)
 	}
-	getSurfaceMid, err := j.getMethodID(mediaRecorderCls, "getSurface", "()Landroid/view/Surface;")
+	getSurfaceMid, err := j.getMethodID(ctx, mediaRecorderCls, "getSurface", "()Landroid/view/Surface;")
 	if err != nil {
 		return nil, fmt.Errorf("getting getSurface method: %w", err)
 	}
-	recorderSurface, err := j.callObjectMethod(recorder, getSurfaceMid)
+	recorderSurface, err := j.callObjectMethod(ctx, recorder, getSurfaceMid)
 	if err != nil {
 		return nil, fmt.Errorf("getting recorder surface: %w", err)
 	}
@@ -212,7 +214,7 @@ func recordVideo(
 	}
 
 	// Step 8: Create capture session via proxy callback.
-	sessionCallbackCls, err := j.findClass("android/hardware/camera2/CameraCaptureSession$StateCallback")
+	sessionCallbackCls, err := j.findClass(ctx, "android/hardware/camera2/CameraCaptureSession$StateCallback")
 	if err != nil {
 		return nil, fmt.Errorf("finding CameraCaptureSession.StateCallback: %w", err)
 	}
@@ -247,39 +249,39 @@ func recordVideo(
 	}
 
 	// Build a single-element Surface list for createCaptureSession.
-	surfaceCls, err := j.findClass("android/view/Surface")
+	surfaceCls, err := j.findClass(ctx, "android/view/Surface")
 	if err != nil {
 		return nil, fmt.Errorf("finding Surface class: %w", err)
 	}
-	surfaceArray, err := j.newObjectArray(1, surfaceCls, 0)
+	surfaceArray, err := j.newObjectArray(ctx, 1, surfaceCls, 0)
 	if err != nil {
 		return nil, fmt.Errorf("creating Surface array: %w", err)
 	}
-	if err := j.setObjectArrayElement(surfaceArray, 0, recorderSurface); err != nil {
+	if err := j.setObjectArrayElement(ctx, surfaceArray, 0, recorderSurface); err != nil {
 		return nil, fmt.Errorf("setting Surface array element: %w", err)
 	}
 
 	// Convert Surface[] to List via Arrays.asList().
-	arraysCls, err := j.findClass("java/util/Arrays")
+	arraysCls, err := j.findClass(ctx, "java/util/Arrays")
 	if err != nil {
 		return nil, fmt.Errorf("finding Arrays class: %w", err)
 	}
-	asListMid, err := j.getStaticMethodID(arraysCls, "asList", "([Ljava/lang/Object;)Ljava/util/List;")
+	asListMid, err := j.getStaticMethodID(ctx, arraysCls, "asList", "([Ljava/lang/Object;)Ljava/util/List;")
 	if err != nil {
 		return nil, fmt.Errorf("getting Arrays.asList method: %w", err)
 	}
-	surfaceList, err := j.callStaticMethod(arraysCls, asListMid, pb.JType_OBJECT, objVal(surfaceArray))
+	surfaceList, err := j.callStaticMethod(ctx, arraysCls, asListMid, pb.JType_OBJECT, objVal(surfaceArray))
 	if err != nil {
 		return nil, fmt.Errorf("calling Arrays.asList: %w", err)
 	}
 	surfaceListHandle := surfaceList.GetL()
 
 	// CameraDevice.createCaptureSession(List<Surface>, StateCallback, Handler)
-	cameraDeviceCls, err := j.findClass("android/hardware/camera2/CameraDevice")
+	cameraDeviceCls, err := j.findClass(ctx, "android/hardware/camera2/CameraDevice")
 	if err != nil {
 		return nil, fmt.Errorf("finding CameraDevice class: %w", err)
 	}
-	createSessionMid, err := j.getMethodID(
+	createSessionMid, err := j.getMethodID(ctx, 
 		cameraDeviceCls,
 		"createCaptureSession",
 		"(Ljava/util/List;Landroid/hardware/camera2/CameraCaptureSession$StateCallback;Landroid/os/Handler;)V",
@@ -288,7 +290,7 @@ func recordVideo(
 		return nil, fmt.Errorf("getting createCaptureSession method: %w", err)
 	}
 
-	if err := j.callVoidMethod(cameraDevice, createSessionMid,
+	if err := j.callVoidMethod(ctx, cameraDevice, createSessionMid,
 		objVal(surfaceListHandle), objVal(sessionCallbackHandle), objVal(handler),
 	); err != nil {
 		return nil, fmt.Errorf("calling createCaptureSession: %w", err)
@@ -301,7 +303,7 @@ func recordVideo(
 	}
 
 	// Step 10: Create capture request and start repeating.
-	createCaptureRequestMid, err := j.getMethodID(
+	createCaptureRequestMid, err := j.getMethodID(ctx, 
 		cameraDeviceCls,
 		"createCaptureRequest",
 		"(I)Landroid/hardware/camera2/CaptureRequest$Builder;",
@@ -309,37 +311,37 @@ func recordVideo(
 	if err != nil {
 		return nil, fmt.Errorf("getting createCaptureRequest method: %w", err)
 	}
-	requestBuilder, err := j.callObjectMethod(cameraDevice, createCaptureRequestMid, intVal(templateRecord))
+	requestBuilder, err := j.callObjectMethod(ctx, cameraDevice, createCaptureRequestMid, intVal(templateRecord))
 	if err != nil {
 		return nil, fmt.Errorf("calling createCaptureRequest: %w", err)
 	}
 
-	builderCls, err := j.findClass("android/hardware/camera2/CaptureRequest$Builder")
+	builderCls, err := j.findClass(ctx, "android/hardware/camera2/CaptureRequest$Builder")
 	if err != nil {
 		return nil, fmt.Errorf("finding CaptureRequest.Builder class: %w", err)
 	}
-	addTargetMid, err := j.getMethodID(builderCls, "addTarget", "(Landroid/view/Surface;)V")
+	addTargetMid, err := j.getMethodID(ctx, builderCls, "addTarget", "(Landroid/view/Surface;)V")
 	if err != nil {
 		return nil, fmt.Errorf("getting addTarget method: %w", err)
 	}
-	if err := j.callVoidMethod(requestBuilder, addTargetMid, objVal(recorderSurface)); err != nil {
+	if err := j.callVoidMethod(ctx, requestBuilder, addTargetMid, objVal(recorderSurface)); err != nil {
 		return nil, fmt.Errorf("calling addTarget: %w", err)
 	}
 
-	buildMid, err := j.getMethodID(builderCls, "build", "()Landroid/hardware/camera2/CaptureRequest;")
+	buildMid, err := j.getMethodID(ctx, builderCls, "build", "()Landroid/hardware/camera2/CaptureRequest;")
 	if err != nil {
 		return nil, fmt.Errorf("getting build method: %w", err)
 	}
-	captureRequest, err := j.callObjectMethod(requestBuilder, buildMid)
+	captureRequest, err := j.callObjectMethod(ctx, requestBuilder, buildMid)
 	if err != nil {
 		return nil, fmt.Errorf("calling build: %w", err)
 	}
 
-	sessionCls, err := j.findClass("android/hardware/camera2/CameraCaptureSession")
+	sessionCls, err := j.findClass(ctx, "android/hardware/camera2/CameraCaptureSession")
 	if err != nil {
 		return nil, fmt.Errorf("finding CameraCaptureSession class: %w", err)
 	}
-	setRepeatingMid, err := j.getMethodID(
+	setRepeatingMid, err := j.getMethodID(ctx, 
 		sessionCls,
 		"setRepeatingRequest",
 		"(Landroid/hardware/camera2/CaptureRequest;Landroid/hardware/camera2/CameraCaptureSession$CaptureCallback;Landroid/os/Handler;)I",
@@ -349,18 +351,18 @@ func recordVideo(
 	}
 
 	// null CaptureCallback, use our handler.
-	if _, err := j.callIntMethod(captureSession, setRepeatingMid,
+	if _, err := j.callIntMethod(ctx, captureSession, setRepeatingMid,
 		objVal(captureRequest), objVal(0), objVal(handler),
 	); err != nil {
 		return nil, fmt.Errorf("calling setRepeatingRequest: %w", err)
 	}
 
 	// Step 11: Start MediaRecorder and record for the specified duration.
-	startMid, err := j.getMethodID(mediaRecorderCls, "start", "()V")
+	startMid, err := j.getMethodID(ctx, mediaRecorderCls, "start", "()V")
 	if err != nil {
 		return nil, fmt.Errorf("getting MediaRecorder.start method: %w", err)
 	}
-	if err := j.callVoidMethod(recorder, startMid); err != nil {
+	if err := j.callVoidMethod(ctx, recorder, startMid); err != nil {
 		return nil, fmt.Errorf("calling MediaRecorder.start: %w", err)
 	}
 
@@ -372,81 +374,81 @@ func recordVideo(
 	}
 
 	// Step 12: Stop recording.
-	stopRepeatingMid, err := j.getMethodID(sessionCls, "stopRepeating", "()V")
+	stopRepeatingMid, err := j.getMethodID(ctx, sessionCls, "stopRepeating", "()V")
 	if err != nil {
 		return nil, fmt.Errorf("getting stopRepeating method: %w", err)
 	}
-	if err := j.callVoidMethod(captureSession, stopRepeatingMid); err != nil {
+	if err := j.callVoidMethod(ctx, captureSession, stopRepeatingMid); err != nil {
 		return nil, fmt.Errorf("calling stopRepeating: %w", err)
 	}
 
-	stopMid, err := j.getMethodID(mediaRecorderCls, "stop", "()V")
+	stopMid, err := j.getMethodID(ctx, mediaRecorderCls, "stop", "()V")
 	if err != nil {
 		return nil, fmt.Errorf("getting MediaRecorder.stop method: %w", err)
 	}
-	if err := j.callVoidMethod(recorder, stopMid); err != nil {
+	if err := j.callVoidMethod(ctx, recorder, stopMid); err != nil {
 		return nil, fmt.Errorf("calling MediaRecorder.stop: %w", err)
 	}
 
-	closeSessionMid, err := j.getMethodID(sessionCls, "close", "()V")
+	closeSessionMid, err := j.getMethodID(ctx, sessionCls, "close", "()V")
 	if err != nil {
 		return nil, fmt.Errorf("getting CameraCaptureSession.close method: %w", err)
 	}
-	if err := j.callVoidMethod(captureSession, closeSessionMid); err != nil {
+	if err := j.callVoidMethod(ctx, captureSession, closeSessionMid); err != nil {
 		return nil, fmt.Errorf("closing capture session: %w", err)
 	}
 
 	// Step 13: Read recorded file back via JNI.
 	fmt.Fprintf(os.Stderr, "Reading recorded file...\n")
-	return readFileViaJNI(j, outputPath)
+	return readFileViaJNI(ctx, j, outputPath)
 }
 
 // createHandlerThread creates a HandlerThread, starts it, and returns
 // both the HandlerThread handle and a Handler backed by its Looper.
-func createHandlerThread(j *jniCaller) (handlerThread, handler int64, _ error) {
-	htCls, err := j.findClass("android/os/HandlerThread")
+func createHandlerThread(ctx context.Context, j *jniCaller) (handlerThread, handler int64, _ error) {
+	htCls, err := j.findClass(ctx, "android/os/HandlerThread")
 	if err != nil {
 		return 0, 0, fmt.Errorf("finding HandlerThread class: %w", err)
 	}
-	htCtor, err := j.getMethodID(htCls, "<init>", "(Ljava/lang/String;)V")
+	htCtor, err := j.getMethodID(ctx, htCls, "<init>", "(Ljava/lang/String;)V")
 	if err != nil {
 		return 0, 0, fmt.Errorf("getting HandlerThread constructor: %w", err)
 	}
-	threadName, err := j.newString("CameraRecord")
+	threadName, err := j.newString(ctx, "CameraRecord")
 	if err != nil {
 		return 0, 0, fmt.Errorf("creating thread name string: %w", err)
 	}
-	handlerThread, err = j.newObject(htCls, htCtor, objVal(threadName))
+	handlerThread, err = j.newObject(ctx, htCls, htCtor, objVal(threadName))
 	if err != nil {
 		return 0, 0, fmt.Errorf("creating HandlerThread: %w", err)
 	}
 
-	startMid, err := j.getMethodID(htCls, "start", "()V")
+	startMid, err := j.getMethodID(ctx, htCls, "start", "()V")
 	if err != nil {
 		return 0, 0, fmt.Errorf("getting HandlerThread.start method: %w", err)
 	}
-	if err := j.callVoidMethod(handlerThread, startMid); err != nil {
+	if err := j.callVoidMethod(ctx, handlerThread, startMid); err != nil {
 		return 0, 0, fmt.Errorf("starting HandlerThread: %w", err)
 	}
 
-	getLooperMid, err := j.getMethodID(htCls, "getLooper", "()Landroid/os/Looper;")
+	getLooperMid, err := j.getMethodID(ctx, htCls, "getLooper", "()Landroid/os/Looper;")
 	if err != nil {
 		return 0, 0, fmt.Errorf("getting getLooper method: %w", err)
 	}
-	looper, err := j.callObjectMethod(handlerThread, getLooperMid)
+	looper, err := j.callObjectMethod(ctx, handlerThread, getLooperMid)
 	if err != nil {
 		return 0, 0, fmt.Errorf("getting looper: %w", err)
 	}
 
-	handlerCls, err := j.findClass("android/os/Handler")
+	handlerCls, err := j.findClass(ctx, "android/os/Handler")
 	if err != nil {
 		return 0, 0, fmt.Errorf("finding Handler class: %w", err)
 	}
-	handlerCtor, err := j.getMethodID(handlerCls, "<init>", "(Landroid/os/Looper;)V")
+	handlerCtor, err := j.getMethodID(ctx, handlerCls, "<init>", "(Landroid/os/Looper;)V")
 	if err != nil {
 		return 0, 0, fmt.Errorf("getting Handler constructor: %w", err)
 	}
-	handler, err = j.newObject(handlerCls, handlerCtor, objVal(looper))
+	handler, err = j.newObject(ctx, handlerCls, handlerCtor, objVal(looper))
 	if err != nil {
 		return 0, 0, fmt.Errorf("creating Handler: %w", err)
 	}
@@ -455,12 +457,17 @@ func createHandlerThread(j *jniCaller) (handlerThread, handler int64, _ error) {
 }
 
 // getCameraID retrieves the camera ID string at the given index from CameraManager.
-func getCameraID(j *jniCaller, appContextHandle int64, index int) (string, int64, error) {
-	contextCls, err := j.findClass("android/content/Context")
+func getCameraID(
+	ctx context.Context,
+	j *jniCaller,
+	appContextHandle int64,
+	index int,
+) (string, int64, error) {
+	contextCls, err := j.findClass(ctx, "android/content/Context")
 	if err != nil {
 		return "", 0, fmt.Errorf("finding Context class: %w", err)
 	}
-	getSystemServiceMid, err := j.getMethodID(
+	getSystemServiceMid, err := j.getMethodID(ctx, 
 		contextCls,
 		"getSystemService",
 		"(Ljava/lang/String;)Ljava/lang/Object;",
@@ -469,11 +476,11 @@ func getCameraID(j *jniCaller, appContextHandle int64, index int) (string, int64
 		return "", 0, fmt.Errorf("getting getSystemService method: %w", err)
 	}
 
-	cameraServiceStr, err := j.newString(appconsts.CameraService)
+	cameraServiceStr, err := j.newString(ctx, appconsts.CameraService)
 	if err != nil {
 		return "", 0, fmt.Errorf("creating camera service string: %w", err)
 	}
-	cameraManager, err := j.callObjectMethod(appContextHandle, getSystemServiceMid, objVal(cameraServiceStr))
+	cameraManager, err := j.callObjectMethod(ctx, appContextHandle, getSystemServiceMid, objVal(cameraServiceStr))
 	if err != nil {
 		return "", 0, fmt.Errorf("calling getSystemService(%q): %w", appconsts.CameraService, err)
 	}
@@ -481,15 +488,15 @@ func getCameraID(j *jniCaller, appContextHandle int64, index int) (string, int64
 		return "", 0, fmt.Errorf("getSystemService(%q) returned null", appconsts.CameraService)
 	}
 
-	cameraMgrCls, err := j.findClass("android/hardware/camera2/CameraManager")
+	cameraMgrCls, err := j.findClass(ctx, "android/hardware/camera2/CameraManager")
 	if err != nil {
 		return "", 0, fmt.Errorf("finding CameraManager class: %w", err)
 	}
-	getCameraIdListMid, err := j.getMethodID(cameraMgrCls, "getCameraIdList", "()[Ljava/lang/String;")
+	getCameraIdListMid, err := j.getMethodID(ctx, cameraMgrCls, "getCameraIdList", "()[Ljava/lang/String;")
 	if err != nil {
 		return "", 0, fmt.Errorf("getting getCameraIdList method: %w", err)
 	}
-	cameraIdArray, err := j.callObjectMethod(cameraManager, getCameraIdListMid)
+	cameraIdArray, err := j.callObjectMethod(ctx, cameraManager, getCameraIdListMid)
 	if err != nil {
 		return "", 0, fmt.Errorf("calling getCameraIdList: %w", err)
 	}
@@ -497,11 +504,11 @@ func getCameraID(j *jniCaller, appContextHandle int64, index int) (string, int64
 		return "", 0, fmt.Errorf("getCameraIdList returned null")
 	}
 
-	cameraIdHandle, err := j.getObjectArrayElement(cameraIdArray, int32(index))
+	cameraIdHandle, err := j.getObjectArrayElement(ctx, cameraIdArray, int32(index))
 	if err != nil {
 		return "", 0, fmt.Errorf("getting camera ID at index %d: %w", index, err)
 	}
-	cameraID, err := j.getStringUTFChars(cameraIdHandle)
+	cameraID, err := j.getStringUTFChars(ctx, cameraIdHandle)
 	if err != nil {
 		return "", 0, fmt.Errorf("reading camera ID string: %w", err)
 	}
@@ -509,44 +516,32 @@ func getCameraID(j *jniCaller, appContextHandle int64, index int) (string, int64
 	return cameraID, cameraManager, nil
 }
 
-// getOutputPath returns a path in the app's cache directory for the recording.
-func getOutputPath(j *jniCaller, appContextHandle int64) (string, error) {
-	contextCls, err := j.findClass("android/content/Context")
-	if err != nil {
-		return "", fmt.Errorf("finding Context class: %w", err)
-	}
-	getCacheDirMid, err := j.getMethodID(contextCls, "getCacheDir", "()Ljava/io/File;")
-	if err != nil {
-		return "", fmt.Errorf("getting getCacheDir method: %w", err)
-	}
-	cacheDir, err := j.callObjectMethod(appContextHandle, getCacheDirMid)
-	if err != nil {
-		return "", fmt.Errorf("calling getCacheDir: %w", err)
-	}
+// videoRecordingFallbackDir is used when getCacheDir fails (e.g. when
+// running as the "android" package which has no data directory).
+const videoRecordingFallbackDir = "/data/local/tmp"
 
-	fileCls, err := j.findClass("java/io/File")
+// getOutputPath returns a device-side path for the camera recording.
+// It tries the app's cache directory first and falls back to
+// videoRecordingFallbackDir when getCacheDir fails.
+func getOutputPath(ctx context.Context, j *jniCaller, appContextHandle int64) (string, error) {
+	cachePath, err := getCacheDirPath(ctx, j, appContextHandle)
 	if err != nil {
-		return "", fmt.Errorf("finding File class: %w", err)
+		fmt.Fprintf(os.Stderr, "warning: getCacheDir failed (%v), falling back to %s\n", err, videoRecordingFallbackDir)
+		return videoRecordingFallbackDir + "/camera_record.mp4", nil
 	}
-	getAbsolutePathMid, err := j.getMethodID(fileCls, "getAbsolutePath", "()Ljava/lang/String;")
-	if err != nil {
-		return "", fmt.Errorf("getting getAbsolutePath method: %w", err)
-	}
-	pathHandle, err := j.callObjectMethod(cacheDir, getAbsolutePathMid)
-	if err != nil {
-		return "", fmt.Errorf("calling getAbsolutePath: %w", err)
-	}
-	cachePath, err := j.getStringUTFChars(pathHandle)
-	if err != nil {
-		return "", fmt.Errorf("reading cache dir path: %w", err)
-	}
-
 	return cachePath + "/camera_record.mp4", nil
 }
 
 // setupMediaRecorder creates and configures a MediaRecorder via JNI.
-func setupMediaRecorder(j *jniCaller, appContextHandle int64, outputPath string, width, height int) (int64, error) {
-	mrCls, err := j.findClass("android/media/MediaRecorder")
+func setupMediaRecorder(
+	ctx context.Context,
+	j *jniCaller,
+	appContextHandle int64,
+	outputPath string,
+	width int,
+	height int,
+) (int64, error) {
+	mrCls, err := j.findClass(ctx, "android/media/MediaRecorder")
 	if err != nil {
 		return 0, fmt.Errorf("finding MediaRecorder class: %w", err)
 	}
@@ -554,17 +549,17 @@ func setupMediaRecorder(j *jniCaller, appContextHandle int64, outputPath string,
 	// MediaRecorder(Context) constructor (API 31+).
 	// Fall back to no-arg constructor for older APIs.
 	var recorder int64
-	ctor, ctorErr := j.getMethodID(mrCls, "<init>", "(Landroid/content/Context;)V")
+	ctor, ctorErr := j.getMethodID(ctx, mrCls, "<init>", "(Landroid/content/Context;)V")
 	if ctorErr == nil {
-		recorder, err = j.newObject(mrCls, ctor, objVal(appContextHandle))
+		recorder, err = j.newObject(ctx, mrCls, ctor, objVal(appContextHandle))
 	}
 	if ctorErr != nil || err != nil {
 		// Fallback: no-arg constructor for older APIs.
-		ctor, err = j.getMethodID(mrCls, "<init>", "()V")
+		ctor, err = j.getMethodID(ctx, mrCls, "<init>", "()V")
 		if err != nil {
 			return 0, fmt.Errorf("getting MediaRecorder constructor: %w", err)
 		}
-		recorder, err = j.newObject(mrCls, ctor)
+		recorder, err = j.newObject(ctx, mrCls, ctor)
 		if err != nil {
 			return 0, fmt.Errorf("creating MediaRecorder: %w", err)
 		}
@@ -576,7 +571,7 @@ func setupMediaRecorder(j *jniCaller, appContextHandle int64, outputPath string,
 		args []*pb.JValue
 	}
 
-	outputPathStr, err := j.newString(outputPath)
+	outputPathStr, err := j.newString(ctx, outputPath)
 	if err != nil {
 		return 0, fmt.Errorf("creating output path string: %w", err)
 	}
@@ -595,11 +590,11 @@ func setupMediaRecorder(j *jniCaller, appContextHandle int64, outputPath string,
 	}
 
 	for _, c := range calls {
-		mid, err := j.getMethodID(mrCls, c.name, c.sig)
+		mid, err := j.getMethodID(ctx, mrCls, c.name, c.sig)
 		if err != nil {
 			return 0, fmt.Errorf("getting MediaRecorder.%s method: %w", c.name, err)
 		}
-		if err := j.callVoidMethod(recorder, mid, c.args...); err != nil {
+		if err := j.callVoidMethod(ctx, recorder, mid, c.args...); err != nil {
 			return 0, fmt.Errorf("calling MediaRecorder.%s: %w", c.name, err)
 		}
 	}
@@ -654,31 +649,31 @@ func waitForCallback(
 
 // readFileViaJNI reads a file on the Android device using FileInputStream and
 // returns the content as a byte array via GetByteArrayData.
-func readFileViaJNI(j *jniCaller, path string) ([]byte, error) {
+func readFileViaJNI(ctx context.Context, j *jniCaller, path string) ([]byte, error) {
 	// new FileInputStream(path)
-	fisCls, err := j.findClass("java/io/FileInputStream")
+	fisCls, err := j.findClass(ctx, "java/io/FileInputStream")
 	if err != nil {
 		return nil, fmt.Errorf("finding FileInputStream: %w", err)
 	}
-	fisCtor, err := j.getMethodID(fisCls, "<init>", "(Ljava/lang/String;)V")
+	fisCtor, err := j.getMethodID(ctx, fisCls, "<init>", "(Ljava/lang/String;)V")
 	if err != nil {
 		return nil, fmt.Errorf("getting FileInputStream constructor: %w", err)
 	}
-	pathStr, err := j.newString(path)
+	pathStr, err := j.newString(ctx, path)
 	if err != nil {
 		return nil, fmt.Errorf("creating path string: %w", err)
 	}
-	fis, err := j.newObject(fisCls, fisCtor, objVal(pathStr))
+	fis, err := j.newObject(ctx, fisCls, fisCtor, objVal(pathStr))
 	if err != nil {
 		return nil, fmt.Errorf("creating FileInputStream: %w", err)
 	}
 
 	// fis.available() -> size
-	availableMid, err := j.getMethodID(fisCls, "available", "()I")
+	availableMid, err := j.getMethodID(ctx, fisCls, "available", "()I")
 	if err != nil {
 		return nil, fmt.Errorf("getting available method: %w", err)
 	}
-	size, err := j.callIntMethod(fis, availableMid)
+	size, err := j.callIntMethod(ctx, fis, availableMid)
 	if err != nil {
 		return nil, fmt.Errorf("calling available: %w", err)
 	}
@@ -687,7 +682,7 @@ func readFileViaJNI(j *jniCaller, path string) ([]byte, error) {
 	}
 
 	// byte[] buf = new byte[size]
-	resp, err := j.client.NewPrimitiveArray(j.ctx, &pb.NewPrimitiveArrayRequest{
+	resp, err := j.client.NewPrimitiveArray(ctx, &pb.NewPrimitiveArrayRequest{
 		ElementType: pb.JType_BYTE,
 		Length:      size,
 	})
@@ -697,63 +692,63 @@ func readFileViaJNI(j *jniCaller, path string) ([]byte, error) {
 	buf := resp.GetArrayHandle()
 
 	// fis.read(buf)
-	readMid, err := j.getMethodID(fisCls, "read", "([B)I")
+	readMid, err := j.getMethodID(ctx, fisCls, "read", "([B)I")
 	if err != nil {
 		return nil, fmt.Errorf("getting read method: %w", err)
 	}
-	if _, err := j.callIntMethod(fis, readMid, objVal(buf)); err != nil {
+	if _, err := j.callIntMethod(ctx, fis, readMid, objVal(buf)); err != nil {
 		return nil, fmt.Errorf("reading file: %w", err)
 	}
 
 	// fis.close()
-	closeMid, err := j.getMethodID(fisCls, "close", "()V")
+	closeMid, err := j.getMethodID(ctx, fisCls, "close", "()V")
 	if err != nil {
 		return nil, fmt.Errorf("getting close method: %w", err)
 	}
-	if err := j.callVoidMethod(fis, closeMid); err != nil {
+	if err := j.callVoidMethod(ctx, fis, closeMid); err != nil {
 		return nil, fmt.Errorf("closing FileInputStream: %w", err)
 	}
 
 	// Transfer byte array data over gRPC.
-	return j.getByteArrayData(buf)
+	return j.getByteArrayData(ctx, buf)
 }
 
 // closeCameraDevice calls CameraDevice.close().
-func closeCameraDevice(j *jniCaller, cameraDevice int64) error {
-	cls, err := j.findClass("android/hardware/camera2/CameraDevice")
+func closeCameraDevice(ctx context.Context, j *jniCaller, cameraDevice int64) error {
+	cls, err := j.findClass(ctx, "android/hardware/camera2/CameraDevice")
 	if err != nil {
 		return err
 	}
-	closeMid, err := j.getMethodID(cls, "close", "()V")
+	closeMid, err := j.getMethodID(ctx, cls, "close", "()V")
 	if err != nil {
 		return err
 	}
-	return j.callVoidMethod(cameraDevice, closeMid)
+	return j.callVoidMethod(ctx, cameraDevice, closeMid)
 }
 
 // stopHandlerThread calls HandlerThread.quitSafely().
-func stopHandlerThread(j *jniCaller, handlerThread int64) error {
-	cls, err := j.findClass("android/os/HandlerThread")
+func stopHandlerThread(ctx context.Context, j *jniCaller, handlerThread int64) error {
+	cls, err := j.findClass(ctx, "android/os/HandlerThread")
 	if err != nil {
 		return err
 	}
-	quitMid, err := j.getMethodID(cls, "quitSafely", "()Z")
+	quitMid, err := j.getMethodID(ctx, cls, "quitSafely", "()Z")
 	if err != nil {
 		return err
 	}
-	_, err = j.callMethod(handlerThread, quitMid, pb.JType_BOOLEAN)
+	_, err = j.callMethod(ctx, handlerThread, quitMid, pb.JType_BOOLEAN)
 	return err
 }
 
 // releaseMediaRecorder calls MediaRecorder.release().
-func releaseMediaRecorder(j *jniCaller, recorder int64) error {
-	cls, err := j.findClass("android/media/MediaRecorder")
+func releaseMediaRecorder(ctx context.Context, j *jniCaller, recorder int64) error {
+	cls, err := j.findClass(ctx, "android/media/MediaRecorder")
 	if err != nil {
 		return err
 	}
-	releaseMid, err := j.getMethodID(cls, "release", "()V")
+	releaseMid, err := j.getMethodID(ctx, cls, "release", "()V")
 	if err != nil {
 		return err
 	}
-	return j.callVoidMethod(recorder, releaseMid)
+	return j.callVoidMethod(ctx, recorder, releaseMid)
 }
