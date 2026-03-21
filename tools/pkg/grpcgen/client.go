@@ -185,7 +185,7 @@ func buildClientMethod(
 		GoName:       goName,
 		RequestType:  reqType,
 		ResponseType: respType,
-		HasError:     m.Error,
+		HasError:     m.HasError,
 		HasResult:    m.ReturnKind != javagen.ReturnVoid,
 		GoReturnType: m.GoReturn,
 	}

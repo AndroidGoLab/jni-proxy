@@ -519,7 +519,7 @@ func TestBuildServerMethod_ObjectNoError(t *testing.T) {
 		ReturnKind: javagen.ReturnObject,
 		GoReturn:   "*jni.Object",
 		Returns:    "android.some.Unknown",
-		Error:      false,
+		HasError:   false,
 	}
 	sm := buildServerMethod(
 		m,

@@ -17,13 +17,12 @@ type Server struct {
 }
 
 // ReleaseHandle releases a previously-stored JNI global reference.
+// Release is atomic — it removes the handle from the store and deletes
+// the JNI global ref in a single locked operation, avoiding TOCTOU races.
 func (s *Server) ReleaseHandle(_ context.Context, req *pb.ReleaseHandleRequest) (*pb.ReleaseHandleResponse, error) {
 	handle := req.GetHandle()
 	if handle == 0 {
 		return &pb.ReleaseHandleResponse{}, nil
-	}
-	if s.Handles.Get(handle) == nil {
-		return nil, status.Errorf(codes.NotFound, "handle %d not found", handle)
 	}
 	if err := s.VM.Do(func(env *jni.Env) error {
 		s.Handles.Release(env, handle)

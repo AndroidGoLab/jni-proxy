@@ -49,6 +49,9 @@ func (s *Server) requireObject(handle int64) (*jni.Object, error) {
 	return obj, nil
 }
 
+// requireClass retrieves a handle and casts it to *jni.Class.
+// The caller is responsible for ensuring the handle refers to a JNI class object.
+// Passing a non-class handle causes undefined JVM behavior.
 func (s *Server) requireClass(handle int64) (*jni.Class, error) {
 	obj, err := s.requireObject(handle)
 	if err != nil {
@@ -1014,7 +1017,9 @@ func (s *Server) GetByteArrayData(_ context.Context, req *pb.GetByteArrayDataReq
 		byteArr := (*jni.ByteArray)(unsafe.Pointer(obj))
 		length := env.GetArrayLength(arr)
 		data = make([]byte, length)
-		env.GetByteArrayRegion(byteArr, 0, length, unsafe.Pointer(&data[0]))
+		if length > 0 {
+			env.GetByteArrayRegion(byteArr, 0, length, unsafe.Pointer(&data[0]))
+		}
 		return nil
 	}); err != nil {
 		return nil, status.Errorf(codes.Internal, "%v", err)
@@ -1046,10 +1051,13 @@ func (s *Server) SetField(_ context.Context, req *pb.SetFieldValueRequest) (*pb.
 	if err != nil {
 		return nil, err
 	}
+	val := req.GetValue()
+	if val == nil || val.GetValue() == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "value must not be nil")
+	}
 	if err := s.withEnv(func(env *jni.Env) error {
 		fid := fieldID(req.GetFieldId())
-		s.setFieldValue(env, obj, fid, req.GetValue())
-		return nil
+		return s.setFieldValue(env, obj, fid, val)
 	}); err != nil {
 		return nil, status.Errorf(codes.Internal, "%v", err)
 	}
@@ -1078,10 +1086,13 @@ func (s *Server) SetStaticField(_ context.Context, req *pb.SetStaticFieldValueRe
 	if err != nil {
 		return nil, err
 	}
+	val := req.GetValue()
+	if val == nil || val.GetValue() == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "value must not be nil")
+	}
 	if err := s.withEnv(func(env *jni.Env) error {
 		fid := fieldID(req.GetFieldId())
-		s.setStaticFieldValue(env, cls, fid, req.GetValue())
-		return nil
+		return s.setStaticFieldValue(env, cls, fid, val)
 	}); err != nil {
 		return nil, status.Errorf(codes.Internal, "%v", err)
 	}
@@ -1128,7 +1139,10 @@ func (s *Server) setFieldValue(
 	obj *jni.Object,
 	fid jni.FieldID,
 	val *pb.JValue,
-) {
+) error {
+	if val == nil || val.GetValue() == nil {
+		return fmt.Errorf("value must not be nil")
+	}
 	switch v := val.GetValue().(type) {
 	case *pb.JValue_Z:
 		var b uint8
@@ -1153,6 +1167,7 @@ func (s *Server) setFieldValue(
 	case *pb.JValue_L:
 		env.SetObjectField(obj, fid, s.getObject(v.L))
 	}
+	return nil
 }
 
 func (s *Server) getStaticFieldValue(
@@ -1195,7 +1210,10 @@ func (s *Server) setStaticFieldValue(
 	cls *jni.Class,
 	fid jni.FieldID,
 	val *pb.JValue,
-) {
+) error {
+	if val == nil || val.GetValue() == nil {
+		return fmt.Errorf("value must not be nil")
+	}
 	switch v := val.GetValue().(type) {
 	case *pb.JValue_Z:
 		var b uint8
@@ -1220,4 +1238,5 @@ func (s *Server) setStaticFieldValue(
 	case *pb.JValue_L:
 		env.SetStaticObjectField(cls, fid, s.getObject(v.L))
 	}
+	return nil
 }

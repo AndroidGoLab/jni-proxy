@@ -219,7 +219,7 @@ func buildServerMethod(
 		SpecGoName:   m.GoName,
 		RequestType:  reqType,
 		ResponseType: respType,
-		HasError:     m.Error,
+		HasError:     m.HasError,
 		HasResult:    m.ReturnKind != javagen.ReturnVoid,
 		GoReturnType: m.GoReturn,
 	}

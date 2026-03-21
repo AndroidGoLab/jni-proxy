@@ -39,9 +39,14 @@ func (s *AuthServiceServer) Register(
 		return nil, status.Errorf(codes.Internal, "parse signed cert: %v", err)
 	}
 
+	clientID := cert.Subject.CommonName
+	if clientID == "" {
+		return nil, status.Errorf(codes.InvalidArgument, "CSR must have a non-empty CommonName")
+	}
+
 	fingerprint := fmt.Sprintf("sha256:%x", sha256.Sum256(cert.Raw))
 
-	if err := s.Store.RegisterClient(cert.Subject.CommonName, string(certPEM), fingerprint); err != nil {
+	if err := s.Store.RegisterClient(clientID, string(certPEM), fingerprint); err != nil {
 		return nil, status.Errorf(codes.Internal, "register client: %v", err)
 	}
 

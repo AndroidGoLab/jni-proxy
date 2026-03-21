@@ -154,6 +154,9 @@ func (s *Store) RevokeClient(clientID string) error {
 	if _, err := tx.Exec(`DELETE FROM grants WHERE client_id = ?`, clientID); err != nil {
 		return fmt.Errorf("deleting grants for client %q: %w", clientID, err)
 	}
+	if _, err := tx.Exec(`DELETE FROM pending_requests WHERE client_id = ?`, clientID); err != nil {
+		return fmt.Errorf("deleting pending requests for client %q: %w", clientID, err)
+	}
 	if _, err := tx.Exec(`DELETE FROM clients WHERE client_id = ?`, clientID); err != nil {
 		return fmt.Errorf("deleting client %q: %w", clientID, err)
 	}
@@ -347,11 +350,11 @@ func (s *Store) ApproveRequest(
 
 	var clientID, methodsJSON string
 	err = tx.QueryRow(
-		`SELECT client_id, methods FROM pending_requests WHERE id = ?`,
+		`SELECT client_id, methods FROM pending_requests WHERE id = ? AND status = 'pending'`,
 		requestID,
 	).Scan(&clientID, &methodsJSON)
 	if err != nil {
-		return fmt.Errorf("looking up request %d: %w", requestID, err)
+		return fmt.Errorf("looking up pending request %d: %w", requestID, err)
 	}
 
 	var methods []string
@@ -384,7 +387,7 @@ func (s *Store) ApproveRequest(
 // DenyRequest marks the request as 'denied' without creating any grants.
 func (s *Store) DenyRequest(requestID int64) error {
 	_, err := s.db.Exec(
-		`UPDATE pending_requests SET status = 'denied' WHERE id = ?`,
+		`UPDATE pending_requests SET status = 'denied' WHERE id = ? AND status = 'pending'`,
 		requestID,
 	)
 	if err != nil {

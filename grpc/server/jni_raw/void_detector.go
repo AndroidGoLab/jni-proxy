@@ -57,6 +57,15 @@ func (d *voidDetector) doInit(env *jni.Env) error {
 	return nil
 }
 
+// close releases the JNI global reference held by the voidDetector.
+// Must be called inside a VM.Do callback when the detector is no longer needed.
+func (d *voidDetector) close(env *jni.Env) {
+	if d.voidType != nil {
+		env.DeleteGlobalRef(d.voidType)
+		d.voidType = nil
+	}
+}
+
 // isVoid returns true when method's return type is java.lang.Void.TYPE.
 func (d *voidDetector) isVoid(
 	env *jni.Env,

@@ -77,6 +77,20 @@ func (s *Server) Proxy(stream pb.JNIService_ProxyServer) error {
 			}
 		}
 
+		// Release callback argument handles when the callback is done,
+		// regardless of which exit path is taken (send error, void
+		// fire-and-forget, or normal response).
+		defer func() {
+			for _, h := range argHandles {
+				if h != 0 {
+					_ = s.VM.Do(func(env *jni.Env) error {
+						s.Handles.Release(env, h)
+						return nil
+					})
+				}
+			}
+		}()
+
 		// Send callback event to client.
 		event := &pb.ProxyServerMessage{
 			Msg: &pb.ProxyServerMessage_Callback{
@@ -275,6 +289,24 @@ func (s *Server) Proxy(stream pb.JNIService_ProxyServer) error {
 		}
 	}
 	defer proxyCleanup()
+	defer func() {
+		// Release the voidDetector's cached JNI global ref (Void.TYPE).
+		_ = s.VM.Do(func(env *jni.Env) error {
+			detector.close(env)
+			return nil
+		})
+	}()
+
+	// Close all pending callback channels when the stream ends so that
+	// blocked callback goroutines do not deadlock.
+	defer func() {
+		pendingMu.Lock()
+		for id, ch := range pending {
+			close(ch)
+			delete(pending, id)
+		}
+		pendingMu.Unlock()
+	}()
 
 	// 7. proxyHandle was set inside the VM.Do callbacks above (local JNI
 	// refs are thread-local — must be stored before VM.Do returns).
