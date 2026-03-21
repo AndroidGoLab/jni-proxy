@@ -11,14 +11,12 @@ import (
 
 // Client wraps the gRPC StoreManagerService client.
 type Client struct {
-	cc  grpc.ClientConnInterface
 	svc pb.StoreManagerServiceClient
 }
 
 // NewClient creates a new blob client.
 func NewClient(cc grpc.ClientConnInterface) *Client {
 	return &Client{
-		cc:  cc,
 		svc: pb.NewStoreManagerServiceClient(cc),
 	}
 }

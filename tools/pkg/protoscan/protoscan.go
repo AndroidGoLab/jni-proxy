@@ -76,6 +76,12 @@ func Scan(protoPackageDir string) GoNames {
 				names.MessageTypes[strings.ToLower(goType)] = goType
 			}
 		}
+		// Check for scanner I/O errors; silently swallowed errors could
+		// cause incomplete name resolution and broken generated code.
+		if scanErr := scanner.Err(); scanErr != nil {
+			_ = f.Close()
+			continue
+		}
 		_ = f.Close()
 	}
 

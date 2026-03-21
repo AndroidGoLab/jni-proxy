@@ -250,6 +250,7 @@ func buildServerMethod(
 			sm.DataClassConversion = buildDataClassConversion(dcName, dcFieldMap[dcName], "extracted")
 		} else {
 			sm.ReturnKind = "object"
+			sm.ResultExpr = "result"
 			argsNeedHandles = true
 		}
 	}
@@ -296,6 +297,8 @@ func convertProtoToGo(goType, expr string) string {
 		return fmt.Sprintf("int16(%s)", expr)
 	case "uint16":
 		return fmt.Sprintf("uint16(%s)", expr)
+	case "int":
+		return fmt.Sprintf("int(%s)", expr)
 	case "byte":
 		return fmt.Sprintf("byte(%s)", expr)
 	default:
@@ -309,10 +312,12 @@ func convertPrimitiveExpr(goType, varName string) string {
 	switch goType {
 	case "int32", "int64", "float32", "float64", "bool", "string":
 		return varName
+	case "int":
+		return fmt.Sprintf("int32(%s)", varName)
 	case "int16", "uint16":
 		return fmt.Sprintf("int32(%s)", varName)
 	case "byte":
-		return fmt.Sprintf("int32(%s)", varName)
+		return fmt.Sprintf("uint32(%s)", varName)
 	default:
 		return varName
 	}

@@ -11,14 +11,12 @@ import (
 
 // Client wraps the gRPC InputMethodManagerService client.
 type Client struct {
-	cc  grpc.ClientConnInterface
 	svc pb.InputMethodManagerServiceClient
 }
 
 // NewClient creates a new inputmethod client.
 func NewClient(cc grpc.ClientConnInterface) *Client {
 	return &Client{
-		cc:  cc,
 		svc: pb.NewInputMethodManagerServiceClient(cc),
 	}
 }

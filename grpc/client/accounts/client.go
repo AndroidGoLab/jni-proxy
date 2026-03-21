@@ -11,14 +11,12 @@ import (
 
 // Client wraps the gRPC AccountManagerService client.
 type Client struct {
-	cc  grpc.ClientConnInterface
 	svc pb.AccountManagerServiceClient
 }
 
 // NewClient creates a new accounts client.
 func NewClient(cc grpc.ClientConnInterface) *Client {
 	return &Client{
-		cc:  cc,
 		svc: pb.NewAccountManagerServiceClient(cc),
 	}
 }

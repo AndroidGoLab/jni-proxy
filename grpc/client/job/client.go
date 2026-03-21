@@ -11,14 +11,12 @@ import (
 
 // Client wraps the gRPC SchedulerService client.
 type Client struct {
-	cc  grpc.ClientConnInterface
 	svc pb.SchedulerServiceClient
 }
 
 // NewClient creates a new job client.
 func NewClient(cc grpc.ClientConnInterface) *Client {
 	return &Client{
-		cc:  cc,
 		svc: pb.NewSchedulerServiceClient(cc),
 	}
 }

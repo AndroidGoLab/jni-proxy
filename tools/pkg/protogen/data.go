@@ -1,6 +1,7 @@
 package protogen
 
 import (
+	"fmt"
 	"strings"
 
 	"github.com/AndroidGoLab/jni/tools/pkg/javagen"
@@ -62,6 +63,9 @@ func BuildProtoData(merged *javagen.MergedSpec, goModule string) *ProtoData {
 				// Different fields under the same name: rename this
 				// message and update the RPC that references it.
 				newName := classPrefix + m.Name
+				for n := 2; seenMessages[newName]; n++ {
+					newName = classPrefix + m.Name + fmt.Sprintf("%d", n)
+				}
 				updateServiceRPCMessageName(&svc, m.Name, newName)
 				msgs[i].Name = newName
 				m = msgs[i]
@@ -416,6 +420,8 @@ func protoTypeFromReturn(
 		return "int64"
 	case javagen.ReturnPrimitive:
 		return protoTypeFromCallSuffix(m.CallSuffix, m.GoReturn)
+	case javagen.ReturnVoid:
+		return ""
 	default:
 		return "int64"
 	}

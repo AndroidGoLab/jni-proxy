@@ -228,7 +228,7 @@ func snakeToPascal(s string) string {
 	trailing := ""
 	if strings.HasSuffix(s, "_") {
 		trailing = "_"
-		s = strings.TrimRight(s, "_")
+		s = strings.TrimSuffix(s, "_")
 	}
 	parts := strings.Split(s, "_")
 	for i := range parts {

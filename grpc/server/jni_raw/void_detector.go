@@ -47,10 +47,12 @@ func (d *voidDetector) doInit(env *jni.Env) error {
 		return fmt.Errorf("finding Void.TYPE: %w", err)
 	}
 
-	d.voidType = env.GetStaticObjectField(voidCls, typeFID)
-	if d.voidType == nil || d.voidType.Ref() == 0 {
+	localRef := env.GetStaticObjectField(voidCls, typeFID)
+	if localRef == nil || localRef.Ref() == 0 {
 		return fmt.Errorf("Void.TYPE is null")
 	}
+	// Promote to a global reference so it remains valid across VM.Do frames.
+	d.voidType = env.NewGlobalRef(localRef)
 
 	return nil
 }

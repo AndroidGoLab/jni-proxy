@@ -20,7 +20,7 @@ import (
 	"context"
 {{- if .NeedsJNI}}
 
-	"github.com/AndroidGoLab/jni"
+	"{{.JniModule}}"
 {{- end}}
 
 	"{{.JniModule}}/app"
@@ -102,9 +102,24 @@ func (s *{{export $svc.GoType}}Server) {{$m.GoName}}(_ context.Context, req *pb.
 	}
 	return &pb.{{$m.ResponseType}}{}, nil
 {{- else if $m.HasResult}}
+{{- if eq $m.ReturnKind "object"}}
+
+	result := mgr.{{$m.SpecGoName}}({{$m.CallArgs}})
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.{{$m.ResponseType}}{Result: handle}, nil
+{{- else}}
 
 	result := mgr.{{$m.SpecGoName}}({{$m.CallArgs}})
 	return &pb.{{$m.ResponseType}}{Result: {{$m.ResultExpr}}}, nil
+{{- end}}
 {{- else}}
 
 	mgr.{{$m.SpecGoName}}({{$m.CallArgs}})
@@ -168,14 +183,12 @@ type {{$dc.GoType}} struct {
 {{- range $svc := .Services}}
 // Client wraps the gRPC {{$svc.ServiceName}} client.
 type Client struct {
-	cc  grpc.ClientConnInterface
 	svc pb.{{$svc.ServiceName}}Client
 }
 
 // NewClient creates a new {{$.Package}} client.
 func NewClient(cc grpc.ClientConnInterface) *Client {
 	return &Client{
-		cc:  cc,
 		svc: pb.New{{$svc.ServiceName}}Client(cc),
 	}
 }

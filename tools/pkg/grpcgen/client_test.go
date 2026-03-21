@@ -268,6 +268,7 @@ func TestClientPrimitiveResultExpr(t *testing.T) {
 		{"float32", "resp.GetResult()"},
 		{"bool", "resp.GetResult()"},
 		{"int16", "int16(resp.GetResult())"},
+		{"uint16", "uint16(resp.GetResult())"},
 		{"byte", "byte(resp.GetResult())"},
 	}
 	for _, tt := range tests {

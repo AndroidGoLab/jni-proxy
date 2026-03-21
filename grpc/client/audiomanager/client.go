@@ -11,14 +11,12 @@ import (
 
 // Client wraps the gRPC AudioManagerService client.
 type Client struct {
-	cc  grpc.ClientConnInterface
 	svc pb.AudioManagerServiceClient
 }
 
 // NewClient creates a new audiomanager client.
 func NewClient(cc grpc.ClientConnInterface) *Client {
 	return &Client{
-		cc:  cc,
 		svc: pb.NewAudioManagerServiceClient(cc),
 	}
 }

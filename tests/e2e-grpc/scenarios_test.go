@@ -62,7 +62,9 @@ func TestScenario_RawJNICommandsExist(t *testing.T) {
 // assertCommandExists verifies a jnicli subcommand exists by checking its help output.
 func assertCommandExists(t *testing.T, args ...string) {
 	t.Helper()
-	fullArgs := append(args, "--help")
+	fullArgs := make([]string, len(args)+1)
+	copy(fullArgs, args)
+	fullArgs[len(args)] = "--help"
 	cmd := exec.Command("go", append([]string{"run", jnicliBin}, fullArgs...)...)
 	out, err := cmd.CombinedOutput()
 	if err != nil {

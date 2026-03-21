@@ -427,6 +427,9 @@ func initAndroidContext(vm *jni.VM, handles *handlestore.HandleStore) int64 {
 			if err != nil {
 				return fmt.Errorf("systemMain: %w", err)
 			}
+			if atObj == nil || atObj.Ref() == 0 {
+				return fmt.Errorf("systemMain returned null")
+			}
 
 			getCtxMID, err := env.GetMethodID(atCls, "getSystemContext", "()Landroid/app/ContextImpl;")
 			if err != nil {
@@ -435,6 +438,9 @@ func initAndroidContext(vm *jni.VM, handles *handlestore.HandleStore) int64 {
 			ctxObj, err := env.CallObjectMethod(atObj, getCtxMID)
 			if err != nil {
 				return fmt.Errorf("getSystemContext: %w", err)
+			}
+			if ctxObj == nil || ctxObj.Ref() == 0 {
+				return fmt.Errorf("getSystemContext returned null")
 			}
 			contextHandle = handles.Put(env, ctxObj)
 		}
@@ -529,7 +535,10 @@ func launchPermissionDialog(
 	if err != nil {
 		return err
 	}
-	reqIDKey, _ := env.NewStringUTF("request_id")
+	reqIDKey, err := env.NewStringUTF("request_id")
+	if err != nil {
+		return fmt.Errorf("creating request_id key string: %w", err)
+	}
 	// Intentionally ignoring error: putExtra is an Intent builder method
 	// where failure is non-recoverable in the dialog launch flow.
 	_, _ = env.CallObjectMethod(intent, putLongMID, jni.ObjectValue(&reqIDKey.Object), jni.LongValue(requestID))
@@ -540,15 +549,24 @@ func launchPermissionDialog(
 	if err != nil {
 		return err
 	}
-	clientIDKey, _ := env.NewStringUTF("client_id")
-	clientIDVal, _ := env.NewStringUTF(clientID)
+	clientIDKey, err := env.NewStringUTF("client_id")
+	if err != nil {
+		return fmt.Errorf("creating client_id key string: %w", err)
+	}
+	clientIDVal, err := env.NewStringUTF(clientID)
+	if err != nil {
+		return fmt.Errorf("creating client_id value string: %w", err)
+	}
 	// Intentionally ignoring error: putExtra is an Intent builder method
 	// where failure is non-recoverable in the dialog launch flow.
 	_, _ = env.CallObjectMethod(intent, putStringMID,
 		jni.ObjectValue(&clientIDKey.Object), jni.ObjectValue(&clientIDVal.Object))
 
 	// intent.putExtra("methods", joinedMethods)
-	methodsKey, _ := env.NewStringUTF("methods")
+	methodsKey, err := env.NewStringUTF("methods")
+	if err != nil {
+		return fmt.Errorf("creating methods key string: %w", err)
+	}
 	joinedMethods := ""
 	for i, m := range methods {
 		if i > 0 {
@@ -556,7 +574,10 @@ func launchPermissionDialog(
 		}
 		joinedMethods += m
 	}
-	methodsVal, _ := env.NewStringUTF(joinedMethods)
+	methodsVal, err := env.NewStringUTF(joinedMethods)
+	if err != nil {
+		return fmt.Errorf("creating methods value string: %w", err)
+	}
 	// Intentionally ignoring error: putExtra is an Intent builder method
 	// where failure is non-recoverable in the dialog launch flow.
 	_, _ = env.CallObjectMethod(intent, putStringMID,

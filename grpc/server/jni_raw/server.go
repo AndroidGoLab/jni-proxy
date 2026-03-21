@@ -967,11 +967,32 @@ func (s *Server) NewPrimitiveArray(_ context.Context, req *pb.NewPrimitiveArrayR
 	var handle int64
 	if err := s.withEnv(func(env *jni.Env) error {
 		switch req.GetElementType() {
+		case pb.JType_BOOLEAN:
+			arr := env.NewBooleanArray(req.GetLength())
+			handle = s.putObject(env, &arr.Object)
 		case pb.JType_BYTE:
 			arr := env.NewByteArray(req.GetLength())
 			handle = s.putObject(env, &arr.Object)
+		case pb.JType_CHAR:
+			arr := env.NewCharArray(req.GetLength())
+			handle = s.putObject(env, &arr.Object)
+		case pb.JType_SHORT:
+			arr := env.NewShortArray(req.GetLength())
+			handle = s.putObject(env, &arr.Object)
+		case pb.JType_INT:
+			arr := env.NewIntArray(req.GetLength())
+			handle = s.putObject(env, &arr.Object)
+		case pb.JType_LONG:
+			arr := env.NewLongArray(req.GetLength())
+			handle = s.putObject(env, &arr.Object)
+		case pb.JType_FLOAT:
+			arr := env.NewFloatArray(req.GetLength())
+			handle = s.putObject(env, &arr.Object)
+		case pb.JType_DOUBLE:
+			arr := env.NewDoubleArray(req.GetLength())
+			handle = s.putObject(env, &arr.Object)
 		default:
-			return fmt.Errorf("unsupported element type: %v (only byte arrays currently supported)", req.GetElementType())
+			return fmt.Errorf("unsupported element type: %v", req.GetElementType())
 		}
 		return nil
 	}); err != nil {

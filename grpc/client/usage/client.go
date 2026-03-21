@@ -11,14 +11,12 @@ import (
 
 // Client wraps the gRPC StatsManagerService client.
 type Client struct {
-	cc  grpc.ClientConnInterface
 	svc pb.StatsManagerServiceClient
 }
 
 // NewClient creates a new usage client.
 func NewClient(cc grpc.ClientConnInterface) *Client {
 	return &Client{
-		cc:  cc,
 		svc: pb.NewStatsManagerServiceClient(cc),
 	}
 }

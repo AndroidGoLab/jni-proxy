@@ -11,14 +11,12 @@ import (
 
 // Client wraps the gRPC DeviceManagerService client.
 type Client struct {
-	cc  grpc.ClientConnInterface
 	svc pb.DeviceManagerServiceClient
 }
 
 // NewClient creates a new companion client.
 func NewClient(cc grpc.ClientConnInterface) *Client {
 	return &Client{
-		cc:  cc,
 		svc: pb.NewDeviceManagerServiceClient(cc),
 	}
 }

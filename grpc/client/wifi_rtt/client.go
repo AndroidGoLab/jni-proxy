@@ -11,14 +11,12 @@ import (
 
 // Client wraps the gRPC WifiRttManagerService client.
 type Client struct {
-	cc  grpc.ClientConnInterface
 	svc pb.WifiRttManagerServiceClient
 }
 
 // NewClient creates a new wifi_rtt client.
 func NewClient(cc grpc.ClientConnInterface) *Client {
 	return &Client{
-		cc:  cc,
 		svc: pb.NewWifiRttManagerServiceClient(cc),
 	}
 }

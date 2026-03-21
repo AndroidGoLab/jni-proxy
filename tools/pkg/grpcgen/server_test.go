@@ -510,6 +510,40 @@ func TestProtoGoFieldName(t *testing.T) {
 	}
 }
 
+func TestBuildServerMethod_ObjectNoError(t *testing.T) {
+	// When a method returns an object (not a data class) and has no error,
+	// the template uses the {{else if $m.HasResult}} branch which emits
+	// Result: {{$m.ResultExpr}}. ResultExpr must be set to "result".
+	m := javagen.MergedMethod{
+		GoName:     "GetHandle",
+		ReturnKind: javagen.ReturnObject,
+		GoReturn:   "*jni.Object",
+		Returns:    "android.some.Unknown",
+		Error:      false,
+	}
+	sm := buildServerMethod(
+		m,
+		map[string]bool{},            // no data classes
+		map[string]string{},           // no java->data class mapping
+		map[string][]javagen.MergedField{}, // no data class fields
+		map[string]rpcInfo{},          // no proto RPC lookup
+		"TestService",
+		emptyGoNames(),
+	)
+	if sm.ReturnKind != "object" {
+		t.Errorf("ReturnKind = %q, want %q", sm.ReturnKind, "object")
+	}
+	if !sm.HasResult {
+		t.Error("HasResult should be true")
+	}
+	if sm.HasError {
+		t.Error("HasError should be false")
+	}
+	if sm.ResultExpr != "result" {
+		t.Errorf("ResultExpr = %q, want %q", sm.ResultExpr, "result")
+	}
+}
+
 func TestConvertPrimitiveExpr(t *testing.T) {
 	tests := []struct {
 		goType string
@@ -520,7 +554,7 @@ func TestConvertPrimitiveExpr(t *testing.T) {
 		{"float32", "result"},
 		{"bool", "result"},
 		{"int16", "int32(result)"},
-		{"byte", "int32(result)"},
+		{"byte", "uint32(result)"},
 	}
 	for _, tt := range tests {
 		got := convertPrimitiveExpr(tt.goType, "result")

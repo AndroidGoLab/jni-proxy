@@ -11,14 +11,12 @@ import (
 
 // Client wraps the gRPC WindowManagerService client.
 type Client struct {
-	cc  grpc.ClientConnInterface
 	svc pb.WindowManagerServiceClient
 }
 
 // NewClient creates a new display client.
 func NewClient(cc grpc.ClientConnInterface) *Client {
 	return &Client{
-		cc:  cc,
 		svc: pb.NewWindowManagerServiceClient(cc),
 	}
 }

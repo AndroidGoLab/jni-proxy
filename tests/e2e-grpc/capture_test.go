@@ -95,7 +95,7 @@ func TestE2E_BatteryTemperature(t *testing.T) {
 	// There is no BATTERY_PROPERTY_TEMPERATURE; temperature is only
 	// available via Intent extras, not via getIntProperty.
 	// We test BATTERY_PROPERTY_CAPACITY (4) which reliably returns 0-100.
-	out := runLiveJnicli(t, "battery", "battery-manager", "get-int-property", "--arg0", "4")
+	out := runLiveJnicli(t, "battery", "manager", "get-int-property", "--arg0", "4")
 	resp := parseJSON(t, out)
 
 	capacity := getInt64Field(t, resp, "result")

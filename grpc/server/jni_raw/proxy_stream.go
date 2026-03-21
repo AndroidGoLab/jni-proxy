@@ -1,6 +1,7 @@
 package jni_raw
 
 import (
+	"errors"
 	"fmt"
 	"io"
 	"strings"
@@ -88,10 +89,26 @@ func (s *Server) Proxy(stream pb.JNIService_ProxyServer) error {
 			},
 		}
 
+		// Register the response channel BEFORE sending the event to avoid
+		// a race where the receive loop dispatches the response before the
+		// channel is in the map.
+		var ch chan *pb.CallbackResponse
+		if expectsResponse {
+			ch = make(chan *pb.CallbackResponse, 1)
+			pendingMu.Lock()
+			pending[callbackID] = ch
+			pendingMu.Unlock()
+		}
+
 		sendMu.Lock()
 		sendErr := stream.Send(event)
 		sendMu.Unlock()
 		if sendErr != nil {
+			if ch != nil {
+				pendingMu.Lock()
+				delete(pending, callbackID)
+				pendingMu.Unlock()
+			}
 			return nil, fmt.Errorf("sending callback event: %w", sendErr)
 		}
 
@@ -99,12 +116,6 @@ func (s *Server) Proxy(stream pb.JNIService_ProxyServer) error {
 		if !expectsResponse {
 			return nil, nil
 		}
-
-		// Non-void: block until client responds.
-		ch := make(chan *pb.CallbackResponse, 1)
-		pendingMu.Lock()
-		pending[callbackID] = ch
-		pendingMu.Unlock()
 
 		defer func() {
 			pendingMu.Lock()
@@ -284,7 +295,7 @@ func (s *Server) Proxy(stream pb.JNIService_ProxyServer) error {
 	// 8. Receive loop: read CallbackResponse messages and dispatch.
 	for {
 		msg, recvErr := stream.Recv()
-		if recvErr == io.EOF {
+		if errors.Is(recvErr, io.EOF) {
 			return nil
 		}
 		if recvErr != nil {

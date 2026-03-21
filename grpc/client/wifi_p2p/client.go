@@ -11,14 +11,12 @@ import (
 
 // Client wraps the gRPC WifiP2PManagerService client.
 type Client struct {
-	cc  grpc.ClientConnInterface
 	svc pb.WifiP2PManagerServiceClient
 }
 
 // NewClient creates a new wifi_p2p client.
 func NewClient(cc grpc.ClientConnInterface) *Client {
 	return &Client{
-		cc:  cc,
 		svc: pb.NewWifiP2PManagerServiceClient(cc),
 	}
 }

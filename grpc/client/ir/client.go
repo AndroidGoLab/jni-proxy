@@ -11,14 +11,12 @@ import (
 
 // Client wraps the gRPC ConsumerIrManagerService client.
 type Client struct {
-	cc  grpc.ClientConnInterface
 	svc pb.ConsumerIrManagerServiceClient
 }
 
 // NewClient creates a new ir client.
 func NewClient(cc grpc.ClientConnInterface) *Client {
 	return &Client{
-		cc:  cc,
 		svc: pb.NewConsumerIrManagerServiceClient(cc),
 	}
 }

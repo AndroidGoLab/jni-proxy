@@ -17,7 +17,9 @@ var listCommandsCmd = &cobra.Command{
 }
 
 func printLeafCommands(cmd *cobra.Command, path []string) {
-	current := append(path, cmd.Use)
+	current := make([]string, len(path)+1)
+	copy(current, path)
+	current[len(path)] = cmd.Use
 
 	if !cmd.HasSubCommands() && cmd.RunE != nil {
 		fmt.Println(strings.Join(current, " "))

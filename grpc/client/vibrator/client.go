@@ -11,14 +11,12 @@ import (
 
 // Client wraps the gRPC VibratorService client.
 type Client struct {
-	cc  grpc.ClientConnInterface
 	svc pb.VibratorServiceClient
 }
 
 // NewClient creates a new vibrator client.
 func NewClient(cc grpc.ClientConnInterface) *Client {
 	return &Client{
-		cc:  cc,
 		svc: pb.NewVibratorServiceClient(cc),
 	}
 }

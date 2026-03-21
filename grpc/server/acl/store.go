@@ -29,6 +29,16 @@ func OpenStore(dbPath string) (_ *Store, _err error) {
 		}
 	}()
 
+	// Enable WAL mode for better concurrent read performance and limit
+	// connections to one (SQLite does not benefit from concurrent writers).
+	if _, err := db.Exec("PRAGMA journal_mode=WAL"); err != nil {
+		return nil, fmt.Errorf("setting WAL mode: %w", err)
+	}
+	if _, err := db.Exec("PRAGMA synchronous=NORMAL"); err != nil {
+		return nil, fmt.Errorf("setting synchronous=NORMAL: %w", err)
+	}
+	db.SetMaxOpenConns(1)
+
 	if err := createTables(db); err != nil {
 		return nil, fmt.Errorf("creating tables: %w", err)
 	}
@@ -79,7 +89,7 @@ func (s *Store) RegisterClient(
 	fingerprint string,
 ) error {
 	_, err := s.db.Exec(
-		`INSERT INTO clients (client_id, cert_pem, fingerprint, registered_at) VALUES (?, ?, ?, ?)`,
+		`INSERT OR REPLACE INTO clients (client_id, cert_pem, fingerprint, registered_at) VALUES (?, ?, ?, ?)`,
 		clientID, certPEM, fingerprint, time.Now().UTC().Format(time.RFC3339),
 	)
 	if err != nil {

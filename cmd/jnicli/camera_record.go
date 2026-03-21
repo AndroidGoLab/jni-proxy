@@ -691,13 +691,23 @@ func readFileViaJNI(ctx context.Context, j *jniCaller, path string) ([]byte, err
 	}
 	buf := resp.GetArrayHandle()
 
-	// fis.read(buf)
-	readMid, err := j.getMethodID(ctx, fisCls, "read", "([B)I")
+	// fis.read(buf, offset, length) in a loop until all bytes are read.
+	readMid, err := j.getMethodID(ctx, fisCls, "read", "([BII)I")
 	if err != nil {
 		return nil, fmt.Errorf("getting read method: %w", err)
 	}
-	if _, err := j.callIntMethod(ctx, fis, readMid, objVal(buf)); err != nil {
-		return nil, fmt.Errorf("reading file: %w", err)
+	var offset int32
+	remaining := size
+	for remaining > 0 {
+		n, err := j.callIntMethod(ctx, fis, readMid, objVal(buf), intVal(offset), intVal(remaining))
+		if err != nil {
+			return nil, fmt.Errorf("reading file at offset %d: %w", offset, err)
+		}
+		if n == -1 {
+			break // EOF
+		}
+		offset += n
+		remaining -= n
 	}
 
 	// fis.close()

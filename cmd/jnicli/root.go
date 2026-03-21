@@ -11,6 +11,7 @@ import (
 	"github.com/spf13/cobra"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/credentials"
+	"google.golang.org/grpc/credentials/insecure"
 )
 
 const maxGRPCRecvMsgSize = 128 * 1024 * 1024
@@ -56,6 +57,9 @@ var rootCmd = &cobra.Command{
 			// CA (jniservice generates its own CA). This is NOT plaintext.
 			opts = append(opts, grpc.WithTransportCredentials(credentials.NewTLS(
 				&tls.Config{InsecureSkipVerify: true})))
+		default:
+			// No TLS configuration provided — use plaintext.
+			opts = append(opts, grpc.WithTransportCredentials(insecure.NewCredentials()))
 		}
 
 		conn, err := grpc.NewClient(flagAddr, opts...)
@@ -75,7 +79,7 @@ var rootCmd = &cobra.Command{
 
 func init() {
 	rootCmd.PersistentFlags().StringVarP(&flagAddr, "addr", "a", "localhost:50051", "gRPC server address")
-	rootCmd.PersistentFlags().BoolVar(&flagInsecure, "insecure", false, "use insecure connection (no TLS)")
+	rootCmd.PersistentFlags().BoolVar(&flagInsecure, "insecure", false, "skip TLS server certificate verification")
 	rootCmd.PersistentFlags().DurationVar(&flagTimeout, "timeout", 10*time.Second, "request timeout")
 	rootCmd.PersistentFlags().StringVarP(&flagFormat, "format", "f", "json", "output format (json|text)")
 	rootCmd.PersistentFlags().StringVar(&flagCert, "cert", "", "path to client certificate PEM file (for mTLS)")
@@ -108,10 +112,6 @@ func buildMTLSCredentials() (credentials.TransportCredentials, error) {
 			return nil, fmt.Errorf("failed to parse CA certificate from %s", flagCA)
 		}
 		tlsCfg.RootCAs = caPool
-	}
-
-	if flagInsecure {
-		tlsCfg.InsecureSkipVerify = true
 	}
 
 	return credentials.NewTLS(tlsCfg), nil

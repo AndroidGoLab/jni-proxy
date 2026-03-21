@@ -11,14 +11,12 @@ import (
 
 // Client wraps the gRPC ConnectivityManagerService client.
 type Client struct {
-	cc  grpc.ClientConnInterface
 	svc pb.ConnectivityManagerServiceClient
 }
 
 // NewClient creates a new net client.
 func NewClient(cc grpc.ClientConnInterface) *Client {
 	return &Client{
-		cc:  cc,
 		svc: pb.NewConnectivityManagerServiceClient(cc),
 	}
 }

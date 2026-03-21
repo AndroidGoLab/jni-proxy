@@ -19,16 +19,20 @@ var (
 )
 
 func TestMain(m *testing.M) {
+	os.Exit(runTests(m))
+}
+
+func runTests(m *testing.M) int {
 	addr := os.Getenv("JNICTL_E2E_ADDR")
 	if addr == "" {
 		// No address set: individual tests will skip via skipIfNoEmulator.
-		os.Exit(m.Run())
+		return m.Run()
 	}
 
 	certDir, err := os.MkdirTemp("", "e2e-certs-")
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "E2E setup: creating temp dir: %v\n", err)
-		os.Exit(1)
+		return 1
 	}
 	defer func() { _ = os.RemoveAll(certDir) }()
 
@@ -53,17 +57,17 @@ func TestMain(m *testing.M) {
 	out, err := regCmd.CombinedOutput()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "E2E setup: register failed: %v\n%s\n", err, out)
-		os.Exit(1)
+		return 1
 	}
 	fmt.Fprintf(os.Stderr, "E2E setup: registered client %q\n", cn)
 
 	// Grant the test client full access via the admin tool.
 	if err := grantTestPermissions(cn); err != nil {
 		fmt.Fprintf(os.Stderr, "E2E setup: granting permissions: %v\n", err)
-		os.Exit(1)
+		return 1
 	}
 
-	os.Exit(m.Run())
+	return m.Run()
 }
 
 // grantTestPermissions grants "/*" to the test client using
@@ -100,7 +104,7 @@ func grantViaHostAdmin(adminBin, cn string) error {
 	cmd := exec.Command(adminBin, "--db", dbPath, "grants", "approve", cn, "/*")
 	out, err := cmd.CombinedOutput()
 	if err != nil {
-		return fmt.Errorf("jniserviceadmin grants approve: %v\n%s", err, out)
+		return fmt.Errorf("jniserviceadmin grants approve: %w\n%s", err, out)
 	}
 	fmt.Fprintf(os.Stderr, "E2E setup: granted /* to %q (host mode)\n", cn)
 	return nil
@@ -133,18 +137,22 @@ func grantViaADB(adbAdminPath, cn string) error {
 	_ = scriptFile.Close()
 
 	// Push script to device.
-	pushArgs := append(adbParts[1:], "push", scriptFile.Name(), "/data/adb/jniservice/e2e-grant.sh")
+	pushArgs := make([]string, 0, len(adbParts)-1+3)
+	pushArgs = append(pushArgs, adbParts[1:]...)
+	pushArgs = append(pushArgs, "push", scriptFile.Name(), "/data/adb/jniservice/e2e-grant.sh")
 	pushCmd := exec.Command(adbParts[0], pushArgs...)
 	if out, err := pushCmd.CombinedOutput(); err != nil {
-		return fmt.Errorf("pushing grant script: %v\n%s", err, out)
+		return fmt.Errorf("pushing grant script: %w\n%s", err, out)
 	}
 
 	// Run script via su.
-	runArgs := append(adbParts[1:], "shell", "su", "-c", "sh /data/adb/jniservice/e2e-grant.sh")
+	runArgs := make([]string, 0, len(adbParts)-1+4)
+	runArgs = append(runArgs, adbParts[1:]...)
+	runArgs = append(runArgs, "shell", "su", "-c", "sh /data/adb/jniservice/e2e-grant.sh")
 	cmd := exec.Command(adbParts[0], runArgs...)
 	out, err := cmd.CombinedOutput()
 	if err != nil {
-		return fmt.Errorf("adb shell jniserviceadmin: %v\n%s", err, out)
+		return fmt.Errorf("adb shell jniserviceadmin: %w\n%s", err, out)
 	}
 	fmt.Fprintf(os.Stderr, "E2E setup: granted /* to %q (adb mode)\n", cn)
 	return nil

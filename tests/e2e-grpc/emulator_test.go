@@ -312,13 +312,8 @@ func TestE2E_ObjectIsSame(t *testing.T) {
 		"--object2", strconv.FormatInt(handle, 10))
 	resp := parseJSON(t, out)
 
-	result, ok := resp["result"]
-	if !ok {
-		// protojson omits false booleans; missing = false which is wrong here.
-		t.Fatal("missing 'result' field — expected true")
-	}
-	if result != true {
-		t.Errorf("expected is-same to be true, got %v", result)
+	if resp["result"] != true {
+		t.Fatalf("expected is-same to return true, got: %v", resp)
 	}
 }
 

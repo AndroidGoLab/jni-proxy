@@ -11,14 +11,12 @@ import (
 
 // Client wraps the gRPC DevicePolicyManagerService client.
 type Client struct {
-	cc  grpc.ClientConnInterface
 	svc pb.DevicePolicyManagerServiceClient
 }
 
 // NewClient creates a new admin client.
 func NewClient(cc grpc.ClientConnInterface) *Client {
 	return &Client{
-		cc:  cc,
 		svc: pb.NewDevicePolicyManagerServiceClient(cc),
 	}
 }

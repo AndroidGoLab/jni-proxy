@@ -11,14 +11,12 @@ import (
 
 // Client wraps the gRPC MediaSessionManagerService client.
 type Client struct {
-	cc  grpc.ClientConnInterface
 	svc pb.MediaSessionManagerServiceClient
 }
 
 // NewClient creates a new session client.
 func NewClient(cc grpc.ClientConnInterface) *Client {
 	return &Client{
-		cc:  cc,
 		svc: pb.NewMediaSessionManagerServiceClient(cc),
 	}
 }
