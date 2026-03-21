@@ -6,53 +6,44 @@ import (
 	"strings"
 	"testing"
 
+	"github.com/AndroidGoLab/jni/spec"
 	"github.com/AndroidGoLab/jni/tools/pkg/javagen"
 	"github.com/AndroidGoLab/jni-proxy/tools/pkg/protogen"
 )
 
-// findJNIRepoRoot locates the jni repo root by walking up from cwd to find
-// the go.work file, then looking for the sibling jni directory that contains
-// the spec/ directory. Falls back to ../jni relative to the jni-proxy root.
-func findJNIRepoRoot(t *testing.T) string {
+// loadSpec reads a spec YAML from the embedded spec.Java filesystem.
+func loadSpec(t *testing.T, name string) *javagen.Spec {
 	t.Helper()
-	dir, err := os.Getwd()
+	data, err := spec.Java.ReadFile("java/" + name)
 	if err != nil {
-		t.Fatalf("getting cwd: %v", err)
+		t.Fatalf("reading embedded spec %s: %v", name, err)
 	}
-	// Walk up to find go.mod (jni-proxy root).
-	proxyRoot := dir
-	for {
-		if _, err := os.Stat(filepath.Join(proxyRoot, "go.mod")); err == nil {
-			break
-		}
-		parent := filepath.Dir(proxyRoot)
-		if parent == proxyRoot {
-			t.Fatal("could not find jni-proxy root (no go.mod found)")
-		}
-		proxyRoot = parent
+	s, err := javagen.ParseSpec(data)
+	if err != nil {
+		t.Fatalf("parsing spec %s: %v", name, err)
 	}
-	// The jni repo is expected as a sibling directory.
-	jniRoot := filepath.Join(filepath.Dir(proxyRoot), "jni")
-	if _, err := os.Stat(filepath.Join(jniRoot, "spec")); err != nil {
-		t.Fatalf("jni repo not found at %s (need spec/ directory)", jniRoot)
+	return s
+}
+
+// loadOverlay reads an overlay YAML from the embedded spec.Overlays filesystem.
+// Returns an empty overlay if the file does not exist.
+func loadOverlay(t *testing.T, name string) *javagen.Overlay {
+	t.Helper()
+	data, err := spec.Overlays.ReadFile("overlays/java/" + name)
+	if err != nil {
+		return &javagen.Overlay{}
 	}
-	return jniRoot
+	ov, err := javagen.ParseOverlay(data)
+	if err != nil {
+		t.Fatalf("parsing overlay %s: %v", name, err)
+	}
+	return ov
 }
 
 func TestBuildServerData_Location(t *testing.T) {
-	root := findJNIRepoRoot(t)
-	specPath := filepath.Join(root, "spec", "java", "location.yaml")
-	overlayPath := filepath.Join(root, "spec", "overlays", "java", "location.yaml")
-
-	spec, err := javagen.LoadSpec(specPath)
-	if err != nil {
-		t.Fatalf("load spec: %v", err)
-	}
-	overlay, err := javagen.LoadOverlay(overlayPath)
-	if err != nil {
-		t.Fatalf("load overlay: %v", err)
-	}
-	merged, err := javagen.Merge(spec, overlay)
+	sp := loadSpec(t, "location.yaml")
+	overlay := loadOverlay(t, "location.yaml")
+	merged, err := javagen.Merge(sp, overlay)
 	if err != nil {
 		t.Fatalf("merge: %v", err)
 	}
@@ -102,19 +93,9 @@ func TestBuildServerData_Location(t *testing.T) {
 }
 
 func TestBuildServerData_LocationMethod_Object(t *testing.T) {
-	root := findJNIRepoRoot(t)
-	specPath := filepath.Join(root, "spec", "java", "location.yaml")
-	overlayPath := filepath.Join(root, "spec", "overlays", "java", "location.yaml")
-
-	spec, err := javagen.LoadSpec(specPath)
-	if err != nil {
-		t.Fatalf("load spec: %v", err)
-	}
-	overlay, err := javagen.LoadOverlay(overlayPath)
-	if err != nil {
-		t.Fatalf("load overlay: %v", err)
-	}
-	merged, err := javagen.Merge(spec, overlay)
+	sp := loadSpec(t, "location.yaml")
+	overlay := loadOverlay(t, "location.yaml")
+	merged, err := javagen.Merge(sp, overlay)
 	if err != nil {
 		t.Fatalf("merge: %v", err)
 	}
@@ -152,19 +133,9 @@ func TestBuildServerData_LocationMethod_Object(t *testing.T) {
 }
 
 func TestRenderServerToString_Location(t *testing.T) {
-	root := findJNIRepoRoot(t)
-	specPath := filepath.Join(root, "spec", "java", "location.yaml")
-	overlayPath := filepath.Join(root, "spec", "overlays", "java", "location.yaml")
-
-	spec, err := javagen.LoadSpec(specPath)
-	if err != nil {
-		t.Fatalf("load spec: %v", err)
-	}
-	overlay, err := javagen.LoadOverlay(overlayPath)
-	if err != nil {
-		t.Fatalf("load overlay: %v", err)
-	}
-	merged, err := javagen.Merge(spec, overlay)
+	sp := loadSpec(t, "location.yaml")
+	overlay := loadOverlay(t, "location.yaml")
+	merged, err := javagen.Merge(sp, overlay)
 	if err != nil {
 		t.Fatalf("merge: %v", err)
 	}
@@ -205,41 +176,67 @@ func TestRenderServerToString_Location(t *testing.T) {
 }
 
 func TestGenerateServer_AllRealSpecs(t *testing.T) {
-	root := findJNIRepoRoot(t)
-	specsDir := filepath.Join(root, "spec", "java")
-	overlaysDir := filepath.Join(root, "spec", "overlays", "java")
+	entries, err := spec.Java.ReadDir("java")
+	if err != nil {
+		t.Fatalf("reading embedded spec dir: %v", err)
+	}
+	if len(entries) < 40 {
+		t.Fatalf("expected at least 40 spec files, found %d", len(entries))
+	}
+
+	tmpDir := t.TempDir()
 	outputDir := t.TempDir()
 	goModule := "github.com/AndroidGoLab/jni"
 
-	specFiles, err := filepath.Glob(filepath.Join(specsDir, "*.yaml"))
-	if err != nil {
-		t.Fatalf("glob specs: %v", err)
-	}
-	if len(specFiles) < 40 {
-		t.Fatalf("expected at least 40 spec files, found %d", len(specFiles))
-	}
-
 	var generated, skipped int
 	var failed []string
-	for _, specPath := range specFiles {
-		baseName := strings.TrimSuffix(filepath.Base(specPath), ".yaml")
-		overlayPath := filepath.Join(overlaysDir, baseName+".yaml")
+	for _, entry := range entries {
+		if entry.IsDir() || !strings.HasSuffix(entry.Name(), ".yaml") {
+			continue
+		}
+		baseName := strings.TrimSuffix(entry.Name(), ".yaml")
 
-		if _, err := GenerateServer(specPath, overlayPath, outputDir, goModule, goModule, ""); err != nil {
+		// Write embedded spec data to temp file.
+		specData, err := spec.Java.ReadFile("java/" + entry.Name())
+		if err != nil {
+			t.Errorf("%s: read embedded spec: %v", baseName, err)
+			failed = append(failed, baseName)
+			continue
+		}
+		specFile := filepath.Join(tmpDir, entry.Name())
+		if err := os.WriteFile(specFile, specData, 0644); err != nil {
+			t.Fatalf("write temp spec %s: %v", baseName, err)
+		}
+
+		// Write embedded overlay data to temp file (may not exist).
+		overlayFile := filepath.Join(tmpDir, "overlay_"+entry.Name())
+		overlayData, overlayErr := spec.Overlays.ReadFile("overlays/java/" + entry.Name())
+		if overlayErr != nil {
+			// No overlay — write an empty file so LoadOverlay returns empty.
+			if err := os.WriteFile(overlayFile, []byte("{}"), 0644); err != nil {
+				t.Fatalf("write temp overlay %s: %v", baseName, err)
+			}
+		} else {
+			if err := os.WriteFile(overlayFile, overlayData, 0644); err != nil {
+				t.Fatalf("write temp overlay %s: %v", baseName, err)
+			}
+		}
+
+		if _, err := GenerateServer(specFile, overlayFile, outputDir, goModule, goModule, ""); err != nil {
 			t.Errorf("GenerateServer %s: %v", baseName, err)
 			failed = append(failed, baseName)
 			continue
 		}
 
 		// Load spec to determine package name.
-		spec, loadErr := javagen.LoadSpec(specPath)
+		sp, loadErr := javagen.ParseSpec(specData)
 		if loadErr != nil {
-			t.Errorf("%s: load spec: %v", baseName, loadErr)
+			t.Errorf("%s: parse spec: %v", baseName, loadErr)
 			failed = append(failed, baseName)
 			continue
 		}
 
-		serverPath := filepath.Join(outputDir, "grpc", "server", spec.Package, "server.go")
+		serverPath := filepath.Join(outputDir, "grpc", "server", sp.Package, "server.go")
 		if _, err := os.Stat(serverPath); err != nil {
 			// Some packages don't generate servers (no system_service/context_method).
 			skipped++
@@ -266,7 +263,7 @@ func TestGenerateServer_AllRealSpecs(t *testing.T) {
 	}
 
 	t.Logf("processed %d specs: %d generated, %d skipped (no service), %d failures",
-		len(specFiles), generated, skipped, len(failed))
+		len(entries), generated, skipped, len(failed))
 	if len(failed) > 0 {
 		t.Errorf("failed specs: %s", strings.Join(failed, ", "))
 	}
@@ -276,19 +273,9 @@ func TestGenerateServer_AllRealSpecs(t *testing.T) {
 }
 
 func TestRenderServerToString_SeparateModules(t *testing.T) {
-	root := findJNIRepoRoot(t)
-	specPath := filepath.Join(root, "spec", "java", "location.yaml")
-	overlayPath := filepath.Join(root, "spec", "overlays", "java", "location.yaml")
-
-	spec, err := javagen.LoadSpec(specPath)
-	if err != nil {
-		t.Fatalf("load spec: %v", err)
-	}
-	overlay, err := javagen.LoadOverlay(overlayPath)
-	if err != nil {
-		t.Fatalf("load overlay: %v", err)
-	}
-	merged, err := javagen.Merge(spec, overlay)
+	sp := loadSpec(t, "location.yaml")
+	overlay := loadOverlay(t, "location.yaml")
+	merged, err := javagen.Merge(sp, overlay)
 	if err != nil {
 		t.Fatalf("merge: %v", err)
 	}

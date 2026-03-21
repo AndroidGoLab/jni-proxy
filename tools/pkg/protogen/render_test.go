@@ -234,9 +234,7 @@ func TestRenderProto_GeneratedHeader(t *testing.T) {
 
 // TestRenderProto_Integration loads a real spec and verifies end-to-end.
 func TestRenderProto_Integration(t *testing.T) {
-	root := findJNIRepoRoot(t)
-	specPath := filepath.Join(root, "spec", "java", "location.yaml")
-	overlayPath := filepath.Join(root, "spec", "overlays", "java", "location.yaml")
+	specPath, overlayPath := writeEmbeddedSpec(t, "location.yaml")
 	outputDir := t.TempDir()
 	goModule := "github.com/AndroidGoLab/jni"
 
@@ -265,9 +263,7 @@ func TestRenderProto_Integration(t *testing.T) {
 
 // TestRenderProto_BluetoothIntegration verifies bidi streaming with bluetooth spec.
 func TestRenderProto_BluetoothIntegration(t *testing.T) {
-	root := findJNIRepoRoot(t)
-	specPath := filepath.Join(root, "spec", "java", "bluetooth.yaml")
-	overlayPath := filepath.Join(root, "spec", "overlays", "java", "bluetooth.yaml")
+	specPath, overlayPath := writeEmbeddedSpec(t, "bluetooth.yaml")
 	outputDir := t.TempDir()
 	goModule := "github.com/AndroidGoLab/jni"
 

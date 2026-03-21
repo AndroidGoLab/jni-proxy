@@ -5,39 +5,43 @@ import (
 	"path/filepath"
 	"strings"
 	"testing"
+
+	"github.com/AndroidGoLab/jni/spec"
 )
 
-// findJNIRepoRoot locates the jni repo root by walking up from cwd to find
-// the go.mod file (jni-proxy root), then looking for the sibling jni directory
-// that contains the spec/ directory.
-func findJNIRepoRoot(t *testing.T) string {
+// writeEmbeddedSpec writes the embedded spec and overlay for the given name
+// to temp files and returns their paths.
+func writeEmbeddedSpec(t *testing.T, name string) (specFile, overlayFile string) {
 	t.Helper()
-	dir, err := os.Getwd()
+	tmpDir := t.TempDir()
+
+	specData, err := spec.Java.ReadFile("java/" + name)
 	if err != nil {
-		t.Fatalf("getting cwd: %v", err)
+		t.Fatalf("reading embedded spec %s: %v", name, err)
 	}
-	proxyRoot := dir
-	for {
-		if _, err := os.Stat(filepath.Join(proxyRoot, "go.mod")); err == nil {
-			break
+	specFile = filepath.Join(tmpDir, name)
+	if err := os.WriteFile(specFile, specData, 0644); err != nil {
+		t.Fatalf("writing temp spec %s: %v", name, err)
+	}
+
+	overlayFile = filepath.Join(tmpDir, "overlay_"+name)
+	overlayData, overlayErr := spec.Overlays.ReadFile("overlays/java/" + name)
+	if overlayErr != nil {
+		// No overlay — write an empty file so LoadOverlay returns empty.
+		if err := os.WriteFile(overlayFile, []byte("{}"), 0644); err != nil {
+			t.Fatalf("writing temp overlay %s: %v", name, err)
 		}
-		parent := filepath.Dir(proxyRoot)
-		if parent == proxyRoot {
-			t.Fatal("could not find jni-proxy root (no go.mod found)")
+	} else {
+		if err := os.WriteFile(overlayFile, overlayData, 0644); err != nil {
+			t.Fatalf("writing temp overlay %s: %v", name, err)
 		}
-		proxyRoot = parent
 	}
-	jniRoot := filepath.Join(filepath.Dir(proxyRoot), "jni")
-	if _, err := os.Stat(filepath.Join(jniRoot, "spec")); err != nil {
-		t.Fatalf("jni repo not found at %s (need spec/ directory)", jniRoot)
-	}
-	return jniRoot
+
+	return specFile, overlayFile
 }
 
 func TestGenerate_ProducesProtoFile(t *testing.T) {
-	root := findJNIRepoRoot(t)
-	specPath := filepath.Join(root, "spec", "java", "location.yaml")
-	overlayPath := filepath.Join(root, "spec", "overlays", "java", "location.yaml")
+	specPath, overlayPath := writeEmbeddedSpec(t, "location.yaml")
 	outputDir := t.TempDir()
 	goModule := "github.com/AndroidGoLab/jni"
 
@@ -75,14 +79,12 @@ func TestGenerate_ProducesProtoFile(t *testing.T) {
 }
 
 func TestGenerate_MultipleSpecs(t *testing.T) {
-	root := findJNIRepoRoot(t)
 	outputDir := t.TempDir()
 	goModule := "github.com/AndroidGoLab/jni"
 
 	specs := []string{"location", "bluetooth", "toast"}
 	for _, name := range specs {
-		specPath := filepath.Join(root, "spec", "java", name+".yaml")
-		overlayPath := filepath.Join(root, "spec", "overlays", "java", name+".yaml")
+		specPath, overlayPath := writeEmbeddedSpec(t, name+".yaml")
 
 		if err := Generate(specPath, overlayPath, outputDir, goModule); err != nil {
 			t.Fatalf("Generate %s: %v", name, err)
@@ -96,9 +98,7 @@ func TestGenerate_MultipleSpecs(t *testing.T) {
 }
 
 func TestGenerate_Idempotency(t *testing.T) {
-	root := findJNIRepoRoot(t)
-	specPath := filepath.Join(root, "spec", "java", "location.yaml")
-	overlayPath := filepath.Join(root, "spec", "overlays", "java", "location.yaml")
+	specPath, overlayPath := writeEmbeddedSpec(t, "location.yaml")
 	goModule := "github.com/AndroidGoLab/jni"
 
 	outputDir1 := t.TempDir()
