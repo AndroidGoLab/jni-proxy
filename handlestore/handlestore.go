@@ -62,15 +62,21 @@ func (s *HandleStore) Release(env *jni.Env, handle int64) {
 	if handle == 0 {
 		return
 	}
+	obj := s.remove(handle)
+	if obj != nil {
+		env.DeleteGlobalRef(obj)
+	}
+}
+
+// remove atomically deletes a handle from the map and returns the object.
+func (s *HandleStore) remove(handle int64) *jni.Object {
 	s.mu.Lock()
+	defer s.mu.Unlock()
 	obj, ok := s.objects[handle]
 	if ok {
 		delete(s.objects, handle)
 	}
-	s.mu.Unlock() // Unlock before JNI call to avoid holding the mutex during DeleteGlobalRef.
-	if ok {
-		env.DeleteGlobalRef(obj)
-	}
+	return obj
 }
 
 // Len returns the number of active handles.
