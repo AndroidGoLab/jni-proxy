@@ -5,21 +5,32 @@ import (
 	"encoding/json"
 	"fmt"
 
+	accountsclient "github.com/AndroidGoLab/jni-proxy/grpc/client/accounts"
+	adminclient "github.com/AndroidGoLab/jni-proxy/grpc/client/admin"
 	alarmclient "github.com/AndroidGoLab/jni-proxy/grpc/client/alarm"
 	audioclient "github.com/AndroidGoLab/jni-proxy/grpc/client/audiomanager"
 	batteryclient "github.com/AndroidGoLab/jni-proxy/grpc/client/battery"
+	biometricclient "github.com/AndroidGoLab/jni-proxy/grpc/client/biometric"
 	cameraclient "github.com/AndroidGoLab/jni-proxy/grpc/client/camera"
 	clipboardclient "github.com/AndroidGoLab/jni-proxy/grpc/client/clipboard"
+	companionclient "github.com/AndroidGoLab/jni-proxy/grpc/client/companion"
 	displayclient "github.com/AndroidGoLab/jni-proxy/grpc/client/display"
+	downloadclient "github.com/AndroidGoLab/jni-proxy/grpc/client/download"
 	inputmethodclient "github.com/AndroidGoLab/jni-proxy/grpc/client/inputmethod"
 	irclient "github.com/AndroidGoLab/jni-proxy/grpc/client/ir"
 	jobclient "github.com/AndroidGoLab/jni-proxy/grpc/client/job"
+	keyguardclient "github.com/AndroidGoLab/jni-proxy/grpc/client/keyguard"
 	locationclient "github.com/AndroidGoLab/jni-proxy/grpc/client/location"
 	netclient "github.com/AndroidGoLab/jni-proxy/grpc/client/net"
 	notifclient "github.com/AndroidGoLab/jni-proxy/grpc/client/notification"
 	powerclient "github.com/AndroidGoLab/jni-proxy/grpc/client/power"
+	printclient "github.com/AndroidGoLab/jni-proxy/grpc/client/print"
+	roleclient "github.com/AndroidGoLab/jni-proxy/grpc/client/role"
+	storageclient "github.com/AndroidGoLab/jni-proxy/grpc/client/storage"
 	telecomclient "github.com/AndroidGoLab/jni-proxy/grpc/client/telecom"
 	telephonyclient "github.com/AndroidGoLab/jni-proxy/grpc/client/telephony"
+	usageclient "github.com/AndroidGoLab/jni-proxy/grpc/client/usage"
+	usbclient "github.com/AndroidGoLab/jni-proxy/grpc/client/usb"
 	vibratorclient "github.com/AndroidGoLab/jni-proxy/grpc/client/vibrator"
 	wificlient "github.com/AndroidGoLab/jni-proxy/grpc/client/wifi"
 	displaypb "github.com/AndroidGoLab/jni-proxy/proto/display"
@@ -57,6 +68,16 @@ func (s *Server) registerWorkflowTools() {
 	s.registerSchedulingTools()
 	s.registerTelecomTools()
 	s.registerInputTools()
+	s.registerSecurityTools()
+	s.registerStorageTools()
+	s.registerAppsTools()
+	s.registerAccountsTools()
+	s.registerCompanionTools()
+	s.registerSettingsTools()
+	s.registerBluetoothTools()
+	s.registerUSBTools()
+	s.registerPrintTools()
+	s.registerPowerTools()
 }
 
 // Android BatteryManager property constants.
@@ -1795,5 +1816,722 @@ func (s *Server) registerInputTools() {
 		result := map[string]any{"picker_shown": true}
 		r, err := jsonResult(result)
 		return r, nil, err
+	})
+}
+
+// ---------------------------------------------------------------------------
+// Security & Biometrics tools (KeyguardManager, BiometricManager, DevicePolicyManager)
+// ---------------------------------------------------------------------------
+
+// Biometric authenticator constants (android.hardware.biometrics.BiometricManager).
+const (
+	biometricSuccess               int32 = 0
+	biometricErrorNoHardware       int32 = 1
+	biometricErrorHWUnavailable    int32 = 2
+	biometricErrorNoneEnrolled     int32 = 11
+	biometricErrorSecurityUpdateReq int32 = 12
+)
+
+type securityOutput struct {
+	IsDeviceLocked       bool  `json:"is_device_locked"`
+	IsDeviceSecure       bool  `json:"is_device_secure"`
+	IsKeyguardLocked     bool  `json:"is_keyguard_locked"`
+	IsKeyguardSecure     bool  `json:"is_keyguard_secure"`
+	InRestrictedInput    bool  `json:"in_keyguard_restricted_input_mode"`
+	BiometricStatus      int32 `json:"biometric_can_authenticate"`
+	BiometricStatusDesc  string `json:"biometric_status_description"`
+	EncryptionStatus     int32 `json:"storage_encryption_status"`
+}
+
+func biometricStatusDescription(code int32) string {
+	switch code {
+	case biometricSuccess:
+		return "BIOMETRIC_SUCCESS: at least one biometric enrolled and available"
+	case biometricErrorNoHardware:
+		return "BIOMETRIC_ERROR_NO_HARDWARE: no biometric hardware"
+	case biometricErrorHWUnavailable:
+		return "BIOMETRIC_ERROR_HW_UNAVAILABLE: hardware currently unavailable"
+	case biometricErrorNoneEnrolled:
+		return "BIOMETRIC_ERROR_NONE_ENROLLED: no biometrics enrolled"
+	case biometricErrorSecurityUpdateReq:
+		return "BIOMETRIC_ERROR_SECURITY_UPDATE_REQUIRED: security update needed"
+	default:
+		return fmt.Sprintf("unknown biometric status code %d", code)
+	}
+}
+
+func (s *Server) registerSecurityTools() {
+	// get_security_status — read-only
+	type securityInput struct{}
+	gomcp.AddTool(s.mcp, &gomcp.Tool{
+		Name:        "get_security_status",
+		Description: "Get device security status: lock state, keyguard state, biometric capability, and storage encryption status.",
+		Annotations: &gomcp.ToolAnnotations{
+			ReadOnlyHint:    true,
+			DestructiveHint: boolPtr(false),
+			Title:           "Get Security Status",
+		},
+	}, func(ctx context.Context, req *gomcp.CallToolRequest, _ securityInput) (*gomcp.CallToolResult, securityOutput, error) {
+		kg := keyguardclient.NewClient(s.conn)
+		bio := biometricclient.NewClient(s.conn)
+		adm := adminclient.NewClient(s.conn)
+
+		var out securityOutput
+		var err error
+
+		out.IsDeviceLocked, err = kg.IsDeviceLocked(ctx)
+		if err != nil {
+			return nil, out, fmt.Errorf("is device locked: %w", err)
+		}
+
+		out.IsDeviceSecure, err = kg.IsDeviceSecure(ctx)
+		if err != nil {
+			return nil, out, fmt.Errorf("is device secure: %w", err)
+		}
+
+		out.IsKeyguardLocked, err = kg.IsKeyguardLocked(ctx)
+		if err != nil {
+			return nil, out, fmt.Errorf("is keyguard locked: %w", err)
+		}
+
+		out.IsKeyguardSecure, err = kg.IsKeyguardSecure(ctx)
+		if err != nil {
+			return nil, out, fmt.Errorf("is keyguard secure: %w", err)
+		}
+
+		out.InRestrictedInput, err = kg.InKeyguardRestrictedInputMode(ctx)
+		if err != nil {
+			return nil, out, fmt.Errorf("in keyguard restricted input mode: %w", err)
+		}
+
+		out.BiometricStatus, err = bio.CanAuthenticate0(ctx)
+		if err != nil {
+			return nil, out, fmt.Errorf("can authenticate: %w", err)
+		}
+		out.BiometricStatusDesc = biometricStatusDescription(out.BiometricStatus)
+
+		out.EncryptionStatus, err = adm.GetStorageEncryptionStatus(ctx)
+		if err != nil {
+			return nil, out, fmt.Errorf("get storage encryption status: %w", err)
+		}
+
+		return nil, out, nil
+	})
+
+	// lock_device — mutation, destructive
+	type lockDeviceInput struct{}
+	gomcp.AddTool(s.mcp, &gomcp.Tool{
+		Name:        "lock_device",
+		Description: "Lock the device immediately using DevicePolicyManager.lockNow(). Requires device admin privileges.",
+		Annotations: &gomcp.ToolAnnotations{
+			ReadOnlyHint:    false,
+			DestructiveHint: boolPtr(true),
+			Title:           "Lock Device",
+		},
+	}, func(ctx context.Context, req *gomcp.CallToolRequest, _ lockDeviceInput) (*gomcp.CallToolResult, any, error) {
+		adm := adminclient.NewClient(s.conn)
+
+		err := adm.LockNow0(ctx)
+		if err != nil {
+			return nil, nil, fmt.Errorf("lock now: %w", err)
+		}
+
+		result := map[string]any{"locked": true}
+		r, err := jsonResult(result)
+		return r, nil, err
+	})
+}
+
+// ---------------------------------------------------------------------------
+// Storage tools (StorageStatsManager / StorageManager)
+// ---------------------------------------------------------------------------
+
+type storageOutput struct {
+	PrimaryVolumeHandle int64 `json:"primary_volume_handle"`
+	AllVolumesHandle    int64 `json:"all_volumes_handle"`
+	CheckpointSupported bool  `json:"checkpoint_supported"`
+}
+
+func (s *Server) registerStorageTools() {
+	// get_storage_info — read-only
+	type storageInput struct{}
+	gomcp.AddTool(s.mcp, &gomcp.Tool{
+		Name: "get_storage_info",
+		Description: "Get storage information: primary volume handle, all volumes handle, and checkpoint support. " +
+			"Volume handles are opaque Java object references; use call_android_api to inspect StorageVolume properties.",
+		Annotations: &gomcp.ToolAnnotations{
+			ReadOnlyHint:    true,
+			DestructiveHint: boolPtr(false),
+			Title:           "Get Storage Info",
+		},
+	}, func(ctx context.Context, req *gomcp.CallToolRequest, _ storageInput) (*gomcp.CallToolResult, storageOutput, error) {
+		client := storageclient.NewClient(s.conn)
+
+		var out storageOutput
+		var err error
+
+		out.PrimaryVolumeHandle, err = client.GetPrimaryStorageVolume(ctx)
+		if err != nil {
+			return nil, out, fmt.Errorf("get primary storage volume: %w", err)
+		}
+
+		out.AllVolumesHandle, err = client.GetStorageVolumes(ctx)
+		if err != nil {
+			return nil, out, fmt.Errorf("get storage volumes: %w", err)
+		}
+
+		out.CheckpointSupported, err = client.IsCheckpointSupported(ctx)
+		if err != nil {
+			return nil, out, fmt.Errorf("is checkpoint supported: %w", err)
+		}
+
+		return nil, out, nil
+	})
+
+	// manage_downloads — mutation
+	type downloadInput struct {
+		Action     string `json:"action" jsonschema:"enum=get_mime_type,enum=remove,description=Action to perform: get_mime_type or remove"`
+		DownloadID int64  `json:"download_id" jsonschema:"description=Download ID to operate on"`
+	}
+	gomcp.AddTool(s.mcp, &gomcp.Tool{
+		Name: "manage_downloads",
+		Description: "Manage downloads via DownloadManager. Actions: " +
+			"'get_mime_type' returns the MIME type for a completed download ID. " +
+			"'remove' cancels/removes downloads by ID. " +
+			"Note: 'enqueue' requires a DownloadManager.Request Java object handle (use jni_raw to construct one).",
+		Annotations: &gomcp.ToolAnnotations{
+			ReadOnlyHint:    false,
+			DestructiveHint: boolPtr(false),
+			Title:           "Manage Downloads",
+		},
+	}, func(ctx context.Context, req *gomcp.CallToolRequest, in downloadInput) (*gomcp.CallToolResult, any, error) {
+		client := downloadclient.NewClient(s.conn)
+
+		switch in.Action {
+		case "get_mime_type":
+			mime, err := client.GetMimeTypeForDownloadedFile(ctx, in.DownloadID)
+			if err != nil {
+				return nil, nil, fmt.Errorf("get mime type for download %d: %w", in.DownloadID, err)
+			}
+			result := map[string]any{
+				"download_id": in.DownloadID,
+				"mime_type":   mime,
+			}
+			r, err := jsonResult(result)
+			return r, nil, err
+
+		case "remove":
+			removed, err := client.Remove(ctx, in.DownloadID)
+			if err != nil {
+				return nil, nil, fmt.Errorf("remove download %d: %w", in.DownloadID, err)
+			}
+			result := map[string]any{
+				"download_id":    in.DownloadID,
+				"removed_count":  removed,
+			}
+			r, err := jsonResult(result)
+			return r, nil, err
+
+		default:
+			return nil, nil, fmt.Errorf("unknown download action %q; supported: get_mime_type, remove", in.Action)
+		}
+	})
+}
+
+// ---------------------------------------------------------------------------
+// Apps & Usage tools (UsageStatsManager, RoleManager)
+// ---------------------------------------------------------------------------
+
+func (s *Server) registerAppsTools() {
+	// get_app_usage — read-only
+	type appUsageInput struct {
+		PackageName string `json:"package_name,omitempty" jsonschema:"description=Package name to check inactivity for (optional)"`
+	}
+	type appUsageOutput struct {
+		StandbyBucket     int32 `json:"standby_bucket"`
+		IsAppInactive     *bool `json:"is_app_inactive,omitempty"`
+		CheckedPackage    string `json:"checked_package,omitempty"`
+	}
+	gomcp.AddTool(s.mcp, &gomcp.Tool{
+		Name: "get_app_usage",
+		Description: "Get app usage stats: current app standby bucket (0=ACTIVE, 10=WORKING_SET, 20=FREQUENT, 30=RARE, 40=RESTRICTED, 50=NEVER). " +
+			"Optionally check if a specific package is inactive.",
+		Annotations: &gomcp.ToolAnnotations{
+			ReadOnlyHint:    true,
+			DestructiveHint: boolPtr(false),
+			Title:           "Get App Usage",
+		},
+	}, func(ctx context.Context, req *gomcp.CallToolRequest, in appUsageInput) (*gomcp.CallToolResult, appUsageOutput, error) {
+		client := usageclient.NewClient(s.conn)
+
+		var out appUsageOutput
+		var err error
+
+		out.StandbyBucket, err = client.GetAppStandbyBucket(ctx)
+		if err != nil {
+			return nil, out, fmt.Errorf("get app standby bucket: %w", err)
+		}
+
+		if in.PackageName != "" {
+			out.CheckedPackage = in.PackageName
+			inactive, err := client.IsAppInactive(ctx, in.PackageName)
+			if err != nil {
+				return nil, out, fmt.Errorf("is app inactive %q: %w", in.PackageName, err)
+			}
+			out.IsAppInactive = &inactive
+		}
+
+		return nil, out, nil
+	})
+
+	// check_permissions — read-only
+	type checkPermInput struct {
+		RoleName string `json:"role_name" jsonschema:"description=Android role name to check (e.g. android.app.role.DIALER, android.app.role.SMS, android.app.role.BROWSER)"`
+	}
+	type checkPermOutput struct {
+		RoleName      string `json:"role_name"`
+		IsAvailable   bool   `json:"is_available"`
+		IsHeld        bool   `json:"is_held"`
+	}
+	gomcp.AddTool(s.mcp, &gomcp.Tool{
+		Name: "check_permissions",
+		Description: "Check if an Android role is available and whether the current app holds it. " +
+			"Common roles: android.app.role.DIALER, android.app.role.SMS, android.app.role.BROWSER, android.app.role.HOME.",
+		Annotations: &gomcp.ToolAnnotations{
+			ReadOnlyHint:    true,
+			DestructiveHint: boolPtr(false),
+			Title:           "Check Role Permissions",
+		},
+	}, func(ctx context.Context, req *gomcp.CallToolRequest, in checkPermInput) (*gomcp.CallToolResult, checkPermOutput, error) {
+		client := roleclient.NewClient(s.conn)
+
+		var out checkPermOutput
+		var err error
+		out.RoleName = in.RoleName
+
+		out.IsAvailable, err = client.IsRoleAvailable(ctx, in.RoleName)
+		if err != nil {
+			return nil, out, fmt.Errorf("is role available %q: %w", in.RoleName, err)
+		}
+
+		out.IsHeld, err = client.IsRoleHeld(ctx, in.RoleName)
+		if err != nil {
+			return nil, out, fmt.Errorf("is role held %q: %w", in.RoleName, err)
+		}
+
+		return nil, out, nil
+	})
+}
+
+// ---------------------------------------------------------------------------
+// Accounts tools (AccountManager)
+// ---------------------------------------------------------------------------
+
+func (s *Server) registerAccountsTools() {
+	// list_accounts — read-only
+	type listAccountsInput struct {
+		AccountType string `json:"account_type,omitempty" jsonschema:"description=Optional account type filter (e.g. com.google). If empty returns all accounts."`
+	}
+	type listAccountsOutput struct {
+		AccountsHandle       int64 `json:"accounts_handle"`
+		AuthenticatorTypesHandle int64 `json:"authenticator_types_handle"`
+		FilteredByType       string `json:"filtered_by_type,omitempty"`
+	}
+	gomcp.AddTool(s.mcp, &gomcp.Tool{
+		Name: "list_accounts",
+		Description: "List device accounts. Returns opaque Java object handles for Account[] and AuthenticatorDescription[]. " +
+			"Optionally filter by account type. Use call_android_api to inspect the returned array objects.",
+		Annotations: &gomcp.ToolAnnotations{
+			ReadOnlyHint:    true,
+			DestructiveHint: boolPtr(false),
+			Title:           "List Accounts",
+		},
+	}, func(ctx context.Context, req *gomcp.CallToolRequest, in listAccountsInput) (*gomcp.CallToolResult, listAccountsOutput, error) {
+		client := accountsclient.NewClient(s.conn)
+
+		var out listAccountsOutput
+		var err error
+
+		if in.AccountType != "" {
+			out.FilteredByType = in.AccountType
+			out.AccountsHandle, err = client.GetAccountsByType(ctx, in.AccountType)
+			if err != nil {
+				return nil, out, fmt.Errorf("get accounts by type %q: %w", in.AccountType, err)
+			}
+		} else {
+			out.AccountsHandle, err = client.GetAccounts(ctx)
+			if err != nil {
+				return nil, out, fmt.Errorf("get accounts: %w", err)
+			}
+		}
+
+		out.AuthenticatorTypesHandle, err = client.GetAuthenticatorTypes(ctx)
+		if err != nil {
+			return nil, out, fmt.Errorf("get authenticator types: %w", err)
+		}
+
+		return nil, out, nil
+	})
+}
+
+// ---------------------------------------------------------------------------
+// Companion Devices tools (CompanionDeviceManager)
+// ---------------------------------------------------------------------------
+
+func (s *Server) registerCompanionTools() {
+	// manage_companions — read for list, mutation for disassociate
+	type companionInput struct {
+		Action      string `json:"action" jsonschema:"enum=list,enum=disassociate,description=Action: list (get associations) or disassociate (remove by device ID)"`
+		DeviceID    int32  `json:"device_id,omitempty" jsonschema:"description=Association ID for disassociate action"`
+		MacAddress  string `json:"mac_address,omitempty" jsonschema:"description=MAC address string for disassociate action (alternative to device_id)"`
+	}
+	gomcp.AddTool(s.mcp, &gomcp.Tool{
+		Name: "manage_companions",
+		Description: "Manage companion device associations. " +
+			"'list' returns the associations handle (opaque Java List<AssociationInfo>). " +
+			"'disassociate' removes an association by numeric device ID or MAC address string. " +
+			"Note: 'associate' (pairing) requires an AssociationRequest Java object and callback streaming; use jni_raw.",
+		Annotations: &gomcp.ToolAnnotations{
+			ReadOnlyHint:    false,
+			DestructiveHint: boolPtr(false),
+			Title:           "Manage Companion Devices",
+		},
+	}, func(ctx context.Context, req *gomcp.CallToolRequest, in companionInput) (*gomcp.CallToolResult, any, error) {
+		client := companionclient.NewClient(s.conn)
+
+		switch in.Action {
+		case "list":
+			associations, err := client.GetAssociations(ctx)
+			if err != nil {
+				return nil, nil, fmt.Errorf("get associations: %w", err)
+			}
+			myAssociations, err := client.GetMyAssociations(ctx)
+			if err != nil {
+				return nil, nil, fmt.Errorf("get my associations: %w", err)
+			}
+			result := map[string]any{
+				"associations_handle":    associations,
+				"my_associations_handle": myAssociations,
+			}
+			r, err := jsonResult(result)
+			return r, nil, err
+
+		case "disassociate":
+			if in.MacAddress != "" {
+				err := client.Disassociate1_1(ctx, in.MacAddress)
+				if err != nil {
+					return nil, nil, fmt.Errorf("disassociate by MAC %q: %w", in.MacAddress, err)
+				}
+				result := map[string]any{"disassociated": true, "mac_address": in.MacAddress}
+				r, err := jsonResult(result)
+				return r, nil, err
+			}
+			err := client.Disassociate1(ctx, in.DeviceID)
+			if err != nil {
+				return nil, nil, fmt.Errorf("disassociate device %d: %w", in.DeviceID, err)
+			}
+			result := map[string]any{"disassociated": true, "device_id": in.DeviceID}
+			r, err := jsonResult(result)
+			return r, nil, err
+
+		default:
+			return nil, nil, fmt.Errorf("unknown companion action %q; supported: list, disassociate", in.Action)
+		}
+	})
+}
+
+// ---------------------------------------------------------------------------
+// Settings tools (stub — requires raw JNI for ContentResolver)
+// ---------------------------------------------------------------------------
+
+func (s *Server) registerSettingsTools() {
+	// get_settings — stub
+	type getSettingsInput struct {
+		Namespace string `json:"namespace" jsonschema:"enum=system,enum=secure,enum=global,description=Settings namespace: system, secure, or global"`
+		Name      string `json:"name" jsonschema:"description=Setting name (e.g. screen_brightness, screen_off_timeout)"`
+	}
+	gomcp.AddTool(s.mcp, &gomcp.Tool{
+		Name: "get_settings",
+		Description: "Read an Android system/secure/global setting by name. " +
+			"STUB: This tool requires raw JNI access to ContentResolver (Settings.System.getString / Settings.Secure.getString / Settings.Global.getString). " +
+			"Use jni_raw to call android.provider.Settings$System.getString(ContentResolver, name) directly.",
+		Annotations: &gomcp.ToolAnnotations{
+			ReadOnlyHint:    true,
+			DestructiveHint: boolPtr(false),
+			Title:           "Get Settings",
+		},
+	}, func(ctx context.Context, req *gomcp.CallToolRequest, in getSettingsInput) (*gomcp.CallToolResult, any, error) {
+		return &gomcp.CallToolResult{
+			Content: []gomcp.Content{&gomcp.TextContent{
+				Text: fmt.Sprintf(
+					"get_settings is a stub: reading Settings.%s.getString(%q) requires ContentResolver access via raw JNI. "+
+						"Use the jni_raw tool to call android.provider.Settings$%s.getString(contentResolver, %q) where "+
+						"contentResolver is obtained from Context.getContentResolver().",
+					in.Namespace, in.Name, settingsClassName(in.Namespace), in.Name,
+				),
+			}},
+		}, nil, nil
+	})
+
+	// set_settings — stub
+	type setSettingsInput struct {
+		Namespace string `json:"namespace" jsonschema:"enum=system,enum=secure,enum=global,description=Settings namespace: system, secure, or global"`
+		Name      string `json:"name" jsonschema:"description=Setting name"`
+		Value     string `json:"value" jsonschema:"description=Setting value to write"`
+	}
+	gomcp.AddTool(s.mcp, &gomcp.Tool{
+		Name: "set_settings",
+		Description: "Write an Android system/secure/global setting by name. " +
+			"STUB: This tool requires raw JNI access to ContentResolver. " +
+			"Use jni_raw to call android.provider.Settings$System.putString(ContentResolver, name, value) directly.",
+		Annotations: &gomcp.ToolAnnotations{
+			ReadOnlyHint:    false,
+			DestructiveHint: boolPtr(true),
+			Title:           "Set Settings",
+		},
+	}, func(ctx context.Context, req *gomcp.CallToolRequest, in setSettingsInput) (*gomcp.CallToolResult, any, error) {
+		return &gomcp.CallToolResult{
+			Content: []gomcp.Content{&gomcp.TextContent{
+				Text: fmt.Sprintf(
+					"set_settings is a stub: writing Settings.%s.putString(%q, %q) requires ContentResolver access via raw JNI. "+
+						"Use the jni_raw tool to call android.provider.Settings$%s.putString(contentResolver, %q, %q).",
+					in.Namespace, in.Name, in.Value, settingsClassName(in.Namespace), in.Name, in.Value,
+				),
+			}},
+		}, nil, nil
+	})
+
+	// set_brightness — stub
+	type brightnessInput struct {
+		Level int32 `json:"level" jsonschema:"description=Brightness level 0-255"`
+	}
+	gomcp.AddTool(s.mcp, &gomcp.Tool{
+		Name: "set_brightness",
+		Description: "Set screen brightness (0-255). " +
+			"STUB: Requires Settings.System.putInt(contentResolver, SCREEN_BRIGHTNESS, level) via raw JNI. " +
+			"Use the jni_raw tool or set_settings with namespace=system, name=screen_brightness.",
+		Annotations: &gomcp.ToolAnnotations{
+			ReadOnlyHint:    false,
+			DestructiveHint: boolPtr(false),
+			Title:           "Set Brightness",
+		},
+	}, func(ctx context.Context, req *gomcp.CallToolRequest, in brightnessInput) (*gomcp.CallToolResult, any, error) {
+		return &gomcp.CallToolResult{
+			Content: []gomcp.Content{&gomcp.TextContent{
+				Text: fmt.Sprintf(
+					"set_brightness is a stub: setting brightness to %d requires Settings.System.putInt(contentResolver, "+
+						"\"screen_brightness\", %d) via raw JNI. Use the jni_raw tool to perform this operation.",
+					in.Level, in.Level,
+				),
+			}},
+		}, nil, nil
+	})
+}
+
+func settingsClassName(namespace string) string {
+	switch namespace {
+	case "system":
+		return "System"
+	case "secure":
+		return "Secure"
+	case "global":
+		return "Global"
+	default:
+		return "System"
+	}
+}
+
+// ---------------------------------------------------------------------------
+// Bluetooth tools (stub — requires raw JNI for BluetoothAdapter)
+// ---------------------------------------------------------------------------
+
+func (s *Server) registerBluetoothTools() {
+	type bluetoothInput struct {
+		Action string `json:"action" jsonschema:"enum=status,enum=enable,enum=disable,enum=start_discovery,enum=cancel_discovery,description=Bluetooth action to perform"`
+	}
+	gomcp.AddTool(s.mcp, &gomcp.Tool{
+		Name: "bluetooth",
+		Description: "Bluetooth operations: status, enable, disable, start/cancel discovery. " +
+			"STUB: BluetoothAdapter requires raw JNI access. " +
+			"Use the jni_raw tool to call BluetoothAdapter.getDefaultAdapter() and then invoke methods on the returned adapter object.",
+		Annotations: &gomcp.ToolAnnotations{
+			ReadOnlyHint:    false,
+			DestructiveHint: boolPtr(false),
+			Title:           "Bluetooth",
+		},
+	}, func(ctx context.Context, req *gomcp.CallToolRequest, in bluetoothInput) (*gomcp.CallToolResult, any, error) {
+		return &gomcp.CallToolResult{
+			Content: []gomcp.Content{&gomcp.TextContent{
+				Text: fmt.Sprintf(
+					"bluetooth action %q is a stub: BluetoothAdapter is not exposed via the generated gRPC services. "+
+						"Use the jni_raw tool to: (1) call BluetoothAdapter.getDefaultAdapter() to get the adapter, "+
+						"then (2) call adapter.isEnabled(), adapter.enable(), adapter.disable(), adapter.startDiscovery(), "+
+						"or adapter.cancelDiscovery() as needed.",
+					in.Action,
+				),
+			}},
+		}, nil, nil
+	})
+}
+
+// ---------------------------------------------------------------------------
+// USB tools (UsbManager)
+// ---------------------------------------------------------------------------
+
+func (s *Server) registerUSBTools() {
+	type usbInput struct{}
+	type usbOutput struct {
+		AccessoryListHandle int64 `json:"accessory_list_handle"`
+	}
+	gomcp.AddTool(s.mcp, &gomcp.Tool{
+		Name: "list_usb_devices",
+		Description: "List connected USB accessories. Returns an opaque Java object handle for the UsbAccessory[] array. " +
+			"Use call_android_api to inspect individual accessory properties (manufacturer, model, etc.).",
+		Annotations: &gomcp.ToolAnnotations{
+			ReadOnlyHint:    true,
+			DestructiveHint: boolPtr(false),
+			Title:           "List USB Devices",
+		},
+	}, func(ctx context.Context, req *gomcp.CallToolRequest, _ usbInput) (*gomcp.CallToolResult, usbOutput, error) {
+		client := usbclient.NewClient(s.conn)
+
+		handle, err := client.GetAccessoryList(ctx)
+		if err != nil {
+			return nil, usbOutput{}, fmt.Errorf("get accessory list: %w", err)
+		}
+
+		return nil, usbOutput{AccessoryListHandle: handle}, nil
+	})
+}
+
+// ---------------------------------------------------------------------------
+// Print tools (PrintManager)
+// ---------------------------------------------------------------------------
+
+func (s *Server) registerPrintTools() {
+	type printInput struct{}
+	type printOutput struct {
+		PrintJobsHandle int64 `json:"print_jobs_handle"`
+	}
+	gomcp.AddTool(s.mcp, &gomcp.Tool{
+		Name: "get_print_services",
+		Description: "Get available print services and jobs. Returns an opaque Java object handle for the List<PrintJob>. " +
+			"Use call_android_api to inspect individual print job details.",
+		Annotations: &gomcp.ToolAnnotations{
+			ReadOnlyHint:    true,
+			DestructiveHint: boolPtr(false),
+			Title:           "Get Print Services",
+		},
+	}, func(ctx context.Context, req *gomcp.CallToolRequest, _ printInput) (*gomcp.CallToolResult, printOutput, error) {
+		client := printclient.NewClient(s.conn)
+
+		handle, err := client.GetPrintJobs(ctx)
+		if err != nil {
+			return nil, printOutput{}, fmt.Errorf("get print jobs: %w", err)
+		}
+
+		return nil, printOutput{PrintJobsHandle: handle}, nil
+	})
+}
+
+// ---------------------------------------------------------------------------
+// Power tools (PowerManager — extended beyond battery)
+// ---------------------------------------------------------------------------
+
+func (s *Server) registerPowerTools() {
+	// set_power_mode — combined power query and wake lock stub
+	type powerInput struct {
+		Action  string `json:"action" jsonschema:"enum=status,enum=new_wake_lock,description=Action: status (query power state) or new_wake_lock (create wake lock)"`
+		Level   int32  `json:"level,omitempty" jsonschema:"description=Wake lock level for new_wake_lock (1=PARTIAL, 6=SCREEN_DIM, 10=SCREEN_BRIGHT, 26=FULL, 32=PROXIMITY_SCREEN_OFF)"`
+		Tag     string `json:"tag,omitempty" jsonschema:"description=Wake lock tag for new_wake_lock"`
+		Package string `json:"package,omitempty" jsonschema:"description=Package name for battery optimization check"`
+	}
+	gomcp.AddTool(s.mcp, &gomcp.Tool{
+		Name: "set_power_mode",
+		Description: "Power management operations. " +
+			"'status' returns thermal status, interactive state, power save mode, idle modes, and optionally checks if a package ignores battery optimizations. " +
+			"'new_wake_lock' creates a new WakeLock handle (returned as int64); you must use call_android_api to acquire/release it.",
+		Annotations: &gomcp.ToolAnnotations{
+			ReadOnlyHint:    false,
+			DestructiveHint: boolPtr(false),
+			Title:           "Power Management",
+		},
+	}, func(ctx context.Context, req *gomcp.CallToolRequest, in powerInput) (*gomcp.CallToolResult, any, error) {
+		client := powerclient.NewClient(s.conn)
+
+		switch in.Action {
+		case "status":
+			thermalStatus, err := client.GetCurrentThermalStatus(ctx)
+			if err != nil {
+				return nil, nil, fmt.Errorf("get thermal status: %w", err)
+			}
+			isInteractive, err := client.IsInteractive(ctx)
+			if err != nil {
+				return nil, nil, fmt.Errorf("is interactive: %w", err)
+			}
+			isPowerSave, err := client.IsPowerSaveMode(ctx)
+			if err != nil {
+				return nil, nil, fmt.Errorf("is power save: %w", err)
+			}
+			isIdle, err := client.IsDeviceIdleMode(ctx)
+			if err != nil {
+				return nil, nil, fmt.Errorf("is idle: %w", err)
+			}
+			isLightIdle, err := client.IsDeviceLightIdleMode(ctx)
+			if err != nil {
+				return nil, nil, fmt.Errorf("is light idle: %w", err)
+			}
+			isScreenOn, err := client.IsScreenOn(ctx)
+			if err != nil {
+				return nil, nil, fmt.Errorf("is screen on: %w", err)
+			}
+			locationPowerSave, err := client.GetLocationPowerSaveMode(ctx)
+			if err != nil {
+				return nil, nil, fmt.Errorf("get location power save mode: %w", err)
+			}
+
+			result := map[string]any{
+				"thermal_status":          thermalStatus,
+				"is_interactive":          isInteractive,
+				"is_power_save_mode":      isPowerSave,
+				"is_device_idle":          isIdle,
+				"is_device_light_idle":    isLightIdle,
+				"is_screen_on":            isScreenOn,
+				"location_power_save_mode": locationPowerSave,
+			}
+
+			if in.Package != "" {
+				ignoring, err := client.IsIgnoringBatteryOptimizations(ctx, in.Package)
+				if err != nil {
+					return nil, nil, fmt.Errorf("check battery optimization for %q: %w", in.Package, err)
+				}
+				result["ignoring_battery_optimizations"] = ignoring
+				result["checked_package"] = in.Package
+			}
+
+			r, err := jsonResult(result)
+			return r, nil, err
+
+		case "new_wake_lock":
+			tag := in.Tag
+			if tag == "" {
+				tag = "mcp-wakelock"
+			}
+			handle, err := client.NewWakeLock(ctx, in.Level, tag)
+			if err != nil {
+				return nil, nil, fmt.Errorf("new wake lock (level=%d, tag=%q): %w", in.Level, tag, err)
+			}
+			result := map[string]any{
+				"wake_lock_handle": handle,
+				"level":            in.Level,
+				"tag":              tag,
+				"note":             "Use call_android_api to call acquire()/release() on this WakeLock handle.",
+			}
+			r, err := jsonResult(result)
+			return r, nil, err
+
+		default:
+			return nil, nil, fmt.Errorf("unknown power action %q; supported: status, new_wake_lock", in.Action)
+		}
 	})
 }
