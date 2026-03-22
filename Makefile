@@ -1,5 +1,5 @@
 .PHONY: generate callbacks proto protoc grpc cli clean lint test test-tools test-e2e test-emulator \
-	build build-server list-commands dist dist-jnicli-linux dist-jnicli-android dist-jniserviceadmin dist-jniservice dist-dex \
+	build build-server list-commands dist dist-jnicli-linux dist-jnicli-android dist-jnimcp-linux dist-jnimcp-android dist-jniserviceadmin dist-jniservice dist-dex \
 	magisk apk deploy push start-server stop-server forward
 
 # Path to the jni repo checkout (sibling directory by default).
@@ -153,12 +153,22 @@ endif
 
 DIST_CC := $(DIST_NDK)/toolchains/llvm/prebuilt/linux-x86_64/bin/$(DIST_NDK_TRIPLE)$(DIST_API_LEVEL)-clang
 
-dist: dist-jnicli-linux dist-jnicli-android dist-jniservice dist-jniserviceadmin dist-dex
+dist: dist-jnicli-linux dist-jnicli-android dist-jnimcp-linux dist-jniservice dist-jniserviceadmin dist-dex
 
 dist-jnicli-linux:
 	@mkdir -p build
 	CGO_ENABLED=0 GOOS=linux GOARCH=$(DIST_GOARCH) \
 		go build -o build/jnicli-linux-$(DIST_GOARCH) ./cmd/jnicli/
+
+dist-jnimcp-linux:
+	@mkdir -p build
+	CGO_ENABLED=0 GOOS=linux GOARCH=$(DIST_GOARCH) \
+		go build -o build/jnimcp-linux-$(DIST_GOARCH) ./cmd/jnimcp/
+
+dist-jnimcp-android:
+	@mkdir -p build
+	CGO_ENABLED=1 GOOS=android GOARCH=$(DIST_GOARCH) CC=$(DIST_CC) \
+		go build -o build/jnimcp-android-$(DIST_GOARCH) ./cmd/jnimcp/
 
 dist-jnicli-android:
 	@mkdir -p build
