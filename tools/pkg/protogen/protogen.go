@@ -33,7 +33,9 @@ func Generate(specPath, overlayPath, outputDir, goModule string) error {
 		return fmt.Errorf("mkdir %s: %w", pkgDir, err)
 	}
 
-	outputPath := filepath.Join(pkgDir, merged.Package+".proto")
+	// Use only the last path segment as the filename (e.g., "health/connect" → "connect.proto").
+	baseName := filepath.Base(merged.Package)
+	outputPath := filepath.Join(pkgDir, baseName+".proto")
 	if err := renderProto(data, outputPath); err != nil {
 		return fmt.Errorf("render proto: %w", err)
 	}

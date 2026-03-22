@@ -73,7 +73,7 @@ func TestGenerate_AllRealSpecs(t *testing.T) {
 			continue
 		}
 
-		protoPath := filepath.Join(outputDir, pkgName, pkgName+".proto")
+		protoPath := filepath.Join(outputDir, pkgName, filepath.Base(pkgName)+".proto")
 		data, err := os.ReadFile(protoPath)
 		if err != nil {
 			t.Errorf("%s (pkg=%s): proto file not created at %s: %v", baseName, pkgName, protoPath, err)
