@@ -39,8 +39,8 @@ func (s *HandleStore) Put(env *jni.Env, obj *jni.Object) int64 {
 	globalRef := env.NewGlobalRef(obj)
 	id := s.nextID.Add(1)
 	s.mu.Lock()
+	defer s.mu.Unlock()
 	s.objects[id] = globalRef
-	s.mu.Unlock()
 	return id
 }
 
@@ -51,9 +51,8 @@ func (s *HandleStore) Get(handle int64) *jni.Object {
 		return nil
 	}
 	s.mu.RLock()
-	obj := s.objects[handle]
-	s.mu.RUnlock()
-	return obj
+	defer s.mu.RUnlock()
+	return s.objects[handle]
 }
 
 // Release deletes the JNI global reference for the given handle and removes
@@ -68,7 +67,7 @@ func (s *HandleStore) Release(env *jni.Env, handle int64) {
 	if ok {
 		delete(s.objects, handle)
 	}
-	s.mu.Unlock()
+	s.mu.Unlock() // Unlock before JNI call to avoid holding the mutex during DeleteGlobalRef.
 	if ok {
 		env.DeleteGlobalRef(obj)
 	}

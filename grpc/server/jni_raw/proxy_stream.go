@@ -114,9 +114,12 @@ func (s *Server) Proxy(stream pb.JNIService_ProxyServer) error {
 			pendingMu.Unlock()
 		}
 
-		sendMu.Lock()
-		sendErr := stream.Send(event)
-		sendMu.Unlock()
+		var sendErr error
+		func() {
+			sendMu.Lock()
+			defer sendMu.Unlock()
+			sendErr = stream.Send(event)
+		}()
 		if sendErr != nil {
 			if ch != nil {
 				pendingMu.Lock()
@@ -311,15 +314,17 @@ func (s *Server) Proxy(stream pb.JNIService_ProxyServer) error {
 	// 7. proxyHandle was set inside the VM.Do callbacks above (local JNI
 	// refs are thread-local — must be stored before VM.Do returns).
 
-	sendMu.Lock()
-	err = stream.Send(&pb.ProxyServerMessage{
-		Msg: &pb.ProxyServerMessage_Created{
-			Created: &pb.CreateProxyResponse{
-				ProxyHandle: proxyHandle,
+	err = func() error {
+		sendMu.Lock()
+		defer sendMu.Unlock()
+		return stream.Send(&pb.ProxyServerMessage{
+			Msg: &pb.ProxyServerMessage_Created{
+				Created: &pb.CreateProxyResponse{
+					ProxyHandle: proxyHandle,
+				},
 			},
-		},
-	})
-	sendMu.Unlock()
+		})
+	}()
 	if err != nil {
 		return err
 	}
