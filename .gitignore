@@ -7,4 +7,5 @@ examples/test_results/
 go.work
 go.work.sum
 jnicli
+jnimcp
 build/
