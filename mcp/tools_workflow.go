@@ -5,12 +5,17 @@ import (
 	"encoding/json"
 	"fmt"
 
+	audioclient "github.com/AndroidGoLab/jni-proxy/grpc/client/audiomanager"
 	batteryclient "github.com/AndroidGoLab/jni-proxy/grpc/client/battery"
+	clipboardclient "github.com/AndroidGoLab/jni-proxy/grpc/client/clipboard"
 	displayclient "github.com/AndroidGoLab/jni-proxy/grpc/client/display"
+	irclient "github.com/AndroidGoLab/jni-proxy/grpc/client/ir"
 	locationclient "github.com/AndroidGoLab/jni-proxy/grpc/client/location"
 	netclient "github.com/AndroidGoLab/jni-proxy/grpc/client/net"
+	notifclient "github.com/AndroidGoLab/jni-proxy/grpc/client/notification"
 	powerclient "github.com/AndroidGoLab/jni-proxy/grpc/client/power"
 	telephonyclient "github.com/AndroidGoLab/jni-proxy/grpc/client/telephony"
+	vibratorclient "github.com/AndroidGoLab/jni-proxy/grpc/client/vibrator"
 	wificlient "github.com/AndroidGoLab/jni-proxy/grpc/client/wifi"
 	displaypb "github.com/AndroidGoLab/jni-proxy/proto/display"
 	handlepb "github.com/AndroidGoLab/jni-proxy/proto/handlestore"
@@ -38,6 +43,11 @@ func (s *Server) registerWorkflowTools() {
 	s.registerNetworkTools()
 	s.registerWifiTools()
 	s.registerTelephonyTools()
+	s.registerAudioTools()
+	s.registerClipboardTools()
+	s.registerNotificationTools()
+	s.registerVibratorTools()
+	s.registerIRTools()
 }
 
 // Android BatteryManager property constants.
@@ -706,6 +716,549 @@ func (s *Server) registerTelephonyTools() {
 		out.PhoneCount, err = client.GetPhoneCount(ctx)
 		if err != nil {
 			return nil, out, fmt.Errorf("get phone count: %w", err)
+		}
+
+		return nil, out, nil
+	})
+}
+
+// ---------------------------------------------------------------------------
+// Audio tools (AudioManager)
+// ---------------------------------------------------------------------------
+
+// Android AudioManager stream type constants.
+const (
+	streamVoiceCall    int32 = 0
+	streamSystem       int32 = 1
+	streamRing         int32 = 2
+	streamMusic        int32 = 3
+	streamAlarm        int32 = 4
+	streamNotification int32 = 5
+)
+
+type audioInput struct{}
+
+type streamVolumeInfo struct {
+	Stream int32 `json:"stream"`
+	Volume int32 `json:"volume"`
+	Min    int32 `json:"min"`
+	Max    int32 `json:"max"`
+	Muted  bool  `json:"muted"`
+}
+
+type audioOutput struct {
+	RingerMode      int32              `json:"ringer_mode"`
+	Mode            int32              `json:"mode"`
+	IsMicMuted      bool               `json:"is_mic_muted"`
+	IsMusicActive   bool               `json:"is_music_active"`
+	IsSpeakerOn     bool               `json:"is_speakerphone_on"`
+	IsBluetoothA2DP bool               `json:"is_bluetooth_a2dp_on"`
+	IsBluetoothSCO  bool               `json:"is_bluetooth_sco_on"`
+	Streams         []streamVolumeInfo `json:"streams"`
+}
+
+type setVolumeInput struct {
+	Stream int32 `json:"stream" jsonschema:"description=Audio stream type: 0=voice_call 1=system 2=ring 3=music 4=alarm 5=notification"`
+	Volume int32 `json:"volume" jsonschema:"description=Volume level to set (0 to stream max)"`
+	Flags  int32 `json:"flags" jsonschema:"default=0,description=Flags: 0=none 1=show_ui 2=allow_ringer_modes 4=play_sound 8=remove_sound_and_vibrate 16=vibrate"`
+}
+
+type setRingerModeInput struct {
+	Mode int32 `json:"mode" jsonschema:"description=Ringer mode: 0=silent 1=vibrate 2=normal"`
+}
+
+func (s *Server) registerAudioTools() {
+	// get_audio_status — read-only audio overview
+	gomcp.AddTool(s.mcp, &gomcp.Tool{
+		Name:        "get_audio_status",
+		Description: "Get audio status: volume levels for all streams (voice, system, ring, music, alarm, notification), ringer mode, audio mode, mute states, speakerphone, and Bluetooth audio state.",
+		Annotations: &gomcp.ToolAnnotations{
+			ReadOnlyHint:    true,
+			DestructiveHint: boolPtr(false),
+			Title:           "Get Audio Status",
+		},
+	}, func(ctx context.Context, req *gomcp.CallToolRequest, _ audioInput) (*gomcp.CallToolResult, audioOutput, error) {
+		client := audioclient.NewClient(s.conn)
+
+		var out audioOutput
+		var err error
+
+		out.RingerMode, err = client.GetRingerMode(ctx)
+		if err != nil {
+			return nil, out, fmt.Errorf("get ringer mode: %w", err)
+		}
+
+		out.Mode, err = client.GetMode(ctx)
+		if err != nil {
+			return nil, out, fmt.Errorf("get mode: %w", err)
+		}
+
+		out.IsMicMuted, err = client.IsMicrophoneMute(ctx)
+		if err != nil {
+			return nil, out, fmt.Errorf("is mic muted: %w", err)
+		}
+
+		out.IsMusicActive, err = client.IsMusicActive(ctx)
+		if err != nil {
+			return nil, out, fmt.Errorf("is music active: %w", err)
+		}
+
+		out.IsSpeakerOn, err = client.IsSpeakerphoneOn(ctx)
+		if err != nil {
+			return nil, out, fmt.Errorf("is speakerphone on: %w", err)
+		}
+
+		out.IsBluetoothA2DP, err = client.IsBluetoothA2DpOn(ctx)
+		if err != nil {
+			return nil, out, fmt.Errorf("is bluetooth a2dp on: %w", err)
+		}
+
+		out.IsBluetoothSCO, err = client.IsBluetoothScoOn(ctx)
+		if err != nil {
+			return nil, out, fmt.Errorf("is bluetooth sco on: %w", err)
+		}
+
+		// Collect volume info for the standard streams.
+		streams := []int32{
+			streamVoiceCall, streamSystem, streamRing,
+			streamMusic, streamAlarm, streamNotification,
+		}
+		for _, st := range streams {
+			var si streamVolumeInfo
+			si.Stream = st
+
+			si.Volume, err = client.GetStreamVolume(ctx, st)
+			if err != nil {
+				return nil, out, fmt.Errorf("get stream %d volume: %w", st, err)
+			}
+
+			si.Min, err = client.GetStreamMinVolume(ctx, st)
+			if err != nil {
+				return nil, out, fmt.Errorf("get stream %d min: %w", st, err)
+			}
+
+			si.Max, err = client.GetStreamMaxVolume(ctx, st)
+			if err != nil {
+				return nil, out, fmt.Errorf("get stream %d max: %w", st, err)
+			}
+
+			si.Muted, err = client.IsStreamMute(ctx, st)
+			if err != nil {
+				return nil, out, fmt.Errorf("get stream %d mute: %w", st, err)
+			}
+
+			out.Streams = append(out.Streams, si)
+		}
+
+		return nil, out, nil
+	})
+
+	// set_volume — mutation: set stream volume
+	gomcp.AddTool(s.mcp, &gomcp.Tool{
+		Name:        "set_volume",
+		Description: "Set volume for an audio stream. Stream types: 0=voice_call, 1=system, 2=ring, 3=music, 4=alarm, 5=notification. Flags: 0=none, 1=show_ui, 4=play_sound.",
+		Annotations: &gomcp.ToolAnnotations{
+			ReadOnlyHint:    false,
+			DestructiveHint: boolPtr(false),
+			Title:           "Set Volume",
+		},
+	}, func(ctx context.Context, req *gomcp.CallToolRequest, in setVolumeInput) (*gomcp.CallToolResult, any, error) {
+		client := audioclient.NewClient(s.conn)
+
+		err := client.SetStreamVolume(ctx, in.Stream, in.Volume, in.Flags)
+		if err != nil {
+			return nil, nil, fmt.Errorf("set stream volume: %w", err)
+		}
+
+		// Read back the new volume to confirm.
+		newVol, err := client.GetStreamVolume(ctx, in.Stream)
+		if err != nil {
+			return nil, nil, fmt.Errorf("get stream volume after set: %w", err)
+		}
+
+		result := map[string]any{
+			"stream":     in.Stream,
+			"new_volume": newVol,
+		}
+		r, err := jsonResult(result)
+		return r, nil, err
+	})
+
+	// set_ringer_mode — mutation: set ringer mode
+	gomcp.AddTool(s.mcp, &gomcp.Tool{
+		Name:        "set_ringer_mode",
+		Description: "Set ringer mode: 0=silent, 1=vibrate, 2=normal.",
+		Annotations: &gomcp.ToolAnnotations{
+			ReadOnlyHint:    false,
+			DestructiveHint: boolPtr(false),
+			Title:           "Set Ringer Mode",
+		},
+	}, func(ctx context.Context, req *gomcp.CallToolRequest, in setRingerModeInput) (*gomcp.CallToolResult, any, error) {
+		client := audioclient.NewClient(s.conn)
+
+		err := client.SetRingerMode(ctx, in.Mode)
+		if err != nil {
+			return nil, nil, fmt.Errorf("set ringer mode: %w", err)
+		}
+
+		// Read back the new ringer mode to confirm.
+		newMode, err := client.GetRingerMode(ctx)
+		if err != nil {
+			return nil, nil, fmt.Errorf("get ringer mode after set: %w", err)
+		}
+
+		result := map[string]any{
+			"new_ringer_mode": newMode,
+		}
+		r, err := jsonResult(result)
+		return r, nil, err
+	})
+}
+
+// ---------------------------------------------------------------------------
+// Clipboard tools (ClipboardManager)
+// ---------------------------------------------------------------------------
+
+type clipboardInput struct{}
+
+type clipboardOutput struct {
+	HasClip    bool  `json:"has_clip"`
+	HasText    bool  `json:"has_text"`
+	TextHandle int64 `json:"text_handle,omitempty"`
+}
+
+type setClipboardInput struct {
+	Text string `json:"text" jsonschema:"description=Text to copy to the clipboard"`
+}
+
+func (s *Server) registerClipboardTools() {
+	// get_clipboard — read-only clipboard status
+	gomcp.AddTool(s.mcp, &gomcp.Tool{
+		Name:        "get_clipboard",
+		Description: "Get clipboard status: whether a clip is present, whether it contains text, and a handle to the text content. The text_handle is a Java CharSequence object handle that can be inspected via jni_raw.",
+		Annotations: &gomcp.ToolAnnotations{
+			ReadOnlyHint:    true,
+			DestructiveHint: boolPtr(false),
+			Title:           "Get Clipboard",
+		},
+	}, func(ctx context.Context, req *gomcp.CallToolRequest, _ clipboardInput) (*gomcp.CallToolResult, clipboardOutput, error) {
+		client := clipboardclient.NewClient(s.conn)
+
+		var out clipboardOutput
+		var err error
+
+		out.HasClip, err = client.HasPrimaryClip(ctx)
+		if err != nil {
+			return nil, out, fmt.Errorf("has primary clip: %w", err)
+		}
+
+		out.HasText, err = client.HasText(ctx)
+		if err != nil {
+			return nil, out, fmt.Errorf("has text: %w", err)
+		}
+
+		if out.HasText {
+			out.TextHandle, err = client.GetText(ctx)
+			if err != nil {
+				return nil, out, fmt.Errorf("get text: %w", err)
+			}
+		}
+
+		return nil, out, nil
+	})
+
+	// set_clipboard — mutation: write text to clipboard
+	gomcp.AddTool(s.mcp, &gomcp.Tool{
+		Name:        "set_clipboard",
+		Description: "Write text to the clipboard. Uses the deprecated ClipboardManager.setText which accepts a plain string directly.",
+		Annotations: &gomcp.ToolAnnotations{
+			ReadOnlyHint:    false,
+			DestructiveHint: boolPtr(false),
+			Title:           "Set Clipboard",
+		},
+	}, func(ctx context.Context, req *gomcp.CallToolRequest, in setClipboardInput) (*gomcp.CallToolResult, any, error) {
+		client := clipboardclient.NewClient(s.conn)
+
+		err := client.SetText(ctx, in.Text)
+		if err != nil {
+			return nil, nil, fmt.Errorf("set text: %w", err)
+		}
+
+		result := map[string]any{
+			"success": true,
+			"length":  len(in.Text),
+		}
+		r, err := jsonResult(result)
+		return r, nil, err
+	})
+}
+
+// ---------------------------------------------------------------------------
+// Notification tools (NotificationManager)
+// ---------------------------------------------------------------------------
+
+type cancelNotifInput struct {
+	ID int32 `json:"id" jsonschema:"description=Notification ID to cancel"`
+}
+
+type notifStatusInput struct{}
+
+type notifStatusOutput struct {
+	NotificationsEnabled bool  `json:"notifications_enabled"`
+	NotificationsPaused  bool  `json:"notifications_paused"`
+	BubblesAllowed       bool  `json:"bubbles_allowed"`
+	BubblesEnabled       bool  `json:"bubbles_enabled"`
+	Importance           int32 `json:"importance"`
+	InterruptionFilter   int32 `json:"interruption_filter"`
+	ChannelsHandle       int64 `json:"channels_handle,omitempty"`
+}
+
+func (s *Server) registerNotificationTools() {
+	// send_notification — stub (requires Java object construction)
+	type sendNotifInput struct {
+		Title   string `json:"title" jsonschema:"description=Notification title"`
+		Text    string `json:"text" jsonschema:"description=Notification body text"`
+		Channel string `json:"channel" jsonschema:"description=Notification channel ID"`
+	}
+	gomcp.AddTool(s.mcp, &gomcp.Tool{
+		Name:        "send_notification",
+		Description: "Post a notification to the device. Currently stubbed because building a Notification object requires constructing Java objects via JNI.",
+		Annotations: &gomcp.ToolAnnotations{
+			ReadOnlyHint:    false,
+			DestructiveHint: boolPtr(false),
+			Title:           "Send Notification",
+		},
+	}, func(ctx context.Context, req *gomcp.CallToolRequest, _ sendNotifInput) (*gomcp.CallToolResult, any, error) {
+		return &gomcp.CallToolResult{
+			Content: []gomcp.Content{&gomcp.TextContent{
+				Text: "send_notification requires constructing a Notification Java object (Notification.Builder). " +
+					"Use the jni_raw tool to create the Notification.Builder, set title/text/channel, build it, " +
+					"then call NotificationManager.notify(id, notification) via call_android_api.",
+			}},
+		}, nil, nil
+	})
+
+	// cancel_notification — mutation: cancel by ID
+	gomcp.AddTool(s.mcp, &gomcp.Tool{
+		Name:        "cancel_notification",
+		Description: "Cancel a previously posted notification by its ID.",
+		Annotations: &gomcp.ToolAnnotations{
+			ReadOnlyHint:    false,
+			DestructiveHint: boolPtr(false),
+			Title:           "Cancel Notification",
+		},
+	}, func(ctx context.Context, req *gomcp.CallToolRequest, in cancelNotifInput) (*gomcp.CallToolResult, any, error) {
+		client := notifclient.NewClient(s.conn)
+
+		err := client.Cancel1(ctx, in.ID)
+		if err != nil {
+			return nil, nil, fmt.Errorf("cancel notification %d: %w", in.ID, err)
+		}
+
+		result := map[string]any{
+			"cancelled_id": in.ID,
+		}
+		r, err := jsonResult(result)
+		return r, nil, err
+	})
+
+	// list_notification_channels — read-only notification status and channels
+	gomcp.AddTool(s.mcp, &gomcp.Tool{
+		Name:        "list_notification_channels",
+		Description: "List notification channels and get notification status: enabled, paused, bubbles, importance, interruption filter. The channels_handle is a Java List<NotificationChannel> object handle.",
+		Annotations: &gomcp.ToolAnnotations{
+			ReadOnlyHint:    true,
+			DestructiveHint: boolPtr(false),
+			Title:           "List Notification Channels",
+		},
+	}, func(ctx context.Context, req *gomcp.CallToolRequest, _ notifStatusInput) (*gomcp.CallToolResult, notifStatusOutput, error) {
+		client := notifclient.NewClient(s.conn)
+
+		var out notifStatusOutput
+		var err error
+
+		out.NotificationsEnabled, err = client.AreNotificationsEnabled(ctx)
+		if err != nil {
+			return nil, out, fmt.Errorf("are notifications enabled: %w", err)
+		}
+
+		out.NotificationsPaused, err = client.AreNotificationsPaused(ctx)
+		if err != nil {
+			return nil, out, fmt.Errorf("are notifications paused: %w", err)
+		}
+
+		out.BubblesAllowed, err = client.AreBubblesAllowed(ctx)
+		if err != nil {
+			return nil, out, fmt.Errorf("are bubbles allowed: %w", err)
+		}
+
+		out.BubblesEnabled, err = client.AreBubblesEnabled(ctx)
+		if err != nil {
+			return nil, out, fmt.Errorf("are bubbles enabled: %w", err)
+		}
+
+		out.Importance, err = client.GetImportance(ctx)
+		if err != nil {
+			return nil, out, fmt.Errorf("get importance: %w", err)
+		}
+
+		out.InterruptionFilter, err = client.GetCurrentInterruptionFilter(ctx)
+		if err != nil {
+			return nil, out, fmt.Errorf("get interruption filter: %w", err)
+		}
+
+		out.ChannelsHandle, err = client.GetNotificationChannels(ctx)
+		if err != nil {
+			return nil, out, fmt.Errorf("get notification channels: %w", err)
+		}
+
+		return nil, out, nil
+	})
+}
+
+// ---------------------------------------------------------------------------
+// Vibrator tools
+// ---------------------------------------------------------------------------
+
+type vibrateInput struct {
+	DurationMS int64 `json:"duration_ms" jsonschema:"description=Vibration duration in milliseconds"`
+}
+
+type vibratorStatusInput struct{}
+
+type vibratorStatusOutput struct {
+	HasVibrator         bool    `json:"has_vibrator"`
+	HasAmplitudeControl bool    `json:"has_amplitude_control"`
+	VibratorID          int32   `json:"vibrator_id"`
+	QFactor             float32 `json:"q_factor,omitempty"`
+	ResonantFrequency   float32 `json:"resonant_frequency,omitempty"`
+}
+
+func (s *Server) registerVibratorTools() {
+	// vibrate — mutation: vibrate for a duration
+	gomcp.AddTool(s.mcp, &gomcp.Tool{
+		Name:        "vibrate",
+		Description: "Vibrate the device for the specified duration in milliseconds.",
+		Annotations: &gomcp.ToolAnnotations{
+			ReadOnlyHint:    false,
+			DestructiveHint: boolPtr(false),
+			Title:           "Vibrate",
+		},
+	}, func(ctx context.Context, req *gomcp.CallToolRequest, in vibrateInput) (*gomcp.CallToolResult, any, error) {
+		client := vibratorclient.NewClient(s.conn)
+
+		err := client.Vibrate1(ctx, in.DurationMS)
+		if err != nil {
+			return nil, nil, fmt.Errorf("vibrate: %w", err)
+		}
+
+		result := map[string]any{
+			"vibrating":   true,
+			"duration_ms": in.DurationMS,
+		}
+		r, err := jsonResult(result)
+		return r, nil, err
+	})
+
+	// get_vibrator_info — read-only vibrator capabilities
+	gomcp.AddTool(s.mcp, &gomcp.Tool{
+		Name:        "get_vibrator_info",
+		Description: "Get vibrator info: whether the device has a vibrator, amplitude control support, vibrator ID, Q factor, and resonant frequency.",
+		Annotations: &gomcp.ToolAnnotations{
+			ReadOnlyHint:    true,
+			DestructiveHint: boolPtr(false),
+			Title:           "Get Vibrator Info",
+		},
+	}, func(ctx context.Context, req *gomcp.CallToolRequest, _ vibratorStatusInput) (*gomcp.CallToolResult, vibratorStatusOutput, error) {
+		client := vibratorclient.NewClient(s.conn)
+
+		var out vibratorStatusOutput
+		var err error
+
+		out.HasVibrator, err = client.HasVibrator(ctx)
+		if err != nil {
+			return nil, out, fmt.Errorf("has vibrator: %w", err)
+		}
+
+		out.HasAmplitudeControl, err = client.HasAmplitudeControl(ctx)
+		if err != nil {
+			return nil, out, fmt.Errorf("has amplitude control: %w", err)
+		}
+
+		out.VibratorID, err = client.GetId(ctx)
+		if err != nil {
+			return nil, out, fmt.Errorf("get id: %w", err)
+		}
+
+		// Q factor and resonant frequency may not be available on all devices;
+		// treat errors as non-fatal and leave at zero value.
+		out.QFactor, _ = client.GetQFactor(ctx)
+		out.ResonantFrequency, _ = client.GetResonantFrequency(ctx)
+
+		return nil, out, nil
+	})
+}
+
+// ---------------------------------------------------------------------------
+// IR tools (ConsumerIrManager)
+// ---------------------------------------------------------------------------
+
+type irStatusInput struct{}
+
+type irStatusOutput struct {
+	HasIrEmitter      bool  `json:"has_ir_emitter"`
+	CarrierFreqHandle int64 `json:"carrier_frequencies_handle,omitempty"`
+}
+
+func (s *Server) registerIRTools() {
+	// ir_transmit — stub (requires int[] handle for pattern)
+	type irTransmitInput struct {
+		Frequency int32   `json:"frequency" jsonschema:"description=IR carrier frequency in Hz"`
+		Pattern   []int32 `json:"pattern" jsonschema:"description=Pattern of on/off durations in microseconds"`
+	}
+	gomcp.AddTool(s.mcp, &gomcp.Tool{
+		Name:        "ir_transmit",
+		Description: "Send an IR signal at the given carrier frequency with the specified on/off pattern. Currently stubbed because the pattern parameter requires constructing a Java int[] array handle.",
+		Annotations: &gomcp.ToolAnnotations{
+			ReadOnlyHint:    false,
+			DestructiveHint: boolPtr(false),
+			Title:           "IR Transmit",
+		},
+	}, func(ctx context.Context, req *gomcp.CallToolRequest, _ irTransmitInput) (*gomcp.CallToolResult, any, error) {
+		return &gomcp.CallToolResult{
+			Content: []gomcp.Content{&gomcp.TextContent{
+				Text: "ir_transmit requires constructing a Java int[] array for the pattern parameter. " +
+					"Use the jni_raw tool to create the int[] array handle, then call " +
+					"ConsumerIrManager.transmit(frequency, pattern) via call_android_api.",
+			}},
+		}, nil, nil
+	})
+
+	// get_ir_info — read-only IR capabilities
+	gomcp.AddTool(s.mcp, &gomcp.Tool{
+		Name:        "get_ir_info",
+		Description: "Check if the device has an IR emitter and get supported carrier frequencies. The carrier_frequencies_handle is a Java ConsumerIrManager.CarrierFrequencyRange[] handle.",
+		Annotations: &gomcp.ToolAnnotations{
+			ReadOnlyHint:    true,
+			DestructiveHint: boolPtr(false),
+			Title:           "Get IR Info",
+		},
+	}, func(ctx context.Context, req *gomcp.CallToolRequest, _ irStatusInput) (*gomcp.CallToolResult, irStatusOutput, error) {
+		client := irclient.NewClient(s.conn)
+
+		var out irStatusOutput
+		var err error
+
+		out.HasIrEmitter, err = client.HasIrEmitter(ctx)
+		if err != nil {
+			return nil, out, fmt.Errorf("has ir emitter: %w", err)
+		}
+
+		if out.HasIrEmitter {
+			out.CarrierFreqHandle, err = client.GetCarrierFrequencies(ctx)
+			if err != nil {
+				return nil, out, fmt.Errorf("get carrier frequencies: %w", err)
+			}
 		}
 
 		return nil, out, nil
