@@ -856,7 +856,16 @@ func (s *DevicePolicyManagerServer) GetDeviceOwnerLockScreenInfo(_ context.Conte
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "%v", err)
 	}
-	return &pb.GetDeviceOwnerLockScreenInfoResponse{Result: result}, nil
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetDeviceOwnerLockScreenInfoResponse{Result: handle}, nil
 }
 
 func (s *DevicePolicyManagerServer) GetDevicePolicyManagementRoleHolderPackage(_ context.Context, req *pb.GetDevicePolicyManagementRoleHolderPackageRequest) (*pb.GetDevicePolicyManagementRoleHolderPackageResponse, error) {
@@ -884,7 +893,16 @@ func (s *DevicePolicyManagerServer) GetEndUserSessionMessage(_ context.Context, 
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "%v", err)
 	}
-	return &pb.GetEndUserSessionMessageResponse{Result: result}, nil
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetEndUserSessionMessageResponse{Result: handle}, nil
 }
 
 func (s *DevicePolicyManagerServer) GetEnrollmentSpecificId(_ context.Context, req *pb.GetEnrollmentSpecificIdRequest) (*pb.GetEnrollmentSpecificIdResponse, error) {
@@ -1060,7 +1078,16 @@ func (s *DevicePolicyManagerServer) GetLongSupportMessage(_ context.Context, req
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "%v", err)
 	}
-	return &pb.GetLongSupportMessageResponse{Result: result}, nil
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetLongSupportMessageResponse{Result: handle}, nil
 }
 
 func (s *DevicePolicyManagerServer) GetManagedProfileCallerIdAccessPolicy(_ context.Context, req *pb.GetManagedProfileCallerIdAccessPolicyRequest) (*pb.GetManagedProfileCallerIdAccessPolicyResponse, error) {
@@ -1278,7 +1305,16 @@ func (s *DevicePolicyManagerServer) GetOrganizationName(_ context.Context, req *
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "%v", err)
 	}
-	return &pb.GetOrganizationNameResponse{Result: result}, nil
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetOrganizationNameResponse{Result: handle}, nil
 }
 
 func (s *DevicePolicyManagerServer) GetOverrideApns(_ context.Context, req *pb.GetOverrideApnsRequest) (*pb.GetOverrideApnsResponse, error) {
@@ -1765,7 +1801,16 @@ func (s *DevicePolicyManagerServer) GetShortSupportMessage(_ context.Context, re
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "%v", err)
 	}
-	return &pb.GetShortSupportMessageResponse{Result: result}, nil
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetShortSupportMessageResponse{Result: handle}, nil
 }
 
 func (s *DevicePolicyManagerServer) GetStartUserSessionMessage(_ context.Context, req *pb.GetStartUserSessionMessageRequest) (*pb.GetStartUserSessionMessageResponse, error) {
@@ -1779,7 +1824,16 @@ func (s *DevicePolicyManagerServer) GetStartUserSessionMessage(_ context.Context
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "%v", err)
 	}
-	return &pb.GetStartUserSessionMessageResponse{Result: result}, nil
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetStartUserSessionMessageResponse{Result: handle}, nil
 }
 
 func (s *DevicePolicyManagerServer) GetStorageEncryption(_ context.Context, req *pb.GetStorageEncryptionRequest) (*pb.GetStorageEncryptionResponse, error) {

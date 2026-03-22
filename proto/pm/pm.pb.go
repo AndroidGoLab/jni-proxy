@@ -2957,7 +2957,7 @@ func (x *GetApplicationLabelRequest) GetArg0() int64 {
 
 type GetApplicationLabelResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -2992,11 +2992,11 @@ func (*GetApplicationLabelResponse) Descriptor() ([]byte, []int) {
 	return file_proto_pm_pm_proto_rawDescGZIP(), []int{65}
 }
 
-func (x *GetApplicationLabelResponse) GetResult() string {
+func (x *GetApplicationLabelResponse) GetResult() int64 {
 	if x != nil {
 		return x.Result
 	}
-	return ""
+	return 0
 }
 
 type GetApplicationLogo1Request struct {
@@ -3301,7 +3301,7 @@ func (*GetBackgroundPermissionOptionLabelRequest) Descriptor() ([]byte, []int) {
 
 type GetBackgroundPermissionOptionLabelResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -3336,11 +3336,11 @@ func (*GetBackgroundPermissionOptionLabelResponse) Descriptor() ([]byte, []int) 
 	return file_proto_pm_pm_proto_rawDescGZIP(), []int{73}
 }
 
-func (x *GetBackgroundPermissionOptionLabelResponse) GetResult() string {
+func (x *GetBackgroundPermissionOptionLabelResponse) GetResult() int64 {
 	if x != nil {
 		return x.Result
 	}
-	return ""
+	return 0
 }
 
 type GetChangedPackagesRequest struct {
@@ -8877,7 +8877,7 @@ func (x *GetTextRequest) GetArg2() int64 {
 
 type GetTextResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -8912,11 +8912,11 @@ func (*GetTextResponse) Descriptor() ([]byte, []int) {
 	return file_proto_pm_pm_proto_rawDescGZIP(), []int{195}
 }
 
-func (x *GetTextResponse) GetResult() string {
+func (x *GetTextResponse) GetResult() int64 {
 	if x != nil {
 		return x.Result
 	}
-	return ""
+	return 0
 }
 
 type GetUserBadgedDrawableForDensityRequest struct {
@@ -9181,7 +9181,7 @@ func (x *GetUserBadgedLabelRequest) GetArg1() int64 {
 
 type GetUserBadgedLabelResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -9216,11 +9216,11 @@ func (*GetUserBadgedLabelResponse) Descriptor() ([]byte, []int) {
 	return file_proto_pm_pm_proto_rawDescGZIP(), []int{201}
 }
 
-func (x *GetUserBadgedLabelResponse) GetResult() string {
+func (x *GetUserBadgedLabelResponse) GetResult() int64 {
 	if x != nil {
 		return x.Result
 	}
-	return ""
+	return 0
 }
 
 type GetWhitelistedRestrictedPermissionsRequest struct {
@@ -15312,7 +15312,7 @@ const file_proto_pm_pm_proto_rawDesc = "" +
 	"\x1aGetApplicationLabelRequest\x12\x12\n" +
 	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"5\n" +
 	"\x1bGetApplicationLabelResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\tR\x06result\"0\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"0\n" +
 	"\x1aGetApplicationLogo1Request\x12\x12\n" +
 	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"5\n" +
 	"\x1bGetApplicationLogo1Response\x12\x16\n" +
@@ -15327,7 +15327,7 @@ const file_proto_pm_pm_proto_rawDesc = "" +
 	"\x06result\x18\x01 \x01(\x03R\x06result\"+\n" +
 	")GetBackgroundPermissionOptionLabelRequest\"D\n" +
 	"*GetBackgroundPermissionOptionLabelResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\tR\x06result\"/\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"/\n" +
 	"\x19GetChangedPackagesRequest\x12\x12\n" +
 	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\"4\n" +
 	"\x1aGetChangedPackagesResponse\x12\x16\n" +
@@ -15597,7 +15597,7 @@ const file_proto_pm_pm_proto_rawDesc = "" +
 	"\x04arg1\x18\x02 \x01(\x05R\x04arg1\x12\x12\n" +
 	"\x04arg2\x18\x03 \x01(\x03R\x04arg2\")\n" +
 	"\x0fGetTextResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\tR\x06result\"x\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"x\n" +
 	"&GetUserBadgedDrawableForDensityRequest\x12\x12\n" +
 	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
 	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\x12\x12\n" +
@@ -15614,7 +15614,7 @@ const file_proto_pm_pm_proto_rawDesc = "" +
 	"\x04arg0\x18\x01 \x01(\tR\x04arg0\x12\x12\n" +
 	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\"4\n" +
 	"\x1aGetUserBadgedLabelResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\tR\x06result\"T\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"T\n" +
 	"*GetWhitelistedRestrictedPermissionsRequest\x12\x12\n" +
 	"\x04arg0\x18\x01 \x01(\tR\x04arg0\x12\x12\n" +
 	"\x04arg1\x18\x02 \x01(\x05R\x04arg1\"E\n" +

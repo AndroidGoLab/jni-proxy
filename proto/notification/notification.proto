@@ -228,7 +228,7 @@ message GetSettingsTextRequest {
 }
 
 message GetSettingsTextResponse {
-  string result = 1;
+  int64 result = 1;
 }
 
 message GetShortCriticalTextRequest {
@@ -980,7 +980,7 @@ message GetNameRequest {
 }
 
 message GetNameResponse {
-  string result = 1;
+  int64 result = 1;
 }
 
 message GetParentChannelIdRequest {

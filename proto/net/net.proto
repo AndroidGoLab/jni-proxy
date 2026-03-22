@@ -462,7 +462,7 @@ service ConnectivityManagerService {
   rpc SetProcessDefaultNetwork (SetProcessDefaultNetworkRequest) returns (SetProcessDefaultNetworkResponse);
 }
 
-service WorkCapabilitiesService {
+service NetworkCapabilitiesService {
   rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
   rpc Equals (EqualsRequest) returns (EqualsResponse);
   rpc GetCapabilities (GetCapabilitiesRequest) returns (GetCapabilitiesResponse);

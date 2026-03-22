@@ -21,10 +21,7 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
-	ManagerService_CreateManagerRaw_FullMethodName        = "/credentials.ManagerService/CreateManagerRaw"
-	ManagerService_GetCredentialRaw_FullMethodName        = "/credentials.ManagerService/GetCredentialRaw"
-	ManagerService_CreateCredentialRaw_FullMethodName     = "/credentials.ManagerService/CreateCredentialRaw"
-	ManagerService_ClearCredentialStateRaw_FullMethodName = "/credentials.ManagerService/ClearCredentialStateRaw"
+	ManagerService_CreateManagerRaw_FullMethodName = "/credentials.ManagerService/CreateManagerRaw"
 )
 
 // ManagerServiceClient is the client API for ManagerService service.
@@ -32,9 +29,6 @@ const (
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type ManagerServiceClient interface {
 	CreateManagerRaw(ctx context.Context, in *CreateManagerRawRequest, opts ...grpc.CallOption) (*CreateManagerRawResponse, error)
-	GetCredentialRaw(ctx context.Context, in *GetCredentialRawRequest, opts ...grpc.CallOption) (*GetCredentialRawResponse, error)
-	CreateCredentialRaw(ctx context.Context, in *CreateCredentialRawRequest, opts ...grpc.CallOption) (*CreateCredentialRawResponse, error)
-	ClearCredentialStateRaw(ctx context.Context, in *ClearCredentialStateRawRequest, opts ...grpc.CallOption) (*ClearCredentialStateRawResponse, error)
 }
 
 type managerServiceClient struct {
@@ -55,44 +49,11 @@ func (c *managerServiceClient) CreateManagerRaw(ctx context.Context, in *CreateM
 	return out, nil
 }
 
-func (c *managerServiceClient) GetCredentialRaw(ctx context.Context, in *GetCredentialRawRequest, opts ...grpc.CallOption) (*GetCredentialRawResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetCredentialRawResponse)
-	err := c.cc.Invoke(ctx, ManagerService_GetCredentialRaw_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *managerServiceClient) CreateCredentialRaw(ctx context.Context, in *CreateCredentialRawRequest, opts ...grpc.CallOption) (*CreateCredentialRawResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(CreateCredentialRawResponse)
-	err := c.cc.Invoke(ctx, ManagerService_CreateCredentialRaw_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *managerServiceClient) ClearCredentialStateRaw(ctx context.Context, in *ClearCredentialStateRawRequest, opts ...grpc.CallOption) (*ClearCredentialStateRawResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ClearCredentialStateRawResponse)
-	err := c.cc.Invoke(ctx, ManagerService_ClearCredentialStateRaw_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
 // ManagerServiceServer is the server API for ManagerService service.
 // All implementations must embed UnimplementedManagerServiceServer
 // for forward compatibility.
 type ManagerServiceServer interface {
 	CreateManagerRaw(context.Context, *CreateManagerRawRequest) (*CreateManagerRawResponse, error)
-	GetCredentialRaw(context.Context, *GetCredentialRawRequest) (*GetCredentialRawResponse, error)
-	CreateCredentialRaw(context.Context, *CreateCredentialRawRequest) (*CreateCredentialRawResponse, error)
-	ClearCredentialStateRaw(context.Context, *ClearCredentialStateRawRequest) (*ClearCredentialStateRawResponse, error)
 	mustEmbedUnimplementedManagerServiceServer()
 }
 
@@ -105,15 +66,6 @@ type UnimplementedManagerServiceServer struct{}
 
 func (UnimplementedManagerServiceServer) CreateManagerRaw(context.Context, *CreateManagerRawRequest) (*CreateManagerRawResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method CreateManagerRaw not implemented")
-}
-func (UnimplementedManagerServiceServer) GetCredentialRaw(context.Context, *GetCredentialRawRequest) (*GetCredentialRawResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetCredentialRaw not implemented")
-}
-func (UnimplementedManagerServiceServer) CreateCredentialRaw(context.Context, *CreateCredentialRawRequest) (*CreateCredentialRawResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method CreateCredentialRaw not implemented")
-}
-func (UnimplementedManagerServiceServer) ClearCredentialStateRaw(context.Context, *ClearCredentialStateRawRequest) (*ClearCredentialStateRawResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method ClearCredentialStateRaw not implemented")
 }
 func (UnimplementedManagerServiceServer) mustEmbedUnimplementedManagerServiceServer() {}
 func (UnimplementedManagerServiceServer) testEmbeddedByValue()                        {}
@@ -154,60 +106,6 @@ func _ManagerService_CreateManagerRaw_Handler(srv interface{}, ctx context.Conte
 	return interceptor(ctx, in, info, handler)
 }
 
-func _ManagerService_GetCredentialRaw_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetCredentialRawRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ManagerServiceServer).GetCredentialRaw(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ManagerService_GetCredentialRaw_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ManagerServiceServer).GetCredentialRaw(ctx, req.(*GetCredentialRawRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ManagerService_CreateCredentialRaw_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(CreateCredentialRawRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ManagerServiceServer).CreateCredentialRaw(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ManagerService_CreateCredentialRaw_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ManagerServiceServer).CreateCredentialRaw(ctx, req.(*CreateCredentialRawRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ManagerService_ClearCredentialStateRaw_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ClearCredentialStateRawRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ManagerServiceServer).ClearCredentialStateRaw(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ManagerService_ClearCredentialStateRaw_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ManagerServiceServer).ClearCredentialStateRaw(ctx, req.(*ClearCredentialStateRawRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
 // ManagerService_ServiceDesc is the grpc.ServiceDesc for ManagerService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -218,18 +116,6 @@ var ManagerService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "CreateManagerRaw",
 			Handler:    _ManagerService_CreateManagerRaw_Handler,
-		},
-		{
-			MethodName: "GetCredentialRaw",
-			Handler:    _ManagerService_GetCredentialRaw_Handler,
-		},
-		{
-			MethodName: "CreateCredentialRaw",
-			Handler:    _ManagerService_CreateCredentialRaw_Handler,
-		},
-		{
-			MethodName: "ClearCredentialStateRaw",
-			Handler:    _ManagerService_ClearCredentialStateRaw_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
@@ -371,6 +257,250 @@ var GetCredentialRequestBuilderService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "Build",
 			Handler:    _GetCredentialRequestBuilderService_Build_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/credentials/credentials.proto",
+}
+
+const (
+	PasswordCredentialService_ID_FullMethodName       = "/credentials.PasswordCredentialService/ID"
+	PasswordCredentialService_Password_FullMethodName = "/credentials.PasswordCredentialService/Password"
+)
+
+// PasswordCredentialServiceClient is the client API for PasswordCredentialService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type PasswordCredentialServiceClient interface {
+	ID(ctx context.Context, in *IDRequest, opts ...grpc.CallOption) (*IDResponse, error)
+	Password(ctx context.Context, in *PasswordRequest, opts ...grpc.CallOption) (*PasswordResponse, error)
+}
+
+type passwordCredentialServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewPasswordCredentialServiceClient(cc grpc.ClientConnInterface) PasswordCredentialServiceClient {
+	return &passwordCredentialServiceClient{cc}
+}
+
+func (c *passwordCredentialServiceClient) ID(ctx context.Context, in *IDRequest, opts ...grpc.CallOption) (*IDResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IDResponse)
+	err := c.cc.Invoke(ctx, PasswordCredentialService_ID_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *passwordCredentialServiceClient) Password(ctx context.Context, in *PasswordRequest, opts ...grpc.CallOption) (*PasswordResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(PasswordResponse)
+	err := c.cc.Invoke(ctx, PasswordCredentialService_Password_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// PasswordCredentialServiceServer is the server API for PasswordCredentialService service.
+// All implementations must embed UnimplementedPasswordCredentialServiceServer
+// for forward compatibility.
+type PasswordCredentialServiceServer interface {
+	ID(context.Context, *IDRequest) (*IDResponse, error)
+	Password(context.Context, *PasswordRequest) (*PasswordResponse, error)
+	mustEmbedUnimplementedPasswordCredentialServiceServer()
+}
+
+// UnimplementedPasswordCredentialServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedPasswordCredentialServiceServer struct{}
+
+func (UnimplementedPasswordCredentialServiceServer) ID(context.Context, *IDRequest) (*IDResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method ID not implemented")
+}
+func (UnimplementedPasswordCredentialServiceServer) Password(context.Context, *PasswordRequest) (*PasswordResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Password not implemented")
+}
+func (UnimplementedPasswordCredentialServiceServer) mustEmbedUnimplementedPasswordCredentialServiceServer() {
+}
+func (UnimplementedPasswordCredentialServiceServer) testEmbeddedByValue() {}
+
+// UnsafePasswordCredentialServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to PasswordCredentialServiceServer will
+// result in compilation errors.
+type UnsafePasswordCredentialServiceServer interface {
+	mustEmbedUnimplementedPasswordCredentialServiceServer()
+}
+
+func RegisterPasswordCredentialServiceServer(s grpc.ServiceRegistrar, srv PasswordCredentialServiceServer) {
+	// If the following call panics, it indicates UnimplementedPasswordCredentialServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&PasswordCredentialService_ServiceDesc, srv)
+}
+
+func _PasswordCredentialService_ID_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IDRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PasswordCredentialServiceServer).ID(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PasswordCredentialService_ID_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PasswordCredentialServiceServer).ID(ctx, req.(*IDRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PasswordCredentialService_Password_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(PasswordRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PasswordCredentialServiceServer).Password(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PasswordCredentialService_Password_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PasswordCredentialServiceServer).Password(ctx, req.(*PasswordRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// PasswordCredentialService_ServiceDesc is the grpc.ServiceDesc for PasswordCredentialService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var PasswordCredentialService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "credentials.PasswordCredentialService",
+	HandlerType: (*PasswordCredentialServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "ID",
+			Handler:    _PasswordCredentialService_ID_Handler,
+		},
+		{
+			MethodName: "Password",
+			Handler:    _PasswordCredentialService_Password_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/credentials/credentials.proto",
+}
+
+const (
+	PublicKeyCredentialService_AuthResponseJSON_FullMethodName = "/credentials.PublicKeyCredentialService/AuthResponseJSON"
+)
+
+// PublicKeyCredentialServiceClient is the client API for PublicKeyCredentialService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type PublicKeyCredentialServiceClient interface {
+	AuthResponseJSON(ctx context.Context, in *AuthResponseJSONRequest, opts ...grpc.CallOption) (*AuthResponseJSONResponse, error)
+}
+
+type publicKeyCredentialServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewPublicKeyCredentialServiceClient(cc grpc.ClientConnInterface) PublicKeyCredentialServiceClient {
+	return &publicKeyCredentialServiceClient{cc}
+}
+
+func (c *publicKeyCredentialServiceClient) AuthResponseJSON(ctx context.Context, in *AuthResponseJSONRequest, opts ...grpc.CallOption) (*AuthResponseJSONResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(AuthResponseJSONResponse)
+	err := c.cc.Invoke(ctx, PublicKeyCredentialService_AuthResponseJSON_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// PublicKeyCredentialServiceServer is the server API for PublicKeyCredentialService service.
+// All implementations must embed UnimplementedPublicKeyCredentialServiceServer
+// for forward compatibility.
+type PublicKeyCredentialServiceServer interface {
+	AuthResponseJSON(context.Context, *AuthResponseJSONRequest) (*AuthResponseJSONResponse, error)
+	mustEmbedUnimplementedPublicKeyCredentialServiceServer()
+}
+
+// UnimplementedPublicKeyCredentialServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedPublicKeyCredentialServiceServer struct{}
+
+func (UnimplementedPublicKeyCredentialServiceServer) AuthResponseJSON(context.Context, *AuthResponseJSONRequest) (*AuthResponseJSONResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method AuthResponseJSON not implemented")
+}
+func (UnimplementedPublicKeyCredentialServiceServer) mustEmbedUnimplementedPublicKeyCredentialServiceServer() {
+}
+func (UnimplementedPublicKeyCredentialServiceServer) testEmbeddedByValue() {}
+
+// UnsafePublicKeyCredentialServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to PublicKeyCredentialServiceServer will
+// result in compilation errors.
+type UnsafePublicKeyCredentialServiceServer interface {
+	mustEmbedUnimplementedPublicKeyCredentialServiceServer()
+}
+
+func RegisterPublicKeyCredentialServiceServer(s grpc.ServiceRegistrar, srv PublicKeyCredentialServiceServer) {
+	// If the following call panics, it indicates UnimplementedPublicKeyCredentialServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&PublicKeyCredentialService_ServiceDesc, srv)
+}
+
+func _PublicKeyCredentialService_AuthResponseJSON_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(AuthResponseJSONRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PublicKeyCredentialServiceServer).AuthResponseJSON(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PublicKeyCredentialService_AuthResponseJSON_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PublicKeyCredentialServiceServer).AuthResponseJSON(ctx, req.(*AuthResponseJSONRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// PublicKeyCredentialService_ServiceDesc is the grpc.ServiceDesc for PublicKeyCredentialService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var PublicKeyCredentialService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "credentials.PublicKeyCredentialService",
+	HandlerType: (*PublicKeyCredentialServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "AuthResponseJSON",
+			Handler:    _PublicKeyCredentialService_AuthResponseJSON_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

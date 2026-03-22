@@ -1101,7 +1101,7 @@ func (x *GetCharSequence1Request) GetArg0() string {
 
 type GetCharSequence1Response struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -1136,11 +1136,11 @@ func (*GetCharSequence1Response) Descriptor() ([]byte, []int) {
 	return file_proto_app_app_proto_rawDescGZIP(), []int{25}
 }
 
-func (x *GetCharSequence1Response) GetResult() string {
+func (x *GetCharSequence1Response) GetResult() int64 {
 	if x != nil {
 		return x.Result
 	}
-	return ""
+	return 0
 }
 
 type GetCharSequence2_1Request struct {
@@ -1197,7 +1197,7 @@ func (x *GetCharSequence2_1Request) GetArg1() string {
 
 type GetCharSequence2_1Response struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -1232,11 +1232,11 @@ func (*GetCharSequence2_1Response) Descriptor() ([]byte, []int) {
 	return file_proto_app_app_proto_rawDescGZIP(), []int{27}
 }
 
-func (x *GetCharSequence2_1Response) GetResult() string {
+func (x *GetCharSequence2_1Response) GetResult() int64 {
 	if x != nil {
 		return x.Result
 	}
-	return ""
+	return 0
 }
 
 type GetCharSequenceArrayRequest struct {
@@ -6533,7 +6533,7 @@ func (x *GetCharSequenceExtraRequest) GetArg0() string {
 
 type GetCharSequenceExtraResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -6568,11 +6568,11 @@ func (*GetCharSequenceExtraResponse) Descriptor() ([]byte, []int) {
 	return file_proto_app_app_proto_rawDescGZIP(), []int{149}
 }
 
-func (x *GetCharSequenceExtraResponse) GetResult() string {
+func (x *GetCharSequenceExtraResponse) GetResult() int64 {
 	if x != nil {
 		return x.Result
 	}
-	return ""
+	return 0
 }
 
 type GetClipDataRequest struct {
@@ -20361,7 +20361,7 @@ func (*GetTitleRequest) Descriptor() ([]byte, []int) {
 
 type GetTitleResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -20396,11 +20396,11 @@ func (*GetTitleResponse) Descriptor() ([]byte, []int) {
 	return file_proto_app_app_proto_rawDescGZIP(), []int{468}
 }
 
-func (x *GetTitleResponse) GetResult() string {
+func (x *GetTitleResponse) GetResult() int64 {
 	if x != nil {
 		return x.Result
 	}
-	return ""
+	return 0
 }
 
 type GetTitleColorRequest struct {
@@ -23505,7 +23505,7 @@ func (*OnCreateDescriptionRequest) Descriptor() ([]byte, []int) {
 
 type OnCreateDescriptionResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -23540,11 +23540,11 @@ func (*OnCreateDescriptionResponse) Descriptor() ([]byte, []int) {
 	return file_proto_app_app_proto_rawDescGZIP(), []int{544}
 }
 
-func (x *OnCreateDescriptionResponse) GetResult() string {
+func (x *OnCreateDescriptionResponse) GetResult() int64 {
 	if x != nil {
 		return x.Result
 	}
-	return ""
+	return 0
 }
 
 type OnCreateNavigateUpTaskStackRequest struct {
@@ -48089,7 +48089,7 @@ func (x *GetTextRequest) GetArg0() int32 {
 
 type GetTextResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -48124,11 +48124,11 @@ func (*GetTextResponse) Descriptor() ([]byte, []int) {
 	return file_proto_app_app_proto_rawDescGZIP(), []int{1102}
 }
 
-func (x *GetTextResponse) GetResult() string {
+func (x *GetTextResponse) GetResult() int64 {
 	if x != nil {
 		return x.Result
 	}
-	return ""
+	return 0
 }
 
 type GetThemeRequest struct {
@@ -52664,12 +52664,12 @@ const file_proto_app_app_proto_rawDesc = "" +
 	"\x17GetCharSequence1Request\x12\x12\n" +
 	"\x04arg0\x18\x01 \x01(\tR\x04arg0\"2\n" +
 	"\x18GetCharSequence1Response\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\tR\x06result\"C\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"C\n" +
 	"\x19GetCharSequence2_1Request\x12\x12\n" +
 	"\x04arg0\x18\x01 \x01(\tR\x04arg0\x12\x12\n" +
 	"\x04arg1\x18\x02 \x01(\tR\x04arg1\"4\n" +
 	"\x1aGetCharSequence2_1Response\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\tR\x06result\"1\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"1\n" +
 	"\x1bGetCharSequenceArrayRequest\x12\x12\n" +
 	"\x04arg0\x18\x01 \x01(\tR\x04arg0\"6\n" +
 	"\x1cGetCharSequenceArrayResponse\x12\x16\n" +
@@ -52909,7 +52909,7 @@ const file_proto_app_app_proto_rawDesc = "" +
 	"\x1bGetCharSequenceExtraRequest\x12\x12\n" +
 	"\x04arg0\x18\x01 \x01(\tR\x04arg0\"6\n" +
 	"\x1cGetCharSequenceExtraResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\tR\x06result\"\x14\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x14\n" +
 	"\x12GetClipDataRequest\"-\n" +
 	"\x13GetClipDataResponse\x12\x16\n" +
 	"\x06result\x18\x01 \x01(\x03R\x06result\"\x15\n" +
@@ -53521,7 +53521,7 @@ const file_proto_app_app_proto_rawDesc = "" +
 	"\x06result\x18\x01 \x01(\x05R\x06result\"\x11\n" +
 	"\x0fGetTitleRequest\"*\n" +
 	"\x10GetTitleResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\tR\x06result\"\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x16\n" +
 	"\x14GetTitleColorRequest\"/\n" +
 	"\x15GetTitleColorResponse\x12\x16\n" +
 	"\x06result\x18\x01 \x01(\x05R\x06result\"\x1b\n" +
@@ -53648,7 +53648,7 @@ const file_proto_app_app_proto_rawDesc = "" +
 	"\x1bOnCreateContextMenuResponse\"\x1c\n" +
 	"\x1aOnCreateDescriptionRequest\"5\n" +
 	"\x1bOnCreateDescriptionResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\tR\x06result\"8\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"8\n" +
 	"\"OnCreateNavigateUpTaskStackRequest\x12\x12\n" +
 	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"%\n" +
 	"#OnCreateNavigateUpTaskStackResponse\"0\n" +
@@ -54768,7 +54768,7 @@ const file_proto_app_app_proto_rawDesc = "" +
 	"\x0eGetTextRequest\x12\x12\n" +
 	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\")\n" +
 	"\x0fGetTextResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\tR\x06result\"\x11\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x11\n" +
 	"\x0fGetThemeRequest\"*\n" +
 	"\x10GetThemeResponse\x12\x16\n" +
 	"\x06result\x18\x01 \x01(\x03R\x06result\"\x15\n" +

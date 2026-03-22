@@ -885,7 +885,16 @@ func (s *ManagerServer) GetSimCarrierIdName(_ context.Context, req *pb.GetSimCar
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "%v", err)
 	}
-	return &pb.GetSimCarrierIdNameResponse{Result: result}, nil
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetSimCarrierIdNameResponse{Result: handle}, nil
 }
 
 func (s *ManagerServer) GetSimCountryIso(_ context.Context, req *pb.GetSimCountryIsoRequest) (*pb.GetSimCountryIsoResponse, error) {
@@ -969,7 +978,16 @@ func (s *ManagerServer) GetSimSpecificCarrierIdName(_ context.Context, req *pb.G
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "%v", err)
 	}
-	return &pb.GetSimSpecificCarrierIdNameResponse{Result: result}, nil
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetSimSpecificCarrierIdNameResponse{Result: handle}, nil
 }
 
 func (s *ManagerServer) GetSimState0(_ context.Context, req *pb.GetSimState0Request) (*pb.GetSimState0Response, error) {

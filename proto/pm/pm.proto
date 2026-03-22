@@ -276,7 +276,7 @@ message GetApplicationLabelRequest {
 }
 
 message GetApplicationLabelResponse {
-  string result = 1;
+  int64 result = 1;
 }
 
 message GetApplicationLogo1Request {
@@ -307,7 +307,7 @@ message GetBackgroundPermissionOptionLabelRequest {
 }
 
 message GetBackgroundPermissionOptionLabelResponse {
-  string result = 1;
+  int64 result = 1;
 }
 
 message GetChangedPackagesRequest {
@@ -821,7 +821,7 @@ message GetTextRequest {
 }
 
 message GetTextResponse {
-  string result = 1;
+  int64 result = 1;
 }
 
 message GetUserBadgedDrawableForDensityRequest {
@@ -850,7 +850,7 @@ message GetUserBadgedLabelRequest {
 }
 
 message GetUserBadgedLabelResponse {
-  string result = 1;
+  int64 result = 1;
 }
 
 message GetWhitelistedRestrictedPermissionsRequest {

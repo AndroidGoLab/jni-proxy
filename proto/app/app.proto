@@ -104,7 +104,7 @@ message GetCharSequence1Request {
 }
 
 message GetCharSequence1Response {
-  string result = 1;
+  int64 result = 1;
 }
 
 message GetCharSequence2_1Request {
@@ -113,7 +113,7 @@ message GetCharSequence2_1Request {
 }
 
 message GetCharSequence2_1Response {
-  string result = 1;
+  int64 result = 1;
 }
 
 message GetCharSequenceArrayRequest {
@@ -597,7 +597,7 @@ message GetCharSequenceExtraRequest {
 }
 
 message GetCharSequenceExtraResponse {
-  string result = 1;
+  int64 result = 1;
 }
 
 message GetClipDataRequest {
@@ -1847,7 +1847,7 @@ message GetTitleRequest {
 }
 
 message GetTitleResponse {
-  string result = 1;
+  int64 result = 1;
 }
 
 message GetTitleColorRequest {
@@ -2126,7 +2126,7 @@ message OnCreateDescriptionRequest {
 }
 
 message OnCreateDescriptionResponse {
-  string result = 1;
+  int64 result = 1;
 }
 
 message OnCreateNavigateUpTaskStackRequest {
@@ -4362,7 +4362,7 @@ message GetTextRequest {
 }
 
 message GetTextResponse {
-  string result = 1;
+  int64 result = 1;
 }
 
 message GetThemeRequest {

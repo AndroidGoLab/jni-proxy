@@ -4901,9 +4901,9 @@ const file_proto_net_net_proto_rawDesc = "" +
 	"\x1cUnregisterNetworkCallback1_1\x12(.net.UnregisterNetworkCallback1_1Request\x1a).net.UnregisterNetworkCallback1_1Response\x12g\n" +
 	"\x18GetProcessDefaultNetwork\x12$.net.GetProcessDefaultNetworkRequest\x1a%.net.GetProcessDefaultNetworkResponse\x12U\n" +
 	"\x12IsNetworkTypeValid\x12\x1e.net.IsNetworkTypeValidRequest\x1a\x1f.net.IsNetworkTypeValidResponse\x12g\n" +
-	"\x18SetProcessDefaultNetwork\x12$.net.SetProcessDefaultNetworkRequest\x1a%.net.SetProcessDefaultNetworkResponse2\xd9\n" +
+	"\x18SetProcessDefaultNetwork\x12$.net.SetProcessDefaultNetworkRequest\x1a%.net.SetProcessDefaultNetworkResponse2\xdc\n" +
 	"\n" +
-	"\x17WorkCapabilitiesService\x12O\n" +
+	"\x1aNetworkCapabilitiesService\x12O\n" +
 	"\x10DescribeContents\x12\x1c.net.DescribeContentsRequest\x1a\x1d.net.DescribeContentsResponse\x121\n" +
 	"\x06Equals\x12\x12.net.EqualsRequest\x1a\x13.net.EqualsResponse\x12L\n" +
 	"\x0fGetCapabilities\x12\x1b.net.GetCapabilitiesRequest\x1a\x1c.net.GetCapabilitiesResponse\x12O\n" +
@@ -5086,23 +5086,23 @@ var file_proto_net_net_proto_depIdxs = []int32{
 	70,  // 35: net.ConnectivityManagerService.GetProcessDefaultNetwork:input_type -> net.GetProcessDefaultNetworkRequest
 	72,  // 36: net.ConnectivityManagerService.IsNetworkTypeValid:input_type -> net.IsNetworkTypeValidRequest
 	74,  // 37: net.ConnectivityManagerService.SetProcessDefaultNetwork:input_type -> net.SetProcessDefaultNetworkRequest
-	76,  // 38: net.WorkCapabilitiesService.DescribeContents:input_type -> net.DescribeContentsRequest
-	78,  // 39: net.WorkCapabilitiesService.Equals:input_type -> net.EqualsRequest
-	80,  // 40: net.WorkCapabilitiesService.GetCapabilities:input_type -> net.GetCapabilitiesRequest
-	82,  // 41: net.WorkCapabilitiesService.GetEnterpriseIds:input_type -> net.GetEnterpriseIdsRequest
-	84,  // 42: net.WorkCapabilitiesService.GetLinkDownstreamBandwidthKbps:input_type -> net.GetLinkDownstreamBandwidthKbpsRequest
-	86,  // 43: net.WorkCapabilitiesService.GetLinkUpstreamBandwidthKbps:input_type -> net.GetLinkUpstreamBandwidthKbpsRequest
-	88,  // 44: net.WorkCapabilitiesService.GetNetworkSpecifier:input_type -> net.GetNetworkSpecifierRequest
-	90,  // 45: net.WorkCapabilitiesService.GetOwnerUid:input_type -> net.GetOwnerUidRequest
-	92,  // 46: net.WorkCapabilitiesService.GetSignalStrength:input_type -> net.GetSignalStrengthRequest
-	94,  // 47: net.WorkCapabilitiesService.GetSubscriptionIds:input_type -> net.GetSubscriptionIdsRequest
-	96,  // 48: net.WorkCapabilitiesService.GetTransportInfo:input_type -> net.GetTransportInfoRequest
-	98,  // 49: net.WorkCapabilitiesService.HasCapability:input_type -> net.HasCapabilityRequest
-	100, // 50: net.WorkCapabilitiesService.HasEnterpriseId:input_type -> net.HasEnterpriseIdRequest
-	102, // 51: net.WorkCapabilitiesService.HasTransport:input_type -> net.HasTransportRequest
-	104, // 52: net.WorkCapabilitiesService.HashCode:input_type -> net.HashCodeRequest
-	106, // 53: net.WorkCapabilitiesService.ToString:input_type -> net.ToStringRequest
-	108, // 54: net.WorkCapabilitiesService.WriteToParcel:input_type -> net.WriteToParcelRequest
+	76,  // 38: net.NetworkCapabilitiesService.DescribeContents:input_type -> net.DescribeContentsRequest
+	78,  // 39: net.NetworkCapabilitiesService.Equals:input_type -> net.EqualsRequest
+	80,  // 40: net.NetworkCapabilitiesService.GetCapabilities:input_type -> net.GetCapabilitiesRequest
+	82,  // 41: net.NetworkCapabilitiesService.GetEnterpriseIds:input_type -> net.GetEnterpriseIdsRequest
+	84,  // 42: net.NetworkCapabilitiesService.GetLinkDownstreamBandwidthKbps:input_type -> net.GetLinkDownstreamBandwidthKbpsRequest
+	86,  // 43: net.NetworkCapabilitiesService.GetLinkUpstreamBandwidthKbps:input_type -> net.GetLinkUpstreamBandwidthKbpsRequest
+	88,  // 44: net.NetworkCapabilitiesService.GetNetworkSpecifier:input_type -> net.GetNetworkSpecifierRequest
+	90,  // 45: net.NetworkCapabilitiesService.GetOwnerUid:input_type -> net.GetOwnerUidRequest
+	92,  // 46: net.NetworkCapabilitiesService.GetSignalStrength:input_type -> net.GetSignalStrengthRequest
+	94,  // 47: net.NetworkCapabilitiesService.GetSubscriptionIds:input_type -> net.GetSubscriptionIdsRequest
+	96,  // 48: net.NetworkCapabilitiesService.GetTransportInfo:input_type -> net.GetTransportInfoRequest
+	98,  // 49: net.NetworkCapabilitiesService.HasCapability:input_type -> net.HasCapabilityRequest
+	100, // 50: net.NetworkCapabilitiesService.HasEnterpriseId:input_type -> net.HasEnterpriseIdRequest
+	102, // 51: net.NetworkCapabilitiesService.HasTransport:input_type -> net.HasTransportRequest
+	104, // 52: net.NetworkCapabilitiesService.HashCode:input_type -> net.HashCodeRequest
+	106, // 53: net.NetworkCapabilitiesService.ToString:input_type -> net.ToStringRequest
+	108, // 54: net.NetworkCapabilitiesService.WriteToParcel:input_type -> net.WriteToParcelRequest
 	1,   // 55: net.ConnectivityManagerService.AddDefaultNetworkActiveListener:output_type -> net.AddDefaultNetworkActiveListenerResponse
 	3,   // 56: net.ConnectivityManagerService.BindProcessToNetwork:output_type -> net.BindProcessToNetworkResponse
 	5,   // 57: net.ConnectivityManagerService.CreateSocketKeepalive:output_type -> net.CreateSocketKeepaliveResponse
@@ -5141,23 +5141,23 @@ var file_proto_net_net_proto_depIdxs = []int32{
 	71,  // 90: net.ConnectivityManagerService.GetProcessDefaultNetwork:output_type -> net.GetProcessDefaultNetworkResponse
 	73,  // 91: net.ConnectivityManagerService.IsNetworkTypeValid:output_type -> net.IsNetworkTypeValidResponse
 	75,  // 92: net.ConnectivityManagerService.SetProcessDefaultNetwork:output_type -> net.SetProcessDefaultNetworkResponse
-	77,  // 93: net.WorkCapabilitiesService.DescribeContents:output_type -> net.DescribeContentsResponse
-	79,  // 94: net.WorkCapabilitiesService.Equals:output_type -> net.EqualsResponse
-	81,  // 95: net.WorkCapabilitiesService.GetCapabilities:output_type -> net.GetCapabilitiesResponse
-	83,  // 96: net.WorkCapabilitiesService.GetEnterpriseIds:output_type -> net.GetEnterpriseIdsResponse
-	85,  // 97: net.WorkCapabilitiesService.GetLinkDownstreamBandwidthKbps:output_type -> net.GetLinkDownstreamBandwidthKbpsResponse
-	87,  // 98: net.WorkCapabilitiesService.GetLinkUpstreamBandwidthKbps:output_type -> net.GetLinkUpstreamBandwidthKbpsResponse
-	89,  // 99: net.WorkCapabilitiesService.GetNetworkSpecifier:output_type -> net.GetNetworkSpecifierResponse
-	91,  // 100: net.WorkCapabilitiesService.GetOwnerUid:output_type -> net.GetOwnerUidResponse
-	93,  // 101: net.WorkCapabilitiesService.GetSignalStrength:output_type -> net.GetSignalStrengthResponse
-	95,  // 102: net.WorkCapabilitiesService.GetSubscriptionIds:output_type -> net.GetSubscriptionIdsResponse
-	97,  // 103: net.WorkCapabilitiesService.GetTransportInfo:output_type -> net.GetTransportInfoResponse
-	99,  // 104: net.WorkCapabilitiesService.HasCapability:output_type -> net.HasCapabilityResponse
-	101, // 105: net.WorkCapabilitiesService.HasEnterpriseId:output_type -> net.HasEnterpriseIdResponse
-	103, // 106: net.WorkCapabilitiesService.HasTransport:output_type -> net.HasTransportResponse
-	105, // 107: net.WorkCapabilitiesService.HashCode:output_type -> net.HashCodeResponse
-	107, // 108: net.WorkCapabilitiesService.ToString:output_type -> net.ToStringResponse
-	109, // 109: net.WorkCapabilitiesService.WriteToParcel:output_type -> net.WriteToParcelResponse
+	77,  // 93: net.NetworkCapabilitiesService.DescribeContents:output_type -> net.DescribeContentsResponse
+	79,  // 94: net.NetworkCapabilitiesService.Equals:output_type -> net.EqualsResponse
+	81,  // 95: net.NetworkCapabilitiesService.GetCapabilities:output_type -> net.GetCapabilitiesResponse
+	83,  // 96: net.NetworkCapabilitiesService.GetEnterpriseIds:output_type -> net.GetEnterpriseIdsResponse
+	85,  // 97: net.NetworkCapabilitiesService.GetLinkDownstreamBandwidthKbps:output_type -> net.GetLinkDownstreamBandwidthKbpsResponse
+	87,  // 98: net.NetworkCapabilitiesService.GetLinkUpstreamBandwidthKbps:output_type -> net.GetLinkUpstreamBandwidthKbpsResponse
+	89,  // 99: net.NetworkCapabilitiesService.GetNetworkSpecifier:output_type -> net.GetNetworkSpecifierResponse
+	91,  // 100: net.NetworkCapabilitiesService.GetOwnerUid:output_type -> net.GetOwnerUidResponse
+	93,  // 101: net.NetworkCapabilitiesService.GetSignalStrength:output_type -> net.GetSignalStrengthResponse
+	95,  // 102: net.NetworkCapabilitiesService.GetSubscriptionIds:output_type -> net.GetSubscriptionIdsResponse
+	97,  // 103: net.NetworkCapabilitiesService.GetTransportInfo:output_type -> net.GetTransportInfoResponse
+	99,  // 104: net.NetworkCapabilitiesService.HasCapability:output_type -> net.HasCapabilityResponse
+	101, // 105: net.NetworkCapabilitiesService.HasEnterpriseId:output_type -> net.HasEnterpriseIdResponse
+	103, // 106: net.NetworkCapabilitiesService.HasTransport:output_type -> net.HasTransportResponse
+	105, // 107: net.NetworkCapabilitiesService.HashCode:output_type -> net.HashCodeResponse
+	107, // 108: net.NetworkCapabilitiesService.ToString:output_type -> net.ToStringResponse
+	109, // 109: net.NetworkCapabilitiesService.WriteToParcel:output_type -> net.WriteToParcelResponse
 	55,  // [55:110] is the sub-list for method output_type
 	0,   // [0:55] is the sub-list for method input_type
 	0,   // [0:0] is the sub-list for extension type_name

@@ -9,8 +9,9 @@ import (
 
 func TestRenderProtoToString_MinimalData(t *testing.T) {
 	data := &ProtoData{
-		Package:   "test",
-		GoPackage: "example.com/mod/proto/test",
+		Package:      "test",
+		ProtoPackage: "test",
+		GoPackage:    "example.com/mod/proto/test",
 	}
 
 	result, err := renderProtoToString(data)
@@ -31,8 +32,9 @@ func TestRenderProtoToString_MinimalData(t *testing.T) {
 
 func TestRenderProtoToString_Messages(t *testing.T) {
 	data := &ProtoData{
-		Package:   "test",
-		GoPackage: "example.com/mod/proto/test",
+		Package:      "test",
+		ProtoPackage: "test",
+		GoPackage:    "example.com/mod/proto/test",
 		Messages: []ProtoMessage{
 			{
 				Name: "Location",
@@ -73,8 +75,9 @@ func TestRenderProtoToString_Messages(t *testing.T) {
 
 func TestRenderProtoToString_OptionalFields(t *testing.T) {
 	data := &ProtoData{
-		Package:   "test",
-		GoPackage: "example.com/mod/proto/test",
+		Package:      "test",
+		ProtoPackage: "test",
+		GoPackage:    "example.com/mod/proto/test",
 		Messages: []ProtoMessage{
 			{
 				Name: "Event",
@@ -101,8 +104,9 @@ func TestRenderProtoToString_OptionalFields(t *testing.T) {
 
 func TestRenderProtoToString_Services(t *testing.T) {
 	data := &ProtoData{
-		Package:   "test",
-		GoPackage: "example.com/mod/proto/test",
+		Package:      "test",
+		ProtoPackage: "test",
+		GoPackage:    "example.com/mod/proto/test",
 		Services: []ProtoService{
 			{
 				Name: "ManagerService",
@@ -140,8 +144,9 @@ func TestRenderProtoToString_Services(t *testing.T) {
 
 func TestRenderProtoToString_StreamingRPCs(t *testing.T) {
 	data := &ProtoData{
-		Package:   "test",
-		GoPackage: "example.com/mod/proto/test",
+		Package:      "test",
+		ProtoPackage: "test",
+		GoPackage:    "example.com/mod/proto/test",
 		Services: []ProtoService{
 			{
 				Name: "EventService",
@@ -183,8 +188,9 @@ func TestRenderProtoToString_StreamingRPCs(t *testing.T) {
 
 func TestRenderProto_WritesFile(t *testing.T) {
 	data := &ProtoData{
-		Package:   "test",
-		GoPackage: "example.com/mod/proto/test",
+		Package:      "test",
+		ProtoPackage: "test",
+		GoPackage:    "example.com/mod/proto/test",
 		Messages: []ProtoMessage{
 			{
 				Name: "TestMsg",
@@ -218,8 +224,9 @@ func TestRenderProto_WritesFile(t *testing.T) {
 
 func TestRenderProto_GeneratedHeader(t *testing.T) {
 	data := &ProtoData{
-		Package:   "test",
-		GoPackage: "example.com/mod/proto/test",
+		Package:      "test",
+		ProtoPackage: "test",
+		GoPackage:    "example.com/mod/proto/test",
 	}
 
 	result, err := renderProtoToString(data)

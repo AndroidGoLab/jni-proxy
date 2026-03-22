@@ -373,7 +373,7 @@ func (*GetTextRequest) Descriptor() ([]byte, []int) {
 
 type GetTextResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -408,11 +408,11 @@ func (*GetTextResponse) Descriptor() ([]byte, []int) {
 	return file_proto_clipboard_clipboard_proto_rawDescGZIP(), []int{9}
 }
 
-func (x *GetTextResponse) GetResult() string {
+func (x *GetTextResponse) GetResult() int64 {
 	if x != nil {
 		return x.Result
 	}
-	return ""
+	return 0
 }
 
 type HasPrimaryClipRequest struct {
@@ -2109,7 +2109,7 @@ func (x *CoerceToStyledTextRequest) GetArg0() int64 {
 
 type CoerceToStyledTextResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -2144,11 +2144,11 @@ func (*CoerceToStyledTextResponse) Descriptor() ([]byte, []int) {
 	return file_proto_clipboard_clipboard_proto_rawDescGZIP(), []int{49}
 }
 
-func (x *CoerceToStyledTextResponse) GetResult() string {
+func (x *CoerceToStyledTextResponse) GetResult() int64 {
 	if x != nil {
 		return x.Result
 	}
-	return ""
+	return 0
 }
 
 type CoerceToTextRequest struct {
@@ -2197,7 +2197,7 @@ func (x *CoerceToTextRequest) GetArg0() int64 {
 
 type CoerceToTextResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -2232,11 +2232,11 @@ func (*CoerceToTextResponse) Descriptor() ([]byte, []int) {
 	return file_proto_clipboard_clipboard_proto_rawDescGZIP(), []int{51}
 }
 
-func (x *CoerceToTextResponse) GetResult() string {
+func (x *CoerceToTextResponse) GetResult() int64 {
 	if x != nil {
 		return x.Result
 	}
-	return ""
+	return 0
 }
 
 type GetHtmlTextRequest struct {
@@ -2657,7 +2657,7 @@ const file_proto_clipboard_clipboard_proto_rawDesc = "" +
 	"\x06result\x18\x01 \x01(\x03R\x06result\"\x10\n" +
 	"\x0eGetTextRequest\")\n" +
 	"\x0fGetTextResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\tR\x06result\"\x17\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x17\n" +
 	"\x15HasPrimaryClipRequest\"0\n" +
 	"\x16HasPrimaryClipResponse\x12\x16\n" +
 	"\x06result\x18\x01 \x01(\bR\x06result\"\x10\n" +
@@ -2734,11 +2734,11 @@ const file_proto_clipboard_clipboard_proto_rawDesc = "" +
 	"\x19CoerceToStyledTextRequest\x12\x12\n" +
 	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"4\n" +
 	"\x1aCoerceToStyledTextResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\tR\x06result\")\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\")\n" +
 	"\x13CoerceToTextRequest\x12\x12\n" +
 	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\".\n" +
 	"\x14CoerceToTextResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\tR\x06result\"\x14\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x14\n" +
 	"\x12GetHtmlTextRequest\"-\n" +
 	"\x13GetHtmlTextResponse\x12\x16\n" +
 	"\x06result\x18\x01 \x01(\tR\x06result\"\x12\n" +

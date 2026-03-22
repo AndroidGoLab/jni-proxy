@@ -529,10 +529,10 @@ func (c *Client) GetSimCarrierId(ctx context.Context) (int32, error) {
 }
 
 // GetSimCarrierIdName calls the GetSimCarrierIdName RPC.
-func (c *Client) GetSimCarrierIdName(ctx context.Context) (string, error) {
+func (c *Client) GetSimCarrierIdName(ctx context.Context) (int64, error) {
 	resp, err := c.svc.GetSimCarrierIdName(ctx, &pb.GetSimCarrierIdNameRequest{})
 	if err != nil {
-		return "", err
+		return 0, err
 	}
 	return resp.GetResult(), nil
 }
@@ -583,10 +583,10 @@ func (c *Client) GetSimSpecificCarrierId(ctx context.Context) (int32, error) {
 }
 
 // GetSimSpecificCarrierIdName calls the GetSimSpecificCarrierIdName RPC.
-func (c *Client) GetSimSpecificCarrierIdName(ctx context.Context) (string, error) {
+func (c *Client) GetSimSpecificCarrierIdName(ctx context.Context) (int64, error) {
 	resp, err := c.svc.GetSimSpecificCarrierIdName(ctx, &pb.GetSimSpecificCarrierIdNameRequest{})
 	if err != nil {
-		return "", err
+		return 0, err
 	}
 	return resp.GetResult(), nil
 }

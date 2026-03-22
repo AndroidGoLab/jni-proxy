@@ -163,7 +163,7 @@ message GetQueueTitleRequest {
 }
 
 message GetQueueTitleResponse {
-  string result = 1;
+  int64 result = 1;
 }
 
 message GetRatingTypeRequest {

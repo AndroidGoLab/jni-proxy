@@ -10,8 +10,9 @@ import (
 // BuildProtoData converts a MergedSpec into proto data structures.
 func BuildProtoData(merged *javagen.MergedSpec, goModule string) *ProtoData {
 	data := &ProtoData{
-		Package:   merged.Package,
-		GoPackage: goModule + "/proto/" + merged.Package,
+		Package:      merged.Package,
+		ProtoPackage: strings.ReplaceAll(merged.Package, "/", "."),
+		GoPackage:    goModule + "/proto/" + merged.Package,
 	}
 
 	// Build a map from Java class name to data class proto message name so we

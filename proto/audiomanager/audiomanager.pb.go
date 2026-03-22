@@ -949,7 +949,7 @@ func (*GetProductNameRequest) Descriptor() ([]byte, []int) {
 
 type GetProductNameResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -984,11 +984,11 @@ func (*GetProductNameResponse) Descriptor() ([]byte, []int) {
 	return file_proto_audiomanager_audiomanager_proto_rawDescGZIP(), []int{23}
 }
 
-func (x *GetProductNameResponse) GetResult() string {
+func (x *GetProductNameResponse) GetResult() int64 {
 	if x != nil {
 		return x.Result
 	}
-	return ""
+	return 0
 }
 
 type GetSampleRatesRequest struct {
@@ -9824,7 +9824,7 @@ const file_proto_audiomanager_audiomanager_proto_rawDesc = "" +
 	"\x06result\x18\x01 \x01(\x05R\x06result\"\x17\n" +
 	"\x15GetProductNameRequest\"0\n" +
 	"\x16GetProductNameResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\tR\x06result\"\x17\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x17\n" +
 	"\x15GetSampleRatesRequest\"0\n" +
 	"\x16GetSampleRatesResponse\x12\x16\n" +
 	"\x06result\x18\x01 \x01(\x03R\x06result\"$\n" +

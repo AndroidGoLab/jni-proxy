@@ -742,18 +742,18 @@ var netConnectivityManagerSetProcessDefaultNetworkCmd = &cobra.Command{
 	},
 }
 
-var netWorkCapabilitiesCmd = &cobra.Command{
-	Use:   "work-capabilities",
-	Short: "WorkCapabilitiesService operations",
+var netNetworkCapabilitiesCmd = &cobra.Command{
+	Use:   "network-capabilities",
+	Short: "NetworkCapabilitiesService operations",
 }
 
-var netWorkCapabilitiesDescribeContentsCmd = &cobra.Command{
+var netNetworkCapabilitiesDescribeContentsCmd = &cobra.Command{
 	Use:   "describe-contents",
 	Short: "DescribeContents RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewWorkCapabilitiesServiceClient(grpcConn)
+		client := pb.NewNetworkCapabilitiesServiceClient(grpcConn)
 		req := &pb.DescribeContentsRequest{}
 		resp, err := client.DescribeContents(ctx, req)
 		if err != nil {
@@ -763,13 +763,13 @@ var netWorkCapabilitiesDescribeContentsCmd = &cobra.Command{
 	},
 }
 
-var netWorkCapabilitiesEqualsCmd = &cobra.Command{
+var netNetworkCapabilitiesEqualsCmd = &cobra.Command{
 	Use:   "equals",
 	Short: "Equals RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewWorkCapabilitiesServiceClient(grpcConn)
+		client := pb.NewNetworkCapabilitiesServiceClient(grpcConn)
 		req := &pb.EqualsRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
@@ -782,13 +782,13 @@ var netWorkCapabilitiesEqualsCmd = &cobra.Command{
 	},
 }
 
-var netWorkCapabilitiesGetCapabilitiesCmd = &cobra.Command{
+var netNetworkCapabilitiesGetCapabilitiesCmd = &cobra.Command{
 	Use:   "get-capabilities",
 	Short: "GetCapabilities RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewWorkCapabilitiesServiceClient(grpcConn)
+		client := pb.NewNetworkCapabilitiesServiceClient(grpcConn)
 		req := &pb.GetCapabilitiesRequest{}
 		resp, err := client.GetCapabilities(ctx, req)
 		if err != nil {
@@ -798,13 +798,13 @@ var netWorkCapabilitiesGetCapabilitiesCmd = &cobra.Command{
 	},
 }
 
-var netWorkCapabilitiesGetEnterpriseIdsCmd = &cobra.Command{
+var netNetworkCapabilitiesGetEnterpriseIdsCmd = &cobra.Command{
 	Use:   "get-enterprise-ids",
 	Short: "GetEnterpriseIds RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewWorkCapabilitiesServiceClient(grpcConn)
+		client := pb.NewNetworkCapabilitiesServiceClient(grpcConn)
 		req := &pb.GetEnterpriseIdsRequest{}
 		resp, err := client.GetEnterpriseIds(ctx, req)
 		if err != nil {
@@ -814,13 +814,13 @@ var netWorkCapabilitiesGetEnterpriseIdsCmd = &cobra.Command{
 	},
 }
 
-var netWorkCapabilitiesGetLinkDownstreamBandwidthKbpsCmd = &cobra.Command{
+var netNetworkCapabilitiesGetLinkDownstreamBandwidthKbpsCmd = &cobra.Command{
 	Use:   "get-link-downstream-bandwidth-kbps",
 	Short: "GetLinkDownstreamBandwidthKbps RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewWorkCapabilitiesServiceClient(grpcConn)
+		client := pb.NewNetworkCapabilitiesServiceClient(grpcConn)
 		req := &pb.GetLinkDownstreamBandwidthKbpsRequest{}
 		resp, err := client.GetLinkDownstreamBandwidthKbps(ctx, req)
 		if err != nil {
@@ -830,13 +830,13 @@ var netWorkCapabilitiesGetLinkDownstreamBandwidthKbpsCmd = &cobra.Command{
 	},
 }
 
-var netWorkCapabilitiesGetLinkUpstreamBandwidthKbpsCmd = &cobra.Command{
+var netNetworkCapabilitiesGetLinkUpstreamBandwidthKbpsCmd = &cobra.Command{
 	Use:   "get-link-upstream-bandwidth-kbps",
 	Short: "GetLinkUpstreamBandwidthKbps RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewWorkCapabilitiesServiceClient(grpcConn)
+		client := pb.NewNetworkCapabilitiesServiceClient(grpcConn)
 		req := &pb.GetLinkUpstreamBandwidthKbpsRequest{}
 		resp, err := client.GetLinkUpstreamBandwidthKbps(ctx, req)
 		if err != nil {
@@ -846,13 +846,13 @@ var netWorkCapabilitiesGetLinkUpstreamBandwidthKbpsCmd = &cobra.Command{
 	},
 }
 
-var netWorkCapabilitiesGetNetworkSpecifierCmd = &cobra.Command{
+var netNetworkCapabilitiesGetNetworkSpecifierCmd = &cobra.Command{
 	Use:   "get-network-specifier",
 	Short: "GetNetworkSpecifier RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewWorkCapabilitiesServiceClient(grpcConn)
+		client := pb.NewNetworkCapabilitiesServiceClient(grpcConn)
 		req := &pb.GetNetworkSpecifierRequest{}
 		resp, err := client.GetNetworkSpecifier(ctx, req)
 		if err != nil {
@@ -862,13 +862,13 @@ var netWorkCapabilitiesGetNetworkSpecifierCmd = &cobra.Command{
 	},
 }
 
-var netWorkCapabilitiesGetOwnerUidCmd = &cobra.Command{
+var netNetworkCapabilitiesGetOwnerUidCmd = &cobra.Command{
 	Use:   "get-owner-uid",
 	Short: "GetOwnerUid RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewWorkCapabilitiesServiceClient(grpcConn)
+		client := pb.NewNetworkCapabilitiesServiceClient(grpcConn)
 		req := &pb.GetOwnerUidRequest{}
 		resp, err := client.GetOwnerUid(ctx, req)
 		if err != nil {
@@ -878,13 +878,13 @@ var netWorkCapabilitiesGetOwnerUidCmd = &cobra.Command{
 	},
 }
 
-var netWorkCapabilitiesGetSignalStrengthCmd = &cobra.Command{
+var netNetworkCapabilitiesGetSignalStrengthCmd = &cobra.Command{
 	Use:   "get-signal-strength",
 	Short: "GetSignalStrength RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewWorkCapabilitiesServiceClient(grpcConn)
+		client := pb.NewNetworkCapabilitiesServiceClient(grpcConn)
 		req := &pb.GetSignalStrengthRequest{}
 		resp, err := client.GetSignalStrength(ctx, req)
 		if err != nil {
@@ -894,13 +894,13 @@ var netWorkCapabilitiesGetSignalStrengthCmd = &cobra.Command{
 	},
 }
 
-var netWorkCapabilitiesGetSubscriptionIdsCmd = &cobra.Command{
+var netNetworkCapabilitiesGetSubscriptionIdsCmd = &cobra.Command{
 	Use:   "get-subscription-ids",
 	Short: "GetSubscriptionIds RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewWorkCapabilitiesServiceClient(grpcConn)
+		client := pb.NewNetworkCapabilitiesServiceClient(grpcConn)
 		req := &pb.GetSubscriptionIdsRequest{}
 		resp, err := client.GetSubscriptionIds(ctx, req)
 		if err != nil {
@@ -910,13 +910,13 @@ var netWorkCapabilitiesGetSubscriptionIdsCmd = &cobra.Command{
 	},
 }
 
-var netWorkCapabilitiesGetTransportInfoCmd = &cobra.Command{
+var netNetworkCapabilitiesGetTransportInfoCmd = &cobra.Command{
 	Use:   "get-transport-info",
 	Short: "GetTransportInfo RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewWorkCapabilitiesServiceClient(grpcConn)
+		client := pb.NewNetworkCapabilitiesServiceClient(grpcConn)
 		req := &pb.GetTransportInfoRequest{}
 		resp, err := client.GetTransportInfo(ctx, req)
 		if err != nil {
@@ -926,13 +926,13 @@ var netWorkCapabilitiesGetTransportInfoCmd = &cobra.Command{
 	},
 }
 
-var netWorkCapabilitiesHasCapabilityCmd = &cobra.Command{
+var netNetworkCapabilitiesHasCapabilityCmd = &cobra.Command{
 	Use:   "has-capability",
 	Short: "HasCapability RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewWorkCapabilitiesServiceClient(grpcConn)
+		client := pb.NewNetworkCapabilitiesServiceClient(grpcConn)
 		req := &pb.HasCapabilityRequest{}
 		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
 			req.Arg0 = v
@@ -945,13 +945,13 @@ var netWorkCapabilitiesHasCapabilityCmd = &cobra.Command{
 	},
 }
 
-var netWorkCapabilitiesHasEnterpriseIdCmd = &cobra.Command{
+var netNetworkCapabilitiesHasEnterpriseIdCmd = &cobra.Command{
 	Use:   "has-enterprise-id",
 	Short: "HasEnterpriseId RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewWorkCapabilitiesServiceClient(grpcConn)
+		client := pb.NewNetworkCapabilitiesServiceClient(grpcConn)
 		req := &pb.HasEnterpriseIdRequest{}
 		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
 			req.Arg0 = v
@@ -964,13 +964,13 @@ var netWorkCapabilitiesHasEnterpriseIdCmd = &cobra.Command{
 	},
 }
 
-var netWorkCapabilitiesHasTransportCmd = &cobra.Command{
+var netNetworkCapabilitiesHasTransportCmd = &cobra.Command{
 	Use:   "has-transport",
 	Short: "HasTransport RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewWorkCapabilitiesServiceClient(grpcConn)
+		client := pb.NewNetworkCapabilitiesServiceClient(grpcConn)
 		req := &pb.HasTransportRequest{}
 		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
 			req.Arg0 = v
@@ -983,13 +983,13 @@ var netWorkCapabilitiesHasTransportCmd = &cobra.Command{
 	},
 }
 
-var netWorkCapabilitiesHashCodeCmd = &cobra.Command{
+var netNetworkCapabilitiesHashCodeCmd = &cobra.Command{
 	Use:   "hash-code",
 	Short: "HashCode RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewWorkCapabilitiesServiceClient(grpcConn)
+		client := pb.NewNetworkCapabilitiesServiceClient(grpcConn)
 		req := &pb.HashCodeRequest{}
 		resp, err := client.HashCode(ctx, req)
 		if err != nil {
@@ -999,13 +999,13 @@ var netWorkCapabilitiesHashCodeCmd = &cobra.Command{
 	},
 }
 
-var netWorkCapabilitiesToStringCmd = &cobra.Command{
+var netNetworkCapabilitiesToStringCmd = &cobra.Command{
 	Use:   "to-string",
 	Short: "ToString RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewWorkCapabilitiesServiceClient(grpcConn)
+		client := pb.NewNetworkCapabilitiesServiceClient(grpcConn)
 		req := &pb.ToStringRequest{}
 		resp, err := client.ToString(ctx, req)
 		if err != nil {
@@ -1015,13 +1015,13 @@ var netWorkCapabilitiesToStringCmd = &cobra.Command{
 	},
 }
 
-var netWorkCapabilitiesWriteToParcelCmd = &cobra.Command{
+var netNetworkCapabilitiesWriteToParcelCmd = &cobra.Command{
 	Use:   "write-to-parcel",
 	Short: "WriteToParcel RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewWorkCapabilitiesServiceClient(grpcConn)
+		client := pb.NewNetworkCapabilitiesServiceClient(grpcConn)
 		req := &pb.WriteToParcelRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
@@ -1116,29 +1116,29 @@ func init() {
 	netConnectivityManagerSetProcessDefaultNetworkCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	netConnectivityManagerCmd.AddCommand(netConnectivityManagerSetProcessDefaultNetworkCmd)
 	netCmd.AddCommand(netConnectivityManagerCmd)
-	netWorkCapabilitiesCmd.AddCommand(netWorkCapabilitiesDescribeContentsCmd)
-	netWorkCapabilitiesEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	netWorkCapabilitiesCmd.AddCommand(netWorkCapabilitiesEqualsCmd)
-	netWorkCapabilitiesCmd.AddCommand(netWorkCapabilitiesGetCapabilitiesCmd)
-	netWorkCapabilitiesCmd.AddCommand(netWorkCapabilitiesGetEnterpriseIdsCmd)
-	netWorkCapabilitiesCmd.AddCommand(netWorkCapabilitiesGetLinkDownstreamBandwidthKbpsCmd)
-	netWorkCapabilitiesCmd.AddCommand(netWorkCapabilitiesGetLinkUpstreamBandwidthKbpsCmd)
-	netWorkCapabilitiesCmd.AddCommand(netWorkCapabilitiesGetNetworkSpecifierCmd)
-	netWorkCapabilitiesCmd.AddCommand(netWorkCapabilitiesGetOwnerUidCmd)
-	netWorkCapabilitiesCmd.AddCommand(netWorkCapabilitiesGetSignalStrengthCmd)
-	netWorkCapabilitiesCmd.AddCommand(netWorkCapabilitiesGetSubscriptionIdsCmd)
-	netWorkCapabilitiesCmd.AddCommand(netWorkCapabilitiesGetTransportInfoCmd)
-	netWorkCapabilitiesHasCapabilityCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	netWorkCapabilitiesCmd.AddCommand(netWorkCapabilitiesHasCapabilityCmd)
-	netWorkCapabilitiesHasEnterpriseIdCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	netWorkCapabilitiesCmd.AddCommand(netWorkCapabilitiesHasEnterpriseIdCmd)
-	netWorkCapabilitiesHasTransportCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	netWorkCapabilitiesCmd.AddCommand(netWorkCapabilitiesHasTransportCmd)
-	netWorkCapabilitiesCmd.AddCommand(netWorkCapabilitiesHashCodeCmd)
-	netWorkCapabilitiesCmd.AddCommand(netWorkCapabilitiesToStringCmd)
-	netWorkCapabilitiesWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	netWorkCapabilitiesWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	netWorkCapabilitiesCmd.AddCommand(netWorkCapabilitiesWriteToParcelCmd)
-	netCmd.AddCommand(netWorkCapabilitiesCmd)
+	netNetworkCapabilitiesCmd.AddCommand(netNetworkCapabilitiesDescribeContentsCmd)
+	netNetworkCapabilitiesEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	netNetworkCapabilitiesCmd.AddCommand(netNetworkCapabilitiesEqualsCmd)
+	netNetworkCapabilitiesCmd.AddCommand(netNetworkCapabilitiesGetCapabilitiesCmd)
+	netNetworkCapabilitiesCmd.AddCommand(netNetworkCapabilitiesGetEnterpriseIdsCmd)
+	netNetworkCapabilitiesCmd.AddCommand(netNetworkCapabilitiesGetLinkDownstreamBandwidthKbpsCmd)
+	netNetworkCapabilitiesCmd.AddCommand(netNetworkCapabilitiesGetLinkUpstreamBandwidthKbpsCmd)
+	netNetworkCapabilitiesCmd.AddCommand(netNetworkCapabilitiesGetNetworkSpecifierCmd)
+	netNetworkCapabilitiesCmd.AddCommand(netNetworkCapabilitiesGetOwnerUidCmd)
+	netNetworkCapabilitiesCmd.AddCommand(netNetworkCapabilitiesGetSignalStrengthCmd)
+	netNetworkCapabilitiesCmd.AddCommand(netNetworkCapabilitiesGetSubscriptionIdsCmd)
+	netNetworkCapabilitiesCmd.AddCommand(netNetworkCapabilitiesGetTransportInfoCmd)
+	netNetworkCapabilitiesHasCapabilityCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	netNetworkCapabilitiesCmd.AddCommand(netNetworkCapabilitiesHasCapabilityCmd)
+	netNetworkCapabilitiesHasEnterpriseIdCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	netNetworkCapabilitiesCmd.AddCommand(netNetworkCapabilitiesHasEnterpriseIdCmd)
+	netNetworkCapabilitiesHasTransportCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	netNetworkCapabilitiesCmd.AddCommand(netNetworkCapabilitiesHasTransportCmd)
+	netNetworkCapabilitiesCmd.AddCommand(netNetworkCapabilitiesHashCodeCmd)
+	netNetworkCapabilitiesCmd.AddCommand(netNetworkCapabilitiesToStringCmd)
+	netNetworkCapabilitiesWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	netNetworkCapabilitiesWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	netNetworkCapabilitiesCmd.AddCommand(netNetworkCapabilitiesWriteToParcelCmd)
+	netCmd.AddCommand(netNetworkCapabilitiesCmd)
 	rootCmd.AddCommand(netCmd)
 }

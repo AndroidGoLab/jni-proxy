@@ -4533,7 +4533,7 @@ func (*GetDeviceOwnerLockScreenInfoRequest) Descriptor() ([]byte, []int) {
 
 type GetDeviceOwnerLockScreenInfoResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -4568,11 +4568,11 @@ func (*GetDeviceOwnerLockScreenInfoResponse) Descriptor() ([]byte, []int) {
 	return file_proto_admin_admin_proto_rawDescGZIP(), []int{101}
 }
 
-func (x *GetDeviceOwnerLockScreenInfoResponse) GetResult() string {
+func (x *GetDeviceOwnerLockScreenInfoResponse) GetResult() int64 {
 	if x != nil {
 		return x.Result
 	}
-	return ""
+	return 0
 }
 
 type GetDevicePolicyManagementRoleHolderPackageRequest struct {
@@ -4701,7 +4701,7 @@ func (x *GetEndUserSessionMessageRequest) GetArg0() int64 {
 
 type GetEndUserSessionMessageResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -4736,11 +4736,11 @@ func (*GetEndUserSessionMessageResponse) Descriptor() ([]byte, []int) {
 	return file_proto_admin_admin_proto_rawDescGZIP(), []int{105}
 }
 
-func (x *GetEndUserSessionMessageResponse) GetResult() string {
+func (x *GetEndUserSessionMessageResponse) GetResult() int64 {
 	if x != nil {
 		return x.Result
 	}
-	return ""
+	return 0
 }
 
 type GetEnrollmentSpecificIdRequest struct {
@@ -5573,7 +5573,7 @@ func (x *GetLongSupportMessageRequest) GetArg0() int64 {
 
 type GetLongSupportMessageResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -5608,11 +5608,11 @@ func (*GetLongSupportMessageResponse) Descriptor() ([]byte, []int) {
 	return file_proto_admin_admin_proto_rawDescGZIP(), []int{125}
 }
 
-func (x *GetLongSupportMessageResponse) GetResult() string {
+func (x *GetLongSupportMessageResponse) GetResult() int64 {
 	if x != nil {
 		return x.Result
 	}
-	return ""
+	return 0
 }
 
 type GetManagedProfileCallerIdAccessPolicyRequest struct {
@@ -6661,7 +6661,7 @@ func (x *GetOrganizationNameRequest) GetArg0() int64 {
 
 type GetOrganizationNameResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -6696,11 +6696,11 @@ func (*GetOrganizationNameResponse) Descriptor() ([]byte, []int) {
 	return file_proto_admin_admin_proto_rawDescGZIP(), []int{151}
 }
 
-func (x *GetOrganizationNameResponse) GetResult() string {
+func (x *GetOrganizationNameResponse) GetResult() int64 {
 	if x != nil {
 		return x.Result
 	}
-	return ""
+	return 0
 }
 
 type GetOverrideApnsRequest struct {
@@ -9197,7 +9197,7 @@ func (x *GetShortSupportMessageRequest) GetArg0() int64 {
 
 type GetShortSupportMessageResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -9232,11 +9232,11 @@ func (*GetShortSupportMessageResponse) Descriptor() ([]byte, []int) {
 	return file_proto_admin_admin_proto_rawDescGZIP(), []int{209}
 }
 
-func (x *GetShortSupportMessageResponse) GetResult() string {
+func (x *GetShortSupportMessageResponse) GetResult() int64 {
 	if x != nil {
 		return x.Result
 	}
-	return ""
+	return 0
 }
 
 type GetStartUserSessionMessageRequest struct {
@@ -9285,7 +9285,7 @@ func (x *GetStartUserSessionMessageRequest) GetArg0() int64 {
 
 type GetStartUserSessionMessageResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -9320,11 +9320,11 @@ func (*GetStartUserSessionMessageResponse) Descriptor() ([]byte, []int) {
 	return file_proto_admin_admin_proto_rawDescGZIP(), []int{211}
 }
 
-func (x *GetStartUserSessionMessageResponse) GetResult() string {
+func (x *GetStartUserSessionMessageResponse) GetResult() int64 {
 	if x != nil {
 		return x.Result
 	}
-	return ""
+	return 0
 }
 
 type GetStorageEncryptionRequest struct {
@@ -26367,14 +26367,14 @@ const file_proto_admin_admin_proto_rawDesc = "" +
 	"\x06result\x18\x01 \x01(\x03R\x06result\"%\n" +
 	"#GetDeviceOwnerLockScreenInfoRequest\">\n" +
 	"$GetDeviceOwnerLockScreenInfoResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\tR\x06result\"3\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"3\n" +
 	"1GetDevicePolicyManagementRoleHolderPackageRequest\"L\n" +
 	"2GetDevicePolicyManagementRoleHolderPackageResponse\x12\x16\n" +
 	"\x06result\x18\x01 \x01(\tR\x06result\"5\n" +
 	"\x1fGetEndUserSessionMessageRequest\x12\x12\n" +
 	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\":\n" +
 	" GetEndUserSessionMessageResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\tR\x06result\" \n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\" \n" +
 	"\x1eGetEnrollmentSpecificIdRequest\"9\n" +
 	"\x1fGetEnrollmentSpecificIdResponse\x12\x16\n" +
 	"\x06result\x18\x01 \x01(\tR\x06result\"<\n" +
@@ -26413,7 +26413,7 @@ const file_proto_admin_admin_proto_rawDesc = "" +
 	"\x1cGetLongSupportMessageRequest\x12\x12\n" +
 	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"7\n" +
 	"\x1dGetLongSupportMessageResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\tR\x06result\".\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\".\n" +
 	",GetManagedProfileCallerIdAccessPolicyRequest\"G\n" +
 	"-GetManagedProfileCallerIdAccessPolicyResponse\x12\x16\n" +
 	"\x06result\x18\x01 \x01(\x03R\x06result\".\n" +
@@ -26458,7 +26458,7 @@ const file_proto_admin_admin_proto_rawDesc = "" +
 	"\x1aGetOrganizationNameRequest\x12\x12\n" +
 	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"5\n" +
 	"\x1bGetOrganizationNameResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\tR\x06result\",\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\",\n" +
 	"\x16GetOverrideApnsRequest\x12\x12\n" +
 	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"1\n" +
 	"\x17GetOverrideApnsResponse\x12\x16\n" +
@@ -26572,11 +26572,11 @@ const file_proto_admin_admin_proto_rawDesc = "" +
 	"\x1dGetShortSupportMessageRequest\x12\x12\n" +
 	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"8\n" +
 	"\x1eGetShortSupportMessageResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\tR\x06result\"7\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"7\n" +
 	"!GetStartUserSessionMessageRequest\x12\x12\n" +
 	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"<\n" +
 	"\"GetStartUserSessionMessageResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\tR\x06result\"1\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"1\n" +
 	"\x1bGetStorageEncryptionRequest\x12\x12\n" +
 	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"6\n" +
 	"\x1cGetStorageEncryptionResponse\x12\x16\n" +

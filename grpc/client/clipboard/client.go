@@ -54,10 +54,10 @@ func (c *Client) GetPrimaryClipDescription(ctx context.Context) (int64, error) {
 }
 
 // GetText calls the GetText RPC.
-func (c *Client) GetText(ctx context.Context) (string, error) {
+func (c *Client) GetText(ctx context.Context) (int64, error) {
 	resp, err := c.svc.GetText(ctx, &pb.GetTextRequest{})
 	if err != nil {
-		return "", err
+		return 0, err
 	}
 	return resp.GetResult(), nil
 }

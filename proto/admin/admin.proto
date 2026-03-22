@@ -419,7 +419,7 @@ message GetDeviceOwnerLockScreenInfoRequest {
 }
 
 message GetDeviceOwnerLockScreenInfoResponse {
-  string result = 1;
+  int64 result = 1;
 }
 
 message GetDevicePolicyManagementRoleHolderPackageRequest {
@@ -434,7 +434,7 @@ message GetEndUserSessionMessageRequest {
 }
 
 message GetEndUserSessionMessageResponse {
-  string result = 1;
+  int64 result = 1;
 }
 
 message GetEnrollmentSpecificIdRequest {
@@ -513,7 +513,7 @@ message GetLongSupportMessageRequest {
 }
 
 message GetLongSupportMessageResponse {
-  string result = 1;
+  int64 result = 1;
 }
 
 message GetManagedProfileCallerIdAccessPolicyRequest {
@@ -610,7 +610,7 @@ message GetOrganizationNameRequest {
 }
 
 message GetOrganizationNameResponse {
-  string result = 1;
+  int64 result = 1;
 }
 
 message GetOverrideApnsRequest {
@@ -840,7 +840,7 @@ message GetShortSupportMessageRequest {
 }
 
 message GetShortSupportMessageResponse {
-  string result = 1;
+  int64 result = 1;
 }
 
 message GetStartUserSessionMessageRequest {
@@ -848,7 +848,7 @@ message GetStartUserSessionMessageRequest {
 }
 
 message GetStartUserSessionMessageResponse {
-  string result = 1;
+  int64 result = 1;
 }
 
 message GetStorageEncryptionRequest {

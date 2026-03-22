@@ -421,7 +421,7 @@ func (*GetDescriptionRequest) Descriptor() ([]byte, []int) {
 
 type GetDescriptionResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -456,11 +456,11 @@ func (*GetDescriptionResponse) Descriptor() ([]byte, []int) {
 	return file_proto_biometric_biometric_proto_rawDescGZIP(), []int{9}
 }
 
-func (x *GetDescriptionResponse) GetResult() string {
+func (x *GetDescriptionResponse) GetResult() int64 {
 	if x != nil {
 		return x.Result
 	}
-	return ""
+	return 0
 }
 
 type GetLogoBitmapRequest struct {
@@ -741,7 +741,7 @@ func (*GetNegativeButtonTextRequest) Descriptor() ([]byte, []int) {
 
 type GetNegativeButtonTextResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -776,11 +776,11 @@ func (*GetNegativeButtonTextResponse) Descriptor() ([]byte, []int) {
 	return file_proto_biometric_biometric_proto_rawDescGZIP(), []int{17}
 }
 
-func (x *GetNegativeButtonTextResponse) GetResult() string {
+func (x *GetNegativeButtonTextResponse) GetResult() int64 {
 	if x != nil {
 		return x.Result
 	}
-	return ""
+	return 0
 }
 
 type GetSubtitleRequest struct {
@@ -821,7 +821,7 @@ func (*GetSubtitleRequest) Descriptor() ([]byte, []int) {
 
 type GetSubtitleResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -856,11 +856,11 @@ func (*GetSubtitleResponse) Descriptor() ([]byte, []int) {
 	return file_proto_biometric_biometric_proto_rawDescGZIP(), []int{19}
 }
 
-func (x *GetSubtitleResponse) GetResult() string {
+func (x *GetSubtitleResponse) GetResult() int64 {
 	if x != nil {
 		return x.Result
 	}
-	return ""
+	return 0
 }
 
 type GetTitleRequest struct {
@@ -901,7 +901,7 @@ func (*GetTitleRequest) Descriptor() ([]byte, []int) {
 
 type GetTitleResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -936,11 +936,11 @@ func (*GetTitleResponse) Descriptor() ([]byte, []int) {
 	return file_proto_biometric_biometric_proto_rawDescGZIP(), []int{21}
 }
 
-func (x *GetTitleResponse) GetResult() string {
+func (x *GetTitleResponse) GetResult() int64 {
 	if x != nil {
 		return x.Result
 	}
-	return ""
+	return 0
 }
 
 type IsConfirmationRequiredRequest struct {
@@ -2455,7 +2455,7 @@ const file_proto_biometric_biometric_proto_rawDesc = "" +
 	"\x06result\x18\x01 \x01(\x03R\x06result\"\x17\n" +
 	"\x15GetDescriptionRequest\"0\n" +
 	"\x16GetDescriptionResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\tR\x06result\"\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x16\n" +
 	"\x14GetLogoBitmapRequest\"/\n" +
 	"\x15GetLogoBitmapResponse\x12\x16\n" +
 	"\x06result\x18\x01 \x01(\x03R\x06result\"\x1b\n" +
@@ -2467,13 +2467,13 @@ const file_proto_biometric_biometric_proto_rawDesc = "" +
 	"\x06result\x18\x01 \x01(\x05R\x06result\"\x1e\n" +
 	"\x1cGetNegativeButtonTextRequest\"7\n" +
 	"\x1dGetNegativeButtonTextResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\tR\x06result\"\x14\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x14\n" +
 	"\x12GetSubtitleRequest\"-\n" +
 	"\x13GetSubtitleResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\tR\x06result\"\x11\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x11\n" +
 	"\x0fGetTitleRequest\"*\n" +
 	"\x10GetTitleResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\tR\x06result\"\x1f\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x1f\n" +
 	"\x1dIsConfirmationRequiredRequest\"8\n" +
 	"\x1eIsConfirmationRequiredResponse\x12\x16\n" +
 	"\x06result\x18\x01 \x01(\bR\x06result\"\x0e\n" +

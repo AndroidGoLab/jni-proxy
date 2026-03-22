@@ -4493,7 +4493,7 @@ func (*GetSimCarrierIdNameRequest) Descriptor() ([]byte, []int) {
 
 type GetSimCarrierIdNameResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -4528,11 +4528,11 @@ func (*GetSimCarrierIdNameResponse) Descriptor() ([]byte, []int) {
 	return file_proto_telephony_telephony_proto_rawDescGZIP(), []int{109}
 }
 
-func (x *GetSimCarrierIdNameResponse) GetResult() string {
+func (x *GetSimCarrierIdNameResponse) GetResult() int64 {
 	if x != nil {
 		return x.Result
 	}
-	return ""
+	return 0
 }
 
 type GetSimCountryIsoRequest struct {
@@ -4973,7 +4973,7 @@ func (*GetSimSpecificCarrierIdNameRequest) Descriptor() ([]byte, []int) {
 
 type GetSimSpecificCarrierIdNameResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -5008,11 +5008,11 @@ func (*GetSimSpecificCarrierIdNameResponse) Descriptor() ([]byte, []int) {
 	return file_proto_telephony_telephony_proto_rawDescGZIP(), []int{121}
 }
 
-func (x *GetSimSpecificCarrierIdNameResponse) GetResult() string {
+func (x *GetSimSpecificCarrierIdNameResponse) GetResult() int64 {
 	if x != nil {
 		return x.Result
 	}
-	return ""
+	return 0
 }
 
 type GetSimState0Request struct {
@@ -12118,7 +12118,7 @@ const file_proto_telephony_telephony_proto_rawDesc = "" +
 	"\x06result\x18\x01 \x01(\x05R\x06result\"\x1c\n" +
 	"\x1aGetSimCarrierIdNameRequest\"5\n" +
 	"\x1bGetSimCarrierIdNameResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\tR\x06result\"\x19\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x19\n" +
 	"\x17GetSimCountryIsoRequest\"2\n" +
 	"\x18GetSimCountryIsoResponse\x12\x16\n" +
 	"\x06result\x18\x01 \x01(\tR\x06result\"\x17\n" +
@@ -12136,7 +12136,7 @@ const file_proto_telephony_telephony_proto_rawDesc = "" +
 	"\x06result\x18\x01 \x01(\x05R\x06result\"$\n" +
 	"\"GetSimSpecificCarrierIdNameRequest\"=\n" +
 	"#GetSimSpecificCarrierIdNameResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\tR\x06result\"\x15\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x15\n" +
 	"\x13GetSimState0Request\".\n" +
 	"\x14GetSimState0Response\x12\x16\n" +
 	"\x06result\x18\x01 \x01(\x05R\x06result\"+\n" +

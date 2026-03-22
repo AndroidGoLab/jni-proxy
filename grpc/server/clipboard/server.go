@@ -105,7 +105,16 @@ func (s *ManagerServer) GetText(_ context.Context, req *pb.GetTextRequest) (*pb.
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "%v", err)
 	}
-	return &pb.GetTextResponse{Result: result}, nil
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetTextResponse{Result: handle}, nil
 }
 
 func (s *ManagerServer) HasPrimaryClip(_ context.Context, req *pb.HasPrimaryClipRequest) (*pb.HasPrimaryClipResponse, error) {

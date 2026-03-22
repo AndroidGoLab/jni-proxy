@@ -1789,7 +1789,7 @@ func (*GetQueueTitleRequest) Descriptor() ([]byte, []int) {
 
 type GetQueueTitleResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -1824,11 +1824,11 @@ func (*GetQueueTitleResponse) Descriptor() ([]byte, []int) {
 	return file_proto_session_session_proto_rawDescGZIP(), []int{43}
 }
 
-func (x *GetQueueTitleResponse) GetResult() string {
+func (x *GetQueueTitleResponse) GetResult() int64 {
 	if x != nil {
 		return x.Result
 	}
-	return ""
+	return 0
 }
 
 type GetRatingTypeRequest struct {
@@ -2731,7 +2731,7 @@ const file_proto_session_session_proto_rawDesc = "" +
 	"\x06result\x18\x01 \x01(\x03R\x06result\"\x16\n" +
 	"\x14GetQueueTitleRequest\"/\n" +
 	"\x15GetQueueTitleResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\tR\x06result\"\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x16\n" +
 	"\x14GetRatingTypeRequest\"/\n" +
 	"\x15GetRatingTypeResponse\x12\x16\n" +
 	"\x06result\x18\x01 \x01(\x05R\x06result\"\x1b\n" +

@@ -546,10 +546,10 @@ func (c *Client) GetDelegatedScopes(ctx context.Context, arg0 int64, arg1 string
 }
 
 // GetDeviceOwnerLockScreenInfo calls the GetDeviceOwnerLockScreenInfo RPC.
-func (c *Client) GetDeviceOwnerLockScreenInfo(ctx context.Context) (string, error) {
+func (c *Client) GetDeviceOwnerLockScreenInfo(ctx context.Context) (int64, error) {
 	resp, err := c.svc.GetDeviceOwnerLockScreenInfo(ctx, &pb.GetDeviceOwnerLockScreenInfoRequest{})
 	if err != nil {
-		return "", err
+		return 0, err
 	}
 	return resp.GetResult(), nil
 }
@@ -564,12 +564,12 @@ func (c *Client) GetDevicePolicyManagementRoleHolderPackage(ctx context.Context)
 }
 
 // GetEndUserSessionMessage calls the GetEndUserSessionMessage RPC.
-func (c *Client) GetEndUserSessionMessage(ctx context.Context, arg0 int64) (string, error) {
+func (c *Client) GetEndUserSessionMessage(ctx context.Context, arg0 int64) (int64, error) {
 	resp, err := c.svc.GetEndUserSessionMessage(ctx, &pb.GetEndUserSessionMessageRequest{
 		Arg0: arg0,
 	})
 	if err != nil {
-		return "", err
+		return 0, err
 	}
 	return resp.GetResult(), nil
 }
@@ -672,12 +672,12 @@ func (c *Client) GetLockTaskPackages(ctx context.Context, arg0 int64) (int64, er
 }
 
 // GetLongSupportMessage calls the GetLongSupportMessage RPC.
-func (c *Client) GetLongSupportMessage(ctx context.Context, arg0 int64) (string, error) {
+func (c *Client) GetLongSupportMessage(ctx context.Context, arg0 int64) (int64, error) {
 	resp, err := c.svc.GetLongSupportMessage(ctx, &pb.GetLongSupportMessageRequest{
 		Arg0: arg0,
 	})
 	if err != nil {
-		return "", err
+		return 0, err
 	}
 	return resp.GetResult(), nil
 }
@@ -801,12 +801,12 @@ func (c *Client) GetOrganizationColor(ctx context.Context, arg0 int64) (int32, e
 }
 
 // GetOrganizationName calls the GetOrganizationName RPC.
-func (c *Client) GetOrganizationName(ctx context.Context, arg0 int64) (string, error) {
+func (c *Client) GetOrganizationName(ctx context.Context, arg0 int64) (int64, error) {
 	resp, err := c.svc.GetOrganizationName(ctx, &pb.GetOrganizationNameRequest{
 		Arg0: arg0,
 	})
 	if err != nil {
-		return "", err
+		return 0, err
 	}
 	return resp.GetResult(), nil
 }
@@ -1114,23 +1114,23 @@ func (c *Client) GetSecondaryUsers(ctx context.Context, arg0 int64) (int64, erro
 }
 
 // GetShortSupportMessage calls the GetShortSupportMessage RPC.
-func (c *Client) GetShortSupportMessage(ctx context.Context, arg0 int64) (string, error) {
+func (c *Client) GetShortSupportMessage(ctx context.Context, arg0 int64) (int64, error) {
 	resp, err := c.svc.GetShortSupportMessage(ctx, &pb.GetShortSupportMessageRequest{
 		Arg0: arg0,
 	})
 	if err != nil {
-		return "", err
+		return 0, err
 	}
 	return resp.GetResult(), nil
 }
 
 // GetStartUserSessionMessage calls the GetStartUserSessionMessage RPC.
-func (c *Client) GetStartUserSessionMessage(ctx context.Context, arg0 int64) (string, error) {
+func (c *Client) GetStartUserSessionMessage(ctx context.Context, arg0 int64) (int64, error) {
 	resp, err := c.svc.GetStartUserSessionMessage(ctx, &pb.GetStartUserSessionMessageRequest{
 		Arg0: arg0,
 	})
 	if err != nil {
-		return "", err
+		return 0, err
 	}
 	return resp.GetResult(), nil
 }

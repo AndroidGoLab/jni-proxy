@@ -2549,7 +2549,7 @@ func (*GetSettingsTextRequest) Descriptor() ([]byte, []int) {
 
 type GetSettingsTextResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -2584,11 +2584,11 @@ func (*GetSettingsTextResponse) Descriptor() ([]byte, []int) {
 	return file_proto_notification_notification_proto_rawDescGZIP(), []int{63}
 }
 
-func (x *GetSettingsTextResponse) GetResult() string {
+func (x *GetSettingsTextResponse) GetResult() int64 {
 	if x != nil {
 		return x.Result
 	}
-	return ""
+	return 0
 }
 
 type GetShortCriticalTextRequest struct {
@@ -10857,7 +10857,7 @@ func (*GetNameRequest) Descriptor() ([]byte, []int) {
 
 type GetNameResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -10892,11 +10892,11 @@ func (*GetNameResponse) Descriptor() ([]byte, []int) {
 	return file_proto_notification_notification_proto_rawDescGZIP(), []int{254}
 }
 
-func (x *GetNameResponse) GetResult() string {
+func (x *GetNameResponse) GetResult() int64 {
 	if x != nil {
 		return x.Result
 	}
-	return ""
+	return 0
 }
 
 type GetParentChannelIdRequest struct {
@@ -16908,7 +16908,7 @@ const file_proto_notification_notification_proto_rawDesc = "" +
 	"\x06result\x18\x01 \x01(\x03R\x06result\"\x18\n" +
 	"\x16GetSettingsTextRequest\"1\n" +
 	"\x17GetSettingsTextResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\tR\x06result\"\x1d\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x1d\n" +
 	"\x1bGetShortCriticalTextRequest\"6\n" +
 	"\x1cGetShortCriticalTextResponse\x12\x16\n" +
 	"\x06result\x18\x01 \x01(\tR\x06result\"\x16\n" +
@@ -17278,7 +17278,7 @@ const file_proto_notification_notification_proto_rawDesc = "" +
 	"\x06result\x18\x01 \x01(\x05R\x06result\"\x10\n" +
 	"\x0eGetNameRequest\")\n" +
 	"\x0fGetNameResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\tR\x06result\"\x1b\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x1b\n" +
 	"\x19GetParentChannelIdRequest\"4\n" +
 	"\x1aGetParentChannelIdResponse\x12\x16\n" +
 	"\x06result\x18\x01 \x01(\tR\x06result\"\x11\n" +
