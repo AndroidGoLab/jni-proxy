@@ -53,7 +53,6 @@ func (s *Server) Run(ctx context.Context) error {
 	return s.mcp.Run(ctx, &gomcp.StdioTransport{})
 }
 
-func (s *Server) registerResources()     {}
 func (s *Server) registerWorkflowTools() {}
 func (s *Server) registerGenericTool()   {}
 func (s *Server) registerRawJNITool()    {}
