@@ -52,5 +52,3 @@ func (s *Server) MCPServer() *gomcp.Server {
 func (s *Server) Run(ctx context.Context) error {
 	return s.mcp.Run(ctx, &gomcp.StdioTransport{})
 }
-
-func (s *Server) registerRawJNITool() {}
