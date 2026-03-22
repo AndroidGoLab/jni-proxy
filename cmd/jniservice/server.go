@@ -236,7 +236,11 @@ func runServer(cvm *C.JavaVM) {
 	var appCtx *app.Context
 	if appContextHandle != 0 {
 		if ctxObj := handles.Get(appContextHandle); ctxObj != nil {
-			appCtx = app.ContextFromObject(vm, ctxObj)
+			var err error
+			appCtx, err = app.ContextFromObject(vm, ctxObj)
+			if err != nil {
+				fmt.Fprintf(os.Stderr, "jniservice: WARNING: ContextFromObject: %v\n", err)
+			}
 		}
 	}
 
