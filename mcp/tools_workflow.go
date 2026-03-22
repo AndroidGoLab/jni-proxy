@@ -5,15 +5,20 @@ import (
 	"encoding/json"
 	"fmt"
 
+	alarmclient "github.com/AndroidGoLab/jni-proxy/grpc/client/alarm"
 	audioclient "github.com/AndroidGoLab/jni-proxy/grpc/client/audiomanager"
 	batteryclient "github.com/AndroidGoLab/jni-proxy/grpc/client/battery"
+	cameraclient "github.com/AndroidGoLab/jni-proxy/grpc/client/camera"
 	clipboardclient "github.com/AndroidGoLab/jni-proxy/grpc/client/clipboard"
 	displayclient "github.com/AndroidGoLab/jni-proxy/grpc/client/display"
+	inputmethodclient "github.com/AndroidGoLab/jni-proxy/grpc/client/inputmethod"
 	irclient "github.com/AndroidGoLab/jni-proxy/grpc/client/ir"
+	jobclient "github.com/AndroidGoLab/jni-proxy/grpc/client/job"
 	locationclient "github.com/AndroidGoLab/jni-proxy/grpc/client/location"
 	netclient "github.com/AndroidGoLab/jni-proxy/grpc/client/net"
 	notifclient "github.com/AndroidGoLab/jni-proxy/grpc/client/notification"
 	powerclient "github.com/AndroidGoLab/jni-proxy/grpc/client/power"
+	telecomclient "github.com/AndroidGoLab/jni-proxy/grpc/client/telecom"
 	telephonyclient "github.com/AndroidGoLab/jni-proxy/grpc/client/telephony"
 	vibratorclient "github.com/AndroidGoLab/jni-proxy/grpc/client/vibrator"
 	wificlient "github.com/AndroidGoLab/jni-proxy/grpc/client/wifi"
@@ -48,6 +53,10 @@ func (s *Server) registerWorkflowTools() {
 	s.registerNotificationTools()
 	s.registerVibratorTools()
 	s.registerIRTools()
+	s.registerCameraTools()
+	s.registerSchedulingTools()
+	s.registerTelecomTools()
+	s.registerInputTools()
 }
 
 // Android BatteryManager property constants.
@@ -1262,5 +1271,529 @@ func (s *Server) registerIRTools() {
 		}
 
 		return nil, out, nil
+	})
+}
+
+// ---------------------------------------------------------------------------
+// Camera tools (CameraManager)
+// ---------------------------------------------------------------------------
+
+type listCamerasInput struct{}
+
+type listCamerasOutput struct {
+	CameraIDListHandle        int64 `json:"camera_id_list_handle"`
+	ConcurrentCameraIDsHandle int64 `json:"concurrent_camera_ids_handle"`
+}
+
+func (s *Server) registerCameraTools() {
+	// list_cameras — read-only: list available cameras
+	gomcp.AddTool(s.mcp, &gomcp.Tool{
+		Name: "list_cameras",
+		Description: "List available cameras. Returns Java object handles for the camera ID list " +
+			"(String[]) and concurrent camera ID set (Set<Set<String>>). " +
+			"Use jni_raw to inspect the returned handles for individual camera IDs.",
+		Annotations: &gomcp.ToolAnnotations{
+			ReadOnlyHint:    true,
+			DestructiveHint: boolPtr(false),
+			Title:           "List Cameras",
+		},
+	}, func(ctx context.Context, req *gomcp.CallToolRequest, _ listCamerasInput) (*gomcp.CallToolResult, listCamerasOutput, error) {
+		client := cameraclient.NewClient(s.conn)
+
+		var out listCamerasOutput
+		var err error
+
+		out.CameraIDListHandle, err = client.GetCameraIdList(ctx)
+		if err != nil {
+			return nil, out, fmt.Errorf("get camera id list: %w", err)
+		}
+
+		out.ConcurrentCameraIDsHandle, err = client.GetConcurrentCameraIds(ctx)
+		if err != nil {
+			return nil, out, fmt.Errorf("get concurrent camera ids: %w", err)
+		}
+
+		return nil, out, nil
+	})
+
+	// take_photo — stub: requires streaming RPC for camera capture pipeline
+	type takePhotoInput struct {
+		CameraID string `json:"camera_id" jsonschema:"description=Camera ID to capture from (from list_cameras)"`
+	}
+	gomcp.AddTool(s.mcp, &gomcp.Tool{
+		Name: "take_photo",
+		Description: "Take a photo with the specified camera. Currently stubbed because the full camera " +
+			"capture pipeline requires the bidirectional Proxy streaming RPC to handle callbacks " +
+			"(CameraDevice.StateCallback, CameraCaptureSession, ImageReader).",
+		Annotations: &gomcp.ToolAnnotations{
+			ReadOnlyHint:    false,
+			DestructiveHint: boolPtr(false),
+			Title:           "Take Photo",
+		},
+	}, func(ctx context.Context, req *gomcp.CallToolRequest, _ takePhotoInput) (*gomcp.CallToolResult, any, error) {
+		return &gomcp.CallToolResult{
+			Content: []gomcp.Content{&gomcp.TextContent{
+				Text: "take_photo requires the bidirectional Proxy streaming RPC which is not yet " +
+					"exposed via MCP. The full capture pipeline involves: " +
+					"1) OpenCamera with a StateCallback, " +
+					"2) Creating a CameraCaptureSession, " +
+					"3) Setting up an ImageReader surface, " +
+					"4) Issuing a capture request and waiting for the callback. " +
+					"Use call_android_api or jni_raw for manual camera operations.",
+			}},
+		}, nil, nil
+	})
+
+	// capture_screen — stub: requires user interaction for MediaProjection consent
+	type captureScreenInput struct{}
+	gomcp.AddTool(s.mcp, &gomcp.Tool{
+		Name: "capture_screen",
+		Description: "Capture the device screen. Currently stubbed because screen capture requires " +
+			"user consent via a system dialog (MediaProjection permission grant), which cannot " +
+			"be automated without user interaction.",
+		Annotations: &gomcp.ToolAnnotations{
+			ReadOnlyHint:    false,
+			DestructiveHint: boolPtr(true),
+			Title:           "Capture Screen",
+		},
+	}, func(ctx context.Context, req *gomcp.CallToolRequest, _ captureScreenInput) (*gomcp.CallToolResult, any, error) {
+		return &gomcp.CallToolResult{
+			Content: []gomcp.Content{&gomcp.TextContent{
+				Text: "capture_screen requires user consent via the MediaProjection permission dialog. " +
+					"The workflow involves: " +
+					"1) Call MediaProjectionManager.createScreenCaptureIntent() to get an Intent, " +
+					"2) Start the intent via Activity.startActivityForResult() — the user must " +
+					"tap 'Allow' on the system dialog, " +
+					"3) Use the result to get a MediaProjection and create a VirtualDisplay. " +
+					"This cannot be fully automated. Use call_android_api or jni_raw for " +
+					"manual MediaProjection operations.",
+			}},
+		}, nil, nil
+	})
+}
+
+// ---------------------------------------------------------------------------
+// Scheduling tools (AlarmManager, JobScheduler)
+// ---------------------------------------------------------------------------
+
+type setAlarmInput struct {
+	Type          int32 `json:"type" jsonschema:"description=Alarm type: 0=RTC_WAKEUP 1=RTC 2=ELAPSED_REALTIME_WAKEUP 3=ELAPSED_REALTIME"`
+	TriggerMillis int64 `json:"trigger_millis" jsonschema:"description=Trigger time in milliseconds (RTC types: epoch millis; ELAPSED types: millis since boot)"`
+}
+
+type getNextAlarmInput struct{}
+
+type getNextAlarmOutput struct {
+	NextAlarmHandle      int64 `json:"next_alarm_handle"`
+	CanScheduleExact     bool  `json:"can_schedule_exact_alarms"`
+}
+
+type manageJobsInput struct {
+	Action string `json:"action" jsonschema:"enum=list,enum=cancel,enum=cancel_all,description=Action to perform: list pending jobs, cancel a specific job by ID, or cancel all jobs"`
+	JobID  int32  `json:"job_id,omitempty" jsonschema:"description=Job ID for cancel action (ignored for list and cancel_all)"`
+}
+
+func (s *Server) registerSchedulingTools() {
+	// set_alarm — stub: requires PendingIntent handle
+	gomcp.AddTool(s.mcp, &gomcp.Tool{
+		Name: "set_alarm",
+		Description: "Set an alarm. The underlying AlarmManager.set() requires a PendingIntent (Java object handle) " +
+			"as the third argument, which must be constructed via JNI. " +
+			"Type values: 0=RTC_WAKEUP, 1=RTC, 2=ELAPSED_REALTIME_WAKEUP, 3=ELAPSED_REALTIME. " +
+			"Currently stubbed — use jni_raw to create the PendingIntent, then call set_alarm " +
+			"via call_android_api.",
+		Annotations: &gomcp.ToolAnnotations{
+			ReadOnlyHint:    false,
+			DestructiveHint: boolPtr(false),
+			Title:           "Set Alarm",
+		},
+	}, func(ctx context.Context, req *gomcp.CallToolRequest, in setAlarmInput) (*gomcp.CallToolResult, any, error) {
+		return &gomcp.CallToolResult{
+			Content: []gomcp.Content{&gomcp.TextContent{
+				Text: fmt.Sprintf(
+					"set_alarm requires a PendingIntent Java object handle as the third parameter to "+
+						"AlarmManager.set(type=%d, triggerAtMillis=%d, pendingIntent). "+
+						"Use jni_raw to: "+
+						"1) Create an Intent targeting your BroadcastReceiver, "+
+						"2) Create a PendingIntent via PendingIntent.getBroadcast(), "+
+						"3) Then call AlarmManager.set() via call_android_api with the PendingIntent handle.",
+					in.Type, in.TriggerMillis,
+				),
+			}},
+		}, nil, nil
+	})
+
+	// get_next_alarm — read-only: query next alarm and scheduling permission
+	gomcp.AddTool(s.mcp, &gomcp.Tool{
+		Name: "get_next_alarm",
+		Description: "Get the next scheduled alarm clock info and whether exact alarm scheduling is permitted. " +
+			"The next_alarm_handle is a Java AlarmManager.AlarmClockInfo object handle (0 if no alarm set).",
+		Annotations: &gomcp.ToolAnnotations{
+			ReadOnlyHint:    true,
+			DestructiveHint: boolPtr(false),
+			Title:           "Get Next Alarm",
+		},
+	}, func(ctx context.Context, req *gomcp.CallToolRequest, _ getNextAlarmInput) (*gomcp.CallToolResult, getNextAlarmOutput, error) {
+		client := alarmclient.NewClient(s.conn)
+
+		var out getNextAlarmOutput
+		var err error
+
+		out.NextAlarmHandle, err = client.GetNextAlarmClock(ctx)
+		if err != nil {
+			return nil, out, fmt.Errorf("get next alarm clock: %w", err)
+		}
+
+		out.CanScheduleExact, err = client.CanScheduleExactAlarms(ctx)
+		if err != nil {
+			return nil, out, fmt.Errorf("can schedule exact alarms: %w", err)
+		}
+
+		return nil, out, nil
+	})
+
+	// cancel_all_alarms — mutation: cancel all alarms
+	type cancelAllAlarmsInput struct{}
+	gomcp.AddTool(s.mcp, &gomcp.Tool{
+		Name:        "cancel_all_alarms",
+		Description: "Cancel all alarms set by this application via AlarmManager.cancelAll().",
+		Annotations: &gomcp.ToolAnnotations{
+			ReadOnlyHint:    false,
+			DestructiveHint: boolPtr(true),
+			Title:           "Cancel All Alarms",
+		},
+	}, func(ctx context.Context, req *gomcp.CallToolRequest, _ cancelAllAlarmsInput) (*gomcp.CallToolResult, any, error) {
+		client := alarmclient.NewClient(s.conn)
+
+		err := client.CancelAll(ctx)
+		if err != nil {
+			return nil, nil, fmt.Errorf("cancel all alarms: %w", err)
+		}
+
+		result := map[string]any{"cancelled": "all"}
+		r, err := jsonResult(result)
+		return r, nil, err
+	})
+
+	// manage_jobs — mutation: list/cancel/cancel_all jobs
+	gomcp.AddTool(s.mcp, &gomcp.Tool{
+		Name: "manage_jobs",
+		Description: "Manage scheduled jobs via JobScheduler. Actions: " +
+			"'list' returns the pending jobs handle (Java List<JobInfo>), " +
+			"'cancel' cancels a specific job by ID, " +
+			"'cancel_all' cancels all scheduled jobs.",
+		Annotations: &gomcp.ToolAnnotations{
+			ReadOnlyHint:    false,
+			DestructiveHint: boolPtr(false),
+			Title:           "Manage Jobs",
+		},
+	}, func(ctx context.Context, req *gomcp.CallToolRequest, in manageJobsInput) (*gomcp.CallToolResult, any, error) {
+		client := jobclient.NewClient(s.conn)
+
+		switch in.Action {
+		case "list":
+			handle, err := client.GetAllPendingJobs(ctx)
+			if err != nil {
+				return nil, nil, fmt.Errorf("get all pending jobs: %w", err)
+			}
+			result := map[string]any{
+				"action":              "list",
+				"pending_jobs_handle": handle,
+			}
+			r, err := jsonResult(result)
+			return r, nil, err
+
+		case "cancel":
+			err := client.Cancel(ctx, in.JobID)
+			if err != nil {
+				return nil, nil, fmt.Errorf("cancel job %d: %w", in.JobID, err)
+			}
+			result := map[string]any{
+				"action":       "cancel",
+				"cancelled_id": in.JobID,
+			}
+			r, err := jsonResult(result)
+			return r, nil, err
+
+		case "cancel_all":
+			err := client.CancelAll(ctx)
+			if err != nil {
+				return nil, nil, fmt.Errorf("cancel all jobs: %w", err)
+			}
+			result := map[string]any{
+				"action":    "cancel_all",
+				"cancelled": "all",
+			}
+			r, err := jsonResult(result)
+			return r, nil, err
+
+		default:
+			return nil, nil, fmt.Errorf("unknown action %q: must be one of list, cancel, cancel_all", in.Action)
+		}
+	})
+}
+
+// ---------------------------------------------------------------------------
+// Telecom tools (TelecomManager)
+// ---------------------------------------------------------------------------
+
+type callStateInput struct{}
+
+type callStateOutput struct {
+	IsInCall                   bool   `json:"is_in_call"`
+	IsInManagedCall            bool   `json:"is_in_managed_call"`
+	DefaultDialerPackage       string `json:"default_dialer_package"`
+	SystemDialerPackage        string `json:"system_dialer_package"`
+	CallCapableAccountsHandle  int64  `json:"call_capable_accounts_handle"`
+	HasManageOngoingCallsPerm  bool   `json:"has_manage_ongoing_calls_permission"`
+	IsTtySupported             bool   `json:"is_tty_supported"`
+}
+
+func (s *Server) registerTelecomTools() {
+	// get_call_state — read-only: active call status and phone accounts
+	gomcp.AddTool(s.mcp, &gomcp.Tool{
+		Name: "get_call_state",
+		Description: "Get active call status: whether a call is in progress, default/system dialer packages, " +
+			"call-capable phone accounts handle (Java List<PhoneAccountHandle>), TTY support, " +
+			"and manage-ongoing-calls permission.",
+		Annotations: &gomcp.ToolAnnotations{
+			ReadOnlyHint:    true,
+			DestructiveHint: boolPtr(false),
+			Title:           "Get Call State",
+		},
+	}, func(ctx context.Context, req *gomcp.CallToolRequest, _ callStateInput) (*gomcp.CallToolResult, callStateOutput, error) {
+		client := telecomclient.NewClient(s.conn)
+
+		var out callStateOutput
+		var err error
+
+		out.IsInCall, err = client.IsInCall(ctx)
+		if err != nil {
+			return nil, out, fmt.Errorf("is in call: %w", err)
+		}
+
+		out.IsInManagedCall, err = client.IsInManagedCall(ctx)
+		if err != nil {
+			return nil, out, fmt.Errorf("is in managed call: %w", err)
+		}
+
+		out.DefaultDialerPackage, err = client.GetDefaultDialerPackage(ctx)
+		if err != nil {
+			return nil, out, fmt.Errorf("get default dialer package: %w", err)
+		}
+
+		out.SystemDialerPackage, err = client.GetSystemDialerPackage(ctx)
+		if err != nil {
+			return nil, out, fmt.Errorf("get system dialer package: %w", err)
+		}
+
+		out.CallCapableAccountsHandle, err = client.GetCallCapablePhoneAccounts(ctx)
+		if err != nil {
+			return nil, out, fmt.Errorf("get call capable phone accounts: %w", err)
+		}
+
+		out.HasManageOngoingCallsPerm, err = client.HasManageOngoingCallsPermission(ctx)
+		if err != nil {
+			return nil, out, fmt.Errorf("has manage ongoing calls permission: %w", err)
+		}
+
+		out.IsTtySupported, err = client.IsTtySupported(ctx)
+		if err != nil {
+			return nil, out, fmt.Errorf("is tty supported: %w", err)
+		}
+
+		return nil, out, nil
+	})
+
+	// end_call — mutation, destructive: end the current call
+	type endCallInput struct{}
+	gomcp.AddTool(s.mcp, &gomcp.Tool{
+		Name:        "end_call",
+		Description: "End the current active call. Returns whether the call was successfully ended.",
+		Annotations: &gomcp.ToolAnnotations{
+			ReadOnlyHint:    false,
+			DestructiveHint: boolPtr(true),
+			Title:           "End Call",
+		},
+	}, func(ctx context.Context, req *gomcp.CallToolRequest, _ endCallInput) (*gomcp.CallToolResult, any, error) {
+		client := telecomclient.NewClient(s.conn)
+
+		ended, err := client.EndCall(ctx)
+		if err != nil {
+			return nil, nil, fmt.Errorf("end call: %w", err)
+		}
+
+		result := map[string]any{"call_ended": ended}
+		r, err := jsonResult(result)
+		return r, nil, err
+	})
+
+	// silence_ringer — mutation: silence the ringer
+	type silenceRingerInput struct{}
+	gomcp.AddTool(s.mcp, &gomcp.Tool{
+		Name:        "silence_ringer",
+		Description: "Silence the ringer if a call is ringing. Does not reject the call, only silences the ringtone.",
+		Annotations: &gomcp.ToolAnnotations{
+			ReadOnlyHint:    false,
+			DestructiveHint: boolPtr(false),
+			Title:           "Silence Ringer",
+		},
+	}, func(ctx context.Context, req *gomcp.CallToolRequest, _ silenceRingerInput) (*gomcp.CallToolResult, any, error) {
+		client := telecomclient.NewClient(s.conn)
+
+		err := client.SilenceRinger(ctx)
+		if err != nil {
+			return nil, nil, fmt.Errorf("silence ringer: %w", err)
+		}
+
+		result := map[string]any{"silenced": true}
+		r, err := jsonResult(result)
+		return r, nil, err
+	})
+
+	// accept_ringing_call — mutation: accept an incoming call
+	type acceptCallInput struct{}
+	gomcp.AddTool(s.mcp, &gomcp.Tool{
+		Name:        "accept_ringing_call",
+		Description: "Accept the currently ringing incoming call.",
+		Annotations: &gomcp.ToolAnnotations{
+			ReadOnlyHint:    false,
+			DestructiveHint: boolPtr(false),
+			Title:           "Accept Ringing Call",
+		},
+	}, func(ctx context.Context, req *gomcp.CallToolRequest, _ acceptCallInput) (*gomcp.CallToolResult, any, error) {
+		client := telecomclient.NewClient(s.conn)
+
+		err := client.AcceptRingingCall0(ctx)
+		if err != nil {
+			return nil, nil, fmt.Errorf("accept ringing call: %w", err)
+		}
+
+		result := map[string]any{"accepted": true}
+		r, err := jsonResult(result)
+		return r, nil, err
+	})
+}
+
+// ---------------------------------------------------------------------------
+// Input tools (InputMethodManager)
+// ---------------------------------------------------------------------------
+
+type getInputMethodsInput struct{}
+
+type getInputMethodsOutput struct {
+	IsAcceptingText          bool  `json:"is_accepting_text"`
+	IsActive                 bool  `json:"is_active"`
+	IsFullscreenMode         bool  `json:"is_fullscreen_mode"`
+	CurrentInputMethodHandle int64 `json:"current_input_method_handle"`
+	EnabledListHandle        int64 `json:"enabled_input_methods_handle"`
+	AllListHandle            int64 `json:"all_input_methods_handle"`
+}
+
+type toggleKeyboardInput struct {
+	ShowFlags int32 `json:"show_flags" jsonschema:"default=0,description=Show flags for ToggleSoftInput: 0=implicit 1=forced 2=not_always"`
+	HideFlags int32 `json:"hide_flags" jsonschema:"default=0,description=Hide flags for ToggleSoftInput: 0=implicit 1=not_always"`
+}
+
+func (s *Server) registerInputTools() {
+	// get_input_methods — read-only: list enabled input methods and status
+	gomcp.AddTool(s.mcp, &gomcp.Tool{
+		Name: "get_input_methods",
+		Description: "Get input method status: whether a text field is accepting text, whether an IME is active, " +
+			"fullscreen mode, and handles for the current, enabled, and all installed input methods " +
+			"(Java InputMethodInfo objects). Use jni_raw to inspect the returned handles.",
+		Annotations: &gomcp.ToolAnnotations{
+			ReadOnlyHint:    true,
+			DestructiveHint: boolPtr(false),
+			Title:           "Get Input Methods",
+		},
+	}, func(ctx context.Context, req *gomcp.CallToolRequest, _ getInputMethodsInput) (*gomcp.CallToolResult, getInputMethodsOutput, error) {
+		client := inputmethodclient.NewClient(s.conn)
+
+		var out getInputMethodsOutput
+		var err error
+
+		out.IsAcceptingText, err = client.IsAcceptingText(ctx)
+		if err != nil {
+			return nil, out, fmt.Errorf("is accepting text: %w", err)
+		}
+
+		out.IsActive, err = client.IsActive0(ctx)
+		if err != nil {
+			return nil, out, fmt.Errorf("is active: %w", err)
+		}
+
+		out.IsFullscreenMode, err = client.IsFullscreenMode(ctx)
+		if err != nil {
+			return nil, out, fmt.Errorf("is fullscreen mode: %w", err)
+		}
+
+		out.CurrentInputMethodHandle, err = client.GetCurrentInputMethodInfo(ctx)
+		if err != nil {
+			return nil, out, fmt.Errorf("get current input method info: %w", err)
+		}
+
+		out.EnabledListHandle, err = client.GetEnabledInputMethodList(ctx)
+		if err != nil {
+			return nil, out, fmt.Errorf("get enabled input method list: %w", err)
+		}
+
+		out.AllListHandle, err = client.GetInputMethodList(ctx)
+		if err != nil {
+			return nil, out, fmt.Errorf("get input method list: %w", err)
+		}
+
+		return nil, out, nil
+	})
+
+	// toggle_keyboard — mutation: show/hide/toggle the soft keyboard
+	gomcp.AddTool(s.mcp, &gomcp.Tool{
+		Name: "toggle_keyboard",
+		Description: "Toggle the soft keyboard visibility using InputMethodManager.toggleSoftInput(). " +
+			"show_flags: 0=SHOW_IMPLICIT, 1=SHOW_FORCED. " +
+			"hide_flags: 0=HIDE_IMPLICIT_ONLY, 1=HIDE_NOT_ALWAYS.",
+		Annotations: &gomcp.ToolAnnotations{
+			ReadOnlyHint:    false,
+			DestructiveHint: boolPtr(false),
+			Title:           "Toggle Keyboard",
+		},
+	}, func(ctx context.Context, req *gomcp.CallToolRequest, in toggleKeyboardInput) (*gomcp.CallToolResult, any, error) {
+		client := inputmethodclient.NewClient(s.conn)
+
+		err := client.ToggleSoftInput(ctx, in.ShowFlags, in.HideFlags)
+		if err != nil {
+			return nil, nil, fmt.Errorf("toggle soft input: %w", err)
+		}
+
+		result := map[string]any{
+			"toggled":    true,
+			"show_flags": in.ShowFlags,
+			"hide_flags": in.HideFlags,
+		}
+		r, err := jsonResult(result)
+		return r, nil, err
+	})
+
+	// show_input_method_picker — mutation: show the system input method picker dialog
+	type showIMEPickerInput struct{}
+	gomcp.AddTool(s.mcp, &gomcp.Tool{
+		Name:        "show_input_method_picker",
+		Description: "Show the system input method picker dialog, allowing the user to switch between installed input methods.",
+		Annotations: &gomcp.ToolAnnotations{
+			ReadOnlyHint:    false,
+			DestructiveHint: boolPtr(false),
+			Title:           "Show Input Method Picker",
+		},
+	}, func(ctx context.Context, req *gomcp.CallToolRequest, _ showIMEPickerInput) (*gomcp.CallToolResult, any, error) {
+		client := inputmethodclient.NewClient(s.conn)
+
+		err := client.ShowInputMethodPicker(ctx)
+		if err != nil {
+			return nil, nil, fmt.Errorf("show input method picker: %w", err)
+		}
+
+		result := map[string]any{"picker_shown": true}
+		r, err := jsonResult(result)
+		return r, nil, err
 	})
 }
