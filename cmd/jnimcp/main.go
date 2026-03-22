@@ -49,7 +49,7 @@ func init() {
 	rootCmd.Flags().StringVar(&flagCert, "cert", "", "client certificate PEM file (for mTLS)")
 	rootCmd.Flags().StringVar(&flagKey, "key", "", "client private key PEM file (for mTLS)")
 	rootCmd.Flags().StringVar(&flagCA, "ca", "", "CA certificate PEM file (for mTLS)")
-	rootCmd.Flags().StringVar(&flagConfigDir, "config-dir", "", "certificate storage directory")
+	rootCmd.Flags().StringVar(&flagConfigDir, "config-dir", "", "certificate storage directory (used by auto-enrollment, default ~/.config/jnimcp)")
 	rootCmd.Flags().BoolVar(&flagInsecure, "insecure", false, "skip TLS server certificate verification")
 }
 
@@ -128,6 +128,9 @@ func dialGRPC() (*grpc.ClientConn, error) {
 		}
 		opts = append(opts, grpc.WithTransportCredentials(tlsCreds))
 	case flagInsecure:
+		// TLS with InsecureSkipVerify — connects over TLS but does not verify
+		// the server certificate. Required for self-signed CA (jniservice
+		// generates its own CA). This is NOT plaintext.
 		opts = append(opts, grpc.WithTransportCredentials(credentials.NewTLS(
 			&tls.Config{InsecureSkipVerify: true})))
 	default:
