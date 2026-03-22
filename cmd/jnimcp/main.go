@@ -9,6 +9,7 @@ import (
 	"net/http"
 	"os"
 	"os/signal"
+	"path/filepath"
 	"time"
 
 	mcpserver "github.com/AndroidGoLab/jni-proxy/mcp"
@@ -62,6 +63,28 @@ func main() {
 func run(cmd *cobra.Command, _ []string) error {
 	log := slog.New(slog.NewTextHandler(os.Stderr, nil))
 
+	ctx, cancel := signal.NotifyContext(cmd.Context(), os.Interrupt)
+	defer cancel()
+
+	if flagCert == "" && flagKey == "" {
+		configDir := flagConfigDir
+		if configDir == "" {
+			home, _ := os.UserHomeDir()
+			configDir = filepath.Join(home, ".config", "jnimcp")
+		}
+		certPath, keyPath, caPath, err := mcpserver.AutoEnroll(ctx, flagAddr, configDir)
+		if err != nil {
+			log.Warn("auto-enrollment failed, continuing without mTLS", "error", err)
+		} else {
+			flagCert = certPath
+			flagKey = keyPath
+			if flagCA == "" {
+				flagCA = caPath
+			}
+			log.Info("auto-enrolled with jniservice", "config_dir", configDir)
+		}
+	}
+
 	conn, err := dialGRPC()
 	if err != nil {
 		return fmt.Errorf("connecting to jniservice: %w", err)
@@ -69,9 +92,6 @@ func run(cmd *cobra.Command, _ []string) error {
 	defer conn.Close()
 
 	srv := mcpserver.NewServer(conn, log)
-
-	ctx, cancel := signal.NotifyContext(cmd.Context(), os.Interrupt)
-	defer cancel()
 
 	switch flagTransport {
 	case "stdio":
