@@ -84,7 +84,7 @@ make stop-server               # stop the server
 
 ### Rooted devices (Magisk module)
 
-Auto-starts on boot. Self-contained -- no `make deploy` needed after install.
+Auto-starts on boot.
 
 ```bash
 make magisk DIST_GOARCH=arm64                          # build module
@@ -94,6 +94,7 @@ adb reboot                                             # starts on next boot
 ```
 
 Configuration (optional): create `jniservice.env` in the Magisk module directory:
+
 ```bash
 JNISERVICE_PORT=50051
 JNISERVICE_LISTEN=0.0.0.0
@@ -113,11 +114,13 @@ Open "jniservice" from the launcher once to start the service and register the b
 ### Connecting
 
 On the device itself:
+
 ```bash
 jnicli --addr localhost:50051 --insecure jni get-version
 ```
 
 From another machine (via adb port forwarding):
+
 ```bash
 adb forward tcp:50051 tcp:50051
 jnicli --addr localhost:50051 --insecure jni get-version
@@ -130,10 +133,10 @@ Run `make test-emulator` to test against a connected device or emulator. Tests s
 <details>
 <summary>Verified platforms (click to expand)</summary>
 
-| Type | Device | Android | API | ABI | Build | Date | Passed | Total |
-|------|--------|---------|-----|-----|-------|------|--------|-------|
-| Phone | Pixel 8a | 16 | 36 | arm64-v8a | BP4A.260205.001 | 2026-03-22 | 65 | 65 |
-| Emulator | sdk_gphone64_x86_64 | 15 | 35 | x86_64 | | 2026-03-14 | 21 | 21 |
+| Type     | Device              | Android | API | ABI       | Build           | Date       | Passed | Total |
+| -------- | ------------------- | ------- | --- | --------- | --------------- | ---------- | ------ | ----- |
+| Phone    | Pixel 8a            | 16      | 36  | arm64-v8a | BP4A.260205.001 | 2026-03-22 | 65     | 65    |
+| Emulator | sdk_gphone64_x86_64 | 15      | 35  | x86_64    |                 | 2026-03-14 | 21     | 21    |
 
 </details>
 
@@ -159,6 +162,7 @@ make generate   # runs: proto → protoc → grpc → cli
 ```
 
 Individual steps:
+
 ```bash
 make proto      # generate .proto files from Java specs
 make protoc     # compile .proto → Go stubs
