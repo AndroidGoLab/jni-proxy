@@ -93,7 +93,7 @@ adb shell su -c "magisk --install-module /sdcard/jniservice-magisk-arm64-v8a.zip
 adb reboot                                             # starts on next boot
 ```
 
-Configuration (optional): create `jniservice.env` in the Magisk module directory:
+Configuration (optional): create `/data/adb/modules/jniservice/jniservice.env`:
 
 ```bash
 JNISERVICE_PORT=50051
