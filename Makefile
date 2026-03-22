@@ -153,7 +153,7 @@ endif
 
 DIST_CC := $(DIST_NDK)/toolchains/llvm/prebuilt/linux-x86_64/bin/$(DIST_NDK_TRIPLE)$(DIST_API_LEVEL)-clang
 
-dist: dist-jnicli-linux dist-jnicli-android dist-jnimcp-linux dist-jniservice dist-jniserviceadmin dist-dex
+dist: dist-jnicli-linux dist-jnicli-android dist-jnimcp-linux dist-jnimcp-android dist-jniservice dist-jniserviceadmin dist-dex
 
 dist-jnicli-linux:
 	@mkdir -p build

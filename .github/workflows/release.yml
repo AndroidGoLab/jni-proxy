@@ -26,7 +26,7 @@ jobs:
 
       - uses: actions/setup-go@v5
         with:
-          go-version: '1.24'
+          go-version: '1.25'
           cache: true
 
       - name: Set up JDK 17
@@ -83,6 +83,14 @@ jobs:
           # CLI tool for Android devices
           cp build/jnicli-android-${{ matrix.goarch }} \
              "release/jnicli-${TAG}-android-${ABI}"
+
+          # MCP server for Linux hosts
+          cp build/jnimcp-linux-${{ matrix.goarch }} \
+             "release/jnimcp-${TAG}-linux-${{ matrix.goarch }}"
+
+          # MCP server for Android devices
+          cp build/jnimcp-android-${{ matrix.goarch }} \
+             "release/jnimcp-${TAG}-android-${ABI}"
 
           # Admin tool for Android devices
           cp build/jniserviceadmin-android-${{ matrix.goarch }} \
