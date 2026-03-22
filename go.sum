@@ -1,5 +1,3 @@
-github.com/AndroidGoLab/jni v0.0.4 h1:DCDkxy8JeZYvYeZgOSeYHTVbeTIE5h+C0AeOe5OG9Ds=
-github.com/AndroidGoLab/jni v0.0.4/go.mod h1:ZYHgM39mTiJ3JZVvhn1+4j8H3CiHRIq8l/s2gsK7JZw=
 github.com/AndroidGoLab/jni v0.0.5 h1:Z/jZ+xYfoQETxqPKsfnrjBYEqs28J4O121HgEI7yBNs=
 github.com/AndroidGoLab/jni v0.0.5/go.mod h1:ZYHgM39mTiJ3JZVvhn1+4j8H3CiHRIq8l/s2gsK7JZw=
 github.com/cespare/xxhash/v2 v2.3.0 h1:UL815xU9SqsFlibzuggzjXhog7bL6oX9BbNZnL2UFvs=
