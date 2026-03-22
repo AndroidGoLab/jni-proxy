@@ -182,7 +182,7 @@ func (s *Server) registerBatteryTools() {
 }
 
 type locationInput struct {
-	Provider string `json:"provider" jsonschema:"default=gps,description=Location provider: gps or network"`
+	Provider string `json:"provider" jsonschema:"Location provider: gps or network (default: gps)"`
 }
 
 type locationOutput struct {
@@ -440,11 +440,11 @@ type scanWifiOutput struct {
 }
 
 type connectWifiInput struct {
-	NetworkID int32 `json:"network_id" jsonschema:"description=Network ID to enable and connect to (from configured networks)"`
+	NetworkID int32 `json:"network_id" jsonschema:"Network ID to enable and connect to (from configured networks)"`
 }
 
 type setWifiEnabledInput struct {
-	Enabled bool `json:"enabled" jsonschema:"description=true to enable WiFi or false to disable"`
+	Enabled bool `json:"enabled" jsonschema:"true to enable WiFi or false to disable"`
 }
 
 type setWifiEnabledOutput struct {
@@ -788,13 +788,13 @@ type audioOutput struct {
 }
 
 type setVolumeInput struct {
-	Stream int32 `json:"stream" jsonschema:"description=Audio stream type: 0=voice_call 1=system 2=ring 3=music 4=alarm 5=notification"`
-	Volume int32 `json:"volume" jsonschema:"description=Volume level to set (0 to stream max)"`
-	Flags  int32 `json:"flags" jsonschema:"default=0,description=Flags: 0=none 1=show_ui 2=allow_ringer_modes 4=play_sound 8=remove_sound_and_vibrate 16=vibrate"`
+	Stream int32 `json:"stream" jsonschema:"Audio stream type: 0=voice_call 1=system 2=ring 3=music 4=alarm 5=notification"`
+	Volume int32 `json:"volume" jsonschema:"Volume level to set (0 to stream max)"`
+	Flags  int32 `json:"flags" jsonschema:"Flags: 0=none 1=show_ui 2=allow_ringer_modes 4=play_sound 8=remove_sound_and_vibrate 16=vibrate (default: 0)"`
 }
 
 type setRingerModeInput struct {
-	Mode int32 `json:"mode" jsonschema:"description=Ringer mode: 0=silent 1=vibrate 2=normal"`
+	Mode int32 `json:"mode" jsonschema:"Ringer mode: 0=silent 1=vibrate 2=normal"`
 }
 
 func (s *Server) registerAudioTools() {
@@ -958,7 +958,7 @@ type clipboardOutput struct {
 }
 
 type setClipboardInput struct {
-	Text string `json:"text" jsonschema:"description=Text to copy to the clipboard"`
+	Text string `json:"text" jsonschema:"Text to copy to the clipboard"`
 }
 
 func (s *Server) registerClipboardTools() {
@@ -1028,7 +1028,7 @@ func (s *Server) registerClipboardTools() {
 // ---------------------------------------------------------------------------
 
 type cancelNotifInput struct {
-	ID int32 `json:"id" jsonschema:"description=Notification ID to cancel"`
+	ID int32 `json:"id" jsonschema:"Notification ID to cancel"`
 }
 
 type notifStatusInput struct{}
@@ -1046,9 +1046,9 @@ type notifStatusOutput struct {
 func (s *Server) registerNotificationTools() {
 	// send_notification — stub (requires Java object construction)
 	type sendNotifInput struct {
-		Title   string `json:"title" jsonschema:"description=Notification title"`
-		Text    string `json:"text" jsonschema:"description=Notification body text"`
-		Channel string `json:"channel" jsonschema:"description=Notification channel ID"`
+		Title   string `json:"title" jsonschema:"Notification title"`
+		Text    string `json:"text" jsonschema:"Notification body text"`
+		Channel string `json:"channel" jsonschema:"Notification channel ID"`
 	}
 	gomcp.AddTool(s.mcp, &gomcp.Tool{
 		Name:        "send_notification",
@@ -1151,7 +1151,7 @@ func (s *Server) registerNotificationTools() {
 // ---------------------------------------------------------------------------
 
 type vibrateInput struct {
-	DurationMS int64 `json:"duration_ms" jsonschema:"description=Vibration duration in milliseconds"`
+	DurationMS int64 `json:"duration_ms" jsonschema:"Vibration duration in milliseconds"`
 }
 
 type vibratorStatusInput struct{}
@@ -1243,8 +1243,8 @@ type irStatusOutput struct {
 func (s *Server) registerIRTools() {
 	// ir_transmit — stub (requires int[] handle for pattern)
 	type irTransmitInput struct {
-		Frequency int32   `json:"frequency" jsonschema:"description=IR carrier frequency in Hz"`
-		Pattern   []int32 `json:"pattern" jsonschema:"description=Pattern of on/off durations in microseconds"`
+		Frequency int32   `json:"frequency" jsonschema:"IR carrier frequency in Hz"`
+		Pattern   []int32 `json:"pattern" jsonschema:"Pattern of on/off durations in microseconds"`
 	}
 	gomcp.AddTool(s.mcp, &gomcp.Tool{
 		Name:        "ir_transmit",
@@ -1339,7 +1339,7 @@ func (s *Server) registerCameraTools() {
 
 	// take_photo — stub: requires streaming RPC for camera capture pipeline
 	type takePhotoInput struct {
-		CameraID string `json:"camera_id" jsonschema:"description=Camera ID to capture from (from list_cameras)"`
+		CameraID string `json:"camera_id" jsonschema:"Camera ID to capture from (from list_cameras)"`
 	}
 	gomcp.AddTool(s.mcp, &gomcp.Tool{
 		Name: "take_photo",
@@ -1398,8 +1398,8 @@ func (s *Server) registerCameraTools() {
 // ---------------------------------------------------------------------------
 
 type setAlarmInput struct {
-	Type          int32 `json:"type" jsonschema:"description=Alarm type: 0=RTC_WAKEUP 1=RTC 2=ELAPSED_REALTIME_WAKEUP 3=ELAPSED_REALTIME"`
-	TriggerMillis int64 `json:"trigger_millis" jsonschema:"description=Trigger time in milliseconds (RTC types: epoch millis; ELAPSED types: millis since boot)"`
+	Type          int32 `json:"type" jsonschema:"Alarm type: 0=RTC_WAKEUP 1=RTC 2=ELAPSED_REALTIME_WAKEUP 3=ELAPSED_REALTIME"`
+	TriggerMillis int64 `json:"trigger_millis" jsonschema:"Trigger time in milliseconds (RTC types: epoch millis; ELAPSED types: millis since boot)"`
 }
 
 type getNextAlarmInput struct{}
@@ -1410,8 +1410,8 @@ type getNextAlarmOutput struct {
 }
 
 type manageJobsInput struct {
-	Action string `json:"action" jsonschema:"enum=list,enum=cancel,enum=cancel_all,description=Action to perform: list pending jobs, cancel a specific job by ID, or cancel all jobs"`
-	JobID  int32  `json:"job_id,omitempty" jsonschema:"description=Job ID for cancel action (ignored for list and cancel_all)"`
+	Action string `json:"action" jsonschema:"Action to perform: list pending jobs, cancel a specific job by ID, or cancel all jobs (valid: list, cancel, cancel_all)"`
+	JobID  int32  `json:"job_id,omitempty" jsonschema:"Job ID for cancel action (ignored for list and cancel_all)"`
 }
 
 func (s *Server) registerSchedulingTools() {
@@ -1712,8 +1712,8 @@ type getInputMethodsOutput struct {
 }
 
 type toggleKeyboardInput struct {
-	ShowFlags int32 `json:"show_flags" jsonschema:"default=0,description=Show flags for ToggleSoftInput: 0=implicit 1=forced 2=not_always"`
-	HideFlags int32 `json:"hide_flags" jsonschema:"default=0,description=Hide flags for ToggleSoftInput: 0=implicit 1=not_always"`
+	ShowFlags int32 `json:"show_flags" jsonschema:"Show flags for ToggleSoftInput: 0=implicit 1=forced 2=not_always (default: 0)"`
+	HideFlags int32 `json:"hide_flags" jsonschema:"Hide flags for ToggleSoftInput: 0=implicit 1=not_always (default: 0)"`
 }
 
 func (s *Server) registerInputTools() {
@@ -1990,8 +1990,8 @@ func (s *Server) registerStorageTools() {
 
 	// manage_downloads — mutation
 	type downloadInput struct {
-		Action     string `json:"action" jsonschema:"enum=get_mime_type,enum=remove,description=Action to perform: get_mime_type or remove"`
-		DownloadID int64  `json:"download_id" jsonschema:"description=Download ID to operate on"`
+		Action     string `json:"action" jsonschema:"Action to perform: get_mime_type or remove (valid: get_mime_type, remove)"`
+		DownloadID int64  `json:"download_id" jsonschema:"Download ID to operate on"`
 	}
 	gomcp.AddTool(s.mcp, &gomcp.Tool{
 		Name: "manage_downloads",
@@ -2045,7 +2045,7 @@ func (s *Server) registerStorageTools() {
 func (s *Server) registerAppsTools() {
 	// get_app_usage — read-only
 	type appUsageInput struct {
-		PackageName string `json:"package_name,omitempty" jsonschema:"description=Package name to check inactivity for (optional)"`
+		PackageName string `json:"package_name,omitempty" jsonschema:"Package name to check inactivity for (optional)"`
 	}
 	type appUsageOutput struct {
 		StandbyBucket     int32 `json:"standby_bucket"`
@@ -2086,7 +2086,7 @@ func (s *Server) registerAppsTools() {
 
 	// check_permissions — read-only
 	type checkPermInput struct {
-		RoleName string `json:"role_name" jsonschema:"description=Android role name to check (e.g. android.app.role.DIALER, android.app.role.SMS, android.app.role.BROWSER)"`
+		RoleName string `json:"role_name" jsonschema:"Android role name to check (e.g. android.app.role.DIALER, android.app.role.SMS, android.app.role.BROWSER)"`
 	}
 	type checkPermOutput struct {
 		RoleName      string `json:"role_name"`
@@ -2130,7 +2130,7 @@ func (s *Server) registerAppsTools() {
 func (s *Server) registerAccountsTools() {
 	// list_accounts — read-only
 	type listAccountsInput struct {
-		AccountType string `json:"account_type,omitempty" jsonschema:"description=Optional account type filter (e.g. com.google). If empty returns all accounts."`
+		AccountType string `json:"account_type,omitempty" jsonschema:"Optional account type filter (e.g. com.google). If empty returns all accounts."`
 	}
 	type listAccountsOutput struct {
 		AccountsHandle       int64 `json:"accounts_handle"`
@@ -2181,9 +2181,9 @@ func (s *Server) registerAccountsTools() {
 func (s *Server) registerCompanionTools() {
 	// manage_companions — read for list, mutation for disassociate
 	type companionInput struct {
-		Action      string `json:"action" jsonschema:"enum=list,enum=disassociate,description=Action: list (get associations) or disassociate (remove by device ID)"`
-		DeviceID    int32  `json:"device_id,omitempty" jsonschema:"description=Association ID for disassociate action"`
-		MacAddress  string `json:"mac_address,omitempty" jsonschema:"description=MAC address string for disassociate action (alternative to device_id)"`
+		Action      string `json:"action" jsonschema:"Action: list (get associations) or disassociate (remove by device ID) (valid: list, disassociate)"`
+		DeviceID    int32  `json:"device_id,omitempty" jsonschema:"Association ID for disassociate action"`
+		MacAddress  string `json:"mac_address,omitempty" jsonschema:"MAC address string for disassociate action (alternative to device_id)"`
 	}
 	gomcp.AddTool(s.mcp, &gomcp.Tool{
 		Name: "manage_companions",
@@ -2247,8 +2247,8 @@ func (s *Server) registerCompanionTools() {
 func (s *Server) registerSettingsTools() {
 	// get_settings — stub
 	type getSettingsInput struct {
-		Namespace string `json:"namespace" jsonschema:"enum=system,enum=secure,enum=global,description=Settings namespace: system, secure, or global"`
-		Name      string `json:"name" jsonschema:"description=Setting name (e.g. screen_brightness, screen_off_timeout)"`
+		Namespace string `json:"namespace" jsonschema:"Settings namespace: system, secure, or global (valid: system, secure, global)"`
+		Name      string `json:"name" jsonschema:"Setting name (e.g. screen_brightness, screen_off_timeout)"`
 	}
 	gomcp.AddTool(s.mcp, &gomcp.Tool{
 		Name: "get_settings",
@@ -2275,9 +2275,9 @@ func (s *Server) registerSettingsTools() {
 
 	// set_settings — stub
 	type setSettingsInput struct {
-		Namespace string `json:"namespace" jsonschema:"enum=system,enum=secure,enum=global,description=Settings namespace: system, secure, or global"`
-		Name      string `json:"name" jsonschema:"description=Setting name"`
-		Value     string `json:"value" jsonschema:"description=Setting value to write"`
+		Namespace string `json:"namespace" jsonschema:"Settings namespace: system, secure, or global (valid: system, secure, global)"`
+		Name      string `json:"name" jsonschema:"Setting name"`
+		Value     string `json:"value" jsonschema:"Setting value to write"`
 	}
 	gomcp.AddTool(s.mcp, &gomcp.Tool{
 		Name: "set_settings",
@@ -2303,7 +2303,7 @@ func (s *Server) registerSettingsTools() {
 
 	// set_brightness — stub
 	type brightnessInput struct {
-		Level int32 `json:"level" jsonschema:"description=Brightness level 0-255"`
+		Level int32 `json:"level" jsonschema:"Brightness level 0-255"`
 	}
 	gomcp.AddTool(s.mcp, &gomcp.Tool{
 		Name: "set_brightness",
@@ -2347,7 +2347,7 @@ func settingsClassName(namespace string) string {
 
 func (s *Server) registerBluetoothTools() {
 	type bluetoothInput struct {
-		Action string `json:"action" jsonschema:"enum=status,enum=enable,enum=disable,enum=start_discovery,enum=cancel_discovery,description=Bluetooth action to perform"`
+		Action string `json:"action" jsonschema:"Bluetooth action to perform (valid: status, enable, disable, start_discovery, cancel_discovery)"`
 	}
 	gomcp.AddTool(s.mcp, &gomcp.Tool{
 		Name: "bluetooth",
@@ -2441,10 +2441,10 @@ func (s *Server) registerPrintTools() {
 func (s *Server) registerPowerTools() {
 	// set_power_mode — combined power query and wake lock stub
 	type powerInput struct {
-		Action  string `json:"action" jsonschema:"enum=status,enum=new_wake_lock,description=Action: status (query power state) or new_wake_lock (create wake lock)"`
-		Level   int32  `json:"level,omitempty" jsonschema:"description=Wake lock level for new_wake_lock (1=PARTIAL, 6=SCREEN_DIM, 10=SCREEN_BRIGHT, 26=FULL, 32=PROXIMITY_SCREEN_OFF)"`
-		Tag     string `json:"tag,omitempty" jsonschema:"description=Wake lock tag for new_wake_lock"`
-		Package string `json:"package,omitempty" jsonschema:"description=Package name for battery optimization check"`
+		Action  string `json:"action" jsonschema:"Action: status (query power state) or new_wake_lock (create wake lock) (valid: status, new_wake_lock)"`
+		Level   int32  `json:"level,omitempty" jsonschema:"Wake lock level for new_wake_lock (1=PARTIAL, 6=SCREEN_DIM, 10=SCREEN_BRIGHT, 26=FULL, 32=PROXIMITY_SCREEN_OFF)"`
+		Tag     string `json:"tag,omitempty" jsonschema:"Wake lock tag for new_wake_lock"`
+		Package string `json:"package,omitempty" jsonschema:"Package name for battery optimization check"`
 	}
 	gomcp.AddTool(s.mcp, &gomcp.Tool{
 		Name: "set_power_mode",
