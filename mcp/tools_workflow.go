@@ -8,7 +8,10 @@ import (
 	batteryclient "github.com/AndroidGoLab/jni-proxy/grpc/client/battery"
 	displayclient "github.com/AndroidGoLab/jni-proxy/grpc/client/display"
 	locationclient "github.com/AndroidGoLab/jni-proxy/grpc/client/location"
+	netclient "github.com/AndroidGoLab/jni-proxy/grpc/client/net"
 	powerclient "github.com/AndroidGoLab/jni-proxy/grpc/client/power"
+	telephonyclient "github.com/AndroidGoLab/jni-proxy/grpc/client/telephony"
+	wificlient "github.com/AndroidGoLab/jni-proxy/grpc/client/wifi"
 	displaypb "github.com/AndroidGoLab/jni-proxy/proto/display"
 	handlepb "github.com/AndroidGoLab/jni-proxy/proto/handlestore"
 	locationpb "github.com/AndroidGoLab/jni-proxy/proto/location"
@@ -32,6 +35,9 @@ func (s *Server) registerWorkflowTools() {
 	s.registerBatteryTools()
 	s.registerLocationTools()
 	s.registerDisplayTools()
+	s.registerNetworkTools()
+	s.registerWifiTools()
+	s.registerTelephonyTools()
 }
 
 // Android BatteryManager property constants.
@@ -310,6 +316,397 @@ func (s *Server) registerDisplayTools() {
 			return nil, out, fmt.Errorf("get name: %w", err)
 		}
 		out.Name = nameResp.GetResult()
+
+		return nil, out, nil
+	})
+}
+
+// ---------------------------------------------------------------------------
+// Network tools (ConnectivityManager)
+// ---------------------------------------------------------------------------
+
+type networkInput struct{}
+
+type networkOutput struct {
+	ActiveNetworkHandle      int64 `json:"active_network_handle"`
+	IsActiveNetworkMetered   bool  `json:"is_active_network_metered"`
+	IsDefaultNetworkActive   bool  `json:"is_default_network_active"`
+	BackgroundDataAllowed    bool  `json:"background_data_allowed"`
+	RestrictBackgroundStatus int32 `json:"restrict_background_status"`
+	NetworkPreference        int32 `json:"network_preference"`
+}
+
+func (s *Server) registerNetworkTools() {
+	// query_network — read-only network status
+	gomcp.AddTool(s.mcp, &gomcp.Tool{
+		Name:        "query_network",
+		Description: "Get active network info: handle, metered status, default-network activity, background data setting, and restrict-background status.",
+		Annotations: &gomcp.ToolAnnotations{
+			ReadOnlyHint:    true,
+			DestructiveHint: boolPtr(false),
+			Title:           "Query Network",
+		},
+	}, func(ctx context.Context, req *gomcp.CallToolRequest, _ networkInput) (*gomcp.CallToolResult, networkOutput, error) {
+		client := netclient.NewClient(s.conn)
+
+		var out networkOutput
+		var err error
+
+		out.ActiveNetworkHandle, err = client.GetActiveNetwork(ctx)
+		if err != nil {
+			return nil, out, fmt.Errorf("get active network: %w", err)
+		}
+
+		out.IsActiveNetworkMetered, err = client.IsActiveNetworkMetered(ctx)
+		if err != nil {
+			return nil, out, fmt.Errorf("is active network metered: %w", err)
+		}
+
+		out.IsDefaultNetworkActive, err = client.IsDefaultNetworkActive(ctx)
+		if err != nil {
+			return nil, out, fmt.Errorf("is default network active: %w", err)
+		}
+
+		out.BackgroundDataAllowed, err = client.GetBackgroundDataSetting(ctx)
+		if err != nil {
+			return nil, out, fmt.Errorf("get background data setting: %w", err)
+		}
+
+		out.RestrictBackgroundStatus, err = client.GetRestrictBackgroundStatus(ctx)
+		if err != nil {
+			return nil, out, fmt.Errorf("get restrict background status: %w", err)
+		}
+
+		out.NetworkPreference, err = client.GetNetworkPreference(ctx)
+		if err != nil {
+			return nil, out, fmt.Errorf("get network preference: %w", err)
+		}
+
+		return nil, out, nil
+	})
+}
+
+// ---------------------------------------------------------------------------
+// WiFi tools (WifiManager)
+// ---------------------------------------------------------------------------
+
+type scanWifiInput struct{}
+
+type scanWifiOutput struct {
+	ScanStarted       bool  `json:"scan_started"`
+	ScanResultsHandle int64 `json:"scan_results_handle"`
+	WifiState         int32 `json:"wifi_state"`
+	IsWifiEnabled     bool  `json:"is_wifi_enabled"`
+}
+
+type connectWifiInput struct {
+	NetworkID int32 `json:"network_id" jsonschema:"description=Network ID to enable and connect to (from configured networks)"`
+}
+
+type setWifiEnabledInput struct {
+	Enabled bool `json:"enabled" jsonschema:"description=true to enable WiFi or false to disable"`
+}
+
+type setWifiEnabledOutput struct {
+	Success       bool  `json:"success"`
+	NewWifiState  int32 `json:"new_wifi_state"`
+	IsWifiEnabled bool  `json:"is_wifi_enabled"`
+}
+
+func (s *Server) registerWifiTools() {
+	// scan_wifi — trigger scan and return results handle
+	gomcp.AddTool(s.mcp, &gomcp.Tool{
+		Name:        "scan_wifi",
+		Description: "Trigger a WiFi scan and return the scan results handle, current WiFi state, and whether WiFi is enabled. The scan_results_handle is an opaque Java object handle for the List<ScanResult>.",
+		Annotations: &gomcp.ToolAnnotations{
+			ReadOnlyHint:    true,
+			DestructiveHint: boolPtr(false),
+			Title:           "Scan WiFi Networks",
+		},
+	}, func(ctx context.Context, req *gomcp.CallToolRequest, _ scanWifiInput) (*gomcp.CallToolResult, scanWifiOutput, error) {
+		client := wificlient.NewClient(s.conn)
+
+		var out scanWifiOutput
+		var err error
+
+		out.IsWifiEnabled, err = client.IsWifiEnabled(ctx)
+		if err != nil {
+			return nil, out, fmt.Errorf("is wifi enabled: %w", err)
+		}
+
+		out.WifiState, err = client.GetWifiState(ctx)
+		if err != nil {
+			return nil, out, fmt.Errorf("get wifi state: %w", err)
+		}
+
+		out.ScanStarted, err = client.StartScan(ctx)
+		if err != nil {
+			return nil, out, fmt.Errorf("start scan: %w", err)
+		}
+
+		out.ScanResultsHandle, err = client.GetScanResults(ctx)
+		if err != nil {
+			return nil, out, fmt.Errorf("get scan results: %w", err)
+		}
+
+		return nil, out, nil
+	})
+
+	// connect_wifi — enable a configured network
+	gomcp.AddTool(s.mcp, &gomcp.Tool{
+		Name:        "connect_wifi",
+		Description: "Connect to a WiFi network by enabling the given network ID (from configured networks) and triggering reconnect. Requires a valid network_id from the device's configured network list.",
+		Annotations: &gomcp.ToolAnnotations{
+			ReadOnlyHint:    false,
+			DestructiveHint: boolPtr(false),
+			Title:           "Connect to WiFi Network",
+		},
+	}, func(ctx context.Context, req *gomcp.CallToolRequest, in connectWifiInput) (*gomcp.CallToolResult, any, error) {
+		client := wificlient.NewClient(s.conn)
+
+		enabled, err := client.EnableNetwork(ctx, in.NetworkID, true)
+		if err != nil {
+			return nil, nil, fmt.Errorf("enable network %d: %w", in.NetworkID, err)
+		}
+
+		reconnected, err := client.Reconnect(ctx)
+		if err != nil {
+			return nil, nil, fmt.Errorf("reconnect: %w", err)
+		}
+
+		result := map[string]any{
+			"network_id":     in.NetworkID,
+			"enable_success": enabled,
+			"reconnected":    reconnected,
+		}
+		r, err := jsonResult(result)
+		return r, nil, err
+	})
+
+	// set_wifi_enabled — toggle WiFi on/off
+	gomcp.AddTool(s.mcp, &gomcp.Tool{
+		Name:        "set_wifi_enabled",
+		Description: "Enable or disable WiFi. Returns the success status and new WiFi state.",
+		Annotations: &gomcp.ToolAnnotations{
+			ReadOnlyHint:    false,
+			DestructiveHint: boolPtr(false),
+			Title:           "Set WiFi Enabled",
+		},
+	}, func(ctx context.Context, req *gomcp.CallToolRequest, in setWifiEnabledInput) (*gomcp.CallToolResult, setWifiEnabledOutput, error) {
+		client := wificlient.NewClient(s.conn)
+
+		var out setWifiEnabledOutput
+		var err error
+
+		ok, err := client.SetWifiEnabled(ctx, in.Enabled)
+		if err != nil {
+			return nil, out, fmt.Errorf("set wifi enabled: %w", err)
+		}
+		out.Success = ok
+
+		out.NewWifiState, err = client.GetWifiState(ctx)
+		if err != nil {
+			return nil, out, fmt.Errorf("get wifi state: %w", err)
+		}
+
+		out.IsWifiEnabled, err = client.IsWifiEnabled(ctx)
+		if err != nil {
+			return nil, out, fmt.Errorf("is wifi enabled: %w", err)
+		}
+
+		return nil, out, nil
+	})
+
+	// discover_services — stub (callback-based)
+	type discoverServicesInput struct{}
+	gomcp.AddTool(s.mcp, &gomcp.Tool{
+		Name:        "discover_services",
+		Description: "Discover mDNS/Bonjour services on the local network (NSD). Currently returns a stub because NSD discovery requires callback streaming.",
+		Annotations: &gomcp.ToolAnnotations{
+			ReadOnlyHint:    true,
+			DestructiveHint: boolPtr(false),
+			Title:           "Discover Network Services",
+		},
+	}, func(ctx context.Context, req *gomcp.CallToolRequest, _ discoverServicesInput) (*gomcp.CallToolResult, any, error) {
+		return &gomcp.CallToolResult{
+			Content: []gomcp.Content{&gomcp.TextContent{
+				Text: "discover_services requires callback streaming which is not yet supported. " +
+					"Use call_android_api or jni_raw for advanced NSD operations.",
+			}},
+		}, nil, nil
+	})
+
+	// wifi_direct — stub (callback-based)
+	type wifiDirectInput struct{}
+	gomcp.AddTool(s.mcp, &gomcp.Tool{
+		Name:        "wifi_direct",
+		Description: "WiFi P2P (WiFi Direct) operations: peer discovery, connect, create group. Currently returns a stub because P2P requires callback streaming.",
+		Annotations: &gomcp.ToolAnnotations{
+			ReadOnlyHint:    false,
+			DestructiveHint: boolPtr(false),
+			Title:           "WiFi Direct",
+		},
+	}, func(ctx context.Context, req *gomcp.CallToolRequest, _ wifiDirectInput) (*gomcp.CallToolResult, any, error) {
+		return &gomcp.CallToolResult{
+			Content: []gomcp.Content{&gomcp.TextContent{
+				Text: "wifi_direct requires callback streaming which is not yet supported. " +
+					"Use call_android_api or jni_raw for advanced WiFi P2P operations.",
+			}},
+		}, nil, nil
+	})
+
+	// wifi_rtt_range — stub (callback-based)
+	type wifiRttInput struct{}
+	gomcp.AddTool(s.mcp, &gomcp.Tool{
+		Name:        "wifi_rtt_range",
+		Description: "WiFi RTT (Round Trip Time) ranging for indoor positioning. Currently returns a stub because RTT ranging requires callback streaming.",
+		Annotations: &gomcp.ToolAnnotations{
+			ReadOnlyHint:    true,
+			DestructiveHint: boolPtr(false),
+			Title:           "WiFi RTT Ranging",
+		},
+	}, func(ctx context.Context, req *gomcp.CallToolRequest, _ wifiRttInput) (*gomcp.CallToolResult, any, error) {
+		return &gomcp.CallToolResult{
+			Content: []gomcp.Content{&gomcp.TextContent{
+				Text: "wifi_rtt_range requires callback streaming which is not yet supported. " +
+					"Use call_android_api or jni_raw for advanced WiFi RTT operations.",
+			}},
+		}, nil, nil
+	})
+}
+
+// ---------------------------------------------------------------------------
+// Telephony tools (TelephonyManager)
+// ---------------------------------------------------------------------------
+
+type cellularInput struct{}
+
+type cellularOutput struct {
+	NetworkOperator     string `json:"network_operator"`
+	NetworkOperatorName string `json:"network_operator_name"`
+	NetworkCountryISO   string `json:"network_country_iso"`
+	SimOperator         string `json:"sim_operator"`
+	SimOperatorName     string `json:"sim_operator_name"`
+	SimCountryISO       string `json:"sim_country_iso"`
+	SimState            int32  `json:"sim_state"`
+	PhoneType           int32  `json:"phone_type"`
+	NetworkType         int32  `json:"network_type"`
+	DataNetworkType     int32  `json:"data_network_type"`
+	DataState           int32  `json:"data_state"`
+	DataActivity        int32  `json:"data_activity"`
+	CallState           int32  `json:"call_state"`
+	IsNetworkRoaming    bool   `json:"is_network_roaming"`
+	IsDataEnabled       bool   `json:"is_data_enabled"`
+	IsDataRoamingEnabled bool  `json:"is_data_roaming_enabled"`
+	HasIccCard          bool   `json:"has_icc_card"`
+	PhoneCount          int32  `json:"phone_count"`
+}
+
+func (s *Server) registerTelephonyTools() {
+	// get_cellular_info — read-only telephony/cellular info
+	gomcp.AddTool(s.mcp, &gomcp.Tool{
+		Name:        "get_cellular_info",
+		Description: "Get cellular/telephony info: carrier, signal, SIM state, roaming, data state, call state, network type, and phone count.",
+		Annotations: &gomcp.ToolAnnotations{
+			ReadOnlyHint:    true,
+			DestructiveHint: boolPtr(false),
+			Title:           "Get Cellular Info",
+		},
+	}, func(ctx context.Context, req *gomcp.CallToolRequest, _ cellularInput) (*gomcp.CallToolResult, cellularOutput, error) {
+		client := telephonyclient.NewClient(s.conn)
+
+		var out cellularOutput
+		var err error
+
+		out.NetworkOperator, err = client.GetNetworkOperator(ctx)
+		if err != nil {
+			return nil, out, fmt.Errorf("get network operator: %w", err)
+		}
+
+		out.NetworkOperatorName, err = client.GetNetworkOperatorName(ctx)
+		if err != nil {
+			return nil, out, fmt.Errorf("get network operator name: %w", err)
+		}
+
+		out.NetworkCountryISO, err = client.GetNetworkCountryIso0(ctx)
+		if err != nil {
+			return nil, out, fmt.Errorf("get network country iso: %w", err)
+		}
+
+		out.SimOperator, err = client.GetSimOperator(ctx)
+		if err != nil {
+			return nil, out, fmt.Errorf("get sim operator: %w", err)
+		}
+
+		out.SimOperatorName, err = client.GetSimOperatorName(ctx)
+		if err != nil {
+			return nil, out, fmt.Errorf("get sim operator name: %w", err)
+		}
+
+		out.SimCountryISO, err = client.GetSimCountryIso(ctx)
+		if err != nil {
+			return nil, out, fmt.Errorf("get sim country iso: %w", err)
+		}
+
+		out.SimState, err = client.GetSimState0(ctx)
+		if err != nil {
+			return nil, out, fmt.Errorf("get sim state: %w", err)
+		}
+
+		out.PhoneType, err = client.GetPhoneType(ctx)
+		if err != nil {
+			return nil, out, fmt.Errorf("get phone type: %w", err)
+		}
+
+		out.NetworkType, err = client.GetNetworkType(ctx)
+		if err != nil {
+			return nil, out, fmt.Errorf("get network type: %w", err)
+		}
+
+		out.DataNetworkType, err = client.GetDataNetworkType(ctx)
+		if err != nil {
+			return nil, out, fmt.Errorf("get data network type: %w", err)
+		}
+
+		out.DataState, err = client.GetDataState(ctx)
+		if err != nil {
+			return nil, out, fmt.Errorf("get data state: %w", err)
+		}
+
+		out.DataActivity, err = client.GetDataActivity(ctx)
+		if err != nil {
+			return nil, out, fmt.Errorf("get data activity: %w", err)
+		}
+
+		out.CallState, err = client.GetCallState(ctx)
+		if err != nil {
+			return nil, out, fmt.Errorf("get call state: %w", err)
+		}
+
+		out.IsNetworkRoaming, err = client.IsNetworkRoaming(ctx)
+		if err != nil {
+			return nil, out, fmt.Errorf("is network roaming: %w", err)
+		}
+
+		out.IsDataEnabled, err = client.IsDataEnabled(ctx)
+		if err != nil {
+			return nil, out, fmt.Errorf("is data enabled: %w", err)
+		}
+
+		out.IsDataRoamingEnabled, err = client.IsDataRoamingEnabled(ctx)
+		if err != nil {
+			return nil, out, fmt.Errorf("is data roaming enabled: %w", err)
+		}
+
+		out.HasIccCard, err = client.HasIccCard(ctx)
+		if err != nil {
+			return nil, out, fmt.Errorf("has icc card: %w", err)
+		}
+
+		out.PhoneCount, err = client.GetPhoneCount(ctx)
+		if err != nil {
+			return nil, out, fmt.Errorf("get phone count: %w", err)
+		}
 
 		return nil, out, nil
 	})
