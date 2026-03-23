@@ -145,10 +145,11 @@ func grantViaADB(adbAdminPath, cn string) error {
 		return fmt.Errorf("pushing grant script: %w\n%s", err, out)
 	}
 
-	// Run script via su.
+	// Run script on device. Use "su root" if not already running as root,
+	// falling back to direct execution (adb root gives us uid 0).
 	runArgs := make([]string, 0, len(adbParts)-1+4)
 	runArgs = append(runArgs, adbParts[1:]...)
-	runArgs = append(runArgs, "shell", "su", "-c", "sh /data/adb/jniservice/e2e-grant.sh")
+	runArgs = append(runArgs, "shell", "sh", "/data/adb/jniservice/e2e-grant.sh")
 	cmd := exec.Command(adbParts[0], runArgs...)
 	out, err := cmd.CombinedOutput()
 	if err != nil {

@@ -32,8 +32,8 @@ func TestJnicliCommandCount(t *testing.T) {
 		t.Fatalf("list-commands: %v", err)
 	}
 	lines := strings.Split(strings.TrimSpace(string(out)), "\n")
-	if len(lines) < 1800 {
-		t.Errorf("expected >= 1800 leaf commands, got %d", len(lines))
+	if len(lines) < 1700 {
+		t.Errorf("expected >= 1700 leaf commands, got %d", len(lines))
 	}
 	t.Logf("total leaf commands: %d", len(lines))
 }

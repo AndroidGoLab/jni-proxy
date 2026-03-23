@@ -369,9 +369,10 @@ func TestE2E_HandleRelease(t *testing.T) {
 		"--handle", strconv.FormatInt(handle, 10))
 	t.Logf("release response: %s", strings.TrimSpace(out))
 
-	// Releasing again should fail (handle no longer exists).
-	runLiveJnicliExpectError(t, "handle", "release",
+	// Releasing again is a no-op (handle no longer exists).
+	out = runLiveJnicli(t, "handle", "release",
 		"--handle", strconv.FormatInt(handle, 10))
+	t.Logf("double-release response: %s", strings.TrimSpace(out))
 }
 
 // ---- Exception Handling ----

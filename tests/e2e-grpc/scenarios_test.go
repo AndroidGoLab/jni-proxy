@@ -9,46 +9,34 @@ import (
 )
 
 func TestScenario_GPSCommandsExist(t *testing.T) {
-	assertCommandExists(t, "location", "location-manager", "get-last-known-location")
-	assertCommandExists(t, "location", "location-manager", "is-provider-enabled")
-	assertCommandExists(t, "location", "location-manager", "request-location-updates-raw")
+	assertCommandExists(t, "location", "manager", "get-last-known-location")
+	assertCommandExists(t, "location", "manager", "is-provider-enabled")
 }
 
 func TestScenario_WiFiCommandsExist(t *testing.T) {
-	assertCommandExists(t, "wifi", "wifi-manager", "is-enabled")
-	assertCommandExists(t, "wifi", "wifi-manager", "get-connection-info-raw")
-	assertCommandExists(t, "wifi", "wifi-manager", "get-scan-results-raw")
+	assertCommandExists(t, "wifi", "manager", "get-connection-info")
 }
 
 func TestScenario_CameraCommandsExist(t *testing.T) {
-	assertCommandExists(t, "camera", "camera-manager", "set-torch-mode")
+	assertCommandExists(t, "camera", "manager", "set-torch-mode")
 }
 
 func TestScenario_RecorderCommandsExist(t *testing.T) {
-	assertCommandExists(t, "recorder", "media-recorder", "set-audio-source")
-	assertCommandExists(t, "recorder", "media-recorder", "prepare")
-	assertCommandExists(t, "recorder", "media-recorder", "start")
-	assertCommandExists(t, "recorder", "media-recorder", "stop")
-	assertCommandExists(t, "recorder", "media-recorder", "release")
+	t.Skip("recorder subcommand removed (MediaRecorder is not a system_service)")
 }
 
 func TestScenario_NotificationCommandsExist(t *testing.T) {
-	assertCommandExists(t, "notification", "notification-manager", "are-notifications-enabled")
-	assertCommandExists(t, "notification", "notification-manager", "create-notification-channel")
-	assertCommandExists(t, "notification", "notification-manager", "notify-raw")
-	assertCommandExists(t, "notification", "notification-manager", "cancel")
+	assertCommandExists(t, "notification", "manager", "are-notifications-enabled")
+	assertCommandExists(t, "notification", "manager", "create-notification-channel")
+	assertCommandExists(t, "notification", "manager", "cancel1")
 }
 
 func TestScenario_DeviceInfoCommandsExist(t *testing.T) {
-	assertCommandExists(t, "build", "build", "get-manufacturer")
-	assertCommandExists(t, "build", "build", "get-model")
-	assertCommandExists(t, "build", "build", "get-sdk-int")
+	t.Skip("build subcommand removed (Build is not a system_service)")
 }
 
 func TestScenario_BluetoothCommandsExist(t *testing.T) {
-	assertCommandExists(t, "bluetooth", "bluetooth-adapter", "is-enabled")
-	assertCommandExists(t, "bluetooth", "bluetooth-adapter", "get-name")
-	assertCommandExists(t, "bluetooth", "bluetooth-adapter", "get-address")
+	assertCommandExists(t, "bluetooth", "manager", "get-adapter")
 }
 
 func TestScenario_RawJNICommandsExist(t *testing.T) {
