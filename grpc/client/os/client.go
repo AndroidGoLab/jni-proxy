@@ -324,6 +324,156 @@ func (c *UserManagerClient) SupportsMultipleUsers(ctx context.Context) (bool, er
 	return resp.GetResult(), nil
 }
 
+// HardwarePropertiesManagerClient wraps the gRPC HardwarePropertiesManagerService client.
+type HardwarePropertiesManagerClient struct {
+	svc pb.HardwarePropertiesManagerServiceClient
+}
+
+// NewHardwarePropertiesManagerClient creates a new HardwarePropertiesManager client.
+func NewHardwarePropertiesManagerClient(cc grpc.ClientConnInterface) *HardwarePropertiesManagerClient {
+	return &HardwarePropertiesManagerClient{
+		svc: pb.NewHardwarePropertiesManagerServiceClient(cc),
+	}
+}
+
+// GetCpuUsages calls the GetCpuUsages RPC.
+func (c *HardwarePropertiesManagerClient) GetCpuUsages(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetCpuUsages(ctx, &pb.GetCpuUsagesRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetDeviceTemperatures calls the GetDeviceTemperatures RPC.
+func (c *HardwarePropertiesManagerClient) GetDeviceTemperatures(ctx context.Context, arg0 int32, arg1 int32) (int64, error) {
+	resp, err := c.svc.GetDeviceTemperatures(ctx, &pb.GetDeviceTemperaturesRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetFanSpeeds calls the GetFanSpeeds RPC.
+func (c *HardwarePropertiesManagerClient) GetFanSpeeds(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetFanSpeeds(ctx, &pb.GetFanSpeedsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ProfilingManagerClient wraps the gRPC ProfilingManagerService client.
+type ProfilingManagerClient struct {
+	svc pb.ProfilingManagerServiceClient
+}
+
+// NewProfilingManagerClient creates a new ProfilingManager client.
+func NewProfilingManagerClient(cc grpc.ClientConnInterface) *ProfilingManagerClient {
+	return &ProfilingManagerClient{
+		svc: pb.NewProfilingManagerServiceClient(cc),
+	}
+}
+
+// ClearProfilingTriggers calls the ClearProfilingTriggers RPC.
+func (c *ProfilingManagerClient) ClearProfilingTriggers(ctx context.Context) error {
+	_, err := c.svc.ClearProfilingTriggers(ctx, &pb.ClearProfilingTriggersRequest{})
+	return err
+}
+
+// RemoveProfilingTriggersByType calls the RemoveProfilingTriggersByType RPC.
+func (c *ProfilingManagerClient) RemoveProfilingTriggersByType(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.RemoveProfilingTriggersByType(ctx, &pb.RemoveProfilingTriggersByTypeRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SecurityStateManagerClient wraps the gRPC SecurityStateManagerService client.
+type SecurityStateManagerClient struct {
+	svc pb.SecurityStateManagerServiceClient
+}
+
+// NewSecurityStateManagerClient creates a new SecurityStateManager client.
+func NewSecurityStateManagerClient(cc grpc.ClientConnInterface) *SecurityStateManagerClient {
+	return &SecurityStateManagerClient{
+		svc: pb.NewSecurityStateManagerServiceClient(cc),
+	}
+}
+
+// GetGlobalSecurityState calls the GetGlobalSecurityState RPC.
+func (c *SecurityStateManagerClient) GetGlobalSecurityState(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetGlobalSecurityState(ctx, &pb.GetGlobalSecurityStateRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// PerformanceHintManagerClient wraps the gRPC PerformanceHintManagerService client.
+type PerformanceHintManagerClient struct {
+	svc pb.PerformanceHintManagerServiceClient
+}
+
+// NewPerformanceHintManagerClient creates a new PerformanceHintManager client.
+func NewPerformanceHintManagerClient(cc grpc.ClientConnInterface) *PerformanceHintManagerClient {
+	return &PerformanceHintManagerClient{
+		svc: pb.NewPerformanceHintManagerServiceClient(cc),
+	}
+}
+
+// CreateHintSession calls the CreateHintSession RPC.
+func (c *PerformanceHintManagerClient) CreateHintSession(ctx context.Context, arg0 int64, arg1 int64) (int64, error) {
+	resp, err := c.svc.CreateHintSession(ctx, &pb.CreateHintSessionRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetPreferredUpdateRateNanos calls the GetPreferredUpdateRateNanos RPC.
+func (c *PerformanceHintManagerClient) GetPreferredUpdateRateNanos(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetPreferredUpdateRateNanos(ctx, &pb.GetPreferredUpdateRateNanosRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// BugreportManagerClient wraps the gRPC BugreportManagerService client.
+type BugreportManagerClient struct {
+	svc pb.BugreportManagerServiceClient
+}
+
+// NewBugreportManagerClient creates a new BugreportManager client.
+func NewBugreportManagerClient(cc grpc.ClientConnInterface) *BugreportManagerClient {
+	return &BugreportManagerClient{
+		svc: pb.NewBugreportManagerServiceClient(cc),
+	}
+}
+
+// CancelBugreport calls the CancelBugreport RPC.
+func (c *BugreportManagerClient) CancelBugreport(ctx context.Context) error {
+	_, err := c.svc.CancelBugreport(ctx, &pb.CancelBugreportRequest{})
+	return err
+}
+
+// StartConnectivityBugreport calls the StartConnectivityBugreport RPC.
+func (c *BugreportManagerClient) StartConnectivityBugreport(ctx context.Context, arg0 int64, arg1 int64, arg2 int64) error {
+	_, err := c.svc.StartConnectivityBugreport(ctx, &pb.StartConnectivityBugreportRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	return err
+}
+
 // DropBoxManagerClient wraps the gRPC DropBoxManagerService client.
 type DropBoxManagerClient struct {
 	svc pb.DropBoxManagerServiceClient
@@ -386,156 +536,6 @@ func (c *DropBoxManagerClient) IsTagEnabled(ctx context.Context, arg0 string) (b
 		return false, err
 	}
 	return resp.GetResult(), nil
-}
-
-// SecurityStateManagerClient wraps the gRPC SecurityStateManagerService client.
-type SecurityStateManagerClient struct {
-	svc pb.SecurityStateManagerServiceClient
-}
-
-// NewSecurityStateManagerClient creates a new SecurityStateManager client.
-func NewSecurityStateManagerClient(cc grpc.ClientConnInterface) *SecurityStateManagerClient {
-	return &SecurityStateManagerClient{
-		svc: pb.NewSecurityStateManagerServiceClient(cc),
-	}
-}
-
-// GetGlobalSecurityState calls the GetGlobalSecurityState RPC.
-func (c *SecurityStateManagerClient) GetGlobalSecurityState(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetGlobalSecurityState(ctx, &pb.GetGlobalSecurityStateRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// HardwarePropertiesManagerClient wraps the gRPC HardwarePropertiesManagerService client.
-type HardwarePropertiesManagerClient struct {
-	svc pb.HardwarePropertiesManagerServiceClient
-}
-
-// NewHardwarePropertiesManagerClient creates a new HardwarePropertiesManager client.
-func NewHardwarePropertiesManagerClient(cc grpc.ClientConnInterface) *HardwarePropertiesManagerClient {
-	return &HardwarePropertiesManagerClient{
-		svc: pb.NewHardwarePropertiesManagerServiceClient(cc),
-	}
-}
-
-// GetCpuUsages calls the GetCpuUsages RPC.
-func (c *HardwarePropertiesManagerClient) GetCpuUsages(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetCpuUsages(ctx, &pb.GetCpuUsagesRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetDeviceTemperatures calls the GetDeviceTemperatures RPC.
-func (c *HardwarePropertiesManagerClient) GetDeviceTemperatures(ctx context.Context, arg0 int32, arg1 int32) (int64, error) {
-	resp, err := c.svc.GetDeviceTemperatures(ctx, &pb.GetDeviceTemperaturesRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetFanSpeeds calls the GetFanSpeeds RPC.
-func (c *HardwarePropertiesManagerClient) GetFanSpeeds(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetFanSpeeds(ctx, &pb.GetFanSpeedsRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// BugreportManagerClient wraps the gRPC BugreportManagerService client.
-type BugreportManagerClient struct {
-	svc pb.BugreportManagerServiceClient
-}
-
-// NewBugreportManagerClient creates a new BugreportManager client.
-func NewBugreportManagerClient(cc grpc.ClientConnInterface) *BugreportManagerClient {
-	return &BugreportManagerClient{
-		svc: pb.NewBugreportManagerServiceClient(cc),
-	}
-}
-
-// CancelBugreport calls the CancelBugreport RPC.
-func (c *BugreportManagerClient) CancelBugreport(ctx context.Context) error {
-	_, err := c.svc.CancelBugreport(ctx, &pb.CancelBugreportRequest{})
-	return err
-}
-
-// StartConnectivityBugreport calls the StartConnectivityBugreport RPC.
-func (c *BugreportManagerClient) StartConnectivityBugreport(ctx context.Context, arg0 int64, arg1 int64, arg2 int64) error {
-	_, err := c.svc.StartConnectivityBugreport(ctx, &pb.StartConnectivityBugreportRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-	})
-	return err
-}
-
-// PerformanceHintManagerClient wraps the gRPC PerformanceHintManagerService client.
-type PerformanceHintManagerClient struct {
-	svc pb.PerformanceHintManagerServiceClient
-}
-
-// NewPerformanceHintManagerClient creates a new PerformanceHintManager client.
-func NewPerformanceHintManagerClient(cc grpc.ClientConnInterface) *PerformanceHintManagerClient {
-	return &PerformanceHintManagerClient{
-		svc: pb.NewPerformanceHintManagerServiceClient(cc),
-	}
-}
-
-// CreateHintSession calls the CreateHintSession RPC.
-func (c *PerformanceHintManagerClient) CreateHintSession(ctx context.Context, arg0 int64, arg1 int64) (int64, error) {
-	resp, err := c.svc.CreateHintSession(ctx, &pb.CreateHintSessionRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetPreferredUpdateRateNanos calls the GetPreferredUpdateRateNanos RPC.
-func (c *PerformanceHintManagerClient) GetPreferredUpdateRateNanos(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetPreferredUpdateRateNanos(ctx, &pb.GetPreferredUpdateRateNanosRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ProfilingManagerClient wraps the gRPC ProfilingManagerService client.
-type ProfilingManagerClient struct {
-	svc pb.ProfilingManagerServiceClient
-}
-
-// NewProfilingManagerClient creates a new ProfilingManager client.
-func NewProfilingManagerClient(cc grpc.ClientConnInterface) *ProfilingManagerClient {
-	return &ProfilingManagerClient{
-		svc: pb.NewProfilingManagerServiceClient(cc),
-	}
-}
-
-// ClearProfilingTriggers calls the ClearProfilingTriggers RPC.
-func (c *ProfilingManagerClient) ClearProfilingTriggers(ctx context.Context) error {
-	_, err := c.svc.ClearProfilingTriggers(ctx, &pb.ClearProfilingTriggersRequest{})
-	return err
-}
-
-// RemoveProfilingTriggersByType calls the RemoveProfilingTriggersByType RPC.
-func (c *ProfilingManagerClient) RemoveProfilingTriggersByType(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.RemoveProfilingTriggersByType(ctx, &pb.RemoveProfilingTriggersByTypeRequest{
-		Arg0: arg0,
-	})
-	return err
 }
 
 // VibratorManagerClient wraps the gRPC VibratorManagerService client.

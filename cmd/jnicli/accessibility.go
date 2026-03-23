@@ -12,6 +12,161 @@ var accessibilityCmd = &cobra.Command{
 	Short: "accessibility service operations",
 }
 
+var accessibilityCaptioningManagerCmd = &cobra.Command{
+	Use:   "captioning-manager",
+	Short: "CaptioningManagerService operations",
+}
+
+var accessibilityCaptioningManagerAddCaptioningChangeListenerCmd = &cobra.Command{
+	Use:   "add-captioning-change-listener",
+	Short: "AddCaptioningChangeListener RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCaptioningManagerServiceClient(grpcConn)
+		req := &pb.AddCaptioningChangeListenerRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.AddCaptioningChangeListener(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var accessibilityCaptioningManagerGetFontScaleCmd = &cobra.Command{
+	Use:   "get-font-scale",
+	Short: "GetFontScale RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCaptioningManagerServiceClient(grpcConn)
+		req := &pb.GetFontScaleRequest{}
+		resp, err := client.GetFontScale(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var accessibilityCaptioningManagerGetLocaleCmd = &cobra.Command{
+	Use:   "get-locale",
+	Short: "GetLocale RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCaptioningManagerServiceClient(grpcConn)
+		req := &pb.GetLocaleRequest{}
+		resp, err := client.GetLocale(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var accessibilityCaptioningManagerGetUserStyleCmd = &cobra.Command{
+	Use:   "get-user-style",
+	Short: "GetUserStyle RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCaptioningManagerServiceClient(grpcConn)
+		req := &pb.GetUserStyleRequest{}
+		resp, err := client.GetUserStyle(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var accessibilityCaptioningManagerIsCallCaptioningEnabledCmd = &cobra.Command{
+	Use:   "is-call-captioning-enabled",
+	Short: "IsCallCaptioningEnabled RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCaptioningManagerServiceClient(grpcConn)
+		req := &pb.IsCallCaptioningEnabledRequest{}
+		resp, err := client.IsCallCaptioningEnabled(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var accessibilityCaptioningManagerIsEnabledCmd = &cobra.Command{
+	Use:   "is-enabled",
+	Short: "IsEnabled RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCaptioningManagerServiceClient(grpcConn)
+		req := &pb.IsEnabledRequest{}
+		resp, err := client.IsEnabled(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var accessibilityCaptioningManagerIsSystemAudioCaptioningEnabledCmd = &cobra.Command{
+	Use:   "is-system-audio-captioning-enabled",
+	Short: "IsSystemAudioCaptioningEnabled RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCaptioningManagerServiceClient(grpcConn)
+		req := &pb.IsSystemAudioCaptioningEnabledRequest{}
+		resp, err := client.IsSystemAudioCaptioningEnabled(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var accessibilityCaptioningManagerIsSystemAudioCaptioningUiEnabledCmd = &cobra.Command{
+	Use:   "is-system-audio-captioning-ui-enabled",
+	Short: "IsSystemAudioCaptioningUiEnabled RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCaptioningManagerServiceClient(grpcConn)
+		req := &pb.IsSystemAudioCaptioningUiEnabledRequest{}
+		resp, err := client.IsSystemAudioCaptioningUiEnabled(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var accessibilityCaptioningManagerRemoveCaptioningChangeListenerCmd = &cobra.Command{
+	Use:   "remove-captioning-change-listener",
+	Short: "RemoveCaptioningChangeListener RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCaptioningManagerServiceClient(grpcConn)
+		req := &pb.RemoveCaptioningChangeListenerRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.RemoveCaptioningChangeListener(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
 var accessibilityManagerCmd = &cobra.Command{
 	Use:   "manager",
 	Short: "ManagerService operations",
@@ -458,162 +613,19 @@ var accessibilityManagerIsAccessibilityButtonSupportedCmd = &cobra.Command{
 	},
 }
 
-var accessibilityCaptioningManagerCmd = &cobra.Command{
-	Use:   "captioning-manager",
-	Short: "CaptioningManagerService operations",
-}
-
-var accessibilityCaptioningManagerAddCaptioningChangeListenerCmd = &cobra.Command{
-	Use:   "add-captioning-change-listener",
-	Short: "AddCaptioningChangeListener RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewCaptioningManagerServiceClient(grpcConn)
-		req := &pb.AddCaptioningChangeListenerRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.AddCaptioningChangeListener(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var accessibilityCaptioningManagerGetFontScaleCmd = &cobra.Command{
-	Use:   "get-font-scale",
-	Short: "GetFontScale RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewCaptioningManagerServiceClient(grpcConn)
-		req := &pb.GetFontScaleRequest{}
-		resp, err := client.GetFontScale(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var accessibilityCaptioningManagerGetLocaleCmd = &cobra.Command{
-	Use:   "get-locale",
-	Short: "GetLocale RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewCaptioningManagerServiceClient(grpcConn)
-		req := &pb.GetLocaleRequest{}
-		resp, err := client.GetLocale(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var accessibilityCaptioningManagerGetUserStyleCmd = &cobra.Command{
-	Use:   "get-user-style",
-	Short: "GetUserStyle RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewCaptioningManagerServiceClient(grpcConn)
-		req := &pb.GetUserStyleRequest{}
-		resp, err := client.GetUserStyle(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var accessibilityCaptioningManagerIsCallCaptioningEnabledCmd = &cobra.Command{
-	Use:   "is-call-captioning-enabled",
-	Short: "IsCallCaptioningEnabled RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewCaptioningManagerServiceClient(grpcConn)
-		req := &pb.IsCallCaptioningEnabledRequest{}
-		resp, err := client.IsCallCaptioningEnabled(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var accessibilityCaptioningManagerIsEnabledCmd = &cobra.Command{
-	Use:   "is-enabled",
-	Short: "IsEnabled RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewCaptioningManagerServiceClient(grpcConn)
-		req := &pb.IsEnabledRequest{}
-		resp, err := client.IsEnabled(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var accessibilityCaptioningManagerIsSystemAudioCaptioningEnabledCmd = &cobra.Command{
-	Use:   "is-system-audio-captioning-enabled",
-	Short: "IsSystemAudioCaptioningEnabled RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewCaptioningManagerServiceClient(grpcConn)
-		req := &pb.IsSystemAudioCaptioningEnabledRequest{}
-		resp, err := client.IsSystemAudioCaptioningEnabled(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var accessibilityCaptioningManagerIsSystemAudioCaptioningUiEnabledCmd = &cobra.Command{
-	Use:   "is-system-audio-captioning-ui-enabled",
-	Short: "IsSystemAudioCaptioningUiEnabled RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewCaptioningManagerServiceClient(grpcConn)
-		req := &pb.IsSystemAudioCaptioningUiEnabledRequest{}
-		resp, err := client.IsSystemAudioCaptioningUiEnabled(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var accessibilityCaptioningManagerRemoveCaptioningChangeListenerCmd = &cobra.Command{
-	Use:   "remove-captioning-change-listener",
-	Short: "RemoveCaptioningChangeListener RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewCaptioningManagerServiceClient(grpcConn)
-		req := &pb.RemoveCaptioningChangeListenerRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.RemoveCaptioningChangeListener(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
 func init() {
+	accessibilityCaptioningManagerAddCaptioningChangeListenerCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	accessibilityCaptioningManagerCmd.AddCommand(accessibilityCaptioningManagerAddCaptioningChangeListenerCmd)
+	accessibilityCaptioningManagerCmd.AddCommand(accessibilityCaptioningManagerGetFontScaleCmd)
+	accessibilityCaptioningManagerCmd.AddCommand(accessibilityCaptioningManagerGetLocaleCmd)
+	accessibilityCaptioningManagerCmd.AddCommand(accessibilityCaptioningManagerGetUserStyleCmd)
+	accessibilityCaptioningManagerCmd.AddCommand(accessibilityCaptioningManagerIsCallCaptioningEnabledCmd)
+	accessibilityCaptioningManagerCmd.AddCommand(accessibilityCaptioningManagerIsEnabledCmd)
+	accessibilityCaptioningManagerCmd.AddCommand(accessibilityCaptioningManagerIsSystemAudioCaptioningEnabledCmd)
+	accessibilityCaptioningManagerCmd.AddCommand(accessibilityCaptioningManagerIsSystemAudioCaptioningUiEnabledCmd)
+	accessibilityCaptioningManagerRemoveCaptioningChangeListenerCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	accessibilityCaptioningManagerCmd.AddCommand(accessibilityCaptioningManagerRemoveCaptioningChangeListenerCmd)
+	accessibilityCmd.AddCommand(accessibilityCaptioningManagerCmd)
 	accessibilityManagerAddAccessibilityRequestPreparerCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	accessibilityManagerCmd.AddCommand(accessibilityManagerAddAccessibilityRequestPreparerCmd)
 	accessibilityManagerAddAccessibilityServicesStateChangeListener1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
@@ -658,17 +670,5 @@ func init() {
 	accessibilityManagerCmd.AddCommand(accessibilityManagerSendAccessibilityEventCmd)
 	accessibilityManagerCmd.AddCommand(accessibilityManagerIsAccessibilityButtonSupportedCmd)
 	accessibilityCmd.AddCommand(accessibilityManagerCmd)
-	accessibilityCaptioningManagerAddCaptioningChangeListenerCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	accessibilityCaptioningManagerCmd.AddCommand(accessibilityCaptioningManagerAddCaptioningChangeListenerCmd)
-	accessibilityCaptioningManagerCmd.AddCommand(accessibilityCaptioningManagerGetFontScaleCmd)
-	accessibilityCaptioningManagerCmd.AddCommand(accessibilityCaptioningManagerGetLocaleCmd)
-	accessibilityCaptioningManagerCmd.AddCommand(accessibilityCaptioningManagerGetUserStyleCmd)
-	accessibilityCaptioningManagerCmd.AddCommand(accessibilityCaptioningManagerIsCallCaptioningEnabledCmd)
-	accessibilityCaptioningManagerCmd.AddCommand(accessibilityCaptioningManagerIsEnabledCmd)
-	accessibilityCaptioningManagerCmd.AddCommand(accessibilityCaptioningManagerIsSystemAudioCaptioningEnabledCmd)
-	accessibilityCaptioningManagerCmd.AddCommand(accessibilityCaptioningManagerIsSystemAudioCaptioningUiEnabledCmd)
-	accessibilityCaptioningManagerRemoveCaptioningChangeListenerCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	accessibilityCaptioningManagerCmd.AddCommand(accessibilityCaptioningManagerRemoveCaptioningChangeListenerCmd)
-	accessibilityCmd.AddCommand(accessibilityCaptioningManagerCmd)
 	rootCmd.AddCommand(accessibilityCmd)
 }

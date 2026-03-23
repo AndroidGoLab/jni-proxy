@@ -2599,29 +2599,26 @@ func (x *SupportsMultipleUsersResponse) GetResult() bool {
 	return false
 }
 
-type AddDataRequest struct {
+type GetCpuUsagesRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
-	Arg2          int32                  `protobuf:"varint,3,opt,name=arg2,proto3" json:"arg2,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *AddDataRequest) Reset() {
-	*x = AddDataRequest{}
+func (x *GetCpuUsagesRequest) Reset() {
+	*x = GetCpuUsagesRequest{}
 	mi := &file_proto_os_os_proto_msgTypes[60]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *AddDataRequest) String() string {
+func (x *GetCpuUsagesRequest) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*AddDataRequest) ProtoMessage() {}
+func (*GetCpuUsagesRequest) ProtoMessage() {}
 
-func (x *AddDataRequest) ProtoReflect() protoreflect.Message {
+func (x *GetCpuUsagesRequest) ProtoReflect() protoreflect.Message {
 	mi := &file_proto_os_os_proto_msgTypes[60]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -2633,326 +2630,33 @@ func (x *AddDataRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use AddDataRequest.ProtoReflect.Descriptor instead.
-func (*AddDataRequest) Descriptor() ([]byte, []int) {
+// Deprecated: Use GetCpuUsagesRequest.ProtoReflect.Descriptor instead.
+func (*GetCpuUsagesRequest) Descriptor() ([]byte, []int) {
 	return file_proto_os_os_proto_rawDescGZIP(), []int{60}
 }
 
-func (x *AddDataRequest) GetArg0() string {
-	if x != nil {
-		return x.Arg0
-	}
-	return ""
-}
-
-func (x *AddDataRequest) GetArg1() int64 {
-	if x != nil {
-		return x.Arg1
-	}
-	return 0
-}
-
-func (x *AddDataRequest) GetArg2() int32 {
-	if x != nil {
-		return x.Arg2
-	}
-	return 0
-}
-
-type AddDataResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *AddDataResponse) Reset() {
-	*x = AddDataResponse{}
-	mi := &file_proto_os_os_proto_msgTypes[61]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *AddDataResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*AddDataResponse) ProtoMessage() {}
-
-func (x *AddDataResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_os_os_proto_msgTypes[61]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use AddDataResponse.ProtoReflect.Descriptor instead.
-func (*AddDataResponse) Descriptor() ([]byte, []int) {
-	return file_proto_os_os_proto_rawDescGZIP(), []int{61}
-}
-
-type AddFileRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
-	Arg2          int32                  `protobuf:"varint,3,opt,name=arg2,proto3" json:"arg2,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *AddFileRequest) Reset() {
-	*x = AddFileRequest{}
-	mi := &file_proto_os_os_proto_msgTypes[62]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *AddFileRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*AddFileRequest) ProtoMessage() {}
-
-func (x *AddFileRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_os_os_proto_msgTypes[62]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use AddFileRequest.ProtoReflect.Descriptor instead.
-func (*AddFileRequest) Descriptor() ([]byte, []int) {
-	return file_proto_os_os_proto_rawDescGZIP(), []int{62}
-}
-
-func (x *AddFileRequest) GetArg0() string {
-	if x != nil {
-		return x.Arg0
-	}
-	return ""
-}
-
-func (x *AddFileRequest) GetArg1() int64 {
-	if x != nil {
-		return x.Arg1
-	}
-	return 0
-}
-
-func (x *AddFileRequest) GetArg2() int32 {
-	if x != nil {
-		return x.Arg2
-	}
-	return 0
-}
-
-type AddFileResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *AddFileResponse) Reset() {
-	*x = AddFileResponse{}
-	mi := &file_proto_os_os_proto_msgTypes[63]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *AddFileResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*AddFileResponse) ProtoMessage() {}
-
-func (x *AddFileResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_os_os_proto_msgTypes[63]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use AddFileResponse.ProtoReflect.Descriptor instead.
-func (*AddFileResponse) Descriptor() ([]byte, []int) {
-	return file_proto_os_os_proto_rawDescGZIP(), []int{63}
-}
-
-type AddTextRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	Arg1          string                 `protobuf:"bytes,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *AddTextRequest) Reset() {
-	*x = AddTextRequest{}
-	mi := &file_proto_os_os_proto_msgTypes[64]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *AddTextRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*AddTextRequest) ProtoMessage() {}
-
-func (x *AddTextRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_os_os_proto_msgTypes[64]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use AddTextRequest.ProtoReflect.Descriptor instead.
-func (*AddTextRequest) Descriptor() ([]byte, []int) {
-	return file_proto_os_os_proto_rawDescGZIP(), []int{64}
-}
-
-func (x *AddTextRequest) GetArg0() string {
-	if x != nil {
-		return x.Arg0
-	}
-	return ""
-}
-
-func (x *AddTextRequest) GetArg1() string {
-	if x != nil {
-		return x.Arg1
-	}
-	return ""
-}
-
-type AddTextResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *AddTextResponse) Reset() {
-	*x = AddTextResponse{}
-	mi := &file_proto_os_os_proto_msgTypes[65]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *AddTextResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*AddTextResponse) ProtoMessage() {}
-
-func (x *AddTextResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_os_os_proto_msgTypes[65]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use AddTextResponse.ProtoReflect.Descriptor instead.
-func (*AddTextResponse) Descriptor() ([]byte, []int) {
-	return file_proto_os_os_proto_rawDescGZIP(), []int{65}
-}
-
-type GetNextEntryRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetNextEntryRequest) Reset() {
-	*x = GetNextEntryRequest{}
-	mi := &file_proto_os_os_proto_msgTypes[66]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetNextEntryRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetNextEntryRequest) ProtoMessage() {}
-
-func (x *GetNextEntryRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_os_os_proto_msgTypes[66]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetNextEntryRequest.ProtoReflect.Descriptor instead.
-func (*GetNextEntryRequest) Descriptor() ([]byte, []int) {
-	return file_proto_os_os_proto_rawDescGZIP(), []int{66}
-}
-
-func (x *GetNextEntryRequest) GetArg0() string {
-	if x != nil {
-		return x.Arg0
-	}
-	return ""
-}
-
-func (x *GetNextEntryRequest) GetArg1() int64 {
-	if x != nil {
-		return x.Arg1
-	}
-	return 0
-}
-
-type GetNextEntryResponse struct {
+type GetCpuUsagesResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *GetNextEntryResponse) Reset() {
-	*x = GetNextEntryResponse{}
-	mi := &file_proto_os_os_proto_msgTypes[67]
+func (x *GetCpuUsagesResponse) Reset() {
+	*x = GetCpuUsagesResponse{}
+	mi := &file_proto_os_os_proto_msgTypes[61]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *GetNextEntryResponse) String() string {
+func (x *GetCpuUsagesResponse) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*GetNextEntryResponse) ProtoMessage() {}
+func (*GetCpuUsagesResponse) ProtoMessage() {}
 
-func (x *GetNextEntryResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_os_os_proto_msgTypes[67]
+func (x *GetCpuUsagesResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_os_os_proto_msgTypes[61]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2963,40 +2667,41 @@ func (x *GetNextEntryResponse) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use GetNextEntryResponse.ProtoReflect.Descriptor instead.
-func (*GetNextEntryResponse) Descriptor() ([]byte, []int) {
-	return file_proto_os_os_proto_rawDescGZIP(), []int{67}
+// Deprecated: Use GetCpuUsagesResponse.ProtoReflect.Descriptor instead.
+func (*GetCpuUsagesResponse) Descriptor() ([]byte, []int) {
+	return file_proto_os_os_proto_rawDescGZIP(), []int{61}
 }
 
-func (x *GetNextEntryResponse) GetResult() int64 {
+func (x *GetCpuUsagesResponse) GetResult() int64 {
 	if x != nil {
 		return x.Result
 	}
 	return 0
 }
 
-type IsTagEnabledRequest struct {
+type GetDeviceTemperaturesRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int32                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *IsTagEnabledRequest) Reset() {
-	*x = IsTagEnabledRequest{}
-	mi := &file_proto_os_os_proto_msgTypes[68]
+func (x *GetDeviceTemperaturesRequest) Reset() {
+	*x = GetDeviceTemperaturesRequest{}
+	mi := &file_proto_os_os_proto_msgTypes[62]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *IsTagEnabledRequest) String() string {
+func (x *GetDeviceTemperaturesRequest) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*IsTagEnabledRequest) ProtoMessage() {}
+func (*GetDeviceTemperaturesRequest) ProtoMessage() {}
 
-func (x *IsTagEnabledRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_os_os_proto_msgTypes[68]
+func (x *GetDeviceTemperaturesRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_os_os_proto_msgTypes[62]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3007,39 +2712,285 @@ func (x *IsTagEnabledRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use IsTagEnabledRequest.ProtoReflect.Descriptor instead.
-func (*IsTagEnabledRequest) Descriptor() ([]byte, []int) {
-	return file_proto_os_os_proto_rawDescGZIP(), []int{68}
+// Deprecated: Use GetDeviceTemperaturesRequest.ProtoReflect.Descriptor instead.
+func (*GetDeviceTemperaturesRequest) Descriptor() ([]byte, []int) {
+	return file_proto_os_os_proto_rawDescGZIP(), []int{62}
 }
 
-func (x *IsTagEnabledRequest) GetArg0() string {
+func (x *GetDeviceTemperaturesRequest) GetArg0() int32 {
 	if x != nil {
 		return x.Arg0
 	}
-	return ""
+	return 0
 }
 
-type IsTagEnabledResponse struct {
+func (x *GetDeviceTemperaturesRequest) GetArg1() int32 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type GetDeviceTemperaturesResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *IsTagEnabledResponse) Reset() {
-	*x = IsTagEnabledResponse{}
+func (x *GetDeviceTemperaturesResponse) Reset() {
+	*x = GetDeviceTemperaturesResponse{}
+	mi := &file_proto_os_os_proto_msgTypes[63]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetDeviceTemperaturesResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetDeviceTemperaturesResponse) ProtoMessage() {}
+
+func (x *GetDeviceTemperaturesResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_os_os_proto_msgTypes[63]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetDeviceTemperaturesResponse.ProtoReflect.Descriptor instead.
+func (*GetDeviceTemperaturesResponse) Descriptor() ([]byte, []int) {
+	return file_proto_os_os_proto_rawDescGZIP(), []int{63}
+}
+
+func (x *GetDeviceTemperaturesResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetFanSpeedsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetFanSpeedsRequest) Reset() {
+	*x = GetFanSpeedsRequest{}
+	mi := &file_proto_os_os_proto_msgTypes[64]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetFanSpeedsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetFanSpeedsRequest) ProtoMessage() {}
+
+func (x *GetFanSpeedsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_os_os_proto_msgTypes[64]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetFanSpeedsRequest.ProtoReflect.Descriptor instead.
+func (*GetFanSpeedsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_os_os_proto_rawDescGZIP(), []int{64}
+}
+
+type GetFanSpeedsResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetFanSpeedsResponse) Reset() {
+	*x = GetFanSpeedsResponse{}
+	mi := &file_proto_os_os_proto_msgTypes[65]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetFanSpeedsResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetFanSpeedsResponse) ProtoMessage() {}
+
+func (x *GetFanSpeedsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_os_os_proto_msgTypes[65]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetFanSpeedsResponse.ProtoReflect.Descriptor instead.
+func (*GetFanSpeedsResponse) Descriptor() ([]byte, []int) {
+	return file_proto_os_os_proto_rawDescGZIP(), []int{65}
+}
+
+func (x *GetFanSpeedsResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type ClearProfilingTriggersRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ClearProfilingTriggersRequest) Reset() {
+	*x = ClearProfilingTriggersRequest{}
+	mi := &file_proto_os_os_proto_msgTypes[66]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ClearProfilingTriggersRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ClearProfilingTriggersRequest) ProtoMessage() {}
+
+func (x *ClearProfilingTriggersRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_os_os_proto_msgTypes[66]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ClearProfilingTriggersRequest.ProtoReflect.Descriptor instead.
+func (*ClearProfilingTriggersRequest) Descriptor() ([]byte, []int) {
+	return file_proto_os_os_proto_rawDescGZIP(), []int{66}
+}
+
+type ClearProfilingTriggersResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ClearProfilingTriggersResponse) Reset() {
+	*x = ClearProfilingTriggersResponse{}
+	mi := &file_proto_os_os_proto_msgTypes[67]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ClearProfilingTriggersResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ClearProfilingTriggersResponse) ProtoMessage() {}
+
+func (x *ClearProfilingTriggersResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_os_os_proto_msgTypes[67]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ClearProfilingTriggersResponse.ProtoReflect.Descriptor instead.
+func (*ClearProfilingTriggersResponse) Descriptor() ([]byte, []int) {
+	return file_proto_os_os_proto_rawDescGZIP(), []int{67}
+}
+
+type RemoveProfilingTriggersByTypeRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *RemoveProfilingTriggersByTypeRequest) Reset() {
+	*x = RemoveProfilingTriggersByTypeRequest{}
+	mi := &file_proto_os_os_proto_msgTypes[68]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *RemoveProfilingTriggersByTypeRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*RemoveProfilingTriggersByTypeRequest) ProtoMessage() {}
+
+func (x *RemoveProfilingTriggersByTypeRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_os_os_proto_msgTypes[68]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use RemoveProfilingTriggersByTypeRequest.ProtoReflect.Descriptor instead.
+func (*RemoveProfilingTriggersByTypeRequest) Descriptor() ([]byte, []int) {
+	return file_proto_os_os_proto_rawDescGZIP(), []int{68}
+}
+
+func (x *RemoveProfilingTriggersByTypeRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type RemoveProfilingTriggersByTypeResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *RemoveProfilingTriggersByTypeResponse) Reset() {
+	*x = RemoveProfilingTriggersByTypeResponse{}
 	mi := &file_proto_os_os_proto_msgTypes[69]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *IsTagEnabledResponse) String() string {
+func (x *RemoveProfilingTriggersByTypeResponse) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*IsTagEnabledResponse) ProtoMessage() {}
+func (*RemoveProfilingTriggersByTypeResponse) ProtoMessage() {}
 
-func (x *IsTagEnabledResponse) ProtoReflect() protoreflect.Message {
+func (x *RemoveProfilingTriggersByTypeResponse) ProtoReflect() protoreflect.Message {
 	mi := &file_proto_os_os_proto_msgTypes[69]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -3051,16 +3002,9 @@ func (x *IsTagEnabledResponse) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use IsTagEnabledResponse.ProtoReflect.Descriptor instead.
-func (*IsTagEnabledResponse) Descriptor() ([]byte, []int) {
+// Deprecated: Use RemoveProfilingTriggersByTypeResponse.ProtoReflect.Descriptor instead.
+func (*RemoveProfilingTriggersByTypeResponse) Descriptor() ([]byte, []int) {
 	return file_proto_os_os_proto_rawDescGZIP(), []int{69}
-}
-
-func (x *IsTagEnabledResponse) GetResult() bool {
-	if x != nil {
-		return x.Result
-	}
-	return false
 }
 
 type GetGlobalSecurityStateRequest struct {
@@ -3143,26 +3087,28 @@ func (x *GetGlobalSecurityStateResponse) GetResult() int64 {
 	return 0
 }
 
-type GetCpuUsagesRequest struct {
+type CreateHintSessionRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *GetCpuUsagesRequest) Reset() {
-	*x = GetCpuUsagesRequest{}
+func (x *CreateHintSessionRequest) Reset() {
+	*x = CreateHintSessionRequest{}
 	mi := &file_proto_os_os_proto_msgTypes[72]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *GetCpuUsagesRequest) String() string {
+func (x *CreateHintSessionRequest) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*GetCpuUsagesRequest) ProtoMessage() {}
+func (*CreateHintSessionRequest) ProtoMessage() {}
 
-func (x *GetCpuUsagesRequest) ProtoReflect() protoreflect.Message {
+func (x *CreateHintSessionRequest) ProtoReflect() protoreflect.Message {
 	mi := &file_proto_os_os_proto_msgTypes[72]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -3174,129 +3120,47 @@ func (x *GetCpuUsagesRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use GetCpuUsagesRequest.ProtoReflect.Descriptor instead.
-func (*GetCpuUsagesRequest) Descriptor() ([]byte, []int) {
+// Deprecated: Use CreateHintSessionRequest.ProtoReflect.Descriptor instead.
+func (*CreateHintSessionRequest) Descriptor() ([]byte, []int) {
 	return file_proto_os_os_proto_rawDescGZIP(), []int{72}
 }
 
-type GetCpuUsagesResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetCpuUsagesResponse) Reset() {
-	*x = GetCpuUsagesResponse{}
-	mi := &file_proto_os_os_proto_msgTypes[73]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetCpuUsagesResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetCpuUsagesResponse) ProtoMessage() {}
-
-func (x *GetCpuUsagesResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_os_os_proto_msgTypes[73]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetCpuUsagesResponse.ProtoReflect.Descriptor instead.
-func (*GetCpuUsagesResponse) Descriptor() ([]byte, []int) {
-	return file_proto_os_os_proto_rawDescGZIP(), []int{73}
-}
-
-func (x *GetCpuUsagesResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type GetDeviceTemperaturesRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	Arg1          int32                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetDeviceTemperaturesRequest) Reset() {
-	*x = GetDeviceTemperaturesRequest{}
-	mi := &file_proto_os_os_proto_msgTypes[74]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetDeviceTemperaturesRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetDeviceTemperaturesRequest) ProtoMessage() {}
-
-func (x *GetDeviceTemperaturesRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_os_os_proto_msgTypes[74]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetDeviceTemperaturesRequest.ProtoReflect.Descriptor instead.
-func (*GetDeviceTemperaturesRequest) Descriptor() ([]byte, []int) {
-	return file_proto_os_os_proto_rawDescGZIP(), []int{74}
-}
-
-func (x *GetDeviceTemperaturesRequest) GetArg0() int32 {
+func (x *CreateHintSessionRequest) GetArg0() int64 {
 	if x != nil {
 		return x.Arg0
 	}
 	return 0
 }
 
-func (x *GetDeviceTemperaturesRequest) GetArg1() int32 {
+func (x *CreateHintSessionRequest) GetArg1() int64 {
 	if x != nil {
 		return x.Arg1
 	}
 	return 0
 }
 
-type GetDeviceTemperaturesResponse struct {
+type CreateHintSessionResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *GetDeviceTemperaturesResponse) Reset() {
-	*x = GetDeviceTemperaturesResponse{}
-	mi := &file_proto_os_os_proto_msgTypes[75]
+func (x *CreateHintSessionResponse) Reset() {
+	*x = CreateHintSessionResponse{}
+	mi := &file_proto_os_os_proto_msgTypes[73]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *GetDeviceTemperaturesResponse) String() string {
+func (x *CreateHintSessionResponse) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*GetDeviceTemperaturesResponse) ProtoMessage() {}
+func (*CreateHintSessionResponse) ProtoMessage() {}
 
-func (x *GetDeviceTemperaturesResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_os_os_proto_msgTypes[75]
+func (x *CreateHintSessionResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_os_os_proto_msgTypes[73]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3307,39 +3171,39 @@ func (x *GetDeviceTemperaturesResponse) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use GetDeviceTemperaturesResponse.ProtoReflect.Descriptor instead.
-func (*GetDeviceTemperaturesResponse) Descriptor() ([]byte, []int) {
-	return file_proto_os_os_proto_rawDescGZIP(), []int{75}
+// Deprecated: Use CreateHintSessionResponse.ProtoReflect.Descriptor instead.
+func (*CreateHintSessionResponse) Descriptor() ([]byte, []int) {
+	return file_proto_os_os_proto_rawDescGZIP(), []int{73}
 }
 
-func (x *GetDeviceTemperaturesResponse) GetResult() int64 {
+func (x *CreateHintSessionResponse) GetResult() int64 {
 	if x != nil {
 		return x.Result
 	}
 	return 0
 }
 
-type GetFanSpeedsRequest struct {
+type GetPreferredUpdateRateNanosRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *GetFanSpeedsRequest) Reset() {
-	*x = GetFanSpeedsRequest{}
-	mi := &file_proto_os_os_proto_msgTypes[76]
+func (x *GetPreferredUpdateRateNanosRequest) Reset() {
+	*x = GetPreferredUpdateRateNanosRequest{}
+	mi := &file_proto_os_os_proto_msgTypes[74]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *GetFanSpeedsRequest) String() string {
+func (x *GetPreferredUpdateRateNanosRequest) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*GetFanSpeedsRequest) ProtoMessage() {}
+func (*GetPreferredUpdateRateNanosRequest) ProtoMessage() {}
 
-func (x *GetFanSpeedsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_os_os_proto_msgTypes[76]
+func (x *GetPreferredUpdateRateNanosRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_os_os_proto_msgTypes[74]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3350,33 +3214,33 @@ func (x *GetFanSpeedsRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use GetFanSpeedsRequest.ProtoReflect.Descriptor instead.
-func (*GetFanSpeedsRequest) Descriptor() ([]byte, []int) {
-	return file_proto_os_os_proto_rawDescGZIP(), []int{76}
+// Deprecated: Use GetPreferredUpdateRateNanosRequest.ProtoReflect.Descriptor instead.
+func (*GetPreferredUpdateRateNanosRequest) Descriptor() ([]byte, []int) {
+	return file_proto_os_os_proto_rawDescGZIP(), []int{74}
 }
 
-type GetFanSpeedsResponse struct {
+type GetPreferredUpdateRateNanosResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *GetFanSpeedsResponse) Reset() {
-	*x = GetFanSpeedsResponse{}
-	mi := &file_proto_os_os_proto_msgTypes[77]
+func (x *GetPreferredUpdateRateNanosResponse) Reset() {
+	*x = GetPreferredUpdateRateNanosResponse{}
+	mi := &file_proto_os_os_proto_msgTypes[75]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *GetFanSpeedsResponse) String() string {
+func (x *GetPreferredUpdateRateNanosResponse) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*GetFanSpeedsResponse) ProtoMessage() {}
+func (*GetPreferredUpdateRateNanosResponse) ProtoMessage() {}
 
-func (x *GetFanSpeedsResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_os_os_proto_msgTypes[77]
+func (x *GetPreferredUpdateRateNanosResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_os_os_proto_msgTypes[75]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3387,12 +3251,12 @@ func (x *GetFanSpeedsResponse) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use GetFanSpeedsResponse.ProtoReflect.Descriptor instead.
-func (*GetFanSpeedsResponse) Descriptor() ([]byte, []int) {
-	return file_proto_os_os_proto_rawDescGZIP(), []int{77}
+// Deprecated: Use GetPreferredUpdateRateNanosResponse.ProtoReflect.Descriptor instead.
+func (*GetPreferredUpdateRateNanosResponse) Descriptor() ([]byte, []int) {
+	return file_proto_os_os_proto_rawDescGZIP(), []int{75}
 }
 
-func (x *GetFanSpeedsResponse) GetResult() int64 {
+func (x *GetPreferredUpdateRateNanosResponse) GetResult() int64 {
 	if x != nil {
 		return x.Result
 	}
@@ -3407,7 +3271,7 @@ type CancelBugreportRequest struct {
 
 func (x *CancelBugreportRequest) Reset() {
 	*x = CancelBugreportRequest{}
-	mi := &file_proto_os_os_proto_msgTypes[78]
+	mi := &file_proto_os_os_proto_msgTypes[76]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3419,7 +3283,7 @@ func (x *CancelBugreportRequest) String() string {
 func (*CancelBugreportRequest) ProtoMessage() {}
 
 func (x *CancelBugreportRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_os_os_proto_msgTypes[78]
+	mi := &file_proto_os_os_proto_msgTypes[76]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3432,7 +3296,7 @@ func (x *CancelBugreportRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CancelBugreportRequest.ProtoReflect.Descriptor instead.
 func (*CancelBugreportRequest) Descriptor() ([]byte, []int) {
-	return file_proto_os_os_proto_rawDescGZIP(), []int{78}
+	return file_proto_os_os_proto_rawDescGZIP(), []int{76}
 }
 
 type CancelBugreportResponse struct {
@@ -3443,7 +3307,7 @@ type CancelBugreportResponse struct {
 
 func (x *CancelBugreportResponse) Reset() {
 	*x = CancelBugreportResponse{}
-	mi := &file_proto_os_os_proto_msgTypes[79]
+	mi := &file_proto_os_os_proto_msgTypes[77]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3455,7 +3319,7 @@ func (x *CancelBugreportResponse) String() string {
 func (*CancelBugreportResponse) ProtoMessage() {}
 
 func (x *CancelBugreportResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_os_os_proto_msgTypes[79]
+	mi := &file_proto_os_os_proto_msgTypes[77]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3468,7 +3332,7 @@ func (x *CancelBugreportResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CancelBugreportResponse.ProtoReflect.Descriptor instead.
 func (*CancelBugreportResponse) Descriptor() ([]byte, []int) {
-	return file_proto_os_os_proto_rawDescGZIP(), []int{79}
+	return file_proto_os_os_proto_rawDescGZIP(), []int{77}
 }
 
 type StartConnectivityBugreportRequest struct {
@@ -3482,7 +3346,7 @@ type StartConnectivityBugreportRequest struct {
 
 func (x *StartConnectivityBugreportRequest) Reset() {
 	*x = StartConnectivityBugreportRequest{}
-	mi := &file_proto_os_os_proto_msgTypes[80]
+	mi := &file_proto_os_os_proto_msgTypes[78]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3494,7 +3358,7 @@ func (x *StartConnectivityBugreportRequest) String() string {
 func (*StartConnectivityBugreportRequest) ProtoMessage() {}
 
 func (x *StartConnectivityBugreportRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_os_os_proto_msgTypes[80]
+	mi := &file_proto_os_os_proto_msgTypes[78]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3507,7 +3371,7 @@ func (x *StartConnectivityBugreportRequest) ProtoReflect() protoreflect.Message 
 
 // Deprecated: Use StartConnectivityBugreportRequest.ProtoReflect.Descriptor instead.
 func (*StartConnectivityBugreportRequest) Descriptor() ([]byte, []int) {
-	return file_proto_os_os_proto_rawDescGZIP(), []int{80}
+	return file_proto_os_os_proto_rawDescGZIP(), []int{78}
 }
 
 func (x *StartConnectivityBugreportRequest) GetArg0() int64 {
@@ -3539,7 +3403,7 @@ type StartConnectivityBugreportResponse struct {
 
 func (x *StartConnectivityBugreportResponse) Reset() {
 	*x = StartConnectivityBugreportResponse{}
-	mi := &file_proto_os_os_proto_msgTypes[81]
+	mi := &file_proto_os_os_proto_msgTypes[79]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3551,7 +3415,7 @@ func (x *StartConnectivityBugreportResponse) String() string {
 func (*StartConnectivityBugreportResponse) ProtoMessage() {}
 
 func (x *StartConnectivityBugreportResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_os_os_proto_msgTypes[81]
+	mi := &file_proto_os_os_proto_msgTypes[79]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3564,32 +3428,33 @@ func (x *StartConnectivityBugreportResponse) ProtoReflect() protoreflect.Message
 
 // Deprecated: Use StartConnectivityBugreportResponse.ProtoReflect.Descriptor instead.
 func (*StartConnectivityBugreportResponse) Descriptor() ([]byte, []int) {
-	return file_proto_os_os_proto_rawDescGZIP(), []int{81}
+	return file_proto_os_os_proto_rawDescGZIP(), []int{79}
 }
 
-type CreateHintSessionRequest struct {
+type AddDataRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
 	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          int32                  `protobuf:"varint,3,opt,name=arg2,proto3" json:"arg2,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *CreateHintSessionRequest) Reset() {
-	*x = CreateHintSessionRequest{}
-	mi := &file_proto_os_os_proto_msgTypes[82]
+func (x *AddDataRequest) Reset() {
+	*x = AddDataRequest{}
+	mi := &file_proto_os_os_proto_msgTypes[80]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *CreateHintSessionRequest) String() string {
+func (x *AddDataRequest) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*CreateHintSessionRequest) ProtoMessage() {}
+func (*AddDataRequest) ProtoMessage() {}
 
-func (x *CreateHintSessionRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_os_os_proto_msgTypes[82]
+func (x *AddDataRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_os_os_proto_msgTypes[80]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3600,90 +3465,53 @@ func (x *CreateHintSessionRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use CreateHintSessionRequest.ProtoReflect.Descriptor instead.
-func (*CreateHintSessionRequest) Descriptor() ([]byte, []int) {
-	return file_proto_os_os_proto_rawDescGZIP(), []int{82}
+// Deprecated: Use AddDataRequest.ProtoReflect.Descriptor instead.
+func (*AddDataRequest) Descriptor() ([]byte, []int) {
+	return file_proto_os_os_proto_rawDescGZIP(), []int{80}
 }
 
-func (x *CreateHintSessionRequest) GetArg0() int64 {
+func (x *AddDataRequest) GetArg0() string {
 	if x != nil {
 		return x.Arg0
 	}
-	return 0
+	return ""
 }
 
-func (x *CreateHintSessionRequest) GetArg1() int64 {
+func (x *AddDataRequest) GetArg1() int64 {
 	if x != nil {
 		return x.Arg1
 	}
 	return 0
 }
 
-type CreateHintSessionResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *CreateHintSessionResponse) Reset() {
-	*x = CreateHintSessionResponse{}
-	mi := &file_proto_os_os_proto_msgTypes[83]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *CreateHintSessionResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*CreateHintSessionResponse) ProtoMessage() {}
-
-func (x *CreateHintSessionResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_os_os_proto_msgTypes[83]
+func (x *AddDataRequest) GetArg2() int32 {
 	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use CreateHintSessionResponse.ProtoReflect.Descriptor instead.
-func (*CreateHintSessionResponse) Descriptor() ([]byte, []int) {
-	return file_proto_os_os_proto_rawDescGZIP(), []int{83}
-}
-
-func (x *CreateHintSessionResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
+		return x.Arg2
 	}
 	return 0
 }
 
-type GetPreferredUpdateRateNanosRequest struct {
+type AddDataResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *GetPreferredUpdateRateNanosRequest) Reset() {
-	*x = GetPreferredUpdateRateNanosRequest{}
-	mi := &file_proto_os_os_proto_msgTypes[84]
+func (x *AddDataResponse) Reset() {
+	*x = AddDataResponse{}
+	mi := &file_proto_os_os_proto_msgTypes[81]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *GetPreferredUpdateRateNanosRequest) String() string {
+func (x *AddDataResponse) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*GetPreferredUpdateRateNanosRequest) ProtoMessage() {}
+func (*AddDataResponse) ProtoMessage() {}
 
-func (x *GetPreferredUpdateRateNanosRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_os_os_proto_msgTypes[84]
+func (x *AddDataResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_os_os_proto_msgTypes[81]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3694,33 +3522,35 @@ func (x *GetPreferredUpdateRateNanosRequest) ProtoReflect() protoreflect.Message
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use GetPreferredUpdateRateNanosRequest.ProtoReflect.Descriptor instead.
-func (*GetPreferredUpdateRateNanosRequest) Descriptor() ([]byte, []int) {
-	return file_proto_os_os_proto_rawDescGZIP(), []int{84}
+// Deprecated: Use AddDataResponse.ProtoReflect.Descriptor instead.
+func (*AddDataResponse) Descriptor() ([]byte, []int) {
+	return file_proto_os_os_proto_rawDescGZIP(), []int{81}
 }
 
-type GetPreferredUpdateRateNanosResponse struct {
+type AddFileRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          int32                  `protobuf:"varint,3,opt,name=arg2,proto3" json:"arg2,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *GetPreferredUpdateRateNanosResponse) Reset() {
-	*x = GetPreferredUpdateRateNanosResponse{}
-	mi := &file_proto_os_os_proto_msgTypes[85]
+func (x *AddFileRequest) Reset() {
+	*x = AddFileRequest{}
+	mi := &file_proto_os_os_proto_msgTypes[82]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *GetPreferredUpdateRateNanosResponse) String() string {
+func (x *AddFileRequest) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*GetPreferredUpdateRateNanosResponse) ProtoMessage() {}
+func (*AddFileRequest) ProtoMessage() {}
 
-func (x *GetPreferredUpdateRateNanosResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_os_os_proto_msgTypes[85]
+func (x *AddFileRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_os_os_proto_msgTypes[82]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3731,154 +3561,317 @@ func (x *GetPreferredUpdateRateNanosResponse) ProtoReflect() protoreflect.Messag
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use GetPreferredUpdateRateNanosResponse.ProtoReflect.Descriptor instead.
-func (*GetPreferredUpdateRateNanosResponse) Descriptor() ([]byte, []int) {
-	return file_proto_os_os_proto_rawDescGZIP(), []int{85}
+// Deprecated: Use AddFileRequest.ProtoReflect.Descriptor instead.
+func (*AddFileRequest) Descriptor() ([]byte, []int) {
+	return file_proto_os_os_proto_rawDescGZIP(), []int{82}
 }
 
-func (x *GetPreferredUpdateRateNanosResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type ClearProfilingTriggersRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *ClearProfilingTriggersRequest) Reset() {
-	*x = ClearProfilingTriggersRequest{}
-	mi := &file_proto_os_os_proto_msgTypes[86]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *ClearProfilingTriggersRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*ClearProfilingTriggersRequest) ProtoMessage() {}
-
-func (x *ClearProfilingTriggersRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_os_os_proto_msgTypes[86]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use ClearProfilingTriggersRequest.ProtoReflect.Descriptor instead.
-func (*ClearProfilingTriggersRequest) Descriptor() ([]byte, []int) {
-	return file_proto_os_os_proto_rawDescGZIP(), []int{86}
-}
-
-type ClearProfilingTriggersResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *ClearProfilingTriggersResponse) Reset() {
-	*x = ClearProfilingTriggersResponse{}
-	mi := &file_proto_os_os_proto_msgTypes[87]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *ClearProfilingTriggersResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*ClearProfilingTriggersResponse) ProtoMessage() {}
-
-func (x *ClearProfilingTriggersResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_os_os_proto_msgTypes[87]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use ClearProfilingTriggersResponse.ProtoReflect.Descriptor instead.
-func (*ClearProfilingTriggersResponse) Descriptor() ([]byte, []int) {
-	return file_proto_os_os_proto_rawDescGZIP(), []int{87}
-}
-
-type RemoveProfilingTriggersByTypeRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *RemoveProfilingTriggersByTypeRequest) Reset() {
-	*x = RemoveProfilingTriggersByTypeRequest{}
-	mi := &file_proto_os_os_proto_msgTypes[88]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *RemoveProfilingTriggersByTypeRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*RemoveProfilingTriggersByTypeRequest) ProtoMessage() {}
-
-func (x *RemoveProfilingTriggersByTypeRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_os_os_proto_msgTypes[88]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use RemoveProfilingTriggersByTypeRequest.ProtoReflect.Descriptor instead.
-func (*RemoveProfilingTriggersByTypeRequest) Descriptor() ([]byte, []int) {
-	return file_proto_os_os_proto_rawDescGZIP(), []int{88}
-}
-
-func (x *RemoveProfilingTriggersByTypeRequest) GetArg0() int64 {
+func (x *AddFileRequest) GetArg0() string {
 	if x != nil {
 		return x.Arg0
 	}
+	return ""
+}
+
+func (x *AddFileRequest) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
 	return 0
 }
 
-type RemoveProfilingTriggersByTypeResponse struct {
+func (x *AddFileRequest) GetArg2() int32 {
+	if x != nil {
+		return x.Arg2
+	}
+	return 0
+}
+
+type AddFileResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *RemoveProfilingTriggersByTypeResponse) Reset() {
-	*x = RemoveProfilingTriggersByTypeResponse{}
+func (x *AddFileResponse) Reset() {
+	*x = AddFileResponse{}
+	mi := &file_proto_os_os_proto_msgTypes[83]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AddFileResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AddFileResponse) ProtoMessage() {}
+
+func (x *AddFileResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_os_os_proto_msgTypes[83]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AddFileResponse.ProtoReflect.Descriptor instead.
+func (*AddFileResponse) Descriptor() ([]byte, []int) {
+	return file_proto_os_os_proto_rawDescGZIP(), []int{83}
+}
+
+type AddTextRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          string                 `protobuf:"bytes,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AddTextRequest) Reset() {
+	*x = AddTextRequest{}
+	mi := &file_proto_os_os_proto_msgTypes[84]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AddTextRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AddTextRequest) ProtoMessage() {}
+
+func (x *AddTextRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_os_os_proto_msgTypes[84]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AddTextRequest.ProtoReflect.Descriptor instead.
+func (*AddTextRequest) Descriptor() ([]byte, []int) {
+	return file_proto_os_os_proto_rawDescGZIP(), []int{84}
+}
+
+func (x *AddTextRequest) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+func (x *AddTextRequest) GetArg1() string {
+	if x != nil {
+		return x.Arg1
+	}
+	return ""
+}
+
+type AddTextResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AddTextResponse) Reset() {
+	*x = AddTextResponse{}
+	mi := &file_proto_os_os_proto_msgTypes[85]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AddTextResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AddTextResponse) ProtoMessage() {}
+
+func (x *AddTextResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_os_os_proto_msgTypes[85]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AddTextResponse.ProtoReflect.Descriptor instead.
+func (*AddTextResponse) Descriptor() ([]byte, []int) {
+	return file_proto_os_os_proto_rawDescGZIP(), []int{85}
+}
+
+type GetNextEntryRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetNextEntryRequest) Reset() {
+	*x = GetNextEntryRequest{}
+	mi := &file_proto_os_os_proto_msgTypes[86]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetNextEntryRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetNextEntryRequest) ProtoMessage() {}
+
+func (x *GetNextEntryRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_os_os_proto_msgTypes[86]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetNextEntryRequest.ProtoReflect.Descriptor instead.
+func (*GetNextEntryRequest) Descriptor() ([]byte, []int) {
+	return file_proto_os_os_proto_rawDescGZIP(), []int{86}
+}
+
+func (x *GetNextEntryRequest) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+func (x *GetNextEntryRequest) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type GetNextEntryResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetNextEntryResponse) Reset() {
+	*x = GetNextEntryResponse{}
+	mi := &file_proto_os_os_proto_msgTypes[87]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetNextEntryResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetNextEntryResponse) ProtoMessage() {}
+
+func (x *GetNextEntryResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_os_os_proto_msgTypes[87]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetNextEntryResponse.ProtoReflect.Descriptor instead.
+func (*GetNextEntryResponse) Descriptor() ([]byte, []int) {
+	return file_proto_os_os_proto_rawDescGZIP(), []int{87}
+}
+
+func (x *GetNextEntryResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type IsTagEnabledRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *IsTagEnabledRequest) Reset() {
+	*x = IsTagEnabledRequest{}
+	mi := &file_proto_os_os_proto_msgTypes[88]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *IsTagEnabledRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IsTagEnabledRequest) ProtoMessage() {}
+
+func (x *IsTagEnabledRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_os_os_proto_msgTypes[88]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IsTagEnabledRequest.ProtoReflect.Descriptor instead.
+func (*IsTagEnabledRequest) Descriptor() ([]byte, []int) {
+	return file_proto_os_os_proto_rawDescGZIP(), []int{88}
+}
+
+func (x *IsTagEnabledRequest) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+type IsTagEnabledResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *IsTagEnabledResponse) Reset() {
+	*x = IsTagEnabledResponse{}
 	mi := &file_proto_os_os_proto_msgTypes[89]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *RemoveProfilingTriggersByTypeResponse) String() string {
+func (x *IsTagEnabledResponse) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*RemoveProfilingTriggersByTypeResponse) ProtoMessage() {}
+func (*IsTagEnabledResponse) ProtoMessage() {}
 
-func (x *RemoveProfilingTriggersByTypeResponse) ProtoReflect() protoreflect.Message {
+func (x *IsTagEnabledResponse) ProtoReflect() protoreflect.Message {
 	mi := &file_proto_os_os_proto_msgTypes[89]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -3890,9 +3883,16 @@ func (x *RemoveProfilingTriggersByTypeResponse) ProtoReflect() protoreflect.Mess
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use RemoveProfilingTriggersByTypeResponse.ProtoReflect.Descriptor instead.
-func (*RemoveProfilingTriggersByTypeResponse) Descriptor() ([]byte, []int) {
+// Deprecated: Use IsTagEnabledResponse.ProtoReflect.Descriptor instead.
+func (*IsTagEnabledResponse) Descriptor() ([]byte, []int) {
 	return file_proto_os_os_proto_rawDescGZIP(), []int{89}
+}
+
+func (x *IsTagEnabledResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
 }
 
 type CancelRequest struct {
@@ -4499,7 +4499,41 @@ const file_proto_os_os_proto_rawDesc = "" +
 	"\x06result\x18\x01 \x01(\bR\x06result\"\x1e\n" +
 	"\x1cSupportsMultipleUsersRequest\"7\n" +
 	"\x1dSupportsMultipleUsersResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\bR\x06result\"L\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\"\x15\n" +
+	"\x13GetCpuUsagesRequest\".\n" +
+	"\x14GetCpuUsagesResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"F\n" +
+	"\x1cGetDeviceTemperaturesRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x05R\x04arg1\"7\n" +
+	"\x1dGetDeviceTemperaturesResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x15\n" +
+	"\x13GetFanSpeedsRequest\".\n" +
+	"\x14GetFanSpeedsResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x1f\n" +
+	"\x1dClearProfilingTriggersRequest\" \n" +
+	"\x1eClearProfilingTriggersResponse\":\n" +
+	"$RemoveProfilingTriggersByTypeRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"'\n" +
+	"%RemoveProfilingTriggersByTypeResponse\"\x1f\n" +
+	"\x1dGetGlobalSecurityStateRequest\"8\n" +
+	"\x1eGetGlobalSecurityStateResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"B\n" +
+	"\x18CreateHintSessionRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\"3\n" +
+	"\x19CreateHintSessionResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"$\n" +
+	"\"GetPreferredUpdateRateNanosRequest\"=\n" +
+	"#GetPreferredUpdateRateNanosResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x18\n" +
+	"\x16CancelBugreportRequest\"\x19\n" +
+	"\x17CancelBugreportResponse\"_\n" +
+	"!StartConnectivityBugreportRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x03 \x01(\x03R\x04arg2\"$\n" +
+	"\"StartConnectivityBugreportResponse\"L\n" +
 	"\x0eAddDataRequest\x12\x12\n" +
 	"\x04arg0\x18\x01 \x01(\tR\x04arg0\x12\x12\n" +
 	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\x12\x12\n" +
@@ -4522,41 +4556,7 @@ const file_proto_os_os_proto_rawDesc = "" +
 	"\x13IsTagEnabledRequest\x12\x12\n" +
 	"\x04arg0\x18\x01 \x01(\tR\x04arg0\".\n" +
 	"\x14IsTagEnabledResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\bR\x06result\"\x1f\n" +
-	"\x1dGetGlobalSecurityStateRequest\"8\n" +
-	"\x1eGetGlobalSecurityStateResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"\x15\n" +
-	"\x13GetCpuUsagesRequest\".\n" +
-	"\x14GetCpuUsagesResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"F\n" +
-	"\x1cGetDeviceTemperaturesRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\x12\x12\n" +
-	"\x04arg1\x18\x02 \x01(\x05R\x04arg1\"7\n" +
-	"\x1dGetDeviceTemperaturesResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"\x15\n" +
-	"\x13GetFanSpeedsRequest\".\n" +
-	"\x14GetFanSpeedsResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"\x18\n" +
-	"\x16CancelBugreportRequest\"\x19\n" +
-	"\x17CancelBugreportResponse\"_\n" +
-	"!StartConnectivityBugreportRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
-	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\x12\x12\n" +
-	"\x04arg2\x18\x03 \x01(\x03R\x04arg2\"$\n" +
-	"\"StartConnectivityBugreportResponse\"B\n" +
-	"\x18CreateHintSessionRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
-	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\"3\n" +
-	"\x19CreateHintSessionResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"$\n" +
-	"\"GetPreferredUpdateRateNanosRequest\"=\n" +
-	"#GetPreferredUpdateRateNanosResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"\x1f\n" +
-	"\x1dClearProfilingTriggersRequest\" \n" +
-	"\x1eClearProfilingTriggersResponse\":\n" +
-	"$RemoveProfilingTriggersByTypeRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"'\n" +
-	"%RemoveProfilingTriggersByTypeResponse\"\x0f\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\"\x0f\n" +
 	"\rCancelRequest\"\x10\n" +
 	"\x0eCancelResponse\"\x1b\n" +
 	"\x19GetDefaultVibratorRequest\"4\n" +
@@ -4607,28 +4607,28 @@ const file_proto_os_os_proto_rawDesc = "" +
 	"\x16SetUserRestrictions2_1\x12!.os.SetUserRestrictions2_1Request\x1a\".os.SetUserRestrictions2_1Response\x12e\n" +
 	"\x18CreateUserCreationIntent\x12#.os.CreateUserCreationIntentRequest\x1a$.os.CreateUserCreationIntentResponse\x12e\n" +
 	"\x18IsHeadlessSystemUserMode\x12#.os.IsHeadlessSystemUserModeRequest\x1a$.os.IsHeadlessSystemUserModeResponse\x12\\\n" +
-	"\x15SupportsMultipleUsers\x12 .os.SupportsMultipleUsersRequest\x1a!.os.SupportsMultipleUsersResponse2\xb9\x02\n" +
+	"\x15SupportsMultipleUsers\x12 .os.SupportsMultipleUsersRequest\x1a!.os.SupportsMultipleUsersResponse2\x86\x02\n" +
+	" HardwarePropertiesManagerService\x12A\n" +
+	"\fGetCpuUsages\x12\x17.os.GetCpuUsagesRequest\x1a\x18.os.GetCpuUsagesResponse\x12\\\n" +
+	"\x15GetDeviceTemperatures\x12 .os.GetDeviceTemperaturesRequest\x1a!.os.GetDeviceTemperaturesResponse\x12A\n" +
+	"\fGetFanSpeeds\x12\x17.os.GetFanSpeedsRequest\x1a\x18.os.GetFanSpeedsResponse2\xf0\x01\n" +
+	"\x17ProfilingManagerService\x12_\n" +
+	"\x16ClearProfilingTriggers\x12!.os.ClearProfilingTriggersRequest\x1a\".os.ClearProfilingTriggersResponse\x12t\n" +
+	"\x1dRemoveProfilingTriggersByType\x12(.os.RemoveProfilingTriggersByTypeRequest\x1a).os.RemoveProfilingTriggersByTypeResponse2~\n" +
+	"\x1bSecurityStateManagerService\x12_\n" +
+	"\x16GetGlobalSecurityState\x12!.os.GetGlobalSecurityStateRequest\x1a\".os.GetGlobalSecurityStateResponse2\xe1\x01\n" +
+	"\x1dPerformanceHintManagerService\x12P\n" +
+	"\x11CreateHintSession\x12\x1c.os.CreateHintSessionRequest\x1a\x1d.os.CreateHintSessionResponse\x12n\n" +
+	"\x1bGetPreferredUpdateRateNanos\x12&.os.GetPreferredUpdateRateNanosRequest\x1a'.os.GetPreferredUpdateRateNanosResponse2\xd2\x01\n" +
+	"\x17BugreportManagerService\x12J\n" +
+	"\x0fCancelBugreport\x12\x1a.os.CancelBugreportRequest\x1a\x1b.os.CancelBugreportResponse\x12k\n" +
+	"\x1aStartConnectivityBugreport\x12%.os.StartConnectivityBugreportRequest\x1a&.os.StartConnectivityBugreportResponse2\xb9\x02\n" +
 	"\x15DropBoxManagerService\x122\n" +
 	"\aAddData\x12\x12.os.AddDataRequest\x1a\x13.os.AddDataResponse\x122\n" +
 	"\aAddFile\x12\x12.os.AddFileRequest\x1a\x13.os.AddFileResponse\x122\n" +
 	"\aAddText\x12\x12.os.AddTextRequest\x1a\x13.os.AddTextResponse\x12A\n" +
 	"\fGetNextEntry\x12\x17.os.GetNextEntryRequest\x1a\x18.os.GetNextEntryResponse\x12A\n" +
-	"\fIsTagEnabled\x12\x17.os.IsTagEnabledRequest\x1a\x18.os.IsTagEnabledResponse2~\n" +
-	"\x1bSecurityStateManagerService\x12_\n" +
-	"\x16GetGlobalSecurityState\x12!.os.GetGlobalSecurityStateRequest\x1a\".os.GetGlobalSecurityStateResponse2\x86\x02\n" +
-	" HardwarePropertiesManagerService\x12A\n" +
-	"\fGetCpuUsages\x12\x17.os.GetCpuUsagesRequest\x1a\x18.os.GetCpuUsagesResponse\x12\\\n" +
-	"\x15GetDeviceTemperatures\x12 .os.GetDeviceTemperaturesRequest\x1a!.os.GetDeviceTemperaturesResponse\x12A\n" +
-	"\fGetFanSpeeds\x12\x17.os.GetFanSpeedsRequest\x1a\x18.os.GetFanSpeedsResponse2\xd2\x01\n" +
-	"\x17BugreportManagerService\x12J\n" +
-	"\x0fCancelBugreport\x12\x1a.os.CancelBugreportRequest\x1a\x1b.os.CancelBugreportResponse\x12k\n" +
-	"\x1aStartConnectivityBugreport\x12%.os.StartConnectivityBugreportRequest\x1a&.os.StartConnectivityBugreportResponse2\xe1\x01\n" +
-	"\x1dPerformanceHintManagerService\x12P\n" +
-	"\x11CreateHintSession\x12\x1c.os.CreateHintSessionRequest\x1a\x1d.os.CreateHintSessionResponse\x12n\n" +
-	"\x1bGetPreferredUpdateRateNanos\x12&.os.GetPreferredUpdateRateNanosRequest\x1a'.os.GetPreferredUpdateRateNanosResponse2\xf0\x01\n" +
-	"\x17ProfilingManagerService\x12_\n" +
-	"\x16ClearProfilingTriggers\x12!.os.ClearProfilingTriggersRequest\x1a\".os.ClearProfilingTriggersResponse\x12t\n" +
-	"\x1dRemoveProfilingTriggersByType\x12(.os.RemoveProfilingTriggersByTypeRequest\x1a).os.RemoveProfilingTriggersByTypeResponse2\x9b\x03\n" +
+	"\fIsTagEnabled\x12\x17.os.IsTagEnabledRequest\x1a\x18.os.IsTagEnabledResponse2\x9b\x03\n" +
 	"\x16VibratorManagerService\x12/\n" +
 	"\x06Cancel\x12\x11.os.CancelRequest\x1a\x12.os.CancelResponse\x12S\n" +
 	"\x12GetDefaultVibrator\x12\x1d.os.GetDefaultVibratorRequest\x1a\x1e.os.GetDefaultVibratorResponse\x12>\n" +
@@ -4712,36 +4712,36 @@ var file_proto_os_os_proto_goTypes = []any{
 	(*IsHeadlessSystemUserModeResponse)(nil),      // 57: os.IsHeadlessSystemUserModeResponse
 	(*SupportsMultipleUsersRequest)(nil),          // 58: os.SupportsMultipleUsersRequest
 	(*SupportsMultipleUsersResponse)(nil),         // 59: os.SupportsMultipleUsersResponse
-	(*AddDataRequest)(nil),                        // 60: os.AddDataRequest
-	(*AddDataResponse)(nil),                       // 61: os.AddDataResponse
-	(*AddFileRequest)(nil),                        // 62: os.AddFileRequest
-	(*AddFileResponse)(nil),                       // 63: os.AddFileResponse
-	(*AddTextRequest)(nil),                        // 64: os.AddTextRequest
-	(*AddTextResponse)(nil),                       // 65: os.AddTextResponse
-	(*GetNextEntryRequest)(nil),                   // 66: os.GetNextEntryRequest
-	(*GetNextEntryResponse)(nil),                  // 67: os.GetNextEntryResponse
-	(*IsTagEnabledRequest)(nil),                   // 68: os.IsTagEnabledRequest
-	(*IsTagEnabledResponse)(nil),                  // 69: os.IsTagEnabledResponse
+	(*GetCpuUsagesRequest)(nil),                   // 60: os.GetCpuUsagesRequest
+	(*GetCpuUsagesResponse)(nil),                  // 61: os.GetCpuUsagesResponse
+	(*GetDeviceTemperaturesRequest)(nil),          // 62: os.GetDeviceTemperaturesRequest
+	(*GetDeviceTemperaturesResponse)(nil),         // 63: os.GetDeviceTemperaturesResponse
+	(*GetFanSpeedsRequest)(nil),                   // 64: os.GetFanSpeedsRequest
+	(*GetFanSpeedsResponse)(nil),                  // 65: os.GetFanSpeedsResponse
+	(*ClearProfilingTriggersRequest)(nil),         // 66: os.ClearProfilingTriggersRequest
+	(*ClearProfilingTriggersResponse)(nil),        // 67: os.ClearProfilingTriggersResponse
+	(*RemoveProfilingTriggersByTypeRequest)(nil),  // 68: os.RemoveProfilingTriggersByTypeRequest
+	(*RemoveProfilingTriggersByTypeResponse)(nil), // 69: os.RemoveProfilingTriggersByTypeResponse
 	(*GetGlobalSecurityStateRequest)(nil),         // 70: os.GetGlobalSecurityStateRequest
 	(*GetGlobalSecurityStateResponse)(nil),        // 71: os.GetGlobalSecurityStateResponse
-	(*GetCpuUsagesRequest)(nil),                   // 72: os.GetCpuUsagesRequest
-	(*GetCpuUsagesResponse)(nil),                  // 73: os.GetCpuUsagesResponse
-	(*GetDeviceTemperaturesRequest)(nil),          // 74: os.GetDeviceTemperaturesRequest
-	(*GetDeviceTemperaturesResponse)(nil),         // 75: os.GetDeviceTemperaturesResponse
-	(*GetFanSpeedsRequest)(nil),                   // 76: os.GetFanSpeedsRequest
-	(*GetFanSpeedsResponse)(nil),                  // 77: os.GetFanSpeedsResponse
-	(*CancelBugreportRequest)(nil),                // 78: os.CancelBugreportRequest
-	(*CancelBugreportResponse)(nil),               // 79: os.CancelBugreportResponse
-	(*StartConnectivityBugreportRequest)(nil),     // 80: os.StartConnectivityBugreportRequest
-	(*StartConnectivityBugreportResponse)(nil),    // 81: os.StartConnectivityBugreportResponse
-	(*CreateHintSessionRequest)(nil),              // 82: os.CreateHintSessionRequest
-	(*CreateHintSessionResponse)(nil),             // 83: os.CreateHintSessionResponse
-	(*GetPreferredUpdateRateNanosRequest)(nil),    // 84: os.GetPreferredUpdateRateNanosRequest
-	(*GetPreferredUpdateRateNanosResponse)(nil),   // 85: os.GetPreferredUpdateRateNanosResponse
-	(*ClearProfilingTriggersRequest)(nil),         // 86: os.ClearProfilingTriggersRequest
-	(*ClearProfilingTriggersResponse)(nil),        // 87: os.ClearProfilingTriggersResponse
-	(*RemoveProfilingTriggersByTypeRequest)(nil),  // 88: os.RemoveProfilingTriggersByTypeRequest
-	(*RemoveProfilingTriggersByTypeResponse)(nil), // 89: os.RemoveProfilingTriggersByTypeResponse
+	(*CreateHintSessionRequest)(nil),              // 72: os.CreateHintSessionRequest
+	(*CreateHintSessionResponse)(nil),             // 73: os.CreateHintSessionResponse
+	(*GetPreferredUpdateRateNanosRequest)(nil),    // 74: os.GetPreferredUpdateRateNanosRequest
+	(*GetPreferredUpdateRateNanosResponse)(nil),   // 75: os.GetPreferredUpdateRateNanosResponse
+	(*CancelBugreportRequest)(nil),                // 76: os.CancelBugreportRequest
+	(*CancelBugreportResponse)(nil),               // 77: os.CancelBugreportResponse
+	(*StartConnectivityBugreportRequest)(nil),     // 78: os.StartConnectivityBugreportRequest
+	(*StartConnectivityBugreportResponse)(nil),    // 79: os.StartConnectivityBugreportResponse
+	(*AddDataRequest)(nil),                        // 80: os.AddDataRequest
+	(*AddDataResponse)(nil),                       // 81: os.AddDataResponse
+	(*AddFileRequest)(nil),                        // 82: os.AddFileRequest
+	(*AddFileResponse)(nil),                       // 83: os.AddFileResponse
+	(*AddTextRequest)(nil),                        // 84: os.AddTextRequest
+	(*AddTextResponse)(nil),                       // 85: os.AddTextResponse
+	(*GetNextEntryRequest)(nil),                   // 86: os.GetNextEntryRequest
+	(*GetNextEntryResponse)(nil),                  // 87: os.GetNextEntryResponse
+	(*IsTagEnabledRequest)(nil),                   // 88: os.IsTagEnabledRequest
+	(*IsTagEnabledResponse)(nil),                  // 89: os.IsTagEnabledResponse
 	(*CancelRequest)(nil),                         // 90: os.CancelRequest
 	(*CancelResponse)(nil),                        // 91: os.CancelResponse
 	(*GetDefaultVibratorRequest)(nil),             // 92: os.GetDefaultVibratorRequest
@@ -4786,21 +4786,21 @@ var file_proto_os_os_proto_depIdxs = []int32{
 	54,  // 27: os.UserManagerService.CreateUserCreationIntent:input_type -> os.CreateUserCreationIntentRequest
 	56,  // 28: os.UserManagerService.IsHeadlessSystemUserMode:input_type -> os.IsHeadlessSystemUserModeRequest
 	58,  // 29: os.UserManagerService.SupportsMultipleUsers:input_type -> os.SupportsMultipleUsersRequest
-	60,  // 30: os.DropBoxManagerService.AddData:input_type -> os.AddDataRequest
-	62,  // 31: os.DropBoxManagerService.AddFile:input_type -> os.AddFileRequest
-	64,  // 32: os.DropBoxManagerService.AddText:input_type -> os.AddTextRequest
-	66,  // 33: os.DropBoxManagerService.GetNextEntry:input_type -> os.GetNextEntryRequest
-	68,  // 34: os.DropBoxManagerService.IsTagEnabled:input_type -> os.IsTagEnabledRequest
+	60,  // 30: os.HardwarePropertiesManagerService.GetCpuUsages:input_type -> os.GetCpuUsagesRequest
+	62,  // 31: os.HardwarePropertiesManagerService.GetDeviceTemperatures:input_type -> os.GetDeviceTemperaturesRequest
+	64,  // 32: os.HardwarePropertiesManagerService.GetFanSpeeds:input_type -> os.GetFanSpeedsRequest
+	66,  // 33: os.ProfilingManagerService.ClearProfilingTriggers:input_type -> os.ClearProfilingTriggersRequest
+	68,  // 34: os.ProfilingManagerService.RemoveProfilingTriggersByType:input_type -> os.RemoveProfilingTriggersByTypeRequest
 	70,  // 35: os.SecurityStateManagerService.GetGlobalSecurityState:input_type -> os.GetGlobalSecurityStateRequest
-	72,  // 36: os.HardwarePropertiesManagerService.GetCpuUsages:input_type -> os.GetCpuUsagesRequest
-	74,  // 37: os.HardwarePropertiesManagerService.GetDeviceTemperatures:input_type -> os.GetDeviceTemperaturesRequest
-	76,  // 38: os.HardwarePropertiesManagerService.GetFanSpeeds:input_type -> os.GetFanSpeedsRequest
-	78,  // 39: os.BugreportManagerService.CancelBugreport:input_type -> os.CancelBugreportRequest
-	80,  // 40: os.BugreportManagerService.StartConnectivityBugreport:input_type -> os.StartConnectivityBugreportRequest
-	82,  // 41: os.PerformanceHintManagerService.CreateHintSession:input_type -> os.CreateHintSessionRequest
-	84,  // 42: os.PerformanceHintManagerService.GetPreferredUpdateRateNanos:input_type -> os.GetPreferredUpdateRateNanosRequest
-	86,  // 43: os.ProfilingManagerService.ClearProfilingTriggers:input_type -> os.ClearProfilingTriggersRequest
-	88,  // 44: os.ProfilingManagerService.RemoveProfilingTriggersByType:input_type -> os.RemoveProfilingTriggersByTypeRequest
+	72,  // 36: os.PerformanceHintManagerService.CreateHintSession:input_type -> os.CreateHintSessionRequest
+	74,  // 37: os.PerformanceHintManagerService.GetPreferredUpdateRateNanos:input_type -> os.GetPreferredUpdateRateNanosRequest
+	76,  // 38: os.BugreportManagerService.CancelBugreport:input_type -> os.CancelBugreportRequest
+	78,  // 39: os.BugreportManagerService.StartConnectivityBugreport:input_type -> os.StartConnectivityBugreportRequest
+	80,  // 40: os.DropBoxManagerService.AddData:input_type -> os.AddDataRequest
+	82,  // 41: os.DropBoxManagerService.AddFile:input_type -> os.AddFileRequest
+	84,  // 42: os.DropBoxManagerService.AddText:input_type -> os.AddTextRequest
+	86,  // 43: os.DropBoxManagerService.GetNextEntry:input_type -> os.GetNextEntryRequest
+	88,  // 44: os.DropBoxManagerService.IsTagEnabled:input_type -> os.IsTagEnabledRequest
 	90,  // 45: os.VibratorManagerService.Cancel:input_type -> os.CancelRequest
 	92,  // 46: os.VibratorManagerService.GetDefaultVibrator:input_type -> os.GetDefaultVibratorRequest
 	94,  // 47: os.VibratorManagerService.GetVibrator:input_type -> os.GetVibratorRequest
@@ -4837,21 +4837,21 @@ var file_proto_os_os_proto_depIdxs = []int32{
 	55,  // 78: os.UserManagerService.CreateUserCreationIntent:output_type -> os.CreateUserCreationIntentResponse
 	57,  // 79: os.UserManagerService.IsHeadlessSystemUserMode:output_type -> os.IsHeadlessSystemUserModeResponse
 	59,  // 80: os.UserManagerService.SupportsMultipleUsers:output_type -> os.SupportsMultipleUsersResponse
-	61,  // 81: os.DropBoxManagerService.AddData:output_type -> os.AddDataResponse
-	63,  // 82: os.DropBoxManagerService.AddFile:output_type -> os.AddFileResponse
-	65,  // 83: os.DropBoxManagerService.AddText:output_type -> os.AddTextResponse
-	67,  // 84: os.DropBoxManagerService.GetNextEntry:output_type -> os.GetNextEntryResponse
-	69,  // 85: os.DropBoxManagerService.IsTagEnabled:output_type -> os.IsTagEnabledResponse
+	61,  // 81: os.HardwarePropertiesManagerService.GetCpuUsages:output_type -> os.GetCpuUsagesResponse
+	63,  // 82: os.HardwarePropertiesManagerService.GetDeviceTemperatures:output_type -> os.GetDeviceTemperaturesResponse
+	65,  // 83: os.HardwarePropertiesManagerService.GetFanSpeeds:output_type -> os.GetFanSpeedsResponse
+	67,  // 84: os.ProfilingManagerService.ClearProfilingTriggers:output_type -> os.ClearProfilingTriggersResponse
+	69,  // 85: os.ProfilingManagerService.RemoveProfilingTriggersByType:output_type -> os.RemoveProfilingTriggersByTypeResponse
 	71,  // 86: os.SecurityStateManagerService.GetGlobalSecurityState:output_type -> os.GetGlobalSecurityStateResponse
-	73,  // 87: os.HardwarePropertiesManagerService.GetCpuUsages:output_type -> os.GetCpuUsagesResponse
-	75,  // 88: os.HardwarePropertiesManagerService.GetDeviceTemperatures:output_type -> os.GetDeviceTemperaturesResponse
-	77,  // 89: os.HardwarePropertiesManagerService.GetFanSpeeds:output_type -> os.GetFanSpeedsResponse
-	79,  // 90: os.BugreportManagerService.CancelBugreport:output_type -> os.CancelBugreportResponse
-	81,  // 91: os.BugreportManagerService.StartConnectivityBugreport:output_type -> os.StartConnectivityBugreportResponse
-	83,  // 92: os.PerformanceHintManagerService.CreateHintSession:output_type -> os.CreateHintSessionResponse
-	85,  // 93: os.PerformanceHintManagerService.GetPreferredUpdateRateNanos:output_type -> os.GetPreferredUpdateRateNanosResponse
-	87,  // 94: os.ProfilingManagerService.ClearProfilingTriggers:output_type -> os.ClearProfilingTriggersResponse
-	89,  // 95: os.ProfilingManagerService.RemoveProfilingTriggersByType:output_type -> os.RemoveProfilingTriggersByTypeResponse
+	73,  // 87: os.PerformanceHintManagerService.CreateHintSession:output_type -> os.CreateHintSessionResponse
+	75,  // 88: os.PerformanceHintManagerService.GetPreferredUpdateRateNanos:output_type -> os.GetPreferredUpdateRateNanosResponse
+	77,  // 89: os.BugreportManagerService.CancelBugreport:output_type -> os.CancelBugreportResponse
+	79,  // 90: os.BugreportManagerService.StartConnectivityBugreport:output_type -> os.StartConnectivityBugreportResponse
+	81,  // 91: os.DropBoxManagerService.AddData:output_type -> os.AddDataResponse
+	83,  // 92: os.DropBoxManagerService.AddFile:output_type -> os.AddFileResponse
+	85,  // 93: os.DropBoxManagerService.AddText:output_type -> os.AddTextResponse
+	87,  // 94: os.DropBoxManagerService.GetNextEntry:output_type -> os.GetNextEntryResponse
+	89,  // 95: os.DropBoxManagerService.IsTagEnabled:output_type -> os.IsTagEnabledResponse
 	91,  // 96: os.VibratorManagerService.Cancel:output_type -> os.CancelResponse
 	93,  // 97: os.VibratorManagerService.GetDefaultVibrator:output_type -> os.GetDefaultVibratorResponse
 	95,  // 98: os.VibratorManagerService.GetVibrator:output_type -> os.GetVibratorResponse

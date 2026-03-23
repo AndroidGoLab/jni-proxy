@@ -6,6 +6,168 @@ package pm;
 
 option go_package = "github.com/AndroidGoLab/jni-proxy/proto/pm";
 
+message CanInteractAcrossProfilesRequest {
+}
+
+message CanInteractAcrossProfilesResponse {
+  bool result = 1;
+}
+
+message CanRequestInteractAcrossProfilesRequest {
+}
+
+message CanRequestInteractAcrossProfilesResponse {
+  bool result = 1;
+}
+
+message CreateRequestInteractAcrossProfilesIntentRequest {
+}
+
+message CreateRequestInteractAcrossProfilesIntentResponse {
+  int64 result = 1;
+}
+
+message GetProfileSwitchingIconDrawableRequest {
+  int64 arg0 = 1;
+}
+
+message GetProfileSwitchingIconDrawableResponse {
+  int64 result = 1;
+}
+
+message GetProfileSwitchingLabelRequest {
+  int64 arg0 = 1;
+}
+
+message GetProfileSwitchingLabelResponse {
+  int64 result = 1;
+}
+
+message IsManagedProfileRequest {
+  int64 arg0 = 1;
+}
+
+message IsManagedProfileResponse {
+  bool result = 1;
+}
+
+message IsProfileRequest {
+  int64 arg0 = 1;
+}
+
+message IsProfileResponse {
+  bool result = 1;
+}
+
+message StartActivity3Request {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+  int64 arg2 = 3;
+}
+
+message StartActivity3Response {
+}
+
+message StartActivity4_1Request {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+  int64 arg2 = 3;
+  int64 arg3 = 4;
+}
+
+message StartActivity4_1Response {
+}
+
+message StartMainActivity2Request {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message StartMainActivity2Response {
+}
+
+message StartMainActivity4_1Request {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+  int64 arg2 = 3;
+  int64 arg3 = 4;
+}
+
+message StartMainActivity4_1Response {
+}
+
+message CreateShortcutResultIntentRequest {
+  int64 arg0 = 1;
+}
+
+message CreateShortcutResultIntentResponse {
+  int64 result = 1;
+}
+
+message GetIconMaxHeightRequest {
+}
+
+message GetIconMaxHeightResponse {
+  int32 result = 1;
+}
+
+message GetIconMaxWidthRequest {
+}
+
+message GetIconMaxWidthResponse {
+  int32 result = 1;
+}
+
+message GetMaxShortcutCountPerActivityRequest {
+}
+
+message GetMaxShortcutCountPerActivityResponse {
+  int32 result = 1;
+}
+
+message IsRateLimitingActiveRequest {
+}
+
+message IsRateLimitingActiveResponse {
+  bool result = 1;
+}
+
+message IsRequestPinShortcutSupportedRequest {
+}
+
+message IsRequestPinShortcutSupportedResponse {
+  bool result = 1;
+}
+
+message PushDynamicShortcutRequest {
+  int64 arg0 = 1;
+}
+
+message PushDynamicShortcutResponse {
+}
+
+message RemoveAllDynamicShortcutsRequest {
+}
+
+message RemoveAllDynamicShortcutsResponse {
+}
+
+message ReportShortcutUsedRequest {
+  string arg0 = 1;
+}
+
+message ReportShortcutUsedResponse {
+}
+
+message RequestPinShortcutRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message RequestPinShortcutResponse {
+  bool result = 1;
+}
+
 message GetAppMarketActivityIntentRequest {
   string arg0 = 1;
   int64 arg1 = 2;
@@ -222,166 +384,31 @@ message UnregisterPackageInstallerSessionCallbackRequest {
 message UnregisterPackageInstallerSessionCallbackResponse {
 }
 
-message CreateShortcutResultIntentRequest {
-  int64 arg0 = 1;
+service CrossProfileAppsService {
+  rpc CanInteractAcrossProfiles (CanInteractAcrossProfilesRequest) returns (CanInteractAcrossProfilesResponse);
+  rpc CanRequestInteractAcrossProfiles (CanRequestInteractAcrossProfilesRequest) returns (CanRequestInteractAcrossProfilesResponse);
+  rpc CreateRequestInteractAcrossProfilesIntent (CreateRequestInteractAcrossProfilesIntentRequest) returns (CreateRequestInteractAcrossProfilesIntentResponse);
+  rpc GetProfileSwitchingIconDrawable (GetProfileSwitchingIconDrawableRequest) returns (GetProfileSwitchingIconDrawableResponse);
+  rpc GetProfileSwitchingLabel (GetProfileSwitchingLabelRequest) returns (GetProfileSwitchingLabelResponse);
+  rpc IsManagedProfile (IsManagedProfileRequest) returns (IsManagedProfileResponse);
+  rpc IsProfile (IsProfileRequest) returns (IsProfileResponse);
+  rpc StartActivity3 (StartActivity3Request) returns (StartActivity3Response);
+  rpc StartActivity4_1 (StartActivity4_1Request) returns (StartActivity4_1Response);
+  rpc StartMainActivity2 (StartMainActivity2Request) returns (StartMainActivity2Response);
+  rpc StartMainActivity4_1 (StartMainActivity4_1Request) returns (StartMainActivity4_1Response);
 }
 
-message CreateShortcutResultIntentResponse {
-  int64 result = 1;
-}
-
-message GetIconMaxHeightRequest {
-}
-
-message GetIconMaxHeightResponse {
-  int32 result = 1;
-}
-
-message GetIconMaxWidthRequest {
-}
-
-message GetIconMaxWidthResponse {
-  int32 result = 1;
-}
-
-message GetMaxShortcutCountPerActivityRequest {
-}
-
-message GetMaxShortcutCountPerActivityResponse {
-  int32 result = 1;
-}
-
-message IsRateLimitingActiveRequest {
-}
-
-message IsRateLimitingActiveResponse {
-  bool result = 1;
-}
-
-message IsRequestPinShortcutSupportedRequest {
-}
-
-message IsRequestPinShortcutSupportedResponse {
-  bool result = 1;
-}
-
-message PushDynamicShortcutRequest {
-  int64 arg0 = 1;
-}
-
-message PushDynamicShortcutResponse {
-}
-
-message RemoveAllDynamicShortcutsRequest {
-}
-
-message RemoveAllDynamicShortcutsResponse {
-}
-
-message ReportShortcutUsedRequest {
-  string arg0 = 1;
-}
-
-message ReportShortcutUsedResponse {
-}
-
-message RequestPinShortcutRequest {
-  int64 arg0 = 1;
-  int64 arg1 = 2;
-}
-
-message RequestPinShortcutResponse {
-  bool result = 1;
-}
-
-message CanInteractAcrossProfilesRequest {
-}
-
-message CanInteractAcrossProfilesResponse {
-  bool result = 1;
-}
-
-message CanRequestInteractAcrossProfilesRequest {
-}
-
-message CanRequestInteractAcrossProfilesResponse {
-  bool result = 1;
-}
-
-message CreateRequestInteractAcrossProfilesIntentRequest {
-}
-
-message CreateRequestInteractAcrossProfilesIntentResponse {
-  int64 result = 1;
-}
-
-message GetProfileSwitchingIconDrawableRequest {
-  int64 arg0 = 1;
-}
-
-message GetProfileSwitchingIconDrawableResponse {
-  int64 result = 1;
-}
-
-message GetProfileSwitchingLabelRequest {
-  int64 arg0 = 1;
-}
-
-message GetProfileSwitchingLabelResponse {
-  int64 result = 1;
-}
-
-message IsManagedProfileRequest {
-  int64 arg0 = 1;
-}
-
-message IsManagedProfileResponse {
-  bool result = 1;
-}
-
-message IsProfileRequest {
-  int64 arg0 = 1;
-}
-
-message IsProfileResponse {
-  bool result = 1;
-}
-
-message StartActivity3Request {
-  int64 arg0 = 1;
-  int64 arg1 = 2;
-  int64 arg2 = 3;
-}
-
-message StartActivity3Response {
-}
-
-message StartActivity4_1Request {
-  int64 arg0 = 1;
-  int64 arg1 = 2;
-  int64 arg2 = 3;
-  int64 arg3 = 4;
-}
-
-message StartActivity4_1Response {
-}
-
-message StartMainActivity2Request {
-  int64 arg0 = 1;
-  int64 arg1 = 2;
-}
-
-message StartMainActivity2Response {
-}
-
-message StartMainActivity4_1Request {
-  int64 arg0 = 1;
-  int64 arg1 = 2;
-  int64 arg2 = 3;
-  int64 arg3 = 4;
-}
-
-message StartMainActivity4_1Response {
+service ShortcutManagerService {
+  rpc CreateShortcutResultIntent (CreateShortcutResultIntentRequest) returns (CreateShortcutResultIntentResponse);
+  rpc GetIconMaxHeight (GetIconMaxHeightRequest) returns (GetIconMaxHeightResponse);
+  rpc GetIconMaxWidth (GetIconMaxWidthRequest) returns (GetIconMaxWidthResponse);
+  rpc GetMaxShortcutCountPerActivity (GetMaxShortcutCountPerActivityRequest) returns (GetMaxShortcutCountPerActivityResponse);
+  rpc IsRateLimitingActive (IsRateLimitingActiveRequest) returns (IsRateLimitingActiveResponse);
+  rpc IsRequestPinShortcutSupported (IsRequestPinShortcutSupportedRequest) returns (IsRequestPinShortcutSupportedResponse);
+  rpc PushDynamicShortcut (PushDynamicShortcutRequest) returns (PushDynamicShortcutResponse);
+  rpc RemoveAllDynamicShortcuts (RemoveAllDynamicShortcutsRequest) returns (RemoveAllDynamicShortcutsResponse);
+  rpc ReportShortcutUsed (ReportShortcutUsedRequest) returns (ReportShortcutUsedResponse);
+  rpc RequestPinShortcut (RequestPinShortcutRequest) returns (RequestPinShortcutResponse);
 }
 
 service LauncherAppsService {
@@ -410,31 +437,4 @@ service LauncherAppsService {
   rpc StartShortcut5_1 (StartShortcut5_1Request) returns (StartShortcut5_1Response);
   rpc UnregisterCallback (UnregisterCallbackRequest) returns (UnregisterCallbackResponse);
   rpc UnregisterPackageInstallerSessionCallback (UnregisterPackageInstallerSessionCallbackRequest) returns (UnregisterPackageInstallerSessionCallbackResponse);
-}
-
-service ShortcutManagerService {
-  rpc CreateShortcutResultIntent (CreateShortcutResultIntentRequest) returns (CreateShortcutResultIntentResponse);
-  rpc GetIconMaxHeight (GetIconMaxHeightRequest) returns (GetIconMaxHeightResponse);
-  rpc GetIconMaxWidth (GetIconMaxWidthRequest) returns (GetIconMaxWidthResponse);
-  rpc GetMaxShortcutCountPerActivity (GetMaxShortcutCountPerActivityRequest) returns (GetMaxShortcutCountPerActivityResponse);
-  rpc IsRateLimitingActive (IsRateLimitingActiveRequest) returns (IsRateLimitingActiveResponse);
-  rpc IsRequestPinShortcutSupported (IsRequestPinShortcutSupportedRequest) returns (IsRequestPinShortcutSupportedResponse);
-  rpc PushDynamicShortcut (PushDynamicShortcutRequest) returns (PushDynamicShortcutResponse);
-  rpc RemoveAllDynamicShortcuts (RemoveAllDynamicShortcutsRequest) returns (RemoveAllDynamicShortcutsResponse);
-  rpc ReportShortcutUsed (ReportShortcutUsedRequest) returns (ReportShortcutUsedResponse);
-  rpc RequestPinShortcut (RequestPinShortcutRequest) returns (RequestPinShortcutResponse);
-}
-
-service CrossProfileAppsService {
-  rpc CanInteractAcrossProfiles (CanInteractAcrossProfilesRequest) returns (CanInteractAcrossProfilesResponse);
-  rpc CanRequestInteractAcrossProfiles (CanRequestInteractAcrossProfilesRequest) returns (CanRequestInteractAcrossProfilesResponse);
-  rpc CreateRequestInteractAcrossProfilesIntent (CreateRequestInteractAcrossProfilesIntentRequest) returns (CreateRequestInteractAcrossProfilesIntentResponse);
-  rpc GetProfileSwitchingIconDrawable (GetProfileSwitchingIconDrawableRequest) returns (GetProfileSwitchingIconDrawableResponse);
-  rpc GetProfileSwitchingLabel (GetProfileSwitchingLabelRequest) returns (GetProfileSwitchingLabelResponse);
-  rpc IsManagedProfile (IsManagedProfileRequest) returns (IsManagedProfileResponse);
-  rpc IsProfile (IsProfileRequest) returns (IsProfileResponse);
-  rpc StartActivity3 (StartActivity3Request) returns (StartActivity3Response);
-  rpc StartActivity4_1 (StartActivity4_1Request) returns (StartActivity4_1Response);
-  rpc StartMainActivity2 (StartMainActivity2Request) returns (StartMainActivity2Response);
-  rpc StartMainActivity4_1 (StartMainActivity4_1Request) returns (StartMainActivity4_1Response);
 }

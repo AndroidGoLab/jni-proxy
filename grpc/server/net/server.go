@@ -15,39 +15,6 @@ import (
 	"google.golang.org/grpc/status"
 )
 
-// ConnectivityDiagnosticsManagerServer implements pb.ConnectivityDiagnosticsManagerServiceServer.
-type ConnectivityDiagnosticsManagerServer struct {
-	pb.UnimplementedConnectivityDiagnosticsManagerServiceServer
-	Ctx     *app.Context
-	Handles *handlestore.HandleStore
-}
-
-func (s *ConnectivityDiagnosticsManagerServer) RegisterConnectivityDiagnosticsCallback(_ context.Context, req *pb.RegisterConnectivityDiagnosticsCallbackRequest) (*pb.RegisterConnectivityDiagnosticsCallbackResponse, error) {
-	mgr, err := jnipkg.NewConnectivityDiagnosticsManager(s.Ctx)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
-	}
-	defer mgr.Close()
-
-	if err := mgr.RegisterConnectivityDiagnosticsCallback(s.Handles.Get(req.GetArg0()), s.Handles.Get(req.GetArg1()), s.Handles.Get(req.GetArg2())); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.RegisterConnectivityDiagnosticsCallbackResponse{}, nil
-}
-
-func (s *ConnectivityDiagnosticsManagerServer) UnregisterConnectivityDiagnosticsCallback(_ context.Context, req *pb.UnregisterConnectivityDiagnosticsCallbackRequest) (*pb.UnregisterConnectivityDiagnosticsCallbackResponse, error) {
-	mgr, err := jnipkg.NewConnectivityDiagnosticsManager(s.Ctx)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
-	}
-	defer mgr.Close()
-
-	if err := mgr.UnregisterConnectivityDiagnosticsCallback(s.Handles.Get(req.GetArg0())); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.UnregisterConnectivityDiagnosticsCallbackResponse{}, nil
-}
-
 // IpSecManagerServer implements pb.IpSecManagerServiceServer.
 type IpSecManagerServer struct {
 	pb.UnimplementedIpSecManagerServiceServer
@@ -223,65 +190,6 @@ func (s *IpSecManagerServer) RemoveTransportModeTransforms1_2(_ context.Context,
 		return nil, status.Errorf(codes.Internal, "%v", err)
 	}
 	return &pb.RemoveTransportModeTransforms1_2Response{}, nil
-}
-
-// TetheringManagerServer implements pb.TetheringManagerServiceServer.
-type TetheringManagerServer struct {
-	pb.UnimplementedTetheringManagerServiceServer
-	Ctx     *app.Context
-	Handles *handlestore.HandleStore
-}
-
-func (s *TetheringManagerServer) RegisterTetheringEventCallback(_ context.Context, req *pb.RegisterTetheringEventCallbackRequest) (*pb.RegisterTetheringEventCallbackResponse, error) {
-	mgr, err := jnipkg.NewTetheringManager(s.Ctx)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
-	}
-	defer mgr.Close()
-
-	if err := mgr.RegisterTetheringEventCallback(s.Handles.Get(req.GetArg0()), s.Handles.Get(req.GetArg1())); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.RegisterTetheringEventCallbackResponse{}, nil
-}
-
-func (s *TetheringManagerServer) StartTethering(_ context.Context, req *pb.StartTetheringRequest) (*pb.StartTetheringResponse, error) {
-	mgr, err := jnipkg.NewTetheringManager(s.Ctx)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
-	}
-	defer mgr.Close()
-
-	if err := mgr.StartTethering(s.Handles.Get(req.GetArg0()), s.Handles.Get(req.GetArg1()), s.Handles.Get(req.GetArg2())); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.StartTetheringResponse{}, nil
-}
-
-func (s *TetheringManagerServer) StopTethering(_ context.Context, req *pb.StopTetheringRequest) (*pb.StopTetheringResponse, error) {
-	mgr, err := jnipkg.NewTetheringManager(s.Ctx)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
-	}
-	defer mgr.Close()
-
-	if err := mgr.StopTethering(s.Handles.Get(req.GetArg0()), s.Handles.Get(req.GetArg1()), s.Handles.Get(req.GetArg2())); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.StopTetheringResponse{}, nil
-}
-
-func (s *TetheringManagerServer) UnregisterTetheringEventCallback(_ context.Context, req *pb.UnregisterTetheringEventCallbackRequest) (*pb.UnregisterTetheringEventCallbackResponse, error) {
-	mgr, err := jnipkg.NewTetheringManager(s.Ctx)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
-	}
-	defer mgr.Close()
-
-	if err := mgr.UnregisterTetheringEventCallback(s.Handles.Get(req.GetArg0())); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.UnregisterTetheringEventCallbackResponse{}, nil
 }
 
 // ConnectivityManagerServer implements pb.ConnectivityManagerServiceServer.
@@ -924,4 +832,96 @@ func (s *ConnectivityManagerServer) SetProcessDefaultNetwork(_ context.Context, 
 		return nil, status.Errorf(codes.Internal, "%v", err)
 	}
 	return &pb.SetProcessDefaultNetworkResponse{Result: result}, nil
+}
+
+// ConnectivityDiagnosticsManagerServer implements pb.ConnectivityDiagnosticsManagerServiceServer.
+type ConnectivityDiagnosticsManagerServer struct {
+	pb.UnimplementedConnectivityDiagnosticsManagerServiceServer
+	Ctx     *app.Context
+	Handles *handlestore.HandleStore
+}
+
+func (s *ConnectivityDiagnosticsManagerServer) RegisterConnectivityDiagnosticsCallback(_ context.Context, req *pb.RegisterConnectivityDiagnosticsCallbackRequest) (*pb.RegisterConnectivityDiagnosticsCallbackResponse, error) {
+	mgr, err := jnipkg.NewConnectivityDiagnosticsManager(s.Ctx)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
+	}
+	defer mgr.Close()
+
+	if err := mgr.RegisterConnectivityDiagnosticsCallback(s.Handles.Get(req.GetArg0()), s.Handles.Get(req.GetArg1()), s.Handles.Get(req.GetArg2())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.RegisterConnectivityDiagnosticsCallbackResponse{}, nil
+}
+
+func (s *ConnectivityDiagnosticsManagerServer) UnregisterConnectivityDiagnosticsCallback(_ context.Context, req *pb.UnregisterConnectivityDiagnosticsCallbackRequest) (*pb.UnregisterConnectivityDiagnosticsCallbackResponse, error) {
+	mgr, err := jnipkg.NewConnectivityDiagnosticsManager(s.Ctx)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
+	}
+	defer mgr.Close()
+
+	if err := mgr.UnregisterConnectivityDiagnosticsCallback(s.Handles.Get(req.GetArg0())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.UnregisterConnectivityDiagnosticsCallbackResponse{}, nil
+}
+
+// TetheringManagerServer implements pb.TetheringManagerServiceServer.
+type TetheringManagerServer struct {
+	pb.UnimplementedTetheringManagerServiceServer
+	Ctx     *app.Context
+	Handles *handlestore.HandleStore
+}
+
+func (s *TetheringManagerServer) RegisterTetheringEventCallback(_ context.Context, req *pb.RegisterTetheringEventCallbackRequest) (*pb.RegisterTetheringEventCallbackResponse, error) {
+	mgr, err := jnipkg.NewTetheringManager(s.Ctx)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
+	}
+	defer mgr.Close()
+
+	if err := mgr.RegisterTetheringEventCallback(s.Handles.Get(req.GetArg0()), s.Handles.Get(req.GetArg1())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.RegisterTetheringEventCallbackResponse{}, nil
+}
+
+func (s *TetheringManagerServer) StartTethering(_ context.Context, req *pb.StartTetheringRequest) (*pb.StartTetheringResponse, error) {
+	mgr, err := jnipkg.NewTetheringManager(s.Ctx)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
+	}
+	defer mgr.Close()
+
+	if err := mgr.StartTethering(s.Handles.Get(req.GetArg0()), s.Handles.Get(req.GetArg1()), s.Handles.Get(req.GetArg2())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.StartTetheringResponse{}, nil
+}
+
+func (s *TetheringManagerServer) StopTethering(_ context.Context, req *pb.StopTetheringRequest) (*pb.StopTetheringResponse, error) {
+	mgr, err := jnipkg.NewTetheringManager(s.Ctx)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
+	}
+	defer mgr.Close()
+
+	if err := mgr.StopTethering(s.Handles.Get(req.GetArg0()), s.Handles.Get(req.GetArg1()), s.Handles.Get(req.GetArg2())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.StopTetheringResponse{}, nil
+}
+
+func (s *TetheringManagerServer) UnregisterTetheringEventCallback(_ context.Context, req *pb.UnregisterTetheringEventCallbackRequest) (*pb.UnregisterTetheringEventCallbackResponse, error) {
+	mgr, err := jnipkg.NewTetheringManager(s.Ctx)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
+	}
+	defer mgr.Close()
+
+	if err := mgr.UnregisterTetheringEventCallback(s.Handles.Get(req.GetArg0())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.UnregisterTetheringEventCallbackResponse{}, nil
 }

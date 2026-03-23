@@ -6,6 +6,687 @@ package app;
 
 option go_package = "github.com/AndroidGoLab/jni-proxy/proto/app";
 
+message Clear0Request {
+}
+
+message Clear0Response {
+}
+
+message Clear1_1Request {
+  int32 arg0 = 1;
+}
+
+message Clear1_1Response {
+}
+
+message ClearWallpaperRequest {
+}
+
+message ClearWallpaperResponse {
+}
+
+message ClearWallpaperOffsetsRequest {
+  int64 arg0 = 1;
+}
+
+message ClearWallpaperOffsetsResponse {
+}
+
+message ForgetLoadedWallpaperRequest {
+}
+
+message ForgetLoadedWallpaperResponse {
+}
+
+message GetBuiltInDrawable0Request {
+}
+
+message GetBuiltInDrawable0Response {
+  int64 result = 1;
+}
+
+message GetBuiltInDrawable1_1Request {
+  int32 arg0 = 1;
+}
+
+message GetBuiltInDrawable1_1Response {
+  int64 result = 1;
+}
+
+message GetBuiltInDrawable5_2Request {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+  bool arg2 = 3;
+  float arg3 = 4;
+  float arg4 = 5;
+}
+
+message GetBuiltInDrawable5_2Response {
+  int64 result = 1;
+}
+
+message GetBuiltInDrawable6_3Request {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+  bool arg2 = 3;
+  float arg3 = 4;
+  float arg4 = 5;
+  int32 arg5 = 6;
+}
+
+message GetBuiltInDrawable6_3Response {
+  int64 result = 1;
+}
+
+message GetCropAndSetWallpaperIntentRequest {
+  int64 arg0 = 1;
+}
+
+message GetCropAndSetWallpaperIntentResponse {
+  int64 result = 1;
+}
+
+message GetDesiredMinimumHeightRequest {
+}
+
+message GetDesiredMinimumHeightResponse {
+  int32 result = 1;
+}
+
+message GetDesiredMinimumWidthRequest {
+}
+
+message GetDesiredMinimumWidthResponse {
+  int32 result = 1;
+}
+
+message GetDrawable0Request {
+}
+
+message GetDrawable0Response {
+  int64 result = 1;
+}
+
+message GetDrawable1_1Request {
+  int32 arg0 = 1;
+}
+
+message GetDrawable1_1Response {
+  int64 result = 1;
+}
+
+message GetFastDrawable0Request {
+}
+
+message GetFastDrawable0Response {
+  int64 result = 1;
+}
+
+message GetFastDrawable1_1Request {
+  int32 arg0 = 1;
+}
+
+message GetFastDrawable1_1Response {
+  int64 result = 1;
+}
+
+message GetWallpaperColorsRequest {
+  int32 arg0 = 1;
+}
+
+message GetWallpaperColorsResponse {
+  int64 result = 1;
+}
+
+message GetWallpaperFileRequest {
+  int32 arg0 = 1;
+}
+
+message GetWallpaperFileResponse {
+  int64 result = 1;
+}
+
+message GetWallpaperIdRequest {
+  int32 arg0 = 1;
+}
+
+message GetWallpaperIdResponse {
+  int32 result = 1;
+}
+
+message GetWallpaperInfo0Request {
+}
+
+message GetWallpaperInfo0Response {
+  int64 result = 1;
+}
+
+message GetWallpaperInfo1_1Request {
+  int32 arg0 = 1;
+}
+
+message GetWallpaperInfo1_1Response {
+  int64 result = 1;
+}
+
+message HasResourceWallpaperRequest {
+  int32 arg0 = 1;
+}
+
+message HasResourceWallpaperResponse {
+  bool result = 1;
+}
+
+message IsSetWallpaperAllowedRequest {
+}
+
+message IsSetWallpaperAllowedResponse {
+  bool result = 1;
+}
+
+message IsWallpaperSupportedRequest {
+}
+
+message IsWallpaperSupportedResponse {
+  bool result = 1;
+}
+
+message PeekDrawable0Request {
+}
+
+message PeekDrawable0Response {
+  int64 result = 1;
+}
+
+message PeekDrawable1_1Request {
+  int32 arg0 = 1;
+}
+
+message PeekDrawable1_1Response {
+  int64 result = 1;
+}
+
+message PeekFastDrawable0Request {
+}
+
+message PeekFastDrawable0Response {
+  int64 result = 1;
+}
+
+message PeekFastDrawable1_1Request {
+  int32 arg0 = 1;
+}
+
+message PeekFastDrawable1_1Response {
+  int64 result = 1;
+}
+
+message RemoveOnColorsChangedListenerRequest {
+  int64 arg0 = 1;
+}
+
+message RemoveOnColorsChangedListenerResponse {
+}
+
+message SendWallpaperCommandRequest {
+  int64 arg0 = 1;
+  string arg1 = 2;
+  int32 arg2 = 3;
+  int32 arg3 = 4;
+  int32 arg4 = 5;
+  int64 arg5 = 6;
+}
+
+message SendWallpaperCommandResponse {
+}
+
+message SetBitmap1Request {
+  int64 arg0 = 1;
+}
+
+message SetBitmap1Response {
+}
+
+message SetBitmap3_1Request {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+  bool arg2 = 3;
+}
+
+message SetBitmap3_1Response {
+  int32 result = 1;
+}
+
+message SetBitmap4_2Request {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+  bool arg2 = 3;
+  int32 arg3 = 4;
+}
+
+message SetBitmap4_2Response {
+  int32 result = 1;
+}
+
+message SetDisplayPaddingRequest {
+  int64 arg0 = 1;
+}
+
+message SetDisplayPaddingResponse {
+}
+
+message SetResource1Request {
+  int32 arg0 = 1;
+}
+
+message SetResource1Response {
+}
+
+message SetResource2_1Request {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message SetResource2_1Response {
+  int32 result = 1;
+}
+
+message SetStream1Request {
+  int64 arg0 = 1;
+}
+
+message SetStream1Response {
+}
+
+message SetStream3_1Request {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+  bool arg2 = 3;
+}
+
+message SetStream3_1Response {
+  int32 result = 1;
+}
+
+message SetStream4_2Request {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+  bool arg2 = 3;
+  int32 arg3 = 4;
+}
+
+message SetStream4_2Response {
+  int32 result = 1;
+}
+
+message SetWallpaperOffsetStepsRequest {
+  float arg0 = 1;
+  float arg1 = 2;
+}
+
+message SetWallpaperOffsetStepsResponse {
+}
+
+message SetWallpaperOffsetsRequest {
+  int64 arg0 = 1;
+  float arg1 = 2;
+  float arg2 = 3;
+}
+
+message SetWallpaperOffsetsResponse {
+}
+
+message SuggestDesiredDimensionsRequest {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message SuggestDesiredDimensionsResponse {
+}
+
+message GetInstanceRequest {
+  int64 arg0 = 1;
+}
+
+message GetInstanceResponse {
+  int64 result = 1;
+}
+
+message CanLaunchCaptureContentActivityForNoteRequest {
+  int64 arg0 = 1;
+}
+
+message CanLaunchCaptureContentActivityForNoteResponse {
+  bool result = 1;
+}
+
+message AddAppTaskRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+  int64 arg2 = 3;
+  int64 arg3 = 4;
+}
+
+message AddAppTaskResponse {
+  int32 result = 1;
+}
+
+message AddStartInfoTimestampRequest {
+  int32 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message AddStartInfoTimestampResponse {
+}
+
+message AppNotRespondingRequest {
+  string arg0 = 1;
+}
+
+message AppNotRespondingResponse {
+}
+
+message ClearApplicationUserDataRequest {
+}
+
+message ClearApplicationUserDataResponse {
+  bool result = 1;
+}
+
+message ClearWatchHeapLimitRequest {
+}
+
+message ClearWatchHeapLimitResponse {
+}
+
+message DumpPackageStateRequest {
+  int64 arg0 = 1;
+  string arg1 = 2;
+}
+
+message DumpPackageStateResponse {
+}
+
+message GetAppTaskThumbnailSizeRequest {
+}
+
+message GetAppTaskThumbnailSizeResponse {
+  int64 result = 1;
+}
+
+message GetDeviceConfigurationInfoRequest {
+}
+
+message GetDeviceConfigurationInfoResponse {
+  int64 result = 1;
+}
+
+message GetLargeMemoryClassRequest {
+}
+
+message GetLargeMemoryClassResponse {
+  int32 result = 1;
+}
+
+message GetLauncherLargeIconDensityRequest {
+}
+
+message GetLauncherLargeIconDensityResponse {
+  int32 result = 1;
+}
+
+message GetLauncherLargeIconSizeRequest {
+}
+
+message GetLauncherLargeIconSizeResponse {
+  int32 result = 1;
+}
+
+message GetLockTaskModeStateRequest {
+}
+
+message GetLockTaskModeStateResponse {
+  int32 result = 1;
+}
+
+message GetMemoryClassRequest {
+}
+
+message GetMemoryClassResponse {
+  int32 result = 1;
+}
+
+message GetMemoryInfoRequest {
+  int64 arg0 = 1;
+}
+
+message GetMemoryInfoResponse {
+}
+
+message GetProcessMemoryInfoRequest {
+  int64 arg0 = 1;
+}
+
+message GetProcessMemoryInfoResponse {
+  int64 result = 1;
+}
+
+message GetRunningServiceControlPanelRequest {
+  int64 arg0 = 1;
+}
+
+message GetRunningServiceControlPanelResponse {
+  int64 result = 1;
+}
+
+message IsActivityStartAllowedOnDisplayRequest {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+  int64 arg2 = 3;
+}
+
+message IsActivityStartAllowedOnDisplayResponse {
+  bool result = 1;
+}
+
+message IsBackgroundRestrictedRequest {
+}
+
+message IsBackgroundRestrictedResponse {
+  bool result = 1;
+}
+
+message IsInLockTaskModeRequest {
+}
+
+message IsInLockTaskModeResponse {
+  bool result = 1;
+}
+
+message IsLowRamDeviceRequest {
+}
+
+message IsLowRamDeviceResponse {
+  bool result = 1;
+}
+
+message KillBackgroundProcessesRequest {
+  string arg0 = 1;
+}
+
+message KillBackgroundProcessesResponse {
+}
+
+message MoveTaskToFront2Request {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message MoveTaskToFront2Response {
+}
+
+message MoveTaskToFront3_1Request {
+  int32 arg0 = 1;
+  int32 arg1 = 2;
+  int64 arg2 = 3;
+}
+
+message MoveTaskToFront3_1Response {
+}
+
+message RestartPackageRequest {
+  string arg0 = 1;
+}
+
+message RestartPackageResponse {
+}
+
+message SetProcessStateSummaryRequest {
+  int64 arg0 = 1;
+}
+
+message SetProcessStateSummaryResponse {
+}
+
+message SetWatchHeapLimitRequest {
+  int64 arg0 = 1;
+}
+
+message SetWatchHeapLimitResponse {
+}
+
+message GetMyMemoryStateRequest {
+  int64 arg0 = 1;
+}
+
+message GetMyMemoryStateResponse {
+}
+
+message IsLowMemoryKillReportSupportedRequest {
+}
+
+message IsLowMemoryKillReportSupportedResponse {
+  bool result = 1;
+}
+
+message IsRunningInTestHarnessRequest {
+}
+
+message IsRunningInTestHarnessResponse {
+  bool result = 1;
+}
+
+message IsRunningInUserTestHarnessRequest {
+}
+
+message IsRunningInUserTestHarnessResponse {
+  bool result = 1;
+}
+
+message IsUserAMonkeyRequest {
+}
+
+message IsUserAMonkeyResponse {
+  bool result = 1;
+}
+
+message SetVrThreadRequest {
+  int32 arg0 = 1;
+}
+
+message SetVrThreadResponse {
+}
+
+message GetGlobalSearchActivityRequest {
+}
+
+message GetGlobalSearchActivityResponse {
+  int64 result = 1;
+}
+
+message GetSearchableInfoRequest {
+  int64 arg0 = 1;
+}
+
+message GetSearchableInfoResponse {
+  int64 result = 1;
+}
+
+message OnCancelRequest {
+  int64 arg0 = 1;
+}
+
+message OnCancelResponse {
+}
+
+message OnDismissRequest {
+  int64 arg0 = 1;
+}
+
+message OnDismissResponse {
+}
+
+message SetOnCancelListenerRequest {
+  int64 arg0 = 1;
+}
+
+message SetOnCancelListenerResponse {
+}
+
+message SetOnDismissListenerRequest {
+  int64 arg0 = 1;
+}
+
+message SetOnDismissListenerResponse {
+}
+
+message StartSearchRequest {
+  string arg0 = 1;
+  bool arg1 = 2;
+  int64 arg2 = 3;
+  int64 arg3 = 4;
+  bool arg4 = 5;
+}
+
+message StartSearchResponse {
+}
+
+message StopSearchRequest {
+}
+
+message StopSearchResponse {
+}
+
+message TriggerSearchRequest {
+  string arg0 = 1;
+  int64 arg1 = 2;
+  int64 arg2 = 3;
+}
+
+message TriggerSearchResponse {
+}
+
+message GetApplicationGrammaticalGenderRequest {
+}
+
+message GetApplicationGrammaticalGenderResponse {
+  int32 result = 1;
+}
+
+message GetSystemGrammaticalGenderRequest {
+}
+
+message GetSystemGrammaticalGenderResponse {
+  int32 result = 1;
+}
+
+message SetRequestedApplicationGrammaticalGenderRequest {
+  int32 arg0 = 1;
+}
+
+message SetRequestedApplicationGrammaticalGenderResponse {
+}
+
 message CheckOp3Request {
   string arg0 = 1;
   int32 arg1 = 2;
@@ -377,249 +1058,47 @@ message PermissionToOpResponse {
   string result = 1;
 }
 
-message CanLaunchCaptureContentActivityForNoteRequest {
-  int64 arg0 = 1;
+message GetApplicationLocales0Request {
 }
 
-message CanLaunchCaptureContentActivityForNoteResponse {
-  bool result = 1;
+message GetApplicationLocales0Response {
+  int64 result = 1;
 }
 
-message AddAppTaskRequest {
-  int64 arg0 = 1;
-  int64 arg1 = 2;
-  int64 arg2 = 3;
-  int64 arg3 = 4;
-}
-
-message AddAppTaskResponse {
-  int32 result = 1;
-}
-
-message AddStartInfoTimestampRequest {
-  int32 arg0 = 1;
-  int64 arg1 = 2;
-}
-
-message AddStartInfoTimestampResponse {
-}
-
-message AppNotRespondingRequest {
+message GetApplicationLocales1_1Request {
   string arg0 = 1;
 }
 
-message AppNotRespondingResponse {
-}
-
-message ClearApplicationUserDataRequest {
-}
-
-message ClearApplicationUserDataResponse {
-  bool result = 1;
-}
-
-message ClearWatchHeapLimitRequest {
-}
-
-message ClearWatchHeapLimitResponse {
-}
-
-message DumpPackageStateRequest {
-  int64 arg0 = 1;
-  string arg1 = 2;
-}
-
-message DumpPackageStateResponse {
-}
-
-message GetAppTaskThumbnailSizeRequest {
-}
-
-message GetAppTaskThumbnailSizeResponse {
+message GetApplicationLocales1_1Response {
   int64 result = 1;
 }
 
-message GetDeviceConfigurationInfoRequest {
+message GetOverrideLocaleConfigRequest {
 }
 
-message GetDeviceConfigurationInfoResponse {
+message GetOverrideLocaleConfigResponse {
   int64 result = 1;
 }
 
-message GetLargeMemoryClassRequest {
+message GetSystemLocalesRequest {
 }
 
-message GetLargeMemoryClassResponse {
-  int32 result = 1;
-}
-
-message GetLauncherLargeIconDensityRequest {
-}
-
-message GetLauncherLargeIconDensityResponse {
-  int32 result = 1;
-}
-
-message GetLauncherLargeIconSizeRequest {
-}
-
-message GetLauncherLargeIconSizeResponse {
-  int32 result = 1;
-}
-
-message GetLockTaskModeStateRequest {
-}
-
-message GetLockTaskModeStateResponse {
-  int32 result = 1;
-}
-
-message GetMemoryClassRequest {
-}
-
-message GetMemoryClassResponse {
-  int32 result = 1;
-}
-
-message GetMemoryInfoRequest {
-  int64 arg0 = 1;
-}
-
-message GetMemoryInfoResponse {
-}
-
-message GetProcessMemoryInfoRequest {
-  int64 arg0 = 1;
-}
-
-message GetProcessMemoryInfoResponse {
+message GetSystemLocalesResponse {
   int64 result = 1;
 }
 
-message GetRunningServiceControlPanelRequest {
+message SetApplicationLocalesRequest {
   int64 arg0 = 1;
 }
 
-message GetRunningServiceControlPanelResponse {
-  int64 result = 1;
+message SetApplicationLocalesResponse {
 }
 
-message IsActivityStartAllowedOnDisplayRequest {
-  int64 arg0 = 1;
-  int32 arg1 = 2;
-  int64 arg2 = 3;
-}
-
-message IsActivityStartAllowedOnDisplayResponse {
-  bool result = 1;
-}
-
-message IsBackgroundRestrictedRequest {
-}
-
-message IsBackgroundRestrictedResponse {
-  bool result = 1;
-}
-
-message IsInLockTaskModeRequest {
-}
-
-message IsInLockTaskModeResponse {
-  bool result = 1;
-}
-
-message IsLowRamDeviceRequest {
-}
-
-message IsLowRamDeviceResponse {
-  bool result = 1;
-}
-
-message KillBackgroundProcessesRequest {
-  string arg0 = 1;
-}
-
-message KillBackgroundProcessesResponse {
-}
-
-message MoveTaskToFront2Request {
-  int32 arg0 = 1;
-  int32 arg1 = 2;
-}
-
-message MoveTaskToFront2Response {
-}
-
-message MoveTaskToFront3_1Request {
-  int32 arg0 = 1;
-  int32 arg1 = 2;
-  int64 arg2 = 3;
-}
-
-message MoveTaskToFront3_1Response {
-}
-
-message RestartPackageRequest {
-  string arg0 = 1;
-}
-
-message RestartPackageResponse {
-}
-
-message SetProcessStateSummaryRequest {
+message SetOverrideLocaleConfigRequest {
   int64 arg0 = 1;
 }
 
-message SetProcessStateSummaryResponse {
-}
-
-message SetWatchHeapLimitRequest {
-  int64 arg0 = 1;
-}
-
-message SetWatchHeapLimitResponse {
-}
-
-message GetMyMemoryStateRequest {
-  int64 arg0 = 1;
-}
-
-message GetMyMemoryStateResponse {
-}
-
-message IsLowMemoryKillReportSupportedRequest {
-}
-
-message IsLowMemoryKillReportSupportedResponse {
-  bool result = 1;
-}
-
-message IsRunningInTestHarnessRequest {
-}
-
-message IsRunningInTestHarnessResponse {
-  bool result = 1;
-}
-
-message IsRunningInUserTestHarnessRequest {
-}
-
-message IsRunningInUserTestHarnessResponse {
-  bool result = 1;
-}
-
-message IsUserAMonkeyRequest {
-}
-
-message IsUserAMonkeyResponse {
-  bool result = 1;
-}
-
-message SetVrThreadRequest {
-  int32 arg0 = 1;
-}
-
-message SetVrThreadResponse {
+message SetOverrideLocaleConfigResponse {
 }
 
 message GetGameModeRequest {
@@ -634,442 +1113,6 @@ message SetGameStateRequest {
 }
 
 message SetGameStateResponse {
-}
-
-message Clear0Request {
-}
-
-message Clear0Response {
-}
-
-message Clear1_1Request {
-  int32 arg0 = 1;
-}
-
-message Clear1_1Response {
-}
-
-message ClearWallpaperRequest {
-}
-
-message ClearWallpaperResponse {
-}
-
-message ClearWallpaperOffsetsRequest {
-  int64 arg0 = 1;
-}
-
-message ClearWallpaperOffsetsResponse {
-}
-
-message ForgetLoadedWallpaperRequest {
-}
-
-message ForgetLoadedWallpaperResponse {
-}
-
-message GetBuiltInDrawable0Request {
-}
-
-message GetBuiltInDrawable0Response {
-  int64 result = 1;
-}
-
-message GetBuiltInDrawable1_1Request {
-  int32 arg0 = 1;
-}
-
-message GetBuiltInDrawable1_1Response {
-  int64 result = 1;
-}
-
-message GetBuiltInDrawable5_2Request {
-  int32 arg0 = 1;
-  int32 arg1 = 2;
-  bool arg2 = 3;
-  float arg3 = 4;
-  float arg4 = 5;
-}
-
-message GetBuiltInDrawable5_2Response {
-  int64 result = 1;
-}
-
-message GetBuiltInDrawable6_3Request {
-  int32 arg0 = 1;
-  int32 arg1 = 2;
-  bool arg2 = 3;
-  float arg3 = 4;
-  float arg4 = 5;
-  int32 arg5 = 6;
-}
-
-message GetBuiltInDrawable6_3Response {
-  int64 result = 1;
-}
-
-message GetCropAndSetWallpaperIntentRequest {
-  int64 arg0 = 1;
-}
-
-message GetCropAndSetWallpaperIntentResponse {
-  int64 result = 1;
-}
-
-message GetDesiredMinimumHeightRequest {
-}
-
-message GetDesiredMinimumHeightResponse {
-  int32 result = 1;
-}
-
-message GetDesiredMinimumWidthRequest {
-}
-
-message GetDesiredMinimumWidthResponse {
-  int32 result = 1;
-}
-
-message GetDrawable0Request {
-}
-
-message GetDrawable0Response {
-  int64 result = 1;
-}
-
-message GetDrawable1_1Request {
-  int32 arg0 = 1;
-}
-
-message GetDrawable1_1Response {
-  int64 result = 1;
-}
-
-message GetFastDrawable0Request {
-}
-
-message GetFastDrawable0Response {
-  int64 result = 1;
-}
-
-message GetFastDrawable1_1Request {
-  int32 arg0 = 1;
-}
-
-message GetFastDrawable1_1Response {
-  int64 result = 1;
-}
-
-message GetWallpaperColorsRequest {
-  int32 arg0 = 1;
-}
-
-message GetWallpaperColorsResponse {
-  int64 result = 1;
-}
-
-message GetWallpaperFileRequest {
-  int32 arg0 = 1;
-}
-
-message GetWallpaperFileResponse {
-  int64 result = 1;
-}
-
-message GetWallpaperIdRequest {
-  int32 arg0 = 1;
-}
-
-message GetWallpaperIdResponse {
-  int32 result = 1;
-}
-
-message GetWallpaperInfo0Request {
-}
-
-message GetWallpaperInfo0Response {
-  int64 result = 1;
-}
-
-message GetWallpaperInfo1_1Request {
-  int32 arg0 = 1;
-}
-
-message GetWallpaperInfo1_1Response {
-  int64 result = 1;
-}
-
-message HasResourceWallpaperRequest {
-  int32 arg0 = 1;
-}
-
-message HasResourceWallpaperResponse {
-  bool result = 1;
-}
-
-message IsSetWallpaperAllowedRequest {
-}
-
-message IsSetWallpaperAllowedResponse {
-  bool result = 1;
-}
-
-message IsWallpaperSupportedRequest {
-}
-
-message IsWallpaperSupportedResponse {
-  bool result = 1;
-}
-
-message PeekDrawable0Request {
-}
-
-message PeekDrawable0Response {
-  int64 result = 1;
-}
-
-message PeekDrawable1_1Request {
-  int32 arg0 = 1;
-}
-
-message PeekDrawable1_1Response {
-  int64 result = 1;
-}
-
-message PeekFastDrawable0Request {
-}
-
-message PeekFastDrawable0Response {
-  int64 result = 1;
-}
-
-message PeekFastDrawable1_1Request {
-  int32 arg0 = 1;
-}
-
-message PeekFastDrawable1_1Response {
-  int64 result = 1;
-}
-
-message RemoveOnColorsChangedListenerRequest {
-  int64 arg0 = 1;
-}
-
-message RemoveOnColorsChangedListenerResponse {
-}
-
-message SendWallpaperCommandRequest {
-  int64 arg0 = 1;
-  string arg1 = 2;
-  int32 arg2 = 3;
-  int32 arg3 = 4;
-  int32 arg4 = 5;
-  int64 arg5 = 6;
-}
-
-message SendWallpaperCommandResponse {
-}
-
-message SetBitmap1Request {
-  int64 arg0 = 1;
-}
-
-message SetBitmap1Response {
-}
-
-message SetBitmap3_1Request {
-  int64 arg0 = 1;
-  int64 arg1 = 2;
-  bool arg2 = 3;
-}
-
-message SetBitmap3_1Response {
-  int32 result = 1;
-}
-
-message SetBitmap4_2Request {
-  int64 arg0 = 1;
-  int64 arg1 = 2;
-  bool arg2 = 3;
-  int32 arg3 = 4;
-}
-
-message SetBitmap4_2Response {
-  int32 result = 1;
-}
-
-message SetDisplayPaddingRequest {
-  int64 arg0 = 1;
-}
-
-message SetDisplayPaddingResponse {
-}
-
-message SetResource1Request {
-  int32 arg0 = 1;
-}
-
-message SetResource1Response {
-}
-
-message SetResource2_1Request {
-  int32 arg0 = 1;
-  int32 arg1 = 2;
-}
-
-message SetResource2_1Response {
-  int32 result = 1;
-}
-
-message SetStream1Request {
-  int64 arg0 = 1;
-}
-
-message SetStream1Response {
-}
-
-message SetStream3_1Request {
-  int64 arg0 = 1;
-  int64 arg1 = 2;
-  bool arg2 = 3;
-}
-
-message SetStream3_1Response {
-  int32 result = 1;
-}
-
-message SetStream4_2Request {
-  int64 arg0 = 1;
-  int64 arg1 = 2;
-  bool arg2 = 3;
-  int32 arg3 = 4;
-}
-
-message SetStream4_2Response {
-  int32 result = 1;
-}
-
-message SetWallpaperOffsetStepsRequest {
-  float arg0 = 1;
-  float arg1 = 2;
-}
-
-message SetWallpaperOffsetStepsResponse {
-}
-
-message SetWallpaperOffsetsRequest {
-  int64 arg0 = 1;
-  float arg1 = 2;
-  float arg2 = 3;
-}
-
-message SetWallpaperOffsetsResponse {
-}
-
-message SuggestDesiredDimensionsRequest {
-  int32 arg0 = 1;
-  int32 arg1 = 2;
-}
-
-message SuggestDesiredDimensionsResponse {
-}
-
-message GetInstanceRequest {
-  int64 arg0 = 1;
-}
-
-message GetInstanceResponse {
-  int64 result = 1;
-}
-
-message GetGlobalSearchActivityRequest {
-}
-
-message GetGlobalSearchActivityResponse {
-  int64 result = 1;
-}
-
-message GetSearchableInfoRequest {
-  int64 arg0 = 1;
-}
-
-message GetSearchableInfoResponse {
-  int64 result = 1;
-}
-
-message OnCancelRequest {
-  int64 arg0 = 1;
-}
-
-message OnCancelResponse {
-}
-
-message OnDismissRequest {
-  int64 arg0 = 1;
-}
-
-message OnDismissResponse {
-}
-
-message SetOnCancelListenerRequest {
-  int64 arg0 = 1;
-}
-
-message SetOnCancelListenerResponse {
-}
-
-message SetOnDismissListenerRequest {
-  int64 arg0 = 1;
-}
-
-message SetOnDismissListenerResponse {
-}
-
-message StartSearchRequest {
-  string arg0 = 1;
-  bool arg1 = 2;
-  int64 arg2 = 3;
-  int64 arg3 = 4;
-  bool arg4 = 5;
-}
-
-message StartSearchResponse {
-}
-
-message StopSearchRequest {
-}
-
-message StopSearchResponse {
-}
-
-message TriggerSearchRequest {
-  string arg0 = 1;
-  int64 arg1 = 2;
-  int64 arg2 = 3;
-}
-
-message TriggerSearchResponse {
-}
-
-message GetApplicationGrammaticalGenderRequest {
-}
-
-message GetApplicationGrammaticalGenderResponse {
-  int32 result = 1;
-}
-
-message GetSystemGrammaticalGenderRequest {
-}
-
-message GetSystemGrammaticalGenderResponse {
-  int32 result = 1;
-}
-
-message SetRequestedApplicationGrammaticalGenderRequest {
-  int32 arg0 = 1;
-}
-
-message SetRequestedApplicationGrammaticalGenderResponse {
 }
 
 message AddContrastChangeListenerRequest {
@@ -1164,133 +1207,6 @@ message SetNightModeRequest {
 message SetNightModeResponse {
 }
 
-message GetApplicationLocales0Request {
-}
-
-message GetApplicationLocales0Response {
-  int64 result = 1;
-}
-
-message GetApplicationLocales1_1Request {
-  string arg0 = 1;
-}
-
-message GetApplicationLocales1_1Response {
-  int64 result = 1;
-}
-
-message GetOverrideLocaleConfigRequest {
-}
-
-message GetOverrideLocaleConfigResponse {
-  int64 result = 1;
-}
-
-message GetSystemLocalesRequest {
-}
-
-message GetSystemLocalesResponse {
-  int64 result = 1;
-}
-
-message SetApplicationLocalesRequest {
-  int64 arg0 = 1;
-}
-
-message SetApplicationLocalesResponse {
-}
-
-message SetOverrideLocaleConfigRequest {
-  int64 arg0 = 1;
-}
-
-message SetOverrideLocaleConfigResponse {
-}
-
-service OpsManagerService {
-  rpc CheckOp3 (CheckOp3Request) returns (CheckOp3Response);
-  rpc CheckOp4_1 (CheckOp4_1Request) returns (CheckOp4_1Response);
-  rpc CheckOpNoThrow3 (CheckOpNoThrow3Request) returns (CheckOpNoThrow3Response);
-  rpc CheckOpNoThrow4_1 (CheckOpNoThrow4_1Request) returns (CheckOpNoThrow4_1Response);
-  rpc CheckOpRawNoThrow (CheckOpRawNoThrowRequest) returns (CheckOpRawNoThrowResponse);
-  rpc CheckPackage (CheckPackageRequest) returns (CheckPackageResponse);
-  rpc FinishOp3 (FinishOp3Request) returns (FinishOp3Response);
-  rpc FinishOp4_1 (FinishOp4_1Request) returns (FinishOp4_1Response);
-  rpc FinishProxyOp (FinishProxyOpRequest) returns (FinishProxyOpResponse);
-  rpc IsOpActive (IsOpActiveRequest) returns (IsOpActiveResponse);
-  rpc NoteOp3 (NoteOp3Request) returns (NoteOp3Response);
-  rpc NoteOp5_1 (NoteOp5_1Request) returns (NoteOp5_1Response);
-  rpc NoteOpNoThrow3 (NoteOpNoThrow3Request) returns (NoteOpNoThrow3Response);
-  rpc NoteOpNoThrow5_1 (NoteOpNoThrow5_1Request) returns (NoteOpNoThrow5_1Response);
-  rpc NoteProxyOp2 (NoteProxyOp2Request) returns (NoteProxyOp2Response);
-  rpc NoteProxyOp5_1 (NoteProxyOp5_1Request) returns (NoteProxyOp5_1Response);
-  rpc NoteProxyOpNoThrow2 (NoteProxyOpNoThrow2Request) returns (NoteProxyOpNoThrow2Response);
-  rpc NoteProxyOpNoThrow3_1 (NoteProxyOpNoThrow3_1Request) returns (NoteProxyOpNoThrow3_1Response);
-  rpc NoteProxyOpNoThrow5_2 (NoteProxyOpNoThrow5_2Request) returns (NoteProxyOpNoThrow5_2Response);
-  rpc SetOnOpNotedCallback2 (SetOnOpNotedCallback2Request) returns (SetOnOpNotedCallback2Response);
-  rpc SetOnOpNotedCallback3_1 (SetOnOpNotedCallback3_1Request) returns (SetOnOpNotedCallback3_1Response);
-  rpc StartOp3 (StartOp3Request) returns (StartOp3Response);
-  rpc StartOp5_1 (StartOp5_1Request) returns (StartOp5_1Response);
-  rpc StartOpNoThrow3 (StartOpNoThrow3Request) returns (StartOpNoThrow3Response);
-  rpc StartOpNoThrow5_1 (StartOpNoThrow5_1Request) returns (StartOpNoThrow5_1Response);
-  rpc StartProxyOp (StartProxyOpRequest) returns (StartProxyOpResponse);
-  rpc StartProxyOpNoThrow (StartProxyOpNoThrowRequest) returns (StartProxyOpNoThrowResponse);
-  rpc StartWatchingActive (StartWatchingActiveRequest) returns (StartWatchingActiveResponse);
-  rpc StartWatchingMode3 (StartWatchingMode3Request) returns (StartWatchingMode3Response);
-  rpc StartWatchingMode4_1 (StartWatchingMode4_1Request) returns (StartWatchingMode4_1Response);
-  rpc StopWatchingActive (StopWatchingActiveRequest) returns (StopWatchingActiveResponse);
-  rpc StopWatchingMode (StopWatchingModeRequest) returns (StopWatchingModeResponse);
-  rpc UnsafeCheckOp (UnsafeCheckOpRequest) returns (UnsafeCheckOpResponse);
-  rpc UnsafeCheckOpNoThrow (UnsafeCheckOpNoThrowRequest) returns (UnsafeCheckOpNoThrowResponse);
-  rpc UnsafeCheckOpRaw (UnsafeCheckOpRawRequest) returns (UnsafeCheckOpRawResponse);
-  rpc UnsafeCheckOpRawNoThrow (UnsafeCheckOpRawNoThrowRequest) returns (UnsafeCheckOpRawNoThrowResponse);
-  rpc PermissionToOp (PermissionToOpRequest) returns (PermissionToOpResponse);
-}
-
-service StatusBarManagerService {
-  rpc CanLaunchCaptureContentActivityForNote (CanLaunchCaptureContentActivityForNoteRequest) returns (CanLaunchCaptureContentActivityForNoteResponse);
-}
-
-service ActivityManagerService {
-  rpc AddAppTask (AddAppTaskRequest) returns (AddAppTaskResponse);
-  rpc AddStartInfoTimestamp (AddStartInfoTimestampRequest) returns (AddStartInfoTimestampResponse);
-  rpc AppNotResponding (AppNotRespondingRequest) returns (AppNotRespondingResponse);
-  rpc ClearApplicationUserData (ClearApplicationUserDataRequest) returns (ClearApplicationUserDataResponse);
-  rpc ClearWatchHeapLimit (ClearWatchHeapLimitRequest) returns (ClearWatchHeapLimitResponse);
-  rpc DumpPackageState (DumpPackageStateRequest) returns (DumpPackageStateResponse);
-  rpc GetAppTaskThumbnailSize (GetAppTaskThumbnailSizeRequest) returns (GetAppTaskThumbnailSizeResponse);
-  rpc GetDeviceConfigurationInfo (GetDeviceConfigurationInfoRequest) returns (GetDeviceConfigurationInfoResponse);
-  rpc GetLargeMemoryClass (GetLargeMemoryClassRequest) returns (GetLargeMemoryClassResponse);
-  rpc GetLauncherLargeIconDensity (GetLauncherLargeIconDensityRequest) returns (GetLauncherLargeIconDensityResponse);
-  rpc GetLauncherLargeIconSize (GetLauncherLargeIconSizeRequest) returns (GetLauncherLargeIconSizeResponse);
-  rpc GetLockTaskModeState (GetLockTaskModeStateRequest) returns (GetLockTaskModeStateResponse);
-  rpc GetMemoryClass (GetMemoryClassRequest) returns (GetMemoryClassResponse);
-  rpc GetMemoryInfo (GetMemoryInfoRequest) returns (GetMemoryInfoResponse);
-  rpc GetProcessMemoryInfo (GetProcessMemoryInfoRequest) returns (GetProcessMemoryInfoResponse);
-  rpc GetRunningServiceControlPanel (GetRunningServiceControlPanelRequest) returns (GetRunningServiceControlPanelResponse);
-  rpc IsActivityStartAllowedOnDisplay (IsActivityStartAllowedOnDisplayRequest) returns (IsActivityStartAllowedOnDisplayResponse);
-  rpc IsBackgroundRestricted (IsBackgroundRestrictedRequest) returns (IsBackgroundRestrictedResponse);
-  rpc IsInLockTaskMode (IsInLockTaskModeRequest) returns (IsInLockTaskModeResponse);
-  rpc IsLowRamDevice (IsLowRamDeviceRequest) returns (IsLowRamDeviceResponse);
-  rpc KillBackgroundProcesses (KillBackgroundProcessesRequest) returns (KillBackgroundProcessesResponse);
-  rpc MoveTaskToFront2 (MoveTaskToFront2Request) returns (MoveTaskToFront2Response);
-  rpc MoveTaskToFront3_1 (MoveTaskToFront3_1Request) returns (MoveTaskToFront3_1Response);
-  rpc RestartPackage (RestartPackageRequest) returns (RestartPackageResponse);
-  rpc SetProcessStateSummary (SetProcessStateSummaryRequest) returns (SetProcessStateSummaryResponse);
-  rpc SetWatchHeapLimit (SetWatchHeapLimitRequest) returns (SetWatchHeapLimitResponse);
-  rpc GetMyMemoryState (GetMyMemoryStateRequest) returns (GetMyMemoryStateResponse);
-  rpc IsLowMemoryKillReportSupported (IsLowMemoryKillReportSupportedRequest) returns (IsLowMemoryKillReportSupportedResponse);
-  rpc IsRunningInTestHarness (IsRunningInTestHarnessRequest) returns (IsRunningInTestHarnessResponse);
-  rpc IsRunningInUserTestHarness (IsRunningInUserTestHarnessRequest) returns (IsRunningInUserTestHarnessResponse);
-  rpc IsUserAMonkey (IsUserAMonkeyRequest) returns (IsUserAMonkeyResponse);
-  rpc SetVrThread (SetVrThreadRequest) returns (SetVrThreadResponse);
-}
-
-service GameManagerService {
-  rpc GetGameMode (GetGameModeRequest) returns (GetGameModeResponse);
-  rpc SetGameState (SetGameStateRequest) returns (SetGameStateResponse);
-}
-
 service WallpaperManagerService {
   rpc Clear0 (Clear0Request) returns (Clear0Response);
   rpc Clear1_1 (Clear1_1Request) returns (Clear1_1Response);
@@ -1337,6 +1253,45 @@ service WallpaperManagerService {
   rpc GetInstance (GetInstanceRequest) returns (GetInstanceResponse);
 }
 
+service StatusBarManagerService {
+  rpc CanLaunchCaptureContentActivityForNote (CanLaunchCaptureContentActivityForNoteRequest) returns (CanLaunchCaptureContentActivityForNoteResponse);
+}
+
+service ActivityManagerService {
+  rpc AddAppTask (AddAppTaskRequest) returns (AddAppTaskResponse);
+  rpc AddStartInfoTimestamp (AddStartInfoTimestampRequest) returns (AddStartInfoTimestampResponse);
+  rpc AppNotResponding (AppNotRespondingRequest) returns (AppNotRespondingResponse);
+  rpc ClearApplicationUserData (ClearApplicationUserDataRequest) returns (ClearApplicationUserDataResponse);
+  rpc ClearWatchHeapLimit (ClearWatchHeapLimitRequest) returns (ClearWatchHeapLimitResponse);
+  rpc DumpPackageState (DumpPackageStateRequest) returns (DumpPackageStateResponse);
+  rpc GetAppTaskThumbnailSize (GetAppTaskThumbnailSizeRequest) returns (GetAppTaskThumbnailSizeResponse);
+  rpc GetDeviceConfigurationInfo (GetDeviceConfigurationInfoRequest) returns (GetDeviceConfigurationInfoResponse);
+  rpc GetLargeMemoryClass (GetLargeMemoryClassRequest) returns (GetLargeMemoryClassResponse);
+  rpc GetLauncherLargeIconDensity (GetLauncherLargeIconDensityRequest) returns (GetLauncherLargeIconDensityResponse);
+  rpc GetLauncherLargeIconSize (GetLauncherLargeIconSizeRequest) returns (GetLauncherLargeIconSizeResponse);
+  rpc GetLockTaskModeState (GetLockTaskModeStateRequest) returns (GetLockTaskModeStateResponse);
+  rpc GetMemoryClass (GetMemoryClassRequest) returns (GetMemoryClassResponse);
+  rpc GetMemoryInfo (GetMemoryInfoRequest) returns (GetMemoryInfoResponse);
+  rpc GetProcessMemoryInfo (GetProcessMemoryInfoRequest) returns (GetProcessMemoryInfoResponse);
+  rpc GetRunningServiceControlPanel (GetRunningServiceControlPanelRequest) returns (GetRunningServiceControlPanelResponse);
+  rpc IsActivityStartAllowedOnDisplay (IsActivityStartAllowedOnDisplayRequest) returns (IsActivityStartAllowedOnDisplayResponse);
+  rpc IsBackgroundRestricted (IsBackgroundRestrictedRequest) returns (IsBackgroundRestrictedResponse);
+  rpc IsInLockTaskMode (IsInLockTaskModeRequest) returns (IsInLockTaskModeResponse);
+  rpc IsLowRamDevice (IsLowRamDeviceRequest) returns (IsLowRamDeviceResponse);
+  rpc KillBackgroundProcesses (KillBackgroundProcessesRequest) returns (KillBackgroundProcessesResponse);
+  rpc MoveTaskToFront2 (MoveTaskToFront2Request) returns (MoveTaskToFront2Response);
+  rpc MoveTaskToFront3_1 (MoveTaskToFront3_1Request) returns (MoveTaskToFront3_1Response);
+  rpc RestartPackage (RestartPackageRequest) returns (RestartPackageResponse);
+  rpc SetProcessStateSummary (SetProcessStateSummaryRequest) returns (SetProcessStateSummaryResponse);
+  rpc SetWatchHeapLimit (SetWatchHeapLimitRequest) returns (SetWatchHeapLimitResponse);
+  rpc GetMyMemoryState (GetMyMemoryStateRequest) returns (GetMyMemoryStateResponse);
+  rpc IsLowMemoryKillReportSupported (IsLowMemoryKillReportSupportedRequest) returns (IsLowMemoryKillReportSupportedResponse);
+  rpc IsRunningInTestHarness (IsRunningInTestHarnessRequest) returns (IsRunningInTestHarnessResponse);
+  rpc IsRunningInUserTestHarness (IsRunningInUserTestHarnessRequest) returns (IsRunningInUserTestHarnessResponse);
+  rpc IsUserAMonkey (IsUserAMonkeyRequest) returns (IsUserAMonkeyResponse);
+  rpc SetVrThread (SetVrThreadRequest) returns (SetVrThreadResponse);
+}
+
 service SearchManagerService {
   rpc GetGlobalSearchActivity (GetGlobalSearchActivityRequest) returns (GetGlobalSearchActivityResponse);
   rpc GetSearchableInfo (GetSearchableInfoRequest) returns (GetSearchableInfoResponse);
@@ -1355,6 +1310,60 @@ service GrammaticalInflectionManagerService {
   rpc SetRequestedApplicationGrammaticalGender (SetRequestedApplicationGrammaticalGenderRequest) returns (SetRequestedApplicationGrammaticalGenderResponse);
 }
 
+service OpsManagerService {
+  rpc CheckOp3 (CheckOp3Request) returns (CheckOp3Response);
+  rpc CheckOp4_1 (CheckOp4_1Request) returns (CheckOp4_1Response);
+  rpc CheckOpNoThrow3 (CheckOpNoThrow3Request) returns (CheckOpNoThrow3Response);
+  rpc CheckOpNoThrow4_1 (CheckOpNoThrow4_1Request) returns (CheckOpNoThrow4_1Response);
+  rpc CheckOpRawNoThrow (CheckOpRawNoThrowRequest) returns (CheckOpRawNoThrowResponse);
+  rpc CheckPackage (CheckPackageRequest) returns (CheckPackageResponse);
+  rpc FinishOp3 (FinishOp3Request) returns (FinishOp3Response);
+  rpc FinishOp4_1 (FinishOp4_1Request) returns (FinishOp4_1Response);
+  rpc FinishProxyOp (FinishProxyOpRequest) returns (FinishProxyOpResponse);
+  rpc IsOpActive (IsOpActiveRequest) returns (IsOpActiveResponse);
+  rpc NoteOp3 (NoteOp3Request) returns (NoteOp3Response);
+  rpc NoteOp5_1 (NoteOp5_1Request) returns (NoteOp5_1Response);
+  rpc NoteOpNoThrow3 (NoteOpNoThrow3Request) returns (NoteOpNoThrow3Response);
+  rpc NoteOpNoThrow5_1 (NoteOpNoThrow5_1Request) returns (NoteOpNoThrow5_1Response);
+  rpc NoteProxyOp2 (NoteProxyOp2Request) returns (NoteProxyOp2Response);
+  rpc NoteProxyOp5_1 (NoteProxyOp5_1Request) returns (NoteProxyOp5_1Response);
+  rpc NoteProxyOpNoThrow2 (NoteProxyOpNoThrow2Request) returns (NoteProxyOpNoThrow2Response);
+  rpc NoteProxyOpNoThrow3_1 (NoteProxyOpNoThrow3_1Request) returns (NoteProxyOpNoThrow3_1Response);
+  rpc NoteProxyOpNoThrow5_2 (NoteProxyOpNoThrow5_2Request) returns (NoteProxyOpNoThrow5_2Response);
+  rpc SetOnOpNotedCallback2 (SetOnOpNotedCallback2Request) returns (SetOnOpNotedCallback2Response);
+  rpc SetOnOpNotedCallback3_1 (SetOnOpNotedCallback3_1Request) returns (SetOnOpNotedCallback3_1Response);
+  rpc StartOp3 (StartOp3Request) returns (StartOp3Response);
+  rpc StartOp5_1 (StartOp5_1Request) returns (StartOp5_1Response);
+  rpc StartOpNoThrow3 (StartOpNoThrow3Request) returns (StartOpNoThrow3Response);
+  rpc StartOpNoThrow5_1 (StartOpNoThrow5_1Request) returns (StartOpNoThrow5_1Response);
+  rpc StartProxyOp (StartProxyOpRequest) returns (StartProxyOpResponse);
+  rpc StartProxyOpNoThrow (StartProxyOpNoThrowRequest) returns (StartProxyOpNoThrowResponse);
+  rpc StartWatchingActive (StartWatchingActiveRequest) returns (StartWatchingActiveResponse);
+  rpc StartWatchingMode3 (StartWatchingMode3Request) returns (StartWatchingMode3Response);
+  rpc StartWatchingMode4_1 (StartWatchingMode4_1Request) returns (StartWatchingMode4_1Response);
+  rpc StopWatchingActive (StopWatchingActiveRequest) returns (StopWatchingActiveResponse);
+  rpc StopWatchingMode (StopWatchingModeRequest) returns (StopWatchingModeResponse);
+  rpc UnsafeCheckOp (UnsafeCheckOpRequest) returns (UnsafeCheckOpResponse);
+  rpc UnsafeCheckOpNoThrow (UnsafeCheckOpNoThrowRequest) returns (UnsafeCheckOpNoThrowResponse);
+  rpc UnsafeCheckOpRaw (UnsafeCheckOpRawRequest) returns (UnsafeCheckOpRawResponse);
+  rpc UnsafeCheckOpRawNoThrow (UnsafeCheckOpRawNoThrowRequest) returns (UnsafeCheckOpRawNoThrowResponse);
+  rpc PermissionToOp (PermissionToOpRequest) returns (PermissionToOpResponse);
+}
+
+service LocaleManagerService {
+  rpc GetApplicationLocales0 (GetApplicationLocales0Request) returns (GetApplicationLocales0Response);
+  rpc GetApplicationLocales1_1 (GetApplicationLocales1_1Request) returns (GetApplicationLocales1_1Response);
+  rpc GetOverrideLocaleConfig (GetOverrideLocaleConfigRequest) returns (GetOverrideLocaleConfigResponse);
+  rpc GetSystemLocales (GetSystemLocalesRequest) returns (GetSystemLocalesResponse);
+  rpc SetApplicationLocales (SetApplicationLocalesRequest) returns (SetApplicationLocalesResponse);
+  rpc SetOverrideLocaleConfig (SetOverrideLocaleConfigRequest) returns (SetOverrideLocaleConfigResponse);
+}
+
+service GameManagerService {
+  rpc GetGameMode (GetGameModeRequest) returns (GetGameModeResponse);
+  rpc SetGameState (SetGameStateRequest) returns (SetGameStateResponse);
+}
+
 service UiModeManagerService {
   rpc AddContrastChangeListener (AddContrastChangeListenerRequest) returns (AddContrastChangeListenerResponse);
   rpc DisableCarMode (DisableCarModeRequest) returns (DisableCarModeResponse);
@@ -1369,13 +1378,4 @@ service UiModeManagerService {
   rpc SetCustomNightModeEnd (SetCustomNightModeEndRequest) returns (SetCustomNightModeEndResponse);
   rpc SetCustomNightModeStart (SetCustomNightModeStartRequest) returns (SetCustomNightModeStartResponse);
   rpc SetNightMode (SetNightModeRequest) returns (SetNightModeResponse);
-}
-
-service LocaleManagerService {
-  rpc GetApplicationLocales0 (GetApplicationLocales0Request) returns (GetApplicationLocales0Response);
-  rpc GetApplicationLocales1_1 (GetApplicationLocales1_1Request) returns (GetApplicationLocales1_1Response);
-  rpc GetOverrideLocaleConfig (GetOverrideLocaleConfigRequest) returns (GetOverrideLocaleConfigResponse);
-  rpc GetSystemLocales (GetSystemLocalesRequest) returns (GetSystemLocalesResponse);
-  rpc SetApplicationLocales (SetApplicationLocalesRequest) returns (SetApplicationLocalesResponse);
-  rpc SetOverrideLocaleConfig (SetOverrideLocaleConfigRequest) returns (SetOverrideLocaleConfigResponse);
 }

@@ -15,6 +15,155 @@ import (
 	"google.golang.org/grpc/status"
 )
 
+// CaptioningManagerServer implements pb.CaptioningManagerServiceServer.
+type CaptioningManagerServer struct {
+	pb.UnimplementedCaptioningManagerServiceServer
+	Ctx     *app.Context
+	Handles *handlestore.HandleStore
+}
+
+func (s *CaptioningManagerServer) AddCaptioningChangeListener(_ context.Context, req *pb.AddCaptioningChangeListenerRequest) (*pb.AddCaptioningChangeListenerResponse, error) {
+	mgr, err := jnipkg.NewCaptioningManager(s.Ctx)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
+	}
+	defer mgr.Close()
+
+	if err := mgr.AddCaptioningChangeListener(s.Handles.Get(req.GetArg0())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.AddCaptioningChangeListenerResponse{}, nil
+}
+
+func (s *CaptioningManagerServer) GetFontScale(_ context.Context, req *pb.GetFontScaleRequest) (*pb.GetFontScaleResponse, error) {
+	mgr, err := jnipkg.NewCaptioningManager(s.Ctx)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
+	}
+	defer mgr.Close()
+
+	result, err := mgr.GetFontScale()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetFontScaleResponse{Result: result}, nil
+}
+
+func (s *CaptioningManagerServer) GetLocale(_ context.Context, req *pb.GetLocaleRequest) (*pb.GetLocaleResponse, error) {
+	mgr, err := jnipkg.NewCaptioningManager(s.Ctx)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
+	}
+	defer mgr.Close()
+
+	result, err := mgr.GetLocale()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetLocaleResponse{Result: handle}, nil
+}
+
+func (s *CaptioningManagerServer) GetUserStyle(_ context.Context, req *pb.GetUserStyleRequest) (*pb.GetUserStyleResponse, error) {
+	mgr, err := jnipkg.NewCaptioningManager(s.Ctx)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
+	}
+	defer mgr.Close()
+
+	result, err := mgr.GetUserStyle()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetUserStyleResponse{Result: handle}, nil
+}
+
+func (s *CaptioningManagerServer) IsCallCaptioningEnabled(_ context.Context, req *pb.IsCallCaptioningEnabledRequest) (*pb.IsCallCaptioningEnabledResponse, error) {
+	mgr, err := jnipkg.NewCaptioningManager(s.Ctx)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
+	}
+	defer mgr.Close()
+
+	result, err := mgr.IsCallCaptioningEnabled()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.IsCallCaptioningEnabledResponse{Result: result}, nil
+}
+
+func (s *CaptioningManagerServer) IsEnabled(_ context.Context, req *pb.IsEnabledRequest) (*pb.IsEnabledResponse, error) {
+	mgr, err := jnipkg.NewCaptioningManager(s.Ctx)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
+	}
+	defer mgr.Close()
+
+	result, err := mgr.IsEnabled()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.IsEnabledResponse{Result: result}, nil
+}
+
+func (s *CaptioningManagerServer) IsSystemAudioCaptioningEnabled(_ context.Context, req *pb.IsSystemAudioCaptioningEnabledRequest) (*pb.IsSystemAudioCaptioningEnabledResponse, error) {
+	mgr, err := jnipkg.NewCaptioningManager(s.Ctx)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
+	}
+	defer mgr.Close()
+
+	result, err := mgr.IsSystemAudioCaptioningEnabled()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.IsSystemAudioCaptioningEnabledResponse{Result: result}, nil
+}
+
+func (s *CaptioningManagerServer) IsSystemAudioCaptioningUiEnabled(_ context.Context, req *pb.IsSystemAudioCaptioningUiEnabledRequest) (*pb.IsSystemAudioCaptioningUiEnabledResponse, error) {
+	mgr, err := jnipkg.NewCaptioningManager(s.Ctx)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
+	}
+	defer mgr.Close()
+
+	result, err := mgr.IsSystemAudioCaptioningUiEnabled()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.IsSystemAudioCaptioningUiEnabledResponse{Result: result}, nil
+}
+
+func (s *CaptioningManagerServer) RemoveCaptioningChangeListener(_ context.Context, req *pb.RemoveCaptioningChangeListenerRequest) (*pb.RemoveCaptioningChangeListenerResponse, error) {
+	mgr, err := jnipkg.NewCaptioningManager(s.Ctx)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
+	}
+	defer mgr.Close()
+
+	if err := mgr.RemoveCaptioningChangeListener(s.Handles.Get(req.GetArg0())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.RemoveCaptioningChangeListenerResponse{}, nil
+}
+
 // ManagerServer implements pb.ManagerServiceServer.
 type ManagerServer struct {
 	pb.UnimplementedManagerServiceServer
@@ -347,153 +496,4 @@ func (s *ManagerServer) IsAccessibilityButtonSupported(_ context.Context, req *p
 		return nil, status.Errorf(codes.Internal, "%v", err)
 	}
 	return &pb.IsAccessibilityButtonSupportedResponse{Result: result}, nil
-}
-
-// CaptioningManagerServer implements pb.CaptioningManagerServiceServer.
-type CaptioningManagerServer struct {
-	pb.UnimplementedCaptioningManagerServiceServer
-	Ctx     *app.Context
-	Handles *handlestore.HandleStore
-}
-
-func (s *CaptioningManagerServer) AddCaptioningChangeListener(_ context.Context, req *pb.AddCaptioningChangeListenerRequest) (*pb.AddCaptioningChangeListenerResponse, error) {
-	mgr, err := jnipkg.NewCaptioningManager(s.Ctx)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
-	}
-	defer mgr.Close()
-
-	if err := mgr.AddCaptioningChangeListener(s.Handles.Get(req.GetArg0())); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.AddCaptioningChangeListenerResponse{}, nil
-}
-
-func (s *CaptioningManagerServer) GetFontScale(_ context.Context, req *pb.GetFontScaleRequest) (*pb.GetFontScaleResponse, error) {
-	mgr, err := jnipkg.NewCaptioningManager(s.Ctx)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
-	}
-	defer mgr.Close()
-
-	result, err := mgr.GetFontScale()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GetFontScaleResponse{Result: result}, nil
-}
-
-func (s *CaptioningManagerServer) GetLocale(_ context.Context, req *pb.GetLocaleRequest) (*pb.GetLocaleResponse, error) {
-	mgr, err := jnipkg.NewCaptioningManager(s.Ctx)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
-	}
-	defer mgr.Close()
-
-	result, err := mgr.GetLocale()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	var handle int64
-	if result != nil {
-		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-			handle = s.Handles.Put(env, result)
-			return nil
-		}); doErr != nil {
-			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-		}
-	}
-	return &pb.GetLocaleResponse{Result: handle}, nil
-}
-
-func (s *CaptioningManagerServer) GetUserStyle(_ context.Context, req *pb.GetUserStyleRequest) (*pb.GetUserStyleResponse, error) {
-	mgr, err := jnipkg.NewCaptioningManager(s.Ctx)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
-	}
-	defer mgr.Close()
-
-	result, err := mgr.GetUserStyle()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	var handle int64
-	if result != nil {
-		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-			handle = s.Handles.Put(env, result)
-			return nil
-		}); doErr != nil {
-			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-		}
-	}
-	return &pb.GetUserStyleResponse{Result: handle}, nil
-}
-
-func (s *CaptioningManagerServer) IsCallCaptioningEnabled(_ context.Context, req *pb.IsCallCaptioningEnabledRequest) (*pb.IsCallCaptioningEnabledResponse, error) {
-	mgr, err := jnipkg.NewCaptioningManager(s.Ctx)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
-	}
-	defer mgr.Close()
-
-	result, err := mgr.IsCallCaptioningEnabled()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.IsCallCaptioningEnabledResponse{Result: result}, nil
-}
-
-func (s *CaptioningManagerServer) IsEnabled(_ context.Context, req *pb.IsEnabledRequest) (*pb.IsEnabledResponse, error) {
-	mgr, err := jnipkg.NewCaptioningManager(s.Ctx)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
-	}
-	defer mgr.Close()
-
-	result, err := mgr.IsEnabled()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.IsEnabledResponse{Result: result}, nil
-}
-
-func (s *CaptioningManagerServer) IsSystemAudioCaptioningEnabled(_ context.Context, req *pb.IsSystemAudioCaptioningEnabledRequest) (*pb.IsSystemAudioCaptioningEnabledResponse, error) {
-	mgr, err := jnipkg.NewCaptioningManager(s.Ctx)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
-	}
-	defer mgr.Close()
-
-	result, err := mgr.IsSystemAudioCaptioningEnabled()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.IsSystemAudioCaptioningEnabledResponse{Result: result}, nil
-}
-
-func (s *CaptioningManagerServer) IsSystemAudioCaptioningUiEnabled(_ context.Context, req *pb.IsSystemAudioCaptioningUiEnabledRequest) (*pb.IsSystemAudioCaptioningUiEnabledResponse, error) {
-	mgr, err := jnipkg.NewCaptioningManager(s.Ctx)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
-	}
-	defer mgr.Close()
-
-	result, err := mgr.IsSystemAudioCaptioningUiEnabled()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.IsSystemAudioCaptioningUiEnabledResponse{Result: result}, nil
-}
-
-func (s *CaptioningManagerServer) RemoveCaptioningChangeListener(_ context.Context, req *pb.RemoveCaptioningChangeListenerRequest) (*pb.RemoveCaptioningChangeListenerResponse, error) {
-	mgr, err := jnipkg.NewCaptioningManager(s.Ctx)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
-	}
-	defer mgr.Close()
-
-	if err := mgr.RemoveCaptioningChangeListener(s.Handles.Get(req.GetArg0())); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.RemoveCaptioningChangeListenerResponse{}, nil
 }

@@ -43,8 +43,18 @@ func Generate(
 		return nil
 	}
 
+	return GenerateFromProtoData(protoData, outputDir, goModule, protoDir)
+}
+
+// GenerateFromProtoData generates CLI code from pre-built proto data.
+func GenerateFromProtoData(
+	protoData *protogen.ProtoData,
+	outputDir string,
+	goModule string,
+	protoDir string,
+) error {
 	// Resolve proto names to actual Go names by scanning compiled proto stubs.
-	goNames := protoscan.Scan(filepath.Join(protoDir, merged.Package))
+	goNames := protoscan.Scan(filepath.Join(protoDir, protoData.Package))
 
 	// Build a combined map for name resolution (services + RPCs + messages).
 	goClientNames := make(map[string]string)
@@ -67,12 +77,10 @@ func Generate(
 		return fmt.Errorf("mkdir %s: %w", outputDir, err)
 	}
 
-	outputPath := filepath.Join(outputDir, merged.Package+".go")
+	outputPath := filepath.Join(outputDir, protoData.Package+".go")
 	if err := renderPackage(cliPkg, outputPath); err != nil {
 		return fmt.Errorf("render: %w", err)
 	}
 
 	return nil
 }
-
-// Removed: scanGoClientNames replaced by protoscan.Scan

@@ -21,6 +21,934 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
+	CrossProfileAppsService_CanInteractAcrossProfiles_FullMethodName                 = "/pm.CrossProfileAppsService/CanInteractAcrossProfiles"
+	CrossProfileAppsService_CanRequestInteractAcrossProfiles_FullMethodName          = "/pm.CrossProfileAppsService/CanRequestInteractAcrossProfiles"
+	CrossProfileAppsService_CreateRequestInteractAcrossProfilesIntent_FullMethodName = "/pm.CrossProfileAppsService/CreateRequestInteractAcrossProfilesIntent"
+	CrossProfileAppsService_GetProfileSwitchingIconDrawable_FullMethodName           = "/pm.CrossProfileAppsService/GetProfileSwitchingIconDrawable"
+	CrossProfileAppsService_GetProfileSwitchingLabel_FullMethodName                  = "/pm.CrossProfileAppsService/GetProfileSwitchingLabel"
+	CrossProfileAppsService_IsManagedProfile_FullMethodName                          = "/pm.CrossProfileAppsService/IsManagedProfile"
+	CrossProfileAppsService_IsProfile_FullMethodName                                 = "/pm.CrossProfileAppsService/IsProfile"
+	CrossProfileAppsService_StartActivity3_FullMethodName                            = "/pm.CrossProfileAppsService/StartActivity3"
+	CrossProfileAppsService_StartActivity4_1_FullMethodName                          = "/pm.CrossProfileAppsService/StartActivity4_1"
+	CrossProfileAppsService_StartMainActivity2_FullMethodName                        = "/pm.CrossProfileAppsService/StartMainActivity2"
+	CrossProfileAppsService_StartMainActivity4_1_FullMethodName                      = "/pm.CrossProfileAppsService/StartMainActivity4_1"
+)
+
+// CrossProfileAppsServiceClient is the client API for CrossProfileAppsService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type CrossProfileAppsServiceClient interface {
+	CanInteractAcrossProfiles(ctx context.Context, in *CanInteractAcrossProfilesRequest, opts ...grpc.CallOption) (*CanInteractAcrossProfilesResponse, error)
+	CanRequestInteractAcrossProfiles(ctx context.Context, in *CanRequestInteractAcrossProfilesRequest, opts ...grpc.CallOption) (*CanRequestInteractAcrossProfilesResponse, error)
+	CreateRequestInteractAcrossProfilesIntent(ctx context.Context, in *CreateRequestInteractAcrossProfilesIntentRequest, opts ...grpc.CallOption) (*CreateRequestInteractAcrossProfilesIntentResponse, error)
+	GetProfileSwitchingIconDrawable(ctx context.Context, in *GetProfileSwitchingIconDrawableRequest, opts ...grpc.CallOption) (*GetProfileSwitchingIconDrawableResponse, error)
+	GetProfileSwitchingLabel(ctx context.Context, in *GetProfileSwitchingLabelRequest, opts ...grpc.CallOption) (*GetProfileSwitchingLabelResponse, error)
+	IsManagedProfile(ctx context.Context, in *IsManagedProfileRequest, opts ...grpc.CallOption) (*IsManagedProfileResponse, error)
+	IsProfile(ctx context.Context, in *IsProfileRequest, opts ...grpc.CallOption) (*IsProfileResponse, error)
+	StartActivity3(ctx context.Context, in *StartActivity3Request, opts ...grpc.CallOption) (*StartActivity3Response, error)
+	StartActivity4_1(ctx context.Context, in *StartActivity4_1Request, opts ...grpc.CallOption) (*StartActivity4_1Response, error)
+	StartMainActivity2(ctx context.Context, in *StartMainActivity2Request, opts ...grpc.CallOption) (*StartMainActivity2Response, error)
+	StartMainActivity4_1(ctx context.Context, in *StartMainActivity4_1Request, opts ...grpc.CallOption) (*StartMainActivity4_1Response, error)
+}
+
+type crossProfileAppsServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewCrossProfileAppsServiceClient(cc grpc.ClientConnInterface) CrossProfileAppsServiceClient {
+	return &crossProfileAppsServiceClient{cc}
+}
+
+func (c *crossProfileAppsServiceClient) CanInteractAcrossProfiles(ctx context.Context, in *CanInteractAcrossProfilesRequest, opts ...grpc.CallOption) (*CanInteractAcrossProfilesResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(CanInteractAcrossProfilesResponse)
+	err := c.cc.Invoke(ctx, CrossProfileAppsService_CanInteractAcrossProfiles_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *crossProfileAppsServiceClient) CanRequestInteractAcrossProfiles(ctx context.Context, in *CanRequestInteractAcrossProfilesRequest, opts ...grpc.CallOption) (*CanRequestInteractAcrossProfilesResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(CanRequestInteractAcrossProfilesResponse)
+	err := c.cc.Invoke(ctx, CrossProfileAppsService_CanRequestInteractAcrossProfiles_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *crossProfileAppsServiceClient) CreateRequestInteractAcrossProfilesIntent(ctx context.Context, in *CreateRequestInteractAcrossProfilesIntentRequest, opts ...grpc.CallOption) (*CreateRequestInteractAcrossProfilesIntentResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(CreateRequestInteractAcrossProfilesIntentResponse)
+	err := c.cc.Invoke(ctx, CrossProfileAppsService_CreateRequestInteractAcrossProfilesIntent_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *crossProfileAppsServiceClient) GetProfileSwitchingIconDrawable(ctx context.Context, in *GetProfileSwitchingIconDrawableRequest, opts ...grpc.CallOption) (*GetProfileSwitchingIconDrawableResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetProfileSwitchingIconDrawableResponse)
+	err := c.cc.Invoke(ctx, CrossProfileAppsService_GetProfileSwitchingIconDrawable_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *crossProfileAppsServiceClient) GetProfileSwitchingLabel(ctx context.Context, in *GetProfileSwitchingLabelRequest, opts ...grpc.CallOption) (*GetProfileSwitchingLabelResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetProfileSwitchingLabelResponse)
+	err := c.cc.Invoke(ctx, CrossProfileAppsService_GetProfileSwitchingLabel_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *crossProfileAppsServiceClient) IsManagedProfile(ctx context.Context, in *IsManagedProfileRequest, opts ...grpc.CallOption) (*IsManagedProfileResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IsManagedProfileResponse)
+	err := c.cc.Invoke(ctx, CrossProfileAppsService_IsManagedProfile_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *crossProfileAppsServiceClient) IsProfile(ctx context.Context, in *IsProfileRequest, opts ...grpc.CallOption) (*IsProfileResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IsProfileResponse)
+	err := c.cc.Invoke(ctx, CrossProfileAppsService_IsProfile_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *crossProfileAppsServiceClient) StartActivity3(ctx context.Context, in *StartActivity3Request, opts ...grpc.CallOption) (*StartActivity3Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(StartActivity3Response)
+	err := c.cc.Invoke(ctx, CrossProfileAppsService_StartActivity3_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *crossProfileAppsServiceClient) StartActivity4_1(ctx context.Context, in *StartActivity4_1Request, opts ...grpc.CallOption) (*StartActivity4_1Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(StartActivity4_1Response)
+	err := c.cc.Invoke(ctx, CrossProfileAppsService_StartActivity4_1_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *crossProfileAppsServiceClient) StartMainActivity2(ctx context.Context, in *StartMainActivity2Request, opts ...grpc.CallOption) (*StartMainActivity2Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(StartMainActivity2Response)
+	err := c.cc.Invoke(ctx, CrossProfileAppsService_StartMainActivity2_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *crossProfileAppsServiceClient) StartMainActivity4_1(ctx context.Context, in *StartMainActivity4_1Request, opts ...grpc.CallOption) (*StartMainActivity4_1Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(StartMainActivity4_1Response)
+	err := c.cc.Invoke(ctx, CrossProfileAppsService_StartMainActivity4_1_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// CrossProfileAppsServiceServer is the server API for CrossProfileAppsService service.
+// All implementations must embed UnimplementedCrossProfileAppsServiceServer
+// for forward compatibility.
+type CrossProfileAppsServiceServer interface {
+	CanInteractAcrossProfiles(context.Context, *CanInteractAcrossProfilesRequest) (*CanInteractAcrossProfilesResponse, error)
+	CanRequestInteractAcrossProfiles(context.Context, *CanRequestInteractAcrossProfilesRequest) (*CanRequestInteractAcrossProfilesResponse, error)
+	CreateRequestInteractAcrossProfilesIntent(context.Context, *CreateRequestInteractAcrossProfilesIntentRequest) (*CreateRequestInteractAcrossProfilesIntentResponse, error)
+	GetProfileSwitchingIconDrawable(context.Context, *GetProfileSwitchingIconDrawableRequest) (*GetProfileSwitchingIconDrawableResponse, error)
+	GetProfileSwitchingLabel(context.Context, *GetProfileSwitchingLabelRequest) (*GetProfileSwitchingLabelResponse, error)
+	IsManagedProfile(context.Context, *IsManagedProfileRequest) (*IsManagedProfileResponse, error)
+	IsProfile(context.Context, *IsProfileRequest) (*IsProfileResponse, error)
+	StartActivity3(context.Context, *StartActivity3Request) (*StartActivity3Response, error)
+	StartActivity4_1(context.Context, *StartActivity4_1Request) (*StartActivity4_1Response, error)
+	StartMainActivity2(context.Context, *StartMainActivity2Request) (*StartMainActivity2Response, error)
+	StartMainActivity4_1(context.Context, *StartMainActivity4_1Request) (*StartMainActivity4_1Response, error)
+	mustEmbedUnimplementedCrossProfileAppsServiceServer()
+}
+
+// UnimplementedCrossProfileAppsServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedCrossProfileAppsServiceServer struct{}
+
+func (UnimplementedCrossProfileAppsServiceServer) CanInteractAcrossProfiles(context.Context, *CanInteractAcrossProfilesRequest) (*CanInteractAcrossProfilesResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method CanInteractAcrossProfiles not implemented")
+}
+func (UnimplementedCrossProfileAppsServiceServer) CanRequestInteractAcrossProfiles(context.Context, *CanRequestInteractAcrossProfilesRequest) (*CanRequestInteractAcrossProfilesResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method CanRequestInteractAcrossProfiles not implemented")
+}
+func (UnimplementedCrossProfileAppsServiceServer) CreateRequestInteractAcrossProfilesIntent(context.Context, *CreateRequestInteractAcrossProfilesIntentRequest) (*CreateRequestInteractAcrossProfilesIntentResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method CreateRequestInteractAcrossProfilesIntent not implemented")
+}
+func (UnimplementedCrossProfileAppsServiceServer) GetProfileSwitchingIconDrawable(context.Context, *GetProfileSwitchingIconDrawableRequest) (*GetProfileSwitchingIconDrawableResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetProfileSwitchingIconDrawable not implemented")
+}
+func (UnimplementedCrossProfileAppsServiceServer) GetProfileSwitchingLabel(context.Context, *GetProfileSwitchingLabelRequest) (*GetProfileSwitchingLabelResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetProfileSwitchingLabel not implemented")
+}
+func (UnimplementedCrossProfileAppsServiceServer) IsManagedProfile(context.Context, *IsManagedProfileRequest) (*IsManagedProfileResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsManagedProfile not implemented")
+}
+func (UnimplementedCrossProfileAppsServiceServer) IsProfile(context.Context, *IsProfileRequest) (*IsProfileResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsProfile not implemented")
+}
+func (UnimplementedCrossProfileAppsServiceServer) StartActivity3(context.Context, *StartActivity3Request) (*StartActivity3Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method StartActivity3 not implemented")
+}
+func (UnimplementedCrossProfileAppsServiceServer) StartActivity4_1(context.Context, *StartActivity4_1Request) (*StartActivity4_1Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method StartActivity4_1 not implemented")
+}
+func (UnimplementedCrossProfileAppsServiceServer) StartMainActivity2(context.Context, *StartMainActivity2Request) (*StartMainActivity2Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method StartMainActivity2 not implemented")
+}
+func (UnimplementedCrossProfileAppsServiceServer) StartMainActivity4_1(context.Context, *StartMainActivity4_1Request) (*StartMainActivity4_1Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method StartMainActivity4_1 not implemented")
+}
+func (UnimplementedCrossProfileAppsServiceServer) mustEmbedUnimplementedCrossProfileAppsServiceServer() {
+}
+func (UnimplementedCrossProfileAppsServiceServer) testEmbeddedByValue() {}
+
+// UnsafeCrossProfileAppsServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to CrossProfileAppsServiceServer will
+// result in compilation errors.
+type UnsafeCrossProfileAppsServiceServer interface {
+	mustEmbedUnimplementedCrossProfileAppsServiceServer()
+}
+
+func RegisterCrossProfileAppsServiceServer(s grpc.ServiceRegistrar, srv CrossProfileAppsServiceServer) {
+	// If the following call panics, it indicates UnimplementedCrossProfileAppsServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&CrossProfileAppsService_ServiceDesc, srv)
+}
+
+func _CrossProfileAppsService_CanInteractAcrossProfiles_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CanInteractAcrossProfilesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CrossProfileAppsServiceServer).CanInteractAcrossProfiles(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CrossProfileAppsService_CanInteractAcrossProfiles_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CrossProfileAppsServiceServer).CanInteractAcrossProfiles(ctx, req.(*CanInteractAcrossProfilesRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CrossProfileAppsService_CanRequestInteractAcrossProfiles_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CanRequestInteractAcrossProfilesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CrossProfileAppsServiceServer).CanRequestInteractAcrossProfiles(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CrossProfileAppsService_CanRequestInteractAcrossProfiles_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CrossProfileAppsServiceServer).CanRequestInteractAcrossProfiles(ctx, req.(*CanRequestInteractAcrossProfilesRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CrossProfileAppsService_CreateRequestInteractAcrossProfilesIntent_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CreateRequestInteractAcrossProfilesIntentRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CrossProfileAppsServiceServer).CreateRequestInteractAcrossProfilesIntent(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CrossProfileAppsService_CreateRequestInteractAcrossProfilesIntent_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CrossProfileAppsServiceServer).CreateRequestInteractAcrossProfilesIntent(ctx, req.(*CreateRequestInteractAcrossProfilesIntentRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CrossProfileAppsService_GetProfileSwitchingIconDrawable_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetProfileSwitchingIconDrawableRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CrossProfileAppsServiceServer).GetProfileSwitchingIconDrawable(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CrossProfileAppsService_GetProfileSwitchingIconDrawable_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CrossProfileAppsServiceServer).GetProfileSwitchingIconDrawable(ctx, req.(*GetProfileSwitchingIconDrawableRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CrossProfileAppsService_GetProfileSwitchingLabel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetProfileSwitchingLabelRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CrossProfileAppsServiceServer).GetProfileSwitchingLabel(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CrossProfileAppsService_GetProfileSwitchingLabel_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CrossProfileAppsServiceServer).GetProfileSwitchingLabel(ctx, req.(*GetProfileSwitchingLabelRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CrossProfileAppsService_IsManagedProfile_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsManagedProfileRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CrossProfileAppsServiceServer).IsManagedProfile(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CrossProfileAppsService_IsManagedProfile_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CrossProfileAppsServiceServer).IsManagedProfile(ctx, req.(*IsManagedProfileRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CrossProfileAppsService_IsProfile_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsProfileRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CrossProfileAppsServiceServer).IsProfile(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CrossProfileAppsService_IsProfile_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CrossProfileAppsServiceServer).IsProfile(ctx, req.(*IsProfileRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CrossProfileAppsService_StartActivity3_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(StartActivity3Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CrossProfileAppsServiceServer).StartActivity3(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CrossProfileAppsService_StartActivity3_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CrossProfileAppsServiceServer).StartActivity3(ctx, req.(*StartActivity3Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CrossProfileAppsService_StartActivity4_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(StartActivity4_1Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CrossProfileAppsServiceServer).StartActivity4_1(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CrossProfileAppsService_StartActivity4_1_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CrossProfileAppsServiceServer).StartActivity4_1(ctx, req.(*StartActivity4_1Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CrossProfileAppsService_StartMainActivity2_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(StartMainActivity2Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CrossProfileAppsServiceServer).StartMainActivity2(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CrossProfileAppsService_StartMainActivity2_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CrossProfileAppsServiceServer).StartMainActivity2(ctx, req.(*StartMainActivity2Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CrossProfileAppsService_StartMainActivity4_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(StartMainActivity4_1Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CrossProfileAppsServiceServer).StartMainActivity4_1(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CrossProfileAppsService_StartMainActivity4_1_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CrossProfileAppsServiceServer).StartMainActivity4_1(ctx, req.(*StartMainActivity4_1Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// CrossProfileAppsService_ServiceDesc is the grpc.ServiceDesc for CrossProfileAppsService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var CrossProfileAppsService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "pm.CrossProfileAppsService",
+	HandlerType: (*CrossProfileAppsServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "CanInteractAcrossProfiles",
+			Handler:    _CrossProfileAppsService_CanInteractAcrossProfiles_Handler,
+		},
+		{
+			MethodName: "CanRequestInteractAcrossProfiles",
+			Handler:    _CrossProfileAppsService_CanRequestInteractAcrossProfiles_Handler,
+		},
+		{
+			MethodName: "CreateRequestInteractAcrossProfilesIntent",
+			Handler:    _CrossProfileAppsService_CreateRequestInteractAcrossProfilesIntent_Handler,
+		},
+		{
+			MethodName: "GetProfileSwitchingIconDrawable",
+			Handler:    _CrossProfileAppsService_GetProfileSwitchingIconDrawable_Handler,
+		},
+		{
+			MethodName: "GetProfileSwitchingLabel",
+			Handler:    _CrossProfileAppsService_GetProfileSwitchingLabel_Handler,
+		},
+		{
+			MethodName: "IsManagedProfile",
+			Handler:    _CrossProfileAppsService_IsManagedProfile_Handler,
+		},
+		{
+			MethodName: "IsProfile",
+			Handler:    _CrossProfileAppsService_IsProfile_Handler,
+		},
+		{
+			MethodName: "StartActivity3",
+			Handler:    _CrossProfileAppsService_StartActivity3_Handler,
+		},
+		{
+			MethodName: "StartActivity4_1",
+			Handler:    _CrossProfileAppsService_StartActivity4_1_Handler,
+		},
+		{
+			MethodName: "StartMainActivity2",
+			Handler:    _CrossProfileAppsService_StartMainActivity2_Handler,
+		},
+		{
+			MethodName: "StartMainActivity4_1",
+			Handler:    _CrossProfileAppsService_StartMainActivity4_1_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/pm/pm.proto",
+}
+
+const (
+	ShortcutManagerService_CreateShortcutResultIntent_FullMethodName     = "/pm.ShortcutManagerService/CreateShortcutResultIntent"
+	ShortcutManagerService_GetIconMaxHeight_FullMethodName               = "/pm.ShortcutManagerService/GetIconMaxHeight"
+	ShortcutManagerService_GetIconMaxWidth_FullMethodName                = "/pm.ShortcutManagerService/GetIconMaxWidth"
+	ShortcutManagerService_GetMaxShortcutCountPerActivity_FullMethodName = "/pm.ShortcutManagerService/GetMaxShortcutCountPerActivity"
+	ShortcutManagerService_IsRateLimitingActive_FullMethodName           = "/pm.ShortcutManagerService/IsRateLimitingActive"
+	ShortcutManagerService_IsRequestPinShortcutSupported_FullMethodName  = "/pm.ShortcutManagerService/IsRequestPinShortcutSupported"
+	ShortcutManagerService_PushDynamicShortcut_FullMethodName            = "/pm.ShortcutManagerService/PushDynamicShortcut"
+	ShortcutManagerService_RemoveAllDynamicShortcuts_FullMethodName      = "/pm.ShortcutManagerService/RemoveAllDynamicShortcuts"
+	ShortcutManagerService_ReportShortcutUsed_FullMethodName             = "/pm.ShortcutManagerService/ReportShortcutUsed"
+	ShortcutManagerService_RequestPinShortcut_FullMethodName             = "/pm.ShortcutManagerService/RequestPinShortcut"
+)
+
+// ShortcutManagerServiceClient is the client API for ShortcutManagerService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type ShortcutManagerServiceClient interface {
+	CreateShortcutResultIntent(ctx context.Context, in *CreateShortcutResultIntentRequest, opts ...grpc.CallOption) (*CreateShortcutResultIntentResponse, error)
+	GetIconMaxHeight(ctx context.Context, in *GetIconMaxHeightRequest, opts ...grpc.CallOption) (*GetIconMaxHeightResponse, error)
+	GetIconMaxWidth(ctx context.Context, in *GetIconMaxWidthRequest, opts ...grpc.CallOption) (*GetIconMaxWidthResponse, error)
+	GetMaxShortcutCountPerActivity(ctx context.Context, in *GetMaxShortcutCountPerActivityRequest, opts ...grpc.CallOption) (*GetMaxShortcutCountPerActivityResponse, error)
+	IsRateLimitingActive(ctx context.Context, in *IsRateLimitingActiveRequest, opts ...grpc.CallOption) (*IsRateLimitingActiveResponse, error)
+	IsRequestPinShortcutSupported(ctx context.Context, in *IsRequestPinShortcutSupportedRequest, opts ...grpc.CallOption) (*IsRequestPinShortcutSupportedResponse, error)
+	PushDynamicShortcut(ctx context.Context, in *PushDynamicShortcutRequest, opts ...grpc.CallOption) (*PushDynamicShortcutResponse, error)
+	RemoveAllDynamicShortcuts(ctx context.Context, in *RemoveAllDynamicShortcutsRequest, opts ...grpc.CallOption) (*RemoveAllDynamicShortcutsResponse, error)
+	ReportShortcutUsed(ctx context.Context, in *ReportShortcutUsedRequest, opts ...grpc.CallOption) (*ReportShortcutUsedResponse, error)
+	RequestPinShortcut(ctx context.Context, in *RequestPinShortcutRequest, opts ...grpc.CallOption) (*RequestPinShortcutResponse, error)
+}
+
+type shortcutManagerServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewShortcutManagerServiceClient(cc grpc.ClientConnInterface) ShortcutManagerServiceClient {
+	return &shortcutManagerServiceClient{cc}
+}
+
+func (c *shortcutManagerServiceClient) CreateShortcutResultIntent(ctx context.Context, in *CreateShortcutResultIntentRequest, opts ...grpc.CallOption) (*CreateShortcutResultIntentResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(CreateShortcutResultIntentResponse)
+	err := c.cc.Invoke(ctx, ShortcutManagerService_CreateShortcutResultIntent_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *shortcutManagerServiceClient) GetIconMaxHeight(ctx context.Context, in *GetIconMaxHeightRequest, opts ...grpc.CallOption) (*GetIconMaxHeightResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetIconMaxHeightResponse)
+	err := c.cc.Invoke(ctx, ShortcutManagerService_GetIconMaxHeight_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *shortcutManagerServiceClient) GetIconMaxWidth(ctx context.Context, in *GetIconMaxWidthRequest, opts ...grpc.CallOption) (*GetIconMaxWidthResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetIconMaxWidthResponse)
+	err := c.cc.Invoke(ctx, ShortcutManagerService_GetIconMaxWidth_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *shortcutManagerServiceClient) GetMaxShortcutCountPerActivity(ctx context.Context, in *GetMaxShortcutCountPerActivityRequest, opts ...grpc.CallOption) (*GetMaxShortcutCountPerActivityResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetMaxShortcutCountPerActivityResponse)
+	err := c.cc.Invoke(ctx, ShortcutManagerService_GetMaxShortcutCountPerActivity_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *shortcutManagerServiceClient) IsRateLimitingActive(ctx context.Context, in *IsRateLimitingActiveRequest, opts ...grpc.CallOption) (*IsRateLimitingActiveResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IsRateLimitingActiveResponse)
+	err := c.cc.Invoke(ctx, ShortcutManagerService_IsRateLimitingActive_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *shortcutManagerServiceClient) IsRequestPinShortcutSupported(ctx context.Context, in *IsRequestPinShortcutSupportedRequest, opts ...grpc.CallOption) (*IsRequestPinShortcutSupportedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IsRequestPinShortcutSupportedResponse)
+	err := c.cc.Invoke(ctx, ShortcutManagerService_IsRequestPinShortcutSupported_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *shortcutManagerServiceClient) PushDynamicShortcut(ctx context.Context, in *PushDynamicShortcutRequest, opts ...grpc.CallOption) (*PushDynamicShortcutResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(PushDynamicShortcutResponse)
+	err := c.cc.Invoke(ctx, ShortcutManagerService_PushDynamicShortcut_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *shortcutManagerServiceClient) RemoveAllDynamicShortcuts(ctx context.Context, in *RemoveAllDynamicShortcutsRequest, opts ...grpc.CallOption) (*RemoveAllDynamicShortcutsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(RemoveAllDynamicShortcutsResponse)
+	err := c.cc.Invoke(ctx, ShortcutManagerService_RemoveAllDynamicShortcuts_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *shortcutManagerServiceClient) ReportShortcutUsed(ctx context.Context, in *ReportShortcutUsedRequest, opts ...grpc.CallOption) (*ReportShortcutUsedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ReportShortcutUsedResponse)
+	err := c.cc.Invoke(ctx, ShortcutManagerService_ReportShortcutUsed_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *shortcutManagerServiceClient) RequestPinShortcut(ctx context.Context, in *RequestPinShortcutRequest, opts ...grpc.CallOption) (*RequestPinShortcutResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(RequestPinShortcutResponse)
+	err := c.cc.Invoke(ctx, ShortcutManagerService_RequestPinShortcut_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// ShortcutManagerServiceServer is the server API for ShortcutManagerService service.
+// All implementations must embed UnimplementedShortcutManagerServiceServer
+// for forward compatibility.
+type ShortcutManagerServiceServer interface {
+	CreateShortcutResultIntent(context.Context, *CreateShortcutResultIntentRequest) (*CreateShortcutResultIntentResponse, error)
+	GetIconMaxHeight(context.Context, *GetIconMaxHeightRequest) (*GetIconMaxHeightResponse, error)
+	GetIconMaxWidth(context.Context, *GetIconMaxWidthRequest) (*GetIconMaxWidthResponse, error)
+	GetMaxShortcutCountPerActivity(context.Context, *GetMaxShortcutCountPerActivityRequest) (*GetMaxShortcutCountPerActivityResponse, error)
+	IsRateLimitingActive(context.Context, *IsRateLimitingActiveRequest) (*IsRateLimitingActiveResponse, error)
+	IsRequestPinShortcutSupported(context.Context, *IsRequestPinShortcutSupportedRequest) (*IsRequestPinShortcutSupportedResponse, error)
+	PushDynamicShortcut(context.Context, *PushDynamicShortcutRequest) (*PushDynamicShortcutResponse, error)
+	RemoveAllDynamicShortcuts(context.Context, *RemoveAllDynamicShortcutsRequest) (*RemoveAllDynamicShortcutsResponse, error)
+	ReportShortcutUsed(context.Context, *ReportShortcutUsedRequest) (*ReportShortcutUsedResponse, error)
+	RequestPinShortcut(context.Context, *RequestPinShortcutRequest) (*RequestPinShortcutResponse, error)
+	mustEmbedUnimplementedShortcutManagerServiceServer()
+}
+
+// UnimplementedShortcutManagerServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedShortcutManagerServiceServer struct{}
+
+func (UnimplementedShortcutManagerServiceServer) CreateShortcutResultIntent(context.Context, *CreateShortcutResultIntentRequest) (*CreateShortcutResultIntentResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method CreateShortcutResultIntent not implemented")
+}
+func (UnimplementedShortcutManagerServiceServer) GetIconMaxHeight(context.Context, *GetIconMaxHeightRequest) (*GetIconMaxHeightResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetIconMaxHeight not implemented")
+}
+func (UnimplementedShortcutManagerServiceServer) GetIconMaxWidth(context.Context, *GetIconMaxWidthRequest) (*GetIconMaxWidthResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetIconMaxWidth not implemented")
+}
+func (UnimplementedShortcutManagerServiceServer) GetMaxShortcutCountPerActivity(context.Context, *GetMaxShortcutCountPerActivityRequest) (*GetMaxShortcutCountPerActivityResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetMaxShortcutCountPerActivity not implemented")
+}
+func (UnimplementedShortcutManagerServiceServer) IsRateLimitingActive(context.Context, *IsRateLimitingActiveRequest) (*IsRateLimitingActiveResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsRateLimitingActive not implemented")
+}
+func (UnimplementedShortcutManagerServiceServer) IsRequestPinShortcutSupported(context.Context, *IsRequestPinShortcutSupportedRequest) (*IsRequestPinShortcutSupportedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsRequestPinShortcutSupported not implemented")
+}
+func (UnimplementedShortcutManagerServiceServer) PushDynamicShortcut(context.Context, *PushDynamicShortcutRequest) (*PushDynamicShortcutResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method PushDynamicShortcut not implemented")
+}
+func (UnimplementedShortcutManagerServiceServer) RemoveAllDynamicShortcuts(context.Context, *RemoveAllDynamicShortcutsRequest) (*RemoveAllDynamicShortcutsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method RemoveAllDynamicShortcuts not implemented")
+}
+func (UnimplementedShortcutManagerServiceServer) ReportShortcutUsed(context.Context, *ReportShortcutUsedRequest) (*ReportShortcutUsedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method ReportShortcutUsed not implemented")
+}
+func (UnimplementedShortcutManagerServiceServer) RequestPinShortcut(context.Context, *RequestPinShortcutRequest) (*RequestPinShortcutResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method RequestPinShortcut not implemented")
+}
+func (UnimplementedShortcutManagerServiceServer) mustEmbedUnimplementedShortcutManagerServiceServer() {
+}
+func (UnimplementedShortcutManagerServiceServer) testEmbeddedByValue() {}
+
+// UnsafeShortcutManagerServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to ShortcutManagerServiceServer will
+// result in compilation errors.
+type UnsafeShortcutManagerServiceServer interface {
+	mustEmbedUnimplementedShortcutManagerServiceServer()
+}
+
+func RegisterShortcutManagerServiceServer(s grpc.ServiceRegistrar, srv ShortcutManagerServiceServer) {
+	// If the following call panics, it indicates UnimplementedShortcutManagerServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&ShortcutManagerService_ServiceDesc, srv)
+}
+
+func _ShortcutManagerService_CreateShortcutResultIntent_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CreateShortcutResultIntentRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ShortcutManagerServiceServer).CreateShortcutResultIntent(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ShortcutManagerService_CreateShortcutResultIntent_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ShortcutManagerServiceServer).CreateShortcutResultIntent(ctx, req.(*CreateShortcutResultIntentRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ShortcutManagerService_GetIconMaxHeight_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetIconMaxHeightRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ShortcutManagerServiceServer).GetIconMaxHeight(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ShortcutManagerService_GetIconMaxHeight_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ShortcutManagerServiceServer).GetIconMaxHeight(ctx, req.(*GetIconMaxHeightRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ShortcutManagerService_GetIconMaxWidth_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetIconMaxWidthRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ShortcutManagerServiceServer).GetIconMaxWidth(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ShortcutManagerService_GetIconMaxWidth_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ShortcutManagerServiceServer).GetIconMaxWidth(ctx, req.(*GetIconMaxWidthRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ShortcutManagerService_GetMaxShortcutCountPerActivity_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetMaxShortcutCountPerActivityRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ShortcutManagerServiceServer).GetMaxShortcutCountPerActivity(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ShortcutManagerService_GetMaxShortcutCountPerActivity_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ShortcutManagerServiceServer).GetMaxShortcutCountPerActivity(ctx, req.(*GetMaxShortcutCountPerActivityRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ShortcutManagerService_IsRateLimitingActive_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsRateLimitingActiveRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ShortcutManagerServiceServer).IsRateLimitingActive(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ShortcutManagerService_IsRateLimitingActive_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ShortcutManagerServiceServer).IsRateLimitingActive(ctx, req.(*IsRateLimitingActiveRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ShortcutManagerService_IsRequestPinShortcutSupported_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsRequestPinShortcutSupportedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ShortcutManagerServiceServer).IsRequestPinShortcutSupported(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ShortcutManagerService_IsRequestPinShortcutSupported_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ShortcutManagerServiceServer).IsRequestPinShortcutSupported(ctx, req.(*IsRequestPinShortcutSupportedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ShortcutManagerService_PushDynamicShortcut_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(PushDynamicShortcutRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ShortcutManagerServiceServer).PushDynamicShortcut(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ShortcutManagerService_PushDynamicShortcut_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ShortcutManagerServiceServer).PushDynamicShortcut(ctx, req.(*PushDynamicShortcutRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ShortcutManagerService_RemoveAllDynamicShortcuts_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(RemoveAllDynamicShortcutsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ShortcutManagerServiceServer).RemoveAllDynamicShortcuts(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ShortcutManagerService_RemoveAllDynamicShortcuts_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ShortcutManagerServiceServer).RemoveAllDynamicShortcuts(ctx, req.(*RemoveAllDynamicShortcutsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ShortcutManagerService_ReportShortcutUsed_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ReportShortcutUsedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ShortcutManagerServiceServer).ReportShortcutUsed(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ShortcutManagerService_ReportShortcutUsed_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ShortcutManagerServiceServer).ReportShortcutUsed(ctx, req.(*ReportShortcutUsedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ShortcutManagerService_RequestPinShortcut_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(RequestPinShortcutRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ShortcutManagerServiceServer).RequestPinShortcut(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ShortcutManagerService_RequestPinShortcut_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ShortcutManagerServiceServer).RequestPinShortcut(ctx, req.(*RequestPinShortcutRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// ShortcutManagerService_ServiceDesc is the grpc.ServiceDesc for ShortcutManagerService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var ShortcutManagerService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "pm.ShortcutManagerService",
+	HandlerType: (*ShortcutManagerServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "CreateShortcutResultIntent",
+			Handler:    _ShortcutManagerService_CreateShortcutResultIntent_Handler,
+		},
+		{
+			MethodName: "GetIconMaxHeight",
+			Handler:    _ShortcutManagerService_GetIconMaxHeight_Handler,
+		},
+		{
+			MethodName: "GetIconMaxWidth",
+			Handler:    _ShortcutManagerService_GetIconMaxWidth_Handler,
+		},
+		{
+			MethodName: "GetMaxShortcutCountPerActivity",
+			Handler:    _ShortcutManagerService_GetMaxShortcutCountPerActivity_Handler,
+		},
+		{
+			MethodName: "IsRateLimitingActive",
+			Handler:    _ShortcutManagerService_IsRateLimitingActive_Handler,
+		},
+		{
+			MethodName: "IsRequestPinShortcutSupported",
+			Handler:    _ShortcutManagerService_IsRequestPinShortcutSupported_Handler,
+		},
+		{
+			MethodName: "PushDynamicShortcut",
+			Handler:    _ShortcutManagerService_PushDynamicShortcut_Handler,
+		},
+		{
+			MethodName: "RemoveAllDynamicShortcuts",
+			Handler:    _ShortcutManagerService_RemoveAllDynamicShortcuts_Handler,
+		},
+		{
+			MethodName: "ReportShortcutUsed",
+			Handler:    _ShortcutManagerService_ReportShortcutUsed_Handler,
+		},
+		{
+			MethodName: "RequestPinShortcut",
+			Handler:    _ShortcutManagerService_RequestPinShortcut_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/pm/pm.proto",
+}
+
+const (
 	LauncherAppsService_GetAppMarketActivityIntent_FullMethodName                  = "/pm.LauncherAppsService/GetAppMarketActivityIntent"
 	LauncherAppsService_GetApplicationInfo_FullMethodName                          = "/pm.LauncherAppsService/GetApplicationInfo"
 	LauncherAppsService_GetLauncherUserInfo_FullMethodName                         = "/pm.LauncherAppsService/GetLauncherUserInfo"
@@ -1028,934 +1956,6 @@ var LauncherAppsService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "UnregisterPackageInstallerSessionCallback",
 			Handler:    _LauncherAppsService_UnregisterPackageInstallerSessionCallback_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/pm/pm.proto",
-}
-
-const (
-	ShortcutManagerService_CreateShortcutResultIntent_FullMethodName     = "/pm.ShortcutManagerService/CreateShortcutResultIntent"
-	ShortcutManagerService_GetIconMaxHeight_FullMethodName               = "/pm.ShortcutManagerService/GetIconMaxHeight"
-	ShortcutManagerService_GetIconMaxWidth_FullMethodName                = "/pm.ShortcutManagerService/GetIconMaxWidth"
-	ShortcutManagerService_GetMaxShortcutCountPerActivity_FullMethodName = "/pm.ShortcutManagerService/GetMaxShortcutCountPerActivity"
-	ShortcutManagerService_IsRateLimitingActive_FullMethodName           = "/pm.ShortcutManagerService/IsRateLimitingActive"
-	ShortcutManagerService_IsRequestPinShortcutSupported_FullMethodName  = "/pm.ShortcutManagerService/IsRequestPinShortcutSupported"
-	ShortcutManagerService_PushDynamicShortcut_FullMethodName            = "/pm.ShortcutManagerService/PushDynamicShortcut"
-	ShortcutManagerService_RemoveAllDynamicShortcuts_FullMethodName      = "/pm.ShortcutManagerService/RemoveAllDynamicShortcuts"
-	ShortcutManagerService_ReportShortcutUsed_FullMethodName             = "/pm.ShortcutManagerService/ReportShortcutUsed"
-	ShortcutManagerService_RequestPinShortcut_FullMethodName             = "/pm.ShortcutManagerService/RequestPinShortcut"
-)
-
-// ShortcutManagerServiceClient is the client API for ShortcutManagerService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type ShortcutManagerServiceClient interface {
-	CreateShortcutResultIntent(ctx context.Context, in *CreateShortcutResultIntentRequest, opts ...grpc.CallOption) (*CreateShortcutResultIntentResponse, error)
-	GetIconMaxHeight(ctx context.Context, in *GetIconMaxHeightRequest, opts ...grpc.CallOption) (*GetIconMaxHeightResponse, error)
-	GetIconMaxWidth(ctx context.Context, in *GetIconMaxWidthRequest, opts ...grpc.CallOption) (*GetIconMaxWidthResponse, error)
-	GetMaxShortcutCountPerActivity(ctx context.Context, in *GetMaxShortcutCountPerActivityRequest, opts ...grpc.CallOption) (*GetMaxShortcutCountPerActivityResponse, error)
-	IsRateLimitingActive(ctx context.Context, in *IsRateLimitingActiveRequest, opts ...grpc.CallOption) (*IsRateLimitingActiveResponse, error)
-	IsRequestPinShortcutSupported(ctx context.Context, in *IsRequestPinShortcutSupportedRequest, opts ...grpc.CallOption) (*IsRequestPinShortcutSupportedResponse, error)
-	PushDynamicShortcut(ctx context.Context, in *PushDynamicShortcutRequest, opts ...grpc.CallOption) (*PushDynamicShortcutResponse, error)
-	RemoveAllDynamicShortcuts(ctx context.Context, in *RemoveAllDynamicShortcutsRequest, opts ...grpc.CallOption) (*RemoveAllDynamicShortcutsResponse, error)
-	ReportShortcutUsed(ctx context.Context, in *ReportShortcutUsedRequest, opts ...grpc.CallOption) (*ReportShortcutUsedResponse, error)
-	RequestPinShortcut(ctx context.Context, in *RequestPinShortcutRequest, opts ...grpc.CallOption) (*RequestPinShortcutResponse, error)
-}
-
-type shortcutManagerServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewShortcutManagerServiceClient(cc grpc.ClientConnInterface) ShortcutManagerServiceClient {
-	return &shortcutManagerServiceClient{cc}
-}
-
-func (c *shortcutManagerServiceClient) CreateShortcutResultIntent(ctx context.Context, in *CreateShortcutResultIntentRequest, opts ...grpc.CallOption) (*CreateShortcutResultIntentResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(CreateShortcutResultIntentResponse)
-	err := c.cc.Invoke(ctx, ShortcutManagerService_CreateShortcutResultIntent_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *shortcutManagerServiceClient) GetIconMaxHeight(ctx context.Context, in *GetIconMaxHeightRequest, opts ...grpc.CallOption) (*GetIconMaxHeightResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetIconMaxHeightResponse)
-	err := c.cc.Invoke(ctx, ShortcutManagerService_GetIconMaxHeight_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *shortcutManagerServiceClient) GetIconMaxWidth(ctx context.Context, in *GetIconMaxWidthRequest, opts ...grpc.CallOption) (*GetIconMaxWidthResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetIconMaxWidthResponse)
-	err := c.cc.Invoke(ctx, ShortcutManagerService_GetIconMaxWidth_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *shortcutManagerServiceClient) GetMaxShortcutCountPerActivity(ctx context.Context, in *GetMaxShortcutCountPerActivityRequest, opts ...grpc.CallOption) (*GetMaxShortcutCountPerActivityResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetMaxShortcutCountPerActivityResponse)
-	err := c.cc.Invoke(ctx, ShortcutManagerService_GetMaxShortcutCountPerActivity_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *shortcutManagerServiceClient) IsRateLimitingActive(ctx context.Context, in *IsRateLimitingActiveRequest, opts ...grpc.CallOption) (*IsRateLimitingActiveResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(IsRateLimitingActiveResponse)
-	err := c.cc.Invoke(ctx, ShortcutManagerService_IsRateLimitingActive_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *shortcutManagerServiceClient) IsRequestPinShortcutSupported(ctx context.Context, in *IsRequestPinShortcutSupportedRequest, opts ...grpc.CallOption) (*IsRequestPinShortcutSupportedResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(IsRequestPinShortcutSupportedResponse)
-	err := c.cc.Invoke(ctx, ShortcutManagerService_IsRequestPinShortcutSupported_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *shortcutManagerServiceClient) PushDynamicShortcut(ctx context.Context, in *PushDynamicShortcutRequest, opts ...grpc.CallOption) (*PushDynamicShortcutResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(PushDynamicShortcutResponse)
-	err := c.cc.Invoke(ctx, ShortcutManagerService_PushDynamicShortcut_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *shortcutManagerServiceClient) RemoveAllDynamicShortcuts(ctx context.Context, in *RemoveAllDynamicShortcutsRequest, opts ...grpc.CallOption) (*RemoveAllDynamicShortcutsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(RemoveAllDynamicShortcutsResponse)
-	err := c.cc.Invoke(ctx, ShortcutManagerService_RemoveAllDynamicShortcuts_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *shortcutManagerServiceClient) ReportShortcutUsed(ctx context.Context, in *ReportShortcutUsedRequest, opts ...grpc.CallOption) (*ReportShortcutUsedResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ReportShortcutUsedResponse)
-	err := c.cc.Invoke(ctx, ShortcutManagerService_ReportShortcutUsed_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *shortcutManagerServiceClient) RequestPinShortcut(ctx context.Context, in *RequestPinShortcutRequest, opts ...grpc.CallOption) (*RequestPinShortcutResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(RequestPinShortcutResponse)
-	err := c.cc.Invoke(ctx, ShortcutManagerService_RequestPinShortcut_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// ShortcutManagerServiceServer is the server API for ShortcutManagerService service.
-// All implementations must embed UnimplementedShortcutManagerServiceServer
-// for forward compatibility.
-type ShortcutManagerServiceServer interface {
-	CreateShortcutResultIntent(context.Context, *CreateShortcutResultIntentRequest) (*CreateShortcutResultIntentResponse, error)
-	GetIconMaxHeight(context.Context, *GetIconMaxHeightRequest) (*GetIconMaxHeightResponse, error)
-	GetIconMaxWidth(context.Context, *GetIconMaxWidthRequest) (*GetIconMaxWidthResponse, error)
-	GetMaxShortcutCountPerActivity(context.Context, *GetMaxShortcutCountPerActivityRequest) (*GetMaxShortcutCountPerActivityResponse, error)
-	IsRateLimitingActive(context.Context, *IsRateLimitingActiveRequest) (*IsRateLimitingActiveResponse, error)
-	IsRequestPinShortcutSupported(context.Context, *IsRequestPinShortcutSupportedRequest) (*IsRequestPinShortcutSupportedResponse, error)
-	PushDynamicShortcut(context.Context, *PushDynamicShortcutRequest) (*PushDynamicShortcutResponse, error)
-	RemoveAllDynamicShortcuts(context.Context, *RemoveAllDynamicShortcutsRequest) (*RemoveAllDynamicShortcutsResponse, error)
-	ReportShortcutUsed(context.Context, *ReportShortcutUsedRequest) (*ReportShortcutUsedResponse, error)
-	RequestPinShortcut(context.Context, *RequestPinShortcutRequest) (*RequestPinShortcutResponse, error)
-	mustEmbedUnimplementedShortcutManagerServiceServer()
-}
-
-// UnimplementedShortcutManagerServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedShortcutManagerServiceServer struct{}
-
-func (UnimplementedShortcutManagerServiceServer) CreateShortcutResultIntent(context.Context, *CreateShortcutResultIntentRequest) (*CreateShortcutResultIntentResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method CreateShortcutResultIntent not implemented")
-}
-func (UnimplementedShortcutManagerServiceServer) GetIconMaxHeight(context.Context, *GetIconMaxHeightRequest) (*GetIconMaxHeightResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetIconMaxHeight not implemented")
-}
-func (UnimplementedShortcutManagerServiceServer) GetIconMaxWidth(context.Context, *GetIconMaxWidthRequest) (*GetIconMaxWidthResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetIconMaxWidth not implemented")
-}
-func (UnimplementedShortcutManagerServiceServer) GetMaxShortcutCountPerActivity(context.Context, *GetMaxShortcutCountPerActivityRequest) (*GetMaxShortcutCountPerActivityResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetMaxShortcutCountPerActivity not implemented")
-}
-func (UnimplementedShortcutManagerServiceServer) IsRateLimitingActive(context.Context, *IsRateLimitingActiveRequest) (*IsRateLimitingActiveResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method IsRateLimitingActive not implemented")
-}
-func (UnimplementedShortcutManagerServiceServer) IsRequestPinShortcutSupported(context.Context, *IsRequestPinShortcutSupportedRequest) (*IsRequestPinShortcutSupportedResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method IsRequestPinShortcutSupported not implemented")
-}
-func (UnimplementedShortcutManagerServiceServer) PushDynamicShortcut(context.Context, *PushDynamicShortcutRequest) (*PushDynamicShortcutResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method PushDynamicShortcut not implemented")
-}
-func (UnimplementedShortcutManagerServiceServer) RemoveAllDynamicShortcuts(context.Context, *RemoveAllDynamicShortcutsRequest) (*RemoveAllDynamicShortcutsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method RemoveAllDynamicShortcuts not implemented")
-}
-func (UnimplementedShortcutManagerServiceServer) ReportShortcutUsed(context.Context, *ReportShortcutUsedRequest) (*ReportShortcutUsedResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method ReportShortcutUsed not implemented")
-}
-func (UnimplementedShortcutManagerServiceServer) RequestPinShortcut(context.Context, *RequestPinShortcutRequest) (*RequestPinShortcutResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method RequestPinShortcut not implemented")
-}
-func (UnimplementedShortcutManagerServiceServer) mustEmbedUnimplementedShortcutManagerServiceServer() {
-}
-func (UnimplementedShortcutManagerServiceServer) testEmbeddedByValue() {}
-
-// UnsafeShortcutManagerServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to ShortcutManagerServiceServer will
-// result in compilation errors.
-type UnsafeShortcutManagerServiceServer interface {
-	mustEmbedUnimplementedShortcutManagerServiceServer()
-}
-
-func RegisterShortcutManagerServiceServer(s grpc.ServiceRegistrar, srv ShortcutManagerServiceServer) {
-	// If the following call panics, it indicates UnimplementedShortcutManagerServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&ShortcutManagerService_ServiceDesc, srv)
-}
-
-func _ShortcutManagerService_CreateShortcutResultIntent_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(CreateShortcutResultIntentRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ShortcutManagerServiceServer).CreateShortcutResultIntent(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ShortcutManagerService_CreateShortcutResultIntent_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ShortcutManagerServiceServer).CreateShortcutResultIntent(ctx, req.(*CreateShortcutResultIntentRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ShortcutManagerService_GetIconMaxHeight_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetIconMaxHeightRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ShortcutManagerServiceServer).GetIconMaxHeight(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ShortcutManagerService_GetIconMaxHeight_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ShortcutManagerServiceServer).GetIconMaxHeight(ctx, req.(*GetIconMaxHeightRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ShortcutManagerService_GetIconMaxWidth_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetIconMaxWidthRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ShortcutManagerServiceServer).GetIconMaxWidth(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ShortcutManagerService_GetIconMaxWidth_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ShortcutManagerServiceServer).GetIconMaxWidth(ctx, req.(*GetIconMaxWidthRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ShortcutManagerService_GetMaxShortcutCountPerActivity_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetMaxShortcutCountPerActivityRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ShortcutManagerServiceServer).GetMaxShortcutCountPerActivity(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ShortcutManagerService_GetMaxShortcutCountPerActivity_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ShortcutManagerServiceServer).GetMaxShortcutCountPerActivity(ctx, req.(*GetMaxShortcutCountPerActivityRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ShortcutManagerService_IsRateLimitingActive_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(IsRateLimitingActiveRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ShortcutManagerServiceServer).IsRateLimitingActive(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ShortcutManagerService_IsRateLimitingActive_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ShortcutManagerServiceServer).IsRateLimitingActive(ctx, req.(*IsRateLimitingActiveRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ShortcutManagerService_IsRequestPinShortcutSupported_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(IsRequestPinShortcutSupportedRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ShortcutManagerServiceServer).IsRequestPinShortcutSupported(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ShortcutManagerService_IsRequestPinShortcutSupported_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ShortcutManagerServiceServer).IsRequestPinShortcutSupported(ctx, req.(*IsRequestPinShortcutSupportedRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ShortcutManagerService_PushDynamicShortcut_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(PushDynamicShortcutRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ShortcutManagerServiceServer).PushDynamicShortcut(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ShortcutManagerService_PushDynamicShortcut_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ShortcutManagerServiceServer).PushDynamicShortcut(ctx, req.(*PushDynamicShortcutRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ShortcutManagerService_RemoveAllDynamicShortcuts_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(RemoveAllDynamicShortcutsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ShortcutManagerServiceServer).RemoveAllDynamicShortcuts(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ShortcutManagerService_RemoveAllDynamicShortcuts_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ShortcutManagerServiceServer).RemoveAllDynamicShortcuts(ctx, req.(*RemoveAllDynamicShortcutsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ShortcutManagerService_ReportShortcutUsed_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ReportShortcutUsedRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ShortcutManagerServiceServer).ReportShortcutUsed(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ShortcutManagerService_ReportShortcutUsed_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ShortcutManagerServiceServer).ReportShortcutUsed(ctx, req.(*ReportShortcutUsedRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ShortcutManagerService_RequestPinShortcut_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(RequestPinShortcutRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ShortcutManagerServiceServer).RequestPinShortcut(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ShortcutManagerService_RequestPinShortcut_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ShortcutManagerServiceServer).RequestPinShortcut(ctx, req.(*RequestPinShortcutRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// ShortcutManagerService_ServiceDesc is the grpc.ServiceDesc for ShortcutManagerService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var ShortcutManagerService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "pm.ShortcutManagerService",
-	HandlerType: (*ShortcutManagerServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "CreateShortcutResultIntent",
-			Handler:    _ShortcutManagerService_CreateShortcutResultIntent_Handler,
-		},
-		{
-			MethodName: "GetIconMaxHeight",
-			Handler:    _ShortcutManagerService_GetIconMaxHeight_Handler,
-		},
-		{
-			MethodName: "GetIconMaxWidth",
-			Handler:    _ShortcutManagerService_GetIconMaxWidth_Handler,
-		},
-		{
-			MethodName: "GetMaxShortcutCountPerActivity",
-			Handler:    _ShortcutManagerService_GetMaxShortcutCountPerActivity_Handler,
-		},
-		{
-			MethodName: "IsRateLimitingActive",
-			Handler:    _ShortcutManagerService_IsRateLimitingActive_Handler,
-		},
-		{
-			MethodName: "IsRequestPinShortcutSupported",
-			Handler:    _ShortcutManagerService_IsRequestPinShortcutSupported_Handler,
-		},
-		{
-			MethodName: "PushDynamicShortcut",
-			Handler:    _ShortcutManagerService_PushDynamicShortcut_Handler,
-		},
-		{
-			MethodName: "RemoveAllDynamicShortcuts",
-			Handler:    _ShortcutManagerService_RemoveAllDynamicShortcuts_Handler,
-		},
-		{
-			MethodName: "ReportShortcutUsed",
-			Handler:    _ShortcutManagerService_ReportShortcutUsed_Handler,
-		},
-		{
-			MethodName: "RequestPinShortcut",
-			Handler:    _ShortcutManagerService_RequestPinShortcut_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/pm/pm.proto",
-}
-
-const (
-	CrossProfileAppsService_CanInteractAcrossProfiles_FullMethodName                 = "/pm.CrossProfileAppsService/CanInteractAcrossProfiles"
-	CrossProfileAppsService_CanRequestInteractAcrossProfiles_FullMethodName          = "/pm.CrossProfileAppsService/CanRequestInteractAcrossProfiles"
-	CrossProfileAppsService_CreateRequestInteractAcrossProfilesIntent_FullMethodName = "/pm.CrossProfileAppsService/CreateRequestInteractAcrossProfilesIntent"
-	CrossProfileAppsService_GetProfileSwitchingIconDrawable_FullMethodName           = "/pm.CrossProfileAppsService/GetProfileSwitchingIconDrawable"
-	CrossProfileAppsService_GetProfileSwitchingLabel_FullMethodName                  = "/pm.CrossProfileAppsService/GetProfileSwitchingLabel"
-	CrossProfileAppsService_IsManagedProfile_FullMethodName                          = "/pm.CrossProfileAppsService/IsManagedProfile"
-	CrossProfileAppsService_IsProfile_FullMethodName                                 = "/pm.CrossProfileAppsService/IsProfile"
-	CrossProfileAppsService_StartActivity3_FullMethodName                            = "/pm.CrossProfileAppsService/StartActivity3"
-	CrossProfileAppsService_StartActivity4_1_FullMethodName                          = "/pm.CrossProfileAppsService/StartActivity4_1"
-	CrossProfileAppsService_StartMainActivity2_FullMethodName                        = "/pm.CrossProfileAppsService/StartMainActivity2"
-	CrossProfileAppsService_StartMainActivity4_1_FullMethodName                      = "/pm.CrossProfileAppsService/StartMainActivity4_1"
-)
-
-// CrossProfileAppsServiceClient is the client API for CrossProfileAppsService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type CrossProfileAppsServiceClient interface {
-	CanInteractAcrossProfiles(ctx context.Context, in *CanInteractAcrossProfilesRequest, opts ...grpc.CallOption) (*CanInteractAcrossProfilesResponse, error)
-	CanRequestInteractAcrossProfiles(ctx context.Context, in *CanRequestInteractAcrossProfilesRequest, opts ...grpc.CallOption) (*CanRequestInteractAcrossProfilesResponse, error)
-	CreateRequestInteractAcrossProfilesIntent(ctx context.Context, in *CreateRequestInteractAcrossProfilesIntentRequest, opts ...grpc.CallOption) (*CreateRequestInteractAcrossProfilesIntentResponse, error)
-	GetProfileSwitchingIconDrawable(ctx context.Context, in *GetProfileSwitchingIconDrawableRequest, opts ...grpc.CallOption) (*GetProfileSwitchingIconDrawableResponse, error)
-	GetProfileSwitchingLabel(ctx context.Context, in *GetProfileSwitchingLabelRequest, opts ...grpc.CallOption) (*GetProfileSwitchingLabelResponse, error)
-	IsManagedProfile(ctx context.Context, in *IsManagedProfileRequest, opts ...grpc.CallOption) (*IsManagedProfileResponse, error)
-	IsProfile(ctx context.Context, in *IsProfileRequest, opts ...grpc.CallOption) (*IsProfileResponse, error)
-	StartActivity3(ctx context.Context, in *StartActivity3Request, opts ...grpc.CallOption) (*StartActivity3Response, error)
-	StartActivity4_1(ctx context.Context, in *StartActivity4_1Request, opts ...grpc.CallOption) (*StartActivity4_1Response, error)
-	StartMainActivity2(ctx context.Context, in *StartMainActivity2Request, opts ...grpc.CallOption) (*StartMainActivity2Response, error)
-	StartMainActivity4_1(ctx context.Context, in *StartMainActivity4_1Request, opts ...grpc.CallOption) (*StartMainActivity4_1Response, error)
-}
-
-type crossProfileAppsServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewCrossProfileAppsServiceClient(cc grpc.ClientConnInterface) CrossProfileAppsServiceClient {
-	return &crossProfileAppsServiceClient{cc}
-}
-
-func (c *crossProfileAppsServiceClient) CanInteractAcrossProfiles(ctx context.Context, in *CanInteractAcrossProfilesRequest, opts ...grpc.CallOption) (*CanInteractAcrossProfilesResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(CanInteractAcrossProfilesResponse)
-	err := c.cc.Invoke(ctx, CrossProfileAppsService_CanInteractAcrossProfiles_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *crossProfileAppsServiceClient) CanRequestInteractAcrossProfiles(ctx context.Context, in *CanRequestInteractAcrossProfilesRequest, opts ...grpc.CallOption) (*CanRequestInteractAcrossProfilesResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(CanRequestInteractAcrossProfilesResponse)
-	err := c.cc.Invoke(ctx, CrossProfileAppsService_CanRequestInteractAcrossProfiles_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *crossProfileAppsServiceClient) CreateRequestInteractAcrossProfilesIntent(ctx context.Context, in *CreateRequestInteractAcrossProfilesIntentRequest, opts ...grpc.CallOption) (*CreateRequestInteractAcrossProfilesIntentResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(CreateRequestInteractAcrossProfilesIntentResponse)
-	err := c.cc.Invoke(ctx, CrossProfileAppsService_CreateRequestInteractAcrossProfilesIntent_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *crossProfileAppsServiceClient) GetProfileSwitchingIconDrawable(ctx context.Context, in *GetProfileSwitchingIconDrawableRequest, opts ...grpc.CallOption) (*GetProfileSwitchingIconDrawableResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetProfileSwitchingIconDrawableResponse)
-	err := c.cc.Invoke(ctx, CrossProfileAppsService_GetProfileSwitchingIconDrawable_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *crossProfileAppsServiceClient) GetProfileSwitchingLabel(ctx context.Context, in *GetProfileSwitchingLabelRequest, opts ...grpc.CallOption) (*GetProfileSwitchingLabelResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetProfileSwitchingLabelResponse)
-	err := c.cc.Invoke(ctx, CrossProfileAppsService_GetProfileSwitchingLabel_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *crossProfileAppsServiceClient) IsManagedProfile(ctx context.Context, in *IsManagedProfileRequest, opts ...grpc.CallOption) (*IsManagedProfileResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(IsManagedProfileResponse)
-	err := c.cc.Invoke(ctx, CrossProfileAppsService_IsManagedProfile_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *crossProfileAppsServiceClient) IsProfile(ctx context.Context, in *IsProfileRequest, opts ...grpc.CallOption) (*IsProfileResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(IsProfileResponse)
-	err := c.cc.Invoke(ctx, CrossProfileAppsService_IsProfile_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *crossProfileAppsServiceClient) StartActivity3(ctx context.Context, in *StartActivity3Request, opts ...grpc.CallOption) (*StartActivity3Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(StartActivity3Response)
-	err := c.cc.Invoke(ctx, CrossProfileAppsService_StartActivity3_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *crossProfileAppsServiceClient) StartActivity4_1(ctx context.Context, in *StartActivity4_1Request, opts ...grpc.CallOption) (*StartActivity4_1Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(StartActivity4_1Response)
-	err := c.cc.Invoke(ctx, CrossProfileAppsService_StartActivity4_1_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *crossProfileAppsServiceClient) StartMainActivity2(ctx context.Context, in *StartMainActivity2Request, opts ...grpc.CallOption) (*StartMainActivity2Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(StartMainActivity2Response)
-	err := c.cc.Invoke(ctx, CrossProfileAppsService_StartMainActivity2_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *crossProfileAppsServiceClient) StartMainActivity4_1(ctx context.Context, in *StartMainActivity4_1Request, opts ...grpc.CallOption) (*StartMainActivity4_1Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(StartMainActivity4_1Response)
-	err := c.cc.Invoke(ctx, CrossProfileAppsService_StartMainActivity4_1_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// CrossProfileAppsServiceServer is the server API for CrossProfileAppsService service.
-// All implementations must embed UnimplementedCrossProfileAppsServiceServer
-// for forward compatibility.
-type CrossProfileAppsServiceServer interface {
-	CanInteractAcrossProfiles(context.Context, *CanInteractAcrossProfilesRequest) (*CanInteractAcrossProfilesResponse, error)
-	CanRequestInteractAcrossProfiles(context.Context, *CanRequestInteractAcrossProfilesRequest) (*CanRequestInteractAcrossProfilesResponse, error)
-	CreateRequestInteractAcrossProfilesIntent(context.Context, *CreateRequestInteractAcrossProfilesIntentRequest) (*CreateRequestInteractAcrossProfilesIntentResponse, error)
-	GetProfileSwitchingIconDrawable(context.Context, *GetProfileSwitchingIconDrawableRequest) (*GetProfileSwitchingIconDrawableResponse, error)
-	GetProfileSwitchingLabel(context.Context, *GetProfileSwitchingLabelRequest) (*GetProfileSwitchingLabelResponse, error)
-	IsManagedProfile(context.Context, *IsManagedProfileRequest) (*IsManagedProfileResponse, error)
-	IsProfile(context.Context, *IsProfileRequest) (*IsProfileResponse, error)
-	StartActivity3(context.Context, *StartActivity3Request) (*StartActivity3Response, error)
-	StartActivity4_1(context.Context, *StartActivity4_1Request) (*StartActivity4_1Response, error)
-	StartMainActivity2(context.Context, *StartMainActivity2Request) (*StartMainActivity2Response, error)
-	StartMainActivity4_1(context.Context, *StartMainActivity4_1Request) (*StartMainActivity4_1Response, error)
-	mustEmbedUnimplementedCrossProfileAppsServiceServer()
-}
-
-// UnimplementedCrossProfileAppsServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedCrossProfileAppsServiceServer struct{}
-
-func (UnimplementedCrossProfileAppsServiceServer) CanInteractAcrossProfiles(context.Context, *CanInteractAcrossProfilesRequest) (*CanInteractAcrossProfilesResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method CanInteractAcrossProfiles not implemented")
-}
-func (UnimplementedCrossProfileAppsServiceServer) CanRequestInteractAcrossProfiles(context.Context, *CanRequestInteractAcrossProfilesRequest) (*CanRequestInteractAcrossProfilesResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method CanRequestInteractAcrossProfiles not implemented")
-}
-func (UnimplementedCrossProfileAppsServiceServer) CreateRequestInteractAcrossProfilesIntent(context.Context, *CreateRequestInteractAcrossProfilesIntentRequest) (*CreateRequestInteractAcrossProfilesIntentResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method CreateRequestInteractAcrossProfilesIntent not implemented")
-}
-func (UnimplementedCrossProfileAppsServiceServer) GetProfileSwitchingIconDrawable(context.Context, *GetProfileSwitchingIconDrawableRequest) (*GetProfileSwitchingIconDrawableResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetProfileSwitchingIconDrawable not implemented")
-}
-func (UnimplementedCrossProfileAppsServiceServer) GetProfileSwitchingLabel(context.Context, *GetProfileSwitchingLabelRequest) (*GetProfileSwitchingLabelResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetProfileSwitchingLabel not implemented")
-}
-func (UnimplementedCrossProfileAppsServiceServer) IsManagedProfile(context.Context, *IsManagedProfileRequest) (*IsManagedProfileResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method IsManagedProfile not implemented")
-}
-func (UnimplementedCrossProfileAppsServiceServer) IsProfile(context.Context, *IsProfileRequest) (*IsProfileResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method IsProfile not implemented")
-}
-func (UnimplementedCrossProfileAppsServiceServer) StartActivity3(context.Context, *StartActivity3Request) (*StartActivity3Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method StartActivity3 not implemented")
-}
-func (UnimplementedCrossProfileAppsServiceServer) StartActivity4_1(context.Context, *StartActivity4_1Request) (*StartActivity4_1Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method StartActivity4_1 not implemented")
-}
-func (UnimplementedCrossProfileAppsServiceServer) StartMainActivity2(context.Context, *StartMainActivity2Request) (*StartMainActivity2Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method StartMainActivity2 not implemented")
-}
-func (UnimplementedCrossProfileAppsServiceServer) StartMainActivity4_1(context.Context, *StartMainActivity4_1Request) (*StartMainActivity4_1Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method StartMainActivity4_1 not implemented")
-}
-func (UnimplementedCrossProfileAppsServiceServer) mustEmbedUnimplementedCrossProfileAppsServiceServer() {
-}
-func (UnimplementedCrossProfileAppsServiceServer) testEmbeddedByValue() {}
-
-// UnsafeCrossProfileAppsServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to CrossProfileAppsServiceServer will
-// result in compilation errors.
-type UnsafeCrossProfileAppsServiceServer interface {
-	mustEmbedUnimplementedCrossProfileAppsServiceServer()
-}
-
-func RegisterCrossProfileAppsServiceServer(s grpc.ServiceRegistrar, srv CrossProfileAppsServiceServer) {
-	// If the following call panics, it indicates UnimplementedCrossProfileAppsServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&CrossProfileAppsService_ServiceDesc, srv)
-}
-
-func _CrossProfileAppsService_CanInteractAcrossProfiles_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(CanInteractAcrossProfilesRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(CrossProfileAppsServiceServer).CanInteractAcrossProfiles(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: CrossProfileAppsService_CanInteractAcrossProfiles_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CrossProfileAppsServiceServer).CanInteractAcrossProfiles(ctx, req.(*CanInteractAcrossProfilesRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _CrossProfileAppsService_CanRequestInteractAcrossProfiles_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(CanRequestInteractAcrossProfilesRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(CrossProfileAppsServiceServer).CanRequestInteractAcrossProfiles(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: CrossProfileAppsService_CanRequestInteractAcrossProfiles_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CrossProfileAppsServiceServer).CanRequestInteractAcrossProfiles(ctx, req.(*CanRequestInteractAcrossProfilesRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _CrossProfileAppsService_CreateRequestInteractAcrossProfilesIntent_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(CreateRequestInteractAcrossProfilesIntentRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(CrossProfileAppsServiceServer).CreateRequestInteractAcrossProfilesIntent(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: CrossProfileAppsService_CreateRequestInteractAcrossProfilesIntent_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CrossProfileAppsServiceServer).CreateRequestInteractAcrossProfilesIntent(ctx, req.(*CreateRequestInteractAcrossProfilesIntentRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _CrossProfileAppsService_GetProfileSwitchingIconDrawable_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetProfileSwitchingIconDrawableRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(CrossProfileAppsServiceServer).GetProfileSwitchingIconDrawable(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: CrossProfileAppsService_GetProfileSwitchingIconDrawable_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CrossProfileAppsServiceServer).GetProfileSwitchingIconDrawable(ctx, req.(*GetProfileSwitchingIconDrawableRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _CrossProfileAppsService_GetProfileSwitchingLabel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetProfileSwitchingLabelRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(CrossProfileAppsServiceServer).GetProfileSwitchingLabel(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: CrossProfileAppsService_GetProfileSwitchingLabel_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CrossProfileAppsServiceServer).GetProfileSwitchingLabel(ctx, req.(*GetProfileSwitchingLabelRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _CrossProfileAppsService_IsManagedProfile_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(IsManagedProfileRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(CrossProfileAppsServiceServer).IsManagedProfile(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: CrossProfileAppsService_IsManagedProfile_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CrossProfileAppsServiceServer).IsManagedProfile(ctx, req.(*IsManagedProfileRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _CrossProfileAppsService_IsProfile_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(IsProfileRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(CrossProfileAppsServiceServer).IsProfile(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: CrossProfileAppsService_IsProfile_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CrossProfileAppsServiceServer).IsProfile(ctx, req.(*IsProfileRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _CrossProfileAppsService_StartActivity3_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(StartActivity3Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(CrossProfileAppsServiceServer).StartActivity3(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: CrossProfileAppsService_StartActivity3_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CrossProfileAppsServiceServer).StartActivity3(ctx, req.(*StartActivity3Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _CrossProfileAppsService_StartActivity4_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(StartActivity4_1Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(CrossProfileAppsServiceServer).StartActivity4_1(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: CrossProfileAppsService_StartActivity4_1_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CrossProfileAppsServiceServer).StartActivity4_1(ctx, req.(*StartActivity4_1Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _CrossProfileAppsService_StartMainActivity2_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(StartMainActivity2Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(CrossProfileAppsServiceServer).StartMainActivity2(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: CrossProfileAppsService_StartMainActivity2_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CrossProfileAppsServiceServer).StartMainActivity2(ctx, req.(*StartMainActivity2Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _CrossProfileAppsService_StartMainActivity4_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(StartMainActivity4_1Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(CrossProfileAppsServiceServer).StartMainActivity4_1(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: CrossProfileAppsService_StartMainActivity4_1_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CrossProfileAppsServiceServer).StartMainActivity4_1(ctx, req.(*StartMainActivity4_1Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// CrossProfileAppsService_ServiceDesc is the grpc.ServiceDesc for CrossProfileAppsService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var CrossProfileAppsService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "pm.CrossProfileAppsService",
-	HandlerType: (*CrossProfileAppsServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "CanInteractAcrossProfiles",
-			Handler:    _CrossProfileAppsService_CanInteractAcrossProfiles_Handler,
-		},
-		{
-			MethodName: "CanRequestInteractAcrossProfiles",
-			Handler:    _CrossProfileAppsService_CanRequestInteractAcrossProfiles_Handler,
-		},
-		{
-			MethodName: "CreateRequestInteractAcrossProfilesIntent",
-			Handler:    _CrossProfileAppsService_CreateRequestInteractAcrossProfilesIntent_Handler,
-		},
-		{
-			MethodName: "GetProfileSwitchingIconDrawable",
-			Handler:    _CrossProfileAppsService_GetProfileSwitchingIconDrawable_Handler,
-		},
-		{
-			MethodName: "GetProfileSwitchingLabel",
-			Handler:    _CrossProfileAppsService_GetProfileSwitchingLabel_Handler,
-		},
-		{
-			MethodName: "IsManagedProfile",
-			Handler:    _CrossProfileAppsService_IsManagedProfile_Handler,
-		},
-		{
-			MethodName: "IsProfile",
-			Handler:    _CrossProfileAppsService_IsProfile_Handler,
-		},
-		{
-			MethodName: "StartActivity3",
-			Handler:    _CrossProfileAppsService_StartActivity3_Handler,
-		},
-		{
-			MethodName: "StartActivity4_1",
-			Handler:    _CrossProfileAppsService_StartActivity4_1_Handler,
-		},
-		{
-			MethodName: "StartMainActivity2",
-			Handler:    _CrossProfileAppsService_StartMainActivity2_Handler,
-		},
-		{
-			MethodName: "StartMainActivity4_1",
-			Handler:    _CrossProfileAppsService_StartMainActivity4_1_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

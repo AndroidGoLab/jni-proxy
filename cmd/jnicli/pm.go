@@ -12,6 +12,418 @@ var pmCmd = &cobra.Command{
 	Short: "pm service operations",
 }
 
+var pmCrossProfileAppsCmd = &cobra.Command{
+	Use:   "cross-profile-apps",
+	Short: "CrossProfileAppsService operations",
+}
+
+var pmCrossProfileAppsCanInteractAcrossProfilesCmd = &cobra.Command{
+	Use:   "can-interact-across-profiles",
+	Short: "CanInteractAcrossProfiles RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCrossProfileAppsServiceClient(grpcConn)
+		req := &pb.CanInteractAcrossProfilesRequest{}
+		resp, err := client.CanInteractAcrossProfiles(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmCrossProfileAppsCanRequestInteractAcrossProfilesCmd = &cobra.Command{
+	Use:   "can-request-interact-across-profiles",
+	Short: "CanRequestInteractAcrossProfiles RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCrossProfileAppsServiceClient(grpcConn)
+		req := &pb.CanRequestInteractAcrossProfilesRequest{}
+		resp, err := client.CanRequestInteractAcrossProfiles(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmCrossProfileAppsCreateRequestInteractAcrossProfilesIntentCmd = &cobra.Command{
+	Use:   "create-request-interact-across-profiles-intent",
+	Short: "CreateRequestInteractAcrossProfilesIntent RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCrossProfileAppsServiceClient(grpcConn)
+		req := &pb.CreateRequestInteractAcrossProfilesIntentRequest{}
+		resp, err := client.CreateRequestInteractAcrossProfilesIntent(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmCrossProfileAppsGetProfileSwitchingIconDrawableCmd = &cobra.Command{
+	Use:   "get-profile-switching-icon-drawable",
+	Short: "GetProfileSwitchingIconDrawable RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCrossProfileAppsServiceClient(grpcConn)
+		req := &pb.GetProfileSwitchingIconDrawableRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetProfileSwitchingIconDrawable(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmCrossProfileAppsGetProfileSwitchingLabelCmd = &cobra.Command{
+	Use:   "get-profile-switching-label",
+	Short: "GetProfileSwitchingLabel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCrossProfileAppsServiceClient(grpcConn)
+		req := &pb.GetProfileSwitchingLabelRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetProfileSwitchingLabel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmCrossProfileAppsIsManagedProfileCmd = &cobra.Command{
+	Use:   "is-managed-profile",
+	Short: "IsManagedProfile RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCrossProfileAppsServiceClient(grpcConn)
+		req := &pb.IsManagedProfileRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.IsManagedProfile(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmCrossProfileAppsIsProfileCmd = &cobra.Command{
+	Use:   "is-profile",
+	Short: "IsProfile RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCrossProfileAppsServiceClient(grpcConn)
+		req := &pb.IsProfileRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.IsProfile(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmCrossProfileAppsStartActivity3Cmd = &cobra.Command{
+	Use:   "start-activity3",
+	Short: "StartActivity3 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCrossProfileAppsServiceClient(grpcConn)
+		req := &pb.StartActivity3Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.StartActivity3(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmCrossProfileAppsStartActivity4_1Cmd = &cobra.Command{
+	Use:   "start-activity4_1",
+	Short: "StartActivity4_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCrossProfileAppsServiceClient(grpcConn)
+		req := &pb.StartActivity4_1Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		resp, err := client.StartActivity4_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmCrossProfileAppsStartMainActivity2Cmd = &cobra.Command{
+	Use:   "start-main-activity2",
+	Short: "StartMainActivity2 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCrossProfileAppsServiceClient(grpcConn)
+		req := &pb.StartMainActivity2Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.StartMainActivity2(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmCrossProfileAppsStartMainActivity4_1Cmd = &cobra.Command{
+	Use:   "start-main-activity4_1",
+	Short: "StartMainActivity4_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCrossProfileAppsServiceClient(grpcConn)
+		req := &pb.StartMainActivity4_1Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		resp, err := client.StartMainActivity4_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmShortcutManagerCmd = &cobra.Command{
+	Use:   "shortcut-manager",
+	Short: "ShortcutManagerService operations",
+}
+
+var pmShortcutManagerCreateShortcutResultIntentCmd = &cobra.Command{
+	Use:   "create-shortcut-result-intent",
+	Short: "CreateShortcutResultIntent RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewShortcutManagerServiceClient(grpcConn)
+		req := &pb.CreateShortcutResultIntentRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.CreateShortcutResultIntent(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmShortcutManagerGetIconMaxHeightCmd = &cobra.Command{
+	Use:   "get-icon-max-height",
+	Short: "GetIconMaxHeight RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewShortcutManagerServiceClient(grpcConn)
+		req := &pb.GetIconMaxHeightRequest{}
+		resp, err := client.GetIconMaxHeight(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmShortcutManagerGetIconMaxWidthCmd = &cobra.Command{
+	Use:   "get-icon-max-width",
+	Short: "GetIconMaxWidth RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewShortcutManagerServiceClient(grpcConn)
+		req := &pb.GetIconMaxWidthRequest{}
+		resp, err := client.GetIconMaxWidth(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmShortcutManagerGetMaxShortcutCountPerActivityCmd = &cobra.Command{
+	Use:   "get-max-shortcut-count-per-activity",
+	Short: "GetMaxShortcutCountPerActivity RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewShortcutManagerServiceClient(grpcConn)
+		req := &pb.GetMaxShortcutCountPerActivityRequest{}
+		resp, err := client.GetMaxShortcutCountPerActivity(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmShortcutManagerIsRateLimitingActiveCmd = &cobra.Command{
+	Use:   "is-rate-limiting-active",
+	Short: "IsRateLimitingActive RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewShortcutManagerServiceClient(grpcConn)
+		req := &pb.IsRateLimitingActiveRequest{}
+		resp, err := client.IsRateLimitingActive(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmShortcutManagerIsRequestPinShortcutSupportedCmd = &cobra.Command{
+	Use:   "is-request-pin-shortcut-supported",
+	Short: "IsRequestPinShortcutSupported RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewShortcutManagerServiceClient(grpcConn)
+		req := &pb.IsRequestPinShortcutSupportedRequest{}
+		resp, err := client.IsRequestPinShortcutSupported(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmShortcutManagerPushDynamicShortcutCmd = &cobra.Command{
+	Use:   "push-dynamic-shortcut",
+	Short: "PushDynamicShortcut RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewShortcutManagerServiceClient(grpcConn)
+		req := &pb.PushDynamicShortcutRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.PushDynamicShortcut(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmShortcutManagerRemoveAllDynamicShortcutsCmd = &cobra.Command{
+	Use:   "remove-all-dynamic-shortcuts",
+	Short: "RemoveAllDynamicShortcuts RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewShortcutManagerServiceClient(grpcConn)
+		req := &pb.RemoveAllDynamicShortcutsRequest{}
+		resp, err := client.RemoveAllDynamicShortcuts(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmShortcutManagerReportShortcutUsedCmd = &cobra.Command{
+	Use:   "report-shortcut-used",
+	Short: "ReportShortcutUsed RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewShortcutManagerServiceClient(grpcConn)
+		req := &pb.ReportShortcutUsedRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.ReportShortcutUsed(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var pmShortcutManagerRequestPinShortcutCmd = &cobra.Command{
+	Use:   "request-pin-shortcut",
+	Short: "RequestPinShortcut RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewShortcutManagerServiceClient(grpcConn)
+		req := &pb.RequestPinShortcutRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.RequestPinShortcut(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
 var pmLauncherAppsCmd = &cobra.Command{
 	Use:   "launcher-apps",
 	Short: "LauncherAppsService operations",
@@ -570,419 +982,52 @@ var pmLauncherAppsUnregisterPackageInstallerSessionCallbackCmd = &cobra.Command{
 	},
 }
 
-var pmShortcutManagerCmd = &cobra.Command{
-	Use:   "shortcut-manager",
-	Short: "ShortcutManagerService operations",
-}
-
-var pmShortcutManagerCreateShortcutResultIntentCmd = &cobra.Command{
-	Use:   "create-shortcut-result-intent",
-	Short: "CreateShortcutResultIntent RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewShortcutManagerServiceClient(grpcConn)
-		req := &pb.CreateShortcutResultIntentRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.CreateShortcutResultIntent(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmShortcutManagerGetIconMaxHeightCmd = &cobra.Command{
-	Use:   "get-icon-max-height",
-	Short: "GetIconMaxHeight RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewShortcutManagerServiceClient(grpcConn)
-		req := &pb.GetIconMaxHeightRequest{}
-		resp, err := client.GetIconMaxHeight(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmShortcutManagerGetIconMaxWidthCmd = &cobra.Command{
-	Use:   "get-icon-max-width",
-	Short: "GetIconMaxWidth RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewShortcutManagerServiceClient(grpcConn)
-		req := &pb.GetIconMaxWidthRequest{}
-		resp, err := client.GetIconMaxWidth(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmShortcutManagerGetMaxShortcutCountPerActivityCmd = &cobra.Command{
-	Use:   "get-max-shortcut-count-per-activity",
-	Short: "GetMaxShortcutCountPerActivity RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewShortcutManagerServiceClient(grpcConn)
-		req := &pb.GetMaxShortcutCountPerActivityRequest{}
-		resp, err := client.GetMaxShortcutCountPerActivity(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmShortcutManagerIsRateLimitingActiveCmd = &cobra.Command{
-	Use:   "is-rate-limiting-active",
-	Short: "IsRateLimitingActive RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewShortcutManagerServiceClient(grpcConn)
-		req := &pb.IsRateLimitingActiveRequest{}
-		resp, err := client.IsRateLimitingActive(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmShortcutManagerIsRequestPinShortcutSupportedCmd = &cobra.Command{
-	Use:   "is-request-pin-shortcut-supported",
-	Short: "IsRequestPinShortcutSupported RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewShortcutManagerServiceClient(grpcConn)
-		req := &pb.IsRequestPinShortcutSupportedRequest{}
-		resp, err := client.IsRequestPinShortcutSupported(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmShortcutManagerPushDynamicShortcutCmd = &cobra.Command{
-	Use:   "push-dynamic-shortcut",
-	Short: "PushDynamicShortcut RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewShortcutManagerServiceClient(grpcConn)
-		req := &pb.PushDynamicShortcutRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.PushDynamicShortcut(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmShortcutManagerRemoveAllDynamicShortcutsCmd = &cobra.Command{
-	Use:   "remove-all-dynamic-shortcuts",
-	Short: "RemoveAllDynamicShortcuts RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewShortcutManagerServiceClient(grpcConn)
-		req := &pb.RemoveAllDynamicShortcutsRequest{}
-		resp, err := client.RemoveAllDynamicShortcuts(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmShortcutManagerReportShortcutUsedCmd = &cobra.Command{
-	Use:   "report-shortcut-used",
-	Short: "ReportShortcutUsed RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewShortcutManagerServiceClient(grpcConn)
-		req := &pb.ReportShortcutUsedRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.ReportShortcutUsed(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmShortcutManagerRequestPinShortcutCmd = &cobra.Command{
-	Use:   "request-pin-shortcut",
-	Short: "RequestPinShortcut RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewShortcutManagerServiceClient(grpcConn)
-		req := &pb.RequestPinShortcutRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.RequestPinShortcut(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmCrossProfileAppsCmd = &cobra.Command{
-	Use:   "cross-profile-apps",
-	Short: "CrossProfileAppsService operations",
-}
-
-var pmCrossProfileAppsCanInteractAcrossProfilesCmd = &cobra.Command{
-	Use:   "can-interact-across-profiles",
-	Short: "CanInteractAcrossProfiles RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewCrossProfileAppsServiceClient(grpcConn)
-		req := &pb.CanInteractAcrossProfilesRequest{}
-		resp, err := client.CanInteractAcrossProfiles(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmCrossProfileAppsCanRequestInteractAcrossProfilesCmd = &cobra.Command{
-	Use:   "can-request-interact-across-profiles",
-	Short: "CanRequestInteractAcrossProfiles RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewCrossProfileAppsServiceClient(grpcConn)
-		req := &pb.CanRequestInteractAcrossProfilesRequest{}
-		resp, err := client.CanRequestInteractAcrossProfiles(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmCrossProfileAppsCreateRequestInteractAcrossProfilesIntentCmd = &cobra.Command{
-	Use:   "create-request-interact-across-profiles-intent",
-	Short: "CreateRequestInteractAcrossProfilesIntent RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewCrossProfileAppsServiceClient(grpcConn)
-		req := &pb.CreateRequestInteractAcrossProfilesIntentRequest{}
-		resp, err := client.CreateRequestInteractAcrossProfilesIntent(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmCrossProfileAppsGetProfileSwitchingIconDrawableCmd = &cobra.Command{
-	Use:   "get-profile-switching-icon-drawable",
-	Short: "GetProfileSwitchingIconDrawable RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewCrossProfileAppsServiceClient(grpcConn)
-		req := &pb.GetProfileSwitchingIconDrawableRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.GetProfileSwitchingIconDrawable(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmCrossProfileAppsGetProfileSwitchingLabelCmd = &cobra.Command{
-	Use:   "get-profile-switching-label",
-	Short: "GetProfileSwitchingLabel RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewCrossProfileAppsServiceClient(grpcConn)
-		req := &pb.GetProfileSwitchingLabelRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.GetProfileSwitchingLabel(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmCrossProfileAppsIsManagedProfileCmd = &cobra.Command{
-	Use:   "is-managed-profile",
-	Short: "IsManagedProfile RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewCrossProfileAppsServiceClient(grpcConn)
-		req := &pb.IsManagedProfileRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.IsManagedProfile(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmCrossProfileAppsIsProfileCmd = &cobra.Command{
-	Use:   "is-profile",
-	Short: "IsProfile RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewCrossProfileAppsServiceClient(grpcConn)
-		req := &pb.IsProfileRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.IsProfile(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmCrossProfileAppsStartActivity3Cmd = &cobra.Command{
-	Use:   "start-activity3",
-	Short: "StartActivity3 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewCrossProfileAppsServiceClient(grpcConn)
-		req := &pb.StartActivity3Request{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		resp, err := client.StartActivity3(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmCrossProfileAppsStartActivity4_1Cmd = &cobra.Command{
-	Use:   "start-activity4_1",
-	Short: "StartActivity4_1 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewCrossProfileAppsServiceClient(grpcConn)
-		req := &pb.StartActivity4_1Request{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg3"); err == nil {
-			req.Arg3 = v
-		}
-		resp, err := client.StartActivity4_1(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmCrossProfileAppsStartMainActivity2Cmd = &cobra.Command{
-	Use:   "start-main-activity2",
-	Short: "StartMainActivity2 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewCrossProfileAppsServiceClient(grpcConn)
-		req := &pb.StartMainActivity2Request{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.StartMainActivity2(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var pmCrossProfileAppsStartMainActivity4_1Cmd = &cobra.Command{
-	Use:   "start-main-activity4_1",
-	Short: "StartMainActivity4_1 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewCrossProfileAppsServiceClient(grpcConn)
-		req := &pb.StartMainActivity4_1Request{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg3"); err == nil {
-			req.Arg3 = v
-		}
-		resp, err := client.StartMainActivity4_1(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
 func init() {
+	pmCrossProfileAppsCmd.AddCommand(pmCrossProfileAppsCanInteractAcrossProfilesCmd)
+	pmCrossProfileAppsCmd.AddCommand(pmCrossProfileAppsCanRequestInteractAcrossProfilesCmd)
+	pmCrossProfileAppsCmd.AddCommand(pmCrossProfileAppsCreateRequestInteractAcrossProfilesIntentCmd)
+	pmCrossProfileAppsGetProfileSwitchingIconDrawableCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	pmCrossProfileAppsCmd.AddCommand(pmCrossProfileAppsGetProfileSwitchingIconDrawableCmd)
+	pmCrossProfileAppsGetProfileSwitchingLabelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	pmCrossProfileAppsCmd.AddCommand(pmCrossProfileAppsGetProfileSwitchingLabelCmd)
+	pmCrossProfileAppsIsManagedProfileCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	pmCrossProfileAppsCmd.AddCommand(pmCrossProfileAppsIsManagedProfileCmd)
+	pmCrossProfileAppsIsProfileCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	pmCrossProfileAppsCmd.AddCommand(pmCrossProfileAppsIsProfileCmd)
+	pmCrossProfileAppsStartActivity3Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	pmCrossProfileAppsStartActivity3Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	pmCrossProfileAppsStartActivity3Cmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	pmCrossProfileAppsCmd.AddCommand(pmCrossProfileAppsStartActivity3Cmd)
+	pmCrossProfileAppsStartActivity4_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	pmCrossProfileAppsStartActivity4_1Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	pmCrossProfileAppsStartActivity4_1Cmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	pmCrossProfileAppsStartActivity4_1Cmd.Flags().Int64("arg3", 0, "arg3 (int64)")
+	pmCrossProfileAppsCmd.AddCommand(pmCrossProfileAppsStartActivity4_1Cmd)
+	pmCrossProfileAppsStartMainActivity2Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	pmCrossProfileAppsStartMainActivity2Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	pmCrossProfileAppsCmd.AddCommand(pmCrossProfileAppsStartMainActivity2Cmd)
+	pmCrossProfileAppsStartMainActivity4_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	pmCrossProfileAppsStartMainActivity4_1Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	pmCrossProfileAppsStartMainActivity4_1Cmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	pmCrossProfileAppsStartMainActivity4_1Cmd.Flags().Int64("arg3", 0, "arg3 (int64)")
+	pmCrossProfileAppsCmd.AddCommand(pmCrossProfileAppsStartMainActivity4_1Cmd)
+	pmCmd.AddCommand(pmCrossProfileAppsCmd)
+	pmShortcutManagerCreateShortcutResultIntentCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	pmShortcutManagerCmd.AddCommand(pmShortcutManagerCreateShortcutResultIntentCmd)
+	pmShortcutManagerCmd.AddCommand(pmShortcutManagerGetIconMaxHeightCmd)
+	pmShortcutManagerCmd.AddCommand(pmShortcutManagerGetIconMaxWidthCmd)
+	pmShortcutManagerCmd.AddCommand(pmShortcutManagerGetMaxShortcutCountPerActivityCmd)
+	pmShortcutManagerCmd.AddCommand(pmShortcutManagerIsRateLimitingActiveCmd)
+	pmShortcutManagerCmd.AddCommand(pmShortcutManagerIsRequestPinShortcutSupportedCmd)
+	pmShortcutManagerPushDynamicShortcutCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	pmShortcutManagerCmd.AddCommand(pmShortcutManagerPushDynamicShortcutCmd)
+	pmShortcutManagerCmd.AddCommand(pmShortcutManagerRemoveAllDynamicShortcutsCmd)
+	pmShortcutManagerReportShortcutUsedCmd.Flags().String("arg0", "", "arg0 (string)")
+	pmShortcutManagerCmd.AddCommand(pmShortcutManagerReportShortcutUsedCmd)
+	pmShortcutManagerRequestPinShortcutCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	pmShortcutManagerRequestPinShortcutCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	pmShortcutManagerCmd.AddCommand(pmShortcutManagerRequestPinShortcutCmd)
+	pmCmd.AddCommand(pmShortcutManagerCmd)
 	pmLauncherAppsGetAppMarketActivityIntentCmd.Flags().String("arg0", "", "arg0 (string)")
 	pmLauncherAppsGetAppMarketActivityIntentCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
 	pmLauncherAppsCmd.AddCommand(pmLauncherAppsGetAppMarketActivityIntentCmd)
@@ -1060,50 +1105,5 @@ func init() {
 	pmLauncherAppsUnregisterPackageInstallerSessionCallbackCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	pmLauncherAppsCmd.AddCommand(pmLauncherAppsUnregisterPackageInstallerSessionCallbackCmd)
 	pmCmd.AddCommand(pmLauncherAppsCmd)
-	pmShortcutManagerCreateShortcutResultIntentCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	pmShortcutManagerCmd.AddCommand(pmShortcutManagerCreateShortcutResultIntentCmd)
-	pmShortcutManagerCmd.AddCommand(pmShortcutManagerGetIconMaxHeightCmd)
-	pmShortcutManagerCmd.AddCommand(pmShortcutManagerGetIconMaxWidthCmd)
-	pmShortcutManagerCmd.AddCommand(pmShortcutManagerGetMaxShortcutCountPerActivityCmd)
-	pmShortcutManagerCmd.AddCommand(pmShortcutManagerIsRateLimitingActiveCmd)
-	pmShortcutManagerCmd.AddCommand(pmShortcutManagerIsRequestPinShortcutSupportedCmd)
-	pmShortcutManagerPushDynamicShortcutCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	pmShortcutManagerCmd.AddCommand(pmShortcutManagerPushDynamicShortcutCmd)
-	pmShortcutManagerCmd.AddCommand(pmShortcutManagerRemoveAllDynamicShortcutsCmd)
-	pmShortcutManagerReportShortcutUsedCmd.Flags().String("arg0", "", "arg0 (string)")
-	pmShortcutManagerCmd.AddCommand(pmShortcutManagerReportShortcutUsedCmd)
-	pmShortcutManagerRequestPinShortcutCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	pmShortcutManagerRequestPinShortcutCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	pmShortcutManagerCmd.AddCommand(pmShortcutManagerRequestPinShortcutCmd)
-	pmCmd.AddCommand(pmShortcutManagerCmd)
-	pmCrossProfileAppsCmd.AddCommand(pmCrossProfileAppsCanInteractAcrossProfilesCmd)
-	pmCrossProfileAppsCmd.AddCommand(pmCrossProfileAppsCanRequestInteractAcrossProfilesCmd)
-	pmCrossProfileAppsCmd.AddCommand(pmCrossProfileAppsCreateRequestInteractAcrossProfilesIntentCmd)
-	pmCrossProfileAppsGetProfileSwitchingIconDrawableCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	pmCrossProfileAppsCmd.AddCommand(pmCrossProfileAppsGetProfileSwitchingIconDrawableCmd)
-	pmCrossProfileAppsGetProfileSwitchingLabelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	pmCrossProfileAppsCmd.AddCommand(pmCrossProfileAppsGetProfileSwitchingLabelCmd)
-	pmCrossProfileAppsIsManagedProfileCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	pmCrossProfileAppsCmd.AddCommand(pmCrossProfileAppsIsManagedProfileCmd)
-	pmCrossProfileAppsIsProfileCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	pmCrossProfileAppsCmd.AddCommand(pmCrossProfileAppsIsProfileCmd)
-	pmCrossProfileAppsStartActivity3Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	pmCrossProfileAppsStartActivity3Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	pmCrossProfileAppsStartActivity3Cmd.Flags().Int64("arg2", 0, "arg2 (int64)")
-	pmCrossProfileAppsCmd.AddCommand(pmCrossProfileAppsStartActivity3Cmd)
-	pmCrossProfileAppsStartActivity4_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	pmCrossProfileAppsStartActivity4_1Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	pmCrossProfileAppsStartActivity4_1Cmd.Flags().Int64("arg2", 0, "arg2 (int64)")
-	pmCrossProfileAppsStartActivity4_1Cmd.Flags().Int64("arg3", 0, "arg3 (int64)")
-	pmCrossProfileAppsCmd.AddCommand(pmCrossProfileAppsStartActivity4_1Cmd)
-	pmCrossProfileAppsStartMainActivity2Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	pmCrossProfileAppsStartMainActivity2Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	pmCrossProfileAppsCmd.AddCommand(pmCrossProfileAppsStartMainActivity2Cmd)
-	pmCrossProfileAppsStartMainActivity4_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	pmCrossProfileAppsStartMainActivity4_1Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	pmCrossProfileAppsStartMainActivity4_1Cmd.Flags().Int64("arg2", 0, "arg2 (int64)")
-	pmCrossProfileAppsStartMainActivity4_1Cmd.Flags().Int64("arg3", 0, "arg3 (int64)")
-	pmCrossProfileAppsCmd.AddCommand(pmCrossProfileAppsStartMainActivity4_1Cmd)
-	pmCmd.AddCommand(pmCrossProfileAppsCmd)
 	rootCmd.AddCommand(pmCmd)
 }

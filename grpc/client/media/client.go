@@ -9,6 +9,27 @@ import (
 	"google.golang.org/grpc"
 )
 
+// CommunicationManagerClient wraps the gRPC CommunicationManagerService client.
+type CommunicationManagerClient struct {
+	svc pb.CommunicationManagerServiceClient
+}
+
+// NewCommunicationManagerClient creates a new CommunicationManager client.
+func NewCommunicationManagerClient(cc grpc.ClientConnInterface) *CommunicationManagerClient {
+	return &CommunicationManagerClient{
+		svc: pb.NewCommunicationManagerServiceClient(cc),
+	}
+}
+
+// GetVersion calls the GetVersion RPC.
+func (c *CommunicationManagerClient) GetVersion(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetVersion(ctx, &pb.GetVersionRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
 // RouterClient wraps the gRPC RouterService client.
 type RouterClient struct {
 	svc pb.RouterServiceClient
@@ -172,25 +193,4 @@ func (c *RouterClient) SelectRoute(ctx context.Context, arg0 int32, arg1 int64) 
 		Arg1: arg1,
 	})
 	return err
-}
-
-// CommunicationManagerClient wraps the gRPC CommunicationManagerService client.
-type CommunicationManagerClient struct {
-	svc pb.CommunicationManagerServiceClient
-}
-
-// NewCommunicationManagerClient creates a new CommunicationManager client.
-func NewCommunicationManagerClient(cc grpc.ClientConnInterface) *CommunicationManagerClient {
-	return &CommunicationManagerClient{
-		svc: pb.NewCommunicationManagerServiceClient(cc),
-	}
-}
-
-// GetVersion calls the GetVersion RPC.
-func (c *CommunicationManagerClient) GetVersion(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetVersion(ctx, &pb.GetVersionRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
 }

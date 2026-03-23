@@ -21,6 +21,109 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
+	CommunicationManagerService_GetVersion_FullMethodName = "/media.CommunicationManagerService/GetVersion"
+)
+
+// CommunicationManagerServiceClient is the client API for CommunicationManagerService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type CommunicationManagerServiceClient interface {
+	GetVersion(ctx context.Context, in *GetVersionRequest, opts ...grpc.CallOption) (*GetVersionResponse, error)
+}
+
+type communicationManagerServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewCommunicationManagerServiceClient(cc grpc.ClientConnInterface) CommunicationManagerServiceClient {
+	return &communicationManagerServiceClient{cc}
+}
+
+func (c *communicationManagerServiceClient) GetVersion(ctx context.Context, in *GetVersionRequest, opts ...grpc.CallOption) (*GetVersionResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetVersionResponse)
+	err := c.cc.Invoke(ctx, CommunicationManagerService_GetVersion_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// CommunicationManagerServiceServer is the server API for CommunicationManagerService service.
+// All implementations must embed UnimplementedCommunicationManagerServiceServer
+// for forward compatibility.
+type CommunicationManagerServiceServer interface {
+	GetVersion(context.Context, *GetVersionRequest) (*GetVersionResponse, error)
+	mustEmbedUnimplementedCommunicationManagerServiceServer()
+}
+
+// UnimplementedCommunicationManagerServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedCommunicationManagerServiceServer struct{}
+
+func (UnimplementedCommunicationManagerServiceServer) GetVersion(context.Context, *GetVersionRequest) (*GetVersionResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetVersion not implemented")
+}
+func (UnimplementedCommunicationManagerServiceServer) mustEmbedUnimplementedCommunicationManagerServiceServer() {
+}
+func (UnimplementedCommunicationManagerServiceServer) testEmbeddedByValue() {}
+
+// UnsafeCommunicationManagerServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to CommunicationManagerServiceServer will
+// result in compilation errors.
+type UnsafeCommunicationManagerServiceServer interface {
+	mustEmbedUnimplementedCommunicationManagerServiceServer()
+}
+
+func RegisterCommunicationManagerServiceServer(s grpc.ServiceRegistrar, srv CommunicationManagerServiceServer) {
+	// If the following call panics, it indicates UnimplementedCommunicationManagerServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&CommunicationManagerService_ServiceDesc, srv)
+}
+
+func _CommunicationManagerService_GetVersion_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetVersionRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CommunicationManagerServiceServer).GetVersion(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CommunicationManagerService_GetVersion_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CommunicationManagerServiceServer).GetVersion(ctx, req.(*GetVersionRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// CommunicationManagerService_ServiceDesc is the grpc.ServiceDesc for CommunicationManagerService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var CommunicationManagerService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "media.CommunicationManagerService",
+	HandlerType: (*CommunicationManagerServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "GetVersion",
+			Handler:    _CommunicationManagerService_GetVersion_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/media/media.proto",
+}
+
+const (
 	RouterService_AddCallback2_FullMethodName           = "/media.RouterService/AddCallback2"
 	RouterService_AddCallback3_1_FullMethodName         = "/media.RouterService/AddCallback3_1"
 	RouterService_AddUserRoute_FullMethodName           = "/media.RouterService/AddUserRoute"
@@ -686,109 +789,6 @@ var RouterService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "SelectRoute",
 			Handler:    _RouterService_SelectRoute_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/media/media.proto",
-}
-
-const (
-	CommunicationManagerService_GetVersion_FullMethodName = "/media.CommunicationManagerService/GetVersion"
-)
-
-// CommunicationManagerServiceClient is the client API for CommunicationManagerService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type CommunicationManagerServiceClient interface {
-	GetVersion(ctx context.Context, in *GetVersionRequest, opts ...grpc.CallOption) (*GetVersionResponse, error)
-}
-
-type communicationManagerServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewCommunicationManagerServiceClient(cc grpc.ClientConnInterface) CommunicationManagerServiceClient {
-	return &communicationManagerServiceClient{cc}
-}
-
-func (c *communicationManagerServiceClient) GetVersion(ctx context.Context, in *GetVersionRequest, opts ...grpc.CallOption) (*GetVersionResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetVersionResponse)
-	err := c.cc.Invoke(ctx, CommunicationManagerService_GetVersion_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// CommunicationManagerServiceServer is the server API for CommunicationManagerService service.
-// All implementations must embed UnimplementedCommunicationManagerServiceServer
-// for forward compatibility.
-type CommunicationManagerServiceServer interface {
-	GetVersion(context.Context, *GetVersionRequest) (*GetVersionResponse, error)
-	mustEmbedUnimplementedCommunicationManagerServiceServer()
-}
-
-// UnimplementedCommunicationManagerServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedCommunicationManagerServiceServer struct{}
-
-func (UnimplementedCommunicationManagerServiceServer) GetVersion(context.Context, *GetVersionRequest) (*GetVersionResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetVersion not implemented")
-}
-func (UnimplementedCommunicationManagerServiceServer) mustEmbedUnimplementedCommunicationManagerServiceServer() {
-}
-func (UnimplementedCommunicationManagerServiceServer) testEmbeddedByValue() {}
-
-// UnsafeCommunicationManagerServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to CommunicationManagerServiceServer will
-// result in compilation errors.
-type UnsafeCommunicationManagerServiceServer interface {
-	mustEmbedUnimplementedCommunicationManagerServiceServer()
-}
-
-func RegisterCommunicationManagerServiceServer(s grpc.ServiceRegistrar, srv CommunicationManagerServiceServer) {
-	// If the following call panics, it indicates UnimplementedCommunicationManagerServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&CommunicationManagerService_ServiceDesc, srv)
-}
-
-func _CommunicationManagerService_GetVersion_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetVersionRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(CommunicationManagerServiceServer).GetVersion(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: CommunicationManagerService_GetVersion_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CommunicationManagerServiceServer).GetVersion(ctx, req.(*GetVersionRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// CommunicationManagerService_ServiceDesc is the grpc.ServiceDesc for CommunicationManagerService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var CommunicationManagerService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "media.CommunicationManagerService",
-	HandlerType: (*CommunicationManagerServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "GetVersion",
-			Handler:    _CommunicationManagerService_GetVersion_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

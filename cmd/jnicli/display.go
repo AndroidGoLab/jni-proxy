@@ -52,10 +52,221 @@ var displayWindowManagerRemoveViewImmediateCmd = &cobra.Command{
 	},
 }
 
+var displayManagerCmd = &cobra.Command{
+	Use:   "manager",
+	Short: "ManagerService operations",
+}
+
+var displayManagerCreateVirtualDisplay1Cmd = &cobra.Command{
+	Use:   "create-virtual-display1",
+	Short: "CreateVirtualDisplay1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewManagerServiceClient(grpcConn)
+		req := &pb.CreateVirtualDisplay1Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.CreateVirtualDisplay1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var displayManagerCreateVirtualDisplay6_1Cmd = &cobra.Command{
+	Use:   "create-virtual-display6_1",
+	Short: "CreateVirtualDisplay6_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewManagerServiceClient(grpcConn)
+		req := &pb.CreateVirtualDisplay6_1Request{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg4"); err == nil {
+			req.Arg4 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg5"); err == nil {
+			req.Arg5 = v
+		}
+		resp, err := client.CreateVirtualDisplay6_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var displayManagerGetDisplayCmd = &cobra.Command{
+	Use:   "get-display",
+	Short: "GetDisplay RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewManagerServiceClient(grpcConn)
+		req := &pb.GetDisplayRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetDisplay(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var displayManagerGetDisplays0Cmd = &cobra.Command{
+	Use:   "get-displays0",
+	Short: "GetDisplays0 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewManagerServiceClient(grpcConn)
+		req := &pb.GetDisplays0Request{}
+		resp, err := client.GetDisplays0(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var displayManagerGetDisplays1_1Cmd = &cobra.Command{
+	Use:   "get-displays1_1",
+	Short: "GetDisplays1_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewManagerServiceClient(grpcConn)
+		req := &pb.GetDisplays1_1Request{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetDisplays1_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var displayManagerGetHdrConversionModeCmd = &cobra.Command{
+	Use:   "get-hdr-conversion-mode",
+	Short: "GetHdrConversionMode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewManagerServiceClient(grpcConn)
+		req := &pb.GetHdrConversionModeRequest{}
+		resp, err := client.GetHdrConversionMode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var displayManagerGetMatchContentFrameRateUserPreferenceCmd = &cobra.Command{
+	Use:   "get-match-content-frame-rate-user-preference",
+	Short: "GetMatchContentFrameRateUserPreference RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewManagerServiceClient(grpcConn)
+		req := &pb.GetMatchContentFrameRateUserPreferenceRequest{}
+		resp, err := client.GetMatchContentFrameRateUserPreference(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var displayManagerRegisterDisplayListenerCmd = &cobra.Command{
+	Use:   "register-display-listener",
+	Short: "RegisterDisplayListener RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewManagerServiceClient(grpcConn)
+		req := &pb.RegisterDisplayListenerRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.RegisterDisplayListener(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var displayManagerUnregisterDisplayListenerCmd = &cobra.Command{
+	Use:   "unregister-display-listener",
+	Short: "UnregisterDisplayListener RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewManagerServiceClient(grpcConn)
+		req := &pb.UnregisterDisplayListenerRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.UnregisterDisplayListener(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
 func init() {
 	displayWindowManagerCmd.AddCommand(displayWindowManagerGetDefaultDisplayCmd)
 	displayWindowManagerRemoveViewImmediateCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	displayWindowManagerCmd.AddCommand(displayWindowManagerRemoveViewImmediateCmd)
 	displayCmd.AddCommand(displayWindowManagerCmd)
+	displayManagerCreateVirtualDisplay1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	displayManagerCmd.AddCommand(displayManagerCreateVirtualDisplay1Cmd)
+	displayManagerCreateVirtualDisplay6_1Cmd.Flags().String("arg0", "", "arg0 (string)")
+	displayManagerCreateVirtualDisplay6_1Cmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	displayManagerCreateVirtualDisplay6_1Cmd.Flags().Int32("arg2", 0, "arg2 (int32)")
+	displayManagerCreateVirtualDisplay6_1Cmd.Flags().Int32("arg3", 0, "arg3 (int32)")
+	displayManagerCreateVirtualDisplay6_1Cmd.Flags().Int64("arg4", 0, "arg4 (int64)")
+	displayManagerCreateVirtualDisplay6_1Cmd.Flags().Int32("arg5", 0, "arg5 (int32)")
+	displayManagerCmd.AddCommand(displayManagerCreateVirtualDisplay6_1Cmd)
+	displayManagerGetDisplayCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	displayManagerCmd.AddCommand(displayManagerGetDisplayCmd)
+	displayManagerCmd.AddCommand(displayManagerGetDisplays0Cmd)
+	displayManagerGetDisplays1_1Cmd.Flags().String("arg0", "", "arg0 (string)")
+	displayManagerCmd.AddCommand(displayManagerGetDisplays1_1Cmd)
+	displayManagerCmd.AddCommand(displayManagerGetHdrConversionModeCmd)
+	displayManagerCmd.AddCommand(displayManagerGetMatchContentFrameRateUserPreferenceCmd)
+	displayManagerRegisterDisplayListenerCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	displayManagerRegisterDisplayListenerCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	displayManagerRegisterDisplayListenerCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	displayManagerCmd.AddCommand(displayManagerRegisterDisplayListenerCmd)
+	displayManagerUnregisterDisplayListenerCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	displayManagerCmd.AddCommand(displayManagerUnregisterDisplayListenerCmd)
+	displayCmd.AddCommand(displayManagerCmd)
 	rootCmd.AddCommand(displayCmd)
 }

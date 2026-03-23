@@ -484,6 +484,222 @@ func (s *UserManagerServer) SupportsMultipleUsers(_ context.Context, req *pb.Sup
 	return &pb.SupportsMultipleUsersResponse{Result: result}, nil
 }
 
+// HardwarePropertiesManagerServer implements pb.HardwarePropertiesManagerServiceServer.
+type HardwarePropertiesManagerServer struct {
+	pb.UnimplementedHardwarePropertiesManagerServiceServer
+	Ctx     *app.Context
+	Handles *handlestore.HandleStore
+}
+
+func (s *HardwarePropertiesManagerServer) GetCpuUsages(_ context.Context, req *pb.GetCpuUsagesRequest) (*pb.GetCpuUsagesResponse, error) {
+	mgr, err := jnipkg.NewHardwarePropertiesManager(s.Ctx)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
+	}
+	defer mgr.Close()
+
+	result, err := mgr.GetCpuUsages()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetCpuUsagesResponse{Result: handle}, nil
+}
+
+func (s *HardwarePropertiesManagerServer) GetDeviceTemperatures(_ context.Context, req *pb.GetDeviceTemperaturesRequest) (*pb.GetDeviceTemperaturesResponse, error) {
+	mgr, err := jnipkg.NewHardwarePropertiesManager(s.Ctx)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
+	}
+	defer mgr.Close()
+
+	result, err := mgr.GetDeviceTemperatures(req.GetArg0(), req.GetArg1())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetDeviceTemperaturesResponse{Result: handle}, nil
+}
+
+func (s *HardwarePropertiesManagerServer) GetFanSpeeds(_ context.Context, req *pb.GetFanSpeedsRequest) (*pb.GetFanSpeedsResponse, error) {
+	mgr, err := jnipkg.NewHardwarePropertiesManager(s.Ctx)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
+	}
+	defer mgr.Close()
+
+	result, err := mgr.GetFanSpeeds()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetFanSpeedsResponse{Result: handle}, nil
+}
+
+// ProfilingManagerServer implements pb.ProfilingManagerServiceServer.
+type ProfilingManagerServer struct {
+	pb.UnimplementedProfilingManagerServiceServer
+	Ctx     *app.Context
+	Handles *handlestore.HandleStore
+}
+
+func (s *ProfilingManagerServer) ClearProfilingTriggers(_ context.Context, req *pb.ClearProfilingTriggersRequest) (*pb.ClearProfilingTriggersResponse, error) {
+	mgr, err := jnipkg.NewProfilingManager(s.Ctx)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
+	}
+	defer mgr.Close()
+
+	if err := mgr.ClearProfilingTriggers(); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.ClearProfilingTriggersResponse{}, nil
+}
+
+func (s *ProfilingManagerServer) RemoveProfilingTriggersByType(_ context.Context, req *pb.RemoveProfilingTriggersByTypeRequest) (*pb.RemoveProfilingTriggersByTypeResponse, error) {
+	mgr, err := jnipkg.NewProfilingManager(s.Ctx)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
+	}
+	defer mgr.Close()
+
+	if err := mgr.RemoveProfilingTriggersByType(s.Handles.Get(req.GetArg0())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.RemoveProfilingTriggersByTypeResponse{}, nil
+}
+
+// SecurityStateManagerServer implements pb.SecurityStateManagerServiceServer.
+type SecurityStateManagerServer struct {
+	pb.UnimplementedSecurityStateManagerServiceServer
+	Ctx     *app.Context
+	Handles *handlestore.HandleStore
+}
+
+func (s *SecurityStateManagerServer) GetGlobalSecurityState(_ context.Context, req *pb.GetGlobalSecurityStateRequest) (*pb.GetGlobalSecurityStateResponse, error) {
+	mgr, err := jnipkg.NewSecurityStateManager(s.Ctx)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
+	}
+	defer mgr.Close()
+
+	result, err := mgr.GetGlobalSecurityState()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetGlobalSecurityStateResponse{Result: handle}, nil
+}
+
+// PerformanceHintManagerServer implements pb.PerformanceHintManagerServiceServer.
+type PerformanceHintManagerServer struct {
+	pb.UnimplementedPerformanceHintManagerServiceServer
+	Ctx     *app.Context
+	Handles *handlestore.HandleStore
+}
+
+func (s *PerformanceHintManagerServer) CreateHintSession(_ context.Context, req *pb.CreateHintSessionRequest) (*pb.CreateHintSessionResponse, error) {
+	mgr, err := jnipkg.NewPerformanceHintManager(s.Ctx)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
+	}
+	defer mgr.Close()
+
+	result, err := mgr.CreateHintSession(s.Handles.Get(req.GetArg0()), req.GetArg1())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.CreateHintSessionResponse{Result: handle}, nil
+}
+
+func (s *PerformanceHintManagerServer) GetPreferredUpdateRateNanos(_ context.Context, req *pb.GetPreferredUpdateRateNanosRequest) (*pb.GetPreferredUpdateRateNanosResponse, error) {
+	mgr, err := jnipkg.NewPerformanceHintManager(s.Ctx)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
+	}
+	defer mgr.Close()
+
+	result, err := mgr.GetPreferredUpdateRateNanos()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetPreferredUpdateRateNanosResponse{Result: result}, nil
+}
+
+// BugreportManagerServer implements pb.BugreportManagerServiceServer.
+type BugreportManagerServer struct {
+	pb.UnimplementedBugreportManagerServiceServer
+	Ctx     *app.Context
+	Handles *handlestore.HandleStore
+}
+
+func (s *BugreportManagerServer) CancelBugreport(_ context.Context, req *pb.CancelBugreportRequest) (*pb.CancelBugreportResponse, error) {
+	mgr, err := jnipkg.NewBugreportManager(s.Ctx)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
+	}
+	defer mgr.Close()
+
+	if err := mgr.CancelBugreport(); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.CancelBugreportResponse{}, nil
+}
+
+func (s *BugreportManagerServer) StartConnectivityBugreport(_ context.Context, req *pb.StartConnectivityBugreportRequest) (*pb.StartConnectivityBugreportResponse, error) {
+	mgr, err := jnipkg.NewBugreportManager(s.Ctx)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
+	}
+	defer mgr.Close()
+
+	if err := mgr.StartConnectivityBugreport(s.Handles.Get(req.GetArg0()), s.Handles.Get(req.GetArg1()), s.Handles.Get(req.GetArg2())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.StartConnectivityBugreportResponse{}, nil
+}
+
 // DropBoxManagerServer implements pb.DropBoxManagerServiceServer.
 type DropBoxManagerServer struct {
 	pb.UnimplementedDropBoxManagerServiceServer
@@ -565,222 +781,6 @@ func (s *DropBoxManagerServer) IsTagEnabled(_ context.Context, req *pb.IsTagEnab
 		return nil, status.Errorf(codes.Internal, "%v", err)
 	}
 	return &pb.IsTagEnabledResponse{Result: result}, nil
-}
-
-// SecurityStateManagerServer implements pb.SecurityStateManagerServiceServer.
-type SecurityStateManagerServer struct {
-	pb.UnimplementedSecurityStateManagerServiceServer
-	Ctx     *app.Context
-	Handles *handlestore.HandleStore
-}
-
-func (s *SecurityStateManagerServer) GetGlobalSecurityState(_ context.Context, req *pb.GetGlobalSecurityStateRequest) (*pb.GetGlobalSecurityStateResponse, error) {
-	mgr, err := jnipkg.NewSecurityStateManager(s.Ctx)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
-	}
-	defer mgr.Close()
-
-	result, err := mgr.GetGlobalSecurityState()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	var handle int64
-	if result != nil {
-		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-			handle = s.Handles.Put(env, result)
-			return nil
-		}); doErr != nil {
-			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-		}
-	}
-	return &pb.GetGlobalSecurityStateResponse{Result: handle}, nil
-}
-
-// HardwarePropertiesManagerServer implements pb.HardwarePropertiesManagerServiceServer.
-type HardwarePropertiesManagerServer struct {
-	pb.UnimplementedHardwarePropertiesManagerServiceServer
-	Ctx     *app.Context
-	Handles *handlestore.HandleStore
-}
-
-func (s *HardwarePropertiesManagerServer) GetCpuUsages(_ context.Context, req *pb.GetCpuUsagesRequest) (*pb.GetCpuUsagesResponse, error) {
-	mgr, err := jnipkg.NewHardwarePropertiesManager(s.Ctx)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
-	}
-	defer mgr.Close()
-
-	result, err := mgr.GetCpuUsages()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	var handle int64
-	if result != nil {
-		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-			handle = s.Handles.Put(env, result)
-			return nil
-		}); doErr != nil {
-			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-		}
-	}
-	return &pb.GetCpuUsagesResponse{Result: handle}, nil
-}
-
-func (s *HardwarePropertiesManagerServer) GetDeviceTemperatures(_ context.Context, req *pb.GetDeviceTemperaturesRequest) (*pb.GetDeviceTemperaturesResponse, error) {
-	mgr, err := jnipkg.NewHardwarePropertiesManager(s.Ctx)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
-	}
-	defer mgr.Close()
-
-	result, err := mgr.GetDeviceTemperatures(req.GetArg0(), req.GetArg1())
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	var handle int64
-	if result != nil {
-		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-			handle = s.Handles.Put(env, result)
-			return nil
-		}); doErr != nil {
-			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-		}
-	}
-	return &pb.GetDeviceTemperaturesResponse{Result: handle}, nil
-}
-
-func (s *HardwarePropertiesManagerServer) GetFanSpeeds(_ context.Context, req *pb.GetFanSpeedsRequest) (*pb.GetFanSpeedsResponse, error) {
-	mgr, err := jnipkg.NewHardwarePropertiesManager(s.Ctx)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
-	}
-	defer mgr.Close()
-
-	result, err := mgr.GetFanSpeeds()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	var handle int64
-	if result != nil {
-		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-			handle = s.Handles.Put(env, result)
-			return nil
-		}); doErr != nil {
-			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-		}
-	}
-	return &pb.GetFanSpeedsResponse{Result: handle}, nil
-}
-
-// BugreportManagerServer implements pb.BugreportManagerServiceServer.
-type BugreportManagerServer struct {
-	pb.UnimplementedBugreportManagerServiceServer
-	Ctx     *app.Context
-	Handles *handlestore.HandleStore
-}
-
-func (s *BugreportManagerServer) CancelBugreport(_ context.Context, req *pb.CancelBugreportRequest) (*pb.CancelBugreportResponse, error) {
-	mgr, err := jnipkg.NewBugreportManager(s.Ctx)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
-	}
-	defer mgr.Close()
-
-	if err := mgr.CancelBugreport(); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.CancelBugreportResponse{}, nil
-}
-
-func (s *BugreportManagerServer) StartConnectivityBugreport(_ context.Context, req *pb.StartConnectivityBugreportRequest) (*pb.StartConnectivityBugreportResponse, error) {
-	mgr, err := jnipkg.NewBugreportManager(s.Ctx)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
-	}
-	defer mgr.Close()
-
-	if err := mgr.StartConnectivityBugreport(s.Handles.Get(req.GetArg0()), s.Handles.Get(req.GetArg1()), s.Handles.Get(req.GetArg2())); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.StartConnectivityBugreportResponse{}, nil
-}
-
-// PerformanceHintManagerServer implements pb.PerformanceHintManagerServiceServer.
-type PerformanceHintManagerServer struct {
-	pb.UnimplementedPerformanceHintManagerServiceServer
-	Ctx     *app.Context
-	Handles *handlestore.HandleStore
-}
-
-func (s *PerformanceHintManagerServer) CreateHintSession(_ context.Context, req *pb.CreateHintSessionRequest) (*pb.CreateHintSessionResponse, error) {
-	mgr, err := jnipkg.NewPerformanceHintManager(s.Ctx)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
-	}
-	defer mgr.Close()
-
-	result, err := mgr.CreateHintSession(s.Handles.Get(req.GetArg0()), req.GetArg1())
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	var handle int64
-	if result != nil {
-		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-			handle = s.Handles.Put(env, result)
-			return nil
-		}); doErr != nil {
-			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-		}
-	}
-	return &pb.CreateHintSessionResponse{Result: handle}, nil
-}
-
-func (s *PerformanceHintManagerServer) GetPreferredUpdateRateNanos(_ context.Context, req *pb.GetPreferredUpdateRateNanosRequest) (*pb.GetPreferredUpdateRateNanosResponse, error) {
-	mgr, err := jnipkg.NewPerformanceHintManager(s.Ctx)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
-	}
-	defer mgr.Close()
-
-	result, err := mgr.GetPreferredUpdateRateNanos()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GetPreferredUpdateRateNanosResponse{Result: result}, nil
-}
-
-// ProfilingManagerServer implements pb.ProfilingManagerServiceServer.
-type ProfilingManagerServer struct {
-	pb.UnimplementedProfilingManagerServiceServer
-	Ctx     *app.Context
-	Handles *handlestore.HandleStore
-}
-
-func (s *ProfilingManagerServer) ClearProfilingTriggers(_ context.Context, req *pb.ClearProfilingTriggersRequest) (*pb.ClearProfilingTriggersResponse, error) {
-	mgr, err := jnipkg.NewProfilingManager(s.Ctx)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
-	}
-	defer mgr.Close()
-
-	if err := mgr.ClearProfilingTriggers(); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.ClearProfilingTriggersResponse{}, nil
-}
-
-func (s *ProfilingManagerServer) RemoveProfilingTriggersByType(_ context.Context, req *pb.RemoveProfilingTriggersByTypeRequest) (*pb.RemoveProfilingTriggersByTypeResponse, error) {
-	mgr, err := jnipkg.NewProfilingManager(s.Ctx)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
-	}
-	defer mgr.Close()
-
-	if err := mgr.RemoveProfilingTriggersByType(s.Handles.Get(req.GetArg0())); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.RemoveProfilingTriggersByTypeResponse{}, nil
 }
 
 // VibratorManagerServer implements pb.VibratorManagerServiceServer.

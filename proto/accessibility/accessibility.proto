@@ -6,6 +6,69 @@ package accessibility;
 
 option go_package = "github.com/AndroidGoLab/jni-proxy/proto/accessibility";
 
+message AddCaptioningChangeListenerRequest {
+  int64 arg0 = 1;
+}
+
+message AddCaptioningChangeListenerResponse {
+}
+
+message GetFontScaleRequest {
+}
+
+message GetFontScaleResponse {
+  float result = 1;
+}
+
+message GetLocaleRequest {
+}
+
+message GetLocaleResponse {
+  int64 result = 1;
+}
+
+message GetUserStyleRequest {
+}
+
+message GetUserStyleResponse {
+  int64 result = 1;
+}
+
+message IsCallCaptioningEnabledRequest {
+}
+
+message IsCallCaptioningEnabledResponse {
+  bool result = 1;
+}
+
+message IsEnabledRequest {
+}
+
+message IsEnabledResponse {
+  bool result = 1;
+}
+
+message IsSystemAudioCaptioningEnabledRequest {
+}
+
+message IsSystemAudioCaptioningEnabledResponse {
+  bool result = 1;
+}
+
+message IsSystemAudioCaptioningUiEnabledRequest {
+}
+
+message IsSystemAudioCaptioningUiEnabledResponse {
+  bool result = 1;
+}
+
+message RemoveCaptioningChangeListenerRequest {
+  int64 arg0 = 1;
+}
+
+message RemoveCaptioningChangeListenerResponse {
+}
+
 message AddAccessibilityRequestPreparerRequest {
   int64 arg0 = 1;
 }
@@ -96,13 +159,6 @@ message IsAudioDescriptionRequestedResponse {
   bool result = 1;
 }
 
-message IsEnabledRequest {
-}
-
-message IsEnabledResponse {
-  bool result = 1;
-}
-
 message IsHighContrastTextEnabledRequest {
 }
 
@@ -184,60 +240,16 @@ message IsAccessibilityButtonSupportedResponse {
   bool result = 1;
 }
 
-message AddCaptioningChangeListenerRequest {
-  int64 arg0 = 1;
-}
-
-message AddCaptioningChangeListenerResponse {
-}
-
-message GetFontScaleRequest {
-}
-
-message GetFontScaleResponse {
-  float result = 1;
-}
-
-message GetLocaleRequest {
-}
-
-message GetLocaleResponse {
-  int64 result = 1;
-}
-
-message GetUserStyleRequest {
-}
-
-message GetUserStyleResponse {
-  int64 result = 1;
-}
-
-message IsCallCaptioningEnabledRequest {
-}
-
-message IsCallCaptioningEnabledResponse {
-  bool result = 1;
-}
-
-message IsSystemAudioCaptioningEnabledRequest {
-}
-
-message IsSystemAudioCaptioningEnabledResponse {
-  bool result = 1;
-}
-
-message IsSystemAudioCaptioningUiEnabledRequest {
-}
-
-message IsSystemAudioCaptioningUiEnabledResponse {
-  bool result = 1;
-}
-
-message RemoveCaptioningChangeListenerRequest {
-  int64 arg0 = 1;
-}
-
-message RemoveCaptioningChangeListenerResponse {
+service CaptioningManagerService {
+  rpc AddCaptioningChangeListener (AddCaptioningChangeListenerRequest) returns (AddCaptioningChangeListenerResponse);
+  rpc GetFontScale (GetFontScaleRequest) returns (GetFontScaleResponse);
+  rpc GetLocale (GetLocaleRequest) returns (GetLocaleResponse);
+  rpc GetUserStyle (GetUserStyleRequest) returns (GetUserStyleResponse);
+  rpc IsCallCaptioningEnabled (IsCallCaptioningEnabledRequest) returns (IsCallCaptioningEnabledResponse);
+  rpc IsEnabled (IsEnabledRequest) returns (IsEnabledResponse);
+  rpc IsSystemAudioCaptioningEnabled (IsSystemAudioCaptioningEnabledRequest) returns (IsSystemAudioCaptioningEnabledResponse);
+  rpc IsSystemAudioCaptioningUiEnabled (IsSystemAudioCaptioningUiEnabledRequest) returns (IsSystemAudioCaptioningUiEnabledResponse);
+  rpc RemoveCaptioningChangeListener (RemoveCaptioningChangeListenerRequest) returns (RemoveCaptioningChangeListenerResponse);
 }
 
 service ManagerService {
@@ -265,16 +277,4 @@ service ManagerService {
   rpc RemoveTouchExplorationStateChangeListener (RemoveTouchExplorationStateChangeListenerRequest) returns (RemoveTouchExplorationStateChangeListenerResponse);
   rpc SendAccessibilityEvent (SendAccessibilityEventRequest) returns (SendAccessibilityEventResponse);
   rpc IsAccessibilityButtonSupported (IsAccessibilityButtonSupportedRequest) returns (IsAccessibilityButtonSupportedResponse);
-}
-
-service CaptioningManagerService {
-  rpc AddCaptioningChangeListener (AddCaptioningChangeListenerRequest) returns (AddCaptioningChangeListenerResponse);
-  rpc GetFontScale (GetFontScaleRequest) returns (GetFontScaleResponse);
-  rpc GetLocale (GetLocaleRequest) returns (GetLocaleResponse);
-  rpc GetUserStyle (GetUserStyleRequest) returns (GetUserStyleResponse);
-  rpc IsCallCaptioningEnabled (IsCallCaptioningEnabledRequest) returns (IsCallCaptioningEnabledResponse);
-  rpc IsEnabled (IsEnabledRequest) returns (IsEnabledResponse);
-  rpc IsSystemAudioCaptioningEnabled (IsSystemAudioCaptioningEnabledRequest) returns (IsSystemAudioCaptioningEnabledResponse);
-  rpc IsSystemAudioCaptioningUiEnabled (IsSystemAudioCaptioningUiEnabledRequest) returns (IsSystemAudioCaptioningUiEnabledResponse);
-  rpc RemoveCaptioningChangeListener (RemoveCaptioningChangeListenerRequest) returns (RemoveCaptioningChangeListenerResponse);
 }

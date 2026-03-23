@@ -21,147 +21,6 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
-	ConnectivityDiagnosticsManagerService_RegisterConnectivityDiagnosticsCallback_FullMethodName   = "/net.ConnectivityDiagnosticsManagerService/RegisterConnectivityDiagnosticsCallback"
-	ConnectivityDiagnosticsManagerService_UnregisterConnectivityDiagnosticsCallback_FullMethodName = "/net.ConnectivityDiagnosticsManagerService/UnregisterConnectivityDiagnosticsCallback"
-)
-
-// ConnectivityDiagnosticsManagerServiceClient is the client API for ConnectivityDiagnosticsManagerService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type ConnectivityDiagnosticsManagerServiceClient interface {
-	RegisterConnectivityDiagnosticsCallback(ctx context.Context, in *RegisterConnectivityDiagnosticsCallbackRequest, opts ...grpc.CallOption) (*RegisterConnectivityDiagnosticsCallbackResponse, error)
-	UnregisterConnectivityDiagnosticsCallback(ctx context.Context, in *UnregisterConnectivityDiagnosticsCallbackRequest, opts ...grpc.CallOption) (*UnregisterConnectivityDiagnosticsCallbackResponse, error)
-}
-
-type connectivityDiagnosticsManagerServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewConnectivityDiagnosticsManagerServiceClient(cc grpc.ClientConnInterface) ConnectivityDiagnosticsManagerServiceClient {
-	return &connectivityDiagnosticsManagerServiceClient{cc}
-}
-
-func (c *connectivityDiagnosticsManagerServiceClient) RegisterConnectivityDiagnosticsCallback(ctx context.Context, in *RegisterConnectivityDiagnosticsCallbackRequest, opts ...grpc.CallOption) (*RegisterConnectivityDiagnosticsCallbackResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(RegisterConnectivityDiagnosticsCallbackResponse)
-	err := c.cc.Invoke(ctx, ConnectivityDiagnosticsManagerService_RegisterConnectivityDiagnosticsCallback_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *connectivityDiagnosticsManagerServiceClient) UnregisterConnectivityDiagnosticsCallback(ctx context.Context, in *UnregisterConnectivityDiagnosticsCallbackRequest, opts ...grpc.CallOption) (*UnregisterConnectivityDiagnosticsCallbackResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(UnregisterConnectivityDiagnosticsCallbackResponse)
-	err := c.cc.Invoke(ctx, ConnectivityDiagnosticsManagerService_UnregisterConnectivityDiagnosticsCallback_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// ConnectivityDiagnosticsManagerServiceServer is the server API for ConnectivityDiagnosticsManagerService service.
-// All implementations must embed UnimplementedConnectivityDiagnosticsManagerServiceServer
-// for forward compatibility.
-type ConnectivityDiagnosticsManagerServiceServer interface {
-	RegisterConnectivityDiagnosticsCallback(context.Context, *RegisterConnectivityDiagnosticsCallbackRequest) (*RegisterConnectivityDiagnosticsCallbackResponse, error)
-	UnregisterConnectivityDiagnosticsCallback(context.Context, *UnregisterConnectivityDiagnosticsCallbackRequest) (*UnregisterConnectivityDiagnosticsCallbackResponse, error)
-	mustEmbedUnimplementedConnectivityDiagnosticsManagerServiceServer()
-}
-
-// UnimplementedConnectivityDiagnosticsManagerServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedConnectivityDiagnosticsManagerServiceServer struct{}
-
-func (UnimplementedConnectivityDiagnosticsManagerServiceServer) RegisterConnectivityDiagnosticsCallback(context.Context, *RegisterConnectivityDiagnosticsCallbackRequest) (*RegisterConnectivityDiagnosticsCallbackResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method RegisterConnectivityDiagnosticsCallback not implemented")
-}
-func (UnimplementedConnectivityDiagnosticsManagerServiceServer) UnregisterConnectivityDiagnosticsCallback(context.Context, *UnregisterConnectivityDiagnosticsCallbackRequest) (*UnregisterConnectivityDiagnosticsCallbackResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method UnregisterConnectivityDiagnosticsCallback not implemented")
-}
-func (UnimplementedConnectivityDiagnosticsManagerServiceServer) mustEmbedUnimplementedConnectivityDiagnosticsManagerServiceServer() {
-}
-func (UnimplementedConnectivityDiagnosticsManagerServiceServer) testEmbeddedByValue() {}
-
-// UnsafeConnectivityDiagnosticsManagerServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to ConnectivityDiagnosticsManagerServiceServer will
-// result in compilation errors.
-type UnsafeConnectivityDiagnosticsManagerServiceServer interface {
-	mustEmbedUnimplementedConnectivityDiagnosticsManagerServiceServer()
-}
-
-func RegisterConnectivityDiagnosticsManagerServiceServer(s grpc.ServiceRegistrar, srv ConnectivityDiagnosticsManagerServiceServer) {
-	// If the following call panics, it indicates UnimplementedConnectivityDiagnosticsManagerServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&ConnectivityDiagnosticsManagerService_ServiceDesc, srv)
-}
-
-func _ConnectivityDiagnosticsManagerService_RegisterConnectivityDiagnosticsCallback_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(RegisterConnectivityDiagnosticsCallbackRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ConnectivityDiagnosticsManagerServiceServer).RegisterConnectivityDiagnosticsCallback(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ConnectivityDiagnosticsManagerService_RegisterConnectivityDiagnosticsCallback_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ConnectivityDiagnosticsManagerServiceServer).RegisterConnectivityDiagnosticsCallback(ctx, req.(*RegisterConnectivityDiagnosticsCallbackRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ConnectivityDiagnosticsManagerService_UnregisterConnectivityDiagnosticsCallback_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(UnregisterConnectivityDiagnosticsCallbackRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ConnectivityDiagnosticsManagerServiceServer).UnregisterConnectivityDiagnosticsCallback(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ConnectivityDiagnosticsManagerService_UnregisterConnectivityDiagnosticsCallback_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ConnectivityDiagnosticsManagerServiceServer).UnregisterConnectivityDiagnosticsCallback(ctx, req.(*UnregisterConnectivityDiagnosticsCallbackRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// ConnectivityDiagnosticsManagerService_ServiceDesc is the grpc.ServiceDesc for ConnectivityDiagnosticsManagerService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var ConnectivityDiagnosticsManagerService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "net.ConnectivityDiagnosticsManagerService",
-	HandlerType: (*ConnectivityDiagnosticsManagerServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "RegisterConnectivityDiagnosticsCallback",
-			Handler:    _ConnectivityDiagnosticsManagerService_RegisterConnectivityDiagnosticsCallback_Handler,
-		},
-		{
-			MethodName: "UnregisterConnectivityDiagnosticsCallback",
-			Handler:    _ConnectivityDiagnosticsManagerService_UnregisterConnectivityDiagnosticsCallback_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/net/net.proto",
-}
-
-const (
 	IpSecManagerService_AllocateSecurityParameterIndex1_FullMethodName   = "/net.IpSecManagerService/AllocateSecurityParameterIndex1"
 	IpSecManagerService_AllocateSecurityParameterIndex2_1_FullMethodName = "/net.IpSecManagerService/AllocateSecurityParameterIndex2_1"
 	IpSecManagerService_ApplyTransportModeTransform3_FullMethodName      = "/net.IpSecManagerService/ApplyTransportModeTransform3"
@@ -599,223 +458,6 @@ var IpSecManagerService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "RemoveTransportModeTransforms1_2",
 			Handler:    _IpSecManagerService_RemoveTransportModeTransforms1_2_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/net/net.proto",
-}
-
-const (
-	TetheringManagerService_RegisterTetheringEventCallback_FullMethodName   = "/net.TetheringManagerService/RegisterTetheringEventCallback"
-	TetheringManagerService_StartTethering_FullMethodName                   = "/net.TetheringManagerService/StartTethering"
-	TetheringManagerService_StopTethering_FullMethodName                    = "/net.TetheringManagerService/StopTethering"
-	TetheringManagerService_UnregisterTetheringEventCallback_FullMethodName = "/net.TetheringManagerService/UnregisterTetheringEventCallback"
-)
-
-// TetheringManagerServiceClient is the client API for TetheringManagerService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type TetheringManagerServiceClient interface {
-	RegisterTetheringEventCallback(ctx context.Context, in *RegisterTetheringEventCallbackRequest, opts ...grpc.CallOption) (*RegisterTetheringEventCallbackResponse, error)
-	StartTethering(ctx context.Context, in *StartTetheringRequest, opts ...grpc.CallOption) (*StartTetheringResponse, error)
-	StopTethering(ctx context.Context, in *StopTetheringRequest, opts ...grpc.CallOption) (*StopTetheringResponse, error)
-	UnregisterTetheringEventCallback(ctx context.Context, in *UnregisterTetheringEventCallbackRequest, opts ...grpc.CallOption) (*UnregisterTetheringEventCallbackResponse, error)
-}
-
-type tetheringManagerServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewTetheringManagerServiceClient(cc grpc.ClientConnInterface) TetheringManagerServiceClient {
-	return &tetheringManagerServiceClient{cc}
-}
-
-func (c *tetheringManagerServiceClient) RegisterTetheringEventCallback(ctx context.Context, in *RegisterTetheringEventCallbackRequest, opts ...grpc.CallOption) (*RegisterTetheringEventCallbackResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(RegisterTetheringEventCallbackResponse)
-	err := c.cc.Invoke(ctx, TetheringManagerService_RegisterTetheringEventCallback_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *tetheringManagerServiceClient) StartTethering(ctx context.Context, in *StartTetheringRequest, opts ...grpc.CallOption) (*StartTetheringResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(StartTetheringResponse)
-	err := c.cc.Invoke(ctx, TetheringManagerService_StartTethering_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *tetheringManagerServiceClient) StopTethering(ctx context.Context, in *StopTetheringRequest, opts ...grpc.CallOption) (*StopTetheringResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(StopTetheringResponse)
-	err := c.cc.Invoke(ctx, TetheringManagerService_StopTethering_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *tetheringManagerServiceClient) UnregisterTetheringEventCallback(ctx context.Context, in *UnregisterTetheringEventCallbackRequest, opts ...grpc.CallOption) (*UnregisterTetheringEventCallbackResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(UnregisterTetheringEventCallbackResponse)
-	err := c.cc.Invoke(ctx, TetheringManagerService_UnregisterTetheringEventCallback_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// TetheringManagerServiceServer is the server API for TetheringManagerService service.
-// All implementations must embed UnimplementedTetheringManagerServiceServer
-// for forward compatibility.
-type TetheringManagerServiceServer interface {
-	RegisterTetheringEventCallback(context.Context, *RegisterTetheringEventCallbackRequest) (*RegisterTetheringEventCallbackResponse, error)
-	StartTethering(context.Context, *StartTetheringRequest) (*StartTetheringResponse, error)
-	StopTethering(context.Context, *StopTetheringRequest) (*StopTetheringResponse, error)
-	UnregisterTetheringEventCallback(context.Context, *UnregisterTetheringEventCallbackRequest) (*UnregisterTetheringEventCallbackResponse, error)
-	mustEmbedUnimplementedTetheringManagerServiceServer()
-}
-
-// UnimplementedTetheringManagerServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedTetheringManagerServiceServer struct{}
-
-func (UnimplementedTetheringManagerServiceServer) RegisterTetheringEventCallback(context.Context, *RegisterTetheringEventCallbackRequest) (*RegisterTetheringEventCallbackResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method RegisterTetheringEventCallback not implemented")
-}
-func (UnimplementedTetheringManagerServiceServer) StartTethering(context.Context, *StartTetheringRequest) (*StartTetheringResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method StartTethering not implemented")
-}
-func (UnimplementedTetheringManagerServiceServer) StopTethering(context.Context, *StopTetheringRequest) (*StopTetheringResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method StopTethering not implemented")
-}
-func (UnimplementedTetheringManagerServiceServer) UnregisterTetheringEventCallback(context.Context, *UnregisterTetheringEventCallbackRequest) (*UnregisterTetheringEventCallbackResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method UnregisterTetheringEventCallback not implemented")
-}
-func (UnimplementedTetheringManagerServiceServer) mustEmbedUnimplementedTetheringManagerServiceServer() {
-}
-func (UnimplementedTetheringManagerServiceServer) testEmbeddedByValue() {}
-
-// UnsafeTetheringManagerServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to TetheringManagerServiceServer will
-// result in compilation errors.
-type UnsafeTetheringManagerServiceServer interface {
-	mustEmbedUnimplementedTetheringManagerServiceServer()
-}
-
-func RegisterTetheringManagerServiceServer(s grpc.ServiceRegistrar, srv TetheringManagerServiceServer) {
-	// If the following call panics, it indicates UnimplementedTetheringManagerServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&TetheringManagerService_ServiceDesc, srv)
-}
-
-func _TetheringManagerService_RegisterTetheringEventCallback_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(RegisterTetheringEventCallbackRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(TetheringManagerServiceServer).RegisterTetheringEventCallback(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: TetheringManagerService_RegisterTetheringEventCallback_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TetheringManagerServiceServer).RegisterTetheringEventCallback(ctx, req.(*RegisterTetheringEventCallbackRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _TetheringManagerService_StartTethering_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(StartTetheringRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(TetheringManagerServiceServer).StartTethering(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: TetheringManagerService_StartTethering_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TetheringManagerServiceServer).StartTethering(ctx, req.(*StartTetheringRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _TetheringManagerService_StopTethering_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(StopTetheringRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(TetheringManagerServiceServer).StopTethering(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: TetheringManagerService_StopTethering_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TetheringManagerServiceServer).StopTethering(ctx, req.(*StopTetheringRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _TetheringManagerService_UnregisterTetheringEventCallback_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(UnregisterTetheringEventCallbackRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(TetheringManagerServiceServer).UnregisterTetheringEventCallback(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: TetheringManagerService_UnregisterTetheringEventCallback_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TetheringManagerServiceServer).UnregisterTetheringEventCallback(ctx, req.(*UnregisterTetheringEventCallbackRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// TetheringManagerService_ServiceDesc is the grpc.ServiceDesc for TetheringManagerService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var TetheringManagerService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "net.TetheringManagerService",
-	HandlerType: (*TetheringManagerServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "RegisterTetheringEventCallback",
-			Handler:    _TetheringManagerService_RegisterTetheringEventCallback_Handler,
-		},
-		{
-			MethodName: "StartTethering",
-			Handler:    _TetheringManagerService_StartTethering_Handler,
-		},
-		{
-			MethodName: "StopTethering",
-			Handler:    _TetheringManagerService_StopTethering_Handler,
-		},
-		{
-			MethodName: "UnregisterTetheringEventCallback",
-			Handler:    _TetheringManagerService_UnregisterTetheringEventCallback_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
@@ -2325,6 +1967,364 @@ var ConnectivityManagerService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "SetProcessDefaultNetwork",
 			Handler:    _ConnectivityManagerService_SetProcessDefaultNetwork_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/net/net.proto",
+}
+
+const (
+	ConnectivityDiagnosticsManagerService_RegisterConnectivityDiagnosticsCallback_FullMethodName   = "/net.ConnectivityDiagnosticsManagerService/RegisterConnectivityDiagnosticsCallback"
+	ConnectivityDiagnosticsManagerService_UnregisterConnectivityDiagnosticsCallback_FullMethodName = "/net.ConnectivityDiagnosticsManagerService/UnregisterConnectivityDiagnosticsCallback"
+)
+
+// ConnectivityDiagnosticsManagerServiceClient is the client API for ConnectivityDiagnosticsManagerService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type ConnectivityDiagnosticsManagerServiceClient interface {
+	RegisterConnectivityDiagnosticsCallback(ctx context.Context, in *RegisterConnectivityDiagnosticsCallbackRequest, opts ...grpc.CallOption) (*RegisterConnectivityDiagnosticsCallbackResponse, error)
+	UnregisterConnectivityDiagnosticsCallback(ctx context.Context, in *UnregisterConnectivityDiagnosticsCallbackRequest, opts ...grpc.CallOption) (*UnregisterConnectivityDiagnosticsCallbackResponse, error)
+}
+
+type connectivityDiagnosticsManagerServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewConnectivityDiagnosticsManagerServiceClient(cc grpc.ClientConnInterface) ConnectivityDiagnosticsManagerServiceClient {
+	return &connectivityDiagnosticsManagerServiceClient{cc}
+}
+
+func (c *connectivityDiagnosticsManagerServiceClient) RegisterConnectivityDiagnosticsCallback(ctx context.Context, in *RegisterConnectivityDiagnosticsCallbackRequest, opts ...grpc.CallOption) (*RegisterConnectivityDiagnosticsCallbackResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(RegisterConnectivityDiagnosticsCallbackResponse)
+	err := c.cc.Invoke(ctx, ConnectivityDiagnosticsManagerService_RegisterConnectivityDiagnosticsCallback_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *connectivityDiagnosticsManagerServiceClient) UnregisterConnectivityDiagnosticsCallback(ctx context.Context, in *UnregisterConnectivityDiagnosticsCallbackRequest, opts ...grpc.CallOption) (*UnregisterConnectivityDiagnosticsCallbackResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(UnregisterConnectivityDiagnosticsCallbackResponse)
+	err := c.cc.Invoke(ctx, ConnectivityDiagnosticsManagerService_UnregisterConnectivityDiagnosticsCallback_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// ConnectivityDiagnosticsManagerServiceServer is the server API for ConnectivityDiagnosticsManagerService service.
+// All implementations must embed UnimplementedConnectivityDiagnosticsManagerServiceServer
+// for forward compatibility.
+type ConnectivityDiagnosticsManagerServiceServer interface {
+	RegisterConnectivityDiagnosticsCallback(context.Context, *RegisterConnectivityDiagnosticsCallbackRequest) (*RegisterConnectivityDiagnosticsCallbackResponse, error)
+	UnregisterConnectivityDiagnosticsCallback(context.Context, *UnregisterConnectivityDiagnosticsCallbackRequest) (*UnregisterConnectivityDiagnosticsCallbackResponse, error)
+	mustEmbedUnimplementedConnectivityDiagnosticsManagerServiceServer()
+}
+
+// UnimplementedConnectivityDiagnosticsManagerServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedConnectivityDiagnosticsManagerServiceServer struct{}
+
+func (UnimplementedConnectivityDiagnosticsManagerServiceServer) RegisterConnectivityDiagnosticsCallback(context.Context, *RegisterConnectivityDiagnosticsCallbackRequest) (*RegisterConnectivityDiagnosticsCallbackResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method RegisterConnectivityDiagnosticsCallback not implemented")
+}
+func (UnimplementedConnectivityDiagnosticsManagerServiceServer) UnregisterConnectivityDiagnosticsCallback(context.Context, *UnregisterConnectivityDiagnosticsCallbackRequest) (*UnregisterConnectivityDiagnosticsCallbackResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method UnregisterConnectivityDiagnosticsCallback not implemented")
+}
+func (UnimplementedConnectivityDiagnosticsManagerServiceServer) mustEmbedUnimplementedConnectivityDiagnosticsManagerServiceServer() {
+}
+func (UnimplementedConnectivityDiagnosticsManagerServiceServer) testEmbeddedByValue() {}
+
+// UnsafeConnectivityDiagnosticsManagerServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to ConnectivityDiagnosticsManagerServiceServer will
+// result in compilation errors.
+type UnsafeConnectivityDiagnosticsManagerServiceServer interface {
+	mustEmbedUnimplementedConnectivityDiagnosticsManagerServiceServer()
+}
+
+func RegisterConnectivityDiagnosticsManagerServiceServer(s grpc.ServiceRegistrar, srv ConnectivityDiagnosticsManagerServiceServer) {
+	// If the following call panics, it indicates UnimplementedConnectivityDiagnosticsManagerServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&ConnectivityDiagnosticsManagerService_ServiceDesc, srv)
+}
+
+func _ConnectivityDiagnosticsManagerService_RegisterConnectivityDiagnosticsCallback_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(RegisterConnectivityDiagnosticsCallbackRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ConnectivityDiagnosticsManagerServiceServer).RegisterConnectivityDiagnosticsCallback(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ConnectivityDiagnosticsManagerService_RegisterConnectivityDiagnosticsCallback_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ConnectivityDiagnosticsManagerServiceServer).RegisterConnectivityDiagnosticsCallback(ctx, req.(*RegisterConnectivityDiagnosticsCallbackRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ConnectivityDiagnosticsManagerService_UnregisterConnectivityDiagnosticsCallback_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(UnregisterConnectivityDiagnosticsCallbackRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ConnectivityDiagnosticsManagerServiceServer).UnregisterConnectivityDiagnosticsCallback(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ConnectivityDiagnosticsManagerService_UnregisterConnectivityDiagnosticsCallback_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ConnectivityDiagnosticsManagerServiceServer).UnregisterConnectivityDiagnosticsCallback(ctx, req.(*UnregisterConnectivityDiagnosticsCallbackRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// ConnectivityDiagnosticsManagerService_ServiceDesc is the grpc.ServiceDesc for ConnectivityDiagnosticsManagerService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var ConnectivityDiagnosticsManagerService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "net.ConnectivityDiagnosticsManagerService",
+	HandlerType: (*ConnectivityDiagnosticsManagerServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "RegisterConnectivityDiagnosticsCallback",
+			Handler:    _ConnectivityDiagnosticsManagerService_RegisterConnectivityDiagnosticsCallback_Handler,
+		},
+		{
+			MethodName: "UnregisterConnectivityDiagnosticsCallback",
+			Handler:    _ConnectivityDiagnosticsManagerService_UnregisterConnectivityDiagnosticsCallback_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/net/net.proto",
+}
+
+const (
+	TetheringManagerService_RegisterTetheringEventCallback_FullMethodName   = "/net.TetheringManagerService/RegisterTetheringEventCallback"
+	TetheringManagerService_StartTethering_FullMethodName                   = "/net.TetheringManagerService/StartTethering"
+	TetheringManagerService_StopTethering_FullMethodName                    = "/net.TetheringManagerService/StopTethering"
+	TetheringManagerService_UnregisterTetheringEventCallback_FullMethodName = "/net.TetheringManagerService/UnregisterTetheringEventCallback"
+)
+
+// TetheringManagerServiceClient is the client API for TetheringManagerService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type TetheringManagerServiceClient interface {
+	RegisterTetheringEventCallback(ctx context.Context, in *RegisterTetheringEventCallbackRequest, opts ...grpc.CallOption) (*RegisterTetheringEventCallbackResponse, error)
+	StartTethering(ctx context.Context, in *StartTetheringRequest, opts ...grpc.CallOption) (*StartTetheringResponse, error)
+	StopTethering(ctx context.Context, in *StopTetheringRequest, opts ...grpc.CallOption) (*StopTetheringResponse, error)
+	UnregisterTetheringEventCallback(ctx context.Context, in *UnregisterTetheringEventCallbackRequest, opts ...grpc.CallOption) (*UnregisterTetheringEventCallbackResponse, error)
+}
+
+type tetheringManagerServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewTetheringManagerServiceClient(cc grpc.ClientConnInterface) TetheringManagerServiceClient {
+	return &tetheringManagerServiceClient{cc}
+}
+
+func (c *tetheringManagerServiceClient) RegisterTetheringEventCallback(ctx context.Context, in *RegisterTetheringEventCallbackRequest, opts ...grpc.CallOption) (*RegisterTetheringEventCallbackResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(RegisterTetheringEventCallbackResponse)
+	err := c.cc.Invoke(ctx, TetheringManagerService_RegisterTetheringEventCallback_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *tetheringManagerServiceClient) StartTethering(ctx context.Context, in *StartTetheringRequest, opts ...grpc.CallOption) (*StartTetheringResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(StartTetheringResponse)
+	err := c.cc.Invoke(ctx, TetheringManagerService_StartTethering_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *tetheringManagerServiceClient) StopTethering(ctx context.Context, in *StopTetheringRequest, opts ...grpc.CallOption) (*StopTetheringResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(StopTetheringResponse)
+	err := c.cc.Invoke(ctx, TetheringManagerService_StopTethering_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *tetheringManagerServiceClient) UnregisterTetheringEventCallback(ctx context.Context, in *UnregisterTetheringEventCallbackRequest, opts ...grpc.CallOption) (*UnregisterTetheringEventCallbackResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(UnregisterTetheringEventCallbackResponse)
+	err := c.cc.Invoke(ctx, TetheringManagerService_UnregisterTetheringEventCallback_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// TetheringManagerServiceServer is the server API for TetheringManagerService service.
+// All implementations must embed UnimplementedTetheringManagerServiceServer
+// for forward compatibility.
+type TetheringManagerServiceServer interface {
+	RegisterTetheringEventCallback(context.Context, *RegisterTetheringEventCallbackRequest) (*RegisterTetheringEventCallbackResponse, error)
+	StartTethering(context.Context, *StartTetheringRequest) (*StartTetheringResponse, error)
+	StopTethering(context.Context, *StopTetheringRequest) (*StopTetheringResponse, error)
+	UnregisterTetheringEventCallback(context.Context, *UnregisterTetheringEventCallbackRequest) (*UnregisterTetheringEventCallbackResponse, error)
+	mustEmbedUnimplementedTetheringManagerServiceServer()
+}
+
+// UnimplementedTetheringManagerServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedTetheringManagerServiceServer struct{}
+
+func (UnimplementedTetheringManagerServiceServer) RegisterTetheringEventCallback(context.Context, *RegisterTetheringEventCallbackRequest) (*RegisterTetheringEventCallbackResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method RegisterTetheringEventCallback not implemented")
+}
+func (UnimplementedTetheringManagerServiceServer) StartTethering(context.Context, *StartTetheringRequest) (*StartTetheringResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method StartTethering not implemented")
+}
+func (UnimplementedTetheringManagerServiceServer) StopTethering(context.Context, *StopTetheringRequest) (*StopTetheringResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method StopTethering not implemented")
+}
+func (UnimplementedTetheringManagerServiceServer) UnregisterTetheringEventCallback(context.Context, *UnregisterTetheringEventCallbackRequest) (*UnregisterTetheringEventCallbackResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method UnregisterTetheringEventCallback not implemented")
+}
+func (UnimplementedTetheringManagerServiceServer) mustEmbedUnimplementedTetheringManagerServiceServer() {
+}
+func (UnimplementedTetheringManagerServiceServer) testEmbeddedByValue() {}
+
+// UnsafeTetheringManagerServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to TetheringManagerServiceServer will
+// result in compilation errors.
+type UnsafeTetheringManagerServiceServer interface {
+	mustEmbedUnimplementedTetheringManagerServiceServer()
+}
+
+func RegisterTetheringManagerServiceServer(s grpc.ServiceRegistrar, srv TetheringManagerServiceServer) {
+	// If the following call panics, it indicates UnimplementedTetheringManagerServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&TetheringManagerService_ServiceDesc, srv)
+}
+
+func _TetheringManagerService_RegisterTetheringEventCallback_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(RegisterTetheringEventCallbackRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TetheringManagerServiceServer).RegisterTetheringEventCallback(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TetheringManagerService_RegisterTetheringEventCallback_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TetheringManagerServiceServer).RegisterTetheringEventCallback(ctx, req.(*RegisterTetheringEventCallbackRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TetheringManagerService_StartTethering_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(StartTetheringRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TetheringManagerServiceServer).StartTethering(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TetheringManagerService_StartTethering_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TetheringManagerServiceServer).StartTethering(ctx, req.(*StartTetheringRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TetheringManagerService_StopTethering_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(StopTetheringRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TetheringManagerServiceServer).StopTethering(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TetheringManagerService_StopTethering_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TetheringManagerServiceServer).StopTethering(ctx, req.(*StopTetheringRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TetheringManagerService_UnregisterTetheringEventCallback_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(UnregisterTetheringEventCallbackRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TetheringManagerServiceServer).UnregisterTetheringEventCallback(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TetheringManagerService_UnregisterTetheringEventCallback_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TetheringManagerServiceServer).UnregisterTetheringEventCallback(ctx, req.(*UnregisterTetheringEventCallbackRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// TetheringManagerService_ServiceDesc is the grpc.ServiceDesc for TetheringManagerService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var TetheringManagerService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "net.TetheringManagerService",
+	HandlerType: (*TetheringManagerServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "RegisterTetheringEventCallback",
+			Handler:    _TetheringManagerService_RegisterTetheringEventCallback_Handler,
+		},
+		{
+			MethodName: "StartTethering",
+			Handler:    _TetheringManagerService_StartTethering_Handler,
+		},
+		{
+			MethodName: "StopTethering",
+			Handler:    _TetheringManagerService_StopTethering_Handler,
+		},
+		{
+			MethodName: "UnregisterTetheringEventCallback",
+			Handler:    _TetheringManagerService_UnregisterTetheringEventCallback_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

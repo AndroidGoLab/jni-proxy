@@ -23,1022 +23,6 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
-type GetAppStandbyBucketRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetAppStandbyBucketRequest) Reset() {
-	*x = GetAppStandbyBucketRequest{}
-	mi := &file_proto_usage_usage_proto_msgTypes[0]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetAppStandbyBucketRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetAppStandbyBucketRequest) ProtoMessage() {}
-
-func (x *GetAppStandbyBucketRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_usage_usage_proto_msgTypes[0]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetAppStandbyBucketRequest.ProtoReflect.Descriptor instead.
-func (*GetAppStandbyBucketRequest) Descriptor() ([]byte, []int) {
-	return file_proto_usage_usage_proto_rawDescGZIP(), []int{0}
-}
-
-type GetAppStandbyBucketResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetAppStandbyBucketResponse) Reset() {
-	*x = GetAppStandbyBucketResponse{}
-	mi := &file_proto_usage_usage_proto_msgTypes[1]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetAppStandbyBucketResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetAppStandbyBucketResponse) ProtoMessage() {}
-
-func (x *GetAppStandbyBucketResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_usage_usage_proto_msgTypes[1]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetAppStandbyBucketResponse.ProtoReflect.Descriptor instead.
-func (*GetAppStandbyBucketResponse) Descriptor() ([]byte, []int) {
-	return file_proto_usage_usage_proto_rawDescGZIP(), []int{1}
-}
-
-func (x *GetAppStandbyBucketResponse) GetResult() int32 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type IsAppInactiveRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *IsAppInactiveRequest) Reset() {
-	*x = IsAppInactiveRequest{}
-	mi := &file_proto_usage_usage_proto_msgTypes[2]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *IsAppInactiveRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*IsAppInactiveRequest) ProtoMessage() {}
-
-func (x *IsAppInactiveRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_usage_usage_proto_msgTypes[2]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use IsAppInactiveRequest.ProtoReflect.Descriptor instead.
-func (*IsAppInactiveRequest) Descriptor() ([]byte, []int) {
-	return file_proto_usage_usage_proto_rawDescGZIP(), []int{2}
-}
-
-func (x *IsAppInactiveRequest) GetArg0() string {
-	if x != nil {
-		return x.Arg0
-	}
-	return ""
-}
-
-type IsAppInactiveResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *IsAppInactiveResponse) Reset() {
-	*x = IsAppInactiveResponse{}
-	mi := &file_proto_usage_usage_proto_msgTypes[3]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *IsAppInactiveResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*IsAppInactiveResponse) ProtoMessage() {}
-
-func (x *IsAppInactiveResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_usage_usage_proto_msgTypes[3]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use IsAppInactiveResponse.ProtoReflect.Descriptor instead.
-func (*IsAppInactiveResponse) Descriptor() ([]byte, []int) {
-	return file_proto_usage_usage_proto_rawDescGZIP(), []int{3}
-}
-
-func (x *IsAppInactiveResponse) GetResult() bool {
-	if x != nil {
-		return x.Result
-	}
-	return false
-}
-
-type QueryEvents1Request struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *QueryEvents1Request) Reset() {
-	*x = QueryEvents1Request{}
-	mi := &file_proto_usage_usage_proto_msgTypes[4]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *QueryEvents1Request) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*QueryEvents1Request) ProtoMessage() {}
-
-func (x *QueryEvents1Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_usage_usage_proto_msgTypes[4]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use QueryEvents1Request.ProtoReflect.Descriptor instead.
-func (*QueryEvents1Request) Descriptor() ([]byte, []int) {
-	return file_proto_usage_usage_proto_rawDescGZIP(), []int{4}
-}
-
-func (x *QueryEvents1Request) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type QueryEvents1Response struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *QueryEvents1Response) Reset() {
-	*x = QueryEvents1Response{}
-	mi := &file_proto_usage_usage_proto_msgTypes[5]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *QueryEvents1Response) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*QueryEvents1Response) ProtoMessage() {}
-
-func (x *QueryEvents1Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_usage_usage_proto_msgTypes[5]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use QueryEvents1Response.ProtoReflect.Descriptor instead.
-func (*QueryEvents1Response) Descriptor() ([]byte, []int) {
-	return file_proto_usage_usage_proto_rawDescGZIP(), []int{5}
-}
-
-func (x *QueryEvents1Response) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type QueryEvents2_1Request struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *QueryEvents2_1Request) Reset() {
-	*x = QueryEvents2_1Request{}
-	mi := &file_proto_usage_usage_proto_msgTypes[6]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *QueryEvents2_1Request) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*QueryEvents2_1Request) ProtoMessage() {}
-
-func (x *QueryEvents2_1Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_usage_usage_proto_msgTypes[6]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use QueryEvents2_1Request.ProtoReflect.Descriptor instead.
-func (*QueryEvents2_1Request) Descriptor() ([]byte, []int) {
-	return file_proto_usage_usage_proto_rawDescGZIP(), []int{6}
-}
-
-func (x *QueryEvents2_1Request) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-func (x *QueryEvents2_1Request) GetArg1() int64 {
-	if x != nil {
-		return x.Arg1
-	}
-	return 0
-}
-
-type QueryEvents2_1Response struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *QueryEvents2_1Response) Reset() {
-	*x = QueryEvents2_1Response{}
-	mi := &file_proto_usage_usage_proto_msgTypes[7]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *QueryEvents2_1Response) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*QueryEvents2_1Response) ProtoMessage() {}
-
-func (x *QueryEvents2_1Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_usage_usage_proto_msgTypes[7]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use QueryEvents2_1Response.ProtoReflect.Descriptor instead.
-func (*QueryEvents2_1Response) Descriptor() ([]byte, []int) {
-	return file_proto_usage_usage_proto_rawDescGZIP(), []int{7}
-}
-
-func (x *QueryEvents2_1Response) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type QueryEventsForSelfRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *QueryEventsForSelfRequest) Reset() {
-	*x = QueryEventsForSelfRequest{}
-	mi := &file_proto_usage_usage_proto_msgTypes[8]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *QueryEventsForSelfRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*QueryEventsForSelfRequest) ProtoMessage() {}
-
-func (x *QueryEventsForSelfRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_usage_usage_proto_msgTypes[8]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use QueryEventsForSelfRequest.ProtoReflect.Descriptor instead.
-func (*QueryEventsForSelfRequest) Descriptor() ([]byte, []int) {
-	return file_proto_usage_usage_proto_rawDescGZIP(), []int{8}
-}
-
-func (x *QueryEventsForSelfRequest) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-func (x *QueryEventsForSelfRequest) GetArg1() int64 {
-	if x != nil {
-		return x.Arg1
-	}
-	return 0
-}
-
-type QueryEventsForSelfResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *QueryEventsForSelfResponse) Reset() {
-	*x = QueryEventsForSelfResponse{}
-	mi := &file_proto_usage_usage_proto_msgTypes[9]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *QueryEventsForSelfResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*QueryEventsForSelfResponse) ProtoMessage() {}
-
-func (x *QueryEventsForSelfResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_usage_usage_proto_msgTypes[9]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use QueryEventsForSelfResponse.ProtoReflect.Descriptor instead.
-func (*QueryEventsForSelfResponse) Descriptor() ([]byte, []int) {
-	return file_proto_usage_usage_proto_rawDescGZIP(), []int{9}
-}
-
-func (x *QueryEventsForSelfResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type GetFreeBytesRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetFreeBytesRequest) Reset() {
-	*x = GetFreeBytesRequest{}
-	mi := &file_proto_usage_usage_proto_msgTypes[10]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetFreeBytesRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetFreeBytesRequest) ProtoMessage() {}
-
-func (x *GetFreeBytesRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_usage_usage_proto_msgTypes[10]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetFreeBytesRequest.ProtoReflect.Descriptor instead.
-func (*GetFreeBytesRequest) Descriptor() ([]byte, []int) {
-	return file_proto_usage_usage_proto_rawDescGZIP(), []int{10}
-}
-
-func (x *GetFreeBytesRequest) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type GetFreeBytesResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetFreeBytesResponse) Reset() {
-	*x = GetFreeBytesResponse{}
-	mi := &file_proto_usage_usage_proto_msgTypes[11]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetFreeBytesResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetFreeBytesResponse) ProtoMessage() {}
-
-func (x *GetFreeBytesResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_usage_usage_proto_msgTypes[11]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetFreeBytesResponse.ProtoReflect.Descriptor instead.
-func (*GetFreeBytesResponse) Descriptor() ([]byte, []int) {
-	return file_proto_usage_usage_proto_rawDescGZIP(), []int{11}
-}
-
-func (x *GetFreeBytesResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type GetTotalBytesRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetTotalBytesRequest) Reset() {
-	*x = GetTotalBytesRequest{}
-	mi := &file_proto_usage_usage_proto_msgTypes[12]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetTotalBytesRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetTotalBytesRequest) ProtoMessage() {}
-
-func (x *GetTotalBytesRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_usage_usage_proto_msgTypes[12]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetTotalBytesRequest.ProtoReflect.Descriptor instead.
-func (*GetTotalBytesRequest) Descriptor() ([]byte, []int) {
-	return file_proto_usage_usage_proto_rawDescGZIP(), []int{12}
-}
-
-func (x *GetTotalBytesRequest) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type GetTotalBytesResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetTotalBytesResponse) Reset() {
-	*x = GetTotalBytesResponse{}
-	mi := &file_proto_usage_usage_proto_msgTypes[13]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetTotalBytesResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetTotalBytesResponse) ProtoMessage() {}
-
-func (x *GetTotalBytesResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_usage_usage_proto_msgTypes[13]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetTotalBytesResponse.ProtoReflect.Descriptor instead.
-func (*GetTotalBytesResponse) Descriptor() ([]byte, []int) {
-	return file_proto_usage_usage_proto_rawDescGZIP(), []int{13}
-}
-
-func (x *GetTotalBytesResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type QueryExternalStatsForUserRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *QueryExternalStatsForUserRequest) Reset() {
-	*x = QueryExternalStatsForUserRequest{}
-	mi := &file_proto_usage_usage_proto_msgTypes[14]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *QueryExternalStatsForUserRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*QueryExternalStatsForUserRequest) ProtoMessage() {}
-
-func (x *QueryExternalStatsForUserRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_usage_usage_proto_msgTypes[14]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use QueryExternalStatsForUserRequest.ProtoReflect.Descriptor instead.
-func (*QueryExternalStatsForUserRequest) Descriptor() ([]byte, []int) {
-	return file_proto_usage_usage_proto_rawDescGZIP(), []int{14}
-}
-
-func (x *QueryExternalStatsForUserRequest) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-func (x *QueryExternalStatsForUserRequest) GetArg1() int64 {
-	if x != nil {
-		return x.Arg1
-	}
-	return 0
-}
-
-type QueryExternalStatsForUserResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *QueryExternalStatsForUserResponse) Reset() {
-	*x = QueryExternalStatsForUserResponse{}
-	mi := &file_proto_usage_usage_proto_msgTypes[15]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *QueryExternalStatsForUserResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*QueryExternalStatsForUserResponse) ProtoMessage() {}
-
-func (x *QueryExternalStatsForUserResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_usage_usage_proto_msgTypes[15]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use QueryExternalStatsForUserResponse.ProtoReflect.Descriptor instead.
-func (*QueryExternalStatsForUserResponse) Descriptor() ([]byte, []int) {
-	return file_proto_usage_usage_proto_rawDescGZIP(), []int{15}
-}
-
-func (x *QueryExternalStatsForUserResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type QueryStatsForPackageRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	Arg1          string                 `protobuf:"bytes,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
-	Arg2          int64                  `protobuf:"varint,3,opt,name=arg2,proto3" json:"arg2,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *QueryStatsForPackageRequest) Reset() {
-	*x = QueryStatsForPackageRequest{}
-	mi := &file_proto_usage_usage_proto_msgTypes[16]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *QueryStatsForPackageRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*QueryStatsForPackageRequest) ProtoMessage() {}
-
-func (x *QueryStatsForPackageRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_usage_usage_proto_msgTypes[16]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use QueryStatsForPackageRequest.ProtoReflect.Descriptor instead.
-func (*QueryStatsForPackageRequest) Descriptor() ([]byte, []int) {
-	return file_proto_usage_usage_proto_rawDescGZIP(), []int{16}
-}
-
-func (x *QueryStatsForPackageRequest) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-func (x *QueryStatsForPackageRequest) GetArg1() string {
-	if x != nil {
-		return x.Arg1
-	}
-	return ""
-}
-
-func (x *QueryStatsForPackageRequest) GetArg2() int64 {
-	if x != nil {
-		return x.Arg2
-	}
-	return 0
-}
-
-type QueryStatsForPackageResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *QueryStatsForPackageResponse) Reset() {
-	*x = QueryStatsForPackageResponse{}
-	mi := &file_proto_usage_usage_proto_msgTypes[17]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *QueryStatsForPackageResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*QueryStatsForPackageResponse) ProtoMessage() {}
-
-func (x *QueryStatsForPackageResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_usage_usage_proto_msgTypes[17]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use QueryStatsForPackageResponse.ProtoReflect.Descriptor instead.
-func (*QueryStatsForPackageResponse) Descriptor() ([]byte, []int) {
-	return file_proto_usage_usage_proto_rawDescGZIP(), []int{17}
-}
-
-func (x *QueryStatsForPackageResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type QueryStatsForUidRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	Arg1          int32                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *QueryStatsForUidRequest) Reset() {
-	*x = QueryStatsForUidRequest{}
-	mi := &file_proto_usage_usage_proto_msgTypes[18]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *QueryStatsForUidRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*QueryStatsForUidRequest) ProtoMessage() {}
-
-func (x *QueryStatsForUidRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_usage_usage_proto_msgTypes[18]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use QueryStatsForUidRequest.ProtoReflect.Descriptor instead.
-func (*QueryStatsForUidRequest) Descriptor() ([]byte, []int) {
-	return file_proto_usage_usage_proto_rawDescGZIP(), []int{18}
-}
-
-func (x *QueryStatsForUidRequest) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-func (x *QueryStatsForUidRequest) GetArg1() int32 {
-	if x != nil {
-		return x.Arg1
-	}
-	return 0
-}
-
-type QueryStatsForUidResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *QueryStatsForUidResponse) Reset() {
-	*x = QueryStatsForUidResponse{}
-	mi := &file_proto_usage_usage_proto_msgTypes[19]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *QueryStatsForUidResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*QueryStatsForUidResponse) ProtoMessage() {}
-
-func (x *QueryStatsForUidResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_usage_usage_proto_msgTypes[19]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use QueryStatsForUidResponse.ProtoReflect.Descriptor instead.
-func (*QueryStatsForUidResponse) Descriptor() ([]byte, []int) {
-	return file_proto_usage_usage_proto_rawDescGZIP(), []int{19}
-}
-
-func (x *QueryStatsForUidResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type QueryStatsForUserRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *QueryStatsForUserRequest) Reset() {
-	*x = QueryStatsForUserRequest{}
-	mi := &file_proto_usage_usage_proto_msgTypes[20]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *QueryStatsForUserRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*QueryStatsForUserRequest) ProtoMessage() {}
-
-func (x *QueryStatsForUserRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_usage_usage_proto_msgTypes[20]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use QueryStatsForUserRequest.ProtoReflect.Descriptor instead.
-func (*QueryStatsForUserRequest) Descriptor() ([]byte, []int) {
-	return file_proto_usage_usage_proto_rawDescGZIP(), []int{20}
-}
-
-func (x *QueryStatsForUserRequest) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-func (x *QueryStatsForUserRequest) GetArg1() int64 {
-	if x != nil {
-		return x.Arg1
-	}
-	return 0
-}
-
-type QueryStatsForUserResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *QueryStatsForUserResponse) Reset() {
-	*x = QueryStatsForUserResponse{}
-	mi := &file_proto_usage_usage_proto_msgTypes[21]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *QueryStatsForUserResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*QueryStatsForUserResponse) ProtoMessage() {}
-
-func (x *QueryStatsForUserResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_usage_usage_proto_msgTypes[21]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use QueryStatsForUserResponse.ProtoReflect.Descriptor instead.
-func (*QueryStatsForUserResponse) Descriptor() ([]byte, []int) {
-	return file_proto_usage_usage_proto_rawDescGZIP(), []int{21}
-}
-
-func (x *QueryStatsForUserResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
 type QueryDetailsRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
@@ -1051,7 +35,7 @@ type QueryDetailsRequest struct {
 
 func (x *QueryDetailsRequest) Reset() {
 	*x = QueryDetailsRequest{}
-	mi := &file_proto_usage_usage_proto_msgTypes[22]
+	mi := &file_proto_usage_usage_proto_msgTypes[0]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1063,7 +47,7 @@ func (x *QueryDetailsRequest) String() string {
 func (*QueryDetailsRequest) ProtoMessage() {}
 
 func (x *QueryDetailsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_usage_usage_proto_msgTypes[22]
+	mi := &file_proto_usage_usage_proto_msgTypes[0]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1076,7 +60,7 @@ func (x *QueryDetailsRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use QueryDetailsRequest.ProtoReflect.Descriptor instead.
 func (*QueryDetailsRequest) Descriptor() ([]byte, []int) {
-	return file_proto_usage_usage_proto_rawDescGZIP(), []int{22}
+	return file_proto_usage_usage_proto_rawDescGZIP(), []int{0}
 }
 
 func (x *QueryDetailsRequest) GetArg0() int32 {
@@ -1116,7 +100,7 @@ type QueryDetailsResponse struct {
 
 func (x *QueryDetailsResponse) Reset() {
 	*x = QueryDetailsResponse{}
-	mi := &file_proto_usage_usage_proto_msgTypes[23]
+	mi := &file_proto_usage_usage_proto_msgTypes[1]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1128,7 +112,7 @@ func (x *QueryDetailsResponse) String() string {
 func (*QueryDetailsResponse) ProtoMessage() {}
 
 func (x *QueryDetailsResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_usage_usage_proto_msgTypes[23]
+	mi := &file_proto_usage_usage_proto_msgTypes[1]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1141,7 +125,7 @@ func (x *QueryDetailsResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use QueryDetailsResponse.ProtoReflect.Descriptor instead.
 func (*QueryDetailsResponse) Descriptor() ([]byte, []int) {
-	return file_proto_usage_usage_proto_rawDescGZIP(), []int{23}
+	return file_proto_usage_usage_proto_rawDescGZIP(), []int{1}
 }
 
 func (x *QueryDetailsResponse) GetResult() int64 {
@@ -1164,7 +148,7 @@ type QueryDetailsForUidRequest struct {
 
 func (x *QueryDetailsForUidRequest) Reset() {
 	*x = QueryDetailsForUidRequest{}
-	mi := &file_proto_usage_usage_proto_msgTypes[24]
+	mi := &file_proto_usage_usage_proto_msgTypes[2]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1176,7 +160,7 @@ func (x *QueryDetailsForUidRequest) String() string {
 func (*QueryDetailsForUidRequest) ProtoMessage() {}
 
 func (x *QueryDetailsForUidRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_usage_usage_proto_msgTypes[24]
+	mi := &file_proto_usage_usage_proto_msgTypes[2]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1189,7 +173,7 @@ func (x *QueryDetailsForUidRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use QueryDetailsForUidRequest.ProtoReflect.Descriptor instead.
 func (*QueryDetailsForUidRequest) Descriptor() ([]byte, []int) {
-	return file_proto_usage_usage_proto_rawDescGZIP(), []int{24}
+	return file_proto_usage_usage_proto_rawDescGZIP(), []int{2}
 }
 
 func (x *QueryDetailsForUidRequest) GetArg0() int32 {
@@ -1236,7 +220,7 @@ type QueryDetailsForUidResponse struct {
 
 func (x *QueryDetailsForUidResponse) Reset() {
 	*x = QueryDetailsForUidResponse{}
-	mi := &file_proto_usage_usage_proto_msgTypes[25]
+	mi := &file_proto_usage_usage_proto_msgTypes[3]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1248,7 +232,7 @@ func (x *QueryDetailsForUidResponse) String() string {
 func (*QueryDetailsForUidResponse) ProtoMessage() {}
 
 func (x *QueryDetailsForUidResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_usage_usage_proto_msgTypes[25]
+	mi := &file_proto_usage_usage_proto_msgTypes[3]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1261,7 +245,7 @@ func (x *QueryDetailsForUidResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use QueryDetailsForUidResponse.ProtoReflect.Descriptor instead.
 func (*QueryDetailsForUidResponse) Descriptor() ([]byte, []int) {
-	return file_proto_usage_usage_proto_rawDescGZIP(), []int{25}
+	return file_proto_usage_usage_proto_rawDescGZIP(), []int{3}
 }
 
 func (x *QueryDetailsForUidResponse) GetResult() int64 {
@@ -1285,7 +269,7 @@ type QueryDetailsForUidTagRequest struct {
 
 func (x *QueryDetailsForUidTagRequest) Reset() {
 	*x = QueryDetailsForUidTagRequest{}
-	mi := &file_proto_usage_usage_proto_msgTypes[26]
+	mi := &file_proto_usage_usage_proto_msgTypes[4]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1297,7 +281,7 @@ func (x *QueryDetailsForUidTagRequest) String() string {
 func (*QueryDetailsForUidTagRequest) ProtoMessage() {}
 
 func (x *QueryDetailsForUidTagRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_usage_usage_proto_msgTypes[26]
+	mi := &file_proto_usage_usage_proto_msgTypes[4]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1310,7 +294,7 @@ func (x *QueryDetailsForUidTagRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use QueryDetailsForUidTagRequest.ProtoReflect.Descriptor instead.
 func (*QueryDetailsForUidTagRequest) Descriptor() ([]byte, []int) {
-	return file_proto_usage_usage_proto_rawDescGZIP(), []int{26}
+	return file_proto_usage_usage_proto_rawDescGZIP(), []int{4}
 }
 
 func (x *QueryDetailsForUidTagRequest) GetArg0() int32 {
@@ -1364,7 +348,7 @@ type QueryDetailsForUidTagResponse struct {
 
 func (x *QueryDetailsForUidTagResponse) Reset() {
 	*x = QueryDetailsForUidTagResponse{}
-	mi := &file_proto_usage_usage_proto_msgTypes[27]
+	mi := &file_proto_usage_usage_proto_msgTypes[5]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1376,7 +360,7 @@ func (x *QueryDetailsForUidTagResponse) String() string {
 func (*QueryDetailsForUidTagResponse) ProtoMessage() {}
 
 func (x *QueryDetailsForUidTagResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_usage_usage_proto_msgTypes[27]
+	mi := &file_proto_usage_usage_proto_msgTypes[5]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1389,7 +373,7 @@ func (x *QueryDetailsForUidTagResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use QueryDetailsForUidTagResponse.ProtoReflect.Descriptor instead.
 func (*QueryDetailsForUidTagResponse) Descriptor() ([]byte, []int) {
-	return file_proto_usage_usage_proto_rawDescGZIP(), []int{27}
+	return file_proto_usage_usage_proto_rawDescGZIP(), []int{5}
 }
 
 func (x *QueryDetailsForUidTagResponse) GetResult() int64 {
@@ -1414,7 +398,7 @@ type QueryDetailsForUidTagStateRequest struct {
 
 func (x *QueryDetailsForUidTagStateRequest) Reset() {
 	*x = QueryDetailsForUidTagStateRequest{}
-	mi := &file_proto_usage_usage_proto_msgTypes[28]
+	mi := &file_proto_usage_usage_proto_msgTypes[6]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1426,7 +410,7 @@ func (x *QueryDetailsForUidTagStateRequest) String() string {
 func (*QueryDetailsForUidTagStateRequest) ProtoMessage() {}
 
 func (x *QueryDetailsForUidTagStateRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_usage_usage_proto_msgTypes[28]
+	mi := &file_proto_usage_usage_proto_msgTypes[6]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1439,7 +423,7 @@ func (x *QueryDetailsForUidTagStateRequest) ProtoReflect() protoreflect.Message 
 
 // Deprecated: Use QueryDetailsForUidTagStateRequest.ProtoReflect.Descriptor instead.
 func (*QueryDetailsForUidTagStateRequest) Descriptor() ([]byte, []int) {
-	return file_proto_usage_usage_proto_rawDescGZIP(), []int{28}
+	return file_proto_usage_usage_proto_rawDescGZIP(), []int{6}
 }
 
 func (x *QueryDetailsForUidTagStateRequest) GetArg0() int32 {
@@ -1500,7 +484,7 @@ type QueryDetailsForUidTagStateResponse struct {
 
 func (x *QueryDetailsForUidTagStateResponse) Reset() {
 	*x = QueryDetailsForUidTagStateResponse{}
-	mi := &file_proto_usage_usage_proto_msgTypes[29]
+	mi := &file_proto_usage_usage_proto_msgTypes[7]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1512,7 +496,7 @@ func (x *QueryDetailsForUidTagStateResponse) String() string {
 func (*QueryDetailsForUidTagStateResponse) ProtoMessage() {}
 
 func (x *QueryDetailsForUidTagStateResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_usage_usage_proto_msgTypes[29]
+	mi := &file_proto_usage_usage_proto_msgTypes[7]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1525,7 +509,7 @@ func (x *QueryDetailsForUidTagStateResponse) ProtoReflect() protoreflect.Message
 
 // Deprecated: Use QueryDetailsForUidTagStateResponse.ProtoReflect.Descriptor instead.
 func (*QueryDetailsForUidTagStateResponse) Descriptor() ([]byte, []int) {
-	return file_proto_usage_usage_proto_rawDescGZIP(), []int{29}
+	return file_proto_usage_usage_proto_rawDescGZIP(), []int{7}
 }
 
 func (x *QueryDetailsForUidTagStateResponse) GetResult() int64 {
@@ -1547,7 +531,7 @@ type QuerySummaryRequest struct {
 
 func (x *QuerySummaryRequest) Reset() {
 	*x = QuerySummaryRequest{}
-	mi := &file_proto_usage_usage_proto_msgTypes[30]
+	mi := &file_proto_usage_usage_proto_msgTypes[8]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1559,7 +543,7 @@ func (x *QuerySummaryRequest) String() string {
 func (*QuerySummaryRequest) ProtoMessage() {}
 
 func (x *QuerySummaryRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_usage_usage_proto_msgTypes[30]
+	mi := &file_proto_usage_usage_proto_msgTypes[8]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1572,7 +556,7 @@ func (x *QuerySummaryRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use QuerySummaryRequest.ProtoReflect.Descriptor instead.
 func (*QuerySummaryRequest) Descriptor() ([]byte, []int) {
-	return file_proto_usage_usage_proto_rawDescGZIP(), []int{30}
+	return file_proto_usage_usage_proto_rawDescGZIP(), []int{8}
 }
 
 func (x *QuerySummaryRequest) GetArg0() int32 {
@@ -1612,7 +596,7 @@ type QuerySummaryResponse struct {
 
 func (x *QuerySummaryResponse) Reset() {
 	*x = QuerySummaryResponse{}
-	mi := &file_proto_usage_usage_proto_msgTypes[31]
+	mi := &file_proto_usage_usage_proto_msgTypes[9]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1624,7 +608,7 @@ func (x *QuerySummaryResponse) String() string {
 func (*QuerySummaryResponse) ProtoMessage() {}
 
 func (x *QuerySummaryResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_usage_usage_proto_msgTypes[31]
+	mi := &file_proto_usage_usage_proto_msgTypes[9]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1637,7 +621,7 @@ func (x *QuerySummaryResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use QuerySummaryResponse.ProtoReflect.Descriptor instead.
 func (*QuerySummaryResponse) Descriptor() ([]byte, []int) {
-	return file_proto_usage_usage_proto_rawDescGZIP(), []int{31}
+	return file_proto_usage_usage_proto_rawDescGZIP(), []int{9}
 }
 
 func (x *QuerySummaryResponse) GetResult() int64 {
@@ -1659,7 +643,7 @@ type QuerySummaryForDeviceRequest struct {
 
 func (x *QuerySummaryForDeviceRequest) Reset() {
 	*x = QuerySummaryForDeviceRequest{}
-	mi := &file_proto_usage_usage_proto_msgTypes[32]
+	mi := &file_proto_usage_usage_proto_msgTypes[10]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1671,7 +655,7 @@ func (x *QuerySummaryForDeviceRequest) String() string {
 func (*QuerySummaryForDeviceRequest) ProtoMessage() {}
 
 func (x *QuerySummaryForDeviceRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_usage_usage_proto_msgTypes[32]
+	mi := &file_proto_usage_usage_proto_msgTypes[10]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1684,7 +668,7 @@ func (x *QuerySummaryForDeviceRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use QuerySummaryForDeviceRequest.ProtoReflect.Descriptor instead.
 func (*QuerySummaryForDeviceRequest) Descriptor() ([]byte, []int) {
-	return file_proto_usage_usage_proto_rawDescGZIP(), []int{32}
+	return file_proto_usage_usage_proto_rawDescGZIP(), []int{10}
 }
 
 func (x *QuerySummaryForDeviceRequest) GetArg0() int32 {
@@ -1724,7 +708,7 @@ type QuerySummaryForDeviceResponse struct {
 
 func (x *QuerySummaryForDeviceResponse) Reset() {
 	*x = QuerySummaryForDeviceResponse{}
-	mi := &file_proto_usage_usage_proto_msgTypes[33]
+	mi := &file_proto_usage_usage_proto_msgTypes[11]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1736,7 +720,7 @@ func (x *QuerySummaryForDeviceResponse) String() string {
 func (*QuerySummaryForDeviceResponse) ProtoMessage() {}
 
 func (x *QuerySummaryForDeviceResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_usage_usage_proto_msgTypes[33]
+	mi := &file_proto_usage_usage_proto_msgTypes[11]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1749,7 +733,7 @@ func (x *QuerySummaryForDeviceResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use QuerySummaryForDeviceResponse.ProtoReflect.Descriptor instead.
 func (*QuerySummaryForDeviceResponse) Descriptor() ([]byte, []int) {
-	return file_proto_usage_usage_proto_rawDescGZIP(), []int{33}
+	return file_proto_usage_usage_proto_rawDescGZIP(), []int{11}
 }
 
 func (x *QuerySummaryForDeviceResponse) GetResult() int64 {
@@ -1771,7 +755,7 @@ type QuerySummaryForUserRequest struct {
 
 func (x *QuerySummaryForUserRequest) Reset() {
 	*x = QuerySummaryForUserRequest{}
-	mi := &file_proto_usage_usage_proto_msgTypes[34]
+	mi := &file_proto_usage_usage_proto_msgTypes[12]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1783,7 +767,7 @@ func (x *QuerySummaryForUserRequest) String() string {
 func (*QuerySummaryForUserRequest) ProtoMessage() {}
 
 func (x *QuerySummaryForUserRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_usage_usage_proto_msgTypes[34]
+	mi := &file_proto_usage_usage_proto_msgTypes[12]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1796,7 +780,7 @@ func (x *QuerySummaryForUserRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use QuerySummaryForUserRequest.ProtoReflect.Descriptor instead.
 func (*QuerySummaryForUserRequest) Descriptor() ([]byte, []int) {
-	return file_proto_usage_usage_proto_rawDescGZIP(), []int{34}
+	return file_proto_usage_usage_proto_rawDescGZIP(), []int{12}
 }
 
 func (x *QuerySummaryForUserRequest) GetArg0() int32 {
@@ -1836,7 +820,7 @@ type QuerySummaryForUserResponse struct {
 
 func (x *QuerySummaryForUserResponse) Reset() {
 	*x = QuerySummaryForUserResponse{}
-	mi := &file_proto_usage_usage_proto_msgTypes[35]
+	mi := &file_proto_usage_usage_proto_msgTypes[13]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1848,7 +832,7 @@ func (x *QuerySummaryForUserResponse) String() string {
 func (*QuerySummaryForUserResponse) ProtoMessage() {}
 
 func (x *QuerySummaryForUserResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_usage_usage_proto_msgTypes[35]
+	mi := &file_proto_usage_usage_proto_msgTypes[13]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1861,7 +845,7 @@ func (x *QuerySummaryForUserResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use QuerySummaryForUserResponse.ProtoReflect.Descriptor instead.
 func (*QuerySummaryForUserResponse) Descriptor() ([]byte, []int) {
-	return file_proto_usage_usage_proto_rawDescGZIP(), []int{35}
+	return file_proto_usage_usage_proto_rawDescGZIP(), []int{13}
 }
 
 func (x *QuerySummaryForUserResponse) GetResult() int64 {
@@ -1883,7 +867,7 @@ type RegisterUsageCallbackRequest struct {
 
 func (x *RegisterUsageCallbackRequest) Reset() {
 	*x = RegisterUsageCallbackRequest{}
-	mi := &file_proto_usage_usage_proto_msgTypes[36]
+	mi := &file_proto_usage_usage_proto_msgTypes[14]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1895,7 +879,7 @@ func (x *RegisterUsageCallbackRequest) String() string {
 func (*RegisterUsageCallbackRequest) ProtoMessage() {}
 
 func (x *RegisterUsageCallbackRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_usage_usage_proto_msgTypes[36]
+	mi := &file_proto_usage_usage_proto_msgTypes[14]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1908,7 +892,7 @@ func (x *RegisterUsageCallbackRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use RegisterUsageCallbackRequest.ProtoReflect.Descriptor instead.
 func (*RegisterUsageCallbackRequest) Descriptor() ([]byte, []int) {
-	return file_proto_usage_usage_proto_rawDescGZIP(), []int{36}
+	return file_proto_usage_usage_proto_rawDescGZIP(), []int{14}
 }
 
 func (x *RegisterUsageCallbackRequest) GetArg0() int32 {
@@ -1947,7 +931,7 @@ type RegisterUsageCallbackResponse struct {
 
 func (x *RegisterUsageCallbackResponse) Reset() {
 	*x = RegisterUsageCallbackResponse{}
-	mi := &file_proto_usage_usage_proto_msgTypes[37]
+	mi := &file_proto_usage_usage_proto_msgTypes[15]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1959,7 +943,7 @@ func (x *RegisterUsageCallbackResponse) String() string {
 func (*RegisterUsageCallbackResponse) ProtoMessage() {}
 
 func (x *RegisterUsageCallbackResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_usage_usage_proto_msgTypes[37]
+	mi := &file_proto_usage_usage_proto_msgTypes[15]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1972,7 +956,7 @@ func (x *RegisterUsageCallbackResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use RegisterUsageCallbackResponse.ProtoReflect.Descriptor instead.
 func (*RegisterUsageCallbackResponse) Descriptor() ([]byte, []int) {
-	return file_proto_usage_usage_proto_rawDescGZIP(), []int{37}
+	return file_proto_usage_usage_proto_rawDescGZIP(), []int{15}
 }
 
 type UnregisterUsageCallbackRequest struct {
@@ -1984,7 +968,7 @@ type UnregisterUsageCallbackRequest struct {
 
 func (x *UnregisterUsageCallbackRequest) Reset() {
 	*x = UnregisterUsageCallbackRequest{}
-	mi := &file_proto_usage_usage_proto_msgTypes[38]
+	mi := &file_proto_usage_usage_proto_msgTypes[16]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1996,7 +980,7 @@ func (x *UnregisterUsageCallbackRequest) String() string {
 func (*UnregisterUsageCallbackRequest) ProtoMessage() {}
 
 func (x *UnregisterUsageCallbackRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_usage_usage_proto_msgTypes[38]
+	mi := &file_proto_usage_usage_proto_msgTypes[16]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2009,7 +993,7 @@ func (x *UnregisterUsageCallbackRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use UnregisterUsageCallbackRequest.ProtoReflect.Descriptor instead.
 func (*UnregisterUsageCallbackRequest) Descriptor() ([]byte, []int) {
-	return file_proto_usage_usage_proto_rawDescGZIP(), []int{38}
+	return file_proto_usage_usage_proto_rawDescGZIP(), []int{16}
 }
 
 func (x *UnregisterUsageCallbackRequest) GetArg0() int64 {
@@ -2027,7 +1011,7 @@ type UnregisterUsageCallbackResponse struct {
 
 func (x *UnregisterUsageCallbackResponse) Reset() {
 	*x = UnregisterUsageCallbackResponse{}
-	mi := &file_proto_usage_usage_proto_msgTypes[39]
+	mi := &file_proto_usage_usage_proto_msgTypes[17]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2039,7 +1023,7 @@ func (x *UnregisterUsageCallbackResponse) String() string {
 func (*UnregisterUsageCallbackResponse) ProtoMessage() {}
 
 func (x *UnregisterUsageCallbackResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_usage_usage_proto_msgTypes[39]
+	mi := &file_proto_usage_usage_proto_msgTypes[17]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2052,64 +1036,1030 @@ func (x *UnregisterUsageCallbackResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use UnregisterUsageCallbackResponse.ProtoReflect.Descriptor instead.
 func (*UnregisterUsageCallbackResponse) Descriptor() ([]byte, []int) {
+	return file_proto_usage_usage_proto_rawDescGZIP(), []int{17}
+}
+
+type GetAppStandbyBucketRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetAppStandbyBucketRequest) Reset() {
+	*x = GetAppStandbyBucketRequest{}
+	mi := &file_proto_usage_usage_proto_msgTypes[18]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetAppStandbyBucketRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetAppStandbyBucketRequest) ProtoMessage() {}
+
+func (x *GetAppStandbyBucketRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_usage_usage_proto_msgTypes[18]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetAppStandbyBucketRequest.ProtoReflect.Descriptor instead.
+func (*GetAppStandbyBucketRequest) Descriptor() ([]byte, []int) {
+	return file_proto_usage_usage_proto_rawDescGZIP(), []int{18}
+}
+
+type GetAppStandbyBucketResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetAppStandbyBucketResponse) Reset() {
+	*x = GetAppStandbyBucketResponse{}
+	mi := &file_proto_usage_usage_proto_msgTypes[19]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetAppStandbyBucketResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetAppStandbyBucketResponse) ProtoMessage() {}
+
+func (x *GetAppStandbyBucketResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_usage_usage_proto_msgTypes[19]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetAppStandbyBucketResponse.ProtoReflect.Descriptor instead.
+func (*GetAppStandbyBucketResponse) Descriptor() ([]byte, []int) {
+	return file_proto_usage_usage_proto_rawDescGZIP(), []int{19}
+}
+
+func (x *GetAppStandbyBucketResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type IsAppInactiveRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *IsAppInactiveRequest) Reset() {
+	*x = IsAppInactiveRequest{}
+	mi := &file_proto_usage_usage_proto_msgTypes[20]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *IsAppInactiveRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IsAppInactiveRequest) ProtoMessage() {}
+
+func (x *IsAppInactiveRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_usage_usage_proto_msgTypes[20]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IsAppInactiveRequest.ProtoReflect.Descriptor instead.
+func (*IsAppInactiveRequest) Descriptor() ([]byte, []int) {
+	return file_proto_usage_usage_proto_rawDescGZIP(), []int{20}
+}
+
+func (x *IsAppInactiveRequest) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+type IsAppInactiveResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *IsAppInactiveResponse) Reset() {
+	*x = IsAppInactiveResponse{}
+	mi := &file_proto_usage_usage_proto_msgTypes[21]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *IsAppInactiveResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IsAppInactiveResponse) ProtoMessage() {}
+
+func (x *IsAppInactiveResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_usage_usage_proto_msgTypes[21]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IsAppInactiveResponse.ProtoReflect.Descriptor instead.
+func (*IsAppInactiveResponse) Descriptor() ([]byte, []int) {
+	return file_proto_usage_usage_proto_rawDescGZIP(), []int{21}
+}
+
+func (x *IsAppInactiveResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type QueryEvents1Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *QueryEvents1Request) Reset() {
+	*x = QueryEvents1Request{}
+	mi := &file_proto_usage_usage_proto_msgTypes[22]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *QueryEvents1Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*QueryEvents1Request) ProtoMessage() {}
+
+func (x *QueryEvents1Request) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_usage_usage_proto_msgTypes[22]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use QueryEvents1Request.ProtoReflect.Descriptor instead.
+func (*QueryEvents1Request) Descriptor() ([]byte, []int) {
+	return file_proto_usage_usage_proto_rawDescGZIP(), []int{22}
+}
+
+func (x *QueryEvents1Request) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type QueryEvents1Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *QueryEvents1Response) Reset() {
+	*x = QueryEvents1Response{}
+	mi := &file_proto_usage_usage_proto_msgTypes[23]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *QueryEvents1Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*QueryEvents1Response) ProtoMessage() {}
+
+func (x *QueryEvents1Response) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_usage_usage_proto_msgTypes[23]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use QueryEvents1Response.ProtoReflect.Descriptor instead.
+func (*QueryEvents1Response) Descriptor() ([]byte, []int) {
+	return file_proto_usage_usage_proto_rawDescGZIP(), []int{23}
+}
+
+func (x *QueryEvents1Response) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type QueryEvents2_1Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *QueryEvents2_1Request) Reset() {
+	*x = QueryEvents2_1Request{}
+	mi := &file_proto_usage_usage_proto_msgTypes[24]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *QueryEvents2_1Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*QueryEvents2_1Request) ProtoMessage() {}
+
+func (x *QueryEvents2_1Request) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_usage_usage_proto_msgTypes[24]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use QueryEvents2_1Request.ProtoReflect.Descriptor instead.
+func (*QueryEvents2_1Request) Descriptor() ([]byte, []int) {
+	return file_proto_usage_usage_proto_rawDescGZIP(), []int{24}
+}
+
+func (x *QueryEvents2_1Request) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *QueryEvents2_1Request) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type QueryEvents2_1Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *QueryEvents2_1Response) Reset() {
+	*x = QueryEvents2_1Response{}
+	mi := &file_proto_usage_usage_proto_msgTypes[25]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *QueryEvents2_1Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*QueryEvents2_1Response) ProtoMessage() {}
+
+func (x *QueryEvents2_1Response) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_usage_usage_proto_msgTypes[25]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use QueryEvents2_1Response.ProtoReflect.Descriptor instead.
+func (*QueryEvents2_1Response) Descriptor() ([]byte, []int) {
+	return file_proto_usage_usage_proto_rawDescGZIP(), []int{25}
+}
+
+func (x *QueryEvents2_1Response) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type QueryEventsForSelfRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *QueryEventsForSelfRequest) Reset() {
+	*x = QueryEventsForSelfRequest{}
+	mi := &file_proto_usage_usage_proto_msgTypes[26]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *QueryEventsForSelfRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*QueryEventsForSelfRequest) ProtoMessage() {}
+
+func (x *QueryEventsForSelfRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_usage_usage_proto_msgTypes[26]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use QueryEventsForSelfRequest.ProtoReflect.Descriptor instead.
+func (*QueryEventsForSelfRequest) Descriptor() ([]byte, []int) {
+	return file_proto_usage_usage_proto_rawDescGZIP(), []int{26}
+}
+
+func (x *QueryEventsForSelfRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *QueryEventsForSelfRequest) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type QueryEventsForSelfResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *QueryEventsForSelfResponse) Reset() {
+	*x = QueryEventsForSelfResponse{}
+	mi := &file_proto_usage_usage_proto_msgTypes[27]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *QueryEventsForSelfResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*QueryEventsForSelfResponse) ProtoMessage() {}
+
+func (x *QueryEventsForSelfResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_usage_usage_proto_msgTypes[27]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use QueryEventsForSelfResponse.ProtoReflect.Descriptor instead.
+func (*QueryEventsForSelfResponse) Descriptor() ([]byte, []int) {
+	return file_proto_usage_usage_proto_rawDescGZIP(), []int{27}
+}
+
+func (x *QueryEventsForSelfResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetFreeBytesRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetFreeBytesRequest) Reset() {
+	*x = GetFreeBytesRequest{}
+	mi := &file_proto_usage_usage_proto_msgTypes[28]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetFreeBytesRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetFreeBytesRequest) ProtoMessage() {}
+
+func (x *GetFreeBytesRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_usage_usage_proto_msgTypes[28]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetFreeBytesRequest.ProtoReflect.Descriptor instead.
+func (*GetFreeBytesRequest) Descriptor() ([]byte, []int) {
+	return file_proto_usage_usage_proto_rawDescGZIP(), []int{28}
+}
+
+func (x *GetFreeBytesRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type GetFreeBytesResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetFreeBytesResponse) Reset() {
+	*x = GetFreeBytesResponse{}
+	mi := &file_proto_usage_usage_proto_msgTypes[29]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetFreeBytesResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetFreeBytesResponse) ProtoMessage() {}
+
+func (x *GetFreeBytesResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_usage_usage_proto_msgTypes[29]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetFreeBytesResponse.ProtoReflect.Descriptor instead.
+func (*GetFreeBytesResponse) Descriptor() ([]byte, []int) {
+	return file_proto_usage_usage_proto_rawDescGZIP(), []int{29}
+}
+
+func (x *GetFreeBytesResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetTotalBytesRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetTotalBytesRequest) Reset() {
+	*x = GetTotalBytesRequest{}
+	mi := &file_proto_usage_usage_proto_msgTypes[30]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetTotalBytesRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetTotalBytesRequest) ProtoMessage() {}
+
+func (x *GetTotalBytesRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_usage_usage_proto_msgTypes[30]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetTotalBytesRequest.ProtoReflect.Descriptor instead.
+func (*GetTotalBytesRequest) Descriptor() ([]byte, []int) {
+	return file_proto_usage_usage_proto_rawDescGZIP(), []int{30}
+}
+
+func (x *GetTotalBytesRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type GetTotalBytesResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetTotalBytesResponse) Reset() {
+	*x = GetTotalBytesResponse{}
+	mi := &file_proto_usage_usage_proto_msgTypes[31]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetTotalBytesResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetTotalBytesResponse) ProtoMessage() {}
+
+func (x *GetTotalBytesResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_usage_usage_proto_msgTypes[31]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetTotalBytesResponse.ProtoReflect.Descriptor instead.
+func (*GetTotalBytesResponse) Descriptor() ([]byte, []int) {
+	return file_proto_usage_usage_proto_rawDescGZIP(), []int{31}
+}
+
+func (x *GetTotalBytesResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type QueryExternalStatsForUserRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *QueryExternalStatsForUserRequest) Reset() {
+	*x = QueryExternalStatsForUserRequest{}
+	mi := &file_proto_usage_usage_proto_msgTypes[32]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *QueryExternalStatsForUserRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*QueryExternalStatsForUserRequest) ProtoMessage() {}
+
+func (x *QueryExternalStatsForUserRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_usage_usage_proto_msgTypes[32]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use QueryExternalStatsForUserRequest.ProtoReflect.Descriptor instead.
+func (*QueryExternalStatsForUserRequest) Descriptor() ([]byte, []int) {
+	return file_proto_usage_usage_proto_rawDescGZIP(), []int{32}
+}
+
+func (x *QueryExternalStatsForUserRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *QueryExternalStatsForUserRequest) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type QueryExternalStatsForUserResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *QueryExternalStatsForUserResponse) Reset() {
+	*x = QueryExternalStatsForUserResponse{}
+	mi := &file_proto_usage_usage_proto_msgTypes[33]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *QueryExternalStatsForUserResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*QueryExternalStatsForUserResponse) ProtoMessage() {}
+
+func (x *QueryExternalStatsForUserResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_usage_usage_proto_msgTypes[33]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use QueryExternalStatsForUserResponse.ProtoReflect.Descriptor instead.
+func (*QueryExternalStatsForUserResponse) Descriptor() ([]byte, []int) {
+	return file_proto_usage_usage_proto_rawDescGZIP(), []int{33}
+}
+
+func (x *QueryExternalStatsForUserResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type QueryStatsForPackageRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          string                 `protobuf:"bytes,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          int64                  `protobuf:"varint,3,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *QueryStatsForPackageRequest) Reset() {
+	*x = QueryStatsForPackageRequest{}
+	mi := &file_proto_usage_usage_proto_msgTypes[34]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *QueryStatsForPackageRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*QueryStatsForPackageRequest) ProtoMessage() {}
+
+func (x *QueryStatsForPackageRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_usage_usage_proto_msgTypes[34]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use QueryStatsForPackageRequest.ProtoReflect.Descriptor instead.
+func (*QueryStatsForPackageRequest) Descriptor() ([]byte, []int) {
+	return file_proto_usage_usage_proto_rawDescGZIP(), []int{34}
+}
+
+func (x *QueryStatsForPackageRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *QueryStatsForPackageRequest) GetArg1() string {
+	if x != nil {
+		return x.Arg1
+	}
+	return ""
+}
+
+func (x *QueryStatsForPackageRequest) GetArg2() int64 {
+	if x != nil {
+		return x.Arg2
+	}
+	return 0
+}
+
+type QueryStatsForPackageResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *QueryStatsForPackageResponse) Reset() {
+	*x = QueryStatsForPackageResponse{}
+	mi := &file_proto_usage_usage_proto_msgTypes[35]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *QueryStatsForPackageResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*QueryStatsForPackageResponse) ProtoMessage() {}
+
+func (x *QueryStatsForPackageResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_usage_usage_proto_msgTypes[35]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use QueryStatsForPackageResponse.ProtoReflect.Descriptor instead.
+func (*QueryStatsForPackageResponse) Descriptor() ([]byte, []int) {
+	return file_proto_usage_usage_proto_rawDescGZIP(), []int{35}
+}
+
+func (x *QueryStatsForPackageResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type QueryStatsForUidRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int32                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *QueryStatsForUidRequest) Reset() {
+	*x = QueryStatsForUidRequest{}
+	mi := &file_proto_usage_usage_proto_msgTypes[36]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *QueryStatsForUidRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*QueryStatsForUidRequest) ProtoMessage() {}
+
+func (x *QueryStatsForUidRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_usage_usage_proto_msgTypes[36]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use QueryStatsForUidRequest.ProtoReflect.Descriptor instead.
+func (*QueryStatsForUidRequest) Descriptor() ([]byte, []int) {
+	return file_proto_usage_usage_proto_rawDescGZIP(), []int{36}
+}
+
+func (x *QueryStatsForUidRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *QueryStatsForUidRequest) GetArg1() int32 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type QueryStatsForUidResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *QueryStatsForUidResponse) Reset() {
+	*x = QueryStatsForUidResponse{}
+	mi := &file_proto_usage_usage_proto_msgTypes[37]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *QueryStatsForUidResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*QueryStatsForUidResponse) ProtoMessage() {}
+
+func (x *QueryStatsForUidResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_usage_usage_proto_msgTypes[37]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use QueryStatsForUidResponse.ProtoReflect.Descriptor instead.
+func (*QueryStatsForUidResponse) Descriptor() ([]byte, []int) {
+	return file_proto_usage_usage_proto_rawDescGZIP(), []int{37}
+}
+
+func (x *QueryStatsForUidResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type QueryStatsForUserRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *QueryStatsForUserRequest) Reset() {
+	*x = QueryStatsForUserRequest{}
+	mi := &file_proto_usage_usage_proto_msgTypes[38]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *QueryStatsForUserRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*QueryStatsForUserRequest) ProtoMessage() {}
+
+func (x *QueryStatsForUserRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_usage_usage_proto_msgTypes[38]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use QueryStatsForUserRequest.ProtoReflect.Descriptor instead.
+func (*QueryStatsForUserRequest) Descriptor() ([]byte, []int) {
+	return file_proto_usage_usage_proto_rawDescGZIP(), []int{38}
+}
+
+func (x *QueryStatsForUserRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *QueryStatsForUserRequest) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type QueryStatsForUserResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *QueryStatsForUserResponse) Reset() {
+	*x = QueryStatsForUserResponse{}
+	mi := &file_proto_usage_usage_proto_msgTypes[39]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *QueryStatsForUserResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*QueryStatsForUserResponse) ProtoMessage() {}
+
+func (x *QueryStatsForUserResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_usage_usage_proto_msgTypes[39]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use QueryStatsForUserResponse.ProtoReflect.Descriptor instead.
+func (*QueryStatsForUserResponse) Descriptor() ([]byte, []int) {
 	return file_proto_usage_usage_proto_rawDescGZIP(), []int{39}
+}
+
+func (x *QueryStatsForUserResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
 }
 
 var File_proto_usage_usage_proto protoreflect.FileDescriptor
 
 const file_proto_usage_usage_proto_rawDesc = "" +
 	"\n" +
-	"\x17proto/usage/usage.proto\x12\x05usage\"\x1c\n" +
-	"\x1aGetAppStandbyBucketRequest\"5\n" +
-	"\x1bGetAppStandbyBucketResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x05R\x06result\"*\n" +
-	"\x14IsAppInactiveRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\tR\x04arg0\"/\n" +
-	"\x15IsAppInactiveResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\bR\x06result\")\n" +
-	"\x13QueryEvents1Request\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\".\n" +
-	"\x14QueryEvents1Response\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"?\n" +
-	"\x15QueryEvents2_1Request\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
-	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\"0\n" +
-	"\x16QueryEvents2_1Response\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"C\n" +
-	"\x19QueryEventsForSelfRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
-	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\"4\n" +
-	"\x1aQueryEventsForSelfResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\")\n" +
-	"\x13GetFreeBytesRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\".\n" +
-	"\x14GetFreeBytesResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"*\n" +
-	"\x14GetTotalBytesRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"/\n" +
-	"\x15GetTotalBytesResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"J\n" +
-	" QueryExternalStatsForUserRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
-	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\";\n" +
-	"!QueryExternalStatsForUserResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"Y\n" +
-	"\x1bQueryStatsForPackageRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
-	"\x04arg1\x18\x02 \x01(\tR\x04arg1\x12\x12\n" +
-	"\x04arg2\x18\x03 \x01(\x03R\x04arg2\"6\n" +
-	"\x1cQueryStatsForPackageResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"A\n" +
-	"\x17QueryStatsForUidRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
-	"\x04arg1\x18\x02 \x01(\x05R\x04arg1\"2\n" +
-	"\x18QueryStatsForUidResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"B\n" +
-	"\x18QueryStatsForUserRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
-	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\"3\n" +
-	"\x19QueryStatsForUserResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"e\n" +
+	"\x17proto/usage/usage.proto\x12\x05usage\"e\n" +
 	"\x13QueryDetailsRequest\x12\x12\n" +
 	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\x12\x12\n" +
 	"\x04arg1\x18\x02 \x01(\tR\x04arg1\x12\x12\n" +
@@ -2173,7 +2123,67 @@ const file_proto_usage_usage_proto_rawDesc = "" +
 	"\x1dRegisterUsageCallbackResponse\"4\n" +
 	"\x1eUnregisterUsageCallbackRequest\x12\x12\n" +
 	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"!\n" +
-	"\x1fUnregisterUsageCallbackResponse2\xb2\x03\n" +
+	"\x1fUnregisterUsageCallbackResponse\"\x1c\n" +
+	"\x1aGetAppStandbyBucketRequest\"5\n" +
+	"\x1bGetAppStandbyBucketResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"*\n" +
+	"\x14IsAppInactiveRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\tR\x04arg0\"/\n" +
+	"\x15IsAppInactiveResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\")\n" +
+	"\x13QueryEvents1Request\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\".\n" +
+	"\x14QueryEvents1Response\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"?\n" +
+	"\x15QueryEvents2_1Request\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\"0\n" +
+	"\x16QueryEvents2_1Response\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"C\n" +
+	"\x19QueryEventsForSelfRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\"4\n" +
+	"\x1aQueryEventsForSelfResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\")\n" +
+	"\x13GetFreeBytesRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\".\n" +
+	"\x14GetFreeBytesResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"*\n" +
+	"\x14GetTotalBytesRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"/\n" +
+	"\x15GetTotalBytesResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"J\n" +
+	" QueryExternalStatsForUserRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\";\n" +
+	"!QueryExternalStatsForUserResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"Y\n" +
+	"\x1bQueryStatsForPackageRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\tR\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x03 \x01(\x03R\x04arg2\"6\n" +
+	"\x1cQueryStatsForPackageResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"A\n" +
+	"\x17QueryStatsForUidRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x05R\x04arg1\"2\n" +
+	"\x18QueryStatsForUidResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"B\n" +
+	"\x18QueryStatsForUserRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\"3\n" +
+	"\x19QueryStatsForUserResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result2\xf0\x06\n" +
+	"\x1aNetworkStatsManagerService\x12G\n" +
+	"\fQueryDetails\x12\x1a.usage.QueryDetailsRequest\x1a\x1b.usage.QueryDetailsResponse\x12Y\n" +
+	"\x12QueryDetailsForUid\x12 .usage.QueryDetailsForUidRequest\x1a!.usage.QueryDetailsForUidResponse\x12b\n" +
+	"\x15QueryDetailsForUidTag\x12#.usage.QueryDetailsForUidTagRequest\x1a$.usage.QueryDetailsForUidTagResponse\x12q\n" +
+	"\x1aQueryDetailsForUidTagState\x12(.usage.QueryDetailsForUidTagStateRequest\x1a).usage.QueryDetailsForUidTagStateResponse\x12G\n" +
+	"\fQuerySummary\x12\x1a.usage.QuerySummaryRequest\x1a\x1b.usage.QuerySummaryResponse\x12b\n" +
+	"\x15QuerySummaryForDevice\x12#.usage.QuerySummaryForDeviceRequest\x1a$.usage.QuerySummaryForDeviceResponse\x12\\\n" +
+	"\x13QuerySummaryForUser\x12!.usage.QuerySummaryForUserRequest\x1a\".usage.QuerySummaryForUserResponse\x12b\n" +
+	"\x15RegisterUsageCallback\x12#.usage.RegisterUsageCallbackRequest\x1a$.usage.RegisterUsageCallbackResponse\x12h\n" +
+	"\x17UnregisterUsageCallback\x12%.usage.UnregisterUsageCallbackRequest\x1a&.usage.UnregisterUsageCallbackResponse2\xb2\x03\n" +
 	"\x13StatsManagerService\x12\\\n" +
 	"\x13GetAppStandbyBucket\x12!.usage.GetAppStandbyBucketRequest\x1a\".usage.GetAppStandbyBucketResponse\x12J\n" +
 	"\rIsAppInactive\x12\x1b.usage.IsAppInactiveRequest\x1a\x1c.usage.IsAppInactiveResponse\x12G\n" +
@@ -2186,17 +2196,7 @@ const file_proto_usage_usage_proto_rawDesc = "" +
 	"\x19QueryExternalStatsForUser\x12'.usage.QueryExternalStatsForUserRequest\x1a(.usage.QueryExternalStatsForUserResponse\x12_\n" +
 	"\x14QueryStatsForPackage\x12\".usage.QueryStatsForPackageRequest\x1a#.usage.QueryStatsForPackageResponse\x12S\n" +
 	"\x10QueryStatsForUid\x12\x1e.usage.QueryStatsForUidRequest\x1a\x1f.usage.QueryStatsForUidResponse\x12V\n" +
-	"\x11QueryStatsForUser\x12\x1f.usage.QueryStatsForUserRequest\x1a .usage.QueryStatsForUserResponse2\xf0\x06\n" +
-	"\x1aNetworkStatsManagerService\x12G\n" +
-	"\fQueryDetails\x12\x1a.usage.QueryDetailsRequest\x1a\x1b.usage.QueryDetailsResponse\x12Y\n" +
-	"\x12QueryDetailsForUid\x12 .usage.QueryDetailsForUidRequest\x1a!.usage.QueryDetailsForUidResponse\x12b\n" +
-	"\x15QueryDetailsForUidTag\x12#.usage.QueryDetailsForUidTagRequest\x1a$.usage.QueryDetailsForUidTagResponse\x12q\n" +
-	"\x1aQueryDetailsForUidTagState\x12(.usage.QueryDetailsForUidTagStateRequest\x1a).usage.QueryDetailsForUidTagStateResponse\x12G\n" +
-	"\fQuerySummary\x12\x1a.usage.QuerySummaryRequest\x1a\x1b.usage.QuerySummaryResponse\x12b\n" +
-	"\x15QuerySummaryForDevice\x12#.usage.QuerySummaryForDeviceRequest\x1a$.usage.QuerySummaryForDeviceResponse\x12\\\n" +
-	"\x13QuerySummaryForUser\x12!.usage.QuerySummaryForUserRequest\x1a\".usage.QuerySummaryForUserResponse\x12b\n" +
-	"\x15RegisterUsageCallback\x12#.usage.RegisterUsageCallbackRequest\x1a$.usage.RegisterUsageCallbackResponse\x12h\n" +
-	"\x17UnregisterUsageCallback\x12%.usage.UnregisterUsageCallbackRequest\x1a&.usage.UnregisterUsageCallbackResponseB/Z-github.com/AndroidGoLab/jni-proxy/proto/usageb\x06proto3"
+	"\x11QueryStatsForUser\x12\x1f.usage.QueryStatsForUserRequest\x1a .usage.QueryStatsForUserResponseB/Z-github.com/AndroidGoLab/jni-proxy/proto/usageb\x06proto3"
 
 var (
 	file_proto_usage_usage_proto_rawDescOnce sync.Once
@@ -2212,88 +2212,88 @@ func file_proto_usage_usage_proto_rawDescGZIP() []byte {
 
 var file_proto_usage_usage_proto_msgTypes = make([]protoimpl.MessageInfo, 40)
 var file_proto_usage_usage_proto_goTypes = []any{
-	(*GetAppStandbyBucketRequest)(nil),         // 0: usage.GetAppStandbyBucketRequest
-	(*GetAppStandbyBucketResponse)(nil),        // 1: usage.GetAppStandbyBucketResponse
-	(*IsAppInactiveRequest)(nil),               // 2: usage.IsAppInactiveRequest
-	(*IsAppInactiveResponse)(nil),              // 3: usage.IsAppInactiveResponse
-	(*QueryEvents1Request)(nil),                // 4: usage.QueryEvents1Request
-	(*QueryEvents1Response)(nil),               // 5: usage.QueryEvents1Response
-	(*QueryEvents2_1Request)(nil),              // 6: usage.QueryEvents2_1Request
-	(*QueryEvents2_1Response)(nil),             // 7: usage.QueryEvents2_1Response
-	(*QueryEventsForSelfRequest)(nil),          // 8: usage.QueryEventsForSelfRequest
-	(*QueryEventsForSelfResponse)(nil),         // 9: usage.QueryEventsForSelfResponse
-	(*GetFreeBytesRequest)(nil),                // 10: usage.GetFreeBytesRequest
-	(*GetFreeBytesResponse)(nil),               // 11: usage.GetFreeBytesResponse
-	(*GetTotalBytesRequest)(nil),               // 12: usage.GetTotalBytesRequest
-	(*GetTotalBytesResponse)(nil),              // 13: usage.GetTotalBytesResponse
-	(*QueryExternalStatsForUserRequest)(nil),   // 14: usage.QueryExternalStatsForUserRequest
-	(*QueryExternalStatsForUserResponse)(nil),  // 15: usage.QueryExternalStatsForUserResponse
-	(*QueryStatsForPackageRequest)(nil),        // 16: usage.QueryStatsForPackageRequest
-	(*QueryStatsForPackageResponse)(nil),       // 17: usage.QueryStatsForPackageResponse
-	(*QueryStatsForUidRequest)(nil),            // 18: usage.QueryStatsForUidRequest
-	(*QueryStatsForUidResponse)(nil),           // 19: usage.QueryStatsForUidResponse
-	(*QueryStatsForUserRequest)(nil),           // 20: usage.QueryStatsForUserRequest
-	(*QueryStatsForUserResponse)(nil),          // 21: usage.QueryStatsForUserResponse
-	(*QueryDetailsRequest)(nil),                // 22: usage.QueryDetailsRequest
-	(*QueryDetailsResponse)(nil),               // 23: usage.QueryDetailsResponse
-	(*QueryDetailsForUidRequest)(nil),          // 24: usage.QueryDetailsForUidRequest
-	(*QueryDetailsForUidResponse)(nil),         // 25: usage.QueryDetailsForUidResponse
-	(*QueryDetailsForUidTagRequest)(nil),       // 26: usage.QueryDetailsForUidTagRequest
-	(*QueryDetailsForUidTagResponse)(nil),      // 27: usage.QueryDetailsForUidTagResponse
-	(*QueryDetailsForUidTagStateRequest)(nil),  // 28: usage.QueryDetailsForUidTagStateRequest
-	(*QueryDetailsForUidTagStateResponse)(nil), // 29: usage.QueryDetailsForUidTagStateResponse
-	(*QuerySummaryRequest)(nil),                // 30: usage.QuerySummaryRequest
-	(*QuerySummaryResponse)(nil),               // 31: usage.QuerySummaryResponse
-	(*QuerySummaryForDeviceRequest)(nil),       // 32: usage.QuerySummaryForDeviceRequest
-	(*QuerySummaryForDeviceResponse)(nil),      // 33: usage.QuerySummaryForDeviceResponse
-	(*QuerySummaryForUserRequest)(nil),         // 34: usage.QuerySummaryForUserRequest
-	(*QuerySummaryForUserResponse)(nil),        // 35: usage.QuerySummaryForUserResponse
-	(*RegisterUsageCallbackRequest)(nil),       // 36: usage.RegisterUsageCallbackRequest
-	(*RegisterUsageCallbackResponse)(nil),      // 37: usage.RegisterUsageCallbackResponse
-	(*UnregisterUsageCallbackRequest)(nil),     // 38: usage.UnregisterUsageCallbackRequest
-	(*UnregisterUsageCallbackResponse)(nil),    // 39: usage.UnregisterUsageCallbackResponse
+	(*QueryDetailsRequest)(nil),                // 0: usage.QueryDetailsRequest
+	(*QueryDetailsResponse)(nil),               // 1: usage.QueryDetailsResponse
+	(*QueryDetailsForUidRequest)(nil),          // 2: usage.QueryDetailsForUidRequest
+	(*QueryDetailsForUidResponse)(nil),         // 3: usage.QueryDetailsForUidResponse
+	(*QueryDetailsForUidTagRequest)(nil),       // 4: usage.QueryDetailsForUidTagRequest
+	(*QueryDetailsForUidTagResponse)(nil),      // 5: usage.QueryDetailsForUidTagResponse
+	(*QueryDetailsForUidTagStateRequest)(nil),  // 6: usage.QueryDetailsForUidTagStateRequest
+	(*QueryDetailsForUidTagStateResponse)(nil), // 7: usage.QueryDetailsForUidTagStateResponse
+	(*QuerySummaryRequest)(nil),                // 8: usage.QuerySummaryRequest
+	(*QuerySummaryResponse)(nil),               // 9: usage.QuerySummaryResponse
+	(*QuerySummaryForDeviceRequest)(nil),       // 10: usage.QuerySummaryForDeviceRequest
+	(*QuerySummaryForDeviceResponse)(nil),      // 11: usage.QuerySummaryForDeviceResponse
+	(*QuerySummaryForUserRequest)(nil),         // 12: usage.QuerySummaryForUserRequest
+	(*QuerySummaryForUserResponse)(nil),        // 13: usage.QuerySummaryForUserResponse
+	(*RegisterUsageCallbackRequest)(nil),       // 14: usage.RegisterUsageCallbackRequest
+	(*RegisterUsageCallbackResponse)(nil),      // 15: usage.RegisterUsageCallbackResponse
+	(*UnregisterUsageCallbackRequest)(nil),     // 16: usage.UnregisterUsageCallbackRequest
+	(*UnregisterUsageCallbackResponse)(nil),    // 17: usage.UnregisterUsageCallbackResponse
+	(*GetAppStandbyBucketRequest)(nil),         // 18: usage.GetAppStandbyBucketRequest
+	(*GetAppStandbyBucketResponse)(nil),        // 19: usage.GetAppStandbyBucketResponse
+	(*IsAppInactiveRequest)(nil),               // 20: usage.IsAppInactiveRequest
+	(*IsAppInactiveResponse)(nil),              // 21: usage.IsAppInactiveResponse
+	(*QueryEvents1Request)(nil),                // 22: usage.QueryEvents1Request
+	(*QueryEvents1Response)(nil),               // 23: usage.QueryEvents1Response
+	(*QueryEvents2_1Request)(nil),              // 24: usage.QueryEvents2_1Request
+	(*QueryEvents2_1Response)(nil),             // 25: usage.QueryEvents2_1Response
+	(*QueryEventsForSelfRequest)(nil),          // 26: usage.QueryEventsForSelfRequest
+	(*QueryEventsForSelfResponse)(nil),         // 27: usage.QueryEventsForSelfResponse
+	(*GetFreeBytesRequest)(nil),                // 28: usage.GetFreeBytesRequest
+	(*GetFreeBytesResponse)(nil),               // 29: usage.GetFreeBytesResponse
+	(*GetTotalBytesRequest)(nil),               // 30: usage.GetTotalBytesRequest
+	(*GetTotalBytesResponse)(nil),              // 31: usage.GetTotalBytesResponse
+	(*QueryExternalStatsForUserRequest)(nil),   // 32: usage.QueryExternalStatsForUserRequest
+	(*QueryExternalStatsForUserResponse)(nil),  // 33: usage.QueryExternalStatsForUserResponse
+	(*QueryStatsForPackageRequest)(nil),        // 34: usage.QueryStatsForPackageRequest
+	(*QueryStatsForPackageResponse)(nil),       // 35: usage.QueryStatsForPackageResponse
+	(*QueryStatsForUidRequest)(nil),            // 36: usage.QueryStatsForUidRequest
+	(*QueryStatsForUidResponse)(nil),           // 37: usage.QueryStatsForUidResponse
+	(*QueryStatsForUserRequest)(nil),           // 38: usage.QueryStatsForUserRequest
+	(*QueryStatsForUserResponse)(nil),          // 39: usage.QueryStatsForUserResponse
 }
 var file_proto_usage_usage_proto_depIdxs = []int32{
-	0,  // 0: usage.StatsManagerService.GetAppStandbyBucket:input_type -> usage.GetAppStandbyBucketRequest
-	2,  // 1: usage.StatsManagerService.IsAppInactive:input_type -> usage.IsAppInactiveRequest
-	4,  // 2: usage.StatsManagerService.QueryEvents1:input_type -> usage.QueryEvents1Request
-	6,  // 3: usage.StatsManagerService.QueryEvents2_1:input_type -> usage.QueryEvents2_1Request
-	8,  // 4: usage.StatsManagerService.QueryEventsForSelf:input_type -> usage.QueryEventsForSelfRequest
-	10, // 5: usage.StorageStatsManagerService.GetFreeBytes:input_type -> usage.GetFreeBytesRequest
-	12, // 6: usage.StorageStatsManagerService.GetTotalBytes:input_type -> usage.GetTotalBytesRequest
-	14, // 7: usage.StorageStatsManagerService.QueryExternalStatsForUser:input_type -> usage.QueryExternalStatsForUserRequest
-	16, // 8: usage.StorageStatsManagerService.QueryStatsForPackage:input_type -> usage.QueryStatsForPackageRequest
-	18, // 9: usage.StorageStatsManagerService.QueryStatsForUid:input_type -> usage.QueryStatsForUidRequest
-	20, // 10: usage.StorageStatsManagerService.QueryStatsForUser:input_type -> usage.QueryStatsForUserRequest
-	22, // 11: usage.NetworkStatsManagerService.QueryDetails:input_type -> usage.QueryDetailsRequest
-	24, // 12: usage.NetworkStatsManagerService.QueryDetailsForUid:input_type -> usage.QueryDetailsForUidRequest
-	26, // 13: usage.NetworkStatsManagerService.QueryDetailsForUidTag:input_type -> usage.QueryDetailsForUidTagRequest
-	28, // 14: usage.NetworkStatsManagerService.QueryDetailsForUidTagState:input_type -> usage.QueryDetailsForUidTagStateRequest
-	30, // 15: usage.NetworkStatsManagerService.QuerySummary:input_type -> usage.QuerySummaryRequest
-	32, // 16: usage.NetworkStatsManagerService.QuerySummaryForDevice:input_type -> usage.QuerySummaryForDeviceRequest
-	34, // 17: usage.NetworkStatsManagerService.QuerySummaryForUser:input_type -> usage.QuerySummaryForUserRequest
-	36, // 18: usage.NetworkStatsManagerService.RegisterUsageCallback:input_type -> usage.RegisterUsageCallbackRequest
-	38, // 19: usage.NetworkStatsManagerService.UnregisterUsageCallback:input_type -> usage.UnregisterUsageCallbackRequest
-	1,  // 20: usage.StatsManagerService.GetAppStandbyBucket:output_type -> usage.GetAppStandbyBucketResponse
-	3,  // 21: usage.StatsManagerService.IsAppInactive:output_type -> usage.IsAppInactiveResponse
-	5,  // 22: usage.StatsManagerService.QueryEvents1:output_type -> usage.QueryEvents1Response
-	7,  // 23: usage.StatsManagerService.QueryEvents2_1:output_type -> usage.QueryEvents2_1Response
-	9,  // 24: usage.StatsManagerService.QueryEventsForSelf:output_type -> usage.QueryEventsForSelfResponse
-	11, // 25: usage.StorageStatsManagerService.GetFreeBytes:output_type -> usage.GetFreeBytesResponse
-	13, // 26: usage.StorageStatsManagerService.GetTotalBytes:output_type -> usage.GetTotalBytesResponse
-	15, // 27: usage.StorageStatsManagerService.QueryExternalStatsForUser:output_type -> usage.QueryExternalStatsForUserResponse
-	17, // 28: usage.StorageStatsManagerService.QueryStatsForPackage:output_type -> usage.QueryStatsForPackageResponse
-	19, // 29: usage.StorageStatsManagerService.QueryStatsForUid:output_type -> usage.QueryStatsForUidResponse
-	21, // 30: usage.StorageStatsManagerService.QueryStatsForUser:output_type -> usage.QueryStatsForUserResponse
-	23, // 31: usage.NetworkStatsManagerService.QueryDetails:output_type -> usage.QueryDetailsResponse
-	25, // 32: usage.NetworkStatsManagerService.QueryDetailsForUid:output_type -> usage.QueryDetailsForUidResponse
-	27, // 33: usage.NetworkStatsManagerService.QueryDetailsForUidTag:output_type -> usage.QueryDetailsForUidTagResponse
-	29, // 34: usage.NetworkStatsManagerService.QueryDetailsForUidTagState:output_type -> usage.QueryDetailsForUidTagStateResponse
-	31, // 35: usage.NetworkStatsManagerService.QuerySummary:output_type -> usage.QuerySummaryResponse
-	33, // 36: usage.NetworkStatsManagerService.QuerySummaryForDevice:output_type -> usage.QuerySummaryForDeviceResponse
-	35, // 37: usage.NetworkStatsManagerService.QuerySummaryForUser:output_type -> usage.QuerySummaryForUserResponse
-	37, // 38: usage.NetworkStatsManagerService.RegisterUsageCallback:output_type -> usage.RegisterUsageCallbackResponse
-	39, // 39: usage.NetworkStatsManagerService.UnregisterUsageCallback:output_type -> usage.UnregisterUsageCallbackResponse
+	0,  // 0: usage.NetworkStatsManagerService.QueryDetails:input_type -> usage.QueryDetailsRequest
+	2,  // 1: usage.NetworkStatsManagerService.QueryDetailsForUid:input_type -> usage.QueryDetailsForUidRequest
+	4,  // 2: usage.NetworkStatsManagerService.QueryDetailsForUidTag:input_type -> usage.QueryDetailsForUidTagRequest
+	6,  // 3: usage.NetworkStatsManagerService.QueryDetailsForUidTagState:input_type -> usage.QueryDetailsForUidTagStateRequest
+	8,  // 4: usage.NetworkStatsManagerService.QuerySummary:input_type -> usage.QuerySummaryRequest
+	10, // 5: usage.NetworkStatsManagerService.QuerySummaryForDevice:input_type -> usage.QuerySummaryForDeviceRequest
+	12, // 6: usage.NetworkStatsManagerService.QuerySummaryForUser:input_type -> usage.QuerySummaryForUserRequest
+	14, // 7: usage.NetworkStatsManagerService.RegisterUsageCallback:input_type -> usage.RegisterUsageCallbackRequest
+	16, // 8: usage.NetworkStatsManagerService.UnregisterUsageCallback:input_type -> usage.UnregisterUsageCallbackRequest
+	18, // 9: usage.StatsManagerService.GetAppStandbyBucket:input_type -> usage.GetAppStandbyBucketRequest
+	20, // 10: usage.StatsManagerService.IsAppInactive:input_type -> usage.IsAppInactiveRequest
+	22, // 11: usage.StatsManagerService.QueryEvents1:input_type -> usage.QueryEvents1Request
+	24, // 12: usage.StatsManagerService.QueryEvents2_1:input_type -> usage.QueryEvents2_1Request
+	26, // 13: usage.StatsManagerService.QueryEventsForSelf:input_type -> usage.QueryEventsForSelfRequest
+	28, // 14: usage.StorageStatsManagerService.GetFreeBytes:input_type -> usage.GetFreeBytesRequest
+	30, // 15: usage.StorageStatsManagerService.GetTotalBytes:input_type -> usage.GetTotalBytesRequest
+	32, // 16: usage.StorageStatsManagerService.QueryExternalStatsForUser:input_type -> usage.QueryExternalStatsForUserRequest
+	34, // 17: usage.StorageStatsManagerService.QueryStatsForPackage:input_type -> usage.QueryStatsForPackageRequest
+	36, // 18: usage.StorageStatsManagerService.QueryStatsForUid:input_type -> usage.QueryStatsForUidRequest
+	38, // 19: usage.StorageStatsManagerService.QueryStatsForUser:input_type -> usage.QueryStatsForUserRequest
+	1,  // 20: usage.NetworkStatsManagerService.QueryDetails:output_type -> usage.QueryDetailsResponse
+	3,  // 21: usage.NetworkStatsManagerService.QueryDetailsForUid:output_type -> usage.QueryDetailsForUidResponse
+	5,  // 22: usage.NetworkStatsManagerService.QueryDetailsForUidTag:output_type -> usage.QueryDetailsForUidTagResponse
+	7,  // 23: usage.NetworkStatsManagerService.QueryDetailsForUidTagState:output_type -> usage.QueryDetailsForUidTagStateResponse
+	9,  // 24: usage.NetworkStatsManagerService.QuerySummary:output_type -> usage.QuerySummaryResponse
+	11, // 25: usage.NetworkStatsManagerService.QuerySummaryForDevice:output_type -> usage.QuerySummaryForDeviceResponse
+	13, // 26: usage.NetworkStatsManagerService.QuerySummaryForUser:output_type -> usage.QuerySummaryForUserResponse
+	15, // 27: usage.NetworkStatsManagerService.RegisterUsageCallback:output_type -> usage.RegisterUsageCallbackResponse
+	17, // 28: usage.NetworkStatsManagerService.UnregisterUsageCallback:output_type -> usage.UnregisterUsageCallbackResponse
+	19, // 29: usage.StatsManagerService.GetAppStandbyBucket:output_type -> usage.GetAppStandbyBucketResponse
+	21, // 30: usage.StatsManagerService.IsAppInactive:output_type -> usage.IsAppInactiveResponse
+	23, // 31: usage.StatsManagerService.QueryEvents1:output_type -> usage.QueryEvents1Response
+	25, // 32: usage.StatsManagerService.QueryEvents2_1:output_type -> usage.QueryEvents2_1Response
+	27, // 33: usage.StatsManagerService.QueryEventsForSelf:output_type -> usage.QueryEventsForSelfResponse
+	29, // 34: usage.StorageStatsManagerService.GetFreeBytes:output_type -> usage.GetFreeBytesResponse
+	31, // 35: usage.StorageStatsManagerService.GetTotalBytes:output_type -> usage.GetTotalBytesResponse
+	33, // 36: usage.StorageStatsManagerService.QueryExternalStatsForUser:output_type -> usage.QueryExternalStatsForUserResponse
+	35, // 37: usage.StorageStatsManagerService.QueryStatsForPackage:output_type -> usage.QueryStatsForPackageResponse
+	37, // 38: usage.StorageStatsManagerService.QueryStatsForUid:output_type -> usage.QueryStatsForUidResponse
+	39, // 39: usage.StorageStatsManagerService.QueryStatsForUser:output_type -> usage.QueryStatsForUserResponse
 	20, // [20:40] is the sub-list for method output_type
 	0,  // [0:20] is the sub-list for method input_type
 	0,  // [0:0] is the sub-list for extension type_name

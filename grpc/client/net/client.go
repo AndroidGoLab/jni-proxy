@@ -9,36 +9,6 @@ import (
 	"google.golang.org/grpc"
 )
 
-// ConnectivityDiagnosticsManagerClient wraps the gRPC ConnectivityDiagnosticsManagerService client.
-type ConnectivityDiagnosticsManagerClient struct {
-	svc pb.ConnectivityDiagnosticsManagerServiceClient
-}
-
-// NewConnectivityDiagnosticsManagerClient creates a new ConnectivityDiagnosticsManager client.
-func NewConnectivityDiagnosticsManagerClient(cc grpc.ClientConnInterface) *ConnectivityDiagnosticsManagerClient {
-	return &ConnectivityDiagnosticsManagerClient{
-		svc: pb.NewConnectivityDiagnosticsManagerServiceClient(cc),
-	}
-}
-
-// RegisterConnectivityDiagnosticsCallback calls the RegisterConnectivityDiagnosticsCallback RPC.
-func (c *ConnectivityDiagnosticsManagerClient) RegisterConnectivityDiagnosticsCallback(ctx context.Context, arg0 int64, arg1 int64, arg2 int64) error {
-	_, err := c.svc.RegisterConnectivityDiagnosticsCallback(ctx, &pb.RegisterConnectivityDiagnosticsCallbackRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-	})
-	return err
-}
-
-// UnregisterConnectivityDiagnosticsCallback calls the UnregisterConnectivityDiagnosticsCallback RPC.
-func (c *ConnectivityDiagnosticsManagerClient) UnregisterConnectivityDiagnosticsCallback(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.UnregisterConnectivityDiagnosticsCallback(ctx, &pb.UnregisterConnectivityDiagnosticsCallbackRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
 // IpSecManagerClient wraps the gRPC IpSecManagerService client.
 type IpSecManagerClient struct {
 	svc pb.IpSecManagerServiceClient
@@ -143,55 +113,6 @@ func (c *IpSecManagerClient) RemoveTransportModeTransforms1_1(ctx context.Contex
 // RemoveTransportModeTransforms1_2 calls the RemoveTransportModeTransforms1_2 RPC.
 func (c *IpSecManagerClient) RemoveTransportModeTransforms1_2(ctx context.Context, arg0 int64) error {
 	_, err := c.svc.RemoveTransportModeTransforms1_2(ctx, &pb.RemoveTransportModeTransforms1_2Request{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// TetheringManagerClient wraps the gRPC TetheringManagerService client.
-type TetheringManagerClient struct {
-	svc pb.TetheringManagerServiceClient
-}
-
-// NewTetheringManagerClient creates a new TetheringManager client.
-func NewTetheringManagerClient(cc grpc.ClientConnInterface) *TetheringManagerClient {
-	return &TetheringManagerClient{
-		svc: pb.NewTetheringManagerServiceClient(cc),
-	}
-}
-
-// RegisterTetheringEventCallback calls the RegisterTetheringEventCallback RPC.
-func (c *TetheringManagerClient) RegisterTetheringEventCallback(ctx context.Context, arg0 int64, arg1 int64) error {
-	_, err := c.svc.RegisterTetheringEventCallback(ctx, &pb.RegisterTetheringEventCallbackRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	return err
-}
-
-// StartTethering calls the StartTethering RPC.
-func (c *TetheringManagerClient) StartTethering(ctx context.Context, arg0 int64, arg1 int64, arg2 int64) error {
-	_, err := c.svc.StartTethering(ctx, &pb.StartTetheringRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-	})
-	return err
-}
-
-// StopTethering calls the StopTethering RPC.
-func (c *TetheringManagerClient) StopTethering(ctx context.Context, arg0 int64, arg1 int64, arg2 int64) error {
-	_, err := c.svc.StopTethering(ctx, &pb.StopTetheringRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-	})
-	return err
-}
-
-// UnregisterTetheringEventCallback calls the UnregisterTetheringEventCallback RPC.
-func (c *TetheringManagerClient) UnregisterTetheringEventCallback(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.UnregisterTetheringEventCallback(ctx, &pb.UnregisterTetheringEventCallbackRequest{
 		Arg0: arg0,
 	})
 	return err
@@ -571,4 +492,83 @@ func (c *ConnectivityManagerClient) SetProcessDefaultNetwork(ctx context.Context
 		return false, err
 	}
 	return resp.GetResult(), nil
+}
+
+// ConnectivityDiagnosticsManagerClient wraps the gRPC ConnectivityDiagnosticsManagerService client.
+type ConnectivityDiagnosticsManagerClient struct {
+	svc pb.ConnectivityDiagnosticsManagerServiceClient
+}
+
+// NewConnectivityDiagnosticsManagerClient creates a new ConnectivityDiagnosticsManager client.
+func NewConnectivityDiagnosticsManagerClient(cc grpc.ClientConnInterface) *ConnectivityDiagnosticsManagerClient {
+	return &ConnectivityDiagnosticsManagerClient{
+		svc: pb.NewConnectivityDiagnosticsManagerServiceClient(cc),
+	}
+}
+
+// RegisterConnectivityDiagnosticsCallback calls the RegisterConnectivityDiagnosticsCallback RPC.
+func (c *ConnectivityDiagnosticsManagerClient) RegisterConnectivityDiagnosticsCallback(ctx context.Context, arg0 int64, arg1 int64, arg2 int64) error {
+	_, err := c.svc.RegisterConnectivityDiagnosticsCallback(ctx, &pb.RegisterConnectivityDiagnosticsCallbackRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	return err
+}
+
+// UnregisterConnectivityDiagnosticsCallback calls the UnregisterConnectivityDiagnosticsCallback RPC.
+func (c *ConnectivityDiagnosticsManagerClient) UnregisterConnectivityDiagnosticsCallback(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.UnregisterConnectivityDiagnosticsCallback(ctx, &pb.UnregisterConnectivityDiagnosticsCallbackRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// TetheringManagerClient wraps the gRPC TetheringManagerService client.
+type TetheringManagerClient struct {
+	svc pb.TetheringManagerServiceClient
+}
+
+// NewTetheringManagerClient creates a new TetheringManager client.
+func NewTetheringManagerClient(cc grpc.ClientConnInterface) *TetheringManagerClient {
+	return &TetheringManagerClient{
+		svc: pb.NewTetheringManagerServiceClient(cc),
+	}
+}
+
+// RegisterTetheringEventCallback calls the RegisterTetheringEventCallback RPC.
+func (c *TetheringManagerClient) RegisterTetheringEventCallback(ctx context.Context, arg0 int64, arg1 int64) error {
+	_, err := c.svc.RegisterTetheringEventCallback(ctx, &pb.RegisterTetheringEventCallbackRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// StartTethering calls the StartTethering RPC.
+func (c *TetheringManagerClient) StartTethering(ctx context.Context, arg0 int64, arg1 int64, arg2 int64) error {
+	_, err := c.svc.StartTethering(ctx, &pb.StartTetheringRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	return err
+}
+
+// StopTethering calls the StopTethering RPC.
+func (c *TetheringManagerClient) StopTethering(ctx context.Context, arg0 int64, arg1 int64, arg2 int64) error {
+	_, err := c.svc.StopTethering(ctx, &pb.StopTetheringRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	return err
+}
+
+// UnregisterTetheringEventCallback calls the UnregisterTetheringEventCallback RPC.
+func (c *TetheringManagerClient) UnregisterTetheringEventCallback(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.UnregisterTetheringEventCallback(ctx, &pb.UnregisterTetheringEventCallbackRequest{
+		Arg0: arg0,
+	})
+	return err
 }

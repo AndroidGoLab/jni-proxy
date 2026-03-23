@@ -23,6 +23,726 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
+type AddCaptioningChangeListenerRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AddCaptioningChangeListenerRequest) Reset() {
+	*x = AddCaptioningChangeListenerRequest{}
+	mi := &file_proto_accessibility_accessibility_proto_msgTypes[0]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AddCaptioningChangeListenerRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AddCaptioningChangeListenerRequest) ProtoMessage() {}
+
+func (x *AddCaptioningChangeListenerRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_accessibility_accessibility_proto_msgTypes[0]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AddCaptioningChangeListenerRequest.ProtoReflect.Descriptor instead.
+func (*AddCaptioningChangeListenerRequest) Descriptor() ([]byte, []int) {
+	return file_proto_accessibility_accessibility_proto_rawDescGZIP(), []int{0}
+}
+
+func (x *AddCaptioningChangeListenerRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type AddCaptioningChangeListenerResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AddCaptioningChangeListenerResponse) Reset() {
+	*x = AddCaptioningChangeListenerResponse{}
+	mi := &file_proto_accessibility_accessibility_proto_msgTypes[1]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AddCaptioningChangeListenerResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AddCaptioningChangeListenerResponse) ProtoMessage() {}
+
+func (x *AddCaptioningChangeListenerResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_accessibility_accessibility_proto_msgTypes[1]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AddCaptioningChangeListenerResponse.ProtoReflect.Descriptor instead.
+func (*AddCaptioningChangeListenerResponse) Descriptor() ([]byte, []int) {
+	return file_proto_accessibility_accessibility_proto_rawDescGZIP(), []int{1}
+}
+
+type GetFontScaleRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetFontScaleRequest) Reset() {
+	*x = GetFontScaleRequest{}
+	mi := &file_proto_accessibility_accessibility_proto_msgTypes[2]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetFontScaleRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetFontScaleRequest) ProtoMessage() {}
+
+func (x *GetFontScaleRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_accessibility_accessibility_proto_msgTypes[2]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetFontScaleRequest.ProtoReflect.Descriptor instead.
+func (*GetFontScaleRequest) Descriptor() ([]byte, []int) {
+	return file_proto_accessibility_accessibility_proto_rawDescGZIP(), []int{2}
+}
+
+type GetFontScaleResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        float32                `protobuf:"fixed32,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetFontScaleResponse) Reset() {
+	*x = GetFontScaleResponse{}
+	mi := &file_proto_accessibility_accessibility_proto_msgTypes[3]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetFontScaleResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetFontScaleResponse) ProtoMessage() {}
+
+func (x *GetFontScaleResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_accessibility_accessibility_proto_msgTypes[3]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetFontScaleResponse.ProtoReflect.Descriptor instead.
+func (*GetFontScaleResponse) Descriptor() ([]byte, []int) {
+	return file_proto_accessibility_accessibility_proto_rawDescGZIP(), []int{3}
+}
+
+func (x *GetFontScaleResponse) GetResult() float32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetLocaleRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetLocaleRequest) Reset() {
+	*x = GetLocaleRequest{}
+	mi := &file_proto_accessibility_accessibility_proto_msgTypes[4]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetLocaleRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetLocaleRequest) ProtoMessage() {}
+
+func (x *GetLocaleRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_accessibility_accessibility_proto_msgTypes[4]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetLocaleRequest.ProtoReflect.Descriptor instead.
+func (*GetLocaleRequest) Descriptor() ([]byte, []int) {
+	return file_proto_accessibility_accessibility_proto_rawDescGZIP(), []int{4}
+}
+
+type GetLocaleResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetLocaleResponse) Reset() {
+	*x = GetLocaleResponse{}
+	mi := &file_proto_accessibility_accessibility_proto_msgTypes[5]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetLocaleResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetLocaleResponse) ProtoMessage() {}
+
+func (x *GetLocaleResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_accessibility_accessibility_proto_msgTypes[5]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetLocaleResponse.ProtoReflect.Descriptor instead.
+func (*GetLocaleResponse) Descriptor() ([]byte, []int) {
+	return file_proto_accessibility_accessibility_proto_rawDescGZIP(), []int{5}
+}
+
+func (x *GetLocaleResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetUserStyleRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetUserStyleRequest) Reset() {
+	*x = GetUserStyleRequest{}
+	mi := &file_proto_accessibility_accessibility_proto_msgTypes[6]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetUserStyleRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetUserStyleRequest) ProtoMessage() {}
+
+func (x *GetUserStyleRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_accessibility_accessibility_proto_msgTypes[6]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetUserStyleRequest.ProtoReflect.Descriptor instead.
+func (*GetUserStyleRequest) Descriptor() ([]byte, []int) {
+	return file_proto_accessibility_accessibility_proto_rawDescGZIP(), []int{6}
+}
+
+type GetUserStyleResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetUserStyleResponse) Reset() {
+	*x = GetUserStyleResponse{}
+	mi := &file_proto_accessibility_accessibility_proto_msgTypes[7]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetUserStyleResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetUserStyleResponse) ProtoMessage() {}
+
+func (x *GetUserStyleResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_accessibility_accessibility_proto_msgTypes[7]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetUserStyleResponse.ProtoReflect.Descriptor instead.
+func (*GetUserStyleResponse) Descriptor() ([]byte, []int) {
+	return file_proto_accessibility_accessibility_proto_rawDescGZIP(), []int{7}
+}
+
+func (x *GetUserStyleResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type IsCallCaptioningEnabledRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *IsCallCaptioningEnabledRequest) Reset() {
+	*x = IsCallCaptioningEnabledRequest{}
+	mi := &file_proto_accessibility_accessibility_proto_msgTypes[8]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *IsCallCaptioningEnabledRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IsCallCaptioningEnabledRequest) ProtoMessage() {}
+
+func (x *IsCallCaptioningEnabledRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_accessibility_accessibility_proto_msgTypes[8]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IsCallCaptioningEnabledRequest.ProtoReflect.Descriptor instead.
+func (*IsCallCaptioningEnabledRequest) Descriptor() ([]byte, []int) {
+	return file_proto_accessibility_accessibility_proto_rawDescGZIP(), []int{8}
+}
+
+type IsCallCaptioningEnabledResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *IsCallCaptioningEnabledResponse) Reset() {
+	*x = IsCallCaptioningEnabledResponse{}
+	mi := &file_proto_accessibility_accessibility_proto_msgTypes[9]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *IsCallCaptioningEnabledResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IsCallCaptioningEnabledResponse) ProtoMessage() {}
+
+func (x *IsCallCaptioningEnabledResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_accessibility_accessibility_proto_msgTypes[9]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IsCallCaptioningEnabledResponse.ProtoReflect.Descriptor instead.
+func (*IsCallCaptioningEnabledResponse) Descriptor() ([]byte, []int) {
+	return file_proto_accessibility_accessibility_proto_rawDescGZIP(), []int{9}
+}
+
+func (x *IsCallCaptioningEnabledResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type IsEnabledRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *IsEnabledRequest) Reset() {
+	*x = IsEnabledRequest{}
+	mi := &file_proto_accessibility_accessibility_proto_msgTypes[10]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *IsEnabledRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IsEnabledRequest) ProtoMessage() {}
+
+func (x *IsEnabledRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_accessibility_accessibility_proto_msgTypes[10]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IsEnabledRequest.ProtoReflect.Descriptor instead.
+func (*IsEnabledRequest) Descriptor() ([]byte, []int) {
+	return file_proto_accessibility_accessibility_proto_rawDescGZIP(), []int{10}
+}
+
+type IsEnabledResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *IsEnabledResponse) Reset() {
+	*x = IsEnabledResponse{}
+	mi := &file_proto_accessibility_accessibility_proto_msgTypes[11]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *IsEnabledResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IsEnabledResponse) ProtoMessage() {}
+
+func (x *IsEnabledResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_accessibility_accessibility_proto_msgTypes[11]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IsEnabledResponse.ProtoReflect.Descriptor instead.
+func (*IsEnabledResponse) Descriptor() ([]byte, []int) {
+	return file_proto_accessibility_accessibility_proto_rawDescGZIP(), []int{11}
+}
+
+func (x *IsEnabledResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type IsSystemAudioCaptioningEnabledRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *IsSystemAudioCaptioningEnabledRequest) Reset() {
+	*x = IsSystemAudioCaptioningEnabledRequest{}
+	mi := &file_proto_accessibility_accessibility_proto_msgTypes[12]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *IsSystemAudioCaptioningEnabledRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IsSystemAudioCaptioningEnabledRequest) ProtoMessage() {}
+
+func (x *IsSystemAudioCaptioningEnabledRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_accessibility_accessibility_proto_msgTypes[12]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IsSystemAudioCaptioningEnabledRequest.ProtoReflect.Descriptor instead.
+func (*IsSystemAudioCaptioningEnabledRequest) Descriptor() ([]byte, []int) {
+	return file_proto_accessibility_accessibility_proto_rawDescGZIP(), []int{12}
+}
+
+type IsSystemAudioCaptioningEnabledResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *IsSystemAudioCaptioningEnabledResponse) Reset() {
+	*x = IsSystemAudioCaptioningEnabledResponse{}
+	mi := &file_proto_accessibility_accessibility_proto_msgTypes[13]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *IsSystemAudioCaptioningEnabledResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IsSystemAudioCaptioningEnabledResponse) ProtoMessage() {}
+
+func (x *IsSystemAudioCaptioningEnabledResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_accessibility_accessibility_proto_msgTypes[13]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IsSystemAudioCaptioningEnabledResponse.ProtoReflect.Descriptor instead.
+func (*IsSystemAudioCaptioningEnabledResponse) Descriptor() ([]byte, []int) {
+	return file_proto_accessibility_accessibility_proto_rawDescGZIP(), []int{13}
+}
+
+func (x *IsSystemAudioCaptioningEnabledResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type IsSystemAudioCaptioningUiEnabledRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *IsSystemAudioCaptioningUiEnabledRequest) Reset() {
+	*x = IsSystemAudioCaptioningUiEnabledRequest{}
+	mi := &file_proto_accessibility_accessibility_proto_msgTypes[14]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *IsSystemAudioCaptioningUiEnabledRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IsSystemAudioCaptioningUiEnabledRequest) ProtoMessage() {}
+
+func (x *IsSystemAudioCaptioningUiEnabledRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_accessibility_accessibility_proto_msgTypes[14]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IsSystemAudioCaptioningUiEnabledRequest.ProtoReflect.Descriptor instead.
+func (*IsSystemAudioCaptioningUiEnabledRequest) Descriptor() ([]byte, []int) {
+	return file_proto_accessibility_accessibility_proto_rawDescGZIP(), []int{14}
+}
+
+type IsSystemAudioCaptioningUiEnabledResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *IsSystemAudioCaptioningUiEnabledResponse) Reset() {
+	*x = IsSystemAudioCaptioningUiEnabledResponse{}
+	mi := &file_proto_accessibility_accessibility_proto_msgTypes[15]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *IsSystemAudioCaptioningUiEnabledResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IsSystemAudioCaptioningUiEnabledResponse) ProtoMessage() {}
+
+func (x *IsSystemAudioCaptioningUiEnabledResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_accessibility_accessibility_proto_msgTypes[15]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IsSystemAudioCaptioningUiEnabledResponse.ProtoReflect.Descriptor instead.
+func (*IsSystemAudioCaptioningUiEnabledResponse) Descriptor() ([]byte, []int) {
+	return file_proto_accessibility_accessibility_proto_rawDescGZIP(), []int{15}
+}
+
+func (x *IsSystemAudioCaptioningUiEnabledResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type RemoveCaptioningChangeListenerRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *RemoveCaptioningChangeListenerRequest) Reset() {
+	*x = RemoveCaptioningChangeListenerRequest{}
+	mi := &file_proto_accessibility_accessibility_proto_msgTypes[16]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *RemoveCaptioningChangeListenerRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*RemoveCaptioningChangeListenerRequest) ProtoMessage() {}
+
+func (x *RemoveCaptioningChangeListenerRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_accessibility_accessibility_proto_msgTypes[16]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use RemoveCaptioningChangeListenerRequest.ProtoReflect.Descriptor instead.
+func (*RemoveCaptioningChangeListenerRequest) Descriptor() ([]byte, []int) {
+	return file_proto_accessibility_accessibility_proto_rawDescGZIP(), []int{16}
+}
+
+func (x *RemoveCaptioningChangeListenerRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type RemoveCaptioningChangeListenerResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *RemoveCaptioningChangeListenerResponse) Reset() {
+	*x = RemoveCaptioningChangeListenerResponse{}
+	mi := &file_proto_accessibility_accessibility_proto_msgTypes[17]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *RemoveCaptioningChangeListenerResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*RemoveCaptioningChangeListenerResponse) ProtoMessage() {}
+
+func (x *RemoveCaptioningChangeListenerResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_accessibility_accessibility_proto_msgTypes[17]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use RemoveCaptioningChangeListenerResponse.ProtoReflect.Descriptor instead.
+func (*RemoveCaptioningChangeListenerResponse) Descriptor() ([]byte, []int) {
+	return file_proto_accessibility_accessibility_proto_rawDescGZIP(), []int{17}
+}
+
 type AddAccessibilityRequestPreparerRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
@@ -32,7 +752,7 @@ type AddAccessibilityRequestPreparerRequest struct {
 
 func (x *AddAccessibilityRequestPreparerRequest) Reset() {
 	*x = AddAccessibilityRequestPreparerRequest{}
-	mi := &file_proto_accessibility_accessibility_proto_msgTypes[0]
+	mi := &file_proto_accessibility_accessibility_proto_msgTypes[18]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -44,7 +764,7 @@ func (x *AddAccessibilityRequestPreparerRequest) String() string {
 func (*AddAccessibilityRequestPreparerRequest) ProtoMessage() {}
 
 func (x *AddAccessibilityRequestPreparerRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_accessibility_accessibility_proto_msgTypes[0]
+	mi := &file_proto_accessibility_accessibility_proto_msgTypes[18]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -57,7 +777,7 @@ func (x *AddAccessibilityRequestPreparerRequest) ProtoReflect() protoreflect.Mes
 
 // Deprecated: Use AddAccessibilityRequestPreparerRequest.ProtoReflect.Descriptor instead.
 func (*AddAccessibilityRequestPreparerRequest) Descriptor() ([]byte, []int) {
-	return file_proto_accessibility_accessibility_proto_rawDescGZIP(), []int{0}
+	return file_proto_accessibility_accessibility_proto_rawDescGZIP(), []int{18}
 }
 
 func (x *AddAccessibilityRequestPreparerRequest) GetArg0() int64 {
@@ -75,7 +795,7 @@ type AddAccessibilityRequestPreparerResponse struct {
 
 func (x *AddAccessibilityRequestPreparerResponse) Reset() {
 	*x = AddAccessibilityRequestPreparerResponse{}
-	mi := &file_proto_accessibility_accessibility_proto_msgTypes[1]
+	mi := &file_proto_accessibility_accessibility_proto_msgTypes[19]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -87,7 +807,7 @@ func (x *AddAccessibilityRequestPreparerResponse) String() string {
 func (*AddAccessibilityRequestPreparerResponse) ProtoMessage() {}
 
 func (x *AddAccessibilityRequestPreparerResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_accessibility_accessibility_proto_msgTypes[1]
+	mi := &file_proto_accessibility_accessibility_proto_msgTypes[19]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -100,7 +820,7 @@ func (x *AddAccessibilityRequestPreparerResponse) ProtoReflect() protoreflect.Me
 
 // Deprecated: Use AddAccessibilityRequestPreparerResponse.ProtoReflect.Descriptor instead.
 func (*AddAccessibilityRequestPreparerResponse) Descriptor() ([]byte, []int) {
-	return file_proto_accessibility_accessibility_proto_rawDescGZIP(), []int{1}
+	return file_proto_accessibility_accessibility_proto_rawDescGZIP(), []int{19}
 }
 
 type AddAccessibilityServicesStateChangeListener1Request struct {
@@ -112,7 +832,7 @@ type AddAccessibilityServicesStateChangeListener1Request struct {
 
 func (x *AddAccessibilityServicesStateChangeListener1Request) Reset() {
 	*x = AddAccessibilityServicesStateChangeListener1Request{}
-	mi := &file_proto_accessibility_accessibility_proto_msgTypes[2]
+	mi := &file_proto_accessibility_accessibility_proto_msgTypes[20]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -124,7 +844,7 @@ func (x *AddAccessibilityServicesStateChangeListener1Request) String() string {
 func (*AddAccessibilityServicesStateChangeListener1Request) ProtoMessage() {}
 
 func (x *AddAccessibilityServicesStateChangeListener1Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_accessibility_accessibility_proto_msgTypes[2]
+	mi := &file_proto_accessibility_accessibility_proto_msgTypes[20]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -137,7 +857,7 @@ func (x *AddAccessibilityServicesStateChangeListener1Request) ProtoReflect() pro
 
 // Deprecated: Use AddAccessibilityServicesStateChangeListener1Request.ProtoReflect.Descriptor instead.
 func (*AddAccessibilityServicesStateChangeListener1Request) Descriptor() ([]byte, []int) {
-	return file_proto_accessibility_accessibility_proto_rawDescGZIP(), []int{2}
+	return file_proto_accessibility_accessibility_proto_rawDescGZIP(), []int{20}
 }
 
 func (x *AddAccessibilityServicesStateChangeListener1Request) GetArg0() int64 {
@@ -155,7 +875,7 @@ type AddAccessibilityServicesStateChangeListener1Response struct {
 
 func (x *AddAccessibilityServicesStateChangeListener1Response) Reset() {
 	*x = AddAccessibilityServicesStateChangeListener1Response{}
-	mi := &file_proto_accessibility_accessibility_proto_msgTypes[3]
+	mi := &file_proto_accessibility_accessibility_proto_msgTypes[21]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -167,7 +887,7 @@ func (x *AddAccessibilityServicesStateChangeListener1Response) String() string {
 func (*AddAccessibilityServicesStateChangeListener1Response) ProtoMessage() {}
 
 func (x *AddAccessibilityServicesStateChangeListener1Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_accessibility_accessibility_proto_msgTypes[3]
+	mi := &file_proto_accessibility_accessibility_proto_msgTypes[21]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -180,7 +900,7 @@ func (x *AddAccessibilityServicesStateChangeListener1Response) ProtoReflect() pr
 
 // Deprecated: Use AddAccessibilityServicesStateChangeListener1Response.ProtoReflect.Descriptor instead.
 func (*AddAccessibilityServicesStateChangeListener1Response) Descriptor() ([]byte, []int) {
-	return file_proto_accessibility_accessibility_proto_rawDescGZIP(), []int{3}
+	return file_proto_accessibility_accessibility_proto_rawDescGZIP(), []int{21}
 }
 
 type AddAccessibilityServicesStateChangeListener2_1Request struct {
@@ -193,7 +913,7 @@ type AddAccessibilityServicesStateChangeListener2_1Request struct {
 
 func (x *AddAccessibilityServicesStateChangeListener2_1Request) Reset() {
 	*x = AddAccessibilityServicesStateChangeListener2_1Request{}
-	mi := &file_proto_accessibility_accessibility_proto_msgTypes[4]
+	mi := &file_proto_accessibility_accessibility_proto_msgTypes[22]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -205,7 +925,7 @@ func (x *AddAccessibilityServicesStateChangeListener2_1Request) String() string 
 func (*AddAccessibilityServicesStateChangeListener2_1Request) ProtoMessage() {}
 
 func (x *AddAccessibilityServicesStateChangeListener2_1Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_accessibility_accessibility_proto_msgTypes[4]
+	mi := &file_proto_accessibility_accessibility_proto_msgTypes[22]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -218,7 +938,7 @@ func (x *AddAccessibilityServicesStateChangeListener2_1Request) ProtoReflect() p
 
 // Deprecated: Use AddAccessibilityServicesStateChangeListener2_1Request.ProtoReflect.Descriptor instead.
 func (*AddAccessibilityServicesStateChangeListener2_1Request) Descriptor() ([]byte, []int) {
-	return file_proto_accessibility_accessibility_proto_rawDescGZIP(), []int{4}
+	return file_proto_accessibility_accessibility_proto_rawDescGZIP(), []int{22}
 }
 
 func (x *AddAccessibilityServicesStateChangeListener2_1Request) GetArg0() int64 {
@@ -243,7 +963,7 @@ type AddAccessibilityServicesStateChangeListener2_1Response struct {
 
 func (x *AddAccessibilityServicesStateChangeListener2_1Response) Reset() {
 	*x = AddAccessibilityServicesStateChangeListener2_1Response{}
-	mi := &file_proto_accessibility_accessibility_proto_msgTypes[5]
+	mi := &file_proto_accessibility_accessibility_proto_msgTypes[23]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -255,7 +975,7 @@ func (x *AddAccessibilityServicesStateChangeListener2_1Response) String() string
 func (*AddAccessibilityServicesStateChangeListener2_1Response) ProtoMessage() {}
 
 func (x *AddAccessibilityServicesStateChangeListener2_1Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_accessibility_accessibility_proto_msgTypes[5]
+	mi := &file_proto_accessibility_accessibility_proto_msgTypes[23]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -268,7 +988,7 @@ func (x *AddAccessibilityServicesStateChangeListener2_1Response) ProtoReflect() 
 
 // Deprecated: Use AddAccessibilityServicesStateChangeListener2_1Response.ProtoReflect.Descriptor instead.
 func (*AddAccessibilityServicesStateChangeListener2_1Response) Descriptor() ([]byte, []int) {
-	return file_proto_accessibility_accessibility_proto_rawDescGZIP(), []int{5}
+	return file_proto_accessibility_accessibility_proto_rawDescGZIP(), []int{23}
 }
 
 type AddAccessibilityStateChangeListenerRequest struct {
@@ -280,7 +1000,7 @@ type AddAccessibilityStateChangeListenerRequest struct {
 
 func (x *AddAccessibilityStateChangeListenerRequest) Reset() {
 	*x = AddAccessibilityStateChangeListenerRequest{}
-	mi := &file_proto_accessibility_accessibility_proto_msgTypes[6]
+	mi := &file_proto_accessibility_accessibility_proto_msgTypes[24]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -292,7 +1012,7 @@ func (x *AddAccessibilityStateChangeListenerRequest) String() string {
 func (*AddAccessibilityStateChangeListenerRequest) ProtoMessage() {}
 
 func (x *AddAccessibilityStateChangeListenerRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_accessibility_accessibility_proto_msgTypes[6]
+	mi := &file_proto_accessibility_accessibility_proto_msgTypes[24]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -305,7 +1025,7 @@ func (x *AddAccessibilityStateChangeListenerRequest) ProtoReflect() protoreflect
 
 // Deprecated: Use AddAccessibilityStateChangeListenerRequest.ProtoReflect.Descriptor instead.
 func (*AddAccessibilityStateChangeListenerRequest) Descriptor() ([]byte, []int) {
-	return file_proto_accessibility_accessibility_proto_rawDescGZIP(), []int{6}
+	return file_proto_accessibility_accessibility_proto_rawDescGZIP(), []int{24}
 }
 
 func (x *AddAccessibilityStateChangeListenerRequest) GetArg0() int64 {
@@ -324,7 +1044,7 @@ type AddAccessibilityStateChangeListenerResponse struct {
 
 func (x *AddAccessibilityStateChangeListenerResponse) Reset() {
 	*x = AddAccessibilityStateChangeListenerResponse{}
-	mi := &file_proto_accessibility_accessibility_proto_msgTypes[7]
+	mi := &file_proto_accessibility_accessibility_proto_msgTypes[25]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -336,7 +1056,7 @@ func (x *AddAccessibilityStateChangeListenerResponse) String() string {
 func (*AddAccessibilityStateChangeListenerResponse) ProtoMessage() {}
 
 func (x *AddAccessibilityStateChangeListenerResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_accessibility_accessibility_proto_msgTypes[7]
+	mi := &file_proto_accessibility_accessibility_proto_msgTypes[25]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -349,7 +1069,7 @@ func (x *AddAccessibilityStateChangeListenerResponse) ProtoReflect() protoreflec
 
 // Deprecated: Use AddAccessibilityStateChangeListenerResponse.ProtoReflect.Descriptor instead.
 func (*AddAccessibilityStateChangeListenerResponse) Descriptor() ([]byte, []int) {
-	return file_proto_accessibility_accessibility_proto_rawDescGZIP(), []int{7}
+	return file_proto_accessibility_accessibility_proto_rawDescGZIP(), []int{25}
 }
 
 func (x *AddAccessibilityStateChangeListenerResponse) GetResult() bool {
@@ -369,7 +1089,7 @@ type AddAudioDescriptionRequestedChangeListenerRequest struct {
 
 func (x *AddAudioDescriptionRequestedChangeListenerRequest) Reset() {
 	*x = AddAudioDescriptionRequestedChangeListenerRequest{}
-	mi := &file_proto_accessibility_accessibility_proto_msgTypes[8]
+	mi := &file_proto_accessibility_accessibility_proto_msgTypes[26]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -381,7 +1101,7 @@ func (x *AddAudioDescriptionRequestedChangeListenerRequest) String() string {
 func (*AddAudioDescriptionRequestedChangeListenerRequest) ProtoMessage() {}
 
 func (x *AddAudioDescriptionRequestedChangeListenerRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_accessibility_accessibility_proto_msgTypes[8]
+	mi := &file_proto_accessibility_accessibility_proto_msgTypes[26]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -394,7 +1114,7 @@ func (x *AddAudioDescriptionRequestedChangeListenerRequest) ProtoReflect() proto
 
 // Deprecated: Use AddAudioDescriptionRequestedChangeListenerRequest.ProtoReflect.Descriptor instead.
 func (*AddAudioDescriptionRequestedChangeListenerRequest) Descriptor() ([]byte, []int) {
-	return file_proto_accessibility_accessibility_proto_rawDescGZIP(), []int{8}
+	return file_proto_accessibility_accessibility_proto_rawDescGZIP(), []int{26}
 }
 
 func (x *AddAudioDescriptionRequestedChangeListenerRequest) GetArg0() int64 {
@@ -419,7 +1139,7 @@ type AddAudioDescriptionRequestedChangeListenerResponse struct {
 
 func (x *AddAudioDescriptionRequestedChangeListenerResponse) Reset() {
 	*x = AddAudioDescriptionRequestedChangeListenerResponse{}
-	mi := &file_proto_accessibility_accessibility_proto_msgTypes[9]
+	mi := &file_proto_accessibility_accessibility_proto_msgTypes[27]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -431,7 +1151,7 @@ func (x *AddAudioDescriptionRequestedChangeListenerResponse) String() string {
 func (*AddAudioDescriptionRequestedChangeListenerResponse) ProtoMessage() {}
 
 func (x *AddAudioDescriptionRequestedChangeListenerResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_accessibility_accessibility_proto_msgTypes[9]
+	mi := &file_proto_accessibility_accessibility_proto_msgTypes[27]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -444,7 +1164,7 @@ func (x *AddAudioDescriptionRequestedChangeListenerResponse) ProtoReflect() prot
 
 // Deprecated: Use AddAudioDescriptionRequestedChangeListenerResponse.ProtoReflect.Descriptor instead.
 func (*AddAudioDescriptionRequestedChangeListenerResponse) Descriptor() ([]byte, []int) {
-	return file_proto_accessibility_accessibility_proto_rawDescGZIP(), []int{9}
+	return file_proto_accessibility_accessibility_proto_rawDescGZIP(), []int{27}
 }
 
 type AddHighContrastTextStateChangeListenerRequest struct {
@@ -457,7 +1177,7 @@ type AddHighContrastTextStateChangeListenerRequest struct {
 
 func (x *AddHighContrastTextStateChangeListenerRequest) Reset() {
 	*x = AddHighContrastTextStateChangeListenerRequest{}
-	mi := &file_proto_accessibility_accessibility_proto_msgTypes[10]
+	mi := &file_proto_accessibility_accessibility_proto_msgTypes[28]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -469,7 +1189,7 @@ func (x *AddHighContrastTextStateChangeListenerRequest) String() string {
 func (*AddHighContrastTextStateChangeListenerRequest) ProtoMessage() {}
 
 func (x *AddHighContrastTextStateChangeListenerRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_accessibility_accessibility_proto_msgTypes[10]
+	mi := &file_proto_accessibility_accessibility_proto_msgTypes[28]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -482,7 +1202,7 @@ func (x *AddHighContrastTextStateChangeListenerRequest) ProtoReflect() protorefl
 
 // Deprecated: Use AddHighContrastTextStateChangeListenerRequest.ProtoReflect.Descriptor instead.
 func (*AddHighContrastTextStateChangeListenerRequest) Descriptor() ([]byte, []int) {
-	return file_proto_accessibility_accessibility_proto_rawDescGZIP(), []int{10}
+	return file_proto_accessibility_accessibility_proto_rawDescGZIP(), []int{28}
 }
 
 func (x *AddHighContrastTextStateChangeListenerRequest) GetArg0() int64 {
@@ -507,7 +1227,7 @@ type AddHighContrastTextStateChangeListenerResponse struct {
 
 func (x *AddHighContrastTextStateChangeListenerResponse) Reset() {
 	*x = AddHighContrastTextStateChangeListenerResponse{}
-	mi := &file_proto_accessibility_accessibility_proto_msgTypes[11]
+	mi := &file_proto_accessibility_accessibility_proto_msgTypes[29]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -519,7 +1239,7 @@ func (x *AddHighContrastTextStateChangeListenerResponse) String() string {
 func (*AddHighContrastTextStateChangeListenerResponse) ProtoMessage() {}
 
 func (x *AddHighContrastTextStateChangeListenerResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_accessibility_accessibility_proto_msgTypes[11]
+	mi := &file_proto_accessibility_accessibility_proto_msgTypes[29]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -532,7 +1252,7 @@ func (x *AddHighContrastTextStateChangeListenerResponse) ProtoReflect() protoref
 
 // Deprecated: Use AddHighContrastTextStateChangeListenerResponse.ProtoReflect.Descriptor instead.
 func (*AddHighContrastTextStateChangeListenerResponse) Descriptor() ([]byte, []int) {
-	return file_proto_accessibility_accessibility_proto_rawDescGZIP(), []int{11}
+	return file_proto_accessibility_accessibility_proto_rawDescGZIP(), []int{29}
 }
 
 type AddTouchExplorationStateChangeListenerRequest struct {
@@ -544,7 +1264,7 @@ type AddTouchExplorationStateChangeListenerRequest struct {
 
 func (x *AddTouchExplorationStateChangeListenerRequest) Reset() {
 	*x = AddTouchExplorationStateChangeListenerRequest{}
-	mi := &file_proto_accessibility_accessibility_proto_msgTypes[12]
+	mi := &file_proto_accessibility_accessibility_proto_msgTypes[30]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -556,7 +1276,7 @@ func (x *AddTouchExplorationStateChangeListenerRequest) String() string {
 func (*AddTouchExplorationStateChangeListenerRequest) ProtoMessage() {}
 
 func (x *AddTouchExplorationStateChangeListenerRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_accessibility_accessibility_proto_msgTypes[12]
+	mi := &file_proto_accessibility_accessibility_proto_msgTypes[30]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -569,7 +1289,7 @@ func (x *AddTouchExplorationStateChangeListenerRequest) ProtoReflect() protorefl
 
 // Deprecated: Use AddTouchExplorationStateChangeListenerRequest.ProtoReflect.Descriptor instead.
 func (*AddTouchExplorationStateChangeListenerRequest) Descriptor() ([]byte, []int) {
-	return file_proto_accessibility_accessibility_proto_rawDescGZIP(), []int{12}
+	return file_proto_accessibility_accessibility_proto_rawDescGZIP(), []int{30}
 }
 
 func (x *AddTouchExplorationStateChangeListenerRequest) GetArg0() int64 {
@@ -588,7 +1308,7 @@ type AddTouchExplorationStateChangeListenerResponse struct {
 
 func (x *AddTouchExplorationStateChangeListenerResponse) Reset() {
 	*x = AddTouchExplorationStateChangeListenerResponse{}
-	mi := &file_proto_accessibility_accessibility_proto_msgTypes[13]
+	mi := &file_proto_accessibility_accessibility_proto_msgTypes[31]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -600,7 +1320,7 @@ func (x *AddTouchExplorationStateChangeListenerResponse) String() string {
 func (*AddTouchExplorationStateChangeListenerResponse) ProtoMessage() {}
 
 func (x *AddTouchExplorationStateChangeListenerResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_accessibility_accessibility_proto_msgTypes[13]
+	mi := &file_proto_accessibility_accessibility_proto_msgTypes[31]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -613,7 +1333,7 @@ func (x *AddTouchExplorationStateChangeListenerResponse) ProtoReflect() protoref
 
 // Deprecated: Use AddTouchExplorationStateChangeListenerResponse.ProtoReflect.Descriptor instead.
 func (*AddTouchExplorationStateChangeListenerResponse) Descriptor() ([]byte, []int) {
-	return file_proto_accessibility_accessibility_proto_rawDescGZIP(), []int{13}
+	return file_proto_accessibility_accessibility_proto_rawDescGZIP(), []int{31}
 }
 
 func (x *AddTouchExplorationStateChangeListenerResponse) GetResult() bool {
@@ -631,7 +1351,7 @@ type GetAccessibilityFocusColorRequest struct {
 
 func (x *GetAccessibilityFocusColorRequest) Reset() {
 	*x = GetAccessibilityFocusColorRequest{}
-	mi := &file_proto_accessibility_accessibility_proto_msgTypes[14]
+	mi := &file_proto_accessibility_accessibility_proto_msgTypes[32]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -643,7 +1363,7 @@ func (x *GetAccessibilityFocusColorRequest) String() string {
 func (*GetAccessibilityFocusColorRequest) ProtoMessage() {}
 
 func (x *GetAccessibilityFocusColorRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_accessibility_accessibility_proto_msgTypes[14]
+	mi := &file_proto_accessibility_accessibility_proto_msgTypes[32]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -656,7 +1376,7 @@ func (x *GetAccessibilityFocusColorRequest) ProtoReflect() protoreflect.Message 
 
 // Deprecated: Use GetAccessibilityFocusColorRequest.ProtoReflect.Descriptor instead.
 func (*GetAccessibilityFocusColorRequest) Descriptor() ([]byte, []int) {
-	return file_proto_accessibility_accessibility_proto_rawDescGZIP(), []int{14}
+	return file_proto_accessibility_accessibility_proto_rawDescGZIP(), []int{32}
 }
 
 type GetAccessibilityFocusColorResponse struct {
@@ -668,7 +1388,7 @@ type GetAccessibilityFocusColorResponse struct {
 
 func (x *GetAccessibilityFocusColorResponse) Reset() {
 	*x = GetAccessibilityFocusColorResponse{}
-	mi := &file_proto_accessibility_accessibility_proto_msgTypes[15]
+	mi := &file_proto_accessibility_accessibility_proto_msgTypes[33]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -680,7 +1400,7 @@ func (x *GetAccessibilityFocusColorResponse) String() string {
 func (*GetAccessibilityFocusColorResponse) ProtoMessage() {}
 
 func (x *GetAccessibilityFocusColorResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_accessibility_accessibility_proto_msgTypes[15]
+	mi := &file_proto_accessibility_accessibility_proto_msgTypes[33]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -693,7 +1413,7 @@ func (x *GetAccessibilityFocusColorResponse) ProtoReflect() protoreflect.Message
 
 // Deprecated: Use GetAccessibilityFocusColorResponse.ProtoReflect.Descriptor instead.
 func (*GetAccessibilityFocusColorResponse) Descriptor() ([]byte, []int) {
-	return file_proto_accessibility_accessibility_proto_rawDescGZIP(), []int{15}
+	return file_proto_accessibility_accessibility_proto_rawDescGZIP(), []int{33}
 }
 
 func (x *GetAccessibilityFocusColorResponse) GetResult() int32 {
@@ -711,7 +1431,7 @@ type GetAccessibilityFocusStrokeWidthRequest struct {
 
 func (x *GetAccessibilityFocusStrokeWidthRequest) Reset() {
 	*x = GetAccessibilityFocusStrokeWidthRequest{}
-	mi := &file_proto_accessibility_accessibility_proto_msgTypes[16]
+	mi := &file_proto_accessibility_accessibility_proto_msgTypes[34]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -723,7 +1443,7 @@ func (x *GetAccessibilityFocusStrokeWidthRequest) String() string {
 func (*GetAccessibilityFocusStrokeWidthRequest) ProtoMessage() {}
 
 func (x *GetAccessibilityFocusStrokeWidthRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_accessibility_accessibility_proto_msgTypes[16]
+	mi := &file_proto_accessibility_accessibility_proto_msgTypes[34]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -736,7 +1456,7 @@ func (x *GetAccessibilityFocusStrokeWidthRequest) ProtoReflect() protoreflect.Me
 
 // Deprecated: Use GetAccessibilityFocusStrokeWidthRequest.ProtoReflect.Descriptor instead.
 func (*GetAccessibilityFocusStrokeWidthRequest) Descriptor() ([]byte, []int) {
-	return file_proto_accessibility_accessibility_proto_rawDescGZIP(), []int{16}
+	return file_proto_accessibility_accessibility_proto_rawDescGZIP(), []int{34}
 }
 
 type GetAccessibilityFocusStrokeWidthResponse struct {
@@ -748,7 +1468,7 @@ type GetAccessibilityFocusStrokeWidthResponse struct {
 
 func (x *GetAccessibilityFocusStrokeWidthResponse) Reset() {
 	*x = GetAccessibilityFocusStrokeWidthResponse{}
-	mi := &file_proto_accessibility_accessibility_proto_msgTypes[17]
+	mi := &file_proto_accessibility_accessibility_proto_msgTypes[35]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -760,7 +1480,7 @@ func (x *GetAccessibilityFocusStrokeWidthResponse) String() string {
 func (*GetAccessibilityFocusStrokeWidthResponse) ProtoMessage() {}
 
 func (x *GetAccessibilityFocusStrokeWidthResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_accessibility_accessibility_proto_msgTypes[17]
+	mi := &file_proto_accessibility_accessibility_proto_msgTypes[35]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -773,7 +1493,7 @@ func (x *GetAccessibilityFocusStrokeWidthResponse) ProtoReflect() protoreflect.M
 
 // Deprecated: Use GetAccessibilityFocusStrokeWidthResponse.ProtoReflect.Descriptor instead.
 func (*GetAccessibilityFocusStrokeWidthResponse) Descriptor() ([]byte, []int) {
-	return file_proto_accessibility_accessibility_proto_rawDescGZIP(), []int{17}
+	return file_proto_accessibility_accessibility_proto_rawDescGZIP(), []int{35}
 }
 
 func (x *GetAccessibilityFocusStrokeWidthResponse) GetResult() int32 {
@@ -793,7 +1513,7 @@ type GetRecommendedTimeoutMillisRequest struct {
 
 func (x *GetRecommendedTimeoutMillisRequest) Reset() {
 	*x = GetRecommendedTimeoutMillisRequest{}
-	mi := &file_proto_accessibility_accessibility_proto_msgTypes[18]
+	mi := &file_proto_accessibility_accessibility_proto_msgTypes[36]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -805,7 +1525,7 @@ func (x *GetRecommendedTimeoutMillisRequest) String() string {
 func (*GetRecommendedTimeoutMillisRequest) ProtoMessage() {}
 
 func (x *GetRecommendedTimeoutMillisRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_accessibility_accessibility_proto_msgTypes[18]
+	mi := &file_proto_accessibility_accessibility_proto_msgTypes[36]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -818,7 +1538,7 @@ func (x *GetRecommendedTimeoutMillisRequest) ProtoReflect() protoreflect.Message
 
 // Deprecated: Use GetRecommendedTimeoutMillisRequest.ProtoReflect.Descriptor instead.
 func (*GetRecommendedTimeoutMillisRequest) Descriptor() ([]byte, []int) {
-	return file_proto_accessibility_accessibility_proto_rawDescGZIP(), []int{18}
+	return file_proto_accessibility_accessibility_proto_rawDescGZIP(), []int{36}
 }
 
 func (x *GetRecommendedTimeoutMillisRequest) GetArg0() int32 {
@@ -844,7 +1564,7 @@ type GetRecommendedTimeoutMillisResponse struct {
 
 func (x *GetRecommendedTimeoutMillisResponse) Reset() {
 	*x = GetRecommendedTimeoutMillisResponse{}
-	mi := &file_proto_accessibility_accessibility_proto_msgTypes[19]
+	mi := &file_proto_accessibility_accessibility_proto_msgTypes[37]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -856,7 +1576,7 @@ func (x *GetRecommendedTimeoutMillisResponse) String() string {
 func (*GetRecommendedTimeoutMillisResponse) ProtoMessage() {}
 
 func (x *GetRecommendedTimeoutMillisResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_accessibility_accessibility_proto_msgTypes[19]
+	mi := &file_proto_accessibility_accessibility_proto_msgTypes[37]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -869,7 +1589,7 @@ func (x *GetRecommendedTimeoutMillisResponse) ProtoReflect() protoreflect.Messag
 
 // Deprecated: Use GetRecommendedTimeoutMillisResponse.ProtoReflect.Descriptor instead.
 func (*GetRecommendedTimeoutMillisResponse) Descriptor() ([]byte, []int) {
-	return file_proto_accessibility_accessibility_proto_rawDescGZIP(), []int{19}
+	return file_proto_accessibility_accessibility_proto_rawDescGZIP(), []int{37}
 }
 
 func (x *GetRecommendedTimeoutMillisResponse) GetResult() int32 {
@@ -887,7 +1607,7 @@ type InterruptRequest struct {
 
 func (x *InterruptRequest) Reset() {
 	*x = InterruptRequest{}
-	mi := &file_proto_accessibility_accessibility_proto_msgTypes[20]
+	mi := &file_proto_accessibility_accessibility_proto_msgTypes[38]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -899,7 +1619,7 @@ func (x *InterruptRequest) String() string {
 func (*InterruptRequest) ProtoMessage() {}
 
 func (x *InterruptRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_accessibility_accessibility_proto_msgTypes[20]
+	mi := &file_proto_accessibility_accessibility_proto_msgTypes[38]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -912,7 +1632,7 @@ func (x *InterruptRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use InterruptRequest.ProtoReflect.Descriptor instead.
 func (*InterruptRequest) Descriptor() ([]byte, []int) {
-	return file_proto_accessibility_accessibility_proto_rawDescGZIP(), []int{20}
+	return file_proto_accessibility_accessibility_proto_rawDescGZIP(), []int{38}
 }
 
 type InterruptResponse struct {
@@ -923,7 +1643,7 @@ type InterruptResponse struct {
 
 func (x *InterruptResponse) Reset() {
 	*x = InterruptResponse{}
-	mi := &file_proto_accessibility_accessibility_proto_msgTypes[21]
+	mi := &file_proto_accessibility_accessibility_proto_msgTypes[39]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -935,7 +1655,7 @@ func (x *InterruptResponse) String() string {
 func (*InterruptResponse) ProtoMessage() {}
 
 func (x *InterruptResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_accessibility_accessibility_proto_msgTypes[21]
+	mi := &file_proto_accessibility_accessibility_proto_msgTypes[39]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -948,7 +1668,7 @@ func (x *InterruptResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use InterruptResponse.ProtoReflect.Descriptor instead.
 func (*InterruptResponse) Descriptor() ([]byte, []int) {
-	return file_proto_accessibility_accessibility_proto_rawDescGZIP(), []int{21}
+	return file_proto_accessibility_accessibility_proto_rawDescGZIP(), []int{39}
 }
 
 type IsAudioDescriptionRequestedRequest struct {
@@ -959,7 +1679,7 @@ type IsAudioDescriptionRequestedRequest struct {
 
 func (x *IsAudioDescriptionRequestedRequest) Reset() {
 	*x = IsAudioDescriptionRequestedRequest{}
-	mi := &file_proto_accessibility_accessibility_proto_msgTypes[22]
+	mi := &file_proto_accessibility_accessibility_proto_msgTypes[40]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -971,7 +1691,7 @@ func (x *IsAudioDescriptionRequestedRequest) String() string {
 func (*IsAudioDescriptionRequestedRequest) ProtoMessage() {}
 
 func (x *IsAudioDescriptionRequestedRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_accessibility_accessibility_proto_msgTypes[22]
+	mi := &file_proto_accessibility_accessibility_proto_msgTypes[40]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -984,7 +1704,7 @@ func (x *IsAudioDescriptionRequestedRequest) ProtoReflect() protoreflect.Message
 
 // Deprecated: Use IsAudioDescriptionRequestedRequest.ProtoReflect.Descriptor instead.
 func (*IsAudioDescriptionRequestedRequest) Descriptor() ([]byte, []int) {
-	return file_proto_accessibility_accessibility_proto_rawDescGZIP(), []int{22}
+	return file_proto_accessibility_accessibility_proto_rawDescGZIP(), []int{40}
 }
 
 type IsAudioDescriptionRequestedResponse struct {
@@ -996,7 +1716,7 @@ type IsAudioDescriptionRequestedResponse struct {
 
 func (x *IsAudioDescriptionRequestedResponse) Reset() {
 	*x = IsAudioDescriptionRequestedResponse{}
-	mi := &file_proto_accessibility_accessibility_proto_msgTypes[23]
+	mi := &file_proto_accessibility_accessibility_proto_msgTypes[41]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1008,7 +1728,7 @@ func (x *IsAudioDescriptionRequestedResponse) String() string {
 func (*IsAudioDescriptionRequestedResponse) ProtoMessage() {}
 
 func (x *IsAudioDescriptionRequestedResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_accessibility_accessibility_proto_msgTypes[23]
+	mi := &file_proto_accessibility_accessibility_proto_msgTypes[41]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1021,90 +1741,10 @@ func (x *IsAudioDescriptionRequestedResponse) ProtoReflect() protoreflect.Messag
 
 // Deprecated: Use IsAudioDescriptionRequestedResponse.ProtoReflect.Descriptor instead.
 func (*IsAudioDescriptionRequestedResponse) Descriptor() ([]byte, []int) {
-	return file_proto_accessibility_accessibility_proto_rawDescGZIP(), []int{23}
+	return file_proto_accessibility_accessibility_proto_rawDescGZIP(), []int{41}
 }
 
 func (x *IsAudioDescriptionRequestedResponse) GetResult() bool {
-	if x != nil {
-		return x.Result
-	}
-	return false
-}
-
-type IsEnabledRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *IsEnabledRequest) Reset() {
-	*x = IsEnabledRequest{}
-	mi := &file_proto_accessibility_accessibility_proto_msgTypes[24]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *IsEnabledRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*IsEnabledRequest) ProtoMessage() {}
-
-func (x *IsEnabledRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_accessibility_accessibility_proto_msgTypes[24]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use IsEnabledRequest.ProtoReflect.Descriptor instead.
-func (*IsEnabledRequest) Descriptor() ([]byte, []int) {
-	return file_proto_accessibility_accessibility_proto_rawDescGZIP(), []int{24}
-}
-
-type IsEnabledResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *IsEnabledResponse) Reset() {
-	*x = IsEnabledResponse{}
-	mi := &file_proto_accessibility_accessibility_proto_msgTypes[25]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *IsEnabledResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*IsEnabledResponse) ProtoMessage() {}
-
-func (x *IsEnabledResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_accessibility_accessibility_proto_msgTypes[25]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use IsEnabledResponse.ProtoReflect.Descriptor instead.
-func (*IsEnabledResponse) Descriptor() ([]byte, []int) {
-	return file_proto_accessibility_accessibility_proto_rawDescGZIP(), []int{25}
-}
-
-func (x *IsEnabledResponse) GetResult() bool {
 	if x != nil {
 		return x.Result
 	}
@@ -1119,7 +1759,7 @@ type IsHighContrastTextEnabledRequest struct {
 
 func (x *IsHighContrastTextEnabledRequest) Reset() {
 	*x = IsHighContrastTextEnabledRequest{}
-	mi := &file_proto_accessibility_accessibility_proto_msgTypes[26]
+	mi := &file_proto_accessibility_accessibility_proto_msgTypes[42]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1131,7 +1771,7 @@ func (x *IsHighContrastTextEnabledRequest) String() string {
 func (*IsHighContrastTextEnabledRequest) ProtoMessage() {}
 
 func (x *IsHighContrastTextEnabledRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_accessibility_accessibility_proto_msgTypes[26]
+	mi := &file_proto_accessibility_accessibility_proto_msgTypes[42]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1144,7 +1784,7 @@ func (x *IsHighContrastTextEnabledRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use IsHighContrastTextEnabledRequest.ProtoReflect.Descriptor instead.
 func (*IsHighContrastTextEnabledRequest) Descriptor() ([]byte, []int) {
-	return file_proto_accessibility_accessibility_proto_rawDescGZIP(), []int{26}
+	return file_proto_accessibility_accessibility_proto_rawDescGZIP(), []int{42}
 }
 
 type IsHighContrastTextEnabledResponse struct {
@@ -1156,7 +1796,7 @@ type IsHighContrastTextEnabledResponse struct {
 
 func (x *IsHighContrastTextEnabledResponse) Reset() {
 	*x = IsHighContrastTextEnabledResponse{}
-	mi := &file_proto_accessibility_accessibility_proto_msgTypes[27]
+	mi := &file_proto_accessibility_accessibility_proto_msgTypes[43]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1168,7 +1808,7 @@ func (x *IsHighContrastTextEnabledResponse) String() string {
 func (*IsHighContrastTextEnabledResponse) ProtoMessage() {}
 
 func (x *IsHighContrastTextEnabledResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_accessibility_accessibility_proto_msgTypes[27]
+	mi := &file_proto_accessibility_accessibility_proto_msgTypes[43]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1181,7 +1821,7 @@ func (x *IsHighContrastTextEnabledResponse) ProtoReflect() protoreflect.Message 
 
 // Deprecated: Use IsHighContrastTextEnabledResponse.ProtoReflect.Descriptor instead.
 func (*IsHighContrastTextEnabledResponse) Descriptor() ([]byte, []int) {
-	return file_proto_accessibility_accessibility_proto_rawDescGZIP(), []int{27}
+	return file_proto_accessibility_accessibility_proto_rawDescGZIP(), []int{43}
 }
 
 func (x *IsHighContrastTextEnabledResponse) GetResult() bool {
@@ -1199,7 +1839,7 @@ type IsRequestFromAccessibilityToolRequest struct {
 
 func (x *IsRequestFromAccessibilityToolRequest) Reset() {
 	*x = IsRequestFromAccessibilityToolRequest{}
-	mi := &file_proto_accessibility_accessibility_proto_msgTypes[28]
+	mi := &file_proto_accessibility_accessibility_proto_msgTypes[44]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1211,7 +1851,7 @@ func (x *IsRequestFromAccessibilityToolRequest) String() string {
 func (*IsRequestFromAccessibilityToolRequest) ProtoMessage() {}
 
 func (x *IsRequestFromAccessibilityToolRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_accessibility_accessibility_proto_msgTypes[28]
+	mi := &file_proto_accessibility_accessibility_proto_msgTypes[44]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1224,7 +1864,7 @@ func (x *IsRequestFromAccessibilityToolRequest) ProtoReflect() protoreflect.Mess
 
 // Deprecated: Use IsRequestFromAccessibilityToolRequest.ProtoReflect.Descriptor instead.
 func (*IsRequestFromAccessibilityToolRequest) Descriptor() ([]byte, []int) {
-	return file_proto_accessibility_accessibility_proto_rawDescGZIP(), []int{28}
+	return file_proto_accessibility_accessibility_proto_rawDescGZIP(), []int{44}
 }
 
 type IsRequestFromAccessibilityToolResponse struct {
@@ -1236,7 +1876,7 @@ type IsRequestFromAccessibilityToolResponse struct {
 
 func (x *IsRequestFromAccessibilityToolResponse) Reset() {
 	*x = IsRequestFromAccessibilityToolResponse{}
-	mi := &file_proto_accessibility_accessibility_proto_msgTypes[29]
+	mi := &file_proto_accessibility_accessibility_proto_msgTypes[45]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1248,7 +1888,7 @@ func (x *IsRequestFromAccessibilityToolResponse) String() string {
 func (*IsRequestFromAccessibilityToolResponse) ProtoMessage() {}
 
 func (x *IsRequestFromAccessibilityToolResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_accessibility_accessibility_proto_msgTypes[29]
+	mi := &file_proto_accessibility_accessibility_proto_msgTypes[45]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1261,7 +1901,7 @@ func (x *IsRequestFromAccessibilityToolResponse) ProtoReflect() protoreflect.Mes
 
 // Deprecated: Use IsRequestFromAccessibilityToolResponse.ProtoReflect.Descriptor instead.
 func (*IsRequestFromAccessibilityToolResponse) Descriptor() ([]byte, []int) {
-	return file_proto_accessibility_accessibility_proto_rawDescGZIP(), []int{29}
+	return file_proto_accessibility_accessibility_proto_rawDescGZIP(), []int{45}
 }
 
 func (x *IsRequestFromAccessibilityToolResponse) GetResult() bool {
@@ -1279,7 +1919,7 @@ type IsTouchExplorationEnabledRequest struct {
 
 func (x *IsTouchExplorationEnabledRequest) Reset() {
 	*x = IsTouchExplorationEnabledRequest{}
-	mi := &file_proto_accessibility_accessibility_proto_msgTypes[30]
+	mi := &file_proto_accessibility_accessibility_proto_msgTypes[46]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1291,7 +1931,7 @@ func (x *IsTouchExplorationEnabledRequest) String() string {
 func (*IsTouchExplorationEnabledRequest) ProtoMessage() {}
 
 func (x *IsTouchExplorationEnabledRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_accessibility_accessibility_proto_msgTypes[30]
+	mi := &file_proto_accessibility_accessibility_proto_msgTypes[46]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1304,7 +1944,7 @@ func (x *IsTouchExplorationEnabledRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use IsTouchExplorationEnabledRequest.ProtoReflect.Descriptor instead.
 func (*IsTouchExplorationEnabledRequest) Descriptor() ([]byte, []int) {
-	return file_proto_accessibility_accessibility_proto_rawDescGZIP(), []int{30}
+	return file_proto_accessibility_accessibility_proto_rawDescGZIP(), []int{46}
 }
 
 type IsTouchExplorationEnabledResponse struct {
@@ -1316,7 +1956,7 @@ type IsTouchExplorationEnabledResponse struct {
 
 func (x *IsTouchExplorationEnabledResponse) Reset() {
 	*x = IsTouchExplorationEnabledResponse{}
-	mi := &file_proto_accessibility_accessibility_proto_msgTypes[31]
+	mi := &file_proto_accessibility_accessibility_proto_msgTypes[47]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1328,7 +1968,7 @@ func (x *IsTouchExplorationEnabledResponse) String() string {
 func (*IsTouchExplorationEnabledResponse) ProtoMessage() {}
 
 func (x *IsTouchExplorationEnabledResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_accessibility_accessibility_proto_msgTypes[31]
+	mi := &file_proto_accessibility_accessibility_proto_msgTypes[47]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1341,7 +1981,7 @@ func (x *IsTouchExplorationEnabledResponse) ProtoReflect() protoreflect.Message 
 
 // Deprecated: Use IsTouchExplorationEnabledResponse.ProtoReflect.Descriptor instead.
 func (*IsTouchExplorationEnabledResponse) Descriptor() ([]byte, []int) {
-	return file_proto_accessibility_accessibility_proto_rawDescGZIP(), []int{31}
+	return file_proto_accessibility_accessibility_proto_rawDescGZIP(), []int{47}
 }
 
 func (x *IsTouchExplorationEnabledResponse) GetResult() bool {
@@ -1360,7 +2000,7 @@ type RemoveAccessibilityRequestPreparerRequest struct {
 
 func (x *RemoveAccessibilityRequestPreparerRequest) Reset() {
 	*x = RemoveAccessibilityRequestPreparerRequest{}
-	mi := &file_proto_accessibility_accessibility_proto_msgTypes[32]
+	mi := &file_proto_accessibility_accessibility_proto_msgTypes[48]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1372,7 +2012,7 @@ func (x *RemoveAccessibilityRequestPreparerRequest) String() string {
 func (*RemoveAccessibilityRequestPreparerRequest) ProtoMessage() {}
 
 func (x *RemoveAccessibilityRequestPreparerRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_accessibility_accessibility_proto_msgTypes[32]
+	mi := &file_proto_accessibility_accessibility_proto_msgTypes[48]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1385,7 +2025,7 @@ func (x *RemoveAccessibilityRequestPreparerRequest) ProtoReflect() protoreflect.
 
 // Deprecated: Use RemoveAccessibilityRequestPreparerRequest.ProtoReflect.Descriptor instead.
 func (*RemoveAccessibilityRequestPreparerRequest) Descriptor() ([]byte, []int) {
-	return file_proto_accessibility_accessibility_proto_rawDescGZIP(), []int{32}
+	return file_proto_accessibility_accessibility_proto_rawDescGZIP(), []int{48}
 }
 
 func (x *RemoveAccessibilityRequestPreparerRequest) GetArg0() int64 {
@@ -1403,7 +2043,7 @@ type RemoveAccessibilityRequestPreparerResponse struct {
 
 func (x *RemoveAccessibilityRequestPreparerResponse) Reset() {
 	*x = RemoveAccessibilityRequestPreparerResponse{}
-	mi := &file_proto_accessibility_accessibility_proto_msgTypes[33]
+	mi := &file_proto_accessibility_accessibility_proto_msgTypes[49]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1415,7 +2055,7 @@ func (x *RemoveAccessibilityRequestPreparerResponse) String() string {
 func (*RemoveAccessibilityRequestPreparerResponse) ProtoMessage() {}
 
 func (x *RemoveAccessibilityRequestPreparerResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_accessibility_accessibility_proto_msgTypes[33]
+	mi := &file_proto_accessibility_accessibility_proto_msgTypes[49]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1428,7 +2068,7 @@ func (x *RemoveAccessibilityRequestPreparerResponse) ProtoReflect() protoreflect
 
 // Deprecated: Use RemoveAccessibilityRequestPreparerResponse.ProtoReflect.Descriptor instead.
 func (*RemoveAccessibilityRequestPreparerResponse) Descriptor() ([]byte, []int) {
-	return file_proto_accessibility_accessibility_proto_rawDescGZIP(), []int{33}
+	return file_proto_accessibility_accessibility_proto_rawDescGZIP(), []int{49}
 }
 
 type RemoveAccessibilityServicesStateChangeListenerRequest struct {
@@ -1440,7 +2080,7 @@ type RemoveAccessibilityServicesStateChangeListenerRequest struct {
 
 func (x *RemoveAccessibilityServicesStateChangeListenerRequest) Reset() {
 	*x = RemoveAccessibilityServicesStateChangeListenerRequest{}
-	mi := &file_proto_accessibility_accessibility_proto_msgTypes[34]
+	mi := &file_proto_accessibility_accessibility_proto_msgTypes[50]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1452,7 +2092,7 @@ func (x *RemoveAccessibilityServicesStateChangeListenerRequest) String() string 
 func (*RemoveAccessibilityServicesStateChangeListenerRequest) ProtoMessage() {}
 
 func (x *RemoveAccessibilityServicesStateChangeListenerRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_accessibility_accessibility_proto_msgTypes[34]
+	mi := &file_proto_accessibility_accessibility_proto_msgTypes[50]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1465,7 +2105,7 @@ func (x *RemoveAccessibilityServicesStateChangeListenerRequest) ProtoReflect() p
 
 // Deprecated: Use RemoveAccessibilityServicesStateChangeListenerRequest.ProtoReflect.Descriptor instead.
 func (*RemoveAccessibilityServicesStateChangeListenerRequest) Descriptor() ([]byte, []int) {
-	return file_proto_accessibility_accessibility_proto_rawDescGZIP(), []int{34}
+	return file_proto_accessibility_accessibility_proto_rawDescGZIP(), []int{50}
 }
 
 func (x *RemoveAccessibilityServicesStateChangeListenerRequest) GetArg0() int64 {
@@ -1484,7 +2124,7 @@ type RemoveAccessibilityServicesStateChangeListenerResponse struct {
 
 func (x *RemoveAccessibilityServicesStateChangeListenerResponse) Reset() {
 	*x = RemoveAccessibilityServicesStateChangeListenerResponse{}
-	mi := &file_proto_accessibility_accessibility_proto_msgTypes[35]
+	mi := &file_proto_accessibility_accessibility_proto_msgTypes[51]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1496,7 +2136,7 @@ func (x *RemoveAccessibilityServicesStateChangeListenerResponse) String() string
 func (*RemoveAccessibilityServicesStateChangeListenerResponse) ProtoMessage() {}
 
 func (x *RemoveAccessibilityServicesStateChangeListenerResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_accessibility_accessibility_proto_msgTypes[35]
+	mi := &file_proto_accessibility_accessibility_proto_msgTypes[51]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1509,7 +2149,7 @@ func (x *RemoveAccessibilityServicesStateChangeListenerResponse) ProtoReflect() 
 
 // Deprecated: Use RemoveAccessibilityServicesStateChangeListenerResponse.ProtoReflect.Descriptor instead.
 func (*RemoveAccessibilityServicesStateChangeListenerResponse) Descriptor() ([]byte, []int) {
-	return file_proto_accessibility_accessibility_proto_rawDescGZIP(), []int{35}
+	return file_proto_accessibility_accessibility_proto_rawDescGZIP(), []int{51}
 }
 
 func (x *RemoveAccessibilityServicesStateChangeListenerResponse) GetResult() bool {
@@ -1528,7 +2168,7 @@ type RemoveAccessibilityStateChangeListenerRequest struct {
 
 func (x *RemoveAccessibilityStateChangeListenerRequest) Reset() {
 	*x = RemoveAccessibilityStateChangeListenerRequest{}
-	mi := &file_proto_accessibility_accessibility_proto_msgTypes[36]
+	mi := &file_proto_accessibility_accessibility_proto_msgTypes[52]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1540,7 +2180,7 @@ func (x *RemoveAccessibilityStateChangeListenerRequest) String() string {
 func (*RemoveAccessibilityStateChangeListenerRequest) ProtoMessage() {}
 
 func (x *RemoveAccessibilityStateChangeListenerRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_accessibility_accessibility_proto_msgTypes[36]
+	mi := &file_proto_accessibility_accessibility_proto_msgTypes[52]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1553,7 +2193,7 @@ func (x *RemoveAccessibilityStateChangeListenerRequest) ProtoReflect() protorefl
 
 // Deprecated: Use RemoveAccessibilityStateChangeListenerRequest.ProtoReflect.Descriptor instead.
 func (*RemoveAccessibilityStateChangeListenerRequest) Descriptor() ([]byte, []int) {
-	return file_proto_accessibility_accessibility_proto_rawDescGZIP(), []int{36}
+	return file_proto_accessibility_accessibility_proto_rawDescGZIP(), []int{52}
 }
 
 func (x *RemoveAccessibilityStateChangeListenerRequest) GetArg0() int64 {
@@ -1572,7 +2212,7 @@ type RemoveAccessibilityStateChangeListenerResponse struct {
 
 func (x *RemoveAccessibilityStateChangeListenerResponse) Reset() {
 	*x = RemoveAccessibilityStateChangeListenerResponse{}
-	mi := &file_proto_accessibility_accessibility_proto_msgTypes[37]
+	mi := &file_proto_accessibility_accessibility_proto_msgTypes[53]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1584,7 +2224,7 @@ func (x *RemoveAccessibilityStateChangeListenerResponse) String() string {
 func (*RemoveAccessibilityStateChangeListenerResponse) ProtoMessage() {}
 
 func (x *RemoveAccessibilityStateChangeListenerResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_accessibility_accessibility_proto_msgTypes[37]
+	mi := &file_proto_accessibility_accessibility_proto_msgTypes[53]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1597,7 +2237,7 @@ func (x *RemoveAccessibilityStateChangeListenerResponse) ProtoReflect() protoref
 
 // Deprecated: Use RemoveAccessibilityStateChangeListenerResponse.ProtoReflect.Descriptor instead.
 func (*RemoveAccessibilityStateChangeListenerResponse) Descriptor() ([]byte, []int) {
-	return file_proto_accessibility_accessibility_proto_rawDescGZIP(), []int{37}
+	return file_proto_accessibility_accessibility_proto_rawDescGZIP(), []int{53}
 }
 
 func (x *RemoveAccessibilityStateChangeListenerResponse) GetResult() bool {
@@ -1616,7 +2256,7 @@ type RemoveAudioDescriptionRequestedChangeListenerRequest struct {
 
 func (x *RemoveAudioDescriptionRequestedChangeListenerRequest) Reset() {
 	*x = RemoveAudioDescriptionRequestedChangeListenerRequest{}
-	mi := &file_proto_accessibility_accessibility_proto_msgTypes[38]
+	mi := &file_proto_accessibility_accessibility_proto_msgTypes[54]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1628,7 +2268,7 @@ func (x *RemoveAudioDescriptionRequestedChangeListenerRequest) String() string {
 func (*RemoveAudioDescriptionRequestedChangeListenerRequest) ProtoMessage() {}
 
 func (x *RemoveAudioDescriptionRequestedChangeListenerRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_accessibility_accessibility_proto_msgTypes[38]
+	mi := &file_proto_accessibility_accessibility_proto_msgTypes[54]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1641,7 +2281,7 @@ func (x *RemoveAudioDescriptionRequestedChangeListenerRequest) ProtoReflect() pr
 
 // Deprecated: Use RemoveAudioDescriptionRequestedChangeListenerRequest.ProtoReflect.Descriptor instead.
 func (*RemoveAudioDescriptionRequestedChangeListenerRequest) Descriptor() ([]byte, []int) {
-	return file_proto_accessibility_accessibility_proto_rawDescGZIP(), []int{38}
+	return file_proto_accessibility_accessibility_proto_rawDescGZIP(), []int{54}
 }
 
 func (x *RemoveAudioDescriptionRequestedChangeListenerRequest) GetArg0() int64 {
@@ -1660,7 +2300,7 @@ type RemoveAudioDescriptionRequestedChangeListenerResponse struct {
 
 func (x *RemoveAudioDescriptionRequestedChangeListenerResponse) Reset() {
 	*x = RemoveAudioDescriptionRequestedChangeListenerResponse{}
-	mi := &file_proto_accessibility_accessibility_proto_msgTypes[39]
+	mi := &file_proto_accessibility_accessibility_proto_msgTypes[55]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1672,7 +2312,7 @@ func (x *RemoveAudioDescriptionRequestedChangeListenerResponse) String() string 
 func (*RemoveAudioDescriptionRequestedChangeListenerResponse) ProtoMessage() {}
 
 func (x *RemoveAudioDescriptionRequestedChangeListenerResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_accessibility_accessibility_proto_msgTypes[39]
+	mi := &file_proto_accessibility_accessibility_proto_msgTypes[55]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1685,7 +2325,7 @@ func (x *RemoveAudioDescriptionRequestedChangeListenerResponse) ProtoReflect() p
 
 // Deprecated: Use RemoveAudioDescriptionRequestedChangeListenerResponse.ProtoReflect.Descriptor instead.
 func (*RemoveAudioDescriptionRequestedChangeListenerResponse) Descriptor() ([]byte, []int) {
-	return file_proto_accessibility_accessibility_proto_rawDescGZIP(), []int{39}
+	return file_proto_accessibility_accessibility_proto_rawDescGZIP(), []int{55}
 }
 
 func (x *RemoveAudioDescriptionRequestedChangeListenerResponse) GetResult() bool {
@@ -1704,7 +2344,7 @@ type RemoveHighContrastTextStateChangeListenerRequest struct {
 
 func (x *RemoveHighContrastTextStateChangeListenerRequest) Reset() {
 	*x = RemoveHighContrastTextStateChangeListenerRequest{}
-	mi := &file_proto_accessibility_accessibility_proto_msgTypes[40]
+	mi := &file_proto_accessibility_accessibility_proto_msgTypes[56]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1716,7 +2356,7 @@ func (x *RemoveHighContrastTextStateChangeListenerRequest) String() string {
 func (*RemoveHighContrastTextStateChangeListenerRequest) ProtoMessage() {}
 
 func (x *RemoveHighContrastTextStateChangeListenerRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_accessibility_accessibility_proto_msgTypes[40]
+	mi := &file_proto_accessibility_accessibility_proto_msgTypes[56]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1729,7 +2369,7 @@ func (x *RemoveHighContrastTextStateChangeListenerRequest) ProtoReflect() protor
 
 // Deprecated: Use RemoveHighContrastTextStateChangeListenerRequest.ProtoReflect.Descriptor instead.
 func (*RemoveHighContrastTextStateChangeListenerRequest) Descriptor() ([]byte, []int) {
-	return file_proto_accessibility_accessibility_proto_rawDescGZIP(), []int{40}
+	return file_proto_accessibility_accessibility_proto_rawDescGZIP(), []int{56}
 }
 
 func (x *RemoveHighContrastTextStateChangeListenerRequest) GetArg0() int64 {
@@ -1747,7 +2387,7 @@ type RemoveHighContrastTextStateChangeListenerResponse struct {
 
 func (x *RemoveHighContrastTextStateChangeListenerResponse) Reset() {
 	*x = RemoveHighContrastTextStateChangeListenerResponse{}
-	mi := &file_proto_accessibility_accessibility_proto_msgTypes[41]
+	mi := &file_proto_accessibility_accessibility_proto_msgTypes[57]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1759,7 +2399,7 @@ func (x *RemoveHighContrastTextStateChangeListenerResponse) String() string {
 func (*RemoveHighContrastTextStateChangeListenerResponse) ProtoMessage() {}
 
 func (x *RemoveHighContrastTextStateChangeListenerResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_accessibility_accessibility_proto_msgTypes[41]
+	mi := &file_proto_accessibility_accessibility_proto_msgTypes[57]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1772,7 +2412,7 @@ func (x *RemoveHighContrastTextStateChangeListenerResponse) ProtoReflect() proto
 
 // Deprecated: Use RemoveHighContrastTextStateChangeListenerResponse.ProtoReflect.Descriptor instead.
 func (*RemoveHighContrastTextStateChangeListenerResponse) Descriptor() ([]byte, []int) {
-	return file_proto_accessibility_accessibility_proto_rawDescGZIP(), []int{41}
+	return file_proto_accessibility_accessibility_proto_rawDescGZIP(), []int{57}
 }
 
 type RemoveTouchExplorationStateChangeListenerRequest struct {
@@ -1784,7 +2424,7 @@ type RemoveTouchExplorationStateChangeListenerRequest struct {
 
 func (x *RemoveTouchExplorationStateChangeListenerRequest) Reset() {
 	*x = RemoveTouchExplorationStateChangeListenerRequest{}
-	mi := &file_proto_accessibility_accessibility_proto_msgTypes[42]
+	mi := &file_proto_accessibility_accessibility_proto_msgTypes[58]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1796,7 +2436,7 @@ func (x *RemoveTouchExplorationStateChangeListenerRequest) String() string {
 func (*RemoveTouchExplorationStateChangeListenerRequest) ProtoMessage() {}
 
 func (x *RemoveTouchExplorationStateChangeListenerRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_accessibility_accessibility_proto_msgTypes[42]
+	mi := &file_proto_accessibility_accessibility_proto_msgTypes[58]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1809,7 +2449,7 @@ func (x *RemoveTouchExplorationStateChangeListenerRequest) ProtoReflect() protor
 
 // Deprecated: Use RemoveTouchExplorationStateChangeListenerRequest.ProtoReflect.Descriptor instead.
 func (*RemoveTouchExplorationStateChangeListenerRequest) Descriptor() ([]byte, []int) {
-	return file_proto_accessibility_accessibility_proto_rawDescGZIP(), []int{42}
+	return file_proto_accessibility_accessibility_proto_rawDescGZIP(), []int{58}
 }
 
 func (x *RemoveTouchExplorationStateChangeListenerRequest) GetArg0() int64 {
@@ -1828,7 +2468,7 @@ type RemoveTouchExplorationStateChangeListenerResponse struct {
 
 func (x *RemoveTouchExplorationStateChangeListenerResponse) Reset() {
 	*x = RemoveTouchExplorationStateChangeListenerResponse{}
-	mi := &file_proto_accessibility_accessibility_proto_msgTypes[43]
+	mi := &file_proto_accessibility_accessibility_proto_msgTypes[59]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1840,7 +2480,7 @@ func (x *RemoveTouchExplorationStateChangeListenerResponse) String() string {
 func (*RemoveTouchExplorationStateChangeListenerResponse) ProtoMessage() {}
 
 func (x *RemoveTouchExplorationStateChangeListenerResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_accessibility_accessibility_proto_msgTypes[43]
+	mi := &file_proto_accessibility_accessibility_proto_msgTypes[59]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1853,7 +2493,7 @@ func (x *RemoveTouchExplorationStateChangeListenerResponse) ProtoReflect() proto
 
 // Deprecated: Use RemoveTouchExplorationStateChangeListenerResponse.ProtoReflect.Descriptor instead.
 func (*RemoveTouchExplorationStateChangeListenerResponse) Descriptor() ([]byte, []int) {
-	return file_proto_accessibility_accessibility_proto_rawDescGZIP(), []int{43}
+	return file_proto_accessibility_accessibility_proto_rawDescGZIP(), []int{59}
 }
 
 func (x *RemoveTouchExplorationStateChangeListenerResponse) GetResult() bool {
@@ -1872,7 +2512,7 @@ type SendAccessibilityEventRequest struct {
 
 func (x *SendAccessibilityEventRequest) Reset() {
 	*x = SendAccessibilityEventRequest{}
-	mi := &file_proto_accessibility_accessibility_proto_msgTypes[44]
+	mi := &file_proto_accessibility_accessibility_proto_msgTypes[60]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1884,7 +2524,7 @@ func (x *SendAccessibilityEventRequest) String() string {
 func (*SendAccessibilityEventRequest) ProtoMessage() {}
 
 func (x *SendAccessibilityEventRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_accessibility_accessibility_proto_msgTypes[44]
+	mi := &file_proto_accessibility_accessibility_proto_msgTypes[60]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1897,7 +2537,7 @@ func (x *SendAccessibilityEventRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SendAccessibilityEventRequest.ProtoReflect.Descriptor instead.
 func (*SendAccessibilityEventRequest) Descriptor() ([]byte, []int) {
-	return file_proto_accessibility_accessibility_proto_rawDescGZIP(), []int{44}
+	return file_proto_accessibility_accessibility_proto_rawDescGZIP(), []int{60}
 }
 
 func (x *SendAccessibilityEventRequest) GetArg0() int64 {
@@ -1915,7 +2555,7 @@ type SendAccessibilityEventResponse struct {
 
 func (x *SendAccessibilityEventResponse) Reset() {
 	*x = SendAccessibilityEventResponse{}
-	mi := &file_proto_accessibility_accessibility_proto_msgTypes[45]
+	mi := &file_proto_accessibility_accessibility_proto_msgTypes[61]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1927,7 +2567,7 @@ func (x *SendAccessibilityEventResponse) String() string {
 func (*SendAccessibilityEventResponse) ProtoMessage() {}
 
 func (x *SendAccessibilityEventResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_accessibility_accessibility_proto_msgTypes[45]
+	mi := &file_proto_accessibility_accessibility_proto_msgTypes[61]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1940,7 +2580,7 @@ func (x *SendAccessibilityEventResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SendAccessibilityEventResponse.ProtoReflect.Descriptor instead.
 func (*SendAccessibilityEventResponse) Descriptor() ([]byte, []int) {
-	return file_proto_accessibility_accessibility_proto_rawDescGZIP(), []int{45}
+	return file_proto_accessibility_accessibility_proto_rawDescGZIP(), []int{61}
 }
 
 type IsAccessibilityButtonSupportedRequest struct {
@@ -1951,7 +2591,7 @@ type IsAccessibilityButtonSupportedRequest struct {
 
 func (x *IsAccessibilityButtonSupportedRequest) Reset() {
 	*x = IsAccessibilityButtonSupportedRequest{}
-	mi := &file_proto_accessibility_accessibility_proto_msgTypes[46]
+	mi := &file_proto_accessibility_accessibility_proto_msgTypes[62]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1963,7 +2603,7 @@ func (x *IsAccessibilityButtonSupportedRequest) String() string {
 func (*IsAccessibilityButtonSupportedRequest) ProtoMessage() {}
 
 func (x *IsAccessibilityButtonSupportedRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_accessibility_accessibility_proto_msgTypes[46]
+	mi := &file_proto_accessibility_accessibility_proto_msgTypes[62]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1976,7 +2616,7 @@ func (x *IsAccessibilityButtonSupportedRequest) ProtoReflect() protoreflect.Mess
 
 // Deprecated: Use IsAccessibilityButtonSupportedRequest.ProtoReflect.Descriptor instead.
 func (*IsAccessibilityButtonSupportedRequest) Descriptor() ([]byte, []int) {
-	return file_proto_accessibility_accessibility_proto_rawDescGZIP(), []int{46}
+	return file_proto_accessibility_accessibility_proto_rawDescGZIP(), []int{62}
 }
 
 type IsAccessibilityButtonSupportedResponse struct {
@@ -1988,7 +2628,7 @@ type IsAccessibilityButtonSupportedResponse struct {
 
 func (x *IsAccessibilityButtonSupportedResponse) Reset() {
 	*x = IsAccessibilityButtonSupportedResponse{}
-	mi := &file_proto_accessibility_accessibility_proto_msgTypes[47]
+	mi := &file_proto_accessibility_accessibility_proto_msgTypes[63]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2000,7 +2640,7 @@ func (x *IsAccessibilityButtonSupportedResponse) String() string {
 func (*IsAccessibilityButtonSupportedResponse) ProtoMessage() {}
 
 func (x *IsAccessibilityButtonSupportedResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_accessibility_accessibility_proto_msgTypes[47]
+	mi := &file_proto_accessibility_accessibility_proto_msgTypes[63]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2013,7 +2653,7 @@ func (x *IsAccessibilityButtonSupportedResponse) ProtoReflect() protoreflect.Mes
 
 // Deprecated: Use IsAccessibilityButtonSupportedResponse.ProtoReflect.Descriptor instead.
 func (*IsAccessibilityButtonSupportedResponse) Descriptor() ([]byte, []int) {
-	return file_proto_accessibility_accessibility_proto_rawDescGZIP(), []int{47}
+	return file_proto_accessibility_accessibility_proto_rawDescGZIP(), []int{63}
 }
 
 func (x *IsAccessibilityButtonSupportedResponse) GetResult() bool {
@@ -2023,651 +2663,38 @@ func (x *IsAccessibilityButtonSupportedResponse) GetResult() bool {
 	return false
 }
 
-type AddCaptioningChangeListenerRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *AddCaptioningChangeListenerRequest) Reset() {
-	*x = AddCaptioningChangeListenerRequest{}
-	mi := &file_proto_accessibility_accessibility_proto_msgTypes[48]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *AddCaptioningChangeListenerRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*AddCaptioningChangeListenerRequest) ProtoMessage() {}
-
-func (x *AddCaptioningChangeListenerRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_accessibility_accessibility_proto_msgTypes[48]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use AddCaptioningChangeListenerRequest.ProtoReflect.Descriptor instead.
-func (*AddCaptioningChangeListenerRequest) Descriptor() ([]byte, []int) {
-	return file_proto_accessibility_accessibility_proto_rawDescGZIP(), []int{48}
-}
-
-func (x *AddCaptioningChangeListenerRequest) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type AddCaptioningChangeListenerResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *AddCaptioningChangeListenerResponse) Reset() {
-	*x = AddCaptioningChangeListenerResponse{}
-	mi := &file_proto_accessibility_accessibility_proto_msgTypes[49]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *AddCaptioningChangeListenerResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*AddCaptioningChangeListenerResponse) ProtoMessage() {}
-
-func (x *AddCaptioningChangeListenerResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_accessibility_accessibility_proto_msgTypes[49]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use AddCaptioningChangeListenerResponse.ProtoReflect.Descriptor instead.
-func (*AddCaptioningChangeListenerResponse) Descriptor() ([]byte, []int) {
-	return file_proto_accessibility_accessibility_proto_rawDescGZIP(), []int{49}
-}
-
-type GetFontScaleRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetFontScaleRequest) Reset() {
-	*x = GetFontScaleRequest{}
-	mi := &file_proto_accessibility_accessibility_proto_msgTypes[50]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetFontScaleRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetFontScaleRequest) ProtoMessage() {}
-
-func (x *GetFontScaleRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_accessibility_accessibility_proto_msgTypes[50]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetFontScaleRequest.ProtoReflect.Descriptor instead.
-func (*GetFontScaleRequest) Descriptor() ([]byte, []int) {
-	return file_proto_accessibility_accessibility_proto_rawDescGZIP(), []int{50}
-}
-
-type GetFontScaleResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        float32                `protobuf:"fixed32,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetFontScaleResponse) Reset() {
-	*x = GetFontScaleResponse{}
-	mi := &file_proto_accessibility_accessibility_proto_msgTypes[51]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetFontScaleResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetFontScaleResponse) ProtoMessage() {}
-
-func (x *GetFontScaleResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_accessibility_accessibility_proto_msgTypes[51]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetFontScaleResponse.ProtoReflect.Descriptor instead.
-func (*GetFontScaleResponse) Descriptor() ([]byte, []int) {
-	return file_proto_accessibility_accessibility_proto_rawDescGZIP(), []int{51}
-}
-
-func (x *GetFontScaleResponse) GetResult() float32 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type GetLocaleRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetLocaleRequest) Reset() {
-	*x = GetLocaleRequest{}
-	mi := &file_proto_accessibility_accessibility_proto_msgTypes[52]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetLocaleRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetLocaleRequest) ProtoMessage() {}
-
-func (x *GetLocaleRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_accessibility_accessibility_proto_msgTypes[52]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetLocaleRequest.ProtoReflect.Descriptor instead.
-func (*GetLocaleRequest) Descriptor() ([]byte, []int) {
-	return file_proto_accessibility_accessibility_proto_rawDescGZIP(), []int{52}
-}
-
-type GetLocaleResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetLocaleResponse) Reset() {
-	*x = GetLocaleResponse{}
-	mi := &file_proto_accessibility_accessibility_proto_msgTypes[53]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetLocaleResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetLocaleResponse) ProtoMessage() {}
-
-func (x *GetLocaleResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_accessibility_accessibility_proto_msgTypes[53]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetLocaleResponse.ProtoReflect.Descriptor instead.
-func (*GetLocaleResponse) Descriptor() ([]byte, []int) {
-	return file_proto_accessibility_accessibility_proto_rawDescGZIP(), []int{53}
-}
-
-func (x *GetLocaleResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type GetUserStyleRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetUserStyleRequest) Reset() {
-	*x = GetUserStyleRequest{}
-	mi := &file_proto_accessibility_accessibility_proto_msgTypes[54]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetUserStyleRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetUserStyleRequest) ProtoMessage() {}
-
-func (x *GetUserStyleRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_accessibility_accessibility_proto_msgTypes[54]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetUserStyleRequest.ProtoReflect.Descriptor instead.
-func (*GetUserStyleRequest) Descriptor() ([]byte, []int) {
-	return file_proto_accessibility_accessibility_proto_rawDescGZIP(), []int{54}
-}
-
-type GetUserStyleResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetUserStyleResponse) Reset() {
-	*x = GetUserStyleResponse{}
-	mi := &file_proto_accessibility_accessibility_proto_msgTypes[55]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetUserStyleResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetUserStyleResponse) ProtoMessage() {}
-
-func (x *GetUserStyleResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_accessibility_accessibility_proto_msgTypes[55]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetUserStyleResponse.ProtoReflect.Descriptor instead.
-func (*GetUserStyleResponse) Descriptor() ([]byte, []int) {
-	return file_proto_accessibility_accessibility_proto_rawDescGZIP(), []int{55}
-}
-
-func (x *GetUserStyleResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type IsCallCaptioningEnabledRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *IsCallCaptioningEnabledRequest) Reset() {
-	*x = IsCallCaptioningEnabledRequest{}
-	mi := &file_proto_accessibility_accessibility_proto_msgTypes[56]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *IsCallCaptioningEnabledRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*IsCallCaptioningEnabledRequest) ProtoMessage() {}
-
-func (x *IsCallCaptioningEnabledRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_accessibility_accessibility_proto_msgTypes[56]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use IsCallCaptioningEnabledRequest.ProtoReflect.Descriptor instead.
-func (*IsCallCaptioningEnabledRequest) Descriptor() ([]byte, []int) {
-	return file_proto_accessibility_accessibility_proto_rawDescGZIP(), []int{56}
-}
-
-type IsCallCaptioningEnabledResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *IsCallCaptioningEnabledResponse) Reset() {
-	*x = IsCallCaptioningEnabledResponse{}
-	mi := &file_proto_accessibility_accessibility_proto_msgTypes[57]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *IsCallCaptioningEnabledResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*IsCallCaptioningEnabledResponse) ProtoMessage() {}
-
-func (x *IsCallCaptioningEnabledResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_accessibility_accessibility_proto_msgTypes[57]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use IsCallCaptioningEnabledResponse.ProtoReflect.Descriptor instead.
-func (*IsCallCaptioningEnabledResponse) Descriptor() ([]byte, []int) {
-	return file_proto_accessibility_accessibility_proto_rawDescGZIP(), []int{57}
-}
-
-func (x *IsCallCaptioningEnabledResponse) GetResult() bool {
-	if x != nil {
-		return x.Result
-	}
-	return false
-}
-
-type IsSystemAudioCaptioningEnabledRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *IsSystemAudioCaptioningEnabledRequest) Reset() {
-	*x = IsSystemAudioCaptioningEnabledRequest{}
-	mi := &file_proto_accessibility_accessibility_proto_msgTypes[58]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *IsSystemAudioCaptioningEnabledRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*IsSystemAudioCaptioningEnabledRequest) ProtoMessage() {}
-
-func (x *IsSystemAudioCaptioningEnabledRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_accessibility_accessibility_proto_msgTypes[58]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use IsSystemAudioCaptioningEnabledRequest.ProtoReflect.Descriptor instead.
-func (*IsSystemAudioCaptioningEnabledRequest) Descriptor() ([]byte, []int) {
-	return file_proto_accessibility_accessibility_proto_rawDescGZIP(), []int{58}
-}
-
-type IsSystemAudioCaptioningEnabledResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *IsSystemAudioCaptioningEnabledResponse) Reset() {
-	*x = IsSystemAudioCaptioningEnabledResponse{}
-	mi := &file_proto_accessibility_accessibility_proto_msgTypes[59]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *IsSystemAudioCaptioningEnabledResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*IsSystemAudioCaptioningEnabledResponse) ProtoMessage() {}
-
-func (x *IsSystemAudioCaptioningEnabledResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_accessibility_accessibility_proto_msgTypes[59]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use IsSystemAudioCaptioningEnabledResponse.ProtoReflect.Descriptor instead.
-func (*IsSystemAudioCaptioningEnabledResponse) Descriptor() ([]byte, []int) {
-	return file_proto_accessibility_accessibility_proto_rawDescGZIP(), []int{59}
-}
-
-func (x *IsSystemAudioCaptioningEnabledResponse) GetResult() bool {
-	if x != nil {
-		return x.Result
-	}
-	return false
-}
-
-type IsSystemAudioCaptioningUiEnabledRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *IsSystemAudioCaptioningUiEnabledRequest) Reset() {
-	*x = IsSystemAudioCaptioningUiEnabledRequest{}
-	mi := &file_proto_accessibility_accessibility_proto_msgTypes[60]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *IsSystemAudioCaptioningUiEnabledRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*IsSystemAudioCaptioningUiEnabledRequest) ProtoMessage() {}
-
-func (x *IsSystemAudioCaptioningUiEnabledRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_accessibility_accessibility_proto_msgTypes[60]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use IsSystemAudioCaptioningUiEnabledRequest.ProtoReflect.Descriptor instead.
-func (*IsSystemAudioCaptioningUiEnabledRequest) Descriptor() ([]byte, []int) {
-	return file_proto_accessibility_accessibility_proto_rawDescGZIP(), []int{60}
-}
-
-type IsSystemAudioCaptioningUiEnabledResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *IsSystemAudioCaptioningUiEnabledResponse) Reset() {
-	*x = IsSystemAudioCaptioningUiEnabledResponse{}
-	mi := &file_proto_accessibility_accessibility_proto_msgTypes[61]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *IsSystemAudioCaptioningUiEnabledResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*IsSystemAudioCaptioningUiEnabledResponse) ProtoMessage() {}
-
-func (x *IsSystemAudioCaptioningUiEnabledResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_accessibility_accessibility_proto_msgTypes[61]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use IsSystemAudioCaptioningUiEnabledResponse.ProtoReflect.Descriptor instead.
-func (*IsSystemAudioCaptioningUiEnabledResponse) Descriptor() ([]byte, []int) {
-	return file_proto_accessibility_accessibility_proto_rawDescGZIP(), []int{61}
-}
-
-func (x *IsSystemAudioCaptioningUiEnabledResponse) GetResult() bool {
-	if x != nil {
-		return x.Result
-	}
-	return false
-}
-
-type RemoveCaptioningChangeListenerRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *RemoveCaptioningChangeListenerRequest) Reset() {
-	*x = RemoveCaptioningChangeListenerRequest{}
-	mi := &file_proto_accessibility_accessibility_proto_msgTypes[62]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *RemoveCaptioningChangeListenerRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*RemoveCaptioningChangeListenerRequest) ProtoMessage() {}
-
-func (x *RemoveCaptioningChangeListenerRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_accessibility_accessibility_proto_msgTypes[62]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use RemoveCaptioningChangeListenerRequest.ProtoReflect.Descriptor instead.
-func (*RemoveCaptioningChangeListenerRequest) Descriptor() ([]byte, []int) {
-	return file_proto_accessibility_accessibility_proto_rawDescGZIP(), []int{62}
-}
-
-func (x *RemoveCaptioningChangeListenerRequest) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type RemoveCaptioningChangeListenerResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *RemoveCaptioningChangeListenerResponse) Reset() {
-	*x = RemoveCaptioningChangeListenerResponse{}
-	mi := &file_proto_accessibility_accessibility_proto_msgTypes[63]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *RemoveCaptioningChangeListenerResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*RemoveCaptioningChangeListenerResponse) ProtoMessage() {}
-
-func (x *RemoveCaptioningChangeListenerResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_accessibility_accessibility_proto_msgTypes[63]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use RemoveCaptioningChangeListenerResponse.ProtoReflect.Descriptor instead.
-func (*RemoveCaptioningChangeListenerResponse) Descriptor() ([]byte, []int) {
-	return file_proto_accessibility_accessibility_proto_rawDescGZIP(), []int{63}
-}
-
 var File_proto_accessibility_accessibility_proto protoreflect.FileDescriptor
 
 const file_proto_accessibility_accessibility_proto_rawDesc = "" +
 	"\n" +
-	"'proto/accessibility/accessibility.proto\x12\raccessibility\"<\n" +
+	"'proto/accessibility/accessibility.proto\x12\raccessibility\"8\n" +
+	"\"AddCaptioningChangeListenerRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"%\n" +
+	"#AddCaptioningChangeListenerResponse\"\x15\n" +
+	"\x13GetFontScaleRequest\".\n" +
+	"\x14GetFontScaleResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x02R\x06result\"\x12\n" +
+	"\x10GetLocaleRequest\"+\n" +
+	"\x11GetLocaleResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x15\n" +
+	"\x13GetUserStyleRequest\".\n" +
+	"\x14GetUserStyleResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\" \n" +
+	"\x1eIsCallCaptioningEnabledRequest\"9\n" +
+	"\x1fIsCallCaptioningEnabledResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\"\x12\n" +
+	"\x10IsEnabledRequest\"+\n" +
+	"\x11IsEnabledResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\"'\n" +
+	"%IsSystemAudioCaptioningEnabledRequest\"@\n" +
+	"&IsSystemAudioCaptioningEnabledResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\")\n" +
+	"'IsSystemAudioCaptioningUiEnabledRequest\"B\n" +
+	"(IsSystemAudioCaptioningUiEnabledResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\";\n" +
+	"%RemoveCaptioningChangeListenerRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"(\n" +
+	"&RemoveCaptioningChangeListenerResponse\"<\n" +
 	"&AddAccessibilityRequestPreparerRequest\x12\x12\n" +
 	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\")\n" +
 	"'AddAccessibilityRequestPreparerResponse\"I\n" +
@@ -2709,9 +2736,6 @@ const file_proto_accessibility_accessibility_proto_rawDesc = "" +
 	"\x11InterruptResponse\"$\n" +
 	"\"IsAudioDescriptionRequestedRequest\"=\n" +
 	"#IsAudioDescriptionRequestedResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\bR\x06result\"\x12\n" +
-	"\x10IsEnabledRequest\"+\n" +
-	"\x11IsEnabledResponse\x12\x16\n" +
 	"\x06result\x18\x01 \x01(\bR\x06result\"\"\n" +
 	" IsHighContrastTextEnabledRequest\";\n" +
 	"!IsHighContrastTextEnabledResponse\x12\x16\n" +
@@ -2749,31 +2773,17 @@ const file_proto_accessibility_accessibility_proto_rawDesc = "" +
 	"\x1eSendAccessibilityEventResponse\"'\n" +
 	"%IsAccessibilityButtonSupportedRequest\"@\n" +
 	"&IsAccessibilityButtonSupportedResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\bR\x06result\"8\n" +
-	"\"AddCaptioningChangeListenerRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"%\n" +
-	"#AddCaptioningChangeListenerResponse\"\x15\n" +
-	"\x13GetFontScaleRequest\".\n" +
-	"\x14GetFontScaleResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x02R\x06result\"\x12\n" +
-	"\x10GetLocaleRequest\"+\n" +
-	"\x11GetLocaleResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"\x15\n" +
-	"\x13GetUserStyleRequest\".\n" +
-	"\x14GetUserStyleResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\" \n" +
-	"\x1eIsCallCaptioningEnabledRequest\"9\n" +
-	"\x1fIsCallCaptioningEnabledResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\bR\x06result\"'\n" +
-	"%IsSystemAudioCaptioningEnabledRequest\"@\n" +
-	"&IsSystemAudioCaptioningEnabledResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\bR\x06result\")\n" +
-	"'IsSystemAudioCaptioningUiEnabledRequest\"B\n" +
-	"(IsSystemAudioCaptioningUiEnabledResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\bR\x06result\";\n" +
-	"%RemoveCaptioningChangeListenerRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"(\n" +
-	"&RemoveCaptioningChangeListenerResponse2\xc2\x1c\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result2\xa3\b\n" +
+	"\x18CaptioningManagerService\x12\x84\x01\n" +
+	"\x1bAddCaptioningChangeListener\x121.accessibility.AddCaptioningChangeListenerRequest\x1a2.accessibility.AddCaptioningChangeListenerResponse\x12W\n" +
+	"\fGetFontScale\x12\".accessibility.GetFontScaleRequest\x1a#.accessibility.GetFontScaleResponse\x12N\n" +
+	"\tGetLocale\x12\x1f.accessibility.GetLocaleRequest\x1a .accessibility.GetLocaleResponse\x12W\n" +
+	"\fGetUserStyle\x12\".accessibility.GetUserStyleRequest\x1a#.accessibility.GetUserStyleResponse\x12x\n" +
+	"\x17IsCallCaptioningEnabled\x12-.accessibility.IsCallCaptioningEnabledRequest\x1a..accessibility.IsCallCaptioningEnabledResponse\x12N\n" +
+	"\tIsEnabled\x12\x1f.accessibility.IsEnabledRequest\x1a .accessibility.IsEnabledResponse\x12\x8d\x01\n" +
+	"\x1eIsSystemAudioCaptioningEnabled\x124.accessibility.IsSystemAudioCaptioningEnabledRequest\x1a5.accessibility.IsSystemAudioCaptioningEnabledResponse\x12\x93\x01\n" +
+	" IsSystemAudioCaptioningUiEnabled\x126.accessibility.IsSystemAudioCaptioningUiEnabledRequest\x1a7.accessibility.IsSystemAudioCaptioningUiEnabledResponse\x12\x8d\x01\n" +
+	"\x1eRemoveCaptioningChangeListener\x124.accessibility.RemoveCaptioningChangeListenerRequest\x1a5.accessibility.RemoveCaptioningChangeListenerResponse2\xc2\x1c\n" +
 	"\x0eManagerService\x12\x90\x01\n" +
 	"\x1fAddAccessibilityRequestPreparer\x125.accessibility.AddAccessibilityRequestPreparerRequest\x1a6.accessibility.AddAccessibilityRequestPreparerResponse\x12\xb7\x01\n" +
 	",AddAccessibilityServicesStateChangeListener1\x12B.accessibility.AddAccessibilityServicesStateChangeListener1Request\x1aC.accessibility.AddAccessibilityServicesStateChangeListener1Response\x12\xbd\x01\n" +
@@ -2798,17 +2808,7 @@ const file_proto_accessibility_accessibility_proto_rawDesc = "" +
 	")RemoveHighContrastTextStateChangeListener\x12?.accessibility.RemoveHighContrastTextStateChangeListenerRequest\x1a@.accessibility.RemoveHighContrastTextStateChangeListenerResponse\x12\xae\x01\n" +
 	")RemoveTouchExplorationStateChangeListener\x12?.accessibility.RemoveTouchExplorationStateChangeListenerRequest\x1a@.accessibility.RemoveTouchExplorationStateChangeListenerResponse\x12u\n" +
 	"\x16SendAccessibilityEvent\x12,.accessibility.SendAccessibilityEventRequest\x1a-.accessibility.SendAccessibilityEventResponse\x12\x8d\x01\n" +
-	"\x1eIsAccessibilityButtonSupported\x124.accessibility.IsAccessibilityButtonSupportedRequest\x1a5.accessibility.IsAccessibilityButtonSupportedResponse2\xa3\b\n" +
-	"\x18CaptioningManagerService\x12\x84\x01\n" +
-	"\x1bAddCaptioningChangeListener\x121.accessibility.AddCaptioningChangeListenerRequest\x1a2.accessibility.AddCaptioningChangeListenerResponse\x12W\n" +
-	"\fGetFontScale\x12\".accessibility.GetFontScaleRequest\x1a#.accessibility.GetFontScaleResponse\x12N\n" +
-	"\tGetLocale\x12\x1f.accessibility.GetLocaleRequest\x1a .accessibility.GetLocaleResponse\x12W\n" +
-	"\fGetUserStyle\x12\".accessibility.GetUserStyleRequest\x1a#.accessibility.GetUserStyleResponse\x12x\n" +
-	"\x17IsCallCaptioningEnabled\x12-.accessibility.IsCallCaptioningEnabledRequest\x1a..accessibility.IsCallCaptioningEnabledResponse\x12N\n" +
-	"\tIsEnabled\x12\x1f.accessibility.IsEnabledRequest\x1a .accessibility.IsEnabledResponse\x12\x8d\x01\n" +
-	"\x1eIsSystemAudioCaptioningEnabled\x124.accessibility.IsSystemAudioCaptioningEnabledRequest\x1a5.accessibility.IsSystemAudioCaptioningEnabledResponse\x12\x93\x01\n" +
-	" IsSystemAudioCaptioningUiEnabled\x126.accessibility.IsSystemAudioCaptioningUiEnabledRequest\x1a7.accessibility.IsSystemAudioCaptioningUiEnabledResponse\x12\x8d\x01\n" +
-	"\x1eRemoveCaptioningChangeListener\x124.accessibility.RemoveCaptioningChangeListenerRequest\x1a5.accessibility.RemoveCaptioningChangeListenerResponseB7Z5github.com/AndroidGoLab/jni-proxy/proto/accessibilityb\x06proto3"
+	"\x1eIsAccessibilityButtonSupported\x124.accessibility.IsAccessibilityButtonSupportedRequest\x1a5.accessibility.IsAccessibilityButtonSupportedResponseB7Z5github.com/AndroidGoLab/jni-proxy/proto/accessibilityb\x06proto3"
 
 var (
 	file_proto_accessibility_accessibility_proto_rawDescOnce sync.Once
@@ -2824,138 +2824,138 @@ func file_proto_accessibility_accessibility_proto_rawDescGZIP() []byte {
 
 var file_proto_accessibility_accessibility_proto_msgTypes = make([]protoimpl.MessageInfo, 64)
 var file_proto_accessibility_accessibility_proto_goTypes = []any{
-	(*AddAccessibilityRequestPreparerRequest)(nil),                 // 0: accessibility.AddAccessibilityRequestPreparerRequest
-	(*AddAccessibilityRequestPreparerResponse)(nil),                // 1: accessibility.AddAccessibilityRequestPreparerResponse
-	(*AddAccessibilityServicesStateChangeListener1Request)(nil),    // 2: accessibility.AddAccessibilityServicesStateChangeListener1Request
-	(*AddAccessibilityServicesStateChangeListener1Response)(nil),   // 3: accessibility.AddAccessibilityServicesStateChangeListener1Response
-	(*AddAccessibilityServicesStateChangeListener2_1Request)(nil),  // 4: accessibility.AddAccessibilityServicesStateChangeListener2_1Request
-	(*AddAccessibilityServicesStateChangeListener2_1Response)(nil), // 5: accessibility.AddAccessibilityServicesStateChangeListener2_1Response
-	(*AddAccessibilityStateChangeListenerRequest)(nil),             // 6: accessibility.AddAccessibilityStateChangeListenerRequest
-	(*AddAccessibilityStateChangeListenerResponse)(nil),            // 7: accessibility.AddAccessibilityStateChangeListenerResponse
-	(*AddAudioDescriptionRequestedChangeListenerRequest)(nil),      // 8: accessibility.AddAudioDescriptionRequestedChangeListenerRequest
-	(*AddAudioDescriptionRequestedChangeListenerResponse)(nil),     // 9: accessibility.AddAudioDescriptionRequestedChangeListenerResponse
-	(*AddHighContrastTextStateChangeListenerRequest)(nil),          // 10: accessibility.AddHighContrastTextStateChangeListenerRequest
-	(*AddHighContrastTextStateChangeListenerResponse)(nil),         // 11: accessibility.AddHighContrastTextStateChangeListenerResponse
-	(*AddTouchExplorationStateChangeListenerRequest)(nil),          // 12: accessibility.AddTouchExplorationStateChangeListenerRequest
-	(*AddTouchExplorationStateChangeListenerResponse)(nil),         // 13: accessibility.AddTouchExplorationStateChangeListenerResponse
-	(*GetAccessibilityFocusColorRequest)(nil),                      // 14: accessibility.GetAccessibilityFocusColorRequest
-	(*GetAccessibilityFocusColorResponse)(nil),                     // 15: accessibility.GetAccessibilityFocusColorResponse
-	(*GetAccessibilityFocusStrokeWidthRequest)(nil),                // 16: accessibility.GetAccessibilityFocusStrokeWidthRequest
-	(*GetAccessibilityFocusStrokeWidthResponse)(nil),               // 17: accessibility.GetAccessibilityFocusStrokeWidthResponse
-	(*GetRecommendedTimeoutMillisRequest)(nil),                     // 18: accessibility.GetRecommendedTimeoutMillisRequest
-	(*GetRecommendedTimeoutMillisResponse)(nil),                    // 19: accessibility.GetRecommendedTimeoutMillisResponse
-	(*InterruptRequest)(nil),                                       // 20: accessibility.InterruptRequest
-	(*InterruptResponse)(nil),                                      // 21: accessibility.InterruptResponse
-	(*IsAudioDescriptionRequestedRequest)(nil),                     // 22: accessibility.IsAudioDescriptionRequestedRequest
-	(*IsAudioDescriptionRequestedResponse)(nil),                    // 23: accessibility.IsAudioDescriptionRequestedResponse
-	(*IsEnabledRequest)(nil),                                       // 24: accessibility.IsEnabledRequest
-	(*IsEnabledResponse)(nil),                                      // 25: accessibility.IsEnabledResponse
-	(*IsHighContrastTextEnabledRequest)(nil),                       // 26: accessibility.IsHighContrastTextEnabledRequest
-	(*IsHighContrastTextEnabledResponse)(nil),                      // 27: accessibility.IsHighContrastTextEnabledResponse
-	(*IsRequestFromAccessibilityToolRequest)(nil),                  // 28: accessibility.IsRequestFromAccessibilityToolRequest
-	(*IsRequestFromAccessibilityToolResponse)(nil),                 // 29: accessibility.IsRequestFromAccessibilityToolResponse
-	(*IsTouchExplorationEnabledRequest)(nil),                       // 30: accessibility.IsTouchExplorationEnabledRequest
-	(*IsTouchExplorationEnabledResponse)(nil),                      // 31: accessibility.IsTouchExplorationEnabledResponse
-	(*RemoveAccessibilityRequestPreparerRequest)(nil),              // 32: accessibility.RemoveAccessibilityRequestPreparerRequest
-	(*RemoveAccessibilityRequestPreparerResponse)(nil),             // 33: accessibility.RemoveAccessibilityRequestPreparerResponse
-	(*RemoveAccessibilityServicesStateChangeListenerRequest)(nil),  // 34: accessibility.RemoveAccessibilityServicesStateChangeListenerRequest
-	(*RemoveAccessibilityServicesStateChangeListenerResponse)(nil), // 35: accessibility.RemoveAccessibilityServicesStateChangeListenerResponse
-	(*RemoveAccessibilityStateChangeListenerRequest)(nil),          // 36: accessibility.RemoveAccessibilityStateChangeListenerRequest
-	(*RemoveAccessibilityStateChangeListenerResponse)(nil),         // 37: accessibility.RemoveAccessibilityStateChangeListenerResponse
-	(*RemoveAudioDescriptionRequestedChangeListenerRequest)(nil),   // 38: accessibility.RemoveAudioDescriptionRequestedChangeListenerRequest
-	(*RemoveAudioDescriptionRequestedChangeListenerResponse)(nil),  // 39: accessibility.RemoveAudioDescriptionRequestedChangeListenerResponse
-	(*RemoveHighContrastTextStateChangeListenerRequest)(nil),       // 40: accessibility.RemoveHighContrastTextStateChangeListenerRequest
-	(*RemoveHighContrastTextStateChangeListenerResponse)(nil),      // 41: accessibility.RemoveHighContrastTextStateChangeListenerResponse
-	(*RemoveTouchExplorationStateChangeListenerRequest)(nil),       // 42: accessibility.RemoveTouchExplorationStateChangeListenerRequest
-	(*RemoveTouchExplorationStateChangeListenerResponse)(nil),      // 43: accessibility.RemoveTouchExplorationStateChangeListenerResponse
-	(*SendAccessibilityEventRequest)(nil),                          // 44: accessibility.SendAccessibilityEventRequest
-	(*SendAccessibilityEventResponse)(nil),                         // 45: accessibility.SendAccessibilityEventResponse
-	(*IsAccessibilityButtonSupportedRequest)(nil),                  // 46: accessibility.IsAccessibilityButtonSupportedRequest
-	(*IsAccessibilityButtonSupportedResponse)(nil),                 // 47: accessibility.IsAccessibilityButtonSupportedResponse
-	(*AddCaptioningChangeListenerRequest)(nil),                     // 48: accessibility.AddCaptioningChangeListenerRequest
-	(*AddCaptioningChangeListenerResponse)(nil),                    // 49: accessibility.AddCaptioningChangeListenerResponse
-	(*GetFontScaleRequest)(nil),                                    // 50: accessibility.GetFontScaleRequest
-	(*GetFontScaleResponse)(nil),                                   // 51: accessibility.GetFontScaleResponse
-	(*GetLocaleRequest)(nil),                                       // 52: accessibility.GetLocaleRequest
-	(*GetLocaleResponse)(nil),                                      // 53: accessibility.GetLocaleResponse
-	(*GetUserStyleRequest)(nil),                                    // 54: accessibility.GetUserStyleRequest
-	(*GetUserStyleResponse)(nil),                                   // 55: accessibility.GetUserStyleResponse
-	(*IsCallCaptioningEnabledRequest)(nil),                         // 56: accessibility.IsCallCaptioningEnabledRequest
-	(*IsCallCaptioningEnabledResponse)(nil),                        // 57: accessibility.IsCallCaptioningEnabledResponse
-	(*IsSystemAudioCaptioningEnabledRequest)(nil),                  // 58: accessibility.IsSystemAudioCaptioningEnabledRequest
-	(*IsSystemAudioCaptioningEnabledResponse)(nil),                 // 59: accessibility.IsSystemAudioCaptioningEnabledResponse
-	(*IsSystemAudioCaptioningUiEnabledRequest)(nil),                // 60: accessibility.IsSystemAudioCaptioningUiEnabledRequest
-	(*IsSystemAudioCaptioningUiEnabledResponse)(nil),               // 61: accessibility.IsSystemAudioCaptioningUiEnabledResponse
-	(*RemoveCaptioningChangeListenerRequest)(nil),                  // 62: accessibility.RemoveCaptioningChangeListenerRequest
-	(*RemoveCaptioningChangeListenerResponse)(nil),                 // 63: accessibility.RemoveCaptioningChangeListenerResponse
+	(*AddCaptioningChangeListenerRequest)(nil),                     // 0: accessibility.AddCaptioningChangeListenerRequest
+	(*AddCaptioningChangeListenerResponse)(nil),                    // 1: accessibility.AddCaptioningChangeListenerResponse
+	(*GetFontScaleRequest)(nil),                                    // 2: accessibility.GetFontScaleRequest
+	(*GetFontScaleResponse)(nil),                                   // 3: accessibility.GetFontScaleResponse
+	(*GetLocaleRequest)(nil),                                       // 4: accessibility.GetLocaleRequest
+	(*GetLocaleResponse)(nil),                                      // 5: accessibility.GetLocaleResponse
+	(*GetUserStyleRequest)(nil),                                    // 6: accessibility.GetUserStyleRequest
+	(*GetUserStyleResponse)(nil),                                   // 7: accessibility.GetUserStyleResponse
+	(*IsCallCaptioningEnabledRequest)(nil),                         // 8: accessibility.IsCallCaptioningEnabledRequest
+	(*IsCallCaptioningEnabledResponse)(nil),                        // 9: accessibility.IsCallCaptioningEnabledResponse
+	(*IsEnabledRequest)(nil),                                       // 10: accessibility.IsEnabledRequest
+	(*IsEnabledResponse)(nil),                                      // 11: accessibility.IsEnabledResponse
+	(*IsSystemAudioCaptioningEnabledRequest)(nil),                  // 12: accessibility.IsSystemAudioCaptioningEnabledRequest
+	(*IsSystemAudioCaptioningEnabledResponse)(nil),                 // 13: accessibility.IsSystemAudioCaptioningEnabledResponse
+	(*IsSystemAudioCaptioningUiEnabledRequest)(nil),                // 14: accessibility.IsSystemAudioCaptioningUiEnabledRequest
+	(*IsSystemAudioCaptioningUiEnabledResponse)(nil),               // 15: accessibility.IsSystemAudioCaptioningUiEnabledResponse
+	(*RemoveCaptioningChangeListenerRequest)(nil),                  // 16: accessibility.RemoveCaptioningChangeListenerRequest
+	(*RemoveCaptioningChangeListenerResponse)(nil),                 // 17: accessibility.RemoveCaptioningChangeListenerResponse
+	(*AddAccessibilityRequestPreparerRequest)(nil),                 // 18: accessibility.AddAccessibilityRequestPreparerRequest
+	(*AddAccessibilityRequestPreparerResponse)(nil),                // 19: accessibility.AddAccessibilityRequestPreparerResponse
+	(*AddAccessibilityServicesStateChangeListener1Request)(nil),    // 20: accessibility.AddAccessibilityServicesStateChangeListener1Request
+	(*AddAccessibilityServicesStateChangeListener1Response)(nil),   // 21: accessibility.AddAccessibilityServicesStateChangeListener1Response
+	(*AddAccessibilityServicesStateChangeListener2_1Request)(nil),  // 22: accessibility.AddAccessibilityServicesStateChangeListener2_1Request
+	(*AddAccessibilityServicesStateChangeListener2_1Response)(nil), // 23: accessibility.AddAccessibilityServicesStateChangeListener2_1Response
+	(*AddAccessibilityStateChangeListenerRequest)(nil),             // 24: accessibility.AddAccessibilityStateChangeListenerRequest
+	(*AddAccessibilityStateChangeListenerResponse)(nil),            // 25: accessibility.AddAccessibilityStateChangeListenerResponse
+	(*AddAudioDescriptionRequestedChangeListenerRequest)(nil),      // 26: accessibility.AddAudioDescriptionRequestedChangeListenerRequest
+	(*AddAudioDescriptionRequestedChangeListenerResponse)(nil),     // 27: accessibility.AddAudioDescriptionRequestedChangeListenerResponse
+	(*AddHighContrastTextStateChangeListenerRequest)(nil),          // 28: accessibility.AddHighContrastTextStateChangeListenerRequest
+	(*AddHighContrastTextStateChangeListenerResponse)(nil),         // 29: accessibility.AddHighContrastTextStateChangeListenerResponse
+	(*AddTouchExplorationStateChangeListenerRequest)(nil),          // 30: accessibility.AddTouchExplorationStateChangeListenerRequest
+	(*AddTouchExplorationStateChangeListenerResponse)(nil),         // 31: accessibility.AddTouchExplorationStateChangeListenerResponse
+	(*GetAccessibilityFocusColorRequest)(nil),                      // 32: accessibility.GetAccessibilityFocusColorRequest
+	(*GetAccessibilityFocusColorResponse)(nil),                     // 33: accessibility.GetAccessibilityFocusColorResponse
+	(*GetAccessibilityFocusStrokeWidthRequest)(nil),                // 34: accessibility.GetAccessibilityFocusStrokeWidthRequest
+	(*GetAccessibilityFocusStrokeWidthResponse)(nil),               // 35: accessibility.GetAccessibilityFocusStrokeWidthResponse
+	(*GetRecommendedTimeoutMillisRequest)(nil),                     // 36: accessibility.GetRecommendedTimeoutMillisRequest
+	(*GetRecommendedTimeoutMillisResponse)(nil),                    // 37: accessibility.GetRecommendedTimeoutMillisResponse
+	(*InterruptRequest)(nil),                                       // 38: accessibility.InterruptRequest
+	(*InterruptResponse)(nil),                                      // 39: accessibility.InterruptResponse
+	(*IsAudioDescriptionRequestedRequest)(nil),                     // 40: accessibility.IsAudioDescriptionRequestedRequest
+	(*IsAudioDescriptionRequestedResponse)(nil),                    // 41: accessibility.IsAudioDescriptionRequestedResponse
+	(*IsHighContrastTextEnabledRequest)(nil),                       // 42: accessibility.IsHighContrastTextEnabledRequest
+	(*IsHighContrastTextEnabledResponse)(nil),                      // 43: accessibility.IsHighContrastTextEnabledResponse
+	(*IsRequestFromAccessibilityToolRequest)(nil),                  // 44: accessibility.IsRequestFromAccessibilityToolRequest
+	(*IsRequestFromAccessibilityToolResponse)(nil),                 // 45: accessibility.IsRequestFromAccessibilityToolResponse
+	(*IsTouchExplorationEnabledRequest)(nil),                       // 46: accessibility.IsTouchExplorationEnabledRequest
+	(*IsTouchExplorationEnabledResponse)(nil),                      // 47: accessibility.IsTouchExplorationEnabledResponse
+	(*RemoveAccessibilityRequestPreparerRequest)(nil),              // 48: accessibility.RemoveAccessibilityRequestPreparerRequest
+	(*RemoveAccessibilityRequestPreparerResponse)(nil),             // 49: accessibility.RemoveAccessibilityRequestPreparerResponse
+	(*RemoveAccessibilityServicesStateChangeListenerRequest)(nil),  // 50: accessibility.RemoveAccessibilityServicesStateChangeListenerRequest
+	(*RemoveAccessibilityServicesStateChangeListenerResponse)(nil), // 51: accessibility.RemoveAccessibilityServicesStateChangeListenerResponse
+	(*RemoveAccessibilityStateChangeListenerRequest)(nil),          // 52: accessibility.RemoveAccessibilityStateChangeListenerRequest
+	(*RemoveAccessibilityStateChangeListenerResponse)(nil),         // 53: accessibility.RemoveAccessibilityStateChangeListenerResponse
+	(*RemoveAudioDescriptionRequestedChangeListenerRequest)(nil),   // 54: accessibility.RemoveAudioDescriptionRequestedChangeListenerRequest
+	(*RemoveAudioDescriptionRequestedChangeListenerResponse)(nil),  // 55: accessibility.RemoveAudioDescriptionRequestedChangeListenerResponse
+	(*RemoveHighContrastTextStateChangeListenerRequest)(nil),       // 56: accessibility.RemoveHighContrastTextStateChangeListenerRequest
+	(*RemoveHighContrastTextStateChangeListenerResponse)(nil),      // 57: accessibility.RemoveHighContrastTextStateChangeListenerResponse
+	(*RemoveTouchExplorationStateChangeListenerRequest)(nil),       // 58: accessibility.RemoveTouchExplorationStateChangeListenerRequest
+	(*RemoveTouchExplorationStateChangeListenerResponse)(nil),      // 59: accessibility.RemoveTouchExplorationStateChangeListenerResponse
+	(*SendAccessibilityEventRequest)(nil),                          // 60: accessibility.SendAccessibilityEventRequest
+	(*SendAccessibilityEventResponse)(nil),                         // 61: accessibility.SendAccessibilityEventResponse
+	(*IsAccessibilityButtonSupportedRequest)(nil),                  // 62: accessibility.IsAccessibilityButtonSupportedRequest
+	(*IsAccessibilityButtonSupportedResponse)(nil),                 // 63: accessibility.IsAccessibilityButtonSupportedResponse
 }
 var file_proto_accessibility_accessibility_proto_depIdxs = []int32{
-	0,  // 0: accessibility.ManagerService.AddAccessibilityRequestPreparer:input_type -> accessibility.AddAccessibilityRequestPreparerRequest
-	2,  // 1: accessibility.ManagerService.AddAccessibilityServicesStateChangeListener1:input_type -> accessibility.AddAccessibilityServicesStateChangeListener1Request
-	4,  // 2: accessibility.ManagerService.AddAccessibilityServicesStateChangeListener2_1:input_type -> accessibility.AddAccessibilityServicesStateChangeListener2_1Request
-	6,  // 3: accessibility.ManagerService.AddAccessibilityStateChangeListener:input_type -> accessibility.AddAccessibilityStateChangeListenerRequest
-	8,  // 4: accessibility.ManagerService.AddAudioDescriptionRequestedChangeListener:input_type -> accessibility.AddAudioDescriptionRequestedChangeListenerRequest
-	10, // 5: accessibility.ManagerService.AddHighContrastTextStateChangeListener:input_type -> accessibility.AddHighContrastTextStateChangeListenerRequest
-	12, // 6: accessibility.ManagerService.AddTouchExplorationStateChangeListener:input_type -> accessibility.AddTouchExplorationStateChangeListenerRequest
-	14, // 7: accessibility.ManagerService.GetAccessibilityFocusColor:input_type -> accessibility.GetAccessibilityFocusColorRequest
-	16, // 8: accessibility.ManagerService.GetAccessibilityFocusStrokeWidth:input_type -> accessibility.GetAccessibilityFocusStrokeWidthRequest
-	18, // 9: accessibility.ManagerService.GetRecommendedTimeoutMillis:input_type -> accessibility.GetRecommendedTimeoutMillisRequest
-	20, // 10: accessibility.ManagerService.Interrupt:input_type -> accessibility.InterruptRequest
-	22, // 11: accessibility.ManagerService.IsAudioDescriptionRequested:input_type -> accessibility.IsAudioDescriptionRequestedRequest
-	24, // 12: accessibility.ManagerService.IsEnabled:input_type -> accessibility.IsEnabledRequest
-	26, // 13: accessibility.ManagerService.IsHighContrastTextEnabled:input_type -> accessibility.IsHighContrastTextEnabledRequest
-	28, // 14: accessibility.ManagerService.IsRequestFromAccessibilityTool:input_type -> accessibility.IsRequestFromAccessibilityToolRequest
-	30, // 15: accessibility.ManagerService.IsTouchExplorationEnabled:input_type -> accessibility.IsTouchExplorationEnabledRequest
-	32, // 16: accessibility.ManagerService.RemoveAccessibilityRequestPreparer:input_type -> accessibility.RemoveAccessibilityRequestPreparerRequest
-	34, // 17: accessibility.ManagerService.RemoveAccessibilityServicesStateChangeListener:input_type -> accessibility.RemoveAccessibilityServicesStateChangeListenerRequest
-	36, // 18: accessibility.ManagerService.RemoveAccessibilityStateChangeListener:input_type -> accessibility.RemoveAccessibilityStateChangeListenerRequest
-	38, // 19: accessibility.ManagerService.RemoveAudioDescriptionRequestedChangeListener:input_type -> accessibility.RemoveAudioDescriptionRequestedChangeListenerRequest
-	40, // 20: accessibility.ManagerService.RemoveHighContrastTextStateChangeListener:input_type -> accessibility.RemoveHighContrastTextStateChangeListenerRequest
-	42, // 21: accessibility.ManagerService.RemoveTouchExplorationStateChangeListener:input_type -> accessibility.RemoveTouchExplorationStateChangeListenerRequest
-	44, // 22: accessibility.ManagerService.SendAccessibilityEvent:input_type -> accessibility.SendAccessibilityEventRequest
-	46, // 23: accessibility.ManagerService.IsAccessibilityButtonSupported:input_type -> accessibility.IsAccessibilityButtonSupportedRequest
-	48, // 24: accessibility.CaptioningManagerService.AddCaptioningChangeListener:input_type -> accessibility.AddCaptioningChangeListenerRequest
-	50, // 25: accessibility.CaptioningManagerService.GetFontScale:input_type -> accessibility.GetFontScaleRequest
-	52, // 26: accessibility.CaptioningManagerService.GetLocale:input_type -> accessibility.GetLocaleRequest
-	54, // 27: accessibility.CaptioningManagerService.GetUserStyle:input_type -> accessibility.GetUserStyleRequest
-	56, // 28: accessibility.CaptioningManagerService.IsCallCaptioningEnabled:input_type -> accessibility.IsCallCaptioningEnabledRequest
-	24, // 29: accessibility.CaptioningManagerService.IsEnabled:input_type -> accessibility.IsEnabledRequest
-	58, // 30: accessibility.CaptioningManagerService.IsSystemAudioCaptioningEnabled:input_type -> accessibility.IsSystemAudioCaptioningEnabledRequest
-	60, // 31: accessibility.CaptioningManagerService.IsSystemAudioCaptioningUiEnabled:input_type -> accessibility.IsSystemAudioCaptioningUiEnabledRequest
-	62, // 32: accessibility.CaptioningManagerService.RemoveCaptioningChangeListener:input_type -> accessibility.RemoveCaptioningChangeListenerRequest
-	1,  // 33: accessibility.ManagerService.AddAccessibilityRequestPreparer:output_type -> accessibility.AddAccessibilityRequestPreparerResponse
-	3,  // 34: accessibility.ManagerService.AddAccessibilityServicesStateChangeListener1:output_type -> accessibility.AddAccessibilityServicesStateChangeListener1Response
-	5,  // 35: accessibility.ManagerService.AddAccessibilityServicesStateChangeListener2_1:output_type -> accessibility.AddAccessibilityServicesStateChangeListener2_1Response
-	7,  // 36: accessibility.ManagerService.AddAccessibilityStateChangeListener:output_type -> accessibility.AddAccessibilityStateChangeListenerResponse
-	9,  // 37: accessibility.ManagerService.AddAudioDescriptionRequestedChangeListener:output_type -> accessibility.AddAudioDescriptionRequestedChangeListenerResponse
-	11, // 38: accessibility.ManagerService.AddHighContrastTextStateChangeListener:output_type -> accessibility.AddHighContrastTextStateChangeListenerResponse
-	13, // 39: accessibility.ManagerService.AddTouchExplorationStateChangeListener:output_type -> accessibility.AddTouchExplorationStateChangeListenerResponse
-	15, // 40: accessibility.ManagerService.GetAccessibilityFocusColor:output_type -> accessibility.GetAccessibilityFocusColorResponse
-	17, // 41: accessibility.ManagerService.GetAccessibilityFocusStrokeWidth:output_type -> accessibility.GetAccessibilityFocusStrokeWidthResponse
-	19, // 42: accessibility.ManagerService.GetRecommendedTimeoutMillis:output_type -> accessibility.GetRecommendedTimeoutMillisResponse
-	21, // 43: accessibility.ManagerService.Interrupt:output_type -> accessibility.InterruptResponse
-	23, // 44: accessibility.ManagerService.IsAudioDescriptionRequested:output_type -> accessibility.IsAudioDescriptionRequestedResponse
-	25, // 45: accessibility.ManagerService.IsEnabled:output_type -> accessibility.IsEnabledResponse
-	27, // 46: accessibility.ManagerService.IsHighContrastTextEnabled:output_type -> accessibility.IsHighContrastTextEnabledResponse
-	29, // 47: accessibility.ManagerService.IsRequestFromAccessibilityTool:output_type -> accessibility.IsRequestFromAccessibilityToolResponse
-	31, // 48: accessibility.ManagerService.IsTouchExplorationEnabled:output_type -> accessibility.IsTouchExplorationEnabledResponse
-	33, // 49: accessibility.ManagerService.RemoveAccessibilityRequestPreparer:output_type -> accessibility.RemoveAccessibilityRequestPreparerResponse
-	35, // 50: accessibility.ManagerService.RemoveAccessibilityServicesStateChangeListener:output_type -> accessibility.RemoveAccessibilityServicesStateChangeListenerResponse
-	37, // 51: accessibility.ManagerService.RemoveAccessibilityStateChangeListener:output_type -> accessibility.RemoveAccessibilityStateChangeListenerResponse
-	39, // 52: accessibility.ManagerService.RemoveAudioDescriptionRequestedChangeListener:output_type -> accessibility.RemoveAudioDescriptionRequestedChangeListenerResponse
-	41, // 53: accessibility.ManagerService.RemoveHighContrastTextStateChangeListener:output_type -> accessibility.RemoveHighContrastTextStateChangeListenerResponse
-	43, // 54: accessibility.ManagerService.RemoveTouchExplorationStateChangeListener:output_type -> accessibility.RemoveTouchExplorationStateChangeListenerResponse
-	45, // 55: accessibility.ManagerService.SendAccessibilityEvent:output_type -> accessibility.SendAccessibilityEventResponse
-	47, // 56: accessibility.ManagerService.IsAccessibilityButtonSupported:output_type -> accessibility.IsAccessibilityButtonSupportedResponse
-	49, // 57: accessibility.CaptioningManagerService.AddCaptioningChangeListener:output_type -> accessibility.AddCaptioningChangeListenerResponse
-	51, // 58: accessibility.CaptioningManagerService.GetFontScale:output_type -> accessibility.GetFontScaleResponse
-	53, // 59: accessibility.CaptioningManagerService.GetLocale:output_type -> accessibility.GetLocaleResponse
-	55, // 60: accessibility.CaptioningManagerService.GetUserStyle:output_type -> accessibility.GetUserStyleResponse
-	57, // 61: accessibility.CaptioningManagerService.IsCallCaptioningEnabled:output_type -> accessibility.IsCallCaptioningEnabledResponse
-	25, // 62: accessibility.CaptioningManagerService.IsEnabled:output_type -> accessibility.IsEnabledResponse
-	59, // 63: accessibility.CaptioningManagerService.IsSystemAudioCaptioningEnabled:output_type -> accessibility.IsSystemAudioCaptioningEnabledResponse
-	61, // 64: accessibility.CaptioningManagerService.IsSystemAudioCaptioningUiEnabled:output_type -> accessibility.IsSystemAudioCaptioningUiEnabledResponse
-	63, // 65: accessibility.CaptioningManagerService.RemoveCaptioningChangeListener:output_type -> accessibility.RemoveCaptioningChangeListenerResponse
+	0,  // 0: accessibility.CaptioningManagerService.AddCaptioningChangeListener:input_type -> accessibility.AddCaptioningChangeListenerRequest
+	2,  // 1: accessibility.CaptioningManagerService.GetFontScale:input_type -> accessibility.GetFontScaleRequest
+	4,  // 2: accessibility.CaptioningManagerService.GetLocale:input_type -> accessibility.GetLocaleRequest
+	6,  // 3: accessibility.CaptioningManagerService.GetUserStyle:input_type -> accessibility.GetUserStyleRequest
+	8,  // 4: accessibility.CaptioningManagerService.IsCallCaptioningEnabled:input_type -> accessibility.IsCallCaptioningEnabledRequest
+	10, // 5: accessibility.CaptioningManagerService.IsEnabled:input_type -> accessibility.IsEnabledRequest
+	12, // 6: accessibility.CaptioningManagerService.IsSystemAudioCaptioningEnabled:input_type -> accessibility.IsSystemAudioCaptioningEnabledRequest
+	14, // 7: accessibility.CaptioningManagerService.IsSystemAudioCaptioningUiEnabled:input_type -> accessibility.IsSystemAudioCaptioningUiEnabledRequest
+	16, // 8: accessibility.CaptioningManagerService.RemoveCaptioningChangeListener:input_type -> accessibility.RemoveCaptioningChangeListenerRequest
+	18, // 9: accessibility.ManagerService.AddAccessibilityRequestPreparer:input_type -> accessibility.AddAccessibilityRequestPreparerRequest
+	20, // 10: accessibility.ManagerService.AddAccessibilityServicesStateChangeListener1:input_type -> accessibility.AddAccessibilityServicesStateChangeListener1Request
+	22, // 11: accessibility.ManagerService.AddAccessibilityServicesStateChangeListener2_1:input_type -> accessibility.AddAccessibilityServicesStateChangeListener2_1Request
+	24, // 12: accessibility.ManagerService.AddAccessibilityStateChangeListener:input_type -> accessibility.AddAccessibilityStateChangeListenerRequest
+	26, // 13: accessibility.ManagerService.AddAudioDescriptionRequestedChangeListener:input_type -> accessibility.AddAudioDescriptionRequestedChangeListenerRequest
+	28, // 14: accessibility.ManagerService.AddHighContrastTextStateChangeListener:input_type -> accessibility.AddHighContrastTextStateChangeListenerRequest
+	30, // 15: accessibility.ManagerService.AddTouchExplorationStateChangeListener:input_type -> accessibility.AddTouchExplorationStateChangeListenerRequest
+	32, // 16: accessibility.ManagerService.GetAccessibilityFocusColor:input_type -> accessibility.GetAccessibilityFocusColorRequest
+	34, // 17: accessibility.ManagerService.GetAccessibilityFocusStrokeWidth:input_type -> accessibility.GetAccessibilityFocusStrokeWidthRequest
+	36, // 18: accessibility.ManagerService.GetRecommendedTimeoutMillis:input_type -> accessibility.GetRecommendedTimeoutMillisRequest
+	38, // 19: accessibility.ManagerService.Interrupt:input_type -> accessibility.InterruptRequest
+	40, // 20: accessibility.ManagerService.IsAudioDescriptionRequested:input_type -> accessibility.IsAudioDescriptionRequestedRequest
+	10, // 21: accessibility.ManagerService.IsEnabled:input_type -> accessibility.IsEnabledRequest
+	42, // 22: accessibility.ManagerService.IsHighContrastTextEnabled:input_type -> accessibility.IsHighContrastTextEnabledRequest
+	44, // 23: accessibility.ManagerService.IsRequestFromAccessibilityTool:input_type -> accessibility.IsRequestFromAccessibilityToolRequest
+	46, // 24: accessibility.ManagerService.IsTouchExplorationEnabled:input_type -> accessibility.IsTouchExplorationEnabledRequest
+	48, // 25: accessibility.ManagerService.RemoveAccessibilityRequestPreparer:input_type -> accessibility.RemoveAccessibilityRequestPreparerRequest
+	50, // 26: accessibility.ManagerService.RemoveAccessibilityServicesStateChangeListener:input_type -> accessibility.RemoveAccessibilityServicesStateChangeListenerRequest
+	52, // 27: accessibility.ManagerService.RemoveAccessibilityStateChangeListener:input_type -> accessibility.RemoveAccessibilityStateChangeListenerRequest
+	54, // 28: accessibility.ManagerService.RemoveAudioDescriptionRequestedChangeListener:input_type -> accessibility.RemoveAudioDescriptionRequestedChangeListenerRequest
+	56, // 29: accessibility.ManagerService.RemoveHighContrastTextStateChangeListener:input_type -> accessibility.RemoveHighContrastTextStateChangeListenerRequest
+	58, // 30: accessibility.ManagerService.RemoveTouchExplorationStateChangeListener:input_type -> accessibility.RemoveTouchExplorationStateChangeListenerRequest
+	60, // 31: accessibility.ManagerService.SendAccessibilityEvent:input_type -> accessibility.SendAccessibilityEventRequest
+	62, // 32: accessibility.ManagerService.IsAccessibilityButtonSupported:input_type -> accessibility.IsAccessibilityButtonSupportedRequest
+	1,  // 33: accessibility.CaptioningManagerService.AddCaptioningChangeListener:output_type -> accessibility.AddCaptioningChangeListenerResponse
+	3,  // 34: accessibility.CaptioningManagerService.GetFontScale:output_type -> accessibility.GetFontScaleResponse
+	5,  // 35: accessibility.CaptioningManagerService.GetLocale:output_type -> accessibility.GetLocaleResponse
+	7,  // 36: accessibility.CaptioningManagerService.GetUserStyle:output_type -> accessibility.GetUserStyleResponse
+	9,  // 37: accessibility.CaptioningManagerService.IsCallCaptioningEnabled:output_type -> accessibility.IsCallCaptioningEnabledResponse
+	11, // 38: accessibility.CaptioningManagerService.IsEnabled:output_type -> accessibility.IsEnabledResponse
+	13, // 39: accessibility.CaptioningManagerService.IsSystemAudioCaptioningEnabled:output_type -> accessibility.IsSystemAudioCaptioningEnabledResponse
+	15, // 40: accessibility.CaptioningManagerService.IsSystemAudioCaptioningUiEnabled:output_type -> accessibility.IsSystemAudioCaptioningUiEnabledResponse
+	17, // 41: accessibility.CaptioningManagerService.RemoveCaptioningChangeListener:output_type -> accessibility.RemoveCaptioningChangeListenerResponse
+	19, // 42: accessibility.ManagerService.AddAccessibilityRequestPreparer:output_type -> accessibility.AddAccessibilityRequestPreparerResponse
+	21, // 43: accessibility.ManagerService.AddAccessibilityServicesStateChangeListener1:output_type -> accessibility.AddAccessibilityServicesStateChangeListener1Response
+	23, // 44: accessibility.ManagerService.AddAccessibilityServicesStateChangeListener2_1:output_type -> accessibility.AddAccessibilityServicesStateChangeListener2_1Response
+	25, // 45: accessibility.ManagerService.AddAccessibilityStateChangeListener:output_type -> accessibility.AddAccessibilityStateChangeListenerResponse
+	27, // 46: accessibility.ManagerService.AddAudioDescriptionRequestedChangeListener:output_type -> accessibility.AddAudioDescriptionRequestedChangeListenerResponse
+	29, // 47: accessibility.ManagerService.AddHighContrastTextStateChangeListener:output_type -> accessibility.AddHighContrastTextStateChangeListenerResponse
+	31, // 48: accessibility.ManagerService.AddTouchExplorationStateChangeListener:output_type -> accessibility.AddTouchExplorationStateChangeListenerResponse
+	33, // 49: accessibility.ManagerService.GetAccessibilityFocusColor:output_type -> accessibility.GetAccessibilityFocusColorResponse
+	35, // 50: accessibility.ManagerService.GetAccessibilityFocusStrokeWidth:output_type -> accessibility.GetAccessibilityFocusStrokeWidthResponse
+	37, // 51: accessibility.ManagerService.GetRecommendedTimeoutMillis:output_type -> accessibility.GetRecommendedTimeoutMillisResponse
+	39, // 52: accessibility.ManagerService.Interrupt:output_type -> accessibility.InterruptResponse
+	41, // 53: accessibility.ManagerService.IsAudioDescriptionRequested:output_type -> accessibility.IsAudioDescriptionRequestedResponse
+	11, // 54: accessibility.ManagerService.IsEnabled:output_type -> accessibility.IsEnabledResponse
+	43, // 55: accessibility.ManagerService.IsHighContrastTextEnabled:output_type -> accessibility.IsHighContrastTextEnabledResponse
+	45, // 56: accessibility.ManagerService.IsRequestFromAccessibilityTool:output_type -> accessibility.IsRequestFromAccessibilityToolResponse
+	47, // 57: accessibility.ManagerService.IsTouchExplorationEnabled:output_type -> accessibility.IsTouchExplorationEnabledResponse
+	49, // 58: accessibility.ManagerService.RemoveAccessibilityRequestPreparer:output_type -> accessibility.RemoveAccessibilityRequestPreparerResponse
+	51, // 59: accessibility.ManagerService.RemoveAccessibilityServicesStateChangeListener:output_type -> accessibility.RemoveAccessibilityServicesStateChangeListenerResponse
+	53, // 60: accessibility.ManagerService.RemoveAccessibilityStateChangeListener:output_type -> accessibility.RemoveAccessibilityStateChangeListenerResponse
+	55, // 61: accessibility.ManagerService.RemoveAudioDescriptionRequestedChangeListener:output_type -> accessibility.RemoveAudioDescriptionRequestedChangeListenerResponse
+	57, // 62: accessibility.ManagerService.RemoveHighContrastTextStateChangeListener:output_type -> accessibility.RemoveHighContrastTextStateChangeListenerResponse
+	59, // 63: accessibility.ManagerService.RemoveTouchExplorationStateChangeListener:output_type -> accessibility.RemoveTouchExplorationStateChangeListenerResponse
+	61, // 64: accessibility.ManagerService.SendAccessibilityEvent:output_type -> accessibility.SendAccessibilityEventResponse
+	63, // 65: accessibility.ManagerService.IsAccessibilityButtonSupported:output_type -> accessibility.IsAccessibilityButtonSupportedResponse
 	33, // [33:66] is the sub-list for method output_type
 	0,  // [0:33] is the sub-list for method input_type
 	0,  // [0:0] is the sub-list for extension type_name

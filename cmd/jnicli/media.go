@@ -12,6 +12,27 @@ var mediaCmd = &cobra.Command{
 	Short: "media service operations",
 }
 
+var mediaCommunicationManagerCmd = &cobra.Command{
+	Use:   "communication-manager",
+	Short: "CommunicationManagerService operations",
+}
+
+var mediaCommunicationManagerGetVersionCmd = &cobra.Command{
+	Use:   "get-version",
+	Short: "GetVersion RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCommunicationManagerServiceClient(grpcConn)
+		req := &pb.GetVersionRequest{}
+		resp, err := client.GetVersion(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
 var mediaRouterCmd = &cobra.Command{
 	Use:   "router",
 	Short: "RouterService operations",
@@ -327,28 +348,9 @@ var mediaRouterSelectRouteCmd = &cobra.Command{
 	},
 }
 
-var mediaCommunicationManagerCmd = &cobra.Command{
-	Use:   "communication-manager",
-	Short: "CommunicationManagerService operations",
-}
-
-var mediaCommunicationManagerGetVersionCmd = &cobra.Command{
-	Use:   "get-version",
-	Short: "GetVersion RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewCommunicationManagerServiceClient(grpcConn)
-		req := &pb.GetVersionRequest{}
-		resp, err := client.GetVersion(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
 func init() {
+	mediaCommunicationManagerCmd.AddCommand(mediaCommunicationManagerGetVersionCmd)
+	mediaCmd.AddCommand(mediaCommunicationManagerCmd)
 	mediaRouterAddCallback2Cmd.Flags().Int32("arg0", 0, "arg0 (int32)")
 	mediaRouterAddCallback2Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
 	mediaRouterCmd.AddCommand(mediaRouterAddCallback2Cmd)
@@ -384,7 +386,5 @@ func init() {
 	mediaRouterSelectRouteCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
 	mediaRouterCmd.AddCommand(mediaRouterSelectRouteCmd)
 	mediaCmd.AddCommand(mediaRouterCmd)
-	mediaCommunicationManagerCmd.AddCommand(mediaCommunicationManagerGetVersionCmd)
-	mediaCmd.AddCommand(mediaCommunicationManagerCmd)
 	rootCmd.AddCommand(mediaCmd)
 }

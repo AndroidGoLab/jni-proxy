@@ -7,6 +7,7 @@ import (
 	"strings"
 
 	"github.com/AndroidGoLab/jni-proxy/tools/pkg/cligen"
+	"github.com/AndroidGoLab/jni-proxy/tools/pkg/protogen"
 )
 
 func main() {
@@ -25,12 +26,32 @@ func main() {
 		log.Fatalf("no spec files found in %s", *specsDir)
 	}
 
+	// Accumulate ProtoData per package so multiple specs targeting the
+	// same package are merged (same approach as protogen cmd).
+	byPackage := make(map[string]*protogen.ProtoData)
+
 	for _, specPath := range specs {
 		baseName := strings.TrimSuffix(filepath.Base(specPath), ".yaml")
 		overlayPath := filepath.Join(*overlaysDir, baseName+".yaml")
 
-		if err := cligen.Generate(specPath, overlayPath, *outputDir, *goModule, *protoDir); err != nil {
-			log.Fatalf("generate %s: %v", baseName, err)
+		data, err := protogen.BuildFromSpec(specPath, overlayPath, *goModule)
+		if err != nil {
+			log.Fatalf("build %s: %v", baseName, err)
+		}
+
+		if existing, ok := byPackage[data.Package]; ok {
+			protogen.MergeProtoData(existing, data)
+		} else {
+			byPackage[data.Package] = data
+		}
+	}
+
+	for _, data := range byPackage {
+		if len(data.Services) == 0 {
+			continue
+		}
+		if err := cligen.GenerateFromProtoData(data, *outputDir, *goModule, *protoDir); err != nil {
+			log.Fatalf("generate %s: %v", data.Package, err)
 		}
 	}
 }

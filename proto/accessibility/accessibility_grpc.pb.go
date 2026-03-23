@@ -21,6 +21,413 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
+	CaptioningManagerService_AddCaptioningChangeListener_FullMethodName      = "/accessibility.CaptioningManagerService/AddCaptioningChangeListener"
+	CaptioningManagerService_GetFontScale_FullMethodName                     = "/accessibility.CaptioningManagerService/GetFontScale"
+	CaptioningManagerService_GetLocale_FullMethodName                        = "/accessibility.CaptioningManagerService/GetLocale"
+	CaptioningManagerService_GetUserStyle_FullMethodName                     = "/accessibility.CaptioningManagerService/GetUserStyle"
+	CaptioningManagerService_IsCallCaptioningEnabled_FullMethodName          = "/accessibility.CaptioningManagerService/IsCallCaptioningEnabled"
+	CaptioningManagerService_IsEnabled_FullMethodName                        = "/accessibility.CaptioningManagerService/IsEnabled"
+	CaptioningManagerService_IsSystemAudioCaptioningEnabled_FullMethodName   = "/accessibility.CaptioningManagerService/IsSystemAudioCaptioningEnabled"
+	CaptioningManagerService_IsSystemAudioCaptioningUiEnabled_FullMethodName = "/accessibility.CaptioningManagerService/IsSystemAudioCaptioningUiEnabled"
+	CaptioningManagerService_RemoveCaptioningChangeListener_FullMethodName   = "/accessibility.CaptioningManagerService/RemoveCaptioningChangeListener"
+)
+
+// CaptioningManagerServiceClient is the client API for CaptioningManagerService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type CaptioningManagerServiceClient interface {
+	AddCaptioningChangeListener(ctx context.Context, in *AddCaptioningChangeListenerRequest, opts ...grpc.CallOption) (*AddCaptioningChangeListenerResponse, error)
+	GetFontScale(ctx context.Context, in *GetFontScaleRequest, opts ...grpc.CallOption) (*GetFontScaleResponse, error)
+	GetLocale(ctx context.Context, in *GetLocaleRequest, opts ...grpc.CallOption) (*GetLocaleResponse, error)
+	GetUserStyle(ctx context.Context, in *GetUserStyleRequest, opts ...grpc.CallOption) (*GetUserStyleResponse, error)
+	IsCallCaptioningEnabled(ctx context.Context, in *IsCallCaptioningEnabledRequest, opts ...grpc.CallOption) (*IsCallCaptioningEnabledResponse, error)
+	IsEnabled(ctx context.Context, in *IsEnabledRequest, opts ...grpc.CallOption) (*IsEnabledResponse, error)
+	IsSystemAudioCaptioningEnabled(ctx context.Context, in *IsSystemAudioCaptioningEnabledRequest, opts ...grpc.CallOption) (*IsSystemAudioCaptioningEnabledResponse, error)
+	IsSystemAudioCaptioningUiEnabled(ctx context.Context, in *IsSystemAudioCaptioningUiEnabledRequest, opts ...grpc.CallOption) (*IsSystemAudioCaptioningUiEnabledResponse, error)
+	RemoveCaptioningChangeListener(ctx context.Context, in *RemoveCaptioningChangeListenerRequest, opts ...grpc.CallOption) (*RemoveCaptioningChangeListenerResponse, error)
+}
+
+type captioningManagerServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewCaptioningManagerServiceClient(cc grpc.ClientConnInterface) CaptioningManagerServiceClient {
+	return &captioningManagerServiceClient{cc}
+}
+
+func (c *captioningManagerServiceClient) AddCaptioningChangeListener(ctx context.Context, in *AddCaptioningChangeListenerRequest, opts ...grpc.CallOption) (*AddCaptioningChangeListenerResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(AddCaptioningChangeListenerResponse)
+	err := c.cc.Invoke(ctx, CaptioningManagerService_AddCaptioningChangeListener_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *captioningManagerServiceClient) GetFontScale(ctx context.Context, in *GetFontScaleRequest, opts ...grpc.CallOption) (*GetFontScaleResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetFontScaleResponse)
+	err := c.cc.Invoke(ctx, CaptioningManagerService_GetFontScale_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *captioningManagerServiceClient) GetLocale(ctx context.Context, in *GetLocaleRequest, opts ...grpc.CallOption) (*GetLocaleResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetLocaleResponse)
+	err := c.cc.Invoke(ctx, CaptioningManagerService_GetLocale_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *captioningManagerServiceClient) GetUserStyle(ctx context.Context, in *GetUserStyleRequest, opts ...grpc.CallOption) (*GetUserStyleResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetUserStyleResponse)
+	err := c.cc.Invoke(ctx, CaptioningManagerService_GetUserStyle_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *captioningManagerServiceClient) IsCallCaptioningEnabled(ctx context.Context, in *IsCallCaptioningEnabledRequest, opts ...grpc.CallOption) (*IsCallCaptioningEnabledResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IsCallCaptioningEnabledResponse)
+	err := c.cc.Invoke(ctx, CaptioningManagerService_IsCallCaptioningEnabled_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *captioningManagerServiceClient) IsEnabled(ctx context.Context, in *IsEnabledRequest, opts ...grpc.CallOption) (*IsEnabledResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IsEnabledResponse)
+	err := c.cc.Invoke(ctx, CaptioningManagerService_IsEnabled_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *captioningManagerServiceClient) IsSystemAudioCaptioningEnabled(ctx context.Context, in *IsSystemAudioCaptioningEnabledRequest, opts ...grpc.CallOption) (*IsSystemAudioCaptioningEnabledResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IsSystemAudioCaptioningEnabledResponse)
+	err := c.cc.Invoke(ctx, CaptioningManagerService_IsSystemAudioCaptioningEnabled_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *captioningManagerServiceClient) IsSystemAudioCaptioningUiEnabled(ctx context.Context, in *IsSystemAudioCaptioningUiEnabledRequest, opts ...grpc.CallOption) (*IsSystemAudioCaptioningUiEnabledResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IsSystemAudioCaptioningUiEnabledResponse)
+	err := c.cc.Invoke(ctx, CaptioningManagerService_IsSystemAudioCaptioningUiEnabled_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *captioningManagerServiceClient) RemoveCaptioningChangeListener(ctx context.Context, in *RemoveCaptioningChangeListenerRequest, opts ...grpc.CallOption) (*RemoveCaptioningChangeListenerResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(RemoveCaptioningChangeListenerResponse)
+	err := c.cc.Invoke(ctx, CaptioningManagerService_RemoveCaptioningChangeListener_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// CaptioningManagerServiceServer is the server API for CaptioningManagerService service.
+// All implementations must embed UnimplementedCaptioningManagerServiceServer
+// for forward compatibility.
+type CaptioningManagerServiceServer interface {
+	AddCaptioningChangeListener(context.Context, *AddCaptioningChangeListenerRequest) (*AddCaptioningChangeListenerResponse, error)
+	GetFontScale(context.Context, *GetFontScaleRequest) (*GetFontScaleResponse, error)
+	GetLocale(context.Context, *GetLocaleRequest) (*GetLocaleResponse, error)
+	GetUserStyle(context.Context, *GetUserStyleRequest) (*GetUserStyleResponse, error)
+	IsCallCaptioningEnabled(context.Context, *IsCallCaptioningEnabledRequest) (*IsCallCaptioningEnabledResponse, error)
+	IsEnabled(context.Context, *IsEnabledRequest) (*IsEnabledResponse, error)
+	IsSystemAudioCaptioningEnabled(context.Context, *IsSystemAudioCaptioningEnabledRequest) (*IsSystemAudioCaptioningEnabledResponse, error)
+	IsSystemAudioCaptioningUiEnabled(context.Context, *IsSystemAudioCaptioningUiEnabledRequest) (*IsSystemAudioCaptioningUiEnabledResponse, error)
+	RemoveCaptioningChangeListener(context.Context, *RemoveCaptioningChangeListenerRequest) (*RemoveCaptioningChangeListenerResponse, error)
+	mustEmbedUnimplementedCaptioningManagerServiceServer()
+}
+
+// UnimplementedCaptioningManagerServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedCaptioningManagerServiceServer struct{}
+
+func (UnimplementedCaptioningManagerServiceServer) AddCaptioningChangeListener(context.Context, *AddCaptioningChangeListenerRequest) (*AddCaptioningChangeListenerResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method AddCaptioningChangeListener not implemented")
+}
+func (UnimplementedCaptioningManagerServiceServer) GetFontScale(context.Context, *GetFontScaleRequest) (*GetFontScaleResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetFontScale not implemented")
+}
+func (UnimplementedCaptioningManagerServiceServer) GetLocale(context.Context, *GetLocaleRequest) (*GetLocaleResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetLocale not implemented")
+}
+func (UnimplementedCaptioningManagerServiceServer) GetUserStyle(context.Context, *GetUserStyleRequest) (*GetUserStyleResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetUserStyle not implemented")
+}
+func (UnimplementedCaptioningManagerServiceServer) IsCallCaptioningEnabled(context.Context, *IsCallCaptioningEnabledRequest) (*IsCallCaptioningEnabledResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsCallCaptioningEnabled not implemented")
+}
+func (UnimplementedCaptioningManagerServiceServer) IsEnabled(context.Context, *IsEnabledRequest) (*IsEnabledResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsEnabled not implemented")
+}
+func (UnimplementedCaptioningManagerServiceServer) IsSystemAudioCaptioningEnabled(context.Context, *IsSystemAudioCaptioningEnabledRequest) (*IsSystemAudioCaptioningEnabledResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsSystemAudioCaptioningEnabled not implemented")
+}
+func (UnimplementedCaptioningManagerServiceServer) IsSystemAudioCaptioningUiEnabled(context.Context, *IsSystemAudioCaptioningUiEnabledRequest) (*IsSystemAudioCaptioningUiEnabledResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsSystemAudioCaptioningUiEnabled not implemented")
+}
+func (UnimplementedCaptioningManagerServiceServer) RemoveCaptioningChangeListener(context.Context, *RemoveCaptioningChangeListenerRequest) (*RemoveCaptioningChangeListenerResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method RemoveCaptioningChangeListener not implemented")
+}
+func (UnimplementedCaptioningManagerServiceServer) mustEmbedUnimplementedCaptioningManagerServiceServer() {
+}
+func (UnimplementedCaptioningManagerServiceServer) testEmbeddedByValue() {}
+
+// UnsafeCaptioningManagerServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to CaptioningManagerServiceServer will
+// result in compilation errors.
+type UnsafeCaptioningManagerServiceServer interface {
+	mustEmbedUnimplementedCaptioningManagerServiceServer()
+}
+
+func RegisterCaptioningManagerServiceServer(s grpc.ServiceRegistrar, srv CaptioningManagerServiceServer) {
+	// If the following call panics, it indicates UnimplementedCaptioningManagerServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&CaptioningManagerService_ServiceDesc, srv)
+}
+
+func _CaptioningManagerService_AddCaptioningChangeListener_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(AddCaptioningChangeListenerRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CaptioningManagerServiceServer).AddCaptioningChangeListener(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CaptioningManagerService_AddCaptioningChangeListener_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CaptioningManagerServiceServer).AddCaptioningChangeListener(ctx, req.(*AddCaptioningChangeListenerRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CaptioningManagerService_GetFontScale_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetFontScaleRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CaptioningManagerServiceServer).GetFontScale(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CaptioningManagerService_GetFontScale_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CaptioningManagerServiceServer).GetFontScale(ctx, req.(*GetFontScaleRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CaptioningManagerService_GetLocale_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetLocaleRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CaptioningManagerServiceServer).GetLocale(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CaptioningManagerService_GetLocale_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CaptioningManagerServiceServer).GetLocale(ctx, req.(*GetLocaleRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CaptioningManagerService_GetUserStyle_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetUserStyleRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CaptioningManagerServiceServer).GetUserStyle(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CaptioningManagerService_GetUserStyle_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CaptioningManagerServiceServer).GetUserStyle(ctx, req.(*GetUserStyleRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CaptioningManagerService_IsCallCaptioningEnabled_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsCallCaptioningEnabledRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CaptioningManagerServiceServer).IsCallCaptioningEnabled(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CaptioningManagerService_IsCallCaptioningEnabled_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CaptioningManagerServiceServer).IsCallCaptioningEnabled(ctx, req.(*IsCallCaptioningEnabledRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CaptioningManagerService_IsEnabled_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsEnabledRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CaptioningManagerServiceServer).IsEnabled(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CaptioningManagerService_IsEnabled_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CaptioningManagerServiceServer).IsEnabled(ctx, req.(*IsEnabledRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CaptioningManagerService_IsSystemAudioCaptioningEnabled_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsSystemAudioCaptioningEnabledRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CaptioningManagerServiceServer).IsSystemAudioCaptioningEnabled(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CaptioningManagerService_IsSystemAudioCaptioningEnabled_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CaptioningManagerServiceServer).IsSystemAudioCaptioningEnabled(ctx, req.(*IsSystemAudioCaptioningEnabledRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CaptioningManagerService_IsSystemAudioCaptioningUiEnabled_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsSystemAudioCaptioningUiEnabledRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CaptioningManagerServiceServer).IsSystemAudioCaptioningUiEnabled(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CaptioningManagerService_IsSystemAudioCaptioningUiEnabled_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CaptioningManagerServiceServer).IsSystemAudioCaptioningUiEnabled(ctx, req.(*IsSystemAudioCaptioningUiEnabledRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CaptioningManagerService_RemoveCaptioningChangeListener_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(RemoveCaptioningChangeListenerRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CaptioningManagerServiceServer).RemoveCaptioningChangeListener(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CaptioningManagerService_RemoveCaptioningChangeListener_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CaptioningManagerServiceServer).RemoveCaptioningChangeListener(ctx, req.(*RemoveCaptioningChangeListenerRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// CaptioningManagerService_ServiceDesc is the grpc.ServiceDesc for CaptioningManagerService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var CaptioningManagerService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "accessibility.CaptioningManagerService",
+	HandlerType: (*CaptioningManagerServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "AddCaptioningChangeListener",
+			Handler:    _CaptioningManagerService_AddCaptioningChangeListener_Handler,
+		},
+		{
+			MethodName: "GetFontScale",
+			Handler:    _CaptioningManagerService_GetFontScale_Handler,
+		},
+		{
+			MethodName: "GetLocale",
+			Handler:    _CaptioningManagerService_GetLocale_Handler,
+		},
+		{
+			MethodName: "GetUserStyle",
+			Handler:    _CaptioningManagerService_GetUserStyle_Handler,
+		},
+		{
+			MethodName: "IsCallCaptioningEnabled",
+			Handler:    _CaptioningManagerService_IsCallCaptioningEnabled_Handler,
+		},
+		{
+			MethodName: "IsEnabled",
+			Handler:    _CaptioningManagerService_IsEnabled_Handler,
+		},
+		{
+			MethodName: "IsSystemAudioCaptioningEnabled",
+			Handler:    _CaptioningManagerService_IsSystemAudioCaptioningEnabled_Handler,
+		},
+		{
+			MethodName: "IsSystemAudioCaptioningUiEnabled",
+			Handler:    _CaptioningManagerService_IsSystemAudioCaptioningUiEnabled_Handler,
+		},
+		{
+			MethodName: "RemoveCaptioningChangeListener",
+			Handler:    _CaptioningManagerService_RemoveCaptioningChangeListener_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/accessibility/accessibility.proto",
+}
+
+const (
 	ManagerService_AddAccessibilityRequestPreparer_FullMethodName                = "/accessibility.ManagerService/AddAccessibilityRequestPreparer"
 	ManagerService_AddAccessibilityServicesStateChangeListener1_FullMethodName   = "/accessibility.ManagerService/AddAccessibilityServicesStateChangeListener1"
 	ManagerService_AddAccessibilityServicesStateChangeListener2_1_FullMethodName = "/accessibility.ManagerService/AddAccessibilityServicesStateChangeListener2_1"
@@ -990,413 +1397,6 @@ var ManagerService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "IsAccessibilityButtonSupported",
 			Handler:    _ManagerService_IsAccessibilityButtonSupported_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/accessibility/accessibility.proto",
-}
-
-const (
-	CaptioningManagerService_AddCaptioningChangeListener_FullMethodName      = "/accessibility.CaptioningManagerService/AddCaptioningChangeListener"
-	CaptioningManagerService_GetFontScale_FullMethodName                     = "/accessibility.CaptioningManagerService/GetFontScale"
-	CaptioningManagerService_GetLocale_FullMethodName                        = "/accessibility.CaptioningManagerService/GetLocale"
-	CaptioningManagerService_GetUserStyle_FullMethodName                     = "/accessibility.CaptioningManagerService/GetUserStyle"
-	CaptioningManagerService_IsCallCaptioningEnabled_FullMethodName          = "/accessibility.CaptioningManagerService/IsCallCaptioningEnabled"
-	CaptioningManagerService_IsEnabled_FullMethodName                        = "/accessibility.CaptioningManagerService/IsEnabled"
-	CaptioningManagerService_IsSystemAudioCaptioningEnabled_FullMethodName   = "/accessibility.CaptioningManagerService/IsSystemAudioCaptioningEnabled"
-	CaptioningManagerService_IsSystemAudioCaptioningUiEnabled_FullMethodName = "/accessibility.CaptioningManagerService/IsSystemAudioCaptioningUiEnabled"
-	CaptioningManagerService_RemoveCaptioningChangeListener_FullMethodName   = "/accessibility.CaptioningManagerService/RemoveCaptioningChangeListener"
-)
-
-// CaptioningManagerServiceClient is the client API for CaptioningManagerService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type CaptioningManagerServiceClient interface {
-	AddCaptioningChangeListener(ctx context.Context, in *AddCaptioningChangeListenerRequest, opts ...grpc.CallOption) (*AddCaptioningChangeListenerResponse, error)
-	GetFontScale(ctx context.Context, in *GetFontScaleRequest, opts ...grpc.CallOption) (*GetFontScaleResponse, error)
-	GetLocale(ctx context.Context, in *GetLocaleRequest, opts ...grpc.CallOption) (*GetLocaleResponse, error)
-	GetUserStyle(ctx context.Context, in *GetUserStyleRequest, opts ...grpc.CallOption) (*GetUserStyleResponse, error)
-	IsCallCaptioningEnabled(ctx context.Context, in *IsCallCaptioningEnabledRequest, opts ...grpc.CallOption) (*IsCallCaptioningEnabledResponse, error)
-	IsEnabled(ctx context.Context, in *IsEnabledRequest, opts ...grpc.CallOption) (*IsEnabledResponse, error)
-	IsSystemAudioCaptioningEnabled(ctx context.Context, in *IsSystemAudioCaptioningEnabledRequest, opts ...grpc.CallOption) (*IsSystemAudioCaptioningEnabledResponse, error)
-	IsSystemAudioCaptioningUiEnabled(ctx context.Context, in *IsSystemAudioCaptioningUiEnabledRequest, opts ...grpc.CallOption) (*IsSystemAudioCaptioningUiEnabledResponse, error)
-	RemoveCaptioningChangeListener(ctx context.Context, in *RemoveCaptioningChangeListenerRequest, opts ...grpc.CallOption) (*RemoveCaptioningChangeListenerResponse, error)
-}
-
-type captioningManagerServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewCaptioningManagerServiceClient(cc grpc.ClientConnInterface) CaptioningManagerServiceClient {
-	return &captioningManagerServiceClient{cc}
-}
-
-func (c *captioningManagerServiceClient) AddCaptioningChangeListener(ctx context.Context, in *AddCaptioningChangeListenerRequest, opts ...grpc.CallOption) (*AddCaptioningChangeListenerResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(AddCaptioningChangeListenerResponse)
-	err := c.cc.Invoke(ctx, CaptioningManagerService_AddCaptioningChangeListener_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *captioningManagerServiceClient) GetFontScale(ctx context.Context, in *GetFontScaleRequest, opts ...grpc.CallOption) (*GetFontScaleResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetFontScaleResponse)
-	err := c.cc.Invoke(ctx, CaptioningManagerService_GetFontScale_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *captioningManagerServiceClient) GetLocale(ctx context.Context, in *GetLocaleRequest, opts ...grpc.CallOption) (*GetLocaleResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetLocaleResponse)
-	err := c.cc.Invoke(ctx, CaptioningManagerService_GetLocale_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *captioningManagerServiceClient) GetUserStyle(ctx context.Context, in *GetUserStyleRequest, opts ...grpc.CallOption) (*GetUserStyleResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetUserStyleResponse)
-	err := c.cc.Invoke(ctx, CaptioningManagerService_GetUserStyle_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *captioningManagerServiceClient) IsCallCaptioningEnabled(ctx context.Context, in *IsCallCaptioningEnabledRequest, opts ...grpc.CallOption) (*IsCallCaptioningEnabledResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(IsCallCaptioningEnabledResponse)
-	err := c.cc.Invoke(ctx, CaptioningManagerService_IsCallCaptioningEnabled_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *captioningManagerServiceClient) IsEnabled(ctx context.Context, in *IsEnabledRequest, opts ...grpc.CallOption) (*IsEnabledResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(IsEnabledResponse)
-	err := c.cc.Invoke(ctx, CaptioningManagerService_IsEnabled_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *captioningManagerServiceClient) IsSystemAudioCaptioningEnabled(ctx context.Context, in *IsSystemAudioCaptioningEnabledRequest, opts ...grpc.CallOption) (*IsSystemAudioCaptioningEnabledResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(IsSystemAudioCaptioningEnabledResponse)
-	err := c.cc.Invoke(ctx, CaptioningManagerService_IsSystemAudioCaptioningEnabled_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *captioningManagerServiceClient) IsSystemAudioCaptioningUiEnabled(ctx context.Context, in *IsSystemAudioCaptioningUiEnabledRequest, opts ...grpc.CallOption) (*IsSystemAudioCaptioningUiEnabledResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(IsSystemAudioCaptioningUiEnabledResponse)
-	err := c.cc.Invoke(ctx, CaptioningManagerService_IsSystemAudioCaptioningUiEnabled_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *captioningManagerServiceClient) RemoveCaptioningChangeListener(ctx context.Context, in *RemoveCaptioningChangeListenerRequest, opts ...grpc.CallOption) (*RemoveCaptioningChangeListenerResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(RemoveCaptioningChangeListenerResponse)
-	err := c.cc.Invoke(ctx, CaptioningManagerService_RemoveCaptioningChangeListener_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// CaptioningManagerServiceServer is the server API for CaptioningManagerService service.
-// All implementations must embed UnimplementedCaptioningManagerServiceServer
-// for forward compatibility.
-type CaptioningManagerServiceServer interface {
-	AddCaptioningChangeListener(context.Context, *AddCaptioningChangeListenerRequest) (*AddCaptioningChangeListenerResponse, error)
-	GetFontScale(context.Context, *GetFontScaleRequest) (*GetFontScaleResponse, error)
-	GetLocale(context.Context, *GetLocaleRequest) (*GetLocaleResponse, error)
-	GetUserStyle(context.Context, *GetUserStyleRequest) (*GetUserStyleResponse, error)
-	IsCallCaptioningEnabled(context.Context, *IsCallCaptioningEnabledRequest) (*IsCallCaptioningEnabledResponse, error)
-	IsEnabled(context.Context, *IsEnabledRequest) (*IsEnabledResponse, error)
-	IsSystemAudioCaptioningEnabled(context.Context, *IsSystemAudioCaptioningEnabledRequest) (*IsSystemAudioCaptioningEnabledResponse, error)
-	IsSystemAudioCaptioningUiEnabled(context.Context, *IsSystemAudioCaptioningUiEnabledRequest) (*IsSystemAudioCaptioningUiEnabledResponse, error)
-	RemoveCaptioningChangeListener(context.Context, *RemoveCaptioningChangeListenerRequest) (*RemoveCaptioningChangeListenerResponse, error)
-	mustEmbedUnimplementedCaptioningManagerServiceServer()
-}
-
-// UnimplementedCaptioningManagerServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedCaptioningManagerServiceServer struct{}
-
-func (UnimplementedCaptioningManagerServiceServer) AddCaptioningChangeListener(context.Context, *AddCaptioningChangeListenerRequest) (*AddCaptioningChangeListenerResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method AddCaptioningChangeListener not implemented")
-}
-func (UnimplementedCaptioningManagerServiceServer) GetFontScale(context.Context, *GetFontScaleRequest) (*GetFontScaleResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetFontScale not implemented")
-}
-func (UnimplementedCaptioningManagerServiceServer) GetLocale(context.Context, *GetLocaleRequest) (*GetLocaleResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetLocale not implemented")
-}
-func (UnimplementedCaptioningManagerServiceServer) GetUserStyle(context.Context, *GetUserStyleRequest) (*GetUserStyleResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetUserStyle not implemented")
-}
-func (UnimplementedCaptioningManagerServiceServer) IsCallCaptioningEnabled(context.Context, *IsCallCaptioningEnabledRequest) (*IsCallCaptioningEnabledResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method IsCallCaptioningEnabled not implemented")
-}
-func (UnimplementedCaptioningManagerServiceServer) IsEnabled(context.Context, *IsEnabledRequest) (*IsEnabledResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method IsEnabled not implemented")
-}
-func (UnimplementedCaptioningManagerServiceServer) IsSystemAudioCaptioningEnabled(context.Context, *IsSystemAudioCaptioningEnabledRequest) (*IsSystemAudioCaptioningEnabledResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method IsSystemAudioCaptioningEnabled not implemented")
-}
-func (UnimplementedCaptioningManagerServiceServer) IsSystemAudioCaptioningUiEnabled(context.Context, *IsSystemAudioCaptioningUiEnabledRequest) (*IsSystemAudioCaptioningUiEnabledResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method IsSystemAudioCaptioningUiEnabled not implemented")
-}
-func (UnimplementedCaptioningManagerServiceServer) RemoveCaptioningChangeListener(context.Context, *RemoveCaptioningChangeListenerRequest) (*RemoveCaptioningChangeListenerResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method RemoveCaptioningChangeListener not implemented")
-}
-func (UnimplementedCaptioningManagerServiceServer) mustEmbedUnimplementedCaptioningManagerServiceServer() {
-}
-func (UnimplementedCaptioningManagerServiceServer) testEmbeddedByValue() {}
-
-// UnsafeCaptioningManagerServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to CaptioningManagerServiceServer will
-// result in compilation errors.
-type UnsafeCaptioningManagerServiceServer interface {
-	mustEmbedUnimplementedCaptioningManagerServiceServer()
-}
-
-func RegisterCaptioningManagerServiceServer(s grpc.ServiceRegistrar, srv CaptioningManagerServiceServer) {
-	// If the following call panics, it indicates UnimplementedCaptioningManagerServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&CaptioningManagerService_ServiceDesc, srv)
-}
-
-func _CaptioningManagerService_AddCaptioningChangeListener_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(AddCaptioningChangeListenerRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(CaptioningManagerServiceServer).AddCaptioningChangeListener(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: CaptioningManagerService_AddCaptioningChangeListener_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CaptioningManagerServiceServer).AddCaptioningChangeListener(ctx, req.(*AddCaptioningChangeListenerRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _CaptioningManagerService_GetFontScale_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetFontScaleRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(CaptioningManagerServiceServer).GetFontScale(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: CaptioningManagerService_GetFontScale_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CaptioningManagerServiceServer).GetFontScale(ctx, req.(*GetFontScaleRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _CaptioningManagerService_GetLocale_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetLocaleRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(CaptioningManagerServiceServer).GetLocale(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: CaptioningManagerService_GetLocale_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CaptioningManagerServiceServer).GetLocale(ctx, req.(*GetLocaleRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _CaptioningManagerService_GetUserStyle_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetUserStyleRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(CaptioningManagerServiceServer).GetUserStyle(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: CaptioningManagerService_GetUserStyle_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CaptioningManagerServiceServer).GetUserStyle(ctx, req.(*GetUserStyleRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _CaptioningManagerService_IsCallCaptioningEnabled_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(IsCallCaptioningEnabledRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(CaptioningManagerServiceServer).IsCallCaptioningEnabled(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: CaptioningManagerService_IsCallCaptioningEnabled_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CaptioningManagerServiceServer).IsCallCaptioningEnabled(ctx, req.(*IsCallCaptioningEnabledRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _CaptioningManagerService_IsEnabled_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(IsEnabledRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(CaptioningManagerServiceServer).IsEnabled(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: CaptioningManagerService_IsEnabled_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CaptioningManagerServiceServer).IsEnabled(ctx, req.(*IsEnabledRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _CaptioningManagerService_IsSystemAudioCaptioningEnabled_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(IsSystemAudioCaptioningEnabledRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(CaptioningManagerServiceServer).IsSystemAudioCaptioningEnabled(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: CaptioningManagerService_IsSystemAudioCaptioningEnabled_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CaptioningManagerServiceServer).IsSystemAudioCaptioningEnabled(ctx, req.(*IsSystemAudioCaptioningEnabledRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _CaptioningManagerService_IsSystemAudioCaptioningUiEnabled_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(IsSystemAudioCaptioningUiEnabledRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(CaptioningManagerServiceServer).IsSystemAudioCaptioningUiEnabled(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: CaptioningManagerService_IsSystemAudioCaptioningUiEnabled_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CaptioningManagerServiceServer).IsSystemAudioCaptioningUiEnabled(ctx, req.(*IsSystemAudioCaptioningUiEnabledRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _CaptioningManagerService_RemoveCaptioningChangeListener_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(RemoveCaptioningChangeListenerRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(CaptioningManagerServiceServer).RemoveCaptioningChangeListener(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: CaptioningManagerService_RemoveCaptioningChangeListener_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CaptioningManagerServiceServer).RemoveCaptioningChangeListener(ctx, req.(*RemoveCaptioningChangeListenerRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// CaptioningManagerService_ServiceDesc is the grpc.ServiceDesc for CaptioningManagerService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var CaptioningManagerService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "accessibility.CaptioningManagerService",
-	HandlerType: (*CaptioningManagerServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "AddCaptioningChangeListener",
-			Handler:    _CaptioningManagerService_AddCaptioningChangeListener_Handler,
-		},
-		{
-			MethodName: "GetFontScale",
-			Handler:    _CaptioningManagerService_GetFontScale_Handler,
-		},
-		{
-			MethodName: "GetLocale",
-			Handler:    _CaptioningManagerService_GetLocale_Handler,
-		},
-		{
-			MethodName: "GetUserStyle",
-			Handler:    _CaptioningManagerService_GetUserStyle_Handler,
-		},
-		{
-			MethodName: "IsCallCaptioningEnabled",
-			Handler:    _CaptioningManagerService_IsCallCaptioningEnabled_Handler,
-		},
-		{
-			MethodName: "IsEnabled",
-			Handler:    _CaptioningManagerService_IsEnabled_Handler,
-		},
-		{
-			MethodName: "IsSystemAudioCaptioningEnabled",
-			Handler:    _CaptioningManagerService_IsSystemAudioCaptioningEnabled_Handler,
-		},
-		{
-			MethodName: "IsSystemAudioCaptioningUiEnabled",
-			Handler:    _CaptioningManagerService_IsSystemAudioCaptioningUiEnabled_Handler,
-		},
-		{
-			MethodName: "RemoveCaptioningChangeListener",
-			Handler:    _CaptioningManagerService_RemoveCaptioningChangeListener_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

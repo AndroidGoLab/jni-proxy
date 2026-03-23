@@ -9,6 +9,232 @@ import (
 	"google.golang.org/grpc"
 )
 
+// CrossProfileAppsClient wraps the gRPC CrossProfileAppsService client.
+type CrossProfileAppsClient struct {
+	svc pb.CrossProfileAppsServiceClient
+}
+
+// NewCrossProfileAppsClient creates a new CrossProfileApps client.
+func NewCrossProfileAppsClient(cc grpc.ClientConnInterface) *CrossProfileAppsClient {
+	return &CrossProfileAppsClient{
+		svc: pb.NewCrossProfileAppsServiceClient(cc),
+	}
+}
+
+// CanInteractAcrossProfiles calls the CanInteractAcrossProfiles RPC.
+func (c *CrossProfileAppsClient) CanInteractAcrossProfiles(ctx context.Context) (bool, error) {
+	resp, err := c.svc.CanInteractAcrossProfiles(ctx, &pb.CanInteractAcrossProfilesRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// CanRequestInteractAcrossProfiles calls the CanRequestInteractAcrossProfiles RPC.
+func (c *CrossProfileAppsClient) CanRequestInteractAcrossProfiles(ctx context.Context) (bool, error) {
+	resp, err := c.svc.CanRequestInteractAcrossProfiles(ctx, &pb.CanRequestInteractAcrossProfilesRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// CreateRequestInteractAcrossProfilesIntent calls the CreateRequestInteractAcrossProfilesIntent RPC.
+func (c *CrossProfileAppsClient) CreateRequestInteractAcrossProfilesIntent(ctx context.Context) (int64, error) {
+	resp, err := c.svc.CreateRequestInteractAcrossProfilesIntent(ctx, &pb.CreateRequestInteractAcrossProfilesIntentRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetProfileSwitchingIconDrawable calls the GetProfileSwitchingIconDrawable RPC.
+func (c *CrossProfileAppsClient) GetProfileSwitchingIconDrawable(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.GetProfileSwitchingIconDrawable(ctx, &pb.GetProfileSwitchingIconDrawableRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetProfileSwitchingLabel calls the GetProfileSwitchingLabel RPC.
+func (c *CrossProfileAppsClient) GetProfileSwitchingLabel(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.GetProfileSwitchingLabel(ctx, &pb.GetProfileSwitchingLabelRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsManagedProfile calls the IsManagedProfile RPC.
+func (c *CrossProfileAppsClient) IsManagedProfile(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.IsManagedProfile(ctx, &pb.IsManagedProfileRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsProfile calls the IsProfile RPC.
+func (c *CrossProfileAppsClient) IsProfile(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.IsProfile(ctx, &pb.IsProfileRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// StartActivity3 calls the StartActivity3 RPC.
+func (c *CrossProfileAppsClient) StartActivity3(ctx context.Context, arg0 int64, arg1 int64, arg2 int64) error {
+	_, err := c.svc.StartActivity3(ctx, &pb.StartActivity3Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	return err
+}
+
+// StartActivity4_1 calls the StartActivity4_1 RPC.
+func (c *CrossProfileAppsClient) StartActivity4_1(ctx context.Context, arg0 int64, arg1 int64, arg2 int64, arg3 int64) error {
+	_, err := c.svc.StartActivity4_1(ctx, &pb.StartActivity4_1Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+	})
+	return err
+}
+
+// StartMainActivity2 calls the StartMainActivity2 RPC.
+func (c *CrossProfileAppsClient) StartMainActivity2(ctx context.Context, arg0 int64, arg1 int64) error {
+	_, err := c.svc.StartMainActivity2(ctx, &pb.StartMainActivity2Request{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// StartMainActivity4_1 calls the StartMainActivity4_1 RPC.
+func (c *CrossProfileAppsClient) StartMainActivity4_1(ctx context.Context, arg0 int64, arg1 int64, arg2 int64, arg3 int64) error {
+	_, err := c.svc.StartMainActivity4_1(ctx, &pb.StartMainActivity4_1Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+	})
+	return err
+}
+
+// ShortcutManagerClient wraps the gRPC ShortcutManagerService client.
+type ShortcutManagerClient struct {
+	svc pb.ShortcutManagerServiceClient
+}
+
+// NewShortcutManagerClient creates a new ShortcutManager client.
+func NewShortcutManagerClient(cc grpc.ClientConnInterface) *ShortcutManagerClient {
+	return &ShortcutManagerClient{
+		svc: pb.NewShortcutManagerServiceClient(cc),
+	}
+}
+
+// CreateShortcutResultIntent calls the CreateShortcutResultIntent RPC.
+func (c *ShortcutManagerClient) CreateShortcutResultIntent(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.CreateShortcutResultIntent(ctx, &pb.CreateShortcutResultIntentRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetIconMaxHeight calls the GetIconMaxHeight RPC.
+func (c *ShortcutManagerClient) GetIconMaxHeight(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetIconMaxHeight(ctx, &pb.GetIconMaxHeightRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetIconMaxWidth calls the GetIconMaxWidth RPC.
+func (c *ShortcutManagerClient) GetIconMaxWidth(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetIconMaxWidth(ctx, &pb.GetIconMaxWidthRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetMaxShortcutCountPerActivity calls the GetMaxShortcutCountPerActivity RPC.
+func (c *ShortcutManagerClient) GetMaxShortcutCountPerActivity(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetMaxShortcutCountPerActivity(ctx, &pb.GetMaxShortcutCountPerActivityRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsRateLimitingActive calls the IsRateLimitingActive RPC.
+func (c *ShortcutManagerClient) IsRateLimitingActive(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsRateLimitingActive(ctx, &pb.IsRateLimitingActiveRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsRequestPinShortcutSupported calls the IsRequestPinShortcutSupported RPC.
+func (c *ShortcutManagerClient) IsRequestPinShortcutSupported(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsRequestPinShortcutSupported(ctx, &pb.IsRequestPinShortcutSupportedRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// PushDynamicShortcut calls the PushDynamicShortcut RPC.
+func (c *ShortcutManagerClient) PushDynamicShortcut(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.PushDynamicShortcut(ctx, &pb.PushDynamicShortcutRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// RemoveAllDynamicShortcuts calls the RemoveAllDynamicShortcuts RPC.
+func (c *ShortcutManagerClient) RemoveAllDynamicShortcuts(ctx context.Context) error {
+	_, err := c.svc.RemoveAllDynamicShortcuts(ctx, &pb.RemoveAllDynamicShortcutsRequest{})
+	return err
+}
+
+// ReportShortcutUsed calls the ReportShortcutUsed RPC.
+func (c *ShortcutManagerClient) ReportShortcutUsed(ctx context.Context, arg0 string) error {
+	_, err := c.svc.ReportShortcutUsed(ctx, &pb.ReportShortcutUsedRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// RequestPinShortcut calls the RequestPinShortcut RPC.
+func (c *ShortcutManagerClient) RequestPinShortcut(ctx context.Context, arg0 int64, arg1 int64) (bool, error) {
+	resp, err := c.svc.RequestPinShortcut(ctx, &pb.RequestPinShortcutRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
 // LauncherAppsClient wraps the gRPC LauncherAppsService client.
 type LauncherAppsClient struct {
 	svc pb.LauncherAppsServiceClient
@@ -286,232 +512,6 @@ func (c *LauncherAppsClient) UnregisterCallback(ctx context.Context, arg0 int64)
 func (c *LauncherAppsClient) UnregisterPackageInstallerSessionCallback(ctx context.Context, arg0 int64) error {
 	_, err := c.svc.UnregisterPackageInstallerSessionCallback(ctx, &pb.UnregisterPackageInstallerSessionCallbackRequest{
 		Arg0: arg0,
-	})
-	return err
-}
-
-// ShortcutManagerClient wraps the gRPC ShortcutManagerService client.
-type ShortcutManagerClient struct {
-	svc pb.ShortcutManagerServiceClient
-}
-
-// NewShortcutManagerClient creates a new ShortcutManager client.
-func NewShortcutManagerClient(cc grpc.ClientConnInterface) *ShortcutManagerClient {
-	return &ShortcutManagerClient{
-		svc: pb.NewShortcutManagerServiceClient(cc),
-	}
-}
-
-// CreateShortcutResultIntent calls the CreateShortcutResultIntent RPC.
-func (c *ShortcutManagerClient) CreateShortcutResultIntent(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.CreateShortcutResultIntent(ctx, &pb.CreateShortcutResultIntentRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetIconMaxHeight calls the GetIconMaxHeight RPC.
-func (c *ShortcutManagerClient) GetIconMaxHeight(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetIconMaxHeight(ctx, &pb.GetIconMaxHeightRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetIconMaxWidth calls the GetIconMaxWidth RPC.
-func (c *ShortcutManagerClient) GetIconMaxWidth(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetIconMaxWidth(ctx, &pb.GetIconMaxWidthRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetMaxShortcutCountPerActivity calls the GetMaxShortcutCountPerActivity RPC.
-func (c *ShortcutManagerClient) GetMaxShortcutCountPerActivity(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetMaxShortcutCountPerActivity(ctx, &pb.GetMaxShortcutCountPerActivityRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// IsRateLimitingActive calls the IsRateLimitingActive RPC.
-func (c *ShortcutManagerClient) IsRateLimitingActive(ctx context.Context) (bool, error) {
-	resp, err := c.svc.IsRateLimitingActive(ctx, &pb.IsRateLimitingActiveRequest{})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// IsRequestPinShortcutSupported calls the IsRequestPinShortcutSupported RPC.
-func (c *ShortcutManagerClient) IsRequestPinShortcutSupported(ctx context.Context) (bool, error) {
-	resp, err := c.svc.IsRequestPinShortcutSupported(ctx, &pb.IsRequestPinShortcutSupportedRequest{})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// PushDynamicShortcut calls the PushDynamicShortcut RPC.
-func (c *ShortcutManagerClient) PushDynamicShortcut(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.PushDynamicShortcut(ctx, &pb.PushDynamicShortcutRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// RemoveAllDynamicShortcuts calls the RemoveAllDynamicShortcuts RPC.
-func (c *ShortcutManagerClient) RemoveAllDynamicShortcuts(ctx context.Context) error {
-	_, err := c.svc.RemoveAllDynamicShortcuts(ctx, &pb.RemoveAllDynamicShortcutsRequest{})
-	return err
-}
-
-// ReportShortcutUsed calls the ReportShortcutUsed RPC.
-func (c *ShortcutManagerClient) ReportShortcutUsed(ctx context.Context, arg0 string) error {
-	_, err := c.svc.ReportShortcutUsed(ctx, &pb.ReportShortcutUsedRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// RequestPinShortcut calls the RequestPinShortcut RPC.
-func (c *ShortcutManagerClient) RequestPinShortcut(ctx context.Context, arg0 int64, arg1 int64) (bool, error) {
-	resp, err := c.svc.RequestPinShortcut(ctx, &pb.RequestPinShortcutRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// CrossProfileAppsClient wraps the gRPC CrossProfileAppsService client.
-type CrossProfileAppsClient struct {
-	svc pb.CrossProfileAppsServiceClient
-}
-
-// NewCrossProfileAppsClient creates a new CrossProfileApps client.
-func NewCrossProfileAppsClient(cc grpc.ClientConnInterface) *CrossProfileAppsClient {
-	return &CrossProfileAppsClient{
-		svc: pb.NewCrossProfileAppsServiceClient(cc),
-	}
-}
-
-// CanInteractAcrossProfiles calls the CanInteractAcrossProfiles RPC.
-func (c *CrossProfileAppsClient) CanInteractAcrossProfiles(ctx context.Context) (bool, error) {
-	resp, err := c.svc.CanInteractAcrossProfiles(ctx, &pb.CanInteractAcrossProfilesRequest{})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// CanRequestInteractAcrossProfiles calls the CanRequestInteractAcrossProfiles RPC.
-func (c *CrossProfileAppsClient) CanRequestInteractAcrossProfiles(ctx context.Context) (bool, error) {
-	resp, err := c.svc.CanRequestInteractAcrossProfiles(ctx, &pb.CanRequestInteractAcrossProfilesRequest{})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// CreateRequestInteractAcrossProfilesIntent calls the CreateRequestInteractAcrossProfilesIntent RPC.
-func (c *CrossProfileAppsClient) CreateRequestInteractAcrossProfilesIntent(ctx context.Context) (int64, error) {
-	resp, err := c.svc.CreateRequestInteractAcrossProfilesIntent(ctx, &pb.CreateRequestInteractAcrossProfilesIntentRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetProfileSwitchingIconDrawable calls the GetProfileSwitchingIconDrawable RPC.
-func (c *CrossProfileAppsClient) GetProfileSwitchingIconDrawable(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.GetProfileSwitchingIconDrawable(ctx, &pb.GetProfileSwitchingIconDrawableRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetProfileSwitchingLabel calls the GetProfileSwitchingLabel RPC.
-func (c *CrossProfileAppsClient) GetProfileSwitchingLabel(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.GetProfileSwitchingLabel(ctx, &pb.GetProfileSwitchingLabelRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// IsManagedProfile calls the IsManagedProfile RPC.
-func (c *CrossProfileAppsClient) IsManagedProfile(ctx context.Context, arg0 int64) (bool, error) {
-	resp, err := c.svc.IsManagedProfile(ctx, &pb.IsManagedProfileRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// IsProfile calls the IsProfile RPC.
-func (c *CrossProfileAppsClient) IsProfile(ctx context.Context, arg0 int64) (bool, error) {
-	resp, err := c.svc.IsProfile(ctx, &pb.IsProfileRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// StartActivity3 calls the StartActivity3 RPC.
-func (c *CrossProfileAppsClient) StartActivity3(ctx context.Context, arg0 int64, arg1 int64, arg2 int64) error {
-	_, err := c.svc.StartActivity3(ctx, &pb.StartActivity3Request{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-	})
-	return err
-}
-
-// StartActivity4_1 calls the StartActivity4_1 RPC.
-func (c *CrossProfileAppsClient) StartActivity4_1(ctx context.Context, arg0 int64, arg1 int64, arg2 int64, arg3 int64) error {
-	_, err := c.svc.StartActivity4_1(ctx, &pb.StartActivity4_1Request{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
-	})
-	return err
-}
-
-// StartMainActivity2 calls the StartMainActivity2 RPC.
-func (c *CrossProfileAppsClient) StartMainActivity2(ctx context.Context, arg0 int64, arg1 int64) error {
-	_, err := c.svc.StartMainActivity2(ctx, &pb.StartMainActivity2Request{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	return err
-}
-
-// StartMainActivity4_1 calls the StartMainActivity4_1 RPC.
-func (c *CrossProfileAppsClient) StartMainActivity4_1(ctx context.Context, arg0 int64, arg1 int64, arg2 int64, arg3 int64) error {
-	_, err := c.svc.StartMainActivity4_1(ctx, &pb.StartMainActivity4_1Request{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
 	})
 	return err
 }

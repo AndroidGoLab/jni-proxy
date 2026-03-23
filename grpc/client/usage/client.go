@@ -9,6 +9,141 @@ import (
 	"google.golang.org/grpc"
 )
 
+// NetworkStatsManagerClient wraps the gRPC NetworkStatsManagerService client.
+type NetworkStatsManagerClient struct {
+	svc pb.NetworkStatsManagerServiceClient
+}
+
+// NewNetworkStatsManagerClient creates a new NetworkStatsManager client.
+func NewNetworkStatsManagerClient(cc grpc.ClientConnInterface) *NetworkStatsManagerClient {
+	return &NetworkStatsManagerClient{
+		svc: pb.NewNetworkStatsManagerServiceClient(cc),
+	}
+}
+
+// QueryDetails calls the QueryDetails RPC.
+func (c *NetworkStatsManagerClient) QueryDetails(ctx context.Context, arg0 int32, arg1 string, arg2 int64, arg3 int64) (int64, error) {
+	resp, err := c.svc.QueryDetails(ctx, &pb.QueryDetailsRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// QueryDetailsForUid calls the QueryDetailsForUid RPC.
+func (c *NetworkStatsManagerClient) QueryDetailsForUid(ctx context.Context, arg0 int32, arg1 string, arg2 int64, arg3 int64, arg4 int32) (int64, error) {
+	resp, err := c.svc.QueryDetailsForUid(ctx, &pb.QueryDetailsForUidRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+		Arg4: arg4,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// QueryDetailsForUidTag calls the QueryDetailsForUidTag RPC.
+func (c *NetworkStatsManagerClient) QueryDetailsForUidTag(ctx context.Context, arg0 int32, arg1 string, arg2 int64, arg3 int64, arg4 int32, arg5 int32) (int64, error) {
+	resp, err := c.svc.QueryDetailsForUidTag(ctx, &pb.QueryDetailsForUidTagRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+		Arg4: arg4,
+		Arg5: arg5,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// QueryDetailsForUidTagState calls the QueryDetailsForUidTagState RPC.
+func (c *NetworkStatsManagerClient) QueryDetailsForUidTagState(ctx context.Context, arg0 int32, arg1 string, arg2 int64, arg3 int64, arg4 int32, arg5 int32, arg6 int32) (int64, error) {
+	resp, err := c.svc.QueryDetailsForUidTagState(ctx, &pb.QueryDetailsForUidTagStateRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+		Arg4: arg4,
+		Arg5: arg5,
+		Arg6: arg6,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// QuerySummary calls the QuerySummary RPC.
+func (c *NetworkStatsManagerClient) QuerySummary(ctx context.Context, arg0 int32, arg1 string, arg2 int64, arg3 int64) (int64, error) {
+	resp, err := c.svc.QuerySummary(ctx, &pb.QuerySummaryRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// QuerySummaryForDevice calls the QuerySummaryForDevice RPC.
+func (c *NetworkStatsManagerClient) QuerySummaryForDevice(ctx context.Context, arg0 int32, arg1 string, arg2 int64, arg3 int64) (int64, error) {
+	resp, err := c.svc.QuerySummaryForDevice(ctx, &pb.QuerySummaryForDeviceRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// QuerySummaryForUser calls the QuerySummaryForUser RPC.
+func (c *NetworkStatsManagerClient) QuerySummaryForUser(ctx context.Context, arg0 int32, arg1 string, arg2 int64, arg3 int64) (int64, error) {
+	resp, err := c.svc.QuerySummaryForUser(ctx, &pb.QuerySummaryForUserRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// RegisterUsageCallback calls the RegisterUsageCallback RPC.
+func (c *NetworkStatsManagerClient) RegisterUsageCallback(ctx context.Context, arg0 int32, arg1 string, arg2 int64, arg3 int64) error {
+	_, err := c.svc.RegisterUsageCallback(ctx, &pb.RegisterUsageCallbackRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+	})
+	return err
+}
+
+// UnregisterUsageCallback calls the UnregisterUsageCallback RPC.
+func (c *NetworkStatsManagerClient) UnregisterUsageCallback(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.UnregisterUsageCallback(ctx, &pb.UnregisterUsageCallbackRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
 // StatsManagerClient wraps the gRPC StatsManagerService client.
 type StatsManagerClient struct {
 	svc pb.StatsManagerServiceClient
@@ -157,139 +292,4 @@ func (c *StorageStatsManagerClient) QueryStatsForUser(ctx context.Context, arg0 
 		return 0, err
 	}
 	return resp.GetResult(), nil
-}
-
-// NetworkStatsManagerClient wraps the gRPC NetworkStatsManagerService client.
-type NetworkStatsManagerClient struct {
-	svc pb.NetworkStatsManagerServiceClient
-}
-
-// NewNetworkStatsManagerClient creates a new NetworkStatsManager client.
-func NewNetworkStatsManagerClient(cc grpc.ClientConnInterface) *NetworkStatsManagerClient {
-	return &NetworkStatsManagerClient{
-		svc: pb.NewNetworkStatsManagerServiceClient(cc),
-	}
-}
-
-// QueryDetails calls the QueryDetails RPC.
-func (c *NetworkStatsManagerClient) QueryDetails(ctx context.Context, arg0 int32, arg1 string, arg2 int64, arg3 int64) (int64, error) {
-	resp, err := c.svc.QueryDetails(ctx, &pb.QueryDetailsRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// QueryDetailsForUid calls the QueryDetailsForUid RPC.
-func (c *NetworkStatsManagerClient) QueryDetailsForUid(ctx context.Context, arg0 int32, arg1 string, arg2 int64, arg3 int64, arg4 int32) (int64, error) {
-	resp, err := c.svc.QueryDetailsForUid(ctx, &pb.QueryDetailsForUidRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
-		Arg4: arg4,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// QueryDetailsForUidTag calls the QueryDetailsForUidTag RPC.
-func (c *NetworkStatsManagerClient) QueryDetailsForUidTag(ctx context.Context, arg0 int32, arg1 string, arg2 int64, arg3 int64, arg4 int32, arg5 int32) (int64, error) {
-	resp, err := c.svc.QueryDetailsForUidTag(ctx, &pb.QueryDetailsForUidTagRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
-		Arg4: arg4,
-		Arg5: arg5,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// QueryDetailsForUidTagState calls the QueryDetailsForUidTagState RPC.
-func (c *NetworkStatsManagerClient) QueryDetailsForUidTagState(ctx context.Context, arg0 int32, arg1 string, arg2 int64, arg3 int64, arg4 int32, arg5 int32, arg6 int32) (int64, error) {
-	resp, err := c.svc.QueryDetailsForUidTagState(ctx, &pb.QueryDetailsForUidTagStateRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
-		Arg4: arg4,
-		Arg5: arg5,
-		Arg6: arg6,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// QuerySummary calls the QuerySummary RPC.
-func (c *NetworkStatsManagerClient) QuerySummary(ctx context.Context, arg0 int32, arg1 string, arg2 int64, arg3 int64) (int64, error) {
-	resp, err := c.svc.QuerySummary(ctx, &pb.QuerySummaryRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// QuerySummaryForDevice calls the QuerySummaryForDevice RPC.
-func (c *NetworkStatsManagerClient) QuerySummaryForDevice(ctx context.Context, arg0 int32, arg1 string, arg2 int64, arg3 int64) (int64, error) {
-	resp, err := c.svc.QuerySummaryForDevice(ctx, &pb.QuerySummaryForDeviceRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// QuerySummaryForUser calls the QuerySummaryForUser RPC.
-func (c *NetworkStatsManagerClient) QuerySummaryForUser(ctx context.Context, arg0 int32, arg1 string, arg2 int64, arg3 int64) (int64, error) {
-	resp, err := c.svc.QuerySummaryForUser(ctx, &pb.QuerySummaryForUserRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// RegisterUsageCallback calls the RegisterUsageCallback RPC.
-func (c *NetworkStatsManagerClient) RegisterUsageCallback(ctx context.Context, arg0 int32, arg1 string, arg2 int64, arg3 int64) error {
-	_, err := c.svc.RegisterUsageCallback(ctx, &pb.RegisterUsageCallbackRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
-	})
-	return err
-}
-
-// UnregisterUsageCallback calls the UnregisterUsageCallback RPC.
-func (c *NetworkStatsManagerClient) UnregisterUsageCallback(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.UnregisterUsageCallback(ctx, &pb.UnregisterUsageCallbackRequest{
-		Arg0: arg0,
-	})
-	return err
 }

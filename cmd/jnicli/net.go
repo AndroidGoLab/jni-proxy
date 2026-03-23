@@ -12,55 +12,6 @@ var netCmd = &cobra.Command{
 	Short: "net service operations",
 }
 
-var netConnectivityDiagnosticsManagerCmd = &cobra.Command{
-	Use:   "connectivity-diagnostics-manager",
-	Short: "ConnectivityDiagnosticsManagerService operations",
-}
-
-var netConnectivityDiagnosticsManagerRegisterConnectivityDiagnosticsCallbackCmd = &cobra.Command{
-	Use:   "register-connectivity-diagnostics-callback",
-	Short: "RegisterConnectivityDiagnosticsCallback RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewConnectivityDiagnosticsManagerServiceClient(grpcConn)
-		req := &pb.RegisterConnectivityDiagnosticsCallbackRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		resp, err := client.RegisterConnectivityDiagnosticsCallback(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var netConnectivityDiagnosticsManagerUnregisterConnectivityDiagnosticsCallbackCmd = &cobra.Command{
-	Use:   "unregister-connectivity-diagnostics-callback",
-	Short: "UnregisterConnectivityDiagnosticsCallback RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewConnectivityDiagnosticsManagerServiceClient(grpcConn)
-		req := &pb.UnregisterConnectivityDiagnosticsCallbackRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.UnregisterConnectivityDiagnosticsCallback(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
 var netIpSecManagerCmd = &cobra.Command{
 	Use:   "ip-sec-manager",
 	Short: "IpSecManagerService operations",
@@ -267,102 +218,6 @@ var netIpSecManagerRemoveTransportModeTransforms1_2Cmd = &cobra.Command{
 			req.Arg0 = v
 		}
 		resp, err := client.RemoveTransportModeTransforms1_2(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var netTetheringManagerCmd = &cobra.Command{
-	Use:   "tethering-manager",
-	Short: "TetheringManagerService operations",
-}
-
-var netTetheringManagerRegisterTetheringEventCallbackCmd = &cobra.Command{
-	Use:   "register-tethering-event-callback",
-	Short: "RegisterTetheringEventCallback RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTetheringManagerServiceClient(grpcConn)
-		req := &pb.RegisterTetheringEventCallbackRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.RegisterTetheringEventCallback(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var netTetheringManagerStartTetheringCmd = &cobra.Command{
-	Use:   "start-tethering",
-	Short: "StartTethering RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTetheringManagerServiceClient(grpcConn)
-		req := &pb.StartTetheringRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		resp, err := client.StartTethering(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var netTetheringManagerStopTetheringCmd = &cobra.Command{
-	Use:   "stop-tethering",
-	Short: "StopTethering RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTetheringManagerServiceClient(grpcConn)
-		req := &pb.StopTetheringRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		resp, err := client.StopTethering(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var netTetheringManagerUnregisterTetheringEventCallbackCmd = &cobra.Command{
-	Use:   "unregister-tethering-event-callback",
-	Short: "UnregisterTetheringEventCallback RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTetheringManagerServiceClient(grpcConn)
-		req := &pb.UnregisterTetheringEventCallbackRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.UnregisterTetheringEventCallback(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -1100,14 +955,152 @@ var netConnectivityManagerSetProcessDefaultNetworkCmd = &cobra.Command{
 	},
 }
 
+var netConnectivityDiagnosticsManagerCmd = &cobra.Command{
+	Use:   "connectivity-diagnostics-manager",
+	Short: "ConnectivityDiagnosticsManagerService operations",
+}
+
+var netConnectivityDiagnosticsManagerRegisterConnectivityDiagnosticsCallbackCmd = &cobra.Command{
+	Use:   "register-connectivity-diagnostics-callback",
+	Short: "RegisterConnectivityDiagnosticsCallback RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewConnectivityDiagnosticsManagerServiceClient(grpcConn)
+		req := &pb.RegisterConnectivityDiagnosticsCallbackRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.RegisterConnectivityDiagnosticsCallback(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var netConnectivityDiagnosticsManagerUnregisterConnectivityDiagnosticsCallbackCmd = &cobra.Command{
+	Use:   "unregister-connectivity-diagnostics-callback",
+	Short: "UnregisterConnectivityDiagnosticsCallback RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewConnectivityDiagnosticsManagerServiceClient(grpcConn)
+		req := &pb.UnregisterConnectivityDiagnosticsCallbackRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.UnregisterConnectivityDiagnosticsCallback(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var netTetheringManagerCmd = &cobra.Command{
+	Use:   "tethering-manager",
+	Short: "TetheringManagerService operations",
+}
+
+var netTetheringManagerRegisterTetheringEventCallbackCmd = &cobra.Command{
+	Use:   "register-tethering-event-callback",
+	Short: "RegisterTetheringEventCallback RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTetheringManagerServiceClient(grpcConn)
+		req := &pb.RegisterTetheringEventCallbackRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.RegisterTetheringEventCallback(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var netTetheringManagerStartTetheringCmd = &cobra.Command{
+	Use:   "start-tethering",
+	Short: "StartTethering RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTetheringManagerServiceClient(grpcConn)
+		req := &pb.StartTetheringRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.StartTethering(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var netTetheringManagerStopTetheringCmd = &cobra.Command{
+	Use:   "stop-tethering",
+	Short: "StopTethering RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTetheringManagerServiceClient(grpcConn)
+		req := &pb.StopTetheringRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.StopTethering(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var netTetheringManagerUnregisterTetheringEventCallbackCmd = &cobra.Command{
+	Use:   "unregister-tethering-event-callback",
+	Short: "UnregisterTetheringEventCallback RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTetheringManagerServiceClient(grpcConn)
+		req := &pb.UnregisterTetheringEventCallbackRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.UnregisterTetheringEventCallback(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
 func init() {
-	netConnectivityDiagnosticsManagerRegisterConnectivityDiagnosticsCallbackCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	netConnectivityDiagnosticsManagerRegisterConnectivityDiagnosticsCallbackCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	netConnectivityDiagnosticsManagerRegisterConnectivityDiagnosticsCallbackCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
-	netConnectivityDiagnosticsManagerCmd.AddCommand(netConnectivityDiagnosticsManagerRegisterConnectivityDiagnosticsCallbackCmd)
-	netConnectivityDiagnosticsManagerUnregisterConnectivityDiagnosticsCallbackCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	netConnectivityDiagnosticsManagerCmd.AddCommand(netConnectivityDiagnosticsManagerUnregisterConnectivityDiagnosticsCallbackCmd)
-	netCmd.AddCommand(netConnectivityDiagnosticsManagerCmd)
 	netIpSecManagerAllocateSecurityParameterIndex1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	netIpSecManagerCmd.AddCommand(netIpSecManagerAllocateSecurityParameterIndex1Cmd)
 	netIpSecManagerAllocateSecurityParameterIndex2_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
@@ -1135,20 +1128,6 @@ func init() {
 	netIpSecManagerRemoveTransportModeTransforms1_2Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	netIpSecManagerCmd.AddCommand(netIpSecManagerRemoveTransportModeTransforms1_2Cmd)
 	netCmd.AddCommand(netIpSecManagerCmd)
-	netTetheringManagerRegisterTetheringEventCallbackCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	netTetheringManagerRegisterTetheringEventCallbackCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	netTetheringManagerCmd.AddCommand(netTetheringManagerRegisterTetheringEventCallbackCmd)
-	netTetheringManagerStartTetheringCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	netTetheringManagerStartTetheringCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	netTetheringManagerStartTetheringCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
-	netTetheringManagerCmd.AddCommand(netTetheringManagerStartTetheringCmd)
-	netTetheringManagerStopTetheringCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	netTetheringManagerStopTetheringCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	netTetheringManagerStopTetheringCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
-	netTetheringManagerCmd.AddCommand(netTetheringManagerStopTetheringCmd)
-	netTetheringManagerUnregisterTetheringEventCallbackCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	netTetheringManagerCmd.AddCommand(netTetheringManagerUnregisterTetheringEventCallbackCmd)
-	netCmd.AddCommand(netTetheringManagerCmd)
 	netConnectivityManagerAddDefaultNetworkActiveListenerCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	netConnectivityManagerCmd.AddCommand(netConnectivityManagerAddDefaultNetworkActiveListenerCmd)
 	netConnectivityManagerBindProcessToNetworkCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
@@ -1227,5 +1206,26 @@ func init() {
 	netConnectivityManagerSetProcessDefaultNetworkCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	netConnectivityManagerCmd.AddCommand(netConnectivityManagerSetProcessDefaultNetworkCmd)
 	netCmd.AddCommand(netConnectivityManagerCmd)
+	netConnectivityDiagnosticsManagerRegisterConnectivityDiagnosticsCallbackCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	netConnectivityDiagnosticsManagerRegisterConnectivityDiagnosticsCallbackCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	netConnectivityDiagnosticsManagerRegisterConnectivityDiagnosticsCallbackCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	netConnectivityDiagnosticsManagerCmd.AddCommand(netConnectivityDiagnosticsManagerRegisterConnectivityDiagnosticsCallbackCmd)
+	netConnectivityDiagnosticsManagerUnregisterConnectivityDiagnosticsCallbackCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	netConnectivityDiagnosticsManagerCmd.AddCommand(netConnectivityDiagnosticsManagerUnregisterConnectivityDiagnosticsCallbackCmd)
+	netCmd.AddCommand(netConnectivityDiagnosticsManagerCmd)
+	netTetheringManagerRegisterTetheringEventCallbackCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	netTetheringManagerRegisterTetheringEventCallbackCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	netTetheringManagerCmd.AddCommand(netTetheringManagerRegisterTetheringEventCallbackCmd)
+	netTetheringManagerStartTetheringCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	netTetheringManagerStartTetheringCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	netTetheringManagerStartTetheringCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	netTetheringManagerCmd.AddCommand(netTetheringManagerStartTetheringCmd)
+	netTetheringManagerStopTetheringCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	netTetheringManagerStopTetheringCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	netTetheringManagerStopTetheringCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	netTetheringManagerCmd.AddCommand(netTetheringManagerStopTetheringCmd)
+	netTetheringManagerUnregisterTetheringEventCallbackCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	netTetheringManagerCmd.AddCommand(netTetheringManagerUnregisterTetheringEventCallbackCmd)
+	netCmd.AddCommand(netTetheringManagerCmd)
 	rootCmd.AddCommand(netCmd)
 }

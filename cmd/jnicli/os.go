@@ -572,6 +572,215 @@ var osUserManagerSupportsMultipleUsersCmd = &cobra.Command{
 	},
 }
 
+var osHardwarePropertiesManagerCmd = &cobra.Command{
+	Use:   "hardware-properties-manager",
+	Short: "HardwarePropertiesManagerService operations",
+}
+
+var osHardwarePropertiesManagerGetCpuUsagesCmd = &cobra.Command{
+	Use:   "get-cpu-usages",
+	Short: "GetCpuUsages RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewHardwarePropertiesManagerServiceClient(grpcConn)
+		req := &pb.GetCpuUsagesRequest{}
+		resp, err := client.GetCpuUsages(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var osHardwarePropertiesManagerGetDeviceTemperaturesCmd = &cobra.Command{
+	Use:   "get-device-temperatures",
+	Short: "GetDeviceTemperatures RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewHardwarePropertiesManagerServiceClient(grpcConn)
+		req := &pb.GetDeviceTemperaturesRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.GetDeviceTemperatures(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var osHardwarePropertiesManagerGetFanSpeedsCmd = &cobra.Command{
+	Use:   "get-fan-speeds",
+	Short: "GetFanSpeeds RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewHardwarePropertiesManagerServiceClient(grpcConn)
+		req := &pb.GetFanSpeedsRequest{}
+		resp, err := client.GetFanSpeeds(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var osProfilingManagerCmd = &cobra.Command{
+	Use:   "profiling-manager",
+	Short: "ProfilingManagerService operations",
+}
+
+var osProfilingManagerClearProfilingTriggersCmd = &cobra.Command{
+	Use:   "clear-profiling-triggers",
+	Short: "ClearProfilingTriggers RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewProfilingManagerServiceClient(grpcConn)
+		req := &pb.ClearProfilingTriggersRequest{}
+		resp, err := client.ClearProfilingTriggers(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var osProfilingManagerRemoveProfilingTriggersByTypeCmd = &cobra.Command{
+	Use:   "remove-profiling-triggers-by-type",
+	Short: "RemoveProfilingTriggersByType RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewProfilingManagerServiceClient(grpcConn)
+		req := &pb.RemoveProfilingTriggersByTypeRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.RemoveProfilingTriggersByType(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var osSecurityStateManagerCmd = &cobra.Command{
+	Use:   "security-state-manager",
+	Short: "SecurityStateManagerService operations",
+}
+
+var osSecurityStateManagerGetGlobalSecurityStateCmd = &cobra.Command{
+	Use:   "get-global-security-state",
+	Short: "GetGlobalSecurityState RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSecurityStateManagerServiceClient(grpcConn)
+		req := &pb.GetGlobalSecurityStateRequest{}
+		resp, err := client.GetGlobalSecurityState(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var osPerformanceHintManagerCmd = &cobra.Command{
+	Use:   "performance-hint-manager",
+	Short: "PerformanceHintManagerService operations",
+}
+
+var osPerformanceHintManagerCreateHintSessionCmd = &cobra.Command{
+	Use:   "create-hint-session",
+	Short: "CreateHintSession RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPerformanceHintManagerServiceClient(grpcConn)
+		req := &pb.CreateHintSessionRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.CreateHintSession(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var osPerformanceHintManagerGetPreferredUpdateRateNanosCmd = &cobra.Command{
+	Use:   "get-preferred-update-rate-nanos",
+	Short: "GetPreferredUpdateRateNanos RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPerformanceHintManagerServiceClient(grpcConn)
+		req := &pb.GetPreferredUpdateRateNanosRequest{}
+		resp, err := client.GetPreferredUpdateRateNanos(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var osBugreportManagerCmd = &cobra.Command{
+	Use:   "bugreport-manager",
+	Short: "BugreportManagerService operations",
+}
+
+var osBugreportManagerCancelBugreportCmd = &cobra.Command{
+	Use:   "cancel-bugreport",
+	Short: "CancelBugreport RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBugreportManagerServiceClient(grpcConn)
+		req := &pb.CancelBugreportRequest{}
+		resp, err := client.CancelBugreport(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var osBugreportManagerStartConnectivityBugreportCmd = &cobra.Command{
+	Use:   "start-connectivity-bugreport",
+	Short: "StartConnectivityBugreport RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBugreportManagerServiceClient(grpcConn)
+		req := &pb.StartConnectivityBugreportRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.StartConnectivityBugreport(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
 var osDropBoxManagerCmd = &cobra.Command{
 	Use:   "drop-box-manager",
 	Short: "DropBoxManagerService operations",
@@ -683,215 +892,6 @@ var osDropBoxManagerIsTagEnabledCmd = &cobra.Command{
 			req.Arg0 = v
 		}
 		resp, err := client.IsTagEnabled(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var osSecurityStateManagerCmd = &cobra.Command{
-	Use:   "security-state-manager",
-	Short: "SecurityStateManagerService operations",
-}
-
-var osSecurityStateManagerGetGlobalSecurityStateCmd = &cobra.Command{
-	Use:   "get-global-security-state",
-	Short: "GetGlobalSecurityState RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSecurityStateManagerServiceClient(grpcConn)
-		req := &pb.GetGlobalSecurityStateRequest{}
-		resp, err := client.GetGlobalSecurityState(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var osHardwarePropertiesManagerCmd = &cobra.Command{
-	Use:   "hardware-properties-manager",
-	Short: "HardwarePropertiesManagerService operations",
-}
-
-var osHardwarePropertiesManagerGetCpuUsagesCmd = &cobra.Command{
-	Use:   "get-cpu-usages",
-	Short: "GetCpuUsages RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewHardwarePropertiesManagerServiceClient(grpcConn)
-		req := &pb.GetCpuUsagesRequest{}
-		resp, err := client.GetCpuUsages(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var osHardwarePropertiesManagerGetDeviceTemperaturesCmd = &cobra.Command{
-	Use:   "get-device-temperatures",
-	Short: "GetDeviceTemperatures RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewHardwarePropertiesManagerServiceClient(grpcConn)
-		req := &pb.GetDeviceTemperaturesRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.GetDeviceTemperatures(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var osHardwarePropertiesManagerGetFanSpeedsCmd = &cobra.Command{
-	Use:   "get-fan-speeds",
-	Short: "GetFanSpeeds RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewHardwarePropertiesManagerServiceClient(grpcConn)
-		req := &pb.GetFanSpeedsRequest{}
-		resp, err := client.GetFanSpeeds(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var osBugreportManagerCmd = &cobra.Command{
-	Use:   "bugreport-manager",
-	Short: "BugreportManagerService operations",
-}
-
-var osBugreportManagerCancelBugreportCmd = &cobra.Command{
-	Use:   "cancel-bugreport",
-	Short: "CancelBugreport RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewBugreportManagerServiceClient(grpcConn)
-		req := &pb.CancelBugreportRequest{}
-		resp, err := client.CancelBugreport(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var osBugreportManagerStartConnectivityBugreportCmd = &cobra.Command{
-	Use:   "start-connectivity-bugreport",
-	Short: "StartConnectivityBugreport RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewBugreportManagerServiceClient(grpcConn)
-		req := &pb.StartConnectivityBugreportRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		resp, err := client.StartConnectivityBugreport(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var osPerformanceHintManagerCmd = &cobra.Command{
-	Use:   "performance-hint-manager",
-	Short: "PerformanceHintManagerService operations",
-}
-
-var osPerformanceHintManagerCreateHintSessionCmd = &cobra.Command{
-	Use:   "create-hint-session",
-	Short: "CreateHintSession RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPerformanceHintManagerServiceClient(grpcConn)
-		req := &pb.CreateHintSessionRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.CreateHintSession(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var osPerformanceHintManagerGetPreferredUpdateRateNanosCmd = &cobra.Command{
-	Use:   "get-preferred-update-rate-nanos",
-	Short: "GetPreferredUpdateRateNanos RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPerformanceHintManagerServiceClient(grpcConn)
-		req := &pb.GetPreferredUpdateRateNanosRequest{}
-		resp, err := client.GetPreferredUpdateRateNanos(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var osProfilingManagerCmd = &cobra.Command{
-	Use:   "profiling-manager",
-	Short: "ProfilingManagerService operations",
-}
-
-var osProfilingManagerClearProfilingTriggersCmd = &cobra.Command{
-	Use:   "clear-profiling-triggers",
-	Short: "ClearProfilingTriggers RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewProfilingManagerServiceClient(grpcConn)
-		req := &pb.ClearProfilingTriggersRequest{}
-		resp, err := client.ClearProfilingTriggers(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var osProfilingManagerRemoveProfilingTriggersByTypeCmd = &cobra.Command{
-	Use:   "remove-profiling-triggers-by-type",
-	Short: "RemoveProfilingTriggersByType RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewProfilingManagerServiceClient(grpcConn)
-		req := &pb.RemoveProfilingTriggersByTypeRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.RemoveProfilingTriggersByType(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -1069,6 +1069,29 @@ func init() {
 	osUserManagerCmd.AddCommand(osUserManagerIsHeadlessSystemUserModeCmd)
 	osUserManagerCmd.AddCommand(osUserManagerSupportsMultipleUsersCmd)
 	osCmd.AddCommand(osUserManagerCmd)
+	osHardwarePropertiesManagerCmd.AddCommand(osHardwarePropertiesManagerGetCpuUsagesCmd)
+	osHardwarePropertiesManagerGetDeviceTemperaturesCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	osHardwarePropertiesManagerGetDeviceTemperaturesCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	osHardwarePropertiesManagerCmd.AddCommand(osHardwarePropertiesManagerGetDeviceTemperaturesCmd)
+	osHardwarePropertiesManagerCmd.AddCommand(osHardwarePropertiesManagerGetFanSpeedsCmd)
+	osCmd.AddCommand(osHardwarePropertiesManagerCmd)
+	osProfilingManagerCmd.AddCommand(osProfilingManagerClearProfilingTriggersCmd)
+	osProfilingManagerRemoveProfilingTriggersByTypeCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	osProfilingManagerCmd.AddCommand(osProfilingManagerRemoveProfilingTriggersByTypeCmd)
+	osCmd.AddCommand(osProfilingManagerCmd)
+	osSecurityStateManagerCmd.AddCommand(osSecurityStateManagerGetGlobalSecurityStateCmd)
+	osCmd.AddCommand(osSecurityStateManagerCmd)
+	osPerformanceHintManagerCreateHintSessionCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	osPerformanceHintManagerCreateHintSessionCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	osPerformanceHintManagerCmd.AddCommand(osPerformanceHintManagerCreateHintSessionCmd)
+	osPerformanceHintManagerCmd.AddCommand(osPerformanceHintManagerGetPreferredUpdateRateNanosCmd)
+	osCmd.AddCommand(osPerformanceHintManagerCmd)
+	osBugreportManagerCmd.AddCommand(osBugreportManagerCancelBugreportCmd)
+	osBugreportManagerStartConnectivityBugreportCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	osBugreportManagerStartConnectivityBugreportCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	osBugreportManagerStartConnectivityBugreportCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	osBugreportManagerCmd.AddCommand(osBugreportManagerStartConnectivityBugreportCmd)
+	osCmd.AddCommand(osBugreportManagerCmd)
 	osDropBoxManagerAddDataCmd.Flags().String("arg0", "", "arg0 (string)")
 	osDropBoxManagerAddDataCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
 	osDropBoxManagerAddDataCmd.Flags().Int32("arg2", 0, "arg2 (int32)")
@@ -1086,29 +1109,6 @@ func init() {
 	osDropBoxManagerIsTagEnabledCmd.Flags().String("arg0", "", "arg0 (string)")
 	osDropBoxManagerCmd.AddCommand(osDropBoxManagerIsTagEnabledCmd)
 	osCmd.AddCommand(osDropBoxManagerCmd)
-	osSecurityStateManagerCmd.AddCommand(osSecurityStateManagerGetGlobalSecurityStateCmd)
-	osCmd.AddCommand(osSecurityStateManagerCmd)
-	osHardwarePropertiesManagerCmd.AddCommand(osHardwarePropertiesManagerGetCpuUsagesCmd)
-	osHardwarePropertiesManagerGetDeviceTemperaturesCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	osHardwarePropertiesManagerGetDeviceTemperaturesCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	osHardwarePropertiesManagerCmd.AddCommand(osHardwarePropertiesManagerGetDeviceTemperaturesCmd)
-	osHardwarePropertiesManagerCmd.AddCommand(osHardwarePropertiesManagerGetFanSpeedsCmd)
-	osCmd.AddCommand(osHardwarePropertiesManagerCmd)
-	osBugreportManagerCmd.AddCommand(osBugreportManagerCancelBugreportCmd)
-	osBugreportManagerStartConnectivityBugreportCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	osBugreportManagerStartConnectivityBugreportCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	osBugreportManagerStartConnectivityBugreportCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
-	osBugreportManagerCmd.AddCommand(osBugreportManagerStartConnectivityBugreportCmd)
-	osCmd.AddCommand(osBugreportManagerCmd)
-	osPerformanceHintManagerCreateHintSessionCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	osPerformanceHintManagerCreateHintSessionCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	osPerformanceHintManagerCmd.AddCommand(osPerformanceHintManagerCreateHintSessionCmd)
-	osPerformanceHintManagerCmd.AddCommand(osPerformanceHintManagerGetPreferredUpdateRateNanosCmd)
-	osCmd.AddCommand(osPerformanceHintManagerCmd)
-	osProfilingManagerCmd.AddCommand(osProfilingManagerClearProfilingTriggersCmd)
-	osProfilingManagerRemoveProfilingTriggersByTypeCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	osProfilingManagerCmd.AddCommand(osProfilingManagerRemoveProfilingTriggersByTypeCmd)
-	osCmd.AddCommand(osProfilingManagerCmd)
 	osVibratorManagerCmd.AddCommand(osVibratorManagerCancelCmd)
 	osVibratorManagerCmd.AddCommand(osVibratorManagerGetDefaultVibratorCmd)
 	osVibratorManagerGetVibratorCmd.Flags().Int32("arg0", 0, "arg0 (int32)")

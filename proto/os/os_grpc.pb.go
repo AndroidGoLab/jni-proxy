@@ -1225,6 +1225,711 @@ var UserManagerService_ServiceDesc = grpc.ServiceDesc{
 }
 
 const (
+	HardwarePropertiesManagerService_GetCpuUsages_FullMethodName          = "/os.HardwarePropertiesManagerService/GetCpuUsages"
+	HardwarePropertiesManagerService_GetDeviceTemperatures_FullMethodName = "/os.HardwarePropertiesManagerService/GetDeviceTemperatures"
+	HardwarePropertiesManagerService_GetFanSpeeds_FullMethodName          = "/os.HardwarePropertiesManagerService/GetFanSpeeds"
+)
+
+// HardwarePropertiesManagerServiceClient is the client API for HardwarePropertiesManagerService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type HardwarePropertiesManagerServiceClient interface {
+	GetCpuUsages(ctx context.Context, in *GetCpuUsagesRequest, opts ...grpc.CallOption) (*GetCpuUsagesResponse, error)
+	GetDeviceTemperatures(ctx context.Context, in *GetDeviceTemperaturesRequest, opts ...grpc.CallOption) (*GetDeviceTemperaturesResponse, error)
+	GetFanSpeeds(ctx context.Context, in *GetFanSpeedsRequest, opts ...grpc.CallOption) (*GetFanSpeedsResponse, error)
+}
+
+type hardwarePropertiesManagerServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewHardwarePropertiesManagerServiceClient(cc grpc.ClientConnInterface) HardwarePropertiesManagerServiceClient {
+	return &hardwarePropertiesManagerServiceClient{cc}
+}
+
+func (c *hardwarePropertiesManagerServiceClient) GetCpuUsages(ctx context.Context, in *GetCpuUsagesRequest, opts ...grpc.CallOption) (*GetCpuUsagesResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetCpuUsagesResponse)
+	err := c.cc.Invoke(ctx, HardwarePropertiesManagerService_GetCpuUsages_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *hardwarePropertiesManagerServiceClient) GetDeviceTemperatures(ctx context.Context, in *GetDeviceTemperaturesRequest, opts ...grpc.CallOption) (*GetDeviceTemperaturesResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetDeviceTemperaturesResponse)
+	err := c.cc.Invoke(ctx, HardwarePropertiesManagerService_GetDeviceTemperatures_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *hardwarePropertiesManagerServiceClient) GetFanSpeeds(ctx context.Context, in *GetFanSpeedsRequest, opts ...grpc.CallOption) (*GetFanSpeedsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetFanSpeedsResponse)
+	err := c.cc.Invoke(ctx, HardwarePropertiesManagerService_GetFanSpeeds_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// HardwarePropertiesManagerServiceServer is the server API for HardwarePropertiesManagerService service.
+// All implementations must embed UnimplementedHardwarePropertiesManagerServiceServer
+// for forward compatibility.
+type HardwarePropertiesManagerServiceServer interface {
+	GetCpuUsages(context.Context, *GetCpuUsagesRequest) (*GetCpuUsagesResponse, error)
+	GetDeviceTemperatures(context.Context, *GetDeviceTemperaturesRequest) (*GetDeviceTemperaturesResponse, error)
+	GetFanSpeeds(context.Context, *GetFanSpeedsRequest) (*GetFanSpeedsResponse, error)
+	mustEmbedUnimplementedHardwarePropertiesManagerServiceServer()
+}
+
+// UnimplementedHardwarePropertiesManagerServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedHardwarePropertiesManagerServiceServer struct{}
+
+func (UnimplementedHardwarePropertiesManagerServiceServer) GetCpuUsages(context.Context, *GetCpuUsagesRequest) (*GetCpuUsagesResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetCpuUsages not implemented")
+}
+func (UnimplementedHardwarePropertiesManagerServiceServer) GetDeviceTemperatures(context.Context, *GetDeviceTemperaturesRequest) (*GetDeviceTemperaturesResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetDeviceTemperatures not implemented")
+}
+func (UnimplementedHardwarePropertiesManagerServiceServer) GetFanSpeeds(context.Context, *GetFanSpeedsRequest) (*GetFanSpeedsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetFanSpeeds not implemented")
+}
+func (UnimplementedHardwarePropertiesManagerServiceServer) mustEmbedUnimplementedHardwarePropertiesManagerServiceServer() {
+}
+func (UnimplementedHardwarePropertiesManagerServiceServer) testEmbeddedByValue() {}
+
+// UnsafeHardwarePropertiesManagerServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to HardwarePropertiesManagerServiceServer will
+// result in compilation errors.
+type UnsafeHardwarePropertiesManagerServiceServer interface {
+	mustEmbedUnimplementedHardwarePropertiesManagerServiceServer()
+}
+
+func RegisterHardwarePropertiesManagerServiceServer(s grpc.ServiceRegistrar, srv HardwarePropertiesManagerServiceServer) {
+	// If the following call panics, it indicates UnimplementedHardwarePropertiesManagerServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&HardwarePropertiesManagerService_ServiceDesc, srv)
+}
+
+func _HardwarePropertiesManagerService_GetCpuUsages_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetCpuUsagesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(HardwarePropertiesManagerServiceServer).GetCpuUsages(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: HardwarePropertiesManagerService_GetCpuUsages_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(HardwarePropertiesManagerServiceServer).GetCpuUsages(ctx, req.(*GetCpuUsagesRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _HardwarePropertiesManagerService_GetDeviceTemperatures_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetDeviceTemperaturesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(HardwarePropertiesManagerServiceServer).GetDeviceTemperatures(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: HardwarePropertiesManagerService_GetDeviceTemperatures_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(HardwarePropertiesManagerServiceServer).GetDeviceTemperatures(ctx, req.(*GetDeviceTemperaturesRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _HardwarePropertiesManagerService_GetFanSpeeds_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetFanSpeedsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(HardwarePropertiesManagerServiceServer).GetFanSpeeds(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: HardwarePropertiesManagerService_GetFanSpeeds_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(HardwarePropertiesManagerServiceServer).GetFanSpeeds(ctx, req.(*GetFanSpeedsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// HardwarePropertiesManagerService_ServiceDesc is the grpc.ServiceDesc for HardwarePropertiesManagerService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var HardwarePropertiesManagerService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "os.HardwarePropertiesManagerService",
+	HandlerType: (*HardwarePropertiesManagerServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "GetCpuUsages",
+			Handler:    _HardwarePropertiesManagerService_GetCpuUsages_Handler,
+		},
+		{
+			MethodName: "GetDeviceTemperatures",
+			Handler:    _HardwarePropertiesManagerService_GetDeviceTemperatures_Handler,
+		},
+		{
+			MethodName: "GetFanSpeeds",
+			Handler:    _HardwarePropertiesManagerService_GetFanSpeeds_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/os/os.proto",
+}
+
+const (
+	ProfilingManagerService_ClearProfilingTriggers_FullMethodName        = "/os.ProfilingManagerService/ClearProfilingTriggers"
+	ProfilingManagerService_RemoveProfilingTriggersByType_FullMethodName = "/os.ProfilingManagerService/RemoveProfilingTriggersByType"
+)
+
+// ProfilingManagerServiceClient is the client API for ProfilingManagerService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type ProfilingManagerServiceClient interface {
+	ClearProfilingTriggers(ctx context.Context, in *ClearProfilingTriggersRequest, opts ...grpc.CallOption) (*ClearProfilingTriggersResponse, error)
+	RemoveProfilingTriggersByType(ctx context.Context, in *RemoveProfilingTriggersByTypeRequest, opts ...grpc.CallOption) (*RemoveProfilingTriggersByTypeResponse, error)
+}
+
+type profilingManagerServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewProfilingManagerServiceClient(cc grpc.ClientConnInterface) ProfilingManagerServiceClient {
+	return &profilingManagerServiceClient{cc}
+}
+
+func (c *profilingManagerServiceClient) ClearProfilingTriggers(ctx context.Context, in *ClearProfilingTriggersRequest, opts ...grpc.CallOption) (*ClearProfilingTriggersResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ClearProfilingTriggersResponse)
+	err := c.cc.Invoke(ctx, ProfilingManagerService_ClearProfilingTriggers_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *profilingManagerServiceClient) RemoveProfilingTriggersByType(ctx context.Context, in *RemoveProfilingTriggersByTypeRequest, opts ...grpc.CallOption) (*RemoveProfilingTriggersByTypeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(RemoveProfilingTriggersByTypeResponse)
+	err := c.cc.Invoke(ctx, ProfilingManagerService_RemoveProfilingTriggersByType_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// ProfilingManagerServiceServer is the server API for ProfilingManagerService service.
+// All implementations must embed UnimplementedProfilingManagerServiceServer
+// for forward compatibility.
+type ProfilingManagerServiceServer interface {
+	ClearProfilingTriggers(context.Context, *ClearProfilingTriggersRequest) (*ClearProfilingTriggersResponse, error)
+	RemoveProfilingTriggersByType(context.Context, *RemoveProfilingTriggersByTypeRequest) (*RemoveProfilingTriggersByTypeResponse, error)
+	mustEmbedUnimplementedProfilingManagerServiceServer()
+}
+
+// UnimplementedProfilingManagerServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedProfilingManagerServiceServer struct{}
+
+func (UnimplementedProfilingManagerServiceServer) ClearProfilingTriggers(context.Context, *ClearProfilingTriggersRequest) (*ClearProfilingTriggersResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method ClearProfilingTriggers not implemented")
+}
+func (UnimplementedProfilingManagerServiceServer) RemoveProfilingTriggersByType(context.Context, *RemoveProfilingTriggersByTypeRequest) (*RemoveProfilingTriggersByTypeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method RemoveProfilingTriggersByType not implemented")
+}
+func (UnimplementedProfilingManagerServiceServer) mustEmbedUnimplementedProfilingManagerServiceServer() {
+}
+func (UnimplementedProfilingManagerServiceServer) testEmbeddedByValue() {}
+
+// UnsafeProfilingManagerServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to ProfilingManagerServiceServer will
+// result in compilation errors.
+type UnsafeProfilingManagerServiceServer interface {
+	mustEmbedUnimplementedProfilingManagerServiceServer()
+}
+
+func RegisterProfilingManagerServiceServer(s grpc.ServiceRegistrar, srv ProfilingManagerServiceServer) {
+	// If the following call panics, it indicates UnimplementedProfilingManagerServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&ProfilingManagerService_ServiceDesc, srv)
+}
+
+func _ProfilingManagerService_ClearProfilingTriggers_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ClearProfilingTriggersRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ProfilingManagerServiceServer).ClearProfilingTriggers(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ProfilingManagerService_ClearProfilingTriggers_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ProfilingManagerServiceServer).ClearProfilingTriggers(ctx, req.(*ClearProfilingTriggersRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ProfilingManagerService_RemoveProfilingTriggersByType_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(RemoveProfilingTriggersByTypeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ProfilingManagerServiceServer).RemoveProfilingTriggersByType(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ProfilingManagerService_RemoveProfilingTriggersByType_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ProfilingManagerServiceServer).RemoveProfilingTriggersByType(ctx, req.(*RemoveProfilingTriggersByTypeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// ProfilingManagerService_ServiceDesc is the grpc.ServiceDesc for ProfilingManagerService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var ProfilingManagerService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "os.ProfilingManagerService",
+	HandlerType: (*ProfilingManagerServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "ClearProfilingTriggers",
+			Handler:    _ProfilingManagerService_ClearProfilingTriggers_Handler,
+		},
+		{
+			MethodName: "RemoveProfilingTriggersByType",
+			Handler:    _ProfilingManagerService_RemoveProfilingTriggersByType_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/os/os.proto",
+}
+
+const (
+	SecurityStateManagerService_GetGlobalSecurityState_FullMethodName = "/os.SecurityStateManagerService/GetGlobalSecurityState"
+)
+
+// SecurityStateManagerServiceClient is the client API for SecurityStateManagerService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type SecurityStateManagerServiceClient interface {
+	GetGlobalSecurityState(ctx context.Context, in *GetGlobalSecurityStateRequest, opts ...grpc.CallOption) (*GetGlobalSecurityStateResponse, error)
+}
+
+type securityStateManagerServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewSecurityStateManagerServiceClient(cc grpc.ClientConnInterface) SecurityStateManagerServiceClient {
+	return &securityStateManagerServiceClient{cc}
+}
+
+func (c *securityStateManagerServiceClient) GetGlobalSecurityState(ctx context.Context, in *GetGlobalSecurityStateRequest, opts ...grpc.CallOption) (*GetGlobalSecurityStateResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetGlobalSecurityStateResponse)
+	err := c.cc.Invoke(ctx, SecurityStateManagerService_GetGlobalSecurityState_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// SecurityStateManagerServiceServer is the server API for SecurityStateManagerService service.
+// All implementations must embed UnimplementedSecurityStateManagerServiceServer
+// for forward compatibility.
+type SecurityStateManagerServiceServer interface {
+	GetGlobalSecurityState(context.Context, *GetGlobalSecurityStateRequest) (*GetGlobalSecurityStateResponse, error)
+	mustEmbedUnimplementedSecurityStateManagerServiceServer()
+}
+
+// UnimplementedSecurityStateManagerServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedSecurityStateManagerServiceServer struct{}
+
+func (UnimplementedSecurityStateManagerServiceServer) GetGlobalSecurityState(context.Context, *GetGlobalSecurityStateRequest) (*GetGlobalSecurityStateResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetGlobalSecurityState not implemented")
+}
+func (UnimplementedSecurityStateManagerServiceServer) mustEmbedUnimplementedSecurityStateManagerServiceServer() {
+}
+func (UnimplementedSecurityStateManagerServiceServer) testEmbeddedByValue() {}
+
+// UnsafeSecurityStateManagerServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to SecurityStateManagerServiceServer will
+// result in compilation errors.
+type UnsafeSecurityStateManagerServiceServer interface {
+	mustEmbedUnimplementedSecurityStateManagerServiceServer()
+}
+
+func RegisterSecurityStateManagerServiceServer(s grpc.ServiceRegistrar, srv SecurityStateManagerServiceServer) {
+	// If the following call panics, it indicates UnimplementedSecurityStateManagerServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&SecurityStateManagerService_ServiceDesc, srv)
+}
+
+func _SecurityStateManagerService_GetGlobalSecurityState_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetGlobalSecurityStateRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SecurityStateManagerServiceServer).GetGlobalSecurityState(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SecurityStateManagerService_GetGlobalSecurityState_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SecurityStateManagerServiceServer).GetGlobalSecurityState(ctx, req.(*GetGlobalSecurityStateRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// SecurityStateManagerService_ServiceDesc is the grpc.ServiceDesc for SecurityStateManagerService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var SecurityStateManagerService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "os.SecurityStateManagerService",
+	HandlerType: (*SecurityStateManagerServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "GetGlobalSecurityState",
+			Handler:    _SecurityStateManagerService_GetGlobalSecurityState_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/os/os.proto",
+}
+
+const (
+	PerformanceHintManagerService_CreateHintSession_FullMethodName           = "/os.PerformanceHintManagerService/CreateHintSession"
+	PerformanceHintManagerService_GetPreferredUpdateRateNanos_FullMethodName = "/os.PerformanceHintManagerService/GetPreferredUpdateRateNanos"
+)
+
+// PerformanceHintManagerServiceClient is the client API for PerformanceHintManagerService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type PerformanceHintManagerServiceClient interface {
+	CreateHintSession(ctx context.Context, in *CreateHintSessionRequest, opts ...grpc.CallOption) (*CreateHintSessionResponse, error)
+	GetPreferredUpdateRateNanos(ctx context.Context, in *GetPreferredUpdateRateNanosRequest, opts ...grpc.CallOption) (*GetPreferredUpdateRateNanosResponse, error)
+}
+
+type performanceHintManagerServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewPerformanceHintManagerServiceClient(cc grpc.ClientConnInterface) PerformanceHintManagerServiceClient {
+	return &performanceHintManagerServiceClient{cc}
+}
+
+func (c *performanceHintManagerServiceClient) CreateHintSession(ctx context.Context, in *CreateHintSessionRequest, opts ...grpc.CallOption) (*CreateHintSessionResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(CreateHintSessionResponse)
+	err := c.cc.Invoke(ctx, PerformanceHintManagerService_CreateHintSession_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *performanceHintManagerServiceClient) GetPreferredUpdateRateNanos(ctx context.Context, in *GetPreferredUpdateRateNanosRequest, opts ...grpc.CallOption) (*GetPreferredUpdateRateNanosResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetPreferredUpdateRateNanosResponse)
+	err := c.cc.Invoke(ctx, PerformanceHintManagerService_GetPreferredUpdateRateNanos_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// PerformanceHintManagerServiceServer is the server API for PerformanceHintManagerService service.
+// All implementations must embed UnimplementedPerformanceHintManagerServiceServer
+// for forward compatibility.
+type PerformanceHintManagerServiceServer interface {
+	CreateHintSession(context.Context, *CreateHintSessionRequest) (*CreateHintSessionResponse, error)
+	GetPreferredUpdateRateNanos(context.Context, *GetPreferredUpdateRateNanosRequest) (*GetPreferredUpdateRateNanosResponse, error)
+	mustEmbedUnimplementedPerformanceHintManagerServiceServer()
+}
+
+// UnimplementedPerformanceHintManagerServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedPerformanceHintManagerServiceServer struct{}
+
+func (UnimplementedPerformanceHintManagerServiceServer) CreateHintSession(context.Context, *CreateHintSessionRequest) (*CreateHintSessionResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method CreateHintSession not implemented")
+}
+func (UnimplementedPerformanceHintManagerServiceServer) GetPreferredUpdateRateNanos(context.Context, *GetPreferredUpdateRateNanosRequest) (*GetPreferredUpdateRateNanosResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetPreferredUpdateRateNanos not implemented")
+}
+func (UnimplementedPerformanceHintManagerServiceServer) mustEmbedUnimplementedPerformanceHintManagerServiceServer() {
+}
+func (UnimplementedPerformanceHintManagerServiceServer) testEmbeddedByValue() {}
+
+// UnsafePerformanceHintManagerServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to PerformanceHintManagerServiceServer will
+// result in compilation errors.
+type UnsafePerformanceHintManagerServiceServer interface {
+	mustEmbedUnimplementedPerformanceHintManagerServiceServer()
+}
+
+func RegisterPerformanceHintManagerServiceServer(s grpc.ServiceRegistrar, srv PerformanceHintManagerServiceServer) {
+	// If the following call panics, it indicates UnimplementedPerformanceHintManagerServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&PerformanceHintManagerService_ServiceDesc, srv)
+}
+
+func _PerformanceHintManagerService_CreateHintSession_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CreateHintSessionRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PerformanceHintManagerServiceServer).CreateHintSession(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PerformanceHintManagerService_CreateHintSession_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PerformanceHintManagerServiceServer).CreateHintSession(ctx, req.(*CreateHintSessionRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PerformanceHintManagerService_GetPreferredUpdateRateNanos_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetPreferredUpdateRateNanosRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PerformanceHintManagerServiceServer).GetPreferredUpdateRateNanos(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PerformanceHintManagerService_GetPreferredUpdateRateNanos_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PerformanceHintManagerServiceServer).GetPreferredUpdateRateNanos(ctx, req.(*GetPreferredUpdateRateNanosRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// PerformanceHintManagerService_ServiceDesc is the grpc.ServiceDesc for PerformanceHintManagerService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var PerformanceHintManagerService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "os.PerformanceHintManagerService",
+	HandlerType: (*PerformanceHintManagerServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "CreateHintSession",
+			Handler:    _PerformanceHintManagerService_CreateHintSession_Handler,
+		},
+		{
+			MethodName: "GetPreferredUpdateRateNanos",
+			Handler:    _PerformanceHintManagerService_GetPreferredUpdateRateNanos_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/os/os.proto",
+}
+
+const (
+	BugreportManagerService_CancelBugreport_FullMethodName            = "/os.BugreportManagerService/CancelBugreport"
+	BugreportManagerService_StartConnectivityBugreport_FullMethodName = "/os.BugreportManagerService/StartConnectivityBugreport"
+)
+
+// BugreportManagerServiceClient is the client API for BugreportManagerService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type BugreportManagerServiceClient interface {
+	CancelBugreport(ctx context.Context, in *CancelBugreportRequest, opts ...grpc.CallOption) (*CancelBugreportResponse, error)
+	StartConnectivityBugreport(ctx context.Context, in *StartConnectivityBugreportRequest, opts ...grpc.CallOption) (*StartConnectivityBugreportResponse, error)
+}
+
+type bugreportManagerServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewBugreportManagerServiceClient(cc grpc.ClientConnInterface) BugreportManagerServiceClient {
+	return &bugreportManagerServiceClient{cc}
+}
+
+func (c *bugreportManagerServiceClient) CancelBugreport(ctx context.Context, in *CancelBugreportRequest, opts ...grpc.CallOption) (*CancelBugreportResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(CancelBugreportResponse)
+	err := c.cc.Invoke(ctx, BugreportManagerService_CancelBugreport_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *bugreportManagerServiceClient) StartConnectivityBugreport(ctx context.Context, in *StartConnectivityBugreportRequest, opts ...grpc.CallOption) (*StartConnectivityBugreportResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(StartConnectivityBugreportResponse)
+	err := c.cc.Invoke(ctx, BugreportManagerService_StartConnectivityBugreport_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// BugreportManagerServiceServer is the server API for BugreportManagerService service.
+// All implementations must embed UnimplementedBugreportManagerServiceServer
+// for forward compatibility.
+type BugreportManagerServiceServer interface {
+	CancelBugreport(context.Context, *CancelBugreportRequest) (*CancelBugreportResponse, error)
+	StartConnectivityBugreport(context.Context, *StartConnectivityBugreportRequest) (*StartConnectivityBugreportResponse, error)
+	mustEmbedUnimplementedBugreportManagerServiceServer()
+}
+
+// UnimplementedBugreportManagerServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedBugreportManagerServiceServer struct{}
+
+func (UnimplementedBugreportManagerServiceServer) CancelBugreport(context.Context, *CancelBugreportRequest) (*CancelBugreportResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method CancelBugreport not implemented")
+}
+func (UnimplementedBugreportManagerServiceServer) StartConnectivityBugreport(context.Context, *StartConnectivityBugreportRequest) (*StartConnectivityBugreportResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method StartConnectivityBugreport not implemented")
+}
+func (UnimplementedBugreportManagerServiceServer) mustEmbedUnimplementedBugreportManagerServiceServer() {
+}
+func (UnimplementedBugreportManagerServiceServer) testEmbeddedByValue() {}
+
+// UnsafeBugreportManagerServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to BugreportManagerServiceServer will
+// result in compilation errors.
+type UnsafeBugreportManagerServiceServer interface {
+	mustEmbedUnimplementedBugreportManagerServiceServer()
+}
+
+func RegisterBugreportManagerServiceServer(s grpc.ServiceRegistrar, srv BugreportManagerServiceServer) {
+	// If the following call panics, it indicates UnimplementedBugreportManagerServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&BugreportManagerService_ServiceDesc, srv)
+}
+
+func _BugreportManagerService_CancelBugreport_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CancelBugreportRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(BugreportManagerServiceServer).CancelBugreport(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: BugreportManagerService_CancelBugreport_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(BugreportManagerServiceServer).CancelBugreport(ctx, req.(*CancelBugreportRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _BugreportManagerService_StartConnectivityBugreport_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(StartConnectivityBugreportRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(BugreportManagerServiceServer).StartConnectivityBugreport(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: BugreportManagerService_StartConnectivityBugreport_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(BugreportManagerServiceServer).StartConnectivityBugreport(ctx, req.(*StartConnectivityBugreportRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// BugreportManagerService_ServiceDesc is the grpc.ServiceDesc for BugreportManagerService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var BugreportManagerService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "os.BugreportManagerService",
+	HandlerType: (*BugreportManagerServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "CancelBugreport",
+			Handler:    _BugreportManagerService_CancelBugreport_Handler,
+		},
+		{
+			MethodName: "StartConnectivityBugreport",
+			Handler:    _BugreportManagerService_StartConnectivityBugreport_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/os/os.proto",
+}
+
+const (
 	DropBoxManagerService_AddData_FullMethodName      = "/os.DropBoxManagerService/AddData"
 	DropBoxManagerService_AddFile_FullMethodName      = "/os.DropBoxManagerService/AddFile"
 	DropBoxManagerService_AddText_FullMethodName      = "/os.DropBoxManagerService/AddText"
@@ -1472,711 +2177,6 @@ var DropBoxManagerService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "IsTagEnabled",
 			Handler:    _DropBoxManagerService_IsTagEnabled_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/os/os.proto",
-}
-
-const (
-	SecurityStateManagerService_GetGlobalSecurityState_FullMethodName = "/os.SecurityStateManagerService/GetGlobalSecurityState"
-)
-
-// SecurityStateManagerServiceClient is the client API for SecurityStateManagerService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type SecurityStateManagerServiceClient interface {
-	GetGlobalSecurityState(ctx context.Context, in *GetGlobalSecurityStateRequest, opts ...grpc.CallOption) (*GetGlobalSecurityStateResponse, error)
-}
-
-type securityStateManagerServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewSecurityStateManagerServiceClient(cc grpc.ClientConnInterface) SecurityStateManagerServiceClient {
-	return &securityStateManagerServiceClient{cc}
-}
-
-func (c *securityStateManagerServiceClient) GetGlobalSecurityState(ctx context.Context, in *GetGlobalSecurityStateRequest, opts ...grpc.CallOption) (*GetGlobalSecurityStateResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetGlobalSecurityStateResponse)
-	err := c.cc.Invoke(ctx, SecurityStateManagerService_GetGlobalSecurityState_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// SecurityStateManagerServiceServer is the server API for SecurityStateManagerService service.
-// All implementations must embed UnimplementedSecurityStateManagerServiceServer
-// for forward compatibility.
-type SecurityStateManagerServiceServer interface {
-	GetGlobalSecurityState(context.Context, *GetGlobalSecurityStateRequest) (*GetGlobalSecurityStateResponse, error)
-	mustEmbedUnimplementedSecurityStateManagerServiceServer()
-}
-
-// UnimplementedSecurityStateManagerServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedSecurityStateManagerServiceServer struct{}
-
-func (UnimplementedSecurityStateManagerServiceServer) GetGlobalSecurityState(context.Context, *GetGlobalSecurityStateRequest) (*GetGlobalSecurityStateResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetGlobalSecurityState not implemented")
-}
-func (UnimplementedSecurityStateManagerServiceServer) mustEmbedUnimplementedSecurityStateManagerServiceServer() {
-}
-func (UnimplementedSecurityStateManagerServiceServer) testEmbeddedByValue() {}
-
-// UnsafeSecurityStateManagerServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to SecurityStateManagerServiceServer will
-// result in compilation errors.
-type UnsafeSecurityStateManagerServiceServer interface {
-	mustEmbedUnimplementedSecurityStateManagerServiceServer()
-}
-
-func RegisterSecurityStateManagerServiceServer(s grpc.ServiceRegistrar, srv SecurityStateManagerServiceServer) {
-	// If the following call panics, it indicates UnimplementedSecurityStateManagerServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&SecurityStateManagerService_ServiceDesc, srv)
-}
-
-func _SecurityStateManagerService_GetGlobalSecurityState_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetGlobalSecurityStateRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SecurityStateManagerServiceServer).GetGlobalSecurityState(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SecurityStateManagerService_GetGlobalSecurityState_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SecurityStateManagerServiceServer).GetGlobalSecurityState(ctx, req.(*GetGlobalSecurityStateRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// SecurityStateManagerService_ServiceDesc is the grpc.ServiceDesc for SecurityStateManagerService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var SecurityStateManagerService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "os.SecurityStateManagerService",
-	HandlerType: (*SecurityStateManagerServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "GetGlobalSecurityState",
-			Handler:    _SecurityStateManagerService_GetGlobalSecurityState_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/os/os.proto",
-}
-
-const (
-	HardwarePropertiesManagerService_GetCpuUsages_FullMethodName          = "/os.HardwarePropertiesManagerService/GetCpuUsages"
-	HardwarePropertiesManagerService_GetDeviceTemperatures_FullMethodName = "/os.HardwarePropertiesManagerService/GetDeviceTemperatures"
-	HardwarePropertiesManagerService_GetFanSpeeds_FullMethodName          = "/os.HardwarePropertiesManagerService/GetFanSpeeds"
-)
-
-// HardwarePropertiesManagerServiceClient is the client API for HardwarePropertiesManagerService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type HardwarePropertiesManagerServiceClient interface {
-	GetCpuUsages(ctx context.Context, in *GetCpuUsagesRequest, opts ...grpc.CallOption) (*GetCpuUsagesResponse, error)
-	GetDeviceTemperatures(ctx context.Context, in *GetDeviceTemperaturesRequest, opts ...grpc.CallOption) (*GetDeviceTemperaturesResponse, error)
-	GetFanSpeeds(ctx context.Context, in *GetFanSpeedsRequest, opts ...grpc.CallOption) (*GetFanSpeedsResponse, error)
-}
-
-type hardwarePropertiesManagerServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewHardwarePropertiesManagerServiceClient(cc grpc.ClientConnInterface) HardwarePropertiesManagerServiceClient {
-	return &hardwarePropertiesManagerServiceClient{cc}
-}
-
-func (c *hardwarePropertiesManagerServiceClient) GetCpuUsages(ctx context.Context, in *GetCpuUsagesRequest, opts ...grpc.CallOption) (*GetCpuUsagesResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetCpuUsagesResponse)
-	err := c.cc.Invoke(ctx, HardwarePropertiesManagerService_GetCpuUsages_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *hardwarePropertiesManagerServiceClient) GetDeviceTemperatures(ctx context.Context, in *GetDeviceTemperaturesRequest, opts ...grpc.CallOption) (*GetDeviceTemperaturesResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetDeviceTemperaturesResponse)
-	err := c.cc.Invoke(ctx, HardwarePropertiesManagerService_GetDeviceTemperatures_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *hardwarePropertiesManagerServiceClient) GetFanSpeeds(ctx context.Context, in *GetFanSpeedsRequest, opts ...grpc.CallOption) (*GetFanSpeedsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetFanSpeedsResponse)
-	err := c.cc.Invoke(ctx, HardwarePropertiesManagerService_GetFanSpeeds_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// HardwarePropertiesManagerServiceServer is the server API for HardwarePropertiesManagerService service.
-// All implementations must embed UnimplementedHardwarePropertiesManagerServiceServer
-// for forward compatibility.
-type HardwarePropertiesManagerServiceServer interface {
-	GetCpuUsages(context.Context, *GetCpuUsagesRequest) (*GetCpuUsagesResponse, error)
-	GetDeviceTemperatures(context.Context, *GetDeviceTemperaturesRequest) (*GetDeviceTemperaturesResponse, error)
-	GetFanSpeeds(context.Context, *GetFanSpeedsRequest) (*GetFanSpeedsResponse, error)
-	mustEmbedUnimplementedHardwarePropertiesManagerServiceServer()
-}
-
-// UnimplementedHardwarePropertiesManagerServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedHardwarePropertiesManagerServiceServer struct{}
-
-func (UnimplementedHardwarePropertiesManagerServiceServer) GetCpuUsages(context.Context, *GetCpuUsagesRequest) (*GetCpuUsagesResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetCpuUsages not implemented")
-}
-func (UnimplementedHardwarePropertiesManagerServiceServer) GetDeviceTemperatures(context.Context, *GetDeviceTemperaturesRequest) (*GetDeviceTemperaturesResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetDeviceTemperatures not implemented")
-}
-func (UnimplementedHardwarePropertiesManagerServiceServer) GetFanSpeeds(context.Context, *GetFanSpeedsRequest) (*GetFanSpeedsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetFanSpeeds not implemented")
-}
-func (UnimplementedHardwarePropertiesManagerServiceServer) mustEmbedUnimplementedHardwarePropertiesManagerServiceServer() {
-}
-func (UnimplementedHardwarePropertiesManagerServiceServer) testEmbeddedByValue() {}
-
-// UnsafeHardwarePropertiesManagerServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to HardwarePropertiesManagerServiceServer will
-// result in compilation errors.
-type UnsafeHardwarePropertiesManagerServiceServer interface {
-	mustEmbedUnimplementedHardwarePropertiesManagerServiceServer()
-}
-
-func RegisterHardwarePropertiesManagerServiceServer(s grpc.ServiceRegistrar, srv HardwarePropertiesManagerServiceServer) {
-	// If the following call panics, it indicates UnimplementedHardwarePropertiesManagerServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&HardwarePropertiesManagerService_ServiceDesc, srv)
-}
-
-func _HardwarePropertiesManagerService_GetCpuUsages_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetCpuUsagesRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(HardwarePropertiesManagerServiceServer).GetCpuUsages(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: HardwarePropertiesManagerService_GetCpuUsages_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(HardwarePropertiesManagerServiceServer).GetCpuUsages(ctx, req.(*GetCpuUsagesRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _HardwarePropertiesManagerService_GetDeviceTemperatures_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetDeviceTemperaturesRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(HardwarePropertiesManagerServiceServer).GetDeviceTemperatures(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: HardwarePropertiesManagerService_GetDeviceTemperatures_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(HardwarePropertiesManagerServiceServer).GetDeviceTemperatures(ctx, req.(*GetDeviceTemperaturesRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _HardwarePropertiesManagerService_GetFanSpeeds_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetFanSpeedsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(HardwarePropertiesManagerServiceServer).GetFanSpeeds(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: HardwarePropertiesManagerService_GetFanSpeeds_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(HardwarePropertiesManagerServiceServer).GetFanSpeeds(ctx, req.(*GetFanSpeedsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// HardwarePropertiesManagerService_ServiceDesc is the grpc.ServiceDesc for HardwarePropertiesManagerService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var HardwarePropertiesManagerService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "os.HardwarePropertiesManagerService",
-	HandlerType: (*HardwarePropertiesManagerServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "GetCpuUsages",
-			Handler:    _HardwarePropertiesManagerService_GetCpuUsages_Handler,
-		},
-		{
-			MethodName: "GetDeviceTemperatures",
-			Handler:    _HardwarePropertiesManagerService_GetDeviceTemperatures_Handler,
-		},
-		{
-			MethodName: "GetFanSpeeds",
-			Handler:    _HardwarePropertiesManagerService_GetFanSpeeds_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/os/os.proto",
-}
-
-const (
-	BugreportManagerService_CancelBugreport_FullMethodName            = "/os.BugreportManagerService/CancelBugreport"
-	BugreportManagerService_StartConnectivityBugreport_FullMethodName = "/os.BugreportManagerService/StartConnectivityBugreport"
-)
-
-// BugreportManagerServiceClient is the client API for BugreportManagerService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type BugreportManagerServiceClient interface {
-	CancelBugreport(ctx context.Context, in *CancelBugreportRequest, opts ...grpc.CallOption) (*CancelBugreportResponse, error)
-	StartConnectivityBugreport(ctx context.Context, in *StartConnectivityBugreportRequest, opts ...grpc.CallOption) (*StartConnectivityBugreportResponse, error)
-}
-
-type bugreportManagerServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewBugreportManagerServiceClient(cc grpc.ClientConnInterface) BugreportManagerServiceClient {
-	return &bugreportManagerServiceClient{cc}
-}
-
-func (c *bugreportManagerServiceClient) CancelBugreport(ctx context.Context, in *CancelBugreportRequest, opts ...grpc.CallOption) (*CancelBugreportResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(CancelBugreportResponse)
-	err := c.cc.Invoke(ctx, BugreportManagerService_CancelBugreport_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *bugreportManagerServiceClient) StartConnectivityBugreport(ctx context.Context, in *StartConnectivityBugreportRequest, opts ...grpc.CallOption) (*StartConnectivityBugreportResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(StartConnectivityBugreportResponse)
-	err := c.cc.Invoke(ctx, BugreportManagerService_StartConnectivityBugreport_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// BugreportManagerServiceServer is the server API for BugreportManagerService service.
-// All implementations must embed UnimplementedBugreportManagerServiceServer
-// for forward compatibility.
-type BugreportManagerServiceServer interface {
-	CancelBugreport(context.Context, *CancelBugreportRequest) (*CancelBugreportResponse, error)
-	StartConnectivityBugreport(context.Context, *StartConnectivityBugreportRequest) (*StartConnectivityBugreportResponse, error)
-	mustEmbedUnimplementedBugreportManagerServiceServer()
-}
-
-// UnimplementedBugreportManagerServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedBugreportManagerServiceServer struct{}
-
-func (UnimplementedBugreportManagerServiceServer) CancelBugreport(context.Context, *CancelBugreportRequest) (*CancelBugreportResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method CancelBugreport not implemented")
-}
-func (UnimplementedBugreportManagerServiceServer) StartConnectivityBugreport(context.Context, *StartConnectivityBugreportRequest) (*StartConnectivityBugreportResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method StartConnectivityBugreport not implemented")
-}
-func (UnimplementedBugreportManagerServiceServer) mustEmbedUnimplementedBugreportManagerServiceServer() {
-}
-func (UnimplementedBugreportManagerServiceServer) testEmbeddedByValue() {}
-
-// UnsafeBugreportManagerServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to BugreportManagerServiceServer will
-// result in compilation errors.
-type UnsafeBugreportManagerServiceServer interface {
-	mustEmbedUnimplementedBugreportManagerServiceServer()
-}
-
-func RegisterBugreportManagerServiceServer(s grpc.ServiceRegistrar, srv BugreportManagerServiceServer) {
-	// If the following call panics, it indicates UnimplementedBugreportManagerServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&BugreportManagerService_ServiceDesc, srv)
-}
-
-func _BugreportManagerService_CancelBugreport_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(CancelBugreportRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(BugreportManagerServiceServer).CancelBugreport(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: BugreportManagerService_CancelBugreport_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(BugreportManagerServiceServer).CancelBugreport(ctx, req.(*CancelBugreportRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _BugreportManagerService_StartConnectivityBugreport_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(StartConnectivityBugreportRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(BugreportManagerServiceServer).StartConnectivityBugreport(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: BugreportManagerService_StartConnectivityBugreport_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(BugreportManagerServiceServer).StartConnectivityBugreport(ctx, req.(*StartConnectivityBugreportRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// BugreportManagerService_ServiceDesc is the grpc.ServiceDesc for BugreportManagerService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var BugreportManagerService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "os.BugreportManagerService",
-	HandlerType: (*BugreportManagerServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "CancelBugreport",
-			Handler:    _BugreportManagerService_CancelBugreport_Handler,
-		},
-		{
-			MethodName: "StartConnectivityBugreport",
-			Handler:    _BugreportManagerService_StartConnectivityBugreport_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/os/os.proto",
-}
-
-const (
-	PerformanceHintManagerService_CreateHintSession_FullMethodName           = "/os.PerformanceHintManagerService/CreateHintSession"
-	PerformanceHintManagerService_GetPreferredUpdateRateNanos_FullMethodName = "/os.PerformanceHintManagerService/GetPreferredUpdateRateNanos"
-)
-
-// PerformanceHintManagerServiceClient is the client API for PerformanceHintManagerService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type PerformanceHintManagerServiceClient interface {
-	CreateHintSession(ctx context.Context, in *CreateHintSessionRequest, opts ...grpc.CallOption) (*CreateHintSessionResponse, error)
-	GetPreferredUpdateRateNanos(ctx context.Context, in *GetPreferredUpdateRateNanosRequest, opts ...grpc.CallOption) (*GetPreferredUpdateRateNanosResponse, error)
-}
-
-type performanceHintManagerServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewPerformanceHintManagerServiceClient(cc grpc.ClientConnInterface) PerformanceHintManagerServiceClient {
-	return &performanceHintManagerServiceClient{cc}
-}
-
-func (c *performanceHintManagerServiceClient) CreateHintSession(ctx context.Context, in *CreateHintSessionRequest, opts ...grpc.CallOption) (*CreateHintSessionResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(CreateHintSessionResponse)
-	err := c.cc.Invoke(ctx, PerformanceHintManagerService_CreateHintSession_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *performanceHintManagerServiceClient) GetPreferredUpdateRateNanos(ctx context.Context, in *GetPreferredUpdateRateNanosRequest, opts ...grpc.CallOption) (*GetPreferredUpdateRateNanosResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetPreferredUpdateRateNanosResponse)
-	err := c.cc.Invoke(ctx, PerformanceHintManagerService_GetPreferredUpdateRateNanos_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// PerformanceHintManagerServiceServer is the server API for PerformanceHintManagerService service.
-// All implementations must embed UnimplementedPerformanceHintManagerServiceServer
-// for forward compatibility.
-type PerformanceHintManagerServiceServer interface {
-	CreateHintSession(context.Context, *CreateHintSessionRequest) (*CreateHintSessionResponse, error)
-	GetPreferredUpdateRateNanos(context.Context, *GetPreferredUpdateRateNanosRequest) (*GetPreferredUpdateRateNanosResponse, error)
-	mustEmbedUnimplementedPerformanceHintManagerServiceServer()
-}
-
-// UnimplementedPerformanceHintManagerServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedPerformanceHintManagerServiceServer struct{}
-
-func (UnimplementedPerformanceHintManagerServiceServer) CreateHintSession(context.Context, *CreateHintSessionRequest) (*CreateHintSessionResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method CreateHintSession not implemented")
-}
-func (UnimplementedPerformanceHintManagerServiceServer) GetPreferredUpdateRateNanos(context.Context, *GetPreferredUpdateRateNanosRequest) (*GetPreferredUpdateRateNanosResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetPreferredUpdateRateNanos not implemented")
-}
-func (UnimplementedPerformanceHintManagerServiceServer) mustEmbedUnimplementedPerformanceHintManagerServiceServer() {
-}
-func (UnimplementedPerformanceHintManagerServiceServer) testEmbeddedByValue() {}
-
-// UnsafePerformanceHintManagerServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to PerformanceHintManagerServiceServer will
-// result in compilation errors.
-type UnsafePerformanceHintManagerServiceServer interface {
-	mustEmbedUnimplementedPerformanceHintManagerServiceServer()
-}
-
-func RegisterPerformanceHintManagerServiceServer(s grpc.ServiceRegistrar, srv PerformanceHintManagerServiceServer) {
-	// If the following call panics, it indicates UnimplementedPerformanceHintManagerServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&PerformanceHintManagerService_ServiceDesc, srv)
-}
-
-func _PerformanceHintManagerService_CreateHintSession_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(CreateHintSessionRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PerformanceHintManagerServiceServer).CreateHintSession(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PerformanceHintManagerService_CreateHintSession_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PerformanceHintManagerServiceServer).CreateHintSession(ctx, req.(*CreateHintSessionRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PerformanceHintManagerService_GetPreferredUpdateRateNanos_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetPreferredUpdateRateNanosRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PerformanceHintManagerServiceServer).GetPreferredUpdateRateNanos(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PerformanceHintManagerService_GetPreferredUpdateRateNanos_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PerformanceHintManagerServiceServer).GetPreferredUpdateRateNanos(ctx, req.(*GetPreferredUpdateRateNanosRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// PerformanceHintManagerService_ServiceDesc is the grpc.ServiceDesc for PerformanceHintManagerService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var PerformanceHintManagerService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "os.PerformanceHintManagerService",
-	HandlerType: (*PerformanceHintManagerServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "CreateHintSession",
-			Handler:    _PerformanceHintManagerService_CreateHintSession_Handler,
-		},
-		{
-			MethodName: "GetPreferredUpdateRateNanos",
-			Handler:    _PerformanceHintManagerService_GetPreferredUpdateRateNanos_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/os/os.proto",
-}
-
-const (
-	ProfilingManagerService_ClearProfilingTriggers_FullMethodName        = "/os.ProfilingManagerService/ClearProfilingTriggers"
-	ProfilingManagerService_RemoveProfilingTriggersByType_FullMethodName = "/os.ProfilingManagerService/RemoveProfilingTriggersByType"
-)
-
-// ProfilingManagerServiceClient is the client API for ProfilingManagerService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type ProfilingManagerServiceClient interface {
-	ClearProfilingTriggers(ctx context.Context, in *ClearProfilingTriggersRequest, opts ...grpc.CallOption) (*ClearProfilingTriggersResponse, error)
-	RemoveProfilingTriggersByType(ctx context.Context, in *RemoveProfilingTriggersByTypeRequest, opts ...grpc.CallOption) (*RemoveProfilingTriggersByTypeResponse, error)
-}
-
-type profilingManagerServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewProfilingManagerServiceClient(cc grpc.ClientConnInterface) ProfilingManagerServiceClient {
-	return &profilingManagerServiceClient{cc}
-}
-
-func (c *profilingManagerServiceClient) ClearProfilingTriggers(ctx context.Context, in *ClearProfilingTriggersRequest, opts ...grpc.CallOption) (*ClearProfilingTriggersResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ClearProfilingTriggersResponse)
-	err := c.cc.Invoke(ctx, ProfilingManagerService_ClearProfilingTriggers_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *profilingManagerServiceClient) RemoveProfilingTriggersByType(ctx context.Context, in *RemoveProfilingTriggersByTypeRequest, opts ...grpc.CallOption) (*RemoveProfilingTriggersByTypeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(RemoveProfilingTriggersByTypeResponse)
-	err := c.cc.Invoke(ctx, ProfilingManagerService_RemoveProfilingTriggersByType_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// ProfilingManagerServiceServer is the server API for ProfilingManagerService service.
-// All implementations must embed UnimplementedProfilingManagerServiceServer
-// for forward compatibility.
-type ProfilingManagerServiceServer interface {
-	ClearProfilingTriggers(context.Context, *ClearProfilingTriggersRequest) (*ClearProfilingTriggersResponse, error)
-	RemoveProfilingTriggersByType(context.Context, *RemoveProfilingTriggersByTypeRequest) (*RemoveProfilingTriggersByTypeResponse, error)
-	mustEmbedUnimplementedProfilingManagerServiceServer()
-}
-
-// UnimplementedProfilingManagerServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedProfilingManagerServiceServer struct{}
-
-func (UnimplementedProfilingManagerServiceServer) ClearProfilingTriggers(context.Context, *ClearProfilingTriggersRequest) (*ClearProfilingTriggersResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method ClearProfilingTriggers not implemented")
-}
-func (UnimplementedProfilingManagerServiceServer) RemoveProfilingTriggersByType(context.Context, *RemoveProfilingTriggersByTypeRequest) (*RemoveProfilingTriggersByTypeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method RemoveProfilingTriggersByType not implemented")
-}
-func (UnimplementedProfilingManagerServiceServer) mustEmbedUnimplementedProfilingManagerServiceServer() {
-}
-func (UnimplementedProfilingManagerServiceServer) testEmbeddedByValue() {}
-
-// UnsafeProfilingManagerServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to ProfilingManagerServiceServer will
-// result in compilation errors.
-type UnsafeProfilingManagerServiceServer interface {
-	mustEmbedUnimplementedProfilingManagerServiceServer()
-}
-
-func RegisterProfilingManagerServiceServer(s grpc.ServiceRegistrar, srv ProfilingManagerServiceServer) {
-	// If the following call panics, it indicates UnimplementedProfilingManagerServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&ProfilingManagerService_ServiceDesc, srv)
-}
-
-func _ProfilingManagerService_ClearProfilingTriggers_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ClearProfilingTriggersRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ProfilingManagerServiceServer).ClearProfilingTriggers(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ProfilingManagerService_ClearProfilingTriggers_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ProfilingManagerServiceServer).ClearProfilingTriggers(ctx, req.(*ClearProfilingTriggersRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ProfilingManagerService_RemoveProfilingTriggersByType_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(RemoveProfilingTriggersByTypeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ProfilingManagerServiceServer).RemoveProfilingTriggersByType(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ProfilingManagerService_RemoveProfilingTriggersByType_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ProfilingManagerServiceServer).RemoveProfilingTriggersByType(ctx, req.(*RemoveProfilingTriggersByTypeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// ProfilingManagerService_ServiceDesc is the grpc.ServiceDesc for ProfilingManagerService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var ProfilingManagerService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "os.ProfilingManagerService",
-	HandlerType: (*ProfilingManagerServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "ClearProfilingTriggers",
-			Handler:    _ProfilingManagerService_ClearProfilingTriggers_Handler,
-		},
-		{
-			MethodName: "RemoveProfilingTriggersByType",
-			Handler:    _ProfilingManagerService_RemoveProfilingTriggersByType_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

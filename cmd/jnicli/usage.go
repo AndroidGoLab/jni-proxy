@@ -12,243 +12,6 @@ var usageCmd = &cobra.Command{
 	Short: "usage service operations",
 }
 
-var usageStatsManagerCmd = &cobra.Command{
-	Use:   "stats-manager",
-	Short: "StatsManagerService operations",
-}
-
-var usageStatsManagerGetAppStandbyBucketCmd = &cobra.Command{
-	Use:   "get-app-standby-bucket",
-	Short: "GetAppStandbyBucket RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewStatsManagerServiceClient(grpcConn)
-		req := &pb.GetAppStandbyBucketRequest{}
-		resp, err := client.GetAppStandbyBucket(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var usageStatsManagerIsAppInactiveCmd = &cobra.Command{
-	Use:   "is-app-inactive",
-	Short: "IsAppInactive RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewStatsManagerServiceClient(grpcConn)
-		req := &pb.IsAppInactiveRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.IsAppInactive(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var usageStatsManagerQueryEvents1Cmd = &cobra.Command{
-	Use:   "query-events1",
-	Short: "QueryEvents1 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewStatsManagerServiceClient(grpcConn)
-		req := &pb.QueryEvents1Request{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.QueryEvents1(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var usageStatsManagerQueryEvents2_1Cmd = &cobra.Command{
-	Use:   "query-events2_1",
-	Short: "QueryEvents2_1 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewStatsManagerServiceClient(grpcConn)
-		req := &pb.QueryEvents2_1Request{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.QueryEvents2_1(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var usageStatsManagerQueryEventsForSelfCmd = &cobra.Command{
-	Use:   "query-events-for-self",
-	Short: "QueryEventsForSelf RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewStatsManagerServiceClient(grpcConn)
-		req := &pb.QueryEventsForSelfRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.QueryEventsForSelf(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var usageStorageStatsManagerCmd = &cobra.Command{
-	Use:   "storage-stats-manager",
-	Short: "StorageStatsManagerService operations",
-}
-
-var usageStorageStatsManagerGetFreeBytesCmd = &cobra.Command{
-	Use:   "get-free-bytes",
-	Short: "GetFreeBytes RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewStorageStatsManagerServiceClient(grpcConn)
-		req := &pb.GetFreeBytesRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.GetFreeBytes(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var usageStorageStatsManagerGetTotalBytesCmd = &cobra.Command{
-	Use:   "get-total-bytes",
-	Short: "GetTotalBytes RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewStorageStatsManagerServiceClient(grpcConn)
-		req := &pb.GetTotalBytesRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.GetTotalBytes(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var usageStorageStatsManagerQueryExternalStatsForUserCmd = &cobra.Command{
-	Use:   "query-external-stats-for-user",
-	Short: "QueryExternalStatsForUser RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewStorageStatsManagerServiceClient(grpcConn)
-		req := &pb.QueryExternalStatsForUserRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.QueryExternalStatsForUser(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var usageStorageStatsManagerQueryStatsForPackageCmd = &cobra.Command{
-	Use:   "query-stats-for-package",
-	Short: "QueryStatsForPackage RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewStorageStatsManagerServiceClient(grpcConn)
-		req := &pb.QueryStatsForPackageRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetString("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		resp, err := client.QueryStatsForPackage(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var usageStorageStatsManagerQueryStatsForUidCmd = &cobra.Command{
-	Use:   "query-stats-for-uid",
-	Short: "QueryStatsForUid RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewStorageStatsManagerServiceClient(grpcConn)
-		req := &pb.QueryStatsForUidRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.QueryStatsForUid(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var usageStorageStatsManagerQueryStatsForUserCmd = &cobra.Command{
-	Use:   "query-stats-for-user",
-	Short: "QueryStatsForUser RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewStorageStatsManagerServiceClient(grpcConn)
-		req := &pb.QueryStatsForUserRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.QueryStatsForUser(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
 var usageNetworkStatsManagerCmd = &cobra.Command{
 	Use:   "network-stats-manager",
 	Short: "NetworkStatsManagerService operations",
@@ -515,37 +278,244 @@ var usageNetworkStatsManagerUnregisterUsageCallbackCmd = &cobra.Command{
 	},
 }
 
+var usageStatsManagerCmd = &cobra.Command{
+	Use:   "stats-manager",
+	Short: "StatsManagerService operations",
+}
+
+var usageStatsManagerGetAppStandbyBucketCmd = &cobra.Command{
+	Use:   "get-app-standby-bucket",
+	Short: "GetAppStandbyBucket RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewStatsManagerServiceClient(grpcConn)
+		req := &pb.GetAppStandbyBucketRequest{}
+		resp, err := client.GetAppStandbyBucket(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var usageStatsManagerIsAppInactiveCmd = &cobra.Command{
+	Use:   "is-app-inactive",
+	Short: "IsAppInactive RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewStatsManagerServiceClient(grpcConn)
+		req := &pb.IsAppInactiveRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.IsAppInactive(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var usageStatsManagerQueryEvents1Cmd = &cobra.Command{
+	Use:   "query-events1",
+	Short: "QueryEvents1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewStatsManagerServiceClient(grpcConn)
+		req := &pb.QueryEvents1Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.QueryEvents1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var usageStatsManagerQueryEvents2_1Cmd = &cobra.Command{
+	Use:   "query-events2_1",
+	Short: "QueryEvents2_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewStatsManagerServiceClient(grpcConn)
+		req := &pb.QueryEvents2_1Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.QueryEvents2_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var usageStatsManagerQueryEventsForSelfCmd = &cobra.Command{
+	Use:   "query-events-for-self",
+	Short: "QueryEventsForSelf RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewStatsManagerServiceClient(grpcConn)
+		req := &pb.QueryEventsForSelfRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.QueryEventsForSelf(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var usageStorageStatsManagerCmd = &cobra.Command{
+	Use:   "storage-stats-manager",
+	Short: "StorageStatsManagerService operations",
+}
+
+var usageStorageStatsManagerGetFreeBytesCmd = &cobra.Command{
+	Use:   "get-free-bytes",
+	Short: "GetFreeBytes RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewStorageStatsManagerServiceClient(grpcConn)
+		req := &pb.GetFreeBytesRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetFreeBytes(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var usageStorageStatsManagerGetTotalBytesCmd = &cobra.Command{
+	Use:   "get-total-bytes",
+	Short: "GetTotalBytes RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewStorageStatsManagerServiceClient(grpcConn)
+		req := &pb.GetTotalBytesRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetTotalBytes(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var usageStorageStatsManagerQueryExternalStatsForUserCmd = &cobra.Command{
+	Use:   "query-external-stats-for-user",
+	Short: "QueryExternalStatsForUser RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewStorageStatsManagerServiceClient(grpcConn)
+		req := &pb.QueryExternalStatsForUserRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.QueryExternalStatsForUser(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var usageStorageStatsManagerQueryStatsForPackageCmd = &cobra.Command{
+	Use:   "query-stats-for-package",
+	Short: "QueryStatsForPackage RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewStorageStatsManagerServiceClient(grpcConn)
+		req := &pb.QueryStatsForPackageRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetString("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.QueryStatsForPackage(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var usageStorageStatsManagerQueryStatsForUidCmd = &cobra.Command{
+	Use:   "query-stats-for-uid",
+	Short: "QueryStatsForUid RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewStorageStatsManagerServiceClient(grpcConn)
+		req := &pb.QueryStatsForUidRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.QueryStatsForUid(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var usageStorageStatsManagerQueryStatsForUserCmd = &cobra.Command{
+	Use:   "query-stats-for-user",
+	Short: "QueryStatsForUser RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewStorageStatsManagerServiceClient(grpcConn)
+		req := &pb.QueryStatsForUserRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.QueryStatsForUser(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
 func init() {
-	usageStatsManagerCmd.AddCommand(usageStatsManagerGetAppStandbyBucketCmd)
-	usageStatsManagerIsAppInactiveCmd.Flags().String("arg0", "", "arg0 (string)")
-	usageStatsManagerCmd.AddCommand(usageStatsManagerIsAppInactiveCmd)
-	usageStatsManagerQueryEvents1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	usageStatsManagerCmd.AddCommand(usageStatsManagerQueryEvents1Cmd)
-	usageStatsManagerQueryEvents2_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	usageStatsManagerQueryEvents2_1Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	usageStatsManagerCmd.AddCommand(usageStatsManagerQueryEvents2_1Cmd)
-	usageStatsManagerQueryEventsForSelfCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	usageStatsManagerQueryEventsForSelfCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	usageStatsManagerCmd.AddCommand(usageStatsManagerQueryEventsForSelfCmd)
-	usageCmd.AddCommand(usageStatsManagerCmd)
-	usageStorageStatsManagerGetFreeBytesCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	usageStorageStatsManagerCmd.AddCommand(usageStorageStatsManagerGetFreeBytesCmd)
-	usageStorageStatsManagerGetTotalBytesCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	usageStorageStatsManagerCmd.AddCommand(usageStorageStatsManagerGetTotalBytesCmd)
-	usageStorageStatsManagerQueryExternalStatsForUserCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	usageStorageStatsManagerQueryExternalStatsForUserCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	usageStorageStatsManagerCmd.AddCommand(usageStorageStatsManagerQueryExternalStatsForUserCmd)
-	usageStorageStatsManagerQueryStatsForPackageCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	usageStorageStatsManagerQueryStatsForPackageCmd.Flags().String("arg1", "", "arg1 (string)")
-	usageStorageStatsManagerQueryStatsForPackageCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
-	usageStorageStatsManagerCmd.AddCommand(usageStorageStatsManagerQueryStatsForPackageCmd)
-	usageStorageStatsManagerQueryStatsForUidCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	usageStorageStatsManagerQueryStatsForUidCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	usageStorageStatsManagerCmd.AddCommand(usageStorageStatsManagerQueryStatsForUidCmd)
-	usageStorageStatsManagerQueryStatsForUserCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	usageStorageStatsManagerQueryStatsForUserCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	usageStorageStatsManagerCmd.AddCommand(usageStorageStatsManagerQueryStatsForUserCmd)
-	usageCmd.AddCommand(usageStorageStatsManagerCmd)
 	usageNetworkStatsManagerQueryDetailsCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
 	usageNetworkStatsManagerQueryDetailsCmd.Flags().String("arg1", "", "arg1 (string)")
 	usageNetworkStatsManagerQueryDetailsCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
@@ -595,5 +565,35 @@ func init() {
 	usageNetworkStatsManagerUnregisterUsageCallbackCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	usageNetworkStatsManagerCmd.AddCommand(usageNetworkStatsManagerUnregisterUsageCallbackCmd)
 	usageCmd.AddCommand(usageNetworkStatsManagerCmd)
+	usageStatsManagerCmd.AddCommand(usageStatsManagerGetAppStandbyBucketCmd)
+	usageStatsManagerIsAppInactiveCmd.Flags().String("arg0", "", "arg0 (string)")
+	usageStatsManagerCmd.AddCommand(usageStatsManagerIsAppInactiveCmd)
+	usageStatsManagerQueryEvents1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	usageStatsManagerCmd.AddCommand(usageStatsManagerQueryEvents1Cmd)
+	usageStatsManagerQueryEvents2_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	usageStatsManagerQueryEvents2_1Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	usageStatsManagerCmd.AddCommand(usageStatsManagerQueryEvents2_1Cmd)
+	usageStatsManagerQueryEventsForSelfCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	usageStatsManagerQueryEventsForSelfCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	usageStatsManagerCmd.AddCommand(usageStatsManagerQueryEventsForSelfCmd)
+	usageCmd.AddCommand(usageStatsManagerCmd)
+	usageStorageStatsManagerGetFreeBytesCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	usageStorageStatsManagerCmd.AddCommand(usageStorageStatsManagerGetFreeBytesCmd)
+	usageStorageStatsManagerGetTotalBytesCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	usageStorageStatsManagerCmd.AddCommand(usageStorageStatsManagerGetTotalBytesCmd)
+	usageStorageStatsManagerQueryExternalStatsForUserCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	usageStorageStatsManagerQueryExternalStatsForUserCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	usageStorageStatsManagerCmd.AddCommand(usageStorageStatsManagerQueryExternalStatsForUserCmd)
+	usageStorageStatsManagerQueryStatsForPackageCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	usageStorageStatsManagerQueryStatsForPackageCmd.Flags().String("arg1", "", "arg1 (string)")
+	usageStorageStatsManagerQueryStatsForPackageCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	usageStorageStatsManagerCmd.AddCommand(usageStorageStatsManagerQueryStatsForPackageCmd)
+	usageStorageStatsManagerQueryStatsForUidCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	usageStorageStatsManagerQueryStatsForUidCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	usageStorageStatsManagerCmd.AddCommand(usageStorageStatsManagerQueryStatsForUidCmd)
+	usageStorageStatsManagerQueryStatsForUserCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	usageStorageStatsManagerQueryStatsForUserCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	usageStorageStatsManagerCmd.AddCommand(usageStorageStatsManagerQueryStatsForUserCmd)
+	usageCmd.AddCommand(usageStorageStatsManagerCmd)
 	rootCmd.AddCommand(usageCmd)
 }

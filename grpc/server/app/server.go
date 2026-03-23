@@ -15,1053 +15,6 @@ import (
 	"google.golang.org/grpc/status"
 )
 
-// OpsManagerServer implements pb.OpsManagerServiceServer.
-type OpsManagerServer struct {
-	pb.UnimplementedOpsManagerServiceServer
-	Ctx     *app.Context
-	Handles *handlestore.HandleStore
-}
-
-func (s *OpsManagerServer) CheckOp3(_ context.Context, req *pb.CheckOp3Request) (*pb.CheckOp3Response, error) {
-	mgr, err := jnipkg.NewOpsManager(s.Ctx)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
-	}
-	defer mgr.Close()
-
-	result, err := mgr.CheckOp3(req.GetArg0(), req.GetArg1(), req.GetArg2())
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.CheckOp3Response{Result: result}, nil
-}
-
-func (s *OpsManagerServer) CheckOp4_1(_ context.Context, req *pb.CheckOp4_1Request) (*pb.CheckOp4_1Response, error) {
-	mgr, err := jnipkg.NewOpsManager(s.Ctx)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
-	}
-	defer mgr.Close()
-
-	result, err := mgr.CheckOp4_1(req.GetArg0(), req.GetArg1(), req.GetArg2(), req.GetArg3())
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.CheckOp4_1Response{Result: result}, nil
-}
-
-func (s *OpsManagerServer) CheckOpNoThrow3(_ context.Context, req *pb.CheckOpNoThrow3Request) (*pb.CheckOpNoThrow3Response, error) {
-	mgr, err := jnipkg.NewOpsManager(s.Ctx)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
-	}
-	defer mgr.Close()
-
-	result, err := mgr.CheckOpNoThrow3(req.GetArg0(), req.GetArg1(), req.GetArg2())
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.CheckOpNoThrow3Response{Result: result}, nil
-}
-
-func (s *OpsManagerServer) CheckOpNoThrow4_1(_ context.Context, req *pb.CheckOpNoThrow4_1Request) (*pb.CheckOpNoThrow4_1Response, error) {
-	mgr, err := jnipkg.NewOpsManager(s.Ctx)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
-	}
-	defer mgr.Close()
-
-	result, err := mgr.CheckOpNoThrow4_1(req.GetArg0(), req.GetArg1(), req.GetArg2(), req.GetArg3())
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.CheckOpNoThrow4_1Response{Result: result}, nil
-}
-
-func (s *OpsManagerServer) CheckOpRawNoThrow(_ context.Context, req *pb.CheckOpRawNoThrowRequest) (*pb.CheckOpRawNoThrowResponse, error) {
-	mgr, err := jnipkg.NewOpsManager(s.Ctx)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
-	}
-	defer mgr.Close()
-
-	result, err := mgr.CheckOpRawNoThrow(req.GetArg0(), req.GetArg1(), req.GetArg2(), req.GetArg3())
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.CheckOpRawNoThrowResponse{Result: result}, nil
-}
-
-func (s *OpsManagerServer) CheckPackage(_ context.Context, req *pb.CheckPackageRequest) (*pb.CheckPackageResponse, error) {
-	mgr, err := jnipkg.NewOpsManager(s.Ctx)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
-	}
-	defer mgr.Close()
-
-	if err := mgr.CheckPackage(req.GetArg0(), req.GetArg1()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.CheckPackageResponse{}, nil
-}
-
-func (s *OpsManagerServer) FinishOp3(_ context.Context, req *pb.FinishOp3Request) (*pb.FinishOp3Response, error) {
-	mgr, err := jnipkg.NewOpsManager(s.Ctx)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
-	}
-	defer mgr.Close()
-
-	if err := mgr.FinishOp3(req.GetArg0(), req.GetArg1(), req.GetArg2()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.FinishOp3Response{}, nil
-}
-
-func (s *OpsManagerServer) FinishOp4_1(_ context.Context, req *pb.FinishOp4_1Request) (*pb.FinishOp4_1Response, error) {
-	mgr, err := jnipkg.NewOpsManager(s.Ctx)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
-	}
-	defer mgr.Close()
-
-	if err := mgr.FinishOp4_1(req.GetArg0(), req.GetArg1(), req.GetArg2(), req.GetArg3()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.FinishOp4_1Response{}, nil
-}
-
-func (s *OpsManagerServer) FinishProxyOp(_ context.Context, req *pb.FinishProxyOpRequest) (*pb.FinishProxyOpResponse, error) {
-	mgr, err := jnipkg.NewOpsManager(s.Ctx)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
-	}
-	defer mgr.Close()
-
-	if err := mgr.FinishProxyOp(req.GetArg0(), req.GetArg1(), req.GetArg2(), req.GetArg3()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.FinishProxyOpResponse{}, nil
-}
-
-func (s *OpsManagerServer) IsOpActive(_ context.Context, req *pb.IsOpActiveRequest) (*pb.IsOpActiveResponse, error) {
-	mgr, err := jnipkg.NewOpsManager(s.Ctx)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
-	}
-	defer mgr.Close()
-
-	result, err := mgr.IsOpActive(req.GetArg0(), req.GetArg1(), req.GetArg2())
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.IsOpActiveResponse{Result: result}, nil
-}
-
-func (s *OpsManagerServer) NoteOp3(_ context.Context, req *pb.NoteOp3Request) (*pb.NoteOp3Response, error) {
-	mgr, err := jnipkg.NewOpsManager(s.Ctx)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
-	}
-	defer mgr.Close()
-
-	result, err := mgr.NoteOp3(req.GetArg0(), req.GetArg1(), req.GetArg2())
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.NoteOp3Response{Result: result}, nil
-}
-
-func (s *OpsManagerServer) NoteOp5_1(_ context.Context, req *pb.NoteOp5_1Request) (*pb.NoteOp5_1Response, error) {
-	mgr, err := jnipkg.NewOpsManager(s.Ctx)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
-	}
-	defer mgr.Close()
-
-	result, err := mgr.NoteOp5_1(req.GetArg0(), req.GetArg1(), req.GetArg2(), req.GetArg3(), req.GetArg4())
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.NoteOp5_1Response{Result: result}, nil
-}
-
-func (s *OpsManagerServer) NoteOpNoThrow3(_ context.Context, req *pb.NoteOpNoThrow3Request) (*pb.NoteOpNoThrow3Response, error) {
-	mgr, err := jnipkg.NewOpsManager(s.Ctx)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
-	}
-	defer mgr.Close()
-
-	result, err := mgr.NoteOpNoThrow3(req.GetArg0(), req.GetArg1(), req.GetArg2())
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.NoteOpNoThrow3Response{Result: result}, nil
-}
-
-func (s *OpsManagerServer) NoteOpNoThrow5_1(_ context.Context, req *pb.NoteOpNoThrow5_1Request) (*pb.NoteOpNoThrow5_1Response, error) {
-	mgr, err := jnipkg.NewOpsManager(s.Ctx)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
-	}
-	defer mgr.Close()
-
-	result, err := mgr.NoteOpNoThrow5_1(req.GetArg0(), req.GetArg1(), req.GetArg2(), req.GetArg3(), req.GetArg4())
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.NoteOpNoThrow5_1Response{Result: result}, nil
-}
-
-func (s *OpsManagerServer) NoteProxyOp2(_ context.Context, req *pb.NoteProxyOp2Request) (*pb.NoteProxyOp2Response, error) {
-	mgr, err := jnipkg.NewOpsManager(s.Ctx)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
-	}
-	defer mgr.Close()
-
-	result, err := mgr.NoteProxyOp2(req.GetArg0(), req.GetArg1())
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.NoteProxyOp2Response{Result: result}, nil
-}
-
-func (s *OpsManagerServer) NoteProxyOp5_1(_ context.Context, req *pb.NoteProxyOp5_1Request) (*pb.NoteProxyOp5_1Response, error) {
-	mgr, err := jnipkg.NewOpsManager(s.Ctx)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
-	}
-	defer mgr.Close()
-
-	result, err := mgr.NoteProxyOp5_1(req.GetArg0(), req.GetArg1(), req.GetArg2(), req.GetArg3(), req.GetArg4())
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.NoteProxyOp5_1Response{Result: result}, nil
-}
-
-func (s *OpsManagerServer) NoteProxyOpNoThrow2(_ context.Context, req *pb.NoteProxyOpNoThrow2Request) (*pb.NoteProxyOpNoThrow2Response, error) {
-	mgr, err := jnipkg.NewOpsManager(s.Ctx)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
-	}
-	defer mgr.Close()
-
-	result, err := mgr.NoteProxyOpNoThrow2(req.GetArg0(), req.GetArg1())
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.NoteProxyOpNoThrow2Response{Result: result}, nil
-}
-
-func (s *OpsManagerServer) NoteProxyOpNoThrow3_1(_ context.Context, req *pb.NoteProxyOpNoThrow3_1Request) (*pb.NoteProxyOpNoThrow3_1Response, error) {
-	mgr, err := jnipkg.NewOpsManager(s.Ctx)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
-	}
-	defer mgr.Close()
-
-	result, err := mgr.NoteProxyOpNoThrow3_1(req.GetArg0(), req.GetArg1(), req.GetArg2())
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.NoteProxyOpNoThrow3_1Response{Result: result}, nil
-}
-
-func (s *OpsManagerServer) NoteProxyOpNoThrow5_2(_ context.Context, req *pb.NoteProxyOpNoThrow5_2Request) (*pb.NoteProxyOpNoThrow5_2Response, error) {
-	mgr, err := jnipkg.NewOpsManager(s.Ctx)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
-	}
-	defer mgr.Close()
-
-	result, err := mgr.NoteProxyOpNoThrow5_2(req.GetArg0(), req.GetArg1(), req.GetArg2(), req.GetArg3(), req.GetArg4())
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.NoteProxyOpNoThrow5_2Response{Result: result}, nil
-}
-
-func (s *OpsManagerServer) SetOnOpNotedCallback2(_ context.Context, req *pb.SetOnOpNotedCallback2Request) (*pb.SetOnOpNotedCallback2Response, error) {
-	mgr, err := jnipkg.NewOpsManager(s.Ctx)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
-	}
-	defer mgr.Close()
-
-	if err := mgr.SetOnOpNotedCallback2(s.Handles.Get(req.GetArg0()), s.Handles.Get(req.GetArg1())); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.SetOnOpNotedCallback2Response{}, nil
-}
-
-func (s *OpsManagerServer) SetOnOpNotedCallback3_1(_ context.Context, req *pb.SetOnOpNotedCallback3_1Request) (*pb.SetOnOpNotedCallback3_1Response, error) {
-	mgr, err := jnipkg.NewOpsManager(s.Ctx)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
-	}
-	defer mgr.Close()
-
-	if err := mgr.SetOnOpNotedCallback3_1(s.Handles.Get(req.GetArg0()), s.Handles.Get(req.GetArg1()), req.GetArg2()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.SetOnOpNotedCallback3_1Response{}, nil
-}
-
-func (s *OpsManagerServer) StartOp3(_ context.Context, req *pb.StartOp3Request) (*pb.StartOp3Response, error) {
-	mgr, err := jnipkg.NewOpsManager(s.Ctx)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
-	}
-	defer mgr.Close()
-
-	result, err := mgr.StartOp3(req.GetArg0(), req.GetArg1(), req.GetArg2())
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.StartOp3Response{Result: result}, nil
-}
-
-func (s *OpsManagerServer) StartOp5_1(_ context.Context, req *pb.StartOp5_1Request) (*pb.StartOp5_1Response, error) {
-	mgr, err := jnipkg.NewOpsManager(s.Ctx)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
-	}
-	defer mgr.Close()
-
-	result, err := mgr.StartOp5_1(req.GetArg0(), req.GetArg1(), req.GetArg2(), req.GetArg3(), req.GetArg4())
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.StartOp5_1Response{Result: result}, nil
-}
-
-func (s *OpsManagerServer) StartOpNoThrow3(_ context.Context, req *pb.StartOpNoThrow3Request) (*pb.StartOpNoThrow3Response, error) {
-	mgr, err := jnipkg.NewOpsManager(s.Ctx)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
-	}
-	defer mgr.Close()
-
-	result, err := mgr.StartOpNoThrow3(req.GetArg0(), req.GetArg1(), req.GetArg2())
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.StartOpNoThrow3Response{Result: result}, nil
-}
-
-func (s *OpsManagerServer) StartOpNoThrow5_1(_ context.Context, req *pb.StartOpNoThrow5_1Request) (*pb.StartOpNoThrow5_1Response, error) {
-	mgr, err := jnipkg.NewOpsManager(s.Ctx)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
-	}
-	defer mgr.Close()
-
-	result, err := mgr.StartOpNoThrow5_1(req.GetArg0(), req.GetArg1(), req.GetArg2(), req.GetArg3(), req.GetArg4())
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.StartOpNoThrow5_1Response{Result: result}, nil
-}
-
-func (s *OpsManagerServer) StartProxyOp(_ context.Context, req *pb.StartProxyOpRequest) (*pb.StartProxyOpResponse, error) {
-	mgr, err := jnipkg.NewOpsManager(s.Ctx)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
-	}
-	defer mgr.Close()
-
-	result, err := mgr.StartProxyOp(req.GetArg0(), req.GetArg1(), req.GetArg2(), req.GetArg3(), req.GetArg4())
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.StartProxyOpResponse{Result: result}, nil
-}
-
-func (s *OpsManagerServer) StartProxyOpNoThrow(_ context.Context, req *pb.StartProxyOpNoThrowRequest) (*pb.StartProxyOpNoThrowResponse, error) {
-	mgr, err := jnipkg.NewOpsManager(s.Ctx)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
-	}
-	defer mgr.Close()
-
-	result, err := mgr.StartProxyOpNoThrow(req.GetArg0(), req.GetArg1(), req.GetArg2(), req.GetArg3(), req.GetArg4())
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.StartProxyOpNoThrowResponse{Result: result}, nil
-}
-
-func (s *OpsManagerServer) StartWatchingActive(_ context.Context, req *pb.StartWatchingActiveRequest) (*pb.StartWatchingActiveResponse, error) {
-	mgr, err := jnipkg.NewOpsManager(s.Ctx)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
-	}
-	defer mgr.Close()
-
-	if err := mgr.StartWatchingActive(s.Handles.Get(req.GetArg0()), s.Handles.Get(req.GetArg1()), s.Handles.Get(req.GetArg2())); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.StartWatchingActiveResponse{}, nil
-}
-
-func (s *OpsManagerServer) StartWatchingMode3(_ context.Context, req *pb.StartWatchingMode3Request) (*pb.StartWatchingMode3Response, error) {
-	mgr, err := jnipkg.NewOpsManager(s.Ctx)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
-	}
-	defer mgr.Close()
-
-	if err := mgr.StartWatchingMode3(req.GetArg0(), req.GetArg1(), s.Handles.Get(req.GetArg2())); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.StartWatchingMode3Response{}, nil
-}
-
-func (s *OpsManagerServer) StartWatchingMode4_1(_ context.Context, req *pb.StartWatchingMode4_1Request) (*pb.StartWatchingMode4_1Response, error) {
-	mgr, err := jnipkg.NewOpsManager(s.Ctx)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
-	}
-	defer mgr.Close()
-
-	if err := mgr.StartWatchingMode4_1(req.GetArg0(), req.GetArg1(), req.GetArg2(), s.Handles.Get(req.GetArg3())); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.StartWatchingMode4_1Response{}, nil
-}
-
-func (s *OpsManagerServer) StopWatchingActive(_ context.Context, req *pb.StopWatchingActiveRequest) (*pb.StopWatchingActiveResponse, error) {
-	mgr, err := jnipkg.NewOpsManager(s.Ctx)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
-	}
-	defer mgr.Close()
-
-	if err := mgr.StopWatchingActive(s.Handles.Get(req.GetArg0())); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.StopWatchingActiveResponse{}, nil
-}
-
-func (s *OpsManagerServer) StopWatchingMode(_ context.Context, req *pb.StopWatchingModeRequest) (*pb.StopWatchingModeResponse, error) {
-	mgr, err := jnipkg.NewOpsManager(s.Ctx)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
-	}
-	defer mgr.Close()
-
-	if err := mgr.StopWatchingMode(s.Handles.Get(req.GetArg0())); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.StopWatchingModeResponse{}, nil
-}
-
-func (s *OpsManagerServer) UnsafeCheckOp(_ context.Context, req *pb.UnsafeCheckOpRequest) (*pb.UnsafeCheckOpResponse, error) {
-	mgr, err := jnipkg.NewOpsManager(s.Ctx)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
-	}
-	defer mgr.Close()
-
-	result, err := mgr.UnsafeCheckOp(req.GetArg0(), req.GetArg1(), req.GetArg2())
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.UnsafeCheckOpResponse{Result: result}, nil
-}
-
-func (s *OpsManagerServer) UnsafeCheckOpNoThrow(_ context.Context, req *pb.UnsafeCheckOpNoThrowRequest) (*pb.UnsafeCheckOpNoThrowResponse, error) {
-	mgr, err := jnipkg.NewOpsManager(s.Ctx)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
-	}
-	defer mgr.Close()
-
-	result, err := mgr.UnsafeCheckOpNoThrow(req.GetArg0(), req.GetArg1(), req.GetArg2())
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.UnsafeCheckOpNoThrowResponse{Result: result}, nil
-}
-
-func (s *OpsManagerServer) UnsafeCheckOpRaw(_ context.Context, req *pb.UnsafeCheckOpRawRequest) (*pb.UnsafeCheckOpRawResponse, error) {
-	mgr, err := jnipkg.NewOpsManager(s.Ctx)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
-	}
-	defer mgr.Close()
-
-	result, err := mgr.UnsafeCheckOpRaw(req.GetArg0(), req.GetArg1(), req.GetArg2())
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.UnsafeCheckOpRawResponse{Result: result}, nil
-}
-
-func (s *OpsManagerServer) UnsafeCheckOpRawNoThrow(_ context.Context, req *pb.UnsafeCheckOpRawNoThrowRequest) (*pb.UnsafeCheckOpRawNoThrowResponse, error) {
-	mgr, err := jnipkg.NewOpsManager(s.Ctx)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
-	}
-	defer mgr.Close()
-
-	result, err := mgr.UnsafeCheckOpRawNoThrow(req.GetArg0(), req.GetArg1(), req.GetArg2())
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.UnsafeCheckOpRawNoThrowResponse{Result: result}, nil
-}
-
-func (s *OpsManagerServer) PermissionToOp(_ context.Context, req *pb.PermissionToOpRequest) (*pb.PermissionToOpResponse, error) {
-	mgr, err := jnipkg.NewOpsManager(s.Ctx)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
-	}
-	defer mgr.Close()
-
-	result, err := mgr.PermissionToOp(req.GetArg0())
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.PermissionToOpResponse{Result: result}, nil
-}
-
-// StatusBarManagerServer implements pb.StatusBarManagerServiceServer.
-type StatusBarManagerServer struct {
-	pb.UnimplementedStatusBarManagerServiceServer
-	Ctx     *app.Context
-	Handles *handlestore.HandleStore
-}
-
-func (s *StatusBarManagerServer) CanLaunchCaptureContentActivityForNote(_ context.Context, req *pb.CanLaunchCaptureContentActivityForNoteRequest) (*pb.CanLaunchCaptureContentActivityForNoteResponse, error) {
-	mgr, err := jnipkg.NewStatusBarManager(s.Ctx)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
-	}
-	defer mgr.Close()
-
-	result, err := mgr.CanLaunchCaptureContentActivityForNote(s.Handles.Get(req.GetArg0()))
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.CanLaunchCaptureContentActivityForNoteResponse{Result: result}, nil
-}
-
-// ActivityManagerServer implements pb.ActivityManagerServiceServer.
-type ActivityManagerServer struct {
-	pb.UnimplementedActivityManagerServiceServer
-	Ctx     *app.Context
-	Handles *handlestore.HandleStore
-}
-
-func (s *ActivityManagerServer) AddAppTask(_ context.Context, req *pb.AddAppTaskRequest) (*pb.AddAppTaskResponse, error) {
-	mgr, err := jnipkg.NewActivityManager(s.Ctx)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
-	}
-	defer mgr.Close()
-
-	result, err := mgr.AddAppTask(s.Handles.Get(req.GetArg0()), s.Handles.Get(req.GetArg1()), s.Handles.Get(req.GetArg2()), s.Handles.Get(req.GetArg3()))
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.AddAppTaskResponse{Result: result}, nil
-}
-
-func (s *ActivityManagerServer) AddStartInfoTimestamp(_ context.Context, req *pb.AddStartInfoTimestampRequest) (*pb.AddStartInfoTimestampResponse, error) {
-	mgr, err := jnipkg.NewActivityManager(s.Ctx)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
-	}
-	defer mgr.Close()
-
-	if err := mgr.AddStartInfoTimestamp(req.GetArg0(), req.GetArg1()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.AddStartInfoTimestampResponse{}, nil
-}
-
-func (s *ActivityManagerServer) AppNotResponding(_ context.Context, req *pb.AppNotRespondingRequest) (*pb.AppNotRespondingResponse, error) {
-	mgr, err := jnipkg.NewActivityManager(s.Ctx)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
-	}
-	defer mgr.Close()
-
-	if err := mgr.AppNotResponding(req.GetArg0()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.AppNotRespondingResponse{}, nil
-}
-
-func (s *ActivityManagerServer) ClearApplicationUserData(_ context.Context, req *pb.ClearApplicationUserDataRequest) (*pb.ClearApplicationUserDataResponse, error) {
-	mgr, err := jnipkg.NewActivityManager(s.Ctx)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
-	}
-	defer mgr.Close()
-
-	result, err := mgr.ClearApplicationUserData()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.ClearApplicationUserDataResponse{Result: result}, nil
-}
-
-func (s *ActivityManagerServer) ClearWatchHeapLimit(_ context.Context, req *pb.ClearWatchHeapLimitRequest) (*pb.ClearWatchHeapLimitResponse, error) {
-	mgr, err := jnipkg.NewActivityManager(s.Ctx)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
-	}
-	defer mgr.Close()
-
-	if err := mgr.ClearWatchHeapLimit(); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.ClearWatchHeapLimitResponse{}, nil
-}
-
-func (s *ActivityManagerServer) DumpPackageState(_ context.Context, req *pb.DumpPackageStateRequest) (*pb.DumpPackageStateResponse, error) {
-	mgr, err := jnipkg.NewActivityManager(s.Ctx)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
-	}
-	defer mgr.Close()
-
-	if err := mgr.DumpPackageState(s.Handles.Get(req.GetArg0()), req.GetArg1()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.DumpPackageStateResponse{}, nil
-}
-
-func (s *ActivityManagerServer) GetAppTaskThumbnailSize(_ context.Context, req *pb.GetAppTaskThumbnailSizeRequest) (*pb.GetAppTaskThumbnailSizeResponse, error) {
-	mgr, err := jnipkg.NewActivityManager(s.Ctx)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
-	}
-	defer mgr.Close()
-
-	result, err := mgr.GetAppTaskThumbnailSize()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	var handle int64
-	if result != nil {
-		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-			handle = s.Handles.Put(env, result)
-			return nil
-		}); doErr != nil {
-			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-		}
-	}
-	return &pb.GetAppTaskThumbnailSizeResponse{Result: handle}, nil
-}
-
-func (s *ActivityManagerServer) GetDeviceConfigurationInfo(_ context.Context, req *pb.GetDeviceConfigurationInfoRequest) (*pb.GetDeviceConfigurationInfoResponse, error) {
-	mgr, err := jnipkg.NewActivityManager(s.Ctx)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
-	}
-	defer mgr.Close()
-
-	result, err := mgr.GetDeviceConfigurationInfo()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	var handle int64
-	if result != nil {
-		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-			handle = s.Handles.Put(env, result)
-			return nil
-		}); doErr != nil {
-			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-		}
-	}
-	return &pb.GetDeviceConfigurationInfoResponse{Result: handle}, nil
-}
-
-func (s *ActivityManagerServer) GetLargeMemoryClass(_ context.Context, req *pb.GetLargeMemoryClassRequest) (*pb.GetLargeMemoryClassResponse, error) {
-	mgr, err := jnipkg.NewActivityManager(s.Ctx)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
-	}
-	defer mgr.Close()
-
-	result, err := mgr.GetLargeMemoryClass()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GetLargeMemoryClassResponse{Result: result}, nil
-}
-
-func (s *ActivityManagerServer) GetLauncherLargeIconDensity(_ context.Context, req *pb.GetLauncherLargeIconDensityRequest) (*pb.GetLauncherLargeIconDensityResponse, error) {
-	mgr, err := jnipkg.NewActivityManager(s.Ctx)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
-	}
-	defer mgr.Close()
-
-	result, err := mgr.GetLauncherLargeIconDensity()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GetLauncherLargeIconDensityResponse{Result: result}, nil
-}
-
-func (s *ActivityManagerServer) GetLauncherLargeIconSize(_ context.Context, req *pb.GetLauncherLargeIconSizeRequest) (*pb.GetLauncherLargeIconSizeResponse, error) {
-	mgr, err := jnipkg.NewActivityManager(s.Ctx)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
-	}
-	defer mgr.Close()
-
-	result, err := mgr.GetLauncherLargeIconSize()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GetLauncherLargeIconSizeResponse{Result: result}, nil
-}
-
-func (s *ActivityManagerServer) GetLockTaskModeState(_ context.Context, req *pb.GetLockTaskModeStateRequest) (*pb.GetLockTaskModeStateResponse, error) {
-	mgr, err := jnipkg.NewActivityManager(s.Ctx)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
-	}
-	defer mgr.Close()
-
-	result, err := mgr.GetLockTaskModeState()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GetLockTaskModeStateResponse{Result: result}, nil
-}
-
-func (s *ActivityManagerServer) GetMemoryClass(_ context.Context, req *pb.GetMemoryClassRequest) (*pb.GetMemoryClassResponse, error) {
-	mgr, err := jnipkg.NewActivityManager(s.Ctx)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
-	}
-	defer mgr.Close()
-
-	result, err := mgr.GetMemoryClass()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GetMemoryClassResponse{Result: result}, nil
-}
-
-func (s *ActivityManagerServer) GetMemoryInfo(_ context.Context, req *pb.GetMemoryInfoRequest) (*pb.GetMemoryInfoResponse, error) {
-	mgr, err := jnipkg.NewActivityManager(s.Ctx)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
-	}
-	defer mgr.Close()
-
-	if err := mgr.GetMemoryInfo(s.Handles.Get(req.GetArg0())); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GetMemoryInfoResponse{}, nil
-}
-
-func (s *ActivityManagerServer) GetProcessMemoryInfo(_ context.Context, req *pb.GetProcessMemoryInfoRequest) (*pb.GetProcessMemoryInfoResponse, error) {
-	mgr, err := jnipkg.NewActivityManager(s.Ctx)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
-	}
-	defer mgr.Close()
-
-	result, err := mgr.GetProcessMemoryInfo(s.Handles.Get(req.GetArg0()))
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	var handle int64
-	if result != nil {
-		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-			handle = s.Handles.Put(env, result)
-			return nil
-		}); doErr != nil {
-			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-		}
-	}
-	return &pb.GetProcessMemoryInfoResponse{Result: handle}, nil
-}
-
-func (s *ActivityManagerServer) GetRunningServiceControlPanel(_ context.Context, req *pb.GetRunningServiceControlPanelRequest) (*pb.GetRunningServiceControlPanelResponse, error) {
-	mgr, err := jnipkg.NewActivityManager(s.Ctx)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
-	}
-	defer mgr.Close()
-
-	result, err := mgr.GetRunningServiceControlPanel(s.Handles.Get(req.GetArg0()))
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	var handle int64
-	if result != nil {
-		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-			handle = s.Handles.Put(env, result)
-			return nil
-		}); doErr != nil {
-			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-		}
-	}
-	return &pb.GetRunningServiceControlPanelResponse{Result: handle}, nil
-}
-
-func (s *ActivityManagerServer) IsActivityStartAllowedOnDisplay(_ context.Context, req *pb.IsActivityStartAllowedOnDisplayRequest) (*pb.IsActivityStartAllowedOnDisplayResponse, error) {
-	mgr, err := jnipkg.NewActivityManager(s.Ctx)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
-	}
-	defer mgr.Close()
-
-	result, err := mgr.IsActivityStartAllowedOnDisplay(s.Ctx.Obj, req.GetArg1(), s.Handles.Get(req.GetArg2()))
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.IsActivityStartAllowedOnDisplayResponse{Result: result}, nil
-}
-
-func (s *ActivityManagerServer) IsBackgroundRestricted(_ context.Context, req *pb.IsBackgroundRestrictedRequest) (*pb.IsBackgroundRestrictedResponse, error) {
-	mgr, err := jnipkg.NewActivityManager(s.Ctx)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
-	}
-	defer mgr.Close()
-
-	result, err := mgr.IsBackgroundRestricted()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.IsBackgroundRestrictedResponse{Result: result}, nil
-}
-
-func (s *ActivityManagerServer) IsInLockTaskMode(_ context.Context, req *pb.IsInLockTaskModeRequest) (*pb.IsInLockTaskModeResponse, error) {
-	mgr, err := jnipkg.NewActivityManager(s.Ctx)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
-	}
-	defer mgr.Close()
-
-	result, err := mgr.IsInLockTaskMode()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.IsInLockTaskModeResponse{Result: result}, nil
-}
-
-func (s *ActivityManagerServer) IsLowRamDevice(_ context.Context, req *pb.IsLowRamDeviceRequest) (*pb.IsLowRamDeviceResponse, error) {
-	mgr, err := jnipkg.NewActivityManager(s.Ctx)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
-	}
-	defer mgr.Close()
-
-	result, err := mgr.IsLowRamDevice()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.IsLowRamDeviceResponse{Result: result}, nil
-}
-
-func (s *ActivityManagerServer) KillBackgroundProcesses(_ context.Context, req *pb.KillBackgroundProcessesRequest) (*pb.KillBackgroundProcessesResponse, error) {
-	mgr, err := jnipkg.NewActivityManager(s.Ctx)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
-	}
-	defer mgr.Close()
-
-	if err := mgr.KillBackgroundProcesses(req.GetArg0()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.KillBackgroundProcessesResponse{}, nil
-}
-
-func (s *ActivityManagerServer) MoveTaskToFront2(_ context.Context, req *pb.MoveTaskToFront2Request) (*pb.MoveTaskToFront2Response, error) {
-	mgr, err := jnipkg.NewActivityManager(s.Ctx)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
-	}
-	defer mgr.Close()
-
-	if err := mgr.MoveTaskToFront2(req.GetArg0(), req.GetArg1()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.MoveTaskToFront2Response{}, nil
-}
-
-func (s *ActivityManagerServer) MoveTaskToFront3_1(_ context.Context, req *pb.MoveTaskToFront3_1Request) (*pb.MoveTaskToFront3_1Response, error) {
-	mgr, err := jnipkg.NewActivityManager(s.Ctx)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
-	}
-	defer mgr.Close()
-
-	if err := mgr.MoveTaskToFront3_1(req.GetArg0(), req.GetArg1(), s.Handles.Get(req.GetArg2())); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.MoveTaskToFront3_1Response{}, nil
-}
-
-func (s *ActivityManagerServer) RestartPackage(_ context.Context, req *pb.RestartPackageRequest) (*pb.RestartPackageResponse, error) {
-	mgr, err := jnipkg.NewActivityManager(s.Ctx)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
-	}
-	defer mgr.Close()
-
-	if err := mgr.RestartPackage(req.GetArg0()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.RestartPackageResponse{}, nil
-}
-
-func (s *ActivityManagerServer) SetProcessStateSummary(_ context.Context, req *pb.SetProcessStateSummaryRequest) (*pb.SetProcessStateSummaryResponse, error) {
-	mgr, err := jnipkg.NewActivityManager(s.Ctx)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
-	}
-	defer mgr.Close()
-
-	if err := mgr.SetProcessStateSummary(s.Handles.Get(req.GetArg0())); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.SetProcessStateSummaryResponse{}, nil
-}
-
-func (s *ActivityManagerServer) SetWatchHeapLimit(_ context.Context, req *pb.SetWatchHeapLimitRequest) (*pb.SetWatchHeapLimitResponse, error) {
-	mgr, err := jnipkg.NewActivityManager(s.Ctx)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
-	}
-	defer mgr.Close()
-
-	if err := mgr.SetWatchHeapLimit(req.GetArg0()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.SetWatchHeapLimitResponse{}, nil
-}
-
-func (s *ActivityManagerServer) GetMyMemoryState(_ context.Context, req *pb.GetMyMemoryStateRequest) (*pb.GetMyMemoryStateResponse, error) {
-	mgr, err := jnipkg.NewActivityManager(s.Ctx)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
-	}
-	defer mgr.Close()
-
-	if err := mgr.GetMyMemoryState(s.Handles.Get(req.GetArg0())); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GetMyMemoryStateResponse{}, nil
-}
-
-func (s *ActivityManagerServer) IsLowMemoryKillReportSupported(_ context.Context, req *pb.IsLowMemoryKillReportSupportedRequest) (*pb.IsLowMemoryKillReportSupportedResponse, error) {
-	mgr, err := jnipkg.NewActivityManager(s.Ctx)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
-	}
-	defer mgr.Close()
-
-	result, err := mgr.IsLowMemoryKillReportSupported()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.IsLowMemoryKillReportSupportedResponse{Result: result}, nil
-}
-
-func (s *ActivityManagerServer) IsRunningInTestHarness(_ context.Context, req *pb.IsRunningInTestHarnessRequest) (*pb.IsRunningInTestHarnessResponse, error) {
-	mgr, err := jnipkg.NewActivityManager(s.Ctx)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
-	}
-	defer mgr.Close()
-
-	result, err := mgr.IsRunningInTestHarness()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.IsRunningInTestHarnessResponse{Result: result}, nil
-}
-
-func (s *ActivityManagerServer) IsRunningInUserTestHarness(_ context.Context, req *pb.IsRunningInUserTestHarnessRequest) (*pb.IsRunningInUserTestHarnessResponse, error) {
-	mgr, err := jnipkg.NewActivityManager(s.Ctx)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
-	}
-	defer mgr.Close()
-
-	result, err := mgr.IsRunningInUserTestHarness()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.IsRunningInUserTestHarnessResponse{Result: result}, nil
-}
-
-func (s *ActivityManagerServer) IsUserAMonkey(_ context.Context, req *pb.IsUserAMonkeyRequest) (*pb.IsUserAMonkeyResponse, error) {
-	mgr, err := jnipkg.NewActivityManager(s.Ctx)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
-	}
-	defer mgr.Close()
-
-	result, err := mgr.IsUserAMonkey()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.IsUserAMonkeyResponse{Result: result}, nil
-}
-
-func (s *ActivityManagerServer) SetVrThread(_ context.Context, req *pb.SetVrThreadRequest) (*pb.SetVrThreadResponse, error) {
-	mgr, err := jnipkg.NewActivityManager(s.Ctx)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
-	}
-	defer mgr.Close()
-
-	if err := mgr.SetVrThread(req.GetArg0()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.SetVrThreadResponse{}, nil
-}
-
-// GameManagerServer implements pb.GameManagerServiceServer.
-type GameManagerServer struct {
-	pb.UnimplementedGameManagerServiceServer
-	Ctx     *app.Context
-	Handles *handlestore.HandleStore
-}
-
-func (s *GameManagerServer) GetGameMode(_ context.Context, req *pb.GetGameModeRequest) (*pb.GetGameModeResponse, error) {
-	mgr, err := jnipkg.NewGameManager(s.Ctx)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
-	}
-	defer mgr.Close()
-
-	result, err := mgr.GetGameMode()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GetGameModeResponse{Result: result}, nil
-}
-
-func (s *GameManagerServer) SetGameState(_ context.Context, req *pb.SetGameStateRequest) (*pb.SetGameStateResponse, error) {
-	mgr, err := jnipkg.NewGameManager(s.Ctx)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
-	}
-	defer mgr.Close()
-
-	if err := mgr.SetGameState(s.Handles.Get(req.GetArg0())); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.SetGameStateResponse{}, nil
-}
-
 // WallpaperManagerServer implements pb.WallpaperManagerServiceServer.
 type WallpaperManagerServer struct {
 	pb.UnimplementedWallpaperManagerServiceServer
@@ -1819,6 +772,505 @@ func (s *WallpaperManagerServer) GetInstance(_ context.Context, req *pb.GetInsta
 	return &pb.GetInstanceResponse{Result: handle}, nil
 }
 
+// StatusBarManagerServer implements pb.StatusBarManagerServiceServer.
+type StatusBarManagerServer struct {
+	pb.UnimplementedStatusBarManagerServiceServer
+	Ctx     *app.Context
+	Handles *handlestore.HandleStore
+}
+
+func (s *StatusBarManagerServer) CanLaunchCaptureContentActivityForNote(_ context.Context, req *pb.CanLaunchCaptureContentActivityForNoteRequest) (*pb.CanLaunchCaptureContentActivityForNoteResponse, error) {
+	mgr, err := jnipkg.NewStatusBarManager(s.Ctx)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
+	}
+	defer mgr.Close()
+
+	result, err := mgr.CanLaunchCaptureContentActivityForNote(s.Handles.Get(req.GetArg0()))
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.CanLaunchCaptureContentActivityForNoteResponse{Result: result}, nil
+}
+
+// ActivityManagerServer implements pb.ActivityManagerServiceServer.
+type ActivityManagerServer struct {
+	pb.UnimplementedActivityManagerServiceServer
+	Ctx     *app.Context
+	Handles *handlestore.HandleStore
+}
+
+func (s *ActivityManagerServer) AddAppTask(_ context.Context, req *pb.AddAppTaskRequest) (*pb.AddAppTaskResponse, error) {
+	mgr, err := jnipkg.NewActivityManager(s.Ctx)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
+	}
+	defer mgr.Close()
+
+	result, err := mgr.AddAppTask(s.Handles.Get(req.GetArg0()), s.Handles.Get(req.GetArg1()), s.Handles.Get(req.GetArg2()), s.Handles.Get(req.GetArg3()))
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.AddAppTaskResponse{Result: result}, nil
+}
+
+func (s *ActivityManagerServer) AddStartInfoTimestamp(_ context.Context, req *pb.AddStartInfoTimestampRequest) (*pb.AddStartInfoTimestampResponse, error) {
+	mgr, err := jnipkg.NewActivityManager(s.Ctx)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
+	}
+	defer mgr.Close()
+
+	if err := mgr.AddStartInfoTimestamp(req.GetArg0(), req.GetArg1()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.AddStartInfoTimestampResponse{}, nil
+}
+
+func (s *ActivityManagerServer) AppNotResponding(_ context.Context, req *pb.AppNotRespondingRequest) (*pb.AppNotRespondingResponse, error) {
+	mgr, err := jnipkg.NewActivityManager(s.Ctx)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
+	}
+	defer mgr.Close()
+
+	if err := mgr.AppNotResponding(req.GetArg0()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.AppNotRespondingResponse{}, nil
+}
+
+func (s *ActivityManagerServer) ClearApplicationUserData(_ context.Context, req *pb.ClearApplicationUserDataRequest) (*pb.ClearApplicationUserDataResponse, error) {
+	mgr, err := jnipkg.NewActivityManager(s.Ctx)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
+	}
+	defer mgr.Close()
+
+	result, err := mgr.ClearApplicationUserData()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.ClearApplicationUserDataResponse{Result: result}, nil
+}
+
+func (s *ActivityManagerServer) ClearWatchHeapLimit(_ context.Context, req *pb.ClearWatchHeapLimitRequest) (*pb.ClearWatchHeapLimitResponse, error) {
+	mgr, err := jnipkg.NewActivityManager(s.Ctx)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
+	}
+	defer mgr.Close()
+
+	if err := mgr.ClearWatchHeapLimit(); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.ClearWatchHeapLimitResponse{}, nil
+}
+
+func (s *ActivityManagerServer) DumpPackageState(_ context.Context, req *pb.DumpPackageStateRequest) (*pb.DumpPackageStateResponse, error) {
+	mgr, err := jnipkg.NewActivityManager(s.Ctx)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
+	}
+	defer mgr.Close()
+
+	if err := mgr.DumpPackageState(s.Handles.Get(req.GetArg0()), req.GetArg1()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.DumpPackageStateResponse{}, nil
+}
+
+func (s *ActivityManagerServer) GetAppTaskThumbnailSize(_ context.Context, req *pb.GetAppTaskThumbnailSizeRequest) (*pb.GetAppTaskThumbnailSizeResponse, error) {
+	mgr, err := jnipkg.NewActivityManager(s.Ctx)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
+	}
+	defer mgr.Close()
+
+	result, err := mgr.GetAppTaskThumbnailSize()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetAppTaskThumbnailSizeResponse{Result: handle}, nil
+}
+
+func (s *ActivityManagerServer) GetDeviceConfigurationInfo(_ context.Context, req *pb.GetDeviceConfigurationInfoRequest) (*pb.GetDeviceConfigurationInfoResponse, error) {
+	mgr, err := jnipkg.NewActivityManager(s.Ctx)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
+	}
+	defer mgr.Close()
+
+	result, err := mgr.GetDeviceConfigurationInfo()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetDeviceConfigurationInfoResponse{Result: handle}, nil
+}
+
+func (s *ActivityManagerServer) GetLargeMemoryClass(_ context.Context, req *pb.GetLargeMemoryClassRequest) (*pb.GetLargeMemoryClassResponse, error) {
+	mgr, err := jnipkg.NewActivityManager(s.Ctx)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
+	}
+	defer mgr.Close()
+
+	result, err := mgr.GetLargeMemoryClass()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetLargeMemoryClassResponse{Result: result}, nil
+}
+
+func (s *ActivityManagerServer) GetLauncherLargeIconDensity(_ context.Context, req *pb.GetLauncherLargeIconDensityRequest) (*pb.GetLauncherLargeIconDensityResponse, error) {
+	mgr, err := jnipkg.NewActivityManager(s.Ctx)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
+	}
+	defer mgr.Close()
+
+	result, err := mgr.GetLauncherLargeIconDensity()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetLauncherLargeIconDensityResponse{Result: result}, nil
+}
+
+func (s *ActivityManagerServer) GetLauncherLargeIconSize(_ context.Context, req *pb.GetLauncherLargeIconSizeRequest) (*pb.GetLauncherLargeIconSizeResponse, error) {
+	mgr, err := jnipkg.NewActivityManager(s.Ctx)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
+	}
+	defer mgr.Close()
+
+	result, err := mgr.GetLauncherLargeIconSize()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetLauncherLargeIconSizeResponse{Result: result}, nil
+}
+
+func (s *ActivityManagerServer) GetLockTaskModeState(_ context.Context, req *pb.GetLockTaskModeStateRequest) (*pb.GetLockTaskModeStateResponse, error) {
+	mgr, err := jnipkg.NewActivityManager(s.Ctx)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
+	}
+	defer mgr.Close()
+
+	result, err := mgr.GetLockTaskModeState()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetLockTaskModeStateResponse{Result: result}, nil
+}
+
+func (s *ActivityManagerServer) GetMemoryClass(_ context.Context, req *pb.GetMemoryClassRequest) (*pb.GetMemoryClassResponse, error) {
+	mgr, err := jnipkg.NewActivityManager(s.Ctx)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
+	}
+	defer mgr.Close()
+
+	result, err := mgr.GetMemoryClass()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetMemoryClassResponse{Result: result}, nil
+}
+
+func (s *ActivityManagerServer) GetMemoryInfo(_ context.Context, req *pb.GetMemoryInfoRequest) (*pb.GetMemoryInfoResponse, error) {
+	mgr, err := jnipkg.NewActivityManager(s.Ctx)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
+	}
+	defer mgr.Close()
+
+	if err := mgr.GetMemoryInfo(s.Handles.Get(req.GetArg0())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetMemoryInfoResponse{}, nil
+}
+
+func (s *ActivityManagerServer) GetProcessMemoryInfo(_ context.Context, req *pb.GetProcessMemoryInfoRequest) (*pb.GetProcessMemoryInfoResponse, error) {
+	mgr, err := jnipkg.NewActivityManager(s.Ctx)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
+	}
+	defer mgr.Close()
+
+	result, err := mgr.GetProcessMemoryInfo(s.Handles.Get(req.GetArg0()))
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetProcessMemoryInfoResponse{Result: handle}, nil
+}
+
+func (s *ActivityManagerServer) GetRunningServiceControlPanel(_ context.Context, req *pb.GetRunningServiceControlPanelRequest) (*pb.GetRunningServiceControlPanelResponse, error) {
+	mgr, err := jnipkg.NewActivityManager(s.Ctx)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
+	}
+	defer mgr.Close()
+
+	result, err := mgr.GetRunningServiceControlPanel(s.Handles.Get(req.GetArg0()))
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetRunningServiceControlPanelResponse{Result: handle}, nil
+}
+
+func (s *ActivityManagerServer) IsActivityStartAllowedOnDisplay(_ context.Context, req *pb.IsActivityStartAllowedOnDisplayRequest) (*pb.IsActivityStartAllowedOnDisplayResponse, error) {
+	mgr, err := jnipkg.NewActivityManager(s.Ctx)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
+	}
+	defer mgr.Close()
+
+	result, err := mgr.IsActivityStartAllowedOnDisplay(s.Ctx.Obj, req.GetArg1(), s.Handles.Get(req.GetArg2()))
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.IsActivityStartAllowedOnDisplayResponse{Result: result}, nil
+}
+
+func (s *ActivityManagerServer) IsBackgroundRestricted(_ context.Context, req *pb.IsBackgroundRestrictedRequest) (*pb.IsBackgroundRestrictedResponse, error) {
+	mgr, err := jnipkg.NewActivityManager(s.Ctx)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
+	}
+	defer mgr.Close()
+
+	result, err := mgr.IsBackgroundRestricted()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.IsBackgroundRestrictedResponse{Result: result}, nil
+}
+
+func (s *ActivityManagerServer) IsInLockTaskMode(_ context.Context, req *pb.IsInLockTaskModeRequest) (*pb.IsInLockTaskModeResponse, error) {
+	mgr, err := jnipkg.NewActivityManager(s.Ctx)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
+	}
+	defer mgr.Close()
+
+	result, err := mgr.IsInLockTaskMode()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.IsInLockTaskModeResponse{Result: result}, nil
+}
+
+func (s *ActivityManagerServer) IsLowRamDevice(_ context.Context, req *pb.IsLowRamDeviceRequest) (*pb.IsLowRamDeviceResponse, error) {
+	mgr, err := jnipkg.NewActivityManager(s.Ctx)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
+	}
+	defer mgr.Close()
+
+	result, err := mgr.IsLowRamDevice()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.IsLowRamDeviceResponse{Result: result}, nil
+}
+
+func (s *ActivityManagerServer) KillBackgroundProcesses(_ context.Context, req *pb.KillBackgroundProcessesRequest) (*pb.KillBackgroundProcessesResponse, error) {
+	mgr, err := jnipkg.NewActivityManager(s.Ctx)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
+	}
+	defer mgr.Close()
+
+	if err := mgr.KillBackgroundProcesses(req.GetArg0()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.KillBackgroundProcessesResponse{}, nil
+}
+
+func (s *ActivityManagerServer) MoveTaskToFront2(_ context.Context, req *pb.MoveTaskToFront2Request) (*pb.MoveTaskToFront2Response, error) {
+	mgr, err := jnipkg.NewActivityManager(s.Ctx)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
+	}
+	defer mgr.Close()
+
+	if err := mgr.MoveTaskToFront2(req.GetArg0(), req.GetArg1()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.MoveTaskToFront2Response{}, nil
+}
+
+func (s *ActivityManagerServer) MoveTaskToFront3_1(_ context.Context, req *pb.MoveTaskToFront3_1Request) (*pb.MoveTaskToFront3_1Response, error) {
+	mgr, err := jnipkg.NewActivityManager(s.Ctx)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
+	}
+	defer mgr.Close()
+
+	if err := mgr.MoveTaskToFront3_1(req.GetArg0(), req.GetArg1(), s.Handles.Get(req.GetArg2())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.MoveTaskToFront3_1Response{}, nil
+}
+
+func (s *ActivityManagerServer) RestartPackage(_ context.Context, req *pb.RestartPackageRequest) (*pb.RestartPackageResponse, error) {
+	mgr, err := jnipkg.NewActivityManager(s.Ctx)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
+	}
+	defer mgr.Close()
+
+	if err := mgr.RestartPackage(req.GetArg0()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.RestartPackageResponse{}, nil
+}
+
+func (s *ActivityManagerServer) SetProcessStateSummary(_ context.Context, req *pb.SetProcessStateSummaryRequest) (*pb.SetProcessStateSummaryResponse, error) {
+	mgr, err := jnipkg.NewActivityManager(s.Ctx)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
+	}
+	defer mgr.Close()
+
+	if err := mgr.SetProcessStateSummary(s.Handles.Get(req.GetArg0())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.SetProcessStateSummaryResponse{}, nil
+}
+
+func (s *ActivityManagerServer) SetWatchHeapLimit(_ context.Context, req *pb.SetWatchHeapLimitRequest) (*pb.SetWatchHeapLimitResponse, error) {
+	mgr, err := jnipkg.NewActivityManager(s.Ctx)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
+	}
+	defer mgr.Close()
+
+	if err := mgr.SetWatchHeapLimit(req.GetArg0()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.SetWatchHeapLimitResponse{}, nil
+}
+
+func (s *ActivityManagerServer) GetMyMemoryState(_ context.Context, req *pb.GetMyMemoryStateRequest) (*pb.GetMyMemoryStateResponse, error) {
+	mgr, err := jnipkg.NewActivityManager(s.Ctx)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
+	}
+	defer mgr.Close()
+
+	if err := mgr.GetMyMemoryState(s.Handles.Get(req.GetArg0())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetMyMemoryStateResponse{}, nil
+}
+
+func (s *ActivityManagerServer) IsLowMemoryKillReportSupported(_ context.Context, req *pb.IsLowMemoryKillReportSupportedRequest) (*pb.IsLowMemoryKillReportSupportedResponse, error) {
+	mgr, err := jnipkg.NewActivityManager(s.Ctx)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
+	}
+	defer mgr.Close()
+
+	result, err := mgr.IsLowMemoryKillReportSupported()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.IsLowMemoryKillReportSupportedResponse{Result: result}, nil
+}
+
+func (s *ActivityManagerServer) IsRunningInTestHarness(_ context.Context, req *pb.IsRunningInTestHarnessRequest) (*pb.IsRunningInTestHarnessResponse, error) {
+	mgr, err := jnipkg.NewActivityManager(s.Ctx)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
+	}
+	defer mgr.Close()
+
+	result, err := mgr.IsRunningInTestHarness()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.IsRunningInTestHarnessResponse{Result: result}, nil
+}
+
+func (s *ActivityManagerServer) IsRunningInUserTestHarness(_ context.Context, req *pb.IsRunningInUserTestHarnessRequest) (*pb.IsRunningInUserTestHarnessResponse, error) {
+	mgr, err := jnipkg.NewActivityManager(s.Ctx)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
+	}
+	defer mgr.Close()
+
+	result, err := mgr.IsRunningInUserTestHarness()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.IsRunningInUserTestHarnessResponse{Result: result}, nil
+}
+
+func (s *ActivityManagerServer) IsUserAMonkey(_ context.Context, req *pb.IsUserAMonkeyRequest) (*pb.IsUserAMonkeyResponse, error) {
+	mgr, err := jnipkg.NewActivityManager(s.Ctx)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
+	}
+	defer mgr.Close()
+
+	result, err := mgr.IsUserAMonkey()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.IsUserAMonkeyResponse{Result: result}, nil
+}
+
+func (s *ActivityManagerServer) SetVrThread(_ context.Context, req *pb.SetVrThreadRequest) (*pb.SetVrThreadResponse, error) {
+	mgr, err := jnipkg.NewActivityManager(s.Ctx)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
+	}
+	defer mgr.Close()
+
+	if err := mgr.SetVrThread(req.GetArg0()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.SetVrThreadResponse{}, nil
+}
+
 // SearchManagerServer implements pb.SearchManagerServiceServer.
 type SearchManagerServer struct {
 	pb.UnimplementedSearchManagerServiceServer
@@ -2008,6 +1460,679 @@ func (s *GrammaticalInflectionManagerServer) SetRequestedApplicationGrammaticalG
 		return nil, status.Errorf(codes.Internal, "%v", err)
 	}
 	return &pb.SetRequestedApplicationGrammaticalGenderResponse{}, nil
+}
+
+// OpsManagerServer implements pb.OpsManagerServiceServer.
+type OpsManagerServer struct {
+	pb.UnimplementedOpsManagerServiceServer
+	Ctx     *app.Context
+	Handles *handlestore.HandleStore
+}
+
+func (s *OpsManagerServer) CheckOp3(_ context.Context, req *pb.CheckOp3Request) (*pb.CheckOp3Response, error) {
+	mgr, err := jnipkg.NewOpsManager(s.Ctx)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
+	}
+	defer mgr.Close()
+
+	result, err := mgr.CheckOp3(req.GetArg0(), req.GetArg1(), req.GetArg2())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.CheckOp3Response{Result: result}, nil
+}
+
+func (s *OpsManagerServer) CheckOp4_1(_ context.Context, req *pb.CheckOp4_1Request) (*pb.CheckOp4_1Response, error) {
+	mgr, err := jnipkg.NewOpsManager(s.Ctx)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
+	}
+	defer mgr.Close()
+
+	result, err := mgr.CheckOp4_1(req.GetArg0(), req.GetArg1(), req.GetArg2(), req.GetArg3())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.CheckOp4_1Response{Result: result}, nil
+}
+
+func (s *OpsManagerServer) CheckOpNoThrow3(_ context.Context, req *pb.CheckOpNoThrow3Request) (*pb.CheckOpNoThrow3Response, error) {
+	mgr, err := jnipkg.NewOpsManager(s.Ctx)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
+	}
+	defer mgr.Close()
+
+	result, err := mgr.CheckOpNoThrow3(req.GetArg0(), req.GetArg1(), req.GetArg2())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.CheckOpNoThrow3Response{Result: result}, nil
+}
+
+func (s *OpsManagerServer) CheckOpNoThrow4_1(_ context.Context, req *pb.CheckOpNoThrow4_1Request) (*pb.CheckOpNoThrow4_1Response, error) {
+	mgr, err := jnipkg.NewOpsManager(s.Ctx)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
+	}
+	defer mgr.Close()
+
+	result, err := mgr.CheckOpNoThrow4_1(req.GetArg0(), req.GetArg1(), req.GetArg2(), req.GetArg3())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.CheckOpNoThrow4_1Response{Result: result}, nil
+}
+
+func (s *OpsManagerServer) CheckOpRawNoThrow(_ context.Context, req *pb.CheckOpRawNoThrowRequest) (*pb.CheckOpRawNoThrowResponse, error) {
+	mgr, err := jnipkg.NewOpsManager(s.Ctx)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
+	}
+	defer mgr.Close()
+
+	result, err := mgr.CheckOpRawNoThrow(req.GetArg0(), req.GetArg1(), req.GetArg2(), req.GetArg3())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.CheckOpRawNoThrowResponse{Result: result}, nil
+}
+
+func (s *OpsManagerServer) CheckPackage(_ context.Context, req *pb.CheckPackageRequest) (*pb.CheckPackageResponse, error) {
+	mgr, err := jnipkg.NewOpsManager(s.Ctx)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
+	}
+	defer mgr.Close()
+
+	if err := mgr.CheckPackage(req.GetArg0(), req.GetArg1()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.CheckPackageResponse{}, nil
+}
+
+func (s *OpsManagerServer) FinishOp3(_ context.Context, req *pb.FinishOp3Request) (*pb.FinishOp3Response, error) {
+	mgr, err := jnipkg.NewOpsManager(s.Ctx)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
+	}
+	defer mgr.Close()
+
+	if err := mgr.FinishOp3(req.GetArg0(), req.GetArg1(), req.GetArg2()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.FinishOp3Response{}, nil
+}
+
+func (s *OpsManagerServer) FinishOp4_1(_ context.Context, req *pb.FinishOp4_1Request) (*pb.FinishOp4_1Response, error) {
+	mgr, err := jnipkg.NewOpsManager(s.Ctx)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
+	}
+	defer mgr.Close()
+
+	if err := mgr.FinishOp4_1(req.GetArg0(), req.GetArg1(), req.GetArg2(), req.GetArg3()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.FinishOp4_1Response{}, nil
+}
+
+func (s *OpsManagerServer) FinishProxyOp(_ context.Context, req *pb.FinishProxyOpRequest) (*pb.FinishProxyOpResponse, error) {
+	mgr, err := jnipkg.NewOpsManager(s.Ctx)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
+	}
+	defer mgr.Close()
+
+	if err := mgr.FinishProxyOp(req.GetArg0(), req.GetArg1(), req.GetArg2(), req.GetArg3()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.FinishProxyOpResponse{}, nil
+}
+
+func (s *OpsManagerServer) IsOpActive(_ context.Context, req *pb.IsOpActiveRequest) (*pb.IsOpActiveResponse, error) {
+	mgr, err := jnipkg.NewOpsManager(s.Ctx)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
+	}
+	defer mgr.Close()
+
+	result, err := mgr.IsOpActive(req.GetArg0(), req.GetArg1(), req.GetArg2())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.IsOpActiveResponse{Result: result}, nil
+}
+
+func (s *OpsManagerServer) NoteOp3(_ context.Context, req *pb.NoteOp3Request) (*pb.NoteOp3Response, error) {
+	mgr, err := jnipkg.NewOpsManager(s.Ctx)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
+	}
+	defer mgr.Close()
+
+	result, err := mgr.NoteOp3(req.GetArg0(), req.GetArg1(), req.GetArg2())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.NoteOp3Response{Result: result}, nil
+}
+
+func (s *OpsManagerServer) NoteOp5_1(_ context.Context, req *pb.NoteOp5_1Request) (*pb.NoteOp5_1Response, error) {
+	mgr, err := jnipkg.NewOpsManager(s.Ctx)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
+	}
+	defer mgr.Close()
+
+	result, err := mgr.NoteOp5_1(req.GetArg0(), req.GetArg1(), req.GetArg2(), req.GetArg3(), req.GetArg4())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.NoteOp5_1Response{Result: result}, nil
+}
+
+func (s *OpsManagerServer) NoteOpNoThrow3(_ context.Context, req *pb.NoteOpNoThrow3Request) (*pb.NoteOpNoThrow3Response, error) {
+	mgr, err := jnipkg.NewOpsManager(s.Ctx)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
+	}
+	defer mgr.Close()
+
+	result, err := mgr.NoteOpNoThrow3(req.GetArg0(), req.GetArg1(), req.GetArg2())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.NoteOpNoThrow3Response{Result: result}, nil
+}
+
+func (s *OpsManagerServer) NoteOpNoThrow5_1(_ context.Context, req *pb.NoteOpNoThrow5_1Request) (*pb.NoteOpNoThrow5_1Response, error) {
+	mgr, err := jnipkg.NewOpsManager(s.Ctx)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
+	}
+	defer mgr.Close()
+
+	result, err := mgr.NoteOpNoThrow5_1(req.GetArg0(), req.GetArg1(), req.GetArg2(), req.GetArg3(), req.GetArg4())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.NoteOpNoThrow5_1Response{Result: result}, nil
+}
+
+func (s *OpsManagerServer) NoteProxyOp2(_ context.Context, req *pb.NoteProxyOp2Request) (*pb.NoteProxyOp2Response, error) {
+	mgr, err := jnipkg.NewOpsManager(s.Ctx)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
+	}
+	defer mgr.Close()
+
+	result, err := mgr.NoteProxyOp2(req.GetArg0(), req.GetArg1())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.NoteProxyOp2Response{Result: result}, nil
+}
+
+func (s *OpsManagerServer) NoteProxyOp5_1(_ context.Context, req *pb.NoteProxyOp5_1Request) (*pb.NoteProxyOp5_1Response, error) {
+	mgr, err := jnipkg.NewOpsManager(s.Ctx)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
+	}
+	defer mgr.Close()
+
+	result, err := mgr.NoteProxyOp5_1(req.GetArg0(), req.GetArg1(), req.GetArg2(), req.GetArg3(), req.GetArg4())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.NoteProxyOp5_1Response{Result: result}, nil
+}
+
+func (s *OpsManagerServer) NoteProxyOpNoThrow2(_ context.Context, req *pb.NoteProxyOpNoThrow2Request) (*pb.NoteProxyOpNoThrow2Response, error) {
+	mgr, err := jnipkg.NewOpsManager(s.Ctx)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
+	}
+	defer mgr.Close()
+
+	result, err := mgr.NoteProxyOpNoThrow2(req.GetArg0(), req.GetArg1())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.NoteProxyOpNoThrow2Response{Result: result}, nil
+}
+
+func (s *OpsManagerServer) NoteProxyOpNoThrow3_1(_ context.Context, req *pb.NoteProxyOpNoThrow3_1Request) (*pb.NoteProxyOpNoThrow3_1Response, error) {
+	mgr, err := jnipkg.NewOpsManager(s.Ctx)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
+	}
+	defer mgr.Close()
+
+	result, err := mgr.NoteProxyOpNoThrow3_1(req.GetArg0(), req.GetArg1(), req.GetArg2())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.NoteProxyOpNoThrow3_1Response{Result: result}, nil
+}
+
+func (s *OpsManagerServer) NoteProxyOpNoThrow5_2(_ context.Context, req *pb.NoteProxyOpNoThrow5_2Request) (*pb.NoteProxyOpNoThrow5_2Response, error) {
+	mgr, err := jnipkg.NewOpsManager(s.Ctx)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
+	}
+	defer mgr.Close()
+
+	result, err := mgr.NoteProxyOpNoThrow5_2(req.GetArg0(), req.GetArg1(), req.GetArg2(), req.GetArg3(), req.GetArg4())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.NoteProxyOpNoThrow5_2Response{Result: result}, nil
+}
+
+func (s *OpsManagerServer) SetOnOpNotedCallback2(_ context.Context, req *pb.SetOnOpNotedCallback2Request) (*pb.SetOnOpNotedCallback2Response, error) {
+	mgr, err := jnipkg.NewOpsManager(s.Ctx)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
+	}
+	defer mgr.Close()
+
+	if err := mgr.SetOnOpNotedCallback2(s.Handles.Get(req.GetArg0()), s.Handles.Get(req.GetArg1())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.SetOnOpNotedCallback2Response{}, nil
+}
+
+func (s *OpsManagerServer) SetOnOpNotedCallback3_1(_ context.Context, req *pb.SetOnOpNotedCallback3_1Request) (*pb.SetOnOpNotedCallback3_1Response, error) {
+	mgr, err := jnipkg.NewOpsManager(s.Ctx)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
+	}
+	defer mgr.Close()
+
+	if err := mgr.SetOnOpNotedCallback3_1(s.Handles.Get(req.GetArg0()), s.Handles.Get(req.GetArg1()), req.GetArg2()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.SetOnOpNotedCallback3_1Response{}, nil
+}
+
+func (s *OpsManagerServer) StartOp3(_ context.Context, req *pb.StartOp3Request) (*pb.StartOp3Response, error) {
+	mgr, err := jnipkg.NewOpsManager(s.Ctx)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
+	}
+	defer mgr.Close()
+
+	result, err := mgr.StartOp3(req.GetArg0(), req.GetArg1(), req.GetArg2())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.StartOp3Response{Result: result}, nil
+}
+
+func (s *OpsManagerServer) StartOp5_1(_ context.Context, req *pb.StartOp5_1Request) (*pb.StartOp5_1Response, error) {
+	mgr, err := jnipkg.NewOpsManager(s.Ctx)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
+	}
+	defer mgr.Close()
+
+	result, err := mgr.StartOp5_1(req.GetArg0(), req.GetArg1(), req.GetArg2(), req.GetArg3(), req.GetArg4())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.StartOp5_1Response{Result: result}, nil
+}
+
+func (s *OpsManagerServer) StartOpNoThrow3(_ context.Context, req *pb.StartOpNoThrow3Request) (*pb.StartOpNoThrow3Response, error) {
+	mgr, err := jnipkg.NewOpsManager(s.Ctx)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
+	}
+	defer mgr.Close()
+
+	result, err := mgr.StartOpNoThrow3(req.GetArg0(), req.GetArg1(), req.GetArg2())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.StartOpNoThrow3Response{Result: result}, nil
+}
+
+func (s *OpsManagerServer) StartOpNoThrow5_1(_ context.Context, req *pb.StartOpNoThrow5_1Request) (*pb.StartOpNoThrow5_1Response, error) {
+	mgr, err := jnipkg.NewOpsManager(s.Ctx)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
+	}
+	defer mgr.Close()
+
+	result, err := mgr.StartOpNoThrow5_1(req.GetArg0(), req.GetArg1(), req.GetArg2(), req.GetArg3(), req.GetArg4())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.StartOpNoThrow5_1Response{Result: result}, nil
+}
+
+func (s *OpsManagerServer) StartProxyOp(_ context.Context, req *pb.StartProxyOpRequest) (*pb.StartProxyOpResponse, error) {
+	mgr, err := jnipkg.NewOpsManager(s.Ctx)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
+	}
+	defer mgr.Close()
+
+	result, err := mgr.StartProxyOp(req.GetArg0(), req.GetArg1(), req.GetArg2(), req.GetArg3(), req.GetArg4())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.StartProxyOpResponse{Result: result}, nil
+}
+
+func (s *OpsManagerServer) StartProxyOpNoThrow(_ context.Context, req *pb.StartProxyOpNoThrowRequest) (*pb.StartProxyOpNoThrowResponse, error) {
+	mgr, err := jnipkg.NewOpsManager(s.Ctx)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
+	}
+	defer mgr.Close()
+
+	result, err := mgr.StartProxyOpNoThrow(req.GetArg0(), req.GetArg1(), req.GetArg2(), req.GetArg3(), req.GetArg4())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.StartProxyOpNoThrowResponse{Result: result}, nil
+}
+
+func (s *OpsManagerServer) StartWatchingActive(_ context.Context, req *pb.StartWatchingActiveRequest) (*pb.StartWatchingActiveResponse, error) {
+	mgr, err := jnipkg.NewOpsManager(s.Ctx)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
+	}
+	defer mgr.Close()
+
+	if err := mgr.StartWatchingActive(s.Handles.Get(req.GetArg0()), s.Handles.Get(req.GetArg1()), s.Handles.Get(req.GetArg2())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.StartWatchingActiveResponse{}, nil
+}
+
+func (s *OpsManagerServer) StartWatchingMode3(_ context.Context, req *pb.StartWatchingMode3Request) (*pb.StartWatchingMode3Response, error) {
+	mgr, err := jnipkg.NewOpsManager(s.Ctx)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
+	}
+	defer mgr.Close()
+
+	if err := mgr.StartWatchingMode3(req.GetArg0(), req.GetArg1(), s.Handles.Get(req.GetArg2())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.StartWatchingMode3Response{}, nil
+}
+
+func (s *OpsManagerServer) StartWatchingMode4_1(_ context.Context, req *pb.StartWatchingMode4_1Request) (*pb.StartWatchingMode4_1Response, error) {
+	mgr, err := jnipkg.NewOpsManager(s.Ctx)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
+	}
+	defer mgr.Close()
+
+	if err := mgr.StartWatchingMode4_1(req.GetArg0(), req.GetArg1(), req.GetArg2(), s.Handles.Get(req.GetArg3())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.StartWatchingMode4_1Response{}, nil
+}
+
+func (s *OpsManagerServer) StopWatchingActive(_ context.Context, req *pb.StopWatchingActiveRequest) (*pb.StopWatchingActiveResponse, error) {
+	mgr, err := jnipkg.NewOpsManager(s.Ctx)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
+	}
+	defer mgr.Close()
+
+	if err := mgr.StopWatchingActive(s.Handles.Get(req.GetArg0())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.StopWatchingActiveResponse{}, nil
+}
+
+func (s *OpsManagerServer) StopWatchingMode(_ context.Context, req *pb.StopWatchingModeRequest) (*pb.StopWatchingModeResponse, error) {
+	mgr, err := jnipkg.NewOpsManager(s.Ctx)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
+	}
+	defer mgr.Close()
+
+	if err := mgr.StopWatchingMode(s.Handles.Get(req.GetArg0())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.StopWatchingModeResponse{}, nil
+}
+
+func (s *OpsManagerServer) UnsafeCheckOp(_ context.Context, req *pb.UnsafeCheckOpRequest) (*pb.UnsafeCheckOpResponse, error) {
+	mgr, err := jnipkg.NewOpsManager(s.Ctx)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
+	}
+	defer mgr.Close()
+
+	result, err := mgr.UnsafeCheckOp(req.GetArg0(), req.GetArg1(), req.GetArg2())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.UnsafeCheckOpResponse{Result: result}, nil
+}
+
+func (s *OpsManagerServer) UnsafeCheckOpNoThrow(_ context.Context, req *pb.UnsafeCheckOpNoThrowRequest) (*pb.UnsafeCheckOpNoThrowResponse, error) {
+	mgr, err := jnipkg.NewOpsManager(s.Ctx)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
+	}
+	defer mgr.Close()
+
+	result, err := mgr.UnsafeCheckOpNoThrow(req.GetArg0(), req.GetArg1(), req.GetArg2())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.UnsafeCheckOpNoThrowResponse{Result: result}, nil
+}
+
+func (s *OpsManagerServer) UnsafeCheckOpRaw(_ context.Context, req *pb.UnsafeCheckOpRawRequest) (*pb.UnsafeCheckOpRawResponse, error) {
+	mgr, err := jnipkg.NewOpsManager(s.Ctx)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
+	}
+	defer mgr.Close()
+
+	result, err := mgr.UnsafeCheckOpRaw(req.GetArg0(), req.GetArg1(), req.GetArg2())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.UnsafeCheckOpRawResponse{Result: result}, nil
+}
+
+func (s *OpsManagerServer) UnsafeCheckOpRawNoThrow(_ context.Context, req *pb.UnsafeCheckOpRawNoThrowRequest) (*pb.UnsafeCheckOpRawNoThrowResponse, error) {
+	mgr, err := jnipkg.NewOpsManager(s.Ctx)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
+	}
+	defer mgr.Close()
+
+	result, err := mgr.UnsafeCheckOpRawNoThrow(req.GetArg0(), req.GetArg1(), req.GetArg2())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.UnsafeCheckOpRawNoThrowResponse{Result: result}, nil
+}
+
+func (s *OpsManagerServer) PermissionToOp(_ context.Context, req *pb.PermissionToOpRequest) (*pb.PermissionToOpResponse, error) {
+	mgr, err := jnipkg.NewOpsManager(s.Ctx)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
+	}
+	defer mgr.Close()
+
+	result, err := mgr.PermissionToOp(req.GetArg0())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.PermissionToOpResponse{Result: result}, nil
+}
+
+// LocaleManagerServer implements pb.LocaleManagerServiceServer.
+type LocaleManagerServer struct {
+	pb.UnimplementedLocaleManagerServiceServer
+	Ctx     *app.Context
+	Handles *handlestore.HandleStore
+}
+
+func (s *LocaleManagerServer) GetApplicationLocales0(_ context.Context, req *pb.GetApplicationLocales0Request) (*pb.GetApplicationLocales0Response, error) {
+	mgr, err := jnipkg.NewLocaleManager(s.Ctx)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
+	}
+	defer mgr.Close()
+
+	result, err := mgr.GetApplicationLocales0()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetApplicationLocales0Response{Result: handle}, nil
+}
+
+func (s *LocaleManagerServer) GetApplicationLocales1_1(_ context.Context, req *pb.GetApplicationLocales1_1Request) (*pb.GetApplicationLocales1_1Response, error) {
+	mgr, err := jnipkg.NewLocaleManager(s.Ctx)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
+	}
+	defer mgr.Close()
+
+	result, err := mgr.GetApplicationLocales1_1(req.GetArg0())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetApplicationLocales1_1Response{Result: handle}, nil
+}
+
+func (s *LocaleManagerServer) GetOverrideLocaleConfig(_ context.Context, req *pb.GetOverrideLocaleConfigRequest) (*pb.GetOverrideLocaleConfigResponse, error) {
+	mgr, err := jnipkg.NewLocaleManager(s.Ctx)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
+	}
+	defer mgr.Close()
+
+	result, err := mgr.GetOverrideLocaleConfig()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetOverrideLocaleConfigResponse{Result: handle}, nil
+}
+
+func (s *LocaleManagerServer) GetSystemLocales(_ context.Context, req *pb.GetSystemLocalesRequest) (*pb.GetSystemLocalesResponse, error) {
+	mgr, err := jnipkg.NewLocaleManager(s.Ctx)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
+	}
+	defer mgr.Close()
+
+	result, err := mgr.GetSystemLocales()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetSystemLocalesResponse{Result: handle}, nil
+}
+
+func (s *LocaleManagerServer) SetApplicationLocales(_ context.Context, req *pb.SetApplicationLocalesRequest) (*pb.SetApplicationLocalesResponse, error) {
+	mgr, err := jnipkg.NewLocaleManager(s.Ctx)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
+	}
+	defer mgr.Close()
+
+	if err := mgr.SetApplicationLocales(s.Handles.Get(req.GetArg0())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.SetApplicationLocalesResponse{}, nil
+}
+
+func (s *LocaleManagerServer) SetOverrideLocaleConfig(_ context.Context, req *pb.SetOverrideLocaleConfigRequest) (*pb.SetOverrideLocaleConfigResponse, error) {
+	mgr, err := jnipkg.NewLocaleManager(s.Ctx)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
+	}
+	defer mgr.Close()
+
+	if err := mgr.SetOverrideLocaleConfig(s.Handles.Get(req.GetArg0())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.SetOverrideLocaleConfigResponse{}, nil
+}
+
+// GameManagerServer implements pb.GameManagerServiceServer.
+type GameManagerServer struct {
+	pb.UnimplementedGameManagerServiceServer
+	Ctx     *app.Context
+	Handles *handlestore.HandleStore
+}
+
+func (s *GameManagerServer) GetGameMode(_ context.Context, req *pb.GetGameModeRequest) (*pb.GetGameModeResponse, error) {
+	mgr, err := jnipkg.NewGameManager(s.Ctx)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
+	}
+	defer mgr.Close()
+
+	result, err := mgr.GetGameMode()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetGameModeResponse{Result: result}, nil
+}
+
+func (s *GameManagerServer) SetGameState(_ context.Context, req *pb.SetGameStateRequest) (*pb.SetGameStateResponse, error) {
+	mgr, err := jnipkg.NewGameManager(s.Ctx)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
+	}
+	defer mgr.Close()
+
+	if err := mgr.SetGameState(s.Handles.Get(req.GetArg0())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.SetGameStateResponse{}, nil
 }
 
 // UiModeManagerServer implements pb.UiModeManagerServiceServer.
@@ -2207,129 +2332,4 @@ func (s *UiModeManagerServer) SetNightMode(_ context.Context, req *pb.SetNightMo
 		return nil, status.Errorf(codes.Internal, "%v", err)
 	}
 	return &pb.SetNightModeResponse{}, nil
-}
-
-// LocaleManagerServer implements pb.LocaleManagerServiceServer.
-type LocaleManagerServer struct {
-	pb.UnimplementedLocaleManagerServiceServer
-	Ctx     *app.Context
-	Handles *handlestore.HandleStore
-}
-
-func (s *LocaleManagerServer) GetApplicationLocales0(_ context.Context, req *pb.GetApplicationLocales0Request) (*pb.GetApplicationLocales0Response, error) {
-	mgr, err := jnipkg.NewLocaleManager(s.Ctx)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
-	}
-	defer mgr.Close()
-
-	result, err := mgr.GetApplicationLocales0()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	var handle int64
-	if result != nil {
-		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-			handle = s.Handles.Put(env, result)
-			return nil
-		}); doErr != nil {
-			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-		}
-	}
-	return &pb.GetApplicationLocales0Response{Result: handle}, nil
-}
-
-func (s *LocaleManagerServer) GetApplicationLocales1_1(_ context.Context, req *pb.GetApplicationLocales1_1Request) (*pb.GetApplicationLocales1_1Response, error) {
-	mgr, err := jnipkg.NewLocaleManager(s.Ctx)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
-	}
-	defer mgr.Close()
-
-	result, err := mgr.GetApplicationLocales1_1(req.GetArg0())
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	var handle int64
-	if result != nil {
-		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-			handle = s.Handles.Put(env, result)
-			return nil
-		}); doErr != nil {
-			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-		}
-	}
-	return &pb.GetApplicationLocales1_1Response{Result: handle}, nil
-}
-
-func (s *LocaleManagerServer) GetOverrideLocaleConfig(_ context.Context, req *pb.GetOverrideLocaleConfigRequest) (*pb.GetOverrideLocaleConfigResponse, error) {
-	mgr, err := jnipkg.NewLocaleManager(s.Ctx)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
-	}
-	defer mgr.Close()
-
-	result, err := mgr.GetOverrideLocaleConfig()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	var handle int64
-	if result != nil {
-		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-			handle = s.Handles.Put(env, result)
-			return nil
-		}); doErr != nil {
-			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-		}
-	}
-	return &pb.GetOverrideLocaleConfigResponse{Result: handle}, nil
-}
-
-func (s *LocaleManagerServer) GetSystemLocales(_ context.Context, req *pb.GetSystemLocalesRequest) (*pb.GetSystemLocalesResponse, error) {
-	mgr, err := jnipkg.NewLocaleManager(s.Ctx)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
-	}
-	defer mgr.Close()
-
-	result, err := mgr.GetSystemLocales()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	var handle int64
-	if result != nil {
-		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-			handle = s.Handles.Put(env, result)
-			return nil
-		}); doErr != nil {
-			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-		}
-	}
-	return &pb.GetSystemLocalesResponse{Result: handle}, nil
-}
-
-func (s *LocaleManagerServer) SetApplicationLocales(_ context.Context, req *pb.SetApplicationLocalesRequest) (*pb.SetApplicationLocalesResponse, error) {
-	mgr, err := jnipkg.NewLocaleManager(s.Ctx)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
-	}
-	defer mgr.Close()
-
-	if err := mgr.SetApplicationLocales(s.Handles.Get(req.GetArg0())); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.SetApplicationLocalesResponse{}, nil
-}
-
-func (s *LocaleManagerServer) SetOverrideLocaleConfig(_ context.Context, req *pb.SetOverrideLocaleConfigRequest) (*pb.SetOverrideLocaleConfigResponse, error) {
-	mgr, err := jnipkg.NewLocaleManager(s.Ctx)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
-	}
-	defer mgr.Close()
-
-	if err := mgr.SetOverrideLocaleConfig(s.Handles.Get(req.GetArg0())); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.SetOverrideLocaleConfigResponse{}, nil
 }

@@ -23,182 +23,6 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
-type RegisterConnectivityDiagnosticsCallbackRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
-	Arg2          int64                  `protobuf:"varint,3,opt,name=arg2,proto3" json:"arg2,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *RegisterConnectivityDiagnosticsCallbackRequest) Reset() {
-	*x = RegisterConnectivityDiagnosticsCallbackRequest{}
-	mi := &file_proto_net_net_proto_msgTypes[0]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *RegisterConnectivityDiagnosticsCallbackRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*RegisterConnectivityDiagnosticsCallbackRequest) ProtoMessage() {}
-
-func (x *RegisterConnectivityDiagnosticsCallbackRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_net_net_proto_msgTypes[0]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use RegisterConnectivityDiagnosticsCallbackRequest.ProtoReflect.Descriptor instead.
-func (*RegisterConnectivityDiagnosticsCallbackRequest) Descriptor() ([]byte, []int) {
-	return file_proto_net_net_proto_rawDescGZIP(), []int{0}
-}
-
-func (x *RegisterConnectivityDiagnosticsCallbackRequest) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-func (x *RegisterConnectivityDiagnosticsCallbackRequest) GetArg1() int64 {
-	if x != nil {
-		return x.Arg1
-	}
-	return 0
-}
-
-func (x *RegisterConnectivityDiagnosticsCallbackRequest) GetArg2() int64 {
-	if x != nil {
-		return x.Arg2
-	}
-	return 0
-}
-
-type RegisterConnectivityDiagnosticsCallbackResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *RegisterConnectivityDiagnosticsCallbackResponse) Reset() {
-	*x = RegisterConnectivityDiagnosticsCallbackResponse{}
-	mi := &file_proto_net_net_proto_msgTypes[1]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *RegisterConnectivityDiagnosticsCallbackResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*RegisterConnectivityDiagnosticsCallbackResponse) ProtoMessage() {}
-
-func (x *RegisterConnectivityDiagnosticsCallbackResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_net_net_proto_msgTypes[1]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use RegisterConnectivityDiagnosticsCallbackResponse.ProtoReflect.Descriptor instead.
-func (*RegisterConnectivityDiagnosticsCallbackResponse) Descriptor() ([]byte, []int) {
-	return file_proto_net_net_proto_rawDescGZIP(), []int{1}
-}
-
-type UnregisterConnectivityDiagnosticsCallbackRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *UnregisterConnectivityDiagnosticsCallbackRequest) Reset() {
-	*x = UnregisterConnectivityDiagnosticsCallbackRequest{}
-	mi := &file_proto_net_net_proto_msgTypes[2]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *UnregisterConnectivityDiagnosticsCallbackRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*UnregisterConnectivityDiagnosticsCallbackRequest) ProtoMessage() {}
-
-func (x *UnregisterConnectivityDiagnosticsCallbackRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_net_net_proto_msgTypes[2]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use UnregisterConnectivityDiagnosticsCallbackRequest.ProtoReflect.Descriptor instead.
-func (*UnregisterConnectivityDiagnosticsCallbackRequest) Descriptor() ([]byte, []int) {
-	return file_proto_net_net_proto_rawDescGZIP(), []int{2}
-}
-
-func (x *UnregisterConnectivityDiagnosticsCallbackRequest) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type UnregisterConnectivityDiagnosticsCallbackResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *UnregisterConnectivityDiagnosticsCallbackResponse) Reset() {
-	*x = UnregisterConnectivityDiagnosticsCallbackResponse{}
-	mi := &file_proto_net_net_proto_msgTypes[3]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *UnregisterConnectivityDiagnosticsCallbackResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*UnregisterConnectivityDiagnosticsCallbackResponse) ProtoMessage() {}
-
-func (x *UnregisterConnectivityDiagnosticsCallbackResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_net_net_proto_msgTypes[3]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use UnregisterConnectivityDiagnosticsCallbackResponse.ProtoReflect.Descriptor instead.
-func (*UnregisterConnectivityDiagnosticsCallbackResponse) Descriptor() ([]byte, []int) {
-	return file_proto_net_net_proto_rawDescGZIP(), []int{3}
-}
-
 type AllocateSecurityParameterIndex1Request struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
@@ -208,7 +32,7 @@ type AllocateSecurityParameterIndex1Request struct {
 
 func (x *AllocateSecurityParameterIndex1Request) Reset() {
 	*x = AllocateSecurityParameterIndex1Request{}
-	mi := &file_proto_net_net_proto_msgTypes[4]
+	mi := &file_proto_net_net_proto_msgTypes[0]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -220,7 +44,7 @@ func (x *AllocateSecurityParameterIndex1Request) String() string {
 func (*AllocateSecurityParameterIndex1Request) ProtoMessage() {}
 
 func (x *AllocateSecurityParameterIndex1Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_net_net_proto_msgTypes[4]
+	mi := &file_proto_net_net_proto_msgTypes[0]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -233,7 +57,7 @@ func (x *AllocateSecurityParameterIndex1Request) ProtoReflect() protoreflect.Mes
 
 // Deprecated: Use AllocateSecurityParameterIndex1Request.ProtoReflect.Descriptor instead.
 func (*AllocateSecurityParameterIndex1Request) Descriptor() ([]byte, []int) {
-	return file_proto_net_net_proto_rawDescGZIP(), []int{4}
+	return file_proto_net_net_proto_rawDescGZIP(), []int{0}
 }
 
 func (x *AllocateSecurityParameterIndex1Request) GetArg0() int64 {
@@ -252,7 +76,7 @@ type AllocateSecurityParameterIndex1Response struct {
 
 func (x *AllocateSecurityParameterIndex1Response) Reset() {
 	*x = AllocateSecurityParameterIndex1Response{}
-	mi := &file_proto_net_net_proto_msgTypes[5]
+	mi := &file_proto_net_net_proto_msgTypes[1]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -264,7 +88,7 @@ func (x *AllocateSecurityParameterIndex1Response) String() string {
 func (*AllocateSecurityParameterIndex1Response) ProtoMessage() {}
 
 func (x *AllocateSecurityParameterIndex1Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_net_net_proto_msgTypes[5]
+	mi := &file_proto_net_net_proto_msgTypes[1]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -277,7 +101,7 @@ func (x *AllocateSecurityParameterIndex1Response) ProtoReflect() protoreflect.Me
 
 // Deprecated: Use AllocateSecurityParameterIndex1Response.ProtoReflect.Descriptor instead.
 func (*AllocateSecurityParameterIndex1Response) Descriptor() ([]byte, []int) {
-	return file_proto_net_net_proto_rawDescGZIP(), []int{5}
+	return file_proto_net_net_proto_rawDescGZIP(), []int{1}
 }
 
 func (x *AllocateSecurityParameterIndex1Response) GetResult() int64 {
@@ -297,7 +121,7 @@ type AllocateSecurityParameterIndex2_1Request struct {
 
 func (x *AllocateSecurityParameterIndex2_1Request) Reset() {
 	*x = AllocateSecurityParameterIndex2_1Request{}
-	mi := &file_proto_net_net_proto_msgTypes[6]
+	mi := &file_proto_net_net_proto_msgTypes[2]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -309,7 +133,7 @@ func (x *AllocateSecurityParameterIndex2_1Request) String() string {
 func (*AllocateSecurityParameterIndex2_1Request) ProtoMessage() {}
 
 func (x *AllocateSecurityParameterIndex2_1Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_net_net_proto_msgTypes[6]
+	mi := &file_proto_net_net_proto_msgTypes[2]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -322,7 +146,7 @@ func (x *AllocateSecurityParameterIndex2_1Request) ProtoReflect() protoreflect.M
 
 // Deprecated: Use AllocateSecurityParameterIndex2_1Request.ProtoReflect.Descriptor instead.
 func (*AllocateSecurityParameterIndex2_1Request) Descriptor() ([]byte, []int) {
-	return file_proto_net_net_proto_rawDescGZIP(), []int{6}
+	return file_proto_net_net_proto_rawDescGZIP(), []int{2}
 }
 
 func (x *AllocateSecurityParameterIndex2_1Request) GetArg0() int64 {
@@ -348,7 +172,7 @@ type AllocateSecurityParameterIndex2_1Response struct {
 
 func (x *AllocateSecurityParameterIndex2_1Response) Reset() {
 	*x = AllocateSecurityParameterIndex2_1Response{}
-	mi := &file_proto_net_net_proto_msgTypes[7]
+	mi := &file_proto_net_net_proto_msgTypes[3]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -360,7 +184,7 @@ func (x *AllocateSecurityParameterIndex2_1Response) String() string {
 func (*AllocateSecurityParameterIndex2_1Response) ProtoMessage() {}
 
 func (x *AllocateSecurityParameterIndex2_1Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_net_net_proto_msgTypes[7]
+	mi := &file_proto_net_net_proto_msgTypes[3]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -373,7 +197,7 @@ func (x *AllocateSecurityParameterIndex2_1Response) ProtoReflect() protoreflect.
 
 // Deprecated: Use AllocateSecurityParameterIndex2_1Response.ProtoReflect.Descriptor instead.
 func (*AllocateSecurityParameterIndex2_1Response) Descriptor() ([]byte, []int) {
-	return file_proto_net_net_proto_rawDescGZIP(), []int{7}
+	return file_proto_net_net_proto_rawDescGZIP(), []int{3}
 }
 
 func (x *AllocateSecurityParameterIndex2_1Response) GetResult() int64 {
@@ -394,7 +218,7 @@ type ApplyTransportModeTransform3Request struct {
 
 func (x *ApplyTransportModeTransform3Request) Reset() {
 	*x = ApplyTransportModeTransform3Request{}
-	mi := &file_proto_net_net_proto_msgTypes[8]
+	mi := &file_proto_net_net_proto_msgTypes[4]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -406,7 +230,7 @@ func (x *ApplyTransportModeTransform3Request) String() string {
 func (*ApplyTransportModeTransform3Request) ProtoMessage() {}
 
 func (x *ApplyTransportModeTransform3Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_net_net_proto_msgTypes[8]
+	mi := &file_proto_net_net_proto_msgTypes[4]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -419,7 +243,7 @@ func (x *ApplyTransportModeTransform3Request) ProtoReflect() protoreflect.Messag
 
 // Deprecated: Use ApplyTransportModeTransform3Request.ProtoReflect.Descriptor instead.
 func (*ApplyTransportModeTransform3Request) Descriptor() ([]byte, []int) {
-	return file_proto_net_net_proto_rawDescGZIP(), []int{8}
+	return file_proto_net_net_proto_rawDescGZIP(), []int{4}
 }
 
 func (x *ApplyTransportModeTransform3Request) GetArg0() int64 {
@@ -451,7 +275,7 @@ type ApplyTransportModeTransform3Response struct {
 
 func (x *ApplyTransportModeTransform3Response) Reset() {
 	*x = ApplyTransportModeTransform3Response{}
-	mi := &file_proto_net_net_proto_msgTypes[9]
+	mi := &file_proto_net_net_proto_msgTypes[5]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -463,7 +287,7 @@ func (x *ApplyTransportModeTransform3Response) String() string {
 func (*ApplyTransportModeTransform3Response) ProtoMessage() {}
 
 func (x *ApplyTransportModeTransform3Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_net_net_proto_msgTypes[9]
+	mi := &file_proto_net_net_proto_msgTypes[5]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -476,7 +300,7 @@ func (x *ApplyTransportModeTransform3Response) ProtoReflect() protoreflect.Messa
 
 // Deprecated: Use ApplyTransportModeTransform3Response.ProtoReflect.Descriptor instead.
 func (*ApplyTransportModeTransform3Response) Descriptor() ([]byte, []int) {
-	return file_proto_net_net_proto_rawDescGZIP(), []int{9}
+	return file_proto_net_net_proto_rawDescGZIP(), []int{5}
 }
 
 type ApplyTransportModeTransform3_1Request struct {
@@ -490,7 +314,7 @@ type ApplyTransportModeTransform3_1Request struct {
 
 func (x *ApplyTransportModeTransform3_1Request) Reset() {
 	*x = ApplyTransportModeTransform3_1Request{}
-	mi := &file_proto_net_net_proto_msgTypes[10]
+	mi := &file_proto_net_net_proto_msgTypes[6]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -502,7 +326,7 @@ func (x *ApplyTransportModeTransform3_1Request) String() string {
 func (*ApplyTransportModeTransform3_1Request) ProtoMessage() {}
 
 func (x *ApplyTransportModeTransform3_1Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_net_net_proto_msgTypes[10]
+	mi := &file_proto_net_net_proto_msgTypes[6]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -515,7 +339,7 @@ func (x *ApplyTransportModeTransform3_1Request) ProtoReflect() protoreflect.Mess
 
 // Deprecated: Use ApplyTransportModeTransform3_1Request.ProtoReflect.Descriptor instead.
 func (*ApplyTransportModeTransform3_1Request) Descriptor() ([]byte, []int) {
-	return file_proto_net_net_proto_rawDescGZIP(), []int{10}
+	return file_proto_net_net_proto_rawDescGZIP(), []int{6}
 }
 
 func (x *ApplyTransportModeTransform3_1Request) GetArg0() int64 {
@@ -547,7 +371,7 @@ type ApplyTransportModeTransform3_1Response struct {
 
 func (x *ApplyTransportModeTransform3_1Response) Reset() {
 	*x = ApplyTransportModeTransform3_1Response{}
-	mi := &file_proto_net_net_proto_msgTypes[11]
+	mi := &file_proto_net_net_proto_msgTypes[7]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -559,7 +383,7 @@ func (x *ApplyTransportModeTransform3_1Response) String() string {
 func (*ApplyTransportModeTransform3_1Response) ProtoMessage() {}
 
 func (x *ApplyTransportModeTransform3_1Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_net_net_proto_msgTypes[11]
+	mi := &file_proto_net_net_proto_msgTypes[7]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -572,7 +396,7 @@ func (x *ApplyTransportModeTransform3_1Response) ProtoReflect() protoreflect.Mes
 
 // Deprecated: Use ApplyTransportModeTransform3_1Response.ProtoReflect.Descriptor instead.
 func (*ApplyTransportModeTransform3_1Response) Descriptor() ([]byte, []int) {
-	return file_proto_net_net_proto_rawDescGZIP(), []int{11}
+	return file_proto_net_net_proto_rawDescGZIP(), []int{7}
 }
 
 type ApplyTransportModeTransform3_2Request struct {
@@ -586,7 +410,7 @@ type ApplyTransportModeTransform3_2Request struct {
 
 func (x *ApplyTransportModeTransform3_2Request) Reset() {
 	*x = ApplyTransportModeTransform3_2Request{}
-	mi := &file_proto_net_net_proto_msgTypes[12]
+	mi := &file_proto_net_net_proto_msgTypes[8]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -598,7 +422,7 @@ func (x *ApplyTransportModeTransform3_2Request) String() string {
 func (*ApplyTransportModeTransform3_2Request) ProtoMessage() {}
 
 func (x *ApplyTransportModeTransform3_2Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_net_net_proto_msgTypes[12]
+	mi := &file_proto_net_net_proto_msgTypes[8]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -611,7 +435,7 @@ func (x *ApplyTransportModeTransform3_2Request) ProtoReflect() protoreflect.Mess
 
 // Deprecated: Use ApplyTransportModeTransform3_2Request.ProtoReflect.Descriptor instead.
 func (*ApplyTransportModeTransform3_2Request) Descriptor() ([]byte, []int) {
-	return file_proto_net_net_proto_rawDescGZIP(), []int{12}
+	return file_proto_net_net_proto_rawDescGZIP(), []int{8}
 }
 
 func (x *ApplyTransportModeTransform3_2Request) GetArg0() int64 {
@@ -643,7 +467,7 @@ type ApplyTransportModeTransform3_2Response struct {
 
 func (x *ApplyTransportModeTransform3_2Response) Reset() {
 	*x = ApplyTransportModeTransform3_2Response{}
-	mi := &file_proto_net_net_proto_msgTypes[13]
+	mi := &file_proto_net_net_proto_msgTypes[9]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -655,7 +479,7 @@ func (x *ApplyTransportModeTransform3_2Response) String() string {
 func (*ApplyTransportModeTransform3_2Response) ProtoMessage() {}
 
 func (x *ApplyTransportModeTransform3_2Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_net_net_proto_msgTypes[13]
+	mi := &file_proto_net_net_proto_msgTypes[9]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -668,7 +492,7 @@ func (x *ApplyTransportModeTransform3_2Response) ProtoReflect() protoreflect.Mes
 
 // Deprecated: Use ApplyTransportModeTransform3_2Response.ProtoReflect.Descriptor instead.
 func (*ApplyTransportModeTransform3_2Response) Descriptor() ([]byte, []int) {
-	return file_proto_net_net_proto_rawDescGZIP(), []int{13}
+	return file_proto_net_net_proto_rawDescGZIP(), []int{9}
 }
 
 type OpenUdpEncapsulationSocket0Request struct {
@@ -679,7 +503,7 @@ type OpenUdpEncapsulationSocket0Request struct {
 
 func (x *OpenUdpEncapsulationSocket0Request) Reset() {
 	*x = OpenUdpEncapsulationSocket0Request{}
-	mi := &file_proto_net_net_proto_msgTypes[14]
+	mi := &file_proto_net_net_proto_msgTypes[10]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -691,7 +515,7 @@ func (x *OpenUdpEncapsulationSocket0Request) String() string {
 func (*OpenUdpEncapsulationSocket0Request) ProtoMessage() {}
 
 func (x *OpenUdpEncapsulationSocket0Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_net_net_proto_msgTypes[14]
+	mi := &file_proto_net_net_proto_msgTypes[10]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -704,7 +528,7 @@ func (x *OpenUdpEncapsulationSocket0Request) ProtoReflect() protoreflect.Message
 
 // Deprecated: Use OpenUdpEncapsulationSocket0Request.ProtoReflect.Descriptor instead.
 func (*OpenUdpEncapsulationSocket0Request) Descriptor() ([]byte, []int) {
-	return file_proto_net_net_proto_rawDescGZIP(), []int{14}
+	return file_proto_net_net_proto_rawDescGZIP(), []int{10}
 }
 
 type OpenUdpEncapsulationSocket0Response struct {
@@ -716,7 +540,7 @@ type OpenUdpEncapsulationSocket0Response struct {
 
 func (x *OpenUdpEncapsulationSocket0Response) Reset() {
 	*x = OpenUdpEncapsulationSocket0Response{}
-	mi := &file_proto_net_net_proto_msgTypes[15]
+	mi := &file_proto_net_net_proto_msgTypes[11]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -728,7 +552,7 @@ func (x *OpenUdpEncapsulationSocket0Response) String() string {
 func (*OpenUdpEncapsulationSocket0Response) ProtoMessage() {}
 
 func (x *OpenUdpEncapsulationSocket0Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_net_net_proto_msgTypes[15]
+	mi := &file_proto_net_net_proto_msgTypes[11]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -741,7 +565,7 @@ func (x *OpenUdpEncapsulationSocket0Response) ProtoReflect() protoreflect.Messag
 
 // Deprecated: Use OpenUdpEncapsulationSocket0Response.ProtoReflect.Descriptor instead.
 func (*OpenUdpEncapsulationSocket0Response) Descriptor() ([]byte, []int) {
-	return file_proto_net_net_proto_rawDescGZIP(), []int{15}
+	return file_proto_net_net_proto_rawDescGZIP(), []int{11}
 }
 
 func (x *OpenUdpEncapsulationSocket0Response) GetResult() int64 {
@@ -760,7 +584,7 @@ type OpenUdpEncapsulationSocket1_1Request struct {
 
 func (x *OpenUdpEncapsulationSocket1_1Request) Reset() {
 	*x = OpenUdpEncapsulationSocket1_1Request{}
-	mi := &file_proto_net_net_proto_msgTypes[16]
+	mi := &file_proto_net_net_proto_msgTypes[12]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -772,7 +596,7 @@ func (x *OpenUdpEncapsulationSocket1_1Request) String() string {
 func (*OpenUdpEncapsulationSocket1_1Request) ProtoMessage() {}
 
 func (x *OpenUdpEncapsulationSocket1_1Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_net_net_proto_msgTypes[16]
+	mi := &file_proto_net_net_proto_msgTypes[12]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -785,7 +609,7 @@ func (x *OpenUdpEncapsulationSocket1_1Request) ProtoReflect() protoreflect.Messa
 
 // Deprecated: Use OpenUdpEncapsulationSocket1_1Request.ProtoReflect.Descriptor instead.
 func (*OpenUdpEncapsulationSocket1_1Request) Descriptor() ([]byte, []int) {
-	return file_proto_net_net_proto_rawDescGZIP(), []int{16}
+	return file_proto_net_net_proto_rawDescGZIP(), []int{12}
 }
 
 func (x *OpenUdpEncapsulationSocket1_1Request) GetArg0() int32 {
@@ -804,7 +628,7 @@ type OpenUdpEncapsulationSocket1_1Response struct {
 
 func (x *OpenUdpEncapsulationSocket1_1Response) Reset() {
 	*x = OpenUdpEncapsulationSocket1_1Response{}
-	mi := &file_proto_net_net_proto_msgTypes[17]
+	mi := &file_proto_net_net_proto_msgTypes[13]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -816,7 +640,7 @@ func (x *OpenUdpEncapsulationSocket1_1Response) String() string {
 func (*OpenUdpEncapsulationSocket1_1Response) ProtoMessage() {}
 
 func (x *OpenUdpEncapsulationSocket1_1Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_net_net_proto_msgTypes[17]
+	mi := &file_proto_net_net_proto_msgTypes[13]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -829,7 +653,7 @@ func (x *OpenUdpEncapsulationSocket1_1Response) ProtoReflect() protoreflect.Mess
 
 // Deprecated: Use OpenUdpEncapsulationSocket1_1Response.ProtoReflect.Descriptor instead.
 func (*OpenUdpEncapsulationSocket1_1Response) Descriptor() ([]byte, []int) {
-	return file_proto_net_net_proto_rawDescGZIP(), []int{17}
+	return file_proto_net_net_proto_rawDescGZIP(), []int{13}
 }
 
 func (x *OpenUdpEncapsulationSocket1_1Response) GetResult() int64 {
@@ -848,7 +672,7 @@ type RemoveTransportModeTransforms1Request struct {
 
 func (x *RemoveTransportModeTransforms1Request) Reset() {
 	*x = RemoveTransportModeTransforms1Request{}
-	mi := &file_proto_net_net_proto_msgTypes[18]
+	mi := &file_proto_net_net_proto_msgTypes[14]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -860,7 +684,7 @@ func (x *RemoveTransportModeTransforms1Request) String() string {
 func (*RemoveTransportModeTransforms1Request) ProtoMessage() {}
 
 func (x *RemoveTransportModeTransforms1Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_net_net_proto_msgTypes[18]
+	mi := &file_proto_net_net_proto_msgTypes[14]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -873,7 +697,7 @@ func (x *RemoveTransportModeTransforms1Request) ProtoReflect() protoreflect.Mess
 
 // Deprecated: Use RemoveTransportModeTransforms1Request.ProtoReflect.Descriptor instead.
 func (*RemoveTransportModeTransforms1Request) Descriptor() ([]byte, []int) {
-	return file_proto_net_net_proto_rawDescGZIP(), []int{18}
+	return file_proto_net_net_proto_rawDescGZIP(), []int{14}
 }
 
 func (x *RemoveTransportModeTransforms1Request) GetArg0() int64 {
@@ -891,7 +715,7 @@ type RemoveTransportModeTransforms1Response struct {
 
 func (x *RemoveTransportModeTransforms1Response) Reset() {
 	*x = RemoveTransportModeTransforms1Response{}
-	mi := &file_proto_net_net_proto_msgTypes[19]
+	mi := &file_proto_net_net_proto_msgTypes[15]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -903,7 +727,7 @@ func (x *RemoveTransportModeTransforms1Response) String() string {
 func (*RemoveTransportModeTransforms1Response) ProtoMessage() {}
 
 func (x *RemoveTransportModeTransforms1Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_net_net_proto_msgTypes[19]
+	mi := &file_proto_net_net_proto_msgTypes[15]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -916,7 +740,7 @@ func (x *RemoveTransportModeTransforms1Response) ProtoReflect() protoreflect.Mes
 
 // Deprecated: Use RemoveTransportModeTransforms1Response.ProtoReflect.Descriptor instead.
 func (*RemoveTransportModeTransforms1Response) Descriptor() ([]byte, []int) {
-	return file_proto_net_net_proto_rawDescGZIP(), []int{19}
+	return file_proto_net_net_proto_rawDescGZIP(), []int{15}
 }
 
 type RemoveTransportModeTransforms1_1Request struct {
@@ -928,7 +752,7 @@ type RemoveTransportModeTransforms1_1Request struct {
 
 func (x *RemoveTransportModeTransforms1_1Request) Reset() {
 	*x = RemoveTransportModeTransforms1_1Request{}
-	mi := &file_proto_net_net_proto_msgTypes[20]
+	mi := &file_proto_net_net_proto_msgTypes[16]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -940,7 +764,7 @@ func (x *RemoveTransportModeTransforms1_1Request) String() string {
 func (*RemoveTransportModeTransforms1_1Request) ProtoMessage() {}
 
 func (x *RemoveTransportModeTransforms1_1Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_net_net_proto_msgTypes[20]
+	mi := &file_proto_net_net_proto_msgTypes[16]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -953,7 +777,7 @@ func (x *RemoveTransportModeTransforms1_1Request) ProtoReflect() protoreflect.Me
 
 // Deprecated: Use RemoveTransportModeTransforms1_1Request.ProtoReflect.Descriptor instead.
 func (*RemoveTransportModeTransforms1_1Request) Descriptor() ([]byte, []int) {
-	return file_proto_net_net_proto_rawDescGZIP(), []int{20}
+	return file_proto_net_net_proto_rawDescGZIP(), []int{16}
 }
 
 func (x *RemoveTransportModeTransforms1_1Request) GetArg0() int64 {
@@ -971,7 +795,7 @@ type RemoveTransportModeTransforms1_1Response struct {
 
 func (x *RemoveTransportModeTransforms1_1Response) Reset() {
 	*x = RemoveTransportModeTransforms1_1Response{}
-	mi := &file_proto_net_net_proto_msgTypes[21]
+	mi := &file_proto_net_net_proto_msgTypes[17]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -983,7 +807,7 @@ func (x *RemoveTransportModeTransforms1_1Response) String() string {
 func (*RemoveTransportModeTransforms1_1Response) ProtoMessage() {}
 
 func (x *RemoveTransportModeTransforms1_1Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_net_net_proto_msgTypes[21]
+	mi := &file_proto_net_net_proto_msgTypes[17]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -996,7 +820,7 @@ func (x *RemoveTransportModeTransforms1_1Response) ProtoReflect() protoreflect.M
 
 // Deprecated: Use RemoveTransportModeTransforms1_1Response.ProtoReflect.Descriptor instead.
 func (*RemoveTransportModeTransforms1_1Response) Descriptor() ([]byte, []int) {
-	return file_proto_net_net_proto_rawDescGZIP(), []int{21}
+	return file_proto_net_net_proto_rawDescGZIP(), []int{17}
 }
 
 type RemoveTransportModeTransforms1_2Request struct {
@@ -1008,7 +832,7 @@ type RemoveTransportModeTransforms1_2Request struct {
 
 func (x *RemoveTransportModeTransforms1_2Request) Reset() {
 	*x = RemoveTransportModeTransforms1_2Request{}
-	mi := &file_proto_net_net_proto_msgTypes[22]
+	mi := &file_proto_net_net_proto_msgTypes[18]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1020,7 +844,7 @@ func (x *RemoveTransportModeTransforms1_2Request) String() string {
 func (*RemoveTransportModeTransforms1_2Request) ProtoMessage() {}
 
 func (x *RemoveTransportModeTransforms1_2Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_net_net_proto_msgTypes[22]
+	mi := &file_proto_net_net_proto_msgTypes[18]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1033,7 +857,7 @@ func (x *RemoveTransportModeTransforms1_2Request) ProtoReflect() protoreflect.Me
 
 // Deprecated: Use RemoveTransportModeTransforms1_2Request.ProtoReflect.Descriptor instead.
 func (*RemoveTransportModeTransforms1_2Request) Descriptor() ([]byte, []int) {
-	return file_proto_net_net_proto_rawDescGZIP(), []int{22}
+	return file_proto_net_net_proto_rawDescGZIP(), []int{18}
 }
 
 func (x *RemoveTransportModeTransforms1_2Request) GetArg0() int64 {
@@ -1051,7 +875,7 @@ type RemoveTransportModeTransforms1_2Response struct {
 
 func (x *RemoveTransportModeTransforms1_2Response) Reset() {
 	*x = RemoveTransportModeTransforms1_2Response{}
-	mi := &file_proto_net_net_proto_msgTypes[23]
+	mi := &file_proto_net_net_proto_msgTypes[19]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1063,7 +887,7 @@ func (x *RemoveTransportModeTransforms1_2Response) String() string {
 func (*RemoveTransportModeTransforms1_2Response) ProtoMessage() {}
 
 func (x *RemoveTransportModeTransforms1_2Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_net_net_proto_msgTypes[23]
+	mi := &file_proto_net_net_proto_msgTypes[19]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1076,367 +900,7 @@ func (x *RemoveTransportModeTransforms1_2Response) ProtoReflect() protoreflect.M
 
 // Deprecated: Use RemoveTransportModeTransforms1_2Response.ProtoReflect.Descriptor instead.
 func (*RemoveTransportModeTransforms1_2Response) Descriptor() ([]byte, []int) {
-	return file_proto_net_net_proto_rawDescGZIP(), []int{23}
-}
-
-type RegisterTetheringEventCallbackRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *RegisterTetheringEventCallbackRequest) Reset() {
-	*x = RegisterTetheringEventCallbackRequest{}
-	mi := &file_proto_net_net_proto_msgTypes[24]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *RegisterTetheringEventCallbackRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*RegisterTetheringEventCallbackRequest) ProtoMessage() {}
-
-func (x *RegisterTetheringEventCallbackRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_net_net_proto_msgTypes[24]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use RegisterTetheringEventCallbackRequest.ProtoReflect.Descriptor instead.
-func (*RegisterTetheringEventCallbackRequest) Descriptor() ([]byte, []int) {
-	return file_proto_net_net_proto_rawDescGZIP(), []int{24}
-}
-
-func (x *RegisterTetheringEventCallbackRequest) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-func (x *RegisterTetheringEventCallbackRequest) GetArg1() int64 {
-	if x != nil {
-		return x.Arg1
-	}
-	return 0
-}
-
-type RegisterTetheringEventCallbackResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *RegisterTetheringEventCallbackResponse) Reset() {
-	*x = RegisterTetheringEventCallbackResponse{}
-	mi := &file_proto_net_net_proto_msgTypes[25]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *RegisterTetheringEventCallbackResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*RegisterTetheringEventCallbackResponse) ProtoMessage() {}
-
-func (x *RegisterTetheringEventCallbackResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_net_net_proto_msgTypes[25]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use RegisterTetheringEventCallbackResponse.ProtoReflect.Descriptor instead.
-func (*RegisterTetheringEventCallbackResponse) Descriptor() ([]byte, []int) {
-	return file_proto_net_net_proto_rawDescGZIP(), []int{25}
-}
-
-type StartTetheringRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
-	Arg2          int64                  `protobuf:"varint,3,opt,name=arg2,proto3" json:"arg2,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *StartTetheringRequest) Reset() {
-	*x = StartTetheringRequest{}
-	mi := &file_proto_net_net_proto_msgTypes[26]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *StartTetheringRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*StartTetheringRequest) ProtoMessage() {}
-
-func (x *StartTetheringRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_net_net_proto_msgTypes[26]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use StartTetheringRequest.ProtoReflect.Descriptor instead.
-func (*StartTetheringRequest) Descriptor() ([]byte, []int) {
-	return file_proto_net_net_proto_rawDescGZIP(), []int{26}
-}
-
-func (x *StartTetheringRequest) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-func (x *StartTetheringRequest) GetArg1() int64 {
-	if x != nil {
-		return x.Arg1
-	}
-	return 0
-}
-
-func (x *StartTetheringRequest) GetArg2() int64 {
-	if x != nil {
-		return x.Arg2
-	}
-	return 0
-}
-
-type StartTetheringResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *StartTetheringResponse) Reset() {
-	*x = StartTetheringResponse{}
-	mi := &file_proto_net_net_proto_msgTypes[27]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *StartTetheringResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*StartTetheringResponse) ProtoMessage() {}
-
-func (x *StartTetheringResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_net_net_proto_msgTypes[27]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use StartTetheringResponse.ProtoReflect.Descriptor instead.
-func (*StartTetheringResponse) Descriptor() ([]byte, []int) {
-	return file_proto_net_net_proto_rawDescGZIP(), []int{27}
-}
-
-type StopTetheringRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
-	Arg2          int64                  `protobuf:"varint,3,opt,name=arg2,proto3" json:"arg2,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *StopTetheringRequest) Reset() {
-	*x = StopTetheringRequest{}
-	mi := &file_proto_net_net_proto_msgTypes[28]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *StopTetheringRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*StopTetheringRequest) ProtoMessage() {}
-
-func (x *StopTetheringRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_net_net_proto_msgTypes[28]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use StopTetheringRequest.ProtoReflect.Descriptor instead.
-func (*StopTetheringRequest) Descriptor() ([]byte, []int) {
-	return file_proto_net_net_proto_rawDescGZIP(), []int{28}
-}
-
-func (x *StopTetheringRequest) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-func (x *StopTetheringRequest) GetArg1() int64 {
-	if x != nil {
-		return x.Arg1
-	}
-	return 0
-}
-
-func (x *StopTetheringRequest) GetArg2() int64 {
-	if x != nil {
-		return x.Arg2
-	}
-	return 0
-}
-
-type StopTetheringResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *StopTetheringResponse) Reset() {
-	*x = StopTetheringResponse{}
-	mi := &file_proto_net_net_proto_msgTypes[29]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *StopTetheringResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*StopTetheringResponse) ProtoMessage() {}
-
-func (x *StopTetheringResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_net_net_proto_msgTypes[29]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use StopTetheringResponse.ProtoReflect.Descriptor instead.
-func (*StopTetheringResponse) Descriptor() ([]byte, []int) {
-	return file_proto_net_net_proto_rawDescGZIP(), []int{29}
-}
-
-type UnregisterTetheringEventCallbackRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *UnregisterTetheringEventCallbackRequest) Reset() {
-	*x = UnregisterTetheringEventCallbackRequest{}
-	mi := &file_proto_net_net_proto_msgTypes[30]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *UnregisterTetheringEventCallbackRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*UnregisterTetheringEventCallbackRequest) ProtoMessage() {}
-
-func (x *UnregisterTetheringEventCallbackRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_net_net_proto_msgTypes[30]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use UnregisterTetheringEventCallbackRequest.ProtoReflect.Descriptor instead.
-func (*UnregisterTetheringEventCallbackRequest) Descriptor() ([]byte, []int) {
-	return file_proto_net_net_proto_rawDescGZIP(), []int{30}
-}
-
-func (x *UnregisterTetheringEventCallbackRequest) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type UnregisterTetheringEventCallbackResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *UnregisterTetheringEventCallbackResponse) Reset() {
-	*x = UnregisterTetheringEventCallbackResponse{}
-	mi := &file_proto_net_net_proto_msgTypes[31]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *UnregisterTetheringEventCallbackResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*UnregisterTetheringEventCallbackResponse) ProtoMessage() {}
-
-func (x *UnregisterTetheringEventCallbackResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_net_net_proto_msgTypes[31]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use UnregisterTetheringEventCallbackResponse.ProtoReflect.Descriptor instead.
-func (*UnregisterTetheringEventCallbackResponse) Descriptor() ([]byte, []int) {
-	return file_proto_net_net_proto_rawDescGZIP(), []int{31}
+	return file_proto_net_net_proto_rawDescGZIP(), []int{19}
 }
 
 type AddDefaultNetworkActiveListenerRequest struct {
@@ -1448,7 +912,7 @@ type AddDefaultNetworkActiveListenerRequest struct {
 
 func (x *AddDefaultNetworkActiveListenerRequest) Reset() {
 	*x = AddDefaultNetworkActiveListenerRequest{}
-	mi := &file_proto_net_net_proto_msgTypes[32]
+	mi := &file_proto_net_net_proto_msgTypes[20]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1460,7 +924,7 @@ func (x *AddDefaultNetworkActiveListenerRequest) String() string {
 func (*AddDefaultNetworkActiveListenerRequest) ProtoMessage() {}
 
 func (x *AddDefaultNetworkActiveListenerRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_net_net_proto_msgTypes[32]
+	mi := &file_proto_net_net_proto_msgTypes[20]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1473,7 +937,7 @@ func (x *AddDefaultNetworkActiveListenerRequest) ProtoReflect() protoreflect.Mes
 
 // Deprecated: Use AddDefaultNetworkActiveListenerRequest.ProtoReflect.Descriptor instead.
 func (*AddDefaultNetworkActiveListenerRequest) Descriptor() ([]byte, []int) {
-	return file_proto_net_net_proto_rawDescGZIP(), []int{32}
+	return file_proto_net_net_proto_rawDescGZIP(), []int{20}
 }
 
 func (x *AddDefaultNetworkActiveListenerRequest) GetArg0() int64 {
@@ -1491,7 +955,7 @@ type AddDefaultNetworkActiveListenerResponse struct {
 
 func (x *AddDefaultNetworkActiveListenerResponse) Reset() {
 	*x = AddDefaultNetworkActiveListenerResponse{}
-	mi := &file_proto_net_net_proto_msgTypes[33]
+	mi := &file_proto_net_net_proto_msgTypes[21]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1503,7 +967,7 @@ func (x *AddDefaultNetworkActiveListenerResponse) String() string {
 func (*AddDefaultNetworkActiveListenerResponse) ProtoMessage() {}
 
 func (x *AddDefaultNetworkActiveListenerResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_net_net_proto_msgTypes[33]
+	mi := &file_proto_net_net_proto_msgTypes[21]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1516,7 +980,7 @@ func (x *AddDefaultNetworkActiveListenerResponse) ProtoReflect() protoreflect.Me
 
 // Deprecated: Use AddDefaultNetworkActiveListenerResponse.ProtoReflect.Descriptor instead.
 func (*AddDefaultNetworkActiveListenerResponse) Descriptor() ([]byte, []int) {
-	return file_proto_net_net_proto_rawDescGZIP(), []int{33}
+	return file_proto_net_net_proto_rawDescGZIP(), []int{21}
 }
 
 type BindProcessToNetworkRequest struct {
@@ -1528,7 +992,7 @@ type BindProcessToNetworkRequest struct {
 
 func (x *BindProcessToNetworkRequest) Reset() {
 	*x = BindProcessToNetworkRequest{}
-	mi := &file_proto_net_net_proto_msgTypes[34]
+	mi := &file_proto_net_net_proto_msgTypes[22]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1540,7 +1004,7 @@ func (x *BindProcessToNetworkRequest) String() string {
 func (*BindProcessToNetworkRequest) ProtoMessage() {}
 
 func (x *BindProcessToNetworkRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_net_net_proto_msgTypes[34]
+	mi := &file_proto_net_net_proto_msgTypes[22]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1553,7 +1017,7 @@ func (x *BindProcessToNetworkRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use BindProcessToNetworkRequest.ProtoReflect.Descriptor instead.
 func (*BindProcessToNetworkRequest) Descriptor() ([]byte, []int) {
-	return file_proto_net_net_proto_rawDescGZIP(), []int{34}
+	return file_proto_net_net_proto_rawDescGZIP(), []int{22}
 }
 
 func (x *BindProcessToNetworkRequest) GetArg0() int64 {
@@ -1572,7 +1036,7 @@ type BindProcessToNetworkResponse struct {
 
 func (x *BindProcessToNetworkResponse) Reset() {
 	*x = BindProcessToNetworkResponse{}
-	mi := &file_proto_net_net_proto_msgTypes[35]
+	mi := &file_proto_net_net_proto_msgTypes[23]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1584,7 +1048,7 @@ func (x *BindProcessToNetworkResponse) String() string {
 func (*BindProcessToNetworkResponse) ProtoMessage() {}
 
 func (x *BindProcessToNetworkResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_net_net_proto_msgTypes[35]
+	mi := &file_proto_net_net_proto_msgTypes[23]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1597,7 +1061,7 @@ func (x *BindProcessToNetworkResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use BindProcessToNetworkResponse.ProtoReflect.Descriptor instead.
 func (*BindProcessToNetworkResponse) Descriptor() ([]byte, []int) {
-	return file_proto_net_net_proto_rawDescGZIP(), []int{35}
+	return file_proto_net_net_proto_rawDescGZIP(), []int{23}
 }
 
 func (x *BindProcessToNetworkResponse) GetResult() bool {
@@ -1621,7 +1085,7 @@ type CreateSocketKeepaliveRequest struct {
 
 func (x *CreateSocketKeepaliveRequest) Reset() {
 	*x = CreateSocketKeepaliveRequest{}
-	mi := &file_proto_net_net_proto_msgTypes[36]
+	mi := &file_proto_net_net_proto_msgTypes[24]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1633,7 +1097,7 @@ func (x *CreateSocketKeepaliveRequest) String() string {
 func (*CreateSocketKeepaliveRequest) ProtoMessage() {}
 
 func (x *CreateSocketKeepaliveRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_net_net_proto_msgTypes[36]
+	mi := &file_proto_net_net_proto_msgTypes[24]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1646,7 +1110,7 @@ func (x *CreateSocketKeepaliveRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CreateSocketKeepaliveRequest.ProtoReflect.Descriptor instead.
 func (*CreateSocketKeepaliveRequest) Descriptor() ([]byte, []int) {
-	return file_proto_net_net_proto_rawDescGZIP(), []int{36}
+	return file_proto_net_net_proto_rawDescGZIP(), []int{24}
 }
 
 func (x *CreateSocketKeepaliveRequest) GetArg0() int64 {
@@ -1700,7 +1164,7 @@ type CreateSocketKeepaliveResponse struct {
 
 func (x *CreateSocketKeepaliveResponse) Reset() {
 	*x = CreateSocketKeepaliveResponse{}
-	mi := &file_proto_net_net_proto_msgTypes[37]
+	mi := &file_proto_net_net_proto_msgTypes[25]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1712,7 +1176,7 @@ func (x *CreateSocketKeepaliveResponse) String() string {
 func (*CreateSocketKeepaliveResponse) ProtoMessage() {}
 
 func (x *CreateSocketKeepaliveResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_net_net_proto_msgTypes[37]
+	mi := &file_proto_net_net_proto_msgTypes[25]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1725,7 +1189,7 @@ func (x *CreateSocketKeepaliveResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CreateSocketKeepaliveResponse.ProtoReflect.Descriptor instead.
 func (*CreateSocketKeepaliveResponse) Descriptor() ([]byte, []int) {
-	return file_proto_net_net_proto_rawDescGZIP(), []int{37}
+	return file_proto_net_net_proto_rawDescGZIP(), []int{25}
 }
 
 func (x *CreateSocketKeepaliveResponse) GetResult() int64 {
@@ -1743,7 +1207,7 @@ type GetActiveNetworkRequest struct {
 
 func (x *GetActiveNetworkRequest) Reset() {
 	*x = GetActiveNetworkRequest{}
-	mi := &file_proto_net_net_proto_msgTypes[38]
+	mi := &file_proto_net_net_proto_msgTypes[26]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1755,7 +1219,7 @@ func (x *GetActiveNetworkRequest) String() string {
 func (*GetActiveNetworkRequest) ProtoMessage() {}
 
 func (x *GetActiveNetworkRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_net_net_proto_msgTypes[38]
+	mi := &file_proto_net_net_proto_msgTypes[26]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1768,7 +1232,7 @@ func (x *GetActiveNetworkRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetActiveNetworkRequest.ProtoReflect.Descriptor instead.
 func (*GetActiveNetworkRequest) Descriptor() ([]byte, []int) {
-	return file_proto_net_net_proto_rawDescGZIP(), []int{38}
+	return file_proto_net_net_proto_rawDescGZIP(), []int{26}
 }
 
 type GetActiveNetworkResponse struct {
@@ -1780,7 +1244,7 @@ type GetActiveNetworkResponse struct {
 
 func (x *GetActiveNetworkResponse) Reset() {
 	*x = GetActiveNetworkResponse{}
-	mi := &file_proto_net_net_proto_msgTypes[39]
+	mi := &file_proto_net_net_proto_msgTypes[27]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1792,7 +1256,7 @@ func (x *GetActiveNetworkResponse) String() string {
 func (*GetActiveNetworkResponse) ProtoMessage() {}
 
 func (x *GetActiveNetworkResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_net_net_proto_msgTypes[39]
+	mi := &file_proto_net_net_proto_msgTypes[27]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1805,7 +1269,7 @@ func (x *GetActiveNetworkResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetActiveNetworkResponse.ProtoReflect.Descriptor instead.
 func (*GetActiveNetworkResponse) Descriptor() ([]byte, []int) {
-	return file_proto_net_net_proto_rawDescGZIP(), []int{39}
+	return file_proto_net_net_proto_rawDescGZIP(), []int{27}
 }
 
 func (x *GetActiveNetworkResponse) GetResult() int64 {
@@ -1823,7 +1287,7 @@ type GetActiveNetworkInfoRequest struct {
 
 func (x *GetActiveNetworkInfoRequest) Reset() {
 	*x = GetActiveNetworkInfoRequest{}
-	mi := &file_proto_net_net_proto_msgTypes[40]
+	mi := &file_proto_net_net_proto_msgTypes[28]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1835,7 +1299,7 @@ func (x *GetActiveNetworkInfoRequest) String() string {
 func (*GetActiveNetworkInfoRequest) ProtoMessage() {}
 
 func (x *GetActiveNetworkInfoRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_net_net_proto_msgTypes[40]
+	mi := &file_proto_net_net_proto_msgTypes[28]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1848,7 +1312,7 @@ func (x *GetActiveNetworkInfoRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetActiveNetworkInfoRequest.ProtoReflect.Descriptor instead.
 func (*GetActiveNetworkInfoRequest) Descriptor() ([]byte, []int) {
-	return file_proto_net_net_proto_rawDescGZIP(), []int{40}
+	return file_proto_net_net_proto_rawDescGZIP(), []int{28}
 }
 
 type GetActiveNetworkInfoResponse struct {
@@ -1860,7 +1324,7 @@ type GetActiveNetworkInfoResponse struct {
 
 func (x *GetActiveNetworkInfoResponse) Reset() {
 	*x = GetActiveNetworkInfoResponse{}
-	mi := &file_proto_net_net_proto_msgTypes[41]
+	mi := &file_proto_net_net_proto_msgTypes[29]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1872,7 +1336,7 @@ func (x *GetActiveNetworkInfoResponse) String() string {
 func (*GetActiveNetworkInfoResponse) ProtoMessage() {}
 
 func (x *GetActiveNetworkInfoResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_net_net_proto_msgTypes[41]
+	mi := &file_proto_net_net_proto_msgTypes[29]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1885,7 +1349,7 @@ func (x *GetActiveNetworkInfoResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetActiveNetworkInfoResponse.ProtoReflect.Descriptor instead.
 func (*GetActiveNetworkInfoResponse) Descriptor() ([]byte, []int) {
-	return file_proto_net_net_proto_rawDescGZIP(), []int{41}
+	return file_proto_net_net_proto_rawDescGZIP(), []int{29}
 }
 
 func (x *GetActiveNetworkInfoResponse) GetResult() int64 {
@@ -1903,7 +1367,7 @@ type GetAllNetworkInfoRequest struct {
 
 func (x *GetAllNetworkInfoRequest) Reset() {
 	*x = GetAllNetworkInfoRequest{}
-	mi := &file_proto_net_net_proto_msgTypes[42]
+	mi := &file_proto_net_net_proto_msgTypes[30]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1915,7 +1379,7 @@ func (x *GetAllNetworkInfoRequest) String() string {
 func (*GetAllNetworkInfoRequest) ProtoMessage() {}
 
 func (x *GetAllNetworkInfoRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_net_net_proto_msgTypes[42]
+	mi := &file_proto_net_net_proto_msgTypes[30]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1928,7 +1392,7 @@ func (x *GetAllNetworkInfoRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetAllNetworkInfoRequest.ProtoReflect.Descriptor instead.
 func (*GetAllNetworkInfoRequest) Descriptor() ([]byte, []int) {
-	return file_proto_net_net_proto_rawDescGZIP(), []int{42}
+	return file_proto_net_net_proto_rawDescGZIP(), []int{30}
 }
 
 type GetAllNetworkInfoResponse struct {
@@ -1940,7 +1404,7 @@ type GetAllNetworkInfoResponse struct {
 
 func (x *GetAllNetworkInfoResponse) Reset() {
 	*x = GetAllNetworkInfoResponse{}
-	mi := &file_proto_net_net_proto_msgTypes[43]
+	mi := &file_proto_net_net_proto_msgTypes[31]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1952,7 +1416,7 @@ func (x *GetAllNetworkInfoResponse) String() string {
 func (*GetAllNetworkInfoResponse) ProtoMessage() {}
 
 func (x *GetAllNetworkInfoResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_net_net_proto_msgTypes[43]
+	mi := &file_proto_net_net_proto_msgTypes[31]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1965,7 +1429,7 @@ func (x *GetAllNetworkInfoResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetAllNetworkInfoResponse.ProtoReflect.Descriptor instead.
 func (*GetAllNetworkInfoResponse) Descriptor() ([]byte, []int) {
-	return file_proto_net_net_proto_rawDescGZIP(), []int{43}
+	return file_proto_net_net_proto_rawDescGZIP(), []int{31}
 }
 
 func (x *GetAllNetworkInfoResponse) GetResult() int64 {
@@ -1983,7 +1447,7 @@ type GetAllNetworksRequest struct {
 
 func (x *GetAllNetworksRequest) Reset() {
 	*x = GetAllNetworksRequest{}
-	mi := &file_proto_net_net_proto_msgTypes[44]
+	mi := &file_proto_net_net_proto_msgTypes[32]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1995,7 +1459,7 @@ func (x *GetAllNetworksRequest) String() string {
 func (*GetAllNetworksRequest) ProtoMessage() {}
 
 func (x *GetAllNetworksRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_net_net_proto_msgTypes[44]
+	mi := &file_proto_net_net_proto_msgTypes[32]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2008,7 +1472,7 @@ func (x *GetAllNetworksRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetAllNetworksRequest.ProtoReflect.Descriptor instead.
 func (*GetAllNetworksRequest) Descriptor() ([]byte, []int) {
-	return file_proto_net_net_proto_rawDescGZIP(), []int{44}
+	return file_proto_net_net_proto_rawDescGZIP(), []int{32}
 }
 
 type GetAllNetworksResponse struct {
@@ -2020,7 +1484,7 @@ type GetAllNetworksResponse struct {
 
 func (x *GetAllNetworksResponse) Reset() {
 	*x = GetAllNetworksResponse{}
-	mi := &file_proto_net_net_proto_msgTypes[45]
+	mi := &file_proto_net_net_proto_msgTypes[33]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2032,7 +1496,7 @@ func (x *GetAllNetworksResponse) String() string {
 func (*GetAllNetworksResponse) ProtoMessage() {}
 
 func (x *GetAllNetworksResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_net_net_proto_msgTypes[45]
+	mi := &file_proto_net_net_proto_msgTypes[33]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2045,7 +1509,7 @@ func (x *GetAllNetworksResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetAllNetworksResponse.ProtoReflect.Descriptor instead.
 func (*GetAllNetworksResponse) Descriptor() ([]byte, []int) {
-	return file_proto_net_net_proto_rawDescGZIP(), []int{45}
+	return file_proto_net_net_proto_rawDescGZIP(), []int{33}
 }
 
 func (x *GetAllNetworksResponse) GetResult() int64 {
@@ -2063,7 +1527,7 @@ type GetBackgroundDataSettingRequest struct {
 
 func (x *GetBackgroundDataSettingRequest) Reset() {
 	*x = GetBackgroundDataSettingRequest{}
-	mi := &file_proto_net_net_proto_msgTypes[46]
+	mi := &file_proto_net_net_proto_msgTypes[34]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2075,7 +1539,7 @@ func (x *GetBackgroundDataSettingRequest) String() string {
 func (*GetBackgroundDataSettingRequest) ProtoMessage() {}
 
 func (x *GetBackgroundDataSettingRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_net_net_proto_msgTypes[46]
+	mi := &file_proto_net_net_proto_msgTypes[34]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2088,7 +1552,7 @@ func (x *GetBackgroundDataSettingRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetBackgroundDataSettingRequest.ProtoReflect.Descriptor instead.
 func (*GetBackgroundDataSettingRequest) Descriptor() ([]byte, []int) {
-	return file_proto_net_net_proto_rawDescGZIP(), []int{46}
+	return file_proto_net_net_proto_rawDescGZIP(), []int{34}
 }
 
 type GetBackgroundDataSettingResponse struct {
@@ -2100,7 +1564,7 @@ type GetBackgroundDataSettingResponse struct {
 
 func (x *GetBackgroundDataSettingResponse) Reset() {
 	*x = GetBackgroundDataSettingResponse{}
-	mi := &file_proto_net_net_proto_msgTypes[47]
+	mi := &file_proto_net_net_proto_msgTypes[35]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2112,7 +1576,7 @@ func (x *GetBackgroundDataSettingResponse) String() string {
 func (*GetBackgroundDataSettingResponse) ProtoMessage() {}
 
 func (x *GetBackgroundDataSettingResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_net_net_proto_msgTypes[47]
+	mi := &file_proto_net_net_proto_msgTypes[35]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2125,7 +1589,7 @@ func (x *GetBackgroundDataSettingResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetBackgroundDataSettingResponse.ProtoReflect.Descriptor instead.
 func (*GetBackgroundDataSettingResponse) Descriptor() ([]byte, []int) {
-	return file_proto_net_net_proto_rawDescGZIP(), []int{47}
+	return file_proto_net_net_proto_rawDescGZIP(), []int{35}
 }
 
 func (x *GetBackgroundDataSettingResponse) GetResult() bool {
@@ -2143,7 +1607,7 @@ type GetBoundNetworkForProcessRequest struct {
 
 func (x *GetBoundNetworkForProcessRequest) Reset() {
 	*x = GetBoundNetworkForProcessRequest{}
-	mi := &file_proto_net_net_proto_msgTypes[48]
+	mi := &file_proto_net_net_proto_msgTypes[36]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2155,7 +1619,7 @@ func (x *GetBoundNetworkForProcessRequest) String() string {
 func (*GetBoundNetworkForProcessRequest) ProtoMessage() {}
 
 func (x *GetBoundNetworkForProcessRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_net_net_proto_msgTypes[48]
+	mi := &file_proto_net_net_proto_msgTypes[36]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2168,7 +1632,7 @@ func (x *GetBoundNetworkForProcessRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetBoundNetworkForProcessRequest.ProtoReflect.Descriptor instead.
 func (*GetBoundNetworkForProcessRequest) Descriptor() ([]byte, []int) {
-	return file_proto_net_net_proto_rawDescGZIP(), []int{48}
+	return file_proto_net_net_proto_rawDescGZIP(), []int{36}
 }
 
 type GetBoundNetworkForProcessResponse struct {
@@ -2180,7 +1644,7 @@ type GetBoundNetworkForProcessResponse struct {
 
 func (x *GetBoundNetworkForProcessResponse) Reset() {
 	*x = GetBoundNetworkForProcessResponse{}
-	mi := &file_proto_net_net_proto_msgTypes[49]
+	mi := &file_proto_net_net_proto_msgTypes[37]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2192,7 +1656,7 @@ func (x *GetBoundNetworkForProcessResponse) String() string {
 func (*GetBoundNetworkForProcessResponse) ProtoMessage() {}
 
 func (x *GetBoundNetworkForProcessResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_net_net_proto_msgTypes[49]
+	mi := &file_proto_net_net_proto_msgTypes[37]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2205,7 +1669,7 @@ func (x *GetBoundNetworkForProcessResponse) ProtoReflect() protoreflect.Message 
 
 // Deprecated: Use GetBoundNetworkForProcessResponse.ProtoReflect.Descriptor instead.
 func (*GetBoundNetworkForProcessResponse) Descriptor() ([]byte, []int) {
-	return file_proto_net_net_proto_rawDescGZIP(), []int{49}
+	return file_proto_net_net_proto_rawDescGZIP(), []int{37}
 }
 
 func (x *GetBoundNetworkForProcessResponse) GetResult() int64 {
@@ -2226,7 +1690,7 @@ type GetConnectionOwnerUidRequest struct {
 
 func (x *GetConnectionOwnerUidRequest) Reset() {
 	*x = GetConnectionOwnerUidRequest{}
-	mi := &file_proto_net_net_proto_msgTypes[50]
+	mi := &file_proto_net_net_proto_msgTypes[38]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2238,7 +1702,7 @@ func (x *GetConnectionOwnerUidRequest) String() string {
 func (*GetConnectionOwnerUidRequest) ProtoMessage() {}
 
 func (x *GetConnectionOwnerUidRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_net_net_proto_msgTypes[50]
+	mi := &file_proto_net_net_proto_msgTypes[38]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2251,7 +1715,7 @@ func (x *GetConnectionOwnerUidRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetConnectionOwnerUidRequest.ProtoReflect.Descriptor instead.
 func (*GetConnectionOwnerUidRequest) Descriptor() ([]byte, []int) {
-	return file_proto_net_net_proto_rawDescGZIP(), []int{50}
+	return file_proto_net_net_proto_rawDescGZIP(), []int{38}
 }
 
 func (x *GetConnectionOwnerUidRequest) GetArg0() int32 {
@@ -2284,7 +1748,7 @@ type GetConnectionOwnerUidResponse struct {
 
 func (x *GetConnectionOwnerUidResponse) Reset() {
 	*x = GetConnectionOwnerUidResponse{}
-	mi := &file_proto_net_net_proto_msgTypes[51]
+	mi := &file_proto_net_net_proto_msgTypes[39]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2296,7 +1760,7 @@ func (x *GetConnectionOwnerUidResponse) String() string {
 func (*GetConnectionOwnerUidResponse) ProtoMessage() {}
 
 func (x *GetConnectionOwnerUidResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_net_net_proto_msgTypes[51]
+	mi := &file_proto_net_net_proto_msgTypes[39]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2309,7 +1773,7 @@ func (x *GetConnectionOwnerUidResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetConnectionOwnerUidResponse.ProtoReflect.Descriptor instead.
 func (*GetConnectionOwnerUidResponse) Descriptor() ([]byte, []int) {
-	return file_proto_net_net_proto_rawDescGZIP(), []int{51}
+	return file_proto_net_net_proto_rawDescGZIP(), []int{39}
 }
 
 func (x *GetConnectionOwnerUidResponse) GetResult() int32 {
@@ -2327,7 +1791,7 @@ type GetDefaultProxyRequest struct {
 
 func (x *GetDefaultProxyRequest) Reset() {
 	*x = GetDefaultProxyRequest{}
-	mi := &file_proto_net_net_proto_msgTypes[52]
+	mi := &file_proto_net_net_proto_msgTypes[40]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2339,7 +1803,7 @@ func (x *GetDefaultProxyRequest) String() string {
 func (*GetDefaultProxyRequest) ProtoMessage() {}
 
 func (x *GetDefaultProxyRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_net_net_proto_msgTypes[52]
+	mi := &file_proto_net_net_proto_msgTypes[40]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2352,7 +1816,7 @@ func (x *GetDefaultProxyRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetDefaultProxyRequest.ProtoReflect.Descriptor instead.
 func (*GetDefaultProxyRequest) Descriptor() ([]byte, []int) {
-	return file_proto_net_net_proto_rawDescGZIP(), []int{52}
+	return file_proto_net_net_proto_rawDescGZIP(), []int{40}
 }
 
 type GetDefaultProxyResponse struct {
@@ -2364,7 +1828,7 @@ type GetDefaultProxyResponse struct {
 
 func (x *GetDefaultProxyResponse) Reset() {
 	*x = GetDefaultProxyResponse{}
-	mi := &file_proto_net_net_proto_msgTypes[53]
+	mi := &file_proto_net_net_proto_msgTypes[41]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2376,7 +1840,7 @@ func (x *GetDefaultProxyResponse) String() string {
 func (*GetDefaultProxyResponse) ProtoMessage() {}
 
 func (x *GetDefaultProxyResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_net_net_proto_msgTypes[53]
+	mi := &file_proto_net_net_proto_msgTypes[41]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2389,7 +1853,7 @@ func (x *GetDefaultProxyResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetDefaultProxyResponse.ProtoReflect.Descriptor instead.
 func (*GetDefaultProxyResponse) Descriptor() ([]byte, []int) {
-	return file_proto_net_net_proto_rawDescGZIP(), []int{53}
+	return file_proto_net_net_proto_rawDescGZIP(), []int{41}
 }
 
 func (x *GetDefaultProxyResponse) GetResult() int64 {
@@ -2408,7 +1872,7 @@ type GetLinkPropertiesRequest struct {
 
 func (x *GetLinkPropertiesRequest) Reset() {
 	*x = GetLinkPropertiesRequest{}
-	mi := &file_proto_net_net_proto_msgTypes[54]
+	mi := &file_proto_net_net_proto_msgTypes[42]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2420,7 +1884,7 @@ func (x *GetLinkPropertiesRequest) String() string {
 func (*GetLinkPropertiesRequest) ProtoMessage() {}
 
 func (x *GetLinkPropertiesRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_net_net_proto_msgTypes[54]
+	mi := &file_proto_net_net_proto_msgTypes[42]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2433,7 +1897,7 @@ func (x *GetLinkPropertiesRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetLinkPropertiesRequest.ProtoReflect.Descriptor instead.
 func (*GetLinkPropertiesRequest) Descriptor() ([]byte, []int) {
-	return file_proto_net_net_proto_rawDescGZIP(), []int{54}
+	return file_proto_net_net_proto_rawDescGZIP(), []int{42}
 }
 
 func (x *GetLinkPropertiesRequest) GetArg0() int64 {
@@ -2452,7 +1916,7 @@ type GetLinkPropertiesResponse struct {
 
 func (x *GetLinkPropertiesResponse) Reset() {
 	*x = GetLinkPropertiesResponse{}
-	mi := &file_proto_net_net_proto_msgTypes[55]
+	mi := &file_proto_net_net_proto_msgTypes[43]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2464,7 +1928,7 @@ func (x *GetLinkPropertiesResponse) String() string {
 func (*GetLinkPropertiesResponse) ProtoMessage() {}
 
 func (x *GetLinkPropertiesResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_net_net_proto_msgTypes[55]
+	mi := &file_proto_net_net_proto_msgTypes[43]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2477,7 +1941,7 @@ func (x *GetLinkPropertiesResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetLinkPropertiesResponse.ProtoReflect.Descriptor instead.
 func (*GetLinkPropertiesResponse) Descriptor() ([]byte, []int) {
-	return file_proto_net_net_proto_rawDescGZIP(), []int{55}
+	return file_proto_net_net_proto_rawDescGZIP(), []int{43}
 }
 
 func (x *GetLinkPropertiesResponse) GetResult() int64 {
@@ -2496,7 +1960,7 @@ type GetMultipathPreferenceRequest struct {
 
 func (x *GetMultipathPreferenceRequest) Reset() {
 	*x = GetMultipathPreferenceRequest{}
-	mi := &file_proto_net_net_proto_msgTypes[56]
+	mi := &file_proto_net_net_proto_msgTypes[44]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2508,7 +1972,7 @@ func (x *GetMultipathPreferenceRequest) String() string {
 func (*GetMultipathPreferenceRequest) ProtoMessage() {}
 
 func (x *GetMultipathPreferenceRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_net_net_proto_msgTypes[56]
+	mi := &file_proto_net_net_proto_msgTypes[44]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2521,7 +1985,7 @@ func (x *GetMultipathPreferenceRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetMultipathPreferenceRequest.ProtoReflect.Descriptor instead.
 func (*GetMultipathPreferenceRequest) Descriptor() ([]byte, []int) {
-	return file_proto_net_net_proto_rawDescGZIP(), []int{56}
+	return file_proto_net_net_proto_rawDescGZIP(), []int{44}
 }
 
 func (x *GetMultipathPreferenceRequest) GetArg0() int64 {
@@ -2540,7 +2004,7 @@ type GetMultipathPreferenceResponse struct {
 
 func (x *GetMultipathPreferenceResponse) Reset() {
 	*x = GetMultipathPreferenceResponse{}
-	mi := &file_proto_net_net_proto_msgTypes[57]
+	mi := &file_proto_net_net_proto_msgTypes[45]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2552,7 +2016,7 @@ func (x *GetMultipathPreferenceResponse) String() string {
 func (*GetMultipathPreferenceResponse) ProtoMessage() {}
 
 func (x *GetMultipathPreferenceResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_net_net_proto_msgTypes[57]
+	mi := &file_proto_net_net_proto_msgTypes[45]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2565,7 +2029,7 @@ func (x *GetMultipathPreferenceResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetMultipathPreferenceResponse.ProtoReflect.Descriptor instead.
 func (*GetMultipathPreferenceResponse) Descriptor() ([]byte, []int) {
-	return file_proto_net_net_proto_rawDescGZIP(), []int{57}
+	return file_proto_net_net_proto_rawDescGZIP(), []int{45}
 }
 
 func (x *GetMultipathPreferenceResponse) GetResult() int32 {
@@ -2584,7 +2048,7 @@ type GetNetworkCapabilitiesRequest struct {
 
 func (x *GetNetworkCapabilitiesRequest) Reset() {
 	*x = GetNetworkCapabilitiesRequest{}
-	mi := &file_proto_net_net_proto_msgTypes[58]
+	mi := &file_proto_net_net_proto_msgTypes[46]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2596,7 +2060,7 @@ func (x *GetNetworkCapabilitiesRequest) String() string {
 func (*GetNetworkCapabilitiesRequest) ProtoMessage() {}
 
 func (x *GetNetworkCapabilitiesRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_net_net_proto_msgTypes[58]
+	mi := &file_proto_net_net_proto_msgTypes[46]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2609,7 +2073,7 @@ func (x *GetNetworkCapabilitiesRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetNetworkCapabilitiesRequest.ProtoReflect.Descriptor instead.
 func (*GetNetworkCapabilitiesRequest) Descriptor() ([]byte, []int) {
-	return file_proto_net_net_proto_rawDescGZIP(), []int{58}
+	return file_proto_net_net_proto_rawDescGZIP(), []int{46}
 }
 
 func (x *GetNetworkCapabilitiesRequest) GetArg0() int64 {
@@ -2628,7 +2092,7 @@ type GetNetworkCapabilitiesResponse struct {
 
 func (x *GetNetworkCapabilitiesResponse) Reset() {
 	*x = GetNetworkCapabilitiesResponse{}
-	mi := &file_proto_net_net_proto_msgTypes[59]
+	mi := &file_proto_net_net_proto_msgTypes[47]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2640,7 +2104,7 @@ func (x *GetNetworkCapabilitiesResponse) String() string {
 func (*GetNetworkCapabilitiesResponse) ProtoMessage() {}
 
 func (x *GetNetworkCapabilitiesResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_net_net_proto_msgTypes[59]
+	mi := &file_proto_net_net_proto_msgTypes[47]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2653,7 +2117,7 @@ func (x *GetNetworkCapabilitiesResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetNetworkCapabilitiesResponse.ProtoReflect.Descriptor instead.
 func (*GetNetworkCapabilitiesResponse) Descriptor() ([]byte, []int) {
-	return file_proto_net_net_proto_rawDescGZIP(), []int{59}
+	return file_proto_net_net_proto_rawDescGZIP(), []int{47}
 }
 
 func (x *GetNetworkCapabilitiesResponse) GetResult() int64 {
@@ -2672,7 +2136,7 @@ type GetNetworkInfo1Request struct {
 
 func (x *GetNetworkInfo1Request) Reset() {
 	*x = GetNetworkInfo1Request{}
-	mi := &file_proto_net_net_proto_msgTypes[60]
+	mi := &file_proto_net_net_proto_msgTypes[48]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2684,7 +2148,7 @@ func (x *GetNetworkInfo1Request) String() string {
 func (*GetNetworkInfo1Request) ProtoMessage() {}
 
 func (x *GetNetworkInfo1Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_net_net_proto_msgTypes[60]
+	mi := &file_proto_net_net_proto_msgTypes[48]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2697,7 +2161,7 @@ func (x *GetNetworkInfo1Request) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetNetworkInfo1Request.ProtoReflect.Descriptor instead.
 func (*GetNetworkInfo1Request) Descriptor() ([]byte, []int) {
-	return file_proto_net_net_proto_rawDescGZIP(), []int{60}
+	return file_proto_net_net_proto_rawDescGZIP(), []int{48}
 }
 
 func (x *GetNetworkInfo1Request) GetArg0() int64 {
@@ -2716,7 +2180,7 @@ type GetNetworkInfo1Response struct {
 
 func (x *GetNetworkInfo1Response) Reset() {
 	*x = GetNetworkInfo1Response{}
-	mi := &file_proto_net_net_proto_msgTypes[61]
+	mi := &file_proto_net_net_proto_msgTypes[49]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2728,7 +2192,7 @@ func (x *GetNetworkInfo1Response) String() string {
 func (*GetNetworkInfo1Response) ProtoMessage() {}
 
 func (x *GetNetworkInfo1Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_net_net_proto_msgTypes[61]
+	mi := &file_proto_net_net_proto_msgTypes[49]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2741,7 +2205,7 @@ func (x *GetNetworkInfo1Response) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetNetworkInfo1Response.ProtoReflect.Descriptor instead.
 func (*GetNetworkInfo1Response) Descriptor() ([]byte, []int) {
-	return file_proto_net_net_proto_rawDescGZIP(), []int{61}
+	return file_proto_net_net_proto_rawDescGZIP(), []int{49}
 }
 
 func (x *GetNetworkInfo1Response) GetResult() int64 {
@@ -2760,7 +2224,7 @@ type GetNetworkInfo1_1Request struct {
 
 func (x *GetNetworkInfo1_1Request) Reset() {
 	*x = GetNetworkInfo1_1Request{}
-	mi := &file_proto_net_net_proto_msgTypes[62]
+	mi := &file_proto_net_net_proto_msgTypes[50]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2772,7 +2236,7 @@ func (x *GetNetworkInfo1_1Request) String() string {
 func (*GetNetworkInfo1_1Request) ProtoMessage() {}
 
 func (x *GetNetworkInfo1_1Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_net_net_proto_msgTypes[62]
+	mi := &file_proto_net_net_proto_msgTypes[50]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2785,7 +2249,7 @@ func (x *GetNetworkInfo1_1Request) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetNetworkInfo1_1Request.ProtoReflect.Descriptor instead.
 func (*GetNetworkInfo1_1Request) Descriptor() ([]byte, []int) {
-	return file_proto_net_net_proto_rawDescGZIP(), []int{62}
+	return file_proto_net_net_proto_rawDescGZIP(), []int{50}
 }
 
 func (x *GetNetworkInfo1_1Request) GetArg0() int32 {
@@ -2804,7 +2268,7 @@ type GetNetworkInfo1_1Response struct {
 
 func (x *GetNetworkInfo1_1Response) Reset() {
 	*x = GetNetworkInfo1_1Response{}
-	mi := &file_proto_net_net_proto_msgTypes[63]
+	mi := &file_proto_net_net_proto_msgTypes[51]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2816,7 +2280,7 @@ func (x *GetNetworkInfo1_1Response) String() string {
 func (*GetNetworkInfo1_1Response) ProtoMessage() {}
 
 func (x *GetNetworkInfo1_1Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_net_net_proto_msgTypes[63]
+	mi := &file_proto_net_net_proto_msgTypes[51]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2829,7 +2293,7 @@ func (x *GetNetworkInfo1_1Response) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetNetworkInfo1_1Response.ProtoReflect.Descriptor instead.
 func (*GetNetworkInfo1_1Response) Descriptor() ([]byte, []int) {
-	return file_proto_net_net_proto_rawDescGZIP(), []int{63}
+	return file_proto_net_net_proto_rawDescGZIP(), []int{51}
 }
 
 func (x *GetNetworkInfo1_1Response) GetResult() int64 {
@@ -2847,7 +2311,7 @@ type GetNetworkPreferenceRequest struct {
 
 func (x *GetNetworkPreferenceRequest) Reset() {
 	*x = GetNetworkPreferenceRequest{}
-	mi := &file_proto_net_net_proto_msgTypes[64]
+	mi := &file_proto_net_net_proto_msgTypes[52]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2859,7 +2323,7 @@ func (x *GetNetworkPreferenceRequest) String() string {
 func (*GetNetworkPreferenceRequest) ProtoMessage() {}
 
 func (x *GetNetworkPreferenceRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_net_net_proto_msgTypes[64]
+	mi := &file_proto_net_net_proto_msgTypes[52]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2872,7 +2336,7 @@ func (x *GetNetworkPreferenceRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetNetworkPreferenceRequest.ProtoReflect.Descriptor instead.
 func (*GetNetworkPreferenceRequest) Descriptor() ([]byte, []int) {
-	return file_proto_net_net_proto_rawDescGZIP(), []int{64}
+	return file_proto_net_net_proto_rawDescGZIP(), []int{52}
 }
 
 type GetNetworkPreferenceResponse struct {
@@ -2884,7 +2348,7 @@ type GetNetworkPreferenceResponse struct {
 
 func (x *GetNetworkPreferenceResponse) Reset() {
 	*x = GetNetworkPreferenceResponse{}
-	mi := &file_proto_net_net_proto_msgTypes[65]
+	mi := &file_proto_net_net_proto_msgTypes[53]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2896,7 +2360,7 @@ func (x *GetNetworkPreferenceResponse) String() string {
 func (*GetNetworkPreferenceResponse) ProtoMessage() {}
 
 func (x *GetNetworkPreferenceResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_net_net_proto_msgTypes[65]
+	mi := &file_proto_net_net_proto_msgTypes[53]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2909,7 +2373,7 @@ func (x *GetNetworkPreferenceResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetNetworkPreferenceResponse.ProtoReflect.Descriptor instead.
 func (*GetNetworkPreferenceResponse) Descriptor() ([]byte, []int) {
-	return file_proto_net_net_proto_rawDescGZIP(), []int{65}
+	return file_proto_net_net_proto_rawDescGZIP(), []int{53}
 }
 
 func (x *GetNetworkPreferenceResponse) GetResult() int32 {
@@ -2927,7 +2391,7 @@ type GetNetworkWatchlistConfigHashRequest struct {
 
 func (x *GetNetworkWatchlistConfigHashRequest) Reset() {
 	*x = GetNetworkWatchlistConfigHashRequest{}
-	mi := &file_proto_net_net_proto_msgTypes[66]
+	mi := &file_proto_net_net_proto_msgTypes[54]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2939,7 +2403,7 @@ func (x *GetNetworkWatchlistConfigHashRequest) String() string {
 func (*GetNetworkWatchlistConfigHashRequest) ProtoMessage() {}
 
 func (x *GetNetworkWatchlistConfigHashRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_net_net_proto_msgTypes[66]
+	mi := &file_proto_net_net_proto_msgTypes[54]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2952,7 +2416,7 @@ func (x *GetNetworkWatchlistConfigHashRequest) ProtoReflect() protoreflect.Messa
 
 // Deprecated: Use GetNetworkWatchlistConfigHashRequest.ProtoReflect.Descriptor instead.
 func (*GetNetworkWatchlistConfigHashRequest) Descriptor() ([]byte, []int) {
-	return file_proto_net_net_proto_rawDescGZIP(), []int{66}
+	return file_proto_net_net_proto_rawDescGZIP(), []int{54}
 }
 
 type GetNetworkWatchlistConfigHashResponse struct {
@@ -2964,7 +2428,7 @@ type GetNetworkWatchlistConfigHashResponse struct {
 
 func (x *GetNetworkWatchlistConfigHashResponse) Reset() {
 	*x = GetNetworkWatchlistConfigHashResponse{}
-	mi := &file_proto_net_net_proto_msgTypes[67]
+	mi := &file_proto_net_net_proto_msgTypes[55]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2976,7 +2440,7 @@ func (x *GetNetworkWatchlistConfigHashResponse) String() string {
 func (*GetNetworkWatchlistConfigHashResponse) ProtoMessage() {}
 
 func (x *GetNetworkWatchlistConfigHashResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_net_net_proto_msgTypes[67]
+	mi := &file_proto_net_net_proto_msgTypes[55]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2989,7 +2453,7 @@ func (x *GetNetworkWatchlistConfigHashResponse) ProtoReflect() protoreflect.Mess
 
 // Deprecated: Use GetNetworkWatchlistConfigHashResponse.ProtoReflect.Descriptor instead.
 func (*GetNetworkWatchlistConfigHashResponse) Descriptor() ([]byte, []int) {
-	return file_proto_net_net_proto_rawDescGZIP(), []int{67}
+	return file_proto_net_net_proto_rawDescGZIP(), []int{55}
 }
 
 func (x *GetNetworkWatchlistConfigHashResponse) GetResult() int64 {
@@ -3007,7 +2471,7 @@ type GetRestrictBackgroundStatusRequest struct {
 
 func (x *GetRestrictBackgroundStatusRequest) Reset() {
 	*x = GetRestrictBackgroundStatusRequest{}
-	mi := &file_proto_net_net_proto_msgTypes[68]
+	mi := &file_proto_net_net_proto_msgTypes[56]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3019,7 +2483,7 @@ func (x *GetRestrictBackgroundStatusRequest) String() string {
 func (*GetRestrictBackgroundStatusRequest) ProtoMessage() {}
 
 func (x *GetRestrictBackgroundStatusRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_net_net_proto_msgTypes[68]
+	mi := &file_proto_net_net_proto_msgTypes[56]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3032,7 +2496,7 @@ func (x *GetRestrictBackgroundStatusRequest) ProtoReflect() protoreflect.Message
 
 // Deprecated: Use GetRestrictBackgroundStatusRequest.ProtoReflect.Descriptor instead.
 func (*GetRestrictBackgroundStatusRequest) Descriptor() ([]byte, []int) {
-	return file_proto_net_net_proto_rawDescGZIP(), []int{68}
+	return file_proto_net_net_proto_rawDescGZIP(), []int{56}
 }
 
 type GetRestrictBackgroundStatusResponse struct {
@@ -3044,7 +2508,7 @@ type GetRestrictBackgroundStatusResponse struct {
 
 func (x *GetRestrictBackgroundStatusResponse) Reset() {
 	*x = GetRestrictBackgroundStatusResponse{}
-	mi := &file_proto_net_net_proto_msgTypes[69]
+	mi := &file_proto_net_net_proto_msgTypes[57]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3056,7 +2520,7 @@ func (x *GetRestrictBackgroundStatusResponse) String() string {
 func (*GetRestrictBackgroundStatusResponse) ProtoMessage() {}
 
 func (x *GetRestrictBackgroundStatusResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_net_net_proto_msgTypes[69]
+	mi := &file_proto_net_net_proto_msgTypes[57]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3069,7 +2533,7 @@ func (x *GetRestrictBackgroundStatusResponse) ProtoReflect() protoreflect.Messag
 
 // Deprecated: Use GetRestrictBackgroundStatusResponse.ProtoReflect.Descriptor instead.
 func (*GetRestrictBackgroundStatusResponse) Descriptor() ([]byte, []int) {
-	return file_proto_net_net_proto_rawDescGZIP(), []int{69}
+	return file_proto_net_net_proto_rawDescGZIP(), []int{57}
 }
 
 func (x *GetRestrictBackgroundStatusResponse) GetResult() int32 {
@@ -3087,7 +2551,7 @@ type IsActiveNetworkMeteredRequest struct {
 
 func (x *IsActiveNetworkMeteredRequest) Reset() {
 	*x = IsActiveNetworkMeteredRequest{}
-	mi := &file_proto_net_net_proto_msgTypes[70]
+	mi := &file_proto_net_net_proto_msgTypes[58]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3099,7 +2563,7 @@ func (x *IsActiveNetworkMeteredRequest) String() string {
 func (*IsActiveNetworkMeteredRequest) ProtoMessage() {}
 
 func (x *IsActiveNetworkMeteredRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_net_net_proto_msgTypes[70]
+	mi := &file_proto_net_net_proto_msgTypes[58]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3112,7 +2576,7 @@ func (x *IsActiveNetworkMeteredRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use IsActiveNetworkMeteredRequest.ProtoReflect.Descriptor instead.
 func (*IsActiveNetworkMeteredRequest) Descriptor() ([]byte, []int) {
-	return file_proto_net_net_proto_rawDescGZIP(), []int{70}
+	return file_proto_net_net_proto_rawDescGZIP(), []int{58}
 }
 
 type IsActiveNetworkMeteredResponse struct {
@@ -3124,7 +2588,7 @@ type IsActiveNetworkMeteredResponse struct {
 
 func (x *IsActiveNetworkMeteredResponse) Reset() {
 	*x = IsActiveNetworkMeteredResponse{}
-	mi := &file_proto_net_net_proto_msgTypes[71]
+	mi := &file_proto_net_net_proto_msgTypes[59]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3136,7 +2600,7 @@ func (x *IsActiveNetworkMeteredResponse) String() string {
 func (*IsActiveNetworkMeteredResponse) ProtoMessage() {}
 
 func (x *IsActiveNetworkMeteredResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_net_net_proto_msgTypes[71]
+	mi := &file_proto_net_net_proto_msgTypes[59]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3149,7 +2613,7 @@ func (x *IsActiveNetworkMeteredResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use IsActiveNetworkMeteredResponse.ProtoReflect.Descriptor instead.
 func (*IsActiveNetworkMeteredResponse) Descriptor() ([]byte, []int) {
-	return file_proto_net_net_proto_rawDescGZIP(), []int{71}
+	return file_proto_net_net_proto_rawDescGZIP(), []int{59}
 }
 
 func (x *IsActiveNetworkMeteredResponse) GetResult() bool {
@@ -3167,7 +2631,7 @@ type IsDefaultNetworkActiveRequest struct {
 
 func (x *IsDefaultNetworkActiveRequest) Reset() {
 	*x = IsDefaultNetworkActiveRequest{}
-	mi := &file_proto_net_net_proto_msgTypes[72]
+	mi := &file_proto_net_net_proto_msgTypes[60]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3179,7 +2643,7 @@ func (x *IsDefaultNetworkActiveRequest) String() string {
 func (*IsDefaultNetworkActiveRequest) ProtoMessage() {}
 
 func (x *IsDefaultNetworkActiveRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_net_net_proto_msgTypes[72]
+	mi := &file_proto_net_net_proto_msgTypes[60]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3192,7 +2656,7 @@ func (x *IsDefaultNetworkActiveRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use IsDefaultNetworkActiveRequest.ProtoReflect.Descriptor instead.
 func (*IsDefaultNetworkActiveRequest) Descriptor() ([]byte, []int) {
-	return file_proto_net_net_proto_rawDescGZIP(), []int{72}
+	return file_proto_net_net_proto_rawDescGZIP(), []int{60}
 }
 
 type IsDefaultNetworkActiveResponse struct {
@@ -3204,7 +2668,7 @@ type IsDefaultNetworkActiveResponse struct {
 
 func (x *IsDefaultNetworkActiveResponse) Reset() {
 	*x = IsDefaultNetworkActiveResponse{}
-	mi := &file_proto_net_net_proto_msgTypes[73]
+	mi := &file_proto_net_net_proto_msgTypes[61]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3216,7 +2680,7 @@ func (x *IsDefaultNetworkActiveResponse) String() string {
 func (*IsDefaultNetworkActiveResponse) ProtoMessage() {}
 
 func (x *IsDefaultNetworkActiveResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_net_net_proto_msgTypes[73]
+	mi := &file_proto_net_net_proto_msgTypes[61]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3229,7 +2693,7 @@ func (x *IsDefaultNetworkActiveResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use IsDefaultNetworkActiveResponse.ProtoReflect.Descriptor instead.
 func (*IsDefaultNetworkActiveResponse) Descriptor() ([]byte, []int) {
-	return file_proto_net_net_proto_rawDescGZIP(), []int{73}
+	return file_proto_net_net_proto_rawDescGZIP(), []int{61}
 }
 
 func (x *IsDefaultNetworkActiveResponse) GetResult() bool {
@@ -3248,7 +2712,7 @@ type RegisterDefaultNetworkCallbackRequest struct {
 
 func (x *RegisterDefaultNetworkCallbackRequest) Reset() {
 	*x = RegisterDefaultNetworkCallbackRequest{}
-	mi := &file_proto_net_net_proto_msgTypes[74]
+	mi := &file_proto_net_net_proto_msgTypes[62]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3260,7 +2724,7 @@ func (x *RegisterDefaultNetworkCallbackRequest) String() string {
 func (*RegisterDefaultNetworkCallbackRequest) ProtoMessage() {}
 
 func (x *RegisterDefaultNetworkCallbackRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_net_net_proto_msgTypes[74]
+	mi := &file_proto_net_net_proto_msgTypes[62]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3273,7 +2737,7 @@ func (x *RegisterDefaultNetworkCallbackRequest) ProtoReflect() protoreflect.Mess
 
 // Deprecated: Use RegisterDefaultNetworkCallbackRequest.ProtoReflect.Descriptor instead.
 func (*RegisterDefaultNetworkCallbackRequest) Descriptor() ([]byte, []int) {
-	return file_proto_net_net_proto_rawDescGZIP(), []int{74}
+	return file_proto_net_net_proto_rawDescGZIP(), []int{62}
 }
 
 func (x *RegisterDefaultNetworkCallbackRequest) GetArg0() int64 {
@@ -3291,7 +2755,7 @@ type RegisterDefaultNetworkCallbackResponse struct {
 
 func (x *RegisterDefaultNetworkCallbackResponse) Reset() {
 	*x = RegisterDefaultNetworkCallbackResponse{}
-	mi := &file_proto_net_net_proto_msgTypes[75]
+	mi := &file_proto_net_net_proto_msgTypes[63]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3303,7 +2767,7 @@ func (x *RegisterDefaultNetworkCallbackResponse) String() string {
 func (*RegisterDefaultNetworkCallbackResponse) ProtoMessage() {}
 
 func (x *RegisterDefaultNetworkCallbackResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_net_net_proto_msgTypes[75]
+	mi := &file_proto_net_net_proto_msgTypes[63]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3316,7 +2780,7 @@ func (x *RegisterDefaultNetworkCallbackResponse) ProtoReflect() protoreflect.Mes
 
 // Deprecated: Use RegisterDefaultNetworkCallbackResponse.ProtoReflect.Descriptor instead.
 func (*RegisterDefaultNetworkCallbackResponse) Descriptor() ([]byte, []int) {
-	return file_proto_net_net_proto_rawDescGZIP(), []int{75}
+	return file_proto_net_net_proto_rawDescGZIP(), []int{63}
 }
 
 type RegisterNetworkCallback2Request struct {
@@ -3329,7 +2793,7 @@ type RegisterNetworkCallback2Request struct {
 
 func (x *RegisterNetworkCallback2Request) Reset() {
 	*x = RegisterNetworkCallback2Request{}
-	mi := &file_proto_net_net_proto_msgTypes[76]
+	mi := &file_proto_net_net_proto_msgTypes[64]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3341,7 +2805,7 @@ func (x *RegisterNetworkCallback2Request) String() string {
 func (*RegisterNetworkCallback2Request) ProtoMessage() {}
 
 func (x *RegisterNetworkCallback2Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_net_net_proto_msgTypes[76]
+	mi := &file_proto_net_net_proto_msgTypes[64]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3354,7 +2818,7 @@ func (x *RegisterNetworkCallback2Request) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use RegisterNetworkCallback2Request.ProtoReflect.Descriptor instead.
 func (*RegisterNetworkCallback2Request) Descriptor() ([]byte, []int) {
-	return file_proto_net_net_proto_rawDescGZIP(), []int{76}
+	return file_proto_net_net_proto_rawDescGZIP(), []int{64}
 }
 
 func (x *RegisterNetworkCallback2Request) GetArg0() int64 {
@@ -3379,7 +2843,7 @@ type RegisterNetworkCallback2Response struct {
 
 func (x *RegisterNetworkCallback2Response) Reset() {
 	*x = RegisterNetworkCallback2Response{}
-	mi := &file_proto_net_net_proto_msgTypes[77]
+	mi := &file_proto_net_net_proto_msgTypes[65]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3391,7 +2855,7 @@ func (x *RegisterNetworkCallback2Response) String() string {
 func (*RegisterNetworkCallback2Response) ProtoMessage() {}
 
 func (x *RegisterNetworkCallback2Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_net_net_proto_msgTypes[77]
+	mi := &file_proto_net_net_proto_msgTypes[65]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3404,7 +2868,7 @@ func (x *RegisterNetworkCallback2Response) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use RegisterNetworkCallback2Response.ProtoReflect.Descriptor instead.
 func (*RegisterNetworkCallback2Response) Descriptor() ([]byte, []int) {
-	return file_proto_net_net_proto_rawDescGZIP(), []int{77}
+	return file_proto_net_net_proto_rawDescGZIP(), []int{65}
 }
 
 type RegisterNetworkCallback2_1Request struct {
@@ -3417,7 +2881,7 @@ type RegisterNetworkCallback2_1Request struct {
 
 func (x *RegisterNetworkCallback2_1Request) Reset() {
 	*x = RegisterNetworkCallback2_1Request{}
-	mi := &file_proto_net_net_proto_msgTypes[78]
+	mi := &file_proto_net_net_proto_msgTypes[66]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3429,7 +2893,7 @@ func (x *RegisterNetworkCallback2_1Request) String() string {
 func (*RegisterNetworkCallback2_1Request) ProtoMessage() {}
 
 func (x *RegisterNetworkCallback2_1Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_net_net_proto_msgTypes[78]
+	mi := &file_proto_net_net_proto_msgTypes[66]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3442,7 +2906,7 @@ func (x *RegisterNetworkCallback2_1Request) ProtoReflect() protoreflect.Message 
 
 // Deprecated: Use RegisterNetworkCallback2_1Request.ProtoReflect.Descriptor instead.
 func (*RegisterNetworkCallback2_1Request) Descriptor() ([]byte, []int) {
-	return file_proto_net_net_proto_rawDescGZIP(), []int{78}
+	return file_proto_net_net_proto_rawDescGZIP(), []int{66}
 }
 
 func (x *RegisterNetworkCallback2_1Request) GetArg0() int64 {
@@ -3467,7 +2931,7 @@ type RegisterNetworkCallback2_1Response struct {
 
 func (x *RegisterNetworkCallback2_1Response) Reset() {
 	*x = RegisterNetworkCallback2_1Response{}
-	mi := &file_proto_net_net_proto_msgTypes[79]
+	mi := &file_proto_net_net_proto_msgTypes[67]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3479,7 +2943,7 @@ func (x *RegisterNetworkCallback2_1Response) String() string {
 func (*RegisterNetworkCallback2_1Response) ProtoMessage() {}
 
 func (x *RegisterNetworkCallback2_1Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_net_net_proto_msgTypes[79]
+	mi := &file_proto_net_net_proto_msgTypes[67]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3492,7 +2956,7 @@ func (x *RegisterNetworkCallback2_1Response) ProtoReflect() protoreflect.Message
 
 // Deprecated: Use RegisterNetworkCallback2_1Response.ProtoReflect.Descriptor instead.
 func (*RegisterNetworkCallback2_1Response) Descriptor() ([]byte, []int) {
-	return file_proto_net_net_proto_rawDescGZIP(), []int{79}
+	return file_proto_net_net_proto_rawDescGZIP(), []int{67}
 }
 
 type ReleaseNetworkRequestRequest struct {
@@ -3504,7 +2968,7 @@ type ReleaseNetworkRequestRequest struct {
 
 func (x *ReleaseNetworkRequestRequest) Reset() {
 	*x = ReleaseNetworkRequestRequest{}
-	mi := &file_proto_net_net_proto_msgTypes[80]
+	mi := &file_proto_net_net_proto_msgTypes[68]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3516,7 +2980,7 @@ func (x *ReleaseNetworkRequestRequest) String() string {
 func (*ReleaseNetworkRequestRequest) ProtoMessage() {}
 
 func (x *ReleaseNetworkRequestRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_net_net_proto_msgTypes[80]
+	mi := &file_proto_net_net_proto_msgTypes[68]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3529,7 +2993,7 @@ func (x *ReleaseNetworkRequestRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ReleaseNetworkRequestRequest.ProtoReflect.Descriptor instead.
 func (*ReleaseNetworkRequestRequest) Descriptor() ([]byte, []int) {
-	return file_proto_net_net_proto_rawDescGZIP(), []int{80}
+	return file_proto_net_net_proto_rawDescGZIP(), []int{68}
 }
 
 func (x *ReleaseNetworkRequestRequest) GetArg0() int64 {
@@ -3547,7 +3011,7 @@ type ReleaseNetworkRequestResponse struct {
 
 func (x *ReleaseNetworkRequestResponse) Reset() {
 	*x = ReleaseNetworkRequestResponse{}
-	mi := &file_proto_net_net_proto_msgTypes[81]
+	mi := &file_proto_net_net_proto_msgTypes[69]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3559,7 +3023,7 @@ func (x *ReleaseNetworkRequestResponse) String() string {
 func (*ReleaseNetworkRequestResponse) ProtoMessage() {}
 
 func (x *ReleaseNetworkRequestResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_net_net_proto_msgTypes[81]
+	mi := &file_proto_net_net_proto_msgTypes[69]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3572,7 +3036,7 @@ func (x *ReleaseNetworkRequestResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ReleaseNetworkRequestResponse.ProtoReflect.Descriptor instead.
 func (*ReleaseNetworkRequestResponse) Descriptor() ([]byte, []int) {
-	return file_proto_net_net_proto_rawDescGZIP(), []int{81}
+	return file_proto_net_net_proto_rawDescGZIP(), []int{69}
 }
 
 type RemoveDefaultNetworkActiveListenerRequest struct {
@@ -3584,7 +3048,7 @@ type RemoveDefaultNetworkActiveListenerRequest struct {
 
 func (x *RemoveDefaultNetworkActiveListenerRequest) Reset() {
 	*x = RemoveDefaultNetworkActiveListenerRequest{}
-	mi := &file_proto_net_net_proto_msgTypes[82]
+	mi := &file_proto_net_net_proto_msgTypes[70]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3596,7 +3060,7 @@ func (x *RemoveDefaultNetworkActiveListenerRequest) String() string {
 func (*RemoveDefaultNetworkActiveListenerRequest) ProtoMessage() {}
 
 func (x *RemoveDefaultNetworkActiveListenerRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_net_net_proto_msgTypes[82]
+	mi := &file_proto_net_net_proto_msgTypes[70]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3609,7 +3073,7 @@ func (x *RemoveDefaultNetworkActiveListenerRequest) ProtoReflect() protoreflect.
 
 // Deprecated: Use RemoveDefaultNetworkActiveListenerRequest.ProtoReflect.Descriptor instead.
 func (*RemoveDefaultNetworkActiveListenerRequest) Descriptor() ([]byte, []int) {
-	return file_proto_net_net_proto_rawDescGZIP(), []int{82}
+	return file_proto_net_net_proto_rawDescGZIP(), []int{70}
 }
 
 func (x *RemoveDefaultNetworkActiveListenerRequest) GetArg0() int64 {
@@ -3627,7 +3091,7 @@ type RemoveDefaultNetworkActiveListenerResponse struct {
 
 func (x *RemoveDefaultNetworkActiveListenerResponse) Reset() {
 	*x = RemoveDefaultNetworkActiveListenerResponse{}
-	mi := &file_proto_net_net_proto_msgTypes[83]
+	mi := &file_proto_net_net_proto_msgTypes[71]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3639,7 +3103,7 @@ func (x *RemoveDefaultNetworkActiveListenerResponse) String() string {
 func (*RemoveDefaultNetworkActiveListenerResponse) ProtoMessage() {}
 
 func (x *RemoveDefaultNetworkActiveListenerResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_net_net_proto_msgTypes[83]
+	mi := &file_proto_net_net_proto_msgTypes[71]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3652,7 +3116,7 @@ func (x *RemoveDefaultNetworkActiveListenerResponse) ProtoReflect() protoreflect
 
 // Deprecated: Use RemoveDefaultNetworkActiveListenerResponse.ProtoReflect.Descriptor instead.
 func (*RemoveDefaultNetworkActiveListenerResponse) Descriptor() ([]byte, []int) {
-	return file_proto_net_net_proto_rawDescGZIP(), []int{83}
+	return file_proto_net_net_proto_rawDescGZIP(), []int{71}
 }
 
 type ReportBadNetworkRequest struct {
@@ -3664,7 +3128,7 @@ type ReportBadNetworkRequest struct {
 
 func (x *ReportBadNetworkRequest) Reset() {
 	*x = ReportBadNetworkRequest{}
-	mi := &file_proto_net_net_proto_msgTypes[84]
+	mi := &file_proto_net_net_proto_msgTypes[72]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3676,7 +3140,7 @@ func (x *ReportBadNetworkRequest) String() string {
 func (*ReportBadNetworkRequest) ProtoMessage() {}
 
 func (x *ReportBadNetworkRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_net_net_proto_msgTypes[84]
+	mi := &file_proto_net_net_proto_msgTypes[72]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3689,7 +3153,7 @@ func (x *ReportBadNetworkRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ReportBadNetworkRequest.ProtoReflect.Descriptor instead.
 func (*ReportBadNetworkRequest) Descriptor() ([]byte, []int) {
-	return file_proto_net_net_proto_rawDescGZIP(), []int{84}
+	return file_proto_net_net_proto_rawDescGZIP(), []int{72}
 }
 
 func (x *ReportBadNetworkRequest) GetArg0() int64 {
@@ -3707,7 +3171,7 @@ type ReportBadNetworkResponse struct {
 
 func (x *ReportBadNetworkResponse) Reset() {
 	*x = ReportBadNetworkResponse{}
-	mi := &file_proto_net_net_proto_msgTypes[85]
+	mi := &file_proto_net_net_proto_msgTypes[73]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3719,7 +3183,7 @@ func (x *ReportBadNetworkResponse) String() string {
 func (*ReportBadNetworkResponse) ProtoMessage() {}
 
 func (x *ReportBadNetworkResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_net_net_proto_msgTypes[85]
+	mi := &file_proto_net_net_proto_msgTypes[73]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3732,7 +3196,7 @@ func (x *ReportBadNetworkResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ReportBadNetworkResponse.ProtoReflect.Descriptor instead.
 func (*ReportBadNetworkResponse) Descriptor() ([]byte, []int) {
-	return file_proto_net_net_proto_rawDescGZIP(), []int{85}
+	return file_proto_net_net_proto_rawDescGZIP(), []int{73}
 }
 
 type ReportNetworkConnectivityRequest struct {
@@ -3745,7 +3209,7 @@ type ReportNetworkConnectivityRequest struct {
 
 func (x *ReportNetworkConnectivityRequest) Reset() {
 	*x = ReportNetworkConnectivityRequest{}
-	mi := &file_proto_net_net_proto_msgTypes[86]
+	mi := &file_proto_net_net_proto_msgTypes[74]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3757,7 +3221,7 @@ func (x *ReportNetworkConnectivityRequest) String() string {
 func (*ReportNetworkConnectivityRequest) ProtoMessage() {}
 
 func (x *ReportNetworkConnectivityRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_net_net_proto_msgTypes[86]
+	mi := &file_proto_net_net_proto_msgTypes[74]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3770,7 +3234,7 @@ func (x *ReportNetworkConnectivityRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ReportNetworkConnectivityRequest.ProtoReflect.Descriptor instead.
 func (*ReportNetworkConnectivityRequest) Descriptor() ([]byte, []int) {
-	return file_proto_net_net_proto_rawDescGZIP(), []int{86}
+	return file_proto_net_net_proto_rawDescGZIP(), []int{74}
 }
 
 func (x *ReportNetworkConnectivityRequest) GetArg0() int64 {
@@ -3795,7 +3259,7 @@ type ReportNetworkConnectivityResponse struct {
 
 func (x *ReportNetworkConnectivityResponse) Reset() {
 	*x = ReportNetworkConnectivityResponse{}
-	mi := &file_proto_net_net_proto_msgTypes[87]
+	mi := &file_proto_net_net_proto_msgTypes[75]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3807,7 +3271,7 @@ func (x *ReportNetworkConnectivityResponse) String() string {
 func (*ReportNetworkConnectivityResponse) ProtoMessage() {}
 
 func (x *ReportNetworkConnectivityResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_net_net_proto_msgTypes[87]
+	mi := &file_proto_net_net_proto_msgTypes[75]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3820,7 +3284,7 @@ func (x *ReportNetworkConnectivityResponse) ProtoReflect() protoreflect.Message 
 
 // Deprecated: Use ReportNetworkConnectivityResponse.ProtoReflect.Descriptor instead.
 func (*ReportNetworkConnectivityResponse) Descriptor() ([]byte, []int) {
-	return file_proto_net_net_proto_rawDescGZIP(), []int{87}
+	return file_proto_net_net_proto_rawDescGZIP(), []int{75}
 }
 
 type RequestBandwidthUpdateRequest struct {
@@ -3832,7 +3296,7 @@ type RequestBandwidthUpdateRequest struct {
 
 func (x *RequestBandwidthUpdateRequest) Reset() {
 	*x = RequestBandwidthUpdateRequest{}
-	mi := &file_proto_net_net_proto_msgTypes[88]
+	mi := &file_proto_net_net_proto_msgTypes[76]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3844,7 +3308,7 @@ func (x *RequestBandwidthUpdateRequest) String() string {
 func (*RequestBandwidthUpdateRequest) ProtoMessage() {}
 
 func (x *RequestBandwidthUpdateRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_net_net_proto_msgTypes[88]
+	mi := &file_proto_net_net_proto_msgTypes[76]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3857,7 +3321,7 @@ func (x *RequestBandwidthUpdateRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use RequestBandwidthUpdateRequest.ProtoReflect.Descriptor instead.
 func (*RequestBandwidthUpdateRequest) Descriptor() ([]byte, []int) {
-	return file_proto_net_net_proto_rawDescGZIP(), []int{88}
+	return file_proto_net_net_proto_rawDescGZIP(), []int{76}
 }
 
 func (x *RequestBandwidthUpdateRequest) GetArg0() int64 {
@@ -3876,7 +3340,7 @@ type RequestBandwidthUpdateResponse struct {
 
 func (x *RequestBandwidthUpdateResponse) Reset() {
 	*x = RequestBandwidthUpdateResponse{}
-	mi := &file_proto_net_net_proto_msgTypes[89]
+	mi := &file_proto_net_net_proto_msgTypes[77]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3888,7 +3352,7 @@ func (x *RequestBandwidthUpdateResponse) String() string {
 func (*RequestBandwidthUpdateResponse) ProtoMessage() {}
 
 func (x *RequestBandwidthUpdateResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_net_net_proto_msgTypes[89]
+	mi := &file_proto_net_net_proto_msgTypes[77]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3901,7 +3365,7 @@ func (x *RequestBandwidthUpdateResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use RequestBandwidthUpdateResponse.ProtoReflect.Descriptor instead.
 func (*RequestBandwidthUpdateResponse) Descriptor() ([]byte, []int) {
-	return file_proto_net_net_proto_rawDescGZIP(), []int{89}
+	return file_proto_net_net_proto_rawDescGZIP(), []int{77}
 }
 
 func (x *RequestBandwidthUpdateResponse) GetResult() bool {
@@ -3921,7 +3385,7 @@ type RequestNetwork2Request struct {
 
 func (x *RequestNetwork2Request) Reset() {
 	*x = RequestNetwork2Request{}
-	mi := &file_proto_net_net_proto_msgTypes[90]
+	mi := &file_proto_net_net_proto_msgTypes[78]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3933,7 +3397,7 @@ func (x *RequestNetwork2Request) String() string {
 func (*RequestNetwork2Request) ProtoMessage() {}
 
 func (x *RequestNetwork2Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_net_net_proto_msgTypes[90]
+	mi := &file_proto_net_net_proto_msgTypes[78]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3946,7 +3410,7 @@ func (x *RequestNetwork2Request) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use RequestNetwork2Request.ProtoReflect.Descriptor instead.
 func (*RequestNetwork2Request) Descriptor() ([]byte, []int) {
-	return file_proto_net_net_proto_rawDescGZIP(), []int{90}
+	return file_proto_net_net_proto_rawDescGZIP(), []int{78}
 }
 
 func (x *RequestNetwork2Request) GetArg0() int64 {
@@ -3971,7 +3435,7 @@ type RequestNetwork2Response struct {
 
 func (x *RequestNetwork2Response) Reset() {
 	*x = RequestNetwork2Response{}
-	mi := &file_proto_net_net_proto_msgTypes[91]
+	mi := &file_proto_net_net_proto_msgTypes[79]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3983,7 +3447,7 @@ func (x *RequestNetwork2Response) String() string {
 func (*RequestNetwork2Response) ProtoMessage() {}
 
 func (x *RequestNetwork2Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_net_net_proto_msgTypes[91]
+	mi := &file_proto_net_net_proto_msgTypes[79]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3996,7 +3460,7 @@ func (x *RequestNetwork2Response) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use RequestNetwork2Response.ProtoReflect.Descriptor instead.
 func (*RequestNetwork2Response) Descriptor() ([]byte, []int) {
-	return file_proto_net_net_proto_rawDescGZIP(), []int{91}
+	return file_proto_net_net_proto_rawDescGZIP(), []int{79}
 }
 
 type RequestNetwork2_1Request struct {
@@ -4009,7 +3473,7 @@ type RequestNetwork2_1Request struct {
 
 func (x *RequestNetwork2_1Request) Reset() {
 	*x = RequestNetwork2_1Request{}
-	mi := &file_proto_net_net_proto_msgTypes[92]
+	mi := &file_proto_net_net_proto_msgTypes[80]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4021,7 +3485,7 @@ func (x *RequestNetwork2_1Request) String() string {
 func (*RequestNetwork2_1Request) ProtoMessage() {}
 
 func (x *RequestNetwork2_1Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_net_net_proto_msgTypes[92]
+	mi := &file_proto_net_net_proto_msgTypes[80]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4034,7 +3498,7 @@ func (x *RequestNetwork2_1Request) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use RequestNetwork2_1Request.ProtoReflect.Descriptor instead.
 func (*RequestNetwork2_1Request) Descriptor() ([]byte, []int) {
-	return file_proto_net_net_proto_rawDescGZIP(), []int{92}
+	return file_proto_net_net_proto_rawDescGZIP(), []int{80}
 }
 
 func (x *RequestNetwork2_1Request) GetArg0() int64 {
@@ -4059,7 +3523,7 @@ type RequestNetwork2_1Response struct {
 
 func (x *RequestNetwork2_1Response) Reset() {
 	*x = RequestNetwork2_1Response{}
-	mi := &file_proto_net_net_proto_msgTypes[93]
+	mi := &file_proto_net_net_proto_msgTypes[81]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4071,7 +3535,7 @@ func (x *RequestNetwork2_1Response) String() string {
 func (*RequestNetwork2_1Response) ProtoMessage() {}
 
 func (x *RequestNetwork2_1Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_net_net_proto_msgTypes[93]
+	mi := &file_proto_net_net_proto_msgTypes[81]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4084,7 +3548,7 @@ func (x *RequestNetwork2_1Response) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use RequestNetwork2_1Response.ProtoReflect.Descriptor instead.
 func (*RequestNetwork2_1Response) Descriptor() ([]byte, []int) {
-	return file_proto_net_net_proto_rawDescGZIP(), []int{93}
+	return file_proto_net_net_proto_rawDescGZIP(), []int{81}
 }
 
 type RequestNetwork3_2Request struct {
@@ -4098,7 +3562,7 @@ type RequestNetwork3_2Request struct {
 
 func (x *RequestNetwork3_2Request) Reset() {
 	*x = RequestNetwork3_2Request{}
-	mi := &file_proto_net_net_proto_msgTypes[94]
+	mi := &file_proto_net_net_proto_msgTypes[82]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4110,7 +3574,7 @@ func (x *RequestNetwork3_2Request) String() string {
 func (*RequestNetwork3_2Request) ProtoMessage() {}
 
 func (x *RequestNetwork3_2Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_net_net_proto_msgTypes[94]
+	mi := &file_proto_net_net_proto_msgTypes[82]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4123,7 +3587,7 @@ func (x *RequestNetwork3_2Request) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use RequestNetwork3_2Request.ProtoReflect.Descriptor instead.
 func (*RequestNetwork3_2Request) Descriptor() ([]byte, []int) {
-	return file_proto_net_net_proto_rawDescGZIP(), []int{94}
+	return file_proto_net_net_proto_rawDescGZIP(), []int{82}
 }
 
 func (x *RequestNetwork3_2Request) GetArg0() int64 {
@@ -4155,7 +3619,7 @@ type RequestNetwork3_2Response struct {
 
 func (x *RequestNetwork3_2Response) Reset() {
 	*x = RequestNetwork3_2Response{}
-	mi := &file_proto_net_net_proto_msgTypes[95]
+	mi := &file_proto_net_net_proto_msgTypes[83]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4167,7 +3631,7 @@ func (x *RequestNetwork3_2Response) String() string {
 func (*RequestNetwork3_2Response) ProtoMessage() {}
 
 func (x *RequestNetwork3_2Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_net_net_proto_msgTypes[95]
+	mi := &file_proto_net_net_proto_msgTypes[83]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4180,7 +3644,7 @@ func (x *RequestNetwork3_2Response) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use RequestNetwork3_2Response.ProtoReflect.Descriptor instead.
 func (*RequestNetwork3_2Response) Descriptor() ([]byte, []int) {
-	return file_proto_net_net_proto_rawDescGZIP(), []int{95}
+	return file_proto_net_net_proto_rawDescGZIP(), []int{83}
 }
 
 type SetNetworkPreferenceRequest struct {
@@ -4192,7 +3656,7 @@ type SetNetworkPreferenceRequest struct {
 
 func (x *SetNetworkPreferenceRequest) Reset() {
 	*x = SetNetworkPreferenceRequest{}
-	mi := &file_proto_net_net_proto_msgTypes[96]
+	mi := &file_proto_net_net_proto_msgTypes[84]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4204,7 +3668,7 @@ func (x *SetNetworkPreferenceRequest) String() string {
 func (*SetNetworkPreferenceRequest) ProtoMessage() {}
 
 func (x *SetNetworkPreferenceRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_net_net_proto_msgTypes[96]
+	mi := &file_proto_net_net_proto_msgTypes[84]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4217,7 +3681,7 @@ func (x *SetNetworkPreferenceRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetNetworkPreferenceRequest.ProtoReflect.Descriptor instead.
 func (*SetNetworkPreferenceRequest) Descriptor() ([]byte, []int) {
-	return file_proto_net_net_proto_rawDescGZIP(), []int{96}
+	return file_proto_net_net_proto_rawDescGZIP(), []int{84}
 }
 
 func (x *SetNetworkPreferenceRequest) GetArg0() int32 {
@@ -4235,7 +3699,7 @@ type SetNetworkPreferenceResponse struct {
 
 func (x *SetNetworkPreferenceResponse) Reset() {
 	*x = SetNetworkPreferenceResponse{}
-	mi := &file_proto_net_net_proto_msgTypes[97]
+	mi := &file_proto_net_net_proto_msgTypes[85]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4247,7 +3711,7 @@ func (x *SetNetworkPreferenceResponse) String() string {
 func (*SetNetworkPreferenceResponse) ProtoMessage() {}
 
 func (x *SetNetworkPreferenceResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_net_net_proto_msgTypes[97]
+	mi := &file_proto_net_net_proto_msgTypes[85]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4260,7 +3724,7 @@ func (x *SetNetworkPreferenceResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetNetworkPreferenceResponse.ProtoReflect.Descriptor instead.
 func (*SetNetworkPreferenceResponse) Descriptor() ([]byte, []int) {
-	return file_proto_net_net_proto_rawDescGZIP(), []int{97}
+	return file_proto_net_net_proto_rawDescGZIP(), []int{85}
 }
 
 type UnregisterNetworkCallback1Request struct {
@@ -4272,7 +3736,7 @@ type UnregisterNetworkCallback1Request struct {
 
 func (x *UnregisterNetworkCallback1Request) Reset() {
 	*x = UnregisterNetworkCallback1Request{}
-	mi := &file_proto_net_net_proto_msgTypes[98]
+	mi := &file_proto_net_net_proto_msgTypes[86]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4284,7 +3748,7 @@ func (x *UnregisterNetworkCallback1Request) String() string {
 func (*UnregisterNetworkCallback1Request) ProtoMessage() {}
 
 func (x *UnregisterNetworkCallback1Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_net_net_proto_msgTypes[98]
+	mi := &file_proto_net_net_proto_msgTypes[86]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4297,7 +3761,7 @@ func (x *UnregisterNetworkCallback1Request) ProtoReflect() protoreflect.Message 
 
 // Deprecated: Use UnregisterNetworkCallback1Request.ProtoReflect.Descriptor instead.
 func (*UnregisterNetworkCallback1Request) Descriptor() ([]byte, []int) {
-	return file_proto_net_net_proto_rawDescGZIP(), []int{98}
+	return file_proto_net_net_proto_rawDescGZIP(), []int{86}
 }
 
 func (x *UnregisterNetworkCallback1Request) GetArg0() int64 {
@@ -4315,7 +3779,7 @@ type UnregisterNetworkCallback1Response struct {
 
 func (x *UnregisterNetworkCallback1Response) Reset() {
 	*x = UnregisterNetworkCallback1Response{}
-	mi := &file_proto_net_net_proto_msgTypes[99]
+	mi := &file_proto_net_net_proto_msgTypes[87]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4327,7 +3791,7 @@ func (x *UnregisterNetworkCallback1Response) String() string {
 func (*UnregisterNetworkCallback1Response) ProtoMessage() {}
 
 func (x *UnregisterNetworkCallback1Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_net_net_proto_msgTypes[99]
+	mi := &file_proto_net_net_proto_msgTypes[87]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4340,7 +3804,7 @@ func (x *UnregisterNetworkCallback1Response) ProtoReflect() protoreflect.Message
 
 // Deprecated: Use UnregisterNetworkCallback1Response.ProtoReflect.Descriptor instead.
 func (*UnregisterNetworkCallback1Response) Descriptor() ([]byte, []int) {
-	return file_proto_net_net_proto_rawDescGZIP(), []int{99}
+	return file_proto_net_net_proto_rawDescGZIP(), []int{87}
 }
 
 type UnregisterNetworkCallback1_1Request struct {
@@ -4352,7 +3816,7 @@ type UnregisterNetworkCallback1_1Request struct {
 
 func (x *UnregisterNetworkCallback1_1Request) Reset() {
 	*x = UnregisterNetworkCallback1_1Request{}
-	mi := &file_proto_net_net_proto_msgTypes[100]
+	mi := &file_proto_net_net_proto_msgTypes[88]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4364,7 +3828,7 @@ func (x *UnregisterNetworkCallback1_1Request) String() string {
 func (*UnregisterNetworkCallback1_1Request) ProtoMessage() {}
 
 func (x *UnregisterNetworkCallback1_1Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_net_net_proto_msgTypes[100]
+	mi := &file_proto_net_net_proto_msgTypes[88]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4377,7 +3841,7 @@ func (x *UnregisterNetworkCallback1_1Request) ProtoReflect() protoreflect.Messag
 
 // Deprecated: Use UnregisterNetworkCallback1_1Request.ProtoReflect.Descriptor instead.
 func (*UnregisterNetworkCallback1_1Request) Descriptor() ([]byte, []int) {
-	return file_proto_net_net_proto_rawDescGZIP(), []int{100}
+	return file_proto_net_net_proto_rawDescGZIP(), []int{88}
 }
 
 func (x *UnregisterNetworkCallback1_1Request) GetArg0() int64 {
@@ -4395,7 +3859,7 @@ type UnregisterNetworkCallback1_1Response struct {
 
 func (x *UnregisterNetworkCallback1_1Response) Reset() {
 	*x = UnregisterNetworkCallback1_1Response{}
-	mi := &file_proto_net_net_proto_msgTypes[101]
+	mi := &file_proto_net_net_proto_msgTypes[89]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4407,7 +3871,7 @@ func (x *UnregisterNetworkCallback1_1Response) String() string {
 func (*UnregisterNetworkCallback1_1Response) ProtoMessage() {}
 
 func (x *UnregisterNetworkCallback1_1Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_net_net_proto_msgTypes[101]
+	mi := &file_proto_net_net_proto_msgTypes[89]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4420,7 +3884,7 @@ func (x *UnregisterNetworkCallback1_1Response) ProtoReflect() protoreflect.Messa
 
 // Deprecated: Use UnregisterNetworkCallback1_1Response.ProtoReflect.Descriptor instead.
 func (*UnregisterNetworkCallback1_1Response) Descriptor() ([]byte, []int) {
-	return file_proto_net_net_proto_rawDescGZIP(), []int{101}
+	return file_proto_net_net_proto_rawDescGZIP(), []int{89}
 }
 
 type GetProcessDefaultNetworkRequest struct {
@@ -4431,7 +3895,7 @@ type GetProcessDefaultNetworkRequest struct {
 
 func (x *GetProcessDefaultNetworkRequest) Reset() {
 	*x = GetProcessDefaultNetworkRequest{}
-	mi := &file_proto_net_net_proto_msgTypes[102]
+	mi := &file_proto_net_net_proto_msgTypes[90]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4443,7 +3907,7 @@ func (x *GetProcessDefaultNetworkRequest) String() string {
 func (*GetProcessDefaultNetworkRequest) ProtoMessage() {}
 
 func (x *GetProcessDefaultNetworkRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_net_net_proto_msgTypes[102]
+	mi := &file_proto_net_net_proto_msgTypes[90]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4456,7 +3920,7 @@ func (x *GetProcessDefaultNetworkRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetProcessDefaultNetworkRequest.ProtoReflect.Descriptor instead.
 func (*GetProcessDefaultNetworkRequest) Descriptor() ([]byte, []int) {
-	return file_proto_net_net_proto_rawDescGZIP(), []int{102}
+	return file_proto_net_net_proto_rawDescGZIP(), []int{90}
 }
 
 type GetProcessDefaultNetworkResponse struct {
@@ -4468,7 +3932,7 @@ type GetProcessDefaultNetworkResponse struct {
 
 func (x *GetProcessDefaultNetworkResponse) Reset() {
 	*x = GetProcessDefaultNetworkResponse{}
-	mi := &file_proto_net_net_proto_msgTypes[103]
+	mi := &file_proto_net_net_proto_msgTypes[91]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4480,7 +3944,7 @@ func (x *GetProcessDefaultNetworkResponse) String() string {
 func (*GetProcessDefaultNetworkResponse) ProtoMessage() {}
 
 func (x *GetProcessDefaultNetworkResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_net_net_proto_msgTypes[103]
+	mi := &file_proto_net_net_proto_msgTypes[91]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4493,7 +3957,7 @@ func (x *GetProcessDefaultNetworkResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetProcessDefaultNetworkResponse.ProtoReflect.Descriptor instead.
 func (*GetProcessDefaultNetworkResponse) Descriptor() ([]byte, []int) {
-	return file_proto_net_net_proto_rawDescGZIP(), []int{103}
+	return file_proto_net_net_proto_rawDescGZIP(), []int{91}
 }
 
 func (x *GetProcessDefaultNetworkResponse) GetResult() int64 {
@@ -4512,7 +3976,7 @@ type IsNetworkTypeValidRequest struct {
 
 func (x *IsNetworkTypeValidRequest) Reset() {
 	*x = IsNetworkTypeValidRequest{}
-	mi := &file_proto_net_net_proto_msgTypes[104]
+	mi := &file_proto_net_net_proto_msgTypes[92]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4524,7 +3988,7 @@ func (x *IsNetworkTypeValidRequest) String() string {
 func (*IsNetworkTypeValidRequest) ProtoMessage() {}
 
 func (x *IsNetworkTypeValidRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_net_net_proto_msgTypes[104]
+	mi := &file_proto_net_net_proto_msgTypes[92]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4537,7 +4001,7 @@ func (x *IsNetworkTypeValidRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use IsNetworkTypeValidRequest.ProtoReflect.Descriptor instead.
 func (*IsNetworkTypeValidRequest) Descriptor() ([]byte, []int) {
-	return file_proto_net_net_proto_rawDescGZIP(), []int{104}
+	return file_proto_net_net_proto_rawDescGZIP(), []int{92}
 }
 
 func (x *IsNetworkTypeValidRequest) GetArg0() int32 {
@@ -4556,7 +4020,7 @@ type IsNetworkTypeValidResponse struct {
 
 func (x *IsNetworkTypeValidResponse) Reset() {
 	*x = IsNetworkTypeValidResponse{}
-	mi := &file_proto_net_net_proto_msgTypes[105]
+	mi := &file_proto_net_net_proto_msgTypes[93]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4568,7 +4032,7 @@ func (x *IsNetworkTypeValidResponse) String() string {
 func (*IsNetworkTypeValidResponse) ProtoMessage() {}
 
 func (x *IsNetworkTypeValidResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_net_net_proto_msgTypes[105]
+	mi := &file_proto_net_net_proto_msgTypes[93]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4581,7 +4045,7 @@ func (x *IsNetworkTypeValidResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use IsNetworkTypeValidResponse.ProtoReflect.Descriptor instead.
 func (*IsNetworkTypeValidResponse) Descriptor() ([]byte, []int) {
-	return file_proto_net_net_proto_rawDescGZIP(), []int{105}
+	return file_proto_net_net_proto_rawDescGZIP(), []int{93}
 }
 
 func (x *IsNetworkTypeValidResponse) GetResult() bool {
@@ -4600,7 +4064,7 @@ type SetProcessDefaultNetworkRequest struct {
 
 func (x *SetProcessDefaultNetworkRequest) Reset() {
 	*x = SetProcessDefaultNetworkRequest{}
-	mi := &file_proto_net_net_proto_msgTypes[106]
+	mi := &file_proto_net_net_proto_msgTypes[94]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4612,7 +4076,7 @@ func (x *SetProcessDefaultNetworkRequest) String() string {
 func (*SetProcessDefaultNetworkRequest) ProtoMessage() {}
 
 func (x *SetProcessDefaultNetworkRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_net_net_proto_msgTypes[106]
+	mi := &file_proto_net_net_proto_msgTypes[94]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4625,7 +4089,7 @@ func (x *SetProcessDefaultNetworkRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetProcessDefaultNetworkRequest.ProtoReflect.Descriptor instead.
 func (*SetProcessDefaultNetworkRequest) Descriptor() ([]byte, []int) {
-	return file_proto_net_net_proto_rawDescGZIP(), []int{106}
+	return file_proto_net_net_proto_rawDescGZIP(), []int{94}
 }
 
 func (x *SetProcessDefaultNetworkRequest) GetArg0() int64 {
@@ -4644,7 +4108,7 @@ type SetProcessDefaultNetworkResponse struct {
 
 func (x *SetProcessDefaultNetworkResponse) Reset() {
 	*x = SetProcessDefaultNetworkResponse{}
-	mi := &file_proto_net_net_proto_msgTypes[107]
+	mi := &file_proto_net_net_proto_msgTypes[95]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4656,7 +4120,7 @@ func (x *SetProcessDefaultNetworkResponse) String() string {
 func (*SetProcessDefaultNetworkResponse) ProtoMessage() {}
 
 func (x *SetProcessDefaultNetworkResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_net_net_proto_msgTypes[107]
+	mi := &file_proto_net_net_proto_msgTypes[95]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4669,7 +4133,7 @@ func (x *SetProcessDefaultNetworkResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetProcessDefaultNetworkResponse.ProtoReflect.Descriptor instead.
 func (*SetProcessDefaultNetworkResponse) Descriptor() ([]byte, []int) {
-	return file_proto_net_net_proto_rawDescGZIP(), []int{107}
+	return file_proto_net_net_proto_rawDescGZIP(), []int{95}
 }
 
 func (x *SetProcessDefaultNetworkResponse) GetResult() bool {
@@ -4679,19 +4143,547 @@ func (x *SetProcessDefaultNetworkResponse) GetResult() bool {
 	return false
 }
 
+type RegisterConnectivityDiagnosticsCallbackRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          int64                  `protobuf:"varint,3,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *RegisterConnectivityDiagnosticsCallbackRequest) Reset() {
+	*x = RegisterConnectivityDiagnosticsCallbackRequest{}
+	mi := &file_proto_net_net_proto_msgTypes[96]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *RegisterConnectivityDiagnosticsCallbackRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*RegisterConnectivityDiagnosticsCallbackRequest) ProtoMessage() {}
+
+func (x *RegisterConnectivityDiagnosticsCallbackRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_net_net_proto_msgTypes[96]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use RegisterConnectivityDiagnosticsCallbackRequest.ProtoReflect.Descriptor instead.
+func (*RegisterConnectivityDiagnosticsCallbackRequest) Descriptor() ([]byte, []int) {
+	return file_proto_net_net_proto_rawDescGZIP(), []int{96}
+}
+
+func (x *RegisterConnectivityDiagnosticsCallbackRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *RegisterConnectivityDiagnosticsCallbackRequest) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+func (x *RegisterConnectivityDiagnosticsCallbackRequest) GetArg2() int64 {
+	if x != nil {
+		return x.Arg2
+	}
+	return 0
+}
+
+type RegisterConnectivityDiagnosticsCallbackResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *RegisterConnectivityDiagnosticsCallbackResponse) Reset() {
+	*x = RegisterConnectivityDiagnosticsCallbackResponse{}
+	mi := &file_proto_net_net_proto_msgTypes[97]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *RegisterConnectivityDiagnosticsCallbackResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*RegisterConnectivityDiagnosticsCallbackResponse) ProtoMessage() {}
+
+func (x *RegisterConnectivityDiagnosticsCallbackResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_net_net_proto_msgTypes[97]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use RegisterConnectivityDiagnosticsCallbackResponse.ProtoReflect.Descriptor instead.
+func (*RegisterConnectivityDiagnosticsCallbackResponse) Descriptor() ([]byte, []int) {
+	return file_proto_net_net_proto_rawDescGZIP(), []int{97}
+}
+
+type UnregisterConnectivityDiagnosticsCallbackRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *UnregisterConnectivityDiagnosticsCallbackRequest) Reset() {
+	*x = UnregisterConnectivityDiagnosticsCallbackRequest{}
+	mi := &file_proto_net_net_proto_msgTypes[98]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *UnregisterConnectivityDiagnosticsCallbackRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*UnregisterConnectivityDiagnosticsCallbackRequest) ProtoMessage() {}
+
+func (x *UnregisterConnectivityDiagnosticsCallbackRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_net_net_proto_msgTypes[98]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use UnregisterConnectivityDiagnosticsCallbackRequest.ProtoReflect.Descriptor instead.
+func (*UnregisterConnectivityDiagnosticsCallbackRequest) Descriptor() ([]byte, []int) {
+	return file_proto_net_net_proto_rawDescGZIP(), []int{98}
+}
+
+func (x *UnregisterConnectivityDiagnosticsCallbackRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type UnregisterConnectivityDiagnosticsCallbackResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *UnregisterConnectivityDiagnosticsCallbackResponse) Reset() {
+	*x = UnregisterConnectivityDiagnosticsCallbackResponse{}
+	mi := &file_proto_net_net_proto_msgTypes[99]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *UnregisterConnectivityDiagnosticsCallbackResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*UnregisterConnectivityDiagnosticsCallbackResponse) ProtoMessage() {}
+
+func (x *UnregisterConnectivityDiagnosticsCallbackResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_net_net_proto_msgTypes[99]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use UnregisterConnectivityDiagnosticsCallbackResponse.ProtoReflect.Descriptor instead.
+func (*UnregisterConnectivityDiagnosticsCallbackResponse) Descriptor() ([]byte, []int) {
+	return file_proto_net_net_proto_rawDescGZIP(), []int{99}
+}
+
+type RegisterTetheringEventCallbackRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *RegisterTetheringEventCallbackRequest) Reset() {
+	*x = RegisterTetheringEventCallbackRequest{}
+	mi := &file_proto_net_net_proto_msgTypes[100]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *RegisterTetheringEventCallbackRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*RegisterTetheringEventCallbackRequest) ProtoMessage() {}
+
+func (x *RegisterTetheringEventCallbackRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_net_net_proto_msgTypes[100]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use RegisterTetheringEventCallbackRequest.ProtoReflect.Descriptor instead.
+func (*RegisterTetheringEventCallbackRequest) Descriptor() ([]byte, []int) {
+	return file_proto_net_net_proto_rawDescGZIP(), []int{100}
+}
+
+func (x *RegisterTetheringEventCallbackRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *RegisterTetheringEventCallbackRequest) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type RegisterTetheringEventCallbackResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *RegisterTetheringEventCallbackResponse) Reset() {
+	*x = RegisterTetheringEventCallbackResponse{}
+	mi := &file_proto_net_net_proto_msgTypes[101]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *RegisterTetheringEventCallbackResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*RegisterTetheringEventCallbackResponse) ProtoMessage() {}
+
+func (x *RegisterTetheringEventCallbackResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_net_net_proto_msgTypes[101]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use RegisterTetheringEventCallbackResponse.ProtoReflect.Descriptor instead.
+func (*RegisterTetheringEventCallbackResponse) Descriptor() ([]byte, []int) {
+	return file_proto_net_net_proto_rawDescGZIP(), []int{101}
+}
+
+type StartTetheringRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          int64                  `protobuf:"varint,3,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *StartTetheringRequest) Reset() {
+	*x = StartTetheringRequest{}
+	mi := &file_proto_net_net_proto_msgTypes[102]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *StartTetheringRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*StartTetheringRequest) ProtoMessage() {}
+
+func (x *StartTetheringRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_net_net_proto_msgTypes[102]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use StartTetheringRequest.ProtoReflect.Descriptor instead.
+func (*StartTetheringRequest) Descriptor() ([]byte, []int) {
+	return file_proto_net_net_proto_rawDescGZIP(), []int{102}
+}
+
+func (x *StartTetheringRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *StartTetheringRequest) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+func (x *StartTetheringRequest) GetArg2() int64 {
+	if x != nil {
+		return x.Arg2
+	}
+	return 0
+}
+
+type StartTetheringResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *StartTetheringResponse) Reset() {
+	*x = StartTetheringResponse{}
+	mi := &file_proto_net_net_proto_msgTypes[103]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *StartTetheringResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*StartTetheringResponse) ProtoMessage() {}
+
+func (x *StartTetheringResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_net_net_proto_msgTypes[103]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use StartTetheringResponse.ProtoReflect.Descriptor instead.
+func (*StartTetheringResponse) Descriptor() ([]byte, []int) {
+	return file_proto_net_net_proto_rawDescGZIP(), []int{103}
+}
+
+type StopTetheringRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          int64                  `protobuf:"varint,3,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *StopTetheringRequest) Reset() {
+	*x = StopTetheringRequest{}
+	mi := &file_proto_net_net_proto_msgTypes[104]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *StopTetheringRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*StopTetheringRequest) ProtoMessage() {}
+
+func (x *StopTetheringRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_net_net_proto_msgTypes[104]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use StopTetheringRequest.ProtoReflect.Descriptor instead.
+func (*StopTetheringRequest) Descriptor() ([]byte, []int) {
+	return file_proto_net_net_proto_rawDescGZIP(), []int{104}
+}
+
+func (x *StopTetheringRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *StopTetheringRequest) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+func (x *StopTetheringRequest) GetArg2() int64 {
+	if x != nil {
+		return x.Arg2
+	}
+	return 0
+}
+
+type StopTetheringResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *StopTetheringResponse) Reset() {
+	*x = StopTetheringResponse{}
+	mi := &file_proto_net_net_proto_msgTypes[105]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *StopTetheringResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*StopTetheringResponse) ProtoMessage() {}
+
+func (x *StopTetheringResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_net_net_proto_msgTypes[105]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use StopTetheringResponse.ProtoReflect.Descriptor instead.
+func (*StopTetheringResponse) Descriptor() ([]byte, []int) {
+	return file_proto_net_net_proto_rawDescGZIP(), []int{105}
+}
+
+type UnregisterTetheringEventCallbackRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *UnregisterTetheringEventCallbackRequest) Reset() {
+	*x = UnregisterTetheringEventCallbackRequest{}
+	mi := &file_proto_net_net_proto_msgTypes[106]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *UnregisterTetheringEventCallbackRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*UnregisterTetheringEventCallbackRequest) ProtoMessage() {}
+
+func (x *UnregisterTetheringEventCallbackRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_net_net_proto_msgTypes[106]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use UnregisterTetheringEventCallbackRequest.ProtoReflect.Descriptor instead.
+func (*UnregisterTetheringEventCallbackRequest) Descriptor() ([]byte, []int) {
+	return file_proto_net_net_proto_rawDescGZIP(), []int{106}
+}
+
+func (x *UnregisterTetheringEventCallbackRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type UnregisterTetheringEventCallbackResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *UnregisterTetheringEventCallbackResponse) Reset() {
+	*x = UnregisterTetheringEventCallbackResponse{}
+	mi := &file_proto_net_net_proto_msgTypes[107]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *UnregisterTetheringEventCallbackResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*UnregisterTetheringEventCallbackResponse) ProtoMessage() {}
+
+func (x *UnregisterTetheringEventCallbackResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_net_net_proto_msgTypes[107]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use UnregisterTetheringEventCallbackResponse.ProtoReflect.Descriptor instead.
+func (*UnregisterTetheringEventCallbackResponse) Descriptor() ([]byte, []int) {
+	return file_proto_net_net_proto_rawDescGZIP(), []int{107}
+}
+
 var File_proto_net_net_proto protoreflect.FileDescriptor
 
 const file_proto_net_net_proto_rawDesc = "" +
 	"\n" +
-	"\x13proto/net/net.proto\x12\x03net\"l\n" +
-	".RegisterConnectivityDiagnosticsCallbackRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
-	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\x12\x12\n" +
-	"\x04arg2\x18\x03 \x01(\x03R\x04arg2\"1\n" +
-	"/RegisterConnectivityDiagnosticsCallbackResponse\"F\n" +
-	"0UnregisterConnectivityDiagnosticsCallbackRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"3\n" +
-	"1UnregisterConnectivityDiagnosticsCallbackResponse\"<\n" +
+	"\x13proto/net/net.proto\x12\x03net\"<\n" +
 	"&AllocateSecurityParameterIndex1Request\x12\x12\n" +
 	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"A\n" +
 	"'AllocateSecurityParameterIndex1Response\x12\x16\n" +
@@ -4731,24 +4723,7 @@ const file_proto_net_net_proto_rawDesc = "" +
 	"(RemoveTransportModeTransforms1_1Response\"=\n" +
 	"'RemoveTransportModeTransforms1_2Request\x12\x12\n" +
 	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"*\n" +
-	"(RemoveTransportModeTransforms1_2Response\"O\n" +
-	"%RegisterTetheringEventCallbackRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
-	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\"(\n" +
-	"&RegisterTetheringEventCallbackResponse\"S\n" +
-	"\x15StartTetheringRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
-	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\x12\x12\n" +
-	"\x04arg2\x18\x03 \x01(\x03R\x04arg2\"\x18\n" +
-	"\x16StartTetheringResponse\"R\n" +
-	"\x14StopTetheringRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
-	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\x12\x12\n" +
-	"\x04arg2\x18\x03 \x01(\x03R\x04arg2\"\x17\n" +
-	"\x15StopTetheringResponse\"=\n" +
-	"'UnregisterTetheringEventCallbackRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"*\n" +
-	"(UnregisterTetheringEventCallbackResponse\"<\n" +
+	"(RemoveTransportModeTransforms1_2Response\"<\n" +
 	"&AddDefaultNetworkActiveListenerRequest\x12\x12\n" +
 	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\")\n" +
 	"'AddDefaultNetworkActiveListenerResponse\"1\n" +
@@ -4887,10 +4862,32 @@ const file_proto_net_net_proto_rawDesc = "" +
 	"\x1fSetProcessDefaultNetworkRequest\x12\x12\n" +
 	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\":\n" +
 	" SetProcessDefaultNetworkResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\bR\x06result2\xdb\x02\n" +
-	"%ConnectivityDiagnosticsManagerService\x12\x94\x01\n" +
-	"'RegisterConnectivityDiagnosticsCallback\x123.net.RegisterConnectivityDiagnosticsCallbackRequest\x1a4.net.RegisterConnectivityDiagnosticsCallbackResponse\x12\x9a\x01\n" +
-	")UnregisterConnectivityDiagnosticsCallback\x125.net.UnregisterConnectivityDiagnosticsCallbackRequest\x1a6.net.UnregisterConnectivityDiagnosticsCallbackResponse2\xea\t\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\"l\n" +
+	".RegisterConnectivityDiagnosticsCallbackRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x03 \x01(\x03R\x04arg2\"1\n" +
+	"/RegisterConnectivityDiagnosticsCallbackResponse\"F\n" +
+	"0UnregisterConnectivityDiagnosticsCallbackRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"3\n" +
+	"1UnregisterConnectivityDiagnosticsCallbackResponse\"O\n" +
+	"%RegisterTetheringEventCallbackRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\"(\n" +
+	"&RegisterTetheringEventCallbackResponse\"S\n" +
+	"\x15StartTetheringRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x03 \x01(\x03R\x04arg2\"\x18\n" +
+	"\x16StartTetheringResponse\"R\n" +
+	"\x14StopTetheringRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x03 \x01(\x03R\x04arg2\"\x17\n" +
+	"\x15StopTetheringResponse\"=\n" +
+	"'UnregisterTetheringEventCallbackRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"*\n" +
+	"(UnregisterTetheringEventCallbackResponse2\xea\t\n" +
 	"\x13IpSecManagerService\x12|\n" +
 	"\x1fAllocateSecurityParameterIndex1\x12+.net.AllocateSecurityParameterIndex1Request\x1a,.net.AllocateSecurityParameterIndex1Response\x12\x82\x01\n" +
 	"!AllocateSecurityParameterIndex2_1\x12-.net.AllocateSecurityParameterIndex2_1Request\x1a..net.AllocateSecurityParameterIndex2_1Response\x12s\n" +
@@ -4901,12 +4898,7 @@ const file_proto_net_net_proto_rawDesc = "" +
 	"\x1dOpenUdpEncapsulationSocket1_1\x12).net.OpenUdpEncapsulationSocket1_1Request\x1a*.net.OpenUdpEncapsulationSocket1_1Response\x12y\n" +
 	"\x1eRemoveTransportModeTransforms1\x12*.net.RemoveTransportModeTransforms1Request\x1a+.net.RemoveTransportModeTransforms1Response\x12\x7f\n" +
 	" RemoveTransportModeTransforms1_1\x12,.net.RemoveTransportModeTransforms1_1Request\x1a-.net.RemoveTransportModeTransforms1_1Response\x12\x7f\n" +
-	" RemoveTransportModeTransforms1_2\x12,.net.RemoveTransportModeTransforms1_2Request\x1a-.net.RemoveTransportModeTransforms1_2Response2\xa8\x03\n" +
-	"\x17TetheringManagerService\x12y\n" +
-	"\x1eRegisterTetheringEventCallback\x12*.net.RegisterTetheringEventCallbackRequest\x1a+.net.RegisterTetheringEventCallbackResponse\x12I\n" +
-	"\x0eStartTethering\x12\x1a.net.StartTetheringRequest\x1a\x1b.net.StartTetheringResponse\x12F\n" +
-	"\rStopTethering\x12\x19.net.StopTetheringRequest\x1a\x1a.net.StopTetheringResponse\x12\x7f\n" +
-	" UnregisterTetheringEventCallback\x12,.net.UnregisterTetheringEventCallbackRequest\x1a-.net.UnregisterTetheringEventCallbackResponse2\xab\x1d\n" +
+	" RemoveTransportModeTransforms1_2\x12,.net.RemoveTransportModeTransforms1_2Request\x1a-.net.RemoveTransportModeTransforms1_2Response2\xab\x1d\n" +
 	"\x1aConnectivityManagerService\x12|\n" +
 	"\x1fAddDefaultNetworkActiveListener\x12+.net.AddDefaultNetworkActiveListenerRequest\x1a,.net.AddDefaultNetworkActiveListenerResponse\x12[\n" +
 	"\x14BindProcessToNetwork\x12 .net.BindProcessToNetworkRequest\x1a!.net.BindProcessToNetworkResponse\x12^\n" +
@@ -4945,7 +4937,15 @@ const file_proto_net_net_proto_rawDesc = "" +
 	"\x1cUnregisterNetworkCallback1_1\x12(.net.UnregisterNetworkCallback1_1Request\x1a).net.UnregisterNetworkCallback1_1Response\x12g\n" +
 	"\x18GetProcessDefaultNetwork\x12$.net.GetProcessDefaultNetworkRequest\x1a%.net.GetProcessDefaultNetworkResponse\x12U\n" +
 	"\x12IsNetworkTypeValid\x12\x1e.net.IsNetworkTypeValidRequest\x1a\x1f.net.IsNetworkTypeValidResponse\x12g\n" +
-	"\x18SetProcessDefaultNetwork\x12$.net.SetProcessDefaultNetworkRequest\x1a%.net.SetProcessDefaultNetworkResponseB-Z+github.com/AndroidGoLab/jni-proxy/proto/netb\x06proto3"
+	"\x18SetProcessDefaultNetwork\x12$.net.SetProcessDefaultNetworkRequest\x1a%.net.SetProcessDefaultNetworkResponse2\xdb\x02\n" +
+	"%ConnectivityDiagnosticsManagerService\x12\x94\x01\n" +
+	"'RegisterConnectivityDiagnosticsCallback\x123.net.RegisterConnectivityDiagnosticsCallbackRequest\x1a4.net.RegisterConnectivityDiagnosticsCallbackResponse\x12\x9a\x01\n" +
+	")UnregisterConnectivityDiagnosticsCallback\x125.net.UnregisterConnectivityDiagnosticsCallbackRequest\x1a6.net.UnregisterConnectivityDiagnosticsCallbackResponse2\xa8\x03\n" +
+	"\x17TetheringManagerService\x12y\n" +
+	"\x1eRegisterTetheringEventCallback\x12*.net.RegisterTetheringEventCallbackRequest\x1a+.net.RegisterTetheringEventCallbackResponse\x12I\n" +
+	"\x0eStartTethering\x12\x1a.net.StartTetheringRequest\x1a\x1b.net.StartTetheringResponse\x12F\n" +
+	"\rStopTethering\x12\x19.net.StopTetheringRequest\x1a\x1a.net.StopTetheringResponse\x12\x7f\n" +
+	" UnregisterTetheringEventCallback\x12,.net.UnregisterTetheringEventCallbackRequest\x1a-.net.UnregisterTetheringEventCallbackResponseB-Z+github.com/AndroidGoLab/jni-proxy/proto/netb\x06proto3"
 
 var (
 	file_proto_net_net_proto_rawDescOnce sync.Once
@@ -4961,224 +4961,224 @@ func file_proto_net_net_proto_rawDescGZIP() []byte {
 
 var file_proto_net_net_proto_msgTypes = make([]protoimpl.MessageInfo, 108)
 var file_proto_net_net_proto_goTypes = []any{
-	(*RegisterConnectivityDiagnosticsCallbackRequest)(nil),    // 0: net.RegisterConnectivityDiagnosticsCallbackRequest
-	(*RegisterConnectivityDiagnosticsCallbackResponse)(nil),   // 1: net.RegisterConnectivityDiagnosticsCallbackResponse
-	(*UnregisterConnectivityDiagnosticsCallbackRequest)(nil),  // 2: net.UnregisterConnectivityDiagnosticsCallbackRequest
-	(*UnregisterConnectivityDiagnosticsCallbackResponse)(nil), // 3: net.UnregisterConnectivityDiagnosticsCallbackResponse
-	(*AllocateSecurityParameterIndex1Request)(nil),            // 4: net.AllocateSecurityParameterIndex1Request
-	(*AllocateSecurityParameterIndex1Response)(nil),           // 5: net.AllocateSecurityParameterIndex1Response
-	(*AllocateSecurityParameterIndex2_1Request)(nil),          // 6: net.AllocateSecurityParameterIndex2_1Request
-	(*AllocateSecurityParameterIndex2_1Response)(nil),         // 7: net.AllocateSecurityParameterIndex2_1Response
-	(*ApplyTransportModeTransform3Request)(nil),               // 8: net.ApplyTransportModeTransform3Request
-	(*ApplyTransportModeTransform3Response)(nil),              // 9: net.ApplyTransportModeTransform3Response
-	(*ApplyTransportModeTransform3_1Request)(nil),             // 10: net.ApplyTransportModeTransform3_1Request
-	(*ApplyTransportModeTransform3_1Response)(nil),            // 11: net.ApplyTransportModeTransform3_1Response
-	(*ApplyTransportModeTransform3_2Request)(nil),             // 12: net.ApplyTransportModeTransform3_2Request
-	(*ApplyTransportModeTransform3_2Response)(nil),            // 13: net.ApplyTransportModeTransform3_2Response
-	(*OpenUdpEncapsulationSocket0Request)(nil),                // 14: net.OpenUdpEncapsulationSocket0Request
-	(*OpenUdpEncapsulationSocket0Response)(nil),               // 15: net.OpenUdpEncapsulationSocket0Response
-	(*OpenUdpEncapsulationSocket1_1Request)(nil),              // 16: net.OpenUdpEncapsulationSocket1_1Request
-	(*OpenUdpEncapsulationSocket1_1Response)(nil),             // 17: net.OpenUdpEncapsulationSocket1_1Response
-	(*RemoveTransportModeTransforms1Request)(nil),             // 18: net.RemoveTransportModeTransforms1Request
-	(*RemoveTransportModeTransforms1Response)(nil),            // 19: net.RemoveTransportModeTransforms1Response
-	(*RemoveTransportModeTransforms1_1Request)(nil),           // 20: net.RemoveTransportModeTransforms1_1Request
-	(*RemoveTransportModeTransforms1_1Response)(nil),          // 21: net.RemoveTransportModeTransforms1_1Response
-	(*RemoveTransportModeTransforms1_2Request)(nil),           // 22: net.RemoveTransportModeTransforms1_2Request
-	(*RemoveTransportModeTransforms1_2Response)(nil),          // 23: net.RemoveTransportModeTransforms1_2Response
-	(*RegisterTetheringEventCallbackRequest)(nil),             // 24: net.RegisterTetheringEventCallbackRequest
-	(*RegisterTetheringEventCallbackResponse)(nil),            // 25: net.RegisterTetheringEventCallbackResponse
-	(*StartTetheringRequest)(nil),                             // 26: net.StartTetheringRequest
-	(*StartTetheringResponse)(nil),                            // 27: net.StartTetheringResponse
-	(*StopTetheringRequest)(nil),                              // 28: net.StopTetheringRequest
-	(*StopTetheringResponse)(nil),                             // 29: net.StopTetheringResponse
-	(*UnregisterTetheringEventCallbackRequest)(nil),           // 30: net.UnregisterTetheringEventCallbackRequest
-	(*UnregisterTetheringEventCallbackResponse)(nil),          // 31: net.UnregisterTetheringEventCallbackResponse
-	(*AddDefaultNetworkActiveListenerRequest)(nil),            // 32: net.AddDefaultNetworkActiveListenerRequest
-	(*AddDefaultNetworkActiveListenerResponse)(nil),           // 33: net.AddDefaultNetworkActiveListenerResponse
-	(*BindProcessToNetworkRequest)(nil),                       // 34: net.BindProcessToNetworkRequest
-	(*BindProcessToNetworkResponse)(nil),                      // 35: net.BindProcessToNetworkResponse
-	(*CreateSocketKeepaliveRequest)(nil),                      // 36: net.CreateSocketKeepaliveRequest
-	(*CreateSocketKeepaliveResponse)(nil),                     // 37: net.CreateSocketKeepaliveResponse
-	(*GetActiveNetworkRequest)(nil),                           // 38: net.GetActiveNetworkRequest
-	(*GetActiveNetworkResponse)(nil),                          // 39: net.GetActiveNetworkResponse
-	(*GetActiveNetworkInfoRequest)(nil),                       // 40: net.GetActiveNetworkInfoRequest
-	(*GetActiveNetworkInfoResponse)(nil),                      // 41: net.GetActiveNetworkInfoResponse
-	(*GetAllNetworkInfoRequest)(nil),                          // 42: net.GetAllNetworkInfoRequest
-	(*GetAllNetworkInfoResponse)(nil),                         // 43: net.GetAllNetworkInfoResponse
-	(*GetAllNetworksRequest)(nil),                             // 44: net.GetAllNetworksRequest
-	(*GetAllNetworksResponse)(nil),                            // 45: net.GetAllNetworksResponse
-	(*GetBackgroundDataSettingRequest)(nil),                   // 46: net.GetBackgroundDataSettingRequest
-	(*GetBackgroundDataSettingResponse)(nil),                  // 47: net.GetBackgroundDataSettingResponse
-	(*GetBoundNetworkForProcessRequest)(nil),                  // 48: net.GetBoundNetworkForProcessRequest
-	(*GetBoundNetworkForProcessResponse)(nil),                 // 49: net.GetBoundNetworkForProcessResponse
-	(*GetConnectionOwnerUidRequest)(nil),                      // 50: net.GetConnectionOwnerUidRequest
-	(*GetConnectionOwnerUidResponse)(nil),                     // 51: net.GetConnectionOwnerUidResponse
-	(*GetDefaultProxyRequest)(nil),                            // 52: net.GetDefaultProxyRequest
-	(*GetDefaultProxyResponse)(nil),                           // 53: net.GetDefaultProxyResponse
-	(*GetLinkPropertiesRequest)(nil),                          // 54: net.GetLinkPropertiesRequest
-	(*GetLinkPropertiesResponse)(nil),                         // 55: net.GetLinkPropertiesResponse
-	(*GetMultipathPreferenceRequest)(nil),                     // 56: net.GetMultipathPreferenceRequest
-	(*GetMultipathPreferenceResponse)(nil),                    // 57: net.GetMultipathPreferenceResponse
-	(*GetNetworkCapabilitiesRequest)(nil),                     // 58: net.GetNetworkCapabilitiesRequest
-	(*GetNetworkCapabilitiesResponse)(nil),                    // 59: net.GetNetworkCapabilitiesResponse
-	(*GetNetworkInfo1Request)(nil),                            // 60: net.GetNetworkInfo1Request
-	(*GetNetworkInfo1Response)(nil),                           // 61: net.GetNetworkInfo1Response
-	(*GetNetworkInfo1_1Request)(nil),                          // 62: net.GetNetworkInfo1_1Request
-	(*GetNetworkInfo1_1Response)(nil),                         // 63: net.GetNetworkInfo1_1Response
-	(*GetNetworkPreferenceRequest)(nil),                       // 64: net.GetNetworkPreferenceRequest
-	(*GetNetworkPreferenceResponse)(nil),                      // 65: net.GetNetworkPreferenceResponse
-	(*GetNetworkWatchlistConfigHashRequest)(nil),              // 66: net.GetNetworkWatchlistConfigHashRequest
-	(*GetNetworkWatchlistConfigHashResponse)(nil),             // 67: net.GetNetworkWatchlistConfigHashResponse
-	(*GetRestrictBackgroundStatusRequest)(nil),                // 68: net.GetRestrictBackgroundStatusRequest
-	(*GetRestrictBackgroundStatusResponse)(nil),               // 69: net.GetRestrictBackgroundStatusResponse
-	(*IsActiveNetworkMeteredRequest)(nil),                     // 70: net.IsActiveNetworkMeteredRequest
-	(*IsActiveNetworkMeteredResponse)(nil),                    // 71: net.IsActiveNetworkMeteredResponse
-	(*IsDefaultNetworkActiveRequest)(nil),                     // 72: net.IsDefaultNetworkActiveRequest
-	(*IsDefaultNetworkActiveResponse)(nil),                    // 73: net.IsDefaultNetworkActiveResponse
-	(*RegisterDefaultNetworkCallbackRequest)(nil),             // 74: net.RegisterDefaultNetworkCallbackRequest
-	(*RegisterDefaultNetworkCallbackResponse)(nil),            // 75: net.RegisterDefaultNetworkCallbackResponse
-	(*RegisterNetworkCallback2Request)(nil),                   // 76: net.RegisterNetworkCallback2Request
-	(*RegisterNetworkCallback2Response)(nil),                  // 77: net.RegisterNetworkCallback2Response
-	(*RegisterNetworkCallback2_1Request)(nil),                 // 78: net.RegisterNetworkCallback2_1Request
-	(*RegisterNetworkCallback2_1Response)(nil),                // 79: net.RegisterNetworkCallback2_1Response
-	(*ReleaseNetworkRequestRequest)(nil),                      // 80: net.ReleaseNetworkRequestRequest
-	(*ReleaseNetworkRequestResponse)(nil),                     // 81: net.ReleaseNetworkRequestResponse
-	(*RemoveDefaultNetworkActiveListenerRequest)(nil),         // 82: net.RemoveDefaultNetworkActiveListenerRequest
-	(*RemoveDefaultNetworkActiveListenerResponse)(nil),        // 83: net.RemoveDefaultNetworkActiveListenerResponse
-	(*ReportBadNetworkRequest)(nil),                           // 84: net.ReportBadNetworkRequest
-	(*ReportBadNetworkResponse)(nil),                          // 85: net.ReportBadNetworkResponse
-	(*ReportNetworkConnectivityRequest)(nil),                  // 86: net.ReportNetworkConnectivityRequest
-	(*ReportNetworkConnectivityResponse)(nil),                 // 87: net.ReportNetworkConnectivityResponse
-	(*RequestBandwidthUpdateRequest)(nil),                     // 88: net.RequestBandwidthUpdateRequest
-	(*RequestBandwidthUpdateResponse)(nil),                    // 89: net.RequestBandwidthUpdateResponse
-	(*RequestNetwork2Request)(nil),                            // 90: net.RequestNetwork2Request
-	(*RequestNetwork2Response)(nil),                           // 91: net.RequestNetwork2Response
-	(*RequestNetwork2_1Request)(nil),                          // 92: net.RequestNetwork2_1Request
-	(*RequestNetwork2_1Response)(nil),                         // 93: net.RequestNetwork2_1Response
-	(*RequestNetwork3_2Request)(nil),                          // 94: net.RequestNetwork3_2Request
-	(*RequestNetwork3_2Response)(nil),                         // 95: net.RequestNetwork3_2Response
-	(*SetNetworkPreferenceRequest)(nil),                       // 96: net.SetNetworkPreferenceRequest
-	(*SetNetworkPreferenceResponse)(nil),                      // 97: net.SetNetworkPreferenceResponse
-	(*UnregisterNetworkCallback1Request)(nil),                 // 98: net.UnregisterNetworkCallback1Request
-	(*UnregisterNetworkCallback1Response)(nil),                // 99: net.UnregisterNetworkCallback1Response
-	(*UnregisterNetworkCallback1_1Request)(nil),               // 100: net.UnregisterNetworkCallback1_1Request
-	(*UnregisterNetworkCallback1_1Response)(nil),              // 101: net.UnregisterNetworkCallback1_1Response
-	(*GetProcessDefaultNetworkRequest)(nil),                   // 102: net.GetProcessDefaultNetworkRequest
-	(*GetProcessDefaultNetworkResponse)(nil),                  // 103: net.GetProcessDefaultNetworkResponse
-	(*IsNetworkTypeValidRequest)(nil),                         // 104: net.IsNetworkTypeValidRequest
-	(*IsNetworkTypeValidResponse)(nil),                        // 105: net.IsNetworkTypeValidResponse
-	(*SetProcessDefaultNetworkRequest)(nil),                   // 106: net.SetProcessDefaultNetworkRequest
-	(*SetProcessDefaultNetworkResponse)(nil),                  // 107: net.SetProcessDefaultNetworkResponse
+	(*AllocateSecurityParameterIndex1Request)(nil),            // 0: net.AllocateSecurityParameterIndex1Request
+	(*AllocateSecurityParameterIndex1Response)(nil),           // 1: net.AllocateSecurityParameterIndex1Response
+	(*AllocateSecurityParameterIndex2_1Request)(nil),          // 2: net.AllocateSecurityParameterIndex2_1Request
+	(*AllocateSecurityParameterIndex2_1Response)(nil),         // 3: net.AllocateSecurityParameterIndex2_1Response
+	(*ApplyTransportModeTransform3Request)(nil),               // 4: net.ApplyTransportModeTransform3Request
+	(*ApplyTransportModeTransform3Response)(nil),              // 5: net.ApplyTransportModeTransform3Response
+	(*ApplyTransportModeTransform3_1Request)(nil),             // 6: net.ApplyTransportModeTransform3_1Request
+	(*ApplyTransportModeTransform3_1Response)(nil),            // 7: net.ApplyTransportModeTransform3_1Response
+	(*ApplyTransportModeTransform3_2Request)(nil),             // 8: net.ApplyTransportModeTransform3_2Request
+	(*ApplyTransportModeTransform3_2Response)(nil),            // 9: net.ApplyTransportModeTransform3_2Response
+	(*OpenUdpEncapsulationSocket0Request)(nil),                // 10: net.OpenUdpEncapsulationSocket0Request
+	(*OpenUdpEncapsulationSocket0Response)(nil),               // 11: net.OpenUdpEncapsulationSocket0Response
+	(*OpenUdpEncapsulationSocket1_1Request)(nil),              // 12: net.OpenUdpEncapsulationSocket1_1Request
+	(*OpenUdpEncapsulationSocket1_1Response)(nil),             // 13: net.OpenUdpEncapsulationSocket1_1Response
+	(*RemoveTransportModeTransforms1Request)(nil),             // 14: net.RemoveTransportModeTransforms1Request
+	(*RemoveTransportModeTransforms1Response)(nil),            // 15: net.RemoveTransportModeTransforms1Response
+	(*RemoveTransportModeTransforms1_1Request)(nil),           // 16: net.RemoveTransportModeTransforms1_1Request
+	(*RemoveTransportModeTransforms1_1Response)(nil),          // 17: net.RemoveTransportModeTransforms1_1Response
+	(*RemoveTransportModeTransforms1_2Request)(nil),           // 18: net.RemoveTransportModeTransforms1_2Request
+	(*RemoveTransportModeTransforms1_2Response)(nil),          // 19: net.RemoveTransportModeTransforms1_2Response
+	(*AddDefaultNetworkActiveListenerRequest)(nil),            // 20: net.AddDefaultNetworkActiveListenerRequest
+	(*AddDefaultNetworkActiveListenerResponse)(nil),           // 21: net.AddDefaultNetworkActiveListenerResponse
+	(*BindProcessToNetworkRequest)(nil),                       // 22: net.BindProcessToNetworkRequest
+	(*BindProcessToNetworkResponse)(nil),                      // 23: net.BindProcessToNetworkResponse
+	(*CreateSocketKeepaliveRequest)(nil),                      // 24: net.CreateSocketKeepaliveRequest
+	(*CreateSocketKeepaliveResponse)(nil),                     // 25: net.CreateSocketKeepaliveResponse
+	(*GetActiveNetworkRequest)(nil),                           // 26: net.GetActiveNetworkRequest
+	(*GetActiveNetworkResponse)(nil),                          // 27: net.GetActiveNetworkResponse
+	(*GetActiveNetworkInfoRequest)(nil),                       // 28: net.GetActiveNetworkInfoRequest
+	(*GetActiveNetworkInfoResponse)(nil),                      // 29: net.GetActiveNetworkInfoResponse
+	(*GetAllNetworkInfoRequest)(nil),                          // 30: net.GetAllNetworkInfoRequest
+	(*GetAllNetworkInfoResponse)(nil),                         // 31: net.GetAllNetworkInfoResponse
+	(*GetAllNetworksRequest)(nil),                             // 32: net.GetAllNetworksRequest
+	(*GetAllNetworksResponse)(nil),                            // 33: net.GetAllNetworksResponse
+	(*GetBackgroundDataSettingRequest)(nil),                   // 34: net.GetBackgroundDataSettingRequest
+	(*GetBackgroundDataSettingResponse)(nil),                  // 35: net.GetBackgroundDataSettingResponse
+	(*GetBoundNetworkForProcessRequest)(nil),                  // 36: net.GetBoundNetworkForProcessRequest
+	(*GetBoundNetworkForProcessResponse)(nil),                 // 37: net.GetBoundNetworkForProcessResponse
+	(*GetConnectionOwnerUidRequest)(nil),                      // 38: net.GetConnectionOwnerUidRequest
+	(*GetConnectionOwnerUidResponse)(nil),                     // 39: net.GetConnectionOwnerUidResponse
+	(*GetDefaultProxyRequest)(nil),                            // 40: net.GetDefaultProxyRequest
+	(*GetDefaultProxyResponse)(nil),                           // 41: net.GetDefaultProxyResponse
+	(*GetLinkPropertiesRequest)(nil),                          // 42: net.GetLinkPropertiesRequest
+	(*GetLinkPropertiesResponse)(nil),                         // 43: net.GetLinkPropertiesResponse
+	(*GetMultipathPreferenceRequest)(nil),                     // 44: net.GetMultipathPreferenceRequest
+	(*GetMultipathPreferenceResponse)(nil),                    // 45: net.GetMultipathPreferenceResponse
+	(*GetNetworkCapabilitiesRequest)(nil),                     // 46: net.GetNetworkCapabilitiesRequest
+	(*GetNetworkCapabilitiesResponse)(nil),                    // 47: net.GetNetworkCapabilitiesResponse
+	(*GetNetworkInfo1Request)(nil),                            // 48: net.GetNetworkInfo1Request
+	(*GetNetworkInfo1Response)(nil),                           // 49: net.GetNetworkInfo1Response
+	(*GetNetworkInfo1_1Request)(nil),                          // 50: net.GetNetworkInfo1_1Request
+	(*GetNetworkInfo1_1Response)(nil),                         // 51: net.GetNetworkInfo1_1Response
+	(*GetNetworkPreferenceRequest)(nil),                       // 52: net.GetNetworkPreferenceRequest
+	(*GetNetworkPreferenceResponse)(nil),                      // 53: net.GetNetworkPreferenceResponse
+	(*GetNetworkWatchlistConfigHashRequest)(nil),              // 54: net.GetNetworkWatchlistConfigHashRequest
+	(*GetNetworkWatchlistConfigHashResponse)(nil),             // 55: net.GetNetworkWatchlistConfigHashResponse
+	(*GetRestrictBackgroundStatusRequest)(nil),                // 56: net.GetRestrictBackgroundStatusRequest
+	(*GetRestrictBackgroundStatusResponse)(nil),               // 57: net.GetRestrictBackgroundStatusResponse
+	(*IsActiveNetworkMeteredRequest)(nil),                     // 58: net.IsActiveNetworkMeteredRequest
+	(*IsActiveNetworkMeteredResponse)(nil),                    // 59: net.IsActiveNetworkMeteredResponse
+	(*IsDefaultNetworkActiveRequest)(nil),                     // 60: net.IsDefaultNetworkActiveRequest
+	(*IsDefaultNetworkActiveResponse)(nil),                    // 61: net.IsDefaultNetworkActiveResponse
+	(*RegisterDefaultNetworkCallbackRequest)(nil),             // 62: net.RegisterDefaultNetworkCallbackRequest
+	(*RegisterDefaultNetworkCallbackResponse)(nil),            // 63: net.RegisterDefaultNetworkCallbackResponse
+	(*RegisterNetworkCallback2Request)(nil),                   // 64: net.RegisterNetworkCallback2Request
+	(*RegisterNetworkCallback2Response)(nil),                  // 65: net.RegisterNetworkCallback2Response
+	(*RegisterNetworkCallback2_1Request)(nil),                 // 66: net.RegisterNetworkCallback2_1Request
+	(*RegisterNetworkCallback2_1Response)(nil),                // 67: net.RegisterNetworkCallback2_1Response
+	(*ReleaseNetworkRequestRequest)(nil),                      // 68: net.ReleaseNetworkRequestRequest
+	(*ReleaseNetworkRequestResponse)(nil),                     // 69: net.ReleaseNetworkRequestResponse
+	(*RemoveDefaultNetworkActiveListenerRequest)(nil),         // 70: net.RemoveDefaultNetworkActiveListenerRequest
+	(*RemoveDefaultNetworkActiveListenerResponse)(nil),        // 71: net.RemoveDefaultNetworkActiveListenerResponse
+	(*ReportBadNetworkRequest)(nil),                           // 72: net.ReportBadNetworkRequest
+	(*ReportBadNetworkResponse)(nil),                          // 73: net.ReportBadNetworkResponse
+	(*ReportNetworkConnectivityRequest)(nil),                  // 74: net.ReportNetworkConnectivityRequest
+	(*ReportNetworkConnectivityResponse)(nil),                 // 75: net.ReportNetworkConnectivityResponse
+	(*RequestBandwidthUpdateRequest)(nil),                     // 76: net.RequestBandwidthUpdateRequest
+	(*RequestBandwidthUpdateResponse)(nil),                    // 77: net.RequestBandwidthUpdateResponse
+	(*RequestNetwork2Request)(nil),                            // 78: net.RequestNetwork2Request
+	(*RequestNetwork2Response)(nil),                           // 79: net.RequestNetwork2Response
+	(*RequestNetwork2_1Request)(nil),                          // 80: net.RequestNetwork2_1Request
+	(*RequestNetwork2_1Response)(nil),                         // 81: net.RequestNetwork2_1Response
+	(*RequestNetwork3_2Request)(nil),                          // 82: net.RequestNetwork3_2Request
+	(*RequestNetwork3_2Response)(nil),                         // 83: net.RequestNetwork3_2Response
+	(*SetNetworkPreferenceRequest)(nil),                       // 84: net.SetNetworkPreferenceRequest
+	(*SetNetworkPreferenceResponse)(nil),                      // 85: net.SetNetworkPreferenceResponse
+	(*UnregisterNetworkCallback1Request)(nil),                 // 86: net.UnregisterNetworkCallback1Request
+	(*UnregisterNetworkCallback1Response)(nil),                // 87: net.UnregisterNetworkCallback1Response
+	(*UnregisterNetworkCallback1_1Request)(nil),               // 88: net.UnregisterNetworkCallback1_1Request
+	(*UnregisterNetworkCallback1_1Response)(nil),              // 89: net.UnregisterNetworkCallback1_1Response
+	(*GetProcessDefaultNetworkRequest)(nil),                   // 90: net.GetProcessDefaultNetworkRequest
+	(*GetProcessDefaultNetworkResponse)(nil),                  // 91: net.GetProcessDefaultNetworkResponse
+	(*IsNetworkTypeValidRequest)(nil),                         // 92: net.IsNetworkTypeValidRequest
+	(*IsNetworkTypeValidResponse)(nil),                        // 93: net.IsNetworkTypeValidResponse
+	(*SetProcessDefaultNetworkRequest)(nil),                   // 94: net.SetProcessDefaultNetworkRequest
+	(*SetProcessDefaultNetworkResponse)(nil),                  // 95: net.SetProcessDefaultNetworkResponse
+	(*RegisterConnectivityDiagnosticsCallbackRequest)(nil),    // 96: net.RegisterConnectivityDiagnosticsCallbackRequest
+	(*RegisterConnectivityDiagnosticsCallbackResponse)(nil),   // 97: net.RegisterConnectivityDiagnosticsCallbackResponse
+	(*UnregisterConnectivityDiagnosticsCallbackRequest)(nil),  // 98: net.UnregisterConnectivityDiagnosticsCallbackRequest
+	(*UnregisterConnectivityDiagnosticsCallbackResponse)(nil), // 99: net.UnregisterConnectivityDiagnosticsCallbackResponse
+	(*RegisterTetheringEventCallbackRequest)(nil),             // 100: net.RegisterTetheringEventCallbackRequest
+	(*RegisterTetheringEventCallbackResponse)(nil),            // 101: net.RegisterTetheringEventCallbackResponse
+	(*StartTetheringRequest)(nil),                             // 102: net.StartTetheringRequest
+	(*StartTetheringResponse)(nil),                            // 103: net.StartTetheringResponse
+	(*StopTetheringRequest)(nil),                              // 104: net.StopTetheringRequest
+	(*StopTetheringResponse)(nil),                             // 105: net.StopTetheringResponse
+	(*UnregisterTetheringEventCallbackRequest)(nil),           // 106: net.UnregisterTetheringEventCallbackRequest
+	(*UnregisterTetheringEventCallbackResponse)(nil),          // 107: net.UnregisterTetheringEventCallbackResponse
 }
 var file_proto_net_net_proto_depIdxs = []int32{
-	0,   // 0: net.ConnectivityDiagnosticsManagerService.RegisterConnectivityDiagnosticsCallback:input_type -> net.RegisterConnectivityDiagnosticsCallbackRequest
-	2,   // 1: net.ConnectivityDiagnosticsManagerService.UnregisterConnectivityDiagnosticsCallback:input_type -> net.UnregisterConnectivityDiagnosticsCallbackRequest
-	4,   // 2: net.IpSecManagerService.AllocateSecurityParameterIndex1:input_type -> net.AllocateSecurityParameterIndex1Request
-	6,   // 3: net.IpSecManagerService.AllocateSecurityParameterIndex2_1:input_type -> net.AllocateSecurityParameterIndex2_1Request
-	8,   // 4: net.IpSecManagerService.ApplyTransportModeTransform3:input_type -> net.ApplyTransportModeTransform3Request
-	10,  // 5: net.IpSecManagerService.ApplyTransportModeTransform3_1:input_type -> net.ApplyTransportModeTransform3_1Request
-	12,  // 6: net.IpSecManagerService.ApplyTransportModeTransform3_2:input_type -> net.ApplyTransportModeTransform3_2Request
-	14,  // 7: net.IpSecManagerService.OpenUdpEncapsulationSocket0:input_type -> net.OpenUdpEncapsulationSocket0Request
-	16,  // 8: net.IpSecManagerService.OpenUdpEncapsulationSocket1_1:input_type -> net.OpenUdpEncapsulationSocket1_1Request
-	18,  // 9: net.IpSecManagerService.RemoveTransportModeTransforms1:input_type -> net.RemoveTransportModeTransforms1Request
-	20,  // 10: net.IpSecManagerService.RemoveTransportModeTransforms1_1:input_type -> net.RemoveTransportModeTransforms1_1Request
-	22,  // 11: net.IpSecManagerService.RemoveTransportModeTransforms1_2:input_type -> net.RemoveTransportModeTransforms1_2Request
-	24,  // 12: net.TetheringManagerService.RegisterTetheringEventCallback:input_type -> net.RegisterTetheringEventCallbackRequest
-	26,  // 13: net.TetheringManagerService.StartTethering:input_type -> net.StartTetheringRequest
-	28,  // 14: net.TetheringManagerService.StopTethering:input_type -> net.StopTetheringRequest
-	30,  // 15: net.TetheringManagerService.UnregisterTetheringEventCallback:input_type -> net.UnregisterTetheringEventCallbackRequest
-	32,  // 16: net.ConnectivityManagerService.AddDefaultNetworkActiveListener:input_type -> net.AddDefaultNetworkActiveListenerRequest
-	34,  // 17: net.ConnectivityManagerService.BindProcessToNetwork:input_type -> net.BindProcessToNetworkRequest
-	36,  // 18: net.ConnectivityManagerService.CreateSocketKeepalive:input_type -> net.CreateSocketKeepaliveRequest
-	38,  // 19: net.ConnectivityManagerService.GetActiveNetwork:input_type -> net.GetActiveNetworkRequest
-	40,  // 20: net.ConnectivityManagerService.GetActiveNetworkInfo:input_type -> net.GetActiveNetworkInfoRequest
-	42,  // 21: net.ConnectivityManagerService.GetAllNetworkInfo:input_type -> net.GetAllNetworkInfoRequest
-	44,  // 22: net.ConnectivityManagerService.GetAllNetworks:input_type -> net.GetAllNetworksRequest
-	46,  // 23: net.ConnectivityManagerService.GetBackgroundDataSetting:input_type -> net.GetBackgroundDataSettingRequest
-	48,  // 24: net.ConnectivityManagerService.GetBoundNetworkForProcess:input_type -> net.GetBoundNetworkForProcessRequest
-	50,  // 25: net.ConnectivityManagerService.GetConnectionOwnerUid:input_type -> net.GetConnectionOwnerUidRequest
-	52,  // 26: net.ConnectivityManagerService.GetDefaultProxy:input_type -> net.GetDefaultProxyRequest
-	54,  // 27: net.ConnectivityManagerService.GetLinkProperties:input_type -> net.GetLinkPropertiesRequest
-	56,  // 28: net.ConnectivityManagerService.GetMultipathPreference:input_type -> net.GetMultipathPreferenceRequest
-	58,  // 29: net.ConnectivityManagerService.GetNetworkCapabilities:input_type -> net.GetNetworkCapabilitiesRequest
-	60,  // 30: net.ConnectivityManagerService.GetNetworkInfo1:input_type -> net.GetNetworkInfo1Request
-	62,  // 31: net.ConnectivityManagerService.GetNetworkInfo1_1:input_type -> net.GetNetworkInfo1_1Request
-	64,  // 32: net.ConnectivityManagerService.GetNetworkPreference:input_type -> net.GetNetworkPreferenceRequest
-	66,  // 33: net.ConnectivityManagerService.GetNetworkWatchlistConfigHash:input_type -> net.GetNetworkWatchlistConfigHashRequest
-	68,  // 34: net.ConnectivityManagerService.GetRestrictBackgroundStatus:input_type -> net.GetRestrictBackgroundStatusRequest
-	70,  // 35: net.ConnectivityManagerService.IsActiveNetworkMetered:input_type -> net.IsActiveNetworkMeteredRequest
-	72,  // 36: net.ConnectivityManagerService.IsDefaultNetworkActive:input_type -> net.IsDefaultNetworkActiveRequest
-	74,  // 37: net.ConnectivityManagerService.RegisterDefaultNetworkCallback:input_type -> net.RegisterDefaultNetworkCallbackRequest
-	76,  // 38: net.ConnectivityManagerService.RegisterNetworkCallback2:input_type -> net.RegisterNetworkCallback2Request
-	78,  // 39: net.ConnectivityManagerService.RegisterNetworkCallback2_1:input_type -> net.RegisterNetworkCallback2_1Request
-	80,  // 40: net.ConnectivityManagerService.ReleaseNetworkRequest:input_type -> net.ReleaseNetworkRequestRequest
-	82,  // 41: net.ConnectivityManagerService.RemoveDefaultNetworkActiveListener:input_type -> net.RemoveDefaultNetworkActiveListenerRequest
-	84,  // 42: net.ConnectivityManagerService.ReportBadNetwork:input_type -> net.ReportBadNetworkRequest
-	86,  // 43: net.ConnectivityManagerService.ReportNetworkConnectivity:input_type -> net.ReportNetworkConnectivityRequest
-	88,  // 44: net.ConnectivityManagerService.RequestBandwidthUpdate:input_type -> net.RequestBandwidthUpdateRequest
-	90,  // 45: net.ConnectivityManagerService.RequestNetwork2:input_type -> net.RequestNetwork2Request
-	92,  // 46: net.ConnectivityManagerService.RequestNetwork2_1:input_type -> net.RequestNetwork2_1Request
-	94,  // 47: net.ConnectivityManagerService.RequestNetwork3_2:input_type -> net.RequestNetwork3_2Request
-	96,  // 48: net.ConnectivityManagerService.SetNetworkPreference:input_type -> net.SetNetworkPreferenceRequest
-	98,  // 49: net.ConnectivityManagerService.UnregisterNetworkCallback1:input_type -> net.UnregisterNetworkCallback1Request
-	100, // 50: net.ConnectivityManagerService.UnregisterNetworkCallback1_1:input_type -> net.UnregisterNetworkCallback1_1Request
-	102, // 51: net.ConnectivityManagerService.GetProcessDefaultNetwork:input_type -> net.GetProcessDefaultNetworkRequest
-	104, // 52: net.ConnectivityManagerService.IsNetworkTypeValid:input_type -> net.IsNetworkTypeValidRequest
-	106, // 53: net.ConnectivityManagerService.SetProcessDefaultNetwork:input_type -> net.SetProcessDefaultNetworkRequest
-	1,   // 54: net.ConnectivityDiagnosticsManagerService.RegisterConnectivityDiagnosticsCallback:output_type -> net.RegisterConnectivityDiagnosticsCallbackResponse
-	3,   // 55: net.ConnectivityDiagnosticsManagerService.UnregisterConnectivityDiagnosticsCallback:output_type -> net.UnregisterConnectivityDiagnosticsCallbackResponse
-	5,   // 56: net.IpSecManagerService.AllocateSecurityParameterIndex1:output_type -> net.AllocateSecurityParameterIndex1Response
-	7,   // 57: net.IpSecManagerService.AllocateSecurityParameterIndex2_1:output_type -> net.AllocateSecurityParameterIndex2_1Response
-	9,   // 58: net.IpSecManagerService.ApplyTransportModeTransform3:output_type -> net.ApplyTransportModeTransform3Response
-	11,  // 59: net.IpSecManagerService.ApplyTransportModeTransform3_1:output_type -> net.ApplyTransportModeTransform3_1Response
-	13,  // 60: net.IpSecManagerService.ApplyTransportModeTransform3_2:output_type -> net.ApplyTransportModeTransform3_2Response
-	15,  // 61: net.IpSecManagerService.OpenUdpEncapsulationSocket0:output_type -> net.OpenUdpEncapsulationSocket0Response
-	17,  // 62: net.IpSecManagerService.OpenUdpEncapsulationSocket1_1:output_type -> net.OpenUdpEncapsulationSocket1_1Response
-	19,  // 63: net.IpSecManagerService.RemoveTransportModeTransforms1:output_type -> net.RemoveTransportModeTransforms1Response
-	21,  // 64: net.IpSecManagerService.RemoveTransportModeTransforms1_1:output_type -> net.RemoveTransportModeTransforms1_1Response
-	23,  // 65: net.IpSecManagerService.RemoveTransportModeTransforms1_2:output_type -> net.RemoveTransportModeTransforms1_2Response
-	25,  // 66: net.TetheringManagerService.RegisterTetheringEventCallback:output_type -> net.RegisterTetheringEventCallbackResponse
-	27,  // 67: net.TetheringManagerService.StartTethering:output_type -> net.StartTetheringResponse
-	29,  // 68: net.TetheringManagerService.StopTethering:output_type -> net.StopTetheringResponse
-	31,  // 69: net.TetheringManagerService.UnregisterTetheringEventCallback:output_type -> net.UnregisterTetheringEventCallbackResponse
-	33,  // 70: net.ConnectivityManagerService.AddDefaultNetworkActiveListener:output_type -> net.AddDefaultNetworkActiveListenerResponse
-	35,  // 71: net.ConnectivityManagerService.BindProcessToNetwork:output_type -> net.BindProcessToNetworkResponse
-	37,  // 72: net.ConnectivityManagerService.CreateSocketKeepalive:output_type -> net.CreateSocketKeepaliveResponse
-	39,  // 73: net.ConnectivityManagerService.GetActiveNetwork:output_type -> net.GetActiveNetworkResponse
-	41,  // 74: net.ConnectivityManagerService.GetActiveNetworkInfo:output_type -> net.GetActiveNetworkInfoResponse
-	43,  // 75: net.ConnectivityManagerService.GetAllNetworkInfo:output_type -> net.GetAllNetworkInfoResponse
-	45,  // 76: net.ConnectivityManagerService.GetAllNetworks:output_type -> net.GetAllNetworksResponse
-	47,  // 77: net.ConnectivityManagerService.GetBackgroundDataSetting:output_type -> net.GetBackgroundDataSettingResponse
-	49,  // 78: net.ConnectivityManagerService.GetBoundNetworkForProcess:output_type -> net.GetBoundNetworkForProcessResponse
-	51,  // 79: net.ConnectivityManagerService.GetConnectionOwnerUid:output_type -> net.GetConnectionOwnerUidResponse
-	53,  // 80: net.ConnectivityManagerService.GetDefaultProxy:output_type -> net.GetDefaultProxyResponse
-	55,  // 81: net.ConnectivityManagerService.GetLinkProperties:output_type -> net.GetLinkPropertiesResponse
-	57,  // 82: net.ConnectivityManagerService.GetMultipathPreference:output_type -> net.GetMultipathPreferenceResponse
-	59,  // 83: net.ConnectivityManagerService.GetNetworkCapabilities:output_type -> net.GetNetworkCapabilitiesResponse
-	61,  // 84: net.ConnectivityManagerService.GetNetworkInfo1:output_type -> net.GetNetworkInfo1Response
-	63,  // 85: net.ConnectivityManagerService.GetNetworkInfo1_1:output_type -> net.GetNetworkInfo1_1Response
-	65,  // 86: net.ConnectivityManagerService.GetNetworkPreference:output_type -> net.GetNetworkPreferenceResponse
-	67,  // 87: net.ConnectivityManagerService.GetNetworkWatchlistConfigHash:output_type -> net.GetNetworkWatchlistConfigHashResponse
-	69,  // 88: net.ConnectivityManagerService.GetRestrictBackgroundStatus:output_type -> net.GetRestrictBackgroundStatusResponse
-	71,  // 89: net.ConnectivityManagerService.IsActiveNetworkMetered:output_type -> net.IsActiveNetworkMeteredResponse
-	73,  // 90: net.ConnectivityManagerService.IsDefaultNetworkActive:output_type -> net.IsDefaultNetworkActiveResponse
-	75,  // 91: net.ConnectivityManagerService.RegisterDefaultNetworkCallback:output_type -> net.RegisterDefaultNetworkCallbackResponse
-	77,  // 92: net.ConnectivityManagerService.RegisterNetworkCallback2:output_type -> net.RegisterNetworkCallback2Response
-	79,  // 93: net.ConnectivityManagerService.RegisterNetworkCallback2_1:output_type -> net.RegisterNetworkCallback2_1Response
-	81,  // 94: net.ConnectivityManagerService.ReleaseNetworkRequest:output_type -> net.ReleaseNetworkRequestResponse
-	83,  // 95: net.ConnectivityManagerService.RemoveDefaultNetworkActiveListener:output_type -> net.RemoveDefaultNetworkActiveListenerResponse
-	85,  // 96: net.ConnectivityManagerService.ReportBadNetwork:output_type -> net.ReportBadNetworkResponse
-	87,  // 97: net.ConnectivityManagerService.ReportNetworkConnectivity:output_type -> net.ReportNetworkConnectivityResponse
-	89,  // 98: net.ConnectivityManagerService.RequestBandwidthUpdate:output_type -> net.RequestBandwidthUpdateResponse
-	91,  // 99: net.ConnectivityManagerService.RequestNetwork2:output_type -> net.RequestNetwork2Response
-	93,  // 100: net.ConnectivityManagerService.RequestNetwork2_1:output_type -> net.RequestNetwork2_1Response
-	95,  // 101: net.ConnectivityManagerService.RequestNetwork3_2:output_type -> net.RequestNetwork3_2Response
-	97,  // 102: net.ConnectivityManagerService.SetNetworkPreference:output_type -> net.SetNetworkPreferenceResponse
-	99,  // 103: net.ConnectivityManagerService.UnregisterNetworkCallback1:output_type -> net.UnregisterNetworkCallback1Response
-	101, // 104: net.ConnectivityManagerService.UnregisterNetworkCallback1_1:output_type -> net.UnregisterNetworkCallback1_1Response
-	103, // 105: net.ConnectivityManagerService.GetProcessDefaultNetwork:output_type -> net.GetProcessDefaultNetworkResponse
-	105, // 106: net.ConnectivityManagerService.IsNetworkTypeValid:output_type -> net.IsNetworkTypeValidResponse
-	107, // 107: net.ConnectivityManagerService.SetProcessDefaultNetwork:output_type -> net.SetProcessDefaultNetworkResponse
+	0,   // 0: net.IpSecManagerService.AllocateSecurityParameterIndex1:input_type -> net.AllocateSecurityParameterIndex1Request
+	2,   // 1: net.IpSecManagerService.AllocateSecurityParameterIndex2_1:input_type -> net.AllocateSecurityParameterIndex2_1Request
+	4,   // 2: net.IpSecManagerService.ApplyTransportModeTransform3:input_type -> net.ApplyTransportModeTransform3Request
+	6,   // 3: net.IpSecManagerService.ApplyTransportModeTransform3_1:input_type -> net.ApplyTransportModeTransform3_1Request
+	8,   // 4: net.IpSecManagerService.ApplyTransportModeTransform3_2:input_type -> net.ApplyTransportModeTransform3_2Request
+	10,  // 5: net.IpSecManagerService.OpenUdpEncapsulationSocket0:input_type -> net.OpenUdpEncapsulationSocket0Request
+	12,  // 6: net.IpSecManagerService.OpenUdpEncapsulationSocket1_1:input_type -> net.OpenUdpEncapsulationSocket1_1Request
+	14,  // 7: net.IpSecManagerService.RemoveTransportModeTransforms1:input_type -> net.RemoveTransportModeTransforms1Request
+	16,  // 8: net.IpSecManagerService.RemoveTransportModeTransforms1_1:input_type -> net.RemoveTransportModeTransforms1_1Request
+	18,  // 9: net.IpSecManagerService.RemoveTransportModeTransforms1_2:input_type -> net.RemoveTransportModeTransforms1_2Request
+	20,  // 10: net.ConnectivityManagerService.AddDefaultNetworkActiveListener:input_type -> net.AddDefaultNetworkActiveListenerRequest
+	22,  // 11: net.ConnectivityManagerService.BindProcessToNetwork:input_type -> net.BindProcessToNetworkRequest
+	24,  // 12: net.ConnectivityManagerService.CreateSocketKeepalive:input_type -> net.CreateSocketKeepaliveRequest
+	26,  // 13: net.ConnectivityManagerService.GetActiveNetwork:input_type -> net.GetActiveNetworkRequest
+	28,  // 14: net.ConnectivityManagerService.GetActiveNetworkInfo:input_type -> net.GetActiveNetworkInfoRequest
+	30,  // 15: net.ConnectivityManagerService.GetAllNetworkInfo:input_type -> net.GetAllNetworkInfoRequest
+	32,  // 16: net.ConnectivityManagerService.GetAllNetworks:input_type -> net.GetAllNetworksRequest
+	34,  // 17: net.ConnectivityManagerService.GetBackgroundDataSetting:input_type -> net.GetBackgroundDataSettingRequest
+	36,  // 18: net.ConnectivityManagerService.GetBoundNetworkForProcess:input_type -> net.GetBoundNetworkForProcessRequest
+	38,  // 19: net.ConnectivityManagerService.GetConnectionOwnerUid:input_type -> net.GetConnectionOwnerUidRequest
+	40,  // 20: net.ConnectivityManagerService.GetDefaultProxy:input_type -> net.GetDefaultProxyRequest
+	42,  // 21: net.ConnectivityManagerService.GetLinkProperties:input_type -> net.GetLinkPropertiesRequest
+	44,  // 22: net.ConnectivityManagerService.GetMultipathPreference:input_type -> net.GetMultipathPreferenceRequest
+	46,  // 23: net.ConnectivityManagerService.GetNetworkCapabilities:input_type -> net.GetNetworkCapabilitiesRequest
+	48,  // 24: net.ConnectivityManagerService.GetNetworkInfo1:input_type -> net.GetNetworkInfo1Request
+	50,  // 25: net.ConnectivityManagerService.GetNetworkInfo1_1:input_type -> net.GetNetworkInfo1_1Request
+	52,  // 26: net.ConnectivityManagerService.GetNetworkPreference:input_type -> net.GetNetworkPreferenceRequest
+	54,  // 27: net.ConnectivityManagerService.GetNetworkWatchlistConfigHash:input_type -> net.GetNetworkWatchlistConfigHashRequest
+	56,  // 28: net.ConnectivityManagerService.GetRestrictBackgroundStatus:input_type -> net.GetRestrictBackgroundStatusRequest
+	58,  // 29: net.ConnectivityManagerService.IsActiveNetworkMetered:input_type -> net.IsActiveNetworkMeteredRequest
+	60,  // 30: net.ConnectivityManagerService.IsDefaultNetworkActive:input_type -> net.IsDefaultNetworkActiveRequest
+	62,  // 31: net.ConnectivityManagerService.RegisterDefaultNetworkCallback:input_type -> net.RegisterDefaultNetworkCallbackRequest
+	64,  // 32: net.ConnectivityManagerService.RegisterNetworkCallback2:input_type -> net.RegisterNetworkCallback2Request
+	66,  // 33: net.ConnectivityManagerService.RegisterNetworkCallback2_1:input_type -> net.RegisterNetworkCallback2_1Request
+	68,  // 34: net.ConnectivityManagerService.ReleaseNetworkRequest:input_type -> net.ReleaseNetworkRequestRequest
+	70,  // 35: net.ConnectivityManagerService.RemoveDefaultNetworkActiveListener:input_type -> net.RemoveDefaultNetworkActiveListenerRequest
+	72,  // 36: net.ConnectivityManagerService.ReportBadNetwork:input_type -> net.ReportBadNetworkRequest
+	74,  // 37: net.ConnectivityManagerService.ReportNetworkConnectivity:input_type -> net.ReportNetworkConnectivityRequest
+	76,  // 38: net.ConnectivityManagerService.RequestBandwidthUpdate:input_type -> net.RequestBandwidthUpdateRequest
+	78,  // 39: net.ConnectivityManagerService.RequestNetwork2:input_type -> net.RequestNetwork2Request
+	80,  // 40: net.ConnectivityManagerService.RequestNetwork2_1:input_type -> net.RequestNetwork2_1Request
+	82,  // 41: net.ConnectivityManagerService.RequestNetwork3_2:input_type -> net.RequestNetwork3_2Request
+	84,  // 42: net.ConnectivityManagerService.SetNetworkPreference:input_type -> net.SetNetworkPreferenceRequest
+	86,  // 43: net.ConnectivityManagerService.UnregisterNetworkCallback1:input_type -> net.UnregisterNetworkCallback1Request
+	88,  // 44: net.ConnectivityManagerService.UnregisterNetworkCallback1_1:input_type -> net.UnregisterNetworkCallback1_1Request
+	90,  // 45: net.ConnectivityManagerService.GetProcessDefaultNetwork:input_type -> net.GetProcessDefaultNetworkRequest
+	92,  // 46: net.ConnectivityManagerService.IsNetworkTypeValid:input_type -> net.IsNetworkTypeValidRequest
+	94,  // 47: net.ConnectivityManagerService.SetProcessDefaultNetwork:input_type -> net.SetProcessDefaultNetworkRequest
+	96,  // 48: net.ConnectivityDiagnosticsManagerService.RegisterConnectivityDiagnosticsCallback:input_type -> net.RegisterConnectivityDiagnosticsCallbackRequest
+	98,  // 49: net.ConnectivityDiagnosticsManagerService.UnregisterConnectivityDiagnosticsCallback:input_type -> net.UnregisterConnectivityDiagnosticsCallbackRequest
+	100, // 50: net.TetheringManagerService.RegisterTetheringEventCallback:input_type -> net.RegisterTetheringEventCallbackRequest
+	102, // 51: net.TetheringManagerService.StartTethering:input_type -> net.StartTetheringRequest
+	104, // 52: net.TetheringManagerService.StopTethering:input_type -> net.StopTetheringRequest
+	106, // 53: net.TetheringManagerService.UnregisterTetheringEventCallback:input_type -> net.UnregisterTetheringEventCallbackRequest
+	1,   // 54: net.IpSecManagerService.AllocateSecurityParameterIndex1:output_type -> net.AllocateSecurityParameterIndex1Response
+	3,   // 55: net.IpSecManagerService.AllocateSecurityParameterIndex2_1:output_type -> net.AllocateSecurityParameterIndex2_1Response
+	5,   // 56: net.IpSecManagerService.ApplyTransportModeTransform3:output_type -> net.ApplyTransportModeTransform3Response
+	7,   // 57: net.IpSecManagerService.ApplyTransportModeTransform3_1:output_type -> net.ApplyTransportModeTransform3_1Response
+	9,   // 58: net.IpSecManagerService.ApplyTransportModeTransform3_2:output_type -> net.ApplyTransportModeTransform3_2Response
+	11,  // 59: net.IpSecManagerService.OpenUdpEncapsulationSocket0:output_type -> net.OpenUdpEncapsulationSocket0Response
+	13,  // 60: net.IpSecManagerService.OpenUdpEncapsulationSocket1_1:output_type -> net.OpenUdpEncapsulationSocket1_1Response
+	15,  // 61: net.IpSecManagerService.RemoveTransportModeTransforms1:output_type -> net.RemoveTransportModeTransforms1Response
+	17,  // 62: net.IpSecManagerService.RemoveTransportModeTransforms1_1:output_type -> net.RemoveTransportModeTransforms1_1Response
+	19,  // 63: net.IpSecManagerService.RemoveTransportModeTransforms1_2:output_type -> net.RemoveTransportModeTransforms1_2Response
+	21,  // 64: net.ConnectivityManagerService.AddDefaultNetworkActiveListener:output_type -> net.AddDefaultNetworkActiveListenerResponse
+	23,  // 65: net.ConnectivityManagerService.BindProcessToNetwork:output_type -> net.BindProcessToNetworkResponse
+	25,  // 66: net.ConnectivityManagerService.CreateSocketKeepalive:output_type -> net.CreateSocketKeepaliveResponse
+	27,  // 67: net.ConnectivityManagerService.GetActiveNetwork:output_type -> net.GetActiveNetworkResponse
+	29,  // 68: net.ConnectivityManagerService.GetActiveNetworkInfo:output_type -> net.GetActiveNetworkInfoResponse
+	31,  // 69: net.ConnectivityManagerService.GetAllNetworkInfo:output_type -> net.GetAllNetworkInfoResponse
+	33,  // 70: net.ConnectivityManagerService.GetAllNetworks:output_type -> net.GetAllNetworksResponse
+	35,  // 71: net.ConnectivityManagerService.GetBackgroundDataSetting:output_type -> net.GetBackgroundDataSettingResponse
+	37,  // 72: net.ConnectivityManagerService.GetBoundNetworkForProcess:output_type -> net.GetBoundNetworkForProcessResponse
+	39,  // 73: net.ConnectivityManagerService.GetConnectionOwnerUid:output_type -> net.GetConnectionOwnerUidResponse
+	41,  // 74: net.ConnectivityManagerService.GetDefaultProxy:output_type -> net.GetDefaultProxyResponse
+	43,  // 75: net.ConnectivityManagerService.GetLinkProperties:output_type -> net.GetLinkPropertiesResponse
+	45,  // 76: net.ConnectivityManagerService.GetMultipathPreference:output_type -> net.GetMultipathPreferenceResponse
+	47,  // 77: net.ConnectivityManagerService.GetNetworkCapabilities:output_type -> net.GetNetworkCapabilitiesResponse
+	49,  // 78: net.ConnectivityManagerService.GetNetworkInfo1:output_type -> net.GetNetworkInfo1Response
+	51,  // 79: net.ConnectivityManagerService.GetNetworkInfo1_1:output_type -> net.GetNetworkInfo1_1Response
+	53,  // 80: net.ConnectivityManagerService.GetNetworkPreference:output_type -> net.GetNetworkPreferenceResponse
+	55,  // 81: net.ConnectivityManagerService.GetNetworkWatchlistConfigHash:output_type -> net.GetNetworkWatchlistConfigHashResponse
+	57,  // 82: net.ConnectivityManagerService.GetRestrictBackgroundStatus:output_type -> net.GetRestrictBackgroundStatusResponse
+	59,  // 83: net.ConnectivityManagerService.IsActiveNetworkMetered:output_type -> net.IsActiveNetworkMeteredResponse
+	61,  // 84: net.ConnectivityManagerService.IsDefaultNetworkActive:output_type -> net.IsDefaultNetworkActiveResponse
+	63,  // 85: net.ConnectivityManagerService.RegisterDefaultNetworkCallback:output_type -> net.RegisterDefaultNetworkCallbackResponse
+	65,  // 86: net.ConnectivityManagerService.RegisterNetworkCallback2:output_type -> net.RegisterNetworkCallback2Response
+	67,  // 87: net.ConnectivityManagerService.RegisterNetworkCallback2_1:output_type -> net.RegisterNetworkCallback2_1Response
+	69,  // 88: net.ConnectivityManagerService.ReleaseNetworkRequest:output_type -> net.ReleaseNetworkRequestResponse
+	71,  // 89: net.ConnectivityManagerService.RemoveDefaultNetworkActiveListener:output_type -> net.RemoveDefaultNetworkActiveListenerResponse
+	73,  // 90: net.ConnectivityManagerService.ReportBadNetwork:output_type -> net.ReportBadNetworkResponse
+	75,  // 91: net.ConnectivityManagerService.ReportNetworkConnectivity:output_type -> net.ReportNetworkConnectivityResponse
+	77,  // 92: net.ConnectivityManagerService.RequestBandwidthUpdate:output_type -> net.RequestBandwidthUpdateResponse
+	79,  // 93: net.ConnectivityManagerService.RequestNetwork2:output_type -> net.RequestNetwork2Response
+	81,  // 94: net.ConnectivityManagerService.RequestNetwork2_1:output_type -> net.RequestNetwork2_1Response
+	83,  // 95: net.ConnectivityManagerService.RequestNetwork3_2:output_type -> net.RequestNetwork3_2Response
+	85,  // 96: net.ConnectivityManagerService.SetNetworkPreference:output_type -> net.SetNetworkPreferenceResponse
+	87,  // 97: net.ConnectivityManagerService.UnregisterNetworkCallback1:output_type -> net.UnregisterNetworkCallback1Response
+	89,  // 98: net.ConnectivityManagerService.UnregisterNetworkCallback1_1:output_type -> net.UnregisterNetworkCallback1_1Response
+	91,  // 99: net.ConnectivityManagerService.GetProcessDefaultNetwork:output_type -> net.GetProcessDefaultNetworkResponse
+	93,  // 100: net.ConnectivityManagerService.IsNetworkTypeValid:output_type -> net.IsNetworkTypeValidResponse
+	95,  // 101: net.ConnectivityManagerService.SetProcessDefaultNetwork:output_type -> net.SetProcessDefaultNetworkResponse
+	97,  // 102: net.ConnectivityDiagnosticsManagerService.RegisterConnectivityDiagnosticsCallback:output_type -> net.RegisterConnectivityDiagnosticsCallbackResponse
+	99,  // 103: net.ConnectivityDiagnosticsManagerService.UnregisterConnectivityDiagnosticsCallback:output_type -> net.UnregisterConnectivityDiagnosticsCallbackResponse
+	101, // 104: net.TetheringManagerService.RegisterTetheringEventCallback:output_type -> net.RegisterTetheringEventCallbackResponse
+	103, // 105: net.TetheringManagerService.StartTethering:output_type -> net.StartTetheringResponse
+	105, // 106: net.TetheringManagerService.StopTethering:output_type -> net.StopTetheringResponse
+	107, // 107: net.TetheringManagerService.UnregisterTetheringEventCallback:output_type -> net.UnregisterTetheringEventCallbackResponse
 	54,  // [54:108] is the sub-list for method output_type
 	0,   // [0:54] is the sub-list for method input_type
 	0,   // [0:0] is the sub-list for extension type_name

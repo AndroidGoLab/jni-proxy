@@ -15,6 +15,343 @@ import (
 	"google.golang.org/grpc/status"
 )
 
+// CrossProfileAppsServer implements pb.CrossProfileAppsServiceServer.
+type CrossProfileAppsServer struct {
+	pb.UnimplementedCrossProfileAppsServiceServer
+	Ctx     *app.Context
+	Handles *handlestore.HandleStore
+}
+
+func (s *CrossProfileAppsServer) CanInteractAcrossProfiles(_ context.Context, req *pb.CanInteractAcrossProfilesRequest) (*pb.CanInteractAcrossProfilesResponse, error) {
+	mgr, err := jnipkg.NewCrossProfileApps(s.Ctx)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
+	}
+	defer mgr.Close()
+
+	result, err := mgr.CanInteractAcrossProfiles()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.CanInteractAcrossProfilesResponse{Result: result}, nil
+}
+
+func (s *CrossProfileAppsServer) CanRequestInteractAcrossProfiles(_ context.Context, req *pb.CanRequestInteractAcrossProfilesRequest) (*pb.CanRequestInteractAcrossProfilesResponse, error) {
+	mgr, err := jnipkg.NewCrossProfileApps(s.Ctx)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
+	}
+	defer mgr.Close()
+
+	result, err := mgr.CanRequestInteractAcrossProfiles()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.CanRequestInteractAcrossProfilesResponse{Result: result}, nil
+}
+
+func (s *CrossProfileAppsServer) CreateRequestInteractAcrossProfilesIntent(_ context.Context, req *pb.CreateRequestInteractAcrossProfilesIntentRequest) (*pb.CreateRequestInteractAcrossProfilesIntentResponse, error) {
+	mgr, err := jnipkg.NewCrossProfileApps(s.Ctx)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
+	}
+	defer mgr.Close()
+
+	result, err := mgr.CreateRequestInteractAcrossProfilesIntent()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.CreateRequestInteractAcrossProfilesIntentResponse{Result: handle}, nil
+}
+
+func (s *CrossProfileAppsServer) GetProfileSwitchingIconDrawable(_ context.Context, req *pb.GetProfileSwitchingIconDrawableRequest) (*pb.GetProfileSwitchingIconDrawableResponse, error) {
+	mgr, err := jnipkg.NewCrossProfileApps(s.Ctx)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
+	}
+	defer mgr.Close()
+
+	result, err := mgr.GetProfileSwitchingIconDrawable(s.Handles.Get(req.GetArg0()))
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetProfileSwitchingIconDrawableResponse{Result: handle}, nil
+}
+
+func (s *CrossProfileAppsServer) GetProfileSwitchingLabel(_ context.Context, req *pb.GetProfileSwitchingLabelRequest) (*pb.GetProfileSwitchingLabelResponse, error) {
+	mgr, err := jnipkg.NewCrossProfileApps(s.Ctx)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
+	}
+	defer mgr.Close()
+
+	result, err := mgr.GetProfileSwitchingLabel(s.Handles.Get(req.GetArg0()))
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetProfileSwitchingLabelResponse{Result: handle}, nil
+}
+
+func (s *CrossProfileAppsServer) IsManagedProfile(_ context.Context, req *pb.IsManagedProfileRequest) (*pb.IsManagedProfileResponse, error) {
+	mgr, err := jnipkg.NewCrossProfileApps(s.Ctx)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
+	}
+	defer mgr.Close()
+
+	result, err := mgr.IsManagedProfile(s.Handles.Get(req.GetArg0()))
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.IsManagedProfileResponse{Result: result}, nil
+}
+
+func (s *CrossProfileAppsServer) IsProfile(_ context.Context, req *pb.IsProfileRequest) (*pb.IsProfileResponse, error) {
+	mgr, err := jnipkg.NewCrossProfileApps(s.Ctx)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
+	}
+	defer mgr.Close()
+
+	result, err := mgr.IsProfile(s.Handles.Get(req.GetArg0()))
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.IsProfileResponse{Result: result}, nil
+}
+
+func (s *CrossProfileAppsServer) StartActivity3(_ context.Context, req *pb.StartActivity3Request) (*pb.StartActivity3Response, error) {
+	mgr, err := jnipkg.NewCrossProfileApps(s.Ctx)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
+	}
+	defer mgr.Close()
+
+	if err := mgr.StartActivity3(s.Handles.Get(req.GetArg0()), s.Handles.Get(req.GetArg1()), s.Handles.Get(req.GetArg2())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.StartActivity3Response{}, nil
+}
+
+func (s *CrossProfileAppsServer) StartActivity4_1(_ context.Context, req *pb.StartActivity4_1Request) (*pb.StartActivity4_1Response, error) {
+	mgr, err := jnipkg.NewCrossProfileApps(s.Ctx)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
+	}
+	defer mgr.Close()
+
+	if err := mgr.StartActivity4_1(s.Handles.Get(req.GetArg0()), s.Handles.Get(req.GetArg1()), s.Handles.Get(req.GetArg2()), s.Handles.Get(req.GetArg3())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.StartActivity4_1Response{}, nil
+}
+
+func (s *CrossProfileAppsServer) StartMainActivity2(_ context.Context, req *pb.StartMainActivity2Request) (*pb.StartMainActivity2Response, error) {
+	mgr, err := jnipkg.NewCrossProfileApps(s.Ctx)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
+	}
+	defer mgr.Close()
+
+	if err := mgr.StartMainActivity2(s.Handles.Get(req.GetArg0()), s.Handles.Get(req.GetArg1())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.StartMainActivity2Response{}, nil
+}
+
+func (s *CrossProfileAppsServer) StartMainActivity4_1(_ context.Context, req *pb.StartMainActivity4_1Request) (*pb.StartMainActivity4_1Response, error) {
+	mgr, err := jnipkg.NewCrossProfileApps(s.Ctx)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
+	}
+	defer mgr.Close()
+
+	if err := mgr.StartMainActivity4_1(s.Handles.Get(req.GetArg0()), s.Handles.Get(req.GetArg1()), s.Handles.Get(req.GetArg2()), s.Handles.Get(req.GetArg3())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.StartMainActivity4_1Response{}, nil
+}
+
+// ShortcutManagerServer implements pb.ShortcutManagerServiceServer.
+type ShortcutManagerServer struct {
+	pb.UnimplementedShortcutManagerServiceServer
+	Ctx     *app.Context
+	Handles *handlestore.HandleStore
+}
+
+func (s *ShortcutManagerServer) CreateShortcutResultIntent(_ context.Context, req *pb.CreateShortcutResultIntentRequest) (*pb.CreateShortcutResultIntentResponse, error) {
+	mgr, err := jnipkg.NewShortcutManager(s.Ctx)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
+	}
+	defer mgr.Close()
+
+	result, err := mgr.CreateShortcutResultIntent(s.Handles.Get(req.GetArg0()))
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.CreateShortcutResultIntentResponse{Result: handle}, nil
+}
+
+func (s *ShortcutManagerServer) GetIconMaxHeight(_ context.Context, req *pb.GetIconMaxHeightRequest) (*pb.GetIconMaxHeightResponse, error) {
+	mgr, err := jnipkg.NewShortcutManager(s.Ctx)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
+	}
+	defer mgr.Close()
+
+	result, err := mgr.GetIconMaxHeight()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetIconMaxHeightResponse{Result: result}, nil
+}
+
+func (s *ShortcutManagerServer) GetIconMaxWidth(_ context.Context, req *pb.GetIconMaxWidthRequest) (*pb.GetIconMaxWidthResponse, error) {
+	mgr, err := jnipkg.NewShortcutManager(s.Ctx)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
+	}
+	defer mgr.Close()
+
+	result, err := mgr.GetIconMaxWidth()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetIconMaxWidthResponse{Result: result}, nil
+}
+
+func (s *ShortcutManagerServer) GetMaxShortcutCountPerActivity(_ context.Context, req *pb.GetMaxShortcutCountPerActivityRequest) (*pb.GetMaxShortcutCountPerActivityResponse, error) {
+	mgr, err := jnipkg.NewShortcutManager(s.Ctx)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
+	}
+	defer mgr.Close()
+
+	result, err := mgr.GetMaxShortcutCountPerActivity()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetMaxShortcutCountPerActivityResponse{Result: result}, nil
+}
+
+func (s *ShortcutManagerServer) IsRateLimitingActive(_ context.Context, req *pb.IsRateLimitingActiveRequest) (*pb.IsRateLimitingActiveResponse, error) {
+	mgr, err := jnipkg.NewShortcutManager(s.Ctx)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
+	}
+	defer mgr.Close()
+
+	result, err := mgr.IsRateLimitingActive()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.IsRateLimitingActiveResponse{Result: result}, nil
+}
+
+func (s *ShortcutManagerServer) IsRequestPinShortcutSupported(_ context.Context, req *pb.IsRequestPinShortcutSupportedRequest) (*pb.IsRequestPinShortcutSupportedResponse, error) {
+	mgr, err := jnipkg.NewShortcutManager(s.Ctx)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
+	}
+	defer mgr.Close()
+
+	result, err := mgr.IsRequestPinShortcutSupported()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.IsRequestPinShortcutSupportedResponse{Result: result}, nil
+}
+
+func (s *ShortcutManagerServer) PushDynamicShortcut(_ context.Context, req *pb.PushDynamicShortcutRequest) (*pb.PushDynamicShortcutResponse, error) {
+	mgr, err := jnipkg.NewShortcutManager(s.Ctx)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
+	}
+	defer mgr.Close()
+
+	if err := mgr.PushDynamicShortcut(s.Handles.Get(req.GetArg0())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.PushDynamicShortcutResponse{}, nil
+}
+
+func (s *ShortcutManagerServer) RemoveAllDynamicShortcuts(_ context.Context, req *pb.RemoveAllDynamicShortcutsRequest) (*pb.RemoveAllDynamicShortcutsResponse, error) {
+	mgr, err := jnipkg.NewShortcutManager(s.Ctx)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
+	}
+	defer mgr.Close()
+
+	if err := mgr.RemoveAllDynamicShortcuts(); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.RemoveAllDynamicShortcutsResponse{}, nil
+}
+
+func (s *ShortcutManagerServer) ReportShortcutUsed(_ context.Context, req *pb.ReportShortcutUsedRequest) (*pb.ReportShortcutUsedResponse, error) {
+	mgr, err := jnipkg.NewShortcutManager(s.Ctx)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
+	}
+	defer mgr.Close()
+
+	if err := mgr.ReportShortcutUsed(req.GetArg0()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.ReportShortcutUsedResponse{}, nil
+}
+
+func (s *ShortcutManagerServer) RequestPinShortcut(_ context.Context, req *pb.RequestPinShortcutRequest) (*pb.RequestPinShortcutResponse, error) {
+	mgr, err := jnipkg.NewShortcutManager(s.Ctx)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
+	}
+	defer mgr.Close()
+
+	result, err := mgr.RequestPinShortcut(s.Handles.Get(req.GetArg0()), s.Handles.Get(req.GetArg1()))
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.RequestPinShortcutResponse{Result: result}, nil
+}
+
 // LauncherAppsServer implements pb.LauncherAppsServiceServer.
 type LauncherAppsServer struct {
 	pb.UnimplementedLauncherAppsServiceServer
@@ -459,341 +796,4 @@ func (s *LauncherAppsServer) UnregisterPackageInstallerSessionCallback(_ context
 		return nil, status.Errorf(codes.Internal, "%v", err)
 	}
 	return &pb.UnregisterPackageInstallerSessionCallbackResponse{}, nil
-}
-
-// ShortcutManagerServer implements pb.ShortcutManagerServiceServer.
-type ShortcutManagerServer struct {
-	pb.UnimplementedShortcutManagerServiceServer
-	Ctx     *app.Context
-	Handles *handlestore.HandleStore
-}
-
-func (s *ShortcutManagerServer) CreateShortcutResultIntent(_ context.Context, req *pb.CreateShortcutResultIntentRequest) (*pb.CreateShortcutResultIntentResponse, error) {
-	mgr, err := jnipkg.NewShortcutManager(s.Ctx)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
-	}
-	defer mgr.Close()
-
-	result, err := mgr.CreateShortcutResultIntent(s.Handles.Get(req.GetArg0()))
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	var handle int64
-	if result != nil {
-		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-			handle = s.Handles.Put(env, result)
-			return nil
-		}); doErr != nil {
-			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-		}
-	}
-	return &pb.CreateShortcutResultIntentResponse{Result: handle}, nil
-}
-
-func (s *ShortcutManagerServer) GetIconMaxHeight(_ context.Context, req *pb.GetIconMaxHeightRequest) (*pb.GetIconMaxHeightResponse, error) {
-	mgr, err := jnipkg.NewShortcutManager(s.Ctx)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
-	}
-	defer mgr.Close()
-
-	result, err := mgr.GetIconMaxHeight()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GetIconMaxHeightResponse{Result: result}, nil
-}
-
-func (s *ShortcutManagerServer) GetIconMaxWidth(_ context.Context, req *pb.GetIconMaxWidthRequest) (*pb.GetIconMaxWidthResponse, error) {
-	mgr, err := jnipkg.NewShortcutManager(s.Ctx)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
-	}
-	defer mgr.Close()
-
-	result, err := mgr.GetIconMaxWidth()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GetIconMaxWidthResponse{Result: result}, nil
-}
-
-func (s *ShortcutManagerServer) GetMaxShortcutCountPerActivity(_ context.Context, req *pb.GetMaxShortcutCountPerActivityRequest) (*pb.GetMaxShortcutCountPerActivityResponse, error) {
-	mgr, err := jnipkg.NewShortcutManager(s.Ctx)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
-	}
-	defer mgr.Close()
-
-	result, err := mgr.GetMaxShortcutCountPerActivity()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GetMaxShortcutCountPerActivityResponse{Result: result}, nil
-}
-
-func (s *ShortcutManagerServer) IsRateLimitingActive(_ context.Context, req *pb.IsRateLimitingActiveRequest) (*pb.IsRateLimitingActiveResponse, error) {
-	mgr, err := jnipkg.NewShortcutManager(s.Ctx)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
-	}
-	defer mgr.Close()
-
-	result, err := mgr.IsRateLimitingActive()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.IsRateLimitingActiveResponse{Result: result}, nil
-}
-
-func (s *ShortcutManagerServer) IsRequestPinShortcutSupported(_ context.Context, req *pb.IsRequestPinShortcutSupportedRequest) (*pb.IsRequestPinShortcutSupportedResponse, error) {
-	mgr, err := jnipkg.NewShortcutManager(s.Ctx)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
-	}
-	defer mgr.Close()
-
-	result, err := mgr.IsRequestPinShortcutSupported()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.IsRequestPinShortcutSupportedResponse{Result: result}, nil
-}
-
-func (s *ShortcutManagerServer) PushDynamicShortcut(_ context.Context, req *pb.PushDynamicShortcutRequest) (*pb.PushDynamicShortcutResponse, error) {
-	mgr, err := jnipkg.NewShortcutManager(s.Ctx)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
-	}
-	defer mgr.Close()
-
-	if err := mgr.PushDynamicShortcut(s.Handles.Get(req.GetArg0())); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.PushDynamicShortcutResponse{}, nil
-}
-
-func (s *ShortcutManagerServer) RemoveAllDynamicShortcuts(_ context.Context, req *pb.RemoveAllDynamicShortcutsRequest) (*pb.RemoveAllDynamicShortcutsResponse, error) {
-	mgr, err := jnipkg.NewShortcutManager(s.Ctx)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
-	}
-	defer mgr.Close()
-
-	if err := mgr.RemoveAllDynamicShortcuts(); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.RemoveAllDynamicShortcutsResponse{}, nil
-}
-
-func (s *ShortcutManagerServer) ReportShortcutUsed(_ context.Context, req *pb.ReportShortcutUsedRequest) (*pb.ReportShortcutUsedResponse, error) {
-	mgr, err := jnipkg.NewShortcutManager(s.Ctx)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
-	}
-	defer mgr.Close()
-
-	if err := mgr.ReportShortcutUsed(req.GetArg0()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.ReportShortcutUsedResponse{}, nil
-}
-
-func (s *ShortcutManagerServer) RequestPinShortcut(_ context.Context, req *pb.RequestPinShortcutRequest) (*pb.RequestPinShortcutResponse, error) {
-	mgr, err := jnipkg.NewShortcutManager(s.Ctx)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
-	}
-	defer mgr.Close()
-
-	result, err := mgr.RequestPinShortcut(s.Handles.Get(req.GetArg0()), s.Handles.Get(req.GetArg1()))
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.RequestPinShortcutResponse{Result: result}, nil
-}
-
-// CrossProfileAppsServer implements pb.CrossProfileAppsServiceServer.
-type CrossProfileAppsServer struct {
-	pb.UnimplementedCrossProfileAppsServiceServer
-	Ctx     *app.Context
-	Handles *handlestore.HandleStore
-}
-
-func (s *CrossProfileAppsServer) CanInteractAcrossProfiles(_ context.Context, req *pb.CanInteractAcrossProfilesRequest) (*pb.CanInteractAcrossProfilesResponse, error) {
-	mgr, err := jnipkg.NewCrossProfileApps(s.Ctx)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
-	}
-	defer mgr.Close()
-
-	result, err := mgr.CanInteractAcrossProfiles()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.CanInteractAcrossProfilesResponse{Result: result}, nil
-}
-
-func (s *CrossProfileAppsServer) CanRequestInteractAcrossProfiles(_ context.Context, req *pb.CanRequestInteractAcrossProfilesRequest) (*pb.CanRequestInteractAcrossProfilesResponse, error) {
-	mgr, err := jnipkg.NewCrossProfileApps(s.Ctx)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
-	}
-	defer mgr.Close()
-
-	result, err := mgr.CanRequestInteractAcrossProfiles()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.CanRequestInteractAcrossProfilesResponse{Result: result}, nil
-}
-
-func (s *CrossProfileAppsServer) CreateRequestInteractAcrossProfilesIntent(_ context.Context, req *pb.CreateRequestInteractAcrossProfilesIntentRequest) (*pb.CreateRequestInteractAcrossProfilesIntentResponse, error) {
-	mgr, err := jnipkg.NewCrossProfileApps(s.Ctx)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
-	}
-	defer mgr.Close()
-
-	result, err := mgr.CreateRequestInteractAcrossProfilesIntent()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	var handle int64
-	if result != nil {
-		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-			handle = s.Handles.Put(env, result)
-			return nil
-		}); doErr != nil {
-			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-		}
-	}
-	return &pb.CreateRequestInteractAcrossProfilesIntentResponse{Result: handle}, nil
-}
-
-func (s *CrossProfileAppsServer) GetProfileSwitchingIconDrawable(_ context.Context, req *pb.GetProfileSwitchingIconDrawableRequest) (*pb.GetProfileSwitchingIconDrawableResponse, error) {
-	mgr, err := jnipkg.NewCrossProfileApps(s.Ctx)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
-	}
-	defer mgr.Close()
-
-	result, err := mgr.GetProfileSwitchingIconDrawable(s.Handles.Get(req.GetArg0()))
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	var handle int64
-	if result != nil {
-		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-			handle = s.Handles.Put(env, result)
-			return nil
-		}); doErr != nil {
-			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-		}
-	}
-	return &pb.GetProfileSwitchingIconDrawableResponse{Result: handle}, nil
-}
-
-func (s *CrossProfileAppsServer) GetProfileSwitchingLabel(_ context.Context, req *pb.GetProfileSwitchingLabelRequest) (*pb.GetProfileSwitchingLabelResponse, error) {
-	mgr, err := jnipkg.NewCrossProfileApps(s.Ctx)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
-	}
-	defer mgr.Close()
-
-	result, err := mgr.GetProfileSwitchingLabel(s.Handles.Get(req.GetArg0()))
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	var handle int64
-	if result != nil {
-		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-			handle = s.Handles.Put(env, result)
-			return nil
-		}); doErr != nil {
-			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-		}
-	}
-	return &pb.GetProfileSwitchingLabelResponse{Result: handle}, nil
-}
-
-func (s *CrossProfileAppsServer) IsManagedProfile(_ context.Context, req *pb.IsManagedProfileRequest) (*pb.IsManagedProfileResponse, error) {
-	mgr, err := jnipkg.NewCrossProfileApps(s.Ctx)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
-	}
-	defer mgr.Close()
-
-	result, err := mgr.IsManagedProfile(s.Handles.Get(req.GetArg0()))
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.IsManagedProfileResponse{Result: result}, nil
-}
-
-func (s *CrossProfileAppsServer) IsProfile(_ context.Context, req *pb.IsProfileRequest) (*pb.IsProfileResponse, error) {
-	mgr, err := jnipkg.NewCrossProfileApps(s.Ctx)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
-	}
-	defer mgr.Close()
-
-	result, err := mgr.IsProfile(s.Handles.Get(req.GetArg0()))
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.IsProfileResponse{Result: result}, nil
-}
-
-func (s *CrossProfileAppsServer) StartActivity3(_ context.Context, req *pb.StartActivity3Request) (*pb.StartActivity3Response, error) {
-	mgr, err := jnipkg.NewCrossProfileApps(s.Ctx)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
-	}
-	defer mgr.Close()
-
-	if err := mgr.StartActivity3(s.Handles.Get(req.GetArg0()), s.Handles.Get(req.GetArg1()), s.Handles.Get(req.GetArg2())); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.StartActivity3Response{}, nil
-}
-
-func (s *CrossProfileAppsServer) StartActivity4_1(_ context.Context, req *pb.StartActivity4_1Request) (*pb.StartActivity4_1Response, error) {
-	mgr, err := jnipkg.NewCrossProfileApps(s.Ctx)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
-	}
-	defer mgr.Close()
-
-	if err := mgr.StartActivity4_1(s.Handles.Get(req.GetArg0()), s.Handles.Get(req.GetArg1()), s.Handles.Get(req.GetArg2()), s.Handles.Get(req.GetArg3())); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.StartActivity4_1Response{}, nil
-}
-
-func (s *CrossProfileAppsServer) StartMainActivity2(_ context.Context, req *pb.StartMainActivity2Request) (*pb.StartMainActivity2Response, error) {
-	mgr, err := jnipkg.NewCrossProfileApps(s.Ctx)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
-	}
-	defer mgr.Close()
-
-	if err := mgr.StartMainActivity2(s.Handles.Get(req.GetArg0()), s.Handles.Get(req.GetArg1())); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.StartMainActivity2Response{}, nil
-}
-
-func (s *CrossProfileAppsServer) StartMainActivity4_1(_ context.Context, req *pb.StartMainActivity4_1Request) (*pb.StartMainActivity4_1Response, error) {
-	mgr, err := jnipkg.NewCrossProfileApps(s.Ctx)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
-	}
-	defer mgr.Close()
-
-	if err := mgr.StartMainActivity4_1(s.Handles.Get(req.GetArg0()), s.Handles.Get(req.GetArg1()), s.Handles.Get(req.GetArg2()), s.Handles.Get(req.GetArg3())); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.StartMainActivity4_1Response{}, nil
 }

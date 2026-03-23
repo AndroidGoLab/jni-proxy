@@ -23,6 +23,86 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
+type GetVersionRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetVersionRequest) Reset() {
+	*x = GetVersionRequest{}
+	mi := &file_proto_media_media_proto_msgTypes[0]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetVersionRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetVersionRequest) ProtoMessage() {}
+
+func (x *GetVersionRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_media_media_proto_msgTypes[0]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetVersionRequest.ProtoReflect.Descriptor instead.
+func (*GetVersionRequest) Descriptor() ([]byte, []int) {
+	return file_proto_media_media_proto_rawDescGZIP(), []int{0}
+}
+
+type GetVersionResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetVersionResponse) Reset() {
+	*x = GetVersionResponse{}
+	mi := &file_proto_media_media_proto_msgTypes[1]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetVersionResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetVersionResponse) ProtoMessage() {}
+
+func (x *GetVersionResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_media_media_proto_msgTypes[1]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetVersionResponse.ProtoReflect.Descriptor instead.
+func (*GetVersionResponse) Descriptor() ([]byte, []int) {
+	return file_proto_media_media_proto_rawDescGZIP(), []int{1}
+}
+
+func (x *GetVersionResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
 type AddCallback2Request struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
@@ -33,7 +113,7 @@ type AddCallback2Request struct {
 
 func (x *AddCallback2Request) Reset() {
 	*x = AddCallback2Request{}
-	mi := &file_proto_media_media_proto_msgTypes[0]
+	mi := &file_proto_media_media_proto_msgTypes[2]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -45,7 +125,7 @@ func (x *AddCallback2Request) String() string {
 func (*AddCallback2Request) ProtoMessage() {}
 
 func (x *AddCallback2Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_media_media_proto_msgTypes[0]
+	mi := &file_proto_media_media_proto_msgTypes[2]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -58,7 +138,7 @@ func (x *AddCallback2Request) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use AddCallback2Request.ProtoReflect.Descriptor instead.
 func (*AddCallback2Request) Descriptor() ([]byte, []int) {
-	return file_proto_media_media_proto_rawDescGZIP(), []int{0}
+	return file_proto_media_media_proto_rawDescGZIP(), []int{2}
 }
 
 func (x *AddCallback2Request) GetArg0() int32 {
@@ -83,7 +163,7 @@ type AddCallback2Response struct {
 
 func (x *AddCallback2Response) Reset() {
 	*x = AddCallback2Response{}
-	mi := &file_proto_media_media_proto_msgTypes[1]
+	mi := &file_proto_media_media_proto_msgTypes[3]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -95,7 +175,7 @@ func (x *AddCallback2Response) String() string {
 func (*AddCallback2Response) ProtoMessage() {}
 
 func (x *AddCallback2Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_media_media_proto_msgTypes[1]
+	mi := &file_proto_media_media_proto_msgTypes[3]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -108,7 +188,7 @@ func (x *AddCallback2Response) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use AddCallback2Response.ProtoReflect.Descriptor instead.
 func (*AddCallback2Response) Descriptor() ([]byte, []int) {
-	return file_proto_media_media_proto_rawDescGZIP(), []int{1}
+	return file_proto_media_media_proto_rawDescGZIP(), []int{3}
 }
 
 type AddCallback3_1Request struct {
@@ -122,7 +202,7 @@ type AddCallback3_1Request struct {
 
 func (x *AddCallback3_1Request) Reset() {
 	*x = AddCallback3_1Request{}
-	mi := &file_proto_media_media_proto_msgTypes[2]
+	mi := &file_proto_media_media_proto_msgTypes[4]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -134,7 +214,7 @@ func (x *AddCallback3_1Request) String() string {
 func (*AddCallback3_1Request) ProtoMessage() {}
 
 func (x *AddCallback3_1Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_media_media_proto_msgTypes[2]
+	mi := &file_proto_media_media_proto_msgTypes[4]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -147,7 +227,7 @@ func (x *AddCallback3_1Request) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use AddCallback3_1Request.ProtoReflect.Descriptor instead.
 func (*AddCallback3_1Request) Descriptor() ([]byte, []int) {
-	return file_proto_media_media_proto_rawDescGZIP(), []int{2}
+	return file_proto_media_media_proto_rawDescGZIP(), []int{4}
 }
 
 func (x *AddCallback3_1Request) GetArg0() int32 {
@@ -179,7 +259,7 @@ type AddCallback3_1Response struct {
 
 func (x *AddCallback3_1Response) Reset() {
 	*x = AddCallback3_1Response{}
-	mi := &file_proto_media_media_proto_msgTypes[3]
+	mi := &file_proto_media_media_proto_msgTypes[5]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -191,7 +271,7 @@ func (x *AddCallback3_1Response) String() string {
 func (*AddCallback3_1Response) ProtoMessage() {}
 
 func (x *AddCallback3_1Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_media_media_proto_msgTypes[3]
+	mi := &file_proto_media_media_proto_msgTypes[5]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -204,7 +284,7 @@ func (x *AddCallback3_1Response) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use AddCallback3_1Response.ProtoReflect.Descriptor instead.
 func (*AddCallback3_1Response) Descriptor() ([]byte, []int) {
-	return file_proto_media_media_proto_rawDescGZIP(), []int{3}
+	return file_proto_media_media_proto_rawDescGZIP(), []int{5}
 }
 
 type AddUserRouteRequest struct {
@@ -216,7 +296,7 @@ type AddUserRouteRequest struct {
 
 func (x *AddUserRouteRequest) Reset() {
 	*x = AddUserRouteRequest{}
-	mi := &file_proto_media_media_proto_msgTypes[4]
+	mi := &file_proto_media_media_proto_msgTypes[6]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -228,7 +308,7 @@ func (x *AddUserRouteRequest) String() string {
 func (*AddUserRouteRequest) ProtoMessage() {}
 
 func (x *AddUserRouteRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_media_media_proto_msgTypes[4]
+	mi := &file_proto_media_media_proto_msgTypes[6]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -241,7 +321,7 @@ func (x *AddUserRouteRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use AddUserRouteRequest.ProtoReflect.Descriptor instead.
 func (*AddUserRouteRequest) Descriptor() ([]byte, []int) {
-	return file_proto_media_media_proto_rawDescGZIP(), []int{4}
+	return file_proto_media_media_proto_rawDescGZIP(), []int{6}
 }
 
 func (x *AddUserRouteRequest) GetArg0() int64 {
@@ -259,7 +339,7 @@ type AddUserRouteResponse struct {
 
 func (x *AddUserRouteResponse) Reset() {
 	*x = AddUserRouteResponse{}
-	mi := &file_proto_media_media_proto_msgTypes[5]
+	mi := &file_proto_media_media_proto_msgTypes[7]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -271,7 +351,7 @@ func (x *AddUserRouteResponse) String() string {
 func (*AddUserRouteResponse) ProtoMessage() {}
 
 func (x *AddUserRouteResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_media_media_proto_msgTypes[5]
+	mi := &file_proto_media_media_proto_msgTypes[7]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -284,7 +364,7 @@ func (x *AddUserRouteResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use AddUserRouteResponse.ProtoReflect.Descriptor instead.
 func (*AddUserRouteResponse) Descriptor() ([]byte, []int) {
-	return file_proto_media_media_proto_rawDescGZIP(), []int{5}
+	return file_proto_media_media_proto_rawDescGZIP(), []int{7}
 }
 
 type ClearUserRoutesRequest struct {
@@ -295,7 +375,7 @@ type ClearUserRoutesRequest struct {
 
 func (x *ClearUserRoutesRequest) Reset() {
 	*x = ClearUserRoutesRequest{}
-	mi := &file_proto_media_media_proto_msgTypes[6]
+	mi := &file_proto_media_media_proto_msgTypes[8]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -307,7 +387,7 @@ func (x *ClearUserRoutesRequest) String() string {
 func (*ClearUserRoutesRequest) ProtoMessage() {}
 
 func (x *ClearUserRoutesRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_media_media_proto_msgTypes[6]
+	mi := &file_proto_media_media_proto_msgTypes[8]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -320,7 +400,7 @@ func (x *ClearUserRoutesRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ClearUserRoutesRequest.ProtoReflect.Descriptor instead.
 func (*ClearUserRoutesRequest) Descriptor() ([]byte, []int) {
-	return file_proto_media_media_proto_rawDescGZIP(), []int{6}
+	return file_proto_media_media_proto_rawDescGZIP(), []int{8}
 }
 
 type ClearUserRoutesResponse struct {
@@ -331,7 +411,7 @@ type ClearUserRoutesResponse struct {
 
 func (x *ClearUserRoutesResponse) Reset() {
 	*x = ClearUserRoutesResponse{}
-	mi := &file_proto_media_media_proto_msgTypes[7]
+	mi := &file_proto_media_media_proto_msgTypes[9]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -343,7 +423,7 @@ func (x *ClearUserRoutesResponse) String() string {
 func (*ClearUserRoutesResponse) ProtoMessage() {}
 
 func (x *ClearUserRoutesResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_media_media_proto_msgTypes[7]
+	mi := &file_proto_media_media_proto_msgTypes[9]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -356,7 +436,7 @@ func (x *ClearUserRoutesResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ClearUserRoutesResponse.ProtoReflect.Descriptor instead.
 func (*ClearUserRoutesResponse) Descriptor() ([]byte, []int) {
-	return file_proto_media_media_proto_rawDescGZIP(), []int{7}
+	return file_proto_media_media_proto_rawDescGZIP(), []int{9}
 }
 
 type CreateRouteCategory2Request struct {
@@ -369,7 +449,7 @@ type CreateRouteCategory2Request struct {
 
 func (x *CreateRouteCategory2Request) Reset() {
 	*x = CreateRouteCategory2Request{}
-	mi := &file_proto_media_media_proto_msgTypes[8]
+	mi := &file_proto_media_media_proto_msgTypes[10]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -381,7 +461,7 @@ func (x *CreateRouteCategory2Request) String() string {
 func (*CreateRouteCategory2Request) ProtoMessage() {}
 
 func (x *CreateRouteCategory2Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_media_media_proto_msgTypes[8]
+	mi := &file_proto_media_media_proto_msgTypes[10]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -394,7 +474,7 @@ func (x *CreateRouteCategory2Request) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CreateRouteCategory2Request.ProtoReflect.Descriptor instead.
 func (*CreateRouteCategory2Request) Descriptor() ([]byte, []int) {
-	return file_proto_media_media_proto_rawDescGZIP(), []int{8}
+	return file_proto_media_media_proto_rawDescGZIP(), []int{10}
 }
 
 func (x *CreateRouteCategory2Request) GetArg0() int32 {
@@ -420,7 +500,7 @@ type CreateRouteCategory2Response struct {
 
 func (x *CreateRouteCategory2Response) Reset() {
 	*x = CreateRouteCategory2Response{}
-	mi := &file_proto_media_media_proto_msgTypes[9]
+	mi := &file_proto_media_media_proto_msgTypes[11]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -432,7 +512,7 @@ func (x *CreateRouteCategory2Response) String() string {
 func (*CreateRouteCategory2Response) ProtoMessage() {}
 
 func (x *CreateRouteCategory2Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_media_media_proto_msgTypes[9]
+	mi := &file_proto_media_media_proto_msgTypes[11]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -445,7 +525,7 @@ func (x *CreateRouteCategory2Response) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CreateRouteCategory2Response.ProtoReflect.Descriptor instead.
 func (*CreateRouteCategory2Response) Descriptor() ([]byte, []int) {
-	return file_proto_media_media_proto_rawDescGZIP(), []int{9}
+	return file_proto_media_media_proto_rawDescGZIP(), []int{11}
 }
 
 func (x *CreateRouteCategory2Response) GetResult() int64 {
@@ -465,7 +545,7 @@ type CreateRouteCategory2_1Request struct {
 
 func (x *CreateRouteCategory2_1Request) Reset() {
 	*x = CreateRouteCategory2_1Request{}
-	mi := &file_proto_media_media_proto_msgTypes[10]
+	mi := &file_proto_media_media_proto_msgTypes[12]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -477,7 +557,7 @@ func (x *CreateRouteCategory2_1Request) String() string {
 func (*CreateRouteCategory2_1Request) ProtoMessage() {}
 
 func (x *CreateRouteCategory2_1Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_media_media_proto_msgTypes[10]
+	mi := &file_proto_media_media_proto_msgTypes[12]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -490,7 +570,7 @@ func (x *CreateRouteCategory2_1Request) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CreateRouteCategory2_1Request.ProtoReflect.Descriptor instead.
 func (*CreateRouteCategory2_1Request) Descriptor() ([]byte, []int) {
-	return file_proto_media_media_proto_rawDescGZIP(), []int{10}
+	return file_proto_media_media_proto_rawDescGZIP(), []int{12}
 }
 
 func (x *CreateRouteCategory2_1Request) GetArg0() string {
@@ -516,7 +596,7 @@ type CreateRouteCategory2_1Response struct {
 
 func (x *CreateRouteCategory2_1Response) Reset() {
 	*x = CreateRouteCategory2_1Response{}
-	mi := &file_proto_media_media_proto_msgTypes[11]
+	mi := &file_proto_media_media_proto_msgTypes[13]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -528,7 +608,7 @@ func (x *CreateRouteCategory2_1Response) String() string {
 func (*CreateRouteCategory2_1Response) ProtoMessage() {}
 
 func (x *CreateRouteCategory2_1Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_media_media_proto_msgTypes[11]
+	mi := &file_proto_media_media_proto_msgTypes[13]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -541,7 +621,7 @@ func (x *CreateRouteCategory2_1Response) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CreateRouteCategory2_1Response.ProtoReflect.Descriptor instead.
 func (*CreateRouteCategory2_1Response) Descriptor() ([]byte, []int) {
-	return file_proto_media_media_proto_rawDescGZIP(), []int{11}
+	return file_proto_media_media_proto_rawDescGZIP(), []int{13}
 }
 
 func (x *CreateRouteCategory2_1Response) GetResult() int64 {
@@ -560,7 +640,7 @@ type CreateUserRouteRequest struct {
 
 func (x *CreateUserRouteRequest) Reset() {
 	*x = CreateUserRouteRequest{}
-	mi := &file_proto_media_media_proto_msgTypes[12]
+	mi := &file_proto_media_media_proto_msgTypes[14]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -572,7 +652,7 @@ func (x *CreateUserRouteRequest) String() string {
 func (*CreateUserRouteRequest) ProtoMessage() {}
 
 func (x *CreateUserRouteRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_media_media_proto_msgTypes[12]
+	mi := &file_proto_media_media_proto_msgTypes[14]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -585,7 +665,7 @@ func (x *CreateUserRouteRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CreateUserRouteRequest.ProtoReflect.Descriptor instead.
 func (*CreateUserRouteRequest) Descriptor() ([]byte, []int) {
-	return file_proto_media_media_proto_rawDescGZIP(), []int{12}
+	return file_proto_media_media_proto_rawDescGZIP(), []int{14}
 }
 
 func (x *CreateUserRouteRequest) GetArg0() int64 {
@@ -604,7 +684,7 @@ type CreateUserRouteResponse struct {
 
 func (x *CreateUserRouteResponse) Reset() {
 	*x = CreateUserRouteResponse{}
-	mi := &file_proto_media_media_proto_msgTypes[13]
+	mi := &file_proto_media_media_proto_msgTypes[15]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -616,7 +696,7 @@ func (x *CreateUserRouteResponse) String() string {
 func (*CreateUserRouteResponse) ProtoMessage() {}
 
 func (x *CreateUserRouteResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_media_media_proto_msgTypes[13]
+	mi := &file_proto_media_media_proto_msgTypes[15]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -629,7 +709,7 @@ func (x *CreateUserRouteResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CreateUserRouteResponse.ProtoReflect.Descriptor instead.
 func (*CreateUserRouteResponse) Descriptor() ([]byte, []int) {
-	return file_proto_media_media_proto_rawDescGZIP(), []int{13}
+	return file_proto_media_media_proto_rawDescGZIP(), []int{15}
 }
 
 func (x *CreateUserRouteResponse) GetResult() int64 {
@@ -648,7 +728,7 @@ type GetCategoryAtRequest struct {
 
 func (x *GetCategoryAtRequest) Reset() {
 	*x = GetCategoryAtRequest{}
-	mi := &file_proto_media_media_proto_msgTypes[14]
+	mi := &file_proto_media_media_proto_msgTypes[16]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -660,7 +740,7 @@ func (x *GetCategoryAtRequest) String() string {
 func (*GetCategoryAtRequest) ProtoMessage() {}
 
 func (x *GetCategoryAtRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_media_media_proto_msgTypes[14]
+	mi := &file_proto_media_media_proto_msgTypes[16]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -673,7 +753,7 @@ func (x *GetCategoryAtRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetCategoryAtRequest.ProtoReflect.Descriptor instead.
 func (*GetCategoryAtRequest) Descriptor() ([]byte, []int) {
-	return file_proto_media_media_proto_rawDescGZIP(), []int{14}
+	return file_proto_media_media_proto_rawDescGZIP(), []int{16}
 }
 
 func (x *GetCategoryAtRequest) GetArg0() int32 {
@@ -692,7 +772,7 @@ type GetCategoryAtResponse struct {
 
 func (x *GetCategoryAtResponse) Reset() {
 	*x = GetCategoryAtResponse{}
-	mi := &file_proto_media_media_proto_msgTypes[15]
+	mi := &file_proto_media_media_proto_msgTypes[17]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -704,7 +784,7 @@ func (x *GetCategoryAtResponse) String() string {
 func (*GetCategoryAtResponse) ProtoMessage() {}
 
 func (x *GetCategoryAtResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_media_media_proto_msgTypes[15]
+	mi := &file_proto_media_media_proto_msgTypes[17]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -717,7 +797,7 @@ func (x *GetCategoryAtResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetCategoryAtResponse.ProtoReflect.Descriptor instead.
 func (*GetCategoryAtResponse) Descriptor() ([]byte, []int) {
-	return file_proto_media_media_proto_rawDescGZIP(), []int{15}
+	return file_proto_media_media_proto_rawDescGZIP(), []int{17}
 }
 
 func (x *GetCategoryAtResponse) GetResult() int64 {
@@ -735,7 +815,7 @@ type GetCategoryCountRequest struct {
 
 func (x *GetCategoryCountRequest) Reset() {
 	*x = GetCategoryCountRequest{}
-	mi := &file_proto_media_media_proto_msgTypes[16]
+	mi := &file_proto_media_media_proto_msgTypes[18]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -747,7 +827,7 @@ func (x *GetCategoryCountRequest) String() string {
 func (*GetCategoryCountRequest) ProtoMessage() {}
 
 func (x *GetCategoryCountRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_media_media_proto_msgTypes[16]
+	mi := &file_proto_media_media_proto_msgTypes[18]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -760,7 +840,7 @@ func (x *GetCategoryCountRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetCategoryCountRequest.ProtoReflect.Descriptor instead.
 func (*GetCategoryCountRequest) Descriptor() ([]byte, []int) {
-	return file_proto_media_media_proto_rawDescGZIP(), []int{16}
+	return file_proto_media_media_proto_rawDescGZIP(), []int{18}
 }
 
 type GetCategoryCountResponse struct {
@@ -772,7 +852,7 @@ type GetCategoryCountResponse struct {
 
 func (x *GetCategoryCountResponse) Reset() {
 	*x = GetCategoryCountResponse{}
-	mi := &file_proto_media_media_proto_msgTypes[17]
+	mi := &file_proto_media_media_proto_msgTypes[19]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -784,7 +864,7 @@ func (x *GetCategoryCountResponse) String() string {
 func (*GetCategoryCountResponse) ProtoMessage() {}
 
 func (x *GetCategoryCountResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_media_media_proto_msgTypes[17]
+	mi := &file_proto_media_media_proto_msgTypes[19]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -797,7 +877,7 @@ func (x *GetCategoryCountResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetCategoryCountResponse.ProtoReflect.Descriptor instead.
 func (*GetCategoryCountResponse) Descriptor() ([]byte, []int) {
-	return file_proto_media_media_proto_rawDescGZIP(), []int{17}
+	return file_proto_media_media_proto_rawDescGZIP(), []int{19}
 }
 
 func (x *GetCategoryCountResponse) GetResult() int32 {
@@ -815,7 +895,7 @@ type GetDefaultRouteRequest struct {
 
 func (x *GetDefaultRouteRequest) Reset() {
 	*x = GetDefaultRouteRequest{}
-	mi := &file_proto_media_media_proto_msgTypes[18]
+	mi := &file_proto_media_media_proto_msgTypes[20]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -827,7 +907,7 @@ func (x *GetDefaultRouteRequest) String() string {
 func (*GetDefaultRouteRequest) ProtoMessage() {}
 
 func (x *GetDefaultRouteRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_media_media_proto_msgTypes[18]
+	mi := &file_proto_media_media_proto_msgTypes[20]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -840,7 +920,7 @@ func (x *GetDefaultRouteRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetDefaultRouteRequest.ProtoReflect.Descriptor instead.
 func (*GetDefaultRouteRequest) Descriptor() ([]byte, []int) {
-	return file_proto_media_media_proto_rawDescGZIP(), []int{18}
+	return file_proto_media_media_proto_rawDescGZIP(), []int{20}
 }
 
 type GetDefaultRouteResponse struct {
@@ -852,7 +932,7 @@ type GetDefaultRouteResponse struct {
 
 func (x *GetDefaultRouteResponse) Reset() {
 	*x = GetDefaultRouteResponse{}
-	mi := &file_proto_media_media_proto_msgTypes[19]
+	mi := &file_proto_media_media_proto_msgTypes[21]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -864,7 +944,7 @@ func (x *GetDefaultRouteResponse) String() string {
 func (*GetDefaultRouteResponse) ProtoMessage() {}
 
 func (x *GetDefaultRouteResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_media_media_proto_msgTypes[19]
+	mi := &file_proto_media_media_proto_msgTypes[21]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -877,7 +957,7 @@ func (x *GetDefaultRouteResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetDefaultRouteResponse.ProtoReflect.Descriptor instead.
 func (*GetDefaultRouteResponse) Descriptor() ([]byte, []int) {
-	return file_proto_media_media_proto_rawDescGZIP(), []int{19}
+	return file_proto_media_media_proto_rawDescGZIP(), []int{21}
 }
 
 func (x *GetDefaultRouteResponse) GetResult() int64 {
@@ -896,7 +976,7 @@ type GetRouteAtRequest struct {
 
 func (x *GetRouteAtRequest) Reset() {
 	*x = GetRouteAtRequest{}
-	mi := &file_proto_media_media_proto_msgTypes[20]
+	mi := &file_proto_media_media_proto_msgTypes[22]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -908,7 +988,7 @@ func (x *GetRouteAtRequest) String() string {
 func (*GetRouteAtRequest) ProtoMessage() {}
 
 func (x *GetRouteAtRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_media_media_proto_msgTypes[20]
+	mi := &file_proto_media_media_proto_msgTypes[22]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -921,7 +1001,7 @@ func (x *GetRouteAtRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetRouteAtRequest.ProtoReflect.Descriptor instead.
 func (*GetRouteAtRequest) Descriptor() ([]byte, []int) {
-	return file_proto_media_media_proto_rawDescGZIP(), []int{20}
+	return file_proto_media_media_proto_rawDescGZIP(), []int{22}
 }
 
 func (x *GetRouteAtRequest) GetArg0() int32 {
@@ -940,7 +1020,7 @@ type GetRouteAtResponse struct {
 
 func (x *GetRouteAtResponse) Reset() {
 	*x = GetRouteAtResponse{}
-	mi := &file_proto_media_media_proto_msgTypes[21]
+	mi := &file_proto_media_media_proto_msgTypes[23]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -952,7 +1032,7 @@ func (x *GetRouteAtResponse) String() string {
 func (*GetRouteAtResponse) ProtoMessage() {}
 
 func (x *GetRouteAtResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_media_media_proto_msgTypes[21]
+	mi := &file_proto_media_media_proto_msgTypes[23]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -965,7 +1045,7 @@ func (x *GetRouteAtResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetRouteAtResponse.ProtoReflect.Descriptor instead.
 func (*GetRouteAtResponse) Descriptor() ([]byte, []int) {
-	return file_proto_media_media_proto_rawDescGZIP(), []int{21}
+	return file_proto_media_media_proto_rawDescGZIP(), []int{23}
 }
 
 func (x *GetRouteAtResponse) GetResult() int64 {
@@ -983,7 +1063,7 @@ type GetRouteCountRequest struct {
 
 func (x *GetRouteCountRequest) Reset() {
 	*x = GetRouteCountRequest{}
-	mi := &file_proto_media_media_proto_msgTypes[22]
+	mi := &file_proto_media_media_proto_msgTypes[24]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -995,7 +1075,7 @@ func (x *GetRouteCountRequest) String() string {
 func (*GetRouteCountRequest) ProtoMessage() {}
 
 func (x *GetRouteCountRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_media_media_proto_msgTypes[22]
+	mi := &file_proto_media_media_proto_msgTypes[24]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1008,7 +1088,7 @@ func (x *GetRouteCountRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetRouteCountRequest.ProtoReflect.Descriptor instead.
 func (*GetRouteCountRequest) Descriptor() ([]byte, []int) {
-	return file_proto_media_media_proto_rawDescGZIP(), []int{22}
+	return file_proto_media_media_proto_rawDescGZIP(), []int{24}
 }
 
 type GetRouteCountResponse struct {
@@ -1020,7 +1100,7 @@ type GetRouteCountResponse struct {
 
 func (x *GetRouteCountResponse) Reset() {
 	*x = GetRouteCountResponse{}
-	mi := &file_proto_media_media_proto_msgTypes[23]
+	mi := &file_proto_media_media_proto_msgTypes[25]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1032,7 +1112,7 @@ func (x *GetRouteCountResponse) String() string {
 func (*GetRouteCountResponse) ProtoMessage() {}
 
 func (x *GetRouteCountResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_media_media_proto_msgTypes[23]
+	mi := &file_proto_media_media_proto_msgTypes[25]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1045,7 +1125,7 @@ func (x *GetRouteCountResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetRouteCountResponse.ProtoReflect.Descriptor instead.
 func (*GetRouteCountResponse) Descriptor() ([]byte, []int) {
-	return file_proto_media_media_proto_rawDescGZIP(), []int{23}
+	return file_proto_media_media_proto_rawDescGZIP(), []int{25}
 }
 
 func (x *GetRouteCountResponse) GetResult() int32 {
@@ -1064,7 +1144,7 @@ type GetSelectedRouteRequest struct {
 
 func (x *GetSelectedRouteRequest) Reset() {
 	*x = GetSelectedRouteRequest{}
-	mi := &file_proto_media_media_proto_msgTypes[24]
+	mi := &file_proto_media_media_proto_msgTypes[26]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1076,7 +1156,7 @@ func (x *GetSelectedRouteRequest) String() string {
 func (*GetSelectedRouteRequest) ProtoMessage() {}
 
 func (x *GetSelectedRouteRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_media_media_proto_msgTypes[24]
+	mi := &file_proto_media_media_proto_msgTypes[26]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1089,7 +1169,7 @@ func (x *GetSelectedRouteRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetSelectedRouteRequest.ProtoReflect.Descriptor instead.
 func (*GetSelectedRouteRequest) Descriptor() ([]byte, []int) {
-	return file_proto_media_media_proto_rawDescGZIP(), []int{24}
+	return file_proto_media_media_proto_rawDescGZIP(), []int{26}
 }
 
 func (x *GetSelectedRouteRequest) GetArg0() int32 {
@@ -1108,7 +1188,7 @@ type GetSelectedRouteResponse struct {
 
 func (x *GetSelectedRouteResponse) Reset() {
 	*x = GetSelectedRouteResponse{}
-	mi := &file_proto_media_media_proto_msgTypes[25]
+	mi := &file_proto_media_media_proto_msgTypes[27]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1120,7 +1200,7 @@ func (x *GetSelectedRouteResponse) String() string {
 func (*GetSelectedRouteResponse) ProtoMessage() {}
 
 func (x *GetSelectedRouteResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_media_media_proto_msgTypes[25]
+	mi := &file_proto_media_media_proto_msgTypes[27]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1133,7 +1213,7 @@ func (x *GetSelectedRouteResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetSelectedRouteResponse.ProtoReflect.Descriptor instead.
 func (*GetSelectedRouteResponse) Descriptor() ([]byte, []int) {
-	return file_proto_media_media_proto_rawDescGZIP(), []int{25}
+	return file_proto_media_media_proto_rawDescGZIP(), []int{27}
 }
 
 func (x *GetSelectedRouteResponse) GetResult() int64 {
@@ -1152,7 +1232,7 @@ type RemoveCallbackRequest struct {
 
 func (x *RemoveCallbackRequest) Reset() {
 	*x = RemoveCallbackRequest{}
-	mi := &file_proto_media_media_proto_msgTypes[26]
+	mi := &file_proto_media_media_proto_msgTypes[28]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1164,7 +1244,7 @@ func (x *RemoveCallbackRequest) String() string {
 func (*RemoveCallbackRequest) ProtoMessage() {}
 
 func (x *RemoveCallbackRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_media_media_proto_msgTypes[26]
+	mi := &file_proto_media_media_proto_msgTypes[28]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1177,7 +1257,7 @@ func (x *RemoveCallbackRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use RemoveCallbackRequest.ProtoReflect.Descriptor instead.
 func (*RemoveCallbackRequest) Descriptor() ([]byte, []int) {
-	return file_proto_media_media_proto_rawDescGZIP(), []int{26}
+	return file_proto_media_media_proto_rawDescGZIP(), []int{28}
 }
 
 func (x *RemoveCallbackRequest) GetArg0() int64 {
@@ -1195,7 +1275,7 @@ type RemoveCallbackResponse struct {
 
 func (x *RemoveCallbackResponse) Reset() {
 	*x = RemoveCallbackResponse{}
-	mi := &file_proto_media_media_proto_msgTypes[27]
+	mi := &file_proto_media_media_proto_msgTypes[29]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1207,7 +1287,7 @@ func (x *RemoveCallbackResponse) String() string {
 func (*RemoveCallbackResponse) ProtoMessage() {}
 
 func (x *RemoveCallbackResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_media_media_proto_msgTypes[27]
+	mi := &file_proto_media_media_proto_msgTypes[29]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1220,7 +1300,7 @@ func (x *RemoveCallbackResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use RemoveCallbackResponse.ProtoReflect.Descriptor instead.
 func (*RemoveCallbackResponse) Descriptor() ([]byte, []int) {
-	return file_proto_media_media_proto_rawDescGZIP(), []int{27}
+	return file_proto_media_media_proto_rawDescGZIP(), []int{29}
 }
 
 type RemoveUserRouteRequest struct {
@@ -1232,7 +1312,7 @@ type RemoveUserRouteRequest struct {
 
 func (x *RemoveUserRouteRequest) Reset() {
 	*x = RemoveUserRouteRequest{}
-	mi := &file_proto_media_media_proto_msgTypes[28]
+	mi := &file_proto_media_media_proto_msgTypes[30]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1244,7 +1324,7 @@ func (x *RemoveUserRouteRequest) String() string {
 func (*RemoveUserRouteRequest) ProtoMessage() {}
 
 func (x *RemoveUserRouteRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_media_media_proto_msgTypes[28]
+	mi := &file_proto_media_media_proto_msgTypes[30]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1257,7 +1337,7 @@ func (x *RemoveUserRouteRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use RemoveUserRouteRequest.ProtoReflect.Descriptor instead.
 func (*RemoveUserRouteRequest) Descriptor() ([]byte, []int) {
-	return file_proto_media_media_proto_rawDescGZIP(), []int{28}
+	return file_proto_media_media_proto_rawDescGZIP(), []int{30}
 }
 
 func (x *RemoveUserRouteRequest) GetArg0() int64 {
@@ -1275,7 +1355,7 @@ type RemoveUserRouteResponse struct {
 
 func (x *RemoveUserRouteResponse) Reset() {
 	*x = RemoveUserRouteResponse{}
-	mi := &file_proto_media_media_proto_msgTypes[29]
+	mi := &file_proto_media_media_proto_msgTypes[31]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1287,7 +1367,7 @@ func (x *RemoveUserRouteResponse) String() string {
 func (*RemoveUserRouteResponse) ProtoMessage() {}
 
 func (x *RemoveUserRouteResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_media_media_proto_msgTypes[29]
+	mi := &file_proto_media_media_proto_msgTypes[31]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1300,7 +1380,7 @@ func (x *RemoveUserRouteResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use RemoveUserRouteResponse.ProtoReflect.Descriptor instead.
 func (*RemoveUserRouteResponse) Descriptor() ([]byte, []int) {
-	return file_proto_media_media_proto_rawDescGZIP(), []int{29}
+	return file_proto_media_media_proto_rawDescGZIP(), []int{31}
 }
 
 type SelectRouteRequest struct {
@@ -1313,7 +1393,7 @@ type SelectRouteRequest struct {
 
 func (x *SelectRouteRequest) Reset() {
 	*x = SelectRouteRequest{}
-	mi := &file_proto_media_media_proto_msgTypes[30]
+	mi := &file_proto_media_media_proto_msgTypes[32]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1325,7 +1405,7 @@ func (x *SelectRouteRequest) String() string {
 func (*SelectRouteRequest) ProtoMessage() {}
 
 func (x *SelectRouteRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_media_media_proto_msgTypes[30]
+	mi := &file_proto_media_media_proto_msgTypes[32]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1338,7 +1418,7 @@ func (x *SelectRouteRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SelectRouteRequest.ProtoReflect.Descriptor instead.
 func (*SelectRouteRequest) Descriptor() ([]byte, []int) {
-	return file_proto_media_media_proto_rawDescGZIP(), []int{30}
+	return file_proto_media_media_proto_rawDescGZIP(), []int{32}
 }
 
 func (x *SelectRouteRequest) GetArg0() int32 {
@@ -1363,7 +1443,7 @@ type SelectRouteResponse struct {
 
 func (x *SelectRouteResponse) Reset() {
 	*x = SelectRouteResponse{}
-	mi := &file_proto_media_media_proto_msgTypes[31]
+	mi := &file_proto_media_media_proto_msgTypes[33]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1375,7 +1455,7 @@ func (x *SelectRouteResponse) String() string {
 func (*SelectRouteResponse) ProtoMessage() {}
 
 func (x *SelectRouteResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_media_media_proto_msgTypes[31]
+	mi := &file_proto_media_media_proto_msgTypes[33]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1388,94 +1468,17 @@ func (x *SelectRouteResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SelectRouteResponse.ProtoReflect.Descriptor instead.
 func (*SelectRouteResponse) Descriptor() ([]byte, []int) {
-	return file_proto_media_media_proto_rawDescGZIP(), []int{31}
-}
-
-type GetVersionRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetVersionRequest) Reset() {
-	*x = GetVersionRequest{}
-	mi := &file_proto_media_media_proto_msgTypes[32]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetVersionRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetVersionRequest) ProtoMessage() {}
-
-func (x *GetVersionRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_media_media_proto_msgTypes[32]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetVersionRequest.ProtoReflect.Descriptor instead.
-func (*GetVersionRequest) Descriptor() ([]byte, []int) {
-	return file_proto_media_media_proto_rawDescGZIP(), []int{32}
-}
-
-type GetVersionResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetVersionResponse) Reset() {
-	*x = GetVersionResponse{}
-	mi := &file_proto_media_media_proto_msgTypes[33]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetVersionResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetVersionResponse) ProtoMessage() {}
-
-func (x *GetVersionResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_media_media_proto_msgTypes[33]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetVersionResponse.ProtoReflect.Descriptor instead.
-func (*GetVersionResponse) Descriptor() ([]byte, []int) {
 	return file_proto_media_media_proto_rawDescGZIP(), []int{33}
-}
-
-func (x *GetVersionResponse) GetResult() int32 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
 }
 
 var File_proto_media_media_proto protoreflect.FileDescriptor
 
 const file_proto_media_media_proto_rawDesc = "" +
 	"\n" +
-	"\x17proto/media/media.proto\x12\x05media\"=\n" +
+	"\x17proto/media/media.proto\x12\x05media\"\x13\n" +
+	"\x11GetVersionRequest\",\n" +
+	"\x12GetVersionResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"=\n" +
 	"\x13AddCallback2Request\x12\x12\n" +
 	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\x12\x12\n" +
 	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\"\x16\n" +
@@ -1534,10 +1537,10 @@ const file_proto_media_media_proto_rawDesc = "" +
 	"\x12SelectRouteRequest\x12\x12\n" +
 	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\x12\x12\n" +
 	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\"\x15\n" +
-	"\x13SelectRouteResponse\"\x13\n" +
-	"\x11GetVersionRequest\",\n" +
-	"\x12GetVersionResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x05R\x06result2\x9a\n" +
+	"\x13SelectRouteResponse2`\n" +
+	"\x1bCommunicationManagerService\x12A\n" +
+	"\n" +
+	"GetVersion\x12\x18.media.GetVersionRequest\x1a\x19.media.GetVersionResponse2\x9a\n" +
 	"\n" +
 	"\rRouterService\x12G\n" +
 	"\fAddCallback2\x12\x1a.media.AddCallback2Request\x1a\x1b.media.AddCallback2Response\x12M\n" +
@@ -1556,10 +1559,7 @@ const file_proto_media_media_proto_rawDesc = "" +
 	"\x10GetSelectedRoute\x12\x1e.media.GetSelectedRouteRequest\x1a\x1f.media.GetSelectedRouteResponse\x12M\n" +
 	"\x0eRemoveCallback\x12\x1c.media.RemoveCallbackRequest\x1a\x1d.media.RemoveCallbackResponse\x12P\n" +
 	"\x0fRemoveUserRoute\x12\x1d.media.RemoveUserRouteRequest\x1a\x1e.media.RemoveUserRouteResponse\x12D\n" +
-	"\vSelectRoute\x12\x19.media.SelectRouteRequest\x1a\x1a.media.SelectRouteResponse2`\n" +
-	"\x1bCommunicationManagerService\x12A\n" +
-	"\n" +
-	"GetVersion\x12\x18.media.GetVersionRequest\x1a\x19.media.GetVersionResponseB/Z-github.com/AndroidGoLab/jni-proxy/proto/mediab\x06proto3"
+	"\vSelectRoute\x12\x19.media.SelectRouteRequest\x1a\x1a.media.SelectRouteResponseB/Z-github.com/AndroidGoLab/jni-proxy/proto/mediab\x06proto3"
 
 var (
 	file_proto_media_media_proto_rawDescOnce sync.Once
@@ -1575,76 +1575,76 @@ func file_proto_media_media_proto_rawDescGZIP() []byte {
 
 var file_proto_media_media_proto_msgTypes = make([]protoimpl.MessageInfo, 34)
 var file_proto_media_media_proto_goTypes = []any{
-	(*AddCallback2Request)(nil),            // 0: media.AddCallback2Request
-	(*AddCallback2Response)(nil),           // 1: media.AddCallback2Response
-	(*AddCallback3_1Request)(nil),          // 2: media.AddCallback3_1Request
-	(*AddCallback3_1Response)(nil),         // 3: media.AddCallback3_1Response
-	(*AddUserRouteRequest)(nil),            // 4: media.AddUserRouteRequest
-	(*AddUserRouteResponse)(nil),           // 5: media.AddUserRouteResponse
-	(*ClearUserRoutesRequest)(nil),         // 6: media.ClearUserRoutesRequest
-	(*ClearUserRoutesResponse)(nil),        // 7: media.ClearUserRoutesResponse
-	(*CreateRouteCategory2Request)(nil),    // 8: media.CreateRouteCategory2Request
-	(*CreateRouteCategory2Response)(nil),   // 9: media.CreateRouteCategory2Response
-	(*CreateRouteCategory2_1Request)(nil),  // 10: media.CreateRouteCategory2_1Request
-	(*CreateRouteCategory2_1Response)(nil), // 11: media.CreateRouteCategory2_1Response
-	(*CreateUserRouteRequest)(nil),         // 12: media.CreateUserRouteRequest
-	(*CreateUserRouteResponse)(nil),        // 13: media.CreateUserRouteResponse
-	(*GetCategoryAtRequest)(nil),           // 14: media.GetCategoryAtRequest
-	(*GetCategoryAtResponse)(nil),          // 15: media.GetCategoryAtResponse
-	(*GetCategoryCountRequest)(nil),        // 16: media.GetCategoryCountRequest
-	(*GetCategoryCountResponse)(nil),       // 17: media.GetCategoryCountResponse
-	(*GetDefaultRouteRequest)(nil),         // 18: media.GetDefaultRouteRequest
-	(*GetDefaultRouteResponse)(nil),        // 19: media.GetDefaultRouteResponse
-	(*GetRouteAtRequest)(nil),              // 20: media.GetRouteAtRequest
-	(*GetRouteAtResponse)(nil),             // 21: media.GetRouteAtResponse
-	(*GetRouteCountRequest)(nil),           // 22: media.GetRouteCountRequest
-	(*GetRouteCountResponse)(nil),          // 23: media.GetRouteCountResponse
-	(*GetSelectedRouteRequest)(nil),        // 24: media.GetSelectedRouteRequest
-	(*GetSelectedRouteResponse)(nil),       // 25: media.GetSelectedRouteResponse
-	(*RemoveCallbackRequest)(nil),          // 26: media.RemoveCallbackRequest
-	(*RemoveCallbackResponse)(nil),         // 27: media.RemoveCallbackResponse
-	(*RemoveUserRouteRequest)(nil),         // 28: media.RemoveUserRouteRequest
-	(*RemoveUserRouteResponse)(nil),        // 29: media.RemoveUserRouteResponse
-	(*SelectRouteRequest)(nil),             // 30: media.SelectRouteRequest
-	(*SelectRouteResponse)(nil),            // 31: media.SelectRouteResponse
-	(*GetVersionRequest)(nil),              // 32: media.GetVersionRequest
-	(*GetVersionResponse)(nil),             // 33: media.GetVersionResponse
+	(*GetVersionRequest)(nil),              // 0: media.GetVersionRequest
+	(*GetVersionResponse)(nil),             // 1: media.GetVersionResponse
+	(*AddCallback2Request)(nil),            // 2: media.AddCallback2Request
+	(*AddCallback2Response)(nil),           // 3: media.AddCallback2Response
+	(*AddCallback3_1Request)(nil),          // 4: media.AddCallback3_1Request
+	(*AddCallback3_1Response)(nil),         // 5: media.AddCallback3_1Response
+	(*AddUserRouteRequest)(nil),            // 6: media.AddUserRouteRequest
+	(*AddUserRouteResponse)(nil),           // 7: media.AddUserRouteResponse
+	(*ClearUserRoutesRequest)(nil),         // 8: media.ClearUserRoutesRequest
+	(*ClearUserRoutesResponse)(nil),        // 9: media.ClearUserRoutesResponse
+	(*CreateRouteCategory2Request)(nil),    // 10: media.CreateRouteCategory2Request
+	(*CreateRouteCategory2Response)(nil),   // 11: media.CreateRouteCategory2Response
+	(*CreateRouteCategory2_1Request)(nil),  // 12: media.CreateRouteCategory2_1Request
+	(*CreateRouteCategory2_1Response)(nil), // 13: media.CreateRouteCategory2_1Response
+	(*CreateUserRouteRequest)(nil),         // 14: media.CreateUserRouteRequest
+	(*CreateUserRouteResponse)(nil),        // 15: media.CreateUserRouteResponse
+	(*GetCategoryAtRequest)(nil),           // 16: media.GetCategoryAtRequest
+	(*GetCategoryAtResponse)(nil),          // 17: media.GetCategoryAtResponse
+	(*GetCategoryCountRequest)(nil),        // 18: media.GetCategoryCountRequest
+	(*GetCategoryCountResponse)(nil),       // 19: media.GetCategoryCountResponse
+	(*GetDefaultRouteRequest)(nil),         // 20: media.GetDefaultRouteRequest
+	(*GetDefaultRouteResponse)(nil),        // 21: media.GetDefaultRouteResponse
+	(*GetRouteAtRequest)(nil),              // 22: media.GetRouteAtRequest
+	(*GetRouteAtResponse)(nil),             // 23: media.GetRouteAtResponse
+	(*GetRouteCountRequest)(nil),           // 24: media.GetRouteCountRequest
+	(*GetRouteCountResponse)(nil),          // 25: media.GetRouteCountResponse
+	(*GetSelectedRouteRequest)(nil),        // 26: media.GetSelectedRouteRequest
+	(*GetSelectedRouteResponse)(nil),       // 27: media.GetSelectedRouteResponse
+	(*RemoveCallbackRequest)(nil),          // 28: media.RemoveCallbackRequest
+	(*RemoveCallbackResponse)(nil),         // 29: media.RemoveCallbackResponse
+	(*RemoveUserRouteRequest)(nil),         // 30: media.RemoveUserRouteRequest
+	(*RemoveUserRouteResponse)(nil),        // 31: media.RemoveUserRouteResponse
+	(*SelectRouteRequest)(nil),             // 32: media.SelectRouteRequest
+	(*SelectRouteResponse)(nil),            // 33: media.SelectRouteResponse
 }
 var file_proto_media_media_proto_depIdxs = []int32{
-	0,  // 0: media.RouterService.AddCallback2:input_type -> media.AddCallback2Request
-	2,  // 1: media.RouterService.AddCallback3_1:input_type -> media.AddCallback3_1Request
-	4,  // 2: media.RouterService.AddUserRoute:input_type -> media.AddUserRouteRequest
-	6,  // 3: media.RouterService.ClearUserRoutes:input_type -> media.ClearUserRoutesRequest
-	8,  // 4: media.RouterService.CreateRouteCategory2:input_type -> media.CreateRouteCategory2Request
-	10, // 5: media.RouterService.CreateRouteCategory2_1:input_type -> media.CreateRouteCategory2_1Request
-	12, // 6: media.RouterService.CreateUserRoute:input_type -> media.CreateUserRouteRequest
-	14, // 7: media.RouterService.GetCategoryAt:input_type -> media.GetCategoryAtRequest
-	16, // 8: media.RouterService.GetCategoryCount:input_type -> media.GetCategoryCountRequest
-	18, // 9: media.RouterService.GetDefaultRoute:input_type -> media.GetDefaultRouteRequest
-	20, // 10: media.RouterService.GetRouteAt:input_type -> media.GetRouteAtRequest
-	22, // 11: media.RouterService.GetRouteCount:input_type -> media.GetRouteCountRequest
-	24, // 12: media.RouterService.GetSelectedRoute:input_type -> media.GetSelectedRouteRequest
-	26, // 13: media.RouterService.RemoveCallback:input_type -> media.RemoveCallbackRequest
-	28, // 14: media.RouterService.RemoveUserRoute:input_type -> media.RemoveUserRouteRequest
-	30, // 15: media.RouterService.SelectRoute:input_type -> media.SelectRouteRequest
-	32, // 16: media.CommunicationManagerService.GetVersion:input_type -> media.GetVersionRequest
-	1,  // 17: media.RouterService.AddCallback2:output_type -> media.AddCallback2Response
-	3,  // 18: media.RouterService.AddCallback3_1:output_type -> media.AddCallback3_1Response
-	5,  // 19: media.RouterService.AddUserRoute:output_type -> media.AddUserRouteResponse
-	7,  // 20: media.RouterService.ClearUserRoutes:output_type -> media.ClearUserRoutesResponse
-	9,  // 21: media.RouterService.CreateRouteCategory2:output_type -> media.CreateRouteCategory2Response
-	11, // 22: media.RouterService.CreateRouteCategory2_1:output_type -> media.CreateRouteCategory2_1Response
-	13, // 23: media.RouterService.CreateUserRoute:output_type -> media.CreateUserRouteResponse
-	15, // 24: media.RouterService.GetCategoryAt:output_type -> media.GetCategoryAtResponse
-	17, // 25: media.RouterService.GetCategoryCount:output_type -> media.GetCategoryCountResponse
-	19, // 26: media.RouterService.GetDefaultRoute:output_type -> media.GetDefaultRouteResponse
-	21, // 27: media.RouterService.GetRouteAt:output_type -> media.GetRouteAtResponse
-	23, // 28: media.RouterService.GetRouteCount:output_type -> media.GetRouteCountResponse
-	25, // 29: media.RouterService.GetSelectedRoute:output_type -> media.GetSelectedRouteResponse
-	27, // 30: media.RouterService.RemoveCallback:output_type -> media.RemoveCallbackResponse
-	29, // 31: media.RouterService.RemoveUserRoute:output_type -> media.RemoveUserRouteResponse
-	31, // 32: media.RouterService.SelectRoute:output_type -> media.SelectRouteResponse
-	33, // 33: media.CommunicationManagerService.GetVersion:output_type -> media.GetVersionResponse
+	0,  // 0: media.CommunicationManagerService.GetVersion:input_type -> media.GetVersionRequest
+	2,  // 1: media.RouterService.AddCallback2:input_type -> media.AddCallback2Request
+	4,  // 2: media.RouterService.AddCallback3_1:input_type -> media.AddCallback3_1Request
+	6,  // 3: media.RouterService.AddUserRoute:input_type -> media.AddUserRouteRequest
+	8,  // 4: media.RouterService.ClearUserRoutes:input_type -> media.ClearUserRoutesRequest
+	10, // 5: media.RouterService.CreateRouteCategory2:input_type -> media.CreateRouteCategory2Request
+	12, // 6: media.RouterService.CreateRouteCategory2_1:input_type -> media.CreateRouteCategory2_1Request
+	14, // 7: media.RouterService.CreateUserRoute:input_type -> media.CreateUserRouteRequest
+	16, // 8: media.RouterService.GetCategoryAt:input_type -> media.GetCategoryAtRequest
+	18, // 9: media.RouterService.GetCategoryCount:input_type -> media.GetCategoryCountRequest
+	20, // 10: media.RouterService.GetDefaultRoute:input_type -> media.GetDefaultRouteRequest
+	22, // 11: media.RouterService.GetRouteAt:input_type -> media.GetRouteAtRequest
+	24, // 12: media.RouterService.GetRouteCount:input_type -> media.GetRouteCountRequest
+	26, // 13: media.RouterService.GetSelectedRoute:input_type -> media.GetSelectedRouteRequest
+	28, // 14: media.RouterService.RemoveCallback:input_type -> media.RemoveCallbackRequest
+	30, // 15: media.RouterService.RemoveUserRoute:input_type -> media.RemoveUserRouteRequest
+	32, // 16: media.RouterService.SelectRoute:input_type -> media.SelectRouteRequest
+	1,  // 17: media.CommunicationManagerService.GetVersion:output_type -> media.GetVersionResponse
+	3,  // 18: media.RouterService.AddCallback2:output_type -> media.AddCallback2Response
+	5,  // 19: media.RouterService.AddCallback3_1:output_type -> media.AddCallback3_1Response
+	7,  // 20: media.RouterService.AddUserRoute:output_type -> media.AddUserRouteResponse
+	9,  // 21: media.RouterService.ClearUserRoutes:output_type -> media.ClearUserRoutesResponse
+	11, // 22: media.RouterService.CreateRouteCategory2:output_type -> media.CreateRouteCategory2Response
+	13, // 23: media.RouterService.CreateRouteCategory2_1:output_type -> media.CreateRouteCategory2_1Response
+	15, // 24: media.RouterService.CreateUserRoute:output_type -> media.CreateUserRouteResponse
+	17, // 25: media.RouterService.GetCategoryAt:output_type -> media.GetCategoryAtResponse
+	19, // 26: media.RouterService.GetCategoryCount:output_type -> media.GetCategoryCountResponse
+	21, // 27: media.RouterService.GetDefaultRoute:output_type -> media.GetDefaultRouteResponse
+	23, // 28: media.RouterService.GetRouteAt:output_type -> media.GetRouteAtResponse
+	25, // 29: media.RouterService.GetRouteCount:output_type -> media.GetRouteCountResponse
+	27, // 30: media.RouterService.GetSelectedRoute:output_type -> media.GetSelectedRouteResponse
+	29, // 31: media.RouterService.RemoveCallback:output_type -> media.RemoveCallbackResponse
+	31, // 32: media.RouterService.RemoveUserRoute:output_type -> media.RemoveUserRouteResponse
+	33, // 33: media.RouterService.SelectRoute:output_type -> media.SelectRouteResponse
 	17, // [17:34] is the sub-list for method output_type
 	0,  // [0:17] is the sub-list for method input_type
 	0,  // [0:0] is the sub-list for extension type_name

@@ -9,6 +9,97 @@ import (
 	"google.golang.org/grpc"
 )
 
+// CaptioningManagerClient wraps the gRPC CaptioningManagerService client.
+type CaptioningManagerClient struct {
+	svc pb.CaptioningManagerServiceClient
+}
+
+// NewCaptioningManagerClient creates a new CaptioningManager client.
+func NewCaptioningManagerClient(cc grpc.ClientConnInterface) *CaptioningManagerClient {
+	return &CaptioningManagerClient{
+		svc: pb.NewCaptioningManagerServiceClient(cc),
+	}
+}
+
+// AddCaptioningChangeListener calls the AddCaptioningChangeListener RPC.
+func (c *CaptioningManagerClient) AddCaptioningChangeListener(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.AddCaptioningChangeListener(ctx, &pb.AddCaptioningChangeListenerRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// GetFontScale calls the GetFontScale RPC.
+func (c *CaptioningManagerClient) GetFontScale(ctx context.Context) (float32, error) {
+	resp, err := c.svc.GetFontScale(ctx, &pb.GetFontScaleRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetLocale calls the GetLocale RPC.
+func (c *CaptioningManagerClient) GetLocale(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetLocale(ctx, &pb.GetLocaleRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetUserStyle calls the GetUserStyle RPC.
+func (c *CaptioningManagerClient) GetUserStyle(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetUserStyle(ctx, &pb.GetUserStyleRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsCallCaptioningEnabled calls the IsCallCaptioningEnabled RPC.
+func (c *CaptioningManagerClient) IsCallCaptioningEnabled(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsCallCaptioningEnabled(ctx, &pb.IsCallCaptioningEnabledRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsEnabled calls the IsEnabled RPC.
+func (c *CaptioningManagerClient) IsEnabled(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsEnabled(ctx, &pb.IsEnabledRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsSystemAudioCaptioningEnabled calls the IsSystemAudioCaptioningEnabled RPC.
+func (c *CaptioningManagerClient) IsSystemAudioCaptioningEnabled(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsSystemAudioCaptioningEnabled(ctx, &pb.IsSystemAudioCaptioningEnabledRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsSystemAudioCaptioningUiEnabled calls the IsSystemAudioCaptioningUiEnabled RPC.
+func (c *CaptioningManagerClient) IsSystemAudioCaptioningUiEnabled(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsSystemAudioCaptioningUiEnabled(ctx, &pb.IsSystemAudioCaptioningUiEnabledRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// RemoveCaptioningChangeListener calls the RemoveCaptioningChangeListener RPC.
+func (c *CaptioningManagerClient) RemoveCaptioningChangeListener(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.RemoveCaptioningChangeListener(ctx, &pb.RemoveCaptioningChangeListenerRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
 // ManagerClient wraps the gRPC ManagerService client.
 type ManagerClient struct {
 	svc pb.ManagerServiceClient
@@ -242,95 +333,4 @@ func (c *ManagerClient) IsAccessibilityButtonSupported(ctx context.Context) (boo
 		return false, err
 	}
 	return resp.GetResult(), nil
-}
-
-// CaptioningManagerClient wraps the gRPC CaptioningManagerService client.
-type CaptioningManagerClient struct {
-	svc pb.CaptioningManagerServiceClient
-}
-
-// NewCaptioningManagerClient creates a new CaptioningManager client.
-func NewCaptioningManagerClient(cc grpc.ClientConnInterface) *CaptioningManagerClient {
-	return &CaptioningManagerClient{
-		svc: pb.NewCaptioningManagerServiceClient(cc),
-	}
-}
-
-// AddCaptioningChangeListener calls the AddCaptioningChangeListener RPC.
-func (c *CaptioningManagerClient) AddCaptioningChangeListener(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.AddCaptioningChangeListener(ctx, &pb.AddCaptioningChangeListenerRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// GetFontScale calls the GetFontScale RPC.
-func (c *CaptioningManagerClient) GetFontScale(ctx context.Context) (float32, error) {
-	resp, err := c.svc.GetFontScale(ctx, &pb.GetFontScaleRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetLocale calls the GetLocale RPC.
-func (c *CaptioningManagerClient) GetLocale(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetLocale(ctx, &pb.GetLocaleRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetUserStyle calls the GetUserStyle RPC.
-func (c *CaptioningManagerClient) GetUserStyle(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetUserStyle(ctx, &pb.GetUserStyleRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// IsCallCaptioningEnabled calls the IsCallCaptioningEnabled RPC.
-func (c *CaptioningManagerClient) IsCallCaptioningEnabled(ctx context.Context) (bool, error) {
-	resp, err := c.svc.IsCallCaptioningEnabled(ctx, &pb.IsCallCaptioningEnabledRequest{})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// IsEnabled calls the IsEnabled RPC.
-func (c *CaptioningManagerClient) IsEnabled(ctx context.Context) (bool, error) {
-	resp, err := c.svc.IsEnabled(ctx, &pb.IsEnabledRequest{})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// IsSystemAudioCaptioningEnabled calls the IsSystemAudioCaptioningEnabled RPC.
-func (c *CaptioningManagerClient) IsSystemAudioCaptioningEnabled(ctx context.Context) (bool, error) {
-	resp, err := c.svc.IsSystemAudioCaptioningEnabled(ctx, &pb.IsSystemAudioCaptioningEnabledRequest{})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// IsSystemAudioCaptioningUiEnabled calls the IsSystemAudioCaptioningUiEnabled RPC.
-func (c *CaptioningManagerClient) IsSystemAudioCaptioningUiEnabled(ctx context.Context) (bool, error) {
-	resp, err := c.svc.IsSystemAudioCaptioningUiEnabled(ctx, &pb.IsSystemAudioCaptioningUiEnabledRequest{})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// RemoveCaptioningChangeListener calls the RemoveCaptioningChangeListener RPC.
-func (c *CaptioningManagerClient) RemoveCaptioningChangeListener(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.RemoveCaptioningChangeListener(ctx, &pb.RemoveCaptioningChangeListenerRequest{
-		Arg0: arg0,
-	})
-	return err
 }

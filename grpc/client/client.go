@@ -84,22 +84,22 @@ import (
 // Client provides access to all Android API services over gRPC.
 type Client struct {
 	handles                                     handlepb.HandleStoreServiceClient
-	AccessibilityManager                        *accessibilityclient.ManagerClient
 	AccessibilityCaptioningManager              *accessibilityclient.CaptioningManagerClient
+	AccessibilityManager                        *accessibilityclient.ManagerClient
 	AccountsAccountManager                      *accountsclient.AccountManagerClient
 	AdTvAdManager                               *adclient.TvAdManagerClient
 	AdminDevicePolicyManager                    *adminclient.DevicePolicyManagerClient
 	AdvancedprotectionAdvancedProtectionManager *advancedprotectionclient.AdvancedProtectionManagerClient
 	AlarmManager                                *alarmclient.ManagerClient
-	AppStatusBarManager                         *appclient.StatusBarManagerClient
-	AppGameManager                              *appclient.GameManagerClient
-	AppActivityManager                          *appclient.ActivityManagerClient
-	AppSearchManager                            *appclient.SearchManagerClient
-	AppLocaleManager                            *appclient.LocaleManagerClient
-	AppWallpaperManager                         *appclient.WallpaperManagerClient
-	AppOpsManager                               *appclient.OpsManagerClient
 	AppUiModeManager                            *appclient.UiModeManagerClient
+	AppStatusBarManager                         *appclient.StatusBarManagerClient
+	AppActivityManager                          *appclient.ActivityManagerClient
+	AppWallpaperManager                         *appclient.WallpaperManagerClient
+	AppSearchManager                            *appclient.SearchManagerClient
 	AppGrammaticalInflectionManager             *appclient.GrammaticalInflectionManagerClient
+	AppLocaleManager                            *appclient.LocaleManagerClient
+	AppOpsManager                               *appclient.OpsManagerClient
+	AppGameManager                              *appclient.GameManagerClient
 	AppwidgetAppWidgetManager                   *appwidgetclient.AppWidgetManagerClient
 	AudiomanagerAudioManager                    *audiomanagerclient.AudioManagerClient
 	AwareWifiAwareManager                       *awareclient.WifiAwareManagerClient
@@ -112,8 +112,8 @@ type Client struct {
 	CompanionDeviceManager                      *companionclient.DeviceManagerClient
 	ContentRestrictionsManager                  *contentclient.RestrictionsManagerClient
 	CredentialsCredentialManager                *credentialsclient.CredentialManagerClient
-	DisplayManager                              *displayclient.ManagerClient
 	DisplayWindowManager                        *displayclient.WindowManagerClient
+	DisplayManager                              *displayclient.ManagerClient
 	DisplayhashDisplayHashManager               *displayhashclient.DisplayHashManagerClient
 	DomainVerificationManager                   *domainclient.VerificationManagerClient
 	DownloadManager                             *downloadclient.ManagerClient
@@ -130,26 +130,26 @@ type Client struct {
 	KeyguardManager                             *keyguardclient.ManagerClient
 	KeystoreKeyStoreManager                     *keystoreclient.KeyStoreManagerClient
 	LocationManager                             *locationclient.ManagerClient
-	MediaRouter                                 *mediaclient.RouterClient
 	MediaCommunicationManager                   *mediaclient.CommunicationManagerClient
+	MediaRouter                                 *mediaclient.RouterClient
 	MetricsMediaMetricsManager                  *metricsclient.MediaMetricsManagerClient
 	MidiManager                                 *midiclient.ManagerClient
-	NetConnectivityDiagnosticsManager           *netclient.ConnectivityDiagnosticsManagerClient
-	NetConnectivityManager                      *netclient.ConnectivityManagerClient
 	NetIpSecManager                             *netclient.IpSecManagerClient
 	NetTetheringManager                         *netclient.TetheringManagerClient
+	NetConnectivityManager                      *netclient.ConnectivityManagerClient
+	NetConnectivityDiagnosticsManager           *netclient.ConnectivityDiagnosticsManagerClient
 	NfcManager                                  *nfcclient.ManagerClient
 	NotificationManager                         *notificationclient.ManagerClient
 	NsdManager                                  *nsdclient.ManagerClient
 	OmOverlayManager                            *omclient.OverlayManagerClient
-	OsDropBoxManager                            *osclient.DropBoxManagerClient
 	OsSecurityStateManager                      *osclient.SecurityStateManagerClient
+	OsPerformanceHintManager                    *osclient.PerformanceHintManagerClient
+	OsBugreportManager                          *osclient.BugreportManagerClient
 	OsUserManager                               *osclient.UserManagerClient
 	OsHardwarePropertiesManager                 *osclient.HardwarePropertiesManagerClient
-	OsVibratorManager                           *osclient.VibratorManagerClient
-	OsBugreportManager                          *osclient.BugreportManagerClient
-	OsPerformanceHintManager                    *osclient.PerformanceHintManagerClient
 	OsProfilingManager                          *osclient.ProfilingManagerClient
+	OsDropBoxManager                            *osclient.DropBoxManagerClient
+	OsVibratorManager                           *osclient.VibratorManagerClient
 	P2pWifiP2pManager                           *p2pclient.WifiP2pManagerClient
 	PeopleManager                               *peopleclient.ManagerClient
 	PersistentdataPersistentDataBlockManager    *persistentdataclient.PersistentDataBlockManagerClient
@@ -166,14 +166,14 @@ type Client struct {
 	SessionMediaSessionManager                  *sessionclient.MediaSessionManagerClient
 	StorageManager                              *storageclient.ManagerClient
 	TelecomManager                              *telecomclient.ManagerClient
-	TelephonyCarrierConfigManager               *telephonyclient.CarrierConfigManagerClient
 	TelephonyManager                            *telephonyclient.ManagerClient
+	TelephonyCarrierConfigManager               *telephonyclient.CarrierConfigManagerClient
 	TextclassifierTextClassificationManager     *textclassifierclient.TextClassificationManagerClient
 	TextserviceTextServicesManager              *textserviceclient.TextServicesManagerClient
 	TvInputManager                              *tvclient.InputManagerClient
-	UsageStatsManager                           *usageclient.StatsManagerClient
-	UsageStorageStatsManager                    *usageclient.StorageStatsManagerClient
 	UsageNetworkStatsManager                    *usageclient.NetworkStatsManagerClient
+	UsageStorageStatsManager                    *usageclient.StorageStatsManagerClient
+	UsageStatsManager                           *usageclient.StatsManagerClient
 	UsbManager                                  *usbclient.ManagerClient
 	VibratorVibrator                            *vibratorclient.VibratorClient
 	ViewLayoutInflater                          *viewclient.LayoutInflaterClient
@@ -187,22 +187,22 @@ type Client struct {
 func NewClient(cc grpc.ClientConnInterface) *Client {
 	return &Client{
 		handles:                                     handlepb.NewHandleStoreServiceClient(cc),
-		AccessibilityManager:                        accessibilityclient.NewManagerClient(cc),
 		AccessibilityCaptioningManager:              accessibilityclient.NewCaptioningManagerClient(cc),
+		AccessibilityManager:                        accessibilityclient.NewManagerClient(cc),
 		AccountsAccountManager:                      accountsclient.NewAccountManagerClient(cc),
 		AdTvAdManager:                               adclient.NewTvAdManagerClient(cc),
 		AdminDevicePolicyManager:                    adminclient.NewDevicePolicyManagerClient(cc),
 		AdvancedprotectionAdvancedProtectionManager: advancedprotectionclient.NewAdvancedProtectionManagerClient(cc),
 		AlarmManager:                                alarmclient.NewManagerClient(cc),
-		AppStatusBarManager:                         appclient.NewStatusBarManagerClient(cc),
-		AppGameManager:                              appclient.NewGameManagerClient(cc),
-		AppActivityManager:                          appclient.NewActivityManagerClient(cc),
-		AppSearchManager:                            appclient.NewSearchManagerClient(cc),
-		AppLocaleManager:                            appclient.NewLocaleManagerClient(cc),
-		AppWallpaperManager:                         appclient.NewWallpaperManagerClient(cc),
-		AppOpsManager:                               appclient.NewOpsManagerClient(cc),
 		AppUiModeManager:                            appclient.NewUiModeManagerClient(cc),
+		AppStatusBarManager:                         appclient.NewStatusBarManagerClient(cc),
+		AppActivityManager:                          appclient.NewActivityManagerClient(cc),
+		AppWallpaperManager:                         appclient.NewWallpaperManagerClient(cc),
+		AppSearchManager:                            appclient.NewSearchManagerClient(cc),
 		AppGrammaticalInflectionManager:             appclient.NewGrammaticalInflectionManagerClient(cc),
+		AppLocaleManager:                            appclient.NewLocaleManagerClient(cc),
+		AppOpsManager:                               appclient.NewOpsManagerClient(cc),
+		AppGameManager:                              appclient.NewGameManagerClient(cc),
 		AppwidgetAppWidgetManager:                   appwidgetclient.NewAppWidgetManagerClient(cc),
 		AudiomanagerAudioManager:                    audiomanagerclient.NewAudioManagerClient(cc),
 		AwareWifiAwareManager:                       awareclient.NewWifiAwareManagerClient(cc),
@@ -215,8 +215,8 @@ func NewClient(cc grpc.ClientConnInterface) *Client {
 		CompanionDeviceManager:                      companionclient.NewDeviceManagerClient(cc),
 		ContentRestrictionsManager:                  contentclient.NewRestrictionsManagerClient(cc),
 		CredentialsCredentialManager:                credentialsclient.NewCredentialManagerClient(cc),
-		DisplayManager:                              displayclient.NewManagerClient(cc),
 		DisplayWindowManager:                        displayclient.NewWindowManagerClient(cc),
+		DisplayManager:                              displayclient.NewManagerClient(cc),
 		DisplayhashDisplayHashManager:               displayhashclient.NewDisplayHashManagerClient(cc),
 		DomainVerificationManager:                   domainclient.NewVerificationManagerClient(cc),
 		DownloadManager:                             downloadclient.NewManagerClient(cc),
@@ -233,26 +233,26 @@ func NewClient(cc grpc.ClientConnInterface) *Client {
 		KeyguardManager:                             keyguardclient.NewManagerClient(cc),
 		KeystoreKeyStoreManager:                     keystoreclient.NewKeyStoreManagerClient(cc),
 		LocationManager:                             locationclient.NewManagerClient(cc),
-		MediaRouter:                                 mediaclient.NewRouterClient(cc),
 		MediaCommunicationManager:                   mediaclient.NewCommunicationManagerClient(cc),
+		MediaRouter:                                 mediaclient.NewRouterClient(cc),
 		MetricsMediaMetricsManager:                  metricsclient.NewMediaMetricsManagerClient(cc),
 		MidiManager:                                 midiclient.NewManagerClient(cc),
-		NetConnectivityDiagnosticsManager:           netclient.NewConnectivityDiagnosticsManagerClient(cc),
-		NetConnectivityManager:                      netclient.NewConnectivityManagerClient(cc),
 		NetIpSecManager:                             netclient.NewIpSecManagerClient(cc),
 		NetTetheringManager:                         netclient.NewTetheringManagerClient(cc),
+		NetConnectivityManager:                      netclient.NewConnectivityManagerClient(cc),
+		NetConnectivityDiagnosticsManager:           netclient.NewConnectivityDiagnosticsManagerClient(cc),
 		NfcManager:                                  nfcclient.NewManagerClient(cc),
 		NotificationManager:                         notificationclient.NewManagerClient(cc),
 		NsdManager:                                  nsdclient.NewManagerClient(cc),
 		OmOverlayManager:                            omclient.NewOverlayManagerClient(cc),
-		OsDropBoxManager:                            osclient.NewDropBoxManagerClient(cc),
 		OsSecurityStateManager:                      osclient.NewSecurityStateManagerClient(cc),
+		OsPerformanceHintManager:                    osclient.NewPerformanceHintManagerClient(cc),
+		OsBugreportManager:                          osclient.NewBugreportManagerClient(cc),
 		OsUserManager:                               osclient.NewUserManagerClient(cc),
 		OsHardwarePropertiesManager:                 osclient.NewHardwarePropertiesManagerClient(cc),
-		OsVibratorManager:                           osclient.NewVibratorManagerClient(cc),
-		OsBugreportManager:                          osclient.NewBugreportManagerClient(cc),
-		OsPerformanceHintManager:                    osclient.NewPerformanceHintManagerClient(cc),
 		OsProfilingManager:                          osclient.NewProfilingManagerClient(cc),
+		OsDropBoxManager:                            osclient.NewDropBoxManagerClient(cc),
+		OsVibratorManager:                           osclient.NewVibratorManagerClient(cc),
 		P2pWifiP2pManager:                           p2pclient.NewWifiP2pManagerClient(cc),
 		PeopleManager:                               peopleclient.NewManagerClient(cc),
 		PersistentdataPersistentDataBlockManager:    persistentdataclient.NewPersistentDataBlockManagerClient(cc),
@@ -269,14 +269,14 @@ func NewClient(cc grpc.ClientConnInterface) *Client {
 		SessionMediaSessionManager:                  sessionclient.NewMediaSessionManagerClient(cc),
 		StorageManager:                              storageclient.NewManagerClient(cc),
 		TelecomManager:                              telecomclient.NewManagerClient(cc),
-		TelephonyCarrierConfigManager:               telephonyclient.NewCarrierConfigManagerClient(cc),
 		TelephonyManager:                            telephonyclient.NewManagerClient(cc),
+		TelephonyCarrierConfigManager:               telephonyclient.NewCarrierConfigManagerClient(cc),
 		TextclassifierTextClassificationManager:     textclassifierclient.NewTextClassificationManagerClient(cc),
 		TextserviceTextServicesManager:              textserviceclient.NewTextServicesManagerClient(cc),
 		TvInputManager:                              tvclient.NewInputManagerClient(cc),
-		UsageStatsManager:                           usageclient.NewStatsManagerClient(cc),
-		UsageStorageStatsManager:                    usageclient.NewStorageStatsManagerClient(cc),
 		UsageNetworkStatsManager:                    usageclient.NewNetworkStatsManagerClient(cc),
+		UsageStorageStatsManager:                    usageclient.NewStorageStatsManagerClient(cc),
+		UsageStatsManager:                           usageclient.NewStatsManagerClient(cc),
 		UsbManager:                                  usbclient.NewManagerClient(cc),
 		VibratorVibrator:                            vibratorclient.NewVibratorClient(cc),
 		ViewLayoutInflater:                          viewclient.NewLayoutInflaterClient(cc),

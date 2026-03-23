@@ -287,44 +287,6 @@ var notificationManagerCreateNotificationChannelGroupCmd = &cobra.Command{
 	},
 }
 
-var notificationManagerCreateNotificationChannelGroupsCmd = &cobra.Command{
-	Use:   "create-notification-channel-groups",
-	Short: "CreateNotificationChannelGroups RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewManagerServiceClient(grpcConn)
-		req := &pb.CreateNotificationChannelGroupsRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.CreateNotificationChannelGroups(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var notificationManagerCreateNotificationChannelsCmd = &cobra.Command{
-	Use:   "create-notification-channels",
-	Short: "CreateNotificationChannels RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewManagerServiceClient(grpcConn)
-		req := &pb.CreateNotificationChannelsRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.CreateNotificationChannels(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
 var notificationManagerDeleteNotificationChannelCmd = &cobra.Command{
 	Use:   "delete-notification-channel",
 	Short: "DeleteNotificationChannel RPC",
@@ -534,38 +496,6 @@ var notificationManagerGetNotificationChannelGroupCmd = &cobra.Command{
 			req.Arg0 = v
 		}
 		resp, err := client.GetNotificationChannelGroup(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var notificationManagerGetNotificationChannelGroupsCmd = &cobra.Command{
-	Use:   "get-notification-channel-groups",
-	Short: "GetNotificationChannelGroups RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewManagerServiceClient(grpcConn)
-		req := &pb.GetNotificationChannelGroupsRequest{}
-		resp, err := client.GetNotificationChannelGroups(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var notificationManagerGetNotificationChannelsCmd = &cobra.Command{
-	Use:   "get-notification-channels",
-	Short: "GetNotificationChannels RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewManagerServiceClient(grpcConn)
-		req := &pb.GetNotificationChannelsRequest{}
-		resp, err := client.GetNotificationChannels(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -870,6 +800,76 @@ var notificationManagerUpdateAutomaticZenRuleCmd = &cobra.Command{
 	},
 }
 
+var notificationManagerCreateNotificationChannelGroupsCmd = &cobra.Command{
+	Use:   "create-notification-channel-groups",
+	Short: "CreateNotificationChannelGroups RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewManagerServiceClient(grpcConn)
+		req := &pb.CreateNotificationChannelGroupsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.CreateNotificationChannelGroups(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var notificationManagerCreateNotificationChannelsCmd = &cobra.Command{
+	Use:   "create-notification-channels",
+	Short: "CreateNotificationChannels RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewManagerServiceClient(grpcConn)
+		req := &pb.CreateNotificationChannelsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.CreateNotificationChannels(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var notificationManagerGetNotificationChannelGroupsCmd = &cobra.Command{
+	Use:   "get-notification-channel-groups",
+	Short: "GetNotificationChannelGroups RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewManagerServiceClient(grpcConn)
+		req := &pb.GetNotificationChannelGroupsRequest{}
+		resp, err := client.GetNotificationChannelGroups(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var notificationManagerGetNotificationChannelsCmd = &cobra.Command{
+	Use:   "get-notification-channels",
+	Short: "GetNotificationChannels RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewManagerServiceClient(grpcConn)
+		req := &pb.GetNotificationChannelsRequest{}
+		resp, err := client.GetNotificationChannels(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
 func init() {
 	notificationManagerAddAutomaticZenRuleCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	notificationManagerCmd.AddCommand(notificationManagerAddAutomaticZenRuleCmd)
@@ -896,10 +896,6 @@ func init() {
 	notificationManagerCmd.AddCommand(notificationManagerCreateNotificationChannelCmd)
 	notificationManagerCreateNotificationChannelGroupCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	notificationManagerCmd.AddCommand(notificationManagerCreateNotificationChannelGroupCmd)
-	notificationManagerCreateNotificationChannelGroupsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	notificationManagerCmd.AddCommand(notificationManagerCreateNotificationChannelGroupsCmd)
-	notificationManagerCreateNotificationChannelsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	notificationManagerCmd.AddCommand(notificationManagerCreateNotificationChannelsCmd)
 	notificationManagerDeleteNotificationChannelCmd.Flags().String("arg0", "", "arg0 (string)")
 	notificationManagerCmd.AddCommand(notificationManagerDeleteNotificationChannelCmd)
 	notificationManagerDeleteNotificationChannelGroupCmd.Flags().String("arg0", "", "arg0 (string)")
@@ -920,8 +916,6 @@ func init() {
 	notificationManagerCmd.AddCommand(notificationManagerGetNotificationChannel2_1Cmd)
 	notificationManagerGetNotificationChannelGroupCmd.Flags().String("arg0", "", "arg0 (string)")
 	notificationManagerCmd.AddCommand(notificationManagerGetNotificationChannelGroupCmd)
-	notificationManagerCmd.AddCommand(notificationManagerGetNotificationChannelGroupsCmd)
-	notificationManagerCmd.AddCommand(notificationManagerGetNotificationChannelsCmd)
 	notificationManagerCmd.AddCommand(notificationManagerGetNotificationDelegateCmd)
 	notificationManagerCmd.AddCommand(notificationManagerGetNotificationPolicyCmd)
 	notificationManagerIsNotificationListenerAccessGrantedCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
@@ -956,6 +950,12 @@ func init() {
 	notificationManagerUpdateAutomaticZenRuleCmd.Flags().String("arg0", "", "arg0 (string)")
 	notificationManagerUpdateAutomaticZenRuleCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
 	notificationManagerCmd.AddCommand(notificationManagerUpdateAutomaticZenRuleCmd)
+	notificationManagerCreateNotificationChannelGroupsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	notificationManagerCmd.AddCommand(notificationManagerCreateNotificationChannelGroupsCmd)
+	notificationManagerCreateNotificationChannelsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	notificationManagerCmd.AddCommand(notificationManagerCreateNotificationChannelsCmd)
+	notificationManagerCmd.AddCommand(notificationManagerGetNotificationChannelGroupsCmd)
+	notificationManagerCmd.AddCommand(notificationManagerGetNotificationChannelsCmd)
 	notificationCmd.AddCommand(notificationManagerCmd)
 	rootCmd.AddCommand(notificationCmd)
 }

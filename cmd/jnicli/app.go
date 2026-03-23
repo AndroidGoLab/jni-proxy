@@ -12,6 +12,1739 @@ var appCmd = &cobra.Command{
 	Short: "app service operations",
 }
 
+var appWallpaperManagerCmd = &cobra.Command{
+	Use:   "wallpaper-manager",
+	Short: "WallpaperManagerService operations",
+}
+
+var appWallpaperManagerClear0Cmd = &cobra.Command{
+	Use:   "clear0",
+	Short: "Clear0 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWallpaperManagerServiceClient(grpcConn)
+		req := &pb.Clear0Request{}
+		resp, err := client.Clear0(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appWallpaperManagerClear1_1Cmd = &cobra.Command{
+	Use:   "clear1_1",
+	Short: "Clear1_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWallpaperManagerServiceClient(grpcConn)
+		req := &pb.Clear1_1Request{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Clear1_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appWallpaperManagerClearWallpaperCmd = &cobra.Command{
+	Use:   "clear-wallpaper",
+	Short: "ClearWallpaper RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWallpaperManagerServiceClient(grpcConn)
+		req := &pb.ClearWallpaperRequest{}
+		resp, err := client.ClearWallpaper(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appWallpaperManagerClearWallpaperOffsetsCmd = &cobra.Command{
+	Use:   "clear-wallpaper-offsets",
+	Short: "ClearWallpaperOffsets RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWallpaperManagerServiceClient(grpcConn)
+		req := &pb.ClearWallpaperOffsetsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.ClearWallpaperOffsets(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appWallpaperManagerForgetLoadedWallpaperCmd = &cobra.Command{
+	Use:   "forget-loaded-wallpaper",
+	Short: "ForgetLoadedWallpaper RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWallpaperManagerServiceClient(grpcConn)
+		req := &pb.ForgetLoadedWallpaperRequest{}
+		resp, err := client.ForgetLoadedWallpaper(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appWallpaperManagerGetBuiltInDrawable0Cmd = &cobra.Command{
+	Use:   "get-built-in-drawable0",
+	Short: "GetBuiltInDrawable0 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWallpaperManagerServiceClient(grpcConn)
+		req := &pb.GetBuiltInDrawable0Request{}
+		resp, err := client.GetBuiltInDrawable0(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appWallpaperManagerGetBuiltInDrawable1_1Cmd = &cobra.Command{
+	Use:   "get-built-in-drawable1_1",
+	Short: "GetBuiltInDrawable1_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWallpaperManagerServiceClient(grpcConn)
+		req := &pb.GetBuiltInDrawable1_1Request{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetBuiltInDrawable1_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appWallpaperManagerGetBuiltInDrawable5_2Cmd = &cobra.Command{
+	Use:   "get-built-in-drawable5_2",
+	Short: "GetBuiltInDrawable5_2 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWallpaperManagerServiceClient(grpcConn)
+		req := &pb.GetBuiltInDrawable5_2Request{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetBool("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetFloat32("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		if v, err := cmd.Flags().GetFloat32("arg4"); err == nil {
+			req.Arg4 = v
+		}
+		resp, err := client.GetBuiltInDrawable5_2(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appWallpaperManagerGetBuiltInDrawable6_3Cmd = &cobra.Command{
+	Use:   "get-built-in-drawable6_3",
+	Short: "GetBuiltInDrawable6_3 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWallpaperManagerServiceClient(grpcConn)
+		req := &pb.GetBuiltInDrawable6_3Request{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetBool("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetFloat32("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		if v, err := cmd.Flags().GetFloat32("arg4"); err == nil {
+			req.Arg4 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg5"); err == nil {
+			req.Arg5 = v
+		}
+		resp, err := client.GetBuiltInDrawable6_3(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appWallpaperManagerGetCropAndSetWallpaperIntentCmd = &cobra.Command{
+	Use:   "get-crop-and-set-wallpaper-intent",
+	Short: "GetCropAndSetWallpaperIntent RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWallpaperManagerServiceClient(grpcConn)
+		req := &pb.GetCropAndSetWallpaperIntentRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetCropAndSetWallpaperIntent(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appWallpaperManagerGetDesiredMinimumHeightCmd = &cobra.Command{
+	Use:   "get-desired-minimum-height",
+	Short: "GetDesiredMinimumHeight RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWallpaperManagerServiceClient(grpcConn)
+		req := &pb.GetDesiredMinimumHeightRequest{}
+		resp, err := client.GetDesiredMinimumHeight(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appWallpaperManagerGetDesiredMinimumWidthCmd = &cobra.Command{
+	Use:   "get-desired-minimum-width",
+	Short: "GetDesiredMinimumWidth RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWallpaperManagerServiceClient(grpcConn)
+		req := &pb.GetDesiredMinimumWidthRequest{}
+		resp, err := client.GetDesiredMinimumWidth(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appWallpaperManagerGetDrawable0Cmd = &cobra.Command{
+	Use:   "get-drawable0",
+	Short: "GetDrawable0 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWallpaperManagerServiceClient(grpcConn)
+		req := &pb.GetDrawable0Request{}
+		resp, err := client.GetDrawable0(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appWallpaperManagerGetDrawable1_1Cmd = &cobra.Command{
+	Use:   "get-drawable1_1",
+	Short: "GetDrawable1_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWallpaperManagerServiceClient(grpcConn)
+		req := &pb.GetDrawable1_1Request{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetDrawable1_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appWallpaperManagerGetFastDrawable0Cmd = &cobra.Command{
+	Use:   "get-fast-drawable0",
+	Short: "GetFastDrawable0 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWallpaperManagerServiceClient(grpcConn)
+		req := &pb.GetFastDrawable0Request{}
+		resp, err := client.GetFastDrawable0(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appWallpaperManagerGetFastDrawable1_1Cmd = &cobra.Command{
+	Use:   "get-fast-drawable1_1",
+	Short: "GetFastDrawable1_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWallpaperManagerServiceClient(grpcConn)
+		req := &pb.GetFastDrawable1_1Request{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetFastDrawable1_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appWallpaperManagerGetWallpaperColorsCmd = &cobra.Command{
+	Use:   "get-wallpaper-colors",
+	Short: "GetWallpaperColors RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWallpaperManagerServiceClient(grpcConn)
+		req := &pb.GetWallpaperColorsRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetWallpaperColors(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appWallpaperManagerGetWallpaperFileCmd = &cobra.Command{
+	Use:   "get-wallpaper-file",
+	Short: "GetWallpaperFile RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWallpaperManagerServiceClient(grpcConn)
+		req := &pb.GetWallpaperFileRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetWallpaperFile(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appWallpaperManagerGetWallpaperIdCmd = &cobra.Command{
+	Use:   "get-wallpaper-id",
+	Short: "GetWallpaperId RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWallpaperManagerServiceClient(grpcConn)
+		req := &pb.GetWallpaperIdRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetWallpaperId(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appWallpaperManagerGetWallpaperInfo0Cmd = &cobra.Command{
+	Use:   "get-wallpaper-info0",
+	Short: "GetWallpaperInfo0 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWallpaperManagerServiceClient(grpcConn)
+		req := &pb.GetWallpaperInfo0Request{}
+		resp, err := client.GetWallpaperInfo0(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appWallpaperManagerGetWallpaperInfo1_1Cmd = &cobra.Command{
+	Use:   "get-wallpaper-info1_1",
+	Short: "GetWallpaperInfo1_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWallpaperManagerServiceClient(grpcConn)
+		req := &pb.GetWallpaperInfo1_1Request{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetWallpaperInfo1_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appWallpaperManagerHasResourceWallpaperCmd = &cobra.Command{
+	Use:   "has-resource-wallpaper",
+	Short: "HasResourceWallpaper RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWallpaperManagerServiceClient(grpcConn)
+		req := &pb.HasResourceWallpaperRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.HasResourceWallpaper(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appWallpaperManagerIsSetWallpaperAllowedCmd = &cobra.Command{
+	Use:   "is-set-wallpaper-allowed",
+	Short: "IsSetWallpaperAllowed RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWallpaperManagerServiceClient(grpcConn)
+		req := &pb.IsSetWallpaperAllowedRequest{}
+		resp, err := client.IsSetWallpaperAllowed(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appWallpaperManagerIsWallpaperSupportedCmd = &cobra.Command{
+	Use:   "is-wallpaper-supported",
+	Short: "IsWallpaperSupported RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWallpaperManagerServiceClient(grpcConn)
+		req := &pb.IsWallpaperSupportedRequest{}
+		resp, err := client.IsWallpaperSupported(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appWallpaperManagerPeekDrawable0Cmd = &cobra.Command{
+	Use:   "peek-drawable0",
+	Short: "PeekDrawable0 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWallpaperManagerServiceClient(grpcConn)
+		req := &pb.PeekDrawable0Request{}
+		resp, err := client.PeekDrawable0(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appWallpaperManagerPeekDrawable1_1Cmd = &cobra.Command{
+	Use:   "peek-drawable1_1",
+	Short: "PeekDrawable1_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWallpaperManagerServiceClient(grpcConn)
+		req := &pb.PeekDrawable1_1Request{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.PeekDrawable1_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appWallpaperManagerPeekFastDrawable0Cmd = &cobra.Command{
+	Use:   "peek-fast-drawable0",
+	Short: "PeekFastDrawable0 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWallpaperManagerServiceClient(grpcConn)
+		req := &pb.PeekFastDrawable0Request{}
+		resp, err := client.PeekFastDrawable0(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appWallpaperManagerPeekFastDrawable1_1Cmd = &cobra.Command{
+	Use:   "peek-fast-drawable1_1",
+	Short: "PeekFastDrawable1_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWallpaperManagerServiceClient(grpcConn)
+		req := &pb.PeekFastDrawable1_1Request{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.PeekFastDrawable1_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appWallpaperManagerRemoveOnColorsChangedListenerCmd = &cobra.Command{
+	Use:   "remove-on-colors-changed-listener",
+	Short: "RemoveOnColorsChangedListener RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWallpaperManagerServiceClient(grpcConn)
+		req := &pb.RemoveOnColorsChangedListenerRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.RemoveOnColorsChangedListener(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appWallpaperManagerSendWallpaperCommandCmd = &cobra.Command{
+	Use:   "send-wallpaper-command",
+	Short: "SendWallpaperCommand RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWallpaperManagerServiceClient(grpcConn)
+		req := &pb.SendWallpaperCommandRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetString("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg4"); err == nil {
+			req.Arg4 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg5"); err == nil {
+			req.Arg5 = v
+		}
+		resp, err := client.SendWallpaperCommand(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appWallpaperManagerSetBitmap1Cmd = &cobra.Command{
+	Use:   "set-bitmap1",
+	Short: "SetBitmap1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWallpaperManagerServiceClient(grpcConn)
+		req := &pb.SetBitmap1Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetBitmap1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appWallpaperManagerSetBitmap3_1Cmd = &cobra.Command{
+	Use:   "set-bitmap3_1",
+	Short: "SetBitmap3_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWallpaperManagerServiceClient(grpcConn)
+		req := &pb.SetBitmap3_1Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetBool("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.SetBitmap3_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appWallpaperManagerSetBitmap4_2Cmd = &cobra.Command{
+	Use:   "set-bitmap4_2",
+	Short: "SetBitmap4_2 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWallpaperManagerServiceClient(grpcConn)
+		req := &pb.SetBitmap4_2Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetBool("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		resp, err := client.SetBitmap4_2(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appWallpaperManagerSetDisplayPaddingCmd = &cobra.Command{
+	Use:   "set-display-padding",
+	Short: "SetDisplayPadding RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWallpaperManagerServiceClient(grpcConn)
+		req := &pb.SetDisplayPaddingRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetDisplayPadding(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appWallpaperManagerSetResource1Cmd = &cobra.Command{
+	Use:   "set-resource1",
+	Short: "SetResource1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWallpaperManagerServiceClient(grpcConn)
+		req := &pb.SetResource1Request{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetResource1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appWallpaperManagerSetResource2_1Cmd = &cobra.Command{
+	Use:   "set-resource2_1",
+	Short: "SetResource2_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWallpaperManagerServiceClient(grpcConn)
+		req := &pb.SetResource2_1Request{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.SetResource2_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appWallpaperManagerSetStream1Cmd = &cobra.Command{
+	Use:   "set-stream1",
+	Short: "SetStream1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWallpaperManagerServiceClient(grpcConn)
+		req := &pb.SetStream1Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetStream1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appWallpaperManagerSetStream3_1Cmd = &cobra.Command{
+	Use:   "set-stream3_1",
+	Short: "SetStream3_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWallpaperManagerServiceClient(grpcConn)
+		req := &pb.SetStream3_1Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetBool("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.SetStream3_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appWallpaperManagerSetStream4_2Cmd = &cobra.Command{
+	Use:   "set-stream4_2",
+	Short: "SetStream4_2 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWallpaperManagerServiceClient(grpcConn)
+		req := &pb.SetStream4_2Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetBool("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		resp, err := client.SetStream4_2(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appWallpaperManagerSetWallpaperOffsetStepsCmd = &cobra.Command{
+	Use:   "set-wallpaper-offset-steps",
+	Short: "SetWallpaperOffsetSteps RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWallpaperManagerServiceClient(grpcConn)
+		req := &pb.SetWallpaperOffsetStepsRequest{}
+		if v, err := cmd.Flags().GetFloat32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetFloat32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.SetWallpaperOffsetSteps(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appWallpaperManagerSetWallpaperOffsetsCmd = &cobra.Command{
+	Use:   "set-wallpaper-offsets",
+	Short: "SetWallpaperOffsets RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWallpaperManagerServiceClient(grpcConn)
+		req := &pb.SetWallpaperOffsetsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetFloat32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetFloat32("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.SetWallpaperOffsets(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appWallpaperManagerSuggestDesiredDimensionsCmd = &cobra.Command{
+	Use:   "suggest-desired-dimensions",
+	Short: "SuggestDesiredDimensions RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWallpaperManagerServiceClient(grpcConn)
+		req := &pb.SuggestDesiredDimensionsRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.SuggestDesiredDimensions(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appWallpaperManagerGetInstanceCmd = &cobra.Command{
+	Use:   "get-instance",
+	Short: "GetInstance RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWallpaperManagerServiceClient(grpcConn)
+		req := &pb.GetInstanceRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetInstance(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appStatusBarManagerCmd = &cobra.Command{
+	Use:   "status-bar-manager",
+	Short: "StatusBarManagerService operations",
+}
+
+var appStatusBarManagerCanLaunchCaptureContentActivityForNoteCmd = &cobra.Command{
+	Use:   "can-launch-capture-content-activity-for-note",
+	Short: "CanLaunchCaptureContentActivityForNote RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewStatusBarManagerServiceClient(grpcConn)
+		req := &pb.CanLaunchCaptureContentActivityForNoteRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.CanLaunchCaptureContentActivityForNote(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appActivityManagerCmd = &cobra.Command{
+	Use:   "activity-manager",
+	Short: "ActivityManagerService operations",
+}
+
+var appActivityManagerAddAppTaskCmd = &cobra.Command{
+	Use:   "add-app-task",
+	Short: "AddAppTask RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewActivityManagerServiceClient(grpcConn)
+		req := &pb.AddAppTaskRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		resp, err := client.AddAppTask(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appActivityManagerAddStartInfoTimestampCmd = &cobra.Command{
+	Use:   "add-start-info-timestamp",
+	Short: "AddStartInfoTimestamp RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewActivityManagerServiceClient(grpcConn)
+		req := &pb.AddStartInfoTimestampRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.AddStartInfoTimestamp(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appActivityManagerAppNotRespondingCmd = &cobra.Command{
+	Use:   "app-not-responding",
+	Short: "AppNotResponding RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewActivityManagerServiceClient(grpcConn)
+		req := &pb.AppNotRespondingRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.AppNotResponding(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appActivityManagerClearApplicationUserDataCmd = &cobra.Command{
+	Use:   "clear-application-user-data",
+	Short: "ClearApplicationUserData RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewActivityManagerServiceClient(grpcConn)
+		req := &pb.ClearApplicationUserDataRequest{}
+		resp, err := client.ClearApplicationUserData(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appActivityManagerClearWatchHeapLimitCmd = &cobra.Command{
+	Use:   "clear-watch-heap-limit",
+	Short: "ClearWatchHeapLimit RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewActivityManagerServiceClient(grpcConn)
+		req := &pb.ClearWatchHeapLimitRequest{}
+		resp, err := client.ClearWatchHeapLimit(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appActivityManagerDumpPackageStateCmd = &cobra.Command{
+	Use:   "dump-package-state",
+	Short: "DumpPackageState RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewActivityManagerServiceClient(grpcConn)
+		req := &pb.DumpPackageStateRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetString("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.DumpPackageState(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appActivityManagerGetAppTaskThumbnailSizeCmd = &cobra.Command{
+	Use:   "get-app-task-thumbnail-size",
+	Short: "GetAppTaskThumbnailSize RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewActivityManagerServiceClient(grpcConn)
+		req := &pb.GetAppTaskThumbnailSizeRequest{}
+		resp, err := client.GetAppTaskThumbnailSize(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appActivityManagerGetDeviceConfigurationInfoCmd = &cobra.Command{
+	Use:   "get-device-configuration-info",
+	Short: "GetDeviceConfigurationInfo RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewActivityManagerServiceClient(grpcConn)
+		req := &pb.GetDeviceConfigurationInfoRequest{}
+		resp, err := client.GetDeviceConfigurationInfo(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appActivityManagerGetLargeMemoryClassCmd = &cobra.Command{
+	Use:   "get-large-memory-class",
+	Short: "GetLargeMemoryClass RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewActivityManagerServiceClient(grpcConn)
+		req := &pb.GetLargeMemoryClassRequest{}
+		resp, err := client.GetLargeMemoryClass(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appActivityManagerGetLauncherLargeIconDensityCmd = &cobra.Command{
+	Use:   "get-launcher-large-icon-density",
+	Short: "GetLauncherLargeIconDensity RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewActivityManagerServiceClient(grpcConn)
+		req := &pb.GetLauncherLargeIconDensityRequest{}
+		resp, err := client.GetLauncherLargeIconDensity(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appActivityManagerGetLauncherLargeIconSizeCmd = &cobra.Command{
+	Use:   "get-launcher-large-icon-size",
+	Short: "GetLauncherLargeIconSize RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewActivityManagerServiceClient(grpcConn)
+		req := &pb.GetLauncherLargeIconSizeRequest{}
+		resp, err := client.GetLauncherLargeIconSize(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appActivityManagerGetLockTaskModeStateCmd = &cobra.Command{
+	Use:   "get-lock-task-mode-state",
+	Short: "GetLockTaskModeState RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewActivityManagerServiceClient(grpcConn)
+		req := &pb.GetLockTaskModeStateRequest{}
+		resp, err := client.GetLockTaskModeState(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appActivityManagerGetMemoryClassCmd = &cobra.Command{
+	Use:   "get-memory-class",
+	Short: "GetMemoryClass RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewActivityManagerServiceClient(grpcConn)
+		req := &pb.GetMemoryClassRequest{}
+		resp, err := client.GetMemoryClass(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appActivityManagerGetMemoryInfoCmd = &cobra.Command{
+	Use:   "get-memory-info",
+	Short: "GetMemoryInfo RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewActivityManagerServiceClient(grpcConn)
+		req := &pb.GetMemoryInfoRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetMemoryInfo(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appActivityManagerGetProcessMemoryInfoCmd = &cobra.Command{
+	Use:   "get-process-memory-info",
+	Short: "GetProcessMemoryInfo RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewActivityManagerServiceClient(grpcConn)
+		req := &pb.GetProcessMemoryInfoRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetProcessMemoryInfo(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appActivityManagerGetRunningServiceControlPanelCmd = &cobra.Command{
+	Use:   "get-running-service-control-panel",
+	Short: "GetRunningServiceControlPanel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewActivityManagerServiceClient(grpcConn)
+		req := &pb.GetRunningServiceControlPanelRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetRunningServiceControlPanel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appActivityManagerIsActivityStartAllowedOnDisplayCmd = &cobra.Command{
+	Use:   "is-activity-start-allowed-on-display",
+	Short: "IsActivityStartAllowedOnDisplay RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewActivityManagerServiceClient(grpcConn)
+		req := &pb.IsActivityStartAllowedOnDisplayRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.IsActivityStartAllowedOnDisplay(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appActivityManagerIsBackgroundRestrictedCmd = &cobra.Command{
+	Use:   "is-background-restricted",
+	Short: "IsBackgroundRestricted RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewActivityManagerServiceClient(grpcConn)
+		req := &pb.IsBackgroundRestrictedRequest{}
+		resp, err := client.IsBackgroundRestricted(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appActivityManagerIsInLockTaskModeCmd = &cobra.Command{
+	Use:   "is-in-lock-task-mode",
+	Short: "IsInLockTaskMode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewActivityManagerServiceClient(grpcConn)
+		req := &pb.IsInLockTaskModeRequest{}
+		resp, err := client.IsInLockTaskMode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appActivityManagerIsLowRamDeviceCmd = &cobra.Command{
+	Use:   "is-low-ram-device",
+	Short: "IsLowRamDevice RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewActivityManagerServiceClient(grpcConn)
+		req := &pb.IsLowRamDeviceRequest{}
+		resp, err := client.IsLowRamDevice(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appActivityManagerKillBackgroundProcessesCmd = &cobra.Command{
+	Use:   "kill-background-processes",
+	Short: "KillBackgroundProcesses RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewActivityManagerServiceClient(grpcConn)
+		req := &pb.KillBackgroundProcessesRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.KillBackgroundProcesses(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appActivityManagerMoveTaskToFront2Cmd = &cobra.Command{
+	Use:   "move-task-to-front2",
+	Short: "MoveTaskToFront2 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewActivityManagerServiceClient(grpcConn)
+		req := &pb.MoveTaskToFront2Request{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.MoveTaskToFront2(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appActivityManagerMoveTaskToFront3_1Cmd = &cobra.Command{
+	Use:   "move-task-to-front3_1",
+	Short: "MoveTaskToFront3_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewActivityManagerServiceClient(grpcConn)
+		req := &pb.MoveTaskToFront3_1Request{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.MoveTaskToFront3_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appActivityManagerRestartPackageCmd = &cobra.Command{
+	Use:   "restart-package",
+	Short: "RestartPackage RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewActivityManagerServiceClient(grpcConn)
+		req := &pb.RestartPackageRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.RestartPackage(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appActivityManagerSetProcessStateSummaryCmd = &cobra.Command{
+	Use:   "set-process-state-summary",
+	Short: "SetProcessStateSummary RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewActivityManagerServiceClient(grpcConn)
+		req := &pb.SetProcessStateSummaryRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetProcessStateSummary(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appActivityManagerSetWatchHeapLimitCmd = &cobra.Command{
+	Use:   "set-watch-heap-limit",
+	Short: "SetWatchHeapLimit RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewActivityManagerServiceClient(grpcConn)
+		req := &pb.SetWatchHeapLimitRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetWatchHeapLimit(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appActivityManagerGetMyMemoryStateCmd = &cobra.Command{
+	Use:   "get-my-memory-state",
+	Short: "GetMyMemoryState RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewActivityManagerServiceClient(grpcConn)
+		req := &pb.GetMyMemoryStateRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetMyMemoryState(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appActivityManagerIsLowMemoryKillReportSupportedCmd = &cobra.Command{
+	Use:   "is-low-memory-kill-report-supported",
+	Short: "IsLowMemoryKillReportSupported RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewActivityManagerServiceClient(grpcConn)
+		req := &pb.IsLowMemoryKillReportSupportedRequest{}
+		resp, err := client.IsLowMemoryKillReportSupported(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appActivityManagerIsRunningInTestHarnessCmd = &cobra.Command{
+	Use:   "is-running-in-test-harness",
+	Short: "IsRunningInTestHarness RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewActivityManagerServiceClient(grpcConn)
+		req := &pb.IsRunningInTestHarnessRequest{}
+		resp, err := client.IsRunningInTestHarness(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appActivityManagerIsRunningInUserTestHarnessCmd = &cobra.Command{
+	Use:   "is-running-in-user-test-harness",
+	Short: "IsRunningInUserTestHarness RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewActivityManagerServiceClient(grpcConn)
+		req := &pb.IsRunningInUserTestHarnessRequest{}
+		resp, err := client.IsRunningInUserTestHarness(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appActivityManagerIsUserAMonkeyCmd = &cobra.Command{
+	Use:   "is-user-a-monkey",
+	Short: "IsUserAMonkey RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewActivityManagerServiceClient(grpcConn)
+		req := &pb.IsUserAMonkeyRequest{}
+		resp, err := client.IsUserAMonkey(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appActivityManagerSetVrThreadCmd = &cobra.Command{
+	Use:   "set-vr-thread",
+	Short: "SetVrThread RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewActivityManagerServiceClient(grpcConn)
+		req := &pb.SetVrThreadRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetVrThread(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appSearchManagerCmd = &cobra.Command{
+	Use:   "search-manager",
+	Short: "SearchManagerService operations",
+}
+
+var appSearchManagerGetGlobalSearchActivityCmd = &cobra.Command{
+	Use:   "get-global-search-activity",
+	Short: "GetGlobalSearchActivity RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSearchManagerServiceClient(grpcConn)
+		req := &pb.GetGlobalSearchActivityRequest{}
+		resp, err := client.GetGlobalSearchActivity(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appSearchManagerGetSearchableInfoCmd = &cobra.Command{
+	Use:   "get-searchable-info",
+	Short: "GetSearchableInfo RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSearchManagerServiceClient(grpcConn)
+		req := &pb.GetSearchableInfoRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetSearchableInfo(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appSearchManagerOnCancelCmd = &cobra.Command{
+	Use:   "on-cancel",
+	Short: "OnCancel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSearchManagerServiceClient(grpcConn)
+		req := &pb.OnCancelRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.OnCancel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appSearchManagerOnDismissCmd = &cobra.Command{
+	Use:   "on-dismiss",
+	Short: "OnDismiss RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSearchManagerServiceClient(grpcConn)
+		req := &pb.OnDismissRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.OnDismiss(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appSearchManagerSetOnCancelListenerCmd = &cobra.Command{
+	Use:   "set-on-cancel-listener",
+	Short: "SetOnCancelListener RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSearchManagerServiceClient(grpcConn)
+		req := &pb.SetOnCancelListenerRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetOnCancelListener(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appSearchManagerSetOnDismissListenerCmd = &cobra.Command{
+	Use:   "set-on-dismiss-listener",
+	Short: "SetOnDismissListener RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSearchManagerServiceClient(grpcConn)
+		req := &pb.SetOnDismissListenerRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetOnDismissListener(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appSearchManagerStartSearchCmd = &cobra.Command{
+	Use:   "start-search",
+	Short: "StartSearch RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSearchManagerServiceClient(grpcConn)
+		req := &pb.StartSearchRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetBool("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		if v, err := cmd.Flags().GetBool("arg4"); err == nil {
+			req.Arg4 = v
+		}
+		resp, err := client.StartSearch(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appSearchManagerStopSearchCmd = &cobra.Command{
+	Use:   "stop-search",
+	Short: "StopSearch RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSearchManagerServiceClient(grpcConn)
+		req := &pb.StopSearchRequest{}
+		resp, err := client.StopSearch(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appSearchManagerTriggerSearchCmd = &cobra.Command{
+	Use:   "trigger-search",
+	Short: "TriggerSearch RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSearchManagerServiceClient(grpcConn)
+		req := &pb.TriggerSearchRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.TriggerSearch(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appGrammaticalInflectionManagerCmd = &cobra.Command{
+	Use:   "grammatical-inflection-manager",
+	Short: "GrammaticalInflectionManagerService operations",
+}
+
+var appGrammaticalInflectionManagerGetApplicationGrammaticalGenderCmd = &cobra.Command{
+	Use:   "get-application-grammatical-gender",
+	Short: "GetApplicationGrammaticalGender RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewGrammaticalInflectionManagerServiceClient(grpcConn)
+		req := &pb.GetApplicationGrammaticalGenderRequest{}
+		resp, err := client.GetApplicationGrammaticalGender(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appGrammaticalInflectionManagerGetSystemGrammaticalGenderCmd = &cobra.Command{
+	Use:   "get-system-grammatical-gender",
+	Short: "GetSystemGrammaticalGender RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewGrammaticalInflectionManagerServiceClient(grpcConn)
+		req := &pb.GetSystemGrammaticalGenderRequest{}
+		resp, err := client.GetSystemGrammaticalGender(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appGrammaticalInflectionManagerSetRequestedApplicationGrammaticalGenderCmd = &cobra.Command{
+	Use:   "set-requested-application-grammatical-gender",
+	Short: "SetRequestedApplicationGrammaticalGender RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewGrammaticalInflectionManagerServiceClient(grpcConn)
+		req := &pb.SetRequestedApplicationGrammaticalGenderRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetRequestedApplicationGrammaticalGender(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
 var appOpsManagerCmd = &cobra.Command{
 	Use:   "ops-manager",
 	Short: "OpsManagerService operations",
@@ -978,23 +2711,20 @@ var appOpsManagerPermissionToOpCmd = &cobra.Command{
 	},
 }
 
-var appStatusBarManagerCmd = &cobra.Command{
-	Use:   "status-bar-manager",
-	Short: "StatusBarManagerService operations",
+var appLocaleManagerCmd = &cobra.Command{
+	Use:   "locale-manager",
+	Short: "LocaleManagerService operations",
 }
 
-var appStatusBarManagerCanLaunchCaptureContentActivityForNoteCmd = &cobra.Command{
-	Use:   "can-launch-capture-content-activity-for-note",
-	Short: "CanLaunchCaptureContentActivityForNote RPC",
+var appLocaleManagerGetApplicationLocales0Cmd = &cobra.Command{
+	Use:   "get-application-locales0",
+	Short: "GetApplicationLocales0 RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewStatusBarManagerServiceClient(grpcConn)
-		req := &pb.CanLaunchCaptureContentActivityForNoteRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.CanLaunchCaptureContentActivityForNote(ctx, req)
+		client := pb.NewLocaleManagerServiceClient(grpcConn)
+		req := &pb.GetApplicationLocales0Request{}
+		resp, err := client.GetApplicationLocales0(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -1002,73 +2732,18 @@ var appStatusBarManagerCanLaunchCaptureContentActivityForNoteCmd = &cobra.Comman
 	},
 }
 
-var appActivityManagerCmd = &cobra.Command{
-	Use:   "activity-manager",
-	Short: "ActivityManagerService operations",
-}
-
-var appActivityManagerAddAppTaskCmd = &cobra.Command{
-	Use:   "add-app-task",
-	Short: "AddAppTask RPC",
+var appLocaleManagerGetApplicationLocales1_1Cmd = &cobra.Command{
+	Use:   "get-application-locales1_1",
+	Short: "GetApplicationLocales1_1 RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewActivityManagerServiceClient(grpcConn)
-		req := &pb.AddAppTaskRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg3"); err == nil {
-			req.Arg3 = v
-		}
-		resp, err := client.AddAppTask(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appActivityManagerAddStartInfoTimestampCmd = &cobra.Command{
-	Use:   "add-start-info-timestamp",
-	Short: "AddStartInfoTimestamp RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewActivityManagerServiceClient(grpcConn)
-		req := &pb.AddStartInfoTimestampRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.AddStartInfoTimestamp(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appActivityManagerAppNotRespondingCmd = &cobra.Command{
-	Use:   "app-not-responding",
-	Short: "AppNotResponding RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewActivityManagerServiceClient(grpcConn)
-		req := &pb.AppNotRespondingRequest{}
+		client := pb.NewLocaleManagerServiceClient(grpcConn)
+		req := &pb.GetApplicationLocales1_1Request{}
 		if v, err := cmd.Flags().GetString("arg0"); err == nil {
 			req.Arg0 = v
 		}
-		resp, err := client.AppNotResponding(ctx, req)
+		resp, err := client.GetApplicationLocales1_1(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -1076,15 +2751,15 @@ var appActivityManagerAppNotRespondingCmd = &cobra.Command{
 	},
 }
 
-var appActivityManagerClearApplicationUserDataCmd = &cobra.Command{
-	Use:   "clear-application-user-data",
-	Short: "ClearApplicationUserData RPC",
+var appLocaleManagerGetOverrideLocaleConfigCmd = &cobra.Command{
+	Use:   "get-override-locale-config",
+	Short: "GetOverrideLocaleConfig RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewActivityManagerServiceClient(grpcConn)
-		req := &pb.ClearApplicationUserDataRequest{}
-		resp, err := client.ClearApplicationUserData(ctx, req)
+		client := pb.NewLocaleManagerServiceClient(grpcConn)
+		req := &pb.GetOverrideLocaleConfigRequest{}
+		resp, err := client.GetOverrideLocaleConfig(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -1092,15 +2767,15 @@ var appActivityManagerClearApplicationUserDataCmd = &cobra.Command{
 	},
 }
 
-var appActivityManagerClearWatchHeapLimitCmd = &cobra.Command{
-	Use:   "clear-watch-heap-limit",
-	Short: "ClearWatchHeapLimit RPC",
+var appLocaleManagerGetSystemLocalesCmd = &cobra.Command{
+	Use:   "get-system-locales",
+	Short: "GetSystemLocales RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewActivityManagerServiceClient(grpcConn)
-		req := &pb.ClearWatchHeapLimitRequest{}
-		resp, err := client.ClearWatchHeapLimit(ctx, req)
+		client := pb.NewLocaleManagerServiceClient(grpcConn)
+		req := &pb.GetSystemLocalesRequest{}
+		resp, err := client.GetSystemLocales(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -1108,21 +2783,18 @@ var appActivityManagerClearWatchHeapLimitCmd = &cobra.Command{
 	},
 }
 
-var appActivityManagerDumpPackageStateCmd = &cobra.Command{
-	Use:   "dump-package-state",
-	Short: "DumpPackageState RPC",
+var appLocaleManagerSetApplicationLocalesCmd = &cobra.Command{
+	Use:   "set-application-locales",
+	Short: "SetApplicationLocales RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewActivityManagerServiceClient(grpcConn)
-		req := &pb.DumpPackageStateRequest{}
+		client := pb.NewLocaleManagerServiceClient(grpcConn)
+		req := &pb.SetApplicationLocalesRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
 		}
-		if v, err := cmd.Flags().GetString("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.DumpPackageState(ctx, req)
+		resp, err := client.SetApplicationLocales(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -1130,466 +2802,18 @@ var appActivityManagerDumpPackageStateCmd = &cobra.Command{
 	},
 }
 
-var appActivityManagerGetAppTaskThumbnailSizeCmd = &cobra.Command{
-	Use:   "get-app-task-thumbnail-size",
-	Short: "GetAppTaskThumbnailSize RPC",
+var appLocaleManagerSetOverrideLocaleConfigCmd = &cobra.Command{
+	Use:   "set-override-locale-config",
+	Short: "SetOverrideLocaleConfig RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewActivityManagerServiceClient(grpcConn)
-		req := &pb.GetAppTaskThumbnailSizeRequest{}
-		resp, err := client.GetAppTaskThumbnailSize(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appActivityManagerGetDeviceConfigurationInfoCmd = &cobra.Command{
-	Use:   "get-device-configuration-info",
-	Short: "GetDeviceConfigurationInfo RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewActivityManagerServiceClient(grpcConn)
-		req := &pb.GetDeviceConfigurationInfoRequest{}
-		resp, err := client.GetDeviceConfigurationInfo(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appActivityManagerGetLargeMemoryClassCmd = &cobra.Command{
-	Use:   "get-large-memory-class",
-	Short: "GetLargeMemoryClass RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewActivityManagerServiceClient(grpcConn)
-		req := &pb.GetLargeMemoryClassRequest{}
-		resp, err := client.GetLargeMemoryClass(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appActivityManagerGetLauncherLargeIconDensityCmd = &cobra.Command{
-	Use:   "get-launcher-large-icon-density",
-	Short: "GetLauncherLargeIconDensity RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewActivityManagerServiceClient(grpcConn)
-		req := &pb.GetLauncherLargeIconDensityRequest{}
-		resp, err := client.GetLauncherLargeIconDensity(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appActivityManagerGetLauncherLargeIconSizeCmd = &cobra.Command{
-	Use:   "get-launcher-large-icon-size",
-	Short: "GetLauncherLargeIconSize RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewActivityManagerServiceClient(grpcConn)
-		req := &pb.GetLauncherLargeIconSizeRequest{}
-		resp, err := client.GetLauncherLargeIconSize(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appActivityManagerGetLockTaskModeStateCmd = &cobra.Command{
-	Use:   "get-lock-task-mode-state",
-	Short: "GetLockTaskModeState RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewActivityManagerServiceClient(grpcConn)
-		req := &pb.GetLockTaskModeStateRequest{}
-		resp, err := client.GetLockTaskModeState(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appActivityManagerGetMemoryClassCmd = &cobra.Command{
-	Use:   "get-memory-class",
-	Short: "GetMemoryClass RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewActivityManagerServiceClient(grpcConn)
-		req := &pb.GetMemoryClassRequest{}
-		resp, err := client.GetMemoryClass(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appActivityManagerGetMemoryInfoCmd = &cobra.Command{
-	Use:   "get-memory-info",
-	Short: "GetMemoryInfo RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewActivityManagerServiceClient(grpcConn)
-		req := &pb.GetMemoryInfoRequest{}
+		client := pb.NewLocaleManagerServiceClient(grpcConn)
+		req := &pb.SetOverrideLocaleConfigRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
 		}
-		resp, err := client.GetMemoryInfo(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appActivityManagerGetProcessMemoryInfoCmd = &cobra.Command{
-	Use:   "get-process-memory-info",
-	Short: "GetProcessMemoryInfo RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewActivityManagerServiceClient(grpcConn)
-		req := &pb.GetProcessMemoryInfoRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.GetProcessMemoryInfo(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appActivityManagerGetRunningServiceControlPanelCmd = &cobra.Command{
-	Use:   "get-running-service-control-panel",
-	Short: "GetRunningServiceControlPanel RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewActivityManagerServiceClient(grpcConn)
-		req := &pb.GetRunningServiceControlPanelRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.GetRunningServiceControlPanel(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appActivityManagerIsActivityStartAllowedOnDisplayCmd = &cobra.Command{
-	Use:   "is-activity-start-allowed-on-display",
-	Short: "IsActivityStartAllowedOnDisplay RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewActivityManagerServiceClient(grpcConn)
-		req := &pb.IsActivityStartAllowedOnDisplayRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		resp, err := client.IsActivityStartAllowedOnDisplay(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appActivityManagerIsBackgroundRestrictedCmd = &cobra.Command{
-	Use:   "is-background-restricted",
-	Short: "IsBackgroundRestricted RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewActivityManagerServiceClient(grpcConn)
-		req := &pb.IsBackgroundRestrictedRequest{}
-		resp, err := client.IsBackgroundRestricted(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appActivityManagerIsInLockTaskModeCmd = &cobra.Command{
-	Use:   "is-in-lock-task-mode",
-	Short: "IsInLockTaskMode RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewActivityManagerServiceClient(grpcConn)
-		req := &pb.IsInLockTaskModeRequest{}
-		resp, err := client.IsInLockTaskMode(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appActivityManagerIsLowRamDeviceCmd = &cobra.Command{
-	Use:   "is-low-ram-device",
-	Short: "IsLowRamDevice RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewActivityManagerServiceClient(grpcConn)
-		req := &pb.IsLowRamDeviceRequest{}
-		resp, err := client.IsLowRamDevice(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appActivityManagerKillBackgroundProcessesCmd = &cobra.Command{
-	Use:   "kill-background-processes",
-	Short: "KillBackgroundProcesses RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewActivityManagerServiceClient(grpcConn)
-		req := &pb.KillBackgroundProcessesRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.KillBackgroundProcesses(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appActivityManagerMoveTaskToFront2Cmd = &cobra.Command{
-	Use:   "move-task-to-front2",
-	Short: "MoveTaskToFront2 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewActivityManagerServiceClient(grpcConn)
-		req := &pb.MoveTaskToFront2Request{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.MoveTaskToFront2(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appActivityManagerMoveTaskToFront3_1Cmd = &cobra.Command{
-	Use:   "move-task-to-front3_1",
-	Short: "MoveTaskToFront3_1 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewActivityManagerServiceClient(grpcConn)
-		req := &pb.MoveTaskToFront3_1Request{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		resp, err := client.MoveTaskToFront3_1(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appActivityManagerRestartPackageCmd = &cobra.Command{
-	Use:   "restart-package",
-	Short: "RestartPackage RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewActivityManagerServiceClient(grpcConn)
-		req := &pb.RestartPackageRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.RestartPackage(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appActivityManagerSetProcessStateSummaryCmd = &cobra.Command{
-	Use:   "set-process-state-summary",
-	Short: "SetProcessStateSummary RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewActivityManagerServiceClient(grpcConn)
-		req := &pb.SetProcessStateSummaryRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetProcessStateSummary(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appActivityManagerSetWatchHeapLimitCmd = &cobra.Command{
-	Use:   "set-watch-heap-limit",
-	Short: "SetWatchHeapLimit RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewActivityManagerServiceClient(grpcConn)
-		req := &pb.SetWatchHeapLimitRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetWatchHeapLimit(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appActivityManagerGetMyMemoryStateCmd = &cobra.Command{
-	Use:   "get-my-memory-state",
-	Short: "GetMyMemoryState RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewActivityManagerServiceClient(grpcConn)
-		req := &pb.GetMyMemoryStateRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.GetMyMemoryState(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appActivityManagerIsLowMemoryKillReportSupportedCmd = &cobra.Command{
-	Use:   "is-low-memory-kill-report-supported",
-	Short: "IsLowMemoryKillReportSupported RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewActivityManagerServiceClient(grpcConn)
-		req := &pb.IsLowMemoryKillReportSupportedRequest{}
-		resp, err := client.IsLowMemoryKillReportSupported(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appActivityManagerIsRunningInTestHarnessCmd = &cobra.Command{
-	Use:   "is-running-in-test-harness",
-	Short: "IsRunningInTestHarness RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewActivityManagerServiceClient(grpcConn)
-		req := &pb.IsRunningInTestHarnessRequest{}
-		resp, err := client.IsRunningInTestHarness(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appActivityManagerIsRunningInUserTestHarnessCmd = &cobra.Command{
-	Use:   "is-running-in-user-test-harness",
-	Short: "IsRunningInUserTestHarness RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewActivityManagerServiceClient(grpcConn)
-		req := &pb.IsRunningInUserTestHarnessRequest{}
-		resp, err := client.IsRunningInUserTestHarness(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appActivityManagerIsUserAMonkeyCmd = &cobra.Command{
-	Use:   "is-user-a-monkey",
-	Short: "IsUserAMonkey RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewActivityManagerServiceClient(grpcConn)
-		req := &pb.IsUserAMonkeyRequest{}
-		resp, err := client.IsUserAMonkey(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appActivityManagerSetVrThreadCmd = &cobra.Command{
-	Use:   "set-vr-thread",
-	Short: "SetVrThread RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewActivityManagerServiceClient(grpcConn)
-		req := &pb.SetVrThreadRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetVrThread(ctx, req)
+		resp, err := client.SetOverrideLocaleConfig(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -1630,1120 +2854,6 @@ var appGameManagerSetGameStateCmd = &cobra.Command{
 			req.Arg0 = v
 		}
 		resp, err := client.SetGameState(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appWallpaperManagerCmd = &cobra.Command{
-	Use:   "wallpaper-manager",
-	Short: "WallpaperManagerService operations",
-}
-
-var appWallpaperManagerClear0Cmd = &cobra.Command{
-	Use:   "clear0",
-	Short: "Clear0 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWallpaperManagerServiceClient(grpcConn)
-		req := &pb.Clear0Request{}
-		resp, err := client.Clear0(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appWallpaperManagerClear1_1Cmd = &cobra.Command{
-	Use:   "clear1_1",
-	Short: "Clear1_1 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWallpaperManagerServiceClient(grpcConn)
-		req := &pb.Clear1_1Request{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.Clear1_1(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appWallpaperManagerClearWallpaperCmd = &cobra.Command{
-	Use:   "clear-wallpaper",
-	Short: "ClearWallpaper RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWallpaperManagerServiceClient(grpcConn)
-		req := &pb.ClearWallpaperRequest{}
-		resp, err := client.ClearWallpaper(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appWallpaperManagerClearWallpaperOffsetsCmd = &cobra.Command{
-	Use:   "clear-wallpaper-offsets",
-	Short: "ClearWallpaperOffsets RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWallpaperManagerServiceClient(grpcConn)
-		req := &pb.ClearWallpaperOffsetsRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.ClearWallpaperOffsets(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appWallpaperManagerForgetLoadedWallpaperCmd = &cobra.Command{
-	Use:   "forget-loaded-wallpaper",
-	Short: "ForgetLoadedWallpaper RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWallpaperManagerServiceClient(grpcConn)
-		req := &pb.ForgetLoadedWallpaperRequest{}
-		resp, err := client.ForgetLoadedWallpaper(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appWallpaperManagerGetBuiltInDrawable0Cmd = &cobra.Command{
-	Use:   "get-built-in-drawable0",
-	Short: "GetBuiltInDrawable0 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWallpaperManagerServiceClient(grpcConn)
-		req := &pb.GetBuiltInDrawable0Request{}
-		resp, err := client.GetBuiltInDrawable0(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appWallpaperManagerGetBuiltInDrawable1_1Cmd = &cobra.Command{
-	Use:   "get-built-in-drawable1_1",
-	Short: "GetBuiltInDrawable1_1 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWallpaperManagerServiceClient(grpcConn)
-		req := &pb.GetBuiltInDrawable1_1Request{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.GetBuiltInDrawable1_1(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appWallpaperManagerGetBuiltInDrawable5_2Cmd = &cobra.Command{
-	Use:   "get-built-in-drawable5_2",
-	Short: "GetBuiltInDrawable5_2 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWallpaperManagerServiceClient(grpcConn)
-		req := &pb.GetBuiltInDrawable5_2Request{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetBool("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		if v, err := cmd.Flags().GetFloat32("arg3"); err == nil {
-			req.Arg3 = v
-		}
-		if v, err := cmd.Flags().GetFloat32("arg4"); err == nil {
-			req.Arg4 = v
-		}
-		resp, err := client.GetBuiltInDrawable5_2(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appWallpaperManagerGetBuiltInDrawable6_3Cmd = &cobra.Command{
-	Use:   "get-built-in-drawable6_3",
-	Short: "GetBuiltInDrawable6_3 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWallpaperManagerServiceClient(grpcConn)
-		req := &pb.GetBuiltInDrawable6_3Request{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetBool("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		if v, err := cmd.Flags().GetFloat32("arg3"); err == nil {
-			req.Arg3 = v
-		}
-		if v, err := cmd.Flags().GetFloat32("arg4"); err == nil {
-			req.Arg4 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg5"); err == nil {
-			req.Arg5 = v
-		}
-		resp, err := client.GetBuiltInDrawable6_3(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appWallpaperManagerGetCropAndSetWallpaperIntentCmd = &cobra.Command{
-	Use:   "get-crop-and-set-wallpaper-intent",
-	Short: "GetCropAndSetWallpaperIntent RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWallpaperManagerServiceClient(grpcConn)
-		req := &pb.GetCropAndSetWallpaperIntentRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.GetCropAndSetWallpaperIntent(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appWallpaperManagerGetDesiredMinimumHeightCmd = &cobra.Command{
-	Use:   "get-desired-minimum-height",
-	Short: "GetDesiredMinimumHeight RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWallpaperManagerServiceClient(grpcConn)
-		req := &pb.GetDesiredMinimumHeightRequest{}
-		resp, err := client.GetDesiredMinimumHeight(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appWallpaperManagerGetDesiredMinimumWidthCmd = &cobra.Command{
-	Use:   "get-desired-minimum-width",
-	Short: "GetDesiredMinimumWidth RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWallpaperManagerServiceClient(grpcConn)
-		req := &pb.GetDesiredMinimumWidthRequest{}
-		resp, err := client.GetDesiredMinimumWidth(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appWallpaperManagerGetDrawable0Cmd = &cobra.Command{
-	Use:   "get-drawable0",
-	Short: "GetDrawable0 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWallpaperManagerServiceClient(grpcConn)
-		req := &pb.GetDrawable0Request{}
-		resp, err := client.GetDrawable0(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appWallpaperManagerGetDrawable1_1Cmd = &cobra.Command{
-	Use:   "get-drawable1_1",
-	Short: "GetDrawable1_1 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWallpaperManagerServiceClient(grpcConn)
-		req := &pb.GetDrawable1_1Request{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.GetDrawable1_1(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appWallpaperManagerGetFastDrawable0Cmd = &cobra.Command{
-	Use:   "get-fast-drawable0",
-	Short: "GetFastDrawable0 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWallpaperManagerServiceClient(grpcConn)
-		req := &pb.GetFastDrawable0Request{}
-		resp, err := client.GetFastDrawable0(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appWallpaperManagerGetFastDrawable1_1Cmd = &cobra.Command{
-	Use:   "get-fast-drawable1_1",
-	Short: "GetFastDrawable1_1 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWallpaperManagerServiceClient(grpcConn)
-		req := &pb.GetFastDrawable1_1Request{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.GetFastDrawable1_1(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appWallpaperManagerGetWallpaperColorsCmd = &cobra.Command{
-	Use:   "get-wallpaper-colors",
-	Short: "GetWallpaperColors RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWallpaperManagerServiceClient(grpcConn)
-		req := &pb.GetWallpaperColorsRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.GetWallpaperColors(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appWallpaperManagerGetWallpaperFileCmd = &cobra.Command{
-	Use:   "get-wallpaper-file",
-	Short: "GetWallpaperFile RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWallpaperManagerServiceClient(grpcConn)
-		req := &pb.GetWallpaperFileRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.GetWallpaperFile(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appWallpaperManagerGetWallpaperIdCmd = &cobra.Command{
-	Use:   "get-wallpaper-id",
-	Short: "GetWallpaperId RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWallpaperManagerServiceClient(grpcConn)
-		req := &pb.GetWallpaperIdRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.GetWallpaperId(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appWallpaperManagerGetWallpaperInfo0Cmd = &cobra.Command{
-	Use:   "get-wallpaper-info0",
-	Short: "GetWallpaperInfo0 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWallpaperManagerServiceClient(grpcConn)
-		req := &pb.GetWallpaperInfo0Request{}
-		resp, err := client.GetWallpaperInfo0(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appWallpaperManagerGetWallpaperInfo1_1Cmd = &cobra.Command{
-	Use:   "get-wallpaper-info1_1",
-	Short: "GetWallpaperInfo1_1 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWallpaperManagerServiceClient(grpcConn)
-		req := &pb.GetWallpaperInfo1_1Request{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.GetWallpaperInfo1_1(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appWallpaperManagerHasResourceWallpaperCmd = &cobra.Command{
-	Use:   "has-resource-wallpaper",
-	Short: "HasResourceWallpaper RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWallpaperManagerServiceClient(grpcConn)
-		req := &pb.HasResourceWallpaperRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.HasResourceWallpaper(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appWallpaperManagerIsSetWallpaperAllowedCmd = &cobra.Command{
-	Use:   "is-set-wallpaper-allowed",
-	Short: "IsSetWallpaperAllowed RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWallpaperManagerServiceClient(grpcConn)
-		req := &pb.IsSetWallpaperAllowedRequest{}
-		resp, err := client.IsSetWallpaperAllowed(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appWallpaperManagerIsWallpaperSupportedCmd = &cobra.Command{
-	Use:   "is-wallpaper-supported",
-	Short: "IsWallpaperSupported RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWallpaperManagerServiceClient(grpcConn)
-		req := &pb.IsWallpaperSupportedRequest{}
-		resp, err := client.IsWallpaperSupported(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appWallpaperManagerPeekDrawable0Cmd = &cobra.Command{
-	Use:   "peek-drawable0",
-	Short: "PeekDrawable0 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWallpaperManagerServiceClient(grpcConn)
-		req := &pb.PeekDrawable0Request{}
-		resp, err := client.PeekDrawable0(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appWallpaperManagerPeekDrawable1_1Cmd = &cobra.Command{
-	Use:   "peek-drawable1_1",
-	Short: "PeekDrawable1_1 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWallpaperManagerServiceClient(grpcConn)
-		req := &pb.PeekDrawable1_1Request{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.PeekDrawable1_1(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appWallpaperManagerPeekFastDrawable0Cmd = &cobra.Command{
-	Use:   "peek-fast-drawable0",
-	Short: "PeekFastDrawable0 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWallpaperManagerServiceClient(grpcConn)
-		req := &pb.PeekFastDrawable0Request{}
-		resp, err := client.PeekFastDrawable0(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appWallpaperManagerPeekFastDrawable1_1Cmd = &cobra.Command{
-	Use:   "peek-fast-drawable1_1",
-	Short: "PeekFastDrawable1_1 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWallpaperManagerServiceClient(grpcConn)
-		req := &pb.PeekFastDrawable1_1Request{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.PeekFastDrawable1_1(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appWallpaperManagerRemoveOnColorsChangedListenerCmd = &cobra.Command{
-	Use:   "remove-on-colors-changed-listener",
-	Short: "RemoveOnColorsChangedListener RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWallpaperManagerServiceClient(grpcConn)
-		req := &pb.RemoveOnColorsChangedListenerRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.RemoveOnColorsChangedListener(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appWallpaperManagerSendWallpaperCommandCmd = &cobra.Command{
-	Use:   "send-wallpaper-command",
-	Short: "SendWallpaperCommand RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWallpaperManagerServiceClient(grpcConn)
-		req := &pb.SendWallpaperCommandRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetString("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg3"); err == nil {
-			req.Arg3 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg4"); err == nil {
-			req.Arg4 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg5"); err == nil {
-			req.Arg5 = v
-		}
-		resp, err := client.SendWallpaperCommand(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appWallpaperManagerSetBitmap1Cmd = &cobra.Command{
-	Use:   "set-bitmap1",
-	Short: "SetBitmap1 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWallpaperManagerServiceClient(grpcConn)
-		req := &pb.SetBitmap1Request{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetBitmap1(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appWallpaperManagerSetBitmap3_1Cmd = &cobra.Command{
-	Use:   "set-bitmap3_1",
-	Short: "SetBitmap3_1 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWallpaperManagerServiceClient(grpcConn)
-		req := &pb.SetBitmap3_1Request{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetBool("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		resp, err := client.SetBitmap3_1(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appWallpaperManagerSetBitmap4_2Cmd = &cobra.Command{
-	Use:   "set-bitmap4_2",
-	Short: "SetBitmap4_2 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWallpaperManagerServiceClient(grpcConn)
-		req := &pb.SetBitmap4_2Request{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetBool("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg3"); err == nil {
-			req.Arg3 = v
-		}
-		resp, err := client.SetBitmap4_2(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appWallpaperManagerSetDisplayPaddingCmd = &cobra.Command{
-	Use:   "set-display-padding",
-	Short: "SetDisplayPadding RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWallpaperManagerServiceClient(grpcConn)
-		req := &pb.SetDisplayPaddingRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetDisplayPadding(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appWallpaperManagerSetResource1Cmd = &cobra.Command{
-	Use:   "set-resource1",
-	Short: "SetResource1 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWallpaperManagerServiceClient(grpcConn)
-		req := &pb.SetResource1Request{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetResource1(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appWallpaperManagerSetResource2_1Cmd = &cobra.Command{
-	Use:   "set-resource2_1",
-	Short: "SetResource2_1 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWallpaperManagerServiceClient(grpcConn)
-		req := &pb.SetResource2_1Request{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.SetResource2_1(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appWallpaperManagerSetStream1Cmd = &cobra.Command{
-	Use:   "set-stream1",
-	Short: "SetStream1 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWallpaperManagerServiceClient(grpcConn)
-		req := &pb.SetStream1Request{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetStream1(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appWallpaperManagerSetStream3_1Cmd = &cobra.Command{
-	Use:   "set-stream3_1",
-	Short: "SetStream3_1 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWallpaperManagerServiceClient(grpcConn)
-		req := &pb.SetStream3_1Request{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetBool("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		resp, err := client.SetStream3_1(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appWallpaperManagerSetStream4_2Cmd = &cobra.Command{
-	Use:   "set-stream4_2",
-	Short: "SetStream4_2 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWallpaperManagerServiceClient(grpcConn)
-		req := &pb.SetStream4_2Request{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetBool("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg3"); err == nil {
-			req.Arg3 = v
-		}
-		resp, err := client.SetStream4_2(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appWallpaperManagerSetWallpaperOffsetStepsCmd = &cobra.Command{
-	Use:   "set-wallpaper-offset-steps",
-	Short: "SetWallpaperOffsetSteps RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWallpaperManagerServiceClient(grpcConn)
-		req := &pb.SetWallpaperOffsetStepsRequest{}
-		if v, err := cmd.Flags().GetFloat32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetFloat32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.SetWallpaperOffsetSteps(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appWallpaperManagerSetWallpaperOffsetsCmd = &cobra.Command{
-	Use:   "set-wallpaper-offsets",
-	Short: "SetWallpaperOffsets RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWallpaperManagerServiceClient(grpcConn)
-		req := &pb.SetWallpaperOffsetsRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetFloat32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetFloat32("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		resp, err := client.SetWallpaperOffsets(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appWallpaperManagerSuggestDesiredDimensionsCmd = &cobra.Command{
-	Use:   "suggest-desired-dimensions",
-	Short: "SuggestDesiredDimensions RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWallpaperManagerServiceClient(grpcConn)
-		req := &pb.SuggestDesiredDimensionsRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.SuggestDesiredDimensions(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appWallpaperManagerGetInstanceCmd = &cobra.Command{
-	Use:   "get-instance",
-	Short: "GetInstance RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWallpaperManagerServiceClient(grpcConn)
-		req := &pb.GetInstanceRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.GetInstance(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appSearchManagerCmd = &cobra.Command{
-	Use:   "search-manager",
-	Short: "SearchManagerService operations",
-}
-
-var appSearchManagerGetGlobalSearchActivityCmd = &cobra.Command{
-	Use:   "get-global-search-activity",
-	Short: "GetGlobalSearchActivity RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSearchManagerServiceClient(grpcConn)
-		req := &pb.GetGlobalSearchActivityRequest{}
-		resp, err := client.GetGlobalSearchActivity(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appSearchManagerGetSearchableInfoCmd = &cobra.Command{
-	Use:   "get-searchable-info",
-	Short: "GetSearchableInfo RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSearchManagerServiceClient(grpcConn)
-		req := &pb.GetSearchableInfoRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.GetSearchableInfo(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appSearchManagerOnCancelCmd = &cobra.Command{
-	Use:   "on-cancel",
-	Short: "OnCancel RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSearchManagerServiceClient(grpcConn)
-		req := &pb.OnCancelRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.OnCancel(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appSearchManagerOnDismissCmd = &cobra.Command{
-	Use:   "on-dismiss",
-	Short: "OnDismiss RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSearchManagerServiceClient(grpcConn)
-		req := &pb.OnDismissRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.OnDismiss(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appSearchManagerSetOnCancelListenerCmd = &cobra.Command{
-	Use:   "set-on-cancel-listener",
-	Short: "SetOnCancelListener RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSearchManagerServiceClient(grpcConn)
-		req := &pb.SetOnCancelListenerRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetOnCancelListener(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appSearchManagerSetOnDismissListenerCmd = &cobra.Command{
-	Use:   "set-on-dismiss-listener",
-	Short: "SetOnDismissListener RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSearchManagerServiceClient(grpcConn)
-		req := &pb.SetOnDismissListenerRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetOnDismissListener(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appSearchManagerStartSearchCmd = &cobra.Command{
-	Use:   "start-search",
-	Short: "StartSearch RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSearchManagerServiceClient(grpcConn)
-		req := &pb.StartSearchRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetBool("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg3"); err == nil {
-			req.Arg3 = v
-		}
-		if v, err := cmd.Flags().GetBool("arg4"); err == nil {
-			req.Arg4 = v
-		}
-		resp, err := client.StartSearch(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appSearchManagerStopSearchCmd = &cobra.Command{
-	Use:   "stop-search",
-	Short: "StopSearch RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSearchManagerServiceClient(grpcConn)
-		req := &pb.StopSearchRequest{}
-		resp, err := client.StopSearch(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appSearchManagerTriggerSearchCmd = &cobra.Command{
-	Use:   "trigger-search",
-	Short: "TriggerSearch RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSearchManagerServiceClient(grpcConn)
-		req := &pb.TriggerSearchRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		resp, err := client.TriggerSearch(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appGrammaticalInflectionManagerCmd = &cobra.Command{
-	Use:   "grammatical-inflection-manager",
-	Short: "GrammaticalInflectionManagerService operations",
-}
-
-var appGrammaticalInflectionManagerGetApplicationGrammaticalGenderCmd = &cobra.Command{
-	Use:   "get-application-grammatical-gender",
-	Short: "GetApplicationGrammaticalGender RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewGrammaticalInflectionManagerServiceClient(grpcConn)
-		req := &pb.GetApplicationGrammaticalGenderRequest{}
-		resp, err := client.GetApplicationGrammaticalGender(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appGrammaticalInflectionManagerGetSystemGrammaticalGenderCmd = &cobra.Command{
-	Use:   "get-system-grammatical-gender",
-	Short: "GetSystemGrammaticalGender RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewGrammaticalInflectionManagerServiceClient(grpcConn)
-		req := &pb.GetSystemGrammaticalGenderRequest{}
-		resp, err := client.GetSystemGrammaticalGender(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appGrammaticalInflectionManagerSetRequestedApplicationGrammaticalGenderCmd = &cobra.Command{
-	Use:   "set-requested-application-grammatical-gender",
-	Short: "SetRequestedApplicationGrammaticalGender RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewGrammaticalInflectionManagerServiceClient(grpcConn)
-		req := &pb.SetRequestedApplicationGrammaticalGenderRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetRequestedApplicationGrammaticalGender(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -2991,117 +3101,200 @@ var appUiModeManagerSetNightModeCmd = &cobra.Command{
 	},
 }
 
-var appLocaleManagerCmd = &cobra.Command{
-	Use:   "locale-manager",
-	Short: "LocaleManagerService operations",
-}
-
-var appLocaleManagerGetApplicationLocales0Cmd = &cobra.Command{
-	Use:   "get-application-locales0",
-	Short: "GetApplicationLocales0 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewLocaleManagerServiceClient(grpcConn)
-		req := &pb.GetApplicationLocales0Request{}
-		resp, err := client.GetApplicationLocales0(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appLocaleManagerGetApplicationLocales1_1Cmd = &cobra.Command{
-	Use:   "get-application-locales1_1",
-	Short: "GetApplicationLocales1_1 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewLocaleManagerServiceClient(grpcConn)
-		req := &pb.GetApplicationLocales1_1Request{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.GetApplicationLocales1_1(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appLocaleManagerGetOverrideLocaleConfigCmd = &cobra.Command{
-	Use:   "get-override-locale-config",
-	Short: "GetOverrideLocaleConfig RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewLocaleManagerServiceClient(grpcConn)
-		req := &pb.GetOverrideLocaleConfigRequest{}
-		resp, err := client.GetOverrideLocaleConfig(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appLocaleManagerGetSystemLocalesCmd = &cobra.Command{
-	Use:   "get-system-locales",
-	Short: "GetSystemLocales RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewLocaleManagerServiceClient(grpcConn)
-		req := &pb.GetSystemLocalesRequest{}
-		resp, err := client.GetSystemLocales(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appLocaleManagerSetApplicationLocalesCmd = &cobra.Command{
-	Use:   "set-application-locales",
-	Short: "SetApplicationLocales RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewLocaleManagerServiceClient(grpcConn)
-		req := &pb.SetApplicationLocalesRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetApplicationLocales(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appLocaleManagerSetOverrideLocaleConfigCmd = &cobra.Command{
-	Use:   "set-override-locale-config",
-	Short: "SetOverrideLocaleConfig RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewLocaleManagerServiceClient(grpcConn)
-		req := &pb.SetOverrideLocaleConfigRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetOverrideLocaleConfig(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
 func init() {
+	appWallpaperManagerCmd.AddCommand(appWallpaperManagerClear0Cmd)
+	appWallpaperManagerClear1_1Cmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	appWallpaperManagerCmd.AddCommand(appWallpaperManagerClear1_1Cmd)
+	appWallpaperManagerCmd.AddCommand(appWallpaperManagerClearWallpaperCmd)
+	appWallpaperManagerClearWallpaperOffsetsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	appWallpaperManagerCmd.AddCommand(appWallpaperManagerClearWallpaperOffsetsCmd)
+	appWallpaperManagerCmd.AddCommand(appWallpaperManagerForgetLoadedWallpaperCmd)
+	appWallpaperManagerCmd.AddCommand(appWallpaperManagerGetBuiltInDrawable0Cmd)
+	appWallpaperManagerGetBuiltInDrawable1_1Cmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	appWallpaperManagerCmd.AddCommand(appWallpaperManagerGetBuiltInDrawable1_1Cmd)
+	appWallpaperManagerGetBuiltInDrawable5_2Cmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	appWallpaperManagerGetBuiltInDrawable5_2Cmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	appWallpaperManagerGetBuiltInDrawable5_2Cmd.Flags().Bool("arg2", false, "arg2 (bool)")
+	appWallpaperManagerGetBuiltInDrawable5_2Cmd.Flags().Float32("arg3", 0, "arg3 (float32)")
+	appWallpaperManagerGetBuiltInDrawable5_2Cmd.Flags().Float32("arg4", 0, "arg4 (float32)")
+	appWallpaperManagerCmd.AddCommand(appWallpaperManagerGetBuiltInDrawable5_2Cmd)
+	appWallpaperManagerGetBuiltInDrawable6_3Cmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	appWallpaperManagerGetBuiltInDrawable6_3Cmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	appWallpaperManagerGetBuiltInDrawable6_3Cmd.Flags().Bool("arg2", false, "arg2 (bool)")
+	appWallpaperManagerGetBuiltInDrawable6_3Cmd.Flags().Float32("arg3", 0, "arg3 (float32)")
+	appWallpaperManagerGetBuiltInDrawable6_3Cmd.Flags().Float32("arg4", 0, "arg4 (float32)")
+	appWallpaperManagerGetBuiltInDrawable6_3Cmd.Flags().Int32("arg5", 0, "arg5 (int32)")
+	appWallpaperManagerCmd.AddCommand(appWallpaperManagerGetBuiltInDrawable6_3Cmd)
+	appWallpaperManagerGetCropAndSetWallpaperIntentCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	appWallpaperManagerCmd.AddCommand(appWallpaperManagerGetCropAndSetWallpaperIntentCmd)
+	appWallpaperManagerCmd.AddCommand(appWallpaperManagerGetDesiredMinimumHeightCmd)
+	appWallpaperManagerCmd.AddCommand(appWallpaperManagerGetDesiredMinimumWidthCmd)
+	appWallpaperManagerCmd.AddCommand(appWallpaperManagerGetDrawable0Cmd)
+	appWallpaperManagerGetDrawable1_1Cmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	appWallpaperManagerCmd.AddCommand(appWallpaperManagerGetDrawable1_1Cmd)
+	appWallpaperManagerCmd.AddCommand(appWallpaperManagerGetFastDrawable0Cmd)
+	appWallpaperManagerGetFastDrawable1_1Cmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	appWallpaperManagerCmd.AddCommand(appWallpaperManagerGetFastDrawable1_1Cmd)
+	appWallpaperManagerGetWallpaperColorsCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	appWallpaperManagerCmd.AddCommand(appWallpaperManagerGetWallpaperColorsCmd)
+	appWallpaperManagerGetWallpaperFileCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	appWallpaperManagerCmd.AddCommand(appWallpaperManagerGetWallpaperFileCmd)
+	appWallpaperManagerGetWallpaperIdCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	appWallpaperManagerCmd.AddCommand(appWallpaperManagerGetWallpaperIdCmd)
+	appWallpaperManagerCmd.AddCommand(appWallpaperManagerGetWallpaperInfo0Cmd)
+	appWallpaperManagerGetWallpaperInfo1_1Cmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	appWallpaperManagerCmd.AddCommand(appWallpaperManagerGetWallpaperInfo1_1Cmd)
+	appWallpaperManagerHasResourceWallpaperCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	appWallpaperManagerCmd.AddCommand(appWallpaperManagerHasResourceWallpaperCmd)
+	appWallpaperManagerCmd.AddCommand(appWallpaperManagerIsSetWallpaperAllowedCmd)
+	appWallpaperManagerCmd.AddCommand(appWallpaperManagerIsWallpaperSupportedCmd)
+	appWallpaperManagerCmd.AddCommand(appWallpaperManagerPeekDrawable0Cmd)
+	appWallpaperManagerPeekDrawable1_1Cmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	appWallpaperManagerCmd.AddCommand(appWallpaperManagerPeekDrawable1_1Cmd)
+	appWallpaperManagerCmd.AddCommand(appWallpaperManagerPeekFastDrawable0Cmd)
+	appWallpaperManagerPeekFastDrawable1_1Cmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	appWallpaperManagerCmd.AddCommand(appWallpaperManagerPeekFastDrawable1_1Cmd)
+	appWallpaperManagerRemoveOnColorsChangedListenerCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	appWallpaperManagerCmd.AddCommand(appWallpaperManagerRemoveOnColorsChangedListenerCmd)
+	appWallpaperManagerSendWallpaperCommandCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	appWallpaperManagerSendWallpaperCommandCmd.Flags().String("arg1", "", "arg1 (string)")
+	appWallpaperManagerSendWallpaperCommandCmd.Flags().Int32("arg2", 0, "arg2 (int32)")
+	appWallpaperManagerSendWallpaperCommandCmd.Flags().Int32("arg3", 0, "arg3 (int32)")
+	appWallpaperManagerSendWallpaperCommandCmd.Flags().Int32("arg4", 0, "arg4 (int32)")
+	appWallpaperManagerSendWallpaperCommandCmd.Flags().Int64("arg5", 0, "arg5 (int64)")
+	appWallpaperManagerCmd.AddCommand(appWallpaperManagerSendWallpaperCommandCmd)
+	appWallpaperManagerSetBitmap1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	appWallpaperManagerCmd.AddCommand(appWallpaperManagerSetBitmap1Cmd)
+	appWallpaperManagerSetBitmap3_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	appWallpaperManagerSetBitmap3_1Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	appWallpaperManagerSetBitmap3_1Cmd.Flags().Bool("arg2", false, "arg2 (bool)")
+	appWallpaperManagerCmd.AddCommand(appWallpaperManagerSetBitmap3_1Cmd)
+	appWallpaperManagerSetBitmap4_2Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	appWallpaperManagerSetBitmap4_2Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	appWallpaperManagerSetBitmap4_2Cmd.Flags().Bool("arg2", false, "arg2 (bool)")
+	appWallpaperManagerSetBitmap4_2Cmd.Flags().Int32("arg3", 0, "arg3 (int32)")
+	appWallpaperManagerCmd.AddCommand(appWallpaperManagerSetBitmap4_2Cmd)
+	appWallpaperManagerSetDisplayPaddingCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	appWallpaperManagerCmd.AddCommand(appWallpaperManagerSetDisplayPaddingCmd)
+	appWallpaperManagerSetResource1Cmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	appWallpaperManagerCmd.AddCommand(appWallpaperManagerSetResource1Cmd)
+	appWallpaperManagerSetResource2_1Cmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	appWallpaperManagerSetResource2_1Cmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	appWallpaperManagerCmd.AddCommand(appWallpaperManagerSetResource2_1Cmd)
+	appWallpaperManagerSetStream1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	appWallpaperManagerCmd.AddCommand(appWallpaperManagerSetStream1Cmd)
+	appWallpaperManagerSetStream3_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	appWallpaperManagerSetStream3_1Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	appWallpaperManagerSetStream3_1Cmd.Flags().Bool("arg2", false, "arg2 (bool)")
+	appWallpaperManagerCmd.AddCommand(appWallpaperManagerSetStream3_1Cmd)
+	appWallpaperManagerSetStream4_2Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	appWallpaperManagerSetStream4_2Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	appWallpaperManagerSetStream4_2Cmd.Flags().Bool("arg2", false, "arg2 (bool)")
+	appWallpaperManagerSetStream4_2Cmd.Flags().Int32("arg3", 0, "arg3 (int32)")
+	appWallpaperManagerCmd.AddCommand(appWallpaperManagerSetStream4_2Cmd)
+	appWallpaperManagerSetWallpaperOffsetStepsCmd.Flags().Float32("arg0", 0, "arg0 (float32)")
+	appWallpaperManagerSetWallpaperOffsetStepsCmd.Flags().Float32("arg1", 0, "arg1 (float32)")
+	appWallpaperManagerCmd.AddCommand(appWallpaperManagerSetWallpaperOffsetStepsCmd)
+	appWallpaperManagerSetWallpaperOffsetsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	appWallpaperManagerSetWallpaperOffsetsCmd.Flags().Float32("arg1", 0, "arg1 (float32)")
+	appWallpaperManagerSetWallpaperOffsetsCmd.Flags().Float32("arg2", 0, "arg2 (float32)")
+	appWallpaperManagerCmd.AddCommand(appWallpaperManagerSetWallpaperOffsetsCmd)
+	appWallpaperManagerSuggestDesiredDimensionsCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	appWallpaperManagerSuggestDesiredDimensionsCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	appWallpaperManagerCmd.AddCommand(appWallpaperManagerSuggestDesiredDimensionsCmd)
+	appWallpaperManagerGetInstanceCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	appWallpaperManagerCmd.AddCommand(appWallpaperManagerGetInstanceCmd)
+	appCmd.AddCommand(appWallpaperManagerCmd)
+	appStatusBarManagerCanLaunchCaptureContentActivityForNoteCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	appStatusBarManagerCmd.AddCommand(appStatusBarManagerCanLaunchCaptureContentActivityForNoteCmd)
+	appCmd.AddCommand(appStatusBarManagerCmd)
+	appActivityManagerAddAppTaskCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	appActivityManagerAddAppTaskCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	appActivityManagerAddAppTaskCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	appActivityManagerAddAppTaskCmd.Flags().Int64("arg3", 0, "arg3 (int64)")
+	appActivityManagerCmd.AddCommand(appActivityManagerAddAppTaskCmd)
+	appActivityManagerAddStartInfoTimestampCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	appActivityManagerAddStartInfoTimestampCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	appActivityManagerCmd.AddCommand(appActivityManagerAddStartInfoTimestampCmd)
+	appActivityManagerAppNotRespondingCmd.Flags().String("arg0", "", "arg0 (string)")
+	appActivityManagerCmd.AddCommand(appActivityManagerAppNotRespondingCmd)
+	appActivityManagerCmd.AddCommand(appActivityManagerClearApplicationUserDataCmd)
+	appActivityManagerCmd.AddCommand(appActivityManagerClearWatchHeapLimitCmd)
+	appActivityManagerDumpPackageStateCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	appActivityManagerDumpPackageStateCmd.Flags().String("arg1", "", "arg1 (string)")
+	appActivityManagerCmd.AddCommand(appActivityManagerDumpPackageStateCmd)
+	appActivityManagerCmd.AddCommand(appActivityManagerGetAppTaskThumbnailSizeCmd)
+	appActivityManagerCmd.AddCommand(appActivityManagerGetDeviceConfigurationInfoCmd)
+	appActivityManagerCmd.AddCommand(appActivityManagerGetLargeMemoryClassCmd)
+	appActivityManagerCmd.AddCommand(appActivityManagerGetLauncherLargeIconDensityCmd)
+	appActivityManagerCmd.AddCommand(appActivityManagerGetLauncherLargeIconSizeCmd)
+	appActivityManagerCmd.AddCommand(appActivityManagerGetLockTaskModeStateCmd)
+	appActivityManagerCmd.AddCommand(appActivityManagerGetMemoryClassCmd)
+	appActivityManagerGetMemoryInfoCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	appActivityManagerCmd.AddCommand(appActivityManagerGetMemoryInfoCmd)
+	appActivityManagerGetProcessMemoryInfoCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	appActivityManagerCmd.AddCommand(appActivityManagerGetProcessMemoryInfoCmd)
+	appActivityManagerGetRunningServiceControlPanelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	appActivityManagerCmd.AddCommand(appActivityManagerGetRunningServiceControlPanelCmd)
+	appActivityManagerIsActivityStartAllowedOnDisplayCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	appActivityManagerIsActivityStartAllowedOnDisplayCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	appActivityManagerIsActivityStartAllowedOnDisplayCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	appActivityManagerCmd.AddCommand(appActivityManagerIsActivityStartAllowedOnDisplayCmd)
+	appActivityManagerCmd.AddCommand(appActivityManagerIsBackgroundRestrictedCmd)
+	appActivityManagerCmd.AddCommand(appActivityManagerIsInLockTaskModeCmd)
+	appActivityManagerCmd.AddCommand(appActivityManagerIsLowRamDeviceCmd)
+	appActivityManagerKillBackgroundProcessesCmd.Flags().String("arg0", "", "arg0 (string)")
+	appActivityManagerCmd.AddCommand(appActivityManagerKillBackgroundProcessesCmd)
+	appActivityManagerMoveTaskToFront2Cmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	appActivityManagerMoveTaskToFront2Cmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	appActivityManagerCmd.AddCommand(appActivityManagerMoveTaskToFront2Cmd)
+	appActivityManagerMoveTaskToFront3_1Cmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	appActivityManagerMoveTaskToFront3_1Cmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	appActivityManagerMoveTaskToFront3_1Cmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	appActivityManagerCmd.AddCommand(appActivityManagerMoveTaskToFront3_1Cmd)
+	appActivityManagerRestartPackageCmd.Flags().String("arg0", "", "arg0 (string)")
+	appActivityManagerCmd.AddCommand(appActivityManagerRestartPackageCmd)
+	appActivityManagerSetProcessStateSummaryCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	appActivityManagerCmd.AddCommand(appActivityManagerSetProcessStateSummaryCmd)
+	appActivityManagerSetWatchHeapLimitCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	appActivityManagerCmd.AddCommand(appActivityManagerSetWatchHeapLimitCmd)
+	appActivityManagerGetMyMemoryStateCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	appActivityManagerCmd.AddCommand(appActivityManagerGetMyMemoryStateCmd)
+	appActivityManagerCmd.AddCommand(appActivityManagerIsLowMemoryKillReportSupportedCmd)
+	appActivityManagerCmd.AddCommand(appActivityManagerIsRunningInTestHarnessCmd)
+	appActivityManagerCmd.AddCommand(appActivityManagerIsRunningInUserTestHarnessCmd)
+	appActivityManagerCmd.AddCommand(appActivityManagerIsUserAMonkeyCmd)
+	appActivityManagerSetVrThreadCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	appActivityManagerCmd.AddCommand(appActivityManagerSetVrThreadCmd)
+	appCmd.AddCommand(appActivityManagerCmd)
+	appSearchManagerCmd.AddCommand(appSearchManagerGetGlobalSearchActivityCmd)
+	appSearchManagerGetSearchableInfoCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	appSearchManagerCmd.AddCommand(appSearchManagerGetSearchableInfoCmd)
+	appSearchManagerOnCancelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	appSearchManagerCmd.AddCommand(appSearchManagerOnCancelCmd)
+	appSearchManagerOnDismissCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	appSearchManagerCmd.AddCommand(appSearchManagerOnDismissCmd)
+	appSearchManagerSetOnCancelListenerCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	appSearchManagerCmd.AddCommand(appSearchManagerSetOnCancelListenerCmd)
+	appSearchManagerSetOnDismissListenerCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	appSearchManagerCmd.AddCommand(appSearchManagerSetOnDismissListenerCmd)
+	appSearchManagerStartSearchCmd.Flags().String("arg0", "", "arg0 (string)")
+	appSearchManagerStartSearchCmd.Flags().Bool("arg1", false, "arg1 (bool)")
+	appSearchManagerStartSearchCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	appSearchManagerStartSearchCmd.Flags().Int64("arg3", 0, "arg3 (int64)")
+	appSearchManagerStartSearchCmd.Flags().Bool("arg4", false, "arg4 (bool)")
+	appSearchManagerCmd.AddCommand(appSearchManagerStartSearchCmd)
+	appSearchManagerCmd.AddCommand(appSearchManagerStopSearchCmd)
+	appSearchManagerTriggerSearchCmd.Flags().String("arg0", "", "arg0 (string)")
+	appSearchManagerTriggerSearchCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	appSearchManagerTriggerSearchCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	appSearchManagerCmd.AddCommand(appSearchManagerTriggerSearchCmd)
+	appCmd.AddCommand(appSearchManagerCmd)
+	appGrammaticalInflectionManagerCmd.AddCommand(appGrammaticalInflectionManagerGetApplicationGrammaticalGenderCmd)
+	appGrammaticalInflectionManagerCmd.AddCommand(appGrammaticalInflectionManagerGetSystemGrammaticalGenderCmd)
+	appGrammaticalInflectionManagerSetRequestedApplicationGrammaticalGenderCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	appGrammaticalInflectionManagerCmd.AddCommand(appGrammaticalInflectionManagerSetRequestedApplicationGrammaticalGenderCmd)
+	appCmd.AddCommand(appGrammaticalInflectionManagerCmd)
 	appOpsManagerCheckOp3Cmd.Flags().String("arg0", "", "arg0 (string)")
 	appOpsManagerCheckOp3Cmd.Flags().Int32("arg1", 0, "arg1 (int32)")
 	appOpsManagerCheckOp3Cmd.Flags().String("arg2", "", "arg2 (string)")
@@ -3263,203 +3456,20 @@ func init() {
 	appOpsManagerPermissionToOpCmd.Flags().String("arg0", "", "arg0 (string)")
 	appOpsManagerCmd.AddCommand(appOpsManagerPermissionToOpCmd)
 	appCmd.AddCommand(appOpsManagerCmd)
-	appStatusBarManagerCanLaunchCaptureContentActivityForNoteCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	appStatusBarManagerCmd.AddCommand(appStatusBarManagerCanLaunchCaptureContentActivityForNoteCmd)
-	appCmd.AddCommand(appStatusBarManagerCmd)
-	appActivityManagerAddAppTaskCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	appActivityManagerAddAppTaskCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	appActivityManagerAddAppTaskCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
-	appActivityManagerAddAppTaskCmd.Flags().Int64("arg3", 0, "arg3 (int64)")
-	appActivityManagerCmd.AddCommand(appActivityManagerAddAppTaskCmd)
-	appActivityManagerAddStartInfoTimestampCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	appActivityManagerAddStartInfoTimestampCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	appActivityManagerCmd.AddCommand(appActivityManagerAddStartInfoTimestampCmd)
-	appActivityManagerAppNotRespondingCmd.Flags().String("arg0", "", "arg0 (string)")
-	appActivityManagerCmd.AddCommand(appActivityManagerAppNotRespondingCmd)
-	appActivityManagerCmd.AddCommand(appActivityManagerClearApplicationUserDataCmd)
-	appActivityManagerCmd.AddCommand(appActivityManagerClearWatchHeapLimitCmd)
-	appActivityManagerDumpPackageStateCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	appActivityManagerDumpPackageStateCmd.Flags().String("arg1", "", "arg1 (string)")
-	appActivityManagerCmd.AddCommand(appActivityManagerDumpPackageStateCmd)
-	appActivityManagerCmd.AddCommand(appActivityManagerGetAppTaskThumbnailSizeCmd)
-	appActivityManagerCmd.AddCommand(appActivityManagerGetDeviceConfigurationInfoCmd)
-	appActivityManagerCmd.AddCommand(appActivityManagerGetLargeMemoryClassCmd)
-	appActivityManagerCmd.AddCommand(appActivityManagerGetLauncherLargeIconDensityCmd)
-	appActivityManagerCmd.AddCommand(appActivityManagerGetLauncherLargeIconSizeCmd)
-	appActivityManagerCmd.AddCommand(appActivityManagerGetLockTaskModeStateCmd)
-	appActivityManagerCmd.AddCommand(appActivityManagerGetMemoryClassCmd)
-	appActivityManagerGetMemoryInfoCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	appActivityManagerCmd.AddCommand(appActivityManagerGetMemoryInfoCmd)
-	appActivityManagerGetProcessMemoryInfoCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	appActivityManagerCmd.AddCommand(appActivityManagerGetProcessMemoryInfoCmd)
-	appActivityManagerGetRunningServiceControlPanelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	appActivityManagerCmd.AddCommand(appActivityManagerGetRunningServiceControlPanelCmd)
-	appActivityManagerIsActivityStartAllowedOnDisplayCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	appActivityManagerIsActivityStartAllowedOnDisplayCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	appActivityManagerIsActivityStartAllowedOnDisplayCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
-	appActivityManagerCmd.AddCommand(appActivityManagerIsActivityStartAllowedOnDisplayCmd)
-	appActivityManagerCmd.AddCommand(appActivityManagerIsBackgroundRestrictedCmd)
-	appActivityManagerCmd.AddCommand(appActivityManagerIsInLockTaskModeCmd)
-	appActivityManagerCmd.AddCommand(appActivityManagerIsLowRamDeviceCmd)
-	appActivityManagerKillBackgroundProcessesCmd.Flags().String("arg0", "", "arg0 (string)")
-	appActivityManagerCmd.AddCommand(appActivityManagerKillBackgroundProcessesCmd)
-	appActivityManagerMoveTaskToFront2Cmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	appActivityManagerMoveTaskToFront2Cmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	appActivityManagerCmd.AddCommand(appActivityManagerMoveTaskToFront2Cmd)
-	appActivityManagerMoveTaskToFront3_1Cmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	appActivityManagerMoveTaskToFront3_1Cmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	appActivityManagerMoveTaskToFront3_1Cmd.Flags().Int64("arg2", 0, "arg2 (int64)")
-	appActivityManagerCmd.AddCommand(appActivityManagerMoveTaskToFront3_1Cmd)
-	appActivityManagerRestartPackageCmd.Flags().String("arg0", "", "arg0 (string)")
-	appActivityManagerCmd.AddCommand(appActivityManagerRestartPackageCmd)
-	appActivityManagerSetProcessStateSummaryCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	appActivityManagerCmd.AddCommand(appActivityManagerSetProcessStateSummaryCmd)
-	appActivityManagerSetWatchHeapLimitCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	appActivityManagerCmd.AddCommand(appActivityManagerSetWatchHeapLimitCmd)
-	appActivityManagerGetMyMemoryStateCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	appActivityManagerCmd.AddCommand(appActivityManagerGetMyMemoryStateCmd)
-	appActivityManagerCmd.AddCommand(appActivityManagerIsLowMemoryKillReportSupportedCmd)
-	appActivityManagerCmd.AddCommand(appActivityManagerIsRunningInTestHarnessCmd)
-	appActivityManagerCmd.AddCommand(appActivityManagerIsRunningInUserTestHarnessCmd)
-	appActivityManagerCmd.AddCommand(appActivityManagerIsUserAMonkeyCmd)
-	appActivityManagerSetVrThreadCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	appActivityManagerCmd.AddCommand(appActivityManagerSetVrThreadCmd)
-	appCmd.AddCommand(appActivityManagerCmd)
+	appLocaleManagerCmd.AddCommand(appLocaleManagerGetApplicationLocales0Cmd)
+	appLocaleManagerGetApplicationLocales1_1Cmd.Flags().String("arg0", "", "arg0 (string)")
+	appLocaleManagerCmd.AddCommand(appLocaleManagerGetApplicationLocales1_1Cmd)
+	appLocaleManagerCmd.AddCommand(appLocaleManagerGetOverrideLocaleConfigCmd)
+	appLocaleManagerCmd.AddCommand(appLocaleManagerGetSystemLocalesCmd)
+	appLocaleManagerSetApplicationLocalesCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	appLocaleManagerCmd.AddCommand(appLocaleManagerSetApplicationLocalesCmd)
+	appLocaleManagerSetOverrideLocaleConfigCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	appLocaleManagerCmd.AddCommand(appLocaleManagerSetOverrideLocaleConfigCmd)
+	appCmd.AddCommand(appLocaleManagerCmd)
 	appGameManagerCmd.AddCommand(appGameManagerGetGameModeCmd)
 	appGameManagerSetGameStateCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	appGameManagerCmd.AddCommand(appGameManagerSetGameStateCmd)
 	appCmd.AddCommand(appGameManagerCmd)
-	appWallpaperManagerCmd.AddCommand(appWallpaperManagerClear0Cmd)
-	appWallpaperManagerClear1_1Cmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	appWallpaperManagerCmd.AddCommand(appWallpaperManagerClear1_1Cmd)
-	appWallpaperManagerCmd.AddCommand(appWallpaperManagerClearWallpaperCmd)
-	appWallpaperManagerClearWallpaperOffsetsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	appWallpaperManagerCmd.AddCommand(appWallpaperManagerClearWallpaperOffsetsCmd)
-	appWallpaperManagerCmd.AddCommand(appWallpaperManagerForgetLoadedWallpaperCmd)
-	appWallpaperManagerCmd.AddCommand(appWallpaperManagerGetBuiltInDrawable0Cmd)
-	appWallpaperManagerGetBuiltInDrawable1_1Cmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	appWallpaperManagerCmd.AddCommand(appWallpaperManagerGetBuiltInDrawable1_1Cmd)
-	appWallpaperManagerGetBuiltInDrawable5_2Cmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	appWallpaperManagerGetBuiltInDrawable5_2Cmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	appWallpaperManagerGetBuiltInDrawable5_2Cmd.Flags().Bool("arg2", false, "arg2 (bool)")
-	appWallpaperManagerGetBuiltInDrawable5_2Cmd.Flags().Float32("arg3", 0, "arg3 (float32)")
-	appWallpaperManagerGetBuiltInDrawable5_2Cmd.Flags().Float32("arg4", 0, "arg4 (float32)")
-	appWallpaperManagerCmd.AddCommand(appWallpaperManagerGetBuiltInDrawable5_2Cmd)
-	appWallpaperManagerGetBuiltInDrawable6_3Cmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	appWallpaperManagerGetBuiltInDrawable6_3Cmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	appWallpaperManagerGetBuiltInDrawable6_3Cmd.Flags().Bool("arg2", false, "arg2 (bool)")
-	appWallpaperManagerGetBuiltInDrawable6_3Cmd.Flags().Float32("arg3", 0, "arg3 (float32)")
-	appWallpaperManagerGetBuiltInDrawable6_3Cmd.Flags().Float32("arg4", 0, "arg4 (float32)")
-	appWallpaperManagerGetBuiltInDrawable6_3Cmd.Flags().Int32("arg5", 0, "arg5 (int32)")
-	appWallpaperManagerCmd.AddCommand(appWallpaperManagerGetBuiltInDrawable6_3Cmd)
-	appWallpaperManagerGetCropAndSetWallpaperIntentCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	appWallpaperManagerCmd.AddCommand(appWallpaperManagerGetCropAndSetWallpaperIntentCmd)
-	appWallpaperManagerCmd.AddCommand(appWallpaperManagerGetDesiredMinimumHeightCmd)
-	appWallpaperManagerCmd.AddCommand(appWallpaperManagerGetDesiredMinimumWidthCmd)
-	appWallpaperManagerCmd.AddCommand(appWallpaperManagerGetDrawable0Cmd)
-	appWallpaperManagerGetDrawable1_1Cmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	appWallpaperManagerCmd.AddCommand(appWallpaperManagerGetDrawable1_1Cmd)
-	appWallpaperManagerCmd.AddCommand(appWallpaperManagerGetFastDrawable0Cmd)
-	appWallpaperManagerGetFastDrawable1_1Cmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	appWallpaperManagerCmd.AddCommand(appWallpaperManagerGetFastDrawable1_1Cmd)
-	appWallpaperManagerGetWallpaperColorsCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	appWallpaperManagerCmd.AddCommand(appWallpaperManagerGetWallpaperColorsCmd)
-	appWallpaperManagerGetWallpaperFileCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	appWallpaperManagerCmd.AddCommand(appWallpaperManagerGetWallpaperFileCmd)
-	appWallpaperManagerGetWallpaperIdCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	appWallpaperManagerCmd.AddCommand(appWallpaperManagerGetWallpaperIdCmd)
-	appWallpaperManagerCmd.AddCommand(appWallpaperManagerGetWallpaperInfo0Cmd)
-	appWallpaperManagerGetWallpaperInfo1_1Cmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	appWallpaperManagerCmd.AddCommand(appWallpaperManagerGetWallpaperInfo1_1Cmd)
-	appWallpaperManagerHasResourceWallpaperCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	appWallpaperManagerCmd.AddCommand(appWallpaperManagerHasResourceWallpaperCmd)
-	appWallpaperManagerCmd.AddCommand(appWallpaperManagerIsSetWallpaperAllowedCmd)
-	appWallpaperManagerCmd.AddCommand(appWallpaperManagerIsWallpaperSupportedCmd)
-	appWallpaperManagerCmd.AddCommand(appWallpaperManagerPeekDrawable0Cmd)
-	appWallpaperManagerPeekDrawable1_1Cmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	appWallpaperManagerCmd.AddCommand(appWallpaperManagerPeekDrawable1_1Cmd)
-	appWallpaperManagerCmd.AddCommand(appWallpaperManagerPeekFastDrawable0Cmd)
-	appWallpaperManagerPeekFastDrawable1_1Cmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	appWallpaperManagerCmd.AddCommand(appWallpaperManagerPeekFastDrawable1_1Cmd)
-	appWallpaperManagerRemoveOnColorsChangedListenerCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	appWallpaperManagerCmd.AddCommand(appWallpaperManagerRemoveOnColorsChangedListenerCmd)
-	appWallpaperManagerSendWallpaperCommandCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	appWallpaperManagerSendWallpaperCommandCmd.Flags().String("arg1", "", "arg1 (string)")
-	appWallpaperManagerSendWallpaperCommandCmd.Flags().Int32("arg2", 0, "arg2 (int32)")
-	appWallpaperManagerSendWallpaperCommandCmd.Flags().Int32("arg3", 0, "arg3 (int32)")
-	appWallpaperManagerSendWallpaperCommandCmd.Flags().Int32("arg4", 0, "arg4 (int32)")
-	appWallpaperManagerSendWallpaperCommandCmd.Flags().Int64("arg5", 0, "arg5 (int64)")
-	appWallpaperManagerCmd.AddCommand(appWallpaperManagerSendWallpaperCommandCmd)
-	appWallpaperManagerSetBitmap1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	appWallpaperManagerCmd.AddCommand(appWallpaperManagerSetBitmap1Cmd)
-	appWallpaperManagerSetBitmap3_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	appWallpaperManagerSetBitmap3_1Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	appWallpaperManagerSetBitmap3_1Cmd.Flags().Bool("arg2", false, "arg2 (bool)")
-	appWallpaperManagerCmd.AddCommand(appWallpaperManagerSetBitmap3_1Cmd)
-	appWallpaperManagerSetBitmap4_2Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	appWallpaperManagerSetBitmap4_2Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	appWallpaperManagerSetBitmap4_2Cmd.Flags().Bool("arg2", false, "arg2 (bool)")
-	appWallpaperManagerSetBitmap4_2Cmd.Flags().Int32("arg3", 0, "arg3 (int32)")
-	appWallpaperManagerCmd.AddCommand(appWallpaperManagerSetBitmap4_2Cmd)
-	appWallpaperManagerSetDisplayPaddingCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	appWallpaperManagerCmd.AddCommand(appWallpaperManagerSetDisplayPaddingCmd)
-	appWallpaperManagerSetResource1Cmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	appWallpaperManagerCmd.AddCommand(appWallpaperManagerSetResource1Cmd)
-	appWallpaperManagerSetResource2_1Cmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	appWallpaperManagerSetResource2_1Cmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	appWallpaperManagerCmd.AddCommand(appWallpaperManagerSetResource2_1Cmd)
-	appWallpaperManagerSetStream1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	appWallpaperManagerCmd.AddCommand(appWallpaperManagerSetStream1Cmd)
-	appWallpaperManagerSetStream3_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	appWallpaperManagerSetStream3_1Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	appWallpaperManagerSetStream3_1Cmd.Flags().Bool("arg2", false, "arg2 (bool)")
-	appWallpaperManagerCmd.AddCommand(appWallpaperManagerSetStream3_1Cmd)
-	appWallpaperManagerSetStream4_2Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	appWallpaperManagerSetStream4_2Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	appWallpaperManagerSetStream4_2Cmd.Flags().Bool("arg2", false, "arg2 (bool)")
-	appWallpaperManagerSetStream4_2Cmd.Flags().Int32("arg3", 0, "arg3 (int32)")
-	appWallpaperManagerCmd.AddCommand(appWallpaperManagerSetStream4_2Cmd)
-	appWallpaperManagerSetWallpaperOffsetStepsCmd.Flags().Float32("arg0", 0, "arg0 (float32)")
-	appWallpaperManagerSetWallpaperOffsetStepsCmd.Flags().Float32("arg1", 0, "arg1 (float32)")
-	appWallpaperManagerCmd.AddCommand(appWallpaperManagerSetWallpaperOffsetStepsCmd)
-	appWallpaperManagerSetWallpaperOffsetsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	appWallpaperManagerSetWallpaperOffsetsCmd.Flags().Float32("arg1", 0, "arg1 (float32)")
-	appWallpaperManagerSetWallpaperOffsetsCmd.Flags().Float32("arg2", 0, "arg2 (float32)")
-	appWallpaperManagerCmd.AddCommand(appWallpaperManagerSetWallpaperOffsetsCmd)
-	appWallpaperManagerSuggestDesiredDimensionsCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	appWallpaperManagerSuggestDesiredDimensionsCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	appWallpaperManagerCmd.AddCommand(appWallpaperManagerSuggestDesiredDimensionsCmd)
-	appWallpaperManagerGetInstanceCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	appWallpaperManagerCmd.AddCommand(appWallpaperManagerGetInstanceCmd)
-	appCmd.AddCommand(appWallpaperManagerCmd)
-	appSearchManagerCmd.AddCommand(appSearchManagerGetGlobalSearchActivityCmd)
-	appSearchManagerGetSearchableInfoCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	appSearchManagerCmd.AddCommand(appSearchManagerGetSearchableInfoCmd)
-	appSearchManagerOnCancelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	appSearchManagerCmd.AddCommand(appSearchManagerOnCancelCmd)
-	appSearchManagerOnDismissCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	appSearchManagerCmd.AddCommand(appSearchManagerOnDismissCmd)
-	appSearchManagerSetOnCancelListenerCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	appSearchManagerCmd.AddCommand(appSearchManagerSetOnCancelListenerCmd)
-	appSearchManagerSetOnDismissListenerCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	appSearchManagerCmd.AddCommand(appSearchManagerSetOnDismissListenerCmd)
-	appSearchManagerStartSearchCmd.Flags().String("arg0", "", "arg0 (string)")
-	appSearchManagerStartSearchCmd.Flags().Bool("arg1", false, "arg1 (bool)")
-	appSearchManagerStartSearchCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
-	appSearchManagerStartSearchCmd.Flags().Int64("arg3", 0, "arg3 (int64)")
-	appSearchManagerStartSearchCmd.Flags().Bool("arg4", false, "arg4 (bool)")
-	appSearchManagerCmd.AddCommand(appSearchManagerStartSearchCmd)
-	appSearchManagerCmd.AddCommand(appSearchManagerStopSearchCmd)
-	appSearchManagerTriggerSearchCmd.Flags().String("arg0", "", "arg0 (string)")
-	appSearchManagerTriggerSearchCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	appSearchManagerTriggerSearchCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
-	appSearchManagerCmd.AddCommand(appSearchManagerTriggerSearchCmd)
-	appCmd.AddCommand(appSearchManagerCmd)
-	appGrammaticalInflectionManagerCmd.AddCommand(appGrammaticalInflectionManagerGetApplicationGrammaticalGenderCmd)
-	appGrammaticalInflectionManagerCmd.AddCommand(appGrammaticalInflectionManagerGetSystemGrammaticalGenderCmd)
-	appGrammaticalInflectionManagerSetRequestedApplicationGrammaticalGenderCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	appGrammaticalInflectionManagerCmd.AddCommand(appGrammaticalInflectionManagerSetRequestedApplicationGrammaticalGenderCmd)
-	appCmd.AddCommand(appGrammaticalInflectionManagerCmd)
 	appUiModeManagerAddContrastChangeListenerCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	appUiModeManagerAddContrastChangeListenerCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
 	appUiModeManagerCmd.AddCommand(appUiModeManagerAddContrastChangeListenerCmd)
@@ -3483,15 +3493,5 @@ func init() {
 	appUiModeManagerSetNightModeCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
 	appUiModeManagerCmd.AddCommand(appUiModeManagerSetNightModeCmd)
 	appCmd.AddCommand(appUiModeManagerCmd)
-	appLocaleManagerCmd.AddCommand(appLocaleManagerGetApplicationLocales0Cmd)
-	appLocaleManagerGetApplicationLocales1_1Cmd.Flags().String("arg0", "", "arg0 (string)")
-	appLocaleManagerCmd.AddCommand(appLocaleManagerGetApplicationLocales1_1Cmd)
-	appLocaleManagerCmd.AddCommand(appLocaleManagerGetOverrideLocaleConfigCmd)
-	appLocaleManagerCmd.AddCommand(appLocaleManagerGetSystemLocalesCmd)
-	appLocaleManagerSetApplicationLocalesCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	appLocaleManagerCmd.AddCommand(appLocaleManagerSetApplicationLocalesCmd)
-	appLocaleManagerSetOverrideLocaleConfigCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	appLocaleManagerCmd.AddCommand(appLocaleManagerSetOverrideLocaleConfigCmd)
-	appCmd.AddCommand(appLocaleManagerCmd)
 	rootCmd.AddCommand(appCmd)
 }

@@ -9,6 +9,908 @@ import (
 	"google.golang.org/grpc"
 )
 
+// WallpaperManagerClient wraps the gRPC WallpaperManagerService client.
+type WallpaperManagerClient struct {
+	svc pb.WallpaperManagerServiceClient
+}
+
+// NewWallpaperManagerClient creates a new WallpaperManager client.
+func NewWallpaperManagerClient(cc grpc.ClientConnInterface) *WallpaperManagerClient {
+	return &WallpaperManagerClient{
+		svc: pb.NewWallpaperManagerServiceClient(cc),
+	}
+}
+
+// Clear0 calls the Clear0 RPC.
+func (c *WallpaperManagerClient) Clear0(ctx context.Context) error {
+	_, err := c.svc.Clear0(ctx, &pb.Clear0Request{})
+	return err
+}
+
+// Clear1_1 calls the Clear1_1 RPC.
+func (c *WallpaperManagerClient) Clear1_1(ctx context.Context, arg0 int32) error {
+	_, err := c.svc.Clear1_1(ctx, &pb.Clear1_1Request{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// ClearWallpaper calls the ClearWallpaper RPC.
+func (c *WallpaperManagerClient) ClearWallpaper(ctx context.Context) error {
+	_, err := c.svc.ClearWallpaper(ctx, &pb.ClearWallpaperRequest{})
+	return err
+}
+
+// ClearWallpaperOffsets calls the ClearWallpaperOffsets RPC.
+func (c *WallpaperManagerClient) ClearWallpaperOffsets(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.ClearWallpaperOffsets(ctx, &pb.ClearWallpaperOffsetsRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// ForgetLoadedWallpaper calls the ForgetLoadedWallpaper RPC.
+func (c *WallpaperManagerClient) ForgetLoadedWallpaper(ctx context.Context) error {
+	_, err := c.svc.ForgetLoadedWallpaper(ctx, &pb.ForgetLoadedWallpaperRequest{})
+	return err
+}
+
+// GetBuiltInDrawable0 calls the GetBuiltInDrawable0 RPC.
+func (c *WallpaperManagerClient) GetBuiltInDrawable0(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetBuiltInDrawable0(ctx, &pb.GetBuiltInDrawable0Request{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetBuiltInDrawable1_1 calls the GetBuiltInDrawable1_1 RPC.
+func (c *WallpaperManagerClient) GetBuiltInDrawable1_1(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.GetBuiltInDrawable1_1(ctx, &pb.GetBuiltInDrawable1_1Request{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetBuiltInDrawable5_2 calls the GetBuiltInDrawable5_2 RPC.
+func (c *WallpaperManagerClient) GetBuiltInDrawable5_2(ctx context.Context, arg0 int32, arg1 int32, arg2 bool, arg3 float32, arg4 float32) (int64, error) {
+	resp, err := c.svc.GetBuiltInDrawable5_2(ctx, &pb.GetBuiltInDrawable5_2Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+		Arg4: arg4,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetBuiltInDrawable6_3 calls the GetBuiltInDrawable6_3 RPC.
+func (c *WallpaperManagerClient) GetBuiltInDrawable6_3(ctx context.Context, arg0 int32, arg1 int32, arg2 bool, arg3 float32, arg4 float32, arg5 int32) (int64, error) {
+	resp, err := c.svc.GetBuiltInDrawable6_3(ctx, &pb.GetBuiltInDrawable6_3Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+		Arg4: arg4,
+		Arg5: arg5,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetCropAndSetWallpaperIntent calls the GetCropAndSetWallpaperIntent RPC.
+func (c *WallpaperManagerClient) GetCropAndSetWallpaperIntent(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.GetCropAndSetWallpaperIntent(ctx, &pb.GetCropAndSetWallpaperIntentRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetDesiredMinimumHeight calls the GetDesiredMinimumHeight RPC.
+func (c *WallpaperManagerClient) GetDesiredMinimumHeight(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetDesiredMinimumHeight(ctx, &pb.GetDesiredMinimumHeightRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetDesiredMinimumWidth calls the GetDesiredMinimumWidth RPC.
+func (c *WallpaperManagerClient) GetDesiredMinimumWidth(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetDesiredMinimumWidth(ctx, &pb.GetDesiredMinimumWidthRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetDrawable0 calls the GetDrawable0 RPC.
+func (c *WallpaperManagerClient) GetDrawable0(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetDrawable0(ctx, &pb.GetDrawable0Request{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetDrawable1_1 calls the GetDrawable1_1 RPC.
+func (c *WallpaperManagerClient) GetDrawable1_1(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.GetDrawable1_1(ctx, &pb.GetDrawable1_1Request{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetFastDrawable0 calls the GetFastDrawable0 RPC.
+func (c *WallpaperManagerClient) GetFastDrawable0(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetFastDrawable0(ctx, &pb.GetFastDrawable0Request{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetFastDrawable1_1 calls the GetFastDrawable1_1 RPC.
+func (c *WallpaperManagerClient) GetFastDrawable1_1(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.GetFastDrawable1_1(ctx, &pb.GetFastDrawable1_1Request{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetWallpaperColors calls the GetWallpaperColors RPC.
+func (c *WallpaperManagerClient) GetWallpaperColors(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.GetWallpaperColors(ctx, &pb.GetWallpaperColorsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetWallpaperFile calls the GetWallpaperFile RPC.
+func (c *WallpaperManagerClient) GetWallpaperFile(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.GetWallpaperFile(ctx, &pb.GetWallpaperFileRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetWallpaperId calls the GetWallpaperId RPC.
+func (c *WallpaperManagerClient) GetWallpaperId(ctx context.Context, arg0 int32) (int32, error) {
+	resp, err := c.svc.GetWallpaperId(ctx, &pb.GetWallpaperIdRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetWallpaperInfo0 calls the GetWallpaperInfo0 RPC.
+func (c *WallpaperManagerClient) GetWallpaperInfo0(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetWallpaperInfo0(ctx, &pb.GetWallpaperInfo0Request{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetWallpaperInfo1_1 calls the GetWallpaperInfo1_1 RPC.
+func (c *WallpaperManagerClient) GetWallpaperInfo1_1(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.GetWallpaperInfo1_1(ctx, &pb.GetWallpaperInfo1_1Request{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HasResourceWallpaper calls the HasResourceWallpaper RPC.
+func (c *WallpaperManagerClient) HasResourceWallpaper(ctx context.Context, arg0 int32) (bool, error) {
+	resp, err := c.svc.HasResourceWallpaper(ctx, &pb.HasResourceWallpaperRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsSetWallpaperAllowed calls the IsSetWallpaperAllowed RPC.
+func (c *WallpaperManagerClient) IsSetWallpaperAllowed(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsSetWallpaperAllowed(ctx, &pb.IsSetWallpaperAllowedRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsWallpaperSupported calls the IsWallpaperSupported RPC.
+func (c *WallpaperManagerClient) IsWallpaperSupported(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsWallpaperSupported(ctx, &pb.IsWallpaperSupportedRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// PeekDrawable0 calls the PeekDrawable0 RPC.
+func (c *WallpaperManagerClient) PeekDrawable0(ctx context.Context) (int64, error) {
+	resp, err := c.svc.PeekDrawable0(ctx, &pb.PeekDrawable0Request{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// PeekDrawable1_1 calls the PeekDrawable1_1 RPC.
+func (c *WallpaperManagerClient) PeekDrawable1_1(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.PeekDrawable1_1(ctx, &pb.PeekDrawable1_1Request{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// PeekFastDrawable0 calls the PeekFastDrawable0 RPC.
+func (c *WallpaperManagerClient) PeekFastDrawable0(ctx context.Context) (int64, error) {
+	resp, err := c.svc.PeekFastDrawable0(ctx, &pb.PeekFastDrawable0Request{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// PeekFastDrawable1_1 calls the PeekFastDrawable1_1 RPC.
+func (c *WallpaperManagerClient) PeekFastDrawable1_1(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.PeekFastDrawable1_1(ctx, &pb.PeekFastDrawable1_1Request{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// RemoveOnColorsChangedListener calls the RemoveOnColorsChangedListener RPC.
+func (c *WallpaperManagerClient) RemoveOnColorsChangedListener(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.RemoveOnColorsChangedListener(ctx, &pb.RemoveOnColorsChangedListenerRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SendWallpaperCommand calls the SendWallpaperCommand RPC.
+func (c *WallpaperManagerClient) SendWallpaperCommand(ctx context.Context, arg0 int64, arg1 string, arg2 int32, arg3 int32, arg4 int32, arg5 int64) error {
+	_, err := c.svc.SendWallpaperCommand(ctx, &pb.SendWallpaperCommandRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+		Arg4: arg4,
+		Arg5: arg5,
+	})
+	return err
+}
+
+// SetBitmap1 calls the SetBitmap1 RPC.
+func (c *WallpaperManagerClient) SetBitmap1(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.SetBitmap1(ctx, &pb.SetBitmap1Request{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetBitmap3_1 calls the SetBitmap3_1 RPC.
+func (c *WallpaperManagerClient) SetBitmap3_1(ctx context.Context, arg0 int64, arg1 int64, arg2 bool) (int32, error) {
+	resp, err := c.svc.SetBitmap3_1(ctx, &pb.SetBitmap3_1Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetBitmap4_2 calls the SetBitmap4_2 RPC.
+func (c *WallpaperManagerClient) SetBitmap4_2(ctx context.Context, arg0 int64, arg1 int64, arg2 bool, arg3 int32) (int32, error) {
+	resp, err := c.svc.SetBitmap4_2(ctx, &pb.SetBitmap4_2Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetDisplayPadding calls the SetDisplayPadding RPC.
+func (c *WallpaperManagerClient) SetDisplayPadding(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.SetDisplayPadding(ctx, &pb.SetDisplayPaddingRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetResource1 calls the SetResource1 RPC.
+func (c *WallpaperManagerClient) SetResource1(ctx context.Context, arg0 int32) error {
+	_, err := c.svc.SetResource1(ctx, &pb.SetResource1Request{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetResource2_1 calls the SetResource2_1 RPC.
+func (c *WallpaperManagerClient) SetResource2_1(ctx context.Context, arg0 int32, arg1 int32) (int32, error) {
+	resp, err := c.svc.SetResource2_1(ctx, &pb.SetResource2_1Request{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetStream1 calls the SetStream1 RPC.
+func (c *WallpaperManagerClient) SetStream1(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.SetStream1(ctx, &pb.SetStream1Request{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetStream3_1 calls the SetStream3_1 RPC.
+func (c *WallpaperManagerClient) SetStream3_1(ctx context.Context, arg0 int64, arg1 int64, arg2 bool) (int32, error) {
+	resp, err := c.svc.SetStream3_1(ctx, &pb.SetStream3_1Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetStream4_2 calls the SetStream4_2 RPC.
+func (c *WallpaperManagerClient) SetStream4_2(ctx context.Context, arg0 int64, arg1 int64, arg2 bool, arg3 int32) (int32, error) {
+	resp, err := c.svc.SetStream4_2(ctx, &pb.SetStream4_2Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetWallpaperOffsetSteps calls the SetWallpaperOffsetSteps RPC.
+func (c *WallpaperManagerClient) SetWallpaperOffsetSteps(ctx context.Context, arg0 float32, arg1 float32) error {
+	_, err := c.svc.SetWallpaperOffsetSteps(ctx, &pb.SetWallpaperOffsetStepsRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// SetWallpaperOffsets calls the SetWallpaperOffsets RPC.
+func (c *WallpaperManagerClient) SetWallpaperOffsets(ctx context.Context, arg0 int64, arg1 float32, arg2 float32) error {
+	_, err := c.svc.SetWallpaperOffsets(ctx, &pb.SetWallpaperOffsetsRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	return err
+}
+
+// SuggestDesiredDimensions calls the SuggestDesiredDimensions RPC.
+func (c *WallpaperManagerClient) SuggestDesiredDimensions(ctx context.Context, arg0 int32, arg1 int32) error {
+	_, err := c.svc.SuggestDesiredDimensions(ctx, &pb.SuggestDesiredDimensionsRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// GetInstance calls the GetInstance RPC.
+func (c *WallpaperManagerClient) GetInstance(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.GetInstance(ctx, &pb.GetInstanceRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// StatusBarManagerClient wraps the gRPC StatusBarManagerService client.
+type StatusBarManagerClient struct {
+	svc pb.StatusBarManagerServiceClient
+}
+
+// NewStatusBarManagerClient creates a new StatusBarManager client.
+func NewStatusBarManagerClient(cc grpc.ClientConnInterface) *StatusBarManagerClient {
+	return &StatusBarManagerClient{
+		svc: pb.NewStatusBarManagerServiceClient(cc),
+	}
+}
+
+// CanLaunchCaptureContentActivityForNote calls the CanLaunchCaptureContentActivityForNote RPC.
+func (c *StatusBarManagerClient) CanLaunchCaptureContentActivityForNote(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.CanLaunchCaptureContentActivityForNote(ctx, &pb.CanLaunchCaptureContentActivityForNoteRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ActivityManagerClient wraps the gRPC ActivityManagerService client.
+type ActivityManagerClient struct {
+	svc pb.ActivityManagerServiceClient
+}
+
+// NewActivityManagerClient creates a new ActivityManager client.
+func NewActivityManagerClient(cc grpc.ClientConnInterface) *ActivityManagerClient {
+	return &ActivityManagerClient{
+		svc: pb.NewActivityManagerServiceClient(cc),
+	}
+}
+
+// AddAppTask calls the AddAppTask RPC.
+func (c *ActivityManagerClient) AddAppTask(ctx context.Context, arg0 int64, arg1 int64, arg2 int64, arg3 int64) (int32, error) {
+	resp, err := c.svc.AddAppTask(ctx, &pb.AddAppTaskRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// AddStartInfoTimestamp calls the AddStartInfoTimestamp RPC.
+func (c *ActivityManagerClient) AddStartInfoTimestamp(ctx context.Context, arg0 int32, arg1 int64) error {
+	_, err := c.svc.AddStartInfoTimestamp(ctx, &pb.AddStartInfoTimestampRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// AppNotResponding calls the AppNotResponding RPC.
+func (c *ActivityManagerClient) AppNotResponding(ctx context.Context, arg0 string) error {
+	_, err := c.svc.AppNotResponding(ctx, &pb.AppNotRespondingRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// ClearApplicationUserData calls the ClearApplicationUserData RPC.
+func (c *ActivityManagerClient) ClearApplicationUserData(ctx context.Context) (bool, error) {
+	resp, err := c.svc.ClearApplicationUserData(ctx, &pb.ClearApplicationUserDataRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ClearWatchHeapLimit calls the ClearWatchHeapLimit RPC.
+func (c *ActivityManagerClient) ClearWatchHeapLimit(ctx context.Context) error {
+	_, err := c.svc.ClearWatchHeapLimit(ctx, &pb.ClearWatchHeapLimitRequest{})
+	return err
+}
+
+// DumpPackageState calls the DumpPackageState RPC.
+func (c *ActivityManagerClient) DumpPackageState(ctx context.Context, arg0 int64, arg1 string) error {
+	_, err := c.svc.DumpPackageState(ctx, &pb.DumpPackageStateRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// GetAppTaskThumbnailSize calls the GetAppTaskThumbnailSize RPC.
+func (c *ActivityManagerClient) GetAppTaskThumbnailSize(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetAppTaskThumbnailSize(ctx, &pb.GetAppTaskThumbnailSizeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetDeviceConfigurationInfo calls the GetDeviceConfigurationInfo RPC.
+func (c *ActivityManagerClient) GetDeviceConfigurationInfo(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetDeviceConfigurationInfo(ctx, &pb.GetDeviceConfigurationInfoRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetLargeMemoryClass calls the GetLargeMemoryClass RPC.
+func (c *ActivityManagerClient) GetLargeMemoryClass(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetLargeMemoryClass(ctx, &pb.GetLargeMemoryClassRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetLauncherLargeIconDensity calls the GetLauncherLargeIconDensity RPC.
+func (c *ActivityManagerClient) GetLauncherLargeIconDensity(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetLauncherLargeIconDensity(ctx, &pb.GetLauncherLargeIconDensityRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetLauncherLargeIconSize calls the GetLauncherLargeIconSize RPC.
+func (c *ActivityManagerClient) GetLauncherLargeIconSize(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetLauncherLargeIconSize(ctx, &pb.GetLauncherLargeIconSizeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetLockTaskModeState calls the GetLockTaskModeState RPC.
+func (c *ActivityManagerClient) GetLockTaskModeState(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetLockTaskModeState(ctx, &pb.GetLockTaskModeStateRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetMemoryClass calls the GetMemoryClass RPC.
+func (c *ActivityManagerClient) GetMemoryClass(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetMemoryClass(ctx, &pb.GetMemoryClassRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetMemoryInfo calls the GetMemoryInfo RPC.
+func (c *ActivityManagerClient) GetMemoryInfo(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.GetMemoryInfo(ctx, &pb.GetMemoryInfoRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// GetProcessMemoryInfo calls the GetProcessMemoryInfo RPC.
+func (c *ActivityManagerClient) GetProcessMemoryInfo(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.GetProcessMemoryInfo(ctx, &pb.GetProcessMemoryInfoRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetRunningServiceControlPanel calls the GetRunningServiceControlPanel RPC.
+func (c *ActivityManagerClient) GetRunningServiceControlPanel(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.GetRunningServiceControlPanel(ctx, &pb.GetRunningServiceControlPanelRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsActivityStartAllowedOnDisplay calls the IsActivityStartAllowedOnDisplay RPC.
+func (c *ActivityManagerClient) IsActivityStartAllowedOnDisplay(ctx context.Context, arg0 int64, arg1 int32, arg2 int64) (bool, error) {
+	resp, err := c.svc.IsActivityStartAllowedOnDisplay(ctx, &pb.IsActivityStartAllowedOnDisplayRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsBackgroundRestricted calls the IsBackgroundRestricted RPC.
+func (c *ActivityManagerClient) IsBackgroundRestricted(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsBackgroundRestricted(ctx, &pb.IsBackgroundRestrictedRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsInLockTaskMode calls the IsInLockTaskMode RPC.
+func (c *ActivityManagerClient) IsInLockTaskMode(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsInLockTaskMode(ctx, &pb.IsInLockTaskModeRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsLowRamDevice calls the IsLowRamDevice RPC.
+func (c *ActivityManagerClient) IsLowRamDevice(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsLowRamDevice(ctx, &pb.IsLowRamDeviceRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// KillBackgroundProcesses calls the KillBackgroundProcesses RPC.
+func (c *ActivityManagerClient) KillBackgroundProcesses(ctx context.Context, arg0 string) error {
+	_, err := c.svc.KillBackgroundProcesses(ctx, &pb.KillBackgroundProcessesRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// MoveTaskToFront2 calls the MoveTaskToFront2 RPC.
+func (c *ActivityManagerClient) MoveTaskToFront2(ctx context.Context, arg0 int32, arg1 int32) error {
+	_, err := c.svc.MoveTaskToFront2(ctx, &pb.MoveTaskToFront2Request{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// MoveTaskToFront3_1 calls the MoveTaskToFront3_1 RPC.
+func (c *ActivityManagerClient) MoveTaskToFront3_1(ctx context.Context, arg0 int32, arg1 int32, arg2 int64) error {
+	_, err := c.svc.MoveTaskToFront3_1(ctx, &pb.MoveTaskToFront3_1Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	return err
+}
+
+// RestartPackage calls the RestartPackage RPC.
+func (c *ActivityManagerClient) RestartPackage(ctx context.Context, arg0 string) error {
+	_, err := c.svc.RestartPackage(ctx, &pb.RestartPackageRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetProcessStateSummary calls the SetProcessStateSummary RPC.
+func (c *ActivityManagerClient) SetProcessStateSummary(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.SetProcessStateSummary(ctx, &pb.SetProcessStateSummaryRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetWatchHeapLimit calls the SetWatchHeapLimit RPC.
+func (c *ActivityManagerClient) SetWatchHeapLimit(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.SetWatchHeapLimit(ctx, &pb.SetWatchHeapLimitRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// GetMyMemoryState calls the GetMyMemoryState RPC.
+func (c *ActivityManagerClient) GetMyMemoryState(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.GetMyMemoryState(ctx, &pb.GetMyMemoryStateRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// IsLowMemoryKillReportSupported calls the IsLowMemoryKillReportSupported RPC.
+func (c *ActivityManagerClient) IsLowMemoryKillReportSupported(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsLowMemoryKillReportSupported(ctx, &pb.IsLowMemoryKillReportSupportedRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsRunningInTestHarness calls the IsRunningInTestHarness RPC.
+func (c *ActivityManagerClient) IsRunningInTestHarness(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsRunningInTestHarness(ctx, &pb.IsRunningInTestHarnessRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsRunningInUserTestHarness calls the IsRunningInUserTestHarness RPC.
+func (c *ActivityManagerClient) IsRunningInUserTestHarness(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsRunningInUserTestHarness(ctx, &pb.IsRunningInUserTestHarnessRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsUserAMonkey calls the IsUserAMonkey RPC.
+func (c *ActivityManagerClient) IsUserAMonkey(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsUserAMonkey(ctx, &pb.IsUserAMonkeyRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetVrThread calls the SetVrThread RPC.
+func (c *ActivityManagerClient) SetVrThread(ctx context.Context, arg0 int32) error {
+	_, err := c.svc.SetVrThread(ctx, &pb.SetVrThreadRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SearchManagerClient wraps the gRPC SearchManagerService client.
+type SearchManagerClient struct {
+	svc pb.SearchManagerServiceClient
+}
+
+// NewSearchManagerClient creates a new SearchManager client.
+func NewSearchManagerClient(cc grpc.ClientConnInterface) *SearchManagerClient {
+	return &SearchManagerClient{
+		svc: pb.NewSearchManagerServiceClient(cc),
+	}
+}
+
+// GetGlobalSearchActivity calls the GetGlobalSearchActivity RPC.
+func (c *SearchManagerClient) GetGlobalSearchActivity(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetGlobalSearchActivity(ctx, &pb.GetGlobalSearchActivityRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSearchableInfo calls the GetSearchableInfo RPC.
+func (c *SearchManagerClient) GetSearchableInfo(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.GetSearchableInfo(ctx, &pb.GetSearchableInfoRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// OnCancel calls the OnCancel RPC.
+func (c *SearchManagerClient) OnCancel(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.OnCancel(ctx, &pb.OnCancelRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// OnDismiss calls the OnDismiss RPC.
+func (c *SearchManagerClient) OnDismiss(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.OnDismiss(ctx, &pb.OnDismissRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetOnCancelListener calls the SetOnCancelListener RPC.
+func (c *SearchManagerClient) SetOnCancelListener(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.SetOnCancelListener(ctx, &pb.SetOnCancelListenerRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetOnDismissListener calls the SetOnDismissListener RPC.
+func (c *SearchManagerClient) SetOnDismissListener(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.SetOnDismissListener(ctx, &pb.SetOnDismissListenerRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// StartSearch calls the StartSearch RPC.
+func (c *SearchManagerClient) StartSearch(ctx context.Context, arg0 string, arg1 bool, arg2 int64, arg3 int64, arg4 bool) error {
+	_, err := c.svc.StartSearch(ctx, &pb.StartSearchRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+		Arg4: arg4,
+	})
+	return err
+}
+
+// StopSearch calls the StopSearch RPC.
+func (c *SearchManagerClient) StopSearch(ctx context.Context) error {
+	_, err := c.svc.StopSearch(ctx, &pb.StopSearchRequest{})
+	return err
+}
+
+// TriggerSearch calls the TriggerSearch RPC.
+func (c *SearchManagerClient) TriggerSearch(ctx context.Context, arg0 string, arg1 int64, arg2 int64) error {
+	_, err := c.svc.TriggerSearch(ctx, &pb.TriggerSearchRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	return err
+}
+
+// GrammaticalInflectionManagerClient wraps the gRPC GrammaticalInflectionManagerService client.
+type GrammaticalInflectionManagerClient struct {
+	svc pb.GrammaticalInflectionManagerServiceClient
+}
+
+// NewGrammaticalInflectionManagerClient creates a new GrammaticalInflectionManager client.
+func NewGrammaticalInflectionManagerClient(cc grpc.ClientConnInterface) *GrammaticalInflectionManagerClient {
+	return &GrammaticalInflectionManagerClient{
+		svc: pb.NewGrammaticalInflectionManagerServiceClient(cc),
+	}
+}
+
+// GetApplicationGrammaticalGender calls the GetApplicationGrammaticalGender RPC.
+func (c *GrammaticalInflectionManagerClient) GetApplicationGrammaticalGender(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetApplicationGrammaticalGender(ctx, &pb.GetApplicationGrammaticalGenderRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSystemGrammaticalGender calls the GetSystemGrammaticalGender RPC.
+func (c *GrammaticalInflectionManagerClient) GetSystemGrammaticalGender(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetSystemGrammaticalGender(ctx, &pb.GetSystemGrammaticalGenderRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetRequestedApplicationGrammaticalGender calls the SetRequestedApplicationGrammaticalGender RPC.
+func (c *GrammaticalInflectionManagerClient) SetRequestedApplicationGrammaticalGender(ctx context.Context, arg0 int32) error {
+	_, err := c.svc.SetRequestedApplicationGrammaticalGender(ctx, &pb.SetRequestedApplicationGrammaticalGenderRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
 // OpsManagerClient wraps the gRPC OpsManagerService client.
 type OpsManagerClient struct {
 	svc pb.OpsManagerServiceClient
@@ -481,170 +1383,30 @@ func (c *OpsManagerClient) PermissionToOp(ctx context.Context, arg0 string) (str
 	return resp.GetResult(), nil
 }
 
-// StatusBarManagerClient wraps the gRPC StatusBarManagerService client.
-type StatusBarManagerClient struct {
-	svc pb.StatusBarManagerServiceClient
+// LocaleManagerClient wraps the gRPC LocaleManagerService client.
+type LocaleManagerClient struct {
+	svc pb.LocaleManagerServiceClient
 }
 
-// NewStatusBarManagerClient creates a new StatusBarManager client.
-func NewStatusBarManagerClient(cc grpc.ClientConnInterface) *StatusBarManagerClient {
-	return &StatusBarManagerClient{
-		svc: pb.NewStatusBarManagerServiceClient(cc),
+// NewLocaleManagerClient creates a new LocaleManager client.
+func NewLocaleManagerClient(cc grpc.ClientConnInterface) *LocaleManagerClient {
+	return &LocaleManagerClient{
+		svc: pb.NewLocaleManagerServiceClient(cc),
 	}
 }
 
-// CanLaunchCaptureContentActivityForNote calls the CanLaunchCaptureContentActivityForNote RPC.
-func (c *StatusBarManagerClient) CanLaunchCaptureContentActivityForNote(ctx context.Context, arg0 int64) (bool, error) {
-	resp, err := c.svc.CanLaunchCaptureContentActivityForNote(ctx, &pb.CanLaunchCaptureContentActivityForNoteRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ActivityManagerClient wraps the gRPC ActivityManagerService client.
-type ActivityManagerClient struct {
-	svc pb.ActivityManagerServiceClient
-}
-
-// NewActivityManagerClient creates a new ActivityManager client.
-func NewActivityManagerClient(cc grpc.ClientConnInterface) *ActivityManagerClient {
-	return &ActivityManagerClient{
-		svc: pb.NewActivityManagerServiceClient(cc),
-	}
-}
-
-// AddAppTask calls the AddAppTask RPC.
-func (c *ActivityManagerClient) AddAppTask(ctx context.Context, arg0 int64, arg1 int64, arg2 int64, arg3 int64) (int32, error) {
-	resp, err := c.svc.AddAppTask(ctx, &pb.AddAppTaskRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
-	})
+// GetApplicationLocales0 calls the GetApplicationLocales0 RPC.
+func (c *LocaleManagerClient) GetApplicationLocales0(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetApplicationLocales0(ctx, &pb.GetApplicationLocales0Request{})
 	if err != nil {
 		return 0, err
 	}
 	return resp.GetResult(), nil
 }
 
-// AddStartInfoTimestamp calls the AddStartInfoTimestamp RPC.
-func (c *ActivityManagerClient) AddStartInfoTimestamp(ctx context.Context, arg0 int32, arg1 int64) error {
-	_, err := c.svc.AddStartInfoTimestamp(ctx, &pb.AddStartInfoTimestampRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	return err
-}
-
-// AppNotResponding calls the AppNotResponding RPC.
-func (c *ActivityManagerClient) AppNotResponding(ctx context.Context, arg0 string) error {
-	_, err := c.svc.AppNotResponding(ctx, &pb.AppNotRespondingRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// ClearApplicationUserData calls the ClearApplicationUserData RPC.
-func (c *ActivityManagerClient) ClearApplicationUserData(ctx context.Context) (bool, error) {
-	resp, err := c.svc.ClearApplicationUserData(ctx, &pb.ClearApplicationUserDataRequest{})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ClearWatchHeapLimit calls the ClearWatchHeapLimit RPC.
-func (c *ActivityManagerClient) ClearWatchHeapLimit(ctx context.Context) error {
-	_, err := c.svc.ClearWatchHeapLimit(ctx, &pb.ClearWatchHeapLimitRequest{})
-	return err
-}
-
-// DumpPackageState calls the DumpPackageState RPC.
-func (c *ActivityManagerClient) DumpPackageState(ctx context.Context, arg0 int64, arg1 string) error {
-	_, err := c.svc.DumpPackageState(ctx, &pb.DumpPackageStateRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	return err
-}
-
-// GetAppTaskThumbnailSize calls the GetAppTaskThumbnailSize RPC.
-func (c *ActivityManagerClient) GetAppTaskThumbnailSize(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetAppTaskThumbnailSize(ctx, &pb.GetAppTaskThumbnailSizeRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetDeviceConfigurationInfo calls the GetDeviceConfigurationInfo RPC.
-func (c *ActivityManagerClient) GetDeviceConfigurationInfo(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetDeviceConfigurationInfo(ctx, &pb.GetDeviceConfigurationInfoRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetLargeMemoryClass calls the GetLargeMemoryClass RPC.
-func (c *ActivityManagerClient) GetLargeMemoryClass(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetLargeMemoryClass(ctx, &pb.GetLargeMemoryClassRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetLauncherLargeIconDensity calls the GetLauncherLargeIconDensity RPC.
-func (c *ActivityManagerClient) GetLauncherLargeIconDensity(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetLauncherLargeIconDensity(ctx, &pb.GetLauncherLargeIconDensityRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetLauncherLargeIconSize calls the GetLauncherLargeIconSize RPC.
-func (c *ActivityManagerClient) GetLauncherLargeIconSize(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetLauncherLargeIconSize(ctx, &pb.GetLauncherLargeIconSizeRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetLockTaskModeState calls the GetLockTaskModeState RPC.
-func (c *ActivityManagerClient) GetLockTaskModeState(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetLockTaskModeState(ctx, &pb.GetLockTaskModeStateRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetMemoryClass calls the GetMemoryClass RPC.
-func (c *ActivityManagerClient) GetMemoryClass(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetMemoryClass(ctx, &pb.GetMemoryClassRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetMemoryInfo calls the GetMemoryInfo RPC.
-func (c *ActivityManagerClient) GetMemoryInfo(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.GetMemoryInfo(ctx, &pb.GetMemoryInfoRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// GetProcessMemoryInfo calls the GetProcessMemoryInfo RPC.
-func (c *ActivityManagerClient) GetProcessMemoryInfo(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.GetProcessMemoryInfo(ctx, &pb.GetProcessMemoryInfoRequest{
+// GetApplicationLocales1_1 calls the GetApplicationLocales1_1 RPC.
+func (c *LocaleManagerClient) GetApplicationLocales1_1(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.GetApplicationLocales1_1(ctx, &pb.GetApplicationLocales1_1Request{
 		Arg0: arg0,
 	})
 	if err != nil {
@@ -653,155 +1415,35 @@ func (c *ActivityManagerClient) GetProcessMemoryInfo(ctx context.Context, arg0 i
 	return resp.GetResult(), nil
 }
 
-// GetRunningServiceControlPanel calls the GetRunningServiceControlPanel RPC.
-func (c *ActivityManagerClient) GetRunningServiceControlPanel(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.GetRunningServiceControlPanel(ctx, &pb.GetRunningServiceControlPanelRequest{
-		Arg0: arg0,
-	})
+// GetOverrideLocaleConfig calls the GetOverrideLocaleConfig RPC.
+func (c *LocaleManagerClient) GetOverrideLocaleConfig(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetOverrideLocaleConfig(ctx, &pb.GetOverrideLocaleConfigRequest{})
 	if err != nil {
 		return 0, err
 	}
 	return resp.GetResult(), nil
 }
 
-// IsActivityStartAllowedOnDisplay calls the IsActivityStartAllowedOnDisplay RPC.
-func (c *ActivityManagerClient) IsActivityStartAllowedOnDisplay(ctx context.Context, arg0 int64, arg1 int32, arg2 int64) (bool, error) {
-	resp, err := c.svc.IsActivityStartAllowedOnDisplay(ctx, &pb.IsActivityStartAllowedOnDisplayRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-	})
+// GetSystemLocales calls the GetSystemLocales RPC.
+func (c *LocaleManagerClient) GetSystemLocales(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetSystemLocales(ctx, &pb.GetSystemLocalesRequest{})
 	if err != nil {
-		return false, err
+		return 0, err
 	}
 	return resp.GetResult(), nil
 }
 
-// IsBackgroundRestricted calls the IsBackgroundRestricted RPC.
-func (c *ActivityManagerClient) IsBackgroundRestricted(ctx context.Context) (bool, error) {
-	resp, err := c.svc.IsBackgroundRestricted(ctx, &pb.IsBackgroundRestrictedRequest{})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// IsInLockTaskMode calls the IsInLockTaskMode RPC.
-func (c *ActivityManagerClient) IsInLockTaskMode(ctx context.Context) (bool, error) {
-	resp, err := c.svc.IsInLockTaskMode(ctx, &pb.IsInLockTaskModeRequest{})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// IsLowRamDevice calls the IsLowRamDevice RPC.
-func (c *ActivityManagerClient) IsLowRamDevice(ctx context.Context) (bool, error) {
-	resp, err := c.svc.IsLowRamDevice(ctx, &pb.IsLowRamDeviceRequest{})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// KillBackgroundProcesses calls the KillBackgroundProcesses RPC.
-func (c *ActivityManagerClient) KillBackgroundProcesses(ctx context.Context, arg0 string) error {
-	_, err := c.svc.KillBackgroundProcesses(ctx, &pb.KillBackgroundProcessesRequest{
+// SetApplicationLocales calls the SetApplicationLocales RPC.
+func (c *LocaleManagerClient) SetApplicationLocales(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.SetApplicationLocales(ctx, &pb.SetApplicationLocalesRequest{
 		Arg0: arg0,
 	})
 	return err
 }
 
-// MoveTaskToFront2 calls the MoveTaskToFront2 RPC.
-func (c *ActivityManagerClient) MoveTaskToFront2(ctx context.Context, arg0 int32, arg1 int32) error {
-	_, err := c.svc.MoveTaskToFront2(ctx, &pb.MoveTaskToFront2Request{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	return err
-}
-
-// MoveTaskToFront3_1 calls the MoveTaskToFront3_1 RPC.
-func (c *ActivityManagerClient) MoveTaskToFront3_1(ctx context.Context, arg0 int32, arg1 int32, arg2 int64) error {
-	_, err := c.svc.MoveTaskToFront3_1(ctx, &pb.MoveTaskToFront3_1Request{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-	})
-	return err
-}
-
-// RestartPackage calls the RestartPackage RPC.
-func (c *ActivityManagerClient) RestartPackage(ctx context.Context, arg0 string) error {
-	_, err := c.svc.RestartPackage(ctx, &pb.RestartPackageRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// SetProcessStateSummary calls the SetProcessStateSummary RPC.
-func (c *ActivityManagerClient) SetProcessStateSummary(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.SetProcessStateSummary(ctx, &pb.SetProcessStateSummaryRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// SetWatchHeapLimit calls the SetWatchHeapLimit RPC.
-func (c *ActivityManagerClient) SetWatchHeapLimit(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.SetWatchHeapLimit(ctx, &pb.SetWatchHeapLimitRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// GetMyMemoryState calls the GetMyMemoryState RPC.
-func (c *ActivityManagerClient) GetMyMemoryState(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.GetMyMemoryState(ctx, &pb.GetMyMemoryStateRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// IsLowMemoryKillReportSupported calls the IsLowMemoryKillReportSupported RPC.
-func (c *ActivityManagerClient) IsLowMemoryKillReportSupported(ctx context.Context) (bool, error) {
-	resp, err := c.svc.IsLowMemoryKillReportSupported(ctx, &pb.IsLowMemoryKillReportSupportedRequest{})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// IsRunningInTestHarness calls the IsRunningInTestHarness RPC.
-func (c *ActivityManagerClient) IsRunningInTestHarness(ctx context.Context) (bool, error) {
-	resp, err := c.svc.IsRunningInTestHarness(ctx, &pb.IsRunningInTestHarnessRequest{})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// IsRunningInUserTestHarness calls the IsRunningInUserTestHarness RPC.
-func (c *ActivityManagerClient) IsRunningInUserTestHarness(ctx context.Context) (bool, error) {
-	resp, err := c.svc.IsRunningInUserTestHarness(ctx, &pb.IsRunningInUserTestHarnessRequest{})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// IsUserAMonkey calls the IsUserAMonkey RPC.
-func (c *ActivityManagerClient) IsUserAMonkey(ctx context.Context) (bool, error) {
-	resp, err := c.svc.IsUserAMonkey(ctx, &pb.IsUserAMonkeyRequest{})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetVrThread calls the SetVrThread RPC.
-func (c *ActivityManagerClient) SetVrThread(ctx context.Context, arg0 int32) error {
-	_, err := c.svc.SetVrThread(ctx, &pb.SetVrThreadRequest{
+// SetOverrideLocaleConfig calls the SetOverrideLocaleConfig RPC.
+func (c *LocaleManagerClient) SetOverrideLocaleConfig(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.SetOverrideLocaleConfig(ctx, &pb.SetOverrideLocaleConfigRequest{
 		Arg0: arg0,
 	})
 	return err
@@ -831,582 +1473,6 @@ func (c *GameManagerClient) GetGameMode(ctx context.Context) (int32, error) {
 // SetGameState calls the SetGameState RPC.
 func (c *GameManagerClient) SetGameState(ctx context.Context, arg0 int64) error {
 	_, err := c.svc.SetGameState(ctx, &pb.SetGameStateRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// WallpaperManagerClient wraps the gRPC WallpaperManagerService client.
-type WallpaperManagerClient struct {
-	svc pb.WallpaperManagerServiceClient
-}
-
-// NewWallpaperManagerClient creates a new WallpaperManager client.
-func NewWallpaperManagerClient(cc grpc.ClientConnInterface) *WallpaperManagerClient {
-	return &WallpaperManagerClient{
-		svc: pb.NewWallpaperManagerServiceClient(cc),
-	}
-}
-
-// Clear0 calls the Clear0 RPC.
-func (c *WallpaperManagerClient) Clear0(ctx context.Context) error {
-	_, err := c.svc.Clear0(ctx, &pb.Clear0Request{})
-	return err
-}
-
-// Clear1_1 calls the Clear1_1 RPC.
-func (c *WallpaperManagerClient) Clear1_1(ctx context.Context, arg0 int32) error {
-	_, err := c.svc.Clear1_1(ctx, &pb.Clear1_1Request{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// ClearWallpaper calls the ClearWallpaper RPC.
-func (c *WallpaperManagerClient) ClearWallpaper(ctx context.Context) error {
-	_, err := c.svc.ClearWallpaper(ctx, &pb.ClearWallpaperRequest{})
-	return err
-}
-
-// ClearWallpaperOffsets calls the ClearWallpaperOffsets RPC.
-func (c *WallpaperManagerClient) ClearWallpaperOffsets(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.ClearWallpaperOffsets(ctx, &pb.ClearWallpaperOffsetsRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// ForgetLoadedWallpaper calls the ForgetLoadedWallpaper RPC.
-func (c *WallpaperManagerClient) ForgetLoadedWallpaper(ctx context.Context) error {
-	_, err := c.svc.ForgetLoadedWallpaper(ctx, &pb.ForgetLoadedWallpaperRequest{})
-	return err
-}
-
-// GetBuiltInDrawable0 calls the GetBuiltInDrawable0 RPC.
-func (c *WallpaperManagerClient) GetBuiltInDrawable0(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetBuiltInDrawable0(ctx, &pb.GetBuiltInDrawable0Request{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetBuiltInDrawable1_1 calls the GetBuiltInDrawable1_1 RPC.
-func (c *WallpaperManagerClient) GetBuiltInDrawable1_1(ctx context.Context, arg0 int32) (int64, error) {
-	resp, err := c.svc.GetBuiltInDrawable1_1(ctx, &pb.GetBuiltInDrawable1_1Request{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetBuiltInDrawable5_2 calls the GetBuiltInDrawable5_2 RPC.
-func (c *WallpaperManagerClient) GetBuiltInDrawable5_2(ctx context.Context, arg0 int32, arg1 int32, arg2 bool, arg3 float32, arg4 float32) (int64, error) {
-	resp, err := c.svc.GetBuiltInDrawable5_2(ctx, &pb.GetBuiltInDrawable5_2Request{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
-		Arg4: arg4,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetBuiltInDrawable6_3 calls the GetBuiltInDrawable6_3 RPC.
-func (c *WallpaperManagerClient) GetBuiltInDrawable6_3(ctx context.Context, arg0 int32, arg1 int32, arg2 bool, arg3 float32, arg4 float32, arg5 int32) (int64, error) {
-	resp, err := c.svc.GetBuiltInDrawable6_3(ctx, &pb.GetBuiltInDrawable6_3Request{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
-		Arg4: arg4,
-		Arg5: arg5,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetCropAndSetWallpaperIntent calls the GetCropAndSetWallpaperIntent RPC.
-func (c *WallpaperManagerClient) GetCropAndSetWallpaperIntent(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.GetCropAndSetWallpaperIntent(ctx, &pb.GetCropAndSetWallpaperIntentRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetDesiredMinimumHeight calls the GetDesiredMinimumHeight RPC.
-func (c *WallpaperManagerClient) GetDesiredMinimumHeight(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetDesiredMinimumHeight(ctx, &pb.GetDesiredMinimumHeightRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetDesiredMinimumWidth calls the GetDesiredMinimumWidth RPC.
-func (c *WallpaperManagerClient) GetDesiredMinimumWidth(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetDesiredMinimumWidth(ctx, &pb.GetDesiredMinimumWidthRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetDrawable0 calls the GetDrawable0 RPC.
-func (c *WallpaperManagerClient) GetDrawable0(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetDrawable0(ctx, &pb.GetDrawable0Request{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetDrawable1_1 calls the GetDrawable1_1 RPC.
-func (c *WallpaperManagerClient) GetDrawable1_1(ctx context.Context, arg0 int32) (int64, error) {
-	resp, err := c.svc.GetDrawable1_1(ctx, &pb.GetDrawable1_1Request{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetFastDrawable0 calls the GetFastDrawable0 RPC.
-func (c *WallpaperManagerClient) GetFastDrawable0(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetFastDrawable0(ctx, &pb.GetFastDrawable0Request{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetFastDrawable1_1 calls the GetFastDrawable1_1 RPC.
-func (c *WallpaperManagerClient) GetFastDrawable1_1(ctx context.Context, arg0 int32) (int64, error) {
-	resp, err := c.svc.GetFastDrawable1_1(ctx, &pb.GetFastDrawable1_1Request{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetWallpaperColors calls the GetWallpaperColors RPC.
-func (c *WallpaperManagerClient) GetWallpaperColors(ctx context.Context, arg0 int32) (int64, error) {
-	resp, err := c.svc.GetWallpaperColors(ctx, &pb.GetWallpaperColorsRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetWallpaperFile calls the GetWallpaperFile RPC.
-func (c *WallpaperManagerClient) GetWallpaperFile(ctx context.Context, arg0 int32) (int64, error) {
-	resp, err := c.svc.GetWallpaperFile(ctx, &pb.GetWallpaperFileRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetWallpaperId calls the GetWallpaperId RPC.
-func (c *WallpaperManagerClient) GetWallpaperId(ctx context.Context, arg0 int32) (int32, error) {
-	resp, err := c.svc.GetWallpaperId(ctx, &pb.GetWallpaperIdRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetWallpaperInfo0 calls the GetWallpaperInfo0 RPC.
-func (c *WallpaperManagerClient) GetWallpaperInfo0(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetWallpaperInfo0(ctx, &pb.GetWallpaperInfo0Request{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetWallpaperInfo1_1 calls the GetWallpaperInfo1_1 RPC.
-func (c *WallpaperManagerClient) GetWallpaperInfo1_1(ctx context.Context, arg0 int32) (int64, error) {
-	resp, err := c.svc.GetWallpaperInfo1_1(ctx, &pb.GetWallpaperInfo1_1Request{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// HasResourceWallpaper calls the HasResourceWallpaper RPC.
-func (c *WallpaperManagerClient) HasResourceWallpaper(ctx context.Context, arg0 int32) (bool, error) {
-	resp, err := c.svc.HasResourceWallpaper(ctx, &pb.HasResourceWallpaperRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// IsSetWallpaperAllowed calls the IsSetWallpaperAllowed RPC.
-func (c *WallpaperManagerClient) IsSetWallpaperAllowed(ctx context.Context) (bool, error) {
-	resp, err := c.svc.IsSetWallpaperAllowed(ctx, &pb.IsSetWallpaperAllowedRequest{})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// IsWallpaperSupported calls the IsWallpaperSupported RPC.
-func (c *WallpaperManagerClient) IsWallpaperSupported(ctx context.Context) (bool, error) {
-	resp, err := c.svc.IsWallpaperSupported(ctx, &pb.IsWallpaperSupportedRequest{})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// PeekDrawable0 calls the PeekDrawable0 RPC.
-func (c *WallpaperManagerClient) PeekDrawable0(ctx context.Context) (int64, error) {
-	resp, err := c.svc.PeekDrawable0(ctx, &pb.PeekDrawable0Request{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// PeekDrawable1_1 calls the PeekDrawable1_1 RPC.
-func (c *WallpaperManagerClient) PeekDrawable1_1(ctx context.Context, arg0 int32) (int64, error) {
-	resp, err := c.svc.PeekDrawable1_1(ctx, &pb.PeekDrawable1_1Request{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// PeekFastDrawable0 calls the PeekFastDrawable0 RPC.
-func (c *WallpaperManagerClient) PeekFastDrawable0(ctx context.Context) (int64, error) {
-	resp, err := c.svc.PeekFastDrawable0(ctx, &pb.PeekFastDrawable0Request{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// PeekFastDrawable1_1 calls the PeekFastDrawable1_1 RPC.
-func (c *WallpaperManagerClient) PeekFastDrawable1_1(ctx context.Context, arg0 int32) (int64, error) {
-	resp, err := c.svc.PeekFastDrawable1_1(ctx, &pb.PeekFastDrawable1_1Request{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// RemoveOnColorsChangedListener calls the RemoveOnColorsChangedListener RPC.
-func (c *WallpaperManagerClient) RemoveOnColorsChangedListener(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.RemoveOnColorsChangedListener(ctx, &pb.RemoveOnColorsChangedListenerRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// SendWallpaperCommand calls the SendWallpaperCommand RPC.
-func (c *WallpaperManagerClient) SendWallpaperCommand(ctx context.Context, arg0 int64, arg1 string, arg2 int32, arg3 int32, arg4 int32, arg5 int64) error {
-	_, err := c.svc.SendWallpaperCommand(ctx, &pb.SendWallpaperCommandRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
-		Arg4: arg4,
-		Arg5: arg5,
-	})
-	return err
-}
-
-// SetBitmap1 calls the SetBitmap1 RPC.
-func (c *WallpaperManagerClient) SetBitmap1(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.SetBitmap1(ctx, &pb.SetBitmap1Request{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// SetBitmap3_1 calls the SetBitmap3_1 RPC.
-func (c *WallpaperManagerClient) SetBitmap3_1(ctx context.Context, arg0 int64, arg1 int64, arg2 bool) (int32, error) {
-	resp, err := c.svc.SetBitmap3_1(ctx, &pb.SetBitmap3_1Request{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetBitmap4_2 calls the SetBitmap4_2 RPC.
-func (c *WallpaperManagerClient) SetBitmap4_2(ctx context.Context, arg0 int64, arg1 int64, arg2 bool, arg3 int32) (int32, error) {
-	resp, err := c.svc.SetBitmap4_2(ctx, &pb.SetBitmap4_2Request{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetDisplayPadding calls the SetDisplayPadding RPC.
-func (c *WallpaperManagerClient) SetDisplayPadding(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.SetDisplayPadding(ctx, &pb.SetDisplayPaddingRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// SetResource1 calls the SetResource1 RPC.
-func (c *WallpaperManagerClient) SetResource1(ctx context.Context, arg0 int32) error {
-	_, err := c.svc.SetResource1(ctx, &pb.SetResource1Request{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// SetResource2_1 calls the SetResource2_1 RPC.
-func (c *WallpaperManagerClient) SetResource2_1(ctx context.Context, arg0 int32, arg1 int32) (int32, error) {
-	resp, err := c.svc.SetResource2_1(ctx, &pb.SetResource2_1Request{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetStream1 calls the SetStream1 RPC.
-func (c *WallpaperManagerClient) SetStream1(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.SetStream1(ctx, &pb.SetStream1Request{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// SetStream3_1 calls the SetStream3_1 RPC.
-func (c *WallpaperManagerClient) SetStream3_1(ctx context.Context, arg0 int64, arg1 int64, arg2 bool) (int32, error) {
-	resp, err := c.svc.SetStream3_1(ctx, &pb.SetStream3_1Request{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetStream4_2 calls the SetStream4_2 RPC.
-func (c *WallpaperManagerClient) SetStream4_2(ctx context.Context, arg0 int64, arg1 int64, arg2 bool, arg3 int32) (int32, error) {
-	resp, err := c.svc.SetStream4_2(ctx, &pb.SetStream4_2Request{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetWallpaperOffsetSteps calls the SetWallpaperOffsetSteps RPC.
-func (c *WallpaperManagerClient) SetWallpaperOffsetSteps(ctx context.Context, arg0 float32, arg1 float32) error {
-	_, err := c.svc.SetWallpaperOffsetSteps(ctx, &pb.SetWallpaperOffsetStepsRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	return err
-}
-
-// SetWallpaperOffsets calls the SetWallpaperOffsets RPC.
-func (c *WallpaperManagerClient) SetWallpaperOffsets(ctx context.Context, arg0 int64, arg1 float32, arg2 float32) error {
-	_, err := c.svc.SetWallpaperOffsets(ctx, &pb.SetWallpaperOffsetsRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-	})
-	return err
-}
-
-// SuggestDesiredDimensions calls the SuggestDesiredDimensions RPC.
-func (c *WallpaperManagerClient) SuggestDesiredDimensions(ctx context.Context, arg0 int32, arg1 int32) error {
-	_, err := c.svc.SuggestDesiredDimensions(ctx, &pb.SuggestDesiredDimensionsRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	return err
-}
-
-// GetInstance calls the GetInstance RPC.
-func (c *WallpaperManagerClient) GetInstance(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.GetInstance(ctx, &pb.GetInstanceRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SearchManagerClient wraps the gRPC SearchManagerService client.
-type SearchManagerClient struct {
-	svc pb.SearchManagerServiceClient
-}
-
-// NewSearchManagerClient creates a new SearchManager client.
-func NewSearchManagerClient(cc grpc.ClientConnInterface) *SearchManagerClient {
-	return &SearchManagerClient{
-		svc: pb.NewSearchManagerServiceClient(cc),
-	}
-}
-
-// GetGlobalSearchActivity calls the GetGlobalSearchActivity RPC.
-func (c *SearchManagerClient) GetGlobalSearchActivity(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetGlobalSearchActivity(ctx, &pb.GetGlobalSearchActivityRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetSearchableInfo calls the GetSearchableInfo RPC.
-func (c *SearchManagerClient) GetSearchableInfo(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.GetSearchableInfo(ctx, &pb.GetSearchableInfoRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// OnCancel calls the OnCancel RPC.
-func (c *SearchManagerClient) OnCancel(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.OnCancel(ctx, &pb.OnCancelRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// OnDismiss calls the OnDismiss RPC.
-func (c *SearchManagerClient) OnDismiss(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.OnDismiss(ctx, &pb.OnDismissRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// SetOnCancelListener calls the SetOnCancelListener RPC.
-func (c *SearchManagerClient) SetOnCancelListener(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.SetOnCancelListener(ctx, &pb.SetOnCancelListenerRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// SetOnDismissListener calls the SetOnDismissListener RPC.
-func (c *SearchManagerClient) SetOnDismissListener(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.SetOnDismissListener(ctx, &pb.SetOnDismissListenerRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// StartSearch calls the StartSearch RPC.
-func (c *SearchManagerClient) StartSearch(ctx context.Context, arg0 string, arg1 bool, arg2 int64, arg3 int64, arg4 bool) error {
-	_, err := c.svc.StartSearch(ctx, &pb.StartSearchRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
-		Arg4: arg4,
-	})
-	return err
-}
-
-// StopSearch calls the StopSearch RPC.
-func (c *SearchManagerClient) StopSearch(ctx context.Context) error {
-	_, err := c.svc.StopSearch(ctx, &pb.StopSearchRequest{})
-	return err
-}
-
-// TriggerSearch calls the TriggerSearch RPC.
-func (c *SearchManagerClient) TriggerSearch(ctx context.Context, arg0 string, arg1 int64, arg2 int64) error {
-	_, err := c.svc.TriggerSearch(ctx, &pb.TriggerSearchRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-	})
-	return err
-}
-
-// GrammaticalInflectionManagerClient wraps the gRPC GrammaticalInflectionManagerService client.
-type GrammaticalInflectionManagerClient struct {
-	svc pb.GrammaticalInflectionManagerServiceClient
-}
-
-// NewGrammaticalInflectionManagerClient creates a new GrammaticalInflectionManager client.
-func NewGrammaticalInflectionManagerClient(cc grpc.ClientConnInterface) *GrammaticalInflectionManagerClient {
-	return &GrammaticalInflectionManagerClient{
-		svc: pb.NewGrammaticalInflectionManagerServiceClient(cc),
-	}
-}
-
-// GetApplicationGrammaticalGender calls the GetApplicationGrammaticalGender RPC.
-func (c *GrammaticalInflectionManagerClient) GetApplicationGrammaticalGender(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetApplicationGrammaticalGender(ctx, &pb.GetApplicationGrammaticalGenderRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetSystemGrammaticalGender calls the GetSystemGrammaticalGender RPC.
-func (c *GrammaticalInflectionManagerClient) GetSystemGrammaticalGender(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetSystemGrammaticalGender(ctx, &pb.GetSystemGrammaticalGenderRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetRequestedApplicationGrammaticalGender calls the SetRequestedApplicationGrammaticalGender RPC.
-func (c *GrammaticalInflectionManagerClient) SetRequestedApplicationGrammaticalGender(ctx context.Context, arg0 int32) error {
-	_, err := c.svc.SetRequestedApplicationGrammaticalGender(ctx, &pb.SetRequestedApplicationGrammaticalGenderRequest{
 		Arg0: arg0,
 	})
 	return err
@@ -1529,72 +1595,6 @@ func (c *UiModeManagerClient) SetCustomNightModeStart(ctx context.Context, arg0 
 // SetNightMode calls the SetNightMode RPC.
 func (c *UiModeManagerClient) SetNightMode(ctx context.Context, arg0 int32) error {
 	_, err := c.svc.SetNightMode(ctx, &pb.SetNightModeRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// LocaleManagerClient wraps the gRPC LocaleManagerService client.
-type LocaleManagerClient struct {
-	svc pb.LocaleManagerServiceClient
-}
-
-// NewLocaleManagerClient creates a new LocaleManager client.
-func NewLocaleManagerClient(cc grpc.ClientConnInterface) *LocaleManagerClient {
-	return &LocaleManagerClient{
-		svc: pb.NewLocaleManagerServiceClient(cc),
-	}
-}
-
-// GetApplicationLocales0 calls the GetApplicationLocales0 RPC.
-func (c *LocaleManagerClient) GetApplicationLocales0(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetApplicationLocales0(ctx, &pb.GetApplicationLocales0Request{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetApplicationLocales1_1 calls the GetApplicationLocales1_1 RPC.
-func (c *LocaleManagerClient) GetApplicationLocales1_1(ctx context.Context, arg0 string) (int64, error) {
-	resp, err := c.svc.GetApplicationLocales1_1(ctx, &pb.GetApplicationLocales1_1Request{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetOverrideLocaleConfig calls the GetOverrideLocaleConfig RPC.
-func (c *LocaleManagerClient) GetOverrideLocaleConfig(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetOverrideLocaleConfig(ctx, &pb.GetOverrideLocaleConfigRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetSystemLocales calls the GetSystemLocales RPC.
-func (c *LocaleManagerClient) GetSystemLocales(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetSystemLocales(ctx, &pb.GetSystemLocalesRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetApplicationLocales calls the SetApplicationLocales RPC.
-func (c *LocaleManagerClient) SetApplicationLocales(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.SetApplicationLocales(ctx, &pb.SetApplicationLocalesRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// SetOverrideLocaleConfig calls the SetOverrideLocaleConfig RPC.
-func (c *LocaleManagerClient) SetOverrideLocaleConfig(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.SetOverrideLocaleConfig(ctx, &pb.SetOverrideLocaleConfigRequest{
 		Arg0: arg0,
 	})
 	return err

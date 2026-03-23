@@ -21,3000 +21,6 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
-	OpsManagerService_CheckOp3_FullMethodName                = "/app.OpsManagerService/CheckOp3"
-	OpsManagerService_CheckOp4_1_FullMethodName              = "/app.OpsManagerService/CheckOp4_1"
-	OpsManagerService_CheckOpNoThrow3_FullMethodName         = "/app.OpsManagerService/CheckOpNoThrow3"
-	OpsManagerService_CheckOpNoThrow4_1_FullMethodName       = "/app.OpsManagerService/CheckOpNoThrow4_1"
-	OpsManagerService_CheckOpRawNoThrow_FullMethodName       = "/app.OpsManagerService/CheckOpRawNoThrow"
-	OpsManagerService_CheckPackage_FullMethodName            = "/app.OpsManagerService/CheckPackage"
-	OpsManagerService_FinishOp3_FullMethodName               = "/app.OpsManagerService/FinishOp3"
-	OpsManagerService_FinishOp4_1_FullMethodName             = "/app.OpsManagerService/FinishOp4_1"
-	OpsManagerService_FinishProxyOp_FullMethodName           = "/app.OpsManagerService/FinishProxyOp"
-	OpsManagerService_IsOpActive_FullMethodName              = "/app.OpsManagerService/IsOpActive"
-	OpsManagerService_NoteOp3_FullMethodName                 = "/app.OpsManagerService/NoteOp3"
-	OpsManagerService_NoteOp5_1_FullMethodName               = "/app.OpsManagerService/NoteOp5_1"
-	OpsManagerService_NoteOpNoThrow3_FullMethodName          = "/app.OpsManagerService/NoteOpNoThrow3"
-	OpsManagerService_NoteOpNoThrow5_1_FullMethodName        = "/app.OpsManagerService/NoteOpNoThrow5_1"
-	OpsManagerService_NoteProxyOp2_FullMethodName            = "/app.OpsManagerService/NoteProxyOp2"
-	OpsManagerService_NoteProxyOp5_1_FullMethodName          = "/app.OpsManagerService/NoteProxyOp5_1"
-	OpsManagerService_NoteProxyOpNoThrow2_FullMethodName     = "/app.OpsManagerService/NoteProxyOpNoThrow2"
-	OpsManagerService_NoteProxyOpNoThrow3_1_FullMethodName   = "/app.OpsManagerService/NoteProxyOpNoThrow3_1"
-	OpsManagerService_NoteProxyOpNoThrow5_2_FullMethodName   = "/app.OpsManagerService/NoteProxyOpNoThrow5_2"
-	OpsManagerService_SetOnOpNotedCallback2_FullMethodName   = "/app.OpsManagerService/SetOnOpNotedCallback2"
-	OpsManagerService_SetOnOpNotedCallback3_1_FullMethodName = "/app.OpsManagerService/SetOnOpNotedCallback3_1"
-	OpsManagerService_StartOp3_FullMethodName                = "/app.OpsManagerService/StartOp3"
-	OpsManagerService_StartOp5_1_FullMethodName              = "/app.OpsManagerService/StartOp5_1"
-	OpsManagerService_StartOpNoThrow3_FullMethodName         = "/app.OpsManagerService/StartOpNoThrow3"
-	OpsManagerService_StartOpNoThrow5_1_FullMethodName       = "/app.OpsManagerService/StartOpNoThrow5_1"
-	OpsManagerService_StartProxyOp_FullMethodName            = "/app.OpsManagerService/StartProxyOp"
-	OpsManagerService_StartProxyOpNoThrow_FullMethodName     = "/app.OpsManagerService/StartProxyOpNoThrow"
-	OpsManagerService_StartWatchingActive_FullMethodName     = "/app.OpsManagerService/StartWatchingActive"
-	OpsManagerService_StartWatchingMode3_FullMethodName      = "/app.OpsManagerService/StartWatchingMode3"
-	OpsManagerService_StartWatchingMode4_1_FullMethodName    = "/app.OpsManagerService/StartWatchingMode4_1"
-	OpsManagerService_StopWatchingActive_FullMethodName      = "/app.OpsManagerService/StopWatchingActive"
-	OpsManagerService_StopWatchingMode_FullMethodName        = "/app.OpsManagerService/StopWatchingMode"
-	OpsManagerService_UnsafeCheckOp_FullMethodName           = "/app.OpsManagerService/UnsafeCheckOp"
-	OpsManagerService_UnsafeCheckOpNoThrow_FullMethodName    = "/app.OpsManagerService/UnsafeCheckOpNoThrow"
-	OpsManagerService_UnsafeCheckOpRaw_FullMethodName        = "/app.OpsManagerService/UnsafeCheckOpRaw"
-	OpsManagerService_UnsafeCheckOpRawNoThrow_FullMethodName = "/app.OpsManagerService/UnsafeCheckOpRawNoThrow"
-	OpsManagerService_PermissionToOp_FullMethodName          = "/app.OpsManagerService/PermissionToOp"
-)
-
-// OpsManagerServiceClient is the client API for OpsManagerService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type OpsManagerServiceClient interface {
-	CheckOp3(ctx context.Context, in *CheckOp3Request, opts ...grpc.CallOption) (*CheckOp3Response, error)
-	CheckOp4_1(ctx context.Context, in *CheckOp4_1Request, opts ...grpc.CallOption) (*CheckOp4_1Response, error)
-	CheckOpNoThrow3(ctx context.Context, in *CheckOpNoThrow3Request, opts ...grpc.CallOption) (*CheckOpNoThrow3Response, error)
-	CheckOpNoThrow4_1(ctx context.Context, in *CheckOpNoThrow4_1Request, opts ...grpc.CallOption) (*CheckOpNoThrow4_1Response, error)
-	CheckOpRawNoThrow(ctx context.Context, in *CheckOpRawNoThrowRequest, opts ...grpc.CallOption) (*CheckOpRawNoThrowResponse, error)
-	CheckPackage(ctx context.Context, in *CheckPackageRequest, opts ...grpc.CallOption) (*CheckPackageResponse, error)
-	FinishOp3(ctx context.Context, in *FinishOp3Request, opts ...grpc.CallOption) (*FinishOp3Response, error)
-	FinishOp4_1(ctx context.Context, in *FinishOp4_1Request, opts ...grpc.CallOption) (*FinishOp4_1Response, error)
-	FinishProxyOp(ctx context.Context, in *FinishProxyOpRequest, opts ...grpc.CallOption) (*FinishProxyOpResponse, error)
-	IsOpActive(ctx context.Context, in *IsOpActiveRequest, opts ...grpc.CallOption) (*IsOpActiveResponse, error)
-	NoteOp3(ctx context.Context, in *NoteOp3Request, opts ...grpc.CallOption) (*NoteOp3Response, error)
-	NoteOp5_1(ctx context.Context, in *NoteOp5_1Request, opts ...grpc.CallOption) (*NoteOp5_1Response, error)
-	NoteOpNoThrow3(ctx context.Context, in *NoteOpNoThrow3Request, opts ...grpc.CallOption) (*NoteOpNoThrow3Response, error)
-	NoteOpNoThrow5_1(ctx context.Context, in *NoteOpNoThrow5_1Request, opts ...grpc.CallOption) (*NoteOpNoThrow5_1Response, error)
-	NoteProxyOp2(ctx context.Context, in *NoteProxyOp2Request, opts ...grpc.CallOption) (*NoteProxyOp2Response, error)
-	NoteProxyOp5_1(ctx context.Context, in *NoteProxyOp5_1Request, opts ...grpc.CallOption) (*NoteProxyOp5_1Response, error)
-	NoteProxyOpNoThrow2(ctx context.Context, in *NoteProxyOpNoThrow2Request, opts ...grpc.CallOption) (*NoteProxyOpNoThrow2Response, error)
-	NoteProxyOpNoThrow3_1(ctx context.Context, in *NoteProxyOpNoThrow3_1Request, opts ...grpc.CallOption) (*NoteProxyOpNoThrow3_1Response, error)
-	NoteProxyOpNoThrow5_2(ctx context.Context, in *NoteProxyOpNoThrow5_2Request, opts ...grpc.CallOption) (*NoteProxyOpNoThrow5_2Response, error)
-	SetOnOpNotedCallback2(ctx context.Context, in *SetOnOpNotedCallback2Request, opts ...grpc.CallOption) (*SetOnOpNotedCallback2Response, error)
-	SetOnOpNotedCallback3_1(ctx context.Context, in *SetOnOpNotedCallback3_1Request, opts ...grpc.CallOption) (*SetOnOpNotedCallback3_1Response, error)
-	StartOp3(ctx context.Context, in *StartOp3Request, opts ...grpc.CallOption) (*StartOp3Response, error)
-	StartOp5_1(ctx context.Context, in *StartOp5_1Request, opts ...grpc.CallOption) (*StartOp5_1Response, error)
-	StartOpNoThrow3(ctx context.Context, in *StartOpNoThrow3Request, opts ...grpc.CallOption) (*StartOpNoThrow3Response, error)
-	StartOpNoThrow5_1(ctx context.Context, in *StartOpNoThrow5_1Request, opts ...grpc.CallOption) (*StartOpNoThrow5_1Response, error)
-	StartProxyOp(ctx context.Context, in *StartProxyOpRequest, opts ...grpc.CallOption) (*StartProxyOpResponse, error)
-	StartProxyOpNoThrow(ctx context.Context, in *StartProxyOpNoThrowRequest, opts ...grpc.CallOption) (*StartProxyOpNoThrowResponse, error)
-	StartWatchingActive(ctx context.Context, in *StartWatchingActiveRequest, opts ...grpc.CallOption) (*StartWatchingActiveResponse, error)
-	StartWatchingMode3(ctx context.Context, in *StartWatchingMode3Request, opts ...grpc.CallOption) (*StartWatchingMode3Response, error)
-	StartWatchingMode4_1(ctx context.Context, in *StartWatchingMode4_1Request, opts ...grpc.CallOption) (*StartWatchingMode4_1Response, error)
-	StopWatchingActive(ctx context.Context, in *StopWatchingActiveRequest, opts ...grpc.CallOption) (*StopWatchingActiveResponse, error)
-	StopWatchingMode(ctx context.Context, in *StopWatchingModeRequest, opts ...grpc.CallOption) (*StopWatchingModeResponse, error)
-	UnsafeCheckOp(ctx context.Context, in *UnsafeCheckOpRequest, opts ...grpc.CallOption) (*UnsafeCheckOpResponse, error)
-	UnsafeCheckOpNoThrow(ctx context.Context, in *UnsafeCheckOpNoThrowRequest, opts ...grpc.CallOption) (*UnsafeCheckOpNoThrowResponse, error)
-	UnsafeCheckOpRaw(ctx context.Context, in *UnsafeCheckOpRawRequest, opts ...grpc.CallOption) (*UnsafeCheckOpRawResponse, error)
-	UnsafeCheckOpRawNoThrow(ctx context.Context, in *UnsafeCheckOpRawNoThrowRequest, opts ...grpc.CallOption) (*UnsafeCheckOpRawNoThrowResponse, error)
-	PermissionToOp(ctx context.Context, in *PermissionToOpRequest, opts ...grpc.CallOption) (*PermissionToOpResponse, error)
-}
-
-type opsManagerServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewOpsManagerServiceClient(cc grpc.ClientConnInterface) OpsManagerServiceClient {
-	return &opsManagerServiceClient{cc}
-}
-
-func (c *opsManagerServiceClient) CheckOp3(ctx context.Context, in *CheckOp3Request, opts ...grpc.CallOption) (*CheckOp3Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(CheckOp3Response)
-	err := c.cc.Invoke(ctx, OpsManagerService_CheckOp3_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *opsManagerServiceClient) CheckOp4_1(ctx context.Context, in *CheckOp4_1Request, opts ...grpc.CallOption) (*CheckOp4_1Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(CheckOp4_1Response)
-	err := c.cc.Invoke(ctx, OpsManagerService_CheckOp4_1_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *opsManagerServiceClient) CheckOpNoThrow3(ctx context.Context, in *CheckOpNoThrow3Request, opts ...grpc.CallOption) (*CheckOpNoThrow3Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(CheckOpNoThrow3Response)
-	err := c.cc.Invoke(ctx, OpsManagerService_CheckOpNoThrow3_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *opsManagerServiceClient) CheckOpNoThrow4_1(ctx context.Context, in *CheckOpNoThrow4_1Request, opts ...grpc.CallOption) (*CheckOpNoThrow4_1Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(CheckOpNoThrow4_1Response)
-	err := c.cc.Invoke(ctx, OpsManagerService_CheckOpNoThrow4_1_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *opsManagerServiceClient) CheckOpRawNoThrow(ctx context.Context, in *CheckOpRawNoThrowRequest, opts ...grpc.CallOption) (*CheckOpRawNoThrowResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(CheckOpRawNoThrowResponse)
-	err := c.cc.Invoke(ctx, OpsManagerService_CheckOpRawNoThrow_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *opsManagerServiceClient) CheckPackage(ctx context.Context, in *CheckPackageRequest, opts ...grpc.CallOption) (*CheckPackageResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(CheckPackageResponse)
-	err := c.cc.Invoke(ctx, OpsManagerService_CheckPackage_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *opsManagerServiceClient) FinishOp3(ctx context.Context, in *FinishOp3Request, opts ...grpc.CallOption) (*FinishOp3Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(FinishOp3Response)
-	err := c.cc.Invoke(ctx, OpsManagerService_FinishOp3_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *opsManagerServiceClient) FinishOp4_1(ctx context.Context, in *FinishOp4_1Request, opts ...grpc.CallOption) (*FinishOp4_1Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(FinishOp4_1Response)
-	err := c.cc.Invoke(ctx, OpsManagerService_FinishOp4_1_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *opsManagerServiceClient) FinishProxyOp(ctx context.Context, in *FinishProxyOpRequest, opts ...grpc.CallOption) (*FinishProxyOpResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(FinishProxyOpResponse)
-	err := c.cc.Invoke(ctx, OpsManagerService_FinishProxyOp_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *opsManagerServiceClient) IsOpActive(ctx context.Context, in *IsOpActiveRequest, opts ...grpc.CallOption) (*IsOpActiveResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(IsOpActiveResponse)
-	err := c.cc.Invoke(ctx, OpsManagerService_IsOpActive_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *opsManagerServiceClient) NoteOp3(ctx context.Context, in *NoteOp3Request, opts ...grpc.CallOption) (*NoteOp3Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(NoteOp3Response)
-	err := c.cc.Invoke(ctx, OpsManagerService_NoteOp3_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *opsManagerServiceClient) NoteOp5_1(ctx context.Context, in *NoteOp5_1Request, opts ...grpc.CallOption) (*NoteOp5_1Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(NoteOp5_1Response)
-	err := c.cc.Invoke(ctx, OpsManagerService_NoteOp5_1_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *opsManagerServiceClient) NoteOpNoThrow3(ctx context.Context, in *NoteOpNoThrow3Request, opts ...grpc.CallOption) (*NoteOpNoThrow3Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(NoteOpNoThrow3Response)
-	err := c.cc.Invoke(ctx, OpsManagerService_NoteOpNoThrow3_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *opsManagerServiceClient) NoteOpNoThrow5_1(ctx context.Context, in *NoteOpNoThrow5_1Request, opts ...grpc.CallOption) (*NoteOpNoThrow5_1Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(NoteOpNoThrow5_1Response)
-	err := c.cc.Invoke(ctx, OpsManagerService_NoteOpNoThrow5_1_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *opsManagerServiceClient) NoteProxyOp2(ctx context.Context, in *NoteProxyOp2Request, opts ...grpc.CallOption) (*NoteProxyOp2Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(NoteProxyOp2Response)
-	err := c.cc.Invoke(ctx, OpsManagerService_NoteProxyOp2_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *opsManagerServiceClient) NoteProxyOp5_1(ctx context.Context, in *NoteProxyOp5_1Request, opts ...grpc.CallOption) (*NoteProxyOp5_1Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(NoteProxyOp5_1Response)
-	err := c.cc.Invoke(ctx, OpsManagerService_NoteProxyOp5_1_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *opsManagerServiceClient) NoteProxyOpNoThrow2(ctx context.Context, in *NoteProxyOpNoThrow2Request, opts ...grpc.CallOption) (*NoteProxyOpNoThrow2Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(NoteProxyOpNoThrow2Response)
-	err := c.cc.Invoke(ctx, OpsManagerService_NoteProxyOpNoThrow2_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *opsManagerServiceClient) NoteProxyOpNoThrow3_1(ctx context.Context, in *NoteProxyOpNoThrow3_1Request, opts ...grpc.CallOption) (*NoteProxyOpNoThrow3_1Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(NoteProxyOpNoThrow3_1Response)
-	err := c.cc.Invoke(ctx, OpsManagerService_NoteProxyOpNoThrow3_1_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *opsManagerServiceClient) NoteProxyOpNoThrow5_2(ctx context.Context, in *NoteProxyOpNoThrow5_2Request, opts ...grpc.CallOption) (*NoteProxyOpNoThrow5_2Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(NoteProxyOpNoThrow5_2Response)
-	err := c.cc.Invoke(ctx, OpsManagerService_NoteProxyOpNoThrow5_2_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *opsManagerServiceClient) SetOnOpNotedCallback2(ctx context.Context, in *SetOnOpNotedCallback2Request, opts ...grpc.CallOption) (*SetOnOpNotedCallback2Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetOnOpNotedCallback2Response)
-	err := c.cc.Invoke(ctx, OpsManagerService_SetOnOpNotedCallback2_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *opsManagerServiceClient) SetOnOpNotedCallback3_1(ctx context.Context, in *SetOnOpNotedCallback3_1Request, opts ...grpc.CallOption) (*SetOnOpNotedCallback3_1Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetOnOpNotedCallback3_1Response)
-	err := c.cc.Invoke(ctx, OpsManagerService_SetOnOpNotedCallback3_1_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *opsManagerServiceClient) StartOp3(ctx context.Context, in *StartOp3Request, opts ...grpc.CallOption) (*StartOp3Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(StartOp3Response)
-	err := c.cc.Invoke(ctx, OpsManagerService_StartOp3_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *opsManagerServiceClient) StartOp5_1(ctx context.Context, in *StartOp5_1Request, opts ...grpc.CallOption) (*StartOp5_1Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(StartOp5_1Response)
-	err := c.cc.Invoke(ctx, OpsManagerService_StartOp5_1_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *opsManagerServiceClient) StartOpNoThrow3(ctx context.Context, in *StartOpNoThrow3Request, opts ...grpc.CallOption) (*StartOpNoThrow3Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(StartOpNoThrow3Response)
-	err := c.cc.Invoke(ctx, OpsManagerService_StartOpNoThrow3_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *opsManagerServiceClient) StartOpNoThrow5_1(ctx context.Context, in *StartOpNoThrow5_1Request, opts ...grpc.CallOption) (*StartOpNoThrow5_1Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(StartOpNoThrow5_1Response)
-	err := c.cc.Invoke(ctx, OpsManagerService_StartOpNoThrow5_1_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *opsManagerServiceClient) StartProxyOp(ctx context.Context, in *StartProxyOpRequest, opts ...grpc.CallOption) (*StartProxyOpResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(StartProxyOpResponse)
-	err := c.cc.Invoke(ctx, OpsManagerService_StartProxyOp_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *opsManagerServiceClient) StartProxyOpNoThrow(ctx context.Context, in *StartProxyOpNoThrowRequest, opts ...grpc.CallOption) (*StartProxyOpNoThrowResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(StartProxyOpNoThrowResponse)
-	err := c.cc.Invoke(ctx, OpsManagerService_StartProxyOpNoThrow_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *opsManagerServiceClient) StartWatchingActive(ctx context.Context, in *StartWatchingActiveRequest, opts ...grpc.CallOption) (*StartWatchingActiveResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(StartWatchingActiveResponse)
-	err := c.cc.Invoke(ctx, OpsManagerService_StartWatchingActive_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *opsManagerServiceClient) StartWatchingMode3(ctx context.Context, in *StartWatchingMode3Request, opts ...grpc.CallOption) (*StartWatchingMode3Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(StartWatchingMode3Response)
-	err := c.cc.Invoke(ctx, OpsManagerService_StartWatchingMode3_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *opsManagerServiceClient) StartWatchingMode4_1(ctx context.Context, in *StartWatchingMode4_1Request, opts ...grpc.CallOption) (*StartWatchingMode4_1Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(StartWatchingMode4_1Response)
-	err := c.cc.Invoke(ctx, OpsManagerService_StartWatchingMode4_1_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *opsManagerServiceClient) StopWatchingActive(ctx context.Context, in *StopWatchingActiveRequest, opts ...grpc.CallOption) (*StopWatchingActiveResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(StopWatchingActiveResponse)
-	err := c.cc.Invoke(ctx, OpsManagerService_StopWatchingActive_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *opsManagerServiceClient) StopWatchingMode(ctx context.Context, in *StopWatchingModeRequest, opts ...grpc.CallOption) (*StopWatchingModeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(StopWatchingModeResponse)
-	err := c.cc.Invoke(ctx, OpsManagerService_StopWatchingMode_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *opsManagerServiceClient) UnsafeCheckOp(ctx context.Context, in *UnsafeCheckOpRequest, opts ...grpc.CallOption) (*UnsafeCheckOpResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(UnsafeCheckOpResponse)
-	err := c.cc.Invoke(ctx, OpsManagerService_UnsafeCheckOp_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *opsManagerServiceClient) UnsafeCheckOpNoThrow(ctx context.Context, in *UnsafeCheckOpNoThrowRequest, opts ...grpc.CallOption) (*UnsafeCheckOpNoThrowResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(UnsafeCheckOpNoThrowResponse)
-	err := c.cc.Invoke(ctx, OpsManagerService_UnsafeCheckOpNoThrow_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *opsManagerServiceClient) UnsafeCheckOpRaw(ctx context.Context, in *UnsafeCheckOpRawRequest, opts ...grpc.CallOption) (*UnsafeCheckOpRawResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(UnsafeCheckOpRawResponse)
-	err := c.cc.Invoke(ctx, OpsManagerService_UnsafeCheckOpRaw_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *opsManagerServiceClient) UnsafeCheckOpRawNoThrow(ctx context.Context, in *UnsafeCheckOpRawNoThrowRequest, opts ...grpc.CallOption) (*UnsafeCheckOpRawNoThrowResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(UnsafeCheckOpRawNoThrowResponse)
-	err := c.cc.Invoke(ctx, OpsManagerService_UnsafeCheckOpRawNoThrow_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *opsManagerServiceClient) PermissionToOp(ctx context.Context, in *PermissionToOpRequest, opts ...grpc.CallOption) (*PermissionToOpResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(PermissionToOpResponse)
-	err := c.cc.Invoke(ctx, OpsManagerService_PermissionToOp_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// OpsManagerServiceServer is the server API for OpsManagerService service.
-// All implementations must embed UnimplementedOpsManagerServiceServer
-// for forward compatibility.
-type OpsManagerServiceServer interface {
-	CheckOp3(context.Context, *CheckOp3Request) (*CheckOp3Response, error)
-	CheckOp4_1(context.Context, *CheckOp4_1Request) (*CheckOp4_1Response, error)
-	CheckOpNoThrow3(context.Context, *CheckOpNoThrow3Request) (*CheckOpNoThrow3Response, error)
-	CheckOpNoThrow4_1(context.Context, *CheckOpNoThrow4_1Request) (*CheckOpNoThrow4_1Response, error)
-	CheckOpRawNoThrow(context.Context, *CheckOpRawNoThrowRequest) (*CheckOpRawNoThrowResponse, error)
-	CheckPackage(context.Context, *CheckPackageRequest) (*CheckPackageResponse, error)
-	FinishOp3(context.Context, *FinishOp3Request) (*FinishOp3Response, error)
-	FinishOp4_1(context.Context, *FinishOp4_1Request) (*FinishOp4_1Response, error)
-	FinishProxyOp(context.Context, *FinishProxyOpRequest) (*FinishProxyOpResponse, error)
-	IsOpActive(context.Context, *IsOpActiveRequest) (*IsOpActiveResponse, error)
-	NoteOp3(context.Context, *NoteOp3Request) (*NoteOp3Response, error)
-	NoteOp5_1(context.Context, *NoteOp5_1Request) (*NoteOp5_1Response, error)
-	NoteOpNoThrow3(context.Context, *NoteOpNoThrow3Request) (*NoteOpNoThrow3Response, error)
-	NoteOpNoThrow5_1(context.Context, *NoteOpNoThrow5_1Request) (*NoteOpNoThrow5_1Response, error)
-	NoteProxyOp2(context.Context, *NoteProxyOp2Request) (*NoteProxyOp2Response, error)
-	NoteProxyOp5_1(context.Context, *NoteProxyOp5_1Request) (*NoteProxyOp5_1Response, error)
-	NoteProxyOpNoThrow2(context.Context, *NoteProxyOpNoThrow2Request) (*NoteProxyOpNoThrow2Response, error)
-	NoteProxyOpNoThrow3_1(context.Context, *NoteProxyOpNoThrow3_1Request) (*NoteProxyOpNoThrow3_1Response, error)
-	NoteProxyOpNoThrow5_2(context.Context, *NoteProxyOpNoThrow5_2Request) (*NoteProxyOpNoThrow5_2Response, error)
-	SetOnOpNotedCallback2(context.Context, *SetOnOpNotedCallback2Request) (*SetOnOpNotedCallback2Response, error)
-	SetOnOpNotedCallback3_1(context.Context, *SetOnOpNotedCallback3_1Request) (*SetOnOpNotedCallback3_1Response, error)
-	StartOp3(context.Context, *StartOp3Request) (*StartOp3Response, error)
-	StartOp5_1(context.Context, *StartOp5_1Request) (*StartOp5_1Response, error)
-	StartOpNoThrow3(context.Context, *StartOpNoThrow3Request) (*StartOpNoThrow3Response, error)
-	StartOpNoThrow5_1(context.Context, *StartOpNoThrow5_1Request) (*StartOpNoThrow5_1Response, error)
-	StartProxyOp(context.Context, *StartProxyOpRequest) (*StartProxyOpResponse, error)
-	StartProxyOpNoThrow(context.Context, *StartProxyOpNoThrowRequest) (*StartProxyOpNoThrowResponse, error)
-	StartWatchingActive(context.Context, *StartWatchingActiveRequest) (*StartWatchingActiveResponse, error)
-	StartWatchingMode3(context.Context, *StartWatchingMode3Request) (*StartWatchingMode3Response, error)
-	StartWatchingMode4_1(context.Context, *StartWatchingMode4_1Request) (*StartWatchingMode4_1Response, error)
-	StopWatchingActive(context.Context, *StopWatchingActiveRequest) (*StopWatchingActiveResponse, error)
-	StopWatchingMode(context.Context, *StopWatchingModeRequest) (*StopWatchingModeResponse, error)
-	UnsafeCheckOp(context.Context, *UnsafeCheckOpRequest) (*UnsafeCheckOpResponse, error)
-	UnsafeCheckOpNoThrow(context.Context, *UnsafeCheckOpNoThrowRequest) (*UnsafeCheckOpNoThrowResponse, error)
-	UnsafeCheckOpRaw(context.Context, *UnsafeCheckOpRawRequest) (*UnsafeCheckOpRawResponse, error)
-	UnsafeCheckOpRawNoThrow(context.Context, *UnsafeCheckOpRawNoThrowRequest) (*UnsafeCheckOpRawNoThrowResponse, error)
-	PermissionToOp(context.Context, *PermissionToOpRequest) (*PermissionToOpResponse, error)
-	mustEmbedUnimplementedOpsManagerServiceServer()
-}
-
-// UnimplementedOpsManagerServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedOpsManagerServiceServer struct{}
-
-func (UnimplementedOpsManagerServiceServer) CheckOp3(context.Context, *CheckOp3Request) (*CheckOp3Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method CheckOp3 not implemented")
-}
-func (UnimplementedOpsManagerServiceServer) CheckOp4_1(context.Context, *CheckOp4_1Request) (*CheckOp4_1Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method CheckOp4_1 not implemented")
-}
-func (UnimplementedOpsManagerServiceServer) CheckOpNoThrow3(context.Context, *CheckOpNoThrow3Request) (*CheckOpNoThrow3Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method CheckOpNoThrow3 not implemented")
-}
-func (UnimplementedOpsManagerServiceServer) CheckOpNoThrow4_1(context.Context, *CheckOpNoThrow4_1Request) (*CheckOpNoThrow4_1Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method CheckOpNoThrow4_1 not implemented")
-}
-func (UnimplementedOpsManagerServiceServer) CheckOpRawNoThrow(context.Context, *CheckOpRawNoThrowRequest) (*CheckOpRawNoThrowResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method CheckOpRawNoThrow not implemented")
-}
-func (UnimplementedOpsManagerServiceServer) CheckPackage(context.Context, *CheckPackageRequest) (*CheckPackageResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method CheckPackage not implemented")
-}
-func (UnimplementedOpsManagerServiceServer) FinishOp3(context.Context, *FinishOp3Request) (*FinishOp3Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method FinishOp3 not implemented")
-}
-func (UnimplementedOpsManagerServiceServer) FinishOp4_1(context.Context, *FinishOp4_1Request) (*FinishOp4_1Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method FinishOp4_1 not implemented")
-}
-func (UnimplementedOpsManagerServiceServer) FinishProxyOp(context.Context, *FinishProxyOpRequest) (*FinishProxyOpResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method FinishProxyOp not implemented")
-}
-func (UnimplementedOpsManagerServiceServer) IsOpActive(context.Context, *IsOpActiveRequest) (*IsOpActiveResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method IsOpActive not implemented")
-}
-func (UnimplementedOpsManagerServiceServer) NoteOp3(context.Context, *NoteOp3Request) (*NoteOp3Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method NoteOp3 not implemented")
-}
-func (UnimplementedOpsManagerServiceServer) NoteOp5_1(context.Context, *NoteOp5_1Request) (*NoteOp5_1Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method NoteOp5_1 not implemented")
-}
-func (UnimplementedOpsManagerServiceServer) NoteOpNoThrow3(context.Context, *NoteOpNoThrow3Request) (*NoteOpNoThrow3Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method NoteOpNoThrow3 not implemented")
-}
-func (UnimplementedOpsManagerServiceServer) NoteOpNoThrow5_1(context.Context, *NoteOpNoThrow5_1Request) (*NoteOpNoThrow5_1Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method NoteOpNoThrow5_1 not implemented")
-}
-func (UnimplementedOpsManagerServiceServer) NoteProxyOp2(context.Context, *NoteProxyOp2Request) (*NoteProxyOp2Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method NoteProxyOp2 not implemented")
-}
-func (UnimplementedOpsManagerServiceServer) NoteProxyOp5_1(context.Context, *NoteProxyOp5_1Request) (*NoteProxyOp5_1Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method NoteProxyOp5_1 not implemented")
-}
-func (UnimplementedOpsManagerServiceServer) NoteProxyOpNoThrow2(context.Context, *NoteProxyOpNoThrow2Request) (*NoteProxyOpNoThrow2Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method NoteProxyOpNoThrow2 not implemented")
-}
-func (UnimplementedOpsManagerServiceServer) NoteProxyOpNoThrow3_1(context.Context, *NoteProxyOpNoThrow3_1Request) (*NoteProxyOpNoThrow3_1Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method NoteProxyOpNoThrow3_1 not implemented")
-}
-func (UnimplementedOpsManagerServiceServer) NoteProxyOpNoThrow5_2(context.Context, *NoteProxyOpNoThrow5_2Request) (*NoteProxyOpNoThrow5_2Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method NoteProxyOpNoThrow5_2 not implemented")
-}
-func (UnimplementedOpsManagerServiceServer) SetOnOpNotedCallback2(context.Context, *SetOnOpNotedCallback2Request) (*SetOnOpNotedCallback2Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetOnOpNotedCallback2 not implemented")
-}
-func (UnimplementedOpsManagerServiceServer) SetOnOpNotedCallback3_1(context.Context, *SetOnOpNotedCallback3_1Request) (*SetOnOpNotedCallback3_1Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetOnOpNotedCallback3_1 not implemented")
-}
-func (UnimplementedOpsManagerServiceServer) StartOp3(context.Context, *StartOp3Request) (*StartOp3Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method StartOp3 not implemented")
-}
-func (UnimplementedOpsManagerServiceServer) StartOp5_1(context.Context, *StartOp5_1Request) (*StartOp5_1Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method StartOp5_1 not implemented")
-}
-func (UnimplementedOpsManagerServiceServer) StartOpNoThrow3(context.Context, *StartOpNoThrow3Request) (*StartOpNoThrow3Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method StartOpNoThrow3 not implemented")
-}
-func (UnimplementedOpsManagerServiceServer) StartOpNoThrow5_1(context.Context, *StartOpNoThrow5_1Request) (*StartOpNoThrow5_1Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method StartOpNoThrow5_1 not implemented")
-}
-func (UnimplementedOpsManagerServiceServer) StartProxyOp(context.Context, *StartProxyOpRequest) (*StartProxyOpResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method StartProxyOp not implemented")
-}
-func (UnimplementedOpsManagerServiceServer) StartProxyOpNoThrow(context.Context, *StartProxyOpNoThrowRequest) (*StartProxyOpNoThrowResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method StartProxyOpNoThrow not implemented")
-}
-func (UnimplementedOpsManagerServiceServer) StartWatchingActive(context.Context, *StartWatchingActiveRequest) (*StartWatchingActiveResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method StartWatchingActive not implemented")
-}
-func (UnimplementedOpsManagerServiceServer) StartWatchingMode3(context.Context, *StartWatchingMode3Request) (*StartWatchingMode3Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method StartWatchingMode3 not implemented")
-}
-func (UnimplementedOpsManagerServiceServer) StartWatchingMode4_1(context.Context, *StartWatchingMode4_1Request) (*StartWatchingMode4_1Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method StartWatchingMode4_1 not implemented")
-}
-func (UnimplementedOpsManagerServiceServer) StopWatchingActive(context.Context, *StopWatchingActiveRequest) (*StopWatchingActiveResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method StopWatchingActive not implemented")
-}
-func (UnimplementedOpsManagerServiceServer) StopWatchingMode(context.Context, *StopWatchingModeRequest) (*StopWatchingModeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method StopWatchingMode not implemented")
-}
-func (UnimplementedOpsManagerServiceServer) UnsafeCheckOp(context.Context, *UnsafeCheckOpRequest) (*UnsafeCheckOpResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method UnsafeCheckOp not implemented")
-}
-func (UnimplementedOpsManagerServiceServer) UnsafeCheckOpNoThrow(context.Context, *UnsafeCheckOpNoThrowRequest) (*UnsafeCheckOpNoThrowResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method UnsafeCheckOpNoThrow not implemented")
-}
-func (UnimplementedOpsManagerServiceServer) UnsafeCheckOpRaw(context.Context, *UnsafeCheckOpRawRequest) (*UnsafeCheckOpRawResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method UnsafeCheckOpRaw not implemented")
-}
-func (UnimplementedOpsManagerServiceServer) UnsafeCheckOpRawNoThrow(context.Context, *UnsafeCheckOpRawNoThrowRequest) (*UnsafeCheckOpRawNoThrowResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method UnsafeCheckOpRawNoThrow not implemented")
-}
-func (UnimplementedOpsManagerServiceServer) PermissionToOp(context.Context, *PermissionToOpRequest) (*PermissionToOpResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method PermissionToOp not implemented")
-}
-func (UnimplementedOpsManagerServiceServer) mustEmbedUnimplementedOpsManagerServiceServer() {}
-func (UnimplementedOpsManagerServiceServer) testEmbeddedByValue()                           {}
-
-// UnsafeOpsManagerServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to OpsManagerServiceServer will
-// result in compilation errors.
-type UnsafeOpsManagerServiceServer interface {
-	mustEmbedUnimplementedOpsManagerServiceServer()
-}
-
-func RegisterOpsManagerServiceServer(s grpc.ServiceRegistrar, srv OpsManagerServiceServer) {
-	// If the following call panics, it indicates UnimplementedOpsManagerServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&OpsManagerService_ServiceDesc, srv)
-}
-
-func _OpsManagerService_CheckOp3_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(CheckOp3Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(OpsManagerServiceServer).CheckOp3(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: OpsManagerService_CheckOp3_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(OpsManagerServiceServer).CheckOp3(ctx, req.(*CheckOp3Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _OpsManagerService_CheckOp4_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(CheckOp4_1Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(OpsManagerServiceServer).CheckOp4_1(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: OpsManagerService_CheckOp4_1_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(OpsManagerServiceServer).CheckOp4_1(ctx, req.(*CheckOp4_1Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _OpsManagerService_CheckOpNoThrow3_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(CheckOpNoThrow3Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(OpsManagerServiceServer).CheckOpNoThrow3(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: OpsManagerService_CheckOpNoThrow3_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(OpsManagerServiceServer).CheckOpNoThrow3(ctx, req.(*CheckOpNoThrow3Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _OpsManagerService_CheckOpNoThrow4_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(CheckOpNoThrow4_1Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(OpsManagerServiceServer).CheckOpNoThrow4_1(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: OpsManagerService_CheckOpNoThrow4_1_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(OpsManagerServiceServer).CheckOpNoThrow4_1(ctx, req.(*CheckOpNoThrow4_1Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _OpsManagerService_CheckOpRawNoThrow_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(CheckOpRawNoThrowRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(OpsManagerServiceServer).CheckOpRawNoThrow(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: OpsManagerService_CheckOpRawNoThrow_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(OpsManagerServiceServer).CheckOpRawNoThrow(ctx, req.(*CheckOpRawNoThrowRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _OpsManagerService_CheckPackage_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(CheckPackageRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(OpsManagerServiceServer).CheckPackage(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: OpsManagerService_CheckPackage_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(OpsManagerServiceServer).CheckPackage(ctx, req.(*CheckPackageRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _OpsManagerService_FinishOp3_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(FinishOp3Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(OpsManagerServiceServer).FinishOp3(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: OpsManagerService_FinishOp3_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(OpsManagerServiceServer).FinishOp3(ctx, req.(*FinishOp3Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _OpsManagerService_FinishOp4_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(FinishOp4_1Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(OpsManagerServiceServer).FinishOp4_1(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: OpsManagerService_FinishOp4_1_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(OpsManagerServiceServer).FinishOp4_1(ctx, req.(*FinishOp4_1Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _OpsManagerService_FinishProxyOp_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(FinishProxyOpRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(OpsManagerServiceServer).FinishProxyOp(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: OpsManagerService_FinishProxyOp_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(OpsManagerServiceServer).FinishProxyOp(ctx, req.(*FinishProxyOpRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _OpsManagerService_IsOpActive_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(IsOpActiveRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(OpsManagerServiceServer).IsOpActive(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: OpsManagerService_IsOpActive_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(OpsManagerServiceServer).IsOpActive(ctx, req.(*IsOpActiveRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _OpsManagerService_NoteOp3_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(NoteOp3Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(OpsManagerServiceServer).NoteOp3(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: OpsManagerService_NoteOp3_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(OpsManagerServiceServer).NoteOp3(ctx, req.(*NoteOp3Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _OpsManagerService_NoteOp5_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(NoteOp5_1Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(OpsManagerServiceServer).NoteOp5_1(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: OpsManagerService_NoteOp5_1_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(OpsManagerServiceServer).NoteOp5_1(ctx, req.(*NoteOp5_1Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _OpsManagerService_NoteOpNoThrow3_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(NoteOpNoThrow3Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(OpsManagerServiceServer).NoteOpNoThrow3(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: OpsManagerService_NoteOpNoThrow3_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(OpsManagerServiceServer).NoteOpNoThrow3(ctx, req.(*NoteOpNoThrow3Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _OpsManagerService_NoteOpNoThrow5_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(NoteOpNoThrow5_1Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(OpsManagerServiceServer).NoteOpNoThrow5_1(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: OpsManagerService_NoteOpNoThrow5_1_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(OpsManagerServiceServer).NoteOpNoThrow5_1(ctx, req.(*NoteOpNoThrow5_1Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _OpsManagerService_NoteProxyOp2_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(NoteProxyOp2Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(OpsManagerServiceServer).NoteProxyOp2(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: OpsManagerService_NoteProxyOp2_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(OpsManagerServiceServer).NoteProxyOp2(ctx, req.(*NoteProxyOp2Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _OpsManagerService_NoteProxyOp5_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(NoteProxyOp5_1Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(OpsManagerServiceServer).NoteProxyOp5_1(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: OpsManagerService_NoteProxyOp5_1_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(OpsManagerServiceServer).NoteProxyOp5_1(ctx, req.(*NoteProxyOp5_1Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _OpsManagerService_NoteProxyOpNoThrow2_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(NoteProxyOpNoThrow2Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(OpsManagerServiceServer).NoteProxyOpNoThrow2(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: OpsManagerService_NoteProxyOpNoThrow2_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(OpsManagerServiceServer).NoteProxyOpNoThrow2(ctx, req.(*NoteProxyOpNoThrow2Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _OpsManagerService_NoteProxyOpNoThrow3_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(NoteProxyOpNoThrow3_1Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(OpsManagerServiceServer).NoteProxyOpNoThrow3_1(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: OpsManagerService_NoteProxyOpNoThrow3_1_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(OpsManagerServiceServer).NoteProxyOpNoThrow3_1(ctx, req.(*NoteProxyOpNoThrow3_1Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _OpsManagerService_NoteProxyOpNoThrow5_2_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(NoteProxyOpNoThrow5_2Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(OpsManagerServiceServer).NoteProxyOpNoThrow5_2(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: OpsManagerService_NoteProxyOpNoThrow5_2_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(OpsManagerServiceServer).NoteProxyOpNoThrow5_2(ctx, req.(*NoteProxyOpNoThrow5_2Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _OpsManagerService_SetOnOpNotedCallback2_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetOnOpNotedCallback2Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(OpsManagerServiceServer).SetOnOpNotedCallback2(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: OpsManagerService_SetOnOpNotedCallback2_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(OpsManagerServiceServer).SetOnOpNotedCallback2(ctx, req.(*SetOnOpNotedCallback2Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _OpsManagerService_SetOnOpNotedCallback3_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetOnOpNotedCallback3_1Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(OpsManagerServiceServer).SetOnOpNotedCallback3_1(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: OpsManagerService_SetOnOpNotedCallback3_1_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(OpsManagerServiceServer).SetOnOpNotedCallback3_1(ctx, req.(*SetOnOpNotedCallback3_1Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _OpsManagerService_StartOp3_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(StartOp3Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(OpsManagerServiceServer).StartOp3(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: OpsManagerService_StartOp3_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(OpsManagerServiceServer).StartOp3(ctx, req.(*StartOp3Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _OpsManagerService_StartOp5_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(StartOp5_1Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(OpsManagerServiceServer).StartOp5_1(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: OpsManagerService_StartOp5_1_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(OpsManagerServiceServer).StartOp5_1(ctx, req.(*StartOp5_1Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _OpsManagerService_StartOpNoThrow3_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(StartOpNoThrow3Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(OpsManagerServiceServer).StartOpNoThrow3(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: OpsManagerService_StartOpNoThrow3_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(OpsManagerServiceServer).StartOpNoThrow3(ctx, req.(*StartOpNoThrow3Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _OpsManagerService_StartOpNoThrow5_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(StartOpNoThrow5_1Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(OpsManagerServiceServer).StartOpNoThrow5_1(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: OpsManagerService_StartOpNoThrow5_1_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(OpsManagerServiceServer).StartOpNoThrow5_1(ctx, req.(*StartOpNoThrow5_1Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _OpsManagerService_StartProxyOp_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(StartProxyOpRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(OpsManagerServiceServer).StartProxyOp(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: OpsManagerService_StartProxyOp_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(OpsManagerServiceServer).StartProxyOp(ctx, req.(*StartProxyOpRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _OpsManagerService_StartProxyOpNoThrow_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(StartProxyOpNoThrowRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(OpsManagerServiceServer).StartProxyOpNoThrow(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: OpsManagerService_StartProxyOpNoThrow_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(OpsManagerServiceServer).StartProxyOpNoThrow(ctx, req.(*StartProxyOpNoThrowRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _OpsManagerService_StartWatchingActive_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(StartWatchingActiveRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(OpsManagerServiceServer).StartWatchingActive(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: OpsManagerService_StartWatchingActive_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(OpsManagerServiceServer).StartWatchingActive(ctx, req.(*StartWatchingActiveRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _OpsManagerService_StartWatchingMode3_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(StartWatchingMode3Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(OpsManagerServiceServer).StartWatchingMode3(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: OpsManagerService_StartWatchingMode3_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(OpsManagerServiceServer).StartWatchingMode3(ctx, req.(*StartWatchingMode3Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _OpsManagerService_StartWatchingMode4_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(StartWatchingMode4_1Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(OpsManagerServiceServer).StartWatchingMode4_1(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: OpsManagerService_StartWatchingMode4_1_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(OpsManagerServiceServer).StartWatchingMode4_1(ctx, req.(*StartWatchingMode4_1Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _OpsManagerService_StopWatchingActive_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(StopWatchingActiveRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(OpsManagerServiceServer).StopWatchingActive(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: OpsManagerService_StopWatchingActive_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(OpsManagerServiceServer).StopWatchingActive(ctx, req.(*StopWatchingActiveRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _OpsManagerService_StopWatchingMode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(StopWatchingModeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(OpsManagerServiceServer).StopWatchingMode(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: OpsManagerService_StopWatchingMode_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(OpsManagerServiceServer).StopWatchingMode(ctx, req.(*StopWatchingModeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _OpsManagerService_UnsafeCheckOp_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(UnsafeCheckOpRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(OpsManagerServiceServer).UnsafeCheckOp(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: OpsManagerService_UnsafeCheckOp_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(OpsManagerServiceServer).UnsafeCheckOp(ctx, req.(*UnsafeCheckOpRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _OpsManagerService_UnsafeCheckOpNoThrow_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(UnsafeCheckOpNoThrowRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(OpsManagerServiceServer).UnsafeCheckOpNoThrow(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: OpsManagerService_UnsafeCheckOpNoThrow_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(OpsManagerServiceServer).UnsafeCheckOpNoThrow(ctx, req.(*UnsafeCheckOpNoThrowRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _OpsManagerService_UnsafeCheckOpRaw_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(UnsafeCheckOpRawRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(OpsManagerServiceServer).UnsafeCheckOpRaw(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: OpsManagerService_UnsafeCheckOpRaw_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(OpsManagerServiceServer).UnsafeCheckOpRaw(ctx, req.(*UnsafeCheckOpRawRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _OpsManagerService_UnsafeCheckOpRawNoThrow_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(UnsafeCheckOpRawNoThrowRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(OpsManagerServiceServer).UnsafeCheckOpRawNoThrow(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: OpsManagerService_UnsafeCheckOpRawNoThrow_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(OpsManagerServiceServer).UnsafeCheckOpRawNoThrow(ctx, req.(*UnsafeCheckOpRawNoThrowRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _OpsManagerService_PermissionToOp_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(PermissionToOpRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(OpsManagerServiceServer).PermissionToOp(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: OpsManagerService_PermissionToOp_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(OpsManagerServiceServer).PermissionToOp(ctx, req.(*PermissionToOpRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// OpsManagerService_ServiceDesc is the grpc.ServiceDesc for OpsManagerService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var OpsManagerService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "app.OpsManagerService",
-	HandlerType: (*OpsManagerServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "CheckOp3",
-			Handler:    _OpsManagerService_CheckOp3_Handler,
-		},
-		{
-			MethodName: "CheckOp4_1",
-			Handler:    _OpsManagerService_CheckOp4_1_Handler,
-		},
-		{
-			MethodName: "CheckOpNoThrow3",
-			Handler:    _OpsManagerService_CheckOpNoThrow3_Handler,
-		},
-		{
-			MethodName: "CheckOpNoThrow4_1",
-			Handler:    _OpsManagerService_CheckOpNoThrow4_1_Handler,
-		},
-		{
-			MethodName: "CheckOpRawNoThrow",
-			Handler:    _OpsManagerService_CheckOpRawNoThrow_Handler,
-		},
-		{
-			MethodName: "CheckPackage",
-			Handler:    _OpsManagerService_CheckPackage_Handler,
-		},
-		{
-			MethodName: "FinishOp3",
-			Handler:    _OpsManagerService_FinishOp3_Handler,
-		},
-		{
-			MethodName: "FinishOp4_1",
-			Handler:    _OpsManagerService_FinishOp4_1_Handler,
-		},
-		{
-			MethodName: "FinishProxyOp",
-			Handler:    _OpsManagerService_FinishProxyOp_Handler,
-		},
-		{
-			MethodName: "IsOpActive",
-			Handler:    _OpsManagerService_IsOpActive_Handler,
-		},
-		{
-			MethodName: "NoteOp3",
-			Handler:    _OpsManagerService_NoteOp3_Handler,
-		},
-		{
-			MethodName: "NoteOp5_1",
-			Handler:    _OpsManagerService_NoteOp5_1_Handler,
-		},
-		{
-			MethodName: "NoteOpNoThrow3",
-			Handler:    _OpsManagerService_NoteOpNoThrow3_Handler,
-		},
-		{
-			MethodName: "NoteOpNoThrow5_1",
-			Handler:    _OpsManagerService_NoteOpNoThrow5_1_Handler,
-		},
-		{
-			MethodName: "NoteProxyOp2",
-			Handler:    _OpsManagerService_NoteProxyOp2_Handler,
-		},
-		{
-			MethodName: "NoteProxyOp5_1",
-			Handler:    _OpsManagerService_NoteProxyOp5_1_Handler,
-		},
-		{
-			MethodName: "NoteProxyOpNoThrow2",
-			Handler:    _OpsManagerService_NoteProxyOpNoThrow2_Handler,
-		},
-		{
-			MethodName: "NoteProxyOpNoThrow3_1",
-			Handler:    _OpsManagerService_NoteProxyOpNoThrow3_1_Handler,
-		},
-		{
-			MethodName: "NoteProxyOpNoThrow5_2",
-			Handler:    _OpsManagerService_NoteProxyOpNoThrow5_2_Handler,
-		},
-		{
-			MethodName: "SetOnOpNotedCallback2",
-			Handler:    _OpsManagerService_SetOnOpNotedCallback2_Handler,
-		},
-		{
-			MethodName: "SetOnOpNotedCallback3_1",
-			Handler:    _OpsManagerService_SetOnOpNotedCallback3_1_Handler,
-		},
-		{
-			MethodName: "StartOp3",
-			Handler:    _OpsManagerService_StartOp3_Handler,
-		},
-		{
-			MethodName: "StartOp5_1",
-			Handler:    _OpsManagerService_StartOp5_1_Handler,
-		},
-		{
-			MethodName: "StartOpNoThrow3",
-			Handler:    _OpsManagerService_StartOpNoThrow3_Handler,
-		},
-		{
-			MethodName: "StartOpNoThrow5_1",
-			Handler:    _OpsManagerService_StartOpNoThrow5_1_Handler,
-		},
-		{
-			MethodName: "StartProxyOp",
-			Handler:    _OpsManagerService_StartProxyOp_Handler,
-		},
-		{
-			MethodName: "StartProxyOpNoThrow",
-			Handler:    _OpsManagerService_StartProxyOpNoThrow_Handler,
-		},
-		{
-			MethodName: "StartWatchingActive",
-			Handler:    _OpsManagerService_StartWatchingActive_Handler,
-		},
-		{
-			MethodName: "StartWatchingMode3",
-			Handler:    _OpsManagerService_StartWatchingMode3_Handler,
-		},
-		{
-			MethodName: "StartWatchingMode4_1",
-			Handler:    _OpsManagerService_StartWatchingMode4_1_Handler,
-		},
-		{
-			MethodName: "StopWatchingActive",
-			Handler:    _OpsManagerService_StopWatchingActive_Handler,
-		},
-		{
-			MethodName: "StopWatchingMode",
-			Handler:    _OpsManagerService_StopWatchingMode_Handler,
-		},
-		{
-			MethodName: "UnsafeCheckOp",
-			Handler:    _OpsManagerService_UnsafeCheckOp_Handler,
-		},
-		{
-			MethodName: "UnsafeCheckOpNoThrow",
-			Handler:    _OpsManagerService_UnsafeCheckOpNoThrow_Handler,
-		},
-		{
-			MethodName: "UnsafeCheckOpRaw",
-			Handler:    _OpsManagerService_UnsafeCheckOpRaw_Handler,
-		},
-		{
-			MethodName: "UnsafeCheckOpRawNoThrow",
-			Handler:    _OpsManagerService_UnsafeCheckOpRawNoThrow_Handler,
-		},
-		{
-			MethodName: "PermissionToOp",
-			Handler:    _OpsManagerService_PermissionToOp_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/app/app.proto",
-}
-
-const (
-	StatusBarManagerService_CanLaunchCaptureContentActivityForNote_FullMethodName = "/app.StatusBarManagerService/CanLaunchCaptureContentActivityForNote"
-)
-
-// StatusBarManagerServiceClient is the client API for StatusBarManagerService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type StatusBarManagerServiceClient interface {
-	CanLaunchCaptureContentActivityForNote(ctx context.Context, in *CanLaunchCaptureContentActivityForNoteRequest, opts ...grpc.CallOption) (*CanLaunchCaptureContentActivityForNoteResponse, error)
-}
-
-type statusBarManagerServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewStatusBarManagerServiceClient(cc grpc.ClientConnInterface) StatusBarManagerServiceClient {
-	return &statusBarManagerServiceClient{cc}
-}
-
-func (c *statusBarManagerServiceClient) CanLaunchCaptureContentActivityForNote(ctx context.Context, in *CanLaunchCaptureContentActivityForNoteRequest, opts ...grpc.CallOption) (*CanLaunchCaptureContentActivityForNoteResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(CanLaunchCaptureContentActivityForNoteResponse)
-	err := c.cc.Invoke(ctx, StatusBarManagerService_CanLaunchCaptureContentActivityForNote_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// StatusBarManagerServiceServer is the server API for StatusBarManagerService service.
-// All implementations must embed UnimplementedStatusBarManagerServiceServer
-// for forward compatibility.
-type StatusBarManagerServiceServer interface {
-	CanLaunchCaptureContentActivityForNote(context.Context, *CanLaunchCaptureContentActivityForNoteRequest) (*CanLaunchCaptureContentActivityForNoteResponse, error)
-	mustEmbedUnimplementedStatusBarManagerServiceServer()
-}
-
-// UnimplementedStatusBarManagerServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedStatusBarManagerServiceServer struct{}
-
-func (UnimplementedStatusBarManagerServiceServer) CanLaunchCaptureContentActivityForNote(context.Context, *CanLaunchCaptureContentActivityForNoteRequest) (*CanLaunchCaptureContentActivityForNoteResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method CanLaunchCaptureContentActivityForNote not implemented")
-}
-func (UnimplementedStatusBarManagerServiceServer) mustEmbedUnimplementedStatusBarManagerServiceServer() {
-}
-func (UnimplementedStatusBarManagerServiceServer) testEmbeddedByValue() {}
-
-// UnsafeStatusBarManagerServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to StatusBarManagerServiceServer will
-// result in compilation errors.
-type UnsafeStatusBarManagerServiceServer interface {
-	mustEmbedUnimplementedStatusBarManagerServiceServer()
-}
-
-func RegisterStatusBarManagerServiceServer(s grpc.ServiceRegistrar, srv StatusBarManagerServiceServer) {
-	// If the following call panics, it indicates UnimplementedStatusBarManagerServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&StatusBarManagerService_ServiceDesc, srv)
-}
-
-func _StatusBarManagerService_CanLaunchCaptureContentActivityForNote_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(CanLaunchCaptureContentActivityForNoteRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(StatusBarManagerServiceServer).CanLaunchCaptureContentActivityForNote(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: StatusBarManagerService_CanLaunchCaptureContentActivityForNote_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(StatusBarManagerServiceServer).CanLaunchCaptureContentActivityForNote(ctx, req.(*CanLaunchCaptureContentActivityForNoteRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// StatusBarManagerService_ServiceDesc is the grpc.ServiceDesc for StatusBarManagerService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var StatusBarManagerService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "app.StatusBarManagerService",
-	HandlerType: (*StatusBarManagerServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "CanLaunchCaptureContentActivityForNote",
-			Handler:    _StatusBarManagerService_CanLaunchCaptureContentActivityForNote_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/app/app.proto",
-}
-
-const (
-	ActivityManagerService_AddAppTask_FullMethodName                      = "/app.ActivityManagerService/AddAppTask"
-	ActivityManagerService_AddStartInfoTimestamp_FullMethodName           = "/app.ActivityManagerService/AddStartInfoTimestamp"
-	ActivityManagerService_AppNotResponding_FullMethodName                = "/app.ActivityManagerService/AppNotResponding"
-	ActivityManagerService_ClearApplicationUserData_FullMethodName        = "/app.ActivityManagerService/ClearApplicationUserData"
-	ActivityManagerService_ClearWatchHeapLimit_FullMethodName             = "/app.ActivityManagerService/ClearWatchHeapLimit"
-	ActivityManagerService_DumpPackageState_FullMethodName                = "/app.ActivityManagerService/DumpPackageState"
-	ActivityManagerService_GetAppTaskThumbnailSize_FullMethodName         = "/app.ActivityManagerService/GetAppTaskThumbnailSize"
-	ActivityManagerService_GetDeviceConfigurationInfo_FullMethodName      = "/app.ActivityManagerService/GetDeviceConfigurationInfo"
-	ActivityManagerService_GetLargeMemoryClass_FullMethodName             = "/app.ActivityManagerService/GetLargeMemoryClass"
-	ActivityManagerService_GetLauncherLargeIconDensity_FullMethodName     = "/app.ActivityManagerService/GetLauncherLargeIconDensity"
-	ActivityManagerService_GetLauncherLargeIconSize_FullMethodName        = "/app.ActivityManagerService/GetLauncherLargeIconSize"
-	ActivityManagerService_GetLockTaskModeState_FullMethodName            = "/app.ActivityManagerService/GetLockTaskModeState"
-	ActivityManagerService_GetMemoryClass_FullMethodName                  = "/app.ActivityManagerService/GetMemoryClass"
-	ActivityManagerService_GetMemoryInfo_FullMethodName                   = "/app.ActivityManagerService/GetMemoryInfo"
-	ActivityManagerService_GetProcessMemoryInfo_FullMethodName            = "/app.ActivityManagerService/GetProcessMemoryInfo"
-	ActivityManagerService_GetRunningServiceControlPanel_FullMethodName   = "/app.ActivityManagerService/GetRunningServiceControlPanel"
-	ActivityManagerService_IsActivityStartAllowedOnDisplay_FullMethodName = "/app.ActivityManagerService/IsActivityStartAllowedOnDisplay"
-	ActivityManagerService_IsBackgroundRestricted_FullMethodName          = "/app.ActivityManagerService/IsBackgroundRestricted"
-	ActivityManagerService_IsInLockTaskMode_FullMethodName                = "/app.ActivityManagerService/IsInLockTaskMode"
-	ActivityManagerService_IsLowRamDevice_FullMethodName                  = "/app.ActivityManagerService/IsLowRamDevice"
-	ActivityManagerService_KillBackgroundProcesses_FullMethodName         = "/app.ActivityManagerService/KillBackgroundProcesses"
-	ActivityManagerService_MoveTaskToFront2_FullMethodName                = "/app.ActivityManagerService/MoveTaskToFront2"
-	ActivityManagerService_MoveTaskToFront3_1_FullMethodName              = "/app.ActivityManagerService/MoveTaskToFront3_1"
-	ActivityManagerService_RestartPackage_FullMethodName                  = "/app.ActivityManagerService/RestartPackage"
-	ActivityManagerService_SetProcessStateSummary_FullMethodName          = "/app.ActivityManagerService/SetProcessStateSummary"
-	ActivityManagerService_SetWatchHeapLimit_FullMethodName               = "/app.ActivityManagerService/SetWatchHeapLimit"
-	ActivityManagerService_GetMyMemoryState_FullMethodName                = "/app.ActivityManagerService/GetMyMemoryState"
-	ActivityManagerService_IsLowMemoryKillReportSupported_FullMethodName  = "/app.ActivityManagerService/IsLowMemoryKillReportSupported"
-	ActivityManagerService_IsRunningInTestHarness_FullMethodName          = "/app.ActivityManagerService/IsRunningInTestHarness"
-	ActivityManagerService_IsRunningInUserTestHarness_FullMethodName      = "/app.ActivityManagerService/IsRunningInUserTestHarness"
-	ActivityManagerService_IsUserAMonkey_FullMethodName                   = "/app.ActivityManagerService/IsUserAMonkey"
-	ActivityManagerService_SetVrThread_FullMethodName                     = "/app.ActivityManagerService/SetVrThread"
-)
-
-// ActivityManagerServiceClient is the client API for ActivityManagerService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type ActivityManagerServiceClient interface {
-	AddAppTask(ctx context.Context, in *AddAppTaskRequest, opts ...grpc.CallOption) (*AddAppTaskResponse, error)
-	AddStartInfoTimestamp(ctx context.Context, in *AddStartInfoTimestampRequest, opts ...grpc.CallOption) (*AddStartInfoTimestampResponse, error)
-	AppNotResponding(ctx context.Context, in *AppNotRespondingRequest, opts ...grpc.CallOption) (*AppNotRespondingResponse, error)
-	ClearApplicationUserData(ctx context.Context, in *ClearApplicationUserDataRequest, opts ...grpc.CallOption) (*ClearApplicationUserDataResponse, error)
-	ClearWatchHeapLimit(ctx context.Context, in *ClearWatchHeapLimitRequest, opts ...grpc.CallOption) (*ClearWatchHeapLimitResponse, error)
-	DumpPackageState(ctx context.Context, in *DumpPackageStateRequest, opts ...grpc.CallOption) (*DumpPackageStateResponse, error)
-	GetAppTaskThumbnailSize(ctx context.Context, in *GetAppTaskThumbnailSizeRequest, opts ...grpc.CallOption) (*GetAppTaskThumbnailSizeResponse, error)
-	GetDeviceConfigurationInfo(ctx context.Context, in *GetDeviceConfigurationInfoRequest, opts ...grpc.CallOption) (*GetDeviceConfigurationInfoResponse, error)
-	GetLargeMemoryClass(ctx context.Context, in *GetLargeMemoryClassRequest, opts ...grpc.CallOption) (*GetLargeMemoryClassResponse, error)
-	GetLauncherLargeIconDensity(ctx context.Context, in *GetLauncherLargeIconDensityRequest, opts ...grpc.CallOption) (*GetLauncherLargeIconDensityResponse, error)
-	GetLauncherLargeIconSize(ctx context.Context, in *GetLauncherLargeIconSizeRequest, opts ...grpc.CallOption) (*GetLauncherLargeIconSizeResponse, error)
-	GetLockTaskModeState(ctx context.Context, in *GetLockTaskModeStateRequest, opts ...grpc.CallOption) (*GetLockTaskModeStateResponse, error)
-	GetMemoryClass(ctx context.Context, in *GetMemoryClassRequest, opts ...grpc.CallOption) (*GetMemoryClassResponse, error)
-	GetMemoryInfo(ctx context.Context, in *GetMemoryInfoRequest, opts ...grpc.CallOption) (*GetMemoryInfoResponse, error)
-	GetProcessMemoryInfo(ctx context.Context, in *GetProcessMemoryInfoRequest, opts ...grpc.CallOption) (*GetProcessMemoryInfoResponse, error)
-	GetRunningServiceControlPanel(ctx context.Context, in *GetRunningServiceControlPanelRequest, opts ...grpc.CallOption) (*GetRunningServiceControlPanelResponse, error)
-	IsActivityStartAllowedOnDisplay(ctx context.Context, in *IsActivityStartAllowedOnDisplayRequest, opts ...grpc.CallOption) (*IsActivityStartAllowedOnDisplayResponse, error)
-	IsBackgroundRestricted(ctx context.Context, in *IsBackgroundRestrictedRequest, opts ...grpc.CallOption) (*IsBackgroundRestrictedResponse, error)
-	IsInLockTaskMode(ctx context.Context, in *IsInLockTaskModeRequest, opts ...grpc.CallOption) (*IsInLockTaskModeResponse, error)
-	IsLowRamDevice(ctx context.Context, in *IsLowRamDeviceRequest, opts ...grpc.CallOption) (*IsLowRamDeviceResponse, error)
-	KillBackgroundProcesses(ctx context.Context, in *KillBackgroundProcessesRequest, opts ...grpc.CallOption) (*KillBackgroundProcessesResponse, error)
-	MoveTaskToFront2(ctx context.Context, in *MoveTaskToFront2Request, opts ...grpc.CallOption) (*MoveTaskToFront2Response, error)
-	MoveTaskToFront3_1(ctx context.Context, in *MoveTaskToFront3_1Request, opts ...grpc.CallOption) (*MoveTaskToFront3_1Response, error)
-	RestartPackage(ctx context.Context, in *RestartPackageRequest, opts ...grpc.CallOption) (*RestartPackageResponse, error)
-	SetProcessStateSummary(ctx context.Context, in *SetProcessStateSummaryRequest, opts ...grpc.CallOption) (*SetProcessStateSummaryResponse, error)
-	SetWatchHeapLimit(ctx context.Context, in *SetWatchHeapLimitRequest, opts ...grpc.CallOption) (*SetWatchHeapLimitResponse, error)
-	GetMyMemoryState(ctx context.Context, in *GetMyMemoryStateRequest, opts ...grpc.CallOption) (*GetMyMemoryStateResponse, error)
-	IsLowMemoryKillReportSupported(ctx context.Context, in *IsLowMemoryKillReportSupportedRequest, opts ...grpc.CallOption) (*IsLowMemoryKillReportSupportedResponse, error)
-	IsRunningInTestHarness(ctx context.Context, in *IsRunningInTestHarnessRequest, opts ...grpc.CallOption) (*IsRunningInTestHarnessResponse, error)
-	IsRunningInUserTestHarness(ctx context.Context, in *IsRunningInUserTestHarnessRequest, opts ...grpc.CallOption) (*IsRunningInUserTestHarnessResponse, error)
-	IsUserAMonkey(ctx context.Context, in *IsUserAMonkeyRequest, opts ...grpc.CallOption) (*IsUserAMonkeyResponse, error)
-	SetVrThread(ctx context.Context, in *SetVrThreadRequest, opts ...grpc.CallOption) (*SetVrThreadResponse, error)
-}
-
-type activityManagerServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewActivityManagerServiceClient(cc grpc.ClientConnInterface) ActivityManagerServiceClient {
-	return &activityManagerServiceClient{cc}
-}
-
-func (c *activityManagerServiceClient) AddAppTask(ctx context.Context, in *AddAppTaskRequest, opts ...grpc.CallOption) (*AddAppTaskResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(AddAppTaskResponse)
-	err := c.cc.Invoke(ctx, ActivityManagerService_AddAppTask_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *activityManagerServiceClient) AddStartInfoTimestamp(ctx context.Context, in *AddStartInfoTimestampRequest, opts ...grpc.CallOption) (*AddStartInfoTimestampResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(AddStartInfoTimestampResponse)
-	err := c.cc.Invoke(ctx, ActivityManagerService_AddStartInfoTimestamp_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *activityManagerServiceClient) AppNotResponding(ctx context.Context, in *AppNotRespondingRequest, opts ...grpc.CallOption) (*AppNotRespondingResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(AppNotRespondingResponse)
-	err := c.cc.Invoke(ctx, ActivityManagerService_AppNotResponding_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *activityManagerServiceClient) ClearApplicationUserData(ctx context.Context, in *ClearApplicationUserDataRequest, opts ...grpc.CallOption) (*ClearApplicationUserDataResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ClearApplicationUserDataResponse)
-	err := c.cc.Invoke(ctx, ActivityManagerService_ClearApplicationUserData_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *activityManagerServiceClient) ClearWatchHeapLimit(ctx context.Context, in *ClearWatchHeapLimitRequest, opts ...grpc.CallOption) (*ClearWatchHeapLimitResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ClearWatchHeapLimitResponse)
-	err := c.cc.Invoke(ctx, ActivityManagerService_ClearWatchHeapLimit_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *activityManagerServiceClient) DumpPackageState(ctx context.Context, in *DumpPackageStateRequest, opts ...grpc.CallOption) (*DumpPackageStateResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(DumpPackageStateResponse)
-	err := c.cc.Invoke(ctx, ActivityManagerService_DumpPackageState_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *activityManagerServiceClient) GetAppTaskThumbnailSize(ctx context.Context, in *GetAppTaskThumbnailSizeRequest, opts ...grpc.CallOption) (*GetAppTaskThumbnailSizeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetAppTaskThumbnailSizeResponse)
-	err := c.cc.Invoke(ctx, ActivityManagerService_GetAppTaskThumbnailSize_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *activityManagerServiceClient) GetDeviceConfigurationInfo(ctx context.Context, in *GetDeviceConfigurationInfoRequest, opts ...grpc.CallOption) (*GetDeviceConfigurationInfoResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetDeviceConfigurationInfoResponse)
-	err := c.cc.Invoke(ctx, ActivityManagerService_GetDeviceConfigurationInfo_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *activityManagerServiceClient) GetLargeMemoryClass(ctx context.Context, in *GetLargeMemoryClassRequest, opts ...grpc.CallOption) (*GetLargeMemoryClassResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetLargeMemoryClassResponse)
-	err := c.cc.Invoke(ctx, ActivityManagerService_GetLargeMemoryClass_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *activityManagerServiceClient) GetLauncherLargeIconDensity(ctx context.Context, in *GetLauncherLargeIconDensityRequest, opts ...grpc.CallOption) (*GetLauncherLargeIconDensityResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetLauncherLargeIconDensityResponse)
-	err := c.cc.Invoke(ctx, ActivityManagerService_GetLauncherLargeIconDensity_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *activityManagerServiceClient) GetLauncherLargeIconSize(ctx context.Context, in *GetLauncherLargeIconSizeRequest, opts ...grpc.CallOption) (*GetLauncherLargeIconSizeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetLauncherLargeIconSizeResponse)
-	err := c.cc.Invoke(ctx, ActivityManagerService_GetLauncherLargeIconSize_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *activityManagerServiceClient) GetLockTaskModeState(ctx context.Context, in *GetLockTaskModeStateRequest, opts ...grpc.CallOption) (*GetLockTaskModeStateResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetLockTaskModeStateResponse)
-	err := c.cc.Invoke(ctx, ActivityManagerService_GetLockTaskModeState_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *activityManagerServiceClient) GetMemoryClass(ctx context.Context, in *GetMemoryClassRequest, opts ...grpc.CallOption) (*GetMemoryClassResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetMemoryClassResponse)
-	err := c.cc.Invoke(ctx, ActivityManagerService_GetMemoryClass_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *activityManagerServiceClient) GetMemoryInfo(ctx context.Context, in *GetMemoryInfoRequest, opts ...grpc.CallOption) (*GetMemoryInfoResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetMemoryInfoResponse)
-	err := c.cc.Invoke(ctx, ActivityManagerService_GetMemoryInfo_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *activityManagerServiceClient) GetProcessMemoryInfo(ctx context.Context, in *GetProcessMemoryInfoRequest, opts ...grpc.CallOption) (*GetProcessMemoryInfoResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetProcessMemoryInfoResponse)
-	err := c.cc.Invoke(ctx, ActivityManagerService_GetProcessMemoryInfo_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *activityManagerServiceClient) GetRunningServiceControlPanel(ctx context.Context, in *GetRunningServiceControlPanelRequest, opts ...grpc.CallOption) (*GetRunningServiceControlPanelResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetRunningServiceControlPanelResponse)
-	err := c.cc.Invoke(ctx, ActivityManagerService_GetRunningServiceControlPanel_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *activityManagerServiceClient) IsActivityStartAllowedOnDisplay(ctx context.Context, in *IsActivityStartAllowedOnDisplayRequest, opts ...grpc.CallOption) (*IsActivityStartAllowedOnDisplayResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(IsActivityStartAllowedOnDisplayResponse)
-	err := c.cc.Invoke(ctx, ActivityManagerService_IsActivityStartAllowedOnDisplay_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *activityManagerServiceClient) IsBackgroundRestricted(ctx context.Context, in *IsBackgroundRestrictedRequest, opts ...grpc.CallOption) (*IsBackgroundRestrictedResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(IsBackgroundRestrictedResponse)
-	err := c.cc.Invoke(ctx, ActivityManagerService_IsBackgroundRestricted_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *activityManagerServiceClient) IsInLockTaskMode(ctx context.Context, in *IsInLockTaskModeRequest, opts ...grpc.CallOption) (*IsInLockTaskModeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(IsInLockTaskModeResponse)
-	err := c.cc.Invoke(ctx, ActivityManagerService_IsInLockTaskMode_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *activityManagerServiceClient) IsLowRamDevice(ctx context.Context, in *IsLowRamDeviceRequest, opts ...grpc.CallOption) (*IsLowRamDeviceResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(IsLowRamDeviceResponse)
-	err := c.cc.Invoke(ctx, ActivityManagerService_IsLowRamDevice_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *activityManagerServiceClient) KillBackgroundProcesses(ctx context.Context, in *KillBackgroundProcessesRequest, opts ...grpc.CallOption) (*KillBackgroundProcessesResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(KillBackgroundProcessesResponse)
-	err := c.cc.Invoke(ctx, ActivityManagerService_KillBackgroundProcesses_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *activityManagerServiceClient) MoveTaskToFront2(ctx context.Context, in *MoveTaskToFront2Request, opts ...grpc.CallOption) (*MoveTaskToFront2Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(MoveTaskToFront2Response)
-	err := c.cc.Invoke(ctx, ActivityManagerService_MoveTaskToFront2_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *activityManagerServiceClient) MoveTaskToFront3_1(ctx context.Context, in *MoveTaskToFront3_1Request, opts ...grpc.CallOption) (*MoveTaskToFront3_1Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(MoveTaskToFront3_1Response)
-	err := c.cc.Invoke(ctx, ActivityManagerService_MoveTaskToFront3_1_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *activityManagerServiceClient) RestartPackage(ctx context.Context, in *RestartPackageRequest, opts ...grpc.CallOption) (*RestartPackageResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(RestartPackageResponse)
-	err := c.cc.Invoke(ctx, ActivityManagerService_RestartPackage_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *activityManagerServiceClient) SetProcessStateSummary(ctx context.Context, in *SetProcessStateSummaryRequest, opts ...grpc.CallOption) (*SetProcessStateSummaryResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetProcessStateSummaryResponse)
-	err := c.cc.Invoke(ctx, ActivityManagerService_SetProcessStateSummary_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *activityManagerServiceClient) SetWatchHeapLimit(ctx context.Context, in *SetWatchHeapLimitRequest, opts ...grpc.CallOption) (*SetWatchHeapLimitResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetWatchHeapLimitResponse)
-	err := c.cc.Invoke(ctx, ActivityManagerService_SetWatchHeapLimit_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *activityManagerServiceClient) GetMyMemoryState(ctx context.Context, in *GetMyMemoryStateRequest, opts ...grpc.CallOption) (*GetMyMemoryStateResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetMyMemoryStateResponse)
-	err := c.cc.Invoke(ctx, ActivityManagerService_GetMyMemoryState_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *activityManagerServiceClient) IsLowMemoryKillReportSupported(ctx context.Context, in *IsLowMemoryKillReportSupportedRequest, opts ...grpc.CallOption) (*IsLowMemoryKillReportSupportedResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(IsLowMemoryKillReportSupportedResponse)
-	err := c.cc.Invoke(ctx, ActivityManagerService_IsLowMemoryKillReportSupported_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *activityManagerServiceClient) IsRunningInTestHarness(ctx context.Context, in *IsRunningInTestHarnessRequest, opts ...grpc.CallOption) (*IsRunningInTestHarnessResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(IsRunningInTestHarnessResponse)
-	err := c.cc.Invoke(ctx, ActivityManagerService_IsRunningInTestHarness_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *activityManagerServiceClient) IsRunningInUserTestHarness(ctx context.Context, in *IsRunningInUserTestHarnessRequest, opts ...grpc.CallOption) (*IsRunningInUserTestHarnessResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(IsRunningInUserTestHarnessResponse)
-	err := c.cc.Invoke(ctx, ActivityManagerService_IsRunningInUserTestHarness_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *activityManagerServiceClient) IsUserAMonkey(ctx context.Context, in *IsUserAMonkeyRequest, opts ...grpc.CallOption) (*IsUserAMonkeyResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(IsUserAMonkeyResponse)
-	err := c.cc.Invoke(ctx, ActivityManagerService_IsUserAMonkey_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *activityManagerServiceClient) SetVrThread(ctx context.Context, in *SetVrThreadRequest, opts ...grpc.CallOption) (*SetVrThreadResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetVrThreadResponse)
-	err := c.cc.Invoke(ctx, ActivityManagerService_SetVrThread_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// ActivityManagerServiceServer is the server API for ActivityManagerService service.
-// All implementations must embed UnimplementedActivityManagerServiceServer
-// for forward compatibility.
-type ActivityManagerServiceServer interface {
-	AddAppTask(context.Context, *AddAppTaskRequest) (*AddAppTaskResponse, error)
-	AddStartInfoTimestamp(context.Context, *AddStartInfoTimestampRequest) (*AddStartInfoTimestampResponse, error)
-	AppNotResponding(context.Context, *AppNotRespondingRequest) (*AppNotRespondingResponse, error)
-	ClearApplicationUserData(context.Context, *ClearApplicationUserDataRequest) (*ClearApplicationUserDataResponse, error)
-	ClearWatchHeapLimit(context.Context, *ClearWatchHeapLimitRequest) (*ClearWatchHeapLimitResponse, error)
-	DumpPackageState(context.Context, *DumpPackageStateRequest) (*DumpPackageStateResponse, error)
-	GetAppTaskThumbnailSize(context.Context, *GetAppTaskThumbnailSizeRequest) (*GetAppTaskThumbnailSizeResponse, error)
-	GetDeviceConfigurationInfo(context.Context, *GetDeviceConfigurationInfoRequest) (*GetDeviceConfigurationInfoResponse, error)
-	GetLargeMemoryClass(context.Context, *GetLargeMemoryClassRequest) (*GetLargeMemoryClassResponse, error)
-	GetLauncherLargeIconDensity(context.Context, *GetLauncherLargeIconDensityRequest) (*GetLauncherLargeIconDensityResponse, error)
-	GetLauncherLargeIconSize(context.Context, *GetLauncherLargeIconSizeRequest) (*GetLauncherLargeIconSizeResponse, error)
-	GetLockTaskModeState(context.Context, *GetLockTaskModeStateRequest) (*GetLockTaskModeStateResponse, error)
-	GetMemoryClass(context.Context, *GetMemoryClassRequest) (*GetMemoryClassResponse, error)
-	GetMemoryInfo(context.Context, *GetMemoryInfoRequest) (*GetMemoryInfoResponse, error)
-	GetProcessMemoryInfo(context.Context, *GetProcessMemoryInfoRequest) (*GetProcessMemoryInfoResponse, error)
-	GetRunningServiceControlPanel(context.Context, *GetRunningServiceControlPanelRequest) (*GetRunningServiceControlPanelResponse, error)
-	IsActivityStartAllowedOnDisplay(context.Context, *IsActivityStartAllowedOnDisplayRequest) (*IsActivityStartAllowedOnDisplayResponse, error)
-	IsBackgroundRestricted(context.Context, *IsBackgroundRestrictedRequest) (*IsBackgroundRestrictedResponse, error)
-	IsInLockTaskMode(context.Context, *IsInLockTaskModeRequest) (*IsInLockTaskModeResponse, error)
-	IsLowRamDevice(context.Context, *IsLowRamDeviceRequest) (*IsLowRamDeviceResponse, error)
-	KillBackgroundProcesses(context.Context, *KillBackgroundProcessesRequest) (*KillBackgroundProcessesResponse, error)
-	MoveTaskToFront2(context.Context, *MoveTaskToFront2Request) (*MoveTaskToFront2Response, error)
-	MoveTaskToFront3_1(context.Context, *MoveTaskToFront3_1Request) (*MoveTaskToFront3_1Response, error)
-	RestartPackage(context.Context, *RestartPackageRequest) (*RestartPackageResponse, error)
-	SetProcessStateSummary(context.Context, *SetProcessStateSummaryRequest) (*SetProcessStateSummaryResponse, error)
-	SetWatchHeapLimit(context.Context, *SetWatchHeapLimitRequest) (*SetWatchHeapLimitResponse, error)
-	GetMyMemoryState(context.Context, *GetMyMemoryStateRequest) (*GetMyMemoryStateResponse, error)
-	IsLowMemoryKillReportSupported(context.Context, *IsLowMemoryKillReportSupportedRequest) (*IsLowMemoryKillReportSupportedResponse, error)
-	IsRunningInTestHarness(context.Context, *IsRunningInTestHarnessRequest) (*IsRunningInTestHarnessResponse, error)
-	IsRunningInUserTestHarness(context.Context, *IsRunningInUserTestHarnessRequest) (*IsRunningInUserTestHarnessResponse, error)
-	IsUserAMonkey(context.Context, *IsUserAMonkeyRequest) (*IsUserAMonkeyResponse, error)
-	SetVrThread(context.Context, *SetVrThreadRequest) (*SetVrThreadResponse, error)
-	mustEmbedUnimplementedActivityManagerServiceServer()
-}
-
-// UnimplementedActivityManagerServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedActivityManagerServiceServer struct{}
-
-func (UnimplementedActivityManagerServiceServer) AddAppTask(context.Context, *AddAppTaskRequest) (*AddAppTaskResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method AddAppTask not implemented")
-}
-func (UnimplementedActivityManagerServiceServer) AddStartInfoTimestamp(context.Context, *AddStartInfoTimestampRequest) (*AddStartInfoTimestampResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method AddStartInfoTimestamp not implemented")
-}
-func (UnimplementedActivityManagerServiceServer) AppNotResponding(context.Context, *AppNotRespondingRequest) (*AppNotRespondingResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method AppNotResponding not implemented")
-}
-func (UnimplementedActivityManagerServiceServer) ClearApplicationUserData(context.Context, *ClearApplicationUserDataRequest) (*ClearApplicationUserDataResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method ClearApplicationUserData not implemented")
-}
-func (UnimplementedActivityManagerServiceServer) ClearWatchHeapLimit(context.Context, *ClearWatchHeapLimitRequest) (*ClearWatchHeapLimitResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method ClearWatchHeapLimit not implemented")
-}
-func (UnimplementedActivityManagerServiceServer) DumpPackageState(context.Context, *DumpPackageStateRequest) (*DumpPackageStateResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method DumpPackageState not implemented")
-}
-func (UnimplementedActivityManagerServiceServer) GetAppTaskThumbnailSize(context.Context, *GetAppTaskThumbnailSizeRequest) (*GetAppTaskThumbnailSizeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetAppTaskThumbnailSize not implemented")
-}
-func (UnimplementedActivityManagerServiceServer) GetDeviceConfigurationInfo(context.Context, *GetDeviceConfigurationInfoRequest) (*GetDeviceConfigurationInfoResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetDeviceConfigurationInfo not implemented")
-}
-func (UnimplementedActivityManagerServiceServer) GetLargeMemoryClass(context.Context, *GetLargeMemoryClassRequest) (*GetLargeMemoryClassResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetLargeMemoryClass not implemented")
-}
-func (UnimplementedActivityManagerServiceServer) GetLauncherLargeIconDensity(context.Context, *GetLauncherLargeIconDensityRequest) (*GetLauncherLargeIconDensityResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetLauncherLargeIconDensity not implemented")
-}
-func (UnimplementedActivityManagerServiceServer) GetLauncherLargeIconSize(context.Context, *GetLauncherLargeIconSizeRequest) (*GetLauncherLargeIconSizeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetLauncherLargeIconSize not implemented")
-}
-func (UnimplementedActivityManagerServiceServer) GetLockTaskModeState(context.Context, *GetLockTaskModeStateRequest) (*GetLockTaskModeStateResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetLockTaskModeState not implemented")
-}
-func (UnimplementedActivityManagerServiceServer) GetMemoryClass(context.Context, *GetMemoryClassRequest) (*GetMemoryClassResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetMemoryClass not implemented")
-}
-func (UnimplementedActivityManagerServiceServer) GetMemoryInfo(context.Context, *GetMemoryInfoRequest) (*GetMemoryInfoResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetMemoryInfo not implemented")
-}
-func (UnimplementedActivityManagerServiceServer) GetProcessMemoryInfo(context.Context, *GetProcessMemoryInfoRequest) (*GetProcessMemoryInfoResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetProcessMemoryInfo not implemented")
-}
-func (UnimplementedActivityManagerServiceServer) GetRunningServiceControlPanel(context.Context, *GetRunningServiceControlPanelRequest) (*GetRunningServiceControlPanelResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetRunningServiceControlPanel not implemented")
-}
-func (UnimplementedActivityManagerServiceServer) IsActivityStartAllowedOnDisplay(context.Context, *IsActivityStartAllowedOnDisplayRequest) (*IsActivityStartAllowedOnDisplayResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method IsActivityStartAllowedOnDisplay not implemented")
-}
-func (UnimplementedActivityManagerServiceServer) IsBackgroundRestricted(context.Context, *IsBackgroundRestrictedRequest) (*IsBackgroundRestrictedResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method IsBackgroundRestricted not implemented")
-}
-func (UnimplementedActivityManagerServiceServer) IsInLockTaskMode(context.Context, *IsInLockTaskModeRequest) (*IsInLockTaskModeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method IsInLockTaskMode not implemented")
-}
-func (UnimplementedActivityManagerServiceServer) IsLowRamDevice(context.Context, *IsLowRamDeviceRequest) (*IsLowRamDeviceResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method IsLowRamDevice not implemented")
-}
-func (UnimplementedActivityManagerServiceServer) KillBackgroundProcesses(context.Context, *KillBackgroundProcessesRequest) (*KillBackgroundProcessesResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method KillBackgroundProcesses not implemented")
-}
-func (UnimplementedActivityManagerServiceServer) MoveTaskToFront2(context.Context, *MoveTaskToFront2Request) (*MoveTaskToFront2Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method MoveTaskToFront2 not implemented")
-}
-func (UnimplementedActivityManagerServiceServer) MoveTaskToFront3_1(context.Context, *MoveTaskToFront3_1Request) (*MoveTaskToFront3_1Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method MoveTaskToFront3_1 not implemented")
-}
-func (UnimplementedActivityManagerServiceServer) RestartPackage(context.Context, *RestartPackageRequest) (*RestartPackageResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method RestartPackage not implemented")
-}
-func (UnimplementedActivityManagerServiceServer) SetProcessStateSummary(context.Context, *SetProcessStateSummaryRequest) (*SetProcessStateSummaryResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetProcessStateSummary not implemented")
-}
-func (UnimplementedActivityManagerServiceServer) SetWatchHeapLimit(context.Context, *SetWatchHeapLimitRequest) (*SetWatchHeapLimitResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetWatchHeapLimit not implemented")
-}
-func (UnimplementedActivityManagerServiceServer) GetMyMemoryState(context.Context, *GetMyMemoryStateRequest) (*GetMyMemoryStateResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetMyMemoryState not implemented")
-}
-func (UnimplementedActivityManagerServiceServer) IsLowMemoryKillReportSupported(context.Context, *IsLowMemoryKillReportSupportedRequest) (*IsLowMemoryKillReportSupportedResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method IsLowMemoryKillReportSupported not implemented")
-}
-func (UnimplementedActivityManagerServiceServer) IsRunningInTestHarness(context.Context, *IsRunningInTestHarnessRequest) (*IsRunningInTestHarnessResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method IsRunningInTestHarness not implemented")
-}
-func (UnimplementedActivityManagerServiceServer) IsRunningInUserTestHarness(context.Context, *IsRunningInUserTestHarnessRequest) (*IsRunningInUserTestHarnessResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method IsRunningInUserTestHarness not implemented")
-}
-func (UnimplementedActivityManagerServiceServer) IsUserAMonkey(context.Context, *IsUserAMonkeyRequest) (*IsUserAMonkeyResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method IsUserAMonkey not implemented")
-}
-func (UnimplementedActivityManagerServiceServer) SetVrThread(context.Context, *SetVrThreadRequest) (*SetVrThreadResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetVrThread not implemented")
-}
-func (UnimplementedActivityManagerServiceServer) mustEmbedUnimplementedActivityManagerServiceServer() {
-}
-func (UnimplementedActivityManagerServiceServer) testEmbeddedByValue() {}
-
-// UnsafeActivityManagerServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to ActivityManagerServiceServer will
-// result in compilation errors.
-type UnsafeActivityManagerServiceServer interface {
-	mustEmbedUnimplementedActivityManagerServiceServer()
-}
-
-func RegisterActivityManagerServiceServer(s grpc.ServiceRegistrar, srv ActivityManagerServiceServer) {
-	// If the following call panics, it indicates UnimplementedActivityManagerServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&ActivityManagerService_ServiceDesc, srv)
-}
-
-func _ActivityManagerService_AddAppTask_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(AddAppTaskRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ActivityManagerServiceServer).AddAppTask(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ActivityManagerService_AddAppTask_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ActivityManagerServiceServer).AddAppTask(ctx, req.(*AddAppTaskRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ActivityManagerService_AddStartInfoTimestamp_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(AddStartInfoTimestampRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ActivityManagerServiceServer).AddStartInfoTimestamp(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ActivityManagerService_AddStartInfoTimestamp_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ActivityManagerServiceServer).AddStartInfoTimestamp(ctx, req.(*AddStartInfoTimestampRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ActivityManagerService_AppNotResponding_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(AppNotRespondingRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ActivityManagerServiceServer).AppNotResponding(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ActivityManagerService_AppNotResponding_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ActivityManagerServiceServer).AppNotResponding(ctx, req.(*AppNotRespondingRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ActivityManagerService_ClearApplicationUserData_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ClearApplicationUserDataRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ActivityManagerServiceServer).ClearApplicationUserData(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ActivityManagerService_ClearApplicationUserData_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ActivityManagerServiceServer).ClearApplicationUserData(ctx, req.(*ClearApplicationUserDataRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ActivityManagerService_ClearWatchHeapLimit_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ClearWatchHeapLimitRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ActivityManagerServiceServer).ClearWatchHeapLimit(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ActivityManagerService_ClearWatchHeapLimit_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ActivityManagerServiceServer).ClearWatchHeapLimit(ctx, req.(*ClearWatchHeapLimitRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ActivityManagerService_DumpPackageState_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(DumpPackageStateRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ActivityManagerServiceServer).DumpPackageState(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ActivityManagerService_DumpPackageState_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ActivityManagerServiceServer).DumpPackageState(ctx, req.(*DumpPackageStateRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ActivityManagerService_GetAppTaskThumbnailSize_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetAppTaskThumbnailSizeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ActivityManagerServiceServer).GetAppTaskThumbnailSize(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ActivityManagerService_GetAppTaskThumbnailSize_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ActivityManagerServiceServer).GetAppTaskThumbnailSize(ctx, req.(*GetAppTaskThumbnailSizeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ActivityManagerService_GetDeviceConfigurationInfo_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetDeviceConfigurationInfoRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ActivityManagerServiceServer).GetDeviceConfigurationInfo(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ActivityManagerService_GetDeviceConfigurationInfo_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ActivityManagerServiceServer).GetDeviceConfigurationInfo(ctx, req.(*GetDeviceConfigurationInfoRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ActivityManagerService_GetLargeMemoryClass_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetLargeMemoryClassRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ActivityManagerServiceServer).GetLargeMemoryClass(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ActivityManagerService_GetLargeMemoryClass_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ActivityManagerServiceServer).GetLargeMemoryClass(ctx, req.(*GetLargeMemoryClassRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ActivityManagerService_GetLauncherLargeIconDensity_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetLauncherLargeIconDensityRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ActivityManagerServiceServer).GetLauncherLargeIconDensity(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ActivityManagerService_GetLauncherLargeIconDensity_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ActivityManagerServiceServer).GetLauncherLargeIconDensity(ctx, req.(*GetLauncherLargeIconDensityRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ActivityManagerService_GetLauncherLargeIconSize_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetLauncherLargeIconSizeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ActivityManagerServiceServer).GetLauncherLargeIconSize(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ActivityManagerService_GetLauncherLargeIconSize_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ActivityManagerServiceServer).GetLauncherLargeIconSize(ctx, req.(*GetLauncherLargeIconSizeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ActivityManagerService_GetLockTaskModeState_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetLockTaskModeStateRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ActivityManagerServiceServer).GetLockTaskModeState(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ActivityManagerService_GetLockTaskModeState_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ActivityManagerServiceServer).GetLockTaskModeState(ctx, req.(*GetLockTaskModeStateRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ActivityManagerService_GetMemoryClass_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetMemoryClassRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ActivityManagerServiceServer).GetMemoryClass(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ActivityManagerService_GetMemoryClass_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ActivityManagerServiceServer).GetMemoryClass(ctx, req.(*GetMemoryClassRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ActivityManagerService_GetMemoryInfo_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetMemoryInfoRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ActivityManagerServiceServer).GetMemoryInfo(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ActivityManagerService_GetMemoryInfo_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ActivityManagerServiceServer).GetMemoryInfo(ctx, req.(*GetMemoryInfoRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ActivityManagerService_GetProcessMemoryInfo_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetProcessMemoryInfoRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ActivityManagerServiceServer).GetProcessMemoryInfo(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ActivityManagerService_GetProcessMemoryInfo_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ActivityManagerServiceServer).GetProcessMemoryInfo(ctx, req.(*GetProcessMemoryInfoRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ActivityManagerService_GetRunningServiceControlPanel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetRunningServiceControlPanelRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ActivityManagerServiceServer).GetRunningServiceControlPanel(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ActivityManagerService_GetRunningServiceControlPanel_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ActivityManagerServiceServer).GetRunningServiceControlPanel(ctx, req.(*GetRunningServiceControlPanelRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ActivityManagerService_IsActivityStartAllowedOnDisplay_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(IsActivityStartAllowedOnDisplayRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ActivityManagerServiceServer).IsActivityStartAllowedOnDisplay(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ActivityManagerService_IsActivityStartAllowedOnDisplay_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ActivityManagerServiceServer).IsActivityStartAllowedOnDisplay(ctx, req.(*IsActivityStartAllowedOnDisplayRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ActivityManagerService_IsBackgroundRestricted_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(IsBackgroundRestrictedRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ActivityManagerServiceServer).IsBackgroundRestricted(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ActivityManagerService_IsBackgroundRestricted_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ActivityManagerServiceServer).IsBackgroundRestricted(ctx, req.(*IsBackgroundRestrictedRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ActivityManagerService_IsInLockTaskMode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(IsInLockTaskModeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ActivityManagerServiceServer).IsInLockTaskMode(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ActivityManagerService_IsInLockTaskMode_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ActivityManagerServiceServer).IsInLockTaskMode(ctx, req.(*IsInLockTaskModeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ActivityManagerService_IsLowRamDevice_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(IsLowRamDeviceRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ActivityManagerServiceServer).IsLowRamDevice(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ActivityManagerService_IsLowRamDevice_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ActivityManagerServiceServer).IsLowRamDevice(ctx, req.(*IsLowRamDeviceRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ActivityManagerService_KillBackgroundProcesses_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(KillBackgroundProcessesRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ActivityManagerServiceServer).KillBackgroundProcesses(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ActivityManagerService_KillBackgroundProcesses_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ActivityManagerServiceServer).KillBackgroundProcesses(ctx, req.(*KillBackgroundProcessesRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ActivityManagerService_MoveTaskToFront2_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(MoveTaskToFront2Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ActivityManagerServiceServer).MoveTaskToFront2(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ActivityManagerService_MoveTaskToFront2_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ActivityManagerServiceServer).MoveTaskToFront2(ctx, req.(*MoveTaskToFront2Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ActivityManagerService_MoveTaskToFront3_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(MoveTaskToFront3_1Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ActivityManagerServiceServer).MoveTaskToFront3_1(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ActivityManagerService_MoveTaskToFront3_1_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ActivityManagerServiceServer).MoveTaskToFront3_1(ctx, req.(*MoveTaskToFront3_1Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ActivityManagerService_RestartPackage_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(RestartPackageRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ActivityManagerServiceServer).RestartPackage(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ActivityManagerService_RestartPackage_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ActivityManagerServiceServer).RestartPackage(ctx, req.(*RestartPackageRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ActivityManagerService_SetProcessStateSummary_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetProcessStateSummaryRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ActivityManagerServiceServer).SetProcessStateSummary(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ActivityManagerService_SetProcessStateSummary_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ActivityManagerServiceServer).SetProcessStateSummary(ctx, req.(*SetProcessStateSummaryRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ActivityManagerService_SetWatchHeapLimit_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetWatchHeapLimitRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ActivityManagerServiceServer).SetWatchHeapLimit(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ActivityManagerService_SetWatchHeapLimit_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ActivityManagerServiceServer).SetWatchHeapLimit(ctx, req.(*SetWatchHeapLimitRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ActivityManagerService_GetMyMemoryState_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetMyMemoryStateRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ActivityManagerServiceServer).GetMyMemoryState(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ActivityManagerService_GetMyMemoryState_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ActivityManagerServiceServer).GetMyMemoryState(ctx, req.(*GetMyMemoryStateRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ActivityManagerService_IsLowMemoryKillReportSupported_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(IsLowMemoryKillReportSupportedRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ActivityManagerServiceServer).IsLowMemoryKillReportSupported(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ActivityManagerService_IsLowMemoryKillReportSupported_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ActivityManagerServiceServer).IsLowMemoryKillReportSupported(ctx, req.(*IsLowMemoryKillReportSupportedRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ActivityManagerService_IsRunningInTestHarness_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(IsRunningInTestHarnessRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ActivityManagerServiceServer).IsRunningInTestHarness(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ActivityManagerService_IsRunningInTestHarness_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ActivityManagerServiceServer).IsRunningInTestHarness(ctx, req.(*IsRunningInTestHarnessRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ActivityManagerService_IsRunningInUserTestHarness_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(IsRunningInUserTestHarnessRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ActivityManagerServiceServer).IsRunningInUserTestHarness(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ActivityManagerService_IsRunningInUserTestHarness_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ActivityManagerServiceServer).IsRunningInUserTestHarness(ctx, req.(*IsRunningInUserTestHarnessRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ActivityManagerService_IsUserAMonkey_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(IsUserAMonkeyRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ActivityManagerServiceServer).IsUserAMonkey(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ActivityManagerService_IsUserAMonkey_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ActivityManagerServiceServer).IsUserAMonkey(ctx, req.(*IsUserAMonkeyRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ActivityManagerService_SetVrThread_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetVrThreadRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ActivityManagerServiceServer).SetVrThread(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ActivityManagerService_SetVrThread_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ActivityManagerServiceServer).SetVrThread(ctx, req.(*SetVrThreadRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// ActivityManagerService_ServiceDesc is the grpc.ServiceDesc for ActivityManagerService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var ActivityManagerService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "app.ActivityManagerService",
-	HandlerType: (*ActivityManagerServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "AddAppTask",
-			Handler:    _ActivityManagerService_AddAppTask_Handler,
-		},
-		{
-			MethodName: "AddStartInfoTimestamp",
-			Handler:    _ActivityManagerService_AddStartInfoTimestamp_Handler,
-		},
-		{
-			MethodName: "AppNotResponding",
-			Handler:    _ActivityManagerService_AppNotResponding_Handler,
-		},
-		{
-			MethodName: "ClearApplicationUserData",
-			Handler:    _ActivityManagerService_ClearApplicationUserData_Handler,
-		},
-		{
-			MethodName: "ClearWatchHeapLimit",
-			Handler:    _ActivityManagerService_ClearWatchHeapLimit_Handler,
-		},
-		{
-			MethodName: "DumpPackageState",
-			Handler:    _ActivityManagerService_DumpPackageState_Handler,
-		},
-		{
-			MethodName: "GetAppTaskThumbnailSize",
-			Handler:    _ActivityManagerService_GetAppTaskThumbnailSize_Handler,
-		},
-		{
-			MethodName: "GetDeviceConfigurationInfo",
-			Handler:    _ActivityManagerService_GetDeviceConfigurationInfo_Handler,
-		},
-		{
-			MethodName: "GetLargeMemoryClass",
-			Handler:    _ActivityManagerService_GetLargeMemoryClass_Handler,
-		},
-		{
-			MethodName: "GetLauncherLargeIconDensity",
-			Handler:    _ActivityManagerService_GetLauncherLargeIconDensity_Handler,
-		},
-		{
-			MethodName: "GetLauncherLargeIconSize",
-			Handler:    _ActivityManagerService_GetLauncherLargeIconSize_Handler,
-		},
-		{
-			MethodName: "GetLockTaskModeState",
-			Handler:    _ActivityManagerService_GetLockTaskModeState_Handler,
-		},
-		{
-			MethodName: "GetMemoryClass",
-			Handler:    _ActivityManagerService_GetMemoryClass_Handler,
-		},
-		{
-			MethodName: "GetMemoryInfo",
-			Handler:    _ActivityManagerService_GetMemoryInfo_Handler,
-		},
-		{
-			MethodName: "GetProcessMemoryInfo",
-			Handler:    _ActivityManagerService_GetProcessMemoryInfo_Handler,
-		},
-		{
-			MethodName: "GetRunningServiceControlPanel",
-			Handler:    _ActivityManagerService_GetRunningServiceControlPanel_Handler,
-		},
-		{
-			MethodName: "IsActivityStartAllowedOnDisplay",
-			Handler:    _ActivityManagerService_IsActivityStartAllowedOnDisplay_Handler,
-		},
-		{
-			MethodName: "IsBackgroundRestricted",
-			Handler:    _ActivityManagerService_IsBackgroundRestricted_Handler,
-		},
-		{
-			MethodName: "IsInLockTaskMode",
-			Handler:    _ActivityManagerService_IsInLockTaskMode_Handler,
-		},
-		{
-			MethodName: "IsLowRamDevice",
-			Handler:    _ActivityManagerService_IsLowRamDevice_Handler,
-		},
-		{
-			MethodName: "KillBackgroundProcesses",
-			Handler:    _ActivityManagerService_KillBackgroundProcesses_Handler,
-		},
-		{
-			MethodName: "MoveTaskToFront2",
-			Handler:    _ActivityManagerService_MoveTaskToFront2_Handler,
-		},
-		{
-			MethodName: "MoveTaskToFront3_1",
-			Handler:    _ActivityManagerService_MoveTaskToFront3_1_Handler,
-		},
-		{
-			MethodName: "RestartPackage",
-			Handler:    _ActivityManagerService_RestartPackage_Handler,
-		},
-		{
-			MethodName: "SetProcessStateSummary",
-			Handler:    _ActivityManagerService_SetProcessStateSummary_Handler,
-		},
-		{
-			MethodName: "SetWatchHeapLimit",
-			Handler:    _ActivityManagerService_SetWatchHeapLimit_Handler,
-		},
-		{
-			MethodName: "GetMyMemoryState",
-			Handler:    _ActivityManagerService_GetMyMemoryState_Handler,
-		},
-		{
-			MethodName: "IsLowMemoryKillReportSupported",
-			Handler:    _ActivityManagerService_IsLowMemoryKillReportSupported_Handler,
-		},
-		{
-			MethodName: "IsRunningInTestHarness",
-			Handler:    _ActivityManagerService_IsRunningInTestHarness_Handler,
-		},
-		{
-			MethodName: "IsRunningInUserTestHarness",
-			Handler:    _ActivityManagerService_IsRunningInUserTestHarness_Handler,
-		},
-		{
-			MethodName: "IsUserAMonkey",
-			Handler:    _ActivityManagerService_IsUserAMonkey_Handler,
-		},
-		{
-			MethodName: "SetVrThread",
-			Handler:    _ActivityManagerService_SetVrThread_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/app/app.proto",
-}
-
-const (
-	GameManagerService_GetGameMode_FullMethodName  = "/app.GameManagerService/GetGameMode"
-	GameManagerService_SetGameState_FullMethodName = "/app.GameManagerService/SetGameState"
-)
-
-// GameManagerServiceClient is the client API for GameManagerService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type GameManagerServiceClient interface {
-	GetGameMode(ctx context.Context, in *GetGameModeRequest, opts ...grpc.CallOption) (*GetGameModeResponse, error)
-	SetGameState(ctx context.Context, in *SetGameStateRequest, opts ...grpc.CallOption) (*SetGameStateResponse, error)
-}
-
-type gameManagerServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewGameManagerServiceClient(cc grpc.ClientConnInterface) GameManagerServiceClient {
-	return &gameManagerServiceClient{cc}
-}
-
-func (c *gameManagerServiceClient) GetGameMode(ctx context.Context, in *GetGameModeRequest, opts ...grpc.CallOption) (*GetGameModeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetGameModeResponse)
-	err := c.cc.Invoke(ctx, GameManagerService_GetGameMode_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *gameManagerServiceClient) SetGameState(ctx context.Context, in *SetGameStateRequest, opts ...grpc.CallOption) (*SetGameStateResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetGameStateResponse)
-	err := c.cc.Invoke(ctx, GameManagerService_SetGameState_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// GameManagerServiceServer is the server API for GameManagerService service.
-// All implementations must embed UnimplementedGameManagerServiceServer
-// for forward compatibility.
-type GameManagerServiceServer interface {
-	GetGameMode(context.Context, *GetGameModeRequest) (*GetGameModeResponse, error)
-	SetGameState(context.Context, *SetGameStateRequest) (*SetGameStateResponse, error)
-	mustEmbedUnimplementedGameManagerServiceServer()
-}
-
-// UnimplementedGameManagerServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedGameManagerServiceServer struct{}
-
-func (UnimplementedGameManagerServiceServer) GetGameMode(context.Context, *GetGameModeRequest) (*GetGameModeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetGameMode not implemented")
-}
-func (UnimplementedGameManagerServiceServer) SetGameState(context.Context, *SetGameStateRequest) (*SetGameStateResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetGameState not implemented")
-}
-func (UnimplementedGameManagerServiceServer) mustEmbedUnimplementedGameManagerServiceServer() {}
-func (UnimplementedGameManagerServiceServer) testEmbeddedByValue()                            {}
-
-// UnsafeGameManagerServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to GameManagerServiceServer will
-// result in compilation errors.
-type UnsafeGameManagerServiceServer interface {
-	mustEmbedUnimplementedGameManagerServiceServer()
-}
-
-func RegisterGameManagerServiceServer(s grpc.ServiceRegistrar, srv GameManagerServiceServer) {
-	// If the following call panics, it indicates UnimplementedGameManagerServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&GameManagerService_ServiceDesc, srv)
-}
-
-func _GameManagerService_GetGameMode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetGameModeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(GameManagerServiceServer).GetGameMode(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: GameManagerService_GetGameMode_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(GameManagerServiceServer).GetGameMode(ctx, req.(*GetGameModeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _GameManagerService_SetGameState_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetGameStateRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(GameManagerServiceServer).SetGameState(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: GameManagerService_SetGameState_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(GameManagerServiceServer).SetGameState(ctx, req.(*SetGameStateRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// GameManagerService_ServiceDesc is the grpc.ServiceDesc for GameManagerService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var GameManagerService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "app.GameManagerService",
-	HandlerType: (*GameManagerServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "GetGameMode",
-			Handler:    _GameManagerService_GetGameMode_Handler,
-		},
-		{
-			MethodName: "SetGameState",
-			Handler:    _GameManagerService_SetGameState_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/app/app.proto",
-}
-
-const (
 	WallpaperManagerService_Clear0_FullMethodName                        = "/app.WallpaperManagerService/Clear0"
 	WallpaperManagerService_Clear1_1_FullMethodName                      = "/app.WallpaperManagerService/Clear1_1"
 	WallpaperManagerService_ClearWallpaper_FullMethodName                = "/app.WallpaperManagerService/ClearWallpaper"
@@ -4714,6 +1720,1390 @@ var WallpaperManagerService_ServiceDesc = grpc.ServiceDesc{
 }
 
 const (
+	StatusBarManagerService_CanLaunchCaptureContentActivityForNote_FullMethodName = "/app.StatusBarManagerService/CanLaunchCaptureContentActivityForNote"
+)
+
+// StatusBarManagerServiceClient is the client API for StatusBarManagerService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type StatusBarManagerServiceClient interface {
+	CanLaunchCaptureContentActivityForNote(ctx context.Context, in *CanLaunchCaptureContentActivityForNoteRequest, opts ...grpc.CallOption) (*CanLaunchCaptureContentActivityForNoteResponse, error)
+}
+
+type statusBarManagerServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewStatusBarManagerServiceClient(cc grpc.ClientConnInterface) StatusBarManagerServiceClient {
+	return &statusBarManagerServiceClient{cc}
+}
+
+func (c *statusBarManagerServiceClient) CanLaunchCaptureContentActivityForNote(ctx context.Context, in *CanLaunchCaptureContentActivityForNoteRequest, opts ...grpc.CallOption) (*CanLaunchCaptureContentActivityForNoteResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(CanLaunchCaptureContentActivityForNoteResponse)
+	err := c.cc.Invoke(ctx, StatusBarManagerService_CanLaunchCaptureContentActivityForNote_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// StatusBarManagerServiceServer is the server API for StatusBarManagerService service.
+// All implementations must embed UnimplementedStatusBarManagerServiceServer
+// for forward compatibility.
+type StatusBarManagerServiceServer interface {
+	CanLaunchCaptureContentActivityForNote(context.Context, *CanLaunchCaptureContentActivityForNoteRequest) (*CanLaunchCaptureContentActivityForNoteResponse, error)
+	mustEmbedUnimplementedStatusBarManagerServiceServer()
+}
+
+// UnimplementedStatusBarManagerServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedStatusBarManagerServiceServer struct{}
+
+func (UnimplementedStatusBarManagerServiceServer) CanLaunchCaptureContentActivityForNote(context.Context, *CanLaunchCaptureContentActivityForNoteRequest) (*CanLaunchCaptureContentActivityForNoteResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method CanLaunchCaptureContentActivityForNote not implemented")
+}
+func (UnimplementedStatusBarManagerServiceServer) mustEmbedUnimplementedStatusBarManagerServiceServer() {
+}
+func (UnimplementedStatusBarManagerServiceServer) testEmbeddedByValue() {}
+
+// UnsafeStatusBarManagerServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to StatusBarManagerServiceServer will
+// result in compilation errors.
+type UnsafeStatusBarManagerServiceServer interface {
+	mustEmbedUnimplementedStatusBarManagerServiceServer()
+}
+
+func RegisterStatusBarManagerServiceServer(s grpc.ServiceRegistrar, srv StatusBarManagerServiceServer) {
+	// If the following call panics, it indicates UnimplementedStatusBarManagerServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&StatusBarManagerService_ServiceDesc, srv)
+}
+
+func _StatusBarManagerService_CanLaunchCaptureContentActivityForNote_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CanLaunchCaptureContentActivityForNoteRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(StatusBarManagerServiceServer).CanLaunchCaptureContentActivityForNote(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: StatusBarManagerService_CanLaunchCaptureContentActivityForNote_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(StatusBarManagerServiceServer).CanLaunchCaptureContentActivityForNote(ctx, req.(*CanLaunchCaptureContentActivityForNoteRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// StatusBarManagerService_ServiceDesc is the grpc.ServiceDesc for StatusBarManagerService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var StatusBarManagerService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "app.StatusBarManagerService",
+	HandlerType: (*StatusBarManagerServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "CanLaunchCaptureContentActivityForNote",
+			Handler:    _StatusBarManagerService_CanLaunchCaptureContentActivityForNote_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/app/app.proto",
+}
+
+const (
+	ActivityManagerService_AddAppTask_FullMethodName                      = "/app.ActivityManagerService/AddAppTask"
+	ActivityManagerService_AddStartInfoTimestamp_FullMethodName           = "/app.ActivityManagerService/AddStartInfoTimestamp"
+	ActivityManagerService_AppNotResponding_FullMethodName                = "/app.ActivityManagerService/AppNotResponding"
+	ActivityManagerService_ClearApplicationUserData_FullMethodName        = "/app.ActivityManagerService/ClearApplicationUserData"
+	ActivityManagerService_ClearWatchHeapLimit_FullMethodName             = "/app.ActivityManagerService/ClearWatchHeapLimit"
+	ActivityManagerService_DumpPackageState_FullMethodName                = "/app.ActivityManagerService/DumpPackageState"
+	ActivityManagerService_GetAppTaskThumbnailSize_FullMethodName         = "/app.ActivityManagerService/GetAppTaskThumbnailSize"
+	ActivityManagerService_GetDeviceConfigurationInfo_FullMethodName      = "/app.ActivityManagerService/GetDeviceConfigurationInfo"
+	ActivityManagerService_GetLargeMemoryClass_FullMethodName             = "/app.ActivityManagerService/GetLargeMemoryClass"
+	ActivityManagerService_GetLauncherLargeIconDensity_FullMethodName     = "/app.ActivityManagerService/GetLauncherLargeIconDensity"
+	ActivityManagerService_GetLauncherLargeIconSize_FullMethodName        = "/app.ActivityManagerService/GetLauncherLargeIconSize"
+	ActivityManagerService_GetLockTaskModeState_FullMethodName            = "/app.ActivityManagerService/GetLockTaskModeState"
+	ActivityManagerService_GetMemoryClass_FullMethodName                  = "/app.ActivityManagerService/GetMemoryClass"
+	ActivityManagerService_GetMemoryInfo_FullMethodName                   = "/app.ActivityManagerService/GetMemoryInfo"
+	ActivityManagerService_GetProcessMemoryInfo_FullMethodName            = "/app.ActivityManagerService/GetProcessMemoryInfo"
+	ActivityManagerService_GetRunningServiceControlPanel_FullMethodName   = "/app.ActivityManagerService/GetRunningServiceControlPanel"
+	ActivityManagerService_IsActivityStartAllowedOnDisplay_FullMethodName = "/app.ActivityManagerService/IsActivityStartAllowedOnDisplay"
+	ActivityManagerService_IsBackgroundRestricted_FullMethodName          = "/app.ActivityManagerService/IsBackgroundRestricted"
+	ActivityManagerService_IsInLockTaskMode_FullMethodName                = "/app.ActivityManagerService/IsInLockTaskMode"
+	ActivityManagerService_IsLowRamDevice_FullMethodName                  = "/app.ActivityManagerService/IsLowRamDevice"
+	ActivityManagerService_KillBackgroundProcesses_FullMethodName         = "/app.ActivityManagerService/KillBackgroundProcesses"
+	ActivityManagerService_MoveTaskToFront2_FullMethodName                = "/app.ActivityManagerService/MoveTaskToFront2"
+	ActivityManagerService_MoveTaskToFront3_1_FullMethodName              = "/app.ActivityManagerService/MoveTaskToFront3_1"
+	ActivityManagerService_RestartPackage_FullMethodName                  = "/app.ActivityManagerService/RestartPackage"
+	ActivityManagerService_SetProcessStateSummary_FullMethodName          = "/app.ActivityManagerService/SetProcessStateSummary"
+	ActivityManagerService_SetWatchHeapLimit_FullMethodName               = "/app.ActivityManagerService/SetWatchHeapLimit"
+	ActivityManagerService_GetMyMemoryState_FullMethodName                = "/app.ActivityManagerService/GetMyMemoryState"
+	ActivityManagerService_IsLowMemoryKillReportSupported_FullMethodName  = "/app.ActivityManagerService/IsLowMemoryKillReportSupported"
+	ActivityManagerService_IsRunningInTestHarness_FullMethodName          = "/app.ActivityManagerService/IsRunningInTestHarness"
+	ActivityManagerService_IsRunningInUserTestHarness_FullMethodName      = "/app.ActivityManagerService/IsRunningInUserTestHarness"
+	ActivityManagerService_IsUserAMonkey_FullMethodName                   = "/app.ActivityManagerService/IsUserAMonkey"
+	ActivityManagerService_SetVrThread_FullMethodName                     = "/app.ActivityManagerService/SetVrThread"
+)
+
+// ActivityManagerServiceClient is the client API for ActivityManagerService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type ActivityManagerServiceClient interface {
+	AddAppTask(ctx context.Context, in *AddAppTaskRequest, opts ...grpc.CallOption) (*AddAppTaskResponse, error)
+	AddStartInfoTimestamp(ctx context.Context, in *AddStartInfoTimestampRequest, opts ...grpc.CallOption) (*AddStartInfoTimestampResponse, error)
+	AppNotResponding(ctx context.Context, in *AppNotRespondingRequest, opts ...grpc.CallOption) (*AppNotRespondingResponse, error)
+	ClearApplicationUserData(ctx context.Context, in *ClearApplicationUserDataRequest, opts ...grpc.CallOption) (*ClearApplicationUserDataResponse, error)
+	ClearWatchHeapLimit(ctx context.Context, in *ClearWatchHeapLimitRequest, opts ...grpc.CallOption) (*ClearWatchHeapLimitResponse, error)
+	DumpPackageState(ctx context.Context, in *DumpPackageStateRequest, opts ...grpc.CallOption) (*DumpPackageStateResponse, error)
+	GetAppTaskThumbnailSize(ctx context.Context, in *GetAppTaskThumbnailSizeRequest, opts ...grpc.CallOption) (*GetAppTaskThumbnailSizeResponse, error)
+	GetDeviceConfigurationInfo(ctx context.Context, in *GetDeviceConfigurationInfoRequest, opts ...grpc.CallOption) (*GetDeviceConfigurationInfoResponse, error)
+	GetLargeMemoryClass(ctx context.Context, in *GetLargeMemoryClassRequest, opts ...grpc.CallOption) (*GetLargeMemoryClassResponse, error)
+	GetLauncherLargeIconDensity(ctx context.Context, in *GetLauncherLargeIconDensityRequest, opts ...grpc.CallOption) (*GetLauncherLargeIconDensityResponse, error)
+	GetLauncherLargeIconSize(ctx context.Context, in *GetLauncherLargeIconSizeRequest, opts ...grpc.CallOption) (*GetLauncherLargeIconSizeResponse, error)
+	GetLockTaskModeState(ctx context.Context, in *GetLockTaskModeStateRequest, opts ...grpc.CallOption) (*GetLockTaskModeStateResponse, error)
+	GetMemoryClass(ctx context.Context, in *GetMemoryClassRequest, opts ...grpc.CallOption) (*GetMemoryClassResponse, error)
+	GetMemoryInfo(ctx context.Context, in *GetMemoryInfoRequest, opts ...grpc.CallOption) (*GetMemoryInfoResponse, error)
+	GetProcessMemoryInfo(ctx context.Context, in *GetProcessMemoryInfoRequest, opts ...grpc.CallOption) (*GetProcessMemoryInfoResponse, error)
+	GetRunningServiceControlPanel(ctx context.Context, in *GetRunningServiceControlPanelRequest, opts ...grpc.CallOption) (*GetRunningServiceControlPanelResponse, error)
+	IsActivityStartAllowedOnDisplay(ctx context.Context, in *IsActivityStartAllowedOnDisplayRequest, opts ...grpc.CallOption) (*IsActivityStartAllowedOnDisplayResponse, error)
+	IsBackgroundRestricted(ctx context.Context, in *IsBackgroundRestrictedRequest, opts ...grpc.CallOption) (*IsBackgroundRestrictedResponse, error)
+	IsInLockTaskMode(ctx context.Context, in *IsInLockTaskModeRequest, opts ...grpc.CallOption) (*IsInLockTaskModeResponse, error)
+	IsLowRamDevice(ctx context.Context, in *IsLowRamDeviceRequest, opts ...grpc.CallOption) (*IsLowRamDeviceResponse, error)
+	KillBackgroundProcesses(ctx context.Context, in *KillBackgroundProcessesRequest, opts ...grpc.CallOption) (*KillBackgroundProcessesResponse, error)
+	MoveTaskToFront2(ctx context.Context, in *MoveTaskToFront2Request, opts ...grpc.CallOption) (*MoveTaskToFront2Response, error)
+	MoveTaskToFront3_1(ctx context.Context, in *MoveTaskToFront3_1Request, opts ...grpc.CallOption) (*MoveTaskToFront3_1Response, error)
+	RestartPackage(ctx context.Context, in *RestartPackageRequest, opts ...grpc.CallOption) (*RestartPackageResponse, error)
+	SetProcessStateSummary(ctx context.Context, in *SetProcessStateSummaryRequest, opts ...grpc.CallOption) (*SetProcessStateSummaryResponse, error)
+	SetWatchHeapLimit(ctx context.Context, in *SetWatchHeapLimitRequest, opts ...grpc.CallOption) (*SetWatchHeapLimitResponse, error)
+	GetMyMemoryState(ctx context.Context, in *GetMyMemoryStateRequest, opts ...grpc.CallOption) (*GetMyMemoryStateResponse, error)
+	IsLowMemoryKillReportSupported(ctx context.Context, in *IsLowMemoryKillReportSupportedRequest, opts ...grpc.CallOption) (*IsLowMemoryKillReportSupportedResponse, error)
+	IsRunningInTestHarness(ctx context.Context, in *IsRunningInTestHarnessRequest, opts ...grpc.CallOption) (*IsRunningInTestHarnessResponse, error)
+	IsRunningInUserTestHarness(ctx context.Context, in *IsRunningInUserTestHarnessRequest, opts ...grpc.CallOption) (*IsRunningInUserTestHarnessResponse, error)
+	IsUserAMonkey(ctx context.Context, in *IsUserAMonkeyRequest, opts ...grpc.CallOption) (*IsUserAMonkeyResponse, error)
+	SetVrThread(ctx context.Context, in *SetVrThreadRequest, opts ...grpc.CallOption) (*SetVrThreadResponse, error)
+}
+
+type activityManagerServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewActivityManagerServiceClient(cc grpc.ClientConnInterface) ActivityManagerServiceClient {
+	return &activityManagerServiceClient{cc}
+}
+
+func (c *activityManagerServiceClient) AddAppTask(ctx context.Context, in *AddAppTaskRequest, opts ...grpc.CallOption) (*AddAppTaskResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(AddAppTaskResponse)
+	err := c.cc.Invoke(ctx, ActivityManagerService_AddAppTask_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *activityManagerServiceClient) AddStartInfoTimestamp(ctx context.Context, in *AddStartInfoTimestampRequest, opts ...grpc.CallOption) (*AddStartInfoTimestampResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(AddStartInfoTimestampResponse)
+	err := c.cc.Invoke(ctx, ActivityManagerService_AddStartInfoTimestamp_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *activityManagerServiceClient) AppNotResponding(ctx context.Context, in *AppNotRespondingRequest, opts ...grpc.CallOption) (*AppNotRespondingResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(AppNotRespondingResponse)
+	err := c.cc.Invoke(ctx, ActivityManagerService_AppNotResponding_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *activityManagerServiceClient) ClearApplicationUserData(ctx context.Context, in *ClearApplicationUserDataRequest, opts ...grpc.CallOption) (*ClearApplicationUserDataResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ClearApplicationUserDataResponse)
+	err := c.cc.Invoke(ctx, ActivityManagerService_ClearApplicationUserData_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *activityManagerServiceClient) ClearWatchHeapLimit(ctx context.Context, in *ClearWatchHeapLimitRequest, opts ...grpc.CallOption) (*ClearWatchHeapLimitResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ClearWatchHeapLimitResponse)
+	err := c.cc.Invoke(ctx, ActivityManagerService_ClearWatchHeapLimit_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *activityManagerServiceClient) DumpPackageState(ctx context.Context, in *DumpPackageStateRequest, opts ...grpc.CallOption) (*DumpPackageStateResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(DumpPackageStateResponse)
+	err := c.cc.Invoke(ctx, ActivityManagerService_DumpPackageState_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *activityManagerServiceClient) GetAppTaskThumbnailSize(ctx context.Context, in *GetAppTaskThumbnailSizeRequest, opts ...grpc.CallOption) (*GetAppTaskThumbnailSizeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetAppTaskThumbnailSizeResponse)
+	err := c.cc.Invoke(ctx, ActivityManagerService_GetAppTaskThumbnailSize_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *activityManagerServiceClient) GetDeviceConfigurationInfo(ctx context.Context, in *GetDeviceConfigurationInfoRequest, opts ...grpc.CallOption) (*GetDeviceConfigurationInfoResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetDeviceConfigurationInfoResponse)
+	err := c.cc.Invoke(ctx, ActivityManagerService_GetDeviceConfigurationInfo_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *activityManagerServiceClient) GetLargeMemoryClass(ctx context.Context, in *GetLargeMemoryClassRequest, opts ...grpc.CallOption) (*GetLargeMemoryClassResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetLargeMemoryClassResponse)
+	err := c.cc.Invoke(ctx, ActivityManagerService_GetLargeMemoryClass_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *activityManagerServiceClient) GetLauncherLargeIconDensity(ctx context.Context, in *GetLauncherLargeIconDensityRequest, opts ...grpc.CallOption) (*GetLauncherLargeIconDensityResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetLauncherLargeIconDensityResponse)
+	err := c.cc.Invoke(ctx, ActivityManagerService_GetLauncherLargeIconDensity_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *activityManagerServiceClient) GetLauncherLargeIconSize(ctx context.Context, in *GetLauncherLargeIconSizeRequest, opts ...grpc.CallOption) (*GetLauncherLargeIconSizeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetLauncherLargeIconSizeResponse)
+	err := c.cc.Invoke(ctx, ActivityManagerService_GetLauncherLargeIconSize_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *activityManagerServiceClient) GetLockTaskModeState(ctx context.Context, in *GetLockTaskModeStateRequest, opts ...grpc.CallOption) (*GetLockTaskModeStateResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetLockTaskModeStateResponse)
+	err := c.cc.Invoke(ctx, ActivityManagerService_GetLockTaskModeState_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *activityManagerServiceClient) GetMemoryClass(ctx context.Context, in *GetMemoryClassRequest, opts ...grpc.CallOption) (*GetMemoryClassResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetMemoryClassResponse)
+	err := c.cc.Invoke(ctx, ActivityManagerService_GetMemoryClass_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *activityManagerServiceClient) GetMemoryInfo(ctx context.Context, in *GetMemoryInfoRequest, opts ...grpc.CallOption) (*GetMemoryInfoResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetMemoryInfoResponse)
+	err := c.cc.Invoke(ctx, ActivityManagerService_GetMemoryInfo_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *activityManagerServiceClient) GetProcessMemoryInfo(ctx context.Context, in *GetProcessMemoryInfoRequest, opts ...grpc.CallOption) (*GetProcessMemoryInfoResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetProcessMemoryInfoResponse)
+	err := c.cc.Invoke(ctx, ActivityManagerService_GetProcessMemoryInfo_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *activityManagerServiceClient) GetRunningServiceControlPanel(ctx context.Context, in *GetRunningServiceControlPanelRequest, opts ...grpc.CallOption) (*GetRunningServiceControlPanelResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetRunningServiceControlPanelResponse)
+	err := c.cc.Invoke(ctx, ActivityManagerService_GetRunningServiceControlPanel_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *activityManagerServiceClient) IsActivityStartAllowedOnDisplay(ctx context.Context, in *IsActivityStartAllowedOnDisplayRequest, opts ...grpc.CallOption) (*IsActivityStartAllowedOnDisplayResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IsActivityStartAllowedOnDisplayResponse)
+	err := c.cc.Invoke(ctx, ActivityManagerService_IsActivityStartAllowedOnDisplay_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *activityManagerServiceClient) IsBackgroundRestricted(ctx context.Context, in *IsBackgroundRestrictedRequest, opts ...grpc.CallOption) (*IsBackgroundRestrictedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IsBackgroundRestrictedResponse)
+	err := c.cc.Invoke(ctx, ActivityManagerService_IsBackgroundRestricted_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *activityManagerServiceClient) IsInLockTaskMode(ctx context.Context, in *IsInLockTaskModeRequest, opts ...grpc.CallOption) (*IsInLockTaskModeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IsInLockTaskModeResponse)
+	err := c.cc.Invoke(ctx, ActivityManagerService_IsInLockTaskMode_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *activityManagerServiceClient) IsLowRamDevice(ctx context.Context, in *IsLowRamDeviceRequest, opts ...grpc.CallOption) (*IsLowRamDeviceResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IsLowRamDeviceResponse)
+	err := c.cc.Invoke(ctx, ActivityManagerService_IsLowRamDevice_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *activityManagerServiceClient) KillBackgroundProcesses(ctx context.Context, in *KillBackgroundProcessesRequest, opts ...grpc.CallOption) (*KillBackgroundProcessesResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(KillBackgroundProcessesResponse)
+	err := c.cc.Invoke(ctx, ActivityManagerService_KillBackgroundProcesses_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *activityManagerServiceClient) MoveTaskToFront2(ctx context.Context, in *MoveTaskToFront2Request, opts ...grpc.CallOption) (*MoveTaskToFront2Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(MoveTaskToFront2Response)
+	err := c.cc.Invoke(ctx, ActivityManagerService_MoveTaskToFront2_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *activityManagerServiceClient) MoveTaskToFront3_1(ctx context.Context, in *MoveTaskToFront3_1Request, opts ...grpc.CallOption) (*MoveTaskToFront3_1Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(MoveTaskToFront3_1Response)
+	err := c.cc.Invoke(ctx, ActivityManagerService_MoveTaskToFront3_1_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *activityManagerServiceClient) RestartPackage(ctx context.Context, in *RestartPackageRequest, opts ...grpc.CallOption) (*RestartPackageResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(RestartPackageResponse)
+	err := c.cc.Invoke(ctx, ActivityManagerService_RestartPackage_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *activityManagerServiceClient) SetProcessStateSummary(ctx context.Context, in *SetProcessStateSummaryRequest, opts ...grpc.CallOption) (*SetProcessStateSummaryResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetProcessStateSummaryResponse)
+	err := c.cc.Invoke(ctx, ActivityManagerService_SetProcessStateSummary_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *activityManagerServiceClient) SetWatchHeapLimit(ctx context.Context, in *SetWatchHeapLimitRequest, opts ...grpc.CallOption) (*SetWatchHeapLimitResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetWatchHeapLimitResponse)
+	err := c.cc.Invoke(ctx, ActivityManagerService_SetWatchHeapLimit_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *activityManagerServiceClient) GetMyMemoryState(ctx context.Context, in *GetMyMemoryStateRequest, opts ...grpc.CallOption) (*GetMyMemoryStateResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetMyMemoryStateResponse)
+	err := c.cc.Invoke(ctx, ActivityManagerService_GetMyMemoryState_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *activityManagerServiceClient) IsLowMemoryKillReportSupported(ctx context.Context, in *IsLowMemoryKillReportSupportedRequest, opts ...grpc.CallOption) (*IsLowMemoryKillReportSupportedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IsLowMemoryKillReportSupportedResponse)
+	err := c.cc.Invoke(ctx, ActivityManagerService_IsLowMemoryKillReportSupported_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *activityManagerServiceClient) IsRunningInTestHarness(ctx context.Context, in *IsRunningInTestHarnessRequest, opts ...grpc.CallOption) (*IsRunningInTestHarnessResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IsRunningInTestHarnessResponse)
+	err := c.cc.Invoke(ctx, ActivityManagerService_IsRunningInTestHarness_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *activityManagerServiceClient) IsRunningInUserTestHarness(ctx context.Context, in *IsRunningInUserTestHarnessRequest, opts ...grpc.CallOption) (*IsRunningInUserTestHarnessResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IsRunningInUserTestHarnessResponse)
+	err := c.cc.Invoke(ctx, ActivityManagerService_IsRunningInUserTestHarness_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *activityManagerServiceClient) IsUserAMonkey(ctx context.Context, in *IsUserAMonkeyRequest, opts ...grpc.CallOption) (*IsUserAMonkeyResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IsUserAMonkeyResponse)
+	err := c.cc.Invoke(ctx, ActivityManagerService_IsUserAMonkey_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *activityManagerServiceClient) SetVrThread(ctx context.Context, in *SetVrThreadRequest, opts ...grpc.CallOption) (*SetVrThreadResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetVrThreadResponse)
+	err := c.cc.Invoke(ctx, ActivityManagerService_SetVrThread_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// ActivityManagerServiceServer is the server API for ActivityManagerService service.
+// All implementations must embed UnimplementedActivityManagerServiceServer
+// for forward compatibility.
+type ActivityManagerServiceServer interface {
+	AddAppTask(context.Context, *AddAppTaskRequest) (*AddAppTaskResponse, error)
+	AddStartInfoTimestamp(context.Context, *AddStartInfoTimestampRequest) (*AddStartInfoTimestampResponse, error)
+	AppNotResponding(context.Context, *AppNotRespondingRequest) (*AppNotRespondingResponse, error)
+	ClearApplicationUserData(context.Context, *ClearApplicationUserDataRequest) (*ClearApplicationUserDataResponse, error)
+	ClearWatchHeapLimit(context.Context, *ClearWatchHeapLimitRequest) (*ClearWatchHeapLimitResponse, error)
+	DumpPackageState(context.Context, *DumpPackageStateRequest) (*DumpPackageStateResponse, error)
+	GetAppTaskThumbnailSize(context.Context, *GetAppTaskThumbnailSizeRequest) (*GetAppTaskThumbnailSizeResponse, error)
+	GetDeviceConfigurationInfo(context.Context, *GetDeviceConfigurationInfoRequest) (*GetDeviceConfigurationInfoResponse, error)
+	GetLargeMemoryClass(context.Context, *GetLargeMemoryClassRequest) (*GetLargeMemoryClassResponse, error)
+	GetLauncherLargeIconDensity(context.Context, *GetLauncherLargeIconDensityRequest) (*GetLauncherLargeIconDensityResponse, error)
+	GetLauncherLargeIconSize(context.Context, *GetLauncherLargeIconSizeRequest) (*GetLauncherLargeIconSizeResponse, error)
+	GetLockTaskModeState(context.Context, *GetLockTaskModeStateRequest) (*GetLockTaskModeStateResponse, error)
+	GetMemoryClass(context.Context, *GetMemoryClassRequest) (*GetMemoryClassResponse, error)
+	GetMemoryInfo(context.Context, *GetMemoryInfoRequest) (*GetMemoryInfoResponse, error)
+	GetProcessMemoryInfo(context.Context, *GetProcessMemoryInfoRequest) (*GetProcessMemoryInfoResponse, error)
+	GetRunningServiceControlPanel(context.Context, *GetRunningServiceControlPanelRequest) (*GetRunningServiceControlPanelResponse, error)
+	IsActivityStartAllowedOnDisplay(context.Context, *IsActivityStartAllowedOnDisplayRequest) (*IsActivityStartAllowedOnDisplayResponse, error)
+	IsBackgroundRestricted(context.Context, *IsBackgroundRestrictedRequest) (*IsBackgroundRestrictedResponse, error)
+	IsInLockTaskMode(context.Context, *IsInLockTaskModeRequest) (*IsInLockTaskModeResponse, error)
+	IsLowRamDevice(context.Context, *IsLowRamDeviceRequest) (*IsLowRamDeviceResponse, error)
+	KillBackgroundProcesses(context.Context, *KillBackgroundProcessesRequest) (*KillBackgroundProcessesResponse, error)
+	MoveTaskToFront2(context.Context, *MoveTaskToFront2Request) (*MoveTaskToFront2Response, error)
+	MoveTaskToFront3_1(context.Context, *MoveTaskToFront3_1Request) (*MoveTaskToFront3_1Response, error)
+	RestartPackage(context.Context, *RestartPackageRequest) (*RestartPackageResponse, error)
+	SetProcessStateSummary(context.Context, *SetProcessStateSummaryRequest) (*SetProcessStateSummaryResponse, error)
+	SetWatchHeapLimit(context.Context, *SetWatchHeapLimitRequest) (*SetWatchHeapLimitResponse, error)
+	GetMyMemoryState(context.Context, *GetMyMemoryStateRequest) (*GetMyMemoryStateResponse, error)
+	IsLowMemoryKillReportSupported(context.Context, *IsLowMemoryKillReportSupportedRequest) (*IsLowMemoryKillReportSupportedResponse, error)
+	IsRunningInTestHarness(context.Context, *IsRunningInTestHarnessRequest) (*IsRunningInTestHarnessResponse, error)
+	IsRunningInUserTestHarness(context.Context, *IsRunningInUserTestHarnessRequest) (*IsRunningInUserTestHarnessResponse, error)
+	IsUserAMonkey(context.Context, *IsUserAMonkeyRequest) (*IsUserAMonkeyResponse, error)
+	SetVrThread(context.Context, *SetVrThreadRequest) (*SetVrThreadResponse, error)
+	mustEmbedUnimplementedActivityManagerServiceServer()
+}
+
+// UnimplementedActivityManagerServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedActivityManagerServiceServer struct{}
+
+func (UnimplementedActivityManagerServiceServer) AddAppTask(context.Context, *AddAppTaskRequest) (*AddAppTaskResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method AddAppTask not implemented")
+}
+func (UnimplementedActivityManagerServiceServer) AddStartInfoTimestamp(context.Context, *AddStartInfoTimestampRequest) (*AddStartInfoTimestampResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method AddStartInfoTimestamp not implemented")
+}
+func (UnimplementedActivityManagerServiceServer) AppNotResponding(context.Context, *AppNotRespondingRequest) (*AppNotRespondingResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method AppNotResponding not implemented")
+}
+func (UnimplementedActivityManagerServiceServer) ClearApplicationUserData(context.Context, *ClearApplicationUserDataRequest) (*ClearApplicationUserDataResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method ClearApplicationUserData not implemented")
+}
+func (UnimplementedActivityManagerServiceServer) ClearWatchHeapLimit(context.Context, *ClearWatchHeapLimitRequest) (*ClearWatchHeapLimitResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method ClearWatchHeapLimit not implemented")
+}
+func (UnimplementedActivityManagerServiceServer) DumpPackageState(context.Context, *DumpPackageStateRequest) (*DumpPackageStateResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method DumpPackageState not implemented")
+}
+func (UnimplementedActivityManagerServiceServer) GetAppTaskThumbnailSize(context.Context, *GetAppTaskThumbnailSizeRequest) (*GetAppTaskThumbnailSizeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetAppTaskThumbnailSize not implemented")
+}
+func (UnimplementedActivityManagerServiceServer) GetDeviceConfigurationInfo(context.Context, *GetDeviceConfigurationInfoRequest) (*GetDeviceConfigurationInfoResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetDeviceConfigurationInfo not implemented")
+}
+func (UnimplementedActivityManagerServiceServer) GetLargeMemoryClass(context.Context, *GetLargeMemoryClassRequest) (*GetLargeMemoryClassResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetLargeMemoryClass not implemented")
+}
+func (UnimplementedActivityManagerServiceServer) GetLauncherLargeIconDensity(context.Context, *GetLauncherLargeIconDensityRequest) (*GetLauncherLargeIconDensityResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetLauncherLargeIconDensity not implemented")
+}
+func (UnimplementedActivityManagerServiceServer) GetLauncherLargeIconSize(context.Context, *GetLauncherLargeIconSizeRequest) (*GetLauncherLargeIconSizeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetLauncherLargeIconSize not implemented")
+}
+func (UnimplementedActivityManagerServiceServer) GetLockTaskModeState(context.Context, *GetLockTaskModeStateRequest) (*GetLockTaskModeStateResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetLockTaskModeState not implemented")
+}
+func (UnimplementedActivityManagerServiceServer) GetMemoryClass(context.Context, *GetMemoryClassRequest) (*GetMemoryClassResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetMemoryClass not implemented")
+}
+func (UnimplementedActivityManagerServiceServer) GetMemoryInfo(context.Context, *GetMemoryInfoRequest) (*GetMemoryInfoResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetMemoryInfo not implemented")
+}
+func (UnimplementedActivityManagerServiceServer) GetProcessMemoryInfo(context.Context, *GetProcessMemoryInfoRequest) (*GetProcessMemoryInfoResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetProcessMemoryInfo not implemented")
+}
+func (UnimplementedActivityManagerServiceServer) GetRunningServiceControlPanel(context.Context, *GetRunningServiceControlPanelRequest) (*GetRunningServiceControlPanelResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetRunningServiceControlPanel not implemented")
+}
+func (UnimplementedActivityManagerServiceServer) IsActivityStartAllowedOnDisplay(context.Context, *IsActivityStartAllowedOnDisplayRequest) (*IsActivityStartAllowedOnDisplayResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsActivityStartAllowedOnDisplay not implemented")
+}
+func (UnimplementedActivityManagerServiceServer) IsBackgroundRestricted(context.Context, *IsBackgroundRestrictedRequest) (*IsBackgroundRestrictedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsBackgroundRestricted not implemented")
+}
+func (UnimplementedActivityManagerServiceServer) IsInLockTaskMode(context.Context, *IsInLockTaskModeRequest) (*IsInLockTaskModeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsInLockTaskMode not implemented")
+}
+func (UnimplementedActivityManagerServiceServer) IsLowRamDevice(context.Context, *IsLowRamDeviceRequest) (*IsLowRamDeviceResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsLowRamDevice not implemented")
+}
+func (UnimplementedActivityManagerServiceServer) KillBackgroundProcesses(context.Context, *KillBackgroundProcessesRequest) (*KillBackgroundProcessesResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method KillBackgroundProcesses not implemented")
+}
+func (UnimplementedActivityManagerServiceServer) MoveTaskToFront2(context.Context, *MoveTaskToFront2Request) (*MoveTaskToFront2Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method MoveTaskToFront2 not implemented")
+}
+func (UnimplementedActivityManagerServiceServer) MoveTaskToFront3_1(context.Context, *MoveTaskToFront3_1Request) (*MoveTaskToFront3_1Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method MoveTaskToFront3_1 not implemented")
+}
+func (UnimplementedActivityManagerServiceServer) RestartPackage(context.Context, *RestartPackageRequest) (*RestartPackageResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method RestartPackage not implemented")
+}
+func (UnimplementedActivityManagerServiceServer) SetProcessStateSummary(context.Context, *SetProcessStateSummaryRequest) (*SetProcessStateSummaryResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetProcessStateSummary not implemented")
+}
+func (UnimplementedActivityManagerServiceServer) SetWatchHeapLimit(context.Context, *SetWatchHeapLimitRequest) (*SetWatchHeapLimitResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetWatchHeapLimit not implemented")
+}
+func (UnimplementedActivityManagerServiceServer) GetMyMemoryState(context.Context, *GetMyMemoryStateRequest) (*GetMyMemoryStateResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetMyMemoryState not implemented")
+}
+func (UnimplementedActivityManagerServiceServer) IsLowMemoryKillReportSupported(context.Context, *IsLowMemoryKillReportSupportedRequest) (*IsLowMemoryKillReportSupportedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsLowMemoryKillReportSupported not implemented")
+}
+func (UnimplementedActivityManagerServiceServer) IsRunningInTestHarness(context.Context, *IsRunningInTestHarnessRequest) (*IsRunningInTestHarnessResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsRunningInTestHarness not implemented")
+}
+func (UnimplementedActivityManagerServiceServer) IsRunningInUserTestHarness(context.Context, *IsRunningInUserTestHarnessRequest) (*IsRunningInUserTestHarnessResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsRunningInUserTestHarness not implemented")
+}
+func (UnimplementedActivityManagerServiceServer) IsUserAMonkey(context.Context, *IsUserAMonkeyRequest) (*IsUserAMonkeyResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsUserAMonkey not implemented")
+}
+func (UnimplementedActivityManagerServiceServer) SetVrThread(context.Context, *SetVrThreadRequest) (*SetVrThreadResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetVrThread not implemented")
+}
+func (UnimplementedActivityManagerServiceServer) mustEmbedUnimplementedActivityManagerServiceServer() {
+}
+func (UnimplementedActivityManagerServiceServer) testEmbeddedByValue() {}
+
+// UnsafeActivityManagerServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to ActivityManagerServiceServer will
+// result in compilation errors.
+type UnsafeActivityManagerServiceServer interface {
+	mustEmbedUnimplementedActivityManagerServiceServer()
+}
+
+func RegisterActivityManagerServiceServer(s grpc.ServiceRegistrar, srv ActivityManagerServiceServer) {
+	// If the following call panics, it indicates UnimplementedActivityManagerServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&ActivityManagerService_ServiceDesc, srv)
+}
+
+func _ActivityManagerService_AddAppTask_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(AddAppTaskRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ActivityManagerServiceServer).AddAppTask(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ActivityManagerService_AddAppTask_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ActivityManagerServiceServer).AddAppTask(ctx, req.(*AddAppTaskRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ActivityManagerService_AddStartInfoTimestamp_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(AddStartInfoTimestampRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ActivityManagerServiceServer).AddStartInfoTimestamp(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ActivityManagerService_AddStartInfoTimestamp_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ActivityManagerServiceServer).AddStartInfoTimestamp(ctx, req.(*AddStartInfoTimestampRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ActivityManagerService_AppNotResponding_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(AppNotRespondingRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ActivityManagerServiceServer).AppNotResponding(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ActivityManagerService_AppNotResponding_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ActivityManagerServiceServer).AppNotResponding(ctx, req.(*AppNotRespondingRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ActivityManagerService_ClearApplicationUserData_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ClearApplicationUserDataRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ActivityManagerServiceServer).ClearApplicationUserData(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ActivityManagerService_ClearApplicationUserData_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ActivityManagerServiceServer).ClearApplicationUserData(ctx, req.(*ClearApplicationUserDataRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ActivityManagerService_ClearWatchHeapLimit_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ClearWatchHeapLimitRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ActivityManagerServiceServer).ClearWatchHeapLimit(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ActivityManagerService_ClearWatchHeapLimit_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ActivityManagerServiceServer).ClearWatchHeapLimit(ctx, req.(*ClearWatchHeapLimitRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ActivityManagerService_DumpPackageState_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DumpPackageStateRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ActivityManagerServiceServer).DumpPackageState(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ActivityManagerService_DumpPackageState_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ActivityManagerServiceServer).DumpPackageState(ctx, req.(*DumpPackageStateRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ActivityManagerService_GetAppTaskThumbnailSize_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetAppTaskThumbnailSizeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ActivityManagerServiceServer).GetAppTaskThumbnailSize(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ActivityManagerService_GetAppTaskThumbnailSize_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ActivityManagerServiceServer).GetAppTaskThumbnailSize(ctx, req.(*GetAppTaskThumbnailSizeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ActivityManagerService_GetDeviceConfigurationInfo_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetDeviceConfigurationInfoRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ActivityManagerServiceServer).GetDeviceConfigurationInfo(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ActivityManagerService_GetDeviceConfigurationInfo_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ActivityManagerServiceServer).GetDeviceConfigurationInfo(ctx, req.(*GetDeviceConfigurationInfoRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ActivityManagerService_GetLargeMemoryClass_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetLargeMemoryClassRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ActivityManagerServiceServer).GetLargeMemoryClass(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ActivityManagerService_GetLargeMemoryClass_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ActivityManagerServiceServer).GetLargeMemoryClass(ctx, req.(*GetLargeMemoryClassRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ActivityManagerService_GetLauncherLargeIconDensity_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetLauncherLargeIconDensityRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ActivityManagerServiceServer).GetLauncherLargeIconDensity(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ActivityManagerService_GetLauncherLargeIconDensity_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ActivityManagerServiceServer).GetLauncherLargeIconDensity(ctx, req.(*GetLauncherLargeIconDensityRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ActivityManagerService_GetLauncherLargeIconSize_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetLauncherLargeIconSizeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ActivityManagerServiceServer).GetLauncherLargeIconSize(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ActivityManagerService_GetLauncherLargeIconSize_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ActivityManagerServiceServer).GetLauncherLargeIconSize(ctx, req.(*GetLauncherLargeIconSizeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ActivityManagerService_GetLockTaskModeState_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetLockTaskModeStateRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ActivityManagerServiceServer).GetLockTaskModeState(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ActivityManagerService_GetLockTaskModeState_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ActivityManagerServiceServer).GetLockTaskModeState(ctx, req.(*GetLockTaskModeStateRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ActivityManagerService_GetMemoryClass_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetMemoryClassRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ActivityManagerServiceServer).GetMemoryClass(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ActivityManagerService_GetMemoryClass_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ActivityManagerServiceServer).GetMemoryClass(ctx, req.(*GetMemoryClassRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ActivityManagerService_GetMemoryInfo_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetMemoryInfoRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ActivityManagerServiceServer).GetMemoryInfo(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ActivityManagerService_GetMemoryInfo_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ActivityManagerServiceServer).GetMemoryInfo(ctx, req.(*GetMemoryInfoRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ActivityManagerService_GetProcessMemoryInfo_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetProcessMemoryInfoRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ActivityManagerServiceServer).GetProcessMemoryInfo(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ActivityManagerService_GetProcessMemoryInfo_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ActivityManagerServiceServer).GetProcessMemoryInfo(ctx, req.(*GetProcessMemoryInfoRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ActivityManagerService_GetRunningServiceControlPanel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetRunningServiceControlPanelRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ActivityManagerServiceServer).GetRunningServiceControlPanel(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ActivityManagerService_GetRunningServiceControlPanel_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ActivityManagerServiceServer).GetRunningServiceControlPanel(ctx, req.(*GetRunningServiceControlPanelRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ActivityManagerService_IsActivityStartAllowedOnDisplay_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsActivityStartAllowedOnDisplayRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ActivityManagerServiceServer).IsActivityStartAllowedOnDisplay(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ActivityManagerService_IsActivityStartAllowedOnDisplay_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ActivityManagerServiceServer).IsActivityStartAllowedOnDisplay(ctx, req.(*IsActivityStartAllowedOnDisplayRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ActivityManagerService_IsBackgroundRestricted_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsBackgroundRestrictedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ActivityManagerServiceServer).IsBackgroundRestricted(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ActivityManagerService_IsBackgroundRestricted_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ActivityManagerServiceServer).IsBackgroundRestricted(ctx, req.(*IsBackgroundRestrictedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ActivityManagerService_IsInLockTaskMode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsInLockTaskModeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ActivityManagerServiceServer).IsInLockTaskMode(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ActivityManagerService_IsInLockTaskMode_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ActivityManagerServiceServer).IsInLockTaskMode(ctx, req.(*IsInLockTaskModeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ActivityManagerService_IsLowRamDevice_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsLowRamDeviceRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ActivityManagerServiceServer).IsLowRamDevice(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ActivityManagerService_IsLowRamDevice_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ActivityManagerServiceServer).IsLowRamDevice(ctx, req.(*IsLowRamDeviceRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ActivityManagerService_KillBackgroundProcesses_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(KillBackgroundProcessesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ActivityManagerServiceServer).KillBackgroundProcesses(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ActivityManagerService_KillBackgroundProcesses_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ActivityManagerServiceServer).KillBackgroundProcesses(ctx, req.(*KillBackgroundProcessesRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ActivityManagerService_MoveTaskToFront2_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(MoveTaskToFront2Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ActivityManagerServiceServer).MoveTaskToFront2(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ActivityManagerService_MoveTaskToFront2_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ActivityManagerServiceServer).MoveTaskToFront2(ctx, req.(*MoveTaskToFront2Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ActivityManagerService_MoveTaskToFront3_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(MoveTaskToFront3_1Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ActivityManagerServiceServer).MoveTaskToFront3_1(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ActivityManagerService_MoveTaskToFront3_1_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ActivityManagerServiceServer).MoveTaskToFront3_1(ctx, req.(*MoveTaskToFront3_1Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ActivityManagerService_RestartPackage_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(RestartPackageRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ActivityManagerServiceServer).RestartPackage(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ActivityManagerService_RestartPackage_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ActivityManagerServiceServer).RestartPackage(ctx, req.(*RestartPackageRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ActivityManagerService_SetProcessStateSummary_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetProcessStateSummaryRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ActivityManagerServiceServer).SetProcessStateSummary(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ActivityManagerService_SetProcessStateSummary_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ActivityManagerServiceServer).SetProcessStateSummary(ctx, req.(*SetProcessStateSummaryRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ActivityManagerService_SetWatchHeapLimit_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetWatchHeapLimitRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ActivityManagerServiceServer).SetWatchHeapLimit(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ActivityManagerService_SetWatchHeapLimit_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ActivityManagerServiceServer).SetWatchHeapLimit(ctx, req.(*SetWatchHeapLimitRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ActivityManagerService_GetMyMemoryState_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetMyMemoryStateRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ActivityManagerServiceServer).GetMyMemoryState(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ActivityManagerService_GetMyMemoryState_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ActivityManagerServiceServer).GetMyMemoryState(ctx, req.(*GetMyMemoryStateRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ActivityManagerService_IsLowMemoryKillReportSupported_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsLowMemoryKillReportSupportedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ActivityManagerServiceServer).IsLowMemoryKillReportSupported(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ActivityManagerService_IsLowMemoryKillReportSupported_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ActivityManagerServiceServer).IsLowMemoryKillReportSupported(ctx, req.(*IsLowMemoryKillReportSupportedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ActivityManagerService_IsRunningInTestHarness_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsRunningInTestHarnessRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ActivityManagerServiceServer).IsRunningInTestHarness(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ActivityManagerService_IsRunningInTestHarness_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ActivityManagerServiceServer).IsRunningInTestHarness(ctx, req.(*IsRunningInTestHarnessRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ActivityManagerService_IsRunningInUserTestHarness_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsRunningInUserTestHarnessRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ActivityManagerServiceServer).IsRunningInUserTestHarness(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ActivityManagerService_IsRunningInUserTestHarness_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ActivityManagerServiceServer).IsRunningInUserTestHarness(ctx, req.(*IsRunningInUserTestHarnessRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ActivityManagerService_IsUserAMonkey_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsUserAMonkeyRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ActivityManagerServiceServer).IsUserAMonkey(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ActivityManagerService_IsUserAMonkey_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ActivityManagerServiceServer).IsUserAMonkey(ctx, req.(*IsUserAMonkeyRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ActivityManagerService_SetVrThread_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetVrThreadRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ActivityManagerServiceServer).SetVrThread(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ActivityManagerService_SetVrThread_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ActivityManagerServiceServer).SetVrThread(ctx, req.(*SetVrThreadRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// ActivityManagerService_ServiceDesc is the grpc.ServiceDesc for ActivityManagerService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var ActivityManagerService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "app.ActivityManagerService",
+	HandlerType: (*ActivityManagerServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "AddAppTask",
+			Handler:    _ActivityManagerService_AddAppTask_Handler,
+		},
+		{
+			MethodName: "AddStartInfoTimestamp",
+			Handler:    _ActivityManagerService_AddStartInfoTimestamp_Handler,
+		},
+		{
+			MethodName: "AppNotResponding",
+			Handler:    _ActivityManagerService_AppNotResponding_Handler,
+		},
+		{
+			MethodName: "ClearApplicationUserData",
+			Handler:    _ActivityManagerService_ClearApplicationUserData_Handler,
+		},
+		{
+			MethodName: "ClearWatchHeapLimit",
+			Handler:    _ActivityManagerService_ClearWatchHeapLimit_Handler,
+		},
+		{
+			MethodName: "DumpPackageState",
+			Handler:    _ActivityManagerService_DumpPackageState_Handler,
+		},
+		{
+			MethodName: "GetAppTaskThumbnailSize",
+			Handler:    _ActivityManagerService_GetAppTaskThumbnailSize_Handler,
+		},
+		{
+			MethodName: "GetDeviceConfigurationInfo",
+			Handler:    _ActivityManagerService_GetDeviceConfigurationInfo_Handler,
+		},
+		{
+			MethodName: "GetLargeMemoryClass",
+			Handler:    _ActivityManagerService_GetLargeMemoryClass_Handler,
+		},
+		{
+			MethodName: "GetLauncherLargeIconDensity",
+			Handler:    _ActivityManagerService_GetLauncherLargeIconDensity_Handler,
+		},
+		{
+			MethodName: "GetLauncherLargeIconSize",
+			Handler:    _ActivityManagerService_GetLauncherLargeIconSize_Handler,
+		},
+		{
+			MethodName: "GetLockTaskModeState",
+			Handler:    _ActivityManagerService_GetLockTaskModeState_Handler,
+		},
+		{
+			MethodName: "GetMemoryClass",
+			Handler:    _ActivityManagerService_GetMemoryClass_Handler,
+		},
+		{
+			MethodName: "GetMemoryInfo",
+			Handler:    _ActivityManagerService_GetMemoryInfo_Handler,
+		},
+		{
+			MethodName: "GetProcessMemoryInfo",
+			Handler:    _ActivityManagerService_GetProcessMemoryInfo_Handler,
+		},
+		{
+			MethodName: "GetRunningServiceControlPanel",
+			Handler:    _ActivityManagerService_GetRunningServiceControlPanel_Handler,
+		},
+		{
+			MethodName: "IsActivityStartAllowedOnDisplay",
+			Handler:    _ActivityManagerService_IsActivityStartAllowedOnDisplay_Handler,
+		},
+		{
+			MethodName: "IsBackgroundRestricted",
+			Handler:    _ActivityManagerService_IsBackgroundRestricted_Handler,
+		},
+		{
+			MethodName: "IsInLockTaskMode",
+			Handler:    _ActivityManagerService_IsInLockTaskMode_Handler,
+		},
+		{
+			MethodName: "IsLowRamDevice",
+			Handler:    _ActivityManagerService_IsLowRamDevice_Handler,
+		},
+		{
+			MethodName: "KillBackgroundProcesses",
+			Handler:    _ActivityManagerService_KillBackgroundProcesses_Handler,
+		},
+		{
+			MethodName: "MoveTaskToFront2",
+			Handler:    _ActivityManagerService_MoveTaskToFront2_Handler,
+		},
+		{
+			MethodName: "MoveTaskToFront3_1",
+			Handler:    _ActivityManagerService_MoveTaskToFront3_1_Handler,
+		},
+		{
+			MethodName: "RestartPackage",
+			Handler:    _ActivityManagerService_RestartPackage_Handler,
+		},
+		{
+			MethodName: "SetProcessStateSummary",
+			Handler:    _ActivityManagerService_SetProcessStateSummary_Handler,
+		},
+		{
+			MethodName: "SetWatchHeapLimit",
+			Handler:    _ActivityManagerService_SetWatchHeapLimit_Handler,
+		},
+		{
+			MethodName: "GetMyMemoryState",
+			Handler:    _ActivityManagerService_GetMyMemoryState_Handler,
+		},
+		{
+			MethodName: "IsLowMemoryKillReportSupported",
+			Handler:    _ActivityManagerService_IsLowMemoryKillReportSupported_Handler,
+		},
+		{
+			MethodName: "IsRunningInTestHarness",
+			Handler:    _ActivityManagerService_IsRunningInTestHarness_Handler,
+		},
+		{
+			MethodName: "IsRunningInUserTestHarness",
+			Handler:    _ActivityManagerService_IsRunningInUserTestHarness_Handler,
+		},
+		{
+			MethodName: "IsUserAMonkey",
+			Handler:    _ActivityManagerService_IsUserAMonkey_Handler,
+		},
+		{
+			MethodName: "SetVrThread",
+			Handler:    _ActivityManagerService_SetVrThread_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/app/app.proto",
+}
+
+const (
 	SearchManagerService_GetGlobalSearchActivity_FullMethodName = "/app.SearchManagerService/GetGlobalSearchActivity"
 	SearchManagerService_GetSearchableInfo_FullMethodName       = "/app.SearchManagerService/GetSearchableInfo"
 	SearchManagerService_OnCancel_FullMethodName                = "/app.SearchManagerService/OnCancel"
@@ -5299,6 +3689,1908 @@ var GrammaticalInflectionManagerService_ServiceDesc = grpc.ServiceDesc{
 }
 
 const (
+	OpsManagerService_CheckOp3_FullMethodName                = "/app.OpsManagerService/CheckOp3"
+	OpsManagerService_CheckOp4_1_FullMethodName              = "/app.OpsManagerService/CheckOp4_1"
+	OpsManagerService_CheckOpNoThrow3_FullMethodName         = "/app.OpsManagerService/CheckOpNoThrow3"
+	OpsManagerService_CheckOpNoThrow4_1_FullMethodName       = "/app.OpsManagerService/CheckOpNoThrow4_1"
+	OpsManagerService_CheckOpRawNoThrow_FullMethodName       = "/app.OpsManagerService/CheckOpRawNoThrow"
+	OpsManagerService_CheckPackage_FullMethodName            = "/app.OpsManagerService/CheckPackage"
+	OpsManagerService_FinishOp3_FullMethodName               = "/app.OpsManagerService/FinishOp3"
+	OpsManagerService_FinishOp4_1_FullMethodName             = "/app.OpsManagerService/FinishOp4_1"
+	OpsManagerService_FinishProxyOp_FullMethodName           = "/app.OpsManagerService/FinishProxyOp"
+	OpsManagerService_IsOpActive_FullMethodName              = "/app.OpsManagerService/IsOpActive"
+	OpsManagerService_NoteOp3_FullMethodName                 = "/app.OpsManagerService/NoteOp3"
+	OpsManagerService_NoteOp5_1_FullMethodName               = "/app.OpsManagerService/NoteOp5_1"
+	OpsManagerService_NoteOpNoThrow3_FullMethodName          = "/app.OpsManagerService/NoteOpNoThrow3"
+	OpsManagerService_NoteOpNoThrow5_1_FullMethodName        = "/app.OpsManagerService/NoteOpNoThrow5_1"
+	OpsManagerService_NoteProxyOp2_FullMethodName            = "/app.OpsManagerService/NoteProxyOp2"
+	OpsManagerService_NoteProxyOp5_1_FullMethodName          = "/app.OpsManagerService/NoteProxyOp5_1"
+	OpsManagerService_NoteProxyOpNoThrow2_FullMethodName     = "/app.OpsManagerService/NoteProxyOpNoThrow2"
+	OpsManagerService_NoteProxyOpNoThrow3_1_FullMethodName   = "/app.OpsManagerService/NoteProxyOpNoThrow3_1"
+	OpsManagerService_NoteProxyOpNoThrow5_2_FullMethodName   = "/app.OpsManagerService/NoteProxyOpNoThrow5_2"
+	OpsManagerService_SetOnOpNotedCallback2_FullMethodName   = "/app.OpsManagerService/SetOnOpNotedCallback2"
+	OpsManagerService_SetOnOpNotedCallback3_1_FullMethodName = "/app.OpsManagerService/SetOnOpNotedCallback3_1"
+	OpsManagerService_StartOp3_FullMethodName                = "/app.OpsManagerService/StartOp3"
+	OpsManagerService_StartOp5_1_FullMethodName              = "/app.OpsManagerService/StartOp5_1"
+	OpsManagerService_StartOpNoThrow3_FullMethodName         = "/app.OpsManagerService/StartOpNoThrow3"
+	OpsManagerService_StartOpNoThrow5_1_FullMethodName       = "/app.OpsManagerService/StartOpNoThrow5_1"
+	OpsManagerService_StartProxyOp_FullMethodName            = "/app.OpsManagerService/StartProxyOp"
+	OpsManagerService_StartProxyOpNoThrow_FullMethodName     = "/app.OpsManagerService/StartProxyOpNoThrow"
+	OpsManagerService_StartWatchingActive_FullMethodName     = "/app.OpsManagerService/StartWatchingActive"
+	OpsManagerService_StartWatchingMode3_FullMethodName      = "/app.OpsManagerService/StartWatchingMode3"
+	OpsManagerService_StartWatchingMode4_1_FullMethodName    = "/app.OpsManagerService/StartWatchingMode4_1"
+	OpsManagerService_StopWatchingActive_FullMethodName      = "/app.OpsManagerService/StopWatchingActive"
+	OpsManagerService_StopWatchingMode_FullMethodName        = "/app.OpsManagerService/StopWatchingMode"
+	OpsManagerService_UnsafeCheckOp_FullMethodName           = "/app.OpsManagerService/UnsafeCheckOp"
+	OpsManagerService_UnsafeCheckOpNoThrow_FullMethodName    = "/app.OpsManagerService/UnsafeCheckOpNoThrow"
+	OpsManagerService_UnsafeCheckOpRaw_FullMethodName        = "/app.OpsManagerService/UnsafeCheckOpRaw"
+	OpsManagerService_UnsafeCheckOpRawNoThrow_FullMethodName = "/app.OpsManagerService/UnsafeCheckOpRawNoThrow"
+	OpsManagerService_PermissionToOp_FullMethodName          = "/app.OpsManagerService/PermissionToOp"
+)
+
+// OpsManagerServiceClient is the client API for OpsManagerService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type OpsManagerServiceClient interface {
+	CheckOp3(ctx context.Context, in *CheckOp3Request, opts ...grpc.CallOption) (*CheckOp3Response, error)
+	CheckOp4_1(ctx context.Context, in *CheckOp4_1Request, opts ...grpc.CallOption) (*CheckOp4_1Response, error)
+	CheckOpNoThrow3(ctx context.Context, in *CheckOpNoThrow3Request, opts ...grpc.CallOption) (*CheckOpNoThrow3Response, error)
+	CheckOpNoThrow4_1(ctx context.Context, in *CheckOpNoThrow4_1Request, opts ...grpc.CallOption) (*CheckOpNoThrow4_1Response, error)
+	CheckOpRawNoThrow(ctx context.Context, in *CheckOpRawNoThrowRequest, opts ...grpc.CallOption) (*CheckOpRawNoThrowResponse, error)
+	CheckPackage(ctx context.Context, in *CheckPackageRequest, opts ...grpc.CallOption) (*CheckPackageResponse, error)
+	FinishOp3(ctx context.Context, in *FinishOp3Request, opts ...grpc.CallOption) (*FinishOp3Response, error)
+	FinishOp4_1(ctx context.Context, in *FinishOp4_1Request, opts ...grpc.CallOption) (*FinishOp4_1Response, error)
+	FinishProxyOp(ctx context.Context, in *FinishProxyOpRequest, opts ...grpc.CallOption) (*FinishProxyOpResponse, error)
+	IsOpActive(ctx context.Context, in *IsOpActiveRequest, opts ...grpc.CallOption) (*IsOpActiveResponse, error)
+	NoteOp3(ctx context.Context, in *NoteOp3Request, opts ...grpc.CallOption) (*NoteOp3Response, error)
+	NoteOp5_1(ctx context.Context, in *NoteOp5_1Request, opts ...grpc.CallOption) (*NoteOp5_1Response, error)
+	NoteOpNoThrow3(ctx context.Context, in *NoteOpNoThrow3Request, opts ...grpc.CallOption) (*NoteOpNoThrow3Response, error)
+	NoteOpNoThrow5_1(ctx context.Context, in *NoteOpNoThrow5_1Request, opts ...grpc.CallOption) (*NoteOpNoThrow5_1Response, error)
+	NoteProxyOp2(ctx context.Context, in *NoteProxyOp2Request, opts ...grpc.CallOption) (*NoteProxyOp2Response, error)
+	NoteProxyOp5_1(ctx context.Context, in *NoteProxyOp5_1Request, opts ...grpc.CallOption) (*NoteProxyOp5_1Response, error)
+	NoteProxyOpNoThrow2(ctx context.Context, in *NoteProxyOpNoThrow2Request, opts ...grpc.CallOption) (*NoteProxyOpNoThrow2Response, error)
+	NoteProxyOpNoThrow3_1(ctx context.Context, in *NoteProxyOpNoThrow3_1Request, opts ...grpc.CallOption) (*NoteProxyOpNoThrow3_1Response, error)
+	NoteProxyOpNoThrow5_2(ctx context.Context, in *NoteProxyOpNoThrow5_2Request, opts ...grpc.CallOption) (*NoteProxyOpNoThrow5_2Response, error)
+	SetOnOpNotedCallback2(ctx context.Context, in *SetOnOpNotedCallback2Request, opts ...grpc.CallOption) (*SetOnOpNotedCallback2Response, error)
+	SetOnOpNotedCallback3_1(ctx context.Context, in *SetOnOpNotedCallback3_1Request, opts ...grpc.CallOption) (*SetOnOpNotedCallback3_1Response, error)
+	StartOp3(ctx context.Context, in *StartOp3Request, opts ...grpc.CallOption) (*StartOp3Response, error)
+	StartOp5_1(ctx context.Context, in *StartOp5_1Request, opts ...grpc.CallOption) (*StartOp5_1Response, error)
+	StartOpNoThrow3(ctx context.Context, in *StartOpNoThrow3Request, opts ...grpc.CallOption) (*StartOpNoThrow3Response, error)
+	StartOpNoThrow5_1(ctx context.Context, in *StartOpNoThrow5_1Request, opts ...grpc.CallOption) (*StartOpNoThrow5_1Response, error)
+	StartProxyOp(ctx context.Context, in *StartProxyOpRequest, opts ...grpc.CallOption) (*StartProxyOpResponse, error)
+	StartProxyOpNoThrow(ctx context.Context, in *StartProxyOpNoThrowRequest, opts ...grpc.CallOption) (*StartProxyOpNoThrowResponse, error)
+	StartWatchingActive(ctx context.Context, in *StartWatchingActiveRequest, opts ...grpc.CallOption) (*StartWatchingActiveResponse, error)
+	StartWatchingMode3(ctx context.Context, in *StartWatchingMode3Request, opts ...grpc.CallOption) (*StartWatchingMode3Response, error)
+	StartWatchingMode4_1(ctx context.Context, in *StartWatchingMode4_1Request, opts ...grpc.CallOption) (*StartWatchingMode4_1Response, error)
+	StopWatchingActive(ctx context.Context, in *StopWatchingActiveRequest, opts ...grpc.CallOption) (*StopWatchingActiveResponse, error)
+	StopWatchingMode(ctx context.Context, in *StopWatchingModeRequest, opts ...grpc.CallOption) (*StopWatchingModeResponse, error)
+	UnsafeCheckOp(ctx context.Context, in *UnsafeCheckOpRequest, opts ...grpc.CallOption) (*UnsafeCheckOpResponse, error)
+	UnsafeCheckOpNoThrow(ctx context.Context, in *UnsafeCheckOpNoThrowRequest, opts ...grpc.CallOption) (*UnsafeCheckOpNoThrowResponse, error)
+	UnsafeCheckOpRaw(ctx context.Context, in *UnsafeCheckOpRawRequest, opts ...grpc.CallOption) (*UnsafeCheckOpRawResponse, error)
+	UnsafeCheckOpRawNoThrow(ctx context.Context, in *UnsafeCheckOpRawNoThrowRequest, opts ...grpc.CallOption) (*UnsafeCheckOpRawNoThrowResponse, error)
+	PermissionToOp(ctx context.Context, in *PermissionToOpRequest, opts ...grpc.CallOption) (*PermissionToOpResponse, error)
+}
+
+type opsManagerServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewOpsManagerServiceClient(cc grpc.ClientConnInterface) OpsManagerServiceClient {
+	return &opsManagerServiceClient{cc}
+}
+
+func (c *opsManagerServiceClient) CheckOp3(ctx context.Context, in *CheckOp3Request, opts ...grpc.CallOption) (*CheckOp3Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(CheckOp3Response)
+	err := c.cc.Invoke(ctx, OpsManagerService_CheckOp3_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *opsManagerServiceClient) CheckOp4_1(ctx context.Context, in *CheckOp4_1Request, opts ...grpc.CallOption) (*CheckOp4_1Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(CheckOp4_1Response)
+	err := c.cc.Invoke(ctx, OpsManagerService_CheckOp4_1_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *opsManagerServiceClient) CheckOpNoThrow3(ctx context.Context, in *CheckOpNoThrow3Request, opts ...grpc.CallOption) (*CheckOpNoThrow3Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(CheckOpNoThrow3Response)
+	err := c.cc.Invoke(ctx, OpsManagerService_CheckOpNoThrow3_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *opsManagerServiceClient) CheckOpNoThrow4_1(ctx context.Context, in *CheckOpNoThrow4_1Request, opts ...grpc.CallOption) (*CheckOpNoThrow4_1Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(CheckOpNoThrow4_1Response)
+	err := c.cc.Invoke(ctx, OpsManagerService_CheckOpNoThrow4_1_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *opsManagerServiceClient) CheckOpRawNoThrow(ctx context.Context, in *CheckOpRawNoThrowRequest, opts ...grpc.CallOption) (*CheckOpRawNoThrowResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(CheckOpRawNoThrowResponse)
+	err := c.cc.Invoke(ctx, OpsManagerService_CheckOpRawNoThrow_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *opsManagerServiceClient) CheckPackage(ctx context.Context, in *CheckPackageRequest, opts ...grpc.CallOption) (*CheckPackageResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(CheckPackageResponse)
+	err := c.cc.Invoke(ctx, OpsManagerService_CheckPackage_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *opsManagerServiceClient) FinishOp3(ctx context.Context, in *FinishOp3Request, opts ...grpc.CallOption) (*FinishOp3Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(FinishOp3Response)
+	err := c.cc.Invoke(ctx, OpsManagerService_FinishOp3_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *opsManagerServiceClient) FinishOp4_1(ctx context.Context, in *FinishOp4_1Request, opts ...grpc.CallOption) (*FinishOp4_1Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(FinishOp4_1Response)
+	err := c.cc.Invoke(ctx, OpsManagerService_FinishOp4_1_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *opsManagerServiceClient) FinishProxyOp(ctx context.Context, in *FinishProxyOpRequest, opts ...grpc.CallOption) (*FinishProxyOpResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(FinishProxyOpResponse)
+	err := c.cc.Invoke(ctx, OpsManagerService_FinishProxyOp_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *opsManagerServiceClient) IsOpActive(ctx context.Context, in *IsOpActiveRequest, opts ...grpc.CallOption) (*IsOpActiveResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IsOpActiveResponse)
+	err := c.cc.Invoke(ctx, OpsManagerService_IsOpActive_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *opsManagerServiceClient) NoteOp3(ctx context.Context, in *NoteOp3Request, opts ...grpc.CallOption) (*NoteOp3Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(NoteOp3Response)
+	err := c.cc.Invoke(ctx, OpsManagerService_NoteOp3_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *opsManagerServiceClient) NoteOp5_1(ctx context.Context, in *NoteOp5_1Request, opts ...grpc.CallOption) (*NoteOp5_1Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(NoteOp5_1Response)
+	err := c.cc.Invoke(ctx, OpsManagerService_NoteOp5_1_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *opsManagerServiceClient) NoteOpNoThrow3(ctx context.Context, in *NoteOpNoThrow3Request, opts ...grpc.CallOption) (*NoteOpNoThrow3Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(NoteOpNoThrow3Response)
+	err := c.cc.Invoke(ctx, OpsManagerService_NoteOpNoThrow3_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *opsManagerServiceClient) NoteOpNoThrow5_1(ctx context.Context, in *NoteOpNoThrow5_1Request, opts ...grpc.CallOption) (*NoteOpNoThrow5_1Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(NoteOpNoThrow5_1Response)
+	err := c.cc.Invoke(ctx, OpsManagerService_NoteOpNoThrow5_1_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *opsManagerServiceClient) NoteProxyOp2(ctx context.Context, in *NoteProxyOp2Request, opts ...grpc.CallOption) (*NoteProxyOp2Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(NoteProxyOp2Response)
+	err := c.cc.Invoke(ctx, OpsManagerService_NoteProxyOp2_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *opsManagerServiceClient) NoteProxyOp5_1(ctx context.Context, in *NoteProxyOp5_1Request, opts ...grpc.CallOption) (*NoteProxyOp5_1Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(NoteProxyOp5_1Response)
+	err := c.cc.Invoke(ctx, OpsManagerService_NoteProxyOp5_1_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *opsManagerServiceClient) NoteProxyOpNoThrow2(ctx context.Context, in *NoteProxyOpNoThrow2Request, opts ...grpc.CallOption) (*NoteProxyOpNoThrow2Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(NoteProxyOpNoThrow2Response)
+	err := c.cc.Invoke(ctx, OpsManagerService_NoteProxyOpNoThrow2_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *opsManagerServiceClient) NoteProxyOpNoThrow3_1(ctx context.Context, in *NoteProxyOpNoThrow3_1Request, opts ...grpc.CallOption) (*NoteProxyOpNoThrow3_1Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(NoteProxyOpNoThrow3_1Response)
+	err := c.cc.Invoke(ctx, OpsManagerService_NoteProxyOpNoThrow3_1_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *opsManagerServiceClient) NoteProxyOpNoThrow5_2(ctx context.Context, in *NoteProxyOpNoThrow5_2Request, opts ...grpc.CallOption) (*NoteProxyOpNoThrow5_2Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(NoteProxyOpNoThrow5_2Response)
+	err := c.cc.Invoke(ctx, OpsManagerService_NoteProxyOpNoThrow5_2_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *opsManagerServiceClient) SetOnOpNotedCallback2(ctx context.Context, in *SetOnOpNotedCallback2Request, opts ...grpc.CallOption) (*SetOnOpNotedCallback2Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetOnOpNotedCallback2Response)
+	err := c.cc.Invoke(ctx, OpsManagerService_SetOnOpNotedCallback2_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *opsManagerServiceClient) SetOnOpNotedCallback3_1(ctx context.Context, in *SetOnOpNotedCallback3_1Request, opts ...grpc.CallOption) (*SetOnOpNotedCallback3_1Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetOnOpNotedCallback3_1Response)
+	err := c.cc.Invoke(ctx, OpsManagerService_SetOnOpNotedCallback3_1_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *opsManagerServiceClient) StartOp3(ctx context.Context, in *StartOp3Request, opts ...grpc.CallOption) (*StartOp3Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(StartOp3Response)
+	err := c.cc.Invoke(ctx, OpsManagerService_StartOp3_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *opsManagerServiceClient) StartOp5_1(ctx context.Context, in *StartOp5_1Request, opts ...grpc.CallOption) (*StartOp5_1Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(StartOp5_1Response)
+	err := c.cc.Invoke(ctx, OpsManagerService_StartOp5_1_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *opsManagerServiceClient) StartOpNoThrow3(ctx context.Context, in *StartOpNoThrow3Request, opts ...grpc.CallOption) (*StartOpNoThrow3Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(StartOpNoThrow3Response)
+	err := c.cc.Invoke(ctx, OpsManagerService_StartOpNoThrow3_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *opsManagerServiceClient) StartOpNoThrow5_1(ctx context.Context, in *StartOpNoThrow5_1Request, opts ...grpc.CallOption) (*StartOpNoThrow5_1Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(StartOpNoThrow5_1Response)
+	err := c.cc.Invoke(ctx, OpsManagerService_StartOpNoThrow5_1_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *opsManagerServiceClient) StartProxyOp(ctx context.Context, in *StartProxyOpRequest, opts ...grpc.CallOption) (*StartProxyOpResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(StartProxyOpResponse)
+	err := c.cc.Invoke(ctx, OpsManagerService_StartProxyOp_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *opsManagerServiceClient) StartProxyOpNoThrow(ctx context.Context, in *StartProxyOpNoThrowRequest, opts ...grpc.CallOption) (*StartProxyOpNoThrowResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(StartProxyOpNoThrowResponse)
+	err := c.cc.Invoke(ctx, OpsManagerService_StartProxyOpNoThrow_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *opsManagerServiceClient) StartWatchingActive(ctx context.Context, in *StartWatchingActiveRequest, opts ...grpc.CallOption) (*StartWatchingActiveResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(StartWatchingActiveResponse)
+	err := c.cc.Invoke(ctx, OpsManagerService_StartWatchingActive_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *opsManagerServiceClient) StartWatchingMode3(ctx context.Context, in *StartWatchingMode3Request, opts ...grpc.CallOption) (*StartWatchingMode3Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(StartWatchingMode3Response)
+	err := c.cc.Invoke(ctx, OpsManagerService_StartWatchingMode3_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *opsManagerServiceClient) StartWatchingMode4_1(ctx context.Context, in *StartWatchingMode4_1Request, opts ...grpc.CallOption) (*StartWatchingMode4_1Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(StartWatchingMode4_1Response)
+	err := c.cc.Invoke(ctx, OpsManagerService_StartWatchingMode4_1_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *opsManagerServiceClient) StopWatchingActive(ctx context.Context, in *StopWatchingActiveRequest, opts ...grpc.CallOption) (*StopWatchingActiveResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(StopWatchingActiveResponse)
+	err := c.cc.Invoke(ctx, OpsManagerService_StopWatchingActive_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *opsManagerServiceClient) StopWatchingMode(ctx context.Context, in *StopWatchingModeRequest, opts ...grpc.CallOption) (*StopWatchingModeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(StopWatchingModeResponse)
+	err := c.cc.Invoke(ctx, OpsManagerService_StopWatchingMode_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *opsManagerServiceClient) UnsafeCheckOp(ctx context.Context, in *UnsafeCheckOpRequest, opts ...grpc.CallOption) (*UnsafeCheckOpResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(UnsafeCheckOpResponse)
+	err := c.cc.Invoke(ctx, OpsManagerService_UnsafeCheckOp_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *opsManagerServiceClient) UnsafeCheckOpNoThrow(ctx context.Context, in *UnsafeCheckOpNoThrowRequest, opts ...grpc.CallOption) (*UnsafeCheckOpNoThrowResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(UnsafeCheckOpNoThrowResponse)
+	err := c.cc.Invoke(ctx, OpsManagerService_UnsafeCheckOpNoThrow_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *opsManagerServiceClient) UnsafeCheckOpRaw(ctx context.Context, in *UnsafeCheckOpRawRequest, opts ...grpc.CallOption) (*UnsafeCheckOpRawResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(UnsafeCheckOpRawResponse)
+	err := c.cc.Invoke(ctx, OpsManagerService_UnsafeCheckOpRaw_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *opsManagerServiceClient) UnsafeCheckOpRawNoThrow(ctx context.Context, in *UnsafeCheckOpRawNoThrowRequest, opts ...grpc.CallOption) (*UnsafeCheckOpRawNoThrowResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(UnsafeCheckOpRawNoThrowResponse)
+	err := c.cc.Invoke(ctx, OpsManagerService_UnsafeCheckOpRawNoThrow_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *opsManagerServiceClient) PermissionToOp(ctx context.Context, in *PermissionToOpRequest, opts ...grpc.CallOption) (*PermissionToOpResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(PermissionToOpResponse)
+	err := c.cc.Invoke(ctx, OpsManagerService_PermissionToOp_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// OpsManagerServiceServer is the server API for OpsManagerService service.
+// All implementations must embed UnimplementedOpsManagerServiceServer
+// for forward compatibility.
+type OpsManagerServiceServer interface {
+	CheckOp3(context.Context, *CheckOp3Request) (*CheckOp3Response, error)
+	CheckOp4_1(context.Context, *CheckOp4_1Request) (*CheckOp4_1Response, error)
+	CheckOpNoThrow3(context.Context, *CheckOpNoThrow3Request) (*CheckOpNoThrow3Response, error)
+	CheckOpNoThrow4_1(context.Context, *CheckOpNoThrow4_1Request) (*CheckOpNoThrow4_1Response, error)
+	CheckOpRawNoThrow(context.Context, *CheckOpRawNoThrowRequest) (*CheckOpRawNoThrowResponse, error)
+	CheckPackage(context.Context, *CheckPackageRequest) (*CheckPackageResponse, error)
+	FinishOp3(context.Context, *FinishOp3Request) (*FinishOp3Response, error)
+	FinishOp4_1(context.Context, *FinishOp4_1Request) (*FinishOp4_1Response, error)
+	FinishProxyOp(context.Context, *FinishProxyOpRequest) (*FinishProxyOpResponse, error)
+	IsOpActive(context.Context, *IsOpActiveRequest) (*IsOpActiveResponse, error)
+	NoteOp3(context.Context, *NoteOp3Request) (*NoteOp3Response, error)
+	NoteOp5_1(context.Context, *NoteOp5_1Request) (*NoteOp5_1Response, error)
+	NoteOpNoThrow3(context.Context, *NoteOpNoThrow3Request) (*NoteOpNoThrow3Response, error)
+	NoteOpNoThrow5_1(context.Context, *NoteOpNoThrow5_1Request) (*NoteOpNoThrow5_1Response, error)
+	NoteProxyOp2(context.Context, *NoteProxyOp2Request) (*NoteProxyOp2Response, error)
+	NoteProxyOp5_1(context.Context, *NoteProxyOp5_1Request) (*NoteProxyOp5_1Response, error)
+	NoteProxyOpNoThrow2(context.Context, *NoteProxyOpNoThrow2Request) (*NoteProxyOpNoThrow2Response, error)
+	NoteProxyOpNoThrow3_1(context.Context, *NoteProxyOpNoThrow3_1Request) (*NoteProxyOpNoThrow3_1Response, error)
+	NoteProxyOpNoThrow5_2(context.Context, *NoteProxyOpNoThrow5_2Request) (*NoteProxyOpNoThrow5_2Response, error)
+	SetOnOpNotedCallback2(context.Context, *SetOnOpNotedCallback2Request) (*SetOnOpNotedCallback2Response, error)
+	SetOnOpNotedCallback3_1(context.Context, *SetOnOpNotedCallback3_1Request) (*SetOnOpNotedCallback3_1Response, error)
+	StartOp3(context.Context, *StartOp3Request) (*StartOp3Response, error)
+	StartOp5_1(context.Context, *StartOp5_1Request) (*StartOp5_1Response, error)
+	StartOpNoThrow3(context.Context, *StartOpNoThrow3Request) (*StartOpNoThrow3Response, error)
+	StartOpNoThrow5_1(context.Context, *StartOpNoThrow5_1Request) (*StartOpNoThrow5_1Response, error)
+	StartProxyOp(context.Context, *StartProxyOpRequest) (*StartProxyOpResponse, error)
+	StartProxyOpNoThrow(context.Context, *StartProxyOpNoThrowRequest) (*StartProxyOpNoThrowResponse, error)
+	StartWatchingActive(context.Context, *StartWatchingActiveRequest) (*StartWatchingActiveResponse, error)
+	StartWatchingMode3(context.Context, *StartWatchingMode3Request) (*StartWatchingMode3Response, error)
+	StartWatchingMode4_1(context.Context, *StartWatchingMode4_1Request) (*StartWatchingMode4_1Response, error)
+	StopWatchingActive(context.Context, *StopWatchingActiveRequest) (*StopWatchingActiveResponse, error)
+	StopWatchingMode(context.Context, *StopWatchingModeRequest) (*StopWatchingModeResponse, error)
+	UnsafeCheckOp(context.Context, *UnsafeCheckOpRequest) (*UnsafeCheckOpResponse, error)
+	UnsafeCheckOpNoThrow(context.Context, *UnsafeCheckOpNoThrowRequest) (*UnsafeCheckOpNoThrowResponse, error)
+	UnsafeCheckOpRaw(context.Context, *UnsafeCheckOpRawRequest) (*UnsafeCheckOpRawResponse, error)
+	UnsafeCheckOpRawNoThrow(context.Context, *UnsafeCheckOpRawNoThrowRequest) (*UnsafeCheckOpRawNoThrowResponse, error)
+	PermissionToOp(context.Context, *PermissionToOpRequest) (*PermissionToOpResponse, error)
+	mustEmbedUnimplementedOpsManagerServiceServer()
+}
+
+// UnimplementedOpsManagerServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedOpsManagerServiceServer struct{}
+
+func (UnimplementedOpsManagerServiceServer) CheckOp3(context.Context, *CheckOp3Request) (*CheckOp3Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method CheckOp3 not implemented")
+}
+func (UnimplementedOpsManagerServiceServer) CheckOp4_1(context.Context, *CheckOp4_1Request) (*CheckOp4_1Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method CheckOp4_1 not implemented")
+}
+func (UnimplementedOpsManagerServiceServer) CheckOpNoThrow3(context.Context, *CheckOpNoThrow3Request) (*CheckOpNoThrow3Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method CheckOpNoThrow3 not implemented")
+}
+func (UnimplementedOpsManagerServiceServer) CheckOpNoThrow4_1(context.Context, *CheckOpNoThrow4_1Request) (*CheckOpNoThrow4_1Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method CheckOpNoThrow4_1 not implemented")
+}
+func (UnimplementedOpsManagerServiceServer) CheckOpRawNoThrow(context.Context, *CheckOpRawNoThrowRequest) (*CheckOpRawNoThrowResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method CheckOpRawNoThrow not implemented")
+}
+func (UnimplementedOpsManagerServiceServer) CheckPackage(context.Context, *CheckPackageRequest) (*CheckPackageResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method CheckPackage not implemented")
+}
+func (UnimplementedOpsManagerServiceServer) FinishOp3(context.Context, *FinishOp3Request) (*FinishOp3Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method FinishOp3 not implemented")
+}
+func (UnimplementedOpsManagerServiceServer) FinishOp4_1(context.Context, *FinishOp4_1Request) (*FinishOp4_1Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method FinishOp4_1 not implemented")
+}
+func (UnimplementedOpsManagerServiceServer) FinishProxyOp(context.Context, *FinishProxyOpRequest) (*FinishProxyOpResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method FinishProxyOp not implemented")
+}
+func (UnimplementedOpsManagerServiceServer) IsOpActive(context.Context, *IsOpActiveRequest) (*IsOpActiveResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsOpActive not implemented")
+}
+func (UnimplementedOpsManagerServiceServer) NoteOp3(context.Context, *NoteOp3Request) (*NoteOp3Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method NoteOp3 not implemented")
+}
+func (UnimplementedOpsManagerServiceServer) NoteOp5_1(context.Context, *NoteOp5_1Request) (*NoteOp5_1Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method NoteOp5_1 not implemented")
+}
+func (UnimplementedOpsManagerServiceServer) NoteOpNoThrow3(context.Context, *NoteOpNoThrow3Request) (*NoteOpNoThrow3Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method NoteOpNoThrow3 not implemented")
+}
+func (UnimplementedOpsManagerServiceServer) NoteOpNoThrow5_1(context.Context, *NoteOpNoThrow5_1Request) (*NoteOpNoThrow5_1Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method NoteOpNoThrow5_1 not implemented")
+}
+func (UnimplementedOpsManagerServiceServer) NoteProxyOp2(context.Context, *NoteProxyOp2Request) (*NoteProxyOp2Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method NoteProxyOp2 not implemented")
+}
+func (UnimplementedOpsManagerServiceServer) NoteProxyOp5_1(context.Context, *NoteProxyOp5_1Request) (*NoteProxyOp5_1Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method NoteProxyOp5_1 not implemented")
+}
+func (UnimplementedOpsManagerServiceServer) NoteProxyOpNoThrow2(context.Context, *NoteProxyOpNoThrow2Request) (*NoteProxyOpNoThrow2Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method NoteProxyOpNoThrow2 not implemented")
+}
+func (UnimplementedOpsManagerServiceServer) NoteProxyOpNoThrow3_1(context.Context, *NoteProxyOpNoThrow3_1Request) (*NoteProxyOpNoThrow3_1Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method NoteProxyOpNoThrow3_1 not implemented")
+}
+func (UnimplementedOpsManagerServiceServer) NoteProxyOpNoThrow5_2(context.Context, *NoteProxyOpNoThrow5_2Request) (*NoteProxyOpNoThrow5_2Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method NoteProxyOpNoThrow5_2 not implemented")
+}
+func (UnimplementedOpsManagerServiceServer) SetOnOpNotedCallback2(context.Context, *SetOnOpNotedCallback2Request) (*SetOnOpNotedCallback2Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetOnOpNotedCallback2 not implemented")
+}
+func (UnimplementedOpsManagerServiceServer) SetOnOpNotedCallback3_1(context.Context, *SetOnOpNotedCallback3_1Request) (*SetOnOpNotedCallback3_1Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetOnOpNotedCallback3_1 not implemented")
+}
+func (UnimplementedOpsManagerServiceServer) StartOp3(context.Context, *StartOp3Request) (*StartOp3Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method StartOp3 not implemented")
+}
+func (UnimplementedOpsManagerServiceServer) StartOp5_1(context.Context, *StartOp5_1Request) (*StartOp5_1Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method StartOp5_1 not implemented")
+}
+func (UnimplementedOpsManagerServiceServer) StartOpNoThrow3(context.Context, *StartOpNoThrow3Request) (*StartOpNoThrow3Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method StartOpNoThrow3 not implemented")
+}
+func (UnimplementedOpsManagerServiceServer) StartOpNoThrow5_1(context.Context, *StartOpNoThrow5_1Request) (*StartOpNoThrow5_1Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method StartOpNoThrow5_1 not implemented")
+}
+func (UnimplementedOpsManagerServiceServer) StartProxyOp(context.Context, *StartProxyOpRequest) (*StartProxyOpResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method StartProxyOp not implemented")
+}
+func (UnimplementedOpsManagerServiceServer) StartProxyOpNoThrow(context.Context, *StartProxyOpNoThrowRequest) (*StartProxyOpNoThrowResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method StartProxyOpNoThrow not implemented")
+}
+func (UnimplementedOpsManagerServiceServer) StartWatchingActive(context.Context, *StartWatchingActiveRequest) (*StartWatchingActiveResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method StartWatchingActive not implemented")
+}
+func (UnimplementedOpsManagerServiceServer) StartWatchingMode3(context.Context, *StartWatchingMode3Request) (*StartWatchingMode3Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method StartWatchingMode3 not implemented")
+}
+func (UnimplementedOpsManagerServiceServer) StartWatchingMode4_1(context.Context, *StartWatchingMode4_1Request) (*StartWatchingMode4_1Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method StartWatchingMode4_1 not implemented")
+}
+func (UnimplementedOpsManagerServiceServer) StopWatchingActive(context.Context, *StopWatchingActiveRequest) (*StopWatchingActiveResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method StopWatchingActive not implemented")
+}
+func (UnimplementedOpsManagerServiceServer) StopWatchingMode(context.Context, *StopWatchingModeRequest) (*StopWatchingModeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method StopWatchingMode not implemented")
+}
+func (UnimplementedOpsManagerServiceServer) UnsafeCheckOp(context.Context, *UnsafeCheckOpRequest) (*UnsafeCheckOpResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method UnsafeCheckOp not implemented")
+}
+func (UnimplementedOpsManagerServiceServer) UnsafeCheckOpNoThrow(context.Context, *UnsafeCheckOpNoThrowRequest) (*UnsafeCheckOpNoThrowResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method UnsafeCheckOpNoThrow not implemented")
+}
+func (UnimplementedOpsManagerServiceServer) UnsafeCheckOpRaw(context.Context, *UnsafeCheckOpRawRequest) (*UnsafeCheckOpRawResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method UnsafeCheckOpRaw not implemented")
+}
+func (UnimplementedOpsManagerServiceServer) UnsafeCheckOpRawNoThrow(context.Context, *UnsafeCheckOpRawNoThrowRequest) (*UnsafeCheckOpRawNoThrowResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method UnsafeCheckOpRawNoThrow not implemented")
+}
+func (UnimplementedOpsManagerServiceServer) PermissionToOp(context.Context, *PermissionToOpRequest) (*PermissionToOpResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method PermissionToOp not implemented")
+}
+func (UnimplementedOpsManagerServiceServer) mustEmbedUnimplementedOpsManagerServiceServer() {}
+func (UnimplementedOpsManagerServiceServer) testEmbeddedByValue()                           {}
+
+// UnsafeOpsManagerServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to OpsManagerServiceServer will
+// result in compilation errors.
+type UnsafeOpsManagerServiceServer interface {
+	mustEmbedUnimplementedOpsManagerServiceServer()
+}
+
+func RegisterOpsManagerServiceServer(s grpc.ServiceRegistrar, srv OpsManagerServiceServer) {
+	// If the following call panics, it indicates UnimplementedOpsManagerServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&OpsManagerService_ServiceDesc, srv)
+}
+
+func _OpsManagerService_CheckOp3_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CheckOp3Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(OpsManagerServiceServer).CheckOp3(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: OpsManagerService_CheckOp3_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(OpsManagerServiceServer).CheckOp3(ctx, req.(*CheckOp3Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _OpsManagerService_CheckOp4_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CheckOp4_1Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(OpsManagerServiceServer).CheckOp4_1(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: OpsManagerService_CheckOp4_1_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(OpsManagerServiceServer).CheckOp4_1(ctx, req.(*CheckOp4_1Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _OpsManagerService_CheckOpNoThrow3_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CheckOpNoThrow3Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(OpsManagerServiceServer).CheckOpNoThrow3(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: OpsManagerService_CheckOpNoThrow3_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(OpsManagerServiceServer).CheckOpNoThrow3(ctx, req.(*CheckOpNoThrow3Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _OpsManagerService_CheckOpNoThrow4_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CheckOpNoThrow4_1Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(OpsManagerServiceServer).CheckOpNoThrow4_1(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: OpsManagerService_CheckOpNoThrow4_1_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(OpsManagerServiceServer).CheckOpNoThrow4_1(ctx, req.(*CheckOpNoThrow4_1Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _OpsManagerService_CheckOpRawNoThrow_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CheckOpRawNoThrowRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(OpsManagerServiceServer).CheckOpRawNoThrow(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: OpsManagerService_CheckOpRawNoThrow_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(OpsManagerServiceServer).CheckOpRawNoThrow(ctx, req.(*CheckOpRawNoThrowRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _OpsManagerService_CheckPackage_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CheckPackageRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(OpsManagerServiceServer).CheckPackage(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: OpsManagerService_CheckPackage_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(OpsManagerServiceServer).CheckPackage(ctx, req.(*CheckPackageRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _OpsManagerService_FinishOp3_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(FinishOp3Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(OpsManagerServiceServer).FinishOp3(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: OpsManagerService_FinishOp3_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(OpsManagerServiceServer).FinishOp3(ctx, req.(*FinishOp3Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _OpsManagerService_FinishOp4_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(FinishOp4_1Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(OpsManagerServiceServer).FinishOp4_1(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: OpsManagerService_FinishOp4_1_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(OpsManagerServiceServer).FinishOp4_1(ctx, req.(*FinishOp4_1Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _OpsManagerService_FinishProxyOp_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(FinishProxyOpRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(OpsManagerServiceServer).FinishProxyOp(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: OpsManagerService_FinishProxyOp_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(OpsManagerServiceServer).FinishProxyOp(ctx, req.(*FinishProxyOpRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _OpsManagerService_IsOpActive_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsOpActiveRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(OpsManagerServiceServer).IsOpActive(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: OpsManagerService_IsOpActive_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(OpsManagerServiceServer).IsOpActive(ctx, req.(*IsOpActiveRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _OpsManagerService_NoteOp3_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NoteOp3Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(OpsManagerServiceServer).NoteOp3(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: OpsManagerService_NoteOp3_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(OpsManagerServiceServer).NoteOp3(ctx, req.(*NoteOp3Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _OpsManagerService_NoteOp5_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NoteOp5_1Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(OpsManagerServiceServer).NoteOp5_1(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: OpsManagerService_NoteOp5_1_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(OpsManagerServiceServer).NoteOp5_1(ctx, req.(*NoteOp5_1Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _OpsManagerService_NoteOpNoThrow3_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NoteOpNoThrow3Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(OpsManagerServiceServer).NoteOpNoThrow3(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: OpsManagerService_NoteOpNoThrow3_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(OpsManagerServiceServer).NoteOpNoThrow3(ctx, req.(*NoteOpNoThrow3Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _OpsManagerService_NoteOpNoThrow5_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NoteOpNoThrow5_1Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(OpsManagerServiceServer).NoteOpNoThrow5_1(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: OpsManagerService_NoteOpNoThrow5_1_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(OpsManagerServiceServer).NoteOpNoThrow5_1(ctx, req.(*NoteOpNoThrow5_1Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _OpsManagerService_NoteProxyOp2_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NoteProxyOp2Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(OpsManagerServiceServer).NoteProxyOp2(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: OpsManagerService_NoteProxyOp2_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(OpsManagerServiceServer).NoteProxyOp2(ctx, req.(*NoteProxyOp2Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _OpsManagerService_NoteProxyOp5_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NoteProxyOp5_1Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(OpsManagerServiceServer).NoteProxyOp5_1(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: OpsManagerService_NoteProxyOp5_1_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(OpsManagerServiceServer).NoteProxyOp5_1(ctx, req.(*NoteProxyOp5_1Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _OpsManagerService_NoteProxyOpNoThrow2_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NoteProxyOpNoThrow2Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(OpsManagerServiceServer).NoteProxyOpNoThrow2(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: OpsManagerService_NoteProxyOpNoThrow2_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(OpsManagerServiceServer).NoteProxyOpNoThrow2(ctx, req.(*NoteProxyOpNoThrow2Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _OpsManagerService_NoteProxyOpNoThrow3_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NoteProxyOpNoThrow3_1Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(OpsManagerServiceServer).NoteProxyOpNoThrow3_1(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: OpsManagerService_NoteProxyOpNoThrow3_1_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(OpsManagerServiceServer).NoteProxyOpNoThrow3_1(ctx, req.(*NoteProxyOpNoThrow3_1Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _OpsManagerService_NoteProxyOpNoThrow5_2_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NoteProxyOpNoThrow5_2Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(OpsManagerServiceServer).NoteProxyOpNoThrow5_2(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: OpsManagerService_NoteProxyOpNoThrow5_2_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(OpsManagerServiceServer).NoteProxyOpNoThrow5_2(ctx, req.(*NoteProxyOpNoThrow5_2Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _OpsManagerService_SetOnOpNotedCallback2_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetOnOpNotedCallback2Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(OpsManagerServiceServer).SetOnOpNotedCallback2(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: OpsManagerService_SetOnOpNotedCallback2_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(OpsManagerServiceServer).SetOnOpNotedCallback2(ctx, req.(*SetOnOpNotedCallback2Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _OpsManagerService_SetOnOpNotedCallback3_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetOnOpNotedCallback3_1Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(OpsManagerServiceServer).SetOnOpNotedCallback3_1(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: OpsManagerService_SetOnOpNotedCallback3_1_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(OpsManagerServiceServer).SetOnOpNotedCallback3_1(ctx, req.(*SetOnOpNotedCallback3_1Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _OpsManagerService_StartOp3_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(StartOp3Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(OpsManagerServiceServer).StartOp3(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: OpsManagerService_StartOp3_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(OpsManagerServiceServer).StartOp3(ctx, req.(*StartOp3Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _OpsManagerService_StartOp5_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(StartOp5_1Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(OpsManagerServiceServer).StartOp5_1(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: OpsManagerService_StartOp5_1_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(OpsManagerServiceServer).StartOp5_1(ctx, req.(*StartOp5_1Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _OpsManagerService_StartOpNoThrow3_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(StartOpNoThrow3Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(OpsManagerServiceServer).StartOpNoThrow3(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: OpsManagerService_StartOpNoThrow3_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(OpsManagerServiceServer).StartOpNoThrow3(ctx, req.(*StartOpNoThrow3Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _OpsManagerService_StartOpNoThrow5_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(StartOpNoThrow5_1Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(OpsManagerServiceServer).StartOpNoThrow5_1(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: OpsManagerService_StartOpNoThrow5_1_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(OpsManagerServiceServer).StartOpNoThrow5_1(ctx, req.(*StartOpNoThrow5_1Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _OpsManagerService_StartProxyOp_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(StartProxyOpRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(OpsManagerServiceServer).StartProxyOp(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: OpsManagerService_StartProxyOp_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(OpsManagerServiceServer).StartProxyOp(ctx, req.(*StartProxyOpRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _OpsManagerService_StartProxyOpNoThrow_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(StartProxyOpNoThrowRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(OpsManagerServiceServer).StartProxyOpNoThrow(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: OpsManagerService_StartProxyOpNoThrow_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(OpsManagerServiceServer).StartProxyOpNoThrow(ctx, req.(*StartProxyOpNoThrowRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _OpsManagerService_StartWatchingActive_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(StartWatchingActiveRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(OpsManagerServiceServer).StartWatchingActive(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: OpsManagerService_StartWatchingActive_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(OpsManagerServiceServer).StartWatchingActive(ctx, req.(*StartWatchingActiveRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _OpsManagerService_StartWatchingMode3_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(StartWatchingMode3Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(OpsManagerServiceServer).StartWatchingMode3(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: OpsManagerService_StartWatchingMode3_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(OpsManagerServiceServer).StartWatchingMode3(ctx, req.(*StartWatchingMode3Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _OpsManagerService_StartWatchingMode4_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(StartWatchingMode4_1Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(OpsManagerServiceServer).StartWatchingMode4_1(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: OpsManagerService_StartWatchingMode4_1_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(OpsManagerServiceServer).StartWatchingMode4_1(ctx, req.(*StartWatchingMode4_1Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _OpsManagerService_StopWatchingActive_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(StopWatchingActiveRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(OpsManagerServiceServer).StopWatchingActive(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: OpsManagerService_StopWatchingActive_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(OpsManagerServiceServer).StopWatchingActive(ctx, req.(*StopWatchingActiveRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _OpsManagerService_StopWatchingMode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(StopWatchingModeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(OpsManagerServiceServer).StopWatchingMode(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: OpsManagerService_StopWatchingMode_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(OpsManagerServiceServer).StopWatchingMode(ctx, req.(*StopWatchingModeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _OpsManagerService_UnsafeCheckOp_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(UnsafeCheckOpRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(OpsManagerServiceServer).UnsafeCheckOp(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: OpsManagerService_UnsafeCheckOp_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(OpsManagerServiceServer).UnsafeCheckOp(ctx, req.(*UnsafeCheckOpRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _OpsManagerService_UnsafeCheckOpNoThrow_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(UnsafeCheckOpNoThrowRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(OpsManagerServiceServer).UnsafeCheckOpNoThrow(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: OpsManagerService_UnsafeCheckOpNoThrow_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(OpsManagerServiceServer).UnsafeCheckOpNoThrow(ctx, req.(*UnsafeCheckOpNoThrowRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _OpsManagerService_UnsafeCheckOpRaw_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(UnsafeCheckOpRawRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(OpsManagerServiceServer).UnsafeCheckOpRaw(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: OpsManagerService_UnsafeCheckOpRaw_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(OpsManagerServiceServer).UnsafeCheckOpRaw(ctx, req.(*UnsafeCheckOpRawRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _OpsManagerService_UnsafeCheckOpRawNoThrow_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(UnsafeCheckOpRawNoThrowRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(OpsManagerServiceServer).UnsafeCheckOpRawNoThrow(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: OpsManagerService_UnsafeCheckOpRawNoThrow_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(OpsManagerServiceServer).UnsafeCheckOpRawNoThrow(ctx, req.(*UnsafeCheckOpRawNoThrowRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _OpsManagerService_PermissionToOp_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(PermissionToOpRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(OpsManagerServiceServer).PermissionToOp(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: OpsManagerService_PermissionToOp_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(OpsManagerServiceServer).PermissionToOp(ctx, req.(*PermissionToOpRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// OpsManagerService_ServiceDesc is the grpc.ServiceDesc for OpsManagerService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var OpsManagerService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "app.OpsManagerService",
+	HandlerType: (*OpsManagerServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "CheckOp3",
+			Handler:    _OpsManagerService_CheckOp3_Handler,
+		},
+		{
+			MethodName: "CheckOp4_1",
+			Handler:    _OpsManagerService_CheckOp4_1_Handler,
+		},
+		{
+			MethodName: "CheckOpNoThrow3",
+			Handler:    _OpsManagerService_CheckOpNoThrow3_Handler,
+		},
+		{
+			MethodName: "CheckOpNoThrow4_1",
+			Handler:    _OpsManagerService_CheckOpNoThrow4_1_Handler,
+		},
+		{
+			MethodName: "CheckOpRawNoThrow",
+			Handler:    _OpsManagerService_CheckOpRawNoThrow_Handler,
+		},
+		{
+			MethodName: "CheckPackage",
+			Handler:    _OpsManagerService_CheckPackage_Handler,
+		},
+		{
+			MethodName: "FinishOp3",
+			Handler:    _OpsManagerService_FinishOp3_Handler,
+		},
+		{
+			MethodName: "FinishOp4_1",
+			Handler:    _OpsManagerService_FinishOp4_1_Handler,
+		},
+		{
+			MethodName: "FinishProxyOp",
+			Handler:    _OpsManagerService_FinishProxyOp_Handler,
+		},
+		{
+			MethodName: "IsOpActive",
+			Handler:    _OpsManagerService_IsOpActive_Handler,
+		},
+		{
+			MethodName: "NoteOp3",
+			Handler:    _OpsManagerService_NoteOp3_Handler,
+		},
+		{
+			MethodName: "NoteOp5_1",
+			Handler:    _OpsManagerService_NoteOp5_1_Handler,
+		},
+		{
+			MethodName: "NoteOpNoThrow3",
+			Handler:    _OpsManagerService_NoteOpNoThrow3_Handler,
+		},
+		{
+			MethodName: "NoteOpNoThrow5_1",
+			Handler:    _OpsManagerService_NoteOpNoThrow5_1_Handler,
+		},
+		{
+			MethodName: "NoteProxyOp2",
+			Handler:    _OpsManagerService_NoteProxyOp2_Handler,
+		},
+		{
+			MethodName: "NoteProxyOp5_1",
+			Handler:    _OpsManagerService_NoteProxyOp5_1_Handler,
+		},
+		{
+			MethodName: "NoteProxyOpNoThrow2",
+			Handler:    _OpsManagerService_NoteProxyOpNoThrow2_Handler,
+		},
+		{
+			MethodName: "NoteProxyOpNoThrow3_1",
+			Handler:    _OpsManagerService_NoteProxyOpNoThrow3_1_Handler,
+		},
+		{
+			MethodName: "NoteProxyOpNoThrow5_2",
+			Handler:    _OpsManagerService_NoteProxyOpNoThrow5_2_Handler,
+		},
+		{
+			MethodName: "SetOnOpNotedCallback2",
+			Handler:    _OpsManagerService_SetOnOpNotedCallback2_Handler,
+		},
+		{
+			MethodName: "SetOnOpNotedCallback3_1",
+			Handler:    _OpsManagerService_SetOnOpNotedCallback3_1_Handler,
+		},
+		{
+			MethodName: "StartOp3",
+			Handler:    _OpsManagerService_StartOp3_Handler,
+		},
+		{
+			MethodName: "StartOp5_1",
+			Handler:    _OpsManagerService_StartOp5_1_Handler,
+		},
+		{
+			MethodName: "StartOpNoThrow3",
+			Handler:    _OpsManagerService_StartOpNoThrow3_Handler,
+		},
+		{
+			MethodName: "StartOpNoThrow5_1",
+			Handler:    _OpsManagerService_StartOpNoThrow5_1_Handler,
+		},
+		{
+			MethodName: "StartProxyOp",
+			Handler:    _OpsManagerService_StartProxyOp_Handler,
+		},
+		{
+			MethodName: "StartProxyOpNoThrow",
+			Handler:    _OpsManagerService_StartProxyOpNoThrow_Handler,
+		},
+		{
+			MethodName: "StartWatchingActive",
+			Handler:    _OpsManagerService_StartWatchingActive_Handler,
+		},
+		{
+			MethodName: "StartWatchingMode3",
+			Handler:    _OpsManagerService_StartWatchingMode3_Handler,
+		},
+		{
+			MethodName: "StartWatchingMode4_1",
+			Handler:    _OpsManagerService_StartWatchingMode4_1_Handler,
+		},
+		{
+			MethodName: "StopWatchingActive",
+			Handler:    _OpsManagerService_StopWatchingActive_Handler,
+		},
+		{
+			MethodName: "StopWatchingMode",
+			Handler:    _OpsManagerService_StopWatchingMode_Handler,
+		},
+		{
+			MethodName: "UnsafeCheckOp",
+			Handler:    _OpsManagerService_UnsafeCheckOp_Handler,
+		},
+		{
+			MethodName: "UnsafeCheckOpNoThrow",
+			Handler:    _OpsManagerService_UnsafeCheckOpNoThrow_Handler,
+		},
+		{
+			MethodName: "UnsafeCheckOpRaw",
+			Handler:    _OpsManagerService_UnsafeCheckOpRaw_Handler,
+		},
+		{
+			MethodName: "UnsafeCheckOpRawNoThrow",
+			Handler:    _OpsManagerService_UnsafeCheckOpRawNoThrow_Handler,
+		},
+		{
+			MethodName: "PermissionToOp",
+			Handler:    _OpsManagerService_PermissionToOp_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/app/app.proto",
+}
+
+const (
+	LocaleManagerService_GetApplicationLocales0_FullMethodName   = "/app.LocaleManagerService/GetApplicationLocales0"
+	LocaleManagerService_GetApplicationLocales1_1_FullMethodName = "/app.LocaleManagerService/GetApplicationLocales1_1"
+	LocaleManagerService_GetOverrideLocaleConfig_FullMethodName  = "/app.LocaleManagerService/GetOverrideLocaleConfig"
+	LocaleManagerService_GetSystemLocales_FullMethodName         = "/app.LocaleManagerService/GetSystemLocales"
+	LocaleManagerService_SetApplicationLocales_FullMethodName    = "/app.LocaleManagerService/SetApplicationLocales"
+	LocaleManagerService_SetOverrideLocaleConfig_FullMethodName  = "/app.LocaleManagerService/SetOverrideLocaleConfig"
+)
+
+// LocaleManagerServiceClient is the client API for LocaleManagerService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type LocaleManagerServiceClient interface {
+	GetApplicationLocales0(ctx context.Context, in *GetApplicationLocales0Request, opts ...grpc.CallOption) (*GetApplicationLocales0Response, error)
+	GetApplicationLocales1_1(ctx context.Context, in *GetApplicationLocales1_1Request, opts ...grpc.CallOption) (*GetApplicationLocales1_1Response, error)
+	GetOverrideLocaleConfig(ctx context.Context, in *GetOverrideLocaleConfigRequest, opts ...grpc.CallOption) (*GetOverrideLocaleConfigResponse, error)
+	GetSystemLocales(ctx context.Context, in *GetSystemLocalesRequest, opts ...grpc.CallOption) (*GetSystemLocalesResponse, error)
+	SetApplicationLocales(ctx context.Context, in *SetApplicationLocalesRequest, opts ...grpc.CallOption) (*SetApplicationLocalesResponse, error)
+	SetOverrideLocaleConfig(ctx context.Context, in *SetOverrideLocaleConfigRequest, opts ...grpc.CallOption) (*SetOverrideLocaleConfigResponse, error)
+}
+
+type localeManagerServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewLocaleManagerServiceClient(cc grpc.ClientConnInterface) LocaleManagerServiceClient {
+	return &localeManagerServiceClient{cc}
+}
+
+func (c *localeManagerServiceClient) GetApplicationLocales0(ctx context.Context, in *GetApplicationLocales0Request, opts ...grpc.CallOption) (*GetApplicationLocales0Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetApplicationLocales0Response)
+	err := c.cc.Invoke(ctx, LocaleManagerService_GetApplicationLocales0_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *localeManagerServiceClient) GetApplicationLocales1_1(ctx context.Context, in *GetApplicationLocales1_1Request, opts ...grpc.CallOption) (*GetApplicationLocales1_1Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetApplicationLocales1_1Response)
+	err := c.cc.Invoke(ctx, LocaleManagerService_GetApplicationLocales1_1_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *localeManagerServiceClient) GetOverrideLocaleConfig(ctx context.Context, in *GetOverrideLocaleConfigRequest, opts ...grpc.CallOption) (*GetOverrideLocaleConfigResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetOverrideLocaleConfigResponse)
+	err := c.cc.Invoke(ctx, LocaleManagerService_GetOverrideLocaleConfig_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *localeManagerServiceClient) GetSystemLocales(ctx context.Context, in *GetSystemLocalesRequest, opts ...grpc.CallOption) (*GetSystemLocalesResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetSystemLocalesResponse)
+	err := c.cc.Invoke(ctx, LocaleManagerService_GetSystemLocales_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *localeManagerServiceClient) SetApplicationLocales(ctx context.Context, in *SetApplicationLocalesRequest, opts ...grpc.CallOption) (*SetApplicationLocalesResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetApplicationLocalesResponse)
+	err := c.cc.Invoke(ctx, LocaleManagerService_SetApplicationLocales_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *localeManagerServiceClient) SetOverrideLocaleConfig(ctx context.Context, in *SetOverrideLocaleConfigRequest, opts ...grpc.CallOption) (*SetOverrideLocaleConfigResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetOverrideLocaleConfigResponse)
+	err := c.cc.Invoke(ctx, LocaleManagerService_SetOverrideLocaleConfig_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// LocaleManagerServiceServer is the server API for LocaleManagerService service.
+// All implementations must embed UnimplementedLocaleManagerServiceServer
+// for forward compatibility.
+type LocaleManagerServiceServer interface {
+	GetApplicationLocales0(context.Context, *GetApplicationLocales0Request) (*GetApplicationLocales0Response, error)
+	GetApplicationLocales1_1(context.Context, *GetApplicationLocales1_1Request) (*GetApplicationLocales1_1Response, error)
+	GetOverrideLocaleConfig(context.Context, *GetOverrideLocaleConfigRequest) (*GetOverrideLocaleConfigResponse, error)
+	GetSystemLocales(context.Context, *GetSystemLocalesRequest) (*GetSystemLocalesResponse, error)
+	SetApplicationLocales(context.Context, *SetApplicationLocalesRequest) (*SetApplicationLocalesResponse, error)
+	SetOverrideLocaleConfig(context.Context, *SetOverrideLocaleConfigRequest) (*SetOverrideLocaleConfigResponse, error)
+	mustEmbedUnimplementedLocaleManagerServiceServer()
+}
+
+// UnimplementedLocaleManagerServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedLocaleManagerServiceServer struct{}
+
+func (UnimplementedLocaleManagerServiceServer) GetApplicationLocales0(context.Context, *GetApplicationLocales0Request) (*GetApplicationLocales0Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetApplicationLocales0 not implemented")
+}
+func (UnimplementedLocaleManagerServiceServer) GetApplicationLocales1_1(context.Context, *GetApplicationLocales1_1Request) (*GetApplicationLocales1_1Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetApplicationLocales1_1 not implemented")
+}
+func (UnimplementedLocaleManagerServiceServer) GetOverrideLocaleConfig(context.Context, *GetOverrideLocaleConfigRequest) (*GetOverrideLocaleConfigResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetOverrideLocaleConfig not implemented")
+}
+func (UnimplementedLocaleManagerServiceServer) GetSystemLocales(context.Context, *GetSystemLocalesRequest) (*GetSystemLocalesResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetSystemLocales not implemented")
+}
+func (UnimplementedLocaleManagerServiceServer) SetApplicationLocales(context.Context, *SetApplicationLocalesRequest) (*SetApplicationLocalesResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetApplicationLocales not implemented")
+}
+func (UnimplementedLocaleManagerServiceServer) SetOverrideLocaleConfig(context.Context, *SetOverrideLocaleConfigRequest) (*SetOverrideLocaleConfigResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetOverrideLocaleConfig not implemented")
+}
+func (UnimplementedLocaleManagerServiceServer) mustEmbedUnimplementedLocaleManagerServiceServer() {}
+func (UnimplementedLocaleManagerServiceServer) testEmbeddedByValue()                              {}
+
+// UnsafeLocaleManagerServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to LocaleManagerServiceServer will
+// result in compilation errors.
+type UnsafeLocaleManagerServiceServer interface {
+	mustEmbedUnimplementedLocaleManagerServiceServer()
+}
+
+func RegisterLocaleManagerServiceServer(s grpc.ServiceRegistrar, srv LocaleManagerServiceServer) {
+	// If the following call panics, it indicates UnimplementedLocaleManagerServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&LocaleManagerService_ServiceDesc, srv)
+}
+
+func _LocaleManagerService_GetApplicationLocales0_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetApplicationLocales0Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(LocaleManagerServiceServer).GetApplicationLocales0(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: LocaleManagerService_GetApplicationLocales0_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(LocaleManagerServiceServer).GetApplicationLocales0(ctx, req.(*GetApplicationLocales0Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _LocaleManagerService_GetApplicationLocales1_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetApplicationLocales1_1Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(LocaleManagerServiceServer).GetApplicationLocales1_1(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: LocaleManagerService_GetApplicationLocales1_1_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(LocaleManagerServiceServer).GetApplicationLocales1_1(ctx, req.(*GetApplicationLocales1_1Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _LocaleManagerService_GetOverrideLocaleConfig_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetOverrideLocaleConfigRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(LocaleManagerServiceServer).GetOverrideLocaleConfig(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: LocaleManagerService_GetOverrideLocaleConfig_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(LocaleManagerServiceServer).GetOverrideLocaleConfig(ctx, req.(*GetOverrideLocaleConfigRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _LocaleManagerService_GetSystemLocales_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetSystemLocalesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(LocaleManagerServiceServer).GetSystemLocales(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: LocaleManagerService_GetSystemLocales_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(LocaleManagerServiceServer).GetSystemLocales(ctx, req.(*GetSystemLocalesRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _LocaleManagerService_SetApplicationLocales_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetApplicationLocalesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(LocaleManagerServiceServer).SetApplicationLocales(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: LocaleManagerService_SetApplicationLocales_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(LocaleManagerServiceServer).SetApplicationLocales(ctx, req.(*SetApplicationLocalesRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _LocaleManagerService_SetOverrideLocaleConfig_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetOverrideLocaleConfigRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(LocaleManagerServiceServer).SetOverrideLocaleConfig(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: LocaleManagerService_SetOverrideLocaleConfig_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(LocaleManagerServiceServer).SetOverrideLocaleConfig(ctx, req.(*SetOverrideLocaleConfigRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// LocaleManagerService_ServiceDesc is the grpc.ServiceDesc for LocaleManagerService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var LocaleManagerService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "app.LocaleManagerService",
+	HandlerType: (*LocaleManagerServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "GetApplicationLocales0",
+			Handler:    _LocaleManagerService_GetApplicationLocales0_Handler,
+		},
+		{
+			MethodName: "GetApplicationLocales1_1",
+			Handler:    _LocaleManagerService_GetApplicationLocales1_1_Handler,
+		},
+		{
+			MethodName: "GetOverrideLocaleConfig",
+			Handler:    _LocaleManagerService_GetOverrideLocaleConfig_Handler,
+		},
+		{
+			MethodName: "GetSystemLocales",
+			Handler:    _LocaleManagerService_GetSystemLocales_Handler,
+		},
+		{
+			MethodName: "SetApplicationLocales",
+			Handler:    _LocaleManagerService_SetApplicationLocales_Handler,
+		},
+		{
+			MethodName: "SetOverrideLocaleConfig",
+			Handler:    _LocaleManagerService_SetOverrideLocaleConfig_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/app/app.proto",
+}
+
+const (
+	GameManagerService_GetGameMode_FullMethodName  = "/app.GameManagerService/GetGameMode"
+	GameManagerService_SetGameState_FullMethodName = "/app.GameManagerService/SetGameState"
+)
+
+// GameManagerServiceClient is the client API for GameManagerService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type GameManagerServiceClient interface {
+	GetGameMode(ctx context.Context, in *GetGameModeRequest, opts ...grpc.CallOption) (*GetGameModeResponse, error)
+	SetGameState(ctx context.Context, in *SetGameStateRequest, opts ...grpc.CallOption) (*SetGameStateResponse, error)
+}
+
+type gameManagerServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewGameManagerServiceClient(cc grpc.ClientConnInterface) GameManagerServiceClient {
+	return &gameManagerServiceClient{cc}
+}
+
+func (c *gameManagerServiceClient) GetGameMode(ctx context.Context, in *GetGameModeRequest, opts ...grpc.CallOption) (*GetGameModeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetGameModeResponse)
+	err := c.cc.Invoke(ctx, GameManagerService_GetGameMode_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *gameManagerServiceClient) SetGameState(ctx context.Context, in *SetGameStateRequest, opts ...grpc.CallOption) (*SetGameStateResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetGameStateResponse)
+	err := c.cc.Invoke(ctx, GameManagerService_SetGameState_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// GameManagerServiceServer is the server API for GameManagerService service.
+// All implementations must embed UnimplementedGameManagerServiceServer
+// for forward compatibility.
+type GameManagerServiceServer interface {
+	GetGameMode(context.Context, *GetGameModeRequest) (*GetGameModeResponse, error)
+	SetGameState(context.Context, *SetGameStateRequest) (*SetGameStateResponse, error)
+	mustEmbedUnimplementedGameManagerServiceServer()
+}
+
+// UnimplementedGameManagerServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedGameManagerServiceServer struct{}
+
+func (UnimplementedGameManagerServiceServer) GetGameMode(context.Context, *GetGameModeRequest) (*GetGameModeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetGameMode not implemented")
+}
+func (UnimplementedGameManagerServiceServer) SetGameState(context.Context, *SetGameStateRequest) (*SetGameStateResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetGameState not implemented")
+}
+func (UnimplementedGameManagerServiceServer) mustEmbedUnimplementedGameManagerServiceServer() {}
+func (UnimplementedGameManagerServiceServer) testEmbeddedByValue()                            {}
+
+// UnsafeGameManagerServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to GameManagerServiceServer will
+// result in compilation errors.
+type UnsafeGameManagerServiceServer interface {
+	mustEmbedUnimplementedGameManagerServiceServer()
+}
+
+func RegisterGameManagerServiceServer(s grpc.ServiceRegistrar, srv GameManagerServiceServer) {
+	// If the following call panics, it indicates UnimplementedGameManagerServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&GameManagerService_ServiceDesc, srv)
+}
+
+func _GameManagerService_GetGameMode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetGameModeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(GameManagerServiceServer).GetGameMode(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: GameManagerService_GetGameMode_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(GameManagerServiceServer).GetGameMode(ctx, req.(*GetGameModeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _GameManagerService_SetGameState_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetGameStateRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(GameManagerServiceServer).SetGameState(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: GameManagerService_SetGameState_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(GameManagerServiceServer).SetGameState(ctx, req.(*SetGameStateRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// GameManagerService_ServiceDesc is the grpc.ServiceDesc for GameManagerService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var GameManagerService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "app.GameManagerService",
+	HandlerType: (*GameManagerServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "GetGameMode",
+			Handler:    _GameManagerService_GetGameMode_Handler,
+		},
+		{
+			MethodName: "SetGameState",
+			Handler:    _GameManagerService_SetGameState_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/app/app.proto",
+}
+
+const (
 	UiModeManagerService_AddContrastChangeListener_FullMethodName    = "/app.UiModeManagerService/AddContrastChangeListener"
 	UiModeManagerService_DisableCarMode_FullMethodName               = "/app.UiModeManagerService/DisableCarMode"
 	UiModeManagerService_EnableCarMode_FullMethodName                = "/app.UiModeManagerService/EnableCarMode"
@@ -5850,298 +6142,6 @@ var UiModeManagerService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "SetNightMode",
 			Handler:    _UiModeManagerService_SetNightMode_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/app/app.proto",
-}
-
-const (
-	LocaleManagerService_GetApplicationLocales0_FullMethodName   = "/app.LocaleManagerService/GetApplicationLocales0"
-	LocaleManagerService_GetApplicationLocales1_1_FullMethodName = "/app.LocaleManagerService/GetApplicationLocales1_1"
-	LocaleManagerService_GetOverrideLocaleConfig_FullMethodName  = "/app.LocaleManagerService/GetOverrideLocaleConfig"
-	LocaleManagerService_GetSystemLocales_FullMethodName         = "/app.LocaleManagerService/GetSystemLocales"
-	LocaleManagerService_SetApplicationLocales_FullMethodName    = "/app.LocaleManagerService/SetApplicationLocales"
-	LocaleManagerService_SetOverrideLocaleConfig_FullMethodName  = "/app.LocaleManagerService/SetOverrideLocaleConfig"
-)
-
-// LocaleManagerServiceClient is the client API for LocaleManagerService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type LocaleManagerServiceClient interface {
-	GetApplicationLocales0(ctx context.Context, in *GetApplicationLocales0Request, opts ...grpc.CallOption) (*GetApplicationLocales0Response, error)
-	GetApplicationLocales1_1(ctx context.Context, in *GetApplicationLocales1_1Request, opts ...grpc.CallOption) (*GetApplicationLocales1_1Response, error)
-	GetOverrideLocaleConfig(ctx context.Context, in *GetOverrideLocaleConfigRequest, opts ...grpc.CallOption) (*GetOverrideLocaleConfigResponse, error)
-	GetSystemLocales(ctx context.Context, in *GetSystemLocalesRequest, opts ...grpc.CallOption) (*GetSystemLocalesResponse, error)
-	SetApplicationLocales(ctx context.Context, in *SetApplicationLocalesRequest, opts ...grpc.CallOption) (*SetApplicationLocalesResponse, error)
-	SetOverrideLocaleConfig(ctx context.Context, in *SetOverrideLocaleConfigRequest, opts ...grpc.CallOption) (*SetOverrideLocaleConfigResponse, error)
-}
-
-type localeManagerServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewLocaleManagerServiceClient(cc grpc.ClientConnInterface) LocaleManagerServiceClient {
-	return &localeManagerServiceClient{cc}
-}
-
-func (c *localeManagerServiceClient) GetApplicationLocales0(ctx context.Context, in *GetApplicationLocales0Request, opts ...grpc.CallOption) (*GetApplicationLocales0Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetApplicationLocales0Response)
-	err := c.cc.Invoke(ctx, LocaleManagerService_GetApplicationLocales0_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *localeManagerServiceClient) GetApplicationLocales1_1(ctx context.Context, in *GetApplicationLocales1_1Request, opts ...grpc.CallOption) (*GetApplicationLocales1_1Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetApplicationLocales1_1Response)
-	err := c.cc.Invoke(ctx, LocaleManagerService_GetApplicationLocales1_1_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *localeManagerServiceClient) GetOverrideLocaleConfig(ctx context.Context, in *GetOverrideLocaleConfigRequest, opts ...grpc.CallOption) (*GetOverrideLocaleConfigResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetOverrideLocaleConfigResponse)
-	err := c.cc.Invoke(ctx, LocaleManagerService_GetOverrideLocaleConfig_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *localeManagerServiceClient) GetSystemLocales(ctx context.Context, in *GetSystemLocalesRequest, opts ...grpc.CallOption) (*GetSystemLocalesResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetSystemLocalesResponse)
-	err := c.cc.Invoke(ctx, LocaleManagerService_GetSystemLocales_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *localeManagerServiceClient) SetApplicationLocales(ctx context.Context, in *SetApplicationLocalesRequest, opts ...grpc.CallOption) (*SetApplicationLocalesResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetApplicationLocalesResponse)
-	err := c.cc.Invoke(ctx, LocaleManagerService_SetApplicationLocales_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *localeManagerServiceClient) SetOverrideLocaleConfig(ctx context.Context, in *SetOverrideLocaleConfigRequest, opts ...grpc.CallOption) (*SetOverrideLocaleConfigResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetOverrideLocaleConfigResponse)
-	err := c.cc.Invoke(ctx, LocaleManagerService_SetOverrideLocaleConfig_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// LocaleManagerServiceServer is the server API for LocaleManagerService service.
-// All implementations must embed UnimplementedLocaleManagerServiceServer
-// for forward compatibility.
-type LocaleManagerServiceServer interface {
-	GetApplicationLocales0(context.Context, *GetApplicationLocales0Request) (*GetApplicationLocales0Response, error)
-	GetApplicationLocales1_1(context.Context, *GetApplicationLocales1_1Request) (*GetApplicationLocales1_1Response, error)
-	GetOverrideLocaleConfig(context.Context, *GetOverrideLocaleConfigRequest) (*GetOverrideLocaleConfigResponse, error)
-	GetSystemLocales(context.Context, *GetSystemLocalesRequest) (*GetSystemLocalesResponse, error)
-	SetApplicationLocales(context.Context, *SetApplicationLocalesRequest) (*SetApplicationLocalesResponse, error)
-	SetOverrideLocaleConfig(context.Context, *SetOverrideLocaleConfigRequest) (*SetOverrideLocaleConfigResponse, error)
-	mustEmbedUnimplementedLocaleManagerServiceServer()
-}
-
-// UnimplementedLocaleManagerServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedLocaleManagerServiceServer struct{}
-
-func (UnimplementedLocaleManagerServiceServer) GetApplicationLocales0(context.Context, *GetApplicationLocales0Request) (*GetApplicationLocales0Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetApplicationLocales0 not implemented")
-}
-func (UnimplementedLocaleManagerServiceServer) GetApplicationLocales1_1(context.Context, *GetApplicationLocales1_1Request) (*GetApplicationLocales1_1Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetApplicationLocales1_1 not implemented")
-}
-func (UnimplementedLocaleManagerServiceServer) GetOverrideLocaleConfig(context.Context, *GetOverrideLocaleConfigRequest) (*GetOverrideLocaleConfigResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetOverrideLocaleConfig not implemented")
-}
-func (UnimplementedLocaleManagerServiceServer) GetSystemLocales(context.Context, *GetSystemLocalesRequest) (*GetSystemLocalesResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetSystemLocales not implemented")
-}
-func (UnimplementedLocaleManagerServiceServer) SetApplicationLocales(context.Context, *SetApplicationLocalesRequest) (*SetApplicationLocalesResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetApplicationLocales not implemented")
-}
-func (UnimplementedLocaleManagerServiceServer) SetOverrideLocaleConfig(context.Context, *SetOverrideLocaleConfigRequest) (*SetOverrideLocaleConfigResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetOverrideLocaleConfig not implemented")
-}
-func (UnimplementedLocaleManagerServiceServer) mustEmbedUnimplementedLocaleManagerServiceServer() {}
-func (UnimplementedLocaleManagerServiceServer) testEmbeddedByValue()                              {}
-
-// UnsafeLocaleManagerServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to LocaleManagerServiceServer will
-// result in compilation errors.
-type UnsafeLocaleManagerServiceServer interface {
-	mustEmbedUnimplementedLocaleManagerServiceServer()
-}
-
-func RegisterLocaleManagerServiceServer(s grpc.ServiceRegistrar, srv LocaleManagerServiceServer) {
-	// If the following call panics, it indicates UnimplementedLocaleManagerServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&LocaleManagerService_ServiceDesc, srv)
-}
-
-func _LocaleManagerService_GetApplicationLocales0_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetApplicationLocales0Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(LocaleManagerServiceServer).GetApplicationLocales0(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: LocaleManagerService_GetApplicationLocales0_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(LocaleManagerServiceServer).GetApplicationLocales0(ctx, req.(*GetApplicationLocales0Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _LocaleManagerService_GetApplicationLocales1_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetApplicationLocales1_1Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(LocaleManagerServiceServer).GetApplicationLocales1_1(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: LocaleManagerService_GetApplicationLocales1_1_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(LocaleManagerServiceServer).GetApplicationLocales1_1(ctx, req.(*GetApplicationLocales1_1Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _LocaleManagerService_GetOverrideLocaleConfig_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetOverrideLocaleConfigRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(LocaleManagerServiceServer).GetOverrideLocaleConfig(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: LocaleManagerService_GetOverrideLocaleConfig_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(LocaleManagerServiceServer).GetOverrideLocaleConfig(ctx, req.(*GetOverrideLocaleConfigRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _LocaleManagerService_GetSystemLocales_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetSystemLocalesRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(LocaleManagerServiceServer).GetSystemLocales(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: LocaleManagerService_GetSystemLocales_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(LocaleManagerServiceServer).GetSystemLocales(ctx, req.(*GetSystemLocalesRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _LocaleManagerService_SetApplicationLocales_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetApplicationLocalesRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(LocaleManagerServiceServer).SetApplicationLocales(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: LocaleManagerService_SetApplicationLocales_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(LocaleManagerServiceServer).SetApplicationLocales(ctx, req.(*SetApplicationLocalesRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _LocaleManagerService_SetOverrideLocaleConfig_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetOverrideLocaleConfigRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(LocaleManagerServiceServer).SetOverrideLocaleConfig(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: LocaleManagerService_SetOverrideLocaleConfig_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(LocaleManagerServiceServer).SetOverrideLocaleConfig(ctx, req.(*SetOverrideLocaleConfigRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// LocaleManagerService_ServiceDesc is the grpc.ServiceDesc for LocaleManagerService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var LocaleManagerService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "app.LocaleManagerService",
-	HandlerType: (*LocaleManagerServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "GetApplicationLocales0",
-			Handler:    _LocaleManagerService_GetApplicationLocales0_Handler,
-		},
-		{
-			MethodName: "GetApplicationLocales1_1",
-			Handler:    _LocaleManagerService_GetApplicationLocales1_1_Handler,
-		},
-		{
-			MethodName: "GetOverrideLocaleConfig",
-			Handler:    _LocaleManagerService_GetOverrideLocaleConfig_Handler,
-		},
-		{
-			MethodName: "GetSystemLocales",
-			Handler:    _LocaleManagerService_GetSystemLocales_Handler,
-		},
-		{
-			MethodName: "SetApplicationLocales",
-			Handler:    _LocaleManagerService_SetApplicationLocales_Handler,
-		},
-		{
-			MethodName: "SetOverrideLocaleConfig",
-			Handler:    _LocaleManagerService_SetOverrideLocaleConfig_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

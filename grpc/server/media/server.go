@@ -15,6 +15,26 @@ import (
 	"google.golang.org/grpc/status"
 )
 
+// CommunicationManagerServer implements pb.CommunicationManagerServiceServer.
+type CommunicationManagerServer struct {
+	pb.UnimplementedCommunicationManagerServiceServer
+	Ctx *app.Context
+}
+
+func (s *CommunicationManagerServer) GetVersion(_ context.Context, req *pb.GetVersionRequest) (*pb.GetVersionResponse, error) {
+	mgr, err := jnipkg.NewCommunicationManager(s.Ctx)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
+	}
+	defer mgr.Close()
+
+	result, err := mgr.GetVersion()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetVersionResponse{Result: result}, nil
+}
+
 // RouterServer implements pb.RouterServiceServer.
 type RouterServer struct {
 	pb.UnimplementedRouterServiceServer
@@ -300,24 +320,4 @@ func (s *RouterServer) SelectRoute(_ context.Context, req *pb.SelectRouteRequest
 		return nil, status.Errorf(codes.Internal, "%v", err)
 	}
 	return &pb.SelectRouteResponse{}, nil
-}
-
-// CommunicationManagerServer implements pb.CommunicationManagerServiceServer.
-type CommunicationManagerServer struct {
-	pb.UnimplementedCommunicationManagerServiceServer
-	Ctx *app.Context
-}
-
-func (s *CommunicationManagerServer) GetVersion(_ context.Context, req *pb.GetVersionRequest) (*pb.GetVersionResponse, error) {
-	mgr, err := jnipkg.NewCommunicationManager(s.Ctx)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
-	}
-	defer mgr.Close()
-
-	result, err := mgr.GetVersion()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GetVersionResponse{Result: result}, nil
 }

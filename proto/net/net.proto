@@ -6,22 +6,6 @@ package net;
 
 option go_package = "github.com/AndroidGoLab/jni-proxy/proto/net";
 
-message RegisterConnectivityDiagnosticsCallbackRequest {
-  int64 arg0 = 1;
-  int64 arg1 = 2;
-  int64 arg2 = 3;
-}
-
-message RegisterConnectivityDiagnosticsCallbackResponse {
-}
-
-message UnregisterConnectivityDiagnosticsCallbackRequest {
-  int64 arg0 = 1;
-}
-
-message UnregisterConnectivityDiagnosticsCallbackResponse {
-}
-
 message AllocateSecurityParameterIndex1Request {
   int64 arg0 = 1;
 }
@@ -100,39 +84,6 @@ message RemoveTransportModeTransforms1_2Request {
 }
 
 message RemoveTransportModeTransforms1_2Response {
-}
-
-message RegisterTetheringEventCallbackRequest {
-  int64 arg0 = 1;
-  int64 arg1 = 2;
-}
-
-message RegisterTetheringEventCallbackResponse {
-}
-
-message StartTetheringRequest {
-  int64 arg0 = 1;
-  int64 arg1 = 2;
-  int64 arg2 = 3;
-}
-
-message StartTetheringResponse {
-}
-
-message StopTetheringRequest {
-  int64 arg0 = 1;
-  int64 arg1 = 2;
-  int64 arg2 = 3;
-}
-
-message StopTetheringResponse {
-}
-
-message UnregisterTetheringEventCallbackRequest {
-  int64 arg0 = 1;
-}
-
-message UnregisterTetheringEventCallbackResponse {
 }
 
 message AddDefaultNetworkActiveListenerRequest {
@@ -426,9 +377,53 @@ message SetProcessDefaultNetworkResponse {
   bool result = 1;
 }
 
-service ConnectivityDiagnosticsManagerService {
-  rpc RegisterConnectivityDiagnosticsCallback (RegisterConnectivityDiagnosticsCallbackRequest) returns (RegisterConnectivityDiagnosticsCallbackResponse);
-  rpc UnregisterConnectivityDiagnosticsCallback (UnregisterConnectivityDiagnosticsCallbackRequest) returns (UnregisterConnectivityDiagnosticsCallbackResponse);
+message RegisterConnectivityDiagnosticsCallbackRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+  int64 arg2 = 3;
+}
+
+message RegisterConnectivityDiagnosticsCallbackResponse {
+}
+
+message UnregisterConnectivityDiagnosticsCallbackRequest {
+  int64 arg0 = 1;
+}
+
+message UnregisterConnectivityDiagnosticsCallbackResponse {
+}
+
+message RegisterTetheringEventCallbackRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message RegisterTetheringEventCallbackResponse {
+}
+
+message StartTetheringRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+  int64 arg2 = 3;
+}
+
+message StartTetheringResponse {
+}
+
+message StopTetheringRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+  int64 arg2 = 3;
+}
+
+message StopTetheringResponse {
+}
+
+message UnregisterTetheringEventCallbackRequest {
+  int64 arg0 = 1;
+}
+
+message UnregisterTetheringEventCallbackResponse {
 }
 
 service IpSecManagerService {
@@ -442,13 +437,6 @@ service IpSecManagerService {
   rpc RemoveTransportModeTransforms1 (RemoveTransportModeTransforms1Request) returns (RemoveTransportModeTransforms1Response);
   rpc RemoveTransportModeTransforms1_1 (RemoveTransportModeTransforms1_1Request) returns (RemoveTransportModeTransforms1_1Response);
   rpc RemoveTransportModeTransforms1_2 (RemoveTransportModeTransforms1_2Request) returns (RemoveTransportModeTransforms1_2Response);
-}
-
-service TetheringManagerService {
-  rpc RegisterTetheringEventCallback (RegisterTetheringEventCallbackRequest) returns (RegisterTetheringEventCallbackResponse);
-  rpc StartTethering (StartTetheringRequest) returns (StartTetheringResponse);
-  rpc StopTethering (StopTetheringRequest) returns (StopTetheringResponse);
-  rpc UnregisterTetheringEventCallback (UnregisterTetheringEventCallbackRequest) returns (UnregisterTetheringEventCallbackResponse);
 }
 
 service ConnectivityManagerService {
@@ -490,4 +478,16 @@ service ConnectivityManagerService {
   rpc GetProcessDefaultNetwork (GetProcessDefaultNetworkRequest) returns (GetProcessDefaultNetworkResponse);
   rpc IsNetworkTypeValid (IsNetworkTypeValidRequest) returns (IsNetworkTypeValidResponse);
   rpc SetProcessDefaultNetwork (SetProcessDefaultNetworkRequest) returns (SetProcessDefaultNetworkResponse);
+}
+
+service ConnectivityDiagnosticsManagerService {
+  rpc RegisterConnectivityDiagnosticsCallback (RegisterConnectivityDiagnosticsCallbackRequest) returns (RegisterConnectivityDiagnosticsCallbackResponse);
+  rpc UnregisterConnectivityDiagnosticsCallback (UnregisterConnectivityDiagnosticsCallbackRequest) returns (UnregisterConnectivityDiagnosticsCallbackResponse);
+}
+
+service TetheringManagerService {
+  rpc RegisterTetheringEventCallback (RegisterTetheringEventCallbackRequest) returns (RegisterTetheringEventCallbackResponse);
+  rpc StartTethering (StartTetheringRequest) returns (StartTetheringResponse);
+  rpc StopTethering (StopTetheringRequest) returns (StopTetheringResponse);
+  rpc UnregisterTetheringEventCallback (UnregisterTetheringEventCallbackRequest) returns (UnregisterTetheringEventCallbackResponse);
 }

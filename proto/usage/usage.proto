@@ -6,100 +6,6 @@ package usage;
 
 option go_package = "github.com/AndroidGoLab/jni-proxy/proto/usage";
 
-message GetAppStandbyBucketRequest {
-}
-
-message GetAppStandbyBucketResponse {
-  int32 result = 1;
-}
-
-message IsAppInactiveRequest {
-  string arg0 = 1;
-}
-
-message IsAppInactiveResponse {
-  bool result = 1;
-}
-
-message QueryEvents1Request {
-  int64 arg0 = 1;
-}
-
-message QueryEvents1Response {
-  int64 result = 1;
-}
-
-message QueryEvents2_1Request {
-  int64 arg0 = 1;
-  int64 arg1 = 2;
-}
-
-message QueryEvents2_1Response {
-  int64 result = 1;
-}
-
-message QueryEventsForSelfRequest {
-  int64 arg0 = 1;
-  int64 arg1 = 2;
-}
-
-message QueryEventsForSelfResponse {
-  int64 result = 1;
-}
-
-message GetFreeBytesRequest {
-  int64 arg0 = 1;
-}
-
-message GetFreeBytesResponse {
-  int64 result = 1;
-}
-
-message GetTotalBytesRequest {
-  int64 arg0 = 1;
-}
-
-message GetTotalBytesResponse {
-  int64 result = 1;
-}
-
-message QueryExternalStatsForUserRequest {
-  int64 arg0 = 1;
-  int64 arg1 = 2;
-}
-
-message QueryExternalStatsForUserResponse {
-  int64 result = 1;
-}
-
-message QueryStatsForPackageRequest {
-  int64 arg0 = 1;
-  string arg1 = 2;
-  int64 arg2 = 3;
-}
-
-message QueryStatsForPackageResponse {
-  int64 result = 1;
-}
-
-message QueryStatsForUidRequest {
-  int64 arg0 = 1;
-  int32 arg1 = 2;
-}
-
-message QueryStatsForUidResponse {
-  int64 result = 1;
-}
-
-message QueryStatsForUserRequest {
-  int64 arg0 = 1;
-  int64 arg1 = 2;
-}
-
-message QueryStatsForUserResponse {
-  int64 result = 1;
-}
-
 message QueryDetailsRequest {
   int32 arg0 = 1;
   string arg1 = 2;
@@ -200,6 +106,112 @@ message UnregisterUsageCallbackRequest {
 message UnregisterUsageCallbackResponse {
 }
 
+message GetAppStandbyBucketRequest {
+}
+
+message GetAppStandbyBucketResponse {
+  int32 result = 1;
+}
+
+message IsAppInactiveRequest {
+  string arg0 = 1;
+}
+
+message IsAppInactiveResponse {
+  bool result = 1;
+}
+
+message QueryEvents1Request {
+  int64 arg0 = 1;
+}
+
+message QueryEvents1Response {
+  int64 result = 1;
+}
+
+message QueryEvents2_1Request {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message QueryEvents2_1Response {
+  int64 result = 1;
+}
+
+message QueryEventsForSelfRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message QueryEventsForSelfResponse {
+  int64 result = 1;
+}
+
+message GetFreeBytesRequest {
+  int64 arg0 = 1;
+}
+
+message GetFreeBytesResponse {
+  int64 result = 1;
+}
+
+message GetTotalBytesRequest {
+  int64 arg0 = 1;
+}
+
+message GetTotalBytesResponse {
+  int64 result = 1;
+}
+
+message QueryExternalStatsForUserRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message QueryExternalStatsForUserResponse {
+  int64 result = 1;
+}
+
+message QueryStatsForPackageRequest {
+  int64 arg0 = 1;
+  string arg1 = 2;
+  int64 arg2 = 3;
+}
+
+message QueryStatsForPackageResponse {
+  int64 result = 1;
+}
+
+message QueryStatsForUidRequest {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message QueryStatsForUidResponse {
+  int64 result = 1;
+}
+
+message QueryStatsForUserRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message QueryStatsForUserResponse {
+  int64 result = 1;
+}
+
+service NetworkStatsManagerService {
+  rpc QueryDetails (QueryDetailsRequest) returns (QueryDetailsResponse);
+  rpc QueryDetailsForUid (QueryDetailsForUidRequest) returns (QueryDetailsForUidResponse);
+  rpc QueryDetailsForUidTag (QueryDetailsForUidTagRequest) returns (QueryDetailsForUidTagResponse);
+  rpc QueryDetailsForUidTagState (QueryDetailsForUidTagStateRequest) returns (QueryDetailsForUidTagStateResponse);
+  rpc QuerySummary (QuerySummaryRequest) returns (QuerySummaryResponse);
+  rpc QuerySummaryForDevice (QuerySummaryForDeviceRequest) returns (QuerySummaryForDeviceResponse);
+  rpc QuerySummaryForUser (QuerySummaryForUserRequest) returns (QuerySummaryForUserResponse);
+  rpc RegisterUsageCallback (RegisterUsageCallbackRequest) returns (RegisterUsageCallbackResponse);
+  rpc UnregisterUsageCallback (UnregisterUsageCallbackRequest) returns (UnregisterUsageCallbackResponse);
+}
+
 service StatsManagerService {
   rpc GetAppStandbyBucket (GetAppStandbyBucketRequest) returns (GetAppStandbyBucketResponse);
   rpc IsAppInactive (IsAppInactiveRequest) returns (IsAppInactiveResponse);
@@ -215,16 +227,4 @@ service StorageStatsManagerService {
   rpc QueryStatsForPackage (QueryStatsForPackageRequest) returns (QueryStatsForPackageResponse);
   rpc QueryStatsForUid (QueryStatsForUidRequest) returns (QueryStatsForUidResponse);
   rpc QueryStatsForUser (QueryStatsForUserRequest) returns (QueryStatsForUserResponse);
-}
-
-service NetworkStatsManagerService {
-  rpc QueryDetails (QueryDetailsRequest) returns (QueryDetailsResponse);
-  rpc QueryDetailsForUid (QueryDetailsForUidRequest) returns (QueryDetailsForUidResponse);
-  rpc QueryDetailsForUidTag (QueryDetailsForUidTagRequest) returns (QueryDetailsForUidTagResponse);
-  rpc QueryDetailsForUidTagState (QueryDetailsForUidTagStateRequest) returns (QueryDetailsForUidTagStateResponse);
-  rpc QuerySummary (QuerySummaryRequest) returns (QuerySummaryResponse);
-  rpc QuerySummaryForDevice (QuerySummaryForDeviceRequest) returns (QuerySummaryForDeviceResponse);
-  rpc QuerySummaryForUser (QuerySummaryForUserRequest) returns (QuerySummaryForUserResponse);
-  rpc RegisterUsageCallback (RegisterUsageCallbackRequest) returns (RegisterUsageCallbackResponse);
-  rpc UnregisterUsageCallback (UnregisterUsageCallbackRequest) returns (UnregisterUsageCallbackResponse);
 }
