@@ -61,29 +61,6 @@ func (s *MediaSessionManagerServer) AddOnSession2TokensChangedListener(_ context
 	return &pb.AddOnSession2TokensChangedListenerResponse{}, nil
 }
 
-func (s *MediaSessionManagerServer) GetActiveSessions(_ context.Context, req *pb.GetActiveSessionsRequest) (*pb.GetActiveSessionsResponse, error) {
-	mgr, err := jnipkg.NewMediaSessionManager(s.Ctx)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
-	}
-	defer mgr.Close()
-
-	result, err := mgr.GetActiveSessions(s.Handles.Get(req.GetArg0()))
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	var handle int64
-	if result != nil {
-		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-			handle = s.Handles.Put(env, result)
-			return nil
-		}); doErr != nil {
-			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-		}
-	}
-	return &pb.GetActiveSessionsResponse{Result: handle}, nil
-}
-
 func (s *MediaSessionManagerServer) GetMediaKeyEventSession(_ context.Context, req *pb.GetMediaKeyEventSessionRequest) (*pb.GetMediaKeyEventSessionResponse, error) {
 	mgr, err := jnipkg.NewMediaSessionManager(s.Ctx)
 	if err != nil {
@@ -119,29 +96,6 @@ func (s *MediaSessionManagerServer) GetMediaKeyEventSessionPackageName(_ context
 		return nil, status.Errorf(codes.Internal, "%v", err)
 	}
 	return &pb.GetMediaKeyEventSessionPackageNameResponse{Result: result}, nil
-}
-
-func (s *MediaSessionManagerServer) GetSession2Tokens(_ context.Context, req *pb.GetSession2TokensRequest) (*pb.GetSession2TokensResponse, error) {
-	mgr, err := jnipkg.NewMediaSessionManager(s.Ctx)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
-	}
-	defer mgr.Close()
-
-	result, err := mgr.GetSession2Tokens()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	var handle int64
-	if result != nil {
-		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-			handle = s.Handles.Put(env, result)
-			return nil
-		}); doErr != nil {
-			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-		}
-	}
-	return &pb.GetSession2TokensResponse{Result: handle}, nil
 }
 
 func (s *MediaSessionManagerServer) IsTrustedForMediaControl(_ context.Context, req *pb.IsTrustedForMediaControlRequest) (*pb.IsTrustedForMediaControlResponse, error) {

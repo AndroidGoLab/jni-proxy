@@ -9,20 +9,20 @@ import (
 	"google.golang.org/grpc"
 )
 
-// Client wraps the gRPC StatsManagerService client.
-type Client struct {
+// StatsManagerClient wraps the gRPC StatsManagerService client.
+type StatsManagerClient struct {
 	svc pb.StatsManagerServiceClient
 }
 
-// NewClient creates a new usage client.
-func NewClient(cc grpc.ClientConnInterface) *Client {
-	return &Client{
+// NewStatsManagerClient creates a new StatsManager client.
+func NewStatsManagerClient(cc grpc.ClientConnInterface) *StatsManagerClient {
+	return &StatsManagerClient{
 		svc: pb.NewStatsManagerServiceClient(cc),
 	}
 }
 
 // GetAppStandbyBucket calls the GetAppStandbyBucket RPC.
-func (c *Client) GetAppStandbyBucket(ctx context.Context) (int32, error) {
+func (c *StatsManagerClient) GetAppStandbyBucket(ctx context.Context) (int32, error) {
 	resp, err := c.svc.GetAppStandbyBucket(ctx, &pb.GetAppStandbyBucketRequest{})
 	if err != nil {
 		return 0, err
@@ -31,7 +31,7 @@ func (c *Client) GetAppStandbyBucket(ctx context.Context) (int32, error) {
 }
 
 // IsAppInactive calls the IsAppInactive RPC.
-func (c *Client) IsAppInactive(ctx context.Context, arg0 string) (bool, error) {
+func (c *StatsManagerClient) IsAppInactive(ctx context.Context, arg0 string) (bool, error) {
 	resp, err := c.svc.IsAppInactive(ctx, &pb.IsAppInactiveRequest{
 		Arg0: arg0,
 	})
@@ -41,34 +41,8 @@ func (c *Client) IsAppInactive(ctx context.Context, arg0 string) (bool, error) {
 	return resp.GetResult(), nil
 }
 
-// QueryConfigurations calls the QueryConfigurations RPC.
-func (c *Client) QueryConfigurations(ctx context.Context, arg0 int32, arg1 int64, arg2 int64) (int64, error) {
-	resp, err := c.svc.QueryConfigurations(ctx, &pb.QueryConfigurationsRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// QueryEventStats calls the QueryEventStats RPC.
-func (c *Client) QueryEventStats(ctx context.Context, arg0 int32, arg1 int64, arg2 int64) (int64, error) {
-	resp, err := c.svc.QueryEventStats(ctx, &pb.QueryEventStatsRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
 // QueryEvents1 calls the QueryEvents1 RPC.
-func (c *Client) QueryEvents1(ctx context.Context, arg0 int64) (int64, error) {
+func (c *StatsManagerClient) QueryEvents1(ctx context.Context, arg0 int64) (int64, error) {
 	resp, err := c.svc.QueryEvents1(ctx, &pb.QueryEvents1Request{
 		Arg0: arg0,
 	})
@@ -79,7 +53,7 @@ func (c *Client) QueryEvents1(ctx context.Context, arg0 int64) (int64, error) {
 }
 
 // QueryEvents2_1 calls the QueryEvents2_1 RPC.
-func (c *Client) QueryEvents2_1(ctx context.Context, arg0 int64, arg1 int64) (int64, error) {
+func (c *StatsManagerClient) QueryEvents2_1(ctx context.Context, arg0 int64, arg1 int64) (int64, error) {
 	resp, err := c.svc.QueryEvents2_1(ctx, &pb.QueryEvents2_1Request{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -91,7 +65,7 @@ func (c *Client) QueryEvents2_1(ctx context.Context, arg0 int64, arg1 int64) (in
 }
 
 // QueryEventsForSelf calls the QueryEventsForSelf RPC.
-func (c *Client) QueryEventsForSelf(ctx context.Context, arg0 int64, arg1 int64) (int64, error) {
+func (c *StatsManagerClient) QueryEventsForSelf(ctx context.Context, arg0 int64, arg1 int64) (int64, error) {
 	resp, err := c.svc.QueryEventsForSelf(ctx, &pb.QueryEventsForSelfRequest{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -102,9 +76,55 @@ func (c *Client) QueryEventsForSelf(ctx context.Context, arg0 int64, arg1 int64)
 	return resp.GetResult(), nil
 }
 
-// QueryUsageStats calls the QueryUsageStats RPC.
-func (c *Client) QueryUsageStats(ctx context.Context, arg0 int32, arg1 int64, arg2 int64) (int64, error) {
-	resp, err := c.svc.QueryUsageStats(ctx, &pb.QueryUsageStatsRequest{
+// StorageStatsManagerClient wraps the gRPC StorageStatsManagerService client.
+type StorageStatsManagerClient struct {
+	svc pb.StorageStatsManagerServiceClient
+}
+
+// NewStorageStatsManagerClient creates a new StorageStatsManager client.
+func NewStorageStatsManagerClient(cc grpc.ClientConnInterface) *StorageStatsManagerClient {
+	return &StorageStatsManagerClient{
+		svc: pb.NewStorageStatsManagerServiceClient(cc),
+	}
+}
+
+// GetFreeBytes calls the GetFreeBytes RPC.
+func (c *StorageStatsManagerClient) GetFreeBytes(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.GetFreeBytes(ctx, &pb.GetFreeBytesRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetTotalBytes calls the GetTotalBytes RPC.
+func (c *StorageStatsManagerClient) GetTotalBytes(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.GetTotalBytes(ctx, &pb.GetTotalBytesRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// QueryExternalStatsForUser calls the QueryExternalStatsForUser RPC.
+func (c *StorageStatsManagerClient) QueryExternalStatsForUser(ctx context.Context, arg0 int64, arg1 int64) (int64, error) {
+	resp, err := c.svc.QueryExternalStatsForUser(ctx, &pb.QueryExternalStatsForUserRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// QueryStatsForPackage calls the QueryStatsForPackage RPC.
+func (c *StorageStatsManagerClient) QueryStatsForPackage(ctx context.Context, arg0 int64, arg1 string, arg2 int64) (int64, error) {
+	resp, err := c.svc.QueryStatsForPackage(ctx, &pb.QueryStatsForPackageRequest{
 		Arg0: arg0,
 		Arg1: arg1,
 		Arg2: arg2,
@@ -113,4 +133,163 @@ func (c *Client) QueryUsageStats(ctx context.Context, arg0 int32, arg1 int64, ar
 		return 0, err
 	}
 	return resp.GetResult(), nil
+}
+
+// QueryStatsForUid calls the QueryStatsForUid RPC.
+func (c *StorageStatsManagerClient) QueryStatsForUid(ctx context.Context, arg0 int64, arg1 int32) (int64, error) {
+	resp, err := c.svc.QueryStatsForUid(ctx, &pb.QueryStatsForUidRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// QueryStatsForUser calls the QueryStatsForUser RPC.
+func (c *StorageStatsManagerClient) QueryStatsForUser(ctx context.Context, arg0 int64, arg1 int64) (int64, error) {
+	resp, err := c.svc.QueryStatsForUser(ctx, &pb.QueryStatsForUserRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// NetworkStatsManagerClient wraps the gRPC NetworkStatsManagerService client.
+type NetworkStatsManagerClient struct {
+	svc pb.NetworkStatsManagerServiceClient
+}
+
+// NewNetworkStatsManagerClient creates a new NetworkStatsManager client.
+func NewNetworkStatsManagerClient(cc grpc.ClientConnInterface) *NetworkStatsManagerClient {
+	return &NetworkStatsManagerClient{
+		svc: pb.NewNetworkStatsManagerServiceClient(cc),
+	}
+}
+
+// QueryDetails calls the QueryDetails RPC.
+func (c *NetworkStatsManagerClient) QueryDetails(ctx context.Context, arg0 int32, arg1 string, arg2 int64, arg3 int64) (int64, error) {
+	resp, err := c.svc.QueryDetails(ctx, &pb.QueryDetailsRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// QueryDetailsForUid calls the QueryDetailsForUid RPC.
+func (c *NetworkStatsManagerClient) QueryDetailsForUid(ctx context.Context, arg0 int32, arg1 string, arg2 int64, arg3 int64, arg4 int32) (int64, error) {
+	resp, err := c.svc.QueryDetailsForUid(ctx, &pb.QueryDetailsForUidRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+		Arg4: arg4,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// QueryDetailsForUidTag calls the QueryDetailsForUidTag RPC.
+func (c *NetworkStatsManagerClient) QueryDetailsForUidTag(ctx context.Context, arg0 int32, arg1 string, arg2 int64, arg3 int64, arg4 int32, arg5 int32) (int64, error) {
+	resp, err := c.svc.QueryDetailsForUidTag(ctx, &pb.QueryDetailsForUidTagRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+		Arg4: arg4,
+		Arg5: arg5,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// QueryDetailsForUidTagState calls the QueryDetailsForUidTagState RPC.
+func (c *NetworkStatsManagerClient) QueryDetailsForUidTagState(ctx context.Context, arg0 int32, arg1 string, arg2 int64, arg3 int64, arg4 int32, arg5 int32, arg6 int32) (int64, error) {
+	resp, err := c.svc.QueryDetailsForUidTagState(ctx, &pb.QueryDetailsForUidTagStateRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+		Arg4: arg4,
+		Arg5: arg5,
+		Arg6: arg6,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// QuerySummary calls the QuerySummary RPC.
+func (c *NetworkStatsManagerClient) QuerySummary(ctx context.Context, arg0 int32, arg1 string, arg2 int64, arg3 int64) (int64, error) {
+	resp, err := c.svc.QuerySummary(ctx, &pb.QuerySummaryRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// QuerySummaryForDevice calls the QuerySummaryForDevice RPC.
+func (c *NetworkStatsManagerClient) QuerySummaryForDevice(ctx context.Context, arg0 int32, arg1 string, arg2 int64, arg3 int64) (int64, error) {
+	resp, err := c.svc.QuerySummaryForDevice(ctx, &pb.QuerySummaryForDeviceRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// QuerySummaryForUser calls the QuerySummaryForUser RPC.
+func (c *NetworkStatsManagerClient) QuerySummaryForUser(ctx context.Context, arg0 int32, arg1 string, arg2 int64, arg3 int64) (int64, error) {
+	resp, err := c.svc.QuerySummaryForUser(ctx, &pb.QuerySummaryForUserRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// RegisterUsageCallback calls the RegisterUsageCallback RPC.
+func (c *NetworkStatsManagerClient) RegisterUsageCallback(ctx context.Context, arg0 int32, arg1 string, arg2 int64, arg3 int64) error {
+	_, err := c.svc.RegisterUsageCallback(ctx, &pb.RegisterUsageCallbackRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+	})
+	return err
+}
+
+// UnregisterUsageCallback calls the UnregisterUsageCallback RPC.
+func (c *NetworkStatsManagerClient) UnregisterUsageCallback(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.UnregisterUsageCallback(ctx, &pb.UnregisterUsageCallbackRequest{
+		Arg0: arg0,
+	})
+	return err
 }

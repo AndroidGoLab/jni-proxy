@@ -61,19 +61,6 @@ func (s *ManagerServer) AcceptRingingCall1_1(_ context.Context, req *pb.AcceptRi
 	return &pb.AcceptRingingCall1_1Response{}, nil
 }
 
-func (s *ManagerServer) AddCall(_ context.Context, req *pb.AddCallRequest) (*pb.AddCallResponse, error) {
-	mgr, err := jnipkg.NewManager(s.Ctx)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
-	}
-	defer mgr.Close()
-
-	if err := mgr.AddCall(s.Handles.Get(req.GetArg0()), s.Handles.Get(req.GetArg1()), s.Handles.Get(req.GetArg2()), s.Handles.Get(req.GetArg3()), s.Handles.Get(req.GetArg4())); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.AddCallResponse{}, nil
-}
-
 func (s *ManagerServer) AddNewIncomingCall(_ context.Context, req *pb.AddNewIncomingCallRequest) (*pb.AddNewIncomingCallResponse, error) {
 	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
@@ -173,29 +160,6 @@ func (s *ManagerServer) GetAdnUriForPhoneAccount(_ context.Context, req *pb.GetA
 	return &pb.GetAdnUriForPhoneAccountResponse{Result: handle}, nil
 }
 
-func (s *ManagerServer) GetCallCapablePhoneAccounts(_ context.Context, req *pb.GetCallCapablePhoneAccountsRequest) (*pb.GetCallCapablePhoneAccountsResponse, error) {
-	mgr, err := jnipkg.NewManager(s.Ctx)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
-	}
-	defer mgr.Close()
-
-	result, err := mgr.GetCallCapablePhoneAccounts()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	var handle int64
-	if result != nil {
-		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-			handle = s.Handles.Put(env, result)
-			return nil
-		}); doErr != nil {
-			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-		}
-	}
-	return &pb.GetCallCapablePhoneAccountsResponse{Result: handle}, nil
-}
-
 func (s *ManagerServer) GetDefaultDialerPackage(_ context.Context, req *pb.GetDefaultDialerPackageRequest) (*pb.GetDefaultDialerPackageResponse, error) {
 	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
@@ -247,29 +211,6 @@ func (s *ManagerServer) GetLine1Number(_ context.Context, req *pb.GetLine1Number
 	return &pb.GetLine1NumberResponse{Result: result}, nil
 }
 
-func (s *ManagerServer) GetOwnSelfManagedPhoneAccounts(_ context.Context, req *pb.GetOwnSelfManagedPhoneAccountsRequest) (*pb.GetOwnSelfManagedPhoneAccountsResponse, error) {
-	mgr, err := jnipkg.NewManager(s.Ctx)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
-	}
-	defer mgr.Close()
-
-	result, err := mgr.GetOwnSelfManagedPhoneAccounts()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	var handle int64
-	if result != nil {
-		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-			handle = s.Handles.Put(env, result)
-			return nil
-		}); doErr != nil {
-			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-		}
-	}
-	return &pb.GetOwnSelfManagedPhoneAccountsResponse{Result: handle}, nil
-}
-
 func (s *ManagerServer) GetPhoneAccount(_ context.Context, req *pb.GetPhoneAccountRequest) (*pb.GetPhoneAccountResponse, error) {
 	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
@@ -291,52 +232,6 @@ func (s *ManagerServer) GetPhoneAccount(_ context.Context, req *pb.GetPhoneAccou
 		}
 	}
 	return &pb.GetPhoneAccountResponse{Result: handle}, nil
-}
-
-func (s *ManagerServer) GetRegisteredPhoneAccounts(_ context.Context, req *pb.GetRegisteredPhoneAccountsRequest) (*pb.GetRegisteredPhoneAccountsResponse, error) {
-	mgr, err := jnipkg.NewManager(s.Ctx)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
-	}
-	defer mgr.Close()
-
-	result, err := mgr.GetRegisteredPhoneAccounts()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	var handle int64
-	if result != nil {
-		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-			handle = s.Handles.Put(env, result)
-			return nil
-		}); doErr != nil {
-			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-		}
-	}
-	return &pb.GetRegisteredPhoneAccountsResponse{Result: handle}, nil
-}
-
-func (s *ManagerServer) GetSelfManagedPhoneAccounts(_ context.Context, req *pb.GetSelfManagedPhoneAccountsRequest) (*pb.GetSelfManagedPhoneAccountsResponse, error) {
-	mgr, err := jnipkg.NewManager(s.Ctx)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
-	}
-	defer mgr.Close()
-
-	result, err := mgr.GetSelfManagedPhoneAccounts()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	var handle int64
-	if result != nil {
-		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-			handle = s.Handles.Put(env, result)
-			return nil
-		}); doErr != nil {
-			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-		}
-	}
-	return &pb.GetSelfManagedPhoneAccountsResponse{Result: handle}, nil
 }
 
 func (s *ManagerServer) GetSimCallManager(_ context.Context, req *pb.GetSimCallManagerRequest) (*pb.GetSimCallManagerResponse, error) {
@@ -612,19 +507,6 @@ func (s *ManagerServer) SilenceRinger(_ context.Context, req *pb.SilenceRingerRe
 		return nil, status.Errorf(codes.Internal, "%v", err)
 	}
 	return &pb.SilenceRingerResponse{}, nil
-}
-
-func (s *ManagerServer) StartConference(_ context.Context, req *pb.StartConferenceRequest) (*pb.StartConferenceResponse, error) {
-	mgr, err := jnipkg.NewManager(s.Ctx)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
-	}
-	defer mgr.Close()
-
-	if err := mgr.StartConference(s.Handles.Get(req.GetArg0()), s.Handles.Get(req.GetArg1())); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.StartConferenceResponse{}, nil
 }
 
 func (s *ManagerServer) UnregisterPhoneAccount(_ context.Context, req *pb.UnregisterPhoneAccountRequest) (*pb.UnregisterPhoneAccountResponse, error) {

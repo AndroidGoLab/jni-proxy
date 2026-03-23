@@ -23,27 +23,27 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
-type CreateManagerRawRequest struct {
+type IsEnabledCredentialProviderServiceRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Context       int64                  `protobuf:"varint,1,opt,name=context,proto3" json:"context,omitempty"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *CreateManagerRawRequest) Reset() {
-	*x = CreateManagerRawRequest{}
+func (x *IsEnabledCredentialProviderServiceRequest) Reset() {
+	*x = IsEnabledCredentialProviderServiceRequest{}
 	mi := &file_proto_credentials_credentials_proto_msgTypes[0]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *CreateManagerRawRequest) String() string {
+func (x *IsEnabledCredentialProviderServiceRequest) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*CreateManagerRawRequest) ProtoMessage() {}
+func (*IsEnabledCredentialProviderServiceRequest) ProtoMessage() {}
 
-func (x *CreateManagerRawRequest) ProtoReflect() protoreflect.Message {
+func (x *IsEnabledCredentialProviderServiceRequest) ProtoReflect() protoreflect.Message {
 	mi := &file_proto_credentials_credentials_proto_msgTypes[0]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -55,39 +55,39 @@ func (x *CreateManagerRawRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use CreateManagerRawRequest.ProtoReflect.Descriptor instead.
-func (*CreateManagerRawRequest) Descriptor() ([]byte, []int) {
+// Deprecated: Use IsEnabledCredentialProviderServiceRequest.ProtoReflect.Descriptor instead.
+func (*IsEnabledCredentialProviderServiceRequest) Descriptor() ([]byte, []int) {
 	return file_proto_credentials_credentials_proto_rawDescGZIP(), []int{0}
 }
 
-func (x *CreateManagerRawRequest) GetContext() int64 {
+func (x *IsEnabledCredentialProviderServiceRequest) GetArg0() int64 {
 	if x != nil {
-		return x.Context
+		return x.Arg0
 	}
 	return 0
 }
 
-type CreateManagerRawResponse struct {
+type IsEnabledCredentialProviderServiceResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *CreateManagerRawResponse) Reset() {
-	*x = CreateManagerRawResponse{}
+func (x *IsEnabledCredentialProviderServiceResponse) Reset() {
+	*x = IsEnabledCredentialProviderServiceResponse{}
 	mi := &file_proto_credentials_credentials_proto_msgTypes[1]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *CreateManagerRawResponse) String() string {
+func (x *IsEnabledCredentialProviderServiceResponse) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*CreateManagerRawResponse) ProtoMessage() {}
+func (*IsEnabledCredentialProviderServiceResponse) ProtoMessage() {}
 
-func (x *CreateManagerRawResponse) ProtoReflect() protoreflect.Message {
+func (x *IsEnabledCredentialProviderServiceResponse) ProtoReflect() protoreflect.Message {
 	mi := &file_proto_credentials_credentials_proto_msgTypes[1]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -99,39 +99,39 @@ func (x *CreateManagerRawResponse) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use CreateManagerRawResponse.ProtoReflect.Descriptor instead.
-func (*CreateManagerRawResponse) Descriptor() ([]byte, []int) {
+// Deprecated: Use IsEnabledCredentialProviderServiceResponse.ProtoReflect.Descriptor instead.
+func (*IsEnabledCredentialProviderServiceResponse) Descriptor() ([]byte, []int) {
 	return file_proto_credentials_credentials_proto_rawDescGZIP(), []int{1}
 }
 
-func (x *CreateManagerRawResponse) GetResult() int64 {
+func (x *IsEnabledCredentialProviderServiceResponse) GetResult() bool {
 	if x != nil {
 		return x.Result
 	}
-	return 0
+	return false
 }
 
-type AddCredentialOptionRequest struct {
+type RegisterCredentialDescriptionRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Option        int64                  `protobuf:"varint,1,opt,name=option,proto3" json:"option,omitempty"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *AddCredentialOptionRequest) Reset() {
-	*x = AddCredentialOptionRequest{}
+func (x *RegisterCredentialDescriptionRequest) Reset() {
+	*x = RegisterCredentialDescriptionRequest{}
 	mi := &file_proto_credentials_credentials_proto_msgTypes[2]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *AddCredentialOptionRequest) String() string {
+func (x *RegisterCredentialDescriptionRequest) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*AddCredentialOptionRequest) ProtoMessage() {}
+func (*RegisterCredentialDescriptionRequest) ProtoMessage() {}
 
-func (x *AddCredentialOptionRequest) ProtoReflect() protoreflect.Message {
+func (x *RegisterCredentialDescriptionRequest) ProtoReflect() protoreflect.Message {
 	mi := &file_proto_credentials_credentials_proto_msgTypes[2]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -143,39 +143,38 @@ func (x *AddCredentialOptionRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use AddCredentialOptionRequest.ProtoReflect.Descriptor instead.
-func (*AddCredentialOptionRequest) Descriptor() ([]byte, []int) {
+// Deprecated: Use RegisterCredentialDescriptionRequest.ProtoReflect.Descriptor instead.
+func (*RegisterCredentialDescriptionRequest) Descriptor() ([]byte, []int) {
 	return file_proto_credentials_credentials_proto_rawDescGZIP(), []int{2}
 }
 
-func (x *AddCredentialOptionRequest) GetOption() int64 {
+func (x *RegisterCredentialDescriptionRequest) GetArg0() int64 {
 	if x != nil {
-		return x.Option
+		return x.Arg0
 	}
 	return 0
 }
 
-type AddCredentialOptionResponse struct {
+type RegisterCredentialDescriptionResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *AddCredentialOptionResponse) Reset() {
-	*x = AddCredentialOptionResponse{}
+func (x *RegisterCredentialDescriptionResponse) Reset() {
+	*x = RegisterCredentialDescriptionResponse{}
 	mi := &file_proto_credentials_credentials_proto_msgTypes[3]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *AddCredentialOptionResponse) String() string {
+func (x *RegisterCredentialDescriptionResponse) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*AddCredentialOptionResponse) ProtoMessage() {}
+func (*RegisterCredentialDescriptionResponse) ProtoMessage() {}
 
-func (x *AddCredentialOptionResponse) ProtoReflect() protoreflect.Message {
+func (x *RegisterCredentialDescriptionResponse) ProtoReflect() protoreflect.Message {
 	mi := &file_proto_credentials_credentials_proto_msgTypes[3]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -187,38 +186,32 @@ func (x *AddCredentialOptionResponse) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use AddCredentialOptionResponse.ProtoReflect.Descriptor instead.
-func (*AddCredentialOptionResponse) Descriptor() ([]byte, []int) {
+// Deprecated: Use RegisterCredentialDescriptionResponse.ProtoReflect.Descriptor instead.
+func (*RegisterCredentialDescriptionResponse) Descriptor() ([]byte, []int) {
 	return file_proto_credentials_credentials_proto_rawDescGZIP(), []int{3}
 }
 
-func (x *AddCredentialOptionResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type BuildRequest struct {
+type UnregisterCredentialDescriptionRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *BuildRequest) Reset() {
-	*x = BuildRequest{}
+func (x *UnregisterCredentialDescriptionRequest) Reset() {
+	*x = UnregisterCredentialDescriptionRequest{}
 	mi := &file_proto_credentials_credentials_proto_msgTypes[4]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *BuildRequest) String() string {
+func (x *UnregisterCredentialDescriptionRequest) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*BuildRequest) ProtoMessage() {}
+func (*UnregisterCredentialDescriptionRequest) ProtoMessage() {}
 
-func (x *BuildRequest) ProtoReflect() protoreflect.Message {
+func (x *UnregisterCredentialDescriptionRequest) ProtoReflect() protoreflect.Message {
 	mi := &file_proto_credentials_credentials_proto_msgTypes[4]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -230,76 +223,39 @@ func (x *BuildRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use BuildRequest.ProtoReflect.Descriptor instead.
-func (*BuildRequest) Descriptor() ([]byte, []int) {
+// Deprecated: Use UnregisterCredentialDescriptionRequest.ProtoReflect.Descriptor instead.
+func (*UnregisterCredentialDescriptionRequest) Descriptor() ([]byte, []int) {
 	return file_proto_credentials_credentials_proto_rawDescGZIP(), []int{4}
 }
 
-type BuildResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *BuildResponse) Reset() {
-	*x = BuildResponse{}
-	mi := &file_proto_credentials_credentials_proto_msgTypes[5]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *BuildResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*BuildResponse) ProtoMessage() {}
-
-func (x *BuildResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_credentials_credentials_proto_msgTypes[5]
+func (x *UnregisterCredentialDescriptionRequest) GetArg0() int64 {
 	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use BuildResponse.ProtoReflect.Descriptor instead.
-func (*BuildResponse) Descriptor() ([]byte, []int) {
-	return file_proto_credentials_credentials_proto_rawDescGZIP(), []int{5}
-}
-
-func (x *BuildResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
+		return x.Arg0
 	}
 	return 0
 }
 
-type IDRequest struct {
+type UnregisterCredentialDescriptionResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *IDRequest) Reset() {
-	*x = IDRequest{}
-	mi := &file_proto_credentials_credentials_proto_msgTypes[6]
+func (x *UnregisterCredentialDescriptionResponse) Reset() {
+	*x = UnregisterCredentialDescriptionResponse{}
+	mi := &file_proto_credentials_credentials_proto_msgTypes[5]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *IDRequest) String() string {
+func (x *UnregisterCredentialDescriptionResponse) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*IDRequest) ProtoMessage() {}
+func (*UnregisterCredentialDescriptionResponse) ProtoMessage() {}
 
-func (x *IDRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_credentials_credentials_proto_msgTypes[6]
+func (x *UnregisterCredentialDescriptionResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_credentials_credentials_proto_msgTypes[5]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -310,251 +266,30 @@ func (x *IDRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use IDRequest.ProtoReflect.Descriptor instead.
-func (*IDRequest) Descriptor() ([]byte, []int) {
-	return file_proto_credentials_credentials_proto_rawDescGZIP(), []int{6}
-}
-
-type IDResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *IDResponse) Reset() {
-	*x = IDResponse{}
-	mi := &file_proto_credentials_credentials_proto_msgTypes[7]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *IDResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*IDResponse) ProtoMessage() {}
-
-func (x *IDResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_credentials_credentials_proto_msgTypes[7]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use IDResponse.ProtoReflect.Descriptor instead.
-func (*IDResponse) Descriptor() ([]byte, []int) {
-	return file_proto_credentials_credentials_proto_rawDescGZIP(), []int{7}
-}
-
-func (x *IDResponse) GetResult() string {
-	if x != nil {
-		return x.Result
-	}
-	return ""
-}
-
-type PasswordRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *PasswordRequest) Reset() {
-	*x = PasswordRequest{}
-	mi := &file_proto_credentials_credentials_proto_msgTypes[8]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *PasswordRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*PasswordRequest) ProtoMessage() {}
-
-func (x *PasswordRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_credentials_credentials_proto_msgTypes[8]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use PasswordRequest.ProtoReflect.Descriptor instead.
-func (*PasswordRequest) Descriptor() ([]byte, []int) {
-	return file_proto_credentials_credentials_proto_rawDescGZIP(), []int{8}
-}
-
-type PasswordResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *PasswordResponse) Reset() {
-	*x = PasswordResponse{}
-	mi := &file_proto_credentials_credentials_proto_msgTypes[9]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *PasswordResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*PasswordResponse) ProtoMessage() {}
-
-func (x *PasswordResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_credentials_credentials_proto_msgTypes[9]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use PasswordResponse.ProtoReflect.Descriptor instead.
-func (*PasswordResponse) Descriptor() ([]byte, []int) {
-	return file_proto_credentials_credentials_proto_rawDescGZIP(), []int{9}
-}
-
-func (x *PasswordResponse) GetResult() string {
-	if x != nil {
-		return x.Result
-	}
-	return ""
-}
-
-type AuthResponseJSONRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *AuthResponseJSONRequest) Reset() {
-	*x = AuthResponseJSONRequest{}
-	mi := &file_proto_credentials_credentials_proto_msgTypes[10]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *AuthResponseJSONRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*AuthResponseJSONRequest) ProtoMessage() {}
-
-func (x *AuthResponseJSONRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_credentials_credentials_proto_msgTypes[10]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use AuthResponseJSONRequest.ProtoReflect.Descriptor instead.
-func (*AuthResponseJSONRequest) Descriptor() ([]byte, []int) {
-	return file_proto_credentials_credentials_proto_rawDescGZIP(), []int{10}
-}
-
-type AuthResponseJSONResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *AuthResponseJSONResponse) Reset() {
-	*x = AuthResponseJSONResponse{}
-	mi := &file_proto_credentials_credentials_proto_msgTypes[11]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *AuthResponseJSONResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*AuthResponseJSONResponse) ProtoMessage() {}
-
-func (x *AuthResponseJSONResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_credentials_credentials_proto_msgTypes[11]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use AuthResponseJSONResponse.ProtoReflect.Descriptor instead.
-func (*AuthResponseJSONResponse) Descriptor() ([]byte, []int) {
-	return file_proto_credentials_credentials_proto_rawDescGZIP(), []int{11}
-}
-
-func (x *AuthResponseJSONResponse) GetResult() string {
-	if x != nil {
-		return x.Result
-	}
-	return ""
+// Deprecated: Use UnregisterCredentialDescriptionResponse.ProtoReflect.Descriptor instead.
+func (*UnregisterCredentialDescriptionResponse) Descriptor() ([]byte, []int) {
+	return file_proto_credentials_credentials_proto_rawDescGZIP(), []int{5}
 }
 
 var File_proto_credentials_credentials_proto protoreflect.FileDescriptor
 
 const file_proto_credentials_credentials_proto_rawDesc = "" +
 	"\n" +
-	"#proto/credentials/credentials.proto\x12\vcredentials\"3\n" +
-	"\x17CreateManagerRawRequest\x12\x18\n" +
-	"\acontext\x18\x01 \x01(\x03R\acontext\"2\n" +
-	"\x18CreateManagerRawResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"4\n" +
-	"\x1aAddCredentialOptionRequest\x12\x16\n" +
-	"\x06option\x18\x01 \x01(\x03R\x06option\"5\n" +
-	"\x1bAddCredentialOptionResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"\x0e\n" +
-	"\fBuildRequest\"'\n" +
-	"\rBuildResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"\v\n" +
-	"\tIDRequest\"$\n" +
-	"\n" +
-	"IDResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\tR\x06result\"\x11\n" +
-	"\x0fPasswordRequest\"*\n" +
-	"\x10PasswordResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\tR\x06result\"\x19\n" +
-	"\x17AuthResponseJSONRequest\"2\n" +
-	"\x18AuthResponseJSONResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\tR\x06result2q\n" +
-	"\x0eManagerService\x12_\n" +
-	"\x10CreateManagerRaw\x12$.credentials.CreateManagerRawRequest\x1a%.credentials.CreateManagerRawResponse2\xce\x01\n" +
-	"\"GetCredentialRequestBuilderService\x12h\n" +
-	"\x13AddCredentialOption\x12'.credentials.AddCredentialOptionRequest\x1a(.credentials.AddCredentialOptionResponse\x12>\n" +
-	"\x05Build\x12\x19.credentials.BuildRequest\x1a\x1a.credentials.BuildResponse2\x9b\x01\n" +
-	"\x19PasswordCredentialService\x125\n" +
-	"\x02ID\x12\x16.credentials.IDRequest\x1a\x17.credentials.IDResponse\x12G\n" +
-	"\bPassword\x12\x1c.credentials.PasswordRequest\x1a\x1d.credentials.PasswordResponse2}\n" +
-	"\x1aPublicKeyCredentialService\x12_\n" +
-	"\x10AuthResponseJSON\x12$.credentials.AuthResponseJSONRequest\x1a%.credentials.AuthResponseJSONResponseB5Z3github.com/AndroidGoLab/jni-proxy/proto/credentialsb\x06proto3"
+	"#proto/credentials/credentials.proto\x12\vcredentials\"?\n" +
+	")IsEnabledCredentialProviderServiceRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"D\n" +
+	"*IsEnabledCredentialProviderServiceResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\":\n" +
+	"$RegisterCredentialDescriptionRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"'\n" +
+	"%RegisterCredentialDescriptionResponse\"<\n" +
+	"&UnregisterCredentialDescriptionRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\")\n" +
+	"'UnregisterCredentialDescriptionResponse2\xca\x03\n" +
+	"\x18CredentialManagerService\x12\x95\x01\n" +
+	"\"IsEnabledCredentialProviderService\x126.credentials.IsEnabledCredentialProviderServiceRequest\x1a7.credentials.IsEnabledCredentialProviderServiceResponse\x12\x86\x01\n" +
+	"\x1dRegisterCredentialDescription\x121.credentials.RegisterCredentialDescriptionRequest\x1a2.credentials.RegisterCredentialDescriptionResponse\x12\x8c\x01\n" +
+	"\x1fUnregisterCredentialDescription\x123.credentials.UnregisterCredentialDescriptionRequest\x1a4.credentials.UnregisterCredentialDescriptionResponseB5Z3github.com/AndroidGoLab/jni-proxy/proto/credentialsb\x06proto3"
 
 var (
 	file_proto_credentials_credentials_proto_rawDescOnce sync.Once
@@ -568,39 +303,27 @@ func file_proto_credentials_credentials_proto_rawDescGZIP() []byte {
 	return file_proto_credentials_credentials_proto_rawDescData
 }
 
-var file_proto_credentials_credentials_proto_msgTypes = make([]protoimpl.MessageInfo, 12)
+var file_proto_credentials_credentials_proto_msgTypes = make([]protoimpl.MessageInfo, 6)
 var file_proto_credentials_credentials_proto_goTypes = []any{
-	(*CreateManagerRawRequest)(nil),     // 0: credentials.CreateManagerRawRequest
-	(*CreateManagerRawResponse)(nil),    // 1: credentials.CreateManagerRawResponse
-	(*AddCredentialOptionRequest)(nil),  // 2: credentials.AddCredentialOptionRequest
-	(*AddCredentialOptionResponse)(nil), // 3: credentials.AddCredentialOptionResponse
-	(*BuildRequest)(nil),                // 4: credentials.BuildRequest
-	(*BuildResponse)(nil),               // 5: credentials.BuildResponse
-	(*IDRequest)(nil),                   // 6: credentials.IDRequest
-	(*IDResponse)(nil),                  // 7: credentials.IDResponse
-	(*PasswordRequest)(nil),             // 8: credentials.PasswordRequest
-	(*PasswordResponse)(nil),            // 9: credentials.PasswordResponse
-	(*AuthResponseJSONRequest)(nil),     // 10: credentials.AuthResponseJSONRequest
-	(*AuthResponseJSONResponse)(nil),    // 11: credentials.AuthResponseJSONResponse
+	(*IsEnabledCredentialProviderServiceRequest)(nil),  // 0: credentials.IsEnabledCredentialProviderServiceRequest
+	(*IsEnabledCredentialProviderServiceResponse)(nil), // 1: credentials.IsEnabledCredentialProviderServiceResponse
+	(*RegisterCredentialDescriptionRequest)(nil),       // 2: credentials.RegisterCredentialDescriptionRequest
+	(*RegisterCredentialDescriptionResponse)(nil),      // 3: credentials.RegisterCredentialDescriptionResponse
+	(*UnregisterCredentialDescriptionRequest)(nil),     // 4: credentials.UnregisterCredentialDescriptionRequest
+	(*UnregisterCredentialDescriptionResponse)(nil),    // 5: credentials.UnregisterCredentialDescriptionResponse
 }
 var file_proto_credentials_credentials_proto_depIdxs = []int32{
-	0,  // 0: credentials.ManagerService.CreateManagerRaw:input_type -> credentials.CreateManagerRawRequest
-	2,  // 1: credentials.GetCredentialRequestBuilderService.AddCredentialOption:input_type -> credentials.AddCredentialOptionRequest
-	4,  // 2: credentials.GetCredentialRequestBuilderService.Build:input_type -> credentials.BuildRequest
-	6,  // 3: credentials.PasswordCredentialService.ID:input_type -> credentials.IDRequest
-	8,  // 4: credentials.PasswordCredentialService.Password:input_type -> credentials.PasswordRequest
-	10, // 5: credentials.PublicKeyCredentialService.AuthResponseJSON:input_type -> credentials.AuthResponseJSONRequest
-	1,  // 6: credentials.ManagerService.CreateManagerRaw:output_type -> credentials.CreateManagerRawResponse
-	3,  // 7: credentials.GetCredentialRequestBuilderService.AddCredentialOption:output_type -> credentials.AddCredentialOptionResponse
-	5,  // 8: credentials.GetCredentialRequestBuilderService.Build:output_type -> credentials.BuildResponse
-	7,  // 9: credentials.PasswordCredentialService.ID:output_type -> credentials.IDResponse
-	9,  // 10: credentials.PasswordCredentialService.Password:output_type -> credentials.PasswordResponse
-	11, // 11: credentials.PublicKeyCredentialService.AuthResponseJSON:output_type -> credentials.AuthResponseJSONResponse
-	6,  // [6:12] is the sub-list for method output_type
-	0,  // [0:6] is the sub-list for method input_type
-	0,  // [0:0] is the sub-list for extension type_name
-	0,  // [0:0] is the sub-list for extension extendee
-	0,  // [0:0] is the sub-list for field type_name
+	0, // 0: credentials.CredentialManagerService.IsEnabledCredentialProviderService:input_type -> credentials.IsEnabledCredentialProviderServiceRequest
+	2, // 1: credentials.CredentialManagerService.RegisterCredentialDescription:input_type -> credentials.RegisterCredentialDescriptionRequest
+	4, // 2: credentials.CredentialManagerService.UnregisterCredentialDescription:input_type -> credentials.UnregisterCredentialDescriptionRequest
+	1, // 3: credentials.CredentialManagerService.IsEnabledCredentialProviderService:output_type -> credentials.IsEnabledCredentialProviderServiceResponse
+	3, // 4: credentials.CredentialManagerService.RegisterCredentialDescription:output_type -> credentials.RegisterCredentialDescriptionResponse
+	5, // 5: credentials.CredentialManagerService.UnregisterCredentialDescription:output_type -> credentials.UnregisterCredentialDescriptionResponse
+	3, // [3:6] is the sub-list for method output_type
+	0, // [0:3] is the sub-list for method input_type
+	0, // [0:0] is the sub-list for extension type_name
+	0, // [0:0] is the sub-list for extension extendee
+	0, // [0:0] is the sub-list for field type_name
 }
 
 func init() { file_proto_credentials_credentials_proto_init() }
@@ -614,9 +337,9 @@ func file_proto_credentials_credentials_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_proto_credentials_credentials_proto_rawDesc), len(file_proto_credentials_credentials_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   12,
+			NumMessages:   6,
 			NumExtensions: 0,
-			NumServices:   4,
+			NumServices:   1,
 		},
 		GoTypes:           file_proto_credentials_credentials_proto_goTypes,
 		DependencyIndexes: file_proto_credentials_credentials_proto_depIdxs,

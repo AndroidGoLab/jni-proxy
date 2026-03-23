@@ -12,6 +12,188 @@ var telephonyCmd = &cobra.Command{
 	Short: "telephony service operations",
 }
 
+var telephonyCarrierConfigManagerCmd = &cobra.Command{
+	Use:   "carrier-config-manager",
+	Short: "CarrierConfigManagerService operations",
+}
+
+var telephonyCarrierConfigManagerGetConfig0Cmd = &cobra.Command{
+	Use:   "get-config0",
+	Short: "GetConfig0 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCarrierConfigManagerServiceClient(grpcConn)
+		req := &pb.GetConfig0Request{}
+		resp, err := client.GetConfig0(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyCarrierConfigManagerGetConfig1_1Cmd = &cobra.Command{
+	Use:   "get-config1_1",
+	Short: "GetConfig1_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCarrierConfigManagerServiceClient(grpcConn)
+		req := &pb.GetConfig1_1Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetConfig1_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyCarrierConfigManagerGetConfigByComponentForSubIdCmd = &cobra.Command{
+	Use:   "get-config-by-component-for-sub-id",
+	Short: "GetConfigByComponentForSubId RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCarrierConfigManagerServiceClient(grpcConn)
+		req := &pb.GetConfigByComponentForSubIdRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.GetConfigByComponentForSubId(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyCarrierConfigManagerGetConfigForSubId1Cmd = &cobra.Command{
+	Use:   "get-config-for-sub-id1",
+	Short: "GetConfigForSubId1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCarrierConfigManagerServiceClient(grpcConn)
+		req := &pb.GetConfigForSubId1Request{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetConfigForSubId1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyCarrierConfigManagerGetConfigForSubId2_1Cmd = &cobra.Command{
+	Use:   "get-config-for-sub-id2_1",
+	Short: "GetConfigForSubId2_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCarrierConfigManagerServiceClient(grpcConn)
+		req := &pb.GetConfigForSubId2_1Request{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.GetConfigForSubId2_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyCarrierConfigManagerNotifyConfigChangedForSubIdCmd = &cobra.Command{
+	Use:   "notify-config-changed-for-sub-id",
+	Short: "NotifyConfigChangedForSubId RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCarrierConfigManagerServiceClient(grpcConn)
+		req := &pb.NotifyConfigChangedForSubIdRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.NotifyConfigChangedForSubId(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyCarrierConfigManagerRegisterCarrierConfigChangeListenerCmd = &cobra.Command{
+	Use:   "register-carrier-config-change-listener",
+	Short: "RegisterCarrierConfigChangeListener RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCarrierConfigManagerServiceClient(grpcConn)
+		req := &pb.RegisterCarrierConfigChangeListenerRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.RegisterCarrierConfigChangeListener(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyCarrierConfigManagerUnregisterCarrierConfigChangeListenerCmd = &cobra.Command{
+	Use:   "unregister-carrier-config-change-listener",
+	Short: "UnregisterCarrierConfigChangeListener RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCarrierConfigManagerServiceClient(grpcConn)
+		req := &pb.UnregisterCarrierConfigChangeListenerRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.UnregisterCarrierConfigChangeListener(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var telephonyCarrierConfigManagerIsConfigForIdentifiedCarrierCmd = &cobra.Command{
+	Use:   "is-config-for-identified-carrier",
+	Short: "IsConfigForIdentifiedCarrier RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCarrierConfigManagerServiceClient(grpcConn)
+		req := &pb.IsConfigForIdentifiedCarrierRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.IsConfigForIdentifiedCarrier(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
 var telephonyManagerCmd = &cobra.Command{
 	Use:   "manager",
 	Short: "ManagerService operations",
@@ -115,22 +297,6 @@ var telephonyManagerGetActiveModemCountCmd = &cobra.Command{
 		client := pb.NewManagerServiceClient(grpcConn)
 		req := &pb.GetActiveModemCountRequest{}
 		resp, err := client.GetActiveModemCount(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var telephonyManagerGetAllCellInfoCmd = &cobra.Command{
-	Use:   "get-all-cell-info",
-	Short: "GetAllCellInfo RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewManagerServiceClient(grpcConn)
-		req := &pb.GetAllCellInfoRequest{}
-		resp, err := client.GetAllCellInfo(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -253,28 +419,6 @@ var telephonyManagerGetCarrierIdFromSimMccMncCmd = &cobra.Command{
 	},
 }
 
-var telephonyManagerGetCarrierRestrictionStatusCmd = &cobra.Command{
-	Use:   "get-carrier-restriction-status",
-	Short: "GetCarrierRestrictionStatus RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewManagerServiceClient(grpcConn)
-		req := &pb.GetCarrierRestrictionStatusRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.GetCarrierRestrictionStatus(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
 var telephonyManagerGetCellLocationCmd = &cobra.Command{
 	Use:   "get-cell-location",
 	Short: "GetCellLocation RPC",
@@ -383,22 +527,6 @@ var telephonyManagerGetDeviceSoftwareVersionCmd = &cobra.Command{
 		client := pb.NewManagerServiceClient(grpcConn)
 		req := &pb.GetDeviceSoftwareVersionRequest{}
 		resp, err := client.GetDeviceSoftwareVersion(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var telephonyManagerGetEquivalentHomePlmnsCmd = &cobra.Command{
-	Use:   "get-equivalent-home-plmns",
-	Short: "GetEquivalentHomePlmns RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewManagerServiceClient(grpcConn)
-		req := &pb.GetEquivalentHomePlmnsRequest{}
-		resp, err := client.GetEquivalentHomePlmns(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -724,28 +852,6 @@ var telephonyManagerGetNetworkSelectionModeCmd = &cobra.Command{
 		client := pb.NewManagerServiceClient(grpcConn)
 		req := &pb.GetNetworkSelectionModeRequest{}
 		resp, err := client.GetNetworkSelectionMode(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var telephonyManagerGetNetworkSlicingConfigurationCmd = &cobra.Command{
-	Use:   "get-network-slicing-configuration",
-	Short: "GetNetworkSlicingConfiguration RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewManagerServiceClient(grpcConn)
-		req := &pb.GetNetworkSlicingConfigurationRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.GetNetworkSlicingConfiguration(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -1190,22 +1296,6 @@ var telephonyManagerGetTypeAllocationCode1_1Cmd = &cobra.Command{
 			req.Arg0 = v
 		}
 		resp, err := client.GetTypeAllocationCode1_1(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var telephonyManagerGetUiccCardsInfoCmd = &cobra.Command{
-	Use:   "get-uicc-cards-info",
-	Short: "GetUiccCardsInfo RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewManagerServiceClient(grpcConn)
-		req := &pb.GetUiccCardsInfoRequest{}
-		resp, err := client.GetUiccCardsInfo(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -1885,31 +1975,6 @@ var telephonyManagerListenCmd = &cobra.Command{
 	},
 }
 
-var telephonyManagerPurchasePremiumCapabilityCmd = &cobra.Command{
-	Use:   "purchase-premium-capability",
-	Short: "PurchasePremiumCapability RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewManagerServiceClient(grpcConn)
-		req := &pb.PurchasePremiumCapabilityRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		resp, err := client.PurchasePremiumCapability(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
 var telephonyManagerRebootModemCmd = &cobra.Command{
 	Use:   "reboot-modem",
 	Short: "RebootModem RPC",
@@ -2196,25 +2261,6 @@ var telephonyManagerSetDataEnabledForReasonCmd = &cobra.Command{
 	},
 }
 
-var telephonyManagerSetForbiddenPlmnsCmd = &cobra.Command{
-	Use:   "set-forbidden-plmns",
-	Short: "SetForbiddenPlmns RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewManagerServiceClient(grpcConn)
-		req := &pb.SetForbiddenPlmnsRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetForbiddenPlmns(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
 var telephonyManagerSetLine1NumberForDisplayCmd = &cobra.Command{
 	Use:   "set-line1number-for-display",
 	Short: "SetLine1NumberForDisplay RPC",
@@ -2328,34 +2374,6 @@ var telephonyManagerSetPreferredNetworkTypeToGlobalCmd = &cobra.Command{
 		client := pb.NewManagerServiceClient(grpcConn)
 		req := &pb.SetPreferredNetworkTypeToGlobalRequest{}
 		resp, err := client.SetPreferredNetworkTypeToGlobal(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var telephonyManagerSetPreferredOpportunisticDataSubscriptionCmd = &cobra.Command{
-	Use:   "set-preferred-opportunistic-data-subscription",
-	Short: "SetPreferredOpportunisticDataSubscription RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewManagerServiceClient(grpcConn)
-		req := &pb.SetPreferredOpportunisticDataSubscriptionRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetBool("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg3"); err == nil {
-			req.Arg3 = v
-		}
-		resp, err := client.SetPreferredOpportunisticDataSubscription(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -2505,87 +2523,6 @@ var telephonyManagerUnregisterTelephonyCallbackCmd = &cobra.Command{
 	},
 }
 
-var telephonyManagerUpdateAvailableNetworksCmd = &cobra.Command{
-	Use:   "update-available-networks",
-	Short: "UpdateAvailableNetworks RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewManagerServiceClient(grpcConn)
-		req := &pb.UpdateAvailableNetworksRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		resp, err := client.UpdateAvailableNetworks(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var telephonyManagerUploadCallComposerPicture4Cmd = &cobra.Command{
-	Use:   "upload-call-composer-picture4",
-	Short: "UploadCallComposerPicture4 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewManagerServiceClient(grpcConn)
-		req := &pb.UploadCallComposerPicture4Request{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetString("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg3"); err == nil {
-			req.Arg3 = v
-		}
-		resp, err := client.UploadCallComposerPicture4(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var telephonyManagerUploadCallComposerPicture4_1Cmd = &cobra.Command{
-	Use:   "upload-call-composer-picture4_1",
-	Short: "UploadCallComposerPicture4_1 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewManagerServiceClient(grpcConn)
-		req := &pb.UploadCallComposerPicture4_1Request{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetString("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg3"); err == nil {
-			req.Arg3 = v
-		}
-		resp, err := client.UploadCallComposerPicture4_1(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
 var telephonyManagerGetMaximumCallComposerPictureSizeCmd = &cobra.Command{
 	Use:   "get-maximum-call-composer-picture-size",
 	Short: "GetMaximumCallComposerPictureSize RPC",
@@ -2603,6 +2540,27 @@ var telephonyManagerGetMaximumCallComposerPictureSizeCmd = &cobra.Command{
 }
 
 func init() {
+	telephonyCarrierConfigManagerCmd.AddCommand(telephonyCarrierConfigManagerGetConfig0Cmd)
+	telephonyCarrierConfigManagerGetConfig1_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	telephonyCarrierConfigManagerCmd.AddCommand(telephonyCarrierConfigManagerGetConfig1_1Cmd)
+	telephonyCarrierConfigManagerGetConfigByComponentForSubIdCmd.Flags().String("arg0", "", "arg0 (string)")
+	telephonyCarrierConfigManagerGetConfigByComponentForSubIdCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	telephonyCarrierConfigManagerCmd.AddCommand(telephonyCarrierConfigManagerGetConfigByComponentForSubIdCmd)
+	telephonyCarrierConfigManagerGetConfigForSubId1Cmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	telephonyCarrierConfigManagerCmd.AddCommand(telephonyCarrierConfigManagerGetConfigForSubId1Cmd)
+	telephonyCarrierConfigManagerGetConfigForSubId2_1Cmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	telephonyCarrierConfigManagerGetConfigForSubId2_1Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	telephonyCarrierConfigManagerCmd.AddCommand(telephonyCarrierConfigManagerGetConfigForSubId2_1Cmd)
+	telephonyCarrierConfigManagerNotifyConfigChangedForSubIdCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	telephonyCarrierConfigManagerCmd.AddCommand(telephonyCarrierConfigManagerNotifyConfigChangedForSubIdCmd)
+	telephonyCarrierConfigManagerRegisterCarrierConfigChangeListenerCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	telephonyCarrierConfigManagerRegisterCarrierConfigChangeListenerCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	telephonyCarrierConfigManagerCmd.AddCommand(telephonyCarrierConfigManagerRegisterCarrierConfigChangeListenerCmd)
+	telephonyCarrierConfigManagerUnregisterCarrierConfigChangeListenerCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	telephonyCarrierConfigManagerCmd.AddCommand(telephonyCarrierConfigManagerUnregisterCarrierConfigChangeListenerCmd)
+	telephonyCarrierConfigManagerIsConfigForIdentifiedCarrierCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	telephonyCarrierConfigManagerCmd.AddCommand(telephonyCarrierConfigManagerIsConfigForIdentifiedCarrierCmd)
+	telephonyCmd.AddCommand(telephonyCarrierConfigManagerCmd)
 	telephonyManagerCmd.AddCommand(telephonyManagerCanChangeDtmfToneLengthCmd)
 	telephonyManagerClearSignalStrengthUpdateRequestCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	telephonyManagerCmd.AddCommand(telephonyManagerClearSignalStrengthUpdateRequestCmd)
@@ -2612,7 +2570,6 @@ func init() {
 	telephonyManagerCmd.AddCommand(telephonyManagerCreateForSubscriptionIdCmd)
 	telephonyManagerCmd.AddCommand(telephonyManagerDoesSwitchMultiSimConfigTriggerRebootCmd)
 	telephonyManagerCmd.AddCommand(telephonyManagerGetActiveModemCountCmd)
-	telephonyManagerCmd.AddCommand(telephonyManagerGetAllCellInfoCmd)
 	telephonyManagerGetAllowedNetworkTypesForReasonCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
 	telephonyManagerCmd.AddCommand(telephonyManagerGetAllowedNetworkTypesForReasonCmd)
 	telephonyManagerCmd.AddCommand(telephonyManagerGetCallComposerStatusCmd)
@@ -2621,9 +2578,6 @@ func init() {
 	telephonyManagerCmd.AddCommand(telephonyManagerGetCardIdForDefaultEuiccCmd)
 	telephonyManagerCmd.AddCommand(telephonyManagerGetCarrierConfigCmd)
 	telephonyManagerCmd.AddCommand(telephonyManagerGetCarrierIdFromSimMccMncCmd)
-	telephonyManagerGetCarrierRestrictionStatusCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	telephonyManagerGetCarrierRestrictionStatusCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	telephonyManagerCmd.AddCommand(telephonyManagerGetCarrierRestrictionStatusCmd)
 	telephonyManagerCmd.AddCommand(telephonyManagerGetCellLocationCmd)
 	telephonyManagerCmd.AddCommand(telephonyManagerGetDataActivityCmd)
 	telephonyManagerCmd.AddCommand(telephonyManagerGetDataNetworkTypeCmd)
@@ -2632,7 +2586,6 @@ func init() {
 	telephonyManagerGetDeviceId1_1Cmd.Flags().Int32("arg0", 0, "arg0 (int32)")
 	telephonyManagerCmd.AddCommand(telephonyManagerGetDeviceId1_1Cmd)
 	telephonyManagerCmd.AddCommand(telephonyManagerGetDeviceSoftwareVersionCmd)
-	telephonyManagerCmd.AddCommand(telephonyManagerGetEquivalentHomePlmnsCmd)
 	telephonyManagerCmd.AddCommand(telephonyManagerGetForbiddenPlmnsCmd)
 	telephonyManagerCmd.AddCommand(telephonyManagerGetGroupIdLevel1Cmd)
 	telephonyManagerGetIccAuthenticationCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
@@ -2659,9 +2612,6 @@ func init() {
 	telephonyManagerCmd.AddCommand(telephonyManagerGetNetworkOperatorCmd)
 	telephonyManagerCmd.AddCommand(telephonyManagerGetNetworkOperatorNameCmd)
 	telephonyManagerCmd.AddCommand(telephonyManagerGetNetworkSelectionModeCmd)
-	telephonyManagerGetNetworkSlicingConfigurationCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	telephonyManagerGetNetworkSlicingConfigurationCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	telephonyManagerCmd.AddCommand(telephonyManagerGetNetworkSlicingConfigurationCmd)
 	telephonyManagerCmd.AddCommand(telephonyManagerGetNetworkSpecifierCmd)
 	telephonyManagerCmd.AddCommand(telephonyManagerGetNetworkTypeCmd)
 	telephonyManagerCmd.AddCommand(telephonyManagerGetPhoneAccountHandleCmd)
@@ -2693,7 +2643,6 @@ func init() {
 	telephonyManagerCmd.AddCommand(telephonyManagerGetTypeAllocationCode0Cmd)
 	telephonyManagerGetTypeAllocationCode1_1Cmd.Flags().Int32("arg0", 0, "arg0 (int32)")
 	telephonyManagerCmd.AddCommand(telephonyManagerGetTypeAllocationCode1_1Cmd)
-	telephonyManagerCmd.AddCommand(telephonyManagerGetUiccCardsInfoCmd)
 	telephonyManagerCmd.AddCommand(telephonyManagerGetVisualVoicemailPackageNameCmd)
 	telephonyManagerCmd.AddCommand(telephonyManagerGetVoiceMailAlphaTagCmd)
 	telephonyManagerCmd.AddCommand(telephonyManagerGetVoiceMailNumberCmd)
@@ -2762,10 +2711,6 @@ func init() {
 	telephonyManagerListenCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	telephonyManagerListenCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
 	telephonyManagerCmd.AddCommand(telephonyManagerListenCmd)
-	telephonyManagerPurchasePremiumCapabilityCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	telephonyManagerPurchasePremiumCapabilityCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	telephonyManagerPurchasePremiumCapabilityCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
-	telephonyManagerCmd.AddCommand(telephonyManagerPurchasePremiumCapabilityCmd)
 	telephonyManagerCmd.AddCommand(telephonyManagerRebootModemCmd)
 	telephonyManagerRegisterTelephonyCallback3Cmd.Flags().Int32("arg0", 0, "arg0 (int32)")
 	telephonyManagerRegisterTelephonyCallback3Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
@@ -2805,8 +2750,6 @@ func init() {
 	telephonyManagerSetDataEnabledForReasonCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
 	telephonyManagerSetDataEnabledForReasonCmd.Flags().Bool("arg1", false, "arg1 (bool)")
 	telephonyManagerCmd.AddCommand(telephonyManagerSetDataEnabledForReasonCmd)
-	telephonyManagerSetForbiddenPlmnsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	telephonyManagerCmd.AddCommand(telephonyManagerSetForbiddenPlmnsCmd)
 	telephonyManagerSetLine1NumberForDisplayCmd.Flags().String("arg0", "", "arg0 (string)")
 	telephonyManagerSetLine1NumberForDisplayCmd.Flags().String("arg1", "", "arg1 (string)")
 	telephonyManagerCmd.AddCommand(telephonyManagerSetLine1NumberForDisplayCmd)
@@ -2821,11 +2764,6 @@ func init() {
 	telephonyManagerSetOperatorBrandOverrideCmd.Flags().String("arg0", "", "arg0 (string)")
 	telephonyManagerCmd.AddCommand(telephonyManagerSetOperatorBrandOverrideCmd)
 	telephonyManagerCmd.AddCommand(telephonyManagerSetPreferredNetworkTypeToGlobalCmd)
-	telephonyManagerSetPreferredOpportunisticDataSubscriptionCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	telephonyManagerSetPreferredOpportunisticDataSubscriptionCmd.Flags().Bool("arg1", false, "arg1 (bool)")
-	telephonyManagerSetPreferredOpportunisticDataSubscriptionCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
-	telephonyManagerSetPreferredOpportunisticDataSubscriptionCmd.Flags().Int64("arg3", 0, "arg3 (int64)")
-	telephonyManagerCmd.AddCommand(telephonyManagerSetPreferredOpportunisticDataSubscriptionCmd)
 	telephonyManagerSetSignalStrengthUpdateRequestCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	telephonyManagerCmd.AddCommand(telephonyManagerSetSignalStrengthUpdateRequestCmd)
 	telephonyManagerSetVisualVoicemailSmsFilterSettingsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
@@ -2843,20 +2781,6 @@ func init() {
 	telephonyManagerCmd.AddCommand(telephonyManagerSwitchMultiSimConfigCmd)
 	telephonyManagerUnregisterTelephonyCallbackCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	telephonyManagerCmd.AddCommand(telephonyManagerUnregisterTelephonyCallbackCmd)
-	telephonyManagerUpdateAvailableNetworksCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	telephonyManagerUpdateAvailableNetworksCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	telephonyManagerUpdateAvailableNetworksCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
-	telephonyManagerCmd.AddCommand(telephonyManagerUpdateAvailableNetworksCmd)
-	telephonyManagerUploadCallComposerPicture4Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	telephonyManagerUploadCallComposerPicture4Cmd.Flags().String("arg1", "", "arg1 (string)")
-	telephonyManagerUploadCallComposerPicture4Cmd.Flags().Int64("arg2", 0, "arg2 (int64)")
-	telephonyManagerUploadCallComposerPicture4Cmd.Flags().Int64("arg3", 0, "arg3 (int64)")
-	telephonyManagerCmd.AddCommand(telephonyManagerUploadCallComposerPicture4Cmd)
-	telephonyManagerUploadCallComposerPicture4_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	telephonyManagerUploadCallComposerPicture4_1Cmd.Flags().String("arg1", "", "arg1 (string)")
-	telephonyManagerUploadCallComposerPicture4_1Cmd.Flags().Int64("arg2", 0, "arg2 (int64)")
-	telephonyManagerUploadCallComposerPicture4_1Cmd.Flags().Int64("arg3", 0, "arg3 (int64)")
-	telephonyManagerCmd.AddCommand(telephonyManagerUploadCallComposerPicture4_1Cmd)
 	telephonyManagerCmd.AddCommand(telephonyManagerGetMaximumCallComposerPictureSizeCmd)
 	telephonyCmd.AddCommand(telephonyManagerCmd)
 	rootCmd.AddCommand(telephonyCmd)

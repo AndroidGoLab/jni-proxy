@@ -9,20 +9,20 @@ import (
 	"google.golang.org/grpc"
 )
 
-// Client wraps the gRPC StoreManagerService client.
-type Client struct {
+// StoreManagerClient wraps the gRPC StoreManagerService client.
+type StoreManagerClient struct {
 	svc pb.StoreManagerServiceClient
 }
 
-// NewClient creates a new blob client.
-func NewClient(cc grpc.ClientConnInterface) *Client {
-	return &Client{
+// NewStoreManagerClient creates a new StoreManager client.
+func NewStoreManagerClient(cc grpc.ClientConnInterface) *StoreManagerClient {
+	return &StoreManagerClient{
 		svc: pb.NewStoreManagerServiceClient(cc),
 	}
 }
 
 // AbandonSession calls the AbandonSession RPC.
-func (c *Client) AbandonSession(ctx context.Context, arg0 int64) error {
+func (c *StoreManagerClient) AbandonSession(ctx context.Context, arg0 int64) error {
 	_, err := c.svc.AbandonSession(ctx, &pb.AbandonSessionRequest{
 		Arg0: arg0,
 	})
@@ -30,7 +30,7 @@ func (c *Client) AbandonSession(ctx context.Context, arg0 int64) error {
 }
 
 // AcquireLease2 calls the AcquireLease2 RPC.
-func (c *Client) AcquireLease2(ctx context.Context, arg0 int64, arg1 int32) error {
+func (c *StoreManagerClient) AcquireLease2(ctx context.Context, arg0 int64, arg1 int32) error {
 	_, err := c.svc.AcquireLease2(ctx, &pb.AcquireLease2Request{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -39,7 +39,7 @@ func (c *Client) AcquireLease2(ctx context.Context, arg0 int64, arg1 int32) erro
 }
 
 // AcquireLease3_1 calls the AcquireLease3_1 RPC.
-func (c *Client) AcquireLease3_1(ctx context.Context, arg0 int64, arg1 int32, arg2 int64) error {
+func (c *StoreManagerClient) AcquireLease3_1(ctx context.Context, arg0 int64, arg1 int32, arg2 int64) error {
 	_, err := c.svc.AcquireLease3_1(ctx, &pb.AcquireLease3_1Request{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -49,7 +49,7 @@ func (c *Client) AcquireLease3_1(ctx context.Context, arg0 int64, arg1 int32, ar
 }
 
 // AcquireLease2_2 calls the AcquireLease2_2 RPC.
-func (c *Client) AcquireLease2_2(ctx context.Context, arg0 int64, arg1 string) error {
+func (c *StoreManagerClient) AcquireLease2_2(ctx context.Context, arg0 int64, arg1 string) error {
 	_, err := c.svc.AcquireLease2_2(ctx, &pb.AcquireLease2_2Request{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -58,7 +58,7 @@ func (c *Client) AcquireLease2_2(ctx context.Context, arg0 int64, arg1 string) e
 }
 
 // AcquireLease3_3 calls the AcquireLease3_3 RPC.
-func (c *Client) AcquireLease3_3(ctx context.Context, arg0 int64, arg1 string, arg2 int64) error {
+func (c *StoreManagerClient) AcquireLease3_3(ctx context.Context, arg0 int64, arg1 string, arg2 int64) error {
 	_, err := c.svc.AcquireLease3_3(ctx, &pb.AcquireLease3_3Request{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -68,7 +68,7 @@ func (c *Client) AcquireLease3_3(ctx context.Context, arg0 int64, arg1 string, a
 }
 
 // CreateSession calls the CreateSession RPC.
-func (c *Client) CreateSession(ctx context.Context, arg0 int64) (int64, error) {
+func (c *StoreManagerClient) CreateSession(ctx context.Context, arg0 int64) (int64, error) {
 	resp, err := c.svc.CreateSession(ctx, &pb.CreateSessionRequest{
 		Arg0: arg0,
 	})
@@ -78,17 +78,8 @@ func (c *Client) CreateSession(ctx context.Context, arg0 int64) (int64, error) {
 	return resp.GetResult(), nil
 }
 
-// GetLeasedBlobs calls the GetLeasedBlobs RPC.
-func (c *Client) GetLeasedBlobs(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetLeasedBlobs(ctx, &pb.GetLeasedBlobsRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
 // GetRemainingLeaseQuotaBytes calls the GetRemainingLeaseQuotaBytes RPC.
-func (c *Client) GetRemainingLeaseQuotaBytes(ctx context.Context) (int64, error) {
+func (c *StoreManagerClient) GetRemainingLeaseQuotaBytes(ctx context.Context) (int64, error) {
 	resp, err := c.svc.GetRemainingLeaseQuotaBytes(ctx, &pb.GetRemainingLeaseQuotaBytesRequest{})
 	if err != nil {
 		return 0, err
@@ -97,7 +88,7 @@ func (c *Client) GetRemainingLeaseQuotaBytes(ctx context.Context) (int64, error)
 }
 
 // OpenBlob calls the OpenBlob RPC.
-func (c *Client) OpenBlob(ctx context.Context, arg0 int64) (int64, error) {
+func (c *StoreManagerClient) OpenBlob(ctx context.Context, arg0 int64) (int64, error) {
 	resp, err := c.svc.OpenBlob(ctx, &pb.OpenBlobRequest{
 		Arg0: arg0,
 	})
@@ -108,7 +99,7 @@ func (c *Client) OpenBlob(ctx context.Context, arg0 int64) (int64, error) {
 }
 
 // OpenSession calls the OpenSession RPC.
-func (c *Client) OpenSession(ctx context.Context, arg0 int64) (int64, error) {
+func (c *StoreManagerClient) OpenSession(ctx context.Context, arg0 int64) (int64, error) {
 	resp, err := c.svc.OpenSession(ctx, &pb.OpenSessionRequest{
 		Arg0: arg0,
 	})
@@ -119,7 +110,7 @@ func (c *Client) OpenSession(ctx context.Context, arg0 int64) (int64, error) {
 }
 
 // ReleaseLease calls the ReleaseLease RPC.
-func (c *Client) ReleaseLease(ctx context.Context, arg0 int64) error {
+func (c *StoreManagerClient) ReleaseLease(ctx context.Context, arg0 int64) error {
 	_, err := c.svc.ReleaseLease(ctx, &pb.ReleaseLeaseRequest{
 		Arg0: arg0,
 	})

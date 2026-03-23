@@ -21,6 +21,808 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
+	ConnectivityDiagnosticsManagerService_RegisterConnectivityDiagnosticsCallback_FullMethodName   = "/net.ConnectivityDiagnosticsManagerService/RegisterConnectivityDiagnosticsCallback"
+	ConnectivityDiagnosticsManagerService_UnregisterConnectivityDiagnosticsCallback_FullMethodName = "/net.ConnectivityDiagnosticsManagerService/UnregisterConnectivityDiagnosticsCallback"
+)
+
+// ConnectivityDiagnosticsManagerServiceClient is the client API for ConnectivityDiagnosticsManagerService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type ConnectivityDiagnosticsManagerServiceClient interface {
+	RegisterConnectivityDiagnosticsCallback(ctx context.Context, in *RegisterConnectivityDiagnosticsCallbackRequest, opts ...grpc.CallOption) (*RegisterConnectivityDiagnosticsCallbackResponse, error)
+	UnregisterConnectivityDiagnosticsCallback(ctx context.Context, in *UnregisterConnectivityDiagnosticsCallbackRequest, opts ...grpc.CallOption) (*UnregisterConnectivityDiagnosticsCallbackResponse, error)
+}
+
+type connectivityDiagnosticsManagerServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewConnectivityDiagnosticsManagerServiceClient(cc grpc.ClientConnInterface) ConnectivityDiagnosticsManagerServiceClient {
+	return &connectivityDiagnosticsManagerServiceClient{cc}
+}
+
+func (c *connectivityDiagnosticsManagerServiceClient) RegisterConnectivityDiagnosticsCallback(ctx context.Context, in *RegisterConnectivityDiagnosticsCallbackRequest, opts ...grpc.CallOption) (*RegisterConnectivityDiagnosticsCallbackResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(RegisterConnectivityDiagnosticsCallbackResponse)
+	err := c.cc.Invoke(ctx, ConnectivityDiagnosticsManagerService_RegisterConnectivityDiagnosticsCallback_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *connectivityDiagnosticsManagerServiceClient) UnregisterConnectivityDiagnosticsCallback(ctx context.Context, in *UnregisterConnectivityDiagnosticsCallbackRequest, opts ...grpc.CallOption) (*UnregisterConnectivityDiagnosticsCallbackResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(UnregisterConnectivityDiagnosticsCallbackResponse)
+	err := c.cc.Invoke(ctx, ConnectivityDiagnosticsManagerService_UnregisterConnectivityDiagnosticsCallback_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// ConnectivityDiagnosticsManagerServiceServer is the server API for ConnectivityDiagnosticsManagerService service.
+// All implementations must embed UnimplementedConnectivityDiagnosticsManagerServiceServer
+// for forward compatibility.
+type ConnectivityDiagnosticsManagerServiceServer interface {
+	RegisterConnectivityDiagnosticsCallback(context.Context, *RegisterConnectivityDiagnosticsCallbackRequest) (*RegisterConnectivityDiagnosticsCallbackResponse, error)
+	UnregisterConnectivityDiagnosticsCallback(context.Context, *UnregisterConnectivityDiagnosticsCallbackRequest) (*UnregisterConnectivityDiagnosticsCallbackResponse, error)
+	mustEmbedUnimplementedConnectivityDiagnosticsManagerServiceServer()
+}
+
+// UnimplementedConnectivityDiagnosticsManagerServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedConnectivityDiagnosticsManagerServiceServer struct{}
+
+func (UnimplementedConnectivityDiagnosticsManagerServiceServer) RegisterConnectivityDiagnosticsCallback(context.Context, *RegisterConnectivityDiagnosticsCallbackRequest) (*RegisterConnectivityDiagnosticsCallbackResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method RegisterConnectivityDiagnosticsCallback not implemented")
+}
+func (UnimplementedConnectivityDiagnosticsManagerServiceServer) UnregisterConnectivityDiagnosticsCallback(context.Context, *UnregisterConnectivityDiagnosticsCallbackRequest) (*UnregisterConnectivityDiagnosticsCallbackResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method UnregisterConnectivityDiagnosticsCallback not implemented")
+}
+func (UnimplementedConnectivityDiagnosticsManagerServiceServer) mustEmbedUnimplementedConnectivityDiagnosticsManagerServiceServer() {
+}
+func (UnimplementedConnectivityDiagnosticsManagerServiceServer) testEmbeddedByValue() {}
+
+// UnsafeConnectivityDiagnosticsManagerServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to ConnectivityDiagnosticsManagerServiceServer will
+// result in compilation errors.
+type UnsafeConnectivityDiagnosticsManagerServiceServer interface {
+	mustEmbedUnimplementedConnectivityDiagnosticsManagerServiceServer()
+}
+
+func RegisterConnectivityDiagnosticsManagerServiceServer(s grpc.ServiceRegistrar, srv ConnectivityDiagnosticsManagerServiceServer) {
+	// If the following call panics, it indicates UnimplementedConnectivityDiagnosticsManagerServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&ConnectivityDiagnosticsManagerService_ServiceDesc, srv)
+}
+
+func _ConnectivityDiagnosticsManagerService_RegisterConnectivityDiagnosticsCallback_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(RegisterConnectivityDiagnosticsCallbackRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ConnectivityDiagnosticsManagerServiceServer).RegisterConnectivityDiagnosticsCallback(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ConnectivityDiagnosticsManagerService_RegisterConnectivityDiagnosticsCallback_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ConnectivityDiagnosticsManagerServiceServer).RegisterConnectivityDiagnosticsCallback(ctx, req.(*RegisterConnectivityDiagnosticsCallbackRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ConnectivityDiagnosticsManagerService_UnregisterConnectivityDiagnosticsCallback_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(UnregisterConnectivityDiagnosticsCallbackRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ConnectivityDiagnosticsManagerServiceServer).UnregisterConnectivityDiagnosticsCallback(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ConnectivityDiagnosticsManagerService_UnregisterConnectivityDiagnosticsCallback_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ConnectivityDiagnosticsManagerServiceServer).UnregisterConnectivityDiagnosticsCallback(ctx, req.(*UnregisterConnectivityDiagnosticsCallbackRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// ConnectivityDiagnosticsManagerService_ServiceDesc is the grpc.ServiceDesc for ConnectivityDiagnosticsManagerService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var ConnectivityDiagnosticsManagerService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "net.ConnectivityDiagnosticsManagerService",
+	HandlerType: (*ConnectivityDiagnosticsManagerServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "RegisterConnectivityDiagnosticsCallback",
+			Handler:    _ConnectivityDiagnosticsManagerService_RegisterConnectivityDiagnosticsCallback_Handler,
+		},
+		{
+			MethodName: "UnregisterConnectivityDiagnosticsCallback",
+			Handler:    _ConnectivityDiagnosticsManagerService_UnregisterConnectivityDiagnosticsCallback_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/net/net.proto",
+}
+
+const (
+	IpSecManagerService_AllocateSecurityParameterIndex1_FullMethodName   = "/net.IpSecManagerService/AllocateSecurityParameterIndex1"
+	IpSecManagerService_AllocateSecurityParameterIndex2_1_FullMethodName = "/net.IpSecManagerService/AllocateSecurityParameterIndex2_1"
+	IpSecManagerService_ApplyTransportModeTransform3_FullMethodName      = "/net.IpSecManagerService/ApplyTransportModeTransform3"
+	IpSecManagerService_ApplyTransportModeTransform3_1_FullMethodName    = "/net.IpSecManagerService/ApplyTransportModeTransform3_1"
+	IpSecManagerService_ApplyTransportModeTransform3_2_FullMethodName    = "/net.IpSecManagerService/ApplyTransportModeTransform3_2"
+	IpSecManagerService_OpenUdpEncapsulationSocket0_FullMethodName       = "/net.IpSecManagerService/OpenUdpEncapsulationSocket0"
+	IpSecManagerService_OpenUdpEncapsulationSocket1_1_FullMethodName     = "/net.IpSecManagerService/OpenUdpEncapsulationSocket1_1"
+	IpSecManagerService_RemoveTransportModeTransforms1_FullMethodName    = "/net.IpSecManagerService/RemoveTransportModeTransforms1"
+	IpSecManagerService_RemoveTransportModeTransforms1_1_FullMethodName  = "/net.IpSecManagerService/RemoveTransportModeTransforms1_1"
+	IpSecManagerService_RemoveTransportModeTransforms1_2_FullMethodName  = "/net.IpSecManagerService/RemoveTransportModeTransforms1_2"
+)
+
+// IpSecManagerServiceClient is the client API for IpSecManagerService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type IpSecManagerServiceClient interface {
+	AllocateSecurityParameterIndex1(ctx context.Context, in *AllocateSecurityParameterIndex1Request, opts ...grpc.CallOption) (*AllocateSecurityParameterIndex1Response, error)
+	AllocateSecurityParameterIndex2_1(ctx context.Context, in *AllocateSecurityParameterIndex2_1Request, opts ...grpc.CallOption) (*AllocateSecurityParameterIndex2_1Response, error)
+	ApplyTransportModeTransform3(ctx context.Context, in *ApplyTransportModeTransform3Request, opts ...grpc.CallOption) (*ApplyTransportModeTransform3Response, error)
+	ApplyTransportModeTransform3_1(ctx context.Context, in *ApplyTransportModeTransform3_1Request, opts ...grpc.CallOption) (*ApplyTransportModeTransform3_1Response, error)
+	ApplyTransportModeTransform3_2(ctx context.Context, in *ApplyTransportModeTransform3_2Request, opts ...grpc.CallOption) (*ApplyTransportModeTransform3_2Response, error)
+	OpenUdpEncapsulationSocket0(ctx context.Context, in *OpenUdpEncapsulationSocket0Request, opts ...grpc.CallOption) (*OpenUdpEncapsulationSocket0Response, error)
+	OpenUdpEncapsulationSocket1_1(ctx context.Context, in *OpenUdpEncapsulationSocket1_1Request, opts ...grpc.CallOption) (*OpenUdpEncapsulationSocket1_1Response, error)
+	RemoveTransportModeTransforms1(ctx context.Context, in *RemoveTransportModeTransforms1Request, opts ...grpc.CallOption) (*RemoveTransportModeTransforms1Response, error)
+	RemoveTransportModeTransforms1_1(ctx context.Context, in *RemoveTransportModeTransforms1_1Request, opts ...grpc.CallOption) (*RemoveTransportModeTransforms1_1Response, error)
+	RemoveTransportModeTransforms1_2(ctx context.Context, in *RemoveTransportModeTransforms1_2Request, opts ...grpc.CallOption) (*RemoveTransportModeTransforms1_2Response, error)
+}
+
+type ipSecManagerServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewIpSecManagerServiceClient(cc grpc.ClientConnInterface) IpSecManagerServiceClient {
+	return &ipSecManagerServiceClient{cc}
+}
+
+func (c *ipSecManagerServiceClient) AllocateSecurityParameterIndex1(ctx context.Context, in *AllocateSecurityParameterIndex1Request, opts ...grpc.CallOption) (*AllocateSecurityParameterIndex1Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(AllocateSecurityParameterIndex1Response)
+	err := c.cc.Invoke(ctx, IpSecManagerService_AllocateSecurityParameterIndex1_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *ipSecManagerServiceClient) AllocateSecurityParameterIndex2_1(ctx context.Context, in *AllocateSecurityParameterIndex2_1Request, opts ...grpc.CallOption) (*AllocateSecurityParameterIndex2_1Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(AllocateSecurityParameterIndex2_1Response)
+	err := c.cc.Invoke(ctx, IpSecManagerService_AllocateSecurityParameterIndex2_1_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *ipSecManagerServiceClient) ApplyTransportModeTransform3(ctx context.Context, in *ApplyTransportModeTransform3Request, opts ...grpc.CallOption) (*ApplyTransportModeTransform3Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ApplyTransportModeTransform3Response)
+	err := c.cc.Invoke(ctx, IpSecManagerService_ApplyTransportModeTransform3_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *ipSecManagerServiceClient) ApplyTransportModeTransform3_1(ctx context.Context, in *ApplyTransportModeTransform3_1Request, opts ...grpc.CallOption) (*ApplyTransportModeTransform3_1Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ApplyTransportModeTransform3_1Response)
+	err := c.cc.Invoke(ctx, IpSecManagerService_ApplyTransportModeTransform3_1_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *ipSecManagerServiceClient) ApplyTransportModeTransform3_2(ctx context.Context, in *ApplyTransportModeTransform3_2Request, opts ...grpc.CallOption) (*ApplyTransportModeTransform3_2Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ApplyTransportModeTransform3_2Response)
+	err := c.cc.Invoke(ctx, IpSecManagerService_ApplyTransportModeTransform3_2_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *ipSecManagerServiceClient) OpenUdpEncapsulationSocket0(ctx context.Context, in *OpenUdpEncapsulationSocket0Request, opts ...grpc.CallOption) (*OpenUdpEncapsulationSocket0Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OpenUdpEncapsulationSocket0Response)
+	err := c.cc.Invoke(ctx, IpSecManagerService_OpenUdpEncapsulationSocket0_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *ipSecManagerServiceClient) OpenUdpEncapsulationSocket1_1(ctx context.Context, in *OpenUdpEncapsulationSocket1_1Request, opts ...grpc.CallOption) (*OpenUdpEncapsulationSocket1_1Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OpenUdpEncapsulationSocket1_1Response)
+	err := c.cc.Invoke(ctx, IpSecManagerService_OpenUdpEncapsulationSocket1_1_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *ipSecManagerServiceClient) RemoveTransportModeTransforms1(ctx context.Context, in *RemoveTransportModeTransforms1Request, opts ...grpc.CallOption) (*RemoveTransportModeTransforms1Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(RemoveTransportModeTransforms1Response)
+	err := c.cc.Invoke(ctx, IpSecManagerService_RemoveTransportModeTransforms1_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *ipSecManagerServiceClient) RemoveTransportModeTransforms1_1(ctx context.Context, in *RemoveTransportModeTransforms1_1Request, opts ...grpc.CallOption) (*RemoveTransportModeTransforms1_1Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(RemoveTransportModeTransforms1_1Response)
+	err := c.cc.Invoke(ctx, IpSecManagerService_RemoveTransportModeTransforms1_1_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *ipSecManagerServiceClient) RemoveTransportModeTransforms1_2(ctx context.Context, in *RemoveTransportModeTransforms1_2Request, opts ...grpc.CallOption) (*RemoveTransportModeTransforms1_2Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(RemoveTransportModeTransforms1_2Response)
+	err := c.cc.Invoke(ctx, IpSecManagerService_RemoveTransportModeTransforms1_2_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// IpSecManagerServiceServer is the server API for IpSecManagerService service.
+// All implementations must embed UnimplementedIpSecManagerServiceServer
+// for forward compatibility.
+type IpSecManagerServiceServer interface {
+	AllocateSecurityParameterIndex1(context.Context, *AllocateSecurityParameterIndex1Request) (*AllocateSecurityParameterIndex1Response, error)
+	AllocateSecurityParameterIndex2_1(context.Context, *AllocateSecurityParameterIndex2_1Request) (*AllocateSecurityParameterIndex2_1Response, error)
+	ApplyTransportModeTransform3(context.Context, *ApplyTransportModeTransform3Request) (*ApplyTransportModeTransform3Response, error)
+	ApplyTransportModeTransform3_1(context.Context, *ApplyTransportModeTransform3_1Request) (*ApplyTransportModeTransform3_1Response, error)
+	ApplyTransportModeTransform3_2(context.Context, *ApplyTransportModeTransform3_2Request) (*ApplyTransportModeTransform3_2Response, error)
+	OpenUdpEncapsulationSocket0(context.Context, *OpenUdpEncapsulationSocket0Request) (*OpenUdpEncapsulationSocket0Response, error)
+	OpenUdpEncapsulationSocket1_1(context.Context, *OpenUdpEncapsulationSocket1_1Request) (*OpenUdpEncapsulationSocket1_1Response, error)
+	RemoveTransportModeTransforms1(context.Context, *RemoveTransportModeTransforms1Request) (*RemoveTransportModeTransforms1Response, error)
+	RemoveTransportModeTransforms1_1(context.Context, *RemoveTransportModeTransforms1_1Request) (*RemoveTransportModeTransforms1_1Response, error)
+	RemoveTransportModeTransforms1_2(context.Context, *RemoveTransportModeTransforms1_2Request) (*RemoveTransportModeTransforms1_2Response, error)
+	mustEmbedUnimplementedIpSecManagerServiceServer()
+}
+
+// UnimplementedIpSecManagerServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedIpSecManagerServiceServer struct{}
+
+func (UnimplementedIpSecManagerServiceServer) AllocateSecurityParameterIndex1(context.Context, *AllocateSecurityParameterIndex1Request) (*AllocateSecurityParameterIndex1Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method AllocateSecurityParameterIndex1 not implemented")
+}
+func (UnimplementedIpSecManagerServiceServer) AllocateSecurityParameterIndex2_1(context.Context, *AllocateSecurityParameterIndex2_1Request) (*AllocateSecurityParameterIndex2_1Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method AllocateSecurityParameterIndex2_1 not implemented")
+}
+func (UnimplementedIpSecManagerServiceServer) ApplyTransportModeTransform3(context.Context, *ApplyTransportModeTransform3Request) (*ApplyTransportModeTransform3Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method ApplyTransportModeTransform3 not implemented")
+}
+func (UnimplementedIpSecManagerServiceServer) ApplyTransportModeTransform3_1(context.Context, *ApplyTransportModeTransform3_1Request) (*ApplyTransportModeTransform3_1Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method ApplyTransportModeTransform3_1 not implemented")
+}
+func (UnimplementedIpSecManagerServiceServer) ApplyTransportModeTransform3_2(context.Context, *ApplyTransportModeTransform3_2Request) (*ApplyTransportModeTransform3_2Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method ApplyTransportModeTransform3_2 not implemented")
+}
+func (UnimplementedIpSecManagerServiceServer) OpenUdpEncapsulationSocket0(context.Context, *OpenUdpEncapsulationSocket0Request) (*OpenUdpEncapsulationSocket0Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method OpenUdpEncapsulationSocket0 not implemented")
+}
+func (UnimplementedIpSecManagerServiceServer) OpenUdpEncapsulationSocket1_1(context.Context, *OpenUdpEncapsulationSocket1_1Request) (*OpenUdpEncapsulationSocket1_1Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method OpenUdpEncapsulationSocket1_1 not implemented")
+}
+func (UnimplementedIpSecManagerServiceServer) RemoveTransportModeTransforms1(context.Context, *RemoveTransportModeTransforms1Request) (*RemoveTransportModeTransforms1Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method RemoveTransportModeTransforms1 not implemented")
+}
+func (UnimplementedIpSecManagerServiceServer) RemoveTransportModeTransforms1_1(context.Context, *RemoveTransportModeTransforms1_1Request) (*RemoveTransportModeTransforms1_1Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method RemoveTransportModeTransforms1_1 not implemented")
+}
+func (UnimplementedIpSecManagerServiceServer) RemoveTransportModeTransforms1_2(context.Context, *RemoveTransportModeTransforms1_2Request) (*RemoveTransportModeTransforms1_2Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method RemoveTransportModeTransforms1_2 not implemented")
+}
+func (UnimplementedIpSecManagerServiceServer) mustEmbedUnimplementedIpSecManagerServiceServer() {}
+func (UnimplementedIpSecManagerServiceServer) testEmbeddedByValue()                             {}
+
+// UnsafeIpSecManagerServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to IpSecManagerServiceServer will
+// result in compilation errors.
+type UnsafeIpSecManagerServiceServer interface {
+	mustEmbedUnimplementedIpSecManagerServiceServer()
+}
+
+func RegisterIpSecManagerServiceServer(s grpc.ServiceRegistrar, srv IpSecManagerServiceServer) {
+	// If the following call panics, it indicates UnimplementedIpSecManagerServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&IpSecManagerService_ServiceDesc, srv)
+}
+
+func _IpSecManagerService_AllocateSecurityParameterIndex1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(AllocateSecurityParameterIndex1Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(IpSecManagerServiceServer).AllocateSecurityParameterIndex1(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: IpSecManagerService_AllocateSecurityParameterIndex1_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(IpSecManagerServiceServer).AllocateSecurityParameterIndex1(ctx, req.(*AllocateSecurityParameterIndex1Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _IpSecManagerService_AllocateSecurityParameterIndex2_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(AllocateSecurityParameterIndex2_1Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(IpSecManagerServiceServer).AllocateSecurityParameterIndex2_1(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: IpSecManagerService_AllocateSecurityParameterIndex2_1_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(IpSecManagerServiceServer).AllocateSecurityParameterIndex2_1(ctx, req.(*AllocateSecurityParameterIndex2_1Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _IpSecManagerService_ApplyTransportModeTransform3_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ApplyTransportModeTransform3Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(IpSecManagerServiceServer).ApplyTransportModeTransform3(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: IpSecManagerService_ApplyTransportModeTransform3_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(IpSecManagerServiceServer).ApplyTransportModeTransform3(ctx, req.(*ApplyTransportModeTransform3Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _IpSecManagerService_ApplyTransportModeTransform3_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ApplyTransportModeTransform3_1Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(IpSecManagerServiceServer).ApplyTransportModeTransform3_1(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: IpSecManagerService_ApplyTransportModeTransform3_1_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(IpSecManagerServiceServer).ApplyTransportModeTransform3_1(ctx, req.(*ApplyTransportModeTransform3_1Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _IpSecManagerService_ApplyTransportModeTransform3_2_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ApplyTransportModeTransform3_2Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(IpSecManagerServiceServer).ApplyTransportModeTransform3_2(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: IpSecManagerService_ApplyTransportModeTransform3_2_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(IpSecManagerServiceServer).ApplyTransportModeTransform3_2(ctx, req.(*ApplyTransportModeTransform3_2Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _IpSecManagerService_OpenUdpEncapsulationSocket0_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OpenUdpEncapsulationSocket0Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(IpSecManagerServiceServer).OpenUdpEncapsulationSocket0(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: IpSecManagerService_OpenUdpEncapsulationSocket0_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(IpSecManagerServiceServer).OpenUdpEncapsulationSocket0(ctx, req.(*OpenUdpEncapsulationSocket0Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _IpSecManagerService_OpenUdpEncapsulationSocket1_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OpenUdpEncapsulationSocket1_1Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(IpSecManagerServiceServer).OpenUdpEncapsulationSocket1_1(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: IpSecManagerService_OpenUdpEncapsulationSocket1_1_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(IpSecManagerServiceServer).OpenUdpEncapsulationSocket1_1(ctx, req.(*OpenUdpEncapsulationSocket1_1Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _IpSecManagerService_RemoveTransportModeTransforms1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(RemoveTransportModeTransforms1Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(IpSecManagerServiceServer).RemoveTransportModeTransforms1(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: IpSecManagerService_RemoveTransportModeTransforms1_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(IpSecManagerServiceServer).RemoveTransportModeTransforms1(ctx, req.(*RemoveTransportModeTransforms1Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _IpSecManagerService_RemoveTransportModeTransforms1_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(RemoveTransportModeTransforms1_1Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(IpSecManagerServiceServer).RemoveTransportModeTransforms1_1(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: IpSecManagerService_RemoveTransportModeTransforms1_1_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(IpSecManagerServiceServer).RemoveTransportModeTransforms1_1(ctx, req.(*RemoveTransportModeTransforms1_1Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _IpSecManagerService_RemoveTransportModeTransforms1_2_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(RemoveTransportModeTransforms1_2Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(IpSecManagerServiceServer).RemoveTransportModeTransforms1_2(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: IpSecManagerService_RemoveTransportModeTransforms1_2_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(IpSecManagerServiceServer).RemoveTransportModeTransforms1_2(ctx, req.(*RemoveTransportModeTransforms1_2Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// IpSecManagerService_ServiceDesc is the grpc.ServiceDesc for IpSecManagerService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var IpSecManagerService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "net.IpSecManagerService",
+	HandlerType: (*IpSecManagerServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "AllocateSecurityParameterIndex1",
+			Handler:    _IpSecManagerService_AllocateSecurityParameterIndex1_Handler,
+		},
+		{
+			MethodName: "AllocateSecurityParameterIndex2_1",
+			Handler:    _IpSecManagerService_AllocateSecurityParameterIndex2_1_Handler,
+		},
+		{
+			MethodName: "ApplyTransportModeTransform3",
+			Handler:    _IpSecManagerService_ApplyTransportModeTransform3_Handler,
+		},
+		{
+			MethodName: "ApplyTransportModeTransform3_1",
+			Handler:    _IpSecManagerService_ApplyTransportModeTransform3_1_Handler,
+		},
+		{
+			MethodName: "ApplyTransportModeTransform3_2",
+			Handler:    _IpSecManagerService_ApplyTransportModeTransform3_2_Handler,
+		},
+		{
+			MethodName: "OpenUdpEncapsulationSocket0",
+			Handler:    _IpSecManagerService_OpenUdpEncapsulationSocket0_Handler,
+		},
+		{
+			MethodName: "OpenUdpEncapsulationSocket1_1",
+			Handler:    _IpSecManagerService_OpenUdpEncapsulationSocket1_1_Handler,
+		},
+		{
+			MethodName: "RemoveTransportModeTransforms1",
+			Handler:    _IpSecManagerService_RemoveTransportModeTransforms1_Handler,
+		},
+		{
+			MethodName: "RemoveTransportModeTransforms1_1",
+			Handler:    _IpSecManagerService_RemoveTransportModeTransforms1_1_Handler,
+		},
+		{
+			MethodName: "RemoveTransportModeTransforms1_2",
+			Handler:    _IpSecManagerService_RemoveTransportModeTransforms1_2_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/net/net.proto",
+}
+
+const (
+	TetheringManagerService_RegisterTetheringEventCallback_FullMethodName   = "/net.TetheringManagerService/RegisterTetheringEventCallback"
+	TetheringManagerService_StartTethering_FullMethodName                   = "/net.TetheringManagerService/StartTethering"
+	TetheringManagerService_StopTethering_FullMethodName                    = "/net.TetheringManagerService/StopTethering"
+	TetheringManagerService_UnregisterTetheringEventCallback_FullMethodName = "/net.TetheringManagerService/UnregisterTetheringEventCallback"
+)
+
+// TetheringManagerServiceClient is the client API for TetheringManagerService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type TetheringManagerServiceClient interface {
+	RegisterTetheringEventCallback(ctx context.Context, in *RegisterTetheringEventCallbackRequest, opts ...grpc.CallOption) (*RegisterTetheringEventCallbackResponse, error)
+	StartTethering(ctx context.Context, in *StartTetheringRequest, opts ...grpc.CallOption) (*StartTetheringResponse, error)
+	StopTethering(ctx context.Context, in *StopTetheringRequest, opts ...grpc.CallOption) (*StopTetheringResponse, error)
+	UnregisterTetheringEventCallback(ctx context.Context, in *UnregisterTetheringEventCallbackRequest, opts ...grpc.CallOption) (*UnregisterTetheringEventCallbackResponse, error)
+}
+
+type tetheringManagerServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewTetheringManagerServiceClient(cc grpc.ClientConnInterface) TetheringManagerServiceClient {
+	return &tetheringManagerServiceClient{cc}
+}
+
+func (c *tetheringManagerServiceClient) RegisterTetheringEventCallback(ctx context.Context, in *RegisterTetheringEventCallbackRequest, opts ...grpc.CallOption) (*RegisterTetheringEventCallbackResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(RegisterTetheringEventCallbackResponse)
+	err := c.cc.Invoke(ctx, TetheringManagerService_RegisterTetheringEventCallback_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *tetheringManagerServiceClient) StartTethering(ctx context.Context, in *StartTetheringRequest, opts ...grpc.CallOption) (*StartTetheringResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(StartTetheringResponse)
+	err := c.cc.Invoke(ctx, TetheringManagerService_StartTethering_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *tetheringManagerServiceClient) StopTethering(ctx context.Context, in *StopTetheringRequest, opts ...grpc.CallOption) (*StopTetheringResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(StopTetheringResponse)
+	err := c.cc.Invoke(ctx, TetheringManagerService_StopTethering_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *tetheringManagerServiceClient) UnregisterTetheringEventCallback(ctx context.Context, in *UnregisterTetheringEventCallbackRequest, opts ...grpc.CallOption) (*UnregisterTetheringEventCallbackResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(UnregisterTetheringEventCallbackResponse)
+	err := c.cc.Invoke(ctx, TetheringManagerService_UnregisterTetheringEventCallback_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// TetheringManagerServiceServer is the server API for TetheringManagerService service.
+// All implementations must embed UnimplementedTetheringManagerServiceServer
+// for forward compatibility.
+type TetheringManagerServiceServer interface {
+	RegisterTetheringEventCallback(context.Context, *RegisterTetheringEventCallbackRequest) (*RegisterTetheringEventCallbackResponse, error)
+	StartTethering(context.Context, *StartTetheringRequest) (*StartTetheringResponse, error)
+	StopTethering(context.Context, *StopTetheringRequest) (*StopTetheringResponse, error)
+	UnregisterTetheringEventCallback(context.Context, *UnregisterTetheringEventCallbackRequest) (*UnregisterTetheringEventCallbackResponse, error)
+	mustEmbedUnimplementedTetheringManagerServiceServer()
+}
+
+// UnimplementedTetheringManagerServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedTetheringManagerServiceServer struct{}
+
+func (UnimplementedTetheringManagerServiceServer) RegisterTetheringEventCallback(context.Context, *RegisterTetheringEventCallbackRequest) (*RegisterTetheringEventCallbackResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method RegisterTetheringEventCallback not implemented")
+}
+func (UnimplementedTetheringManagerServiceServer) StartTethering(context.Context, *StartTetheringRequest) (*StartTetheringResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method StartTethering not implemented")
+}
+func (UnimplementedTetheringManagerServiceServer) StopTethering(context.Context, *StopTetheringRequest) (*StopTetheringResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method StopTethering not implemented")
+}
+func (UnimplementedTetheringManagerServiceServer) UnregisterTetheringEventCallback(context.Context, *UnregisterTetheringEventCallbackRequest) (*UnregisterTetheringEventCallbackResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method UnregisterTetheringEventCallback not implemented")
+}
+func (UnimplementedTetheringManagerServiceServer) mustEmbedUnimplementedTetheringManagerServiceServer() {
+}
+func (UnimplementedTetheringManagerServiceServer) testEmbeddedByValue() {}
+
+// UnsafeTetheringManagerServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to TetheringManagerServiceServer will
+// result in compilation errors.
+type UnsafeTetheringManagerServiceServer interface {
+	mustEmbedUnimplementedTetheringManagerServiceServer()
+}
+
+func RegisterTetheringManagerServiceServer(s grpc.ServiceRegistrar, srv TetheringManagerServiceServer) {
+	// If the following call panics, it indicates UnimplementedTetheringManagerServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&TetheringManagerService_ServiceDesc, srv)
+}
+
+func _TetheringManagerService_RegisterTetheringEventCallback_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(RegisterTetheringEventCallbackRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TetheringManagerServiceServer).RegisterTetheringEventCallback(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TetheringManagerService_RegisterTetheringEventCallback_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TetheringManagerServiceServer).RegisterTetheringEventCallback(ctx, req.(*RegisterTetheringEventCallbackRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TetheringManagerService_StartTethering_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(StartTetheringRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TetheringManagerServiceServer).StartTethering(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TetheringManagerService_StartTethering_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TetheringManagerServiceServer).StartTethering(ctx, req.(*StartTetheringRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TetheringManagerService_StopTethering_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(StopTetheringRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TetheringManagerServiceServer).StopTethering(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TetheringManagerService_StopTethering_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TetheringManagerServiceServer).StopTethering(ctx, req.(*StopTetheringRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TetheringManagerService_UnregisterTetheringEventCallback_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(UnregisterTetheringEventCallbackRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TetheringManagerServiceServer).UnregisterTetheringEventCallback(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TetheringManagerService_UnregisterTetheringEventCallback_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TetheringManagerServiceServer).UnregisterTetheringEventCallback(ctx, req.(*UnregisterTetheringEventCallbackRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// TetheringManagerService_ServiceDesc is the grpc.ServiceDesc for TetheringManagerService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var TetheringManagerService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "net.TetheringManagerService",
+	HandlerType: (*TetheringManagerServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "RegisterTetheringEventCallback",
+			Handler:    _TetheringManagerService_RegisterTetheringEventCallback_Handler,
+		},
+		{
+			MethodName: "StartTethering",
+			Handler:    _TetheringManagerService_StartTethering_Handler,
+		},
+		{
+			MethodName: "StopTethering",
+			Handler:    _TetheringManagerService_StopTethering_Handler,
+		},
+		{
+			MethodName: "UnregisterTetheringEventCallback",
+			Handler:    _TetheringManagerService_UnregisterTetheringEventCallback_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/net/net.proto",
+}
+
+const (
 	ConnectivityManagerService_AddDefaultNetworkActiveListener_FullMethodName    = "/net.ConnectivityManagerService/AddDefaultNetworkActiveListener"
 	ConnectivityManagerService_BindProcessToNetwork_FullMethodName               = "/net.ConnectivityManagerService/BindProcessToNetwork"
 	ConnectivityManagerService_CreateSocketKeepalive_FullMethodName              = "/net.ConnectivityManagerService/CreateSocketKeepalive"
@@ -1523,717 +2325,6 @@ var ConnectivityManagerService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "SetProcessDefaultNetwork",
 			Handler:    _ConnectivityManagerService_SetProcessDefaultNetwork_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/net/net.proto",
-}
-
-const (
-	NetworkCapabilitiesService_DescribeContents_FullMethodName               = "/net.NetworkCapabilitiesService/DescribeContents"
-	NetworkCapabilitiesService_Equals_FullMethodName                         = "/net.NetworkCapabilitiesService/Equals"
-	NetworkCapabilitiesService_GetCapabilities_FullMethodName                = "/net.NetworkCapabilitiesService/GetCapabilities"
-	NetworkCapabilitiesService_GetEnterpriseIds_FullMethodName               = "/net.NetworkCapabilitiesService/GetEnterpriseIds"
-	NetworkCapabilitiesService_GetLinkDownstreamBandwidthKbps_FullMethodName = "/net.NetworkCapabilitiesService/GetLinkDownstreamBandwidthKbps"
-	NetworkCapabilitiesService_GetLinkUpstreamBandwidthKbps_FullMethodName   = "/net.NetworkCapabilitiesService/GetLinkUpstreamBandwidthKbps"
-	NetworkCapabilitiesService_GetNetworkSpecifier_FullMethodName            = "/net.NetworkCapabilitiesService/GetNetworkSpecifier"
-	NetworkCapabilitiesService_GetOwnerUid_FullMethodName                    = "/net.NetworkCapabilitiesService/GetOwnerUid"
-	NetworkCapabilitiesService_GetSignalStrength_FullMethodName              = "/net.NetworkCapabilitiesService/GetSignalStrength"
-	NetworkCapabilitiesService_GetSubscriptionIds_FullMethodName             = "/net.NetworkCapabilitiesService/GetSubscriptionIds"
-	NetworkCapabilitiesService_GetTransportInfo_FullMethodName               = "/net.NetworkCapabilitiesService/GetTransportInfo"
-	NetworkCapabilitiesService_HasCapability_FullMethodName                  = "/net.NetworkCapabilitiesService/HasCapability"
-	NetworkCapabilitiesService_HasEnterpriseId_FullMethodName                = "/net.NetworkCapabilitiesService/HasEnterpriseId"
-	NetworkCapabilitiesService_HasTransport_FullMethodName                   = "/net.NetworkCapabilitiesService/HasTransport"
-	NetworkCapabilitiesService_HashCode_FullMethodName                       = "/net.NetworkCapabilitiesService/HashCode"
-	NetworkCapabilitiesService_ToString_FullMethodName                       = "/net.NetworkCapabilitiesService/ToString"
-	NetworkCapabilitiesService_WriteToParcel_FullMethodName                  = "/net.NetworkCapabilitiesService/WriteToParcel"
-)
-
-// NetworkCapabilitiesServiceClient is the client API for NetworkCapabilitiesService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type NetworkCapabilitiesServiceClient interface {
-	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
-	Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
-	GetCapabilities(ctx context.Context, in *GetCapabilitiesRequest, opts ...grpc.CallOption) (*GetCapabilitiesResponse, error)
-	GetEnterpriseIds(ctx context.Context, in *GetEnterpriseIdsRequest, opts ...grpc.CallOption) (*GetEnterpriseIdsResponse, error)
-	GetLinkDownstreamBandwidthKbps(ctx context.Context, in *GetLinkDownstreamBandwidthKbpsRequest, opts ...grpc.CallOption) (*GetLinkDownstreamBandwidthKbpsResponse, error)
-	GetLinkUpstreamBandwidthKbps(ctx context.Context, in *GetLinkUpstreamBandwidthKbpsRequest, opts ...grpc.CallOption) (*GetLinkUpstreamBandwidthKbpsResponse, error)
-	GetNetworkSpecifier(ctx context.Context, in *GetNetworkSpecifierRequest, opts ...grpc.CallOption) (*GetNetworkSpecifierResponse, error)
-	GetOwnerUid(ctx context.Context, in *GetOwnerUidRequest, opts ...grpc.CallOption) (*GetOwnerUidResponse, error)
-	GetSignalStrength(ctx context.Context, in *GetSignalStrengthRequest, opts ...grpc.CallOption) (*GetSignalStrengthResponse, error)
-	GetSubscriptionIds(ctx context.Context, in *GetSubscriptionIdsRequest, opts ...grpc.CallOption) (*GetSubscriptionIdsResponse, error)
-	GetTransportInfo(ctx context.Context, in *GetTransportInfoRequest, opts ...grpc.CallOption) (*GetTransportInfoResponse, error)
-	HasCapability(ctx context.Context, in *HasCapabilityRequest, opts ...grpc.CallOption) (*HasCapabilityResponse, error)
-	HasEnterpriseId(ctx context.Context, in *HasEnterpriseIdRequest, opts ...grpc.CallOption) (*HasEnterpriseIdResponse, error)
-	HasTransport(ctx context.Context, in *HasTransportRequest, opts ...grpc.CallOption) (*HasTransportResponse, error)
-	HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
-	ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
-	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
-}
-
-type networkCapabilitiesServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewNetworkCapabilitiesServiceClient(cc grpc.ClientConnInterface) NetworkCapabilitiesServiceClient {
-	return &networkCapabilitiesServiceClient{cc}
-}
-
-func (c *networkCapabilitiesServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(DescribeContentsResponse)
-	err := c.cc.Invoke(ctx, NetworkCapabilitiesService_DescribeContents_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *networkCapabilitiesServiceClient) Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(EqualsResponse)
-	err := c.cc.Invoke(ctx, NetworkCapabilitiesService_Equals_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *networkCapabilitiesServiceClient) GetCapabilities(ctx context.Context, in *GetCapabilitiesRequest, opts ...grpc.CallOption) (*GetCapabilitiesResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetCapabilitiesResponse)
-	err := c.cc.Invoke(ctx, NetworkCapabilitiesService_GetCapabilities_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *networkCapabilitiesServiceClient) GetEnterpriseIds(ctx context.Context, in *GetEnterpriseIdsRequest, opts ...grpc.CallOption) (*GetEnterpriseIdsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetEnterpriseIdsResponse)
-	err := c.cc.Invoke(ctx, NetworkCapabilitiesService_GetEnterpriseIds_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *networkCapabilitiesServiceClient) GetLinkDownstreamBandwidthKbps(ctx context.Context, in *GetLinkDownstreamBandwidthKbpsRequest, opts ...grpc.CallOption) (*GetLinkDownstreamBandwidthKbpsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetLinkDownstreamBandwidthKbpsResponse)
-	err := c.cc.Invoke(ctx, NetworkCapabilitiesService_GetLinkDownstreamBandwidthKbps_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *networkCapabilitiesServiceClient) GetLinkUpstreamBandwidthKbps(ctx context.Context, in *GetLinkUpstreamBandwidthKbpsRequest, opts ...grpc.CallOption) (*GetLinkUpstreamBandwidthKbpsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetLinkUpstreamBandwidthKbpsResponse)
-	err := c.cc.Invoke(ctx, NetworkCapabilitiesService_GetLinkUpstreamBandwidthKbps_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *networkCapabilitiesServiceClient) GetNetworkSpecifier(ctx context.Context, in *GetNetworkSpecifierRequest, opts ...grpc.CallOption) (*GetNetworkSpecifierResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetNetworkSpecifierResponse)
-	err := c.cc.Invoke(ctx, NetworkCapabilitiesService_GetNetworkSpecifier_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *networkCapabilitiesServiceClient) GetOwnerUid(ctx context.Context, in *GetOwnerUidRequest, opts ...grpc.CallOption) (*GetOwnerUidResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetOwnerUidResponse)
-	err := c.cc.Invoke(ctx, NetworkCapabilitiesService_GetOwnerUid_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *networkCapabilitiesServiceClient) GetSignalStrength(ctx context.Context, in *GetSignalStrengthRequest, opts ...grpc.CallOption) (*GetSignalStrengthResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetSignalStrengthResponse)
-	err := c.cc.Invoke(ctx, NetworkCapabilitiesService_GetSignalStrength_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *networkCapabilitiesServiceClient) GetSubscriptionIds(ctx context.Context, in *GetSubscriptionIdsRequest, opts ...grpc.CallOption) (*GetSubscriptionIdsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetSubscriptionIdsResponse)
-	err := c.cc.Invoke(ctx, NetworkCapabilitiesService_GetSubscriptionIds_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *networkCapabilitiesServiceClient) GetTransportInfo(ctx context.Context, in *GetTransportInfoRequest, opts ...grpc.CallOption) (*GetTransportInfoResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetTransportInfoResponse)
-	err := c.cc.Invoke(ctx, NetworkCapabilitiesService_GetTransportInfo_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *networkCapabilitiesServiceClient) HasCapability(ctx context.Context, in *HasCapabilityRequest, opts ...grpc.CallOption) (*HasCapabilityResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(HasCapabilityResponse)
-	err := c.cc.Invoke(ctx, NetworkCapabilitiesService_HasCapability_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *networkCapabilitiesServiceClient) HasEnterpriseId(ctx context.Context, in *HasEnterpriseIdRequest, opts ...grpc.CallOption) (*HasEnterpriseIdResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(HasEnterpriseIdResponse)
-	err := c.cc.Invoke(ctx, NetworkCapabilitiesService_HasEnterpriseId_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *networkCapabilitiesServiceClient) HasTransport(ctx context.Context, in *HasTransportRequest, opts ...grpc.CallOption) (*HasTransportResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(HasTransportResponse)
-	err := c.cc.Invoke(ctx, NetworkCapabilitiesService_HasTransport_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *networkCapabilitiesServiceClient) HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(HashCodeResponse)
-	err := c.cc.Invoke(ctx, NetworkCapabilitiesService_HashCode_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *networkCapabilitiesServiceClient) ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ToStringResponse)
-	err := c.cc.Invoke(ctx, NetworkCapabilitiesService_ToString_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *networkCapabilitiesServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(WriteToParcelResponse)
-	err := c.cc.Invoke(ctx, NetworkCapabilitiesService_WriteToParcel_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// NetworkCapabilitiesServiceServer is the server API for NetworkCapabilitiesService service.
-// All implementations must embed UnimplementedNetworkCapabilitiesServiceServer
-// for forward compatibility.
-type NetworkCapabilitiesServiceServer interface {
-	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
-	Equals(context.Context, *EqualsRequest) (*EqualsResponse, error)
-	GetCapabilities(context.Context, *GetCapabilitiesRequest) (*GetCapabilitiesResponse, error)
-	GetEnterpriseIds(context.Context, *GetEnterpriseIdsRequest) (*GetEnterpriseIdsResponse, error)
-	GetLinkDownstreamBandwidthKbps(context.Context, *GetLinkDownstreamBandwidthKbpsRequest) (*GetLinkDownstreamBandwidthKbpsResponse, error)
-	GetLinkUpstreamBandwidthKbps(context.Context, *GetLinkUpstreamBandwidthKbpsRequest) (*GetLinkUpstreamBandwidthKbpsResponse, error)
-	GetNetworkSpecifier(context.Context, *GetNetworkSpecifierRequest) (*GetNetworkSpecifierResponse, error)
-	GetOwnerUid(context.Context, *GetOwnerUidRequest) (*GetOwnerUidResponse, error)
-	GetSignalStrength(context.Context, *GetSignalStrengthRequest) (*GetSignalStrengthResponse, error)
-	GetSubscriptionIds(context.Context, *GetSubscriptionIdsRequest) (*GetSubscriptionIdsResponse, error)
-	GetTransportInfo(context.Context, *GetTransportInfoRequest) (*GetTransportInfoResponse, error)
-	HasCapability(context.Context, *HasCapabilityRequest) (*HasCapabilityResponse, error)
-	HasEnterpriseId(context.Context, *HasEnterpriseIdRequest) (*HasEnterpriseIdResponse, error)
-	HasTransport(context.Context, *HasTransportRequest) (*HasTransportResponse, error)
-	HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error)
-	ToString(context.Context, *ToStringRequest) (*ToStringResponse, error)
-	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
-	mustEmbedUnimplementedNetworkCapabilitiesServiceServer()
-}
-
-// UnimplementedNetworkCapabilitiesServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedNetworkCapabilitiesServiceServer struct{}
-
-func (UnimplementedNetworkCapabilitiesServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
-}
-func (UnimplementedNetworkCapabilitiesServiceServer) Equals(context.Context, *EqualsRequest) (*EqualsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Equals not implemented")
-}
-func (UnimplementedNetworkCapabilitiesServiceServer) GetCapabilities(context.Context, *GetCapabilitiesRequest) (*GetCapabilitiesResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetCapabilities not implemented")
-}
-func (UnimplementedNetworkCapabilitiesServiceServer) GetEnterpriseIds(context.Context, *GetEnterpriseIdsRequest) (*GetEnterpriseIdsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetEnterpriseIds not implemented")
-}
-func (UnimplementedNetworkCapabilitiesServiceServer) GetLinkDownstreamBandwidthKbps(context.Context, *GetLinkDownstreamBandwidthKbpsRequest) (*GetLinkDownstreamBandwidthKbpsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetLinkDownstreamBandwidthKbps not implemented")
-}
-func (UnimplementedNetworkCapabilitiesServiceServer) GetLinkUpstreamBandwidthKbps(context.Context, *GetLinkUpstreamBandwidthKbpsRequest) (*GetLinkUpstreamBandwidthKbpsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetLinkUpstreamBandwidthKbps not implemented")
-}
-func (UnimplementedNetworkCapabilitiesServiceServer) GetNetworkSpecifier(context.Context, *GetNetworkSpecifierRequest) (*GetNetworkSpecifierResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetNetworkSpecifier not implemented")
-}
-func (UnimplementedNetworkCapabilitiesServiceServer) GetOwnerUid(context.Context, *GetOwnerUidRequest) (*GetOwnerUidResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetOwnerUid not implemented")
-}
-func (UnimplementedNetworkCapabilitiesServiceServer) GetSignalStrength(context.Context, *GetSignalStrengthRequest) (*GetSignalStrengthResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetSignalStrength not implemented")
-}
-func (UnimplementedNetworkCapabilitiesServiceServer) GetSubscriptionIds(context.Context, *GetSubscriptionIdsRequest) (*GetSubscriptionIdsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetSubscriptionIds not implemented")
-}
-func (UnimplementedNetworkCapabilitiesServiceServer) GetTransportInfo(context.Context, *GetTransportInfoRequest) (*GetTransportInfoResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetTransportInfo not implemented")
-}
-func (UnimplementedNetworkCapabilitiesServiceServer) HasCapability(context.Context, *HasCapabilityRequest) (*HasCapabilityResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method HasCapability not implemented")
-}
-func (UnimplementedNetworkCapabilitiesServiceServer) HasEnterpriseId(context.Context, *HasEnterpriseIdRequest) (*HasEnterpriseIdResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method HasEnterpriseId not implemented")
-}
-func (UnimplementedNetworkCapabilitiesServiceServer) HasTransport(context.Context, *HasTransportRequest) (*HasTransportResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method HasTransport not implemented")
-}
-func (UnimplementedNetworkCapabilitiesServiceServer) HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method HashCode not implemented")
-}
-func (UnimplementedNetworkCapabilitiesServiceServer) ToString(context.Context, *ToStringRequest) (*ToStringResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
-}
-func (UnimplementedNetworkCapabilitiesServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
-}
-func (UnimplementedNetworkCapabilitiesServiceServer) mustEmbedUnimplementedNetworkCapabilitiesServiceServer() {
-}
-func (UnimplementedNetworkCapabilitiesServiceServer) testEmbeddedByValue() {}
-
-// UnsafeNetworkCapabilitiesServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to NetworkCapabilitiesServiceServer will
-// result in compilation errors.
-type UnsafeNetworkCapabilitiesServiceServer interface {
-	mustEmbedUnimplementedNetworkCapabilitiesServiceServer()
-}
-
-func RegisterNetworkCapabilitiesServiceServer(s grpc.ServiceRegistrar, srv NetworkCapabilitiesServiceServer) {
-	// If the following call panics, it indicates UnimplementedNetworkCapabilitiesServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&NetworkCapabilitiesService_ServiceDesc, srv)
-}
-
-func _NetworkCapabilitiesService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(DescribeContentsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(NetworkCapabilitiesServiceServer).DescribeContents(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: NetworkCapabilitiesService_DescribeContents_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(NetworkCapabilitiesServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _NetworkCapabilitiesService_Equals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(EqualsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(NetworkCapabilitiesServiceServer).Equals(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: NetworkCapabilitiesService_Equals_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(NetworkCapabilitiesServiceServer).Equals(ctx, req.(*EqualsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _NetworkCapabilitiesService_GetCapabilities_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetCapabilitiesRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(NetworkCapabilitiesServiceServer).GetCapabilities(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: NetworkCapabilitiesService_GetCapabilities_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(NetworkCapabilitiesServiceServer).GetCapabilities(ctx, req.(*GetCapabilitiesRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _NetworkCapabilitiesService_GetEnterpriseIds_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetEnterpriseIdsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(NetworkCapabilitiesServiceServer).GetEnterpriseIds(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: NetworkCapabilitiesService_GetEnterpriseIds_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(NetworkCapabilitiesServiceServer).GetEnterpriseIds(ctx, req.(*GetEnterpriseIdsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _NetworkCapabilitiesService_GetLinkDownstreamBandwidthKbps_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetLinkDownstreamBandwidthKbpsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(NetworkCapabilitiesServiceServer).GetLinkDownstreamBandwidthKbps(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: NetworkCapabilitiesService_GetLinkDownstreamBandwidthKbps_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(NetworkCapabilitiesServiceServer).GetLinkDownstreamBandwidthKbps(ctx, req.(*GetLinkDownstreamBandwidthKbpsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _NetworkCapabilitiesService_GetLinkUpstreamBandwidthKbps_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetLinkUpstreamBandwidthKbpsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(NetworkCapabilitiesServiceServer).GetLinkUpstreamBandwidthKbps(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: NetworkCapabilitiesService_GetLinkUpstreamBandwidthKbps_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(NetworkCapabilitiesServiceServer).GetLinkUpstreamBandwidthKbps(ctx, req.(*GetLinkUpstreamBandwidthKbpsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _NetworkCapabilitiesService_GetNetworkSpecifier_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetNetworkSpecifierRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(NetworkCapabilitiesServiceServer).GetNetworkSpecifier(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: NetworkCapabilitiesService_GetNetworkSpecifier_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(NetworkCapabilitiesServiceServer).GetNetworkSpecifier(ctx, req.(*GetNetworkSpecifierRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _NetworkCapabilitiesService_GetOwnerUid_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetOwnerUidRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(NetworkCapabilitiesServiceServer).GetOwnerUid(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: NetworkCapabilitiesService_GetOwnerUid_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(NetworkCapabilitiesServiceServer).GetOwnerUid(ctx, req.(*GetOwnerUidRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _NetworkCapabilitiesService_GetSignalStrength_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetSignalStrengthRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(NetworkCapabilitiesServiceServer).GetSignalStrength(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: NetworkCapabilitiesService_GetSignalStrength_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(NetworkCapabilitiesServiceServer).GetSignalStrength(ctx, req.(*GetSignalStrengthRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _NetworkCapabilitiesService_GetSubscriptionIds_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetSubscriptionIdsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(NetworkCapabilitiesServiceServer).GetSubscriptionIds(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: NetworkCapabilitiesService_GetSubscriptionIds_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(NetworkCapabilitiesServiceServer).GetSubscriptionIds(ctx, req.(*GetSubscriptionIdsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _NetworkCapabilitiesService_GetTransportInfo_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetTransportInfoRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(NetworkCapabilitiesServiceServer).GetTransportInfo(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: NetworkCapabilitiesService_GetTransportInfo_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(NetworkCapabilitiesServiceServer).GetTransportInfo(ctx, req.(*GetTransportInfoRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _NetworkCapabilitiesService_HasCapability_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(HasCapabilityRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(NetworkCapabilitiesServiceServer).HasCapability(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: NetworkCapabilitiesService_HasCapability_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(NetworkCapabilitiesServiceServer).HasCapability(ctx, req.(*HasCapabilityRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _NetworkCapabilitiesService_HasEnterpriseId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(HasEnterpriseIdRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(NetworkCapabilitiesServiceServer).HasEnterpriseId(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: NetworkCapabilitiesService_HasEnterpriseId_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(NetworkCapabilitiesServiceServer).HasEnterpriseId(ctx, req.(*HasEnterpriseIdRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _NetworkCapabilitiesService_HasTransport_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(HasTransportRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(NetworkCapabilitiesServiceServer).HasTransport(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: NetworkCapabilitiesService_HasTransport_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(NetworkCapabilitiesServiceServer).HasTransport(ctx, req.(*HasTransportRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _NetworkCapabilitiesService_HashCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(HashCodeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(NetworkCapabilitiesServiceServer).HashCode(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: NetworkCapabilitiesService_HashCode_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(NetworkCapabilitiesServiceServer).HashCode(ctx, req.(*HashCodeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _NetworkCapabilitiesService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ToStringRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(NetworkCapabilitiesServiceServer).ToString(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: NetworkCapabilitiesService_ToString_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(NetworkCapabilitiesServiceServer).ToString(ctx, req.(*ToStringRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _NetworkCapabilitiesService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(WriteToParcelRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(NetworkCapabilitiesServiceServer).WriteToParcel(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: NetworkCapabilitiesService_WriteToParcel_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(NetworkCapabilitiesServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// NetworkCapabilitiesService_ServiceDesc is the grpc.ServiceDesc for NetworkCapabilitiesService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var NetworkCapabilitiesService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "net.NetworkCapabilitiesService",
-	HandlerType: (*NetworkCapabilitiesServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "DescribeContents",
-			Handler:    _NetworkCapabilitiesService_DescribeContents_Handler,
-		},
-		{
-			MethodName: "Equals",
-			Handler:    _NetworkCapabilitiesService_Equals_Handler,
-		},
-		{
-			MethodName: "GetCapabilities",
-			Handler:    _NetworkCapabilitiesService_GetCapabilities_Handler,
-		},
-		{
-			MethodName: "GetEnterpriseIds",
-			Handler:    _NetworkCapabilitiesService_GetEnterpriseIds_Handler,
-		},
-		{
-			MethodName: "GetLinkDownstreamBandwidthKbps",
-			Handler:    _NetworkCapabilitiesService_GetLinkDownstreamBandwidthKbps_Handler,
-		},
-		{
-			MethodName: "GetLinkUpstreamBandwidthKbps",
-			Handler:    _NetworkCapabilitiesService_GetLinkUpstreamBandwidthKbps_Handler,
-		},
-		{
-			MethodName: "GetNetworkSpecifier",
-			Handler:    _NetworkCapabilitiesService_GetNetworkSpecifier_Handler,
-		},
-		{
-			MethodName: "GetOwnerUid",
-			Handler:    _NetworkCapabilitiesService_GetOwnerUid_Handler,
-		},
-		{
-			MethodName: "GetSignalStrength",
-			Handler:    _NetworkCapabilitiesService_GetSignalStrength_Handler,
-		},
-		{
-			MethodName: "GetSubscriptionIds",
-			Handler:    _NetworkCapabilitiesService_GetSubscriptionIds_Handler,
-		},
-		{
-			MethodName: "GetTransportInfo",
-			Handler:    _NetworkCapabilitiesService_GetTransportInfo_Handler,
-		},
-		{
-			MethodName: "HasCapability",
-			Handler:    _NetworkCapabilitiesService_HasCapability_Handler,
-		},
-		{
-			MethodName: "HasEnterpriseId",
-			Handler:    _NetworkCapabilitiesService_HasEnterpriseId_Handler,
-		},
-		{
-			MethodName: "HasTransport",
-			Handler:    _NetworkCapabilitiesService_HasTransport_Handler,
-		},
-		{
-			MethodName: "HashCode",
-			Handler:    _NetworkCapabilitiesService_HashCode_Handler,
-		},
-		{
-			MethodName: "ToString",
-			Handler:    _NetworkCapabilitiesService_ToString_Handler,
-		},
-		{
-			MethodName: "WriteToParcel",
-			Handler:    _NetworkCapabilitiesService_WriteToParcel_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

@@ -207,222 +207,6 @@ func (x *AcceptStylusHandwritingDelegation2_1Response) GetResult() bool {
 	return false
 }
 
-type AcceptStylusHandwritingDelegation5_2Request struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	Arg1          string                 `protobuf:"bytes,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
-	Arg2          int32                  `protobuf:"varint,3,opt,name=arg2,proto3" json:"arg2,omitempty"`
-	Arg3          int64                  `protobuf:"varint,4,opt,name=arg3,proto3" json:"arg3,omitempty"`
-	Arg4          int64                  `protobuf:"varint,5,opt,name=arg4,proto3" json:"arg4,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *AcceptStylusHandwritingDelegation5_2Request) Reset() {
-	*x = AcceptStylusHandwritingDelegation5_2Request{}
-	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[4]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *AcceptStylusHandwritingDelegation5_2Request) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*AcceptStylusHandwritingDelegation5_2Request) ProtoMessage() {}
-
-func (x *AcceptStylusHandwritingDelegation5_2Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[4]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use AcceptStylusHandwritingDelegation5_2Request.ProtoReflect.Descriptor instead.
-func (*AcceptStylusHandwritingDelegation5_2Request) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethod_inputmethod_proto_rawDescGZIP(), []int{4}
-}
-
-func (x *AcceptStylusHandwritingDelegation5_2Request) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-func (x *AcceptStylusHandwritingDelegation5_2Request) GetArg1() string {
-	if x != nil {
-		return x.Arg1
-	}
-	return ""
-}
-
-func (x *AcceptStylusHandwritingDelegation5_2Request) GetArg2() int32 {
-	if x != nil {
-		return x.Arg2
-	}
-	return 0
-}
-
-func (x *AcceptStylusHandwritingDelegation5_2Request) GetArg3() int64 {
-	if x != nil {
-		return x.Arg3
-	}
-	return 0
-}
-
-func (x *AcceptStylusHandwritingDelegation5_2Request) GetArg4() int64 {
-	if x != nil {
-		return x.Arg4
-	}
-	return 0
-}
-
-type AcceptStylusHandwritingDelegation5_2Response struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *AcceptStylusHandwritingDelegation5_2Response) Reset() {
-	*x = AcceptStylusHandwritingDelegation5_2Response{}
-	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[5]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *AcceptStylusHandwritingDelegation5_2Response) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*AcceptStylusHandwritingDelegation5_2Response) ProtoMessage() {}
-
-func (x *AcceptStylusHandwritingDelegation5_2Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[5]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use AcceptStylusHandwritingDelegation5_2Response.ProtoReflect.Descriptor instead.
-func (*AcceptStylusHandwritingDelegation5_2Response) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethod_inputmethod_proto_rawDescGZIP(), []int{5}
-}
-
-type AcceptStylusHandwritingDelegation4_3Request struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	Arg1          string                 `protobuf:"bytes,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
-	Arg2          int64                  `protobuf:"varint,3,opt,name=arg2,proto3" json:"arg2,omitempty"`
-	Arg3          int64                  `protobuf:"varint,4,opt,name=arg3,proto3" json:"arg3,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *AcceptStylusHandwritingDelegation4_3Request) Reset() {
-	*x = AcceptStylusHandwritingDelegation4_3Request{}
-	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[6]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *AcceptStylusHandwritingDelegation4_3Request) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*AcceptStylusHandwritingDelegation4_3Request) ProtoMessage() {}
-
-func (x *AcceptStylusHandwritingDelegation4_3Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[6]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use AcceptStylusHandwritingDelegation4_3Request.ProtoReflect.Descriptor instead.
-func (*AcceptStylusHandwritingDelegation4_3Request) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethod_inputmethod_proto_rawDescGZIP(), []int{6}
-}
-
-func (x *AcceptStylusHandwritingDelegation4_3Request) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-func (x *AcceptStylusHandwritingDelegation4_3Request) GetArg1() string {
-	if x != nil {
-		return x.Arg1
-	}
-	return ""
-}
-
-func (x *AcceptStylusHandwritingDelegation4_3Request) GetArg2() int64 {
-	if x != nil {
-		return x.Arg2
-	}
-	return 0
-}
-
-func (x *AcceptStylusHandwritingDelegation4_3Request) GetArg3() int64 {
-	if x != nil {
-		return x.Arg3
-	}
-	return 0
-}
-
-type AcceptStylusHandwritingDelegation4_3Response struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *AcceptStylusHandwritingDelegation4_3Response) Reset() {
-	*x = AcceptStylusHandwritingDelegation4_3Response{}
-	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[7]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *AcceptStylusHandwritingDelegation4_3Response) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*AcceptStylusHandwritingDelegation4_3Response) ProtoMessage() {}
-
-func (x *AcceptStylusHandwritingDelegation4_3Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[7]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use AcceptStylusHandwritingDelegation4_3Response.ProtoReflect.Descriptor instead.
-func (*AcceptStylusHandwritingDelegation4_3Response) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethod_inputmethod_proto_rawDescGZIP(), []int{7}
-}
-
 type DispatchKeyEventFromInputMethodRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
@@ -433,7 +217,7 @@ type DispatchKeyEventFromInputMethodRequest struct {
 
 func (x *DispatchKeyEventFromInputMethodRequest) Reset() {
 	*x = DispatchKeyEventFromInputMethodRequest{}
-	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[8]
+	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[4]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -445,7 +229,7 @@ func (x *DispatchKeyEventFromInputMethodRequest) String() string {
 func (*DispatchKeyEventFromInputMethodRequest) ProtoMessage() {}
 
 func (x *DispatchKeyEventFromInputMethodRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[8]
+	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[4]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -458,7 +242,7 @@ func (x *DispatchKeyEventFromInputMethodRequest) ProtoReflect() protoreflect.Mes
 
 // Deprecated: Use DispatchKeyEventFromInputMethodRequest.ProtoReflect.Descriptor instead.
 func (*DispatchKeyEventFromInputMethodRequest) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethod_inputmethod_proto_rawDescGZIP(), []int{8}
+	return file_proto_inputmethod_inputmethod_proto_rawDescGZIP(), []int{4}
 }
 
 func (x *DispatchKeyEventFromInputMethodRequest) GetArg0() int64 {
@@ -483,7 +267,7 @@ type DispatchKeyEventFromInputMethodResponse struct {
 
 func (x *DispatchKeyEventFromInputMethodResponse) Reset() {
 	*x = DispatchKeyEventFromInputMethodResponse{}
-	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[9]
+	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[5]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -495,7 +279,7 @@ func (x *DispatchKeyEventFromInputMethodResponse) String() string {
 func (*DispatchKeyEventFromInputMethodResponse) ProtoMessage() {}
 
 func (x *DispatchKeyEventFromInputMethodResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[9]
+	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[5]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -508,7 +292,7 @@ func (x *DispatchKeyEventFromInputMethodResponse) ProtoReflect() protoreflect.Me
 
 // Deprecated: Use DispatchKeyEventFromInputMethodResponse.ProtoReflect.Descriptor instead.
 func (*DispatchKeyEventFromInputMethodResponse) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethod_inputmethod_proto_rawDescGZIP(), []int{9}
+	return file_proto_inputmethod_inputmethod_proto_rawDescGZIP(), []int{5}
 }
 
 type DisplayCompletionsRequest struct {
@@ -521,7 +305,7 @@ type DisplayCompletionsRequest struct {
 
 func (x *DisplayCompletionsRequest) Reset() {
 	*x = DisplayCompletionsRequest{}
-	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[10]
+	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[6]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -533,7 +317,7 @@ func (x *DisplayCompletionsRequest) String() string {
 func (*DisplayCompletionsRequest) ProtoMessage() {}
 
 func (x *DisplayCompletionsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[10]
+	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[6]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -546,7 +330,7 @@ func (x *DisplayCompletionsRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use DisplayCompletionsRequest.ProtoReflect.Descriptor instead.
 func (*DisplayCompletionsRequest) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethod_inputmethod_proto_rawDescGZIP(), []int{10}
+	return file_proto_inputmethod_inputmethod_proto_rawDescGZIP(), []int{6}
 }
 
 func (x *DisplayCompletionsRequest) GetArg0() int64 {
@@ -571,7 +355,7 @@ type DisplayCompletionsResponse struct {
 
 func (x *DisplayCompletionsResponse) Reset() {
 	*x = DisplayCompletionsResponse{}
-	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[11]
+	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[7]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -583,7 +367,7 @@ func (x *DisplayCompletionsResponse) String() string {
 func (*DisplayCompletionsResponse) ProtoMessage() {}
 
 func (x *DisplayCompletionsResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[11]
+	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[7]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -596,7 +380,7 @@ func (x *DisplayCompletionsResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use DisplayCompletionsResponse.ProtoReflect.Descriptor instead.
 func (*DisplayCompletionsResponse) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethod_inputmethod_proto_rawDescGZIP(), []int{11}
+	return file_proto_inputmethod_inputmethod_proto_rawDescGZIP(), []int{7}
 }
 
 type GetCurrentInputMethodInfoRequest struct {
@@ -607,7 +391,7 @@ type GetCurrentInputMethodInfoRequest struct {
 
 func (x *GetCurrentInputMethodInfoRequest) Reset() {
 	*x = GetCurrentInputMethodInfoRequest{}
-	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[12]
+	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[8]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -619,7 +403,7 @@ func (x *GetCurrentInputMethodInfoRequest) String() string {
 func (*GetCurrentInputMethodInfoRequest) ProtoMessage() {}
 
 func (x *GetCurrentInputMethodInfoRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[12]
+	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[8]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -632,7 +416,7 @@ func (x *GetCurrentInputMethodInfoRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetCurrentInputMethodInfoRequest.ProtoReflect.Descriptor instead.
 func (*GetCurrentInputMethodInfoRequest) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethod_inputmethod_proto_rawDescGZIP(), []int{12}
+	return file_proto_inputmethod_inputmethod_proto_rawDescGZIP(), []int{8}
 }
 
 type GetCurrentInputMethodInfoResponse struct {
@@ -644,7 +428,7 @@ type GetCurrentInputMethodInfoResponse struct {
 
 func (x *GetCurrentInputMethodInfoResponse) Reset() {
 	*x = GetCurrentInputMethodInfoResponse{}
-	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[13]
+	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[9]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -656,7 +440,7 @@ func (x *GetCurrentInputMethodInfoResponse) String() string {
 func (*GetCurrentInputMethodInfoResponse) ProtoMessage() {}
 
 func (x *GetCurrentInputMethodInfoResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[13]
+	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[9]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -669,7 +453,7 @@ func (x *GetCurrentInputMethodInfoResponse) ProtoReflect() protoreflect.Message 
 
 // Deprecated: Use GetCurrentInputMethodInfoResponse.ProtoReflect.Descriptor instead.
 func (*GetCurrentInputMethodInfoResponse) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethod_inputmethod_proto_rawDescGZIP(), []int{13}
+	return file_proto_inputmethod_inputmethod_proto_rawDescGZIP(), []int{9}
 }
 
 func (x *GetCurrentInputMethodInfoResponse) GetResult() int64 {
@@ -687,7 +471,7 @@ type GetCurrentInputMethodSubtypeRequest struct {
 
 func (x *GetCurrentInputMethodSubtypeRequest) Reset() {
 	*x = GetCurrentInputMethodSubtypeRequest{}
-	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[14]
+	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[10]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -699,7 +483,7 @@ func (x *GetCurrentInputMethodSubtypeRequest) String() string {
 func (*GetCurrentInputMethodSubtypeRequest) ProtoMessage() {}
 
 func (x *GetCurrentInputMethodSubtypeRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[14]
+	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[10]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -712,7 +496,7 @@ func (x *GetCurrentInputMethodSubtypeRequest) ProtoReflect() protoreflect.Messag
 
 // Deprecated: Use GetCurrentInputMethodSubtypeRequest.ProtoReflect.Descriptor instead.
 func (*GetCurrentInputMethodSubtypeRequest) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethod_inputmethod_proto_rawDescGZIP(), []int{14}
+	return file_proto_inputmethod_inputmethod_proto_rawDescGZIP(), []int{10}
 }
 
 type GetCurrentInputMethodSubtypeResponse struct {
@@ -724,7 +508,7 @@ type GetCurrentInputMethodSubtypeResponse struct {
 
 func (x *GetCurrentInputMethodSubtypeResponse) Reset() {
 	*x = GetCurrentInputMethodSubtypeResponse{}
-	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[15]
+	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[11]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -736,7 +520,7 @@ func (x *GetCurrentInputMethodSubtypeResponse) String() string {
 func (*GetCurrentInputMethodSubtypeResponse) ProtoMessage() {}
 
 func (x *GetCurrentInputMethodSubtypeResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[15]
+	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[11]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -749,266 +533,10 @@ func (x *GetCurrentInputMethodSubtypeResponse) ProtoReflect() protoreflect.Messa
 
 // Deprecated: Use GetCurrentInputMethodSubtypeResponse.ProtoReflect.Descriptor instead.
 func (*GetCurrentInputMethodSubtypeResponse) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethod_inputmethod_proto_rawDescGZIP(), []int{15}
+	return file_proto_inputmethod_inputmethod_proto_rawDescGZIP(), []int{11}
 }
 
 func (x *GetCurrentInputMethodSubtypeResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type GetEnabledInputMethodListRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetEnabledInputMethodListRequest) Reset() {
-	*x = GetEnabledInputMethodListRequest{}
-	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[16]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetEnabledInputMethodListRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetEnabledInputMethodListRequest) ProtoMessage() {}
-
-func (x *GetEnabledInputMethodListRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[16]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetEnabledInputMethodListRequest.ProtoReflect.Descriptor instead.
-func (*GetEnabledInputMethodListRequest) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethod_inputmethod_proto_rawDescGZIP(), []int{16}
-}
-
-type GetEnabledInputMethodListResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetEnabledInputMethodListResponse) Reset() {
-	*x = GetEnabledInputMethodListResponse{}
-	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[17]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetEnabledInputMethodListResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetEnabledInputMethodListResponse) ProtoMessage() {}
-
-func (x *GetEnabledInputMethodListResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[17]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetEnabledInputMethodListResponse.ProtoReflect.Descriptor instead.
-func (*GetEnabledInputMethodListResponse) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethod_inputmethod_proto_rawDescGZIP(), []int{17}
-}
-
-func (x *GetEnabledInputMethodListResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type GetEnabledInputMethodSubtypeListRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	Arg1          bool                   `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetEnabledInputMethodSubtypeListRequest) Reset() {
-	*x = GetEnabledInputMethodSubtypeListRequest{}
-	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[18]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetEnabledInputMethodSubtypeListRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetEnabledInputMethodSubtypeListRequest) ProtoMessage() {}
-
-func (x *GetEnabledInputMethodSubtypeListRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[18]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetEnabledInputMethodSubtypeListRequest.ProtoReflect.Descriptor instead.
-func (*GetEnabledInputMethodSubtypeListRequest) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethod_inputmethod_proto_rawDescGZIP(), []int{18}
-}
-
-func (x *GetEnabledInputMethodSubtypeListRequest) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-func (x *GetEnabledInputMethodSubtypeListRequest) GetArg1() bool {
-	if x != nil {
-		return x.Arg1
-	}
-	return false
-}
-
-type GetEnabledInputMethodSubtypeListResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetEnabledInputMethodSubtypeListResponse) Reset() {
-	*x = GetEnabledInputMethodSubtypeListResponse{}
-	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[19]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetEnabledInputMethodSubtypeListResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetEnabledInputMethodSubtypeListResponse) ProtoMessage() {}
-
-func (x *GetEnabledInputMethodSubtypeListResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[19]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetEnabledInputMethodSubtypeListResponse.ProtoReflect.Descriptor instead.
-func (*GetEnabledInputMethodSubtypeListResponse) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethod_inputmethod_proto_rawDescGZIP(), []int{19}
-}
-
-func (x *GetEnabledInputMethodSubtypeListResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type GetInputMethodListRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetInputMethodListRequest) Reset() {
-	*x = GetInputMethodListRequest{}
-	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[20]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetInputMethodListRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetInputMethodListRequest) ProtoMessage() {}
-
-func (x *GetInputMethodListRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[20]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetInputMethodListRequest.ProtoReflect.Descriptor instead.
-func (*GetInputMethodListRequest) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethod_inputmethod_proto_rawDescGZIP(), []int{20}
-}
-
-type GetInputMethodListResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetInputMethodListResponse) Reset() {
-	*x = GetInputMethodListResponse{}
-	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[21]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetInputMethodListResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetInputMethodListResponse) ProtoMessage() {}
-
-func (x *GetInputMethodListResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[21]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetInputMethodListResponse.ProtoReflect.Descriptor instead.
-func (*GetInputMethodListResponse) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethod_inputmethod_proto_rawDescGZIP(), []int{21}
-}
-
-func (x *GetInputMethodListResponse) GetResult() int64 {
 	if x != nil {
 		return x.Result
 	}
@@ -1023,7 +551,7 @@ type GetLastInputMethodSubtypeRequest struct {
 
 func (x *GetLastInputMethodSubtypeRequest) Reset() {
 	*x = GetLastInputMethodSubtypeRequest{}
-	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[22]
+	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[12]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1035,7 +563,7 @@ func (x *GetLastInputMethodSubtypeRequest) String() string {
 func (*GetLastInputMethodSubtypeRequest) ProtoMessage() {}
 
 func (x *GetLastInputMethodSubtypeRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[22]
+	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[12]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1048,7 +576,7 @@ func (x *GetLastInputMethodSubtypeRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetLastInputMethodSubtypeRequest.ProtoReflect.Descriptor instead.
 func (*GetLastInputMethodSubtypeRequest) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethod_inputmethod_proto_rawDescGZIP(), []int{22}
+	return file_proto_inputmethod_inputmethod_proto_rawDescGZIP(), []int{12}
 }
 
 type GetLastInputMethodSubtypeResponse struct {
@@ -1060,7 +588,7 @@ type GetLastInputMethodSubtypeResponse struct {
 
 func (x *GetLastInputMethodSubtypeResponse) Reset() {
 	*x = GetLastInputMethodSubtypeResponse{}
-	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[23]
+	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[13]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1072,7 +600,7 @@ func (x *GetLastInputMethodSubtypeResponse) String() string {
 func (*GetLastInputMethodSubtypeResponse) ProtoMessage() {}
 
 func (x *GetLastInputMethodSubtypeResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[23]
+	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[13]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1085,7 +613,7 @@ func (x *GetLastInputMethodSubtypeResponse) ProtoReflect() protoreflect.Message 
 
 // Deprecated: Use GetLastInputMethodSubtypeResponse.ProtoReflect.Descriptor instead.
 func (*GetLastInputMethodSubtypeResponse) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethod_inputmethod_proto_rawDescGZIP(), []int{23}
+	return file_proto_inputmethod_inputmethod_proto_rawDescGZIP(), []int{13}
 }
 
 func (x *GetLastInputMethodSubtypeResponse) GetResult() int64 {
@@ -1105,7 +633,7 @@ type HideSoftInputFromInputMethodRequest struct {
 
 func (x *HideSoftInputFromInputMethodRequest) Reset() {
 	*x = HideSoftInputFromInputMethodRequest{}
-	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[24]
+	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[14]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1117,7 +645,7 @@ func (x *HideSoftInputFromInputMethodRequest) String() string {
 func (*HideSoftInputFromInputMethodRequest) ProtoMessage() {}
 
 func (x *HideSoftInputFromInputMethodRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[24]
+	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[14]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1130,7 +658,7 @@ func (x *HideSoftInputFromInputMethodRequest) ProtoReflect() protoreflect.Messag
 
 // Deprecated: Use HideSoftInputFromInputMethodRequest.ProtoReflect.Descriptor instead.
 func (*HideSoftInputFromInputMethodRequest) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethod_inputmethod_proto_rawDescGZIP(), []int{24}
+	return file_proto_inputmethod_inputmethod_proto_rawDescGZIP(), []int{14}
 }
 
 func (x *HideSoftInputFromInputMethodRequest) GetArg0() int64 {
@@ -1155,7 +683,7 @@ type HideSoftInputFromInputMethodResponse struct {
 
 func (x *HideSoftInputFromInputMethodResponse) Reset() {
 	*x = HideSoftInputFromInputMethodResponse{}
-	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[25]
+	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[15]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1167,7 +695,7 @@ func (x *HideSoftInputFromInputMethodResponse) String() string {
 func (*HideSoftInputFromInputMethodResponse) ProtoMessage() {}
 
 func (x *HideSoftInputFromInputMethodResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[25]
+	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[15]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1180,7 +708,7 @@ func (x *HideSoftInputFromInputMethodResponse) ProtoReflect() protoreflect.Messa
 
 // Deprecated: Use HideSoftInputFromInputMethodResponse.ProtoReflect.Descriptor instead.
 func (*HideSoftInputFromInputMethodResponse) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethod_inputmethod_proto_rawDescGZIP(), []int{25}
+	return file_proto_inputmethod_inputmethod_proto_rawDescGZIP(), []int{15}
 }
 
 type HideSoftInputFromWindow2Request struct {
@@ -1193,7 +721,7 @@ type HideSoftInputFromWindow2Request struct {
 
 func (x *HideSoftInputFromWindow2Request) Reset() {
 	*x = HideSoftInputFromWindow2Request{}
-	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[26]
+	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[16]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1205,7 +733,7 @@ func (x *HideSoftInputFromWindow2Request) String() string {
 func (*HideSoftInputFromWindow2Request) ProtoMessage() {}
 
 func (x *HideSoftInputFromWindow2Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[26]
+	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[16]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1218,7 +746,7 @@ func (x *HideSoftInputFromWindow2Request) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use HideSoftInputFromWindow2Request.ProtoReflect.Descriptor instead.
 func (*HideSoftInputFromWindow2Request) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethod_inputmethod_proto_rawDescGZIP(), []int{26}
+	return file_proto_inputmethod_inputmethod_proto_rawDescGZIP(), []int{16}
 }
 
 func (x *HideSoftInputFromWindow2Request) GetArg0() int64 {
@@ -1244,7 +772,7 @@ type HideSoftInputFromWindow2Response struct {
 
 func (x *HideSoftInputFromWindow2Response) Reset() {
 	*x = HideSoftInputFromWindow2Response{}
-	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[27]
+	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[17]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1256,7 +784,7 @@ func (x *HideSoftInputFromWindow2Response) String() string {
 func (*HideSoftInputFromWindow2Response) ProtoMessage() {}
 
 func (x *HideSoftInputFromWindow2Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[27]
+	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[17]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1269,7 +797,7 @@ func (x *HideSoftInputFromWindow2Response) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use HideSoftInputFromWindow2Response.ProtoReflect.Descriptor instead.
 func (*HideSoftInputFromWindow2Response) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethod_inputmethod_proto_rawDescGZIP(), []int{27}
+	return file_proto_inputmethod_inputmethod_proto_rawDescGZIP(), []int{17}
 }
 
 func (x *HideSoftInputFromWindow2Response) GetResult() bool {
@@ -1290,7 +818,7 @@ type HideSoftInputFromWindow3_1Request struct {
 
 func (x *HideSoftInputFromWindow3_1Request) Reset() {
 	*x = HideSoftInputFromWindow3_1Request{}
-	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[28]
+	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[18]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1302,7 +830,7 @@ func (x *HideSoftInputFromWindow3_1Request) String() string {
 func (*HideSoftInputFromWindow3_1Request) ProtoMessage() {}
 
 func (x *HideSoftInputFromWindow3_1Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[28]
+	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[18]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1315,7 +843,7 @@ func (x *HideSoftInputFromWindow3_1Request) ProtoReflect() protoreflect.Message 
 
 // Deprecated: Use HideSoftInputFromWindow3_1Request.ProtoReflect.Descriptor instead.
 func (*HideSoftInputFromWindow3_1Request) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethod_inputmethod_proto_rawDescGZIP(), []int{28}
+	return file_proto_inputmethod_inputmethod_proto_rawDescGZIP(), []int{18}
 }
 
 func (x *HideSoftInputFromWindow3_1Request) GetArg0() int64 {
@@ -1348,7 +876,7 @@ type HideSoftInputFromWindow3_1Response struct {
 
 func (x *HideSoftInputFromWindow3_1Response) Reset() {
 	*x = HideSoftInputFromWindow3_1Response{}
-	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[29]
+	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[19]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1360,7 +888,7 @@ func (x *HideSoftInputFromWindow3_1Response) String() string {
 func (*HideSoftInputFromWindow3_1Response) ProtoMessage() {}
 
 func (x *HideSoftInputFromWindow3_1Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[29]
+	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[19]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1373,7 +901,7 @@ func (x *HideSoftInputFromWindow3_1Response) ProtoReflect() protoreflect.Message
 
 // Deprecated: Use HideSoftInputFromWindow3_1Response.ProtoReflect.Descriptor instead.
 func (*HideSoftInputFromWindow3_1Response) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethod_inputmethod_proto_rawDescGZIP(), []int{29}
+	return file_proto_inputmethod_inputmethod_proto_rawDescGZIP(), []int{19}
 }
 
 func (x *HideSoftInputFromWindow3_1Response) GetResult() bool {
@@ -1392,7 +920,7 @@ type HideStatusIconRequest struct {
 
 func (x *HideStatusIconRequest) Reset() {
 	*x = HideStatusIconRequest{}
-	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[30]
+	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[20]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1404,7 +932,7 @@ func (x *HideStatusIconRequest) String() string {
 func (*HideStatusIconRequest) ProtoMessage() {}
 
 func (x *HideStatusIconRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[30]
+	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[20]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1417,7 +945,7 @@ func (x *HideStatusIconRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use HideStatusIconRequest.ProtoReflect.Descriptor instead.
 func (*HideStatusIconRequest) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethod_inputmethod_proto_rawDescGZIP(), []int{30}
+	return file_proto_inputmethod_inputmethod_proto_rawDescGZIP(), []int{20}
 }
 
 func (x *HideStatusIconRequest) GetArg0() int64 {
@@ -1435,7 +963,7 @@ type HideStatusIconResponse struct {
 
 func (x *HideStatusIconResponse) Reset() {
 	*x = HideStatusIconResponse{}
-	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[31]
+	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[21]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1447,7 +975,7 @@ func (x *HideStatusIconResponse) String() string {
 func (*HideStatusIconResponse) ProtoMessage() {}
 
 func (x *HideStatusIconResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[31]
+	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[21]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1460,7 +988,7 @@ func (x *HideStatusIconResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use HideStatusIconResponse.ProtoReflect.Descriptor instead.
 func (*HideStatusIconResponse) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethod_inputmethod_proto_rawDescGZIP(), []int{31}
+	return file_proto_inputmethod_inputmethod_proto_rawDescGZIP(), []int{21}
 }
 
 type InvalidateInputRequest struct {
@@ -1472,7 +1000,7 @@ type InvalidateInputRequest struct {
 
 func (x *InvalidateInputRequest) Reset() {
 	*x = InvalidateInputRequest{}
-	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[32]
+	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[22]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1484,7 +1012,7 @@ func (x *InvalidateInputRequest) String() string {
 func (*InvalidateInputRequest) ProtoMessage() {}
 
 func (x *InvalidateInputRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[32]
+	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[22]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1497,7 +1025,7 @@ func (x *InvalidateInputRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use InvalidateInputRequest.ProtoReflect.Descriptor instead.
 func (*InvalidateInputRequest) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethod_inputmethod_proto_rawDescGZIP(), []int{32}
+	return file_proto_inputmethod_inputmethod_proto_rawDescGZIP(), []int{22}
 }
 
 func (x *InvalidateInputRequest) GetArg0() int64 {
@@ -1515,7 +1043,7 @@ type InvalidateInputResponse struct {
 
 func (x *InvalidateInputResponse) Reset() {
 	*x = InvalidateInputResponse{}
-	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[33]
+	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[23]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1527,7 +1055,7 @@ func (x *InvalidateInputResponse) String() string {
 func (*InvalidateInputResponse) ProtoMessage() {}
 
 func (x *InvalidateInputResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[33]
+	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[23]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1540,7 +1068,7 @@ func (x *InvalidateInputResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use InvalidateInputResponse.ProtoReflect.Descriptor instead.
 func (*InvalidateInputResponse) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethod_inputmethod_proto_rawDescGZIP(), []int{33}
+	return file_proto_inputmethod_inputmethod_proto_rawDescGZIP(), []int{23}
 }
 
 type IsAcceptingTextRequest struct {
@@ -1551,7 +1079,7 @@ type IsAcceptingTextRequest struct {
 
 func (x *IsAcceptingTextRequest) Reset() {
 	*x = IsAcceptingTextRequest{}
-	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[34]
+	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[24]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1563,7 +1091,7 @@ func (x *IsAcceptingTextRequest) String() string {
 func (*IsAcceptingTextRequest) ProtoMessage() {}
 
 func (x *IsAcceptingTextRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[34]
+	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[24]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1576,7 +1104,7 @@ func (x *IsAcceptingTextRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use IsAcceptingTextRequest.ProtoReflect.Descriptor instead.
 func (*IsAcceptingTextRequest) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethod_inputmethod_proto_rawDescGZIP(), []int{34}
+	return file_proto_inputmethod_inputmethod_proto_rawDescGZIP(), []int{24}
 }
 
 type IsAcceptingTextResponse struct {
@@ -1588,7 +1116,7 @@ type IsAcceptingTextResponse struct {
 
 func (x *IsAcceptingTextResponse) Reset() {
 	*x = IsAcceptingTextResponse{}
-	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[35]
+	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[25]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1600,7 +1128,7 @@ func (x *IsAcceptingTextResponse) String() string {
 func (*IsAcceptingTextResponse) ProtoMessage() {}
 
 func (x *IsAcceptingTextResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[35]
+	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[25]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1613,7 +1141,7 @@ func (x *IsAcceptingTextResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use IsAcceptingTextResponse.ProtoReflect.Descriptor instead.
 func (*IsAcceptingTextResponse) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethod_inputmethod_proto_rawDescGZIP(), []int{35}
+	return file_proto_inputmethod_inputmethod_proto_rawDescGZIP(), []int{25}
 }
 
 func (x *IsAcceptingTextResponse) GetResult() bool {
@@ -1631,7 +1159,7 @@ type IsActive0Request struct {
 
 func (x *IsActive0Request) Reset() {
 	*x = IsActive0Request{}
-	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[36]
+	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[26]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1643,7 +1171,7 @@ func (x *IsActive0Request) String() string {
 func (*IsActive0Request) ProtoMessage() {}
 
 func (x *IsActive0Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[36]
+	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[26]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1656,7 +1184,7 @@ func (x *IsActive0Request) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use IsActive0Request.ProtoReflect.Descriptor instead.
 func (*IsActive0Request) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethod_inputmethod_proto_rawDescGZIP(), []int{36}
+	return file_proto_inputmethod_inputmethod_proto_rawDescGZIP(), []int{26}
 }
 
 type IsActive0Response struct {
@@ -1668,7 +1196,7 @@ type IsActive0Response struct {
 
 func (x *IsActive0Response) Reset() {
 	*x = IsActive0Response{}
-	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[37]
+	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[27]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1680,7 +1208,7 @@ func (x *IsActive0Response) String() string {
 func (*IsActive0Response) ProtoMessage() {}
 
 func (x *IsActive0Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[37]
+	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[27]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1693,7 +1221,7 @@ func (x *IsActive0Response) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use IsActive0Response.ProtoReflect.Descriptor instead.
 func (*IsActive0Response) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethod_inputmethod_proto_rawDescGZIP(), []int{37}
+	return file_proto_inputmethod_inputmethod_proto_rawDescGZIP(), []int{27}
 }
 
 func (x *IsActive0Response) GetResult() bool {
@@ -1712,7 +1240,7 @@ type IsActive1_1Request struct {
 
 func (x *IsActive1_1Request) Reset() {
 	*x = IsActive1_1Request{}
-	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[38]
+	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[28]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1724,7 +1252,7 @@ func (x *IsActive1_1Request) String() string {
 func (*IsActive1_1Request) ProtoMessage() {}
 
 func (x *IsActive1_1Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[38]
+	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[28]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1737,7 +1265,7 @@ func (x *IsActive1_1Request) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use IsActive1_1Request.ProtoReflect.Descriptor instead.
 func (*IsActive1_1Request) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethod_inputmethod_proto_rawDescGZIP(), []int{38}
+	return file_proto_inputmethod_inputmethod_proto_rawDescGZIP(), []int{28}
 }
 
 func (x *IsActive1_1Request) GetArg0() int64 {
@@ -1756,7 +1284,7 @@ type IsActive1_1Response struct {
 
 func (x *IsActive1_1Response) Reset() {
 	*x = IsActive1_1Response{}
-	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[39]
+	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[29]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1768,7 +1296,7 @@ func (x *IsActive1_1Response) String() string {
 func (*IsActive1_1Response) ProtoMessage() {}
 
 func (x *IsActive1_1Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[39]
+	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[29]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1781,7 +1309,7 @@ func (x *IsActive1_1Response) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use IsActive1_1Response.ProtoReflect.Descriptor instead.
 func (*IsActive1_1Response) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethod_inputmethod_proto_rawDescGZIP(), []int{39}
+	return file_proto_inputmethod_inputmethod_proto_rawDescGZIP(), []int{29}
 }
 
 func (x *IsActive1_1Response) GetResult() bool {
@@ -1799,7 +1327,7 @@ type IsConnectionlessStylusHandwritingAvailableRequest struct {
 
 func (x *IsConnectionlessStylusHandwritingAvailableRequest) Reset() {
 	*x = IsConnectionlessStylusHandwritingAvailableRequest{}
-	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[40]
+	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[30]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1811,7 +1339,7 @@ func (x *IsConnectionlessStylusHandwritingAvailableRequest) String() string {
 func (*IsConnectionlessStylusHandwritingAvailableRequest) ProtoMessage() {}
 
 func (x *IsConnectionlessStylusHandwritingAvailableRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[40]
+	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[30]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1824,7 +1352,7 @@ func (x *IsConnectionlessStylusHandwritingAvailableRequest) ProtoReflect() proto
 
 // Deprecated: Use IsConnectionlessStylusHandwritingAvailableRequest.ProtoReflect.Descriptor instead.
 func (*IsConnectionlessStylusHandwritingAvailableRequest) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethod_inputmethod_proto_rawDescGZIP(), []int{40}
+	return file_proto_inputmethod_inputmethod_proto_rawDescGZIP(), []int{30}
 }
 
 type IsConnectionlessStylusHandwritingAvailableResponse struct {
@@ -1836,7 +1364,7 @@ type IsConnectionlessStylusHandwritingAvailableResponse struct {
 
 func (x *IsConnectionlessStylusHandwritingAvailableResponse) Reset() {
 	*x = IsConnectionlessStylusHandwritingAvailableResponse{}
-	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[41]
+	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[31]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1848,7 +1376,7 @@ func (x *IsConnectionlessStylusHandwritingAvailableResponse) String() string {
 func (*IsConnectionlessStylusHandwritingAvailableResponse) ProtoMessage() {}
 
 func (x *IsConnectionlessStylusHandwritingAvailableResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[41]
+	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[31]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1861,7 +1389,7 @@ func (x *IsConnectionlessStylusHandwritingAvailableResponse) ProtoReflect() prot
 
 // Deprecated: Use IsConnectionlessStylusHandwritingAvailableResponse.ProtoReflect.Descriptor instead.
 func (*IsConnectionlessStylusHandwritingAvailableResponse) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethod_inputmethod_proto_rawDescGZIP(), []int{41}
+	return file_proto_inputmethod_inputmethod_proto_rawDescGZIP(), []int{31}
 }
 
 func (x *IsConnectionlessStylusHandwritingAvailableResponse) GetResult() bool {
@@ -1879,7 +1407,7 @@ type IsFullscreenModeRequest struct {
 
 func (x *IsFullscreenModeRequest) Reset() {
 	*x = IsFullscreenModeRequest{}
-	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[42]
+	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[32]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1891,7 +1419,7 @@ func (x *IsFullscreenModeRequest) String() string {
 func (*IsFullscreenModeRequest) ProtoMessage() {}
 
 func (x *IsFullscreenModeRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[42]
+	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[32]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1904,7 +1432,7 @@ func (x *IsFullscreenModeRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use IsFullscreenModeRequest.ProtoReflect.Descriptor instead.
 func (*IsFullscreenModeRequest) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethod_inputmethod_proto_rawDescGZIP(), []int{42}
+	return file_proto_inputmethod_inputmethod_proto_rawDescGZIP(), []int{32}
 }
 
 type IsFullscreenModeResponse struct {
@@ -1916,7 +1444,7 @@ type IsFullscreenModeResponse struct {
 
 func (x *IsFullscreenModeResponse) Reset() {
 	*x = IsFullscreenModeResponse{}
-	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[43]
+	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[33]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1928,7 +1456,7 @@ func (x *IsFullscreenModeResponse) String() string {
 func (*IsFullscreenModeResponse) ProtoMessage() {}
 
 func (x *IsFullscreenModeResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[43]
+	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[33]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1941,7 +1469,7 @@ func (x *IsFullscreenModeResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use IsFullscreenModeResponse.ProtoReflect.Descriptor instead.
 func (*IsFullscreenModeResponse) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethod_inputmethod_proto_rawDescGZIP(), []int{43}
+	return file_proto_inputmethod_inputmethod_proto_rawDescGZIP(), []int{33}
 }
 
 func (x *IsFullscreenModeResponse) GetResult() bool {
@@ -1959,7 +1487,7 @@ type IsInputMethodSuppressingSpellCheckerRequest struct {
 
 func (x *IsInputMethodSuppressingSpellCheckerRequest) Reset() {
 	*x = IsInputMethodSuppressingSpellCheckerRequest{}
-	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[44]
+	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[34]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1971,7 +1499,7 @@ func (x *IsInputMethodSuppressingSpellCheckerRequest) String() string {
 func (*IsInputMethodSuppressingSpellCheckerRequest) ProtoMessage() {}
 
 func (x *IsInputMethodSuppressingSpellCheckerRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[44]
+	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[34]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1984,7 +1512,7 @@ func (x *IsInputMethodSuppressingSpellCheckerRequest) ProtoReflect() protoreflec
 
 // Deprecated: Use IsInputMethodSuppressingSpellCheckerRequest.ProtoReflect.Descriptor instead.
 func (*IsInputMethodSuppressingSpellCheckerRequest) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethod_inputmethod_proto_rawDescGZIP(), []int{44}
+	return file_proto_inputmethod_inputmethod_proto_rawDescGZIP(), []int{34}
 }
 
 type IsInputMethodSuppressingSpellCheckerResponse struct {
@@ -1996,7 +1524,7 @@ type IsInputMethodSuppressingSpellCheckerResponse struct {
 
 func (x *IsInputMethodSuppressingSpellCheckerResponse) Reset() {
 	*x = IsInputMethodSuppressingSpellCheckerResponse{}
-	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[45]
+	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[35]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2008,7 +1536,7 @@ func (x *IsInputMethodSuppressingSpellCheckerResponse) String() string {
 func (*IsInputMethodSuppressingSpellCheckerResponse) ProtoMessage() {}
 
 func (x *IsInputMethodSuppressingSpellCheckerResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[45]
+	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[35]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2021,7 +1549,7 @@ func (x *IsInputMethodSuppressingSpellCheckerResponse) ProtoReflect() protorefle
 
 // Deprecated: Use IsInputMethodSuppressingSpellCheckerResponse.ProtoReflect.Descriptor instead.
 func (*IsInputMethodSuppressingSpellCheckerResponse) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethod_inputmethod_proto_rawDescGZIP(), []int{45}
+	return file_proto_inputmethod_inputmethod_proto_rawDescGZIP(), []int{35}
 }
 
 func (x *IsInputMethodSuppressingSpellCheckerResponse) GetResult() bool {
@@ -2039,7 +1567,7 @@ type IsStylusHandwritingAvailableRequest struct {
 
 func (x *IsStylusHandwritingAvailableRequest) Reset() {
 	*x = IsStylusHandwritingAvailableRequest{}
-	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[46]
+	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[36]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2051,7 +1579,7 @@ func (x *IsStylusHandwritingAvailableRequest) String() string {
 func (*IsStylusHandwritingAvailableRequest) ProtoMessage() {}
 
 func (x *IsStylusHandwritingAvailableRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[46]
+	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[36]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2064,7 +1592,7 @@ func (x *IsStylusHandwritingAvailableRequest) ProtoReflect() protoreflect.Messag
 
 // Deprecated: Use IsStylusHandwritingAvailableRequest.ProtoReflect.Descriptor instead.
 func (*IsStylusHandwritingAvailableRequest) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethod_inputmethod_proto_rawDescGZIP(), []int{46}
+	return file_proto_inputmethod_inputmethod_proto_rawDescGZIP(), []int{36}
 }
 
 type IsStylusHandwritingAvailableResponse struct {
@@ -2076,7 +1604,7 @@ type IsStylusHandwritingAvailableResponse struct {
 
 func (x *IsStylusHandwritingAvailableResponse) Reset() {
 	*x = IsStylusHandwritingAvailableResponse{}
-	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[47]
+	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[37]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2088,7 +1616,7 @@ func (x *IsStylusHandwritingAvailableResponse) String() string {
 func (*IsStylusHandwritingAvailableResponse) ProtoMessage() {}
 
 func (x *IsStylusHandwritingAvailableResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[47]
+	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[37]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2101,7 +1629,7 @@ func (x *IsStylusHandwritingAvailableResponse) ProtoReflect() protoreflect.Messa
 
 // Deprecated: Use IsStylusHandwritingAvailableResponse.ProtoReflect.Descriptor instead.
 func (*IsStylusHandwritingAvailableResponse) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethod_inputmethod_proto_rawDescGZIP(), []int{47}
+	return file_proto_inputmethod_inputmethod_proto_rawDescGZIP(), []int{37}
 }
 
 func (x *IsStylusHandwritingAvailableResponse) GetResult() bool {
@@ -2120,7 +1648,7 @@ type IsWatchingCursorRequest struct {
 
 func (x *IsWatchingCursorRequest) Reset() {
 	*x = IsWatchingCursorRequest{}
-	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[48]
+	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[38]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2132,7 +1660,7 @@ func (x *IsWatchingCursorRequest) String() string {
 func (*IsWatchingCursorRequest) ProtoMessage() {}
 
 func (x *IsWatchingCursorRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[48]
+	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[38]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2145,7 +1673,7 @@ func (x *IsWatchingCursorRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use IsWatchingCursorRequest.ProtoReflect.Descriptor instead.
 func (*IsWatchingCursorRequest) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethod_inputmethod_proto_rawDescGZIP(), []int{48}
+	return file_proto_inputmethod_inputmethod_proto_rawDescGZIP(), []int{38}
 }
 
 func (x *IsWatchingCursorRequest) GetArg0() int64 {
@@ -2164,7 +1692,7 @@ type IsWatchingCursorResponse struct {
 
 func (x *IsWatchingCursorResponse) Reset() {
 	*x = IsWatchingCursorResponse{}
-	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[49]
+	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[39]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2176,7 +1704,7 @@ func (x *IsWatchingCursorResponse) String() string {
 func (*IsWatchingCursorResponse) ProtoMessage() {}
 
 func (x *IsWatchingCursorResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[49]
+	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[39]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2189,7 +1717,7 @@ func (x *IsWatchingCursorResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use IsWatchingCursorResponse.ProtoReflect.Descriptor instead.
 func (*IsWatchingCursorResponse) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethod_inputmethod_proto_rawDescGZIP(), []int{49}
+	return file_proto_inputmethod_inputmethod_proto_rawDescGZIP(), []int{39}
 }
 
 func (x *IsWatchingCursorResponse) GetResult() bool {
@@ -2208,7 +1736,7 @@ type PrepareStylusHandwritingDelegation1Request struct {
 
 func (x *PrepareStylusHandwritingDelegation1Request) Reset() {
 	*x = PrepareStylusHandwritingDelegation1Request{}
-	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[50]
+	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[40]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2220,7 +1748,7 @@ func (x *PrepareStylusHandwritingDelegation1Request) String() string {
 func (*PrepareStylusHandwritingDelegation1Request) ProtoMessage() {}
 
 func (x *PrepareStylusHandwritingDelegation1Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[50]
+	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[40]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2233,7 +1761,7 @@ func (x *PrepareStylusHandwritingDelegation1Request) ProtoReflect() protoreflect
 
 // Deprecated: Use PrepareStylusHandwritingDelegation1Request.ProtoReflect.Descriptor instead.
 func (*PrepareStylusHandwritingDelegation1Request) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethod_inputmethod_proto_rawDescGZIP(), []int{50}
+	return file_proto_inputmethod_inputmethod_proto_rawDescGZIP(), []int{40}
 }
 
 func (x *PrepareStylusHandwritingDelegation1Request) GetArg0() int64 {
@@ -2251,7 +1779,7 @@ type PrepareStylusHandwritingDelegation1Response struct {
 
 func (x *PrepareStylusHandwritingDelegation1Response) Reset() {
 	*x = PrepareStylusHandwritingDelegation1Response{}
-	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[51]
+	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[41]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2263,7 +1791,7 @@ func (x *PrepareStylusHandwritingDelegation1Response) String() string {
 func (*PrepareStylusHandwritingDelegation1Response) ProtoMessage() {}
 
 func (x *PrepareStylusHandwritingDelegation1Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[51]
+	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[41]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2276,7 +1804,7 @@ func (x *PrepareStylusHandwritingDelegation1Response) ProtoReflect() protoreflec
 
 // Deprecated: Use PrepareStylusHandwritingDelegation1Response.ProtoReflect.Descriptor instead.
 func (*PrepareStylusHandwritingDelegation1Response) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethod_inputmethod_proto_rawDescGZIP(), []int{51}
+	return file_proto_inputmethod_inputmethod_proto_rawDescGZIP(), []int{41}
 }
 
 type PrepareStylusHandwritingDelegation2_1Request struct {
@@ -2289,7 +1817,7 @@ type PrepareStylusHandwritingDelegation2_1Request struct {
 
 func (x *PrepareStylusHandwritingDelegation2_1Request) Reset() {
 	*x = PrepareStylusHandwritingDelegation2_1Request{}
-	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[52]
+	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[42]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2301,7 +1829,7 @@ func (x *PrepareStylusHandwritingDelegation2_1Request) String() string {
 func (*PrepareStylusHandwritingDelegation2_1Request) ProtoMessage() {}
 
 func (x *PrepareStylusHandwritingDelegation2_1Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[52]
+	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[42]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2314,7 +1842,7 @@ func (x *PrepareStylusHandwritingDelegation2_1Request) ProtoReflect() protorefle
 
 // Deprecated: Use PrepareStylusHandwritingDelegation2_1Request.ProtoReflect.Descriptor instead.
 func (*PrepareStylusHandwritingDelegation2_1Request) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethod_inputmethod_proto_rawDescGZIP(), []int{52}
+	return file_proto_inputmethod_inputmethod_proto_rawDescGZIP(), []int{42}
 }
 
 func (x *PrepareStylusHandwritingDelegation2_1Request) GetArg0() int64 {
@@ -2339,7 +1867,7 @@ type PrepareStylusHandwritingDelegation2_1Response struct {
 
 func (x *PrepareStylusHandwritingDelegation2_1Response) Reset() {
 	*x = PrepareStylusHandwritingDelegation2_1Response{}
-	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[53]
+	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[43]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2351,7 +1879,7 @@ func (x *PrepareStylusHandwritingDelegation2_1Response) String() string {
 func (*PrepareStylusHandwritingDelegation2_1Response) ProtoMessage() {}
 
 func (x *PrepareStylusHandwritingDelegation2_1Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[53]
+	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[43]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2364,7 +1892,7 @@ func (x *PrepareStylusHandwritingDelegation2_1Response) ProtoReflect() protorefl
 
 // Deprecated: Use PrepareStylusHandwritingDelegation2_1Response.ProtoReflect.Descriptor instead.
 func (*PrepareStylusHandwritingDelegation2_1Response) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethod_inputmethod_proto_rawDescGZIP(), []int{53}
+	return file_proto_inputmethod_inputmethod_proto_rawDescGZIP(), []int{43}
 }
 
 type RestartInputRequest struct {
@@ -2376,7 +1904,7 @@ type RestartInputRequest struct {
 
 func (x *RestartInputRequest) Reset() {
 	*x = RestartInputRequest{}
-	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[54]
+	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[44]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2388,7 +1916,7 @@ func (x *RestartInputRequest) String() string {
 func (*RestartInputRequest) ProtoMessage() {}
 
 func (x *RestartInputRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[54]
+	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[44]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2401,7 +1929,7 @@ func (x *RestartInputRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use RestartInputRequest.ProtoReflect.Descriptor instead.
 func (*RestartInputRequest) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethod_inputmethod_proto_rawDescGZIP(), []int{54}
+	return file_proto_inputmethod_inputmethod_proto_rawDescGZIP(), []int{44}
 }
 
 func (x *RestartInputRequest) GetArg0() int64 {
@@ -2419,7 +1947,7 @@ type RestartInputResponse struct {
 
 func (x *RestartInputResponse) Reset() {
 	*x = RestartInputResponse{}
-	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[55]
+	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[45]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2431,7 +1959,7 @@ func (x *RestartInputResponse) String() string {
 func (*RestartInputResponse) ProtoMessage() {}
 
 func (x *RestartInputResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[55]
+	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[45]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2444,7 +1972,7 @@ func (x *RestartInputResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use RestartInputResponse.ProtoReflect.Descriptor instead.
 func (*RestartInputResponse) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethod_inputmethod_proto_rawDescGZIP(), []int{55}
+	return file_proto_inputmethod_inputmethod_proto_rawDescGZIP(), []int{45}
 }
 
 type SendAppPrivateCommandRequest struct {
@@ -2458,7 +1986,7 @@ type SendAppPrivateCommandRequest struct {
 
 func (x *SendAppPrivateCommandRequest) Reset() {
 	*x = SendAppPrivateCommandRequest{}
-	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[56]
+	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[46]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2470,7 +1998,7 @@ func (x *SendAppPrivateCommandRequest) String() string {
 func (*SendAppPrivateCommandRequest) ProtoMessage() {}
 
 func (x *SendAppPrivateCommandRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[56]
+	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[46]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2483,7 +2011,7 @@ func (x *SendAppPrivateCommandRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SendAppPrivateCommandRequest.ProtoReflect.Descriptor instead.
 func (*SendAppPrivateCommandRequest) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethod_inputmethod_proto_rawDescGZIP(), []int{56}
+	return file_proto_inputmethod_inputmethod_proto_rawDescGZIP(), []int{46}
 }
 
 func (x *SendAppPrivateCommandRequest) GetArg0() int64 {
@@ -2515,7 +2043,7 @@ type SendAppPrivateCommandResponse struct {
 
 func (x *SendAppPrivateCommandResponse) Reset() {
 	*x = SendAppPrivateCommandResponse{}
-	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[57]
+	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[47]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2527,7 +2055,7 @@ func (x *SendAppPrivateCommandResponse) String() string {
 func (*SendAppPrivateCommandResponse) ProtoMessage() {}
 
 func (x *SendAppPrivateCommandResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[57]
+	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[47]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2540,7 +2068,7 @@ func (x *SendAppPrivateCommandResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SendAppPrivateCommandResponse.ProtoReflect.Descriptor instead.
 func (*SendAppPrivateCommandResponse) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethod_inputmethod_proto_rawDescGZIP(), []int{57}
+	return file_proto_inputmethod_inputmethod_proto_rawDescGZIP(), []int{47}
 }
 
 type SetAdditionalInputMethodSubtypesRequest struct {
@@ -2553,7 +2081,7 @@ type SetAdditionalInputMethodSubtypesRequest struct {
 
 func (x *SetAdditionalInputMethodSubtypesRequest) Reset() {
 	*x = SetAdditionalInputMethodSubtypesRequest{}
-	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[58]
+	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[48]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2565,7 +2093,7 @@ func (x *SetAdditionalInputMethodSubtypesRequest) String() string {
 func (*SetAdditionalInputMethodSubtypesRequest) ProtoMessage() {}
 
 func (x *SetAdditionalInputMethodSubtypesRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[58]
+	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[48]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2578,7 +2106,7 @@ func (x *SetAdditionalInputMethodSubtypesRequest) ProtoReflect() protoreflect.Me
 
 // Deprecated: Use SetAdditionalInputMethodSubtypesRequest.ProtoReflect.Descriptor instead.
 func (*SetAdditionalInputMethodSubtypesRequest) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethod_inputmethod_proto_rawDescGZIP(), []int{58}
+	return file_proto_inputmethod_inputmethod_proto_rawDescGZIP(), []int{48}
 }
 
 func (x *SetAdditionalInputMethodSubtypesRequest) GetArg0() string {
@@ -2603,7 +2131,7 @@ type SetAdditionalInputMethodSubtypesResponse struct {
 
 func (x *SetAdditionalInputMethodSubtypesResponse) Reset() {
 	*x = SetAdditionalInputMethodSubtypesResponse{}
-	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[59]
+	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[49]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2615,7 +2143,7 @@ func (x *SetAdditionalInputMethodSubtypesResponse) String() string {
 func (*SetAdditionalInputMethodSubtypesResponse) ProtoMessage() {}
 
 func (x *SetAdditionalInputMethodSubtypesResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[59]
+	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[49]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2628,7 +2156,7 @@ func (x *SetAdditionalInputMethodSubtypesResponse) ProtoReflect() protoreflect.M
 
 // Deprecated: Use SetAdditionalInputMethodSubtypesResponse.ProtoReflect.Descriptor instead.
 func (*SetAdditionalInputMethodSubtypesResponse) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethod_inputmethod_proto_rawDescGZIP(), []int{59}
+	return file_proto_inputmethod_inputmethod_proto_rawDescGZIP(), []int{49}
 }
 
 type SetCurrentInputMethodSubtypeRequest struct {
@@ -2640,7 +2168,7 @@ type SetCurrentInputMethodSubtypeRequest struct {
 
 func (x *SetCurrentInputMethodSubtypeRequest) Reset() {
 	*x = SetCurrentInputMethodSubtypeRequest{}
-	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[60]
+	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[50]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2652,7 +2180,7 @@ func (x *SetCurrentInputMethodSubtypeRequest) String() string {
 func (*SetCurrentInputMethodSubtypeRequest) ProtoMessage() {}
 
 func (x *SetCurrentInputMethodSubtypeRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[60]
+	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[50]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2665,7 +2193,7 @@ func (x *SetCurrentInputMethodSubtypeRequest) ProtoReflect() protoreflect.Messag
 
 // Deprecated: Use SetCurrentInputMethodSubtypeRequest.ProtoReflect.Descriptor instead.
 func (*SetCurrentInputMethodSubtypeRequest) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethod_inputmethod_proto_rawDescGZIP(), []int{60}
+	return file_proto_inputmethod_inputmethod_proto_rawDescGZIP(), []int{50}
 }
 
 func (x *SetCurrentInputMethodSubtypeRequest) GetArg0() int64 {
@@ -2684,7 +2212,7 @@ type SetCurrentInputMethodSubtypeResponse struct {
 
 func (x *SetCurrentInputMethodSubtypeResponse) Reset() {
 	*x = SetCurrentInputMethodSubtypeResponse{}
-	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[61]
+	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[51]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2696,7 +2224,7 @@ func (x *SetCurrentInputMethodSubtypeResponse) String() string {
 func (*SetCurrentInputMethodSubtypeResponse) ProtoMessage() {}
 
 func (x *SetCurrentInputMethodSubtypeResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[61]
+	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[51]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2709,7 +2237,7 @@ func (x *SetCurrentInputMethodSubtypeResponse) ProtoReflect() protoreflect.Messa
 
 // Deprecated: Use SetCurrentInputMethodSubtypeResponse.ProtoReflect.Descriptor instead.
 func (*SetCurrentInputMethodSubtypeResponse) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethod_inputmethod_proto_rawDescGZIP(), []int{61}
+	return file_proto_inputmethod_inputmethod_proto_rawDescGZIP(), []int{51}
 }
 
 func (x *SetCurrentInputMethodSubtypeResponse) GetResult() bool {
@@ -2729,7 +2257,7 @@ type SetExplicitlyEnabledInputMethodSubtypesRequest struct {
 
 func (x *SetExplicitlyEnabledInputMethodSubtypesRequest) Reset() {
 	*x = SetExplicitlyEnabledInputMethodSubtypesRequest{}
-	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[62]
+	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[52]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2741,7 +2269,7 @@ func (x *SetExplicitlyEnabledInputMethodSubtypesRequest) String() string {
 func (*SetExplicitlyEnabledInputMethodSubtypesRequest) ProtoMessage() {}
 
 func (x *SetExplicitlyEnabledInputMethodSubtypesRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[62]
+	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[52]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2754,7 +2282,7 @@ func (x *SetExplicitlyEnabledInputMethodSubtypesRequest) ProtoReflect() protoref
 
 // Deprecated: Use SetExplicitlyEnabledInputMethodSubtypesRequest.ProtoReflect.Descriptor instead.
 func (*SetExplicitlyEnabledInputMethodSubtypesRequest) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethod_inputmethod_proto_rawDescGZIP(), []int{62}
+	return file_proto_inputmethod_inputmethod_proto_rawDescGZIP(), []int{52}
 }
 
 func (x *SetExplicitlyEnabledInputMethodSubtypesRequest) GetArg0() string {
@@ -2779,7 +2307,7 @@ type SetExplicitlyEnabledInputMethodSubtypesResponse struct {
 
 func (x *SetExplicitlyEnabledInputMethodSubtypesResponse) Reset() {
 	*x = SetExplicitlyEnabledInputMethodSubtypesResponse{}
-	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[63]
+	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[53]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2791,7 +2319,7 @@ func (x *SetExplicitlyEnabledInputMethodSubtypesResponse) String() string {
 func (*SetExplicitlyEnabledInputMethodSubtypesResponse) ProtoMessage() {}
 
 func (x *SetExplicitlyEnabledInputMethodSubtypesResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[63]
+	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[53]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2804,7 +2332,7 @@ func (x *SetExplicitlyEnabledInputMethodSubtypesResponse) ProtoReflect() protore
 
 // Deprecated: Use SetExplicitlyEnabledInputMethodSubtypesResponse.ProtoReflect.Descriptor instead.
 func (*SetExplicitlyEnabledInputMethodSubtypesResponse) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethod_inputmethod_proto_rawDescGZIP(), []int{63}
+	return file_proto_inputmethod_inputmethod_proto_rawDescGZIP(), []int{53}
 }
 
 type SetInputMethodRequest struct {
@@ -2817,7 +2345,7 @@ type SetInputMethodRequest struct {
 
 func (x *SetInputMethodRequest) Reset() {
 	*x = SetInputMethodRequest{}
-	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[64]
+	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[54]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2829,7 +2357,7 @@ func (x *SetInputMethodRequest) String() string {
 func (*SetInputMethodRequest) ProtoMessage() {}
 
 func (x *SetInputMethodRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[64]
+	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[54]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2842,7 +2370,7 @@ func (x *SetInputMethodRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetInputMethodRequest.ProtoReflect.Descriptor instead.
 func (*SetInputMethodRequest) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethod_inputmethod_proto_rawDescGZIP(), []int{64}
+	return file_proto_inputmethod_inputmethod_proto_rawDescGZIP(), []int{54}
 }
 
 func (x *SetInputMethodRequest) GetArg0() int64 {
@@ -2867,7 +2395,7 @@ type SetInputMethodResponse struct {
 
 func (x *SetInputMethodResponse) Reset() {
 	*x = SetInputMethodResponse{}
-	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[65]
+	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[55]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2879,7 +2407,7 @@ func (x *SetInputMethodResponse) String() string {
 func (*SetInputMethodResponse) ProtoMessage() {}
 
 func (x *SetInputMethodResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[65]
+	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[55]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2892,7 +2420,7 @@ func (x *SetInputMethodResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetInputMethodResponse.ProtoReflect.Descriptor instead.
 func (*SetInputMethodResponse) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethod_inputmethod_proto_rawDescGZIP(), []int{65}
+	return file_proto_inputmethod_inputmethod_proto_rawDescGZIP(), []int{55}
 }
 
 type SetInputMethodAndSubtypeRequest struct {
@@ -2906,7 +2434,7 @@ type SetInputMethodAndSubtypeRequest struct {
 
 func (x *SetInputMethodAndSubtypeRequest) Reset() {
 	*x = SetInputMethodAndSubtypeRequest{}
-	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[66]
+	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[56]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2918,7 +2446,7 @@ func (x *SetInputMethodAndSubtypeRequest) String() string {
 func (*SetInputMethodAndSubtypeRequest) ProtoMessage() {}
 
 func (x *SetInputMethodAndSubtypeRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[66]
+	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[56]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2931,7 +2459,7 @@ func (x *SetInputMethodAndSubtypeRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetInputMethodAndSubtypeRequest.ProtoReflect.Descriptor instead.
 func (*SetInputMethodAndSubtypeRequest) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethod_inputmethod_proto_rawDescGZIP(), []int{66}
+	return file_proto_inputmethod_inputmethod_proto_rawDescGZIP(), []int{56}
 }
 
 func (x *SetInputMethodAndSubtypeRequest) GetArg0() int64 {
@@ -2963,7 +2491,7 @@ type SetInputMethodAndSubtypeResponse struct {
 
 func (x *SetInputMethodAndSubtypeResponse) Reset() {
 	*x = SetInputMethodAndSubtypeResponse{}
-	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[67]
+	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[57]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2975,7 +2503,7 @@ func (x *SetInputMethodAndSubtypeResponse) String() string {
 func (*SetInputMethodAndSubtypeResponse) ProtoMessage() {}
 
 func (x *SetInputMethodAndSubtypeResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[67]
+	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[57]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2988,7 +2516,7 @@ func (x *SetInputMethodAndSubtypeResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetInputMethodAndSubtypeResponse.ProtoReflect.Descriptor instead.
 func (*SetInputMethodAndSubtypeResponse) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethod_inputmethod_proto_rawDescGZIP(), []int{67}
+	return file_proto_inputmethod_inputmethod_proto_rawDescGZIP(), []int{57}
 }
 
 type ShouldOfferSwitchingToNextInputMethodRequest struct {
@@ -3000,7 +2528,7 @@ type ShouldOfferSwitchingToNextInputMethodRequest struct {
 
 func (x *ShouldOfferSwitchingToNextInputMethodRequest) Reset() {
 	*x = ShouldOfferSwitchingToNextInputMethodRequest{}
-	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[68]
+	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[58]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3012,7 +2540,7 @@ func (x *ShouldOfferSwitchingToNextInputMethodRequest) String() string {
 func (*ShouldOfferSwitchingToNextInputMethodRequest) ProtoMessage() {}
 
 func (x *ShouldOfferSwitchingToNextInputMethodRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[68]
+	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[58]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3025,7 +2553,7 @@ func (x *ShouldOfferSwitchingToNextInputMethodRequest) ProtoReflect() protorefle
 
 // Deprecated: Use ShouldOfferSwitchingToNextInputMethodRequest.ProtoReflect.Descriptor instead.
 func (*ShouldOfferSwitchingToNextInputMethodRequest) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethod_inputmethod_proto_rawDescGZIP(), []int{68}
+	return file_proto_inputmethod_inputmethod_proto_rawDescGZIP(), []int{58}
 }
 
 func (x *ShouldOfferSwitchingToNextInputMethodRequest) GetArg0() int64 {
@@ -3044,7 +2572,7 @@ type ShouldOfferSwitchingToNextInputMethodResponse struct {
 
 func (x *ShouldOfferSwitchingToNextInputMethodResponse) Reset() {
 	*x = ShouldOfferSwitchingToNextInputMethodResponse{}
-	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[69]
+	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[59]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3056,7 +2584,7 @@ func (x *ShouldOfferSwitchingToNextInputMethodResponse) String() string {
 func (*ShouldOfferSwitchingToNextInputMethodResponse) ProtoMessage() {}
 
 func (x *ShouldOfferSwitchingToNextInputMethodResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[69]
+	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[59]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3069,7 +2597,7 @@ func (x *ShouldOfferSwitchingToNextInputMethodResponse) ProtoReflect() protorefl
 
 // Deprecated: Use ShouldOfferSwitchingToNextInputMethodResponse.ProtoReflect.Descriptor instead.
 func (*ShouldOfferSwitchingToNextInputMethodResponse) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethod_inputmethod_proto_rawDescGZIP(), []int{69}
+	return file_proto_inputmethod_inputmethod_proto_rawDescGZIP(), []int{59}
 }
 
 func (x *ShouldOfferSwitchingToNextInputMethodResponse) GetResult() bool {
@@ -3088,7 +2616,7 @@ type ShowInputMethodAndSubtypeEnablerRequest struct {
 
 func (x *ShowInputMethodAndSubtypeEnablerRequest) Reset() {
 	*x = ShowInputMethodAndSubtypeEnablerRequest{}
-	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[70]
+	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[60]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3100,7 +2628,7 @@ func (x *ShowInputMethodAndSubtypeEnablerRequest) String() string {
 func (*ShowInputMethodAndSubtypeEnablerRequest) ProtoMessage() {}
 
 func (x *ShowInputMethodAndSubtypeEnablerRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[70]
+	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[60]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3113,7 +2641,7 @@ func (x *ShowInputMethodAndSubtypeEnablerRequest) ProtoReflect() protoreflect.Me
 
 // Deprecated: Use ShowInputMethodAndSubtypeEnablerRequest.ProtoReflect.Descriptor instead.
 func (*ShowInputMethodAndSubtypeEnablerRequest) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethod_inputmethod_proto_rawDescGZIP(), []int{70}
+	return file_proto_inputmethod_inputmethod_proto_rawDescGZIP(), []int{60}
 }
 
 func (x *ShowInputMethodAndSubtypeEnablerRequest) GetArg0() string {
@@ -3131,7 +2659,7 @@ type ShowInputMethodAndSubtypeEnablerResponse struct {
 
 func (x *ShowInputMethodAndSubtypeEnablerResponse) Reset() {
 	*x = ShowInputMethodAndSubtypeEnablerResponse{}
-	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[71]
+	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[61]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3143,7 +2671,7 @@ func (x *ShowInputMethodAndSubtypeEnablerResponse) String() string {
 func (*ShowInputMethodAndSubtypeEnablerResponse) ProtoMessage() {}
 
 func (x *ShowInputMethodAndSubtypeEnablerResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[71]
+	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[61]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3156,7 +2684,7 @@ func (x *ShowInputMethodAndSubtypeEnablerResponse) ProtoReflect() protoreflect.M
 
 // Deprecated: Use ShowInputMethodAndSubtypeEnablerResponse.ProtoReflect.Descriptor instead.
 func (*ShowInputMethodAndSubtypeEnablerResponse) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethod_inputmethod_proto_rawDescGZIP(), []int{71}
+	return file_proto_inputmethod_inputmethod_proto_rawDescGZIP(), []int{61}
 }
 
 type ShowInputMethodPickerRequest struct {
@@ -3167,7 +2695,7 @@ type ShowInputMethodPickerRequest struct {
 
 func (x *ShowInputMethodPickerRequest) Reset() {
 	*x = ShowInputMethodPickerRequest{}
-	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[72]
+	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[62]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3179,7 +2707,7 @@ func (x *ShowInputMethodPickerRequest) String() string {
 func (*ShowInputMethodPickerRequest) ProtoMessage() {}
 
 func (x *ShowInputMethodPickerRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[72]
+	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[62]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3192,7 +2720,7 @@ func (x *ShowInputMethodPickerRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ShowInputMethodPickerRequest.ProtoReflect.Descriptor instead.
 func (*ShowInputMethodPickerRequest) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethod_inputmethod_proto_rawDescGZIP(), []int{72}
+	return file_proto_inputmethod_inputmethod_proto_rawDescGZIP(), []int{62}
 }
 
 type ShowInputMethodPickerResponse struct {
@@ -3203,7 +2731,7 @@ type ShowInputMethodPickerResponse struct {
 
 func (x *ShowInputMethodPickerResponse) Reset() {
 	*x = ShowInputMethodPickerResponse{}
-	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[73]
+	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[63]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3215,7 +2743,7 @@ func (x *ShowInputMethodPickerResponse) String() string {
 func (*ShowInputMethodPickerResponse) ProtoMessage() {}
 
 func (x *ShowInputMethodPickerResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[73]
+	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[63]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3228,7 +2756,7 @@ func (x *ShowInputMethodPickerResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ShowInputMethodPickerResponse.ProtoReflect.Descriptor instead.
 func (*ShowInputMethodPickerResponse) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethod_inputmethod_proto_rawDescGZIP(), []int{73}
+	return file_proto_inputmethod_inputmethod_proto_rawDescGZIP(), []int{63}
 }
 
 type ShowSoftInput2Request struct {
@@ -3241,7 +2769,7 @@ type ShowSoftInput2Request struct {
 
 func (x *ShowSoftInput2Request) Reset() {
 	*x = ShowSoftInput2Request{}
-	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[74]
+	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[64]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3253,7 +2781,7 @@ func (x *ShowSoftInput2Request) String() string {
 func (*ShowSoftInput2Request) ProtoMessage() {}
 
 func (x *ShowSoftInput2Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[74]
+	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[64]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3266,7 +2794,7 @@ func (x *ShowSoftInput2Request) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ShowSoftInput2Request.ProtoReflect.Descriptor instead.
 func (*ShowSoftInput2Request) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethod_inputmethod_proto_rawDescGZIP(), []int{74}
+	return file_proto_inputmethod_inputmethod_proto_rawDescGZIP(), []int{64}
 }
 
 func (x *ShowSoftInput2Request) GetArg0() int64 {
@@ -3292,7 +2820,7 @@ type ShowSoftInput2Response struct {
 
 func (x *ShowSoftInput2Response) Reset() {
 	*x = ShowSoftInput2Response{}
-	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[75]
+	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[65]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3304,7 +2832,7 @@ func (x *ShowSoftInput2Response) String() string {
 func (*ShowSoftInput2Response) ProtoMessage() {}
 
 func (x *ShowSoftInput2Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[75]
+	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[65]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3317,7 +2845,7 @@ func (x *ShowSoftInput2Response) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ShowSoftInput2Response.ProtoReflect.Descriptor instead.
 func (*ShowSoftInput2Response) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethod_inputmethod_proto_rawDescGZIP(), []int{75}
+	return file_proto_inputmethod_inputmethod_proto_rawDescGZIP(), []int{65}
 }
 
 func (x *ShowSoftInput2Response) GetResult() bool {
@@ -3338,7 +2866,7 @@ type ShowSoftInput3_1Request struct {
 
 func (x *ShowSoftInput3_1Request) Reset() {
 	*x = ShowSoftInput3_1Request{}
-	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[76]
+	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[66]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3350,7 +2878,7 @@ func (x *ShowSoftInput3_1Request) String() string {
 func (*ShowSoftInput3_1Request) ProtoMessage() {}
 
 func (x *ShowSoftInput3_1Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[76]
+	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[66]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3363,7 +2891,7 @@ func (x *ShowSoftInput3_1Request) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ShowSoftInput3_1Request.ProtoReflect.Descriptor instead.
 func (*ShowSoftInput3_1Request) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethod_inputmethod_proto_rawDescGZIP(), []int{76}
+	return file_proto_inputmethod_inputmethod_proto_rawDescGZIP(), []int{66}
 }
 
 func (x *ShowSoftInput3_1Request) GetArg0() int64 {
@@ -3396,7 +2924,7 @@ type ShowSoftInput3_1Response struct {
 
 func (x *ShowSoftInput3_1Response) Reset() {
 	*x = ShowSoftInput3_1Response{}
-	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[77]
+	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[67]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3408,7 +2936,7 @@ func (x *ShowSoftInput3_1Response) String() string {
 func (*ShowSoftInput3_1Response) ProtoMessage() {}
 
 func (x *ShowSoftInput3_1Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[77]
+	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[67]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3421,7 +2949,7 @@ func (x *ShowSoftInput3_1Response) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ShowSoftInput3_1Response.ProtoReflect.Descriptor instead.
 func (*ShowSoftInput3_1Response) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethod_inputmethod_proto_rawDescGZIP(), []int{77}
+	return file_proto_inputmethod_inputmethod_proto_rawDescGZIP(), []int{67}
 }
 
 func (x *ShowSoftInput3_1Response) GetResult() bool {
@@ -3441,7 +2969,7 @@ type ShowSoftInputFromInputMethodRequest struct {
 
 func (x *ShowSoftInputFromInputMethodRequest) Reset() {
 	*x = ShowSoftInputFromInputMethodRequest{}
-	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[78]
+	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[68]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3453,7 +2981,7 @@ func (x *ShowSoftInputFromInputMethodRequest) String() string {
 func (*ShowSoftInputFromInputMethodRequest) ProtoMessage() {}
 
 func (x *ShowSoftInputFromInputMethodRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[78]
+	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[68]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3466,7 +2994,7 @@ func (x *ShowSoftInputFromInputMethodRequest) ProtoReflect() protoreflect.Messag
 
 // Deprecated: Use ShowSoftInputFromInputMethodRequest.ProtoReflect.Descriptor instead.
 func (*ShowSoftInputFromInputMethodRequest) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethod_inputmethod_proto_rawDescGZIP(), []int{78}
+	return file_proto_inputmethod_inputmethod_proto_rawDescGZIP(), []int{68}
 }
 
 func (x *ShowSoftInputFromInputMethodRequest) GetArg0() int64 {
@@ -3491,7 +3019,7 @@ type ShowSoftInputFromInputMethodResponse struct {
 
 func (x *ShowSoftInputFromInputMethodResponse) Reset() {
 	*x = ShowSoftInputFromInputMethodResponse{}
-	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[79]
+	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[69]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3503,7 +3031,7 @@ func (x *ShowSoftInputFromInputMethodResponse) String() string {
 func (*ShowSoftInputFromInputMethodResponse) ProtoMessage() {}
 
 func (x *ShowSoftInputFromInputMethodResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[79]
+	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[69]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3516,7 +3044,7 @@ func (x *ShowSoftInputFromInputMethodResponse) ProtoReflect() protoreflect.Messa
 
 // Deprecated: Use ShowSoftInputFromInputMethodResponse.ProtoReflect.Descriptor instead.
 func (*ShowSoftInputFromInputMethodResponse) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethod_inputmethod_proto_rawDescGZIP(), []int{79}
+	return file_proto_inputmethod_inputmethod_proto_rawDescGZIP(), []int{69}
 }
 
 type ShowStatusIconRequest struct {
@@ -3530,7 +3058,7 @@ type ShowStatusIconRequest struct {
 
 func (x *ShowStatusIconRequest) Reset() {
 	*x = ShowStatusIconRequest{}
-	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[80]
+	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[70]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3542,7 +3070,7 @@ func (x *ShowStatusIconRequest) String() string {
 func (*ShowStatusIconRequest) ProtoMessage() {}
 
 func (x *ShowStatusIconRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[80]
+	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[70]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3555,7 +3083,7 @@ func (x *ShowStatusIconRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ShowStatusIconRequest.ProtoReflect.Descriptor instead.
 func (*ShowStatusIconRequest) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethod_inputmethod_proto_rawDescGZIP(), []int{80}
+	return file_proto_inputmethod_inputmethod_proto_rawDescGZIP(), []int{70}
 }
 
 func (x *ShowStatusIconRequest) GetArg0() int64 {
@@ -3587,7 +3115,7 @@ type ShowStatusIconResponse struct {
 
 func (x *ShowStatusIconResponse) Reset() {
 	*x = ShowStatusIconResponse{}
-	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[81]
+	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[71]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3599,7 +3127,7 @@ func (x *ShowStatusIconResponse) String() string {
 func (*ShowStatusIconResponse) ProtoMessage() {}
 
 func (x *ShowStatusIconResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[81]
+	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[71]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3612,7 +3140,7 @@ func (x *ShowStatusIconResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ShowStatusIconResponse.ProtoReflect.Descriptor instead.
 func (*ShowStatusIconResponse) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethod_inputmethod_proto_rawDescGZIP(), []int{81}
+	return file_proto_inputmethod_inputmethod_proto_rawDescGZIP(), []int{71}
 }
 
 type StartConnectionlessStylusHandwritingRequest struct {
@@ -3627,7 +3155,7 @@ type StartConnectionlessStylusHandwritingRequest struct {
 
 func (x *StartConnectionlessStylusHandwritingRequest) Reset() {
 	*x = StartConnectionlessStylusHandwritingRequest{}
-	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[82]
+	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[72]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3639,7 +3167,7 @@ func (x *StartConnectionlessStylusHandwritingRequest) String() string {
 func (*StartConnectionlessStylusHandwritingRequest) ProtoMessage() {}
 
 func (x *StartConnectionlessStylusHandwritingRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[82]
+	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[72]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3652,7 +3180,7 @@ func (x *StartConnectionlessStylusHandwritingRequest) ProtoReflect() protoreflec
 
 // Deprecated: Use StartConnectionlessStylusHandwritingRequest.ProtoReflect.Descriptor instead.
 func (*StartConnectionlessStylusHandwritingRequest) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethod_inputmethod_proto_rawDescGZIP(), []int{82}
+	return file_proto_inputmethod_inputmethod_proto_rawDescGZIP(), []int{72}
 }
 
 func (x *StartConnectionlessStylusHandwritingRequest) GetArg0() int64 {
@@ -3691,7 +3219,7 @@ type StartConnectionlessStylusHandwritingResponse struct {
 
 func (x *StartConnectionlessStylusHandwritingResponse) Reset() {
 	*x = StartConnectionlessStylusHandwritingResponse{}
-	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[83]
+	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[73]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3703,7 +3231,7 @@ func (x *StartConnectionlessStylusHandwritingResponse) String() string {
 func (*StartConnectionlessStylusHandwritingResponse) ProtoMessage() {}
 
 func (x *StartConnectionlessStylusHandwritingResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[83]
+	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[73]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3716,7 +3244,7 @@ func (x *StartConnectionlessStylusHandwritingResponse) ProtoReflect() protorefle
 
 // Deprecated: Use StartConnectionlessStylusHandwritingResponse.ProtoReflect.Descriptor instead.
 func (*StartConnectionlessStylusHandwritingResponse) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethod_inputmethod_proto_rawDescGZIP(), []int{83}
+	return file_proto_inputmethod_inputmethod_proto_rawDescGZIP(), []int{73}
 }
 
 type StartConnectionlessStylusHandwritingForDelegation5Request struct {
@@ -3732,7 +3260,7 @@ type StartConnectionlessStylusHandwritingForDelegation5Request struct {
 
 func (x *StartConnectionlessStylusHandwritingForDelegation5Request) Reset() {
 	*x = StartConnectionlessStylusHandwritingForDelegation5Request{}
-	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[84]
+	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[74]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3744,7 +3272,7 @@ func (x *StartConnectionlessStylusHandwritingForDelegation5Request) String() str
 func (*StartConnectionlessStylusHandwritingForDelegation5Request) ProtoMessage() {}
 
 func (x *StartConnectionlessStylusHandwritingForDelegation5Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[84]
+	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[74]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3757,7 +3285,7 @@ func (x *StartConnectionlessStylusHandwritingForDelegation5Request) ProtoReflect
 
 // Deprecated: Use StartConnectionlessStylusHandwritingForDelegation5Request.ProtoReflect.Descriptor instead.
 func (*StartConnectionlessStylusHandwritingForDelegation5Request) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethod_inputmethod_proto_rawDescGZIP(), []int{84}
+	return file_proto_inputmethod_inputmethod_proto_rawDescGZIP(), []int{74}
 }
 
 func (x *StartConnectionlessStylusHandwritingForDelegation5Request) GetArg0() int64 {
@@ -3803,7 +3331,7 @@ type StartConnectionlessStylusHandwritingForDelegation5Response struct {
 
 func (x *StartConnectionlessStylusHandwritingForDelegation5Response) Reset() {
 	*x = StartConnectionlessStylusHandwritingForDelegation5Response{}
-	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[85]
+	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[75]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3815,7 +3343,7 @@ func (x *StartConnectionlessStylusHandwritingForDelegation5Response) String() st
 func (*StartConnectionlessStylusHandwritingForDelegation5Response) ProtoMessage() {}
 
 func (x *StartConnectionlessStylusHandwritingForDelegation5Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[85]
+	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[75]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3828,7 +3356,7 @@ func (x *StartConnectionlessStylusHandwritingForDelegation5Response) ProtoReflec
 
 // Deprecated: Use StartConnectionlessStylusHandwritingForDelegation5Response.ProtoReflect.Descriptor instead.
 func (*StartConnectionlessStylusHandwritingForDelegation5Response) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethod_inputmethod_proto_rawDescGZIP(), []int{85}
+	return file_proto_inputmethod_inputmethod_proto_rawDescGZIP(), []int{75}
 }
 
 type StartConnectionlessStylusHandwritingForDelegation4_1Request struct {
@@ -3843,7 +3371,7 @@ type StartConnectionlessStylusHandwritingForDelegation4_1Request struct {
 
 func (x *StartConnectionlessStylusHandwritingForDelegation4_1Request) Reset() {
 	*x = StartConnectionlessStylusHandwritingForDelegation4_1Request{}
-	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[86]
+	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[76]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3855,7 +3383,7 @@ func (x *StartConnectionlessStylusHandwritingForDelegation4_1Request) String() s
 func (*StartConnectionlessStylusHandwritingForDelegation4_1Request) ProtoMessage() {}
 
 func (x *StartConnectionlessStylusHandwritingForDelegation4_1Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[86]
+	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[76]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3868,7 +3396,7 @@ func (x *StartConnectionlessStylusHandwritingForDelegation4_1Request) ProtoRefle
 
 // Deprecated: Use StartConnectionlessStylusHandwritingForDelegation4_1Request.ProtoReflect.Descriptor instead.
 func (*StartConnectionlessStylusHandwritingForDelegation4_1Request) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethod_inputmethod_proto_rawDescGZIP(), []int{86}
+	return file_proto_inputmethod_inputmethod_proto_rawDescGZIP(), []int{76}
 }
 
 func (x *StartConnectionlessStylusHandwritingForDelegation4_1Request) GetArg0() int64 {
@@ -3907,7 +3435,7 @@ type StartConnectionlessStylusHandwritingForDelegation4_1Response struct {
 
 func (x *StartConnectionlessStylusHandwritingForDelegation4_1Response) Reset() {
 	*x = StartConnectionlessStylusHandwritingForDelegation4_1Response{}
-	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[87]
+	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[77]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3919,7 +3447,7 @@ func (x *StartConnectionlessStylusHandwritingForDelegation4_1Response) String() 
 func (*StartConnectionlessStylusHandwritingForDelegation4_1Response) ProtoMessage() {}
 
 func (x *StartConnectionlessStylusHandwritingForDelegation4_1Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[87]
+	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[77]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3932,7 +3460,7 @@ func (x *StartConnectionlessStylusHandwritingForDelegation4_1Response) ProtoRefl
 
 // Deprecated: Use StartConnectionlessStylusHandwritingForDelegation4_1Response.ProtoReflect.Descriptor instead.
 func (*StartConnectionlessStylusHandwritingForDelegation4_1Response) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethod_inputmethod_proto_rawDescGZIP(), []int{87}
+	return file_proto_inputmethod_inputmethod_proto_rawDescGZIP(), []int{77}
 }
 
 type StartStylusHandwritingRequest struct {
@@ -3944,7 +3472,7 @@ type StartStylusHandwritingRequest struct {
 
 func (x *StartStylusHandwritingRequest) Reset() {
 	*x = StartStylusHandwritingRequest{}
-	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[88]
+	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[78]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3956,7 +3484,7 @@ func (x *StartStylusHandwritingRequest) String() string {
 func (*StartStylusHandwritingRequest) ProtoMessage() {}
 
 func (x *StartStylusHandwritingRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[88]
+	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[78]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3969,7 +3497,7 @@ func (x *StartStylusHandwritingRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use StartStylusHandwritingRequest.ProtoReflect.Descriptor instead.
 func (*StartStylusHandwritingRequest) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethod_inputmethod_proto_rawDescGZIP(), []int{88}
+	return file_proto_inputmethod_inputmethod_proto_rawDescGZIP(), []int{78}
 }
 
 func (x *StartStylusHandwritingRequest) GetArg0() int64 {
@@ -3987,7 +3515,7 @@ type StartStylusHandwritingResponse struct {
 
 func (x *StartStylusHandwritingResponse) Reset() {
 	*x = StartStylusHandwritingResponse{}
-	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[89]
+	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[79]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3999,7 +3527,7 @@ func (x *StartStylusHandwritingResponse) String() string {
 func (*StartStylusHandwritingResponse) ProtoMessage() {}
 
 func (x *StartStylusHandwritingResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[89]
+	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[79]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4012,7 +3540,7 @@ func (x *StartStylusHandwritingResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use StartStylusHandwritingResponse.ProtoReflect.Descriptor instead.
 func (*StartStylusHandwritingResponse) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethod_inputmethod_proto_rawDescGZIP(), []int{89}
+	return file_proto_inputmethod_inputmethod_proto_rawDescGZIP(), []int{79}
 }
 
 type SwitchToLastInputMethodRequest struct {
@@ -4024,7 +3552,7 @@ type SwitchToLastInputMethodRequest struct {
 
 func (x *SwitchToLastInputMethodRequest) Reset() {
 	*x = SwitchToLastInputMethodRequest{}
-	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[90]
+	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[80]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4036,7 +3564,7 @@ func (x *SwitchToLastInputMethodRequest) String() string {
 func (*SwitchToLastInputMethodRequest) ProtoMessage() {}
 
 func (x *SwitchToLastInputMethodRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[90]
+	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[80]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4049,7 +3577,7 @@ func (x *SwitchToLastInputMethodRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SwitchToLastInputMethodRequest.ProtoReflect.Descriptor instead.
 func (*SwitchToLastInputMethodRequest) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethod_inputmethod_proto_rawDescGZIP(), []int{90}
+	return file_proto_inputmethod_inputmethod_proto_rawDescGZIP(), []int{80}
 }
 
 func (x *SwitchToLastInputMethodRequest) GetArg0() int64 {
@@ -4068,7 +3596,7 @@ type SwitchToLastInputMethodResponse struct {
 
 func (x *SwitchToLastInputMethodResponse) Reset() {
 	*x = SwitchToLastInputMethodResponse{}
-	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[91]
+	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[81]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4080,7 +3608,7 @@ func (x *SwitchToLastInputMethodResponse) String() string {
 func (*SwitchToLastInputMethodResponse) ProtoMessage() {}
 
 func (x *SwitchToLastInputMethodResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[91]
+	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[81]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4093,7 +3621,7 @@ func (x *SwitchToLastInputMethodResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SwitchToLastInputMethodResponse.ProtoReflect.Descriptor instead.
 func (*SwitchToLastInputMethodResponse) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethod_inputmethod_proto_rawDescGZIP(), []int{91}
+	return file_proto_inputmethod_inputmethod_proto_rawDescGZIP(), []int{81}
 }
 
 func (x *SwitchToLastInputMethodResponse) GetResult() bool {
@@ -4113,7 +3641,7 @@ type SwitchToNextInputMethodRequest struct {
 
 func (x *SwitchToNextInputMethodRequest) Reset() {
 	*x = SwitchToNextInputMethodRequest{}
-	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[92]
+	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[82]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4125,7 +3653,7 @@ func (x *SwitchToNextInputMethodRequest) String() string {
 func (*SwitchToNextInputMethodRequest) ProtoMessage() {}
 
 func (x *SwitchToNextInputMethodRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[92]
+	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[82]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4138,7 +3666,7 @@ func (x *SwitchToNextInputMethodRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SwitchToNextInputMethodRequest.ProtoReflect.Descriptor instead.
 func (*SwitchToNextInputMethodRequest) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethod_inputmethod_proto_rawDescGZIP(), []int{92}
+	return file_proto_inputmethod_inputmethod_proto_rawDescGZIP(), []int{82}
 }
 
 func (x *SwitchToNextInputMethodRequest) GetArg0() int64 {
@@ -4164,7 +3692,7 @@ type SwitchToNextInputMethodResponse struct {
 
 func (x *SwitchToNextInputMethodResponse) Reset() {
 	*x = SwitchToNextInputMethodResponse{}
-	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[93]
+	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[83]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4176,7 +3704,7 @@ func (x *SwitchToNextInputMethodResponse) String() string {
 func (*SwitchToNextInputMethodResponse) ProtoMessage() {}
 
 func (x *SwitchToNextInputMethodResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[93]
+	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[83]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4189,7 +3717,7 @@ func (x *SwitchToNextInputMethodResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SwitchToNextInputMethodResponse.ProtoReflect.Descriptor instead.
 func (*SwitchToNextInputMethodResponse) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethod_inputmethod_proto_rawDescGZIP(), []int{93}
+	return file_proto_inputmethod_inputmethod_proto_rawDescGZIP(), []int{83}
 }
 
 func (x *SwitchToNextInputMethodResponse) GetResult() bool {
@@ -4209,7 +3737,7 @@ type ToggleSoftInputRequest struct {
 
 func (x *ToggleSoftInputRequest) Reset() {
 	*x = ToggleSoftInputRequest{}
-	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[94]
+	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[84]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4221,7 +3749,7 @@ func (x *ToggleSoftInputRequest) String() string {
 func (*ToggleSoftInputRequest) ProtoMessage() {}
 
 func (x *ToggleSoftInputRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[94]
+	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[84]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4234,7 +3762,7 @@ func (x *ToggleSoftInputRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ToggleSoftInputRequest.ProtoReflect.Descriptor instead.
 func (*ToggleSoftInputRequest) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethod_inputmethod_proto_rawDescGZIP(), []int{94}
+	return file_proto_inputmethod_inputmethod_proto_rawDescGZIP(), []int{84}
 }
 
 func (x *ToggleSoftInputRequest) GetArg0() int32 {
@@ -4259,7 +3787,7 @@ type ToggleSoftInputResponse struct {
 
 func (x *ToggleSoftInputResponse) Reset() {
 	*x = ToggleSoftInputResponse{}
-	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[95]
+	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[85]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4271,7 +3799,7 @@ func (x *ToggleSoftInputResponse) String() string {
 func (*ToggleSoftInputResponse) ProtoMessage() {}
 
 func (x *ToggleSoftInputResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[95]
+	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[85]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4284,7 +3812,7 @@ func (x *ToggleSoftInputResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ToggleSoftInputResponse.ProtoReflect.Descriptor instead.
 func (*ToggleSoftInputResponse) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethod_inputmethod_proto_rawDescGZIP(), []int{95}
+	return file_proto_inputmethod_inputmethod_proto_rawDescGZIP(), []int{85}
 }
 
 type ToggleSoftInputFromWindowRequest struct {
@@ -4298,7 +3826,7 @@ type ToggleSoftInputFromWindowRequest struct {
 
 func (x *ToggleSoftInputFromWindowRequest) Reset() {
 	*x = ToggleSoftInputFromWindowRequest{}
-	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[96]
+	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[86]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4310,7 +3838,7 @@ func (x *ToggleSoftInputFromWindowRequest) String() string {
 func (*ToggleSoftInputFromWindowRequest) ProtoMessage() {}
 
 func (x *ToggleSoftInputFromWindowRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[96]
+	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[86]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4323,7 +3851,7 @@ func (x *ToggleSoftInputFromWindowRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ToggleSoftInputFromWindowRequest.ProtoReflect.Descriptor instead.
 func (*ToggleSoftInputFromWindowRequest) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethod_inputmethod_proto_rawDescGZIP(), []int{96}
+	return file_proto_inputmethod_inputmethod_proto_rawDescGZIP(), []int{86}
 }
 
 func (x *ToggleSoftInputFromWindowRequest) GetArg0() int64 {
@@ -4355,7 +3883,7 @@ type ToggleSoftInputFromWindowResponse struct {
 
 func (x *ToggleSoftInputFromWindowResponse) Reset() {
 	*x = ToggleSoftInputFromWindowResponse{}
-	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[97]
+	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[87]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4367,7 +3895,7 @@ func (x *ToggleSoftInputFromWindowResponse) String() string {
 func (*ToggleSoftInputFromWindowResponse) ProtoMessage() {}
 
 func (x *ToggleSoftInputFromWindowResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[97]
+	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[87]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4380,7 +3908,7 @@ func (x *ToggleSoftInputFromWindowResponse) ProtoReflect() protoreflect.Message 
 
 // Deprecated: Use ToggleSoftInputFromWindowResponse.ProtoReflect.Descriptor instead.
 func (*ToggleSoftInputFromWindowResponse) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethod_inputmethod_proto_rawDescGZIP(), []int{97}
+	return file_proto_inputmethod_inputmethod_proto_rawDescGZIP(), []int{87}
 }
 
 type UpdateCursorRequest struct {
@@ -4396,7 +3924,7 @@ type UpdateCursorRequest struct {
 
 func (x *UpdateCursorRequest) Reset() {
 	*x = UpdateCursorRequest{}
-	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[98]
+	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[88]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4408,7 +3936,7 @@ func (x *UpdateCursorRequest) String() string {
 func (*UpdateCursorRequest) ProtoMessage() {}
 
 func (x *UpdateCursorRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[98]
+	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[88]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4421,7 +3949,7 @@ func (x *UpdateCursorRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use UpdateCursorRequest.ProtoReflect.Descriptor instead.
 func (*UpdateCursorRequest) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethod_inputmethod_proto_rawDescGZIP(), []int{98}
+	return file_proto_inputmethod_inputmethod_proto_rawDescGZIP(), []int{88}
 }
 
 func (x *UpdateCursorRequest) GetArg0() int64 {
@@ -4467,7 +3995,7 @@ type UpdateCursorResponse struct {
 
 func (x *UpdateCursorResponse) Reset() {
 	*x = UpdateCursorResponse{}
-	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[99]
+	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[89]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4479,7 +4007,7 @@ func (x *UpdateCursorResponse) String() string {
 func (*UpdateCursorResponse) ProtoMessage() {}
 
 func (x *UpdateCursorResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[99]
+	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[89]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4492,7 +4020,7 @@ func (x *UpdateCursorResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use UpdateCursorResponse.ProtoReflect.Descriptor instead.
 func (*UpdateCursorResponse) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethod_inputmethod_proto_rawDescGZIP(), []int{99}
+	return file_proto_inputmethod_inputmethod_proto_rawDescGZIP(), []int{89}
 }
 
 type UpdateCursorAnchorInfoRequest struct {
@@ -4505,7 +4033,7 @@ type UpdateCursorAnchorInfoRequest struct {
 
 func (x *UpdateCursorAnchorInfoRequest) Reset() {
 	*x = UpdateCursorAnchorInfoRequest{}
-	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[100]
+	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[90]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4517,7 +4045,7 @@ func (x *UpdateCursorAnchorInfoRequest) String() string {
 func (*UpdateCursorAnchorInfoRequest) ProtoMessage() {}
 
 func (x *UpdateCursorAnchorInfoRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[100]
+	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[90]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4530,7 +4058,7 @@ func (x *UpdateCursorAnchorInfoRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use UpdateCursorAnchorInfoRequest.ProtoReflect.Descriptor instead.
 func (*UpdateCursorAnchorInfoRequest) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethod_inputmethod_proto_rawDescGZIP(), []int{100}
+	return file_proto_inputmethod_inputmethod_proto_rawDescGZIP(), []int{90}
 }
 
 func (x *UpdateCursorAnchorInfoRequest) GetArg0() int64 {
@@ -4555,7 +4083,7 @@ type UpdateCursorAnchorInfoResponse struct {
 
 func (x *UpdateCursorAnchorInfoResponse) Reset() {
 	*x = UpdateCursorAnchorInfoResponse{}
-	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[101]
+	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[91]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4567,7 +4095,7 @@ func (x *UpdateCursorAnchorInfoResponse) String() string {
 func (*UpdateCursorAnchorInfoResponse) ProtoMessage() {}
 
 func (x *UpdateCursorAnchorInfoResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[101]
+	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[91]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4580,7 +4108,7 @@ func (x *UpdateCursorAnchorInfoResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use UpdateCursorAnchorInfoResponse.ProtoReflect.Descriptor instead.
 func (*UpdateCursorAnchorInfoResponse) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethod_inputmethod_proto_rawDescGZIP(), []int{101}
+	return file_proto_inputmethod_inputmethod_proto_rawDescGZIP(), []int{91}
 }
 
 type UpdateExtractedTextRequest struct {
@@ -4594,7 +4122,7 @@ type UpdateExtractedTextRequest struct {
 
 func (x *UpdateExtractedTextRequest) Reset() {
 	*x = UpdateExtractedTextRequest{}
-	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[102]
+	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[92]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4606,7 +4134,7 @@ func (x *UpdateExtractedTextRequest) String() string {
 func (*UpdateExtractedTextRequest) ProtoMessage() {}
 
 func (x *UpdateExtractedTextRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[102]
+	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[92]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4619,7 +4147,7 @@ func (x *UpdateExtractedTextRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use UpdateExtractedTextRequest.ProtoReflect.Descriptor instead.
 func (*UpdateExtractedTextRequest) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethod_inputmethod_proto_rawDescGZIP(), []int{102}
+	return file_proto_inputmethod_inputmethod_proto_rawDescGZIP(), []int{92}
 }
 
 func (x *UpdateExtractedTextRequest) GetArg0() int64 {
@@ -4651,7 +4179,7 @@ type UpdateExtractedTextResponse struct {
 
 func (x *UpdateExtractedTextResponse) Reset() {
 	*x = UpdateExtractedTextResponse{}
-	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[103]
+	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[93]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4663,7 +4191,7 @@ func (x *UpdateExtractedTextResponse) String() string {
 func (*UpdateExtractedTextResponse) ProtoMessage() {}
 
 func (x *UpdateExtractedTextResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[103]
+	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[93]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4676,7 +4204,7 @@ func (x *UpdateExtractedTextResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use UpdateExtractedTextResponse.ProtoReflect.Descriptor instead.
 func (*UpdateExtractedTextResponse) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethod_inputmethod_proto_rawDescGZIP(), []int{103}
+	return file_proto_inputmethod_inputmethod_proto_rawDescGZIP(), []int{93}
 }
 
 type UpdateSelectionRequest struct {
@@ -4692,7 +4220,7 @@ type UpdateSelectionRequest struct {
 
 func (x *UpdateSelectionRequest) Reset() {
 	*x = UpdateSelectionRequest{}
-	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[104]
+	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[94]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4704,7 +4232,7 @@ func (x *UpdateSelectionRequest) String() string {
 func (*UpdateSelectionRequest) ProtoMessage() {}
 
 func (x *UpdateSelectionRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[104]
+	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[94]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4717,7 +4245,7 @@ func (x *UpdateSelectionRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use UpdateSelectionRequest.ProtoReflect.Descriptor instead.
 func (*UpdateSelectionRequest) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethod_inputmethod_proto_rawDescGZIP(), []int{104}
+	return file_proto_inputmethod_inputmethod_proto_rawDescGZIP(), []int{94}
 }
 
 func (x *UpdateSelectionRequest) GetArg0() int64 {
@@ -4763,7 +4291,7 @@ type UpdateSelectionResponse struct {
 
 func (x *UpdateSelectionResponse) Reset() {
 	*x = UpdateSelectionResponse{}
-	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[105]
+	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[95]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4775,7 +4303,7 @@ func (x *UpdateSelectionResponse) String() string {
 func (*UpdateSelectionResponse) ProtoMessage() {}
 
 func (x *UpdateSelectionResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[105]
+	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[95]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4788,7 +4316,7 @@ func (x *UpdateSelectionResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use UpdateSelectionResponse.ProtoReflect.Descriptor instead.
 func (*UpdateSelectionResponse) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethod_inputmethod_proto_rawDescGZIP(), []int{105}
+	return file_proto_inputmethod_inputmethod_proto_rawDescGZIP(), []int{95}
 }
 
 type ViewClickedRequest struct {
@@ -4800,7 +4328,7 @@ type ViewClickedRequest struct {
 
 func (x *ViewClickedRequest) Reset() {
 	*x = ViewClickedRequest{}
-	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[106]
+	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[96]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4812,7 +4340,7 @@ func (x *ViewClickedRequest) String() string {
 func (*ViewClickedRequest) ProtoMessage() {}
 
 func (x *ViewClickedRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[106]
+	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[96]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4825,7 +4353,7 @@ func (x *ViewClickedRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ViewClickedRequest.ProtoReflect.Descriptor instead.
 func (*ViewClickedRequest) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethod_inputmethod_proto_rawDescGZIP(), []int{106}
+	return file_proto_inputmethod_inputmethod_proto_rawDescGZIP(), []int{96}
 }
 
 func (x *ViewClickedRequest) GetArg0() int64 {
@@ -4843,7 +4371,7 @@ type ViewClickedResponse struct {
 
 func (x *ViewClickedResponse) Reset() {
 	*x = ViewClickedResponse{}
-	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[107]
+	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[97]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4855,7 +4383,7 @@ func (x *ViewClickedResponse) String() string {
 func (*ViewClickedResponse) ProtoMessage() {}
 
 func (x *ViewClickedResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[107]
+	mi := &file_proto_inputmethod_inputmethod_proto_msgTypes[97]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4868,7 +4396,7 @@ func (x *ViewClickedResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ViewClickedResponse.ProtoReflect.Descriptor instead.
 func (*ViewClickedResponse) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethod_inputmethod_proto_rawDescGZIP(), []int{107}
+	return file_proto_inputmethod_inputmethod_proto_rawDescGZIP(), []int{97}
 }
 
 var File_proto_inputmethod_inputmethod_proto protoreflect.FileDescriptor
@@ -4884,20 +4412,7 @@ const file_proto_inputmethod_inputmethod_proto_rawDesc = "" +
 	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
 	"\x04arg1\x18\x02 \x01(\tR\x04arg1\"F\n" +
 	",AcceptStylusHandwritingDelegation2_1Response\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\bR\x06result\"\x91\x01\n" +
-	"+AcceptStylusHandwritingDelegation5_2Request\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
-	"\x04arg1\x18\x02 \x01(\tR\x04arg1\x12\x12\n" +
-	"\x04arg2\x18\x03 \x01(\x05R\x04arg2\x12\x12\n" +
-	"\x04arg3\x18\x04 \x01(\x03R\x04arg3\x12\x12\n" +
-	"\x04arg4\x18\x05 \x01(\x03R\x04arg4\".\n" +
-	",AcceptStylusHandwritingDelegation5_2Response\"}\n" +
-	"+AcceptStylusHandwritingDelegation4_3Request\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
-	"\x04arg1\x18\x02 \x01(\tR\x04arg1\x12\x12\n" +
-	"\x04arg2\x18\x03 \x01(\x03R\x04arg2\x12\x12\n" +
-	"\x04arg3\x18\x04 \x01(\x03R\x04arg3\".\n" +
-	",AcceptStylusHandwritingDelegation4_3Response\"P\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\"P\n" +
 	"&DispatchKeyEventFromInputMethodRequest\x12\x12\n" +
 	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
 	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\")\n" +
@@ -4911,17 +4426,6 @@ const file_proto_inputmethod_inputmethod_proto_rawDesc = "" +
 	"\x06result\x18\x01 \x01(\x03R\x06result\"%\n" +
 	"#GetCurrentInputMethodSubtypeRequest\">\n" +
 	"$GetCurrentInputMethodSubtypeResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"\"\n" +
-	" GetEnabledInputMethodListRequest\";\n" +
-	"!GetEnabledInputMethodListResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"Q\n" +
-	"'GetEnabledInputMethodSubtypeListRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
-	"\x04arg1\x18\x02 \x01(\bR\x04arg1\"B\n" +
-	"(GetEnabledInputMethodSubtypeListResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"\x1b\n" +
-	"\x19GetInputMethodListRequest\"4\n" +
-	"\x1aGetInputMethodListResponse\x12\x16\n" +
 	"\x06result\x18\x01 \x01(\x03R\x06result\"\"\n" +
 	" GetLastInputMethodSubtypeRequest\";\n" +
 	"!GetLastInputMethodSubtypeResponse\x12\x16\n" +
@@ -5103,19 +4607,14 @@ const file_proto_inputmethod_inputmethod_proto_rawDesc = "" +
 	"\x17UpdateSelectionResponse\"(\n" +
 	"\x12ViewClickedRequest\x12\x12\n" +
 	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"\x15\n" +
-	"\x13ViewClickedResponse2\xe24\n" +
+	"\x13ViewClickedResponse2\xb1/\n" +
 	"\x19InputMethodManagerService\x12\x95\x01\n" +
 	"\"AcceptStylusHandwritingDelegation1\x126.inputmethod.AcceptStylusHandwritingDelegation1Request\x1a7.inputmethod.AcceptStylusHandwritingDelegation1Response\x12\x9b\x01\n" +
-	"$AcceptStylusHandwritingDelegation2_1\x128.inputmethod.AcceptStylusHandwritingDelegation2_1Request\x1a9.inputmethod.AcceptStylusHandwritingDelegation2_1Response\x12\x9b\x01\n" +
-	"$AcceptStylusHandwritingDelegation5_2\x128.inputmethod.AcceptStylusHandwritingDelegation5_2Request\x1a9.inputmethod.AcceptStylusHandwritingDelegation5_2Response\x12\x9b\x01\n" +
-	"$AcceptStylusHandwritingDelegation4_3\x128.inputmethod.AcceptStylusHandwritingDelegation4_3Request\x1a9.inputmethod.AcceptStylusHandwritingDelegation4_3Response\x12\x8c\x01\n" +
+	"$AcceptStylusHandwritingDelegation2_1\x128.inputmethod.AcceptStylusHandwritingDelegation2_1Request\x1a9.inputmethod.AcceptStylusHandwritingDelegation2_1Response\x12\x8c\x01\n" +
 	"\x1fDispatchKeyEventFromInputMethod\x123.inputmethod.DispatchKeyEventFromInputMethodRequest\x1a4.inputmethod.DispatchKeyEventFromInputMethodResponse\x12e\n" +
 	"\x12DisplayCompletions\x12&.inputmethod.DisplayCompletionsRequest\x1a'.inputmethod.DisplayCompletionsResponse\x12z\n" +
 	"\x19GetCurrentInputMethodInfo\x12-.inputmethod.GetCurrentInputMethodInfoRequest\x1a..inputmethod.GetCurrentInputMethodInfoResponse\x12\x83\x01\n" +
 	"\x1cGetCurrentInputMethodSubtype\x120.inputmethod.GetCurrentInputMethodSubtypeRequest\x1a1.inputmethod.GetCurrentInputMethodSubtypeResponse\x12z\n" +
-	"\x19GetEnabledInputMethodList\x12-.inputmethod.GetEnabledInputMethodListRequest\x1a..inputmethod.GetEnabledInputMethodListResponse\x12\x8f\x01\n" +
-	" GetEnabledInputMethodSubtypeList\x124.inputmethod.GetEnabledInputMethodSubtypeListRequest\x1a5.inputmethod.GetEnabledInputMethodSubtypeListResponse\x12e\n" +
-	"\x12GetInputMethodList\x12&.inputmethod.GetInputMethodListRequest\x1a'.inputmethod.GetInputMethodListResponse\x12z\n" +
 	"\x19GetLastInputMethodSubtype\x12-.inputmethod.GetLastInputMethodSubtypeRequest\x1a..inputmethod.GetLastInputMethodSubtypeResponse\x12\x83\x01\n" +
 	"\x1cHideSoftInputFromInputMethod\x120.inputmethod.HideSoftInputFromInputMethodRequest\x1a1.inputmethod.HideSoftInputFromInputMethodResponse\x12w\n" +
 	"\x18HideSoftInputFromWindow2\x12,.inputmethod.HideSoftInputFromWindow2Request\x1a-.inputmethod.HideSoftInputFromWindow2Response\x12}\n" +
@@ -5172,231 +4671,211 @@ func file_proto_inputmethod_inputmethod_proto_rawDescGZIP() []byte {
 	return file_proto_inputmethod_inputmethod_proto_rawDescData
 }
 
-var file_proto_inputmethod_inputmethod_proto_msgTypes = make([]protoimpl.MessageInfo, 108)
+var file_proto_inputmethod_inputmethod_proto_msgTypes = make([]protoimpl.MessageInfo, 98)
 var file_proto_inputmethod_inputmethod_proto_goTypes = []any{
 	(*AcceptStylusHandwritingDelegation1Request)(nil),                    // 0: inputmethod.AcceptStylusHandwritingDelegation1Request
 	(*AcceptStylusHandwritingDelegation1Response)(nil),                   // 1: inputmethod.AcceptStylusHandwritingDelegation1Response
 	(*AcceptStylusHandwritingDelegation2_1Request)(nil),                  // 2: inputmethod.AcceptStylusHandwritingDelegation2_1Request
 	(*AcceptStylusHandwritingDelegation2_1Response)(nil),                 // 3: inputmethod.AcceptStylusHandwritingDelegation2_1Response
-	(*AcceptStylusHandwritingDelegation5_2Request)(nil),                  // 4: inputmethod.AcceptStylusHandwritingDelegation5_2Request
-	(*AcceptStylusHandwritingDelegation5_2Response)(nil),                 // 5: inputmethod.AcceptStylusHandwritingDelegation5_2Response
-	(*AcceptStylusHandwritingDelegation4_3Request)(nil),                  // 6: inputmethod.AcceptStylusHandwritingDelegation4_3Request
-	(*AcceptStylusHandwritingDelegation4_3Response)(nil),                 // 7: inputmethod.AcceptStylusHandwritingDelegation4_3Response
-	(*DispatchKeyEventFromInputMethodRequest)(nil),                       // 8: inputmethod.DispatchKeyEventFromInputMethodRequest
-	(*DispatchKeyEventFromInputMethodResponse)(nil),                      // 9: inputmethod.DispatchKeyEventFromInputMethodResponse
-	(*DisplayCompletionsRequest)(nil),                                    // 10: inputmethod.DisplayCompletionsRequest
-	(*DisplayCompletionsResponse)(nil),                                   // 11: inputmethod.DisplayCompletionsResponse
-	(*GetCurrentInputMethodInfoRequest)(nil),                             // 12: inputmethod.GetCurrentInputMethodInfoRequest
-	(*GetCurrentInputMethodInfoResponse)(nil),                            // 13: inputmethod.GetCurrentInputMethodInfoResponse
-	(*GetCurrentInputMethodSubtypeRequest)(nil),                          // 14: inputmethod.GetCurrentInputMethodSubtypeRequest
-	(*GetCurrentInputMethodSubtypeResponse)(nil),                         // 15: inputmethod.GetCurrentInputMethodSubtypeResponse
-	(*GetEnabledInputMethodListRequest)(nil),                             // 16: inputmethod.GetEnabledInputMethodListRequest
-	(*GetEnabledInputMethodListResponse)(nil),                            // 17: inputmethod.GetEnabledInputMethodListResponse
-	(*GetEnabledInputMethodSubtypeListRequest)(nil),                      // 18: inputmethod.GetEnabledInputMethodSubtypeListRequest
-	(*GetEnabledInputMethodSubtypeListResponse)(nil),                     // 19: inputmethod.GetEnabledInputMethodSubtypeListResponse
-	(*GetInputMethodListRequest)(nil),                                    // 20: inputmethod.GetInputMethodListRequest
-	(*GetInputMethodListResponse)(nil),                                   // 21: inputmethod.GetInputMethodListResponse
-	(*GetLastInputMethodSubtypeRequest)(nil),                             // 22: inputmethod.GetLastInputMethodSubtypeRequest
-	(*GetLastInputMethodSubtypeResponse)(nil),                            // 23: inputmethod.GetLastInputMethodSubtypeResponse
-	(*HideSoftInputFromInputMethodRequest)(nil),                          // 24: inputmethod.HideSoftInputFromInputMethodRequest
-	(*HideSoftInputFromInputMethodResponse)(nil),                         // 25: inputmethod.HideSoftInputFromInputMethodResponse
-	(*HideSoftInputFromWindow2Request)(nil),                              // 26: inputmethod.HideSoftInputFromWindow2Request
-	(*HideSoftInputFromWindow2Response)(nil),                             // 27: inputmethod.HideSoftInputFromWindow2Response
-	(*HideSoftInputFromWindow3_1Request)(nil),                            // 28: inputmethod.HideSoftInputFromWindow3_1Request
-	(*HideSoftInputFromWindow3_1Response)(nil),                           // 29: inputmethod.HideSoftInputFromWindow3_1Response
-	(*HideStatusIconRequest)(nil),                                        // 30: inputmethod.HideStatusIconRequest
-	(*HideStatusIconResponse)(nil),                                       // 31: inputmethod.HideStatusIconResponse
-	(*InvalidateInputRequest)(nil),                                       // 32: inputmethod.InvalidateInputRequest
-	(*InvalidateInputResponse)(nil),                                      // 33: inputmethod.InvalidateInputResponse
-	(*IsAcceptingTextRequest)(nil),                                       // 34: inputmethod.IsAcceptingTextRequest
-	(*IsAcceptingTextResponse)(nil),                                      // 35: inputmethod.IsAcceptingTextResponse
-	(*IsActive0Request)(nil),                                             // 36: inputmethod.IsActive0Request
-	(*IsActive0Response)(nil),                                            // 37: inputmethod.IsActive0Response
-	(*IsActive1_1Request)(nil),                                           // 38: inputmethod.IsActive1_1Request
-	(*IsActive1_1Response)(nil),                                          // 39: inputmethod.IsActive1_1Response
-	(*IsConnectionlessStylusHandwritingAvailableRequest)(nil),            // 40: inputmethod.IsConnectionlessStylusHandwritingAvailableRequest
-	(*IsConnectionlessStylusHandwritingAvailableResponse)(nil),           // 41: inputmethod.IsConnectionlessStylusHandwritingAvailableResponse
-	(*IsFullscreenModeRequest)(nil),                                      // 42: inputmethod.IsFullscreenModeRequest
-	(*IsFullscreenModeResponse)(nil),                                     // 43: inputmethod.IsFullscreenModeResponse
-	(*IsInputMethodSuppressingSpellCheckerRequest)(nil),                  // 44: inputmethod.IsInputMethodSuppressingSpellCheckerRequest
-	(*IsInputMethodSuppressingSpellCheckerResponse)(nil),                 // 45: inputmethod.IsInputMethodSuppressingSpellCheckerResponse
-	(*IsStylusHandwritingAvailableRequest)(nil),                          // 46: inputmethod.IsStylusHandwritingAvailableRequest
-	(*IsStylusHandwritingAvailableResponse)(nil),                         // 47: inputmethod.IsStylusHandwritingAvailableResponse
-	(*IsWatchingCursorRequest)(nil),                                      // 48: inputmethod.IsWatchingCursorRequest
-	(*IsWatchingCursorResponse)(nil),                                     // 49: inputmethod.IsWatchingCursorResponse
-	(*PrepareStylusHandwritingDelegation1Request)(nil),                   // 50: inputmethod.PrepareStylusHandwritingDelegation1Request
-	(*PrepareStylusHandwritingDelegation1Response)(nil),                  // 51: inputmethod.PrepareStylusHandwritingDelegation1Response
-	(*PrepareStylusHandwritingDelegation2_1Request)(nil),                 // 52: inputmethod.PrepareStylusHandwritingDelegation2_1Request
-	(*PrepareStylusHandwritingDelegation2_1Response)(nil),                // 53: inputmethod.PrepareStylusHandwritingDelegation2_1Response
-	(*RestartInputRequest)(nil),                                          // 54: inputmethod.RestartInputRequest
-	(*RestartInputResponse)(nil),                                         // 55: inputmethod.RestartInputResponse
-	(*SendAppPrivateCommandRequest)(nil),                                 // 56: inputmethod.SendAppPrivateCommandRequest
-	(*SendAppPrivateCommandResponse)(nil),                                // 57: inputmethod.SendAppPrivateCommandResponse
-	(*SetAdditionalInputMethodSubtypesRequest)(nil),                      // 58: inputmethod.SetAdditionalInputMethodSubtypesRequest
-	(*SetAdditionalInputMethodSubtypesResponse)(nil),                     // 59: inputmethod.SetAdditionalInputMethodSubtypesResponse
-	(*SetCurrentInputMethodSubtypeRequest)(nil),                          // 60: inputmethod.SetCurrentInputMethodSubtypeRequest
-	(*SetCurrentInputMethodSubtypeResponse)(nil),                         // 61: inputmethod.SetCurrentInputMethodSubtypeResponse
-	(*SetExplicitlyEnabledInputMethodSubtypesRequest)(nil),               // 62: inputmethod.SetExplicitlyEnabledInputMethodSubtypesRequest
-	(*SetExplicitlyEnabledInputMethodSubtypesResponse)(nil),              // 63: inputmethod.SetExplicitlyEnabledInputMethodSubtypesResponse
-	(*SetInputMethodRequest)(nil),                                        // 64: inputmethod.SetInputMethodRequest
-	(*SetInputMethodResponse)(nil),                                       // 65: inputmethod.SetInputMethodResponse
-	(*SetInputMethodAndSubtypeRequest)(nil),                              // 66: inputmethod.SetInputMethodAndSubtypeRequest
-	(*SetInputMethodAndSubtypeResponse)(nil),                             // 67: inputmethod.SetInputMethodAndSubtypeResponse
-	(*ShouldOfferSwitchingToNextInputMethodRequest)(nil),                 // 68: inputmethod.ShouldOfferSwitchingToNextInputMethodRequest
-	(*ShouldOfferSwitchingToNextInputMethodResponse)(nil),                // 69: inputmethod.ShouldOfferSwitchingToNextInputMethodResponse
-	(*ShowInputMethodAndSubtypeEnablerRequest)(nil),                      // 70: inputmethod.ShowInputMethodAndSubtypeEnablerRequest
-	(*ShowInputMethodAndSubtypeEnablerResponse)(nil),                     // 71: inputmethod.ShowInputMethodAndSubtypeEnablerResponse
-	(*ShowInputMethodPickerRequest)(nil),                                 // 72: inputmethod.ShowInputMethodPickerRequest
-	(*ShowInputMethodPickerResponse)(nil),                                // 73: inputmethod.ShowInputMethodPickerResponse
-	(*ShowSoftInput2Request)(nil),                                        // 74: inputmethod.ShowSoftInput2Request
-	(*ShowSoftInput2Response)(nil),                                       // 75: inputmethod.ShowSoftInput2Response
-	(*ShowSoftInput3_1Request)(nil),                                      // 76: inputmethod.ShowSoftInput3_1Request
-	(*ShowSoftInput3_1Response)(nil),                                     // 77: inputmethod.ShowSoftInput3_1Response
-	(*ShowSoftInputFromInputMethodRequest)(nil),                          // 78: inputmethod.ShowSoftInputFromInputMethodRequest
-	(*ShowSoftInputFromInputMethodResponse)(nil),                         // 79: inputmethod.ShowSoftInputFromInputMethodResponse
-	(*ShowStatusIconRequest)(nil),                                        // 80: inputmethod.ShowStatusIconRequest
-	(*ShowStatusIconResponse)(nil),                                       // 81: inputmethod.ShowStatusIconResponse
-	(*StartConnectionlessStylusHandwritingRequest)(nil),                  // 82: inputmethod.StartConnectionlessStylusHandwritingRequest
-	(*StartConnectionlessStylusHandwritingResponse)(nil),                 // 83: inputmethod.StartConnectionlessStylusHandwritingResponse
-	(*StartConnectionlessStylusHandwritingForDelegation5Request)(nil),    // 84: inputmethod.StartConnectionlessStylusHandwritingForDelegation5Request
-	(*StartConnectionlessStylusHandwritingForDelegation5Response)(nil),   // 85: inputmethod.StartConnectionlessStylusHandwritingForDelegation5Response
-	(*StartConnectionlessStylusHandwritingForDelegation4_1Request)(nil),  // 86: inputmethod.StartConnectionlessStylusHandwritingForDelegation4_1Request
-	(*StartConnectionlessStylusHandwritingForDelegation4_1Response)(nil), // 87: inputmethod.StartConnectionlessStylusHandwritingForDelegation4_1Response
-	(*StartStylusHandwritingRequest)(nil),                                // 88: inputmethod.StartStylusHandwritingRequest
-	(*StartStylusHandwritingResponse)(nil),                               // 89: inputmethod.StartStylusHandwritingResponse
-	(*SwitchToLastInputMethodRequest)(nil),                               // 90: inputmethod.SwitchToLastInputMethodRequest
-	(*SwitchToLastInputMethodResponse)(nil),                              // 91: inputmethod.SwitchToLastInputMethodResponse
-	(*SwitchToNextInputMethodRequest)(nil),                               // 92: inputmethod.SwitchToNextInputMethodRequest
-	(*SwitchToNextInputMethodResponse)(nil),                              // 93: inputmethod.SwitchToNextInputMethodResponse
-	(*ToggleSoftInputRequest)(nil),                                       // 94: inputmethod.ToggleSoftInputRequest
-	(*ToggleSoftInputResponse)(nil),                                      // 95: inputmethod.ToggleSoftInputResponse
-	(*ToggleSoftInputFromWindowRequest)(nil),                             // 96: inputmethod.ToggleSoftInputFromWindowRequest
-	(*ToggleSoftInputFromWindowResponse)(nil),                            // 97: inputmethod.ToggleSoftInputFromWindowResponse
-	(*UpdateCursorRequest)(nil),                                          // 98: inputmethod.UpdateCursorRequest
-	(*UpdateCursorResponse)(nil),                                         // 99: inputmethod.UpdateCursorResponse
-	(*UpdateCursorAnchorInfoRequest)(nil),                                // 100: inputmethod.UpdateCursorAnchorInfoRequest
-	(*UpdateCursorAnchorInfoResponse)(nil),                               // 101: inputmethod.UpdateCursorAnchorInfoResponse
-	(*UpdateExtractedTextRequest)(nil),                                   // 102: inputmethod.UpdateExtractedTextRequest
-	(*UpdateExtractedTextResponse)(nil),                                  // 103: inputmethod.UpdateExtractedTextResponse
-	(*UpdateSelectionRequest)(nil),                                       // 104: inputmethod.UpdateSelectionRequest
-	(*UpdateSelectionResponse)(nil),                                      // 105: inputmethod.UpdateSelectionResponse
-	(*ViewClickedRequest)(nil),                                           // 106: inputmethod.ViewClickedRequest
-	(*ViewClickedResponse)(nil),                                          // 107: inputmethod.ViewClickedResponse
+	(*DispatchKeyEventFromInputMethodRequest)(nil),                       // 4: inputmethod.DispatchKeyEventFromInputMethodRequest
+	(*DispatchKeyEventFromInputMethodResponse)(nil),                      // 5: inputmethod.DispatchKeyEventFromInputMethodResponse
+	(*DisplayCompletionsRequest)(nil),                                    // 6: inputmethod.DisplayCompletionsRequest
+	(*DisplayCompletionsResponse)(nil),                                   // 7: inputmethod.DisplayCompletionsResponse
+	(*GetCurrentInputMethodInfoRequest)(nil),                             // 8: inputmethod.GetCurrentInputMethodInfoRequest
+	(*GetCurrentInputMethodInfoResponse)(nil),                            // 9: inputmethod.GetCurrentInputMethodInfoResponse
+	(*GetCurrentInputMethodSubtypeRequest)(nil),                          // 10: inputmethod.GetCurrentInputMethodSubtypeRequest
+	(*GetCurrentInputMethodSubtypeResponse)(nil),                         // 11: inputmethod.GetCurrentInputMethodSubtypeResponse
+	(*GetLastInputMethodSubtypeRequest)(nil),                             // 12: inputmethod.GetLastInputMethodSubtypeRequest
+	(*GetLastInputMethodSubtypeResponse)(nil),                            // 13: inputmethod.GetLastInputMethodSubtypeResponse
+	(*HideSoftInputFromInputMethodRequest)(nil),                          // 14: inputmethod.HideSoftInputFromInputMethodRequest
+	(*HideSoftInputFromInputMethodResponse)(nil),                         // 15: inputmethod.HideSoftInputFromInputMethodResponse
+	(*HideSoftInputFromWindow2Request)(nil),                              // 16: inputmethod.HideSoftInputFromWindow2Request
+	(*HideSoftInputFromWindow2Response)(nil),                             // 17: inputmethod.HideSoftInputFromWindow2Response
+	(*HideSoftInputFromWindow3_1Request)(nil),                            // 18: inputmethod.HideSoftInputFromWindow3_1Request
+	(*HideSoftInputFromWindow3_1Response)(nil),                           // 19: inputmethod.HideSoftInputFromWindow3_1Response
+	(*HideStatusIconRequest)(nil),                                        // 20: inputmethod.HideStatusIconRequest
+	(*HideStatusIconResponse)(nil),                                       // 21: inputmethod.HideStatusIconResponse
+	(*InvalidateInputRequest)(nil),                                       // 22: inputmethod.InvalidateInputRequest
+	(*InvalidateInputResponse)(nil),                                      // 23: inputmethod.InvalidateInputResponse
+	(*IsAcceptingTextRequest)(nil),                                       // 24: inputmethod.IsAcceptingTextRequest
+	(*IsAcceptingTextResponse)(nil),                                      // 25: inputmethod.IsAcceptingTextResponse
+	(*IsActive0Request)(nil),                                             // 26: inputmethod.IsActive0Request
+	(*IsActive0Response)(nil),                                            // 27: inputmethod.IsActive0Response
+	(*IsActive1_1Request)(nil),                                           // 28: inputmethod.IsActive1_1Request
+	(*IsActive1_1Response)(nil),                                          // 29: inputmethod.IsActive1_1Response
+	(*IsConnectionlessStylusHandwritingAvailableRequest)(nil),            // 30: inputmethod.IsConnectionlessStylusHandwritingAvailableRequest
+	(*IsConnectionlessStylusHandwritingAvailableResponse)(nil),           // 31: inputmethod.IsConnectionlessStylusHandwritingAvailableResponse
+	(*IsFullscreenModeRequest)(nil),                                      // 32: inputmethod.IsFullscreenModeRequest
+	(*IsFullscreenModeResponse)(nil),                                     // 33: inputmethod.IsFullscreenModeResponse
+	(*IsInputMethodSuppressingSpellCheckerRequest)(nil),                  // 34: inputmethod.IsInputMethodSuppressingSpellCheckerRequest
+	(*IsInputMethodSuppressingSpellCheckerResponse)(nil),                 // 35: inputmethod.IsInputMethodSuppressingSpellCheckerResponse
+	(*IsStylusHandwritingAvailableRequest)(nil),                          // 36: inputmethod.IsStylusHandwritingAvailableRequest
+	(*IsStylusHandwritingAvailableResponse)(nil),                         // 37: inputmethod.IsStylusHandwritingAvailableResponse
+	(*IsWatchingCursorRequest)(nil),                                      // 38: inputmethod.IsWatchingCursorRequest
+	(*IsWatchingCursorResponse)(nil),                                     // 39: inputmethod.IsWatchingCursorResponse
+	(*PrepareStylusHandwritingDelegation1Request)(nil),                   // 40: inputmethod.PrepareStylusHandwritingDelegation1Request
+	(*PrepareStylusHandwritingDelegation1Response)(nil),                  // 41: inputmethod.PrepareStylusHandwritingDelegation1Response
+	(*PrepareStylusHandwritingDelegation2_1Request)(nil),                 // 42: inputmethod.PrepareStylusHandwritingDelegation2_1Request
+	(*PrepareStylusHandwritingDelegation2_1Response)(nil),                // 43: inputmethod.PrepareStylusHandwritingDelegation2_1Response
+	(*RestartInputRequest)(nil),                                          // 44: inputmethod.RestartInputRequest
+	(*RestartInputResponse)(nil),                                         // 45: inputmethod.RestartInputResponse
+	(*SendAppPrivateCommandRequest)(nil),                                 // 46: inputmethod.SendAppPrivateCommandRequest
+	(*SendAppPrivateCommandResponse)(nil),                                // 47: inputmethod.SendAppPrivateCommandResponse
+	(*SetAdditionalInputMethodSubtypesRequest)(nil),                      // 48: inputmethod.SetAdditionalInputMethodSubtypesRequest
+	(*SetAdditionalInputMethodSubtypesResponse)(nil),                     // 49: inputmethod.SetAdditionalInputMethodSubtypesResponse
+	(*SetCurrentInputMethodSubtypeRequest)(nil),                          // 50: inputmethod.SetCurrentInputMethodSubtypeRequest
+	(*SetCurrentInputMethodSubtypeResponse)(nil),                         // 51: inputmethod.SetCurrentInputMethodSubtypeResponse
+	(*SetExplicitlyEnabledInputMethodSubtypesRequest)(nil),               // 52: inputmethod.SetExplicitlyEnabledInputMethodSubtypesRequest
+	(*SetExplicitlyEnabledInputMethodSubtypesResponse)(nil),              // 53: inputmethod.SetExplicitlyEnabledInputMethodSubtypesResponse
+	(*SetInputMethodRequest)(nil),                                        // 54: inputmethod.SetInputMethodRequest
+	(*SetInputMethodResponse)(nil),                                       // 55: inputmethod.SetInputMethodResponse
+	(*SetInputMethodAndSubtypeRequest)(nil),                              // 56: inputmethod.SetInputMethodAndSubtypeRequest
+	(*SetInputMethodAndSubtypeResponse)(nil),                             // 57: inputmethod.SetInputMethodAndSubtypeResponse
+	(*ShouldOfferSwitchingToNextInputMethodRequest)(nil),                 // 58: inputmethod.ShouldOfferSwitchingToNextInputMethodRequest
+	(*ShouldOfferSwitchingToNextInputMethodResponse)(nil),                // 59: inputmethod.ShouldOfferSwitchingToNextInputMethodResponse
+	(*ShowInputMethodAndSubtypeEnablerRequest)(nil),                      // 60: inputmethod.ShowInputMethodAndSubtypeEnablerRequest
+	(*ShowInputMethodAndSubtypeEnablerResponse)(nil),                     // 61: inputmethod.ShowInputMethodAndSubtypeEnablerResponse
+	(*ShowInputMethodPickerRequest)(nil),                                 // 62: inputmethod.ShowInputMethodPickerRequest
+	(*ShowInputMethodPickerResponse)(nil),                                // 63: inputmethod.ShowInputMethodPickerResponse
+	(*ShowSoftInput2Request)(nil),                                        // 64: inputmethod.ShowSoftInput2Request
+	(*ShowSoftInput2Response)(nil),                                       // 65: inputmethod.ShowSoftInput2Response
+	(*ShowSoftInput3_1Request)(nil),                                      // 66: inputmethod.ShowSoftInput3_1Request
+	(*ShowSoftInput3_1Response)(nil),                                     // 67: inputmethod.ShowSoftInput3_1Response
+	(*ShowSoftInputFromInputMethodRequest)(nil),                          // 68: inputmethod.ShowSoftInputFromInputMethodRequest
+	(*ShowSoftInputFromInputMethodResponse)(nil),                         // 69: inputmethod.ShowSoftInputFromInputMethodResponse
+	(*ShowStatusIconRequest)(nil),                                        // 70: inputmethod.ShowStatusIconRequest
+	(*ShowStatusIconResponse)(nil),                                       // 71: inputmethod.ShowStatusIconResponse
+	(*StartConnectionlessStylusHandwritingRequest)(nil),                  // 72: inputmethod.StartConnectionlessStylusHandwritingRequest
+	(*StartConnectionlessStylusHandwritingResponse)(nil),                 // 73: inputmethod.StartConnectionlessStylusHandwritingResponse
+	(*StartConnectionlessStylusHandwritingForDelegation5Request)(nil),    // 74: inputmethod.StartConnectionlessStylusHandwritingForDelegation5Request
+	(*StartConnectionlessStylusHandwritingForDelegation5Response)(nil),   // 75: inputmethod.StartConnectionlessStylusHandwritingForDelegation5Response
+	(*StartConnectionlessStylusHandwritingForDelegation4_1Request)(nil),  // 76: inputmethod.StartConnectionlessStylusHandwritingForDelegation4_1Request
+	(*StartConnectionlessStylusHandwritingForDelegation4_1Response)(nil), // 77: inputmethod.StartConnectionlessStylusHandwritingForDelegation4_1Response
+	(*StartStylusHandwritingRequest)(nil),                                // 78: inputmethod.StartStylusHandwritingRequest
+	(*StartStylusHandwritingResponse)(nil),                               // 79: inputmethod.StartStylusHandwritingResponse
+	(*SwitchToLastInputMethodRequest)(nil),                               // 80: inputmethod.SwitchToLastInputMethodRequest
+	(*SwitchToLastInputMethodResponse)(nil),                              // 81: inputmethod.SwitchToLastInputMethodResponse
+	(*SwitchToNextInputMethodRequest)(nil),                               // 82: inputmethod.SwitchToNextInputMethodRequest
+	(*SwitchToNextInputMethodResponse)(nil),                              // 83: inputmethod.SwitchToNextInputMethodResponse
+	(*ToggleSoftInputRequest)(nil),                                       // 84: inputmethod.ToggleSoftInputRequest
+	(*ToggleSoftInputResponse)(nil),                                      // 85: inputmethod.ToggleSoftInputResponse
+	(*ToggleSoftInputFromWindowRequest)(nil),                             // 86: inputmethod.ToggleSoftInputFromWindowRequest
+	(*ToggleSoftInputFromWindowResponse)(nil),                            // 87: inputmethod.ToggleSoftInputFromWindowResponse
+	(*UpdateCursorRequest)(nil),                                          // 88: inputmethod.UpdateCursorRequest
+	(*UpdateCursorResponse)(nil),                                         // 89: inputmethod.UpdateCursorResponse
+	(*UpdateCursorAnchorInfoRequest)(nil),                                // 90: inputmethod.UpdateCursorAnchorInfoRequest
+	(*UpdateCursorAnchorInfoResponse)(nil),                               // 91: inputmethod.UpdateCursorAnchorInfoResponse
+	(*UpdateExtractedTextRequest)(nil),                                   // 92: inputmethod.UpdateExtractedTextRequest
+	(*UpdateExtractedTextResponse)(nil),                                  // 93: inputmethod.UpdateExtractedTextResponse
+	(*UpdateSelectionRequest)(nil),                                       // 94: inputmethod.UpdateSelectionRequest
+	(*UpdateSelectionResponse)(nil),                                      // 95: inputmethod.UpdateSelectionResponse
+	(*ViewClickedRequest)(nil),                                           // 96: inputmethod.ViewClickedRequest
+	(*ViewClickedResponse)(nil),                                          // 97: inputmethod.ViewClickedResponse
 }
 var file_proto_inputmethod_inputmethod_proto_depIdxs = []int32{
-	0,   // 0: inputmethod.InputMethodManagerService.AcceptStylusHandwritingDelegation1:input_type -> inputmethod.AcceptStylusHandwritingDelegation1Request
-	2,   // 1: inputmethod.InputMethodManagerService.AcceptStylusHandwritingDelegation2_1:input_type -> inputmethod.AcceptStylusHandwritingDelegation2_1Request
-	4,   // 2: inputmethod.InputMethodManagerService.AcceptStylusHandwritingDelegation5_2:input_type -> inputmethod.AcceptStylusHandwritingDelegation5_2Request
-	6,   // 3: inputmethod.InputMethodManagerService.AcceptStylusHandwritingDelegation4_3:input_type -> inputmethod.AcceptStylusHandwritingDelegation4_3Request
-	8,   // 4: inputmethod.InputMethodManagerService.DispatchKeyEventFromInputMethod:input_type -> inputmethod.DispatchKeyEventFromInputMethodRequest
-	10,  // 5: inputmethod.InputMethodManagerService.DisplayCompletions:input_type -> inputmethod.DisplayCompletionsRequest
-	12,  // 6: inputmethod.InputMethodManagerService.GetCurrentInputMethodInfo:input_type -> inputmethod.GetCurrentInputMethodInfoRequest
-	14,  // 7: inputmethod.InputMethodManagerService.GetCurrentInputMethodSubtype:input_type -> inputmethod.GetCurrentInputMethodSubtypeRequest
-	16,  // 8: inputmethod.InputMethodManagerService.GetEnabledInputMethodList:input_type -> inputmethod.GetEnabledInputMethodListRequest
-	18,  // 9: inputmethod.InputMethodManagerService.GetEnabledInputMethodSubtypeList:input_type -> inputmethod.GetEnabledInputMethodSubtypeListRequest
-	20,  // 10: inputmethod.InputMethodManagerService.GetInputMethodList:input_type -> inputmethod.GetInputMethodListRequest
-	22,  // 11: inputmethod.InputMethodManagerService.GetLastInputMethodSubtype:input_type -> inputmethod.GetLastInputMethodSubtypeRequest
-	24,  // 12: inputmethod.InputMethodManagerService.HideSoftInputFromInputMethod:input_type -> inputmethod.HideSoftInputFromInputMethodRequest
-	26,  // 13: inputmethod.InputMethodManagerService.HideSoftInputFromWindow2:input_type -> inputmethod.HideSoftInputFromWindow2Request
-	28,  // 14: inputmethod.InputMethodManagerService.HideSoftInputFromWindow3_1:input_type -> inputmethod.HideSoftInputFromWindow3_1Request
-	30,  // 15: inputmethod.InputMethodManagerService.HideStatusIcon:input_type -> inputmethod.HideStatusIconRequest
-	32,  // 16: inputmethod.InputMethodManagerService.InvalidateInput:input_type -> inputmethod.InvalidateInputRequest
-	34,  // 17: inputmethod.InputMethodManagerService.IsAcceptingText:input_type -> inputmethod.IsAcceptingTextRequest
-	36,  // 18: inputmethod.InputMethodManagerService.IsActive0:input_type -> inputmethod.IsActive0Request
-	38,  // 19: inputmethod.InputMethodManagerService.IsActive1_1:input_type -> inputmethod.IsActive1_1Request
-	40,  // 20: inputmethod.InputMethodManagerService.IsConnectionlessStylusHandwritingAvailable:input_type -> inputmethod.IsConnectionlessStylusHandwritingAvailableRequest
-	42,  // 21: inputmethod.InputMethodManagerService.IsFullscreenMode:input_type -> inputmethod.IsFullscreenModeRequest
-	44,  // 22: inputmethod.InputMethodManagerService.IsInputMethodSuppressingSpellChecker:input_type -> inputmethod.IsInputMethodSuppressingSpellCheckerRequest
-	46,  // 23: inputmethod.InputMethodManagerService.IsStylusHandwritingAvailable:input_type -> inputmethod.IsStylusHandwritingAvailableRequest
-	48,  // 24: inputmethod.InputMethodManagerService.IsWatchingCursor:input_type -> inputmethod.IsWatchingCursorRequest
-	50,  // 25: inputmethod.InputMethodManagerService.PrepareStylusHandwritingDelegation1:input_type -> inputmethod.PrepareStylusHandwritingDelegation1Request
-	52,  // 26: inputmethod.InputMethodManagerService.PrepareStylusHandwritingDelegation2_1:input_type -> inputmethod.PrepareStylusHandwritingDelegation2_1Request
-	54,  // 27: inputmethod.InputMethodManagerService.RestartInput:input_type -> inputmethod.RestartInputRequest
-	56,  // 28: inputmethod.InputMethodManagerService.SendAppPrivateCommand:input_type -> inputmethod.SendAppPrivateCommandRequest
-	58,  // 29: inputmethod.InputMethodManagerService.SetAdditionalInputMethodSubtypes:input_type -> inputmethod.SetAdditionalInputMethodSubtypesRequest
-	60,  // 30: inputmethod.InputMethodManagerService.SetCurrentInputMethodSubtype:input_type -> inputmethod.SetCurrentInputMethodSubtypeRequest
-	62,  // 31: inputmethod.InputMethodManagerService.SetExplicitlyEnabledInputMethodSubtypes:input_type -> inputmethod.SetExplicitlyEnabledInputMethodSubtypesRequest
-	64,  // 32: inputmethod.InputMethodManagerService.SetInputMethod:input_type -> inputmethod.SetInputMethodRequest
-	66,  // 33: inputmethod.InputMethodManagerService.SetInputMethodAndSubtype:input_type -> inputmethod.SetInputMethodAndSubtypeRequest
-	68,  // 34: inputmethod.InputMethodManagerService.ShouldOfferSwitchingToNextInputMethod:input_type -> inputmethod.ShouldOfferSwitchingToNextInputMethodRequest
-	70,  // 35: inputmethod.InputMethodManagerService.ShowInputMethodAndSubtypeEnabler:input_type -> inputmethod.ShowInputMethodAndSubtypeEnablerRequest
-	72,  // 36: inputmethod.InputMethodManagerService.ShowInputMethodPicker:input_type -> inputmethod.ShowInputMethodPickerRequest
-	74,  // 37: inputmethod.InputMethodManagerService.ShowSoftInput2:input_type -> inputmethod.ShowSoftInput2Request
-	76,  // 38: inputmethod.InputMethodManagerService.ShowSoftInput3_1:input_type -> inputmethod.ShowSoftInput3_1Request
-	78,  // 39: inputmethod.InputMethodManagerService.ShowSoftInputFromInputMethod:input_type -> inputmethod.ShowSoftInputFromInputMethodRequest
-	80,  // 40: inputmethod.InputMethodManagerService.ShowStatusIcon:input_type -> inputmethod.ShowStatusIconRequest
-	82,  // 41: inputmethod.InputMethodManagerService.StartConnectionlessStylusHandwriting:input_type -> inputmethod.StartConnectionlessStylusHandwritingRequest
-	84,  // 42: inputmethod.InputMethodManagerService.StartConnectionlessStylusHandwritingForDelegation5:input_type -> inputmethod.StartConnectionlessStylusHandwritingForDelegation5Request
-	86,  // 43: inputmethod.InputMethodManagerService.StartConnectionlessStylusHandwritingForDelegation4_1:input_type -> inputmethod.StartConnectionlessStylusHandwritingForDelegation4_1Request
-	88,  // 44: inputmethod.InputMethodManagerService.StartStylusHandwriting:input_type -> inputmethod.StartStylusHandwritingRequest
-	90,  // 45: inputmethod.InputMethodManagerService.SwitchToLastInputMethod:input_type -> inputmethod.SwitchToLastInputMethodRequest
-	92,  // 46: inputmethod.InputMethodManagerService.SwitchToNextInputMethod:input_type -> inputmethod.SwitchToNextInputMethodRequest
-	94,  // 47: inputmethod.InputMethodManagerService.ToggleSoftInput:input_type -> inputmethod.ToggleSoftInputRequest
-	96,  // 48: inputmethod.InputMethodManagerService.ToggleSoftInputFromWindow:input_type -> inputmethod.ToggleSoftInputFromWindowRequest
-	98,  // 49: inputmethod.InputMethodManagerService.UpdateCursor:input_type -> inputmethod.UpdateCursorRequest
-	100, // 50: inputmethod.InputMethodManagerService.UpdateCursorAnchorInfo:input_type -> inputmethod.UpdateCursorAnchorInfoRequest
-	102, // 51: inputmethod.InputMethodManagerService.UpdateExtractedText:input_type -> inputmethod.UpdateExtractedTextRequest
-	104, // 52: inputmethod.InputMethodManagerService.UpdateSelection:input_type -> inputmethod.UpdateSelectionRequest
-	106, // 53: inputmethod.InputMethodManagerService.ViewClicked:input_type -> inputmethod.ViewClickedRequest
-	1,   // 54: inputmethod.InputMethodManagerService.AcceptStylusHandwritingDelegation1:output_type -> inputmethod.AcceptStylusHandwritingDelegation1Response
-	3,   // 55: inputmethod.InputMethodManagerService.AcceptStylusHandwritingDelegation2_1:output_type -> inputmethod.AcceptStylusHandwritingDelegation2_1Response
-	5,   // 56: inputmethod.InputMethodManagerService.AcceptStylusHandwritingDelegation5_2:output_type -> inputmethod.AcceptStylusHandwritingDelegation5_2Response
-	7,   // 57: inputmethod.InputMethodManagerService.AcceptStylusHandwritingDelegation4_3:output_type -> inputmethod.AcceptStylusHandwritingDelegation4_3Response
-	9,   // 58: inputmethod.InputMethodManagerService.DispatchKeyEventFromInputMethod:output_type -> inputmethod.DispatchKeyEventFromInputMethodResponse
-	11,  // 59: inputmethod.InputMethodManagerService.DisplayCompletions:output_type -> inputmethod.DisplayCompletionsResponse
-	13,  // 60: inputmethod.InputMethodManagerService.GetCurrentInputMethodInfo:output_type -> inputmethod.GetCurrentInputMethodInfoResponse
-	15,  // 61: inputmethod.InputMethodManagerService.GetCurrentInputMethodSubtype:output_type -> inputmethod.GetCurrentInputMethodSubtypeResponse
-	17,  // 62: inputmethod.InputMethodManagerService.GetEnabledInputMethodList:output_type -> inputmethod.GetEnabledInputMethodListResponse
-	19,  // 63: inputmethod.InputMethodManagerService.GetEnabledInputMethodSubtypeList:output_type -> inputmethod.GetEnabledInputMethodSubtypeListResponse
-	21,  // 64: inputmethod.InputMethodManagerService.GetInputMethodList:output_type -> inputmethod.GetInputMethodListResponse
-	23,  // 65: inputmethod.InputMethodManagerService.GetLastInputMethodSubtype:output_type -> inputmethod.GetLastInputMethodSubtypeResponse
-	25,  // 66: inputmethod.InputMethodManagerService.HideSoftInputFromInputMethod:output_type -> inputmethod.HideSoftInputFromInputMethodResponse
-	27,  // 67: inputmethod.InputMethodManagerService.HideSoftInputFromWindow2:output_type -> inputmethod.HideSoftInputFromWindow2Response
-	29,  // 68: inputmethod.InputMethodManagerService.HideSoftInputFromWindow3_1:output_type -> inputmethod.HideSoftInputFromWindow3_1Response
-	31,  // 69: inputmethod.InputMethodManagerService.HideStatusIcon:output_type -> inputmethod.HideStatusIconResponse
-	33,  // 70: inputmethod.InputMethodManagerService.InvalidateInput:output_type -> inputmethod.InvalidateInputResponse
-	35,  // 71: inputmethod.InputMethodManagerService.IsAcceptingText:output_type -> inputmethod.IsAcceptingTextResponse
-	37,  // 72: inputmethod.InputMethodManagerService.IsActive0:output_type -> inputmethod.IsActive0Response
-	39,  // 73: inputmethod.InputMethodManagerService.IsActive1_1:output_type -> inputmethod.IsActive1_1Response
-	41,  // 74: inputmethod.InputMethodManagerService.IsConnectionlessStylusHandwritingAvailable:output_type -> inputmethod.IsConnectionlessStylusHandwritingAvailableResponse
-	43,  // 75: inputmethod.InputMethodManagerService.IsFullscreenMode:output_type -> inputmethod.IsFullscreenModeResponse
-	45,  // 76: inputmethod.InputMethodManagerService.IsInputMethodSuppressingSpellChecker:output_type -> inputmethod.IsInputMethodSuppressingSpellCheckerResponse
-	47,  // 77: inputmethod.InputMethodManagerService.IsStylusHandwritingAvailable:output_type -> inputmethod.IsStylusHandwritingAvailableResponse
-	49,  // 78: inputmethod.InputMethodManagerService.IsWatchingCursor:output_type -> inputmethod.IsWatchingCursorResponse
-	51,  // 79: inputmethod.InputMethodManagerService.PrepareStylusHandwritingDelegation1:output_type -> inputmethod.PrepareStylusHandwritingDelegation1Response
-	53,  // 80: inputmethod.InputMethodManagerService.PrepareStylusHandwritingDelegation2_1:output_type -> inputmethod.PrepareStylusHandwritingDelegation2_1Response
-	55,  // 81: inputmethod.InputMethodManagerService.RestartInput:output_type -> inputmethod.RestartInputResponse
-	57,  // 82: inputmethod.InputMethodManagerService.SendAppPrivateCommand:output_type -> inputmethod.SendAppPrivateCommandResponse
-	59,  // 83: inputmethod.InputMethodManagerService.SetAdditionalInputMethodSubtypes:output_type -> inputmethod.SetAdditionalInputMethodSubtypesResponse
-	61,  // 84: inputmethod.InputMethodManagerService.SetCurrentInputMethodSubtype:output_type -> inputmethod.SetCurrentInputMethodSubtypeResponse
-	63,  // 85: inputmethod.InputMethodManagerService.SetExplicitlyEnabledInputMethodSubtypes:output_type -> inputmethod.SetExplicitlyEnabledInputMethodSubtypesResponse
-	65,  // 86: inputmethod.InputMethodManagerService.SetInputMethod:output_type -> inputmethod.SetInputMethodResponse
-	67,  // 87: inputmethod.InputMethodManagerService.SetInputMethodAndSubtype:output_type -> inputmethod.SetInputMethodAndSubtypeResponse
-	69,  // 88: inputmethod.InputMethodManagerService.ShouldOfferSwitchingToNextInputMethod:output_type -> inputmethod.ShouldOfferSwitchingToNextInputMethodResponse
-	71,  // 89: inputmethod.InputMethodManagerService.ShowInputMethodAndSubtypeEnabler:output_type -> inputmethod.ShowInputMethodAndSubtypeEnablerResponse
-	73,  // 90: inputmethod.InputMethodManagerService.ShowInputMethodPicker:output_type -> inputmethod.ShowInputMethodPickerResponse
-	75,  // 91: inputmethod.InputMethodManagerService.ShowSoftInput2:output_type -> inputmethod.ShowSoftInput2Response
-	77,  // 92: inputmethod.InputMethodManagerService.ShowSoftInput3_1:output_type -> inputmethod.ShowSoftInput3_1Response
-	79,  // 93: inputmethod.InputMethodManagerService.ShowSoftInputFromInputMethod:output_type -> inputmethod.ShowSoftInputFromInputMethodResponse
-	81,  // 94: inputmethod.InputMethodManagerService.ShowStatusIcon:output_type -> inputmethod.ShowStatusIconResponse
-	83,  // 95: inputmethod.InputMethodManagerService.StartConnectionlessStylusHandwriting:output_type -> inputmethod.StartConnectionlessStylusHandwritingResponse
-	85,  // 96: inputmethod.InputMethodManagerService.StartConnectionlessStylusHandwritingForDelegation5:output_type -> inputmethod.StartConnectionlessStylusHandwritingForDelegation5Response
-	87,  // 97: inputmethod.InputMethodManagerService.StartConnectionlessStylusHandwritingForDelegation4_1:output_type -> inputmethod.StartConnectionlessStylusHandwritingForDelegation4_1Response
-	89,  // 98: inputmethod.InputMethodManagerService.StartStylusHandwriting:output_type -> inputmethod.StartStylusHandwritingResponse
-	91,  // 99: inputmethod.InputMethodManagerService.SwitchToLastInputMethod:output_type -> inputmethod.SwitchToLastInputMethodResponse
-	93,  // 100: inputmethod.InputMethodManagerService.SwitchToNextInputMethod:output_type -> inputmethod.SwitchToNextInputMethodResponse
-	95,  // 101: inputmethod.InputMethodManagerService.ToggleSoftInput:output_type -> inputmethod.ToggleSoftInputResponse
-	97,  // 102: inputmethod.InputMethodManagerService.ToggleSoftInputFromWindow:output_type -> inputmethod.ToggleSoftInputFromWindowResponse
-	99,  // 103: inputmethod.InputMethodManagerService.UpdateCursor:output_type -> inputmethod.UpdateCursorResponse
-	101, // 104: inputmethod.InputMethodManagerService.UpdateCursorAnchorInfo:output_type -> inputmethod.UpdateCursorAnchorInfoResponse
-	103, // 105: inputmethod.InputMethodManagerService.UpdateExtractedText:output_type -> inputmethod.UpdateExtractedTextResponse
-	105, // 106: inputmethod.InputMethodManagerService.UpdateSelection:output_type -> inputmethod.UpdateSelectionResponse
-	107, // 107: inputmethod.InputMethodManagerService.ViewClicked:output_type -> inputmethod.ViewClickedResponse
-	54,  // [54:108] is the sub-list for method output_type
-	0,   // [0:54] is the sub-list for method input_type
-	0,   // [0:0] is the sub-list for extension type_name
-	0,   // [0:0] is the sub-list for extension extendee
-	0,   // [0:0] is the sub-list for field type_name
+	0,  // 0: inputmethod.InputMethodManagerService.AcceptStylusHandwritingDelegation1:input_type -> inputmethod.AcceptStylusHandwritingDelegation1Request
+	2,  // 1: inputmethod.InputMethodManagerService.AcceptStylusHandwritingDelegation2_1:input_type -> inputmethod.AcceptStylusHandwritingDelegation2_1Request
+	4,  // 2: inputmethod.InputMethodManagerService.DispatchKeyEventFromInputMethod:input_type -> inputmethod.DispatchKeyEventFromInputMethodRequest
+	6,  // 3: inputmethod.InputMethodManagerService.DisplayCompletions:input_type -> inputmethod.DisplayCompletionsRequest
+	8,  // 4: inputmethod.InputMethodManagerService.GetCurrentInputMethodInfo:input_type -> inputmethod.GetCurrentInputMethodInfoRequest
+	10, // 5: inputmethod.InputMethodManagerService.GetCurrentInputMethodSubtype:input_type -> inputmethod.GetCurrentInputMethodSubtypeRequest
+	12, // 6: inputmethod.InputMethodManagerService.GetLastInputMethodSubtype:input_type -> inputmethod.GetLastInputMethodSubtypeRequest
+	14, // 7: inputmethod.InputMethodManagerService.HideSoftInputFromInputMethod:input_type -> inputmethod.HideSoftInputFromInputMethodRequest
+	16, // 8: inputmethod.InputMethodManagerService.HideSoftInputFromWindow2:input_type -> inputmethod.HideSoftInputFromWindow2Request
+	18, // 9: inputmethod.InputMethodManagerService.HideSoftInputFromWindow3_1:input_type -> inputmethod.HideSoftInputFromWindow3_1Request
+	20, // 10: inputmethod.InputMethodManagerService.HideStatusIcon:input_type -> inputmethod.HideStatusIconRequest
+	22, // 11: inputmethod.InputMethodManagerService.InvalidateInput:input_type -> inputmethod.InvalidateInputRequest
+	24, // 12: inputmethod.InputMethodManagerService.IsAcceptingText:input_type -> inputmethod.IsAcceptingTextRequest
+	26, // 13: inputmethod.InputMethodManagerService.IsActive0:input_type -> inputmethod.IsActive0Request
+	28, // 14: inputmethod.InputMethodManagerService.IsActive1_1:input_type -> inputmethod.IsActive1_1Request
+	30, // 15: inputmethod.InputMethodManagerService.IsConnectionlessStylusHandwritingAvailable:input_type -> inputmethod.IsConnectionlessStylusHandwritingAvailableRequest
+	32, // 16: inputmethod.InputMethodManagerService.IsFullscreenMode:input_type -> inputmethod.IsFullscreenModeRequest
+	34, // 17: inputmethod.InputMethodManagerService.IsInputMethodSuppressingSpellChecker:input_type -> inputmethod.IsInputMethodSuppressingSpellCheckerRequest
+	36, // 18: inputmethod.InputMethodManagerService.IsStylusHandwritingAvailable:input_type -> inputmethod.IsStylusHandwritingAvailableRequest
+	38, // 19: inputmethod.InputMethodManagerService.IsWatchingCursor:input_type -> inputmethod.IsWatchingCursorRequest
+	40, // 20: inputmethod.InputMethodManagerService.PrepareStylusHandwritingDelegation1:input_type -> inputmethod.PrepareStylusHandwritingDelegation1Request
+	42, // 21: inputmethod.InputMethodManagerService.PrepareStylusHandwritingDelegation2_1:input_type -> inputmethod.PrepareStylusHandwritingDelegation2_1Request
+	44, // 22: inputmethod.InputMethodManagerService.RestartInput:input_type -> inputmethod.RestartInputRequest
+	46, // 23: inputmethod.InputMethodManagerService.SendAppPrivateCommand:input_type -> inputmethod.SendAppPrivateCommandRequest
+	48, // 24: inputmethod.InputMethodManagerService.SetAdditionalInputMethodSubtypes:input_type -> inputmethod.SetAdditionalInputMethodSubtypesRequest
+	50, // 25: inputmethod.InputMethodManagerService.SetCurrentInputMethodSubtype:input_type -> inputmethod.SetCurrentInputMethodSubtypeRequest
+	52, // 26: inputmethod.InputMethodManagerService.SetExplicitlyEnabledInputMethodSubtypes:input_type -> inputmethod.SetExplicitlyEnabledInputMethodSubtypesRequest
+	54, // 27: inputmethod.InputMethodManagerService.SetInputMethod:input_type -> inputmethod.SetInputMethodRequest
+	56, // 28: inputmethod.InputMethodManagerService.SetInputMethodAndSubtype:input_type -> inputmethod.SetInputMethodAndSubtypeRequest
+	58, // 29: inputmethod.InputMethodManagerService.ShouldOfferSwitchingToNextInputMethod:input_type -> inputmethod.ShouldOfferSwitchingToNextInputMethodRequest
+	60, // 30: inputmethod.InputMethodManagerService.ShowInputMethodAndSubtypeEnabler:input_type -> inputmethod.ShowInputMethodAndSubtypeEnablerRequest
+	62, // 31: inputmethod.InputMethodManagerService.ShowInputMethodPicker:input_type -> inputmethod.ShowInputMethodPickerRequest
+	64, // 32: inputmethod.InputMethodManagerService.ShowSoftInput2:input_type -> inputmethod.ShowSoftInput2Request
+	66, // 33: inputmethod.InputMethodManagerService.ShowSoftInput3_1:input_type -> inputmethod.ShowSoftInput3_1Request
+	68, // 34: inputmethod.InputMethodManagerService.ShowSoftInputFromInputMethod:input_type -> inputmethod.ShowSoftInputFromInputMethodRequest
+	70, // 35: inputmethod.InputMethodManagerService.ShowStatusIcon:input_type -> inputmethod.ShowStatusIconRequest
+	72, // 36: inputmethod.InputMethodManagerService.StartConnectionlessStylusHandwriting:input_type -> inputmethod.StartConnectionlessStylusHandwritingRequest
+	74, // 37: inputmethod.InputMethodManagerService.StartConnectionlessStylusHandwritingForDelegation5:input_type -> inputmethod.StartConnectionlessStylusHandwritingForDelegation5Request
+	76, // 38: inputmethod.InputMethodManagerService.StartConnectionlessStylusHandwritingForDelegation4_1:input_type -> inputmethod.StartConnectionlessStylusHandwritingForDelegation4_1Request
+	78, // 39: inputmethod.InputMethodManagerService.StartStylusHandwriting:input_type -> inputmethod.StartStylusHandwritingRequest
+	80, // 40: inputmethod.InputMethodManagerService.SwitchToLastInputMethod:input_type -> inputmethod.SwitchToLastInputMethodRequest
+	82, // 41: inputmethod.InputMethodManagerService.SwitchToNextInputMethod:input_type -> inputmethod.SwitchToNextInputMethodRequest
+	84, // 42: inputmethod.InputMethodManagerService.ToggleSoftInput:input_type -> inputmethod.ToggleSoftInputRequest
+	86, // 43: inputmethod.InputMethodManagerService.ToggleSoftInputFromWindow:input_type -> inputmethod.ToggleSoftInputFromWindowRequest
+	88, // 44: inputmethod.InputMethodManagerService.UpdateCursor:input_type -> inputmethod.UpdateCursorRequest
+	90, // 45: inputmethod.InputMethodManagerService.UpdateCursorAnchorInfo:input_type -> inputmethod.UpdateCursorAnchorInfoRequest
+	92, // 46: inputmethod.InputMethodManagerService.UpdateExtractedText:input_type -> inputmethod.UpdateExtractedTextRequest
+	94, // 47: inputmethod.InputMethodManagerService.UpdateSelection:input_type -> inputmethod.UpdateSelectionRequest
+	96, // 48: inputmethod.InputMethodManagerService.ViewClicked:input_type -> inputmethod.ViewClickedRequest
+	1,  // 49: inputmethod.InputMethodManagerService.AcceptStylusHandwritingDelegation1:output_type -> inputmethod.AcceptStylusHandwritingDelegation1Response
+	3,  // 50: inputmethod.InputMethodManagerService.AcceptStylusHandwritingDelegation2_1:output_type -> inputmethod.AcceptStylusHandwritingDelegation2_1Response
+	5,  // 51: inputmethod.InputMethodManagerService.DispatchKeyEventFromInputMethod:output_type -> inputmethod.DispatchKeyEventFromInputMethodResponse
+	7,  // 52: inputmethod.InputMethodManagerService.DisplayCompletions:output_type -> inputmethod.DisplayCompletionsResponse
+	9,  // 53: inputmethod.InputMethodManagerService.GetCurrentInputMethodInfo:output_type -> inputmethod.GetCurrentInputMethodInfoResponse
+	11, // 54: inputmethod.InputMethodManagerService.GetCurrentInputMethodSubtype:output_type -> inputmethod.GetCurrentInputMethodSubtypeResponse
+	13, // 55: inputmethod.InputMethodManagerService.GetLastInputMethodSubtype:output_type -> inputmethod.GetLastInputMethodSubtypeResponse
+	15, // 56: inputmethod.InputMethodManagerService.HideSoftInputFromInputMethod:output_type -> inputmethod.HideSoftInputFromInputMethodResponse
+	17, // 57: inputmethod.InputMethodManagerService.HideSoftInputFromWindow2:output_type -> inputmethod.HideSoftInputFromWindow2Response
+	19, // 58: inputmethod.InputMethodManagerService.HideSoftInputFromWindow3_1:output_type -> inputmethod.HideSoftInputFromWindow3_1Response
+	21, // 59: inputmethod.InputMethodManagerService.HideStatusIcon:output_type -> inputmethod.HideStatusIconResponse
+	23, // 60: inputmethod.InputMethodManagerService.InvalidateInput:output_type -> inputmethod.InvalidateInputResponse
+	25, // 61: inputmethod.InputMethodManagerService.IsAcceptingText:output_type -> inputmethod.IsAcceptingTextResponse
+	27, // 62: inputmethod.InputMethodManagerService.IsActive0:output_type -> inputmethod.IsActive0Response
+	29, // 63: inputmethod.InputMethodManagerService.IsActive1_1:output_type -> inputmethod.IsActive1_1Response
+	31, // 64: inputmethod.InputMethodManagerService.IsConnectionlessStylusHandwritingAvailable:output_type -> inputmethod.IsConnectionlessStylusHandwritingAvailableResponse
+	33, // 65: inputmethod.InputMethodManagerService.IsFullscreenMode:output_type -> inputmethod.IsFullscreenModeResponse
+	35, // 66: inputmethod.InputMethodManagerService.IsInputMethodSuppressingSpellChecker:output_type -> inputmethod.IsInputMethodSuppressingSpellCheckerResponse
+	37, // 67: inputmethod.InputMethodManagerService.IsStylusHandwritingAvailable:output_type -> inputmethod.IsStylusHandwritingAvailableResponse
+	39, // 68: inputmethod.InputMethodManagerService.IsWatchingCursor:output_type -> inputmethod.IsWatchingCursorResponse
+	41, // 69: inputmethod.InputMethodManagerService.PrepareStylusHandwritingDelegation1:output_type -> inputmethod.PrepareStylusHandwritingDelegation1Response
+	43, // 70: inputmethod.InputMethodManagerService.PrepareStylusHandwritingDelegation2_1:output_type -> inputmethod.PrepareStylusHandwritingDelegation2_1Response
+	45, // 71: inputmethod.InputMethodManagerService.RestartInput:output_type -> inputmethod.RestartInputResponse
+	47, // 72: inputmethod.InputMethodManagerService.SendAppPrivateCommand:output_type -> inputmethod.SendAppPrivateCommandResponse
+	49, // 73: inputmethod.InputMethodManagerService.SetAdditionalInputMethodSubtypes:output_type -> inputmethod.SetAdditionalInputMethodSubtypesResponse
+	51, // 74: inputmethod.InputMethodManagerService.SetCurrentInputMethodSubtype:output_type -> inputmethod.SetCurrentInputMethodSubtypeResponse
+	53, // 75: inputmethod.InputMethodManagerService.SetExplicitlyEnabledInputMethodSubtypes:output_type -> inputmethod.SetExplicitlyEnabledInputMethodSubtypesResponse
+	55, // 76: inputmethod.InputMethodManagerService.SetInputMethod:output_type -> inputmethod.SetInputMethodResponse
+	57, // 77: inputmethod.InputMethodManagerService.SetInputMethodAndSubtype:output_type -> inputmethod.SetInputMethodAndSubtypeResponse
+	59, // 78: inputmethod.InputMethodManagerService.ShouldOfferSwitchingToNextInputMethod:output_type -> inputmethod.ShouldOfferSwitchingToNextInputMethodResponse
+	61, // 79: inputmethod.InputMethodManagerService.ShowInputMethodAndSubtypeEnabler:output_type -> inputmethod.ShowInputMethodAndSubtypeEnablerResponse
+	63, // 80: inputmethod.InputMethodManagerService.ShowInputMethodPicker:output_type -> inputmethod.ShowInputMethodPickerResponse
+	65, // 81: inputmethod.InputMethodManagerService.ShowSoftInput2:output_type -> inputmethod.ShowSoftInput2Response
+	67, // 82: inputmethod.InputMethodManagerService.ShowSoftInput3_1:output_type -> inputmethod.ShowSoftInput3_1Response
+	69, // 83: inputmethod.InputMethodManagerService.ShowSoftInputFromInputMethod:output_type -> inputmethod.ShowSoftInputFromInputMethodResponse
+	71, // 84: inputmethod.InputMethodManagerService.ShowStatusIcon:output_type -> inputmethod.ShowStatusIconResponse
+	73, // 85: inputmethod.InputMethodManagerService.StartConnectionlessStylusHandwriting:output_type -> inputmethod.StartConnectionlessStylusHandwritingResponse
+	75, // 86: inputmethod.InputMethodManagerService.StartConnectionlessStylusHandwritingForDelegation5:output_type -> inputmethod.StartConnectionlessStylusHandwritingForDelegation5Response
+	77, // 87: inputmethod.InputMethodManagerService.StartConnectionlessStylusHandwritingForDelegation4_1:output_type -> inputmethod.StartConnectionlessStylusHandwritingForDelegation4_1Response
+	79, // 88: inputmethod.InputMethodManagerService.StartStylusHandwriting:output_type -> inputmethod.StartStylusHandwritingResponse
+	81, // 89: inputmethod.InputMethodManagerService.SwitchToLastInputMethod:output_type -> inputmethod.SwitchToLastInputMethodResponse
+	83, // 90: inputmethod.InputMethodManagerService.SwitchToNextInputMethod:output_type -> inputmethod.SwitchToNextInputMethodResponse
+	85, // 91: inputmethod.InputMethodManagerService.ToggleSoftInput:output_type -> inputmethod.ToggleSoftInputResponse
+	87, // 92: inputmethod.InputMethodManagerService.ToggleSoftInputFromWindow:output_type -> inputmethod.ToggleSoftInputFromWindowResponse
+	89, // 93: inputmethod.InputMethodManagerService.UpdateCursor:output_type -> inputmethod.UpdateCursorResponse
+	91, // 94: inputmethod.InputMethodManagerService.UpdateCursorAnchorInfo:output_type -> inputmethod.UpdateCursorAnchorInfoResponse
+	93, // 95: inputmethod.InputMethodManagerService.UpdateExtractedText:output_type -> inputmethod.UpdateExtractedTextResponse
+	95, // 96: inputmethod.InputMethodManagerService.UpdateSelection:output_type -> inputmethod.UpdateSelectionResponse
+	97, // 97: inputmethod.InputMethodManagerService.ViewClicked:output_type -> inputmethod.ViewClickedResponse
+	49, // [49:98] is the sub-list for method output_type
+	0,  // [0:49] is the sub-list for method input_type
+	0,  // [0:0] is the sub-list for extension type_name
+	0,  // [0:0] is the sub-list for extension extendee
+	0,  // [0:0] is the sub-list for field type_name
 }
 
 func init() { file_proto_inputmethod_inputmethod_proto_init() }
@@ -5410,7 +4889,7 @@ func file_proto_inputmethod_inputmethod_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_proto_inputmethod_inputmethod_proto_rawDesc), len(file_proto_inputmethod_inputmethod_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   108,
+			NumMessages:   98,
 			NumExtensions: 0,
 			NumServices:   1,
 		},

@@ -70,13 +70,6 @@ message GetPrimaryStorageVolumeResponse {
   int64 result = 1;
 }
 
-message GetRecentStorageVolumesRequest {
-}
-
-message GetRecentStorageVolumesResponse {
-  int64 result = 1;
-}
-
 message GetStorageVolume1Request {
   int64 arg0 = 1;
 }
@@ -90,20 +83,6 @@ message GetStorageVolume1_1Request {
 }
 
 message GetStorageVolume1_1Response {
-  int64 result = 1;
-}
-
-message GetStorageVolumesRequest {
-}
-
-message GetStorageVolumesResponse {
-  int64 result = 1;
-}
-
-message GetStorageVolumesIncludingSharedProfilesRequest {
-}
-
-message GetStorageVolumesIncludingSharedProfilesResponse {
   int64 result = 1;
 }
 
@@ -213,129 +192,6 @@ message UnregisterStorageVolumeCallbackRequest {
 message UnregisterStorageVolumeCallbackResponse {
 }
 
-message CreateAccessIntentRequest {
-  string arg0 = 1;
-}
-
-message CreateAccessIntentResponse {
-  int64 result = 1;
-}
-
-message CreateOpenDocumentTreeIntentRequest {
-}
-
-message CreateOpenDocumentTreeIntentResponse {
-  int64 result = 1;
-}
-
-message DescribeContentsRequest {
-}
-
-message DescribeContentsResponse {
-  int32 result = 1;
-}
-
-message EqualsRequest {
-  int64 arg0 = 1;
-}
-
-message EqualsResponse {
-  bool result = 1;
-}
-
-message GetDescriptionRequest {
-  int64 arg0 = 1;
-}
-
-message GetDescriptionResponse {
-  string result = 1;
-}
-
-message GetDirectoryRequest {
-}
-
-message GetDirectoryResponse {
-  int64 result = 1;
-}
-
-message GetMediaStoreVolumeNameRequest {
-}
-
-message GetMediaStoreVolumeNameResponse {
-  string result = 1;
-}
-
-message GetOwnerRequest {
-}
-
-message GetOwnerResponse {
-  int64 result = 1;
-}
-
-message GetStateRequest {
-}
-
-message GetStateResponse {
-  string result = 1;
-}
-
-message GetStorageUuidRequest {
-}
-
-message GetStorageUuidResponse {
-  int64 result = 1;
-}
-
-message GetUuidRequest {
-}
-
-message GetUuidResponse {
-  string result = 1;
-}
-
-message HashCodeRequest {
-}
-
-message HashCodeResponse {
-  int32 result = 1;
-}
-
-message IsEmulatedRequest {
-}
-
-message IsEmulatedResponse {
-  bool result = 1;
-}
-
-message IsPrimaryRequest {
-}
-
-message IsPrimaryResponse {
-  bool result = 1;
-}
-
-message IsRemovableRequest {
-}
-
-message IsRemovableResponse {
-  bool result = 1;
-}
-
-message ToStringRequest {
-}
-
-message ToStringResponse {
-  string result = 1;
-}
-
-message WriteToParcelRequest {
-  int64 arg0 = 1;
-  int32 arg1 = 2;
-}
-
-message WriteToParcelResponse {
-}
-
 service ManagerService {
   rpc AllocateBytes2 (AllocateBytes2Request) returns (AllocateBytes2Response);
   rpc AllocateBytes2_1 (AllocateBytes2_1Request) returns (AllocateBytes2_1Response);
@@ -345,11 +201,8 @@ service ManagerService {
   rpc GetManageSpaceActivityIntent (GetManageSpaceActivityIntentRequest) returns (GetManageSpaceActivityIntentResponse);
   rpc GetMountedObbPath (GetMountedObbPathRequest) returns (GetMountedObbPathResponse);
   rpc GetPrimaryStorageVolume (GetPrimaryStorageVolumeRequest) returns (GetPrimaryStorageVolumeResponse);
-  rpc GetRecentStorageVolumes (GetRecentStorageVolumesRequest) returns (GetRecentStorageVolumesResponse);
   rpc GetStorageVolume1 (GetStorageVolume1Request) returns (GetStorageVolume1Response);
   rpc GetStorageVolume1_1 (GetStorageVolume1_1Request) returns (GetStorageVolume1_1Response);
-  rpc GetStorageVolumes (GetStorageVolumesRequest) returns (GetStorageVolumesResponse);
-  rpc GetStorageVolumesIncludingSharedProfiles (GetStorageVolumesIncludingSharedProfilesRequest) returns (GetStorageVolumesIncludingSharedProfilesResponse);
   rpc GetUuidForPath (GetUuidForPathRequest) returns (GetUuidForPathResponse);
   rpc IsAllocationSupported (IsAllocationSupportedRequest) returns (IsAllocationSupportedResponse);
   rpc IsCacheBehaviorGroup (IsCacheBehaviorGroupRequest) returns (IsCacheBehaviorGroupResponse);
@@ -363,24 +216,4 @@ service ManagerService {
   rpc SetCacheBehaviorTombstone (SetCacheBehaviorTombstoneRequest) returns (SetCacheBehaviorTombstoneResponse);
   rpc UnmountObb (UnmountObbRequest) returns (UnmountObbResponse);
   rpc UnregisterStorageVolumeCallback (UnregisterStorageVolumeCallbackRequest) returns (UnregisterStorageVolumeCallbackResponse);
-}
-
-service VolumeService {
-  rpc CreateAccessIntent (CreateAccessIntentRequest) returns (CreateAccessIntentResponse);
-  rpc CreateOpenDocumentTreeIntent (CreateOpenDocumentTreeIntentRequest) returns (CreateOpenDocumentTreeIntentResponse);
-  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
-  rpc Equals (EqualsRequest) returns (EqualsResponse);
-  rpc GetDescription (GetDescriptionRequest) returns (GetDescriptionResponse);
-  rpc GetDirectory (GetDirectoryRequest) returns (GetDirectoryResponse);
-  rpc GetMediaStoreVolumeName (GetMediaStoreVolumeNameRequest) returns (GetMediaStoreVolumeNameResponse);
-  rpc GetOwner (GetOwnerRequest) returns (GetOwnerResponse);
-  rpc GetState (GetStateRequest) returns (GetStateResponse);
-  rpc GetStorageUuid (GetStorageUuidRequest) returns (GetStorageUuidResponse);
-  rpc GetUuid (GetUuidRequest) returns (GetUuidResponse);
-  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
-  rpc IsEmulated (IsEmulatedRequest) returns (IsEmulatedResponse);
-  rpc IsPrimary (IsPrimaryRequest) returns (IsPrimaryResponse);
-  rpc IsRemovable (IsRemovableRequest) returns (IsRemovableResponse);
-  rpc ToString (ToStringRequest) returns (ToStringResponse);
-  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
 }

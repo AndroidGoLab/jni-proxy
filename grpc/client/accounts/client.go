@@ -9,38 +9,24 @@ import (
 	"google.golang.org/grpc"
 )
 
-// Client wraps the gRPC AccountManagerService client.
-type Client struct {
+// AccountManagerClient wraps the gRPC AccountManagerService client.
+type AccountManagerClient struct {
 	svc pb.AccountManagerServiceClient
 }
 
-// NewClient creates a new accounts client.
-func NewClient(cc grpc.ClientConnInterface) *Client {
-	return &Client{
+// NewAccountManagerClient creates a new AccountManager client.
+func NewAccountManagerClient(cc grpc.ClientConnInterface) *AccountManagerClient {
+	return &AccountManagerClient{
 		svc: pb.NewAccountManagerServiceClient(cc),
 	}
 }
 
-// AddAccountExplicitly3 calls the AddAccountExplicitly3 RPC.
-func (c *Client) AddAccountExplicitly3(ctx context.Context, arg0 int64, arg1 string, arg2 int64) (bool, error) {
-	resp, err := c.svc.AddAccountExplicitly3(ctx, &pb.AddAccountExplicitly3Request{
+// AddAccountExplicitly calls the AddAccountExplicitly RPC.
+func (c *AccountManagerClient) AddAccountExplicitly(ctx context.Context, arg0 int64, arg1 string, arg2 int64) (bool, error) {
+	resp, err := c.svc.AddAccountExplicitly(ctx, &pb.AddAccountExplicitlyRequest{
 		Arg0: arg0,
 		Arg1: arg1,
 		Arg2: arg2,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// AddAccountExplicitly4_1 calls the AddAccountExplicitly4_1 RPC.
-func (c *Client) AddAccountExplicitly4_1(ctx context.Context, arg0 int64, arg1 string, arg2 int64, arg3 int64) (bool, error) {
-	resp, err := c.svc.AddAccountExplicitly4_1(ctx, &pb.AddAccountExplicitly4_1Request{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
 	})
 	if err != nil {
 		return false, err
@@ -49,7 +35,7 @@ func (c *Client) AddAccountExplicitly4_1(ctx context.Context, arg0 int64, arg1 s
 }
 
 // BlockingGetAuthToken calls the BlockingGetAuthToken RPC.
-func (c *Client) BlockingGetAuthToken(ctx context.Context, arg0 int64, arg1 string, arg2 bool) (string, error) {
+func (c *AccountManagerClient) BlockingGetAuthToken(ctx context.Context, arg0 int64, arg1 string, arg2 bool) (string, error) {
 	resp, err := c.svc.BlockingGetAuthToken(ctx, &pb.BlockingGetAuthTokenRequest{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -62,7 +48,7 @@ func (c *Client) BlockingGetAuthToken(ctx context.Context, arg0 int64, arg1 stri
 }
 
 // ClearPassword calls the ClearPassword RPC.
-func (c *Client) ClearPassword(ctx context.Context, arg0 int64) error {
+func (c *AccountManagerClient) ClearPassword(ctx context.Context, arg0 int64) error {
 	_, err := c.svc.ClearPassword(ctx, &pb.ClearPasswordRequest{
 		Arg0: arg0,
 	})
@@ -70,7 +56,7 @@ func (c *Client) ClearPassword(ctx context.Context, arg0 int64) error {
 }
 
 // GetAccountVisibility calls the GetAccountVisibility RPC.
-func (c *Client) GetAccountVisibility(ctx context.Context, arg0 int64, arg1 string) (int32, error) {
+func (c *AccountManagerClient) GetAccountVisibility(ctx context.Context, arg0 int64, arg1 string) (int32, error) {
 	resp, err := c.svc.GetAccountVisibility(ctx, &pb.GetAccountVisibilityRequest{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -82,7 +68,7 @@ func (c *Client) GetAccountVisibility(ctx context.Context, arg0 int64, arg1 stri
 }
 
 // GetAccounts calls the GetAccounts RPC.
-func (c *Client) GetAccounts(ctx context.Context) (int64, error) {
+func (c *AccountManagerClient) GetAccounts(ctx context.Context) (int64, error) {
 	resp, err := c.svc.GetAccounts(ctx, &pb.GetAccountsRequest{})
 	if err != nil {
 		return 0, err
@@ -91,7 +77,7 @@ func (c *Client) GetAccounts(ctx context.Context) (int64, error) {
 }
 
 // GetAccountsByType calls the GetAccountsByType RPC.
-func (c *Client) GetAccountsByType(ctx context.Context, arg0 string) (int64, error) {
+func (c *AccountManagerClient) GetAccountsByType(ctx context.Context, arg0 string) (int64, error) {
 	resp, err := c.svc.GetAccountsByType(ctx, &pb.GetAccountsByTypeRequest{
 		Arg0: arg0,
 	})
@@ -102,7 +88,7 @@ func (c *Client) GetAccountsByType(ctx context.Context, arg0 string) (int64, err
 }
 
 // GetAccountsByTypeForPackage calls the GetAccountsByTypeForPackage RPC.
-func (c *Client) GetAccountsByTypeForPackage(ctx context.Context, arg0 string, arg1 string) (int64, error) {
+func (c *AccountManagerClient) GetAccountsByTypeForPackage(ctx context.Context, arg0 string, arg1 string) (int64, error) {
 	resp, err := c.svc.GetAccountsByTypeForPackage(ctx, &pb.GetAccountsByTypeForPackageRequest{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -114,7 +100,7 @@ func (c *Client) GetAccountsByTypeForPackage(ctx context.Context, arg0 string, a
 }
 
 // GetAuthenticatorTypes calls the GetAuthenticatorTypes RPC.
-func (c *Client) GetAuthenticatorTypes(ctx context.Context) (int64, error) {
+func (c *AccountManagerClient) GetAuthenticatorTypes(ctx context.Context) (int64, error) {
 	resp, err := c.svc.GetAuthenticatorTypes(ctx, &pb.GetAuthenticatorTypesRequest{})
 	if err != nil {
 		return 0, err
@@ -123,7 +109,7 @@ func (c *Client) GetAuthenticatorTypes(ctx context.Context) (int64, error) {
 }
 
 // GetPassword calls the GetPassword RPC.
-func (c *Client) GetPassword(ctx context.Context, arg0 int64) (string, error) {
+func (c *AccountManagerClient) GetPassword(ctx context.Context, arg0 int64) (string, error) {
 	resp, err := c.svc.GetPassword(ctx, &pb.GetPasswordRequest{
 		Arg0: arg0,
 	})
@@ -134,7 +120,7 @@ func (c *Client) GetPassword(ctx context.Context, arg0 int64) (string, error) {
 }
 
 // GetPreviousName calls the GetPreviousName RPC.
-func (c *Client) GetPreviousName(ctx context.Context, arg0 int64) (string, error) {
+func (c *AccountManagerClient) GetPreviousName(ctx context.Context, arg0 int64) (string, error) {
 	resp, err := c.svc.GetPreviousName(ctx, &pb.GetPreviousNameRequest{
 		Arg0: arg0,
 	})
@@ -145,7 +131,7 @@ func (c *Client) GetPreviousName(ctx context.Context, arg0 int64) (string, error
 }
 
 // GetUserData calls the GetUserData RPC.
-func (c *Client) GetUserData(ctx context.Context, arg0 int64, arg1 string) (string, error) {
+func (c *AccountManagerClient) GetUserData(ctx context.Context, arg0 int64, arg1 string) (string, error) {
 	resp, err := c.svc.GetUserData(ctx, &pb.GetUserDataRequest{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -157,7 +143,7 @@ func (c *Client) GetUserData(ctx context.Context, arg0 int64, arg1 string) (stri
 }
 
 // InvalidateAuthToken calls the InvalidateAuthToken RPC.
-func (c *Client) InvalidateAuthToken(ctx context.Context, arg0 string, arg1 string) error {
+func (c *AccountManagerClient) InvalidateAuthToken(ctx context.Context, arg0 string, arg1 string) error {
 	_, err := c.svc.InvalidateAuthToken(ctx, &pb.InvalidateAuthTokenRequest{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -166,7 +152,7 @@ func (c *Client) InvalidateAuthToken(ctx context.Context, arg0 string, arg1 stri
 }
 
 // NotifyAccountAuthenticated calls the NotifyAccountAuthenticated RPC.
-func (c *Client) NotifyAccountAuthenticated(ctx context.Context, arg0 int64) (bool, error) {
+func (c *AccountManagerClient) NotifyAccountAuthenticated(ctx context.Context, arg0 int64) (bool, error) {
 	resp, err := c.svc.NotifyAccountAuthenticated(ctx, &pb.NotifyAccountAuthenticatedRequest{
 		Arg0: arg0,
 	})
@@ -177,7 +163,7 @@ func (c *Client) NotifyAccountAuthenticated(ctx context.Context, arg0 int64) (bo
 }
 
 // PeekAuthToken calls the PeekAuthToken RPC.
-func (c *Client) PeekAuthToken(ctx context.Context, arg0 int64, arg1 string) (string, error) {
+func (c *AccountManagerClient) PeekAuthToken(ctx context.Context, arg0 int64, arg1 string) (string, error) {
 	resp, err := c.svc.PeekAuthToken(ctx, &pb.PeekAuthTokenRequest{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -189,7 +175,7 @@ func (c *Client) PeekAuthToken(ctx context.Context, arg0 int64, arg1 string) (st
 }
 
 // RemoveAccountExplicitly calls the RemoveAccountExplicitly RPC.
-func (c *Client) RemoveAccountExplicitly(ctx context.Context, arg0 int64) (bool, error) {
+func (c *AccountManagerClient) RemoveAccountExplicitly(ctx context.Context, arg0 int64) (bool, error) {
 	resp, err := c.svc.RemoveAccountExplicitly(ctx, &pb.RemoveAccountExplicitlyRequest{
 		Arg0: arg0,
 	})
@@ -200,7 +186,7 @@ func (c *Client) RemoveAccountExplicitly(ctx context.Context, arg0 int64) (bool,
 }
 
 // RemoveOnAccountsUpdatedListener calls the RemoveOnAccountsUpdatedListener RPC.
-func (c *Client) RemoveOnAccountsUpdatedListener(ctx context.Context, arg0 int64) error {
+func (c *AccountManagerClient) RemoveOnAccountsUpdatedListener(ctx context.Context, arg0 int64) error {
 	_, err := c.svc.RemoveOnAccountsUpdatedListener(ctx, &pb.RemoveOnAccountsUpdatedListenerRequest{
 		Arg0: arg0,
 	})
@@ -208,7 +194,7 @@ func (c *Client) RemoveOnAccountsUpdatedListener(ctx context.Context, arg0 int64
 }
 
 // SetAccountVisibility calls the SetAccountVisibility RPC.
-func (c *Client) SetAccountVisibility(ctx context.Context, arg0 int64, arg1 string, arg2 int32) (bool, error) {
+func (c *AccountManagerClient) SetAccountVisibility(ctx context.Context, arg0 int64, arg1 string, arg2 int32) (bool, error) {
 	resp, err := c.svc.SetAccountVisibility(ctx, &pb.SetAccountVisibilityRequest{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -221,7 +207,7 @@ func (c *Client) SetAccountVisibility(ctx context.Context, arg0 int64, arg1 stri
 }
 
 // SetAuthToken calls the SetAuthToken RPC.
-func (c *Client) SetAuthToken(ctx context.Context, arg0 int64, arg1 string, arg2 string) error {
+func (c *AccountManagerClient) SetAuthToken(ctx context.Context, arg0 int64, arg1 string, arg2 string) error {
 	_, err := c.svc.SetAuthToken(ctx, &pb.SetAuthTokenRequest{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -231,7 +217,7 @@ func (c *Client) SetAuthToken(ctx context.Context, arg0 int64, arg1 string, arg2
 }
 
 // SetPassword calls the SetPassword RPC.
-func (c *Client) SetPassword(ctx context.Context, arg0 int64, arg1 string) error {
+func (c *AccountManagerClient) SetPassword(ctx context.Context, arg0 int64, arg1 string) error {
 	_, err := c.svc.SetPassword(ctx, &pb.SetPasswordRequest{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -240,7 +226,7 @@ func (c *Client) SetPassword(ctx context.Context, arg0 int64, arg1 string) error
 }
 
 // SetUserData calls the SetUserData RPC.
-func (c *Client) SetUserData(ctx context.Context, arg0 int64, arg1 string, arg2 string) error {
+func (c *AccountManagerClient) SetUserData(ctx context.Context, arg0 int64, arg1 string, arg2 string) error {
 	_, err := c.svc.SetUserData(ctx, &pb.SetUserDataRequest{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -250,44 +236,9 @@ func (c *Client) SetUserData(ctx context.Context, arg0 int64, arg1 string, arg2 
 }
 
 // Get calls the Get RPC.
-func (c *Client) Get(ctx context.Context, arg0 int64) (int64, error) {
+func (c *AccountManagerClient) Get(ctx context.Context, arg0 int64) (int64, error) {
 	resp, err := c.svc.Get(ctx, &pb.GetRequest{
 		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// NewChooseAccountIntent8 calls the NewChooseAccountIntent8 RPC.
-func (c *Client) NewChooseAccountIntent8(ctx context.Context, arg0 int64, arg1 int64, arg2 int64, arg3 bool, arg4 string, arg5 string, arg6 int64, arg7 int64) (int64, error) {
-	resp, err := c.svc.NewChooseAccountIntent8(ctx, &pb.NewChooseAccountIntent8Request{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
-		Arg4: arg4,
-		Arg5: arg5,
-		Arg6: arg6,
-		Arg7: arg7,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// NewChooseAccountIntent7_1 calls the NewChooseAccountIntent7_1 RPC.
-func (c *Client) NewChooseAccountIntent7_1(ctx context.Context, arg0 int64, arg1 int64, arg2 int64, arg3 string, arg4 string, arg5 int64, arg6 int64) (int64, error) {
-	resp, err := c.svc.NewChooseAccountIntent7_1(ctx, &pb.NewChooseAccountIntent7_1Request{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
-		Arg4: arg4,
-		Arg5: arg5,
-		Arg6: arg6,
 	})
 	if err != nil {
 		return 0, err

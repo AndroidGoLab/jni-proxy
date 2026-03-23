@@ -5,15 +5,3 @@ syntax = "proto3";
 package contacts;
 
 option go_package = "github.com/AndroidGoLab/jni-proxy/proto/contacts";
-
-message IsProfileIdRequest {
-  int64 arg0 = 1;
-}
-
-message IsProfileIdResponse {
-  bool result = 1;
-}
-
-service ContractService {
-  rpc IsProfileId (IsProfileIdRequest) returns (IsProfileIdResponse);
-}

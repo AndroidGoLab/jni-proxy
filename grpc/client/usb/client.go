@@ -9,20 +9,20 @@ import (
 	"google.golang.org/grpc"
 )
 
-// Client wraps the gRPC ManagerService client.
-type Client struct {
+// ManagerClient wraps the gRPC ManagerService client.
+type ManagerClient struct {
 	svc pb.ManagerServiceClient
 }
 
-// NewClient creates a new usb client.
-func NewClient(cc grpc.ClientConnInterface) *Client {
-	return &Client{
+// NewManagerClient creates a new Manager client.
+func NewManagerClient(cc grpc.ClientConnInterface) *ManagerClient {
+	return &ManagerClient{
 		svc: pb.NewManagerServiceClient(cc),
 	}
 }
 
 // GetAccessoryList calls the GetAccessoryList RPC.
-func (c *Client) GetAccessoryList(ctx context.Context) (int64, error) {
+func (c *ManagerClient) GetAccessoryList(ctx context.Context) (int64, error) {
 	resp, err := c.svc.GetAccessoryList(ctx, &pb.GetAccessoryListRequest{})
 	if err != nil {
 		return 0, err
@@ -31,7 +31,7 @@ func (c *Client) GetAccessoryList(ctx context.Context) (int64, error) {
 }
 
 // HasPermission1 calls the HasPermission1 RPC.
-func (c *Client) HasPermission1(ctx context.Context, arg0 int64) (bool, error) {
+func (c *ManagerClient) HasPermission1(ctx context.Context, arg0 int64) (bool, error) {
 	resp, err := c.svc.HasPermission1(ctx, &pb.HasPermission1Request{
 		Arg0: arg0,
 	})
@@ -42,7 +42,7 @@ func (c *Client) HasPermission1(ctx context.Context, arg0 int64) (bool, error) {
 }
 
 // HasPermission1_1 calls the HasPermission1_1 RPC.
-func (c *Client) HasPermission1_1(ctx context.Context, arg0 int64) (bool, error) {
+func (c *ManagerClient) HasPermission1_1(ctx context.Context, arg0 int64) (bool, error) {
 	resp, err := c.svc.HasPermission1_1(ctx, &pb.HasPermission1_1Request{
 		Arg0: arg0,
 	})
@@ -53,7 +53,7 @@ func (c *Client) HasPermission1_1(ctx context.Context, arg0 int64) (bool, error)
 }
 
 // OpenAccessory calls the OpenAccessory RPC.
-func (c *Client) OpenAccessory(ctx context.Context, arg0 int64) (int64, error) {
+func (c *ManagerClient) OpenAccessory(ctx context.Context, arg0 int64) (int64, error) {
 	resp, err := c.svc.OpenAccessory(ctx, &pb.OpenAccessoryRequest{
 		Arg0: arg0,
 	})
@@ -64,7 +64,7 @@ func (c *Client) OpenAccessory(ctx context.Context, arg0 int64) (int64, error) {
 }
 
 // OpenAccessoryInputStream calls the OpenAccessoryInputStream RPC.
-func (c *Client) OpenAccessoryInputStream(ctx context.Context, arg0 int64) (int64, error) {
+func (c *ManagerClient) OpenAccessoryInputStream(ctx context.Context, arg0 int64) (int64, error) {
 	resp, err := c.svc.OpenAccessoryInputStream(ctx, &pb.OpenAccessoryInputStreamRequest{
 		Arg0: arg0,
 	})
@@ -75,7 +75,7 @@ func (c *Client) OpenAccessoryInputStream(ctx context.Context, arg0 int64) (int6
 }
 
 // OpenAccessoryOutputStream calls the OpenAccessoryOutputStream RPC.
-func (c *Client) OpenAccessoryOutputStream(ctx context.Context, arg0 int64) (int64, error) {
+func (c *ManagerClient) OpenAccessoryOutputStream(ctx context.Context, arg0 int64) (int64, error) {
 	resp, err := c.svc.OpenAccessoryOutputStream(ctx, &pb.OpenAccessoryOutputStreamRequest{
 		Arg0: arg0,
 	})
@@ -86,7 +86,7 @@ func (c *Client) OpenAccessoryOutputStream(ctx context.Context, arg0 int64) (int
 }
 
 // OpenDevice calls the OpenDevice RPC.
-func (c *Client) OpenDevice(ctx context.Context, arg0 int64) (int64, error) {
+func (c *ManagerClient) OpenDevice(ctx context.Context, arg0 int64) (int64, error) {
 	resp, err := c.svc.OpenDevice(ctx, &pb.OpenDeviceRequest{
 		Arg0: arg0,
 	})
@@ -97,7 +97,7 @@ func (c *Client) OpenDevice(ctx context.Context, arg0 int64) (int64, error) {
 }
 
 // RequestPermission2 calls the RequestPermission2 RPC.
-func (c *Client) RequestPermission2(ctx context.Context, arg0 int64, arg1 int64) error {
+func (c *ManagerClient) RequestPermission2(ctx context.Context, arg0 int64, arg1 int64) error {
 	_, err := c.svc.RequestPermission2(ctx, &pb.RequestPermission2Request{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -106,7 +106,7 @@ func (c *Client) RequestPermission2(ctx context.Context, arg0 int64, arg1 int64)
 }
 
 // RequestPermission2_1 calls the RequestPermission2_1 RPC.
-func (c *Client) RequestPermission2_1(ctx context.Context, arg0 int64, arg1 int64) error {
+func (c *ManagerClient) RequestPermission2_1(ctx context.Context, arg0 int64, arg1 int64) error {
 	_, err := c.svc.RequestPermission2_1(ctx, &pb.RequestPermission2_1Request{
 		Arg0: arg0,
 		Arg1: arg1,

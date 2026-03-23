@@ -8,37 +8,74 @@ import (
 	handlepb "github.com/AndroidGoLab/jni-proxy/proto/handlestore"
 	"google.golang.org/grpc"
 
+	accessibilityclient "github.com/AndroidGoLab/jni-proxy/grpc/client/accessibility"
 	accountsclient "github.com/AndroidGoLab/jni-proxy/grpc/client/accounts"
+	adclient "github.com/AndroidGoLab/jni-proxy/grpc/client/ad"
 	adminclient "github.com/AndroidGoLab/jni-proxy/grpc/client/admin"
+	advancedprotectionclient "github.com/AndroidGoLab/jni-proxy/grpc/client/advancedprotection"
 	alarmclient "github.com/AndroidGoLab/jni-proxy/grpc/client/alarm"
+	appclient "github.com/AndroidGoLab/jni-proxy/grpc/client/app"
+	appwidgetclient "github.com/AndroidGoLab/jni-proxy/grpc/client/appwidget"
 	audiomanagerclient "github.com/AndroidGoLab/jni-proxy/grpc/client/audiomanager"
+	awareclient "github.com/AndroidGoLab/jni-proxy/grpc/client/aware"
 	batteryclient "github.com/AndroidGoLab/jni-proxy/grpc/client/battery"
 	biometricclient "github.com/AndroidGoLab/jni-proxy/grpc/client/biometric"
 	blobclient "github.com/AndroidGoLab/jni-proxy/grpc/client/blob"
+	bluetoothclient "github.com/AndroidGoLab/jni-proxy/grpc/client/bluetooth"
 	cameraclient "github.com/AndroidGoLab/jni-proxy/grpc/client/camera"
 	clipboardclient "github.com/AndroidGoLab/jni-proxy/grpc/client/clipboard"
 	companionclient "github.com/AndroidGoLab/jni-proxy/grpc/client/companion"
+	contentclient "github.com/AndroidGoLab/jni-proxy/grpc/client/content"
+	credentialsclient "github.com/AndroidGoLab/jni-proxy/grpc/client/credentials"
 	displayclient "github.com/AndroidGoLab/jni-proxy/grpc/client/display"
+	displayhashclient "github.com/AndroidGoLab/jni-proxy/grpc/client/displayhash"
+	domainclient "github.com/AndroidGoLab/jni-proxy/grpc/client/domain"
 	downloadclient "github.com/AndroidGoLab/jni-proxy/grpc/client/download"
+	euiccclient "github.com/AndroidGoLab/jni-proxy/grpc/client/euicc"
+	fingerprintclient "github.com/AndroidGoLab/jni-proxy/grpc/client/fingerprint"
+	hardwareclient "github.com/AndroidGoLab/jni-proxy/grpc/client/hardware"
+	healthclient "github.com/AndroidGoLab/jni-proxy/grpc/client/health"
+	health_connectclient "github.com/AndroidGoLab/jni-proxy/grpc/client/health_connect"
+	inputclient "github.com/AndroidGoLab/jni-proxy/grpc/client/input"
 	inputmethodclient "github.com/AndroidGoLab/jni-proxy/grpc/client/inputmethod"
+	interactiveclient "github.com/AndroidGoLab/jni-proxy/grpc/client/interactive"
 	irclient "github.com/AndroidGoLab/jni-proxy/grpc/client/ir"
 	jobclient "github.com/AndroidGoLab/jni-proxy/grpc/client/job"
 	keyguardclient "github.com/AndroidGoLab/jni-proxy/grpc/client/keyguard"
+	keystoreclient "github.com/AndroidGoLab/jni-proxy/grpc/client/keystore"
 	locationclient "github.com/AndroidGoLab/jni-proxy/grpc/client/location"
+	mediaclient "github.com/AndroidGoLab/jni-proxy/grpc/client/media"
+	metricsclient "github.com/AndroidGoLab/jni-proxy/grpc/client/metrics"
+	midiclient "github.com/AndroidGoLab/jni-proxy/grpc/client/midi"
 	netclient "github.com/AndroidGoLab/jni-proxy/grpc/client/net"
+	nfcclient "github.com/AndroidGoLab/jni-proxy/grpc/client/nfc"
 	notificationclient "github.com/AndroidGoLab/jni-proxy/grpc/client/notification"
 	nsdclient "github.com/AndroidGoLab/jni-proxy/grpc/client/nsd"
+	omclient "github.com/AndroidGoLab/jni-proxy/grpc/client/om"
+	osclient "github.com/AndroidGoLab/jni-proxy/grpc/client/os"
+	p2pclient "github.com/AndroidGoLab/jni-proxy/grpc/client/p2p"
+	peopleclient "github.com/AndroidGoLab/jni-proxy/grpc/client/people"
+	persistentdataclient "github.com/AndroidGoLab/jni-proxy/grpc/client/persistentdata"
+	pmclient "github.com/AndroidGoLab/jni-proxy/grpc/client/pm"
 	powerclient "github.com/AndroidGoLab/jni-proxy/grpc/client/power"
 	printclient "github.com/AndroidGoLab/jni-proxy/grpc/client/print"
 	projectionclient "github.com/AndroidGoLab/jni-proxy/grpc/client/projection"
+	qualityclient "github.com/AndroidGoLab/jni-proxy/grpc/client/quality"
 	roleclient "github.com/AndroidGoLab/jni-proxy/grpc/client/role"
+	satelliteclient "github.com/AndroidGoLab/jni-proxy/grpc/client/satellite"
+	securityclient "github.com/AndroidGoLab/jni-proxy/grpc/client/security"
 	sessionclient "github.com/AndroidGoLab/jni-proxy/grpc/client/session"
 	storageclient "github.com/AndroidGoLab/jni-proxy/grpc/client/storage"
 	telecomclient "github.com/AndroidGoLab/jni-proxy/grpc/client/telecom"
 	telephonyclient "github.com/AndroidGoLab/jni-proxy/grpc/client/telephony"
+	textclassifierclient "github.com/AndroidGoLab/jni-proxy/grpc/client/textclassifier"
+	textserviceclient "github.com/AndroidGoLab/jni-proxy/grpc/client/textservice"
+	tvclient "github.com/AndroidGoLab/jni-proxy/grpc/client/tv"
 	usageclient "github.com/AndroidGoLab/jni-proxy/grpc/client/usage"
 	usbclient "github.com/AndroidGoLab/jni-proxy/grpc/client/usb"
 	vibratorclient "github.com/AndroidGoLab/jni-proxy/grpc/client/vibrator"
+	viewclient "github.com/AndroidGoLab/jni-proxy/grpc/client/view"
+	virtualclient "github.com/AndroidGoLab/jni-proxy/grpc/client/virtual"
 	wificlient "github.com/AndroidGoLab/jni-proxy/grpc/client/wifi"
 	wifi_p2pclient "github.com/AndroidGoLab/jni-proxy/grpc/client/wifi_p2p"
 	wifi_rttclient "github.com/AndroidGoLab/jni-proxy/grpc/client/wifi_rtt"
@@ -46,81 +83,207 @@ import (
 
 // Client provides access to all Android API services over gRPC.
 type Client struct {
-	handles      handlepb.HandleStoreServiceClient
-	Accounts     *accountsclient.Client
-	Admin        *adminclient.Client
-	Alarm        *alarmclient.Client
-	Audiomanager *audiomanagerclient.Client
-	Battery      *batteryclient.Client
-	Biometric    *biometricclient.Client
-	Blob         *blobclient.Client
-	Camera       *cameraclient.Client
-	Clipboard    *clipboardclient.Client
-	Companion    *companionclient.Client
-	Display      *displayclient.Client
-	Download     *downloadclient.Client
-	Inputmethod  *inputmethodclient.Client
-	Ir           *irclient.Client
-	Job          *jobclient.Client
-	Keyguard     *keyguardclient.Client
-	Location     *locationclient.Client
-	Net          *netclient.Client
-	Notification *notificationclient.Client
-	Nsd          *nsdclient.Client
-	Power        *powerclient.Client
-	Print        *printclient.Client
-	Projection   *projectionclient.Client
-	Role         *roleclient.Client
-	Session      *sessionclient.Client
-	Storage      *storageclient.Client
-	Telecom      *telecomclient.Client
-	Telephony    *telephonyclient.Client
-	Usage        *usageclient.Client
-	Usb          *usbclient.Client
-	Vibrator     *vibratorclient.Client
-	Wifi         *wificlient.Client
-	Wifi_p2p     *wifi_p2pclient.Client
-	Wifi_rtt     *wifi_rttclient.Client
+	handles                                     handlepb.HandleStoreServiceClient
+	AccessibilityManager                        *accessibilityclient.ManagerClient
+	AccessibilityCaptioningManager              *accessibilityclient.CaptioningManagerClient
+	AccountsAccountManager                      *accountsclient.AccountManagerClient
+	AdTvAdManager                               *adclient.TvAdManagerClient
+	AdminDevicePolicyManager                    *adminclient.DevicePolicyManagerClient
+	AdvancedprotectionAdvancedProtectionManager *advancedprotectionclient.AdvancedProtectionManagerClient
+	AlarmManager                                *alarmclient.ManagerClient
+	AppStatusBarManager                         *appclient.StatusBarManagerClient
+	AppGameManager                              *appclient.GameManagerClient
+	AppActivityManager                          *appclient.ActivityManagerClient
+	AppSearchManager                            *appclient.SearchManagerClient
+	AppLocaleManager                            *appclient.LocaleManagerClient
+	AppWallpaperManager                         *appclient.WallpaperManagerClient
+	AppOpsManager                               *appclient.OpsManagerClient
+	AppUiModeManager                            *appclient.UiModeManagerClient
+	AppGrammaticalInflectionManager             *appclient.GrammaticalInflectionManagerClient
+	AppwidgetAppWidgetManager                   *appwidgetclient.AppWidgetManagerClient
+	AudiomanagerAudioManager                    *audiomanagerclient.AudioManagerClient
+	AwareWifiAwareManager                       *awareclient.WifiAwareManagerClient
+	BatteryManager                              *batteryclient.ManagerClient
+	BiometricManager                            *biometricclient.ManagerClient
+	BlobStoreManager                            *blobclient.StoreManagerClient
+	BluetoothManager                            *bluetoothclient.ManagerClient
+	CameraManager                               *cameraclient.ManagerClient
+	ClipboardManager                            *clipboardclient.ManagerClient
+	CompanionDeviceManager                      *companionclient.DeviceManagerClient
+	ContentRestrictionsManager                  *contentclient.RestrictionsManagerClient
+	CredentialsCredentialManager                *credentialsclient.CredentialManagerClient
+	DisplayManager                              *displayclient.ManagerClient
+	DisplayWindowManager                        *displayclient.WindowManagerClient
+	DisplayhashDisplayHashManager               *displayhashclient.DisplayHashManagerClient
+	DomainVerificationManager                   *domainclient.VerificationManagerClient
+	DownloadManager                             *downloadclient.ManagerClient
+	EuiccManager                                *euiccclient.ManagerClient
+	FingerprintManager                          *fingerprintclient.ManagerClient
+	HardwareSensorManager                       *hardwareclient.SensorManagerClient
+	HealthSystemHealthManager                   *healthclient.SystemHealthManagerClient
+	Health_connectHealthConnectManager          *health_connectclient.HealthConnectManagerClient
+	InputManager                                *inputclient.ManagerClient
+	InputmethodInputMethodManager               *inputmethodclient.InputMethodManagerClient
+	InteractiveTvInteractiveAppManager          *interactiveclient.TvInteractiveAppManagerClient
+	IrConsumerIrManager                         *irclient.ConsumerIrManagerClient
+	JobScheduler                                *jobclient.SchedulerClient
+	KeyguardManager                             *keyguardclient.ManagerClient
+	KeystoreKeyStoreManager                     *keystoreclient.KeyStoreManagerClient
+	LocationManager                             *locationclient.ManagerClient
+	MediaRouter                                 *mediaclient.RouterClient
+	MediaCommunicationManager                   *mediaclient.CommunicationManagerClient
+	MetricsMediaMetricsManager                  *metricsclient.MediaMetricsManagerClient
+	MidiManager                                 *midiclient.ManagerClient
+	NetConnectivityDiagnosticsManager           *netclient.ConnectivityDiagnosticsManagerClient
+	NetConnectivityManager                      *netclient.ConnectivityManagerClient
+	NetIpSecManager                             *netclient.IpSecManagerClient
+	NetTetheringManager                         *netclient.TetheringManagerClient
+	NfcManager                                  *nfcclient.ManagerClient
+	NotificationManager                         *notificationclient.ManagerClient
+	NsdManager                                  *nsdclient.ManagerClient
+	OmOverlayManager                            *omclient.OverlayManagerClient
+	OsDropBoxManager                            *osclient.DropBoxManagerClient
+	OsSecurityStateManager                      *osclient.SecurityStateManagerClient
+	OsUserManager                               *osclient.UserManagerClient
+	OsHardwarePropertiesManager                 *osclient.HardwarePropertiesManagerClient
+	OsVibratorManager                           *osclient.VibratorManagerClient
+	OsBugreportManager                          *osclient.BugreportManagerClient
+	OsPerformanceHintManager                    *osclient.PerformanceHintManagerClient
+	OsProfilingManager                          *osclient.ProfilingManagerClient
+	P2pWifiP2pManager                           *p2pclient.WifiP2pManagerClient
+	PeopleManager                               *peopleclient.ManagerClient
+	PersistentdataPersistentDataBlockManager    *persistentdataclient.PersistentDataBlockManagerClient
+	PmCrossProfileApps                          *pmclient.CrossProfileAppsClient
+	PmShortcutManager                           *pmclient.ShortcutManagerClient
+	PmLauncherApps                              *pmclient.LauncherAppsClient
+	PowerManager                                *powerclient.ManagerClient
+	PrintManager                                *printclient.ManagerClient
+	ProjectionMediaProjectionManager            *projectionclient.MediaProjectionManagerClient
+	QualityMediaQualityManager                  *qualityclient.MediaQualityManagerClient
+	RoleManager                                 *roleclient.ManagerClient
+	SatelliteManager                            *satelliteclient.ManagerClient
+	SecurityFileIntegrityManager                *securityclient.FileIntegrityManagerClient
+	SessionMediaSessionManager                  *sessionclient.MediaSessionManagerClient
+	StorageManager                              *storageclient.ManagerClient
+	TelecomManager                              *telecomclient.ManagerClient
+	TelephonyCarrierConfigManager               *telephonyclient.CarrierConfigManagerClient
+	TelephonyManager                            *telephonyclient.ManagerClient
+	TextclassifierTextClassificationManager     *textclassifierclient.TextClassificationManagerClient
+	TextserviceTextServicesManager              *textserviceclient.TextServicesManagerClient
+	TvInputManager                              *tvclient.InputManagerClient
+	UsageStatsManager                           *usageclient.StatsManagerClient
+	UsageStorageStatsManager                    *usageclient.StorageStatsManagerClient
+	UsageNetworkStatsManager                    *usageclient.NetworkStatsManagerClient
+	UsbManager                                  *usbclient.ManagerClient
+	VibratorVibrator                            *vibratorclient.VibratorClient
+	ViewLayoutInflater                          *viewclient.LayoutInflaterClient
+	VirtualDeviceManager                        *virtualclient.DeviceManagerClient
+	WifiManager                                 *wificlient.ManagerClient
+	Wifi_p2pWifiP2pManager                      *wifi_p2pclient.WifiP2pManagerClient
+	Wifi_rttWifiRttManager                      *wifi_rttclient.WifiRttManagerClient
 }
 
 // NewClient creates a composite client from a gRPC connection.
 func NewClient(cc grpc.ClientConnInterface) *Client {
 	return &Client{
-		handles:      handlepb.NewHandleStoreServiceClient(cc),
-		Accounts:     accountsclient.NewClient(cc),
-		Admin:        adminclient.NewClient(cc),
-		Alarm:        alarmclient.NewClient(cc),
-		Audiomanager: audiomanagerclient.NewClient(cc),
-		Battery:      batteryclient.NewClient(cc),
-		Biometric:    biometricclient.NewClient(cc),
-		Blob:         blobclient.NewClient(cc),
-		Camera:       cameraclient.NewClient(cc),
-		Clipboard:    clipboardclient.NewClient(cc),
-		Companion:    companionclient.NewClient(cc),
-		Display:      displayclient.NewClient(cc),
-		Download:     downloadclient.NewClient(cc),
-		Inputmethod:  inputmethodclient.NewClient(cc),
-		Ir:           irclient.NewClient(cc),
-		Job:          jobclient.NewClient(cc),
-		Keyguard:     keyguardclient.NewClient(cc),
-		Location:     locationclient.NewClient(cc),
-		Net:          netclient.NewClient(cc),
-		Notification: notificationclient.NewClient(cc),
-		Nsd:          nsdclient.NewClient(cc),
-		Power:        powerclient.NewClient(cc),
-		Print:        printclient.NewClient(cc),
-		Projection:   projectionclient.NewClient(cc),
-		Role:         roleclient.NewClient(cc),
-		Session:      sessionclient.NewClient(cc),
-		Storage:      storageclient.NewClient(cc),
-		Telecom:      telecomclient.NewClient(cc),
-		Telephony:    telephonyclient.NewClient(cc),
-		Usage:        usageclient.NewClient(cc),
-		Usb:          usbclient.NewClient(cc),
-		Vibrator:     vibratorclient.NewClient(cc),
-		Wifi:         wificlient.NewClient(cc),
-		Wifi_p2p:     wifi_p2pclient.NewClient(cc),
-		Wifi_rtt:     wifi_rttclient.NewClient(cc),
+		handles:                                     handlepb.NewHandleStoreServiceClient(cc),
+		AccessibilityManager:                        accessibilityclient.NewManagerClient(cc),
+		AccessibilityCaptioningManager:              accessibilityclient.NewCaptioningManagerClient(cc),
+		AccountsAccountManager:                      accountsclient.NewAccountManagerClient(cc),
+		AdTvAdManager:                               adclient.NewTvAdManagerClient(cc),
+		AdminDevicePolicyManager:                    adminclient.NewDevicePolicyManagerClient(cc),
+		AdvancedprotectionAdvancedProtectionManager: advancedprotectionclient.NewAdvancedProtectionManagerClient(cc),
+		AlarmManager:                                alarmclient.NewManagerClient(cc),
+		AppStatusBarManager:                         appclient.NewStatusBarManagerClient(cc),
+		AppGameManager:                              appclient.NewGameManagerClient(cc),
+		AppActivityManager:                          appclient.NewActivityManagerClient(cc),
+		AppSearchManager:                            appclient.NewSearchManagerClient(cc),
+		AppLocaleManager:                            appclient.NewLocaleManagerClient(cc),
+		AppWallpaperManager:                         appclient.NewWallpaperManagerClient(cc),
+		AppOpsManager:                               appclient.NewOpsManagerClient(cc),
+		AppUiModeManager:                            appclient.NewUiModeManagerClient(cc),
+		AppGrammaticalInflectionManager:             appclient.NewGrammaticalInflectionManagerClient(cc),
+		AppwidgetAppWidgetManager:                   appwidgetclient.NewAppWidgetManagerClient(cc),
+		AudiomanagerAudioManager:                    audiomanagerclient.NewAudioManagerClient(cc),
+		AwareWifiAwareManager:                       awareclient.NewWifiAwareManagerClient(cc),
+		BatteryManager:                              batteryclient.NewManagerClient(cc),
+		BiometricManager:                            biometricclient.NewManagerClient(cc),
+		BlobStoreManager:                            blobclient.NewStoreManagerClient(cc),
+		BluetoothManager:                            bluetoothclient.NewManagerClient(cc),
+		CameraManager:                               cameraclient.NewManagerClient(cc),
+		ClipboardManager:                            clipboardclient.NewManagerClient(cc),
+		CompanionDeviceManager:                      companionclient.NewDeviceManagerClient(cc),
+		ContentRestrictionsManager:                  contentclient.NewRestrictionsManagerClient(cc),
+		CredentialsCredentialManager:                credentialsclient.NewCredentialManagerClient(cc),
+		DisplayManager:                              displayclient.NewManagerClient(cc),
+		DisplayWindowManager:                        displayclient.NewWindowManagerClient(cc),
+		DisplayhashDisplayHashManager:               displayhashclient.NewDisplayHashManagerClient(cc),
+		DomainVerificationManager:                   domainclient.NewVerificationManagerClient(cc),
+		DownloadManager:                             downloadclient.NewManagerClient(cc),
+		EuiccManager:                                euiccclient.NewManagerClient(cc),
+		FingerprintManager:                          fingerprintclient.NewManagerClient(cc),
+		HardwareSensorManager:                       hardwareclient.NewSensorManagerClient(cc),
+		HealthSystemHealthManager:                   healthclient.NewSystemHealthManagerClient(cc),
+		Health_connectHealthConnectManager:          health_connectclient.NewHealthConnectManagerClient(cc),
+		InputManager:                                inputclient.NewManagerClient(cc),
+		InputmethodInputMethodManager:               inputmethodclient.NewInputMethodManagerClient(cc),
+		InteractiveTvInteractiveAppManager:          interactiveclient.NewTvInteractiveAppManagerClient(cc),
+		IrConsumerIrManager:                         irclient.NewConsumerIrManagerClient(cc),
+		JobScheduler:                                jobclient.NewSchedulerClient(cc),
+		KeyguardManager:                             keyguardclient.NewManagerClient(cc),
+		KeystoreKeyStoreManager:                     keystoreclient.NewKeyStoreManagerClient(cc),
+		LocationManager:                             locationclient.NewManagerClient(cc),
+		MediaRouter:                                 mediaclient.NewRouterClient(cc),
+		MediaCommunicationManager:                   mediaclient.NewCommunicationManagerClient(cc),
+		MetricsMediaMetricsManager:                  metricsclient.NewMediaMetricsManagerClient(cc),
+		MidiManager:                                 midiclient.NewManagerClient(cc),
+		NetConnectivityDiagnosticsManager:           netclient.NewConnectivityDiagnosticsManagerClient(cc),
+		NetConnectivityManager:                      netclient.NewConnectivityManagerClient(cc),
+		NetIpSecManager:                             netclient.NewIpSecManagerClient(cc),
+		NetTetheringManager:                         netclient.NewTetheringManagerClient(cc),
+		NfcManager:                                  nfcclient.NewManagerClient(cc),
+		NotificationManager:                         notificationclient.NewManagerClient(cc),
+		NsdManager:                                  nsdclient.NewManagerClient(cc),
+		OmOverlayManager:                            omclient.NewOverlayManagerClient(cc),
+		OsDropBoxManager:                            osclient.NewDropBoxManagerClient(cc),
+		OsSecurityStateManager:                      osclient.NewSecurityStateManagerClient(cc),
+		OsUserManager:                               osclient.NewUserManagerClient(cc),
+		OsHardwarePropertiesManager:                 osclient.NewHardwarePropertiesManagerClient(cc),
+		OsVibratorManager:                           osclient.NewVibratorManagerClient(cc),
+		OsBugreportManager:                          osclient.NewBugreportManagerClient(cc),
+		OsPerformanceHintManager:                    osclient.NewPerformanceHintManagerClient(cc),
+		OsProfilingManager:                          osclient.NewProfilingManagerClient(cc),
+		P2pWifiP2pManager:                           p2pclient.NewWifiP2pManagerClient(cc),
+		PeopleManager:                               peopleclient.NewManagerClient(cc),
+		PersistentdataPersistentDataBlockManager:    persistentdataclient.NewPersistentDataBlockManagerClient(cc),
+		PmCrossProfileApps:                          pmclient.NewCrossProfileAppsClient(cc),
+		PmShortcutManager:                           pmclient.NewShortcutManagerClient(cc),
+		PmLauncherApps:                              pmclient.NewLauncherAppsClient(cc),
+		PowerManager:                                powerclient.NewManagerClient(cc),
+		PrintManager:                                printclient.NewManagerClient(cc),
+		ProjectionMediaProjectionManager:            projectionclient.NewMediaProjectionManagerClient(cc),
+		QualityMediaQualityManager:                  qualityclient.NewMediaQualityManagerClient(cc),
+		RoleManager:                                 roleclient.NewManagerClient(cc),
+		SatelliteManager:                            satelliteclient.NewManagerClient(cc),
+		SecurityFileIntegrityManager:                securityclient.NewFileIntegrityManagerClient(cc),
+		SessionMediaSessionManager:                  sessionclient.NewMediaSessionManagerClient(cc),
+		StorageManager:                              storageclient.NewManagerClient(cc),
+		TelecomManager:                              telecomclient.NewManagerClient(cc),
+		TelephonyCarrierConfigManager:               telephonyclient.NewCarrierConfigManagerClient(cc),
+		TelephonyManager:                            telephonyclient.NewManagerClient(cc),
+		TextclassifierTextClassificationManager:     textclassifierclient.NewTextClassificationManagerClient(cc),
+		TextserviceTextServicesManager:              textserviceclient.NewTextServicesManagerClient(cc),
+		TvInputManager:                              tvclient.NewInputManagerClient(cc),
+		UsageStatsManager:                           usageclient.NewStatsManagerClient(cc),
+		UsageStorageStatsManager:                    usageclient.NewStorageStatsManagerClient(cc),
+		UsageNetworkStatsManager:                    usageclient.NewNetworkStatsManagerClient(cc),
+		UsbManager:                                  usbclient.NewManagerClient(cc),
+		VibratorVibrator:                            vibratorclient.NewVibratorClient(cc),
+		ViewLayoutInflater:                          viewclient.NewLayoutInflaterClient(cc),
+		VirtualDeviceManager:                        virtualclient.NewDeviceManagerClient(cc),
+		WifiManager:                                 wificlient.NewManagerClient(cc),
+		Wifi_p2pWifiP2pManager:                      wifi_p2pclient.NewWifiP2pManagerClient(cc),
+		Wifi_rttWifiRttManager:                      wifi_rttclient.NewWifiRttManagerClient(cc),
 	}
 }
 

@@ -9,20 +9,20 @@ import (
 	"google.golang.org/grpc"
 )
 
-// Client wraps the gRPC ManagerService client.
-type Client struct {
+// ManagerClient wraps the gRPC ManagerService client.
+type ManagerClient struct {
 	svc pb.ManagerServiceClient
 }
 
-// NewClient creates a new alarm client.
-func NewClient(cc grpc.ClientConnInterface) *Client {
-	return &Client{
+// NewManagerClient creates a new Manager client.
+func NewManagerClient(cc grpc.ClientConnInterface) *ManagerClient {
+	return &ManagerClient{
 		svc: pb.NewManagerServiceClient(cc),
 	}
 }
 
 // CanScheduleExactAlarms calls the CanScheduleExactAlarms RPC.
-func (c *Client) CanScheduleExactAlarms(ctx context.Context) (bool, error) {
+func (c *ManagerClient) CanScheduleExactAlarms(ctx context.Context) (bool, error) {
 	resp, err := c.svc.CanScheduleExactAlarms(ctx, &pb.CanScheduleExactAlarmsRequest{})
 	if err != nil {
 		return false, err
@@ -31,7 +31,7 @@ func (c *Client) CanScheduleExactAlarms(ctx context.Context) (bool, error) {
 }
 
 // Cancel1 calls the Cancel1 RPC.
-func (c *Client) Cancel1(ctx context.Context, arg0 int64) error {
+func (c *ManagerClient) Cancel1(ctx context.Context, arg0 int64) error {
 	_, err := c.svc.Cancel1(ctx, &pb.Cancel1Request{
 		Arg0: arg0,
 	})
@@ -39,7 +39,7 @@ func (c *Client) Cancel1(ctx context.Context, arg0 int64) error {
 }
 
 // Cancel1_1 calls the Cancel1_1 RPC.
-func (c *Client) Cancel1_1(ctx context.Context, arg0 int64) error {
+func (c *ManagerClient) Cancel1_1(ctx context.Context, arg0 int64) error {
 	_, err := c.svc.Cancel1_1(ctx, &pb.Cancel1_1Request{
 		Arg0: arg0,
 	})
@@ -47,13 +47,13 @@ func (c *Client) Cancel1_1(ctx context.Context, arg0 int64) error {
 }
 
 // CancelAll calls the CancelAll RPC.
-func (c *Client) CancelAll(ctx context.Context) error {
+func (c *ManagerClient) CancelAll(ctx context.Context) error {
 	_, err := c.svc.CancelAll(ctx, &pb.CancelAllRequest{})
 	return err
 }
 
 // GetNextAlarmClock calls the GetNextAlarmClock RPC.
-func (c *Client) GetNextAlarmClock(ctx context.Context) (int64, error) {
+func (c *ManagerClient) GetNextAlarmClock(ctx context.Context) (int64, error) {
 	resp, err := c.svc.GetNextAlarmClock(ctx, &pb.GetNextAlarmClockRequest{})
 	if err != nil {
 		return 0, err
@@ -62,7 +62,7 @@ func (c *Client) GetNextAlarmClock(ctx context.Context) (int64, error) {
 }
 
 // Set calls the Set RPC.
-func (c *Client) Set(ctx context.Context, arg0 int32, arg1 int64, arg2 int64) error {
+func (c *ManagerClient) Set(ctx context.Context, arg0 int32, arg1 int64, arg2 int64) error {
 	_, err := c.svc.Set(ctx, &pb.SetRequest{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -72,7 +72,7 @@ func (c *Client) Set(ctx context.Context, arg0 int32, arg1 int64, arg2 int64) er
 }
 
 // SetAlarmClock calls the SetAlarmClock RPC.
-func (c *Client) SetAlarmClock(ctx context.Context, arg0 int64, arg1 int64) error {
+func (c *ManagerClient) SetAlarmClock(ctx context.Context, arg0 int64, arg1 int64) error {
 	_, err := c.svc.SetAlarmClock(ctx, &pb.SetAlarmClockRequest{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -81,7 +81,7 @@ func (c *Client) SetAlarmClock(ctx context.Context, arg0 int64, arg1 int64) erro
 }
 
 // SetAndAllowWhileIdle calls the SetAndAllowWhileIdle RPC.
-func (c *Client) SetAndAllowWhileIdle(ctx context.Context, arg0 int32, arg1 int64, arg2 int64) error {
+func (c *ManagerClient) SetAndAllowWhileIdle(ctx context.Context, arg0 int32, arg1 int64, arg2 int64) error {
 	_, err := c.svc.SetAndAllowWhileIdle(ctx, &pb.SetAndAllowWhileIdleRequest{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -91,7 +91,7 @@ func (c *Client) SetAndAllowWhileIdle(ctx context.Context, arg0 int32, arg1 int6
 }
 
 // SetExact calls the SetExact RPC.
-func (c *Client) SetExact(ctx context.Context, arg0 int32, arg1 int64, arg2 int64) error {
+func (c *ManagerClient) SetExact(ctx context.Context, arg0 int32, arg1 int64, arg2 int64) error {
 	_, err := c.svc.SetExact(ctx, &pb.SetExactRequest{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -101,7 +101,7 @@ func (c *Client) SetExact(ctx context.Context, arg0 int32, arg1 int64, arg2 int6
 }
 
 // SetExactAndAllowWhileIdle calls the SetExactAndAllowWhileIdle RPC.
-func (c *Client) SetExactAndAllowWhileIdle(ctx context.Context, arg0 int32, arg1 int64, arg2 int64) error {
+func (c *ManagerClient) SetExactAndAllowWhileIdle(ctx context.Context, arg0 int32, arg1 int64, arg2 int64) error {
 	_, err := c.svc.SetExactAndAllowWhileIdle(ctx, &pb.SetExactAndAllowWhileIdleRequest{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -111,7 +111,7 @@ func (c *Client) SetExactAndAllowWhileIdle(ctx context.Context, arg0 int32, arg1
 }
 
 // SetInexactRepeating calls the SetInexactRepeating RPC.
-func (c *Client) SetInexactRepeating(ctx context.Context, arg0 int32, arg1 int64, arg2 int64, arg3 int64) error {
+func (c *ManagerClient) SetInexactRepeating(ctx context.Context, arg0 int32, arg1 int64, arg2 int64, arg3 int64) error {
 	_, err := c.svc.SetInexactRepeating(ctx, &pb.SetInexactRepeatingRequest{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -122,7 +122,7 @@ func (c *Client) SetInexactRepeating(ctx context.Context, arg0 int32, arg1 int64
 }
 
 // SetRepeating calls the SetRepeating RPC.
-func (c *Client) SetRepeating(ctx context.Context, arg0 int32, arg1 int64, arg2 int64, arg3 int64) error {
+func (c *ManagerClient) SetRepeating(ctx context.Context, arg0 int32, arg1 int64, arg2 int64, arg3 int64) error {
 	_, err := c.svc.SetRepeating(ctx, &pb.SetRepeatingRequest{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -133,7 +133,7 @@ func (c *Client) SetRepeating(ctx context.Context, arg0 int32, arg1 int64, arg2 
 }
 
 // SetTime calls the SetTime RPC.
-func (c *Client) SetTime(ctx context.Context, arg0 int64) error {
+func (c *ManagerClient) SetTime(ctx context.Context, arg0 int64) error {
 	_, err := c.svc.SetTime(ctx, &pb.SetTimeRequest{
 		Arg0: arg0,
 	})
@@ -141,7 +141,7 @@ func (c *Client) SetTime(ctx context.Context, arg0 int64) error {
 }
 
 // SetTimeZone calls the SetTimeZone RPC.
-func (c *Client) SetTimeZone(ctx context.Context, arg0 string) error {
+func (c *ManagerClient) SetTimeZone(ctx context.Context, arg0 string) error {
 	_, err := c.svc.SetTimeZone(ctx, &pb.SetTimeZoneRequest{
 		Arg0: arg0,
 	})
@@ -149,7 +149,7 @@ func (c *Client) SetTimeZone(ctx context.Context, arg0 string) error {
 }
 
 // SetWindow4 calls the SetWindow4 RPC.
-func (c *Client) SetWindow4(ctx context.Context, arg0 int32, arg1 int64, arg2 int64, arg3 int64) error {
+func (c *ManagerClient) SetWindow4(ctx context.Context, arg0 int32, arg1 int64, arg2 int64, arg3 int64) error {
 	_, err := c.svc.SetWindow4(ctx, &pb.SetWindow4Request{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -160,7 +160,7 @@ func (c *Client) SetWindow4(ctx context.Context, arg0 int32, arg1 int64, arg2 in
 }
 
 // SetWindow6_1 calls the SetWindow6_1 RPC.
-func (c *Client) SetWindow6_1(ctx context.Context, arg0 int32, arg1 int64, arg2 int64, arg3 string, arg4 int64, arg5 int64) error {
+func (c *ManagerClient) SetWindow6_1(ctx context.Context, arg0 int32, arg1 int64, arg2 int64, arg3 string, arg4 int64, arg5 int64) error {
 	_, err := c.svc.SetWindow6_1(ctx, &pb.SetWindow6_1Request{
 		Arg0: arg0,
 		Arg1: arg1,

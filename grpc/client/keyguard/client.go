@@ -9,20 +9,20 @@ import (
 	"google.golang.org/grpc"
 )
 
-// Client wraps the gRPC ManagerService client.
-type Client struct {
+// ManagerClient wraps the gRPC ManagerService client.
+type ManagerClient struct {
 	svc pb.ManagerServiceClient
 }
 
-// NewClient creates a new keyguard client.
-func NewClient(cc grpc.ClientConnInterface) *Client {
-	return &Client{
+// NewManagerClient creates a new Manager client.
+func NewManagerClient(cc grpc.ClientConnInterface) *ManagerClient {
+	return &ManagerClient{
 		svc: pb.NewManagerServiceClient(cc),
 	}
 }
 
 // AddKeyguardLockedStateListener calls the AddKeyguardLockedStateListener RPC.
-func (c *Client) AddKeyguardLockedStateListener(ctx context.Context, arg0 int64, arg1 int64) error {
+func (c *ManagerClient) AddKeyguardLockedStateListener(ctx context.Context, arg0 int64, arg1 int64) error {
 	_, err := c.svc.AddKeyguardLockedStateListener(ctx, &pb.AddKeyguardLockedStateListenerRequest{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -31,7 +31,7 @@ func (c *Client) AddKeyguardLockedStateListener(ctx context.Context, arg0 int64,
 }
 
 // CreateConfirmDeviceCredentialIntent calls the CreateConfirmDeviceCredentialIntent RPC.
-func (c *Client) CreateConfirmDeviceCredentialIntent(ctx context.Context, arg0 string, arg1 string) (int64, error) {
+func (c *ManagerClient) CreateConfirmDeviceCredentialIntent(ctx context.Context, arg0 string, arg1 string) (int64, error) {
 	resp, err := c.svc.CreateConfirmDeviceCredentialIntent(ctx, &pb.CreateConfirmDeviceCredentialIntentRequest{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -43,7 +43,7 @@ func (c *Client) CreateConfirmDeviceCredentialIntent(ctx context.Context, arg0 s
 }
 
 // ExitKeyguardSecurely calls the ExitKeyguardSecurely RPC.
-func (c *Client) ExitKeyguardSecurely(ctx context.Context, arg0 int64) error {
+func (c *ManagerClient) ExitKeyguardSecurely(ctx context.Context, arg0 int64) error {
 	_, err := c.svc.ExitKeyguardSecurely(ctx, &pb.ExitKeyguardSecurelyRequest{
 		Arg0: arg0,
 	})
@@ -51,7 +51,7 @@ func (c *Client) ExitKeyguardSecurely(ctx context.Context, arg0 int64) error {
 }
 
 // InKeyguardRestrictedInputMode calls the InKeyguardRestrictedInputMode RPC.
-func (c *Client) InKeyguardRestrictedInputMode(ctx context.Context) (bool, error) {
+func (c *ManagerClient) InKeyguardRestrictedInputMode(ctx context.Context) (bool, error) {
 	resp, err := c.svc.InKeyguardRestrictedInputMode(ctx, &pb.InKeyguardRestrictedInputModeRequest{})
 	if err != nil {
 		return false, err
@@ -60,7 +60,7 @@ func (c *Client) InKeyguardRestrictedInputMode(ctx context.Context) (bool, error
 }
 
 // IsDeviceLocked calls the IsDeviceLocked RPC.
-func (c *Client) IsDeviceLocked(ctx context.Context) (bool, error) {
+func (c *ManagerClient) IsDeviceLocked(ctx context.Context) (bool, error) {
 	resp, err := c.svc.IsDeviceLocked(ctx, &pb.IsDeviceLockedRequest{})
 	if err != nil {
 		return false, err
@@ -69,7 +69,7 @@ func (c *Client) IsDeviceLocked(ctx context.Context) (bool, error) {
 }
 
 // IsDeviceSecure calls the IsDeviceSecure RPC.
-func (c *Client) IsDeviceSecure(ctx context.Context) (bool, error) {
+func (c *ManagerClient) IsDeviceSecure(ctx context.Context) (bool, error) {
 	resp, err := c.svc.IsDeviceSecure(ctx, &pb.IsDeviceSecureRequest{})
 	if err != nil {
 		return false, err
@@ -78,7 +78,7 @@ func (c *Client) IsDeviceSecure(ctx context.Context) (bool, error) {
 }
 
 // IsKeyguardLocked calls the IsKeyguardLocked RPC.
-func (c *Client) IsKeyguardLocked(ctx context.Context) (bool, error) {
+func (c *ManagerClient) IsKeyguardLocked(ctx context.Context) (bool, error) {
 	resp, err := c.svc.IsKeyguardLocked(ctx, &pb.IsKeyguardLockedRequest{})
 	if err != nil {
 		return false, err
@@ -87,7 +87,7 @@ func (c *Client) IsKeyguardLocked(ctx context.Context) (bool, error) {
 }
 
 // IsKeyguardSecure calls the IsKeyguardSecure RPC.
-func (c *Client) IsKeyguardSecure(ctx context.Context) (bool, error) {
+func (c *ManagerClient) IsKeyguardSecure(ctx context.Context) (bool, error) {
 	resp, err := c.svc.IsKeyguardSecure(ctx, &pb.IsKeyguardSecureRequest{})
 	if err != nil {
 		return false, err
@@ -96,7 +96,7 @@ func (c *Client) IsKeyguardSecure(ctx context.Context) (bool, error) {
 }
 
 // NewKeyguardLock calls the NewKeyguardLock RPC.
-func (c *Client) NewKeyguardLock(ctx context.Context, arg0 string) (int64, error) {
+func (c *ManagerClient) NewKeyguardLock(ctx context.Context, arg0 string) (int64, error) {
 	resp, err := c.svc.NewKeyguardLock(ctx, &pb.NewKeyguardLockRequest{
 		Arg0: arg0,
 	})
@@ -107,7 +107,7 @@ func (c *Client) NewKeyguardLock(ctx context.Context, arg0 string) (int64, error
 }
 
 // RemoveKeyguardLockedStateListener calls the RemoveKeyguardLockedStateListener RPC.
-func (c *Client) RemoveKeyguardLockedStateListener(ctx context.Context, arg0 int64) error {
+func (c *ManagerClient) RemoveKeyguardLockedStateListener(ctx context.Context, arg0 int64) error {
 	_, err := c.svc.RemoveKeyguardLockedStateListener(ctx, &pb.RemoveKeyguardLockedStateListenerRequest{
 		Arg0: arg0,
 	})
@@ -115,7 +115,7 @@ func (c *Client) RemoveKeyguardLockedStateListener(ctx context.Context, arg0 int
 }
 
 // RequestDismissKeyguard calls the RequestDismissKeyguard RPC.
-func (c *Client) RequestDismissKeyguard(ctx context.Context, arg0 int64, arg1 int64) error {
+func (c *ManagerClient) RequestDismissKeyguard(ctx context.Context, arg0 int64, arg1 int64) error {
 	_, err := c.svc.RequestDismissKeyguard(ctx, &pb.RequestDismissKeyguardRequest{
 		Arg0: arg0,
 		Arg1: arg1,

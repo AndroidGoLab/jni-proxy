@@ -9,26 +9,26 @@ import (
 	"google.golang.org/grpc"
 )
 
-// Client wraps the gRPC DevicePolicyManagerService client.
-type Client struct {
+// DevicePolicyManagerClient wraps the gRPC DevicePolicyManagerService client.
+type DevicePolicyManagerClient struct {
 	svc pb.DevicePolicyManagerServiceClient
 }
 
-// NewClient creates a new admin client.
-func NewClient(cc grpc.ClientConnInterface) *Client {
-	return &Client{
+// NewDevicePolicyManagerClient creates a new DevicePolicyManager client.
+func NewDevicePolicyManagerClient(cc grpc.ClientConnInterface) *DevicePolicyManagerClient {
+	return &DevicePolicyManagerClient{
 		svc: pb.NewDevicePolicyManagerServiceClient(cc),
 	}
 }
 
 // AcknowledgeDeviceCompliant calls the AcknowledgeDeviceCompliant RPC.
-func (c *Client) AcknowledgeDeviceCompliant(ctx context.Context) error {
+func (c *DevicePolicyManagerClient) AcknowledgeDeviceCompliant(ctx context.Context) error {
 	_, err := c.svc.AcknowledgeDeviceCompliant(ctx, &pb.AcknowledgeDeviceCompliantRequest{})
 	return err
 }
 
 // AddCrossProfileIntentFilter calls the AddCrossProfileIntentFilter RPC.
-func (c *Client) AddCrossProfileIntentFilter(ctx context.Context, arg0 int64, arg1 int64, arg2 int32) error {
+func (c *DevicePolicyManagerClient) AddCrossProfileIntentFilter(ctx context.Context, arg0 int64, arg1 int64, arg2 int32) error {
 	_, err := c.svc.AddCrossProfileIntentFilter(ctx, &pb.AddCrossProfileIntentFilterRequest{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -38,7 +38,7 @@ func (c *Client) AddCrossProfileIntentFilter(ctx context.Context, arg0 int64, ar
 }
 
 // AddCrossProfileWidgetProvider calls the AddCrossProfileWidgetProvider RPC.
-func (c *Client) AddCrossProfileWidgetProvider(ctx context.Context, arg0 int64, arg1 string) (bool, error) {
+func (c *DevicePolicyManagerClient) AddCrossProfileWidgetProvider(ctx context.Context, arg0 int64, arg1 string) (bool, error) {
 	resp, err := c.svc.AddCrossProfileWidgetProvider(ctx, &pb.AddCrossProfileWidgetProviderRequest{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -50,7 +50,7 @@ func (c *Client) AddCrossProfileWidgetProvider(ctx context.Context, arg0 int64, 
 }
 
 // AddOverrideApn calls the AddOverrideApn RPC.
-func (c *Client) AddOverrideApn(ctx context.Context, arg0 int64, arg1 int64) (int32, error) {
+func (c *DevicePolicyManagerClient) AddOverrideApn(ctx context.Context, arg0 int64, arg1 int64) (int32, error) {
 	resp, err := c.svc.AddOverrideApn(ctx, &pb.AddOverrideApnRequest{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -62,7 +62,7 @@ func (c *Client) AddOverrideApn(ctx context.Context, arg0 int64, arg1 int64) (in
 }
 
 // AddPersistentPreferredActivity calls the AddPersistentPreferredActivity RPC.
-func (c *Client) AddPersistentPreferredActivity(ctx context.Context, arg0 int64, arg1 int64, arg2 int64) error {
+func (c *DevicePolicyManagerClient) AddPersistentPreferredActivity(ctx context.Context, arg0 int64, arg1 int64, arg2 int64) error {
 	_, err := c.svc.AddPersistentPreferredActivity(ctx, &pb.AddPersistentPreferredActivityRequest{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -72,7 +72,7 @@ func (c *Client) AddPersistentPreferredActivity(ctx context.Context, arg0 int64,
 }
 
 // AddUserRestriction calls the AddUserRestriction RPC.
-func (c *Client) AddUserRestriction(ctx context.Context, arg0 int64, arg1 string) error {
+func (c *DevicePolicyManagerClient) AddUserRestriction(ctx context.Context, arg0 int64, arg1 string) error {
 	_, err := c.svc.AddUserRestriction(ctx, &pb.AddUserRestrictionRequest{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -81,7 +81,7 @@ func (c *Client) AddUserRestriction(ctx context.Context, arg0 int64, arg1 string
 }
 
 // AddUserRestrictionGlobally calls the AddUserRestrictionGlobally RPC.
-func (c *Client) AddUserRestrictionGlobally(ctx context.Context, arg0 string) error {
+func (c *DevicePolicyManagerClient) AddUserRestrictionGlobally(ctx context.Context, arg0 string) error {
 	_, err := c.svc.AddUserRestrictionGlobally(ctx, &pb.AddUserRestrictionGloballyRequest{
 		Arg0: arg0,
 	})
@@ -89,7 +89,7 @@ func (c *Client) AddUserRestrictionGlobally(ctx context.Context, arg0 string) er
 }
 
 // BindDeviceAdminServiceAsUser5 calls the BindDeviceAdminServiceAsUser5 RPC.
-func (c *Client) BindDeviceAdminServiceAsUser5(ctx context.Context, arg0 int64, arg1 int64, arg2 int64, arg3 int64, arg4 int64) (bool, error) {
+func (c *DevicePolicyManagerClient) BindDeviceAdminServiceAsUser5(ctx context.Context, arg0 int64, arg1 int64, arg2 int64, arg3 int64, arg4 int64) (bool, error) {
 	resp, err := c.svc.BindDeviceAdminServiceAsUser5(ctx, &pb.BindDeviceAdminServiceAsUser5Request{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -104,7 +104,7 @@ func (c *Client) BindDeviceAdminServiceAsUser5(ctx context.Context, arg0 int64, 
 }
 
 // BindDeviceAdminServiceAsUser5_1 calls the BindDeviceAdminServiceAsUser5_1 RPC.
-func (c *Client) BindDeviceAdminServiceAsUser5_1(ctx context.Context, arg0 int64, arg1 int64, arg2 int64, arg3 int32, arg4 int64) (bool, error) {
+func (c *DevicePolicyManagerClient) BindDeviceAdminServiceAsUser5_1(ctx context.Context, arg0 int64, arg1 int64, arg2 int64, arg3 int32, arg4 int64) (bool, error) {
 	resp, err := c.svc.BindDeviceAdminServiceAsUser5_1(ctx, &pb.BindDeviceAdminServiceAsUser5_1Request{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -119,7 +119,7 @@ func (c *Client) BindDeviceAdminServiceAsUser5_1(ctx context.Context, arg0 int64
 }
 
 // CanAdminGrantSensorsPermissions calls the CanAdminGrantSensorsPermissions RPC.
-func (c *Client) CanAdminGrantSensorsPermissions(ctx context.Context) (bool, error) {
+func (c *DevicePolicyManagerClient) CanAdminGrantSensorsPermissions(ctx context.Context) (bool, error) {
 	resp, err := c.svc.CanAdminGrantSensorsPermissions(ctx, &pb.CanAdminGrantSensorsPermissionsRequest{})
 	if err != nil {
 		return false, err
@@ -128,7 +128,7 @@ func (c *Client) CanAdminGrantSensorsPermissions(ctx context.Context) (bool, err
 }
 
 // CanUsbDataSignalingBeDisabled calls the CanUsbDataSignalingBeDisabled RPC.
-func (c *Client) CanUsbDataSignalingBeDisabled(ctx context.Context) (bool, error) {
+func (c *DevicePolicyManagerClient) CanUsbDataSignalingBeDisabled(ctx context.Context) (bool, error) {
 	resp, err := c.svc.CanUsbDataSignalingBeDisabled(ctx, &pb.CanUsbDataSignalingBeDisabledRequest{})
 	if err != nil {
 		return false, err
@@ -137,7 +137,7 @@ func (c *Client) CanUsbDataSignalingBeDisabled(ctx context.Context) (bool, error
 }
 
 // ClearApplicationUserData calls the ClearApplicationUserData RPC.
-func (c *Client) ClearApplicationUserData(ctx context.Context, arg0 int64, arg1 string, arg2 int64, arg3 int64) error {
+func (c *DevicePolicyManagerClient) ClearApplicationUserData(ctx context.Context, arg0 int64, arg1 string, arg2 int64, arg3 int64) error {
 	_, err := c.svc.ClearApplicationUserData(ctx, &pb.ClearApplicationUserDataRequest{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -148,7 +148,7 @@ func (c *Client) ClearApplicationUserData(ctx context.Context, arg0 int64, arg1 
 }
 
 // ClearCrossProfileIntentFilters calls the ClearCrossProfileIntentFilters RPC.
-func (c *Client) ClearCrossProfileIntentFilters(ctx context.Context, arg0 int64) error {
+func (c *DevicePolicyManagerClient) ClearCrossProfileIntentFilters(ctx context.Context, arg0 int64) error {
 	_, err := c.svc.ClearCrossProfileIntentFilters(ctx, &pb.ClearCrossProfileIntentFiltersRequest{
 		Arg0: arg0,
 	})
@@ -156,7 +156,7 @@ func (c *Client) ClearCrossProfileIntentFilters(ctx context.Context, arg0 int64)
 }
 
 // ClearDeviceOwnerApp calls the ClearDeviceOwnerApp RPC.
-func (c *Client) ClearDeviceOwnerApp(ctx context.Context, arg0 string) error {
+func (c *DevicePolicyManagerClient) ClearDeviceOwnerApp(ctx context.Context, arg0 string) error {
 	_, err := c.svc.ClearDeviceOwnerApp(ctx, &pb.ClearDeviceOwnerAppRequest{
 		Arg0: arg0,
 	})
@@ -164,7 +164,7 @@ func (c *Client) ClearDeviceOwnerApp(ctx context.Context, arg0 string) error {
 }
 
 // ClearPackagePersistentPreferredActivities calls the ClearPackagePersistentPreferredActivities RPC.
-func (c *Client) ClearPackagePersistentPreferredActivities(ctx context.Context, arg0 int64, arg1 string) error {
+func (c *DevicePolicyManagerClient) ClearPackagePersistentPreferredActivities(ctx context.Context, arg0 int64, arg1 string) error {
 	_, err := c.svc.ClearPackagePersistentPreferredActivities(ctx, &pb.ClearPackagePersistentPreferredActivitiesRequest{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -173,7 +173,7 @@ func (c *Client) ClearPackagePersistentPreferredActivities(ctx context.Context, 
 }
 
 // ClearProfileOwner calls the ClearProfileOwner RPC.
-func (c *Client) ClearProfileOwner(ctx context.Context, arg0 int64) error {
+func (c *DevicePolicyManagerClient) ClearProfileOwner(ctx context.Context, arg0 int64) error {
 	_, err := c.svc.ClearProfileOwner(ctx, &pb.ClearProfileOwnerRequest{
 		Arg0: arg0,
 	})
@@ -181,7 +181,7 @@ func (c *Client) ClearProfileOwner(ctx context.Context, arg0 int64) error {
 }
 
 // ClearResetPasswordToken calls the ClearResetPasswordToken RPC.
-func (c *Client) ClearResetPasswordToken(ctx context.Context, arg0 int64) (bool, error) {
+func (c *DevicePolicyManagerClient) ClearResetPasswordToken(ctx context.Context, arg0 int64) (bool, error) {
 	resp, err := c.svc.ClearResetPasswordToken(ctx, &pb.ClearResetPasswordTokenRequest{
 		Arg0: arg0,
 	})
@@ -192,7 +192,7 @@ func (c *Client) ClearResetPasswordToken(ctx context.Context, arg0 int64) (bool,
 }
 
 // ClearUserRestriction calls the ClearUserRestriction RPC.
-func (c *Client) ClearUserRestriction(ctx context.Context, arg0 int64, arg1 string) error {
+func (c *DevicePolicyManagerClient) ClearUserRestriction(ctx context.Context, arg0 int64, arg1 string) error {
 	_, err := c.svc.ClearUserRestriction(ctx, &pb.ClearUserRestrictionRequest{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -201,7 +201,7 @@ func (c *Client) ClearUserRestriction(ctx context.Context, arg0 int64, arg1 stri
 }
 
 // CreateAdminSupportIntent calls the CreateAdminSupportIntent RPC.
-func (c *Client) CreateAdminSupportIntent(ctx context.Context, arg0 string) (int64, error) {
+func (c *DevicePolicyManagerClient) CreateAdminSupportIntent(ctx context.Context, arg0 string) (int64, error) {
 	resp, err := c.svc.CreateAdminSupportIntent(ctx, &pb.CreateAdminSupportIntentRequest{
 		Arg0: arg0,
 	})
@@ -212,7 +212,7 @@ func (c *Client) CreateAdminSupportIntent(ctx context.Context, arg0 string) (int
 }
 
 // CreateAndManageUser calls the CreateAndManageUser RPC.
-func (c *Client) CreateAndManageUser(ctx context.Context, arg0 int64, arg1 string, arg2 int64, arg3 int64, arg4 int32) (int64, error) {
+func (c *DevicePolicyManagerClient) CreateAndManageUser(ctx context.Context, arg0 int64, arg1 string, arg2 int64, arg3 int64, arg4 int32) (int64, error) {
 	resp, err := c.svc.CreateAndManageUser(ctx, &pb.CreateAndManageUserRequest{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -227,7 +227,7 @@ func (c *Client) CreateAndManageUser(ctx context.Context, arg0 int64, arg1 strin
 }
 
 // EnableSystemApp2 calls the EnableSystemApp2 RPC.
-func (c *Client) EnableSystemApp2(ctx context.Context, arg0 int64, arg1 int64) (int32, error) {
+func (c *DevicePolicyManagerClient) EnableSystemApp2(ctx context.Context, arg0 int64, arg1 int64) (int32, error) {
 	resp, err := c.svc.EnableSystemApp2(ctx, &pb.EnableSystemApp2Request{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -239,7 +239,7 @@ func (c *Client) EnableSystemApp2(ctx context.Context, arg0 int64, arg1 int64) (
 }
 
 // EnableSystemApp2_1 calls the EnableSystemApp2_1 RPC.
-func (c *Client) EnableSystemApp2_1(ctx context.Context, arg0 int64, arg1 string) error {
+func (c *DevicePolicyManagerClient) EnableSystemApp2_1(ctx context.Context, arg0 int64, arg1 string) error {
 	_, err := c.svc.EnableSystemApp2_1(ctx, &pb.EnableSystemApp2_1Request{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -248,7 +248,7 @@ func (c *Client) EnableSystemApp2_1(ctx context.Context, arg0 int64, arg1 string
 }
 
 // GenerateKeyPair calls the GenerateKeyPair RPC.
-func (c *Client) GenerateKeyPair(ctx context.Context, arg0 int64, arg1 string, arg2 int64, arg3 int32) (int64, error) {
+func (c *DevicePolicyManagerClient) GenerateKeyPair(ctx context.Context, arg0 int64, arg1 string, arg2 int64, arg3 int32) (int64, error) {
 	resp, err := c.svc.GenerateKeyPair(ctx, &pb.GenerateKeyPairRequest{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -262,7 +262,7 @@ func (c *Client) GenerateKeyPair(ctx context.Context, arg0 int64, arg1 string, a
 }
 
 // GetAccountTypesWithManagementDisabled calls the GetAccountTypesWithManagementDisabled RPC.
-func (c *Client) GetAccountTypesWithManagementDisabled(ctx context.Context) (int64, error) {
+func (c *DevicePolicyManagerClient) GetAccountTypesWithManagementDisabled(ctx context.Context) (int64, error) {
 	resp, err := c.svc.GetAccountTypesWithManagementDisabled(ctx, &pb.GetAccountTypesWithManagementDisabledRequest{})
 	if err != nil {
 		return 0, err
@@ -270,39 +270,8 @@ func (c *Client) GetAccountTypesWithManagementDisabled(ctx context.Context) (int
 	return resp.GetResult(), nil
 }
 
-// GetActiveAdmins calls the GetActiveAdmins RPC.
-func (c *Client) GetActiveAdmins(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetActiveAdmins(ctx, &pb.GetActiveAdminsRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetAffiliationIds calls the GetAffiliationIds RPC.
-func (c *Client) GetAffiliationIds(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.GetAffiliationIds(ctx, &pb.GetAffiliationIdsRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetAlwaysOnVpnLockdownWhitelist calls the GetAlwaysOnVpnLockdownWhitelist RPC.
-func (c *Client) GetAlwaysOnVpnLockdownWhitelist(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.GetAlwaysOnVpnLockdownWhitelist(ctx, &pb.GetAlwaysOnVpnLockdownWhitelistRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
 // GetAlwaysOnVpnPackage calls the GetAlwaysOnVpnPackage RPC.
-func (c *Client) GetAlwaysOnVpnPackage(ctx context.Context, arg0 int64) (string, error) {
+func (c *DevicePolicyManagerClient) GetAlwaysOnVpnPackage(ctx context.Context, arg0 int64) (string, error) {
 	resp, err := c.svc.GetAlwaysOnVpnPackage(ctx, &pb.GetAlwaysOnVpnPackageRequest{
 		Arg0: arg0,
 	})
@@ -313,7 +282,7 @@ func (c *Client) GetAlwaysOnVpnPackage(ctx context.Context, arg0 int64) (string,
 }
 
 // GetAppFunctionsPolicy calls the GetAppFunctionsPolicy RPC.
-func (c *Client) GetAppFunctionsPolicy(ctx context.Context) (int32, error) {
+func (c *DevicePolicyManagerClient) GetAppFunctionsPolicy(ctx context.Context) (int32, error) {
 	resp, err := c.svc.GetAppFunctionsPolicy(ctx, &pb.GetAppFunctionsPolicyRequest{})
 	if err != nil {
 		return 0, err
@@ -322,7 +291,7 @@ func (c *Client) GetAppFunctionsPolicy(ctx context.Context) (int32, error) {
 }
 
 // GetApplicationRestrictions calls the GetApplicationRestrictions RPC.
-func (c *Client) GetApplicationRestrictions(ctx context.Context, arg0 int64, arg1 string) (int64, error) {
+func (c *DevicePolicyManagerClient) GetApplicationRestrictions(ctx context.Context, arg0 int64, arg1 string) (int64, error) {
 	resp, err := c.svc.GetApplicationRestrictions(ctx, &pb.GetApplicationRestrictionsRequest{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -334,7 +303,7 @@ func (c *Client) GetApplicationRestrictions(ctx context.Context, arg0 int64, arg
 }
 
 // GetApplicationRestrictionsManagingPackage calls the GetApplicationRestrictionsManagingPackage RPC.
-func (c *Client) GetApplicationRestrictionsManagingPackage(ctx context.Context, arg0 int64) (string, error) {
+func (c *DevicePolicyManagerClient) GetApplicationRestrictionsManagingPackage(ctx context.Context, arg0 int64) (string, error) {
 	resp, err := c.svc.GetApplicationRestrictionsManagingPackage(ctx, &pb.GetApplicationRestrictionsManagingPackageRequest{
 		Arg0: arg0,
 	})
@@ -345,7 +314,7 @@ func (c *Client) GetApplicationRestrictionsManagingPackage(ctx context.Context, 
 }
 
 // GetAutoTimeEnabled calls the GetAutoTimeEnabled RPC.
-func (c *Client) GetAutoTimeEnabled(ctx context.Context, arg0 int64) (bool, error) {
+func (c *DevicePolicyManagerClient) GetAutoTimeEnabled(ctx context.Context, arg0 int64) (bool, error) {
 	resp, err := c.svc.GetAutoTimeEnabled(ctx, &pb.GetAutoTimeEnabledRequest{
 		Arg0: arg0,
 	})
@@ -356,7 +325,7 @@ func (c *Client) GetAutoTimeEnabled(ctx context.Context, arg0 int64) (bool, erro
 }
 
 // GetAutoTimePolicy calls the GetAutoTimePolicy RPC.
-func (c *Client) GetAutoTimePolicy(ctx context.Context) (int32, error) {
+func (c *DevicePolicyManagerClient) GetAutoTimePolicy(ctx context.Context) (int32, error) {
 	resp, err := c.svc.GetAutoTimePolicy(ctx, &pb.GetAutoTimePolicyRequest{})
 	if err != nil {
 		return 0, err
@@ -365,7 +334,7 @@ func (c *Client) GetAutoTimePolicy(ctx context.Context) (int32, error) {
 }
 
 // GetAutoTimeRequired calls the GetAutoTimeRequired RPC.
-func (c *Client) GetAutoTimeRequired(ctx context.Context) (bool, error) {
+func (c *DevicePolicyManagerClient) GetAutoTimeRequired(ctx context.Context) (bool, error) {
 	resp, err := c.svc.GetAutoTimeRequired(ctx, &pb.GetAutoTimeRequiredRequest{})
 	if err != nil {
 		return false, err
@@ -374,7 +343,7 @@ func (c *Client) GetAutoTimeRequired(ctx context.Context) (bool, error) {
 }
 
 // GetAutoTimeZoneEnabled calls the GetAutoTimeZoneEnabled RPC.
-func (c *Client) GetAutoTimeZoneEnabled(ctx context.Context, arg0 int64) (bool, error) {
+func (c *DevicePolicyManagerClient) GetAutoTimeZoneEnabled(ctx context.Context, arg0 int64) (bool, error) {
 	resp, err := c.svc.GetAutoTimeZoneEnabled(ctx, &pb.GetAutoTimeZoneEnabledRequest{
 		Arg0: arg0,
 	})
@@ -385,7 +354,7 @@ func (c *Client) GetAutoTimeZoneEnabled(ctx context.Context, arg0 int64) (bool, 
 }
 
 // GetAutoTimeZonePolicy calls the GetAutoTimeZonePolicy RPC.
-func (c *Client) GetAutoTimeZonePolicy(ctx context.Context) (int32, error) {
+func (c *DevicePolicyManagerClient) GetAutoTimeZonePolicy(ctx context.Context) (int32, error) {
 	resp, err := c.svc.GetAutoTimeZonePolicy(ctx, &pb.GetAutoTimeZonePolicyRequest{})
 	if err != nil {
 		return 0, err
@@ -393,19 +362,8 @@ func (c *Client) GetAutoTimeZonePolicy(ctx context.Context) (int32, error) {
 	return resp.GetResult(), nil
 }
 
-// GetBindDeviceAdminTargetUsers calls the GetBindDeviceAdminTargetUsers RPC.
-func (c *Client) GetBindDeviceAdminTargetUsers(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.GetBindDeviceAdminTargetUsers(ctx, &pb.GetBindDeviceAdminTargetUsersRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
 // GetBluetoothContactSharingDisabled calls the GetBluetoothContactSharingDisabled RPC.
-func (c *Client) GetBluetoothContactSharingDisabled(ctx context.Context, arg0 int64) (bool, error) {
+func (c *DevicePolicyManagerClient) GetBluetoothContactSharingDisabled(ctx context.Context, arg0 int64) (bool, error) {
 	resp, err := c.svc.GetBluetoothContactSharingDisabled(ctx, &pb.GetBluetoothContactSharingDisabledRequest{
 		Arg0: arg0,
 	})
@@ -416,7 +374,7 @@ func (c *Client) GetBluetoothContactSharingDisabled(ctx context.Context, arg0 in
 }
 
 // GetCameraDisabled calls the GetCameraDisabled RPC.
-func (c *Client) GetCameraDisabled(ctx context.Context, arg0 int64) (bool, error) {
+func (c *DevicePolicyManagerClient) GetCameraDisabled(ctx context.Context, arg0 int64) (bool, error) {
 	resp, err := c.svc.GetCameraDisabled(ctx, &pb.GetCameraDisabledRequest{
 		Arg0: arg0,
 	})
@@ -427,7 +385,7 @@ func (c *Client) GetCameraDisabled(ctx context.Context, arg0 int64) (bool, error
 }
 
 // GetCertInstallerPackage calls the GetCertInstallerPackage RPC.
-func (c *Client) GetCertInstallerPackage(ctx context.Context, arg0 int64) (string, error) {
+func (c *DevicePolicyManagerClient) GetCertInstallerPackage(ctx context.Context, arg0 int64) (string, error) {
 	resp, err := c.svc.GetCertInstallerPackage(ctx, &pb.GetCertInstallerPackageRequest{
 		Arg0: arg0,
 	})
@@ -438,7 +396,7 @@ func (c *Client) GetCertInstallerPackage(ctx context.Context, arg0 int64) (strin
 }
 
 // GetContentProtectionPolicy calls the GetContentProtectionPolicy RPC.
-func (c *Client) GetContentProtectionPolicy(ctx context.Context, arg0 int64) (int32, error) {
+func (c *DevicePolicyManagerClient) GetContentProtectionPolicy(ctx context.Context, arg0 int64) (int32, error) {
 	resp, err := c.svc.GetContentProtectionPolicy(ctx, &pb.GetContentProtectionPolicyRequest{
 		Arg0: arg0,
 	})
@@ -449,7 +407,7 @@ func (c *Client) GetContentProtectionPolicy(ctx context.Context, arg0 int64) (in
 }
 
 // GetCredentialManagerPolicy calls the GetCredentialManagerPolicy RPC.
-func (c *Client) GetCredentialManagerPolicy(ctx context.Context) (int64, error) {
+func (c *DevicePolicyManagerClient) GetCredentialManagerPolicy(ctx context.Context) (int64, error) {
 	resp, err := c.svc.GetCredentialManagerPolicy(ctx, &pb.GetCredentialManagerPolicyRequest{})
 	if err != nil {
 		return 0, err
@@ -457,19 +415,8 @@ func (c *Client) GetCredentialManagerPolicy(ctx context.Context) (int64, error) 
 	return resp.GetResult(), nil
 }
 
-// GetCrossProfileCalendarPackages calls the GetCrossProfileCalendarPackages RPC.
-func (c *Client) GetCrossProfileCalendarPackages(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.GetCrossProfileCalendarPackages(ctx, &pb.GetCrossProfileCalendarPackagesRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
 // GetCrossProfileCallerIdDisabled calls the GetCrossProfileCallerIdDisabled RPC.
-func (c *Client) GetCrossProfileCallerIdDisabled(ctx context.Context, arg0 int64) (bool, error) {
+func (c *DevicePolicyManagerClient) GetCrossProfileCallerIdDisabled(ctx context.Context, arg0 int64) (bool, error) {
 	resp, err := c.svc.GetCrossProfileCallerIdDisabled(ctx, &pb.GetCrossProfileCallerIdDisabledRequest{
 		Arg0: arg0,
 	})
@@ -480,7 +427,7 @@ func (c *Client) GetCrossProfileCallerIdDisabled(ctx context.Context, arg0 int64
 }
 
 // GetCrossProfileContactsSearchDisabled calls the GetCrossProfileContactsSearchDisabled RPC.
-func (c *Client) GetCrossProfileContactsSearchDisabled(ctx context.Context, arg0 int64) (bool, error) {
+func (c *DevicePolicyManagerClient) GetCrossProfileContactsSearchDisabled(ctx context.Context, arg0 int64) (bool, error) {
 	resp, err := c.svc.GetCrossProfileContactsSearchDisabled(ctx, &pb.GetCrossProfileContactsSearchDisabledRequest{
 		Arg0: arg0,
 	})
@@ -490,30 +437,8 @@ func (c *Client) GetCrossProfileContactsSearchDisabled(ctx context.Context, arg0
 	return resp.GetResult(), nil
 }
 
-// GetCrossProfilePackages calls the GetCrossProfilePackages RPC.
-func (c *Client) GetCrossProfilePackages(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.GetCrossProfilePackages(ctx, &pb.GetCrossProfilePackagesRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetCrossProfileWidgetProviders calls the GetCrossProfileWidgetProviders RPC.
-func (c *Client) GetCrossProfileWidgetProviders(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.GetCrossProfileWidgetProviders(ctx, &pb.GetCrossProfileWidgetProvidersRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
 // GetCurrentFailedPasswordAttempts calls the GetCurrentFailedPasswordAttempts RPC.
-func (c *Client) GetCurrentFailedPasswordAttempts(ctx context.Context) (int32, error) {
+func (c *DevicePolicyManagerClient) GetCurrentFailedPasswordAttempts(ctx context.Context) (int32, error) {
 	resp, err := c.svc.GetCurrentFailedPasswordAttempts(ctx, &pb.GetCurrentFailedPasswordAttemptsRequest{})
 	if err != nil {
 		return 0, err
@@ -521,32 +446,8 @@ func (c *Client) GetCurrentFailedPasswordAttempts(ctx context.Context) (int32, e
 	return resp.GetResult(), nil
 }
 
-// GetDelegatePackages calls the GetDelegatePackages RPC.
-func (c *Client) GetDelegatePackages(ctx context.Context, arg0 int64, arg1 string) (int64, error) {
-	resp, err := c.svc.GetDelegatePackages(ctx, &pb.GetDelegatePackagesRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetDelegatedScopes calls the GetDelegatedScopes RPC.
-func (c *Client) GetDelegatedScopes(ctx context.Context, arg0 int64, arg1 string) (int64, error) {
-	resp, err := c.svc.GetDelegatedScopes(ctx, &pb.GetDelegatedScopesRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
 // GetDeviceOwnerLockScreenInfo calls the GetDeviceOwnerLockScreenInfo RPC.
-func (c *Client) GetDeviceOwnerLockScreenInfo(ctx context.Context) (int64, error) {
+func (c *DevicePolicyManagerClient) GetDeviceOwnerLockScreenInfo(ctx context.Context) (int64, error) {
 	resp, err := c.svc.GetDeviceOwnerLockScreenInfo(ctx, &pb.GetDeviceOwnerLockScreenInfoRequest{})
 	if err != nil {
 		return 0, err
@@ -555,7 +456,7 @@ func (c *Client) GetDeviceOwnerLockScreenInfo(ctx context.Context) (int64, error
 }
 
 // GetDevicePolicyManagementRoleHolderPackage calls the GetDevicePolicyManagementRoleHolderPackage RPC.
-func (c *Client) GetDevicePolicyManagementRoleHolderPackage(ctx context.Context) (string, error) {
+func (c *DevicePolicyManagerClient) GetDevicePolicyManagementRoleHolderPackage(ctx context.Context) (string, error) {
 	resp, err := c.svc.GetDevicePolicyManagementRoleHolderPackage(ctx, &pb.GetDevicePolicyManagementRoleHolderPackageRequest{})
 	if err != nil {
 		return "", err
@@ -564,7 +465,7 @@ func (c *Client) GetDevicePolicyManagementRoleHolderPackage(ctx context.Context)
 }
 
 // GetEndUserSessionMessage calls the GetEndUserSessionMessage RPC.
-func (c *Client) GetEndUserSessionMessage(ctx context.Context, arg0 int64) (int64, error) {
+func (c *DevicePolicyManagerClient) GetEndUserSessionMessage(ctx context.Context, arg0 int64) (int64, error) {
 	resp, err := c.svc.GetEndUserSessionMessage(ctx, &pb.GetEndUserSessionMessageRequest{
 		Arg0: arg0,
 	})
@@ -575,7 +476,7 @@ func (c *Client) GetEndUserSessionMessage(ctx context.Context, arg0 int64) (int6
 }
 
 // GetEnrollmentSpecificId calls the GetEnrollmentSpecificId RPC.
-func (c *Client) GetEnrollmentSpecificId(ctx context.Context) (string, error) {
+func (c *DevicePolicyManagerClient) GetEnrollmentSpecificId(ctx context.Context) (string, error) {
 	resp, err := c.svc.GetEnrollmentSpecificId(ctx, &pb.GetEnrollmentSpecificIdRequest{})
 	if err != nil {
 		return "", err
@@ -584,7 +485,7 @@ func (c *Client) GetEnrollmentSpecificId(ctx context.Context) (string, error) {
 }
 
 // GetFactoryResetProtectionPolicy calls the GetFactoryResetProtectionPolicy RPC.
-func (c *Client) GetFactoryResetProtectionPolicy(ctx context.Context, arg0 int64) (int64, error) {
+func (c *DevicePolicyManagerClient) GetFactoryResetProtectionPolicy(ctx context.Context, arg0 int64) (int64, error) {
 	resp, err := c.svc.GetFactoryResetProtectionPolicy(ctx, &pb.GetFactoryResetProtectionPolicyRequest{
 		Arg0: arg0,
 	})
@@ -595,7 +496,7 @@ func (c *Client) GetFactoryResetProtectionPolicy(ctx context.Context, arg0 int64
 }
 
 // GetGlobalPrivateDnsHost calls the GetGlobalPrivateDnsHost RPC.
-func (c *Client) GetGlobalPrivateDnsHost(ctx context.Context, arg0 int64) (string, error) {
+func (c *DevicePolicyManagerClient) GetGlobalPrivateDnsHost(ctx context.Context, arg0 int64) (string, error) {
 	resp, err := c.svc.GetGlobalPrivateDnsHost(ctx, &pb.GetGlobalPrivateDnsHostRequest{
 		Arg0: arg0,
 	})
@@ -606,7 +507,7 @@ func (c *Client) GetGlobalPrivateDnsHost(ctx context.Context, arg0 int64) (strin
 }
 
 // GetGlobalPrivateDnsMode calls the GetGlobalPrivateDnsMode RPC.
-func (c *Client) GetGlobalPrivateDnsMode(ctx context.Context, arg0 int64) (int32, error) {
+func (c *DevicePolicyManagerClient) GetGlobalPrivateDnsMode(ctx context.Context, arg0 int64) (int32, error) {
 	resp, err := c.svc.GetGlobalPrivateDnsMode(ctx, &pb.GetGlobalPrivateDnsModeRequest{
 		Arg0: arg0,
 	})
@@ -616,30 +517,8 @@ func (c *Client) GetGlobalPrivateDnsMode(ctx context.Context, arg0 int64) (int32
 	return resp.GetResult(), nil
 }
 
-// GetInstalledCaCerts calls the GetInstalledCaCerts RPC.
-func (c *Client) GetInstalledCaCerts(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.GetInstalledCaCerts(ctx, &pb.GetInstalledCaCertsRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetKeepUninstalledPackages calls the GetKeepUninstalledPackages RPC.
-func (c *Client) GetKeepUninstalledPackages(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.GetKeepUninstalledPackages(ctx, &pb.GetKeepUninstalledPackagesRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
 // GetKeyguardDisabledFeatures calls the GetKeyguardDisabledFeatures RPC.
-func (c *Client) GetKeyguardDisabledFeatures(ctx context.Context, arg0 int64) (int32, error) {
+func (c *DevicePolicyManagerClient) GetKeyguardDisabledFeatures(ctx context.Context, arg0 int64) (int32, error) {
 	resp, err := c.svc.GetKeyguardDisabledFeatures(ctx, &pb.GetKeyguardDisabledFeaturesRequest{
 		Arg0: arg0,
 	})
@@ -650,7 +529,7 @@ func (c *Client) GetKeyguardDisabledFeatures(ctx context.Context, arg0 int64) (i
 }
 
 // GetLockTaskFeatures calls the GetLockTaskFeatures RPC.
-func (c *Client) GetLockTaskFeatures(ctx context.Context, arg0 int64) (int32, error) {
+func (c *DevicePolicyManagerClient) GetLockTaskFeatures(ctx context.Context, arg0 int64) (int32, error) {
 	resp, err := c.svc.GetLockTaskFeatures(ctx, &pb.GetLockTaskFeaturesRequest{
 		Arg0: arg0,
 	})
@@ -661,7 +540,7 @@ func (c *Client) GetLockTaskFeatures(ctx context.Context, arg0 int64) (int32, er
 }
 
 // GetLockTaskPackages calls the GetLockTaskPackages RPC.
-func (c *Client) GetLockTaskPackages(ctx context.Context, arg0 int64) (int64, error) {
+func (c *DevicePolicyManagerClient) GetLockTaskPackages(ctx context.Context, arg0 int64) (int64, error) {
 	resp, err := c.svc.GetLockTaskPackages(ctx, &pb.GetLockTaskPackagesRequest{
 		Arg0: arg0,
 	})
@@ -672,7 +551,7 @@ func (c *Client) GetLockTaskPackages(ctx context.Context, arg0 int64) (int64, er
 }
 
 // GetLongSupportMessage calls the GetLongSupportMessage RPC.
-func (c *Client) GetLongSupportMessage(ctx context.Context, arg0 int64) (int64, error) {
+func (c *DevicePolicyManagerClient) GetLongSupportMessage(ctx context.Context, arg0 int64) (int64, error) {
 	resp, err := c.svc.GetLongSupportMessage(ctx, &pb.GetLongSupportMessageRequest{
 		Arg0: arg0,
 	})
@@ -683,7 +562,7 @@ func (c *Client) GetLongSupportMessage(ctx context.Context, arg0 int64) (int64, 
 }
 
 // GetManagedProfileCallerIdAccessPolicy calls the GetManagedProfileCallerIdAccessPolicy RPC.
-func (c *Client) GetManagedProfileCallerIdAccessPolicy(ctx context.Context) (int64, error) {
+func (c *DevicePolicyManagerClient) GetManagedProfileCallerIdAccessPolicy(ctx context.Context) (int64, error) {
 	resp, err := c.svc.GetManagedProfileCallerIdAccessPolicy(ctx, &pb.GetManagedProfileCallerIdAccessPolicyRequest{})
 	if err != nil {
 		return 0, err
@@ -692,7 +571,7 @@ func (c *Client) GetManagedProfileCallerIdAccessPolicy(ctx context.Context) (int
 }
 
 // GetManagedProfileContactsAccessPolicy calls the GetManagedProfileContactsAccessPolicy RPC.
-func (c *Client) GetManagedProfileContactsAccessPolicy(ctx context.Context) (int64, error) {
+func (c *DevicePolicyManagerClient) GetManagedProfileContactsAccessPolicy(ctx context.Context) (int64, error) {
 	resp, err := c.svc.GetManagedProfileContactsAccessPolicy(ctx, &pb.GetManagedProfileContactsAccessPolicyRequest{})
 	if err != nil {
 		return 0, err
@@ -701,7 +580,7 @@ func (c *Client) GetManagedProfileContactsAccessPolicy(ctx context.Context) (int
 }
 
 // GetManagedProfileMaximumTimeOff calls the GetManagedProfileMaximumTimeOff RPC.
-func (c *Client) GetManagedProfileMaximumTimeOff(ctx context.Context, arg0 int64) (int64, error) {
+func (c *DevicePolicyManagerClient) GetManagedProfileMaximumTimeOff(ctx context.Context, arg0 int64) (int64, error) {
 	resp, err := c.svc.GetManagedProfileMaximumTimeOff(ctx, &pb.GetManagedProfileMaximumTimeOffRequest{
 		Arg0: arg0,
 	})
@@ -712,7 +591,7 @@ func (c *Client) GetManagedProfileMaximumTimeOff(ctx context.Context, arg0 int64
 }
 
 // GetManagedSubscriptionsPolicy calls the GetManagedSubscriptionsPolicy RPC.
-func (c *Client) GetManagedSubscriptionsPolicy(ctx context.Context) (int64, error) {
+func (c *DevicePolicyManagerClient) GetManagedSubscriptionsPolicy(ctx context.Context) (int64, error) {
 	resp, err := c.svc.GetManagedSubscriptionsPolicy(ctx, &pb.GetManagedSubscriptionsPolicyRequest{})
 	if err != nil {
 		return 0, err
@@ -721,7 +600,7 @@ func (c *Client) GetManagedSubscriptionsPolicy(ctx context.Context) (int64, erro
 }
 
 // GetMaximumFailedPasswordsForWipe calls the GetMaximumFailedPasswordsForWipe RPC.
-func (c *Client) GetMaximumFailedPasswordsForWipe(ctx context.Context, arg0 int64) (int32, error) {
+func (c *DevicePolicyManagerClient) GetMaximumFailedPasswordsForWipe(ctx context.Context, arg0 int64) (int32, error) {
 	resp, err := c.svc.GetMaximumFailedPasswordsForWipe(ctx, &pb.GetMaximumFailedPasswordsForWipeRequest{
 		Arg0: arg0,
 	})
@@ -732,7 +611,7 @@ func (c *Client) GetMaximumFailedPasswordsForWipe(ctx context.Context, arg0 int6
 }
 
 // GetMaximumTimeToLock calls the GetMaximumTimeToLock RPC.
-func (c *Client) GetMaximumTimeToLock(ctx context.Context, arg0 int64) (int64, error) {
+func (c *DevicePolicyManagerClient) GetMaximumTimeToLock(ctx context.Context, arg0 int64) (int64, error) {
 	resp, err := c.svc.GetMaximumTimeToLock(ctx, &pb.GetMaximumTimeToLockRequest{
 		Arg0: arg0,
 	})
@@ -742,19 +621,8 @@ func (c *Client) GetMaximumTimeToLock(ctx context.Context, arg0 int64) (int64, e
 	return resp.GetResult(), nil
 }
 
-// GetMeteredDataDisabledPackages calls the GetMeteredDataDisabledPackages RPC.
-func (c *Client) GetMeteredDataDisabledPackages(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.GetMeteredDataDisabledPackages(ctx, &pb.GetMeteredDataDisabledPackagesRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
 // GetMinimumRequiredWifiSecurityLevel calls the GetMinimumRequiredWifiSecurityLevel RPC.
-func (c *Client) GetMinimumRequiredWifiSecurityLevel(ctx context.Context) (int32, error) {
+func (c *DevicePolicyManagerClient) GetMinimumRequiredWifiSecurityLevel(ctx context.Context) (int32, error) {
 	resp, err := c.svc.GetMinimumRequiredWifiSecurityLevel(ctx, &pb.GetMinimumRequiredWifiSecurityLevelRequest{})
 	if err != nil {
 		return 0, err
@@ -763,7 +631,7 @@ func (c *Client) GetMinimumRequiredWifiSecurityLevel(ctx context.Context) (int32
 }
 
 // GetMtePolicy calls the GetMtePolicy RPC.
-func (c *Client) GetMtePolicy(ctx context.Context) (int32, error) {
+func (c *DevicePolicyManagerClient) GetMtePolicy(ctx context.Context) (int32, error) {
 	resp, err := c.svc.GetMtePolicy(ctx, &pb.GetMtePolicyRequest{})
 	if err != nil {
 		return 0, err
@@ -772,7 +640,7 @@ func (c *Client) GetMtePolicy(ctx context.Context) (int32, error) {
 }
 
 // GetNearbyAppStreamingPolicy calls the GetNearbyAppStreamingPolicy RPC.
-func (c *Client) GetNearbyAppStreamingPolicy(ctx context.Context) (int32, error) {
+func (c *DevicePolicyManagerClient) GetNearbyAppStreamingPolicy(ctx context.Context) (int32, error) {
 	resp, err := c.svc.GetNearbyAppStreamingPolicy(ctx, &pb.GetNearbyAppStreamingPolicyRequest{})
 	if err != nil {
 		return 0, err
@@ -781,7 +649,7 @@ func (c *Client) GetNearbyAppStreamingPolicy(ctx context.Context) (int32, error)
 }
 
 // GetNearbyNotificationStreamingPolicy calls the GetNearbyNotificationStreamingPolicy RPC.
-func (c *Client) GetNearbyNotificationStreamingPolicy(ctx context.Context) (int32, error) {
+func (c *DevicePolicyManagerClient) GetNearbyNotificationStreamingPolicy(ctx context.Context) (int32, error) {
 	resp, err := c.svc.GetNearbyNotificationStreamingPolicy(ctx, &pb.GetNearbyNotificationStreamingPolicyRequest{})
 	if err != nil {
 		return 0, err
@@ -790,7 +658,7 @@ func (c *Client) GetNearbyNotificationStreamingPolicy(ctx context.Context) (int3
 }
 
 // GetOrganizationColor calls the GetOrganizationColor RPC.
-func (c *Client) GetOrganizationColor(ctx context.Context, arg0 int64) (int32, error) {
+func (c *DevicePolicyManagerClient) GetOrganizationColor(ctx context.Context, arg0 int64) (int32, error) {
 	resp, err := c.svc.GetOrganizationColor(ctx, &pb.GetOrganizationColorRequest{
 		Arg0: arg0,
 	})
@@ -801,7 +669,7 @@ func (c *Client) GetOrganizationColor(ctx context.Context, arg0 int64) (int32, e
 }
 
 // GetOrganizationName calls the GetOrganizationName RPC.
-func (c *Client) GetOrganizationName(ctx context.Context, arg0 int64) (int64, error) {
+func (c *DevicePolicyManagerClient) GetOrganizationName(ctx context.Context, arg0 int64) (int64, error) {
 	resp, err := c.svc.GetOrganizationName(ctx, &pb.GetOrganizationNameRequest{
 		Arg0: arg0,
 	})
@@ -811,19 +679,8 @@ func (c *Client) GetOrganizationName(ctx context.Context, arg0 int64) (int64, er
 	return resp.GetResult(), nil
 }
 
-// GetOverrideApns calls the GetOverrideApns RPC.
-func (c *Client) GetOverrideApns(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.GetOverrideApns(ctx, &pb.GetOverrideApnsRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
 // GetParentProfileInstance calls the GetParentProfileInstance RPC.
-func (c *Client) GetParentProfileInstance(ctx context.Context, arg0 int64) (int64, error) {
+func (c *DevicePolicyManagerClient) GetParentProfileInstance(ctx context.Context, arg0 int64) (int64, error) {
 	resp, err := c.svc.GetParentProfileInstance(ctx, &pb.GetParentProfileInstanceRequest{
 		Arg0: arg0,
 	})
@@ -834,7 +691,7 @@ func (c *Client) GetParentProfileInstance(ctx context.Context, arg0 int64) (int6
 }
 
 // GetPasswordComplexity calls the GetPasswordComplexity RPC.
-func (c *Client) GetPasswordComplexity(ctx context.Context) (int32, error) {
+func (c *DevicePolicyManagerClient) GetPasswordComplexity(ctx context.Context) (int32, error) {
 	resp, err := c.svc.GetPasswordComplexity(ctx, &pb.GetPasswordComplexityRequest{})
 	if err != nil {
 		return 0, err
@@ -843,7 +700,7 @@ func (c *Client) GetPasswordComplexity(ctx context.Context) (int32, error) {
 }
 
 // GetPasswordExpiration calls the GetPasswordExpiration RPC.
-func (c *Client) GetPasswordExpiration(ctx context.Context, arg0 int64) (int64, error) {
+func (c *DevicePolicyManagerClient) GetPasswordExpiration(ctx context.Context, arg0 int64) (int64, error) {
 	resp, err := c.svc.GetPasswordExpiration(ctx, &pb.GetPasswordExpirationRequest{
 		Arg0: arg0,
 	})
@@ -854,7 +711,7 @@ func (c *Client) GetPasswordExpiration(ctx context.Context, arg0 int64) (int64, 
 }
 
 // GetPasswordExpirationTimeout calls the GetPasswordExpirationTimeout RPC.
-func (c *Client) GetPasswordExpirationTimeout(ctx context.Context, arg0 int64) (int64, error) {
+func (c *DevicePolicyManagerClient) GetPasswordExpirationTimeout(ctx context.Context, arg0 int64) (int64, error) {
 	resp, err := c.svc.GetPasswordExpirationTimeout(ctx, &pb.GetPasswordExpirationTimeoutRequest{
 		Arg0: arg0,
 	})
@@ -865,7 +722,7 @@ func (c *Client) GetPasswordExpirationTimeout(ctx context.Context, arg0 int64) (
 }
 
 // GetPasswordHistoryLength calls the GetPasswordHistoryLength RPC.
-func (c *Client) GetPasswordHistoryLength(ctx context.Context, arg0 int64) (int32, error) {
+func (c *DevicePolicyManagerClient) GetPasswordHistoryLength(ctx context.Context, arg0 int64) (int32, error) {
 	resp, err := c.svc.GetPasswordHistoryLength(ctx, &pb.GetPasswordHistoryLengthRequest{
 		Arg0: arg0,
 	})
@@ -876,7 +733,7 @@ func (c *Client) GetPasswordHistoryLength(ctx context.Context, arg0 int64) (int3
 }
 
 // GetPasswordMaximumLength calls the GetPasswordMaximumLength RPC.
-func (c *Client) GetPasswordMaximumLength(ctx context.Context, arg0 int32) (int32, error) {
+func (c *DevicePolicyManagerClient) GetPasswordMaximumLength(ctx context.Context, arg0 int32) (int32, error) {
 	resp, err := c.svc.GetPasswordMaximumLength(ctx, &pb.GetPasswordMaximumLengthRequest{
 		Arg0: arg0,
 	})
@@ -887,7 +744,7 @@ func (c *Client) GetPasswordMaximumLength(ctx context.Context, arg0 int32) (int3
 }
 
 // GetPasswordMinimumLength calls the GetPasswordMinimumLength RPC.
-func (c *Client) GetPasswordMinimumLength(ctx context.Context, arg0 int64) (int32, error) {
+func (c *DevicePolicyManagerClient) GetPasswordMinimumLength(ctx context.Context, arg0 int64) (int32, error) {
 	resp, err := c.svc.GetPasswordMinimumLength(ctx, &pb.GetPasswordMinimumLengthRequest{
 		Arg0: arg0,
 	})
@@ -898,7 +755,7 @@ func (c *Client) GetPasswordMinimumLength(ctx context.Context, arg0 int64) (int3
 }
 
 // GetPasswordMinimumLetters calls the GetPasswordMinimumLetters RPC.
-func (c *Client) GetPasswordMinimumLetters(ctx context.Context, arg0 int64) (int32, error) {
+func (c *DevicePolicyManagerClient) GetPasswordMinimumLetters(ctx context.Context, arg0 int64) (int32, error) {
 	resp, err := c.svc.GetPasswordMinimumLetters(ctx, &pb.GetPasswordMinimumLettersRequest{
 		Arg0: arg0,
 	})
@@ -909,7 +766,7 @@ func (c *Client) GetPasswordMinimumLetters(ctx context.Context, arg0 int64) (int
 }
 
 // GetPasswordMinimumLowerCase calls the GetPasswordMinimumLowerCase RPC.
-func (c *Client) GetPasswordMinimumLowerCase(ctx context.Context, arg0 int64) (int32, error) {
+func (c *DevicePolicyManagerClient) GetPasswordMinimumLowerCase(ctx context.Context, arg0 int64) (int32, error) {
 	resp, err := c.svc.GetPasswordMinimumLowerCase(ctx, &pb.GetPasswordMinimumLowerCaseRequest{
 		Arg0: arg0,
 	})
@@ -920,7 +777,7 @@ func (c *Client) GetPasswordMinimumLowerCase(ctx context.Context, arg0 int64) (i
 }
 
 // GetPasswordMinimumNonLetter calls the GetPasswordMinimumNonLetter RPC.
-func (c *Client) GetPasswordMinimumNonLetter(ctx context.Context, arg0 int64) (int32, error) {
+func (c *DevicePolicyManagerClient) GetPasswordMinimumNonLetter(ctx context.Context, arg0 int64) (int32, error) {
 	resp, err := c.svc.GetPasswordMinimumNonLetter(ctx, &pb.GetPasswordMinimumNonLetterRequest{
 		Arg0: arg0,
 	})
@@ -931,7 +788,7 @@ func (c *Client) GetPasswordMinimumNonLetter(ctx context.Context, arg0 int64) (i
 }
 
 // GetPasswordMinimumNumeric calls the GetPasswordMinimumNumeric RPC.
-func (c *Client) GetPasswordMinimumNumeric(ctx context.Context, arg0 int64) (int32, error) {
+func (c *DevicePolicyManagerClient) GetPasswordMinimumNumeric(ctx context.Context, arg0 int64) (int32, error) {
 	resp, err := c.svc.GetPasswordMinimumNumeric(ctx, &pb.GetPasswordMinimumNumericRequest{
 		Arg0: arg0,
 	})
@@ -942,7 +799,7 @@ func (c *Client) GetPasswordMinimumNumeric(ctx context.Context, arg0 int64) (int
 }
 
 // GetPasswordMinimumSymbols calls the GetPasswordMinimumSymbols RPC.
-func (c *Client) GetPasswordMinimumSymbols(ctx context.Context, arg0 int64) (int32, error) {
+func (c *DevicePolicyManagerClient) GetPasswordMinimumSymbols(ctx context.Context, arg0 int64) (int32, error) {
 	resp, err := c.svc.GetPasswordMinimumSymbols(ctx, &pb.GetPasswordMinimumSymbolsRequest{
 		Arg0: arg0,
 	})
@@ -953,7 +810,7 @@ func (c *Client) GetPasswordMinimumSymbols(ctx context.Context, arg0 int64) (int
 }
 
 // GetPasswordMinimumUpperCase calls the GetPasswordMinimumUpperCase RPC.
-func (c *Client) GetPasswordMinimumUpperCase(ctx context.Context, arg0 int64) (int32, error) {
+func (c *DevicePolicyManagerClient) GetPasswordMinimumUpperCase(ctx context.Context, arg0 int64) (int32, error) {
 	resp, err := c.svc.GetPasswordMinimumUpperCase(ctx, &pb.GetPasswordMinimumUpperCaseRequest{
 		Arg0: arg0,
 	})
@@ -964,7 +821,7 @@ func (c *Client) GetPasswordMinimumUpperCase(ctx context.Context, arg0 int64) (i
 }
 
 // GetPasswordQuality calls the GetPasswordQuality RPC.
-func (c *Client) GetPasswordQuality(ctx context.Context, arg0 int64) (int32, error) {
+func (c *DevicePolicyManagerClient) GetPasswordQuality(ctx context.Context, arg0 int64) (int32, error) {
 	resp, err := c.svc.GetPasswordQuality(ctx, &pb.GetPasswordQualityRequest{
 		Arg0: arg0,
 	})
@@ -975,7 +832,7 @@ func (c *Client) GetPasswordQuality(ctx context.Context, arg0 int64) (int32, err
 }
 
 // GetPendingSystemUpdate calls the GetPendingSystemUpdate RPC.
-func (c *Client) GetPendingSystemUpdate(ctx context.Context, arg0 int64) (int64, error) {
+func (c *DevicePolicyManagerClient) GetPendingSystemUpdate(ctx context.Context, arg0 int64) (int64, error) {
 	resp, err := c.svc.GetPendingSystemUpdate(ctx, &pb.GetPendingSystemUpdateRequest{
 		Arg0: arg0,
 	})
@@ -986,7 +843,7 @@ func (c *Client) GetPendingSystemUpdate(ctx context.Context, arg0 int64) (int64,
 }
 
 // GetPermissionGrantState calls the GetPermissionGrantState RPC.
-func (c *Client) GetPermissionGrantState(ctx context.Context, arg0 int64, arg1 string, arg2 string) (int32, error) {
+func (c *DevicePolicyManagerClient) GetPermissionGrantState(ctx context.Context, arg0 int64, arg1 string, arg2 string) (int32, error) {
 	resp, err := c.svc.GetPermissionGrantState(ctx, &pb.GetPermissionGrantStateRequest{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -999,7 +856,7 @@ func (c *Client) GetPermissionGrantState(ctx context.Context, arg0 int64, arg1 s
 }
 
 // GetPermissionPolicy calls the GetPermissionPolicy RPC.
-func (c *Client) GetPermissionPolicy(ctx context.Context, arg0 int64) (int32, error) {
+func (c *DevicePolicyManagerClient) GetPermissionPolicy(ctx context.Context, arg0 int64) (int32, error) {
 	resp, err := c.svc.GetPermissionPolicy(ctx, &pb.GetPermissionPolicyRequest{
 		Arg0: arg0,
 	})
@@ -1009,41 +866,8 @@ func (c *Client) GetPermissionPolicy(ctx context.Context, arg0 int64) (int32, er
 	return resp.GetResult(), nil
 }
 
-// GetPermittedAccessibilityServices calls the GetPermittedAccessibilityServices RPC.
-func (c *Client) GetPermittedAccessibilityServices(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.GetPermittedAccessibilityServices(ctx, &pb.GetPermittedAccessibilityServicesRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetPermittedCrossProfileNotificationListeners calls the GetPermittedCrossProfileNotificationListeners RPC.
-func (c *Client) GetPermittedCrossProfileNotificationListeners(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.GetPermittedCrossProfileNotificationListeners(ctx, &pb.GetPermittedCrossProfileNotificationListenersRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetPermittedInputMethods calls the GetPermittedInputMethods RPC.
-func (c *Client) GetPermittedInputMethods(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.GetPermittedInputMethods(ctx, &pb.GetPermittedInputMethodsRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
 // GetPersonalAppsSuspendedReasons calls the GetPersonalAppsSuspendedReasons RPC.
-func (c *Client) GetPersonalAppsSuspendedReasons(ctx context.Context, arg0 int64) (int32, error) {
+func (c *DevicePolicyManagerClient) GetPersonalAppsSuspendedReasons(ctx context.Context, arg0 int64) (int32, error) {
 	resp, err := c.svc.GetPersonalAppsSuspendedReasons(ctx, &pb.GetPersonalAppsSuspendedReasonsRequest{
 		Arg0: arg0,
 	})
@@ -1053,17 +877,8 @@ func (c *Client) GetPersonalAppsSuspendedReasons(ctx context.Context, arg0 int64
 	return resp.GetResult(), nil
 }
 
-// GetPreferentialNetworkServiceConfigs calls the GetPreferentialNetworkServiceConfigs RPC.
-func (c *Client) GetPreferentialNetworkServiceConfigs(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetPreferentialNetworkServiceConfigs(ctx, &pb.GetPreferentialNetworkServiceConfigsRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
 // GetRequiredPasswordComplexity calls the GetRequiredPasswordComplexity RPC.
-func (c *Client) GetRequiredPasswordComplexity(ctx context.Context) (int32, error) {
+func (c *DevicePolicyManagerClient) GetRequiredPasswordComplexity(ctx context.Context) (int32, error) {
 	resp, err := c.svc.GetRequiredPasswordComplexity(ctx, &pb.GetRequiredPasswordComplexityRequest{})
 	if err != nil {
 		return 0, err
@@ -1072,7 +887,7 @@ func (c *Client) GetRequiredPasswordComplexity(ctx context.Context) (int32, erro
 }
 
 // GetRequiredStrongAuthTimeout calls the GetRequiredStrongAuthTimeout RPC.
-func (c *Client) GetRequiredStrongAuthTimeout(ctx context.Context, arg0 int64) (int64, error) {
+func (c *DevicePolicyManagerClient) GetRequiredStrongAuthTimeout(ctx context.Context, arg0 int64) (int64, error) {
 	resp, err := c.svc.GetRequiredStrongAuthTimeout(ctx, &pb.GetRequiredStrongAuthTimeoutRequest{
 		Arg0: arg0,
 	})
@@ -1083,7 +898,7 @@ func (c *Client) GetRequiredStrongAuthTimeout(ctx context.Context, arg0 int64) (
 }
 
 // GetResources calls the GetResources RPC.
-func (c *Client) GetResources(ctx context.Context) (int64, error) {
+func (c *DevicePolicyManagerClient) GetResources(ctx context.Context) (int64, error) {
 	resp, err := c.svc.GetResources(ctx, &pb.GetResourcesRequest{})
 	if err != nil {
 		return 0, err
@@ -1092,7 +907,7 @@ func (c *Client) GetResources(ctx context.Context) (int64, error) {
 }
 
 // GetScreenCaptureDisabled calls the GetScreenCaptureDisabled RPC.
-func (c *Client) GetScreenCaptureDisabled(ctx context.Context, arg0 int64) (bool, error) {
+func (c *DevicePolicyManagerClient) GetScreenCaptureDisabled(ctx context.Context, arg0 int64) (bool, error) {
 	resp, err := c.svc.GetScreenCaptureDisabled(ctx, &pb.GetScreenCaptureDisabledRequest{
 		Arg0: arg0,
 	})
@@ -1102,19 +917,8 @@ func (c *Client) GetScreenCaptureDisabled(ctx context.Context, arg0 int64) (bool
 	return resp.GetResult(), nil
 }
 
-// GetSecondaryUsers calls the GetSecondaryUsers RPC.
-func (c *Client) GetSecondaryUsers(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.GetSecondaryUsers(ctx, &pb.GetSecondaryUsersRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
 // GetShortSupportMessage calls the GetShortSupportMessage RPC.
-func (c *Client) GetShortSupportMessage(ctx context.Context, arg0 int64) (int64, error) {
+func (c *DevicePolicyManagerClient) GetShortSupportMessage(ctx context.Context, arg0 int64) (int64, error) {
 	resp, err := c.svc.GetShortSupportMessage(ctx, &pb.GetShortSupportMessageRequest{
 		Arg0: arg0,
 	})
@@ -1125,7 +929,7 @@ func (c *Client) GetShortSupportMessage(ctx context.Context, arg0 int64) (int64,
 }
 
 // GetStartUserSessionMessage calls the GetStartUserSessionMessage RPC.
-func (c *Client) GetStartUserSessionMessage(ctx context.Context, arg0 int64) (int64, error) {
+func (c *DevicePolicyManagerClient) GetStartUserSessionMessage(ctx context.Context, arg0 int64) (int64, error) {
 	resp, err := c.svc.GetStartUserSessionMessage(ctx, &pb.GetStartUserSessionMessageRequest{
 		Arg0: arg0,
 	})
@@ -1136,7 +940,7 @@ func (c *Client) GetStartUserSessionMessage(ctx context.Context, arg0 int64) (in
 }
 
 // GetStorageEncryption calls the GetStorageEncryption RPC.
-func (c *Client) GetStorageEncryption(ctx context.Context, arg0 int64) (bool, error) {
+func (c *DevicePolicyManagerClient) GetStorageEncryption(ctx context.Context, arg0 int64) (bool, error) {
 	resp, err := c.svc.GetStorageEncryption(ctx, &pb.GetStorageEncryptionRequest{
 		Arg0: arg0,
 	})
@@ -1147,7 +951,7 @@ func (c *Client) GetStorageEncryption(ctx context.Context, arg0 int64) (bool, er
 }
 
 // GetStorageEncryptionStatus calls the GetStorageEncryptionStatus RPC.
-func (c *Client) GetStorageEncryptionStatus(ctx context.Context) (int32, error) {
+func (c *DevicePolicyManagerClient) GetStorageEncryptionStatus(ctx context.Context) (int32, error) {
 	resp, err := c.svc.GetStorageEncryptionStatus(ctx, &pb.GetStorageEncryptionStatusRequest{})
 	if err != nil {
 		return 0, err
@@ -1155,17 +959,8 @@ func (c *Client) GetStorageEncryptionStatus(ctx context.Context) (int32, error) 
 	return resp.GetResult(), nil
 }
 
-// GetSubscriptionIds calls the GetSubscriptionIds RPC.
-func (c *Client) GetSubscriptionIds(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetSubscriptionIds(ctx, &pb.GetSubscriptionIdsRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
 // GetSystemUpdatePolicy calls the GetSystemUpdatePolicy RPC.
-func (c *Client) GetSystemUpdatePolicy(ctx context.Context) (int64, error) {
+func (c *DevicePolicyManagerClient) GetSystemUpdatePolicy(ctx context.Context) (int64, error) {
 	resp, err := c.svc.GetSystemUpdatePolicy(ctx, &pb.GetSystemUpdatePolicyRequest{})
 	if err != nil {
 		return 0, err
@@ -1174,7 +969,7 @@ func (c *Client) GetSystemUpdatePolicy(ctx context.Context) (int64, error) {
 }
 
 // GetTransferOwnershipBundle calls the GetTransferOwnershipBundle RPC.
-func (c *Client) GetTransferOwnershipBundle(ctx context.Context) (int64, error) {
+func (c *DevicePolicyManagerClient) GetTransferOwnershipBundle(ctx context.Context) (int64, error) {
 	resp, err := c.svc.GetTransferOwnershipBundle(ctx, &pb.GetTransferOwnershipBundleRequest{})
 	if err != nil {
 		return 0, err
@@ -1182,31 +977,8 @@ func (c *Client) GetTransferOwnershipBundle(ctx context.Context) (int64, error) 
 	return resp.GetResult(), nil
 }
 
-// GetTrustAgentConfiguration calls the GetTrustAgentConfiguration RPC.
-func (c *Client) GetTrustAgentConfiguration(ctx context.Context, arg0 int64, arg1 int64) (int64, error) {
-	resp, err := c.svc.GetTrustAgentConfiguration(ctx, &pb.GetTrustAgentConfigurationRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetUserControlDisabledPackages calls the GetUserControlDisabledPackages RPC.
-func (c *Client) GetUserControlDisabledPackages(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.GetUserControlDisabledPackages(ctx, &pb.GetUserControlDisabledPackagesRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
 // GetUserRestrictions calls the GetUserRestrictions RPC.
-func (c *Client) GetUserRestrictions(ctx context.Context, arg0 int64) (int64, error) {
+func (c *DevicePolicyManagerClient) GetUserRestrictions(ctx context.Context, arg0 int64) (int64, error) {
 	resp, err := c.svc.GetUserRestrictions(ctx, &pb.GetUserRestrictionsRequest{
 		Arg0: arg0,
 	})
@@ -1217,7 +989,7 @@ func (c *Client) GetUserRestrictions(ctx context.Context, arg0 int64) (int64, er
 }
 
 // GetUserRestrictionsGlobally calls the GetUserRestrictionsGlobally RPC.
-func (c *Client) GetUserRestrictionsGlobally(ctx context.Context) (int64, error) {
+func (c *DevicePolicyManagerClient) GetUserRestrictionsGlobally(ctx context.Context) (int64, error) {
 	resp, err := c.svc.GetUserRestrictionsGlobally(ctx, &pb.GetUserRestrictionsGloballyRequest{})
 	if err != nil {
 		return 0, err
@@ -1226,7 +998,7 @@ func (c *Client) GetUserRestrictionsGlobally(ctx context.Context) (int64, error)
 }
 
 // GetWifiMacAddress calls the GetWifiMacAddress RPC.
-func (c *Client) GetWifiMacAddress(ctx context.Context, arg0 int64) (string, error) {
+func (c *DevicePolicyManagerClient) GetWifiMacAddress(ctx context.Context, arg0 int64) (string, error) {
 	resp, err := c.svc.GetWifiMacAddress(ctx, &pb.GetWifiMacAddressRequest{
 		Arg0: arg0,
 	})
@@ -1237,7 +1009,7 @@ func (c *Client) GetWifiMacAddress(ctx context.Context, arg0 int64) (string, err
 }
 
 // GetWifiSsidPolicy calls the GetWifiSsidPolicy RPC.
-func (c *Client) GetWifiSsidPolicy(ctx context.Context) (int64, error) {
+func (c *DevicePolicyManagerClient) GetWifiSsidPolicy(ctx context.Context) (int64, error) {
 	resp, err := c.svc.GetWifiSsidPolicy(ctx, &pb.GetWifiSsidPolicyRequest{})
 	if err != nil {
 		return 0, err
@@ -1246,7 +1018,7 @@ func (c *Client) GetWifiSsidPolicy(ctx context.Context) (int64, error) {
 }
 
 // GrantKeyPairToApp calls the GrantKeyPairToApp RPC.
-func (c *Client) GrantKeyPairToApp(ctx context.Context, arg0 int64, arg1 string, arg2 string) (bool, error) {
+func (c *DevicePolicyManagerClient) GrantKeyPairToApp(ctx context.Context, arg0 int64, arg1 string, arg2 string) (bool, error) {
 	resp, err := c.svc.GrantKeyPairToApp(ctx, &pb.GrantKeyPairToAppRequest{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -1259,7 +1031,7 @@ func (c *Client) GrantKeyPairToApp(ctx context.Context, arg0 int64, arg1 string,
 }
 
 // GrantKeyPairToWifiAuth calls the GrantKeyPairToWifiAuth RPC.
-func (c *Client) GrantKeyPairToWifiAuth(ctx context.Context, arg0 string) (bool, error) {
+func (c *DevicePolicyManagerClient) GrantKeyPairToWifiAuth(ctx context.Context, arg0 string) (bool, error) {
 	resp, err := c.svc.GrantKeyPairToWifiAuth(ctx, &pb.GrantKeyPairToWifiAuthRequest{
 		Arg0: arg0,
 	})
@@ -1270,7 +1042,7 @@ func (c *Client) GrantKeyPairToWifiAuth(ctx context.Context, arg0 string) (bool,
 }
 
 // HasCaCertInstalled calls the HasCaCertInstalled RPC.
-func (c *Client) HasCaCertInstalled(ctx context.Context, arg0 int64, arg1 int64) (bool, error) {
+func (c *DevicePolicyManagerClient) HasCaCertInstalled(ctx context.Context, arg0 int64, arg1 int64) (bool, error) {
 	resp, err := c.svc.HasCaCertInstalled(ctx, &pb.HasCaCertInstalledRequest{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -1282,7 +1054,7 @@ func (c *Client) HasCaCertInstalled(ctx context.Context, arg0 int64, arg1 int64)
 }
 
 // HasGrantedPolicy calls the HasGrantedPolicy RPC.
-func (c *Client) HasGrantedPolicy(ctx context.Context, arg0 int64, arg1 int32) (bool, error) {
+func (c *DevicePolicyManagerClient) HasGrantedPolicy(ctx context.Context, arg0 int64, arg1 int32) (bool, error) {
 	resp, err := c.svc.HasGrantedPolicy(ctx, &pb.HasGrantedPolicyRequest{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -1294,7 +1066,7 @@ func (c *Client) HasGrantedPolicy(ctx context.Context, arg0 int64, arg1 int32) (
 }
 
 // HasKeyPair calls the HasKeyPair RPC.
-func (c *Client) HasKeyPair(ctx context.Context, arg0 string) (bool, error) {
+func (c *DevicePolicyManagerClient) HasKeyPair(ctx context.Context, arg0 string) (bool, error) {
 	resp, err := c.svc.HasKeyPair(ctx, &pb.HasKeyPairRequest{
 		Arg0: arg0,
 	})
@@ -1305,7 +1077,7 @@ func (c *Client) HasKeyPair(ctx context.Context, arg0 string) (bool, error) {
 }
 
 // HasLockdownAdminConfiguredNetworks calls the HasLockdownAdminConfiguredNetworks RPC.
-func (c *Client) HasLockdownAdminConfiguredNetworks(ctx context.Context, arg0 int64) (bool, error) {
+func (c *DevicePolicyManagerClient) HasLockdownAdminConfiguredNetworks(ctx context.Context, arg0 int64) (bool, error) {
 	resp, err := c.svc.HasLockdownAdminConfiguredNetworks(ctx, &pb.HasLockdownAdminConfiguredNetworksRequest{
 		Arg0: arg0,
 	})
@@ -1316,7 +1088,7 @@ func (c *Client) HasLockdownAdminConfiguredNetworks(ctx context.Context, arg0 in
 }
 
 // InstallCaCert calls the InstallCaCert RPC.
-func (c *Client) InstallCaCert(ctx context.Context, arg0 int64, arg1 int64) (bool, error) {
+func (c *DevicePolicyManagerClient) InstallCaCert(ctx context.Context, arg0 int64, arg1 int64) (bool, error) {
 	resp, err := c.svc.InstallCaCert(ctx, &pb.InstallCaCertRequest{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -1328,7 +1100,7 @@ func (c *Client) InstallCaCert(ctx context.Context, arg0 int64, arg1 int64) (boo
 }
 
 // InstallExistingPackage calls the InstallExistingPackage RPC.
-func (c *Client) InstallExistingPackage(ctx context.Context, arg0 int64, arg1 string) (bool, error) {
+func (c *DevicePolicyManagerClient) InstallExistingPackage(ctx context.Context, arg0 int64, arg1 string) (bool, error) {
 	resp, err := c.svc.InstallExistingPackage(ctx, &pb.InstallExistingPackageRequest{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -1340,7 +1112,7 @@ func (c *Client) InstallExistingPackage(ctx context.Context, arg0 int64, arg1 st
 }
 
 // InstallKeyPair4 calls the InstallKeyPair4 RPC.
-func (c *Client) InstallKeyPair4(ctx context.Context, arg0 int64, arg1 int64, arg2 int64, arg3 string) (bool, error) {
+func (c *DevicePolicyManagerClient) InstallKeyPair4(ctx context.Context, arg0 int64, arg1 int64, arg2 int64, arg3 string) (bool, error) {
 	resp, err := c.svc.InstallKeyPair4(ctx, &pb.InstallKeyPair4Request{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -1354,7 +1126,7 @@ func (c *Client) InstallKeyPair4(ctx context.Context, arg0 int64, arg1 int64, ar
 }
 
 // InstallKeyPair5_1 calls the InstallKeyPair5_1 RPC.
-func (c *Client) InstallKeyPair5_1(ctx context.Context, arg0 int64, arg1 int64, arg2 int64, arg3 string, arg4 bool) (bool, error) {
+func (c *DevicePolicyManagerClient) InstallKeyPair5_1(ctx context.Context, arg0 int64, arg1 int64, arg2 int64, arg3 string, arg4 bool) (bool, error) {
 	resp, err := c.svc.InstallKeyPair5_1(ctx, &pb.InstallKeyPair5_1Request{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -1369,7 +1141,7 @@ func (c *Client) InstallKeyPair5_1(ctx context.Context, arg0 int64, arg1 int64, 
 }
 
 // InstallKeyPair5_2 calls the InstallKeyPair5_2 RPC.
-func (c *Client) InstallKeyPair5_2(ctx context.Context, arg0 int64, arg1 int64, arg2 int64, arg3 string, arg4 int32) (bool, error) {
+func (c *DevicePolicyManagerClient) InstallKeyPair5_2(ctx context.Context, arg0 int64, arg1 int64, arg2 int64, arg3 string, arg4 int32) (bool, error) {
 	resp, err := c.svc.InstallKeyPair5_2(ctx, &pb.InstallKeyPair5_2Request{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -1384,7 +1156,7 @@ func (c *Client) InstallKeyPair5_2(ctx context.Context, arg0 int64, arg1 int64, 
 }
 
 // InstallSystemUpdate calls the InstallSystemUpdate RPC.
-func (c *Client) InstallSystemUpdate(ctx context.Context, arg0 int64, arg1 int64, arg2 int64, arg3 int64) error {
+func (c *DevicePolicyManagerClient) InstallSystemUpdate(ctx context.Context, arg0 int64, arg1 int64, arg2 int64, arg3 int64) error {
 	_, err := c.svc.InstallSystemUpdate(ctx, &pb.InstallSystemUpdateRequest{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -1395,7 +1167,7 @@ func (c *Client) InstallSystemUpdate(ctx context.Context, arg0 int64, arg1 int64
 }
 
 // IsActivePasswordSufficient calls the IsActivePasswordSufficient RPC.
-func (c *Client) IsActivePasswordSufficient(ctx context.Context) (bool, error) {
+func (c *DevicePolicyManagerClient) IsActivePasswordSufficient(ctx context.Context) (bool, error) {
 	resp, err := c.svc.IsActivePasswordSufficient(ctx, &pb.IsActivePasswordSufficientRequest{})
 	if err != nil {
 		return false, err
@@ -1404,7 +1176,7 @@ func (c *Client) IsActivePasswordSufficient(ctx context.Context) (bool, error) {
 }
 
 // IsActivePasswordSufficientForDeviceRequirement calls the IsActivePasswordSufficientForDeviceRequirement RPC.
-func (c *Client) IsActivePasswordSufficientForDeviceRequirement(ctx context.Context) (bool, error) {
+func (c *DevicePolicyManagerClient) IsActivePasswordSufficientForDeviceRequirement(ctx context.Context) (bool, error) {
 	resp, err := c.svc.IsActivePasswordSufficientForDeviceRequirement(ctx, &pb.IsActivePasswordSufficientForDeviceRequirementRequest{})
 	if err != nil {
 		return false, err
@@ -1413,7 +1185,7 @@ func (c *Client) IsActivePasswordSufficientForDeviceRequirement(ctx context.Cont
 }
 
 // IsAdminActive calls the IsAdminActive RPC.
-func (c *Client) IsAdminActive(ctx context.Context, arg0 int64) (bool, error) {
+func (c *DevicePolicyManagerClient) IsAdminActive(ctx context.Context, arg0 int64) (bool, error) {
 	resp, err := c.svc.IsAdminActive(ctx, &pb.IsAdminActiveRequest{
 		Arg0: arg0,
 	})
@@ -1424,7 +1196,7 @@ func (c *Client) IsAdminActive(ctx context.Context, arg0 int64) (bool, error) {
 }
 
 // IsAffiliatedUser calls the IsAffiliatedUser RPC.
-func (c *Client) IsAffiliatedUser(ctx context.Context) (bool, error) {
+func (c *DevicePolicyManagerClient) IsAffiliatedUser(ctx context.Context) (bool, error) {
 	resp, err := c.svc.IsAffiliatedUser(ctx, &pb.IsAffiliatedUserRequest{})
 	if err != nil {
 		return false, err
@@ -1433,7 +1205,7 @@ func (c *Client) IsAffiliatedUser(ctx context.Context) (bool, error) {
 }
 
 // IsAlwaysOnVpnLockdownEnabled calls the IsAlwaysOnVpnLockdownEnabled RPC.
-func (c *Client) IsAlwaysOnVpnLockdownEnabled(ctx context.Context, arg0 int64) (bool, error) {
+func (c *DevicePolicyManagerClient) IsAlwaysOnVpnLockdownEnabled(ctx context.Context, arg0 int64) (bool, error) {
 	resp, err := c.svc.IsAlwaysOnVpnLockdownEnabled(ctx, &pb.IsAlwaysOnVpnLockdownEnabledRequest{
 		Arg0: arg0,
 	})
@@ -1444,7 +1216,7 @@ func (c *Client) IsAlwaysOnVpnLockdownEnabled(ctx context.Context, arg0 int64) (
 }
 
 // IsApplicationHidden calls the IsApplicationHidden RPC.
-func (c *Client) IsApplicationHidden(ctx context.Context, arg0 int64, arg1 string) (bool, error) {
+func (c *DevicePolicyManagerClient) IsApplicationHidden(ctx context.Context, arg0 int64, arg1 string) (bool, error) {
 	resp, err := c.svc.IsApplicationHidden(ctx, &pb.IsApplicationHiddenRequest{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -1456,7 +1228,7 @@ func (c *Client) IsApplicationHidden(ctx context.Context, arg0 int64, arg1 strin
 }
 
 // IsBackupServiceEnabled calls the IsBackupServiceEnabled RPC.
-func (c *Client) IsBackupServiceEnabled(ctx context.Context, arg0 int64) (bool, error) {
+func (c *DevicePolicyManagerClient) IsBackupServiceEnabled(ctx context.Context, arg0 int64) (bool, error) {
 	resp, err := c.svc.IsBackupServiceEnabled(ctx, &pb.IsBackupServiceEnabledRequest{
 		Arg0: arg0,
 	})
@@ -1467,7 +1239,7 @@ func (c *Client) IsBackupServiceEnabled(ctx context.Context, arg0 int64) (bool, 
 }
 
 // IsCallerApplicationRestrictionsManagingPackage calls the IsCallerApplicationRestrictionsManagingPackage RPC.
-func (c *Client) IsCallerApplicationRestrictionsManagingPackage(ctx context.Context) (bool, error) {
+func (c *DevicePolicyManagerClient) IsCallerApplicationRestrictionsManagingPackage(ctx context.Context) (bool, error) {
 	resp, err := c.svc.IsCallerApplicationRestrictionsManagingPackage(ctx, &pb.IsCallerApplicationRestrictionsManagingPackageRequest{})
 	if err != nil {
 		return false, err
@@ -1476,7 +1248,7 @@ func (c *Client) IsCallerApplicationRestrictionsManagingPackage(ctx context.Cont
 }
 
 // IsCommonCriteriaModeEnabled calls the IsCommonCriteriaModeEnabled RPC.
-func (c *Client) IsCommonCriteriaModeEnabled(ctx context.Context, arg0 int64) (bool, error) {
+func (c *DevicePolicyManagerClient) IsCommonCriteriaModeEnabled(ctx context.Context, arg0 int64) (bool, error) {
 	resp, err := c.svc.IsCommonCriteriaModeEnabled(ctx, &pb.IsCommonCriteriaModeEnabledRequest{
 		Arg0: arg0,
 	})
@@ -1487,7 +1259,7 @@ func (c *Client) IsCommonCriteriaModeEnabled(ctx context.Context, arg0 int64) (b
 }
 
 // IsComplianceAcknowledgementRequired calls the IsComplianceAcknowledgementRequired RPC.
-func (c *Client) IsComplianceAcknowledgementRequired(ctx context.Context) (bool, error) {
+func (c *DevicePolicyManagerClient) IsComplianceAcknowledgementRequired(ctx context.Context) (bool, error) {
 	resp, err := c.svc.IsComplianceAcknowledgementRequired(ctx, &pb.IsComplianceAcknowledgementRequiredRequest{})
 	if err != nil {
 		return false, err
@@ -1496,7 +1268,7 @@ func (c *Client) IsComplianceAcknowledgementRequired(ctx context.Context) (bool,
 }
 
 // IsDeviceFinanced calls the IsDeviceFinanced RPC.
-func (c *Client) IsDeviceFinanced(ctx context.Context) (bool, error) {
+func (c *DevicePolicyManagerClient) IsDeviceFinanced(ctx context.Context) (bool, error) {
 	resp, err := c.svc.IsDeviceFinanced(ctx, &pb.IsDeviceFinancedRequest{})
 	if err != nil {
 		return false, err
@@ -1505,7 +1277,7 @@ func (c *Client) IsDeviceFinanced(ctx context.Context) (bool, error) {
 }
 
 // IsDeviceIdAttestationSupported calls the IsDeviceIdAttestationSupported RPC.
-func (c *Client) IsDeviceIdAttestationSupported(ctx context.Context) (bool, error) {
+func (c *DevicePolicyManagerClient) IsDeviceIdAttestationSupported(ctx context.Context) (bool, error) {
 	resp, err := c.svc.IsDeviceIdAttestationSupported(ctx, &pb.IsDeviceIdAttestationSupportedRequest{})
 	if err != nil {
 		return false, err
@@ -1514,7 +1286,7 @@ func (c *Client) IsDeviceIdAttestationSupported(ctx context.Context) (bool, erro
 }
 
 // IsDeviceOwnerApp calls the IsDeviceOwnerApp RPC.
-func (c *Client) IsDeviceOwnerApp(ctx context.Context, arg0 string) (bool, error) {
+func (c *DevicePolicyManagerClient) IsDeviceOwnerApp(ctx context.Context, arg0 string) (bool, error) {
 	resp, err := c.svc.IsDeviceOwnerApp(ctx, &pb.IsDeviceOwnerAppRequest{
 		Arg0: arg0,
 	})
@@ -1525,7 +1297,7 @@ func (c *Client) IsDeviceOwnerApp(ctx context.Context, arg0 string) (bool, error
 }
 
 // IsEphemeralUser calls the IsEphemeralUser RPC.
-func (c *Client) IsEphemeralUser(ctx context.Context, arg0 int64) (bool, error) {
+func (c *DevicePolicyManagerClient) IsEphemeralUser(ctx context.Context, arg0 int64) (bool, error) {
 	resp, err := c.svc.IsEphemeralUser(ctx, &pb.IsEphemeralUserRequest{
 		Arg0: arg0,
 	})
@@ -1536,7 +1308,7 @@ func (c *Client) IsEphemeralUser(ctx context.Context, arg0 int64) (bool, error) 
 }
 
 // IsKeyPairGrantedToWifiAuth calls the IsKeyPairGrantedToWifiAuth RPC.
-func (c *Client) IsKeyPairGrantedToWifiAuth(ctx context.Context, arg0 string) (bool, error) {
+func (c *DevicePolicyManagerClient) IsKeyPairGrantedToWifiAuth(ctx context.Context, arg0 string) (bool, error) {
 	resp, err := c.svc.IsKeyPairGrantedToWifiAuth(ctx, &pb.IsKeyPairGrantedToWifiAuthRequest{
 		Arg0: arg0,
 	})
@@ -1547,7 +1319,7 @@ func (c *Client) IsKeyPairGrantedToWifiAuth(ctx context.Context, arg0 string) (b
 }
 
 // IsLockTaskPermitted calls the IsLockTaskPermitted RPC.
-func (c *Client) IsLockTaskPermitted(ctx context.Context, arg0 string) (bool, error) {
+func (c *DevicePolicyManagerClient) IsLockTaskPermitted(ctx context.Context, arg0 string) (bool, error) {
 	resp, err := c.svc.IsLockTaskPermitted(ctx, &pb.IsLockTaskPermittedRequest{
 		Arg0: arg0,
 	})
@@ -1558,7 +1330,7 @@ func (c *Client) IsLockTaskPermitted(ctx context.Context, arg0 string) (bool, er
 }
 
 // IsLogoutEnabled calls the IsLogoutEnabled RPC.
-func (c *Client) IsLogoutEnabled(ctx context.Context) (bool, error) {
+func (c *DevicePolicyManagerClient) IsLogoutEnabled(ctx context.Context) (bool, error) {
 	resp, err := c.svc.IsLogoutEnabled(ctx, &pb.IsLogoutEnabledRequest{})
 	if err != nil {
 		return false, err
@@ -1567,7 +1339,7 @@ func (c *Client) IsLogoutEnabled(ctx context.Context) (bool, error) {
 }
 
 // IsManagedProfile calls the IsManagedProfile RPC.
-func (c *Client) IsManagedProfile(ctx context.Context, arg0 int64) (bool, error) {
+func (c *DevicePolicyManagerClient) IsManagedProfile(ctx context.Context, arg0 int64) (bool, error) {
 	resp, err := c.svc.IsManagedProfile(ctx, &pb.IsManagedProfileRequest{
 		Arg0: arg0,
 	})
@@ -1578,7 +1350,7 @@ func (c *Client) IsManagedProfile(ctx context.Context, arg0 int64) (bool, error)
 }
 
 // IsMasterVolumeMuted calls the IsMasterVolumeMuted RPC.
-func (c *Client) IsMasterVolumeMuted(ctx context.Context, arg0 int64) (bool, error) {
+func (c *DevicePolicyManagerClient) IsMasterVolumeMuted(ctx context.Context, arg0 int64) (bool, error) {
 	resp, err := c.svc.IsMasterVolumeMuted(ctx, &pb.IsMasterVolumeMutedRequest{
 		Arg0: arg0,
 	})
@@ -1589,7 +1361,7 @@ func (c *Client) IsMasterVolumeMuted(ctx context.Context, arg0 int64) (bool, err
 }
 
 // IsNetworkLoggingEnabled calls the IsNetworkLoggingEnabled RPC.
-func (c *Client) IsNetworkLoggingEnabled(ctx context.Context, arg0 int64) (bool, error) {
+func (c *DevicePolicyManagerClient) IsNetworkLoggingEnabled(ctx context.Context, arg0 int64) (bool, error) {
 	resp, err := c.svc.IsNetworkLoggingEnabled(ctx, &pb.IsNetworkLoggingEnabledRequest{
 		Arg0: arg0,
 	})
@@ -1600,7 +1372,7 @@ func (c *Client) IsNetworkLoggingEnabled(ctx context.Context, arg0 int64) (bool,
 }
 
 // IsOrganizationOwnedDeviceWithManagedProfile calls the IsOrganizationOwnedDeviceWithManagedProfile RPC.
-func (c *Client) IsOrganizationOwnedDeviceWithManagedProfile(ctx context.Context) (bool, error) {
+func (c *DevicePolicyManagerClient) IsOrganizationOwnedDeviceWithManagedProfile(ctx context.Context) (bool, error) {
 	resp, err := c.svc.IsOrganizationOwnedDeviceWithManagedProfile(ctx, &pb.IsOrganizationOwnedDeviceWithManagedProfileRequest{})
 	if err != nil {
 		return false, err
@@ -1609,7 +1381,7 @@ func (c *Client) IsOrganizationOwnedDeviceWithManagedProfile(ctx context.Context
 }
 
 // IsOverrideApnEnabled calls the IsOverrideApnEnabled RPC.
-func (c *Client) IsOverrideApnEnabled(ctx context.Context, arg0 int64) (bool, error) {
+func (c *DevicePolicyManagerClient) IsOverrideApnEnabled(ctx context.Context, arg0 int64) (bool, error) {
 	resp, err := c.svc.IsOverrideApnEnabled(ctx, &pb.IsOverrideApnEnabledRequest{
 		Arg0: arg0,
 	})
@@ -1620,7 +1392,7 @@ func (c *Client) IsOverrideApnEnabled(ctx context.Context, arg0 int64) (bool, er
 }
 
 // IsPackageSuspended calls the IsPackageSuspended RPC.
-func (c *Client) IsPackageSuspended(ctx context.Context, arg0 int64, arg1 string) (bool, error) {
+func (c *DevicePolicyManagerClient) IsPackageSuspended(ctx context.Context, arg0 int64, arg1 string) (bool, error) {
 	resp, err := c.svc.IsPackageSuspended(ctx, &pb.IsPackageSuspendedRequest{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -1632,7 +1404,7 @@ func (c *Client) IsPackageSuspended(ctx context.Context, arg0 int64, arg1 string
 }
 
 // IsPreferentialNetworkServiceEnabled calls the IsPreferentialNetworkServiceEnabled RPC.
-func (c *Client) IsPreferentialNetworkServiceEnabled(ctx context.Context) (bool, error) {
+func (c *DevicePolicyManagerClient) IsPreferentialNetworkServiceEnabled(ctx context.Context) (bool, error) {
 	resp, err := c.svc.IsPreferentialNetworkServiceEnabled(ctx, &pb.IsPreferentialNetworkServiceEnabledRequest{})
 	if err != nil {
 		return false, err
@@ -1641,7 +1413,7 @@ func (c *Client) IsPreferentialNetworkServiceEnabled(ctx context.Context) (bool,
 }
 
 // IsProfileOwnerApp calls the IsProfileOwnerApp RPC.
-func (c *Client) IsProfileOwnerApp(ctx context.Context, arg0 string) (bool, error) {
+func (c *DevicePolicyManagerClient) IsProfileOwnerApp(ctx context.Context, arg0 string) (bool, error) {
 	resp, err := c.svc.IsProfileOwnerApp(ctx, &pb.IsProfileOwnerAppRequest{
 		Arg0: arg0,
 	})
@@ -1652,7 +1424,7 @@ func (c *Client) IsProfileOwnerApp(ctx context.Context, arg0 string) (bool, erro
 }
 
 // IsProvisioningAllowed calls the IsProvisioningAllowed RPC.
-func (c *Client) IsProvisioningAllowed(ctx context.Context, arg0 string) (bool, error) {
+func (c *DevicePolicyManagerClient) IsProvisioningAllowed(ctx context.Context, arg0 string) (bool, error) {
 	resp, err := c.svc.IsProvisioningAllowed(ctx, &pb.IsProvisioningAllowedRequest{
 		Arg0: arg0,
 	})
@@ -1663,7 +1435,7 @@ func (c *Client) IsProvisioningAllowed(ctx context.Context, arg0 string) (bool, 
 }
 
 // IsResetPasswordTokenActive calls the IsResetPasswordTokenActive RPC.
-func (c *Client) IsResetPasswordTokenActive(ctx context.Context, arg0 int64) (bool, error) {
+func (c *DevicePolicyManagerClient) IsResetPasswordTokenActive(ctx context.Context, arg0 int64) (bool, error) {
 	resp, err := c.svc.IsResetPasswordTokenActive(ctx, &pb.IsResetPasswordTokenActiveRequest{
 		Arg0: arg0,
 	})
@@ -1674,7 +1446,7 @@ func (c *Client) IsResetPasswordTokenActive(ctx context.Context, arg0 int64) (bo
 }
 
 // IsSafeOperation calls the IsSafeOperation RPC.
-func (c *Client) IsSafeOperation(ctx context.Context, arg0 int32) (bool, error) {
+func (c *DevicePolicyManagerClient) IsSafeOperation(ctx context.Context, arg0 int32) (bool, error) {
 	resp, err := c.svc.IsSafeOperation(ctx, &pb.IsSafeOperationRequest{
 		Arg0: arg0,
 	})
@@ -1685,7 +1457,7 @@ func (c *Client) IsSafeOperation(ctx context.Context, arg0 int32) (bool, error) 
 }
 
 // IsSecurityLoggingEnabled calls the IsSecurityLoggingEnabled RPC.
-func (c *Client) IsSecurityLoggingEnabled(ctx context.Context, arg0 int64) (bool, error) {
+func (c *DevicePolicyManagerClient) IsSecurityLoggingEnabled(ctx context.Context, arg0 int64) (bool, error) {
 	resp, err := c.svc.IsSecurityLoggingEnabled(ctx, &pb.IsSecurityLoggingEnabledRequest{
 		Arg0: arg0,
 	})
@@ -1696,7 +1468,7 @@ func (c *Client) IsSecurityLoggingEnabled(ctx context.Context, arg0 int64) (bool
 }
 
 // IsStatusBarDisabled calls the IsStatusBarDisabled RPC.
-func (c *Client) IsStatusBarDisabled(ctx context.Context) (bool, error) {
+func (c *DevicePolicyManagerClient) IsStatusBarDisabled(ctx context.Context) (bool, error) {
 	resp, err := c.svc.IsStatusBarDisabled(ctx, &pb.IsStatusBarDisabledRequest{})
 	if err != nil {
 		return false, err
@@ -1705,7 +1477,7 @@ func (c *Client) IsStatusBarDisabled(ctx context.Context) (bool, error) {
 }
 
 // IsUninstallBlocked calls the IsUninstallBlocked RPC.
-func (c *Client) IsUninstallBlocked(ctx context.Context, arg0 int64, arg1 string) (bool, error) {
+func (c *DevicePolicyManagerClient) IsUninstallBlocked(ctx context.Context, arg0 int64, arg1 string) (bool, error) {
 	resp, err := c.svc.IsUninstallBlocked(ctx, &pb.IsUninstallBlockedRequest{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -1717,7 +1489,7 @@ func (c *Client) IsUninstallBlocked(ctx context.Context, arg0 int64, arg1 string
 }
 
 // IsUniqueDeviceAttestationSupported calls the IsUniqueDeviceAttestationSupported RPC.
-func (c *Client) IsUniqueDeviceAttestationSupported(ctx context.Context) (bool, error) {
+func (c *DevicePolicyManagerClient) IsUniqueDeviceAttestationSupported(ctx context.Context) (bool, error) {
 	resp, err := c.svc.IsUniqueDeviceAttestationSupported(ctx, &pb.IsUniqueDeviceAttestationSupportedRequest{})
 	if err != nil {
 		return false, err
@@ -1726,7 +1498,7 @@ func (c *Client) IsUniqueDeviceAttestationSupported(ctx context.Context) (bool, 
 }
 
 // IsUsbDataSignalingEnabled calls the IsUsbDataSignalingEnabled RPC.
-func (c *Client) IsUsbDataSignalingEnabled(ctx context.Context) (bool, error) {
+func (c *DevicePolicyManagerClient) IsUsbDataSignalingEnabled(ctx context.Context) (bool, error) {
 	resp, err := c.svc.IsUsbDataSignalingEnabled(ctx, &pb.IsUsbDataSignalingEnabledRequest{})
 	if err != nil {
 		return false, err
@@ -1735,7 +1507,7 @@ func (c *Client) IsUsbDataSignalingEnabled(ctx context.Context) (bool, error) {
 }
 
 // IsUsingUnifiedPassword calls the IsUsingUnifiedPassword RPC.
-func (c *Client) IsUsingUnifiedPassword(ctx context.Context, arg0 int64) (bool, error) {
+func (c *DevicePolicyManagerClient) IsUsingUnifiedPassword(ctx context.Context, arg0 int64) (bool, error) {
 	resp, err := c.svc.IsUsingUnifiedPassword(ctx, &pb.IsUsingUnifiedPasswordRequest{
 		Arg0: arg0,
 	})
@@ -1745,23 +1517,14 @@ func (c *Client) IsUsingUnifiedPassword(ctx context.Context, arg0 int64) (bool, 
 	return resp.GetResult(), nil
 }
 
-// ListForegroundAffiliatedUsers calls the ListForegroundAffiliatedUsers RPC.
-func (c *Client) ListForegroundAffiliatedUsers(ctx context.Context) (int64, error) {
-	resp, err := c.svc.ListForegroundAffiliatedUsers(ctx, &pb.ListForegroundAffiliatedUsersRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
 // LockNow0 calls the LockNow0 RPC.
-func (c *Client) LockNow0(ctx context.Context) error {
+func (c *DevicePolicyManagerClient) LockNow0(ctx context.Context) error {
 	_, err := c.svc.LockNow0(ctx, &pb.LockNow0Request{})
 	return err
 }
 
 // LockNow1_1 calls the LockNow1_1 RPC.
-func (c *Client) LockNow1_1(ctx context.Context, arg0 int32) error {
+func (c *DevicePolicyManagerClient) LockNow1_1(ctx context.Context, arg0 int32) error {
 	_, err := c.svc.LockNow1_1(ctx, &pb.LockNow1_1Request{
 		Arg0: arg0,
 	})
@@ -1769,7 +1532,7 @@ func (c *Client) LockNow1_1(ctx context.Context, arg0 int32) error {
 }
 
 // LogoutUser calls the LogoutUser RPC.
-func (c *Client) LogoutUser(ctx context.Context, arg0 int64) (int32, error) {
+func (c *DevicePolicyManagerClient) LogoutUser(ctx context.Context, arg0 int64) (int32, error) {
 	resp, err := c.svc.LogoutUser(ctx, &pb.LogoutUserRequest{
 		Arg0: arg0,
 	})
@@ -1780,7 +1543,7 @@ func (c *Client) LogoutUser(ctx context.Context, arg0 int64) (int32, error) {
 }
 
 // Reboot calls the Reboot RPC.
-func (c *Client) Reboot(ctx context.Context, arg0 int64) error {
+func (c *DevicePolicyManagerClient) Reboot(ctx context.Context, arg0 int64) error {
 	_, err := c.svc.Reboot(ctx, &pb.RebootRequest{
 		Arg0: arg0,
 	})
@@ -1788,7 +1551,7 @@ func (c *Client) Reboot(ctx context.Context, arg0 int64) error {
 }
 
 // RemoveActiveAdmin calls the RemoveActiveAdmin RPC.
-func (c *Client) RemoveActiveAdmin(ctx context.Context, arg0 int64) error {
+func (c *DevicePolicyManagerClient) RemoveActiveAdmin(ctx context.Context, arg0 int64) error {
 	_, err := c.svc.RemoveActiveAdmin(ctx, &pb.RemoveActiveAdminRequest{
 		Arg0: arg0,
 	})
@@ -1796,7 +1559,7 @@ func (c *Client) RemoveActiveAdmin(ctx context.Context, arg0 int64) error {
 }
 
 // RemoveCrossProfileWidgetProvider calls the RemoveCrossProfileWidgetProvider RPC.
-func (c *Client) RemoveCrossProfileWidgetProvider(ctx context.Context, arg0 int64, arg1 string) (bool, error) {
+func (c *DevicePolicyManagerClient) RemoveCrossProfileWidgetProvider(ctx context.Context, arg0 int64, arg1 string) (bool, error) {
 	resp, err := c.svc.RemoveCrossProfileWidgetProvider(ctx, &pb.RemoveCrossProfileWidgetProviderRequest{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -1808,7 +1571,7 @@ func (c *Client) RemoveCrossProfileWidgetProvider(ctx context.Context, arg0 int6
 }
 
 // RemoveKeyPair calls the RemoveKeyPair RPC.
-func (c *Client) RemoveKeyPair(ctx context.Context, arg0 int64, arg1 string) (bool, error) {
+func (c *DevicePolicyManagerClient) RemoveKeyPair(ctx context.Context, arg0 int64, arg1 string) (bool, error) {
 	resp, err := c.svc.RemoveKeyPair(ctx, &pb.RemoveKeyPairRequest{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -1820,7 +1583,7 @@ func (c *Client) RemoveKeyPair(ctx context.Context, arg0 int64, arg1 string) (bo
 }
 
 // RemoveOverrideApn calls the RemoveOverrideApn RPC.
-func (c *Client) RemoveOverrideApn(ctx context.Context, arg0 int64, arg1 int32) (bool, error) {
+func (c *DevicePolicyManagerClient) RemoveOverrideApn(ctx context.Context, arg0 int64, arg1 int32) (bool, error) {
 	resp, err := c.svc.RemoveOverrideApn(ctx, &pb.RemoveOverrideApnRequest{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -1832,7 +1595,7 @@ func (c *Client) RemoveOverrideApn(ctx context.Context, arg0 int64, arg1 int32) 
 }
 
 // RemoveUser calls the RemoveUser RPC.
-func (c *Client) RemoveUser(ctx context.Context, arg0 int64, arg1 int64) (bool, error) {
+func (c *DevicePolicyManagerClient) RemoveUser(ctx context.Context, arg0 int64, arg1 int64) (bool, error) {
 	resp, err := c.svc.RemoveUser(ctx, &pb.RemoveUserRequest{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -1844,7 +1607,7 @@ func (c *Client) RemoveUser(ctx context.Context, arg0 int64, arg1 int64) (bool, 
 }
 
 // RequestBugreport calls the RequestBugreport RPC.
-func (c *Client) RequestBugreport(ctx context.Context, arg0 int64) (bool, error) {
+func (c *DevicePolicyManagerClient) RequestBugreport(ctx context.Context, arg0 int64) (bool, error) {
 	resp, err := c.svc.RequestBugreport(ctx, &pb.RequestBugreportRequest{
 		Arg0: arg0,
 	})
@@ -1855,7 +1618,7 @@ func (c *Client) RequestBugreport(ctx context.Context, arg0 int64) (bool, error)
 }
 
 // ResetPassword calls the ResetPassword RPC.
-func (c *Client) ResetPassword(ctx context.Context, arg0 string, arg1 int32) (bool, error) {
+func (c *DevicePolicyManagerClient) ResetPassword(ctx context.Context, arg0 string, arg1 int32) (bool, error) {
 	resp, err := c.svc.ResetPassword(ctx, &pb.ResetPasswordRequest{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -1867,7 +1630,7 @@ func (c *Client) ResetPassword(ctx context.Context, arg0 string, arg1 int32) (bo
 }
 
 // ResetPasswordWithToken calls the ResetPasswordWithToken RPC.
-func (c *Client) ResetPasswordWithToken(ctx context.Context, arg0 int64, arg1 string, arg2 int64, arg3 int32) (bool, error) {
+func (c *DevicePolicyManagerClient) ResetPasswordWithToken(ctx context.Context, arg0 int64, arg1 string, arg2 int64, arg3 int32) (bool, error) {
 	resp, err := c.svc.ResetPasswordWithToken(ctx, &pb.ResetPasswordWithTokenRequest{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -1880,42 +1643,8 @@ func (c *Client) ResetPasswordWithToken(ctx context.Context, arg0 int64, arg1 st
 	return resp.GetResult(), nil
 }
 
-// RetrieveNetworkLogs calls the RetrieveNetworkLogs RPC.
-func (c *Client) RetrieveNetworkLogs(ctx context.Context, arg0 int64, arg1 int64) (int64, error) {
-	resp, err := c.svc.RetrieveNetworkLogs(ctx, &pb.RetrieveNetworkLogsRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// RetrievePreRebootSecurityLogs calls the RetrievePreRebootSecurityLogs RPC.
-func (c *Client) RetrievePreRebootSecurityLogs(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.RetrievePreRebootSecurityLogs(ctx, &pb.RetrievePreRebootSecurityLogsRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// RetrieveSecurityLogs calls the RetrieveSecurityLogs RPC.
-func (c *Client) RetrieveSecurityLogs(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.RetrieveSecurityLogs(ctx, &pb.RetrieveSecurityLogsRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
 // RevokeKeyPairFromApp calls the RevokeKeyPairFromApp RPC.
-func (c *Client) RevokeKeyPairFromApp(ctx context.Context, arg0 int64, arg1 string, arg2 string) (bool, error) {
+func (c *DevicePolicyManagerClient) RevokeKeyPairFromApp(ctx context.Context, arg0 int64, arg1 string, arg2 string) (bool, error) {
 	resp, err := c.svc.RevokeKeyPairFromApp(ctx, &pb.RevokeKeyPairFromAppRequest{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -1928,7 +1657,7 @@ func (c *Client) RevokeKeyPairFromApp(ctx context.Context, arg0 int64, arg1 stri
 }
 
 // RevokeKeyPairFromWifiAuth calls the RevokeKeyPairFromWifiAuth RPC.
-func (c *Client) RevokeKeyPairFromWifiAuth(ctx context.Context, arg0 string) (bool, error) {
+func (c *DevicePolicyManagerClient) RevokeKeyPairFromWifiAuth(ctx context.Context, arg0 string) (bool, error) {
 	resp, err := c.svc.RevokeKeyPairFromWifiAuth(ctx, &pb.RevokeKeyPairFromWifiAuthRequest{
 		Arg0: arg0,
 	})
@@ -1939,7 +1668,7 @@ func (c *Client) RevokeKeyPairFromWifiAuth(ctx context.Context, arg0 string) (bo
 }
 
 // SetAccountManagementDisabled calls the SetAccountManagementDisabled RPC.
-func (c *Client) SetAccountManagementDisabled(ctx context.Context, arg0 int64, arg1 string, arg2 bool) error {
+func (c *DevicePolicyManagerClient) SetAccountManagementDisabled(ctx context.Context, arg0 int64, arg1 string, arg2 bool) error {
 	_, err := c.svc.SetAccountManagementDisabled(ctx, &pb.SetAccountManagementDisabledRequest{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -1948,38 +1677,18 @@ func (c *Client) SetAccountManagementDisabled(ctx context.Context, arg0 int64, a
 	return err
 }
 
-// SetAffiliationIds calls the SetAffiliationIds RPC.
-func (c *Client) SetAffiliationIds(ctx context.Context, arg0 int64, arg1 int64) error {
-	_, err := c.svc.SetAffiliationIds(ctx, &pb.SetAffiliationIdsRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	return err
-}
-
-// SetAlwaysOnVpnPackage3 calls the SetAlwaysOnVpnPackage3 RPC.
-func (c *Client) SetAlwaysOnVpnPackage3(ctx context.Context, arg0 int64, arg1 string, arg2 bool) error {
-	_, err := c.svc.SetAlwaysOnVpnPackage3(ctx, &pb.SetAlwaysOnVpnPackage3Request{
+// SetAlwaysOnVpnPackage calls the SetAlwaysOnVpnPackage RPC.
+func (c *DevicePolicyManagerClient) SetAlwaysOnVpnPackage(ctx context.Context, arg0 int64, arg1 string, arg2 bool) error {
+	_, err := c.svc.SetAlwaysOnVpnPackage(ctx, &pb.SetAlwaysOnVpnPackageRequest{
 		Arg0: arg0,
 		Arg1: arg1,
 		Arg2: arg2,
-	})
-	return err
-}
-
-// SetAlwaysOnVpnPackage4_1 calls the SetAlwaysOnVpnPackage4_1 RPC.
-func (c *Client) SetAlwaysOnVpnPackage4_1(ctx context.Context, arg0 int64, arg1 string, arg2 bool, arg3 int64) error {
-	_, err := c.svc.SetAlwaysOnVpnPackage4_1(ctx, &pb.SetAlwaysOnVpnPackage4_1Request{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
 	})
 	return err
 }
 
 // SetAppFunctionsPolicy calls the SetAppFunctionsPolicy RPC.
-func (c *Client) SetAppFunctionsPolicy(ctx context.Context, arg0 int32) error {
+func (c *DevicePolicyManagerClient) SetAppFunctionsPolicy(ctx context.Context, arg0 int32) error {
 	_, err := c.svc.SetAppFunctionsPolicy(ctx, &pb.SetAppFunctionsPolicyRequest{
 		Arg0: arg0,
 	})
@@ -1987,7 +1696,7 @@ func (c *Client) SetAppFunctionsPolicy(ctx context.Context, arg0 int32) error {
 }
 
 // SetApplicationHidden calls the SetApplicationHidden RPC.
-func (c *Client) SetApplicationHidden(ctx context.Context, arg0 int64, arg1 string, arg2 bool) (bool, error) {
+func (c *DevicePolicyManagerClient) SetApplicationHidden(ctx context.Context, arg0 int64, arg1 string, arg2 bool) (bool, error) {
 	resp, err := c.svc.SetApplicationHidden(ctx, &pb.SetApplicationHiddenRequest{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -2000,7 +1709,7 @@ func (c *Client) SetApplicationHidden(ctx context.Context, arg0 int64, arg1 stri
 }
 
 // SetApplicationRestrictions calls the SetApplicationRestrictions RPC.
-func (c *Client) SetApplicationRestrictions(ctx context.Context, arg0 int64, arg1 string, arg2 int64) error {
+func (c *DevicePolicyManagerClient) SetApplicationRestrictions(ctx context.Context, arg0 int64, arg1 string, arg2 int64) error {
 	_, err := c.svc.SetApplicationRestrictions(ctx, &pb.SetApplicationRestrictionsRequest{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -2010,7 +1719,7 @@ func (c *Client) SetApplicationRestrictions(ctx context.Context, arg0 int64, arg
 }
 
 // SetApplicationRestrictionsManagingPackage calls the SetApplicationRestrictionsManagingPackage RPC.
-func (c *Client) SetApplicationRestrictionsManagingPackage(ctx context.Context, arg0 int64, arg1 string) error {
+func (c *DevicePolicyManagerClient) SetApplicationRestrictionsManagingPackage(ctx context.Context, arg0 int64, arg1 string) error {
 	_, err := c.svc.SetApplicationRestrictionsManagingPackage(ctx, &pb.SetApplicationRestrictionsManagingPackageRequest{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -2019,7 +1728,7 @@ func (c *Client) SetApplicationRestrictionsManagingPackage(ctx context.Context, 
 }
 
 // SetAutoTimeEnabled calls the SetAutoTimeEnabled RPC.
-func (c *Client) SetAutoTimeEnabled(ctx context.Context, arg0 int64, arg1 bool) error {
+func (c *DevicePolicyManagerClient) SetAutoTimeEnabled(ctx context.Context, arg0 int64, arg1 bool) error {
 	_, err := c.svc.SetAutoTimeEnabled(ctx, &pb.SetAutoTimeEnabledRequest{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -2028,7 +1737,7 @@ func (c *Client) SetAutoTimeEnabled(ctx context.Context, arg0 int64, arg1 bool) 
 }
 
 // SetAutoTimePolicy calls the SetAutoTimePolicy RPC.
-func (c *Client) SetAutoTimePolicy(ctx context.Context, arg0 int32) error {
+func (c *DevicePolicyManagerClient) SetAutoTimePolicy(ctx context.Context, arg0 int32) error {
 	_, err := c.svc.SetAutoTimePolicy(ctx, &pb.SetAutoTimePolicyRequest{
 		Arg0: arg0,
 	})
@@ -2036,7 +1745,7 @@ func (c *Client) SetAutoTimePolicy(ctx context.Context, arg0 int32) error {
 }
 
 // SetAutoTimeRequired calls the SetAutoTimeRequired RPC.
-func (c *Client) SetAutoTimeRequired(ctx context.Context, arg0 int64, arg1 bool) error {
+func (c *DevicePolicyManagerClient) SetAutoTimeRequired(ctx context.Context, arg0 int64, arg1 bool) error {
 	_, err := c.svc.SetAutoTimeRequired(ctx, &pb.SetAutoTimeRequiredRequest{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -2045,7 +1754,7 @@ func (c *Client) SetAutoTimeRequired(ctx context.Context, arg0 int64, arg1 bool)
 }
 
 // SetAutoTimeZoneEnabled calls the SetAutoTimeZoneEnabled RPC.
-func (c *Client) SetAutoTimeZoneEnabled(ctx context.Context, arg0 int64, arg1 bool) error {
+func (c *DevicePolicyManagerClient) SetAutoTimeZoneEnabled(ctx context.Context, arg0 int64, arg1 bool) error {
 	_, err := c.svc.SetAutoTimeZoneEnabled(ctx, &pb.SetAutoTimeZoneEnabledRequest{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -2054,7 +1763,7 @@ func (c *Client) SetAutoTimeZoneEnabled(ctx context.Context, arg0 int64, arg1 bo
 }
 
 // SetAutoTimeZonePolicy calls the SetAutoTimeZonePolicy RPC.
-func (c *Client) SetAutoTimeZonePolicy(ctx context.Context, arg0 int32) error {
+func (c *DevicePolicyManagerClient) SetAutoTimeZonePolicy(ctx context.Context, arg0 int32) error {
 	_, err := c.svc.SetAutoTimeZonePolicy(ctx, &pb.SetAutoTimeZonePolicyRequest{
 		Arg0: arg0,
 	})
@@ -2062,7 +1771,7 @@ func (c *Client) SetAutoTimeZonePolicy(ctx context.Context, arg0 int32) error {
 }
 
 // SetBackupServiceEnabled calls the SetBackupServiceEnabled RPC.
-func (c *Client) SetBackupServiceEnabled(ctx context.Context, arg0 int64, arg1 bool) error {
+func (c *DevicePolicyManagerClient) SetBackupServiceEnabled(ctx context.Context, arg0 int64, arg1 bool) error {
 	_, err := c.svc.SetBackupServiceEnabled(ctx, &pb.SetBackupServiceEnabledRequest{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -2071,7 +1780,7 @@ func (c *Client) SetBackupServiceEnabled(ctx context.Context, arg0 int64, arg1 b
 }
 
 // SetBluetoothContactSharingDisabled calls the SetBluetoothContactSharingDisabled RPC.
-func (c *Client) SetBluetoothContactSharingDisabled(ctx context.Context, arg0 int64, arg1 bool) error {
+func (c *DevicePolicyManagerClient) SetBluetoothContactSharingDisabled(ctx context.Context, arg0 int64, arg1 bool) error {
 	_, err := c.svc.SetBluetoothContactSharingDisabled(ctx, &pb.SetBluetoothContactSharingDisabledRequest{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -2080,7 +1789,7 @@ func (c *Client) SetBluetoothContactSharingDisabled(ctx context.Context, arg0 in
 }
 
 // SetCameraDisabled calls the SetCameraDisabled RPC.
-func (c *Client) SetCameraDisabled(ctx context.Context, arg0 int64, arg1 bool) error {
+func (c *DevicePolicyManagerClient) SetCameraDisabled(ctx context.Context, arg0 int64, arg1 bool) error {
 	_, err := c.svc.SetCameraDisabled(ctx, &pb.SetCameraDisabledRequest{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -2089,7 +1798,7 @@ func (c *Client) SetCameraDisabled(ctx context.Context, arg0 int64, arg1 bool) e
 }
 
 // SetCertInstallerPackage calls the SetCertInstallerPackage RPC.
-func (c *Client) SetCertInstallerPackage(ctx context.Context, arg0 int64, arg1 string) error {
+func (c *DevicePolicyManagerClient) SetCertInstallerPackage(ctx context.Context, arg0 int64, arg1 string) error {
 	_, err := c.svc.SetCertInstallerPackage(ctx, &pb.SetCertInstallerPackageRequest{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -2098,7 +1807,7 @@ func (c *Client) SetCertInstallerPackage(ctx context.Context, arg0 int64, arg1 s
 }
 
 // SetCommonCriteriaModeEnabled calls the SetCommonCriteriaModeEnabled RPC.
-func (c *Client) SetCommonCriteriaModeEnabled(ctx context.Context, arg0 int64, arg1 bool) error {
+func (c *DevicePolicyManagerClient) SetCommonCriteriaModeEnabled(ctx context.Context, arg0 int64, arg1 bool) error {
 	_, err := c.svc.SetCommonCriteriaModeEnabled(ctx, &pb.SetCommonCriteriaModeEnabledRequest{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -2107,7 +1816,7 @@ func (c *Client) SetCommonCriteriaModeEnabled(ctx context.Context, arg0 int64, a
 }
 
 // SetConfiguredNetworksLockdownState calls the SetConfiguredNetworksLockdownState RPC.
-func (c *Client) SetConfiguredNetworksLockdownState(ctx context.Context, arg0 int64, arg1 bool) error {
+func (c *DevicePolicyManagerClient) SetConfiguredNetworksLockdownState(ctx context.Context, arg0 int64, arg1 bool) error {
 	_, err := c.svc.SetConfiguredNetworksLockdownState(ctx, &pb.SetConfiguredNetworksLockdownStateRequest{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -2116,7 +1825,7 @@ func (c *Client) SetConfiguredNetworksLockdownState(ctx context.Context, arg0 in
 }
 
 // SetContentProtectionPolicy calls the SetContentProtectionPolicy RPC.
-func (c *Client) SetContentProtectionPolicy(ctx context.Context, arg0 int64, arg1 int32) error {
+func (c *DevicePolicyManagerClient) SetContentProtectionPolicy(ctx context.Context, arg0 int64, arg1 int32) error {
 	_, err := c.svc.SetContentProtectionPolicy(ctx, &pb.SetContentProtectionPolicyRequest{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -2125,24 +1834,15 @@ func (c *Client) SetContentProtectionPolicy(ctx context.Context, arg0 int64, arg
 }
 
 // SetCredentialManagerPolicy calls the SetCredentialManagerPolicy RPC.
-func (c *Client) SetCredentialManagerPolicy(ctx context.Context, arg0 int64) error {
+func (c *DevicePolicyManagerClient) SetCredentialManagerPolicy(ctx context.Context, arg0 int64) error {
 	_, err := c.svc.SetCredentialManagerPolicy(ctx, &pb.SetCredentialManagerPolicyRequest{
 		Arg0: arg0,
 	})
 	return err
 }
 
-// SetCrossProfileCalendarPackages calls the SetCrossProfileCalendarPackages RPC.
-func (c *Client) SetCrossProfileCalendarPackages(ctx context.Context, arg0 int64, arg1 int64) error {
-	_, err := c.svc.SetCrossProfileCalendarPackages(ctx, &pb.SetCrossProfileCalendarPackagesRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	return err
-}
-
 // SetCrossProfileCallerIdDisabled calls the SetCrossProfileCallerIdDisabled RPC.
-func (c *Client) SetCrossProfileCallerIdDisabled(ctx context.Context, arg0 int64, arg1 bool) error {
+func (c *DevicePolicyManagerClient) SetCrossProfileCallerIdDisabled(ctx context.Context, arg0 int64, arg1 bool) error {
 	_, err := c.svc.SetCrossProfileCallerIdDisabled(ctx, &pb.SetCrossProfileCallerIdDisabledRequest{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -2151,7 +1851,7 @@ func (c *Client) SetCrossProfileCallerIdDisabled(ctx context.Context, arg0 int64
 }
 
 // SetCrossProfileContactsSearchDisabled calls the SetCrossProfileContactsSearchDisabled RPC.
-func (c *Client) SetCrossProfileContactsSearchDisabled(ctx context.Context, arg0 int64, arg1 bool) error {
+func (c *DevicePolicyManagerClient) SetCrossProfileContactsSearchDisabled(ctx context.Context, arg0 int64, arg1 bool) error {
 	_, err := c.svc.SetCrossProfileContactsSearchDisabled(ctx, &pb.SetCrossProfileContactsSearchDisabledRequest{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -2159,17 +1859,8 @@ func (c *Client) SetCrossProfileContactsSearchDisabled(ctx context.Context, arg0
 	return err
 }
 
-// SetCrossProfilePackages calls the SetCrossProfilePackages RPC.
-func (c *Client) SetCrossProfilePackages(ctx context.Context, arg0 int64, arg1 int64) error {
-	_, err := c.svc.SetCrossProfilePackages(ctx, &pb.SetCrossProfilePackagesRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	return err
-}
-
 // SetDefaultDialerApplication calls the SetDefaultDialerApplication RPC.
-func (c *Client) SetDefaultDialerApplication(ctx context.Context, arg0 string) error {
+func (c *DevicePolicyManagerClient) SetDefaultDialerApplication(ctx context.Context, arg0 string) error {
 	_, err := c.svc.SetDefaultDialerApplication(ctx, &pb.SetDefaultDialerApplicationRequest{
 		Arg0: arg0,
 	})
@@ -2177,7 +1868,7 @@ func (c *Client) SetDefaultDialerApplication(ctx context.Context, arg0 string) e
 }
 
 // SetDefaultSmsApplication calls the SetDefaultSmsApplication RPC.
-func (c *Client) SetDefaultSmsApplication(ctx context.Context, arg0 int64, arg1 string) error {
+func (c *DevicePolicyManagerClient) SetDefaultSmsApplication(ctx context.Context, arg0 int64, arg1 string) error {
 	_, err := c.svc.SetDefaultSmsApplication(ctx, &pb.SetDefaultSmsApplicationRequest{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -2185,18 +1876,8 @@ func (c *Client) SetDefaultSmsApplication(ctx context.Context, arg0 int64, arg1 
 	return err
 }
 
-// SetDelegatedScopes calls the SetDelegatedScopes RPC.
-func (c *Client) SetDelegatedScopes(ctx context.Context, arg0 int64, arg1 string, arg2 int64) error {
-	_, err := c.svc.SetDelegatedScopes(ctx, &pb.SetDelegatedScopesRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-	})
-	return err
-}
-
 // SetDeviceOwnerLockScreenInfo calls the SetDeviceOwnerLockScreenInfo RPC.
-func (c *Client) SetDeviceOwnerLockScreenInfo(ctx context.Context, arg0 int64, arg1 string) error {
+func (c *DevicePolicyManagerClient) SetDeviceOwnerLockScreenInfo(ctx context.Context, arg0 int64, arg1 string) error {
 	_, err := c.svc.SetDeviceOwnerLockScreenInfo(ctx, &pb.SetDeviceOwnerLockScreenInfoRequest{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -2205,7 +1886,7 @@ func (c *Client) SetDeviceOwnerLockScreenInfo(ctx context.Context, arg0 int64, a
 }
 
 // SetEndUserSessionMessage calls the SetEndUserSessionMessage RPC.
-func (c *Client) SetEndUserSessionMessage(ctx context.Context, arg0 int64, arg1 string) error {
+func (c *DevicePolicyManagerClient) SetEndUserSessionMessage(ctx context.Context, arg0 int64, arg1 string) error {
 	_, err := c.svc.SetEndUserSessionMessage(ctx, &pb.SetEndUserSessionMessageRequest{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -2214,7 +1895,7 @@ func (c *Client) SetEndUserSessionMessage(ctx context.Context, arg0 int64, arg1 
 }
 
 // SetFactoryResetProtectionPolicy calls the SetFactoryResetProtectionPolicy RPC.
-func (c *Client) SetFactoryResetProtectionPolicy(ctx context.Context, arg0 int64, arg1 int64) error {
+func (c *DevicePolicyManagerClient) SetFactoryResetProtectionPolicy(ctx context.Context, arg0 int64, arg1 int64) error {
 	_, err := c.svc.SetFactoryResetProtectionPolicy(ctx, &pb.SetFactoryResetProtectionPolicyRequest{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -2223,7 +1904,7 @@ func (c *Client) SetFactoryResetProtectionPolicy(ctx context.Context, arg0 int64
 }
 
 // SetGlobalPrivateDnsModeOpportunistic calls the SetGlobalPrivateDnsModeOpportunistic RPC.
-func (c *Client) SetGlobalPrivateDnsModeOpportunistic(ctx context.Context, arg0 int64) (int32, error) {
+func (c *DevicePolicyManagerClient) SetGlobalPrivateDnsModeOpportunistic(ctx context.Context, arg0 int64) (int32, error) {
 	resp, err := c.svc.SetGlobalPrivateDnsModeOpportunistic(ctx, &pb.SetGlobalPrivateDnsModeOpportunisticRequest{
 		Arg0: arg0,
 	})
@@ -2234,7 +1915,7 @@ func (c *Client) SetGlobalPrivateDnsModeOpportunistic(ctx context.Context, arg0 
 }
 
 // SetGlobalPrivateDnsModeSpecifiedHost calls the SetGlobalPrivateDnsModeSpecifiedHost RPC.
-func (c *Client) SetGlobalPrivateDnsModeSpecifiedHost(ctx context.Context, arg0 int64, arg1 string) (int32, error) {
+func (c *DevicePolicyManagerClient) SetGlobalPrivateDnsModeSpecifiedHost(ctx context.Context, arg0 int64, arg1 string) (int32, error) {
 	resp, err := c.svc.SetGlobalPrivateDnsModeSpecifiedHost(ctx, &pb.SetGlobalPrivateDnsModeSpecifiedHostRequest{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -2246,7 +1927,7 @@ func (c *Client) SetGlobalPrivateDnsModeSpecifiedHost(ctx context.Context, arg0 
 }
 
 // SetGlobalSetting calls the SetGlobalSetting RPC.
-func (c *Client) SetGlobalSetting(ctx context.Context, arg0 int64, arg1 string, arg2 string) error {
+func (c *DevicePolicyManagerClient) SetGlobalSetting(ctx context.Context, arg0 int64, arg1 string, arg2 string) error {
 	_, err := c.svc.SetGlobalSetting(ctx, &pb.SetGlobalSettingRequest{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -2255,31 +1936,8 @@ func (c *Client) SetGlobalSetting(ctx context.Context, arg0 int64, arg1 string, 
 	return err
 }
 
-// SetKeepUninstalledPackages calls the SetKeepUninstalledPackages RPC.
-func (c *Client) SetKeepUninstalledPackages(ctx context.Context, arg0 int64, arg1 int64) error {
-	_, err := c.svc.SetKeepUninstalledPackages(ctx, &pb.SetKeepUninstalledPackagesRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	return err
-}
-
-// SetKeyPairCertificate calls the SetKeyPairCertificate RPC.
-func (c *Client) SetKeyPairCertificate(ctx context.Context, arg0 int64, arg1 string, arg2 int64, arg3 bool) (bool, error) {
-	resp, err := c.svc.SetKeyPairCertificate(ctx, &pb.SetKeyPairCertificateRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
 // SetKeyguardDisabled calls the SetKeyguardDisabled RPC.
-func (c *Client) SetKeyguardDisabled(ctx context.Context, arg0 int64, arg1 bool) (bool, error) {
+func (c *DevicePolicyManagerClient) SetKeyguardDisabled(ctx context.Context, arg0 int64, arg1 bool) (bool, error) {
 	resp, err := c.svc.SetKeyguardDisabled(ctx, &pb.SetKeyguardDisabledRequest{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -2291,7 +1949,7 @@ func (c *Client) SetKeyguardDisabled(ctx context.Context, arg0 int64, arg1 bool)
 }
 
 // SetKeyguardDisabledFeatures calls the SetKeyguardDisabledFeatures RPC.
-func (c *Client) SetKeyguardDisabledFeatures(ctx context.Context, arg0 int64, arg1 int32) error {
+func (c *DevicePolicyManagerClient) SetKeyguardDisabledFeatures(ctx context.Context, arg0 int64, arg1 int32) error {
 	_, err := c.svc.SetKeyguardDisabledFeatures(ctx, &pb.SetKeyguardDisabledFeaturesRequest{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -2300,7 +1958,7 @@ func (c *Client) SetKeyguardDisabledFeatures(ctx context.Context, arg0 int64, ar
 }
 
 // SetLocationEnabled calls the SetLocationEnabled RPC.
-func (c *Client) SetLocationEnabled(ctx context.Context, arg0 int64, arg1 bool) error {
+func (c *DevicePolicyManagerClient) SetLocationEnabled(ctx context.Context, arg0 int64, arg1 bool) error {
 	_, err := c.svc.SetLocationEnabled(ctx, &pb.SetLocationEnabledRequest{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -2309,7 +1967,7 @@ func (c *Client) SetLocationEnabled(ctx context.Context, arg0 int64, arg1 bool) 
 }
 
 // SetLockTaskFeatures calls the SetLockTaskFeatures RPC.
-func (c *Client) SetLockTaskFeatures(ctx context.Context, arg0 int64, arg1 int32) error {
+func (c *DevicePolicyManagerClient) SetLockTaskFeatures(ctx context.Context, arg0 int64, arg1 int32) error {
 	_, err := c.svc.SetLockTaskFeatures(ctx, &pb.SetLockTaskFeaturesRequest{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -2318,7 +1976,7 @@ func (c *Client) SetLockTaskFeatures(ctx context.Context, arg0 int64, arg1 int32
 }
 
 // SetLockTaskPackages calls the SetLockTaskPackages RPC.
-func (c *Client) SetLockTaskPackages(ctx context.Context, arg0 int64, arg1 int64) error {
+func (c *DevicePolicyManagerClient) SetLockTaskPackages(ctx context.Context, arg0 int64, arg1 int64) error {
 	_, err := c.svc.SetLockTaskPackages(ctx, &pb.SetLockTaskPackagesRequest{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -2327,7 +1985,7 @@ func (c *Client) SetLockTaskPackages(ctx context.Context, arg0 int64, arg1 int64
 }
 
 // SetLogoutEnabled calls the SetLogoutEnabled RPC.
-func (c *Client) SetLogoutEnabled(ctx context.Context, arg0 int64, arg1 bool) error {
+func (c *DevicePolicyManagerClient) SetLogoutEnabled(ctx context.Context, arg0 int64, arg1 bool) error {
 	_, err := c.svc.SetLogoutEnabled(ctx, &pb.SetLogoutEnabledRequest{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -2336,7 +1994,7 @@ func (c *Client) SetLogoutEnabled(ctx context.Context, arg0 int64, arg1 bool) er
 }
 
 // SetLongSupportMessage calls the SetLongSupportMessage RPC.
-func (c *Client) SetLongSupportMessage(ctx context.Context, arg0 int64, arg1 string) error {
+func (c *DevicePolicyManagerClient) SetLongSupportMessage(ctx context.Context, arg0 int64, arg1 string) error {
 	_, err := c.svc.SetLongSupportMessage(ctx, &pb.SetLongSupportMessageRequest{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -2345,7 +2003,7 @@ func (c *Client) SetLongSupportMessage(ctx context.Context, arg0 int64, arg1 str
 }
 
 // SetManagedProfileCallerIdAccessPolicy calls the SetManagedProfileCallerIdAccessPolicy RPC.
-func (c *Client) SetManagedProfileCallerIdAccessPolicy(ctx context.Context, arg0 int64) error {
+func (c *DevicePolicyManagerClient) SetManagedProfileCallerIdAccessPolicy(ctx context.Context, arg0 int64) error {
 	_, err := c.svc.SetManagedProfileCallerIdAccessPolicy(ctx, &pb.SetManagedProfileCallerIdAccessPolicyRequest{
 		Arg0: arg0,
 	})
@@ -2353,7 +2011,7 @@ func (c *Client) SetManagedProfileCallerIdAccessPolicy(ctx context.Context, arg0
 }
 
 // SetManagedProfileContactsAccessPolicy calls the SetManagedProfileContactsAccessPolicy RPC.
-func (c *Client) SetManagedProfileContactsAccessPolicy(ctx context.Context, arg0 int64) error {
+func (c *DevicePolicyManagerClient) SetManagedProfileContactsAccessPolicy(ctx context.Context, arg0 int64) error {
 	_, err := c.svc.SetManagedProfileContactsAccessPolicy(ctx, &pb.SetManagedProfileContactsAccessPolicyRequest{
 		Arg0: arg0,
 	})
@@ -2361,7 +2019,7 @@ func (c *Client) SetManagedProfileContactsAccessPolicy(ctx context.Context, arg0
 }
 
 // SetManagedProfileMaximumTimeOff calls the SetManagedProfileMaximumTimeOff RPC.
-func (c *Client) SetManagedProfileMaximumTimeOff(ctx context.Context, arg0 int64, arg1 int64) error {
+func (c *DevicePolicyManagerClient) SetManagedProfileMaximumTimeOff(ctx context.Context, arg0 int64, arg1 int64) error {
 	_, err := c.svc.SetManagedProfileMaximumTimeOff(ctx, &pb.SetManagedProfileMaximumTimeOffRequest{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -2370,7 +2028,7 @@ func (c *Client) SetManagedProfileMaximumTimeOff(ctx context.Context, arg0 int64
 }
 
 // SetManagedSubscriptionsPolicy calls the SetManagedSubscriptionsPolicy RPC.
-func (c *Client) SetManagedSubscriptionsPolicy(ctx context.Context, arg0 int64) error {
+func (c *DevicePolicyManagerClient) SetManagedSubscriptionsPolicy(ctx context.Context, arg0 int64) error {
 	_, err := c.svc.SetManagedSubscriptionsPolicy(ctx, &pb.SetManagedSubscriptionsPolicyRequest{
 		Arg0: arg0,
 	})
@@ -2378,7 +2036,7 @@ func (c *Client) SetManagedSubscriptionsPolicy(ctx context.Context, arg0 int64) 
 }
 
 // SetMasterVolumeMuted calls the SetMasterVolumeMuted RPC.
-func (c *Client) SetMasterVolumeMuted(ctx context.Context, arg0 int64, arg1 bool) error {
+func (c *DevicePolicyManagerClient) SetMasterVolumeMuted(ctx context.Context, arg0 int64, arg1 bool) error {
 	_, err := c.svc.SetMasterVolumeMuted(ctx, &pb.SetMasterVolumeMutedRequest{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -2387,7 +2045,7 @@ func (c *Client) SetMasterVolumeMuted(ctx context.Context, arg0 int64, arg1 bool
 }
 
 // SetMaximumFailedPasswordsForWipe calls the SetMaximumFailedPasswordsForWipe RPC.
-func (c *Client) SetMaximumFailedPasswordsForWipe(ctx context.Context, arg0 int64, arg1 int32) error {
+func (c *DevicePolicyManagerClient) SetMaximumFailedPasswordsForWipe(ctx context.Context, arg0 int64, arg1 int32) error {
 	_, err := c.svc.SetMaximumFailedPasswordsForWipe(ctx, &pb.SetMaximumFailedPasswordsForWipeRequest{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -2396,7 +2054,7 @@ func (c *Client) SetMaximumFailedPasswordsForWipe(ctx context.Context, arg0 int6
 }
 
 // SetMaximumTimeToLock calls the SetMaximumTimeToLock RPC.
-func (c *Client) SetMaximumTimeToLock(ctx context.Context, arg0 int64, arg1 int64) error {
+func (c *DevicePolicyManagerClient) SetMaximumTimeToLock(ctx context.Context, arg0 int64, arg1 int64) error {
 	_, err := c.svc.SetMaximumTimeToLock(ctx, &pb.SetMaximumTimeToLockRequest{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -2404,20 +2062,8 @@ func (c *Client) SetMaximumTimeToLock(ctx context.Context, arg0 int64, arg1 int6
 	return err
 }
 
-// SetMeteredDataDisabledPackages calls the SetMeteredDataDisabledPackages RPC.
-func (c *Client) SetMeteredDataDisabledPackages(ctx context.Context, arg0 int64, arg1 int64) (int64, error) {
-	resp, err := c.svc.SetMeteredDataDisabledPackages(ctx, &pb.SetMeteredDataDisabledPackagesRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
 // SetMinimumRequiredWifiSecurityLevel calls the SetMinimumRequiredWifiSecurityLevel RPC.
-func (c *Client) SetMinimumRequiredWifiSecurityLevel(ctx context.Context, arg0 int32) error {
+func (c *DevicePolicyManagerClient) SetMinimumRequiredWifiSecurityLevel(ctx context.Context, arg0 int32) error {
 	_, err := c.svc.SetMinimumRequiredWifiSecurityLevel(ctx, &pb.SetMinimumRequiredWifiSecurityLevelRequest{
 		Arg0: arg0,
 	})
@@ -2425,7 +2071,7 @@ func (c *Client) SetMinimumRequiredWifiSecurityLevel(ctx context.Context, arg0 i
 }
 
 // SetMtePolicy calls the SetMtePolicy RPC.
-func (c *Client) SetMtePolicy(ctx context.Context, arg0 int32) error {
+func (c *DevicePolicyManagerClient) SetMtePolicy(ctx context.Context, arg0 int32) error {
 	_, err := c.svc.SetMtePolicy(ctx, &pb.SetMtePolicyRequest{
 		Arg0: arg0,
 	})
@@ -2433,7 +2079,7 @@ func (c *Client) SetMtePolicy(ctx context.Context, arg0 int32) error {
 }
 
 // SetNearbyAppStreamingPolicy calls the SetNearbyAppStreamingPolicy RPC.
-func (c *Client) SetNearbyAppStreamingPolicy(ctx context.Context, arg0 int32) error {
+func (c *DevicePolicyManagerClient) SetNearbyAppStreamingPolicy(ctx context.Context, arg0 int32) error {
 	_, err := c.svc.SetNearbyAppStreamingPolicy(ctx, &pb.SetNearbyAppStreamingPolicyRequest{
 		Arg0: arg0,
 	})
@@ -2441,7 +2087,7 @@ func (c *Client) SetNearbyAppStreamingPolicy(ctx context.Context, arg0 int32) er
 }
 
 // SetNearbyNotificationStreamingPolicy calls the SetNearbyNotificationStreamingPolicy RPC.
-func (c *Client) SetNearbyNotificationStreamingPolicy(ctx context.Context, arg0 int32) error {
+func (c *DevicePolicyManagerClient) SetNearbyNotificationStreamingPolicy(ctx context.Context, arg0 int32) error {
 	_, err := c.svc.SetNearbyNotificationStreamingPolicy(ctx, &pb.SetNearbyNotificationStreamingPolicyRequest{
 		Arg0: arg0,
 	})
@@ -2449,7 +2095,7 @@ func (c *Client) SetNearbyNotificationStreamingPolicy(ctx context.Context, arg0 
 }
 
 // SetNetworkLoggingEnabled calls the SetNetworkLoggingEnabled RPC.
-func (c *Client) SetNetworkLoggingEnabled(ctx context.Context, arg0 int64, arg1 bool) error {
+func (c *DevicePolicyManagerClient) SetNetworkLoggingEnabled(ctx context.Context, arg0 int64, arg1 bool) error {
 	_, err := c.svc.SetNetworkLoggingEnabled(ctx, &pb.SetNetworkLoggingEnabledRequest{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -2458,7 +2104,7 @@ func (c *Client) SetNetworkLoggingEnabled(ctx context.Context, arg0 int64, arg1 
 }
 
 // SetOrganizationColor calls the SetOrganizationColor RPC.
-func (c *Client) SetOrganizationColor(ctx context.Context, arg0 int64, arg1 int32) error {
+func (c *DevicePolicyManagerClient) SetOrganizationColor(ctx context.Context, arg0 int64, arg1 int32) error {
 	_, err := c.svc.SetOrganizationColor(ctx, &pb.SetOrganizationColorRequest{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -2467,7 +2113,7 @@ func (c *Client) SetOrganizationColor(ctx context.Context, arg0 int64, arg1 int3
 }
 
 // SetOrganizationId calls the SetOrganizationId RPC.
-func (c *Client) SetOrganizationId(ctx context.Context, arg0 string) error {
+func (c *DevicePolicyManagerClient) SetOrganizationId(ctx context.Context, arg0 string) error {
 	_, err := c.svc.SetOrganizationId(ctx, &pb.SetOrganizationIdRequest{
 		Arg0: arg0,
 	})
@@ -2475,7 +2121,7 @@ func (c *Client) SetOrganizationId(ctx context.Context, arg0 string) error {
 }
 
 // SetOrganizationName calls the SetOrganizationName RPC.
-func (c *Client) SetOrganizationName(ctx context.Context, arg0 int64, arg1 string) error {
+func (c *DevicePolicyManagerClient) SetOrganizationName(ctx context.Context, arg0 int64, arg1 string) error {
 	_, err := c.svc.SetOrganizationName(ctx, &pb.SetOrganizationNameRequest{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -2484,7 +2130,7 @@ func (c *Client) SetOrganizationName(ctx context.Context, arg0 int64, arg1 strin
 }
 
 // SetOverrideApnsEnabled calls the SetOverrideApnsEnabled RPC.
-func (c *Client) SetOverrideApnsEnabled(ctx context.Context, arg0 int64, arg1 bool) error {
+func (c *DevicePolicyManagerClient) SetOverrideApnsEnabled(ctx context.Context, arg0 int64, arg1 bool) error {
 	_, err := c.svc.SetOverrideApnsEnabled(ctx, &pb.SetOverrideApnsEnabledRequest{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -2493,7 +2139,7 @@ func (c *Client) SetOverrideApnsEnabled(ctx context.Context, arg0 int64, arg1 bo
 }
 
 // SetPackagesSuspended calls the SetPackagesSuspended RPC.
-func (c *Client) SetPackagesSuspended(ctx context.Context, arg0 int64, arg1 int64, arg2 bool) (int64, error) {
+func (c *DevicePolicyManagerClient) SetPackagesSuspended(ctx context.Context, arg0 int64, arg1 int64, arg2 bool) (int64, error) {
 	resp, err := c.svc.SetPackagesSuspended(ctx, &pb.SetPackagesSuspendedRequest{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -2506,7 +2152,7 @@ func (c *Client) SetPackagesSuspended(ctx context.Context, arg0 int64, arg1 int6
 }
 
 // SetPasswordExpirationTimeout calls the SetPasswordExpirationTimeout RPC.
-func (c *Client) SetPasswordExpirationTimeout(ctx context.Context, arg0 int64, arg1 int64) error {
+func (c *DevicePolicyManagerClient) SetPasswordExpirationTimeout(ctx context.Context, arg0 int64, arg1 int64) error {
 	_, err := c.svc.SetPasswordExpirationTimeout(ctx, &pb.SetPasswordExpirationTimeoutRequest{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -2515,7 +2161,7 @@ func (c *Client) SetPasswordExpirationTimeout(ctx context.Context, arg0 int64, a
 }
 
 // SetPasswordHistoryLength calls the SetPasswordHistoryLength RPC.
-func (c *Client) SetPasswordHistoryLength(ctx context.Context, arg0 int64, arg1 int32) error {
+func (c *DevicePolicyManagerClient) SetPasswordHistoryLength(ctx context.Context, arg0 int64, arg1 int32) error {
 	_, err := c.svc.SetPasswordHistoryLength(ctx, &pb.SetPasswordHistoryLengthRequest{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -2524,7 +2170,7 @@ func (c *Client) SetPasswordHistoryLength(ctx context.Context, arg0 int64, arg1 
 }
 
 // SetPasswordMinimumLength calls the SetPasswordMinimumLength RPC.
-func (c *Client) SetPasswordMinimumLength(ctx context.Context, arg0 int64, arg1 int32) error {
+func (c *DevicePolicyManagerClient) SetPasswordMinimumLength(ctx context.Context, arg0 int64, arg1 int32) error {
 	_, err := c.svc.SetPasswordMinimumLength(ctx, &pb.SetPasswordMinimumLengthRequest{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -2533,7 +2179,7 @@ func (c *Client) SetPasswordMinimumLength(ctx context.Context, arg0 int64, arg1 
 }
 
 // SetPasswordMinimumLetters calls the SetPasswordMinimumLetters RPC.
-func (c *Client) SetPasswordMinimumLetters(ctx context.Context, arg0 int64, arg1 int32) error {
+func (c *DevicePolicyManagerClient) SetPasswordMinimumLetters(ctx context.Context, arg0 int64, arg1 int32) error {
 	_, err := c.svc.SetPasswordMinimumLetters(ctx, &pb.SetPasswordMinimumLettersRequest{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -2542,7 +2188,7 @@ func (c *Client) SetPasswordMinimumLetters(ctx context.Context, arg0 int64, arg1
 }
 
 // SetPasswordMinimumLowerCase calls the SetPasswordMinimumLowerCase RPC.
-func (c *Client) SetPasswordMinimumLowerCase(ctx context.Context, arg0 int64, arg1 int32) error {
+func (c *DevicePolicyManagerClient) SetPasswordMinimumLowerCase(ctx context.Context, arg0 int64, arg1 int32) error {
 	_, err := c.svc.SetPasswordMinimumLowerCase(ctx, &pb.SetPasswordMinimumLowerCaseRequest{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -2551,7 +2197,7 @@ func (c *Client) SetPasswordMinimumLowerCase(ctx context.Context, arg0 int64, ar
 }
 
 // SetPasswordMinimumNonLetter calls the SetPasswordMinimumNonLetter RPC.
-func (c *Client) SetPasswordMinimumNonLetter(ctx context.Context, arg0 int64, arg1 int32) error {
+func (c *DevicePolicyManagerClient) SetPasswordMinimumNonLetter(ctx context.Context, arg0 int64, arg1 int32) error {
 	_, err := c.svc.SetPasswordMinimumNonLetter(ctx, &pb.SetPasswordMinimumNonLetterRequest{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -2560,7 +2206,7 @@ func (c *Client) SetPasswordMinimumNonLetter(ctx context.Context, arg0 int64, ar
 }
 
 // SetPasswordMinimumNumeric calls the SetPasswordMinimumNumeric RPC.
-func (c *Client) SetPasswordMinimumNumeric(ctx context.Context, arg0 int64, arg1 int32) error {
+func (c *DevicePolicyManagerClient) SetPasswordMinimumNumeric(ctx context.Context, arg0 int64, arg1 int32) error {
 	_, err := c.svc.SetPasswordMinimumNumeric(ctx, &pb.SetPasswordMinimumNumericRequest{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -2569,7 +2215,7 @@ func (c *Client) SetPasswordMinimumNumeric(ctx context.Context, arg0 int64, arg1
 }
 
 // SetPasswordMinimumSymbols calls the SetPasswordMinimumSymbols RPC.
-func (c *Client) SetPasswordMinimumSymbols(ctx context.Context, arg0 int64, arg1 int32) error {
+func (c *DevicePolicyManagerClient) SetPasswordMinimumSymbols(ctx context.Context, arg0 int64, arg1 int32) error {
 	_, err := c.svc.SetPasswordMinimumSymbols(ctx, &pb.SetPasswordMinimumSymbolsRequest{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -2578,7 +2224,7 @@ func (c *Client) SetPasswordMinimumSymbols(ctx context.Context, arg0 int64, arg1
 }
 
 // SetPasswordMinimumUpperCase calls the SetPasswordMinimumUpperCase RPC.
-func (c *Client) SetPasswordMinimumUpperCase(ctx context.Context, arg0 int64, arg1 int32) error {
+func (c *DevicePolicyManagerClient) SetPasswordMinimumUpperCase(ctx context.Context, arg0 int64, arg1 int32) error {
 	_, err := c.svc.SetPasswordMinimumUpperCase(ctx, &pb.SetPasswordMinimumUpperCaseRequest{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -2587,7 +2233,7 @@ func (c *Client) SetPasswordMinimumUpperCase(ctx context.Context, arg0 int64, ar
 }
 
 // SetPasswordQuality calls the SetPasswordQuality RPC.
-func (c *Client) SetPasswordQuality(ctx context.Context, arg0 int64, arg1 int32) error {
+func (c *DevicePolicyManagerClient) SetPasswordQuality(ctx context.Context, arg0 int64, arg1 int32) error {
 	_, err := c.svc.SetPasswordQuality(ctx, &pb.SetPasswordQualityRequest{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -2596,7 +2242,7 @@ func (c *Client) SetPasswordQuality(ctx context.Context, arg0 int64, arg1 int32)
 }
 
 // SetPermissionGrantState calls the SetPermissionGrantState RPC.
-func (c *Client) SetPermissionGrantState(ctx context.Context, arg0 int64, arg1 string, arg2 string, arg3 int32) (bool, error) {
+func (c *DevicePolicyManagerClient) SetPermissionGrantState(ctx context.Context, arg0 int64, arg1 string, arg2 string, arg3 int32) (bool, error) {
 	resp, err := c.svc.SetPermissionGrantState(ctx, &pb.SetPermissionGrantStateRequest{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -2610,7 +2256,7 @@ func (c *Client) SetPermissionGrantState(ctx context.Context, arg0 int64, arg1 s
 }
 
 // SetPermissionPolicy calls the SetPermissionPolicy RPC.
-func (c *Client) SetPermissionPolicy(ctx context.Context, arg0 int64, arg1 int32) error {
+func (c *DevicePolicyManagerClient) SetPermissionPolicy(ctx context.Context, arg0 int64, arg1 int32) error {
 	_, err := c.svc.SetPermissionPolicy(ctx, &pb.SetPermissionPolicyRequest{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -2618,44 +2264,8 @@ func (c *Client) SetPermissionPolicy(ctx context.Context, arg0 int64, arg1 int32
 	return err
 }
 
-// SetPermittedAccessibilityServices calls the SetPermittedAccessibilityServices RPC.
-func (c *Client) SetPermittedAccessibilityServices(ctx context.Context, arg0 int64, arg1 int64) (bool, error) {
-	resp, err := c.svc.SetPermittedAccessibilityServices(ctx, &pb.SetPermittedAccessibilityServicesRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetPermittedCrossProfileNotificationListeners calls the SetPermittedCrossProfileNotificationListeners RPC.
-func (c *Client) SetPermittedCrossProfileNotificationListeners(ctx context.Context, arg0 int64, arg1 int64) (bool, error) {
-	resp, err := c.svc.SetPermittedCrossProfileNotificationListeners(ctx, &pb.SetPermittedCrossProfileNotificationListenersRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetPermittedInputMethods calls the SetPermittedInputMethods RPC.
-func (c *Client) SetPermittedInputMethods(ctx context.Context, arg0 int64, arg1 int64) (bool, error) {
-	resp, err := c.svc.SetPermittedInputMethods(ctx, &pb.SetPermittedInputMethodsRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
 // SetPersonalAppsSuspended calls the SetPersonalAppsSuspended RPC.
-func (c *Client) SetPersonalAppsSuspended(ctx context.Context, arg0 int64, arg1 bool) error {
+func (c *DevicePolicyManagerClient) SetPersonalAppsSuspended(ctx context.Context, arg0 int64, arg1 bool) error {
 	_, err := c.svc.SetPersonalAppsSuspended(ctx, &pb.SetPersonalAppsSuspendedRequest{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -2663,16 +2273,8 @@ func (c *Client) SetPersonalAppsSuspended(ctx context.Context, arg0 int64, arg1 
 	return err
 }
 
-// SetPreferentialNetworkServiceConfigs calls the SetPreferentialNetworkServiceConfigs RPC.
-func (c *Client) SetPreferentialNetworkServiceConfigs(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.SetPreferentialNetworkServiceConfigs(ctx, &pb.SetPreferentialNetworkServiceConfigsRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
 // SetPreferentialNetworkServiceEnabled calls the SetPreferentialNetworkServiceEnabled RPC.
-func (c *Client) SetPreferentialNetworkServiceEnabled(ctx context.Context, arg0 bool) error {
+func (c *DevicePolicyManagerClient) SetPreferentialNetworkServiceEnabled(ctx context.Context, arg0 bool) error {
 	_, err := c.svc.SetPreferentialNetworkServiceEnabled(ctx, &pb.SetPreferentialNetworkServiceEnabledRequest{
 		Arg0: arg0,
 	})
@@ -2680,7 +2282,7 @@ func (c *Client) SetPreferentialNetworkServiceEnabled(ctx context.Context, arg0 
 }
 
 // SetProfileEnabled calls the SetProfileEnabled RPC.
-func (c *Client) SetProfileEnabled(ctx context.Context, arg0 int64) error {
+func (c *DevicePolicyManagerClient) SetProfileEnabled(ctx context.Context, arg0 int64) error {
 	_, err := c.svc.SetProfileEnabled(ctx, &pb.SetProfileEnabledRequest{
 		Arg0: arg0,
 	})
@@ -2688,7 +2290,7 @@ func (c *Client) SetProfileEnabled(ctx context.Context, arg0 int64) error {
 }
 
 // SetProfileName calls the SetProfileName RPC.
-func (c *Client) SetProfileName(ctx context.Context, arg0 int64, arg1 string) error {
+func (c *DevicePolicyManagerClient) SetProfileName(ctx context.Context, arg0 int64, arg1 string) error {
 	_, err := c.svc.SetProfileName(ctx, &pb.SetProfileNameRequest{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -2697,7 +2299,7 @@ func (c *Client) SetProfileName(ctx context.Context, arg0 int64, arg1 string) er
 }
 
 // SetRecommendedGlobalProxy calls the SetRecommendedGlobalProxy RPC.
-func (c *Client) SetRecommendedGlobalProxy(ctx context.Context, arg0 int64, arg1 int64) error {
+func (c *DevicePolicyManagerClient) SetRecommendedGlobalProxy(ctx context.Context, arg0 int64, arg1 int64) error {
 	_, err := c.svc.SetRecommendedGlobalProxy(ctx, &pb.SetRecommendedGlobalProxyRequest{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -2706,7 +2308,7 @@ func (c *Client) SetRecommendedGlobalProxy(ctx context.Context, arg0 int64, arg1
 }
 
 // SetRequiredPasswordComplexity calls the SetRequiredPasswordComplexity RPC.
-func (c *Client) SetRequiredPasswordComplexity(ctx context.Context, arg0 int32) error {
+func (c *DevicePolicyManagerClient) SetRequiredPasswordComplexity(ctx context.Context, arg0 int32) error {
 	_, err := c.svc.SetRequiredPasswordComplexity(ctx, &pb.SetRequiredPasswordComplexityRequest{
 		Arg0: arg0,
 	})
@@ -2714,7 +2316,7 @@ func (c *Client) SetRequiredPasswordComplexity(ctx context.Context, arg0 int32) 
 }
 
 // SetRequiredStrongAuthTimeout calls the SetRequiredStrongAuthTimeout RPC.
-func (c *Client) SetRequiredStrongAuthTimeout(ctx context.Context, arg0 int64, arg1 int64) error {
+func (c *DevicePolicyManagerClient) SetRequiredStrongAuthTimeout(ctx context.Context, arg0 int64, arg1 int64) error {
 	_, err := c.svc.SetRequiredStrongAuthTimeout(ctx, &pb.SetRequiredStrongAuthTimeoutRequest{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -2723,7 +2325,7 @@ func (c *Client) SetRequiredStrongAuthTimeout(ctx context.Context, arg0 int64, a
 }
 
 // SetResetPasswordToken calls the SetResetPasswordToken RPC.
-func (c *Client) SetResetPasswordToken(ctx context.Context, arg0 int64, arg1 int64) (bool, error) {
+func (c *DevicePolicyManagerClient) SetResetPasswordToken(ctx context.Context, arg0 int64, arg1 int64) (bool, error) {
 	resp, err := c.svc.SetResetPasswordToken(ctx, &pb.SetResetPasswordTokenRequest{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -2735,7 +2337,7 @@ func (c *Client) SetResetPasswordToken(ctx context.Context, arg0 int64, arg1 int
 }
 
 // SetRestrictionsProvider calls the SetRestrictionsProvider RPC.
-func (c *Client) SetRestrictionsProvider(ctx context.Context, arg0 int64, arg1 int64) error {
+func (c *DevicePolicyManagerClient) SetRestrictionsProvider(ctx context.Context, arg0 int64, arg1 int64) error {
 	_, err := c.svc.SetRestrictionsProvider(ctx, &pb.SetRestrictionsProviderRequest{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -2744,7 +2346,7 @@ func (c *Client) SetRestrictionsProvider(ctx context.Context, arg0 int64, arg1 i
 }
 
 // SetScreenCaptureDisabled calls the SetScreenCaptureDisabled RPC.
-func (c *Client) SetScreenCaptureDisabled(ctx context.Context, arg0 int64, arg1 bool) error {
+func (c *DevicePolicyManagerClient) SetScreenCaptureDisabled(ctx context.Context, arg0 int64, arg1 bool) error {
 	_, err := c.svc.SetScreenCaptureDisabled(ctx, &pb.SetScreenCaptureDisabledRequest{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -2753,7 +2355,7 @@ func (c *Client) SetScreenCaptureDisabled(ctx context.Context, arg0 int64, arg1 
 }
 
 // SetSecureSetting calls the SetSecureSetting RPC.
-func (c *Client) SetSecureSetting(ctx context.Context, arg0 int64, arg1 string, arg2 string) error {
+func (c *DevicePolicyManagerClient) SetSecureSetting(ctx context.Context, arg0 int64, arg1 string, arg2 string) error {
 	_, err := c.svc.SetSecureSetting(ctx, &pb.SetSecureSettingRequest{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -2763,7 +2365,7 @@ func (c *Client) SetSecureSetting(ctx context.Context, arg0 int64, arg1 string, 
 }
 
 // SetSecurityLoggingEnabled calls the SetSecurityLoggingEnabled RPC.
-func (c *Client) SetSecurityLoggingEnabled(ctx context.Context, arg0 int64, arg1 bool) error {
+func (c *DevicePolicyManagerClient) SetSecurityLoggingEnabled(ctx context.Context, arg0 int64, arg1 bool) error {
 	_, err := c.svc.SetSecurityLoggingEnabled(ctx, &pb.SetSecurityLoggingEnabledRequest{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -2772,7 +2374,7 @@ func (c *Client) SetSecurityLoggingEnabled(ctx context.Context, arg0 int64, arg1
 }
 
 // SetShortSupportMessage calls the SetShortSupportMessage RPC.
-func (c *Client) SetShortSupportMessage(ctx context.Context, arg0 int64, arg1 string) error {
+func (c *DevicePolicyManagerClient) SetShortSupportMessage(ctx context.Context, arg0 int64, arg1 string) error {
 	_, err := c.svc.SetShortSupportMessage(ctx, &pb.SetShortSupportMessageRequest{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -2781,7 +2383,7 @@ func (c *Client) SetShortSupportMessage(ctx context.Context, arg0 int64, arg1 st
 }
 
 // SetStartUserSessionMessage calls the SetStartUserSessionMessage RPC.
-func (c *Client) SetStartUserSessionMessage(ctx context.Context, arg0 int64, arg1 string) error {
+func (c *DevicePolicyManagerClient) SetStartUserSessionMessage(ctx context.Context, arg0 int64, arg1 string) error {
 	_, err := c.svc.SetStartUserSessionMessage(ctx, &pb.SetStartUserSessionMessageRequest{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -2790,7 +2392,7 @@ func (c *Client) SetStartUserSessionMessage(ctx context.Context, arg0 int64, arg
 }
 
 // SetStatusBarDisabled calls the SetStatusBarDisabled RPC.
-func (c *Client) SetStatusBarDisabled(ctx context.Context, arg0 int64, arg1 bool) (bool, error) {
+func (c *DevicePolicyManagerClient) SetStatusBarDisabled(ctx context.Context, arg0 int64, arg1 bool) (bool, error) {
 	resp, err := c.svc.SetStatusBarDisabled(ctx, &pb.SetStatusBarDisabledRequest{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -2802,7 +2404,7 @@ func (c *Client) SetStatusBarDisabled(ctx context.Context, arg0 int64, arg1 bool
 }
 
 // SetStorageEncryption calls the SetStorageEncryption RPC.
-func (c *Client) SetStorageEncryption(ctx context.Context, arg0 int64, arg1 bool) (int32, error) {
+func (c *DevicePolicyManagerClient) SetStorageEncryption(ctx context.Context, arg0 int64, arg1 bool) (int32, error) {
 	resp, err := c.svc.SetStorageEncryption(ctx, &pb.SetStorageEncryptionRequest{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -2814,7 +2416,7 @@ func (c *Client) SetStorageEncryption(ctx context.Context, arg0 int64, arg1 bool
 }
 
 // SetSystemSetting calls the SetSystemSetting RPC.
-func (c *Client) SetSystemSetting(ctx context.Context, arg0 int64, arg1 string, arg2 string) error {
+func (c *DevicePolicyManagerClient) SetSystemSetting(ctx context.Context, arg0 int64, arg1 string, arg2 string) error {
 	_, err := c.svc.SetSystemSetting(ctx, &pb.SetSystemSettingRequest{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -2824,7 +2426,7 @@ func (c *Client) SetSystemSetting(ctx context.Context, arg0 int64, arg1 string, 
 }
 
 // SetSystemUpdatePolicy calls the SetSystemUpdatePolicy RPC.
-func (c *Client) SetSystemUpdatePolicy(ctx context.Context, arg0 int64, arg1 int64) error {
+func (c *DevicePolicyManagerClient) SetSystemUpdatePolicy(ctx context.Context, arg0 int64, arg1 int64) error {
 	_, err := c.svc.SetSystemUpdatePolicy(ctx, &pb.SetSystemUpdatePolicyRequest{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -2833,7 +2435,7 @@ func (c *Client) SetSystemUpdatePolicy(ctx context.Context, arg0 int64, arg1 int
 }
 
 // SetTime calls the SetTime RPC.
-func (c *Client) SetTime(ctx context.Context, arg0 int64, arg1 int64) (bool, error) {
+func (c *DevicePolicyManagerClient) SetTime(ctx context.Context, arg0 int64, arg1 int64) (bool, error) {
 	resp, err := c.svc.SetTime(ctx, &pb.SetTimeRequest{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -2845,7 +2447,7 @@ func (c *Client) SetTime(ctx context.Context, arg0 int64, arg1 int64) (bool, err
 }
 
 // SetTimeZone calls the SetTimeZone RPC.
-func (c *Client) SetTimeZone(ctx context.Context, arg0 int64, arg1 string) (bool, error) {
+func (c *DevicePolicyManagerClient) SetTimeZone(ctx context.Context, arg0 int64, arg1 string) (bool, error) {
 	resp, err := c.svc.SetTimeZone(ctx, &pb.SetTimeZoneRequest{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -2857,7 +2459,7 @@ func (c *Client) SetTimeZone(ctx context.Context, arg0 int64, arg1 string) (bool
 }
 
 // SetTrustAgentConfiguration calls the SetTrustAgentConfiguration RPC.
-func (c *Client) SetTrustAgentConfiguration(ctx context.Context, arg0 int64, arg1 int64, arg2 int64) error {
+func (c *DevicePolicyManagerClient) SetTrustAgentConfiguration(ctx context.Context, arg0 int64, arg1 int64, arg2 int64) error {
 	_, err := c.svc.SetTrustAgentConfiguration(ctx, &pb.SetTrustAgentConfigurationRequest{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -2867,7 +2469,7 @@ func (c *Client) SetTrustAgentConfiguration(ctx context.Context, arg0 int64, arg
 }
 
 // SetUninstallBlocked calls the SetUninstallBlocked RPC.
-func (c *Client) SetUninstallBlocked(ctx context.Context, arg0 int64, arg1 string, arg2 bool) error {
+func (c *DevicePolicyManagerClient) SetUninstallBlocked(ctx context.Context, arg0 int64, arg1 string, arg2 bool) error {
 	_, err := c.svc.SetUninstallBlocked(ctx, &pb.SetUninstallBlockedRequest{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -2877,24 +2479,15 @@ func (c *Client) SetUninstallBlocked(ctx context.Context, arg0 int64, arg1 strin
 }
 
 // SetUsbDataSignalingEnabled calls the SetUsbDataSignalingEnabled RPC.
-func (c *Client) SetUsbDataSignalingEnabled(ctx context.Context, arg0 bool) error {
+func (c *DevicePolicyManagerClient) SetUsbDataSignalingEnabled(ctx context.Context, arg0 bool) error {
 	_, err := c.svc.SetUsbDataSignalingEnabled(ctx, &pb.SetUsbDataSignalingEnabledRequest{
 		Arg0: arg0,
 	})
 	return err
 }
 
-// SetUserControlDisabledPackages calls the SetUserControlDisabledPackages RPC.
-func (c *Client) SetUserControlDisabledPackages(ctx context.Context, arg0 int64, arg1 int64) error {
-	_, err := c.svc.SetUserControlDisabledPackages(ctx, &pb.SetUserControlDisabledPackagesRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	return err
-}
-
 // SetUserIcon calls the SetUserIcon RPC.
-func (c *Client) SetUserIcon(ctx context.Context, arg0 int64, arg1 int64) error {
+func (c *DevicePolicyManagerClient) SetUserIcon(ctx context.Context, arg0 int64, arg1 int64) error {
 	_, err := c.svc.SetUserIcon(ctx, &pb.SetUserIconRequest{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -2903,7 +2496,7 @@ func (c *Client) SetUserIcon(ctx context.Context, arg0 int64, arg1 int64) error 
 }
 
 // SetWifiSsidPolicy calls the SetWifiSsidPolicy RPC.
-func (c *Client) SetWifiSsidPolicy(ctx context.Context, arg0 int64) error {
+func (c *DevicePolicyManagerClient) SetWifiSsidPolicy(ctx context.Context, arg0 int64) error {
 	_, err := c.svc.SetWifiSsidPolicy(ctx, &pb.SetWifiSsidPolicyRequest{
 		Arg0: arg0,
 	})
@@ -2911,7 +2504,7 @@ func (c *Client) SetWifiSsidPolicy(ctx context.Context, arg0 int64) error {
 }
 
 // StartUserInBackground calls the StartUserInBackground RPC.
-func (c *Client) StartUserInBackground(ctx context.Context, arg0 int64, arg1 int64) (int32, error) {
+func (c *DevicePolicyManagerClient) StartUserInBackground(ctx context.Context, arg0 int64, arg1 int64) (int32, error) {
 	resp, err := c.svc.StartUserInBackground(ctx, &pb.StartUserInBackgroundRequest{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -2923,7 +2516,7 @@ func (c *Client) StartUserInBackground(ctx context.Context, arg0 int64, arg1 int
 }
 
 // StopUser calls the StopUser RPC.
-func (c *Client) StopUser(ctx context.Context, arg0 int64, arg1 int64) (int32, error) {
+func (c *DevicePolicyManagerClient) StopUser(ctx context.Context, arg0 int64, arg1 int64) (int32, error) {
 	resp, err := c.svc.StopUser(ctx, &pb.StopUserRequest{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -2935,7 +2528,7 @@ func (c *Client) StopUser(ctx context.Context, arg0 int64, arg1 int64) (int32, e
 }
 
 // SwitchUser calls the SwitchUser RPC.
-func (c *Client) SwitchUser(ctx context.Context, arg0 int64, arg1 int64) (bool, error) {
+func (c *DevicePolicyManagerClient) SwitchUser(ctx context.Context, arg0 int64, arg1 int64) (bool, error) {
 	resp, err := c.svc.SwitchUser(ctx, &pb.SwitchUserRequest{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -2947,7 +2540,7 @@ func (c *Client) SwitchUser(ctx context.Context, arg0 int64, arg1 int64) (bool, 
 }
 
 // TransferOwnership calls the TransferOwnership RPC.
-func (c *Client) TransferOwnership(ctx context.Context, arg0 int64, arg1 int64, arg2 int64) error {
+func (c *DevicePolicyManagerClient) TransferOwnership(ctx context.Context, arg0 int64, arg1 int64, arg2 int64) error {
 	_, err := c.svc.TransferOwnership(ctx, &pb.TransferOwnershipRequest{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -2957,7 +2550,7 @@ func (c *Client) TransferOwnership(ctx context.Context, arg0 int64, arg1 int64, 
 }
 
 // UninstallAllUserCaCerts calls the UninstallAllUserCaCerts RPC.
-func (c *Client) UninstallAllUserCaCerts(ctx context.Context, arg0 int64) error {
+func (c *DevicePolicyManagerClient) UninstallAllUserCaCerts(ctx context.Context, arg0 int64) error {
 	_, err := c.svc.UninstallAllUserCaCerts(ctx, &pb.UninstallAllUserCaCertsRequest{
 		Arg0: arg0,
 	})
@@ -2965,7 +2558,7 @@ func (c *Client) UninstallAllUserCaCerts(ctx context.Context, arg0 int64) error 
 }
 
 // UninstallCaCert calls the UninstallCaCert RPC.
-func (c *Client) UninstallCaCert(ctx context.Context, arg0 int64, arg1 int64) error {
+func (c *DevicePolicyManagerClient) UninstallCaCert(ctx context.Context, arg0 int64, arg1 int64) error {
 	_, err := c.svc.UninstallCaCert(ctx, &pb.UninstallCaCertRequest{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -2974,7 +2567,7 @@ func (c *Client) UninstallCaCert(ctx context.Context, arg0 int64, arg1 int64) er
 }
 
 // UpdateOverrideApn calls the UpdateOverrideApn RPC.
-func (c *Client) UpdateOverrideApn(ctx context.Context, arg0 int64, arg1 int32, arg2 int64) (bool, error) {
+func (c *DevicePolicyManagerClient) UpdateOverrideApn(ctx context.Context, arg0 int64, arg1 int32, arg2 int64) (bool, error) {
 	resp, err := c.svc.UpdateOverrideApn(ctx, &pb.UpdateOverrideApnRequest{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -2987,7 +2580,7 @@ func (c *Client) UpdateOverrideApn(ctx context.Context, arg0 int64, arg1 int32, 
 }
 
 // WipeData1 calls the WipeData1 RPC.
-func (c *Client) WipeData1(ctx context.Context, arg0 int32) error {
+func (c *DevicePolicyManagerClient) WipeData1(ctx context.Context, arg0 int32) error {
 	_, err := c.svc.WipeData1(ctx, &pb.WipeData1Request{
 		Arg0: arg0,
 	})
@@ -2995,7 +2588,7 @@ func (c *Client) WipeData1(ctx context.Context, arg0 int32) error {
 }
 
 // WipeData2_1 calls the WipeData2_1 RPC.
-func (c *Client) WipeData2_1(ctx context.Context, arg0 int32, arg1 string) error {
+func (c *DevicePolicyManagerClient) WipeData2_1(ctx context.Context, arg0 int32, arg1 string) error {
 	_, err := c.svc.WipeData2_1(ctx, &pb.WipeData2_1Request{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -3004,7 +2597,7 @@ func (c *Client) WipeData2_1(ctx context.Context, arg0 int32, arg1 string) error
 }
 
 // WipeDevice calls the WipeDevice RPC.
-func (c *Client) WipeDevice(ctx context.Context, arg0 int32) error {
+func (c *DevicePolicyManagerClient) WipeDevice(ctx context.Context, arg0 int32) error {
 	_, err := c.svc.WipeDevice(ctx, &pb.WipeDeviceRequest{
 		Arg0: arg0,
 	})
@@ -3012,7 +2605,7 @@ func (c *Client) WipeDevice(ctx context.Context, arg0 int32) error {
 }
 
 // IsMtePolicyEnforced calls the IsMtePolicyEnforced RPC.
-func (c *Client) IsMtePolicyEnforced(ctx context.Context) (bool, error) {
+func (c *DevicePolicyManagerClient) IsMtePolicyEnforced(ctx context.Context) (bool, error) {
 	resp, err := c.svc.IsMtePolicyEnforced(ctx, &pb.IsMtePolicyEnforcedRequest{})
 	if err != nil {
 		return false, err

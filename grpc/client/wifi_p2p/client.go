@@ -9,20 +9,20 @@ import (
 	"google.golang.org/grpc"
 )
 
-// Client wraps the gRPC WifiP2PManagerService client.
-type Client struct {
+// WifiP2pManagerClient wraps the gRPC WifiP2PManagerService client.
+type WifiP2pManagerClient struct {
 	svc pb.WifiP2PManagerServiceClient
 }
 
-// NewClient creates a new wifi_p2p client.
-func NewClient(cc grpc.ClientConnInterface) *Client {
-	return &Client{
+// NewWifiP2pManagerClient creates a new WifiP2pManager client.
+func NewWifiP2pManagerClient(cc grpc.ClientConnInterface) *WifiP2pManagerClient {
+	return &WifiP2pManagerClient{
 		svc: pb.NewWifiP2PManagerServiceClient(cc),
 	}
 }
 
 // AddExternalApprover calls the AddExternalApprover RPC.
-func (c *Client) AddExternalApprover(ctx context.Context, arg0 int64, arg1 int64, arg2 int64) error {
+func (c *WifiP2pManagerClient) AddExternalApprover(ctx context.Context, arg0 int64, arg1 int64, arg2 int64) error {
 	_, err := c.svc.AddExternalApprover(ctx, &pb.AddExternalApproverRequest{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -32,7 +32,7 @@ func (c *Client) AddExternalApprover(ctx context.Context, arg0 int64, arg1 int64
 }
 
 // AddLocalService calls the AddLocalService RPC.
-func (c *Client) AddLocalService(ctx context.Context, arg0 int64, arg1 int64, arg2 int64) error {
+func (c *WifiP2pManagerClient) AddLocalService(ctx context.Context, arg0 int64, arg1 int64, arg2 int64) error {
 	_, err := c.svc.AddLocalService(ctx, &pb.AddLocalServiceRequest{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -42,7 +42,7 @@ func (c *Client) AddLocalService(ctx context.Context, arg0 int64, arg1 int64, ar
 }
 
 // AddServiceRequest calls the AddServiceRequest RPC.
-func (c *Client) AddServiceRequest(ctx context.Context, arg0 int64, arg1 int64, arg2 int64) error {
+func (c *WifiP2pManagerClient) AddServiceRequest(ctx context.Context, arg0 int64, arg1 int64, arg2 int64) error {
 	_, err := c.svc.AddServiceRequest(ctx, &pb.AddServiceRequestRequest{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -52,7 +52,7 @@ func (c *Client) AddServiceRequest(ctx context.Context, arg0 int64, arg1 int64, 
 }
 
 // CancelConnect calls the CancelConnect RPC.
-func (c *Client) CancelConnect(ctx context.Context, arg0 int64, arg1 int64) error {
+func (c *WifiP2pManagerClient) CancelConnect(ctx context.Context, arg0 int64, arg1 int64) error {
 	_, err := c.svc.CancelConnect(ctx, &pb.CancelConnectRequest{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -61,7 +61,7 @@ func (c *Client) CancelConnect(ctx context.Context, arg0 int64, arg1 int64) erro
 }
 
 // ClearLocalServices calls the ClearLocalServices RPC.
-func (c *Client) ClearLocalServices(ctx context.Context, arg0 int64, arg1 int64) error {
+func (c *WifiP2pManagerClient) ClearLocalServices(ctx context.Context, arg0 int64, arg1 int64) error {
 	_, err := c.svc.ClearLocalServices(ctx, &pb.ClearLocalServicesRequest{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -70,7 +70,7 @@ func (c *Client) ClearLocalServices(ctx context.Context, arg0 int64, arg1 int64)
 }
 
 // ClearServiceRequests calls the ClearServiceRequests RPC.
-func (c *Client) ClearServiceRequests(ctx context.Context, arg0 int64, arg1 int64) error {
+func (c *WifiP2pManagerClient) ClearServiceRequests(ctx context.Context, arg0 int64, arg1 int64) error {
 	_, err := c.svc.ClearServiceRequests(ctx, &pb.ClearServiceRequestsRequest{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -79,7 +79,7 @@ func (c *Client) ClearServiceRequests(ctx context.Context, arg0 int64, arg1 int6
 }
 
 // Connect calls the Connect RPC.
-func (c *Client) Connect(ctx context.Context, arg0 int64, arg1 int64, arg2 int64) error {
+func (c *WifiP2pManagerClient) Connect(ctx context.Context, arg0 int64, arg1 int64, arg2 int64) error {
 	_, err := c.svc.Connect(ctx, &pb.ConnectRequest{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -89,7 +89,7 @@ func (c *Client) Connect(ctx context.Context, arg0 int64, arg1 int64, arg2 int64
 }
 
 // CreateGroup3 calls the CreateGroup3 RPC.
-func (c *Client) CreateGroup3(ctx context.Context, arg0 int64, arg1 int64, arg2 int64) error {
+func (c *WifiP2pManagerClient) CreateGroup3(ctx context.Context, arg0 int64, arg1 int64, arg2 int64) error {
 	_, err := c.svc.CreateGroup3(ctx, &pb.CreateGroup3Request{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -99,7 +99,7 @@ func (c *Client) CreateGroup3(ctx context.Context, arg0 int64, arg1 int64, arg2 
 }
 
 // CreateGroup2_1 calls the CreateGroup2_1 RPC.
-func (c *Client) CreateGroup2_1(ctx context.Context, arg0 int64, arg1 int64) error {
+func (c *WifiP2pManagerClient) CreateGroup2_1(ctx context.Context, arg0 int64, arg1 int64) error {
 	_, err := c.svc.CreateGroup2_1(ctx, &pb.CreateGroup2_1Request{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -108,7 +108,7 @@ func (c *Client) CreateGroup2_1(ctx context.Context, arg0 int64, arg1 int64) err
 }
 
 // DiscoverPeers calls the DiscoverPeers RPC.
-func (c *Client) DiscoverPeers(ctx context.Context, arg0 int64, arg1 int64) error {
+func (c *WifiP2pManagerClient) DiscoverPeers(ctx context.Context, arg0 int64, arg1 int64) error {
 	_, err := c.svc.DiscoverPeers(ctx, &pb.DiscoverPeersRequest{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -117,7 +117,7 @@ func (c *Client) DiscoverPeers(ctx context.Context, arg0 int64, arg1 int64) erro
 }
 
 // DiscoverPeersOnSocialChannels calls the DiscoverPeersOnSocialChannels RPC.
-func (c *Client) DiscoverPeersOnSocialChannels(ctx context.Context, arg0 int64, arg1 int64) error {
+func (c *WifiP2pManagerClient) DiscoverPeersOnSocialChannels(ctx context.Context, arg0 int64, arg1 int64) error {
 	_, err := c.svc.DiscoverPeersOnSocialChannels(ctx, &pb.DiscoverPeersOnSocialChannelsRequest{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -126,7 +126,7 @@ func (c *Client) DiscoverPeersOnSocialChannels(ctx context.Context, arg0 int64, 
 }
 
 // DiscoverPeersOnSpecificFrequency calls the DiscoverPeersOnSpecificFrequency RPC.
-func (c *Client) DiscoverPeersOnSpecificFrequency(ctx context.Context, arg0 int64, arg1 int32, arg2 int64) error {
+func (c *WifiP2pManagerClient) DiscoverPeersOnSpecificFrequency(ctx context.Context, arg0 int64, arg1 int32, arg2 int64) error {
 	_, err := c.svc.DiscoverPeersOnSpecificFrequency(ctx, &pb.DiscoverPeersOnSpecificFrequencyRequest{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -136,7 +136,7 @@ func (c *Client) DiscoverPeersOnSpecificFrequency(ctx context.Context, arg0 int6
 }
 
 // DiscoverServices calls the DiscoverServices RPC.
-func (c *Client) DiscoverServices(ctx context.Context, arg0 int64, arg1 int64) error {
+func (c *WifiP2pManagerClient) DiscoverServices(ctx context.Context, arg0 int64, arg1 int64) error {
 	_, err := c.svc.DiscoverServices(ctx, &pb.DiscoverServicesRequest{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -145,7 +145,7 @@ func (c *Client) DiscoverServices(ctx context.Context, arg0 int64, arg1 int64) e
 }
 
 // DiscoverUsdBasedServices calls the DiscoverUsdBasedServices RPC.
-func (c *Client) DiscoverUsdBasedServices(ctx context.Context, arg0 int64, arg1 int64, arg2 int64) error {
+func (c *WifiP2pManagerClient) DiscoverUsdBasedServices(ctx context.Context, arg0 int64, arg1 int64, arg2 int64) error {
 	_, err := c.svc.DiscoverUsdBasedServices(ctx, &pb.DiscoverUsdBasedServicesRequest{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -154,18 +154,8 @@ func (c *Client) DiscoverUsdBasedServices(ctx context.Context, arg0 int64, arg1 
 	return err
 }
 
-// GetListenState calls the GetListenState RPC.
-func (c *Client) GetListenState(ctx context.Context, arg0 int64, arg1 int64, arg2 int64) error {
-	_, err := c.svc.GetListenState(ctx, &pb.GetListenStateRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-	})
-	return err
-}
-
 // Initialize calls the Initialize RPC.
-func (c *Client) Initialize(ctx context.Context, arg0 int64, arg1 int64, arg2 int64) (int64, error) {
+func (c *WifiP2pManagerClient) Initialize(ctx context.Context, arg0 int64, arg1 int64, arg2 int64) (int64, error) {
 	resp, err := c.svc.Initialize(ctx, &pb.InitializeRequest{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -178,7 +168,7 @@ func (c *Client) Initialize(ctx context.Context, arg0 int64, arg1 int64, arg2 in
 }
 
 // IsChannelConstrainedDiscoverySupported calls the IsChannelConstrainedDiscoverySupported RPC.
-func (c *Client) IsChannelConstrainedDiscoverySupported(ctx context.Context) (bool, error) {
+func (c *WifiP2pManagerClient) IsChannelConstrainedDiscoverySupported(ctx context.Context) (bool, error) {
 	resp, err := c.svc.IsChannelConstrainedDiscoverySupported(ctx, &pb.IsChannelConstrainedDiscoverySupportedRequest{})
 	if err != nil {
 		return false, err
@@ -187,7 +177,7 @@ func (c *Client) IsChannelConstrainedDiscoverySupported(ctx context.Context) (bo
 }
 
 // IsGroupClientRemovalSupported calls the IsGroupClientRemovalSupported RPC.
-func (c *Client) IsGroupClientRemovalSupported(ctx context.Context) (bool, error) {
+func (c *WifiP2pManagerClient) IsGroupClientRemovalSupported(ctx context.Context) (bool, error) {
 	resp, err := c.svc.IsGroupClientRemovalSupported(ctx, &pb.IsGroupClientRemovalSupportedRequest{})
 	if err != nil {
 		return false, err
@@ -196,7 +186,7 @@ func (c *Client) IsGroupClientRemovalSupported(ctx context.Context) (bool, error
 }
 
 // IsGroupOwnerIPv6LinkLocalAddressProvided calls the IsGroupOwnerIPv6LinkLocalAddressProvided RPC.
-func (c *Client) IsGroupOwnerIPv6LinkLocalAddressProvided(ctx context.Context) (bool, error) {
+func (c *WifiP2pManagerClient) IsGroupOwnerIPv6LinkLocalAddressProvided(ctx context.Context) (bool, error) {
 	resp, err := c.svc.IsGroupOwnerIPv6LinkLocalAddressProvided(ctx, &pb.IsGroupOwnerIPv6LinkLocalAddressProvidedRequest{})
 	if err != nil {
 		return false, err
@@ -205,7 +195,7 @@ func (c *Client) IsGroupOwnerIPv6LinkLocalAddressProvided(ctx context.Context) (
 }
 
 // IsPccModeSupported calls the IsPccModeSupported RPC.
-func (c *Client) IsPccModeSupported(ctx context.Context) (bool, error) {
+func (c *WifiP2pManagerClient) IsPccModeSupported(ctx context.Context) (bool, error) {
 	resp, err := c.svc.IsPccModeSupported(ctx, &pb.IsPccModeSupportedRequest{})
 	if err != nil {
 		return false, err
@@ -214,7 +204,7 @@ func (c *Client) IsPccModeSupported(ctx context.Context) (bool, error) {
 }
 
 // IsSetVendorElementsSupported calls the IsSetVendorElementsSupported RPC.
-func (c *Client) IsSetVendorElementsSupported(ctx context.Context) (bool, error) {
+func (c *WifiP2pManagerClient) IsSetVendorElementsSupported(ctx context.Context) (bool, error) {
 	resp, err := c.svc.IsSetVendorElementsSupported(ctx, &pb.IsSetVendorElementsSupportedRequest{})
 	if err != nil {
 		return false, err
@@ -223,7 +213,7 @@ func (c *Client) IsSetVendorElementsSupported(ctx context.Context) (bool, error)
 }
 
 // IsWiFiDirectR2Supported calls the IsWiFiDirectR2Supported RPC.
-func (c *Client) IsWiFiDirectR2Supported(ctx context.Context) (bool, error) {
+func (c *WifiP2pManagerClient) IsWiFiDirectR2Supported(ctx context.Context) (bool, error) {
 	resp, err := c.svc.IsWiFiDirectR2Supported(ctx, &pb.IsWiFiDirectR2SupportedRequest{})
 	if err != nil {
 		return false, err
@@ -232,7 +222,7 @@ func (c *Client) IsWiFiDirectR2Supported(ctx context.Context) (bool, error) {
 }
 
 // RegisterWifiP2PListener calls the RegisterWifiP2PListener RPC.
-func (c *Client) RegisterWifiP2PListener(ctx context.Context, arg0 int64, arg1 int64) error {
+func (c *WifiP2pManagerClient) RegisterWifiP2PListener(ctx context.Context, arg0 int64, arg1 int64) error {
 	_, err := c.svc.RegisterWifiP2PListener(ctx, &pb.RegisterWifiP2PListenerRequest{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -241,7 +231,7 @@ func (c *Client) RegisterWifiP2PListener(ctx context.Context, arg0 int64, arg1 i
 }
 
 // RemoveClient calls the RemoveClient RPC.
-func (c *Client) RemoveClient(ctx context.Context, arg0 int64, arg1 int64, arg2 int64) error {
+func (c *WifiP2pManagerClient) RemoveClient(ctx context.Context, arg0 int64, arg1 int64, arg2 int64) error {
 	_, err := c.svc.RemoveClient(ctx, &pb.RemoveClientRequest{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -251,7 +241,7 @@ func (c *Client) RemoveClient(ctx context.Context, arg0 int64, arg1 int64, arg2 
 }
 
 // RemoveExternalApprover calls the RemoveExternalApprover RPC.
-func (c *Client) RemoveExternalApprover(ctx context.Context, arg0 int64, arg1 int64, arg2 int64) error {
+func (c *WifiP2pManagerClient) RemoveExternalApprover(ctx context.Context, arg0 int64, arg1 int64, arg2 int64) error {
 	_, err := c.svc.RemoveExternalApprover(ctx, &pb.RemoveExternalApproverRequest{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -261,7 +251,7 @@ func (c *Client) RemoveExternalApprover(ctx context.Context, arg0 int64, arg1 in
 }
 
 // RemoveGroup calls the RemoveGroup RPC.
-func (c *Client) RemoveGroup(ctx context.Context, arg0 int64, arg1 int64) error {
+func (c *WifiP2pManagerClient) RemoveGroup(ctx context.Context, arg0 int64, arg1 int64) error {
 	_, err := c.svc.RemoveGroup(ctx, &pb.RemoveGroupRequest{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -270,7 +260,7 @@ func (c *Client) RemoveGroup(ctx context.Context, arg0 int64, arg1 int64) error 
 }
 
 // RemoveLocalService calls the RemoveLocalService RPC.
-func (c *Client) RemoveLocalService(ctx context.Context, arg0 int64, arg1 int64, arg2 int64) error {
+func (c *WifiP2pManagerClient) RemoveLocalService(ctx context.Context, arg0 int64, arg1 int64, arg2 int64) error {
 	_, err := c.svc.RemoveLocalService(ctx, &pb.RemoveLocalServiceRequest{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -280,7 +270,7 @@ func (c *Client) RemoveLocalService(ctx context.Context, arg0 int64, arg1 int64,
 }
 
 // RemoveServiceRequest calls the RemoveServiceRequest RPC.
-func (c *Client) RemoveServiceRequest(ctx context.Context, arg0 int64, arg1 int64, arg2 int64) error {
+func (c *WifiP2pManagerClient) RemoveServiceRequest(ctx context.Context, arg0 int64, arg1 int64, arg2 int64) error {
 	_, err := c.svc.RemoveServiceRequest(ctx, &pb.RemoveServiceRequestRequest{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -290,7 +280,7 @@ func (c *Client) RemoveServiceRequest(ctx context.Context, arg0 int64, arg1 int6
 }
 
 // RequestConnectionInfo calls the RequestConnectionInfo RPC.
-func (c *Client) RequestConnectionInfo(ctx context.Context, arg0 int64, arg1 int64) error {
+func (c *WifiP2pManagerClient) RequestConnectionInfo(ctx context.Context, arg0 int64, arg1 int64) error {
 	_, err := c.svc.RequestConnectionInfo(ctx, &pb.RequestConnectionInfoRequest{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -299,7 +289,7 @@ func (c *Client) RequestConnectionInfo(ctx context.Context, arg0 int64, arg1 int
 }
 
 // RequestDeviceInfo calls the RequestDeviceInfo RPC.
-func (c *Client) RequestDeviceInfo(ctx context.Context, arg0 int64, arg1 int64) error {
+func (c *WifiP2pManagerClient) RequestDeviceInfo(ctx context.Context, arg0 int64, arg1 int64) error {
 	_, err := c.svc.RequestDeviceInfo(ctx, &pb.RequestDeviceInfoRequest{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -307,18 +297,8 @@ func (c *Client) RequestDeviceInfo(ctx context.Context, arg0 int64, arg1 int64) 
 	return err
 }
 
-// RequestDirInfo calls the RequestDirInfo RPC.
-func (c *Client) RequestDirInfo(ctx context.Context, arg0 int64, arg1 int64, arg2 int64) error {
-	_, err := c.svc.RequestDirInfo(ctx, &pb.RequestDirInfoRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-	})
-	return err
-}
-
 // RequestDiscoveryState calls the RequestDiscoveryState RPC.
-func (c *Client) RequestDiscoveryState(ctx context.Context, arg0 int64, arg1 int64) error {
+func (c *WifiP2pManagerClient) RequestDiscoveryState(ctx context.Context, arg0 int64, arg1 int64) error {
 	_, err := c.svc.RequestDiscoveryState(ctx, &pb.RequestDiscoveryStateRequest{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -327,7 +307,7 @@ func (c *Client) RequestDiscoveryState(ctx context.Context, arg0 int64, arg1 int
 }
 
 // RequestGroupInfo calls the RequestGroupInfo RPC.
-func (c *Client) RequestGroupInfo(ctx context.Context, arg0 int64, arg1 int64) error {
+func (c *WifiP2pManagerClient) RequestGroupInfo(ctx context.Context, arg0 int64, arg1 int64) error {
 	_, err := c.svc.RequestGroupInfo(ctx, &pb.RequestGroupInfoRequest{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -336,7 +316,7 @@ func (c *Client) RequestGroupInfo(ctx context.Context, arg0 int64, arg1 int64) e
 }
 
 // RequestNetworkInfo calls the RequestNetworkInfo RPC.
-func (c *Client) RequestNetworkInfo(ctx context.Context, arg0 int64, arg1 int64) error {
+func (c *WifiP2pManagerClient) RequestNetworkInfo(ctx context.Context, arg0 int64, arg1 int64) error {
 	_, err := c.svc.RequestNetworkInfo(ctx, &pb.RequestNetworkInfoRequest{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -345,7 +325,7 @@ func (c *Client) RequestNetworkInfo(ctx context.Context, arg0 int64, arg1 int64)
 }
 
 // RequestP2PState calls the RequestP2PState RPC.
-func (c *Client) RequestP2PState(ctx context.Context, arg0 int64, arg1 int64) error {
+func (c *WifiP2pManagerClient) RequestP2PState(ctx context.Context, arg0 int64, arg1 int64) error {
 	_, err := c.svc.RequestP2PState(ctx, &pb.RequestP2PStateRequest{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -354,7 +334,7 @@ func (c *Client) RequestP2PState(ctx context.Context, arg0 int64, arg1 int64) er
 }
 
 // RequestPeers calls the RequestPeers RPC.
-func (c *Client) RequestPeers(ctx context.Context, arg0 int64, arg1 int64) error {
+func (c *WifiP2pManagerClient) RequestPeers(ctx context.Context, arg0 int64, arg1 int64) error {
 	_, err := c.svc.RequestPeers(ctx, &pb.RequestPeersRequest{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -363,7 +343,7 @@ func (c *Client) RequestPeers(ctx context.Context, arg0 int64, arg1 int64) error
 }
 
 // SetConnectionRequestResult4 calls the SetConnectionRequestResult4 RPC.
-func (c *Client) SetConnectionRequestResult4(ctx context.Context, arg0 int64, arg1 int64, arg2 int32, arg3 int64) error {
+func (c *WifiP2pManagerClient) SetConnectionRequestResult4(ctx context.Context, arg0 int64, arg1 int64, arg2 int32, arg3 int64) error {
 	_, err := c.svc.SetConnectionRequestResult4(ctx, &pb.SetConnectionRequestResult4Request{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -374,7 +354,7 @@ func (c *Client) SetConnectionRequestResult4(ctx context.Context, arg0 int64, ar
 }
 
 // SetConnectionRequestResult5_1 calls the SetConnectionRequestResult5_1 RPC.
-func (c *Client) SetConnectionRequestResult5_1(ctx context.Context, arg0 int64, arg1 int64, arg2 int32, arg3 string, arg4 int64) error {
+func (c *WifiP2pManagerClient) SetConnectionRequestResult5_1(ctx context.Context, arg0 int64, arg1 int64, arg2 int32, arg3 string, arg4 int64) error {
 	_, err := c.svc.SetConnectionRequestResult5_1(ctx, &pb.SetConnectionRequestResult5_1Request{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -386,7 +366,7 @@ func (c *Client) SetConnectionRequestResult5_1(ctx context.Context, arg0 int64, 
 }
 
 // SetDnsSdResponseListeners calls the SetDnsSdResponseListeners RPC.
-func (c *Client) SetDnsSdResponseListeners(ctx context.Context, arg0 int64, arg1 int64, arg2 int64) error {
+func (c *WifiP2pManagerClient) SetDnsSdResponseListeners(ctx context.Context, arg0 int64, arg1 int64, arg2 int64) error {
 	_, err := c.svc.SetDnsSdResponseListeners(ctx, &pb.SetDnsSdResponseListenersRequest{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -396,7 +376,7 @@ func (c *Client) SetDnsSdResponseListeners(ctx context.Context, arg0 int64, arg1
 }
 
 // SetServiceResponseListener calls the SetServiceResponseListener RPC.
-func (c *Client) SetServiceResponseListener(ctx context.Context, arg0 int64, arg1 int64) error {
+func (c *WifiP2pManagerClient) SetServiceResponseListener(ctx context.Context, arg0 int64, arg1 int64) error {
 	_, err := c.svc.SetServiceResponseListener(ctx, &pb.SetServiceResponseListenerRequest{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -405,7 +385,7 @@ func (c *Client) SetServiceResponseListener(ctx context.Context, arg0 int64, arg
 }
 
 // SetUpnpServiceResponseListener calls the SetUpnpServiceResponseListener RPC.
-func (c *Client) SetUpnpServiceResponseListener(ctx context.Context, arg0 int64, arg1 int64) error {
+func (c *WifiP2pManagerClient) SetUpnpServiceResponseListener(ctx context.Context, arg0 int64, arg1 int64) error {
 	_, err := c.svc.SetUpnpServiceResponseListener(ctx, &pb.SetUpnpServiceResponseListenerRequest{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -413,18 +393,8 @@ func (c *Client) SetUpnpServiceResponseListener(ctx context.Context, arg0 int64,
 	return err
 }
 
-// SetVendorElements calls the SetVendorElements RPC.
-func (c *Client) SetVendorElements(ctx context.Context, arg0 int64, arg1 int64, arg2 int64) error {
-	_, err := c.svc.SetVendorElements(ctx, &pb.SetVendorElementsRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-	})
-	return err
-}
-
 // SetWfdInfo calls the SetWfdInfo RPC.
-func (c *Client) SetWfdInfo(ctx context.Context, arg0 int64, arg1 int64, arg2 int64) error {
+func (c *WifiP2pManagerClient) SetWfdInfo(ctx context.Context, arg0 int64, arg1 int64, arg2 int64) error {
 	_, err := c.svc.SetWfdInfo(ctx, &pb.SetWfdInfoRequest{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -434,7 +404,7 @@ func (c *Client) SetWfdInfo(ctx context.Context, arg0 int64, arg1 int64, arg2 in
 }
 
 // StartListening calls the StartListening RPC.
-func (c *Client) StartListening(ctx context.Context, arg0 int64, arg1 int64) error {
+func (c *WifiP2pManagerClient) StartListening(ctx context.Context, arg0 int64, arg1 int64) error {
 	_, err := c.svc.StartListening(ctx, &pb.StartListeningRequest{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -443,7 +413,7 @@ func (c *Client) StartListening(ctx context.Context, arg0 int64, arg1 int64) err
 }
 
 // StartPeerDiscovery calls the StartPeerDiscovery RPC.
-func (c *Client) StartPeerDiscovery(ctx context.Context, arg0 int64, arg1 int64, arg2 int64) error {
+func (c *WifiP2pManagerClient) StartPeerDiscovery(ctx context.Context, arg0 int64, arg1 int64, arg2 int64) error {
 	_, err := c.svc.StartPeerDiscovery(ctx, &pb.StartPeerDiscoveryRequest{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -453,7 +423,7 @@ func (c *Client) StartPeerDiscovery(ctx context.Context, arg0 int64, arg1 int64,
 }
 
 // StartUsdBasedLocalServiceAdvertisement calls the StartUsdBasedLocalServiceAdvertisement RPC.
-func (c *Client) StartUsdBasedLocalServiceAdvertisement(ctx context.Context, arg0 int64, arg1 int64, arg2 int64, arg3 int64) error {
+func (c *WifiP2pManagerClient) StartUsdBasedLocalServiceAdvertisement(ctx context.Context, arg0 int64, arg1 int64, arg2 int64, arg3 int64) error {
 	_, err := c.svc.StartUsdBasedLocalServiceAdvertisement(ctx, &pb.StartUsdBasedLocalServiceAdvertisementRequest{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -464,7 +434,7 @@ func (c *Client) StartUsdBasedLocalServiceAdvertisement(ctx context.Context, arg
 }
 
 // StopListening calls the StopListening RPC.
-func (c *Client) StopListening(ctx context.Context, arg0 int64, arg1 int64) error {
+func (c *WifiP2pManagerClient) StopListening(ctx context.Context, arg0 int64, arg1 int64) error {
 	_, err := c.svc.StopListening(ctx, &pb.StopListeningRequest{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -473,7 +443,7 @@ func (c *Client) StopListening(ctx context.Context, arg0 int64, arg1 int64) erro
 }
 
 // StopPeerDiscovery calls the StopPeerDiscovery RPC.
-func (c *Client) StopPeerDiscovery(ctx context.Context, arg0 int64, arg1 int64) error {
+func (c *WifiP2pManagerClient) StopPeerDiscovery(ctx context.Context, arg0 int64, arg1 int64) error {
 	_, err := c.svc.StopPeerDiscovery(ctx, &pb.StopPeerDiscoveryRequest{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -482,26 +452,15 @@ func (c *Client) StopPeerDiscovery(ctx context.Context, arg0 int64, arg1 int64) 
 }
 
 // UnregisterWifiP2PListener calls the UnregisterWifiP2PListener RPC.
-func (c *Client) UnregisterWifiP2PListener(ctx context.Context, arg0 int64) error {
+func (c *WifiP2pManagerClient) UnregisterWifiP2PListener(ctx context.Context, arg0 int64) error {
 	_, err := c.svc.UnregisterWifiP2PListener(ctx, &pb.UnregisterWifiP2PListenerRequest{
 		Arg0: arg0,
 	})
 	return err
 }
 
-// ValidateDirInfo calls the ValidateDirInfo RPC.
-func (c *Client) ValidateDirInfo(ctx context.Context, arg0 int64, arg1 int64, arg2 int64, arg3 int64) error {
-	_, err := c.svc.ValidateDirInfo(ctx, &pb.ValidateDirInfoRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
-	})
-	return err
-}
-
 // GetP2PMaxAllowedVendorElementsLengthBytes calls the GetP2PMaxAllowedVendorElementsLengthBytes RPC.
-func (c *Client) GetP2PMaxAllowedVendorElementsLengthBytes(ctx context.Context) (int32, error) {
+func (c *WifiP2pManagerClient) GetP2PMaxAllowedVendorElementsLengthBytes(ctx context.Context) (int32, error) {
 	resp, err := c.svc.GetP2PMaxAllowedVendorElementsLengthBytes(ctx, &pb.GetP2PMaxAllowedVendorElementsLengthBytesRequest{})
 	if err != nil {
 		return 0, err

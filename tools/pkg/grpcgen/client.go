@@ -21,33 +21,75 @@ func GenerateClient(
 	goModule string,
 	protoDir string,
 ) error {
+	data, err := BuildClientFromSpec(specPath, overlayPath, goModule, protoDir)
+	if err != nil {
+		return err
+	}
+	if data == nil {
+		return nil
+	}
+	return WriteClient(data, outputDir)
+}
+
+// BuildClientFromSpec loads a spec/overlay pair and returns client data.
+// Returns nil if the spec produces no services.
+func BuildClientFromSpec(specPath, overlayPath, goModule, protoDir string) (*ClientData, error) {
 	spec, err := javagen.LoadSpec(specPath)
 	if err != nil {
-		return fmt.Errorf("load spec: %w", err)
+		return nil, fmt.Errorf("load spec: %w", err)
 	}
 
 	overlay, err := javagen.LoadOverlay(overlayPath)
 	if err != nil {
-		return fmt.Errorf("load overlay: %w", err)
+		return nil, fmt.Errorf("load overlay: %w", err)
 	}
 
 	merged, err := javagen.Merge(spec, overlay)
 	if err != nil {
-		return fmt.Errorf("merge: %w", err)
+		return nil, fmt.Errorf("merge: %w", err)
 	}
 
-	// Build proto data to get the canonical RPC names (with collision renames).
 	protoData := protogen.BuildProtoData(merged, goModule)
-
-	// Scan compiled proto stubs for actual Go names (handles protoc naming quirks).
 	goNames := protoscan.Scan(filepath.Join(protoDir, merged.Package))
 
 	data := buildClientData(merged, goModule, protoData, goNames)
 	if len(data.Services) == 0 {
-		return nil
+		return nil, nil
+	}
+	return data, nil
+}
+
+// MergeClientData combines two ClientData for the same package. Services
+// and data classes from src are appended to dst, deduplicating by name.
+func MergeClientData(dst, src *ClientData) {
+	seenSvc := make(map[string]bool, len(dst.Services))
+	for _, s := range dst.Services {
+		seenSvc[s.GoType] = true
+	}
+	for _, s := range src.Services {
+		if seenSvc[s.GoType] {
+			continue
+		}
+		seenSvc[s.GoType] = true
+		dst.Services = append(dst.Services, s)
 	}
 
-	pkgDir := filepath.Join(outputDir, "grpc", "client", merged.Package)
+	seenDC := make(map[string]bool, len(dst.DataClasses))
+	for _, dc := range dst.DataClasses {
+		seenDC[dc.GoType] = true
+	}
+	for _, dc := range src.DataClasses {
+		if seenDC[dc.GoType] {
+			continue
+		}
+		seenDC[dc.GoType] = true
+		dst.DataClasses = append(dst.DataClasses, dc)
+	}
+}
+
+// WriteClient writes a ClientData to its package directory.
+func WriteClient(data *ClientData, outputDir string) error {
+	pkgDir := filepath.Join(outputDir, "grpc", "client", data.Package)
 	if err := os.MkdirAll(pkgDir, 0o755); err != nil {
 		return fmt.Errorf("mkdir %s: %w", pkgDir, err)
 	}
@@ -56,7 +98,6 @@ func GenerateClient(
 	if err := renderClient(data, outputPath); err != nil {
 		return fmt.Errorf("render client: %w", err)
 	}
-
 	return nil
 }
 
@@ -122,9 +163,9 @@ func buildClientData(
 		}
 	}
 
-	// Build services from classes that have a NewXxx(ctx *app.Context) constructor.
+	// Build services from eligible classes (same criteria as protogen).
 	for _, cls := range merged.Classes {
-		if !hasContextConstructor(cls) {
+		if !protogen.IsServiceEligible(cls) {
 			continue
 		}
 

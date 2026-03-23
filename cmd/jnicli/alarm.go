@@ -381,81 +381,6 @@ var alarmManagerSetWindow6_1Cmd = &cobra.Command{
 	},
 }
 
-var alarmManagerAlarmClockInfoCmd = &cobra.Command{
-	Use:   "manager-alarm-clock-info",
-	Short: "ManagerAlarmClockInfoService operations",
-}
-
-var alarmManagerAlarmClockInfoDescribeContentsCmd = &cobra.Command{
-	Use:   "describe-contents",
-	Short: "DescribeContents RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewManagerAlarmClockInfoServiceClient(grpcConn)
-		req := &pb.DescribeContentsRequest{}
-		resp, err := client.DescribeContents(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var alarmManagerAlarmClockInfoGetShowIntentCmd = &cobra.Command{
-	Use:   "get-show-intent",
-	Short: "GetShowIntent RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewManagerAlarmClockInfoServiceClient(grpcConn)
-		req := &pb.GetShowIntentRequest{}
-		resp, err := client.GetShowIntent(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var alarmManagerAlarmClockInfoGetTriggerTimeCmd = &cobra.Command{
-	Use:   "get-trigger-time",
-	Short: "GetTriggerTime RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewManagerAlarmClockInfoServiceClient(grpcConn)
-		req := &pb.GetTriggerTimeRequest{}
-		resp, err := client.GetTriggerTime(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var alarmManagerAlarmClockInfoWriteToParcelCmd = &cobra.Command{
-	Use:   "write-to-parcel",
-	Short: "WriteToParcel RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewManagerAlarmClockInfoServiceClient(grpcConn)
-		req := &pb.WriteToParcelRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.WriteToParcel(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
 func init() {
 	alarmManagerCmd.AddCommand(alarmManagerCanScheduleExactAlarmsCmd)
 	alarmManagerCancel1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
@@ -510,12 +435,5 @@ func init() {
 	alarmManagerSetWindow6_1Cmd.Flags().Int64("arg5", 0, "arg5 (int64)")
 	alarmManagerCmd.AddCommand(alarmManagerSetWindow6_1Cmd)
 	alarmCmd.AddCommand(alarmManagerCmd)
-	alarmManagerAlarmClockInfoCmd.AddCommand(alarmManagerAlarmClockInfoDescribeContentsCmd)
-	alarmManagerAlarmClockInfoCmd.AddCommand(alarmManagerAlarmClockInfoGetShowIntentCmd)
-	alarmManagerAlarmClockInfoCmd.AddCommand(alarmManagerAlarmClockInfoGetTriggerTimeCmd)
-	alarmManagerAlarmClockInfoWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	alarmManagerAlarmClockInfoWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	alarmManagerAlarmClockInfoCmd.AddCommand(alarmManagerAlarmClockInfoWriteToParcelCmd)
-	alarmCmd.AddCommand(alarmManagerAlarmClockInfoCmd)
 	rootCmd.AddCommand(alarmCmd)
 }

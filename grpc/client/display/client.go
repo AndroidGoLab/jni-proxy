@@ -9,20 +9,20 @@ import (
 	"google.golang.org/grpc"
 )
 
-// Client wraps the gRPC WindowManagerService client.
-type Client struct {
+// WindowManagerClient wraps the gRPC WindowManagerService client.
+type WindowManagerClient struct {
 	svc pb.WindowManagerServiceClient
 }
 
-// NewClient creates a new display client.
-func NewClient(cc grpc.ClientConnInterface) *Client {
-	return &Client{
+// NewWindowManagerClient creates a new WindowManager client.
+func NewWindowManagerClient(cc grpc.ClientConnInterface) *WindowManagerClient {
+	return &WindowManagerClient{
 		svc: pb.NewWindowManagerServiceClient(cc),
 	}
 }
 
 // GetDefaultDisplay calls the GetDefaultDisplay RPC.
-func (c *Client) GetDefaultDisplay(ctx context.Context) (int64, error) {
+func (c *WindowManagerClient) GetDefaultDisplay(ctx context.Context) (int64, error) {
 	resp, err := c.svc.GetDefaultDisplay(ctx, &pb.GetDefaultDisplayRequest{})
 	if err != nil {
 		return 0, err
@@ -31,8 +31,114 @@ func (c *Client) GetDefaultDisplay(ctx context.Context) (int64, error) {
 }
 
 // RemoveViewImmediate calls the RemoveViewImmediate RPC.
-func (c *Client) RemoveViewImmediate(ctx context.Context, arg0 int64) error {
+func (c *WindowManagerClient) RemoveViewImmediate(ctx context.Context, arg0 int64) error {
 	_, err := c.svc.RemoveViewImmediate(ctx, &pb.RemoveViewImmediateRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// ManagerClient wraps the gRPC ManagerService client.
+type ManagerClient struct {
+	svc pb.ManagerServiceClient
+}
+
+// NewManagerClient creates a new Manager client.
+func NewManagerClient(cc grpc.ClientConnInterface) *ManagerClient {
+	return &ManagerClient{
+		svc: pb.NewManagerServiceClient(cc),
+	}
+}
+
+// CreateVirtualDisplay1 calls the CreateVirtualDisplay1 RPC.
+func (c *ManagerClient) CreateVirtualDisplay1(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.CreateVirtualDisplay1(ctx, &pb.CreateVirtualDisplay1Request{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// CreateVirtualDisplay6_1 calls the CreateVirtualDisplay6_1 RPC.
+func (c *ManagerClient) CreateVirtualDisplay6_1(ctx context.Context, arg0 string, arg1 int32, arg2 int32, arg3 int32, arg4 int64, arg5 int32) (int64, error) {
+	resp, err := c.svc.CreateVirtualDisplay6_1(ctx, &pb.CreateVirtualDisplay6_1Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+		Arg4: arg4,
+		Arg5: arg5,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetDisplay calls the GetDisplay RPC.
+func (c *ManagerClient) GetDisplay(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.GetDisplay(ctx, &pb.GetDisplayRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetDisplays0 calls the GetDisplays0 RPC.
+func (c *ManagerClient) GetDisplays0(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetDisplays0(ctx, &pb.GetDisplays0Request{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetDisplays1_1 calls the GetDisplays1_1 RPC.
+func (c *ManagerClient) GetDisplays1_1(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.GetDisplays1_1(ctx, &pb.GetDisplays1_1Request{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetHdrConversionMode calls the GetHdrConversionMode RPC.
+func (c *ManagerClient) GetHdrConversionMode(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetHdrConversionMode(ctx, &pb.GetHdrConversionModeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetMatchContentFrameRateUserPreference calls the GetMatchContentFrameRateUserPreference RPC.
+func (c *ManagerClient) GetMatchContentFrameRateUserPreference(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetMatchContentFrameRateUserPreference(ctx, &pb.GetMatchContentFrameRateUserPreferenceRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// RegisterDisplayListener calls the RegisterDisplayListener RPC.
+func (c *ManagerClient) RegisterDisplayListener(ctx context.Context, arg0 int64, arg1 int64, arg2 int64) error {
+	_, err := c.svc.RegisterDisplayListener(ctx, &pb.RegisterDisplayListenerRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	return err
+}
+
+// UnregisterDisplayListener calls the UnregisterDisplayListener RPC.
+func (c *ManagerClient) UnregisterDisplayListener(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.UnregisterDisplayListener(ctx, &pb.UnregisterDisplayListenerRequest{
 		Arg0: arg0,
 	})
 	return err

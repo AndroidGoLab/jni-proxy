@@ -22,29 +22,6 @@ type ManagerServer struct {
 	Handles *handlestore.HandleStore
 }
 
-func (s *ManagerServer) GetPrintJobs(_ context.Context, req *pb.GetPrintJobsRequest) (*pb.GetPrintJobsResponse, error) {
-	mgr, err := jnipkg.NewManager(s.Ctx)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
-	}
-	defer mgr.Close()
-
-	result, err := mgr.GetPrintJobs()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	var handle int64
-	if result != nil {
-		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-			handle = s.Handles.Put(env, result)
-			return nil
-		}); doErr != nil {
-			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-		}
-	}
-	return &pb.GetPrintJobsResponse{Result: handle}, nil
-}
-
 func (s *ManagerServer) IsPrintServiceEnabled(_ context.Context, req *pb.IsPrintServiceEnabledRequest) (*pb.IsPrintServiceEnabledResponse, error) {
 	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {

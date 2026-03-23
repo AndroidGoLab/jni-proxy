@@ -9,20 +9,20 @@ import (
 	"google.golang.org/grpc"
 )
 
-// Client wraps the gRPC ManagerService client.
-type Client struct {
+// ManagerClient wraps the gRPC ManagerService client.
+type ManagerClient struct {
 	svc pb.ManagerServiceClient
 }
 
-// NewClient creates a new camera client.
-func NewClient(cc grpc.ClientConnInterface) *Client {
-	return &Client{
+// NewManagerClient creates a new Manager client.
+func NewManagerClient(cc grpc.ClientConnInterface) *ManagerClient {
+	return &ManagerClient{
 		svc: pb.NewManagerServiceClient(cc),
 	}
 }
 
 // GetCameraCharacteristics calls the GetCameraCharacteristics RPC.
-func (c *Client) GetCameraCharacteristics(ctx context.Context, arg0 string) (int64, error) {
+func (c *ManagerClient) GetCameraCharacteristics(ctx context.Context, arg0 string) (int64, error) {
 	resp, err := c.svc.GetCameraCharacteristics(ctx, &pb.GetCameraCharacteristicsRequest{
 		Arg0: arg0,
 	})
@@ -33,7 +33,7 @@ func (c *Client) GetCameraCharacteristics(ctx context.Context, arg0 string) (int
 }
 
 // GetCameraDeviceSetup calls the GetCameraDeviceSetup RPC.
-func (c *Client) GetCameraDeviceSetup(ctx context.Context, arg0 string) (int64, error) {
+func (c *ManagerClient) GetCameraDeviceSetup(ctx context.Context, arg0 string) (int64, error) {
 	resp, err := c.svc.GetCameraDeviceSetup(ctx, &pb.GetCameraDeviceSetupRequest{
 		Arg0: arg0,
 	})
@@ -44,7 +44,7 @@ func (c *Client) GetCameraDeviceSetup(ctx context.Context, arg0 string) (int64, 
 }
 
 // GetCameraExtensionCharacteristics calls the GetCameraExtensionCharacteristics RPC.
-func (c *Client) GetCameraExtensionCharacteristics(ctx context.Context, arg0 string) (int64, error) {
+func (c *ManagerClient) GetCameraExtensionCharacteristics(ctx context.Context, arg0 string) (int64, error) {
 	resp, err := c.svc.GetCameraExtensionCharacteristics(ctx, &pb.GetCameraExtensionCharacteristicsRequest{
 		Arg0: arg0,
 	})
@@ -55,7 +55,7 @@ func (c *Client) GetCameraExtensionCharacteristics(ctx context.Context, arg0 str
 }
 
 // GetCameraIdList calls the GetCameraIdList RPC.
-func (c *Client) GetCameraIdList(ctx context.Context) (int64, error) {
+func (c *ManagerClient) GetCameraIdList(ctx context.Context) (int64, error) {
 	resp, err := c.svc.GetCameraIdList(ctx, &pb.GetCameraIdListRequest{})
 	if err != nil {
 		return 0, err
@@ -63,17 +63,8 @@ func (c *Client) GetCameraIdList(ctx context.Context) (int64, error) {
 	return resp.GetResult(), nil
 }
 
-// GetConcurrentCameraIds calls the GetConcurrentCameraIds RPC.
-func (c *Client) GetConcurrentCameraIds(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetConcurrentCameraIds(ctx, &pb.GetConcurrentCameraIdsRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
 // GetTorchStrengthLevel calls the GetTorchStrengthLevel RPC.
-func (c *Client) GetTorchStrengthLevel(ctx context.Context, arg0 string) (int32, error) {
+func (c *ManagerClient) GetTorchStrengthLevel(ctx context.Context, arg0 string) (int32, error) {
 	resp, err := c.svc.GetTorchStrengthLevel(ctx, &pb.GetTorchStrengthLevelRequest{
 		Arg0: arg0,
 	})
@@ -84,7 +75,7 @@ func (c *Client) GetTorchStrengthLevel(ctx context.Context, arg0 string) (int32,
 }
 
 // IsCameraDeviceSetupSupported calls the IsCameraDeviceSetupSupported RPC.
-func (c *Client) IsCameraDeviceSetupSupported(ctx context.Context, arg0 string) (bool, error) {
+func (c *ManagerClient) IsCameraDeviceSetupSupported(ctx context.Context, arg0 string) (bool, error) {
 	resp, err := c.svc.IsCameraDeviceSetupSupported(ctx, &pb.IsCameraDeviceSetupSupportedRequest{
 		Arg0: arg0,
 	})
@@ -94,19 +85,8 @@ func (c *Client) IsCameraDeviceSetupSupported(ctx context.Context, arg0 string) 
 	return resp.GetResult(), nil
 }
 
-// IsConcurrentSessionConfigurationSupported calls the IsConcurrentSessionConfigurationSupported RPC.
-func (c *Client) IsConcurrentSessionConfigurationSupported(ctx context.Context, arg0 int64) (bool, error) {
-	resp, err := c.svc.IsConcurrentSessionConfigurationSupported(ctx, &pb.IsConcurrentSessionConfigurationSupportedRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
 // OpenCamera calls the OpenCamera RPC.
-func (c *Client) OpenCamera(ctx context.Context, arg0 string, arg1 int64, arg2 int64) error {
+func (c *ManagerClient) OpenCamera(ctx context.Context, arg0 string, arg1 int64, arg2 int64) error {
 	_, err := c.svc.OpenCamera(ctx, &pb.OpenCameraRequest{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -116,7 +96,7 @@ func (c *Client) OpenCamera(ctx context.Context, arg0 string, arg1 int64, arg2 i
 }
 
 // RegisterAvailabilityCallback calls the RegisterAvailabilityCallback RPC.
-func (c *Client) RegisterAvailabilityCallback(ctx context.Context, arg0 int64, arg1 int64) error {
+func (c *ManagerClient) RegisterAvailabilityCallback(ctx context.Context, arg0 int64, arg1 int64) error {
 	_, err := c.svc.RegisterAvailabilityCallback(ctx, &pb.RegisterAvailabilityCallbackRequest{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -125,7 +105,7 @@ func (c *Client) RegisterAvailabilityCallback(ctx context.Context, arg0 int64, a
 }
 
 // RegisterTorchCallback calls the RegisterTorchCallback RPC.
-func (c *Client) RegisterTorchCallback(ctx context.Context, arg0 int64, arg1 int64) error {
+func (c *ManagerClient) RegisterTorchCallback(ctx context.Context, arg0 int64, arg1 int64) error {
 	_, err := c.svc.RegisterTorchCallback(ctx, &pb.RegisterTorchCallbackRequest{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -134,7 +114,7 @@ func (c *Client) RegisterTorchCallback(ctx context.Context, arg0 int64, arg1 int
 }
 
 // SetTorchMode calls the SetTorchMode RPC.
-func (c *Client) SetTorchMode(ctx context.Context, arg0 string, arg1 bool) error {
+func (c *ManagerClient) SetTorchMode(ctx context.Context, arg0 string, arg1 bool) error {
 	_, err := c.svc.SetTorchMode(ctx, &pb.SetTorchModeRequest{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -143,7 +123,7 @@ func (c *Client) SetTorchMode(ctx context.Context, arg0 string, arg1 bool) error
 }
 
 // TurnOnTorchWithStrengthLevel calls the TurnOnTorchWithStrengthLevel RPC.
-func (c *Client) TurnOnTorchWithStrengthLevel(ctx context.Context, arg0 string, arg1 int32) error {
+func (c *ManagerClient) TurnOnTorchWithStrengthLevel(ctx context.Context, arg0 string, arg1 int32) error {
 	_, err := c.svc.TurnOnTorchWithStrengthLevel(ctx, &pb.TurnOnTorchWithStrengthLevelRequest{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -152,7 +132,7 @@ func (c *Client) TurnOnTorchWithStrengthLevel(ctx context.Context, arg0 string, 
 }
 
 // UnregisterAvailabilityCallback calls the UnregisterAvailabilityCallback RPC.
-func (c *Client) UnregisterAvailabilityCallback(ctx context.Context, arg0 int64) error {
+func (c *ManagerClient) UnregisterAvailabilityCallback(ctx context.Context, arg0 int64) error {
 	_, err := c.svc.UnregisterAvailabilityCallback(ctx, &pb.UnregisterAvailabilityCallbackRequest{
 		Arg0: arg0,
 	})
@@ -160,7 +140,7 @@ func (c *Client) UnregisterAvailabilityCallback(ctx context.Context, arg0 int64)
 }
 
 // UnregisterTorchCallback calls the UnregisterTorchCallback RPC.
-func (c *Client) UnregisterTorchCallback(ctx context.Context, arg0 int64) error {
+func (c *ManagerClient) UnregisterTorchCallback(ctx context.Context, arg0 int64) error {
 	_, err := c.svc.UnregisterTorchCallback(ctx, &pb.UnregisterTorchCallbackRequest{
 		Arg0: arg0,
 	})

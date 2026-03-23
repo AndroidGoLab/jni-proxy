@@ -9,20 +9,20 @@ import (
 	"google.golang.org/grpc"
 )
 
-// Client wraps the gRPC ManagerService client.
-type Client struct {
+// ManagerClient wraps the gRPC ManagerService client.
+type ManagerClient struct {
 	svc pb.ManagerServiceClient
 }
 
-// NewClient creates a new battery client.
-func NewClient(cc grpc.ClientConnInterface) *Client {
-	return &Client{
+// NewManagerClient creates a new Manager client.
+func NewManagerClient(cc grpc.ClientConnInterface) *ManagerClient {
+	return &ManagerClient{
 		svc: pb.NewManagerServiceClient(cc),
 	}
 }
 
 // ComputeChargeTimeRemaining calls the ComputeChargeTimeRemaining RPC.
-func (c *Client) ComputeChargeTimeRemaining(ctx context.Context) (int64, error) {
+func (c *ManagerClient) ComputeChargeTimeRemaining(ctx context.Context) (int64, error) {
 	resp, err := c.svc.ComputeChargeTimeRemaining(ctx, &pb.ComputeChargeTimeRemainingRequest{})
 	if err != nil {
 		return 0, err
@@ -31,7 +31,7 @@ func (c *Client) ComputeChargeTimeRemaining(ctx context.Context) (int64, error) 
 }
 
 // GetIntProperty calls the GetIntProperty RPC.
-func (c *Client) GetIntProperty(ctx context.Context, arg0 int32) (int32, error) {
+func (c *ManagerClient) GetIntProperty(ctx context.Context, arg0 int32) (int32, error) {
 	resp, err := c.svc.GetIntProperty(ctx, &pb.GetIntPropertyRequest{
 		Arg0: arg0,
 	})
@@ -42,7 +42,7 @@ func (c *Client) GetIntProperty(ctx context.Context, arg0 int32) (int32, error) 
 }
 
 // GetLongProperty calls the GetLongProperty RPC.
-func (c *Client) GetLongProperty(ctx context.Context, arg0 int32) (int64, error) {
+func (c *ManagerClient) GetLongProperty(ctx context.Context, arg0 int32) (int64, error) {
 	resp, err := c.svc.GetLongProperty(ctx, &pb.GetLongPropertyRequest{
 		Arg0: arg0,
 	})
@@ -53,7 +53,7 @@ func (c *Client) GetLongProperty(ctx context.Context, arg0 int32) (int64, error)
 }
 
 // GetStringProperty calls the GetStringProperty RPC.
-func (c *Client) GetStringProperty(ctx context.Context, arg0 int32) (string, error) {
+func (c *ManagerClient) GetStringProperty(ctx context.Context, arg0 int32) (string, error) {
 	resp, err := c.svc.GetStringProperty(ctx, &pb.GetStringPropertyRequest{
 		Arg0: arg0,
 	})
@@ -64,7 +64,7 @@ func (c *Client) GetStringProperty(ctx context.Context, arg0 int32) (string, err
 }
 
 // IsCharging calls the IsCharging RPC.
-func (c *Client) IsCharging(ctx context.Context) (bool, error) {
+func (c *ManagerClient) IsCharging(ctx context.Context) (bool, error) {
 	resp, err := c.svc.IsCharging(ctx, &pb.IsChargingRequest{})
 	if err != nil {
 		return false, err

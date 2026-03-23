@@ -195,52 +195,6 @@ func (s *AudioManagerServer) GenerateAudioSessionId(_ context.Context, req *pb.G
 	return &pb.GenerateAudioSessionIdResponse{Result: result}, nil
 }
 
-func (s *AudioManagerServer) GetActivePlaybackConfigurations(_ context.Context, req *pb.GetActivePlaybackConfigurationsRequest) (*pb.GetActivePlaybackConfigurationsResponse, error) {
-	mgr, err := jnipkg.NewAudioManager(s.Ctx)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
-	}
-	defer mgr.Close()
-
-	result, err := mgr.GetActivePlaybackConfigurations()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	var handle int64
-	if result != nil {
-		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-			handle = s.Handles.Put(env, result)
-			return nil
-		}); doErr != nil {
-			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-		}
-	}
-	return &pb.GetActivePlaybackConfigurationsResponse{Result: handle}, nil
-}
-
-func (s *AudioManagerServer) GetActiveRecordingConfigurations(_ context.Context, req *pb.GetActiveRecordingConfigurationsRequest) (*pb.GetActiveRecordingConfigurationsResponse, error) {
-	mgr, err := jnipkg.NewAudioManager(s.Ctx)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
-	}
-	defer mgr.Close()
-
-	result, err := mgr.GetActiveRecordingConfigurations()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	var handle int64
-	if result != nil {
-		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-			handle = s.Handles.Put(env, result)
-			return nil
-		}); doErr != nil {
-			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-		}
-	}
-	return &pb.GetActiveRecordingConfigurationsResponse{Result: handle}, nil
-}
-
 func (s *AudioManagerServer) GetAllowedCapturePolicy(_ context.Context, req *pb.GetAllowedCapturePolicyRequest) (*pb.GetAllowedCapturePolicyResponse, error) {
 	mgr, err := jnipkg.NewAudioManager(s.Ctx)
 	if err != nil {
@@ -255,29 +209,6 @@ func (s *AudioManagerServer) GetAllowedCapturePolicy(_ context.Context, req *pb.
 	return &pb.GetAllowedCapturePolicyResponse{Result: result}, nil
 }
 
-func (s *AudioManagerServer) GetAudioDevicesForAttributes(_ context.Context, req *pb.GetAudioDevicesForAttributesRequest) (*pb.GetAudioDevicesForAttributesResponse, error) {
-	mgr, err := jnipkg.NewAudioManager(s.Ctx)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
-	}
-	defer mgr.Close()
-
-	result, err := mgr.GetAudioDevicesForAttributes(s.Handles.Get(req.GetArg0()))
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	var handle int64
-	if result != nil {
-		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-			handle = s.Handles.Put(env, result)
-			return nil
-		}); doErr != nil {
-			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-		}
-	}
-	return &pb.GetAudioDevicesForAttributesResponse{Result: handle}, nil
-}
-
 func (s *AudioManagerServer) GetAudioHwSyncForSession(_ context.Context, req *pb.GetAudioHwSyncForSessionRequest) (*pb.GetAudioHwSyncForSessionResponse, error) {
 	mgr, err := jnipkg.NewAudioManager(s.Ctx)
 	if err != nil {
@@ -290,29 +221,6 @@ func (s *AudioManagerServer) GetAudioHwSyncForSession(_ context.Context, req *pb
 		return nil, status.Errorf(codes.Internal, "%v", err)
 	}
 	return &pb.GetAudioHwSyncForSessionResponse{Result: result}, nil
-}
-
-func (s *AudioManagerServer) GetAvailableCommunicationDevices(_ context.Context, req *pb.GetAvailableCommunicationDevicesRequest) (*pb.GetAvailableCommunicationDevicesResponse, error) {
-	mgr, err := jnipkg.NewAudioManager(s.Ctx)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
-	}
-	defer mgr.Close()
-
-	result, err := mgr.GetAvailableCommunicationDevices()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	var handle int64
-	if result != nil {
-		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-			handle = s.Handles.Put(env, result)
-			return nil
-		}); doErr != nil {
-			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-		}
-	}
-	return &pb.GetAvailableCommunicationDevicesResponse{Result: handle}, nil
 }
 
 func (s *AudioManagerServer) GetCommunicationDevice(_ context.Context, req *pb.GetCommunicationDeviceRequest) (*pb.GetCommunicationDeviceResponse, error) {
@@ -361,29 +269,6 @@ func (s *AudioManagerServer) GetDevices(_ context.Context, req *pb.GetDevicesReq
 	return &pb.GetDevicesResponse{Result: handle}, nil
 }
 
-func (s *AudioManagerServer) GetDirectProfilesForAttributes(_ context.Context, req *pb.GetDirectProfilesForAttributesRequest) (*pb.GetDirectProfilesForAttributesResponse, error) {
-	mgr, err := jnipkg.NewAudioManager(s.Ctx)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
-	}
-	defer mgr.Close()
-
-	result, err := mgr.GetDirectProfilesForAttributes(s.Handles.Get(req.GetArg0()))
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	var handle int64
-	if result != nil {
-		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-			handle = s.Handles.Put(env, result)
-			return nil
-		}); doErr != nil {
-			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-		}
-	}
-	return &pb.GetDirectProfilesForAttributesResponse{Result: handle}, nil
-}
-
 func (s *AudioManagerServer) GetEncodedSurroundMode(_ context.Context, req *pb.GetEncodedSurroundModeRequest) (*pb.GetEncodedSurroundModeResponse, error) {
 	mgr, err := jnipkg.NewAudioManager(s.Ctx)
 	if err != nil {
@@ -396,29 +281,6 @@ func (s *AudioManagerServer) GetEncodedSurroundMode(_ context.Context, req *pb.G
 		return nil, status.Errorf(codes.Internal, "%v", err)
 	}
 	return &pb.GetEncodedSurroundModeResponse{Result: result}, nil
-}
-
-func (s *AudioManagerServer) GetMicrophones(_ context.Context, req *pb.GetMicrophonesRequest) (*pb.GetMicrophonesResponse, error) {
-	mgr, err := jnipkg.NewAudioManager(s.Ctx)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
-	}
-	defer mgr.Close()
-
-	result, err := mgr.GetMicrophones()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	var handle int64
-	if result != nil {
-		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-			handle = s.Handles.Put(env, result)
-			return nil
-		}); doErr != nil {
-			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-		}
-	}
-	return &pb.GetMicrophonesResponse{Result: handle}, nil
 }
 
 func (s *AudioManagerServer) GetMode(_ context.Context, req *pb.GetModeRequest) (*pb.GetModeResponse, error) {
@@ -591,52 +453,6 @@ func (s *AudioManagerServer) GetStreamVolumeDb(_ context.Context, req *pb.GetStr
 		return nil, status.Errorf(codes.Internal, "%v", err)
 	}
 	return &pb.GetStreamVolumeDbResponse{Result: result}, nil
-}
-
-func (s *AudioManagerServer) GetSupportedDeviceTypes(_ context.Context, req *pb.GetSupportedDeviceTypesRequest) (*pb.GetSupportedDeviceTypesResponse, error) {
-	mgr, err := jnipkg.NewAudioManager(s.Ctx)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
-	}
-	defer mgr.Close()
-
-	result, err := mgr.GetSupportedDeviceTypes(req.GetArg0())
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	var handle int64
-	if result != nil {
-		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-			handle = s.Handles.Put(env, result)
-			return nil
-		}); doErr != nil {
-			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-		}
-	}
-	return &pb.GetSupportedDeviceTypesResponse{Result: handle}, nil
-}
-
-func (s *AudioManagerServer) GetSupportedMixerAttributes(_ context.Context, req *pb.GetSupportedMixerAttributesRequest) (*pb.GetSupportedMixerAttributesResponse, error) {
-	mgr, err := jnipkg.NewAudioManager(s.Ctx)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
-	}
-	defer mgr.Close()
-
-	result, err := mgr.GetSupportedMixerAttributes(s.Handles.Get(req.GetArg0()))
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	var handle int64
-	if result != nil {
-		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-			handle = s.Handles.Put(env, result)
-			return nil
-		}); doErr != nil {
-			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-		}
-	}
-	return &pb.GetSupportedMixerAttributesResponse{Result: handle}, nil
 }
 
 func (s *AudioManagerServer) GetVibrateSetting(_ context.Context, req *pb.GetVibrateSettingRequest) (*pb.GetVibrateSettingResponse, error) {

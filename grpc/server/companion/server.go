@@ -159,52 +159,6 @@ func (s *DeviceManagerServer) EnableSystemDataSyncForTypes(_ context.Context, re
 	return &pb.EnableSystemDataSyncForTypesResponse{}, nil
 }
 
-func (s *DeviceManagerServer) GetAssociations(_ context.Context, req *pb.GetAssociationsRequest) (*pb.GetAssociationsResponse, error) {
-	mgr, err := jnipkg.NewDeviceManager(s.Ctx)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
-	}
-	defer mgr.Close()
-
-	result, err := mgr.GetAssociations()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	var handle int64
-	if result != nil {
-		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-			handle = s.Handles.Put(env, result)
-			return nil
-		}); doErr != nil {
-			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-		}
-	}
-	return &pb.GetAssociationsResponse{Result: handle}, nil
-}
-
-func (s *DeviceManagerServer) GetMyAssociations(_ context.Context, req *pb.GetMyAssociationsRequest) (*pb.GetMyAssociationsResponse, error) {
-	mgr, err := jnipkg.NewDeviceManager(s.Ctx)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
-	}
-	defer mgr.Close()
-
-	result, err := mgr.GetMyAssociations()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	var handle int64
-	if result != nil {
-		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-			handle = s.Handles.Put(env, result)
-			return nil
-		}); doErr != nil {
-			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-		}
-	}
-	return &pb.GetMyAssociationsResponse{Result: handle}, nil
-}
-
 func (s *DeviceManagerServer) HasNotificationAccess(_ context.Context, req *pb.HasNotificationAccessRequest) (*pb.HasNotificationAccessResponse, error) {
 	mgr, err := jnipkg.NewDeviceManager(s.Ctx)
 	if err != nil {
@@ -297,19 +251,6 @@ func (s *DeviceManagerServer) StartObservingDevicePresence1_1(_ context.Context,
 		return nil, status.Errorf(codes.Internal, "%v", err)
 	}
 	return &pb.StartObservingDevicePresence1_1Response{}, nil
-}
-
-func (s *DeviceManagerServer) StartSystemDataTransfer(_ context.Context, req *pb.StartSystemDataTransferRequest) (*pb.StartSystemDataTransferResponse, error) {
-	mgr, err := jnipkg.NewDeviceManager(s.Ctx)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
-	}
-	defer mgr.Close()
-
-	if err := mgr.StartSystemDataTransfer(req.GetArg0(), s.Handles.Get(req.GetArg1()), s.Handles.Get(req.GetArg2())); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.StartSystemDataTransferResponse{}, nil
 }
 
 func (s *DeviceManagerServer) StopObservingDevicePresence1(_ context.Context, req *pb.StopObservingDevicePresence1Request) (*pb.StopObservingDevicePresence1Response, error) {

@@ -12,6 +12,364 @@ var netCmd = &cobra.Command{
 	Short: "net service operations",
 }
 
+var netConnectivityDiagnosticsManagerCmd = &cobra.Command{
+	Use:   "connectivity-diagnostics-manager",
+	Short: "ConnectivityDiagnosticsManagerService operations",
+}
+
+var netConnectivityDiagnosticsManagerRegisterConnectivityDiagnosticsCallbackCmd = &cobra.Command{
+	Use:   "register-connectivity-diagnostics-callback",
+	Short: "RegisterConnectivityDiagnosticsCallback RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewConnectivityDiagnosticsManagerServiceClient(grpcConn)
+		req := &pb.RegisterConnectivityDiagnosticsCallbackRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.RegisterConnectivityDiagnosticsCallback(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var netConnectivityDiagnosticsManagerUnregisterConnectivityDiagnosticsCallbackCmd = &cobra.Command{
+	Use:   "unregister-connectivity-diagnostics-callback",
+	Short: "UnregisterConnectivityDiagnosticsCallback RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewConnectivityDiagnosticsManagerServiceClient(grpcConn)
+		req := &pb.UnregisterConnectivityDiagnosticsCallbackRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.UnregisterConnectivityDiagnosticsCallback(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var netIpSecManagerCmd = &cobra.Command{
+	Use:   "ip-sec-manager",
+	Short: "IpSecManagerService operations",
+}
+
+var netIpSecManagerAllocateSecurityParameterIndex1Cmd = &cobra.Command{
+	Use:   "allocate-security-parameter-index1",
+	Short: "AllocateSecurityParameterIndex1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewIpSecManagerServiceClient(grpcConn)
+		req := &pb.AllocateSecurityParameterIndex1Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.AllocateSecurityParameterIndex1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var netIpSecManagerAllocateSecurityParameterIndex2_1Cmd = &cobra.Command{
+	Use:   "allocate-security-parameter-index2_1",
+	Short: "AllocateSecurityParameterIndex2_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewIpSecManagerServiceClient(grpcConn)
+		req := &pb.AllocateSecurityParameterIndex2_1Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.AllocateSecurityParameterIndex2_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var netIpSecManagerApplyTransportModeTransform3Cmd = &cobra.Command{
+	Use:   "apply-transport-mode-transform3",
+	Short: "ApplyTransportModeTransform3 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewIpSecManagerServiceClient(grpcConn)
+		req := &pb.ApplyTransportModeTransform3Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.ApplyTransportModeTransform3(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var netIpSecManagerApplyTransportModeTransform3_1Cmd = &cobra.Command{
+	Use:   "apply-transport-mode-transform3_1",
+	Short: "ApplyTransportModeTransform3_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewIpSecManagerServiceClient(grpcConn)
+		req := &pb.ApplyTransportModeTransform3_1Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.ApplyTransportModeTransform3_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var netIpSecManagerApplyTransportModeTransform3_2Cmd = &cobra.Command{
+	Use:   "apply-transport-mode-transform3_2",
+	Short: "ApplyTransportModeTransform3_2 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewIpSecManagerServiceClient(grpcConn)
+		req := &pb.ApplyTransportModeTransform3_2Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.ApplyTransportModeTransform3_2(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var netIpSecManagerOpenUdpEncapsulationSocket0Cmd = &cobra.Command{
+	Use:   "open-udp-encapsulation-socket0",
+	Short: "OpenUdpEncapsulationSocket0 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewIpSecManagerServiceClient(grpcConn)
+		req := &pb.OpenUdpEncapsulationSocket0Request{}
+		resp, err := client.OpenUdpEncapsulationSocket0(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var netIpSecManagerOpenUdpEncapsulationSocket1_1Cmd = &cobra.Command{
+	Use:   "open-udp-encapsulation-socket1_1",
+	Short: "OpenUdpEncapsulationSocket1_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewIpSecManagerServiceClient(grpcConn)
+		req := &pb.OpenUdpEncapsulationSocket1_1Request{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.OpenUdpEncapsulationSocket1_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var netIpSecManagerRemoveTransportModeTransforms1Cmd = &cobra.Command{
+	Use:   "remove-transport-mode-transforms1",
+	Short: "RemoveTransportModeTransforms1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewIpSecManagerServiceClient(grpcConn)
+		req := &pb.RemoveTransportModeTransforms1Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.RemoveTransportModeTransforms1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var netIpSecManagerRemoveTransportModeTransforms1_1Cmd = &cobra.Command{
+	Use:   "remove-transport-mode-transforms1_1",
+	Short: "RemoveTransportModeTransforms1_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewIpSecManagerServiceClient(grpcConn)
+		req := &pb.RemoveTransportModeTransforms1_1Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.RemoveTransportModeTransforms1_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var netIpSecManagerRemoveTransportModeTransforms1_2Cmd = &cobra.Command{
+	Use:   "remove-transport-mode-transforms1_2",
+	Short: "RemoveTransportModeTransforms1_2 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewIpSecManagerServiceClient(grpcConn)
+		req := &pb.RemoveTransportModeTransforms1_2Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.RemoveTransportModeTransforms1_2(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var netTetheringManagerCmd = &cobra.Command{
+	Use:   "tethering-manager",
+	Short: "TetheringManagerService operations",
+}
+
+var netTetheringManagerRegisterTetheringEventCallbackCmd = &cobra.Command{
+	Use:   "register-tethering-event-callback",
+	Short: "RegisterTetheringEventCallback RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTetheringManagerServiceClient(grpcConn)
+		req := &pb.RegisterTetheringEventCallbackRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.RegisterTetheringEventCallback(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var netTetheringManagerStartTetheringCmd = &cobra.Command{
+	Use:   "start-tethering",
+	Short: "StartTethering RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTetheringManagerServiceClient(grpcConn)
+		req := &pb.StartTetheringRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.StartTethering(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var netTetheringManagerStopTetheringCmd = &cobra.Command{
+	Use:   "stop-tethering",
+	Short: "StopTethering RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTetheringManagerServiceClient(grpcConn)
+		req := &pb.StopTetheringRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.StopTethering(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var netTetheringManagerUnregisterTetheringEventCallbackCmd = &cobra.Command{
+	Use:   "unregister-tethering-event-callback",
+	Short: "UnregisterTetheringEventCallback RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTetheringManagerServiceClient(grpcConn)
+		req := &pb.UnregisterTetheringEventCallbackRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.UnregisterTetheringEventCallback(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
 var netConnectivityManagerCmd = &cobra.Command{
 	Use:   "connectivity-manager",
 	Short: "ConnectivityManagerService operations",
@@ -742,302 +1100,55 @@ var netConnectivityManagerSetProcessDefaultNetworkCmd = &cobra.Command{
 	},
 }
 
-var netNetworkCapabilitiesCmd = &cobra.Command{
-	Use:   "network-capabilities",
-	Short: "NetworkCapabilitiesService operations",
-}
-
-var netNetworkCapabilitiesDescribeContentsCmd = &cobra.Command{
-	Use:   "describe-contents",
-	Short: "DescribeContents RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewNetworkCapabilitiesServiceClient(grpcConn)
-		req := &pb.DescribeContentsRequest{}
-		resp, err := client.DescribeContents(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var netNetworkCapabilitiesEqualsCmd = &cobra.Command{
-	Use:   "equals",
-	Short: "Equals RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewNetworkCapabilitiesServiceClient(grpcConn)
-		req := &pb.EqualsRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.Equals(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var netNetworkCapabilitiesGetCapabilitiesCmd = &cobra.Command{
-	Use:   "get-capabilities",
-	Short: "GetCapabilities RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewNetworkCapabilitiesServiceClient(grpcConn)
-		req := &pb.GetCapabilitiesRequest{}
-		resp, err := client.GetCapabilities(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var netNetworkCapabilitiesGetEnterpriseIdsCmd = &cobra.Command{
-	Use:   "get-enterprise-ids",
-	Short: "GetEnterpriseIds RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewNetworkCapabilitiesServiceClient(grpcConn)
-		req := &pb.GetEnterpriseIdsRequest{}
-		resp, err := client.GetEnterpriseIds(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var netNetworkCapabilitiesGetLinkDownstreamBandwidthKbpsCmd = &cobra.Command{
-	Use:   "get-link-downstream-bandwidth-kbps",
-	Short: "GetLinkDownstreamBandwidthKbps RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewNetworkCapabilitiesServiceClient(grpcConn)
-		req := &pb.GetLinkDownstreamBandwidthKbpsRequest{}
-		resp, err := client.GetLinkDownstreamBandwidthKbps(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var netNetworkCapabilitiesGetLinkUpstreamBandwidthKbpsCmd = &cobra.Command{
-	Use:   "get-link-upstream-bandwidth-kbps",
-	Short: "GetLinkUpstreamBandwidthKbps RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewNetworkCapabilitiesServiceClient(grpcConn)
-		req := &pb.GetLinkUpstreamBandwidthKbpsRequest{}
-		resp, err := client.GetLinkUpstreamBandwidthKbps(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var netNetworkCapabilitiesGetNetworkSpecifierCmd = &cobra.Command{
-	Use:   "get-network-specifier",
-	Short: "GetNetworkSpecifier RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewNetworkCapabilitiesServiceClient(grpcConn)
-		req := &pb.GetNetworkSpecifierRequest{}
-		resp, err := client.GetNetworkSpecifier(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var netNetworkCapabilitiesGetOwnerUidCmd = &cobra.Command{
-	Use:   "get-owner-uid",
-	Short: "GetOwnerUid RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewNetworkCapabilitiesServiceClient(grpcConn)
-		req := &pb.GetOwnerUidRequest{}
-		resp, err := client.GetOwnerUid(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var netNetworkCapabilitiesGetSignalStrengthCmd = &cobra.Command{
-	Use:   "get-signal-strength",
-	Short: "GetSignalStrength RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewNetworkCapabilitiesServiceClient(grpcConn)
-		req := &pb.GetSignalStrengthRequest{}
-		resp, err := client.GetSignalStrength(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var netNetworkCapabilitiesGetSubscriptionIdsCmd = &cobra.Command{
-	Use:   "get-subscription-ids",
-	Short: "GetSubscriptionIds RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewNetworkCapabilitiesServiceClient(grpcConn)
-		req := &pb.GetSubscriptionIdsRequest{}
-		resp, err := client.GetSubscriptionIds(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var netNetworkCapabilitiesGetTransportInfoCmd = &cobra.Command{
-	Use:   "get-transport-info",
-	Short: "GetTransportInfo RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewNetworkCapabilitiesServiceClient(grpcConn)
-		req := &pb.GetTransportInfoRequest{}
-		resp, err := client.GetTransportInfo(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var netNetworkCapabilitiesHasCapabilityCmd = &cobra.Command{
-	Use:   "has-capability",
-	Short: "HasCapability RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewNetworkCapabilitiesServiceClient(grpcConn)
-		req := &pb.HasCapabilityRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.HasCapability(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var netNetworkCapabilitiesHasEnterpriseIdCmd = &cobra.Command{
-	Use:   "has-enterprise-id",
-	Short: "HasEnterpriseId RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewNetworkCapabilitiesServiceClient(grpcConn)
-		req := &pb.HasEnterpriseIdRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.HasEnterpriseId(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var netNetworkCapabilitiesHasTransportCmd = &cobra.Command{
-	Use:   "has-transport",
-	Short: "HasTransport RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewNetworkCapabilitiesServiceClient(grpcConn)
-		req := &pb.HasTransportRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.HasTransport(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var netNetworkCapabilitiesHashCodeCmd = &cobra.Command{
-	Use:   "hash-code",
-	Short: "HashCode RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewNetworkCapabilitiesServiceClient(grpcConn)
-		req := &pb.HashCodeRequest{}
-		resp, err := client.HashCode(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var netNetworkCapabilitiesToStringCmd = &cobra.Command{
-	Use:   "to-string",
-	Short: "ToString RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewNetworkCapabilitiesServiceClient(grpcConn)
-		req := &pb.ToStringRequest{}
-		resp, err := client.ToString(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var netNetworkCapabilitiesWriteToParcelCmd = &cobra.Command{
-	Use:   "write-to-parcel",
-	Short: "WriteToParcel RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewNetworkCapabilitiesServiceClient(grpcConn)
-		req := &pb.WriteToParcelRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.WriteToParcel(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
 func init() {
+	netConnectivityDiagnosticsManagerRegisterConnectivityDiagnosticsCallbackCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	netConnectivityDiagnosticsManagerRegisterConnectivityDiagnosticsCallbackCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	netConnectivityDiagnosticsManagerRegisterConnectivityDiagnosticsCallbackCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	netConnectivityDiagnosticsManagerCmd.AddCommand(netConnectivityDiagnosticsManagerRegisterConnectivityDiagnosticsCallbackCmd)
+	netConnectivityDiagnosticsManagerUnregisterConnectivityDiagnosticsCallbackCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	netConnectivityDiagnosticsManagerCmd.AddCommand(netConnectivityDiagnosticsManagerUnregisterConnectivityDiagnosticsCallbackCmd)
+	netCmd.AddCommand(netConnectivityDiagnosticsManagerCmd)
+	netIpSecManagerAllocateSecurityParameterIndex1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	netIpSecManagerCmd.AddCommand(netIpSecManagerAllocateSecurityParameterIndex1Cmd)
+	netIpSecManagerAllocateSecurityParameterIndex2_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	netIpSecManagerAllocateSecurityParameterIndex2_1Cmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	netIpSecManagerCmd.AddCommand(netIpSecManagerAllocateSecurityParameterIndex2_1Cmd)
+	netIpSecManagerApplyTransportModeTransform3Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	netIpSecManagerApplyTransportModeTransform3Cmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	netIpSecManagerApplyTransportModeTransform3Cmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	netIpSecManagerCmd.AddCommand(netIpSecManagerApplyTransportModeTransform3Cmd)
+	netIpSecManagerApplyTransportModeTransform3_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	netIpSecManagerApplyTransportModeTransform3_1Cmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	netIpSecManagerApplyTransportModeTransform3_1Cmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	netIpSecManagerCmd.AddCommand(netIpSecManagerApplyTransportModeTransform3_1Cmd)
+	netIpSecManagerApplyTransportModeTransform3_2Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	netIpSecManagerApplyTransportModeTransform3_2Cmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	netIpSecManagerApplyTransportModeTransform3_2Cmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	netIpSecManagerCmd.AddCommand(netIpSecManagerApplyTransportModeTransform3_2Cmd)
+	netIpSecManagerCmd.AddCommand(netIpSecManagerOpenUdpEncapsulationSocket0Cmd)
+	netIpSecManagerOpenUdpEncapsulationSocket1_1Cmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	netIpSecManagerCmd.AddCommand(netIpSecManagerOpenUdpEncapsulationSocket1_1Cmd)
+	netIpSecManagerRemoveTransportModeTransforms1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	netIpSecManagerCmd.AddCommand(netIpSecManagerRemoveTransportModeTransforms1Cmd)
+	netIpSecManagerRemoveTransportModeTransforms1_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	netIpSecManagerCmd.AddCommand(netIpSecManagerRemoveTransportModeTransforms1_1Cmd)
+	netIpSecManagerRemoveTransportModeTransforms1_2Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	netIpSecManagerCmd.AddCommand(netIpSecManagerRemoveTransportModeTransforms1_2Cmd)
+	netCmd.AddCommand(netIpSecManagerCmd)
+	netTetheringManagerRegisterTetheringEventCallbackCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	netTetheringManagerRegisterTetheringEventCallbackCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	netTetheringManagerCmd.AddCommand(netTetheringManagerRegisterTetheringEventCallbackCmd)
+	netTetheringManagerStartTetheringCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	netTetheringManagerStartTetheringCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	netTetheringManagerStartTetheringCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	netTetheringManagerCmd.AddCommand(netTetheringManagerStartTetheringCmd)
+	netTetheringManagerStopTetheringCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	netTetheringManagerStopTetheringCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	netTetheringManagerStopTetheringCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	netTetheringManagerCmd.AddCommand(netTetheringManagerStopTetheringCmd)
+	netTetheringManagerUnregisterTetheringEventCallbackCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	netTetheringManagerCmd.AddCommand(netTetheringManagerUnregisterTetheringEventCallbackCmd)
+	netCmd.AddCommand(netTetheringManagerCmd)
 	netConnectivityManagerAddDefaultNetworkActiveListenerCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	netConnectivityManagerCmd.AddCommand(netConnectivityManagerAddDefaultNetworkActiveListenerCmd)
 	netConnectivityManagerBindProcessToNetworkCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
@@ -1116,29 +1227,5 @@ func init() {
 	netConnectivityManagerSetProcessDefaultNetworkCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	netConnectivityManagerCmd.AddCommand(netConnectivityManagerSetProcessDefaultNetworkCmd)
 	netCmd.AddCommand(netConnectivityManagerCmd)
-	netNetworkCapabilitiesCmd.AddCommand(netNetworkCapabilitiesDescribeContentsCmd)
-	netNetworkCapabilitiesEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	netNetworkCapabilitiesCmd.AddCommand(netNetworkCapabilitiesEqualsCmd)
-	netNetworkCapabilitiesCmd.AddCommand(netNetworkCapabilitiesGetCapabilitiesCmd)
-	netNetworkCapabilitiesCmd.AddCommand(netNetworkCapabilitiesGetEnterpriseIdsCmd)
-	netNetworkCapabilitiesCmd.AddCommand(netNetworkCapabilitiesGetLinkDownstreamBandwidthKbpsCmd)
-	netNetworkCapabilitiesCmd.AddCommand(netNetworkCapabilitiesGetLinkUpstreamBandwidthKbpsCmd)
-	netNetworkCapabilitiesCmd.AddCommand(netNetworkCapabilitiesGetNetworkSpecifierCmd)
-	netNetworkCapabilitiesCmd.AddCommand(netNetworkCapabilitiesGetOwnerUidCmd)
-	netNetworkCapabilitiesCmd.AddCommand(netNetworkCapabilitiesGetSignalStrengthCmd)
-	netNetworkCapabilitiesCmd.AddCommand(netNetworkCapabilitiesGetSubscriptionIdsCmd)
-	netNetworkCapabilitiesCmd.AddCommand(netNetworkCapabilitiesGetTransportInfoCmd)
-	netNetworkCapabilitiesHasCapabilityCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	netNetworkCapabilitiesCmd.AddCommand(netNetworkCapabilitiesHasCapabilityCmd)
-	netNetworkCapabilitiesHasEnterpriseIdCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	netNetworkCapabilitiesCmd.AddCommand(netNetworkCapabilitiesHasEnterpriseIdCmd)
-	netNetworkCapabilitiesHasTransportCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	netNetworkCapabilitiesCmd.AddCommand(netNetworkCapabilitiesHasTransportCmd)
-	netNetworkCapabilitiesCmd.AddCommand(netNetworkCapabilitiesHashCodeCmd)
-	netNetworkCapabilitiesCmd.AddCommand(netNetworkCapabilitiesToStringCmd)
-	netNetworkCapabilitiesWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	netNetworkCapabilitiesWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	netNetworkCapabilitiesCmd.AddCommand(netNetworkCapabilitiesWriteToParcelCmd)
-	netCmd.AddCommand(netNetworkCapabilitiesCmd)
 	rootCmd.AddCommand(netCmd)
 }

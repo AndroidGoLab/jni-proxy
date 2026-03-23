@@ -9,29 +9,20 @@ import (
 	"google.golang.org/grpc"
 )
 
-// Client wraps the gRPC ManagerService client.
-type Client struct {
+// ManagerClient wraps the gRPC ManagerService client.
+type ManagerClient struct {
 	svc pb.ManagerServiceClient
 }
 
-// NewClient creates a new print client.
-func NewClient(cc grpc.ClientConnInterface) *Client {
-	return &Client{
+// NewManagerClient creates a new Manager client.
+func NewManagerClient(cc grpc.ClientConnInterface) *ManagerClient {
+	return &ManagerClient{
 		svc: pb.NewManagerServiceClient(cc),
 	}
 }
 
-// GetPrintJobs calls the GetPrintJobs RPC.
-func (c *Client) GetPrintJobs(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetPrintJobs(ctx, &pb.GetPrintJobsRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
 // IsPrintServiceEnabled calls the IsPrintServiceEnabled RPC.
-func (c *Client) IsPrintServiceEnabled(ctx context.Context, arg0 int64) (bool, error) {
+func (c *ManagerClient) IsPrintServiceEnabled(ctx context.Context, arg0 int64) (bool, error) {
 	resp, err := c.svc.IsPrintServiceEnabled(ctx, &pb.IsPrintServiceEnabledRequest{
 		Arg0: arg0,
 	})
@@ -42,7 +33,7 @@ func (c *Client) IsPrintServiceEnabled(ctx context.Context, arg0 int64) (bool, e
 }
 
 // Print calls the Print RPC.
-func (c *Client) Print(ctx context.Context, arg0 string, arg1 int64, arg2 int64) (int64, error) {
+func (c *ManagerClient) Print(ctx context.Context, arg0 string, arg1 int64, arg2 int64) (int64, error) {
 	resp, err := c.svc.Print(ctx, &pb.PrintRequest{
 		Arg0: arg0,
 		Arg1: arg1,

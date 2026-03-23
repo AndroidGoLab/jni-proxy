@@ -21,21 +21,19 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
-	ManagerService_GetCameraCharacteristics_FullMethodName                  = "/camera.ManagerService/GetCameraCharacteristics"
-	ManagerService_GetCameraDeviceSetup_FullMethodName                      = "/camera.ManagerService/GetCameraDeviceSetup"
-	ManagerService_GetCameraExtensionCharacteristics_FullMethodName         = "/camera.ManagerService/GetCameraExtensionCharacteristics"
-	ManagerService_GetCameraIdList_FullMethodName                           = "/camera.ManagerService/GetCameraIdList"
-	ManagerService_GetConcurrentCameraIds_FullMethodName                    = "/camera.ManagerService/GetConcurrentCameraIds"
-	ManagerService_GetTorchStrengthLevel_FullMethodName                     = "/camera.ManagerService/GetTorchStrengthLevel"
-	ManagerService_IsCameraDeviceSetupSupported_FullMethodName              = "/camera.ManagerService/IsCameraDeviceSetupSupported"
-	ManagerService_IsConcurrentSessionConfigurationSupported_FullMethodName = "/camera.ManagerService/IsConcurrentSessionConfigurationSupported"
-	ManagerService_OpenCamera_FullMethodName                                = "/camera.ManagerService/OpenCamera"
-	ManagerService_RegisterAvailabilityCallback_FullMethodName              = "/camera.ManagerService/RegisterAvailabilityCallback"
-	ManagerService_RegisterTorchCallback_FullMethodName                     = "/camera.ManagerService/RegisterTorchCallback"
-	ManagerService_SetTorchMode_FullMethodName                              = "/camera.ManagerService/SetTorchMode"
-	ManagerService_TurnOnTorchWithStrengthLevel_FullMethodName              = "/camera.ManagerService/TurnOnTorchWithStrengthLevel"
-	ManagerService_UnregisterAvailabilityCallback_FullMethodName            = "/camera.ManagerService/UnregisterAvailabilityCallback"
-	ManagerService_UnregisterTorchCallback_FullMethodName                   = "/camera.ManagerService/UnregisterTorchCallback"
+	ManagerService_GetCameraCharacteristics_FullMethodName          = "/camera.ManagerService/GetCameraCharacteristics"
+	ManagerService_GetCameraDeviceSetup_FullMethodName              = "/camera.ManagerService/GetCameraDeviceSetup"
+	ManagerService_GetCameraExtensionCharacteristics_FullMethodName = "/camera.ManagerService/GetCameraExtensionCharacteristics"
+	ManagerService_GetCameraIdList_FullMethodName                   = "/camera.ManagerService/GetCameraIdList"
+	ManagerService_GetTorchStrengthLevel_FullMethodName             = "/camera.ManagerService/GetTorchStrengthLevel"
+	ManagerService_IsCameraDeviceSetupSupported_FullMethodName      = "/camera.ManagerService/IsCameraDeviceSetupSupported"
+	ManagerService_OpenCamera_FullMethodName                        = "/camera.ManagerService/OpenCamera"
+	ManagerService_RegisterAvailabilityCallback_FullMethodName      = "/camera.ManagerService/RegisterAvailabilityCallback"
+	ManagerService_RegisterTorchCallback_FullMethodName             = "/camera.ManagerService/RegisterTorchCallback"
+	ManagerService_SetTorchMode_FullMethodName                      = "/camera.ManagerService/SetTorchMode"
+	ManagerService_TurnOnTorchWithStrengthLevel_FullMethodName      = "/camera.ManagerService/TurnOnTorchWithStrengthLevel"
+	ManagerService_UnregisterAvailabilityCallback_FullMethodName    = "/camera.ManagerService/UnregisterAvailabilityCallback"
+	ManagerService_UnregisterTorchCallback_FullMethodName           = "/camera.ManagerService/UnregisterTorchCallback"
 )
 
 // ManagerServiceClient is the client API for ManagerService service.
@@ -46,10 +44,8 @@ type ManagerServiceClient interface {
 	GetCameraDeviceSetup(ctx context.Context, in *GetCameraDeviceSetupRequest, opts ...grpc.CallOption) (*GetCameraDeviceSetupResponse, error)
 	GetCameraExtensionCharacteristics(ctx context.Context, in *GetCameraExtensionCharacteristicsRequest, opts ...grpc.CallOption) (*GetCameraExtensionCharacteristicsResponse, error)
 	GetCameraIdList(ctx context.Context, in *GetCameraIdListRequest, opts ...grpc.CallOption) (*GetCameraIdListResponse, error)
-	GetConcurrentCameraIds(ctx context.Context, in *GetConcurrentCameraIdsRequest, opts ...grpc.CallOption) (*GetConcurrentCameraIdsResponse, error)
 	GetTorchStrengthLevel(ctx context.Context, in *GetTorchStrengthLevelRequest, opts ...grpc.CallOption) (*GetTorchStrengthLevelResponse, error)
 	IsCameraDeviceSetupSupported(ctx context.Context, in *IsCameraDeviceSetupSupportedRequest, opts ...grpc.CallOption) (*IsCameraDeviceSetupSupportedResponse, error)
-	IsConcurrentSessionConfigurationSupported(ctx context.Context, in *IsConcurrentSessionConfigurationSupportedRequest, opts ...grpc.CallOption) (*IsConcurrentSessionConfigurationSupportedResponse, error)
 	OpenCamera(ctx context.Context, in *OpenCameraRequest, opts ...grpc.CallOption) (*OpenCameraResponse, error)
 	RegisterAvailabilityCallback(ctx context.Context, in *RegisterAvailabilityCallbackRequest, opts ...grpc.CallOption) (*RegisterAvailabilityCallbackResponse, error)
 	RegisterTorchCallback(ctx context.Context, in *RegisterTorchCallbackRequest, opts ...grpc.CallOption) (*RegisterTorchCallbackResponse, error)
@@ -107,16 +103,6 @@ func (c *managerServiceClient) GetCameraIdList(ctx context.Context, in *GetCamer
 	return out, nil
 }
 
-func (c *managerServiceClient) GetConcurrentCameraIds(ctx context.Context, in *GetConcurrentCameraIdsRequest, opts ...grpc.CallOption) (*GetConcurrentCameraIdsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetConcurrentCameraIdsResponse)
-	err := c.cc.Invoke(ctx, ManagerService_GetConcurrentCameraIds_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
 func (c *managerServiceClient) GetTorchStrengthLevel(ctx context.Context, in *GetTorchStrengthLevelRequest, opts ...grpc.CallOption) (*GetTorchStrengthLevelResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(GetTorchStrengthLevelResponse)
@@ -131,16 +117,6 @@ func (c *managerServiceClient) IsCameraDeviceSetupSupported(ctx context.Context,
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(IsCameraDeviceSetupSupportedResponse)
 	err := c.cc.Invoke(ctx, ManagerService_IsCameraDeviceSetupSupported_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *managerServiceClient) IsConcurrentSessionConfigurationSupported(ctx context.Context, in *IsConcurrentSessionConfigurationSupportedRequest, opts ...grpc.CallOption) (*IsConcurrentSessionConfigurationSupportedResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(IsConcurrentSessionConfigurationSupportedResponse)
-	err := c.cc.Invoke(ctx, ManagerService_IsConcurrentSessionConfigurationSupported_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
@@ -225,10 +201,8 @@ type ManagerServiceServer interface {
 	GetCameraDeviceSetup(context.Context, *GetCameraDeviceSetupRequest) (*GetCameraDeviceSetupResponse, error)
 	GetCameraExtensionCharacteristics(context.Context, *GetCameraExtensionCharacteristicsRequest) (*GetCameraExtensionCharacteristicsResponse, error)
 	GetCameraIdList(context.Context, *GetCameraIdListRequest) (*GetCameraIdListResponse, error)
-	GetConcurrentCameraIds(context.Context, *GetConcurrentCameraIdsRequest) (*GetConcurrentCameraIdsResponse, error)
 	GetTorchStrengthLevel(context.Context, *GetTorchStrengthLevelRequest) (*GetTorchStrengthLevelResponse, error)
 	IsCameraDeviceSetupSupported(context.Context, *IsCameraDeviceSetupSupportedRequest) (*IsCameraDeviceSetupSupportedResponse, error)
-	IsConcurrentSessionConfigurationSupported(context.Context, *IsConcurrentSessionConfigurationSupportedRequest) (*IsConcurrentSessionConfigurationSupportedResponse, error)
 	OpenCamera(context.Context, *OpenCameraRequest) (*OpenCameraResponse, error)
 	RegisterAvailabilityCallback(context.Context, *RegisterAvailabilityCallbackRequest) (*RegisterAvailabilityCallbackResponse, error)
 	RegisterTorchCallback(context.Context, *RegisterTorchCallbackRequest) (*RegisterTorchCallbackResponse, error)
@@ -258,17 +232,11 @@ func (UnimplementedManagerServiceServer) GetCameraExtensionCharacteristics(conte
 func (UnimplementedManagerServiceServer) GetCameraIdList(context.Context, *GetCameraIdListRequest) (*GetCameraIdListResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetCameraIdList not implemented")
 }
-func (UnimplementedManagerServiceServer) GetConcurrentCameraIds(context.Context, *GetConcurrentCameraIdsRequest) (*GetConcurrentCameraIdsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetConcurrentCameraIds not implemented")
-}
 func (UnimplementedManagerServiceServer) GetTorchStrengthLevel(context.Context, *GetTorchStrengthLevelRequest) (*GetTorchStrengthLevelResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetTorchStrengthLevel not implemented")
 }
 func (UnimplementedManagerServiceServer) IsCameraDeviceSetupSupported(context.Context, *IsCameraDeviceSetupSupportedRequest) (*IsCameraDeviceSetupSupportedResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method IsCameraDeviceSetupSupported not implemented")
-}
-func (UnimplementedManagerServiceServer) IsConcurrentSessionConfigurationSupported(context.Context, *IsConcurrentSessionConfigurationSupportedRequest) (*IsConcurrentSessionConfigurationSupportedResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method IsConcurrentSessionConfigurationSupported not implemented")
 }
 func (UnimplementedManagerServiceServer) OpenCamera(context.Context, *OpenCameraRequest) (*OpenCameraResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method OpenCamera not implemented")
@@ -384,24 +352,6 @@ func _ManagerService_GetCameraIdList_Handler(srv interface{}, ctx context.Contex
 	return interceptor(ctx, in, info, handler)
 }
 
-func _ManagerService_GetConcurrentCameraIds_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetConcurrentCameraIdsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ManagerServiceServer).GetConcurrentCameraIds(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ManagerService_GetConcurrentCameraIds_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ManagerServiceServer).GetConcurrentCameraIds(ctx, req.(*GetConcurrentCameraIdsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
 func _ManagerService_GetTorchStrengthLevel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(GetTorchStrengthLevelRequest)
 	if err := dec(in); err != nil {
@@ -434,24 +384,6 @@ func _ManagerService_IsCameraDeviceSetupSupported_Handler(srv interface{}, ctx c
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(ManagerServiceServer).IsCameraDeviceSetupSupported(ctx, req.(*IsCameraDeviceSetupSupportedRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ManagerService_IsConcurrentSessionConfigurationSupported_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(IsConcurrentSessionConfigurationSupportedRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ManagerServiceServer).IsConcurrentSessionConfigurationSupported(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ManagerService_IsConcurrentSessionConfigurationSupported_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ManagerServiceServer).IsConcurrentSessionConfigurationSupported(ctx, req.(*IsConcurrentSessionConfigurationSupportedRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -606,20 +538,12 @@ var ManagerService_ServiceDesc = grpc.ServiceDesc{
 			Handler:    _ManagerService_GetCameraIdList_Handler,
 		},
 		{
-			MethodName: "GetConcurrentCameraIds",
-			Handler:    _ManagerService_GetConcurrentCameraIds_Handler,
-		},
-		{
 			MethodName: "GetTorchStrengthLevel",
 			Handler:    _ManagerService_GetTorchStrengthLevel_Handler,
 		},
 		{
 			MethodName: "IsCameraDeviceSetupSupported",
 			Handler:    _ManagerService_IsCameraDeviceSetupSupported_Handler,
-		},
-		{
-			MethodName: "IsConcurrentSessionConfigurationSupported",
-			Handler:    _ManagerService_IsConcurrentSessionConfigurationSupported_Handler,
 		},
 		{
 			MethodName: "OpenCamera",

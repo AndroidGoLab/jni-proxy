@@ -9,20 +9,20 @@ import (
 	"google.golang.org/grpc"
 )
 
-// Client wraps the gRPC ManagerService client.
-type Client struct {
+// ManagerClient wraps the gRPC ManagerService client.
+type ManagerClient struct {
 	svc pb.ManagerServiceClient
 }
 
-// NewClient creates a new notification client.
-func NewClient(cc grpc.ClientConnInterface) *Client {
-	return &Client{
+// NewManagerClient creates a new Manager client.
+func NewManagerClient(cc grpc.ClientConnInterface) *ManagerClient {
+	return &ManagerClient{
 		svc: pb.NewManagerServiceClient(cc),
 	}
 }
 
 // AddAutomaticZenRule calls the AddAutomaticZenRule RPC.
-func (c *Client) AddAutomaticZenRule(ctx context.Context, arg0 int64) (string, error) {
+func (c *ManagerClient) AddAutomaticZenRule(ctx context.Context, arg0 int64) (string, error) {
 	resp, err := c.svc.AddAutomaticZenRule(ctx, &pb.AddAutomaticZenRuleRequest{
 		Arg0: arg0,
 	})
@@ -33,7 +33,7 @@ func (c *Client) AddAutomaticZenRule(ctx context.Context, arg0 int64) (string, e
 }
 
 // AreAutomaticZenRulesUserManaged calls the AreAutomaticZenRulesUserManaged RPC.
-func (c *Client) AreAutomaticZenRulesUserManaged(ctx context.Context) (bool, error) {
+func (c *ManagerClient) AreAutomaticZenRulesUserManaged(ctx context.Context) (bool, error) {
 	resp, err := c.svc.AreAutomaticZenRulesUserManaged(ctx, &pb.AreAutomaticZenRulesUserManagedRequest{})
 	if err != nil {
 		return false, err
@@ -42,7 +42,7 @@ func (c *Client) AreAutomaticZenRulesUserManaged(ctx context.Context) (bool, err
 }
 
 // AreBubblesAllowed calls the AreBubblesAllowed RPC.
-func (c *Client) AreBubblesAllowed(ctx context.Context) (bool, error) {
+func (c *ManagerClient) AreBubblesAllowed(ctx context.Context) (bool, error) {
 	resp, err := c.svc.AreBubblesAllowed(ctx, &pb.AreBubblesAllowedRequest{})
 	if err != nil {
 		return false, err
@@ -51,7 +51,7 @@ func (c *Client) AreBubblesAllowed(ctx context.Context) (bool, error) {
 }
 
 // AreBubblesEnabled calls the AreBubblesEnabled RPC.
-func (c *Client) AreBubblesEnabled(ctx context.Context) (bool, error) {
+func (c *ManagerClient) AreBubblesEnabled(ctx context.Context) (bool, error) {
 	resp, err := c.svc.AreBubblesEnabled(ctx, &pb.AreBubblesEnabledRequest{})
 	if err != nil {
 		return false, err
@@ -60,7 +60,7 @@ func (c *Client) AreBubblesEnabled(ctx context.Context) (bool, error) {
 }
 
 // AreNotificationsEnabled calls the AreNotificationsEnabled RPC.
-func (c *Client) AreNotificationsEnabled(ctx context.Context) (bool, error) {
+func (c *ManagerClient) AreNotificationsEnabled(ctx context.Context) (bool, error) {
 	resp, err := c.svc.AreNotificationsEnabled(ctx, &pb.AreNotificationsEnabledRequest{})
 	if err != nil {
 		return false, err
@@ -69,7 +69,7 @@ func (c *Client) AreNotificationsEnabled(ctx context.Context) (bool, error) {
 }
 
 // AreNotificationsPaused calls the AreNotificationsPaused RPC.
-func (c *Client) AreNotificationsPaused(ctx context.Context) (bool, error) {
+func (c *ManagerClient) AreNotificationsPaused(ctx context.Context) (bool, error) {
 	resp, err := c.svc.AreNotificationsPaused(ctx, &pb.AreNotificationsPausedRequest{})
 	if err != nil {
 		return false, err
@@ -78,7 +78,7 @@ func (c *Client) AreNotificationsPaused(ctx context.Context) (bool, error) {
 }
 
 // CanNotifyAsPackage calls the CanNotifyAsPackage RPC.
-func (c *Client) CanNotifyAsPackage(ctx context.Context, arg0 string) (bool, error) {
+func (c *ManagerClient) CanNotifyAsPackage(ctx context.Context, arg0 string) (bool, error) {
 	resp, err := c.svc.CanNotifyAsPackage(ctx, &pb.CanNotifyAsPackageRequest{
 		Arg0: arg0,
 	})
@@ -89,7 +89,7 @@ func (c *Client) CanNotifyAsPackage(ctx context.Context, arg0 string) (bool, err
 }
 
 // CanPostPromotedNotifications calls the CanPostPromotedNotifications RPC.
-func (c *Client) CanPostPromotedNotifications(ctx context.Context) (bool, error) {
+func (c *ManagerClient) CanPostPromotedNotifications(ctx context.Context) (bool, error) {
 	resp, err := c.svc.CanPostPromotedNotifications(ctx, &pb.CanPostPromotedNotificationsRequest{})
 	if err != nil {
 		return false, err
@@ -98,7 +98,7 @@ func (c *Client) CanPostPromotedNotifications(ctx context.Context) (bool, error)
 }
 
 // CanUseFullScreenIntent calls the CanUseFullScreenIntent RPC.
-func (c *Client) CanUseFullScreenIntent(ctx context.Context) (bool, error) {
+func (c *ManagerClient) CanUseFullScreenIntent(ctx context.Context) (bool, error) {
 	resp, err := c.svc.CanUseFullScreenIntent(ctx, &pb.CanUseFullScreenIntentRequest{})
 	if err != nil {
 		return false, err
@@ -107,7 +107,7 @@ func (c *Client) CanUseFullScreenIntent(ctx context.Context) (bool, error) {
 }
 
 // Cancel1 calls the Cancel1 RPC.
-func (c *Client) Cancel1(ctx context.Context, arg0 int32) error {
+func (c *ManagerClient) Cancel1(ctx context.Context, arg0 int32) error {
 	_, err := c.svc.Cancel1(ctx, &pb.Cancel1Request{
 		Arg0: arg0,
 	})
@@ -115,7 +115,7 @@ func (c *Client) Cancel1(ctx context.Context, arg0 int32) error {
 }
 
 // Cancel2_1 calls the Cancel2_1 RPC.
-func (c *Client) Cancel2_1(ctx context.Context, arg0 string, arg1 int32) error {
+func (c *ManagerClient) Cancel2_1(ctx context.Context, arg0 string, arg1 int32) error {
 	_, err := c.svc.Cancel2_1(ctx, &pb.Cancel2_1Request{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -124,13 +124,13 @@ func (c *Client) Cancel2_1(ctx context.Context, arg0 string, arg1 int32) error {
 }
 
 // CancelAll calls the CancelAll RPC.
-func (c *Client) CancelAll(ctx context.Context) error {
+func (c *ManagerClient) CancelAll(ctx context.Context) error {
 	_, err := c.svc.CancelAll(ctx, &pb.CancelAllRequest{})
 	return err
 }
 
 // CancelAsPackage calls the CancelAsPackage RPC.
-func (c *Client) CancelAsPackage(ctx context.Context, arg0 string, arg1 string, arg2 int32) error {
+func (c *ManagerClient) CancelAsPackage(ctx context.Context, arg0 string, arg1 string, arg2 int32) error {
 	_, err := c.svc.CancelAsPackage(ctx, &pb.CancelAsPackageRequest{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -140,7 +140,7 @@ func (c *Client) CancelAsPackage(ctx context.Context, arg0 string, arg1 string, 
 }
 
 // CreateNotificationChannel calls the CreateNotificationChannel RPC.
-func (c *Client) CreateNotificationChannel(ctx context.Context, arg0 int64) error {
+func (c *ManagerClient) CreateNotificationChannel(ctx context.Context, arg0 int64) error {
 	_, err := c.svc.CreateNotificationChannel(ctx, &pb.CreateNotificationChannelRequest{
 		Arg0: arg0,
 	})
@@ -148,31 +148,15 @@ func (c *Client) CreateNotificationChannel(ctx context.Context, arg0 int64) erro
 }
 
 // CreateNotificationChannelGroup calls the CreateNotificationChannelGroup RPC.
-func (c *Client) CreateNotificationChannelGroup(ctx context.Context, arg0 int64) error {
+func (c *ManagerClient) CreateNotificationChannelGroup(ctx context.Context, arg0 int64) error {
 	_, err := c.svc.CreateNotificationChannelGroup(ctx, &pb.CreateNotificationChannelGroupRequest{
 		Arg0: arg0,
 	})
 	return err
 }
 
-// CreateNotificationChannelGroups calls the CreateNotificationChannelGroups RPC.
-func (c *Client) CreateNotificationChannelGroups(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.CreateNotificationChannelGroups(ctx, &pb.CreateNotificationChannelGroupsRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// CreateNotificationChannels calls the CreateNotificationChannels RPC.
-func (c *Client) CreateNotificationChannels(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.CreateNotificationChannels(ctx, &pb.CreateNotificationChannelsRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
 // DeleteNotificationChannel calls the DeleteNotificationChannel RPC.
-func (c *Client) DeleteNotificationChannel(ctx context.Context, arg0 string) error {
+func (c *ManagerClient) DeleteNotificationChannel(ctx context.Context, arg0 string) error {
 	_, err := c.svc.DeleteNotificationChannel(ctx, &pb.DeleteNotificationChannelRequest{
 		Arg0: arg0,
 	})
@@ -180,7 +164,7 @@ func (c *Client) DeleteNotificationChannel(ctx context.Context, arg0 string) err
 }
 
 // DeleteNotificationChannelGroup calls the DeleteNotificationChannelGroup RPC.
-func (c *Client) DeleteNotificationChannelGroup(ctx context.Context, arg0 string) error {
+func (c *ManagerClient) DeleteNotificationChannelGroup(ctx context.Context, arg0 string) error {
 	_, err := c.svc.DeleteNotificationChannelGroup(ctx, &pb.DeleteNotificationChannelGroupRequest{
 		Arg0: arg0,
 	})
@@ -188,7 +172,7 @@ func (c *Client) DeleteNotificationChannelGroup(ctx context.Context, arg0 string
 }
 
 // GetActiveNotifications calls the GetActiveNotifications RPC.
-func (c *Client) GetActiveNotifications(ctx context.Context) (int64, error) {
+func (c *ManagerClient) GetActiveNotifications(ctx context.Context) (int64, error) {
 	resp, err := c.svc.GetActiveNotifications(ctx, &pb.GetActiveNotificationsRequest{})
 	if err != nil {
 		return 0, err
@@ -197,7 +181,7 @@ func (c *Client) GetActiveNotifications(ctx context.Context) (int64, error) {
 }
 
 // GetAutomaticZenRule calls the GetAutomaticZenRule RPC.
-func (c *Client) GetAutomaticZenRule(ctx context.Context, arg0 string) (int64, error) {
+func (c *ManagerClient) GetAutomaticZenRule(ctx context.Context, arg0 string) (int64, error) {
 	resp, err := c.svc.GetAutomaticZenRule(ctx, &pb.GetAutomaticZenRuleRequest{
 		Arg0: arg0,
 	})
@@ -208,7 +192,7 @@ func (c *Client) GetAutomaticZenRule(ctx context.Context, arg0 string) (int64, e
 }
 
 // GetAutomaticZenRuleState calls the GetAutomaticZenRuleState RPC.
-func (c *Client) GetAutomaticZenRuleState(ctx context.Context, arg0 string) (int32, error) {
+func (c *ManagerClient) GetAutomaticZenRuleState(ctx context.Context, arg0 string) (int32, error) {
 	resp, err := c.svc.GetAutomaticZenRuleState(ctx, &pb.GetAutomaticZenRuleStateRequest{
 		Arg0: arg0,
 	})
@@ -219,7 +203,7 @@ func (c *Client) GetAutomaticZenRuleState(ctx context.Context, arg0 string) (int
 }
 
 // GetBubblePreference calls the GetBubblePreference RPC.
-func (c *Client) GetBubblePreference(ctx context.Context) (int32, error) {
+func (c *ManagerClient) GetBubblePreference(ctx context.Context) (int32, error) {
 	resp, err := c.svc.GetBubblePreference(ctx, &pb.GetBubblePreferenceRequest{})
 	if err != nil {
 		return 0, err
@@ -228,7 +212,7 @@ func (c *Client) GetBubblePreference(ctx context.Context) (int32, error) {
 }
 
 // GetConsolidatedNotificationPolicy calls the GetConsolidatedNotificationPolicy RPC.
-func (c *Client) GetConsolidatedNotificationPolicy(ctx context.Context) (int64, error) {
+func (c *ManagerClient) GetConsolidatedNotificationPolicy(ctx context.Context) (int64, error) {
 	resp, err := c.svc.GetConsolidatedNotificationPolicy(ctx, &pb.GetConsolidatedNotificationPolicyRequest{})
 	if err != nil {
 		return 0, err
@@ -237,7 +221,7 @@ func (c *Client) GetConsolidatedNotificationPolicy(ctx context.Context) (int64, 
 }
 
 // GetCurrentInterruptionFilter calls the GetCurrentInterruptionFilter RPC.
-func (c *Client) GetCurrentInterruptionFilter(ctx context.Context) (int32, error) {
+func (c *ManagerClient) GetCurrentInterruptionFilter(ctx context.Context) (int32, error) {
 	resp, err := c.svc.GetCurrentInterruptionFilter(ctx, &pb.GetCurrentInterruptionFilterRequest{})
 	if err != nil {
 		return 0, err
@@ -246,7 +230,7 @@ func (c *Client) GetCurrentInterruptionFilter(ctx context.Context) (int32, error
 }
 
 // GetImportance calls the GetImportance RPC.
-func (c *Client) GetImportance(ctx context.Context) (int32, error) {
+func (c *ManagerClient) GetImportance(ctx context.Context) (int32, error) {
 	resp, err := c.svc.GetImportance(ctx, &pb.GetImportanceRequest{})
 	if err != nil {
 		return 0, err
@@ -255,7 +239,7 @@ func (c *Client) GetImportance(ctx context.Context) (int32, error) {
 }
 
 // GetNotificationChannel1 calls the GetNotificationChannel1 RPC.
-func (c *Client) GetNotificationChannel1(ctx context.Context, arg0 string) (int64, error) {
+func (c *ManagerClient) GetNotificationChannel1(ctx context.Context, arg0 string) (int64, error) {
 	resp, err := c.svc.GetNotificationChannel1(ctx, &pb.GetNotificationChannel1Request{
 		Arg0: arg0,
 	})
@@ -266,7 +250,7 @@ func (c *Client) GetNotificationChannel1(ctx context.Context, arg0 string) (int6
 }
 
 // GetNotificationChannel2_1 calls the GetNotificationChannel2_1 RPC.
-func (c *Client) GetNotificationChannel2_1(ctx context.Context, arg0 string, arg1 string) (int64, error) {
+func (c *ManagerClient) GetNotificationChannel2_1(ctx context.Context, arg0 string, arg1 string) (int64, error) {
 	resp, err := c.svc.GetNotificationChannel2_1(ctx, &pb.GetNotificationChannel2_1Request{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -278,7 +262,7 @@ func (c *Client) GetNotificationChannel2_1(ctx context.Context, arg0 string, arg
 }
 
 // GetNotificationChannelGroup calls the GetNotificationChannelGroup RPC.
-func (c *Client) GetNotificationChannelGroup(ctx context.Context, arg0 string) (int64, error) {
+func (c *ManagerClient) GetNotificationChannelGroup(ctx context.Context, arg0 string) (int64, error) {
 	resp, err := c.svc.GetNotificationChannelGroup(ctx, &pb.GetNotificationChannelGroupRequest{
 		Arg0: arg0,
 	})
@@ -288,26 +272,8 @@ func (c *Client) GetNotificationChannelGroup(ctx context.Context, arg0 string) (
 	return resp.GetResult(), nil
 }
 
-// GetNotificationChannelGroups calls the GetNotificationChannelGroups RPC.
-func (c *Client) GetNotificationChannelGroups(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetNotificationChannelGroups(ctx, &pb.GetNotificationChannelGroupsRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetNotificationChannels calls the GetNotificationChannels RPC.
-func (c *Client) GetNotificationChannels(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetNotificationChannels(ctx, &pb.GetNotificationChannelsRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
 // GetNotificationDelegate calls the GetNotificationDelegate RPC.
-func (c *Client) GetNotificationDelegate(ctx context.Context) (string, error) {
+func (c *ManagerClient) GetNotificationDelegate(ctx context.Context) (string, error) {
 	resp, err := c.svc.GetNotificationDelegate(ctx, &pb.GetNotificationDelegateRequest{})
 	if err != nil {
 		return "", err
@@ -316,7 +282,7 @@ func (c *Client) GetNotificationDelegate(ctx context.Context) (string, error) {
 }
 
 // GetNotificationPolicy calls the GetNotificationPolicy RPC.
-func (c *Client) GetNotificationPolicy(ctx context.Context) (int64, error) {
+func (c *ManagerClient) GetNotificationPolicy(ctx context.Context) (int64, error) {
 	resp, err := c.svc.GetNotificationPolicy(ctx, &pb.GetNotificationPolicyRequest{})
 	if err != nil {
 		return 0, err
@@ -325,7 +291,7 @@ func (c *Client) GetNotificationPolicy(ctx context.Context) (int64, error) {
 }
 
 // IsNotificationListenerAccessGranted calls the IsNotificationListenerAccessGranted RPC.
-func (c *Client) IsNotificationListenerAccessGranted(ctx context.Context, arg0 int64) (bool, error) {
+func (c *ManagerClient) IsNotificationListenerAccessGranted(ctx context.Context, arg0 int64) (bool, error) {
 	resp, err := c.svc.IsNotificationListenerAccessGranted(ctx, &pb.IsNotificationListenerAccessGrantedRequest{
 		Arg0: arg0,
 	})
@@ -336,7 +302,7 @@ func (c *Client) IsNotificationListenerAccessGranted(ctx context.Context, arg0 i
 }
 
 // IsNotificationPolicyAccessGranted calls the IsNotificationPolicyAccessGranted RPC.
-func (c *Client) IsNotificationPolicyAccessGranted(ctx context.Context) (bool, error) {
+func (c *ManagerClient) IsNotificationPolicyAccessGranted(ctx context.Context) (bool, error) {
 	resp, err := c.svc.IsNotificationPolicyAccessGranted(ctx, &pb.IsNotificationPolicyAccessGrantedRequest{})
 	if err != nil {
 		return false, err
@@ -345,7 +311,7 @@ func (c *Client) IsNotificationPolicyAccessGranted(ctx context.Context) (bool, e
 }
 
 // MatchesCallFilter calls the MatchesCallFilter RPC.
-func (c *Client) MatchesCallFilter(ctx context.Context, arg0 int64) (bool, error) {
+func (c *ManagerClient) MatchesCallFilter(ctx context.Context, arg0 int64) (bool, error) {
 	resp, err := c.svc.MatchesCallFilter(ctx, &pb.MatchesCallFilterRequest{
 		Arg0: arg0,
 	})
@@ -356,7 +322,7 @@ func (c *Client) MatchesCallFilter(ctx context.Context, arg0 int64) (bool, error
 }
 
 // Notify2 calls the Notify2 RPC.
-func (c *Client) Notify2(ctx context.Context, arg0 int32, arg1 int64) error {
+func (c *ManagerClient) Notify2(ctx context.Context, arg0 int32, arg1 int64) error {
 	_, err := c.svc.Notify2(ctx, &pb.Notify2Request{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -365,7 +331,7 @@ func (c *Client) Notify2(ctx context.Context, arg0 int32, arg1 int64) error {
 }
 
 // Notify3_1 calls the Notify3_1 RPC.
-func (c *Client) Notify3_1(ctx context.Context, arg0 string, arg1 int32, arg2 int64) error {
+func (c *ManagerClient) Notify3_1(ctx context.Context, arg0 string, arg1 int32, arg2 int64) error {
 	_, err := c.svc.Notify3_1(ctx, &pb.Notify3_1Request{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -375,7 +341,7 @@ func (c *Client) Notify3_1(ctx context.Context, arg0 string, arg1 int32, arg2 in
 }
 
 // NotifyAsPackage calls the NotifyAsPackage RPC.
-func (c *Client) NotifyAsPackage(ctx context.Context, arg0 string, arg1 string, arg2 int32, arg3 int64) error {
+func (c *ManagerClient) NotifyAsPackage(ctx context.Context, arg0 string, arg1 string, arg2 int32, arg3 int64) error {
 	_, err := c.svc.NotifyAsPackage(ctx, &pb.NotifyAsPackageRequest{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -386,7 +352,7 @@ func (c *Client) NotifyAsPackage(ctx context.Context, arg0 string, arg1 string, 
 }
 
 // RemoveAutomaticZenRule calls the RemoveAutomaticZenRule RPC.
-func (c *Client) RemoveAutomaticZenRule(ctx context.Context, arg0 string) (bool, error) {
+func (c *ManagerClient) RemoveAutomaticZenRule(ctx context.Context, arg0 string) (bool, error) {
 	resp, err := c.svc.RemoveAutomaticZenRule(ctx, &pb.RemoveAutomaticZenRuleRequest{
 		Arg0: arg0,
 	})
@@ -397,7 +363,7 @@ func (c *Client) RemoveAutomaticZenRule(ctx context.Context, arg0 string) (bool,
 }
 
 // SetAutomaticZenRuleState calls the SetAutomaticZenRuleState RPC.
-func (c *Client) SetAutomaticZenRuleState(ctx context.Context, arg0 string, arg1 int64) error {
+func (c *ManagerClient) SetAutomaticZenRuleState(ctx context.Context, arg0 string, arg1 int64) error {
 	_, err := c.svc.SetAutomaticZenRuleState(ctx, &pb.SetAutomaticZenRuleStateRequest{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -406,7 +372,7 @@ func (c *Client) SetAutomaticZenRuleState(ctx context.Context, arg0 string, arg1
 }
 
 // SetInterruptionFilter calls the SetInterruptionFilter RPC.
-func (c *Client) SetInterruptionFilter(ctx context.Context, arg0 int32) error {
+func (c *ManagerClient) SetInterruptionFilter(ctx context.Context, arg0 int32) error {
 	_, err := c.svc.SetInterruptionFilter(ctx, &pb.SetInterruptionFilterRequest{
 		Arg0: arg0,
 	})
@@ -414,7 +380,7 @@ func (c *Client) SetInterruptionFilter(ctx context.Context, arg0 int32) error {
 }
 
 // SetNotificationDelegate calls the SetNotificationDelegate RPC.
-func (c *Client) SetNotificationDelegate(ctx context.Context, arg0 string) error {
+func (c *ManagerClient) SetNotificationDelegate(ctx context.Context, arg0 string) error {
 	_, err := c.svc.SetNotificationDelegate(ctx, &pb.SetNotificationDelegateRequest{
 		Arg0: arg0,
 	})
@@ -422,7 +388,7 @@ func (c *Client) SetNotificationDelegate(ctx context.Context, arg0 string) error
 }
 
 // SetNotificationPolicy calls the SetNotificationPolicy RPC.
-func (c *Client) SetNotificationPolicy(ctx context.Context, arg0 int64) error {
+func (c *ManagerClient) SetNotificationPolicy(ctx context.Context, arg0 int64) error {
 	_, err := c.svc.SetNotificationPolicy(ctx, &pb.SetNotificationPolicyRequest{
 		Arg0: arg0,
 	})
@@ -430,7 +396,7 @@ func (c *Client) SetNotificationPolicy(ctx context.Context, arg0 int64) error {
 }
 
 // ShouldHideSilentStatusBarIcons calls the ShouldHideSilentStatusBarIcons RPC.
-func (c *Client) ShouldHideSilentStatusBarIcons(ctx context.Context) (bool, error) {
+func (c *ManagerClient) ShouldHideSilentStatusBarIcons(ctx context.Context) (bool, error) {
 	resp, err := c.svc.ShouldHideSilentStatusBarIcons(ctx, &pb.ShouldHideSilentStatusBarIconsRequest{})
 	if err != nil {
 		return false, err
@@ -439,7 +405,7 @@ func (c *Client) ShouldHideSilentStatusBarIcons(ctx context.Context) (bool, erro
 }
 
 // UpdateAutomaticZenRule calls the UpdateAutomaticZenRule RPC.
-func (c *Client) UpdateAutomaticZenRule(ctx context.Context, arg0 string, arg1 int64) (bool, error) {
+func (c *ManagerClient) UpdateAutomaticZenRule(ctx context.Context, arg0 string, arg1 int64) (bool, error) {
 	resp, err := c.svc.UpdateAutomaticZenRule(ctx, &pb.UpdateAutomaticZenRuleRequest{
 		Arg0: arg0,
 		Arg1: arg1,

@@ -9,20 +9,20 @@ import (
 	"google.golang.org/grpc"
 )
 
-// Client wraps the gRPC ManagerService client.
-type Client struct {
+// ManagerClient wraps the gRPC ManagerService client.
+type ManagerClient struct {
 	svc pb.ManagerServiceClient
 }
 
-// NewClient creates a new storage client.
-func NewClient(cc grpc.ClientConnInterface) *Client {
-	return &Client{
+// NewManagerClient creates a new Manager client.
+func NewManagerClient(cc grpc.ClientConnInterface) *ManagerClient {
+	return &ManagerClient{
 		svc: pb.NewManagerServiceClient(cc),
 	}
 }
 
 // AllocateBytes2 calls the AllocateBytes2 RPC.
-func (c *Client) AllocateBytes2(ctx context.Context, arg0 int64, arg1 int64) error {
+func (c *ManagerClient) AllocateBytes2(ctx context.Context, arg0 int64, arg1 int64) error {
 	_, err := c.svc.AllocateBytes2(ctx, &pb.AllocateBytes2Request{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -31,7 +31,7 @@ func (c *Client) AllocateBytes2(ctx context.Context, arg0 int64, arg1 int64) err
 }
 
 // AllocateBytes2_1 calls the AllocateBytes2_1 RPC.
-func (c *Client) AllocateBytes2_1(ctx context.Context, arg0 int64, arg1 int64) error {
+func (c *ManagerClient) AllocateBytes2_1(ctx context.Context, arg0 int64, arg1 int64) error {
 	_, err := c.svc.AllocateBytes2_1(ctx, &pb.AllocateBytes2_1Request{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -40,7 +40,7 @@ func (c *Client) AllocateBytes2_1(ctx context.Context, arg0 int64, arg1 int64) e
 }
 
 // GetAllocatableBytes calls the GetAllocatableBytes RPC.
-func (c *Client) GetAllocatableBytes(ctx context.Context, arg0 int64) (int64, error) {
+func (c *ManagerClient) GetAllocatableBytes(ctx context.Context, arg0 int64) (int64, error) {
 	resp, err := c.svc.GetAllocatableBytes(ctx, &pb.GetAllocatableBytesRequest{
 		Arg0: arg0,
 	})
@@ -51,7 +51,7 @@ func (c *Client) GetAllocatableBytes(ctx context.Context, arg0 int64) (int64, er
 }
 
 // GetCacheQuotaBytes calls the GetCacheQuotaBytes RPC.
-func (c *Client) GetCacheQuotaBytes(ctx context.Context, arg0 int64) (int64, error) {
+func (c *ManagerClient) GetCacheQuotaBytes(ctx context.Context, arg0 int64) (int64, error) {
 	resp, err := c.svc.GetCacheQuotaBytes(ctx, &pb.GetCacheQuotaBytesRequest{
 		Arg0: arg0,
 	})
@@ -62,7 +62,7 @@ func (c *Client) GetCacheQuotaBytes(ctx context.Context, arg0 int64) (int64, err
 }
 
 // GetCacheSizeBytes calls the GetCacheSizeBytes RPC.
-func (c *Client) GetCacheSizeBytes(ctx context.Context, arg0 int64) (int64, error) {
+func (c *ManagerClient) GetCacheSizeBytes(ctx context.Context, arg0 int64) (int64, error) {
 	resp, err := c.svc.GetCacheSizeBytes(ctx, &pb.GetCacheSizeBytesRequest{
 		Arg0: arg0,
 	})
@@ -73,7 +73,7 @@ func (c *Client) GetCacheSizeBytes(ctx context.Context, arg0 int64) (int64, erro
 }
 
 // GetManageSpaceActivityIntent calls the GetManageSpaceActivityIntent RPC.
-func (c *Client) GetManageSpaceActivityIntent(ctx context.Context, arg0 string, arg1 int32) (int64, error) {
+func (c *ManagerClient) GetManageSpaceActivityIntent(ctx context.Context, arg0 string, arg1 int32) (int64, error) {
 	resp, err := c.svc.GetManageSpaceActivityIntent(ctx, &pb.GetManageSpaceActivityIntentRequest{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -85,7 +85,7 @@ func (c *Client) GetManageSpaceActivityIntent(ctx context.Context, arg0 string, 
 }
 
 // GetMountedObbPath calls the GetMountedObbPath RPC.
-func (c *Client) GetMountedObbPath(ctx context.Context, arg0 string) (string, error) {
+func (c *ManagerClient) GetMountedObbPath(ctx context.Context, arg0 string) (string, error) {
 	resp, err := c.svc.GetMountedObbPath(ctx, &pb.GetMountedObbPathRequest{
 		Arg0: arg0,
 	})
@@ -96,7 +96,7 @@ func (c *Client) GetMountedObbPath(ctx context.Context, arg0 string) (string, er
 }
 
 // GetPrimaryStorageVolume calls the GetPrimaryStorageVolume RPC.
-func (c *Client) GetPrimaryStorageVolume(ctx context.Context) (int64, error) {
+func (c *ManagerClient) GetPrimaryStorageVolume(ctx context.Context) (int64, error) {
 	resp, err := c.svc.GetPrimaryStorageVolume(ctx, &pb.GetPrimaryStorageVolumeRequest{})
 	if err != nil {
 		return 0, err
@@ -104,17 +104,8 @@ func (c *Client) GetPrimaryStorageVolume(ctx context.Context) (int64, error) {
 	return resp.GetResult(), nil
 }
 
-// GetRecentStorageVolumes calls the GetRecentStorageVolumes RPC.
-func (c *Client) GetRecentStorageVolumes(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetRecentStorageVolumes(ctx, &pb.GetRecentStorageVolumesRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
 // GetStorageVolume1 calls the GetStorageVolume1 RPC.
-func (c *Client) GetStorageVolume1(ctx context.Context, arg0 int64) (int64, error) {
+func (c *ManagerClient) GetStorageVolume1(ctx context.Context, arg0 int64) (int64, error) {
 	resp, err := c.svc.GetStorageVolume1(ctx, &pb.GetStorageVolume1Request{
 		Arg0: arg0,
 	})
@@ -125,7 +116,7 @@ func (c *Client) GetStorageVolume1(ctx context.Context, arg0 int64) (int64, erro
 }
 
 // GetStorageVolume1_1 calls the GetStorageVolume1_1 RPC.
-func (c *Client) GetStorageVolume1_1(ctx context.Context, arg0 int64) (int64, error) {
+func (c *ManagerClient) GetStorageVolume1_1(ctx context.Context, arg0 int64) (int64, error) {
 	resp, err := c.svc.GetStorageVolume1_1(ctx, &pb.GetStorageVolume1_1Request{
 		Arg0: arg0,
 	})
@@ -135,26 +126,8 @@ func (c *Client) GetStorageVolume1_1(ctx context.Context, arg0 int64) (int64, er
 	return resp.GetResult(), nil
 }
 
-// GetStorageVolumes calls the GetStorageVolumes RPC.
-func (c *Client) GetStorageVolumes(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetStorageVolumes(ctx, &pb.GetStorageVolumesRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetStorageVolumesIncludingSharedProfiles calls the GetStorageVolumesIncludingSharedProfiles RPC.
-func (c *Client) GetStorageVolumesIncludingSharedProfiles(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetStorageVolumesIncludingSharedProfiles(ctx, &pb.GetStorageVolumesIncludingSharedProfilesRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
 // GetUuidForPath calls the GetUuidForPath RPC.
-func (c *Client) GetUuidForPath(ctx context.Context, arg0 int64) (int64, error) {
+func (c *ManagerClient) GetUuidForPath(ctx context.Context, arg0 int64) (int64, error) {
 	resp, err := c.svc.GetUuidForPath(ctx, &pb.GetUuidForPathRequest{
 		Arg0: arg0,
 	})
@@ -165,7 +138,7 @@ func (c *Client) GetUuidForPath(ctx context.Context, arg0 int64) (int64, error) 
 }
 
 // IsAllocationSupported calls the IsAllocationSupported RPC.
-func (c *Client) IsAllocationSupported(ctx context.Context, arg0 int64) (bool, error) {
+func (c *ManagerClient) IsAllocationSupported(ctx context.Context, arg0 int64) (bool, error) {
 	resp, err := c.svc.IsAllocationSupported(ctx, &pb.IsAllocationSupportedRequest{
 		Arg0: arg0,
 	})
@@ -176,7 +149,7 @@ func (c *Client) IsAllocationSupported(ctx context.Context, arg0 int64) (bool, e
 }
 
 // IsCacheBehaviorGroup calls the IsCacheBehaviorGroup RPC.
-func (c *Client) IsCacheBehaviorGroup(ctx context.Context, arg0 int64) (bool, error) {
+func (c *ManagerClient) IsCacheBehaviorGroup(ctx context.Context, arg0 int64) (bool, error) {
 	resp, err := c.svc.IsCacheBehaviorGroup(ctx, &pb.IsCacheBehaviorGroupRequest{
 		Arg0: arg0,
 	})
@@ -187,7 +160,7 @@ func (c *Client) IsCacheBehaviorGroup(ctx context.Context, arg0 int64) (bool, er
 }
 
 // IsCacheBehaviorTombstone calls the IsCacheBehaviorTombstone RPC.
-func (c *Client) IsCacheBehaviorTombstone(ctx context.Context, arg0 int64) (bool, error) {
+func (c *ManagerClient) IsCacheBehaviorTombstone(ctx context.Context, arg0 int64) (bool, error) {
 	resp, err := c.svc.IsCacheBehaviorTombstone(ctx, &pb.IsCacheBehaviorTombstoneRequest{
 		Arg0: arg0,
 	})
@@ -198,7 +171,7 @@ func (c *Client) IsCacheBehaviorTombstone(ctx context.Context, arg0 int64) (bool
 }
 
 // IsCheckpointSupported calls the IsCheckpointSupported RPC.
-func (c *Client) IsCheckpointSupported(ctx context.Context) (bool, error) {
+func (c *ManagerClient) IsCheckpointSupported(ctx context.Context) (bool, error) {
 	resp, err := c.svc.IsCheckpointSupported(ctx, &pb.IsCheckpointSupportedRequest{})
 	if err != nil {
 		return false, err
@@ -207,7 +180,7 @@ func (c *Client) IsCheckpointSupported(ctx context.Context) (bool, error) {
 }
 
 // IsEncrypted calls the IsEncrypted RPC.
-func (c *Client) IsEncrypted(ctx context.Context, arg0 int64) (bool, error) {
+func (c *ManagerClient) IsEncrypted(ctx context.Context, arg0 int64) (bool, error) {
 	resp, err := c.svc.IsEncrypted(ctx, &pb.IsEncryptedRequest{
 		Arg0: arg0,
 	})
@@ -218,7 +191,7 @@ func (c *Client) IsEncrypted(ctx context.Context, arg0 int64) (bool, error) {
 }
 
 // IsObbMounted calls the IsObbMounted RPC.
-func (c *Client) IsObbMounted(ctx context.Context, arg0 string) (bool, error) {
+func (c *ManagerClient) IsObbMounted(ctx context.Context, arg0 string) (bool, error) {
 	resp, err := c.svc.IsObbMounted(ctx, &pb.IsObbMountedRequest{
 		Arg0: arg0,
 	})
@@ -229,7 +202,7 @@ func (c *Client) IsObbMounted(ctx context.Context, arg0 string) (bool, error) {
 }
 
 // MountObb calls the MountObb RPC.
-func (c *Client) MountObb(ctx context.Context, arg0 string, arg1 string, arg2 int64) (bool, error) {
+func (c *ManagerClient) MountObb(ctx context.Context, arg0 string, arg1 string, arg2 int64) (bool, error) {
 	resp, err := c.svc.MountObb(ctx, &pb.MountObbRequest{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -242,7 +215,7 @@ func (c *Client) MountObb(ctx context.Context, arg0 string, arg1 string, arg2 in
 }
 
 // RegisterStorageVolumeCallback calls the RegisterStorageVolumeCallback RPC.
-func (c *Client) RegisterStorageVolumeCallback(ctx context.Context, arg0 int64, arg1 int64) error {
+func (c *ManagerClient) RegisterStorageVolumeCallback(ctx context.Context, arg0 int64, arg1 int64) error {
 	_, err := c.svc.RegisterStorageVolumeCallback(ctx, &pb.RegisterStorageVolumeCallbackRequest{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -251,7 +224,7 @@ func (c *Client) RegisterStorageVolumeCallback(ctx context.Context, arg0 int64, 
 }
 
 // SetCacheBehaviorGroup calls the SetCacheBehaviorGroup RPC.
-func (c *Client) SetCacheBehaviorGroup(ctx context.Context, arg0 int64, arg1 bool) error {
+func (c *ManagerClient) SetCacheBehaviorGroup(ctx context.Context, arg0 int64, arg1 bool) error {
 	_, err := c.svc.SetCacheBehaviorGroup(ctx, &pb.SetCacheBehaviorGroupRequest{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -260,7 +233,7 @@ func (c *Client) SetCacheBehaviorGroup(ctx context.Context, arg0 int64, arg1 boo
 }
 
 // SetCacheBehaviorTombstone calls the SetCacheBehaviorTombstone RPC.
-func (c *Client) SetCacheBehaviorTombstone(ctx context.Context, arg0 int64, arg1 bool) error {
+func (c *ManagerClient) SetCacheBehaviorTombstone(ctx context.Context, arg0 int64, arg1 bool) error {
 	_, err := c.svc.SetCacheBehaviorTombstone(ctx, &pb.SetCacheBehaviorTombstoneRequest{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -269,7 +242,7 @@ func (c *Client) SetCacheBehaviorTombstone(ctx context.Context, arg0 int64, arg1
 }
 
 // UnmountObb calls the UnmountObb RPC.
-func (c *Client) UnmountObb(ctx context.Context, arg0 string, arg1 bool, arg2 int64) (bool, error) {
+func (c *ManagerClient) UnmountObb(ctx context.Context, arg0 string, arg1 bool, arg2 int64) (bool, error) {
 	resp, err := c.svc.UnmountObb(ctx, &pb.UnmountObbRequest{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -282,7 +255,7 @@ func (c *Client) UnmountObb(ctx context.Context, arg0 string, arg1 bool, arg2 in
 }
 
 // UnregisterStorageVolumeCallback calls the UnregisterStorageVolumeCallback RPC.
-func (c *Client) UnregisterStorageVolumeCallback(ctx context.Context, arg0 int64) error {
+func (c *ManagerClient) UnregisterStorageVolumeCallback(ctx context.Context, arg0 int64) error {
 	_, err := c.svc.UnregisterStorageVolumeCallback(ctx, &pb.UnregisterStorageVolumeCallbackRequest{
 		Arg0: arg0,
 	})

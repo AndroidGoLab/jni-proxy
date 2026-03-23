@@ -9,20 +9,20 @@ import (
 	"google.golang.org/grpc"
 )
 
-// Client wraps the gRPC ManagerService client.
-type Client struct {
+// ManagerClient wraps the gRPC ManagerService client.
+type ManagerClient struct {
 	svc pb.ManagerServiceClient
 }
 
-// NewClient creates a new power client.
-func NewClient(cc grpc.ClientConnInterface) *Client {
-	return &Client{
+// NewManagerClient creates a new Manager client.
+func NewManagerClient(cc grpc.ClientConnInterface) *ManagerClient {
+	return &ManagerClient{
 		svc: pb.NewManagerServiceClient(cc),
 	}
 }
 
 // AddThermalHeadroomListener1 calls the AddThermalHeadroomListener1 RPC.
-func (c *Client) AddThermalHeadroomListener1(ctx context.Context, arg0 int64) error {
+func (c *ManagerClient) AddThermalHeadroomListener1(ctx context.Context, arg0 int64) error {
 	_, err := c.svc.AddThermalHeadroomListener1(ctx, &pb.AddThermalHeadroomListener1Request{
 		Arg0: arg0,
 	})
@@ -30,7 +30,7 @@ func (c *Client) AddThermalHeadroomListener1(ctx context.Context, arg0 int64) er
 }
 
 // AddThermalHeadroomListener2_1 calls the AddThermalHeadroomListener2_1 RPC.
-func (c *Client) AddThermalHeadroomListener2_1(ctx context.Context, arg0 int64, arg1 int64) error {
+func (c *ManagerClient) AddThermalHeadroomListener2_1(ctx context.Context, arg0 int64, arg1 int64) error {
 	_, err := c.svc.AddThermalHeadroomListener2_1(ctx, &pb.AddThermalHeadroomListener2_1Request{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -39,7 +39,7 @@ func (c *Client) AddThermalHeadroomListener2_1(ctx context.Context, arg0 int64, 
 }
 
 // AddThermalStatusListener1 calls the AddThermalStatusListener1 RPC.
-func (c *Client) AddThermalStatusListener1(ctx context.Context, arg0 int64) error {
+func (c *ManagerClient) AddThermalStatusListener1(ctx context.Context, arg0 int64) error {
 	_, err := c.svc.AddThermalStatusListener1(ctx, &pb.AddThermalStatusListener1Request{
 		Arg0: arg0,
 	})
@@ -47,7 +47,7 @@ func (c *Client) AddThermalStatusListener1(ctx context.Context, arg0 int64) erro
 }
 
 // AddThermalStatusListener2_1 calls the AddThermalStatusListener2_1 RPC.
-func (c *Client) AddThermalStatusListener2_1(ctx context.Context, arg0 int64, arg1 int64) error {
+func (c *ManagerClient) AddThermalStatusListener2_1(ctx context.Context, arg0 int64, arg1 int64) error {
 	_, err := c.svc.AddThermalStatusListener2_1(ctx, &pb.AddThermalStatusListener2_1Request{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -56,7 +56,7 @@ func (c *Client) AddThermalStatusListener2_1(ctx context.Context, arg0 int64, ar
 }
 
 // GetBatteryDischargePrediction calls the GetBatteryDischargePrediction RPC.
-func (c *Client) GetBatteryDischargePrediction(ctx context.Context) (int64, error) {
+func (c *ManagerClient) GetBatteryDischargePrediction(ctx context.Context) (int64, error) {
 	resp, err := c.svc.GetBatteryDischargePrediction(ctx, &pb.GetBatteryDischargePredictionRequest{})
 	if err != nil {
 		return 0, err
@@ -65,7 +65,7 @@ func (c *Client) GetBatteryDischargePrediction(ctx context.Context) (int64, erro
 }
 
 // GetCurrentThermalStatus calls the GetCurrentThermalStatus RPC.
-func (c *Client) GetCurrentThermalStatus(ctx context.Context) (int32, error) {
+func (c *ManagerClient) GetCurrentThermalStatus(ctx context.Context) (int32, error) {
 	resp, err := c.svc.GetCurrentThermalStatus(ctx, &pb.GetCurrentThermalStatusRequest{})
 	if err != nil {
 		return 0, err
@@ -74,7 +74,7 @@ func (c *Client) GetCurrentThermalStatus(ctx context.Context) (int32, error) {
 }
 
 // GetLocationPowerSaveMode calls the GetLocationPowerSaveMode RPC.
-func (c *Client) GetLocationPowerSaveMode(ctx context.Context) (int32, error) {
+func (c *ManagerClient) GetLocationPowerSaveMode(ctx context.Context) (int32, error) {
 	resp, err := c.svc.GetLocationPowerSaveMode(ctx, &pb.GetLocationPowerSaveModeRequest{})
 	if err != nil {
 		return 0, err
@@ -83,7 +83,7 @@ func (c *Client) GetLocationPowerSaveMode(ctx context.Context) (int32, error) {
 }
 
 // GetThermalHeadroom calls the GetThermalHeadroom RPC.
-func (c *Client) GetThermalHeadroom(ctx context.Context, arg0 int32) (float32, error) {
+func (c *ManagerClient) GetThermalHeadroom(ctx context.Context, arg0 int32) (float32, error) {
 	resp, err := c.svc.GetThermalHeadroom(ctx, &pb.GetThermalHeadroomRequest{
 		Arg0: arg0,
 	})
@@ -94,7 +94,7 @@ func (c *Client) GetThermalHeadroom(ctx context.Context, arg0 int32) (float32, e
 }
 
 // IsAllowedInLowPowerStandby1 calls the IsAllowedInLowPowerStandby1 RPC.
-func (c *Client) IsAllowedInLowPowerStandby1(ctx context.Context, arg0 int32) (bool, error) {
+func (c *ManagerClient) IsAllowedInLowPowerStandby1(ctx context.Context, arg0 int32) (bool, error) {
 	resp, err := c.svc.IsAllowedInLowPowerStandby1(ctx, &pb.IsAllowedInLowPowerStandby1Request{
 		Arg0: arg0,
 	})
@@ -105,7 +105,7 @@ func (c *Client) IsAllowedInLowPowerStandby1(ctx context.Context, arg0 int32) (b
 }
 
 // IsAllowedInLowPowerStandby1_1 calls the IsAllowedInLowPowerStandby1_1 RPC.
-func (c *Client) IsAllowedInLowPowerStandby1_1(ctx context.Context, arg0 string) (bool, error) {
+func (c *ManagerClient) IsAllowedInLowPowerStandby1_1(ctx context.Context, arg0 string) (bool, error) {
 	resp, err := c.svc.IsAllowedInLowPowerStandby1_1(ctx, &pb.IsAllowedInLowPowerStandby1_1Request{
 		Arg0: arg0,
 	})
@@ -116,7 +116,7 @@ func (c *Client) IsAllowedInLowPowerStandby1_1(ctx context.Context, arg0 string)
 }
 
 // IsBatteryDischargePredictionPersonalized calls the IsBatteryDischargePredictionPersonalized RPC.
-func (c *Client) IsBatteryDischargePredictionPersonalized(ctx context.Context) (bool, error) {
+func (c *ManagerClient) IsBatteryDischargePredictionPersonalized(ctx context.Context) (bool, error) {
 	resp, err := c.svc.IsBatteryDischargePredictionPersonalized(ctx, &pb.IsBatteryDischargePredictionPersonalizedRequest{})
 	if err != nil {
 		return false, err
@@ -125,7 +125,7 @@ func (c *Client) IsBatteryDischargePredictionPersonalized(ctx context.Context) (
 }
 
 // IsDeviceIdleMode calls the IsDeviceIdleMode RPC.
-func (c *Client) IsDeviceIdleMode(ctx context.Context) (bool, error) {
+func (c *ManagerClient) IsDeviceIdleMode(ctx context.Context) (bool, error) {
 	resp, err := c.svc.IsDeviceIdleMode(ctx, &pb.IsDeviceIdleModeRequest{})
 	if err != nil {
 		return false, err
@@ -134,7 +134,7 @@ func (c *Client) IsDeviceIdleMode(ctx context.Context) (bool, error) {
 }
 
 // IsDeviceLightIdleMode calls the IsDeviceLightIdleMode RPC.
-func (c *Client) IsDeviceLightIdleMode(ctx context.Context) (bool, error) {
+func (c *ManagerClient) IsDeviceLightIdleMode(ctx context.Context) (bool, error) {
 	resp, err := c.svc.IsDeviceLightIdleMode(ctx, &pb.IsDeviceLightIdleModeRequest{})
 	if err != nil {
 		return false, err
@@ -143,7 +143,7 @@ func (c *Client) IsDeviceLightIdleMode(ctx context.Context) (bool, error) {
 }
 
 // IsExemptFromLowPowerStandby calls the IsExemptFromLowPowerStandby RPC.
-func (c *Client) IsExemptFromLowPowerStandby(ctx context.Context) (bool, error) {
+func (c *ManagerClient) IsExemptFromLowPowerStandby(ctx context.Context) (bool, error) {
 	resp, err := c.svc.IsExemptFromLowPowerStandby(ctx, &pb.IsExemptFromLowPowerStandbyRequest{})
 	if err != nil {
 		return false, err
@@ -152,7 +152,7 @@ func (c *Client) IsExemptFromLowPowerStandby(ctx context.Context) (bool, error) 
 }
 
 // IsIgnoringBatteryOptimizations calls the IsIgnoringBatteryOptimizations RPC.
-func (c *Client) IsIgnoringBatteryOptimizations(ctx context.Context, arg0 string) (bool, error) {
+func (c *ManagerClient) IsIgnoringBatteryOptimizations(ctx context.Context, arg0 string) (bool, error) {
 	resp, err := c.svc.IsIgnoringBatteryOptimizations(ctx, &pb.IsIgnoringBatteryOptimizationsRequest{
 		Arg0: arg0,
 	})
@@ -163,7 +163,7 @@ func (c *Client) IsIgnoringBatteryOptimizations(ctx context.Context, arg0 string
 }
 
 // IsInteractive calls the IsInteractive RPC.
-func (c *Client) IsInteractive(ctx context.Context) (bool, error) {
+func (c *ManagerClient) IsInteractive(ctx context.Context) (bool, error) {
 	resp, err := c.svc.IsInteractive(ctx, &pb.IsInteractiveRequest{})
 	if err != nil {
 		return false, err
@@ -172,7 +172,7 @@ func (c *Client) IsInteractive(ctx context.Context) (bool, error) {
 }
 
 // IsLowPowerStandbyEnabled calls the IsLowPowerStandbyEnabled RPC.
-func (c *Client) IsLowPowerStandbyEnabled(ctx context.Context) (bool, error) {
+func (c *ManagerClient) IsLowPowerStandbyEnabled(ctx context.Context) (bool, error) {
 	resp, err := c.svc.IsLowPowerStandbyEnabled(ctx, &pb.IsLowPowerStandbyEnabledRequest{})
 	if err != nil {
 		return false, err
@@ -181,7 +181,7 @@ func (c *Client) IsLowPowerStandbyEnabled(ctx context.Context) (bool, error) {
 }
 
 // IsPowerSaveMode calls the IsPowerSaveMode RPC.
-func (c *Client) IsPowerSaveMode(ctx context.Context) (bool, error) {
+func (c *ManagerClient) IsPowerSaveMode(ctx context.Context) (bool, error) {
 	resp, err := c.svc.IsPowerSaveMode(ctx, &pb.IsPowerSaveModeRequest{})
 	if err != nil {
 		return false, err
@@ -190,7 +190,7 @@ func (c *Client) IsPowerSaveMode(ctx context.Context) (bool, error) {
 }
 
 // IsRebootingUserspaceSupported calls the IsRebootingUserspaceSupported RPC.
-func (c *Client) IsRebootingUserspaceSupported(ctx context.Context) (bool, error) {
+func (c *ManagerClient) IsRebootingUserspaceSupported(ctx context.Context) (bool, error) {
 	resp, err := c.svc.IsRebootingUserspaceSupported(ctx, &pb.IsRebootingUserspaceSupportedRequest{})
 	if err != nil {
 		return false, err
@@ -199,7 +199,7 @@ func (c *Client) IsRebootingUserspaceSupported(ctx context.Context) (bool, error
 }
 
 // IsScreenOn calls the IsScreenOn RPC.
-func (c *Client) IsScreenOn(ctx context.Context) (bool, error) {
+func (c *ManagerClient) IsScreenOn(ctx context.Context) (bool, error) {
 	resp, err := c.svc.IsScreenOn(ctx, &pb.IsScreenOnRequest{})
 	if err != nil {
 		return false, err
@@ -208,7 +208,7 @@ func (c *Client) IsScreenOn(ctx context.Context) (bool, error) {
 }
 
 // IsSustainedPerformanceModeSupported calls the IsSustainedPerformanceModeSupported RPC.
-func (c *Client) IsSustainedPerformanceModeSupported(ctx context.Context) (bool, error) {
+func (c *ManagerClient) IsSustainedPerformanceModeSupported(ctx context.Context) (bool, error) {
 	resp, err := c.svc.IsSustainedPerformanceModeSupported(ctx, &pb.IsSustainedPerformanceModeSupportedRequest{})
 	if err != nil {
 		return false, err
@@ -217,7 +217,7 @@ func (c *Client) IsSustainedPerformanceModeSupported(ctx context.Context) (bool,
 }
 
 // IsWakeLockLevelSupported calls the IsWakeLockLevelSupported RPC.
-func (c *Client) IsWakeLockLevelSupported(ctx context.Context, arg0 int32) (bool, error) {
+func (c *ManagerClient) IsWakeLockLevelSupported(ctx context.Context, arg0 int32) (bool, error) {
 	resp, err := c.svc.IsWakeLockLevelSupported(ctx, &pb.IsWakeLockLevelSupportedRequest{
 		Arg0: arg0,
 	})
@@ -228,7 +228,7 @@ func (c *Client) IsWakeLockLevelSupported(ctx context.Context, arg0 int32) (bool
 }
 
 // NewWakeLock calls the NewWakeLock RPC.
-func (c *Client) NewWakeLock(ctx context.Context, arg0 int32, arg1 string) (int64, error) {
+func (c *ManagerClient) NewWakeLock(ctx context.Context, arg0 int32, arg1 string) (int64, error) {
 	resp, err := c.svc.NewWakeLock(ctx, &pb.NewWakeLockRequest{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -240,7 +240,7 @@ func (c *Client) NewWakeLock(ctx context.Context, arg0 int32, arg1 string) (int6
 }
 
 // Reboot calls the Reboot RPC.
-func (c *Client) Reboot(ctx context.Context, arg0 string) error {
+func (c *ManagerClient) Reboot(ctx context.Context, arg0 string) error {
 	_, err := c.svc.Reboot(ctx, &pb.RebootRequest{
 		Arg0: arg0,
 	})
@@ -248,7 +248,7 @@ func (c *Client) Reboot(ctx context.Context, arg0 string) error {
 }
 
 // RemoveThermalHeadroomListener calls the RemoveThermalHeadroomListener RPC.
-func (c *Client) RemoveThermalHeadroomListener(ctx context.Context, arg0 int64) error {
+func (c *ManagerClient) RemoveThermalHeadroomListener(ctx context.Context, arg0 int64) error {
 	_, err := c.svc.RemoveThermalHeadroomListener(ctx, &pb.RemoveThermalHeadroomListenerRequest{
 		Arg0: arg0,
 	})
@@ -256,7 +256,7 @@ func (c *Client) RemoveThermalHeadroomListener(ctx context.Context, arg0 int64) 
 }
 
 // RemoveThermalStatusListener calls the RemoveThermalStatusListener RPC.
-func (c *Client) RemoveThermalStatusListener(ctx context.Context, arg0 int64) error {
+func (c *ManagerClient) RemoveThermalStatusListener(ctx context.Context, arg0 int64) error {
 	_, err := c.svc.RemoveThermalStatusListener(ctx, &pb.RemoveThermalStatusListenerRequest{
 		Arg0: arg0,
 	})

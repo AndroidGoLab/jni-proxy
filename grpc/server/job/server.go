@@ -112,29 +112,6 @@ func (s *SchedulerServer) ForNamespace(_ context.Context, req *pb.ForNamespaceRe
 	return &pb.ForNamespaceResponse{Result: handle}, nil
 }
 
-func (s *SchedulerServer) GetAllPendingJobs(_ context.Context, req *pb.GetAllPendingJobsRequest) (*pb.GetAllPendingJobsResponse, error) {
-	mgr, err := jnipkg.NewScheduler(s.Ctx)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
-	}
-	defer mgr.Close()
-
-	result, err := mgr.GetAllPendingJobs()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	var handle int64
-	if result != nil {
-		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-			handle = s.Handles.Put(env, result)
-			return nil
-		}); doErr != nil {
-			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-		}
-	}
-	return &pb.GetAllPendingJobsResponse{Result: handle}, nil
-}
-
 func (s *SchedulerServer) GetNamespace(_ context.Context, req *pb.GetNamespaceRequest) (*pb.GetNamespaceResponse, error) {
 	mgr, err := jnipkg.NewScheduler(s.Ctx)
 	if err != nil {
@@ -207,29 +184,6 @@ func (s *SchedulerServer) GetPendingJobReasons(_ context.Context, req *pb.GetPen
 		}
 	}
 	return &pb.GetPendingJobReasonsResponse{Result: handle}, nil
-}
-
-func (s *SchedulerServer) GetPendingJobReasonsHistory(_ context.Context, req *pb.GetPendingJobReasonsHistoryRequest) (*pb.GetPendingJobReasonsHistoryResponse, error) {
-	mgr, err := jnipkg.NewScheduler(s.Ctx)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
-	}
-	defer mgr.Close()
-
-	result, err := mgr.GetPendingJobReasonsHistory(req.GetArg0())
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	var handle int64
-	if result != nil {
-		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-			handle = s.Handles.Put(env, result)
-			return nil
-		}); doErr != nil {
-			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-		}
-	}
-	return &pb.GetPendingJobReasonsHistoryResponse{Result: handle}, nil
 }
 
 func (s *SchedulerServer) Schedule(_ context.Context, req *pb.ScheduleRequest) (*pb.ScheduleResponse, error) {

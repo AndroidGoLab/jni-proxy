@@ -9,20 +9,20 @@ import (
 	"google.golang.org/grpc"
 )
 
-// Client wraps the gRPC ManagerService client.
-type Client struct {
+// ManagerClient wraps the gRPC ManagerService client.
+type ManagerClient struct {
 	svc pb.ManagerServiceClient
 }
 
-// NewClient creates a new role client.
-func NewClient(cc grpc.ClientConnInterface) *Client {
-	return &Client{
+// NewManagerClient creates a new Manager client.
+func NewManagerClient(cc grpc.ClientConnInterface) *ManagerClient {
+	return &ManagerClient{
 		svc: pb.NewManagerServiceClient(cc),
 	}
 }
 
 // CreateRequestRoleIntent calls the CreateRequestRoleIntent RPC.
-func (c *Client) CreateRequestRoleIntent(ctx context.Context, arg0 string) (int64, error) {
+func (c *ManagerClient) CreateRequestRoleIntent(ctx context.Context, arg0 string) (int64, error) {
 	resp, err := c.svc.CreateRequestRoleIntent(ctx, &pb.CreateRequestRoleIntentRequest{
 		Arg0: arg0,
 	})
@@ -33,7 +33,7 @@ func (c *Client) CreateRequestRoleIntent(ctx context.Context, arg0 string) (int6
 }
 
 // IsRoleAvailable calls the IsRoleAvailable RPC.
-func (c *Client) IsRoleAvailable(ctx context.Context, arg0 string) (bool, error) {
+func (c *ManagerClient) IsRoleAvailable(ctx context.Context, arg0 string) (bool, error) {
 	resp, err := c.svc.IsRoleAvailable(ctx, &pb.IsRoleAvailableRequest{
 		Arg0: arg0,
 	})
@@ -44,7 +44,7 @@ func (c *Client) IsRoleAvailable(ctx context.Context, arg0 string) (bool, error)
 }
 
 // IsRoleHeld calls the IsRoleHeld RPC.
-func (c *Client) IsRoleHeld(ctx context.Context, arg0 string) (bool, error) {
+func (c *ManagerClient) IsRoleHeld(ctx context.Context, arg0 string) (bool, error) {
 	resp, err := c.svc.IsRoleHeld(ctx, &pb.IsRoleHeldRequest{
 		Arg0: arg0,
 	})

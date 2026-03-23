@@ -226,32 +226,6 @@ func (s *ManagerServer) CreateNotificationChannelGroup(_ context.Context, req *p
 	return &pb.CreateNotificationChannelGroupResponse{}, nil
 }
 
-func (s *ManagerServer) CreateNotificationChannelGroups(_ context.Context, req *pb.CreateNotificationChannelGroupsRequest) (*pb.CreateNotificationChannelGroupsResponse, error) {
-	mgr, err := jnipkg.NewManager(s.Ctx)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
-	}
-	defer mgr.Close()
-
-	if err := mgr.CreateNotificationChannelGroups(s.Handles.Get(req.GetArg0())); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.CreateNotificationChannelGroupsResponse{}, nil
-}
-
-func (s *ManagerServer) CreateNotificationChannels(_ context.Context, req *pb.CreateNotificationChannelsRequest) (*pb.CreateNotificationChannelsResponse, error) {
-	mgr, err := jnipkg.NewManager(s.Ctx)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
-	}
-	defer mgr.Close()
-
-	if err := mgr.CreateNotificationChannels(s.Handles.Get(req.GetArg0())); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.CreateNotificationChannelsResponse{}, nil
-}
-
 func (s *ManagerServer) DeleteNotificationChannel(_ context.Context, req *pb.DeleteNotificationChannelRequest) (*pb.DeleteNotificationChannelResponse, error) {
 	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
@@ -470,52 +444,6 @@ func (s *ManagerServer) GetNotificationChannelGroup(_ context.Context, req *pb.G
 		}
 	}
 	return &pb.GetNotificationChannelGroupResponse{Result: handle}, nil
-}
-
-func (s *ManagerServer) GetNotificationChannelGroups(_ context.Context, req *pb.GetNotificationChannelGroupsRequest) (*pb.GetNotificationChannelGroupsResponse, error) {
-	mgr, err := jnipkg.NewManager(s.Ctx)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
-	}
-	defer mgr.Close()
-
-	result, err := mgr.GetNotificationChannelGroups()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	var handle int64
-	if result != nil {
-		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-			handle = s.Handles.Put(env, result)
-			return nil
-		}); doErr != nil {
-			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-		}
-	}
-	return &pb.GetNotificationChannelGroupsResponse{Result: handle}, nil
-}
-
-func (s *ManagerServer) GetNotificationChannels(_ context.Context, req *pb.GetNotificationChannelsRequest) (*pb.GetNotificationChannelsResponse, error) {
-	mgr, err := jnipkg.NewManager(s.Ctx)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
-	}
-	defer mgr.Close()
-
-	result, err := mgr.GetNotificationChannels()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	var handle int64
-	if result != nil {
-		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-			handle = s.Handles.Put(env, result)
-			return nil
-		}); doErr != nil {
-			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-		}
-	}
-	return &pb.GetNotificationChannelsResponse{Result: handle}, nil
 }
 
 func (s *ManagerServer) GetNotificationDelegate(_ context.Context, req *pb.GetNotificationDelegateRequest) (*pb.GetNotificationDelegateResponse, error) {

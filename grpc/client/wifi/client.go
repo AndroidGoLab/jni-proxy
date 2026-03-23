@@ -9,20 +9,20 @@ import (
 	"google.golang.org/grpc"
 )
 
-// Client wraps the gRPC ManagerService client.
-type Client struct {
+// ManagerClient wraps the gRPC ManagerService client.
+type ManagerClient struct {
 	svc pb.ManagerServiceClient
 }
 
-// NewClient creates a new wifi client.
-func NewClient(cc grpc.ClientConnInterface) *Client {
-	return &Client{
+// NewManagerClient creates a new Manager client.
+func NewManagerClient(cc grpc.ClientConnInterface) *ManagerClient {
+	return &ManagerClient{
 		svc: pb.NewManagerServiceClient(cc),
 	}
 }
 
 // AddLocalOnlyConnectionFailureListener calls the AddLocalOnlyConnectionFailureListener RPC.
-func (c *Client) AddLocalOnlyConnectionFailureListener(ctx context.Context, arg0 int64, arg1 int64) error {
+func (c *ManagerClient) AddLocalOnlyConnectionFailureListener(ctx context.Context, arg0 int64, arg1 int64) error {
 	_, err := c.svc.AddLocalOnlyConnectionFailureListener(ctx, &pb.AddLocalOnlyConnectionFailureListenerRequest{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -31,7 +31,7 @@ func (c *Client) AddLocalOnlyConnectionFailureListener(ctx context.Context, arg0
 }
 
 // AddNetwork calls the AddNetwork RPC.
-func (c *Client) AddNetwork(ctx context.Context, arg0 int64) (int32, error) {
+func (c *ManagerClient) AddNetwork(ctx context.Context, arg0 int64) (int32, error) {
 	resp, err := c.svc.AddNetwork(ctx, &pb.AddNetworkRequest{
 		Arg0: arg0,
 	})
@@ -42,7 +42,7 @@ func (c *Client) AddNetwork(ctx context.Context, arg0 int64) (int32, error) {
 }
 
 // AddNetworkPrivileged calls the AddNetworkPrivileged RPC.
-func (c *Client) AddNetworkPrivileged(ctx context.Context, arg0 int64) (int64, error) {
+func (c *ManagerClient) AddNetworkPrivileged(ctx context.Context, arg0 int64) (int64, error) {
 	resp, err := c.svc.AddNetworkPrivileged(ctx, &pb.AddNetworkPrivilegedRequest{
 		Arg0: arg0,
 	})
@@ -52,19 +52,8 @@ func (c *Client) AddNetworkPrivileged(ctx context.Context, arg0 int64) (int64, e
 	return resp.GetResult(), nil
 }
 
-// AddNetworkSuggestions calls the AddNetworkSuggestions RPC.
-func (c *Client) AddNetworkSuggestions(ctx context.Context, arg0 int64) (int32, error) {
-	resp, err := c.svc.AddNetworkSuggestions(ctx, &pb.AddNetworkSuggestionsRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
 // AddOrUpdatePasspointConfiguration calls the AddOrUpdatePasspointConfiguration RPC.
-func (c *Client) AddOrUpdatePasspointConfiguration(ctx context.Context, arg0 int64) error {
+func (c *ManagerClient) AddOrUpdatePasspointConfiguration(ctx context.Context, arg0 int64) error {
 	_, err := c.svc.AddOrUpdatePasspointConfiguration(ctx, &pb.AddOrUpdatePasspointConfigurationRequest{
 		Arg0: arg0,
 	})
@@ -72,7 +61,7 @@ func (c *Client) AddOrUpdatePasspointConfiguration(ctx context.Context, arg0 int
 }
 
 // AddSuggestionConnectionStatusListener calls the AddSuggestionConnectionStatusListener RPC.
-func (c *Client) AddSuggestionConnectionStatusListener(ctx context.Context, arg0 int64, arg1 int64) error {
+func (c *ManagerClient) AddSuggestionConnectionStatusListener(ctx context.Context, arg0 int64, arg1 int64) error {
 	_, err := c.svc.AddSuggestionConnectionStatusListener(ctx, &pb.AddSuggestionConnectionStatusListenerRequest{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -81,7 +70,7 @@ func (c *Client) AddSuggestionConnectionStatusListener(ctx context.Context, arg0
 }
 
 // AddSuggestionUserApprovalStatusListener calls the AddSuggestionUserApprovalStatusListener RPC.
-func (c *Client) AddSuggestionUserApprovalStatusListener(ctx context.Context, arg0 int64, arg1 int64) error {
+func (c *ManagerClient) AddSuggestionUserApprovalStatusListener(ctx context.Context, arg0 int64, arg1 int64) error {
 	_, err := c.svc.AddSuggestionUserApprovalStatusListener(ctx, &pb.AddSuggestionUserApprovalStatusListenerRequest{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -90,7 +79,7 @@ func (c *Client) AddSuggestionUserApprovalStatusListener(ctx context.Context, ar
 }
 
 // AddWifiStateChangedListener calls the AddWifiStateChangedListener RPC.
-func (c *Client) AddWifiStateChangedListener(ctx context.Context, arg0 int64, arg1 int64) error {
+func (c *ManagerClient) AddWifiStateChangedListener(ctx context.Context, arg0 int64, arg1 int64) error {
 	_, err := c.svc.AddWifiStateChangedListener(ctx, &pb.AddWifiStateChangedListenerRequest{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -99,7 +88,7 @@ func (c *Client) AddWifiStateChangedListener(ctx context.Context, arg0 int64, ar
 }
 
 // AllowAutojoinGlobal calls the AllowAutojoinGlobal RPC.
-func (c *Client) AllowAutojoinGlobal(ctx context.Context, arg0 bool) error {
+func (c *ManagerClient) AllowAutojoinGlobal(ctx context.Context, arg0 bool) error {
 	_, err := c.svc.AllowAutojoinGlobal(ctx, &pb.AllowAutojoinGlobalRequest{
 		Arg0: arg0,
 	})
@@ -107,7 +96,7 @@ func (c *Client) AllowAutojoinGlobal(ctx context.Context, arg0 bool) error {
 }
 
 // CalculateSignalLevel1 calls the CalculateSignalLevel1 RPC.
-func (c *Client) CalculateSignalLevel1(ctx context.Context, arg0 int32) (int32, error) {
+func (c *ManagerClient) CalculateSignalLevel1(ctx context.Context, arg0 int32) (int32, error) {
 	resp, err := c.svc.CalculateSignalLevel1(ctx, &pb.CalculateSignalLevel1Request{
 		Arg0: arg0,
 	})
@@ -118,7 +107,7 @@ func (c *Client) CalculateSignalLevel1(ctx context.Context, arg0 int32) (int32, 
 }
 
 // CancelWps calls the CancelWps RPC.
-func (c *Client) CancelWps(ctx context.Context, arg0 int64) error {
+func (c *ManagerClient) CancelWps(ctx context.Context, arg0 int64) error {
 	_, err := c.svc.CancelWps(ctx, &pb.CancelWpsRequest{
 		Arg0: arg0,
 	})
@@ -126,7 +115,7 @@ func (c *Client) CancelWps(ctx context.Context, arg0 int64) error {
 }
 
 // CreateMulticastLock calls the CreateMulticastLock RPC.
-func (c *Client) CreateMulticastLock(ctx context.Context, arg0 string) (int64, error) {
+func (c *ManagerClient) CreateMulticastLock(ctx context.Context, arg0 string) (int64, error) {
 	resp, err := c.svc.CreateMulticastLock(ctx, &pb.CreateMulticastLockRequest{
 		Arg0: arg0,
 	})
@@ -137,7 +126,7 @@ func (c *Client) CreateMulticastLock(ctx context.Context, arg0 string) (int64, e
 }
 
 // CreateWifiLock2 calls the CreateWifiLock2 RPC.
-func (c *Client) CreateWifiLock2(ctx context.Context, arg0 int32, arg1 string) (int64, error) {
+func (c *ManagerClient) CreateWifiLock2(ctx context.Context, arg0 int32, arg1 string) (int64, error) {
 	resp, err := c.svc.CreateWifiLock2(ctx, &pb.CreateWifiLock2Request{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -149,7 +138,7 @@ func (c *Client) CreateWifiLock2(ctx context.Context, arg0 int32, arg1 string) (
 }
 
 // CreateWifiLock1_1 calls the CreateWifiLock1_1 RPC.
-func (c *Client) CreateWifiLock1_1(ctx context.Context, arg0 string) (int64, error) {
+func (c *ManagerClient) CreateWifiLock1_1(ctx context.Context, arg0 string) (int64, error) {
 	resp, err := c.svc.CreateWifiLock1_1(ctx, &pb.CreateWifiLock1_1Request{
 		Arg0: arg0,
 	})
@@ -160,7 +149,7 @@ func (c *Client) CreateWifiLock1_1(ctx context.Context, arg0 string) (int64, err
 }
 
 // DisableNetwork calls the DisableNetwork RPC.
-func (c *Client) DisableNetwork(ctx context.Context, arg0 int32) (bool, error) {
+func (c *ManagerClient) DisableNetwork(ctx context.Context, arg0 int32) (bool, error) {
 	resp, err := c.svc.DisableNetwork(ctx, &pb.DisableNetworkRequest{
 		Arg0: arg0,
 	})
@@ -171,7 +160,7 @@ func (c *Client) DisableNetwork(ctx context.Context, arg0 int32) (bool, error) {
 }
 
 // DisallowCurrentSuggestedNetwork calls the DisallowCurrentSuggestedNetwork RPC.
-func (c *Client) DisallowCurrentSuggestedNetwork(ctx context.Context, arg0 int64) error {
+func (c *ManagerClient) DisallowCurrentSuggestedNetwork(ctx context.Context, arg0 int64) error {
 	_, err := c.svc.DisallowCurrentSuggestedNetwork(ctx, &pb.DisallowCurrentSuggestedNetworkRequest{
 		Arg0: arg0,
 	})
@@ -179,7 +168,7 @@ func (c *Client) DisallowCurrentSuggestedNetwork(ctx context.Context, arg0 int64
 }
 
 // Disconnect calls the Disconnect RPC.
-func (c *Client) Disconnect(ctx context.Context) (bool, error) {
+func (c *ManagerClient) Disconnect(ctx context.Context) (bool, error) {
 	resp, err := c.svc.Disconnect(ctx, &pb.DisconnectRequest{})
 	if err != nil {
 		return false, err
@@ -188,7 +177,7 @@ func (c *Client) Disconnect(ctx context.Context) (bool, error) {
 }
 
 // EnableNetwork calls the EnableNetwork RPC.
-func (c *Client) EnableNetwork(ctx context.Context, arg0 int32, arg1 bool) (bool, error) {
+func (c *ManagerClient) EnableNetwork(ctx context.Context, arg0 int32, arg1 bool) (bool, error) {
 	resp, err := c.svc.EnableNetwork(ctx, &pb.EnableNetworkRequest{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -200,52 +189,13 @@ func (c *Client) EnableNetwork(ctx context.Context, arg0 int32, arg1 bool) (bool
 }
 
 // FlushPasspointAnqpCache calls the FlushPasspointAnqpCache RPC.
-func (c *Client) FlushPasspointAnqpCache(ctx context.Context) error {
+func (c *ManagerClient) FlushPasspointAnqpCache(ctx context.Context) error {
 	_, err := c.svc.FlushPasspointAnqpCache(ctx, &pb.FlushPasspointAnqpCacheRequest{})
 	return err
 }
 
-// GetAllowedChannels calls the GetAllowedChannels RPC.
-func (c *Client) GetAllowedChannels(ctx context.Context, arg0 int32, arg1 int32) (int64, error) {
-	resp, err := c.svc.GetAllowedChannels(ctx, &pb.GetAllowedChannelsRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetCallerConfiguredNetworks calls the GetCallerConfiguredNetworks RPC.
-func (c *Client) GetCallerConfiguredNetworks(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetCallerConfiguredNetworks(ctx, &pb.GetCallerConfiguredNetworksRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetChannelData calls the GetChannelData RPC.
-func (c *Client) GetChannelData(ctx context.Context, arg0 int64, arg1 int64) error {
-	_, err := c.svc.GetChannelData(ctx, &pb.GetChannelDataRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	return err
-}
-
-// GetConfiguredNetworks calls the GetConfiguredNetworks RPC.
-func (c *Client) GetConfiguredNetworks(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetConfiguredNetworks(ctx, &pb.GetConfiguredNetworksRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
 // GetConnectionInfo calls the GetConnectionInfo RPC.
-func (c *Client) GetConnectionInfo(ctx context.Context) (int64, error) {
+func (c *ManagerClient) GetConnectionInfo(ctx context.Context) (int64, error) {
 	resp, err := c.svc.GetConnectionInfo(ctx, &pb.GetConnectionInfoRequest{})
 	if err != nil {
 		return 0, err
@@ -254,7 +204,7 @@ func (c *Client) GetConnectionInfo(ctx context.Context) (int64, error) {
 }
 
 // GetDhcpInfo calls the GetDhcpInfo RPC.
-func (c *Client) GetDhcpInfo(ctx context.Context) (int64, error) {
+func (c *ManagerClient) GetDhcpInfo(ctx context.Context) (int64, error) {
 	resp, err := c.svc.GetDhcpInfo(ctx, &pb.GetDhcpInfoRequest{})
 	if err != nil {
 		return 0, err
@@ -263,7 +213,7 @@ func (c *Client) GetDhcpInfo(ctx context.Context) (int64, error) {
 }
 
 // GetMaxNumberOfChannelsPerNetworkSpecifierRequest calls the GetMaxNumberOfChannelsPerNetworkSpecifierRequest RPC.
-func (c *Client) GetMaxNumberOfChannelsPerNetworkSpecifierRequest(ctx context.Context) (int32, error) {
+func (c *ManagerClient) GetMaxNumberOfChannelsPerNetworkSpecifierRequest(ctx context.Context) (int32, error) {
 	resp, err := c.svc.GetMaxNumberOfChannelsPerNetworkSpecifierRequest(ctx, &pb.GetMaxNumberOfChannelsPerNetworkSpecifierRequestRequest{})
 	if err != nil {
 		return 0, err
@@ -272,7 +222,7 @@ func (c *Client) GetMaxNumberOfChannelsPerNetworkSpecifierRequest(ctx context.Co
 }
 
 // GetMaxNumberOfNetworkSuggestionsPerApp calls the GetMaxNumberOfNetworkSuggestionsPerApp RPC.
-func (c *Client) GetMaxNumberOfNetworkSuggestionsPerApp(ctx context.Context) (int32, error) {
+func (c *ManagerClient) GetMaxNumberOfNetworkSuggestionsPerApp(ctx context.Context) (int32, error) {
 	resp, err := c.svc.GetMaxNumberOfNetworkSuggestionsPerApp(ctx, &pb.GetMaxNumberOfNetworkSuggestionsPerAppRequest{})
 	if err != nil {
 		return 0, err
@@ -281,7 +231,7 @@ func (c *Client) GetMaxNumberOfNetworkSuggestionsPerApp(ctx context.Context) (in
 }
 
 // GetMaxSignalLevel calls the GetMaxSignalLevel RPC.
-func (c *Client) GetMaxSignalLevel(ctx context.Context) (int32, error) {
+func (c *ManagerClient) GetMaxSignalLevel(ctx context.Context) (int32, error) {
 	resp, err := c.svc.GetMaxSignalLevel(ctx, &pb.GetMaxSignalLevelRequest{})
 	if err != nil {
 		return 0, err
@@ -289,62 +239,8 @@ func (c *Client) GetMaxSignalLevel(ctx context.Context) (int32, error) {
 	return resp.GetResult(), nil
 }
 
-// GetMaxSupportedConcurrentTdlsSessions calls the GetMaxSupportedConcurrentTdlsSessions RPC.
-func (c *Client) GetMaxSupportedConcurrentTdlsSessions(ctx context.Context, arg0 int64, arg1 int64) error {
-	_, err := c.svc.GetMaxSupportedConcurrentTdlsSessions(ctx, &pb.GetMaxSupportedConcurrentTdlsSessionsRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	return err
-}
-
-// GetNetworkSuggestions calls the GetNetworkSuggestions RPC.
-func (c *Client) GetNetworkSuggestions(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetNetworkSuggestions(ctx, &pb.GetNetworkSuggestionsRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetNumberOfEnabledTdlsSessions calls the GetNumberOfEnabledTdlsSessions RPC.
-func (c *Client) GetNumberOfEnabledTdlsSessions(ctx context.Context, arg0 int64, arg1 int64) error {
-	_, err := c.svc.GetNumberOfEnabledTdlsSessions(ctx, &pb.GetNumberOfEnabledTdlsSessionsRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	return err
-}
-
-// GetPasspointConfigurations calls the GetPasspointConfigurations RPC.
-func (c *Client) GetPasspointConfigurations(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetPasspointConfigurations(ctx, &pb.GetPasspointConfigurationsRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetPerSsidRoamingModes calls the GetPerSsidRoamingModes RPC.
-func (c *Client) GetPerSsidRoamingModes(ctx context.Context, arg0 int64, arg1 int64) error {
-	_, err := c.svc.GetPerSsidRoamingModes(ctx, &pb.GetPerSsidRoamingModesRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	return err
-}
-
-// GetScanResults calls the GetScanResults RPC.
-func (c *Client) GetScanResults(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetScanResults(ctx, &pb.GetScanResultsRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
 // GetStaConcurrencyForMultiInternetMode calls the GetStaConcurrencyForMultiInternetMode RPC.
-func (c *Client) GetStaConcurrencyForMultiInternetMode(ctx context.Context) (int32, error) {
+func (c *ManagerClient) GetStaConcurrencyForMultiInternetMode(ctx context.Context) (int32, error) {
 	resp, err := c.svc.GetStaConcurrencyForMultiInternetMode(ctx, &pb.GetStaConcurrencyForMultiInternetModeRequest{})
 	if err != nil {
 		return 0, err
@@ -352,20 +248,8 @@ func (c *Client) GetStaConcurrencyForMultiInternetMode(ctx context.Context) (int
 	return resp.GetResult(), nil
 }
 
-// GetUsableChannels calls the GetUsableChannels RPC.
-func (c *Client) GetUsableChannels(ctx context.Context, arg0 int32, arg1 int32) (int64, error) {
-	resp, err := c.svc.GetUsableChannels(ctx, &pb.GetUsableChannelsRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
 // GetWifiState calls the GetWifiState RPC.
-func (c *Client) GetWifiState(ctx context.Context) (int32, error) {
+func (c *ManagerClient) GetWifiState(ctx context.Context) (int32, error) {
 	resp, err := c.svc.GetWifiState(ctx, &pb.GetWifiStateRequest{})
 	if err != nil {
 		return 0, err
@@ -374,7 +258,7 @@ func (c *Client) GetWifiState(ctx context.Context) (int32, error) {
 }
 
 // Is24GHzBandSupported calls the Is24GHzBandSupported RPC.
-func (c *Client) Is24GHzBandSupported(ctx context.Context) (bool, error) {
+func (c *ManagerClient) Is24GHzBandSupported(ctx context.Context) (bool, error) {
 	resp, err := c.svc.Is24GHzBandSupported(ctx, &pb.Is24GHzBandSupportedRequest{})
 	if err != nil {
 		return false, err
@@ -383,7 +267,7 @@ func (c *Client) Is24GHzBandSupported(ctx context.Context) (bool, error) {
 }
 
 // Is5GHzBandSupported calls the Is5GHzBandSupported RPC.
-func (c *Client) Is5GHzBandSupported(ctx context.Context) (bool, error) {
+func (c *ManagerClient) Is5GHzBandSupported(ctx context.Context) (bool, error) {
 	resp, err := c.svc.Is5GHzBandSupported(ctx, &pb.Is5GHzBandSupportedRequest{})
 	if err != nil {
 		return false, err
@@ -392,7 +276,7 @@ func (c *Client) Is5GHzBandSupported(ctx context.Context) (bool, error) {
 }
 
 // Is60GHzBandSupported calls the Is60GHzBandSupported RPC.
-func (c *Client) Is60GHzBandSupported(ctx context.Context) (bool, error) {
+func (c *ManagerClient) Is60GHzBandSupported(ctx context.Context) (bool, error) {
 	resp, err := c.svc.Is60GHzBandSupported(ctx, &pb.Is60GHzBandSupportedRequest{})
 	if err != nil {
 		return false, err
@@ -401,7 +285,7 @@ func (c *Client) Is60GHzBandSupported(ctx context.Context) (bool, error) {
 }
 
 // Is6GHzBandSupported calls the Is6GHzBandSupported RPC.
-func (c *Client) Is6GHzBandSupported(ctx context.Context) (bool, error) {
+func (c *ManagerClient) Is6GHzBandSupported(ctx context.Context) (bool, error) {
 	resp, err := c.svc.Is6GHzBandSupported(ctx, &pb.Is6GHzBandSupportedRequest{})
 	if err != nil {
 		return false, err
@@ -410,7 +294,7 @@ func (c *Client) Is6GHzBandSupported(ctx context.Context) (bool, error) {
 }
 
 // IsAggressiveRoamingModeSupported calls the IsAggressiveRoamingModeSupported RPC.
-func (c *Client) IsAggressiveRoamingModeSupported(ctx context.Context) (bool, error) {
+func (c *ManagerClient) IsAggressiveRoamingModeSupported(ctx context.Context) (bool, error) {
 	resp, err := c.svc.IsAggressiveRoamingModeSupported(ctx, &pb.IsAggressiveRoamingModeSupportedRequest{})
 	if err != nil {
 		return false, err
@@ -419,7 +303,7 @@ func (c *Client) IsAggressiveRoamingModeSupported(ctx context.Context) (bool, er
 }
 
 // IsAutoWakeupEnabled calls the IsAutoWakeupEnabled RPC.
-func (c *Client) IsAutoWakeupEnabled(ctx context.Context) (bool, error) {
+func (c *ManagerClient) IsAutoWakeupEnabled(ctx context.Context) (bool, error) {
 	resp, err := c.svc.IsAutoWakeupEnabled(ctx, &pb.IsAutoWakeupEnabledRequest{})
 	if err != nil {
 		return false, err
@@ -428,7 +312,7 @@ func (c *Client) IsAutoWakeupEnabled(ctx context.Context) (bool, error) {
 }
 
 // IsBridgedApConcurrencySupported calls the IsBridgedApConcurrencySupported RPC.
-func (c *Client) IsBridgedApConcurrencySupported(ctx context.Context) (bool, error) {
+func (c *ManagerClient) IsBridgedApConcurrencySupported(ctx context.Context) (bool, error) {
 	resp, err := c.svc.IsBridgedApConcurrencySupported(ctx, &pb.IsBridgedApConcurrencySupportedRequest{})
 	if err != nil {
 		return false, err
@@ -437,7 +321,7 @@ func (c *Client) IsBridgedApConcurrencySupported(ctx context.Context) (bool, err
 }
 
 // IsCarrierNetworkOffloadEnabled calls the IsCarrierNetworkOffloadEnabled RPC.
-func (c *Client) IsCarrierNetworkOffloadEnabled(ctx context.Context, arg0 int32, arg1 bool) (bool, error) {
+func (c *ManagerClient) IsCarrierNetworkOffloadEnabled(ctx context.Context, arg0 int32, arg1 bool) (bool, error) {
 	resp, err := c.svc.IsCarrierNetworkOffloadEnabled(ctx, &pb.IsCarrierNetworkOffloadEnabledRequest{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -449,7 +333,7 @@ func (c *Client) IsCarrierNetworkOffloadEnabled(ctx context.Context, arg0 int32,
 }
 
 // IsD2DSupportedWhenInfraStaDisabled calls the IsD2DSupportedWhenInfraStaDisabled RPC.
-func (c *Client) IsD2DSupportedWhenInfraStaDisabled(ctx context.Context) (bool, error) {
+func (c *ManagerClient) IsD2DSupportedWhenInfraStaDisabled(ctx context.Context) (bool, error) {
 	resp, err := c.svc.IsD2DSupportedWhenInfraStaDisabled(ctx, &pb.IsD2DSupportedWhenInfraStaDisabledRequest{})
 	if err != nil {
 		return false, err
@@ -458,7 +342,7 @@ func (c *Client) IsD2DSupportedWhenInfraStaDisabled(ctx context.Context) (bool, 
 }
 
 // IsDecoratedIdentitySupported calls the IsDecoratedIdentitySupported RPC.
-func (c *Client) IsDecoratedIdentitySupported(ctx context.Context) (bool, error) {
+func (c *ManagerClient) IsDecoratedIdentitySupported(ctx context.Context) (bool, error) {
 	resp, err := c.svc.IsDecoratedIdentitySupported(ctx, &pb.IsDecoratedIdentitySupportedRequest{})
 	if err != nil {
 		return false, err
@@ -467,7 +351,7 @@ func (c *Client) IsDecoratedIdentitySupported(ctx context.Context) (bool, error)
 }
 
 // IsDeviceToApRttSupported calls the IsDeviceToApRttSupported RPC.
-func (c *Client) IsDeviceToApRttSupported(ctx context.Context) (bool, error) {
+func (c *ManagerClient) IsDeviceToApRttSupported(ctx context.Context) (bool, error) {
 	resp, err := c.svc.IsDeviceToApRttSupported(ctx, &pb.IsDeviceToApRttSupportedRequest{})
 	if err != nil {
 		return false, err
@@ -476,7 +360,7 @@ func (c *Client) IsDeviceToApRttSupported(ctx context.Context) (bool, error) {
 }
 
 // IsDualBandSimultaneousSupported calls the IsDualBandSimultaneousSupported RPC.
-func (c *Client) IsDualBandSimultaneousSupported(ctx context.Context) (bool, error) {
+func (c *ManagerClient) IsDualBandSimultaneousSupported(ctx context.Context) (bool, error) {
 	resp, err := c.svc.IsDualBandSimultaneousSupported(ctx, &pb.IsDualBandSimultaneousSupportedRequest{})
 	if err != nil {
 		return false, err
@@ -485,7 +369,7 @@ func (c *Client) IsDualBandSimultaneousSupported(ctx context.Context) (bool, err
 }
 
 // IsEasyConnectDppAkmSupported calls the IsEasyConnectDppAkmSupported RPC.
-func (c *Client) IsEasyConnectDppAkmSupported(ctx context.Context) (bool, error) {
+func (c *ManagerClient) IsEasyConnectDppAkmSupported(ctx context.Context) (bool, error) {
 	resp, err := c.svc.IsEasyConnectDppAkmSupported(ctx, &pb.IsEasyConnectDppAkmSupportedRequest{})
 	if err != nil {
 		return false, err
@@ -494,7 +378,7 @@ func (c *Client) IsEasyConnectDppAkmSupported(ctx context.Context) (bool, error)
 }
 
 // IsEasyConnectEnrolleeResponderModeSupported calls the IsEasyConnectEnrolleeResponderModeSupported RPC.
-func (c *Client) IsEasyConnectEnrolleeResponderModeSupported(ctx context.Context) (bool, error) {
+func (c *ManagerClient) IsEasyConnectEnrolleeResponderModeSupported(ctx context.Context) (bool, error) {
 	resp, err := c.svc.IsEasyConnectEnrolleeResponderModeSupported(ctx, &pb.IsEasyConnectEnrolleeResponderModeSupportedRequest{})
 	if err != nil {
 		return false, err
@@ -503,7 +387,7 @@ func (c *Client) IsEasyConnectEnrolleeResponderModeSupported(ctx context.Context
 }
 
 // IsEasyConnectSupported calls the IsEasyConnectSupported RPC.
-func (c *Client) IsEasyConnectSupported(ctx context.Context) (bool, error) {
+func (c *ManagerClient) IsEasyConnectSupported(ctx context.Context) (bool, error) {
 	resp, err := c.svc.IsEasyConnectSupported(ctx, &pb.IsEasyConnectSupportedRequest{})
 	if err != nil {
 		return false, err
@@ -512,7 +396,7 @@ func (c *Client) IsEasyConnectSupported(ctx context.Context) (bool, error) {
 }
 
 // IsEnhancedOpenSupported calls the IsEnhancedOpenSupported RPC.
-func (c *Client) IsEnhancedOpenSupported(ctx context.Context) (bool, error) {
+func (c *ManagerClient) IsEnhancedOpenSupported(ctx context.Context) (bool, error) {
 	resp, err := c.svc.IsEnhancedOpenSupported(ctx, &pb.IsEnhancedOpenSupportedRequest{})
 	if err != nil {
 		return false, err
@@ -521,7 +405,7 @@ func (c *Client) IsEnhancedOpenSupported(ctx context.Context) (bool, error) {
 }
 
 // IsEnhancedPowerReportingSupported calls the IsEnhancedPowerReportingSupported RPC.
-func (c *Client) IsEnhancedPowerReportingSupported(ctx context.Context) (bool, error) {
+func (c *ManagerClient) IsEnhancedPowerReportingSupported(ctx context.Context) (bool, error) {
 	resp, err := c.svc.IsEnhancedPowerReportingSupported(ctx, &pb.IsEnhancedPowerReportingSupportedRequest{})
 	if err != nil {
 		return false, err
@@ -530,7 +414,7 @@ func (c *Client) IsEnhancedPowerReportingSupported(ctx context.Context) (bool, e
 }
 
 // IsMakeBeforeBreakWifiSwitchingSupported calls the IsMakeBeforeBreakWifiSwitchingSupported RPC.
-func (c *Client) IsMakeBeforeBreakWifiSwitchingSupported(ctx context.Context) (bool, error) {
+func (c *ManagerClient) IsMakeBeforeBreakWifiSwitchingSupported(ctx context.Context) (bool, error) {
 	resp, err := c.svc.IsMakeBeforeBreakWifiSwitchingSupported(ctx, &pb.IsMakeBeforeBreakWifiSwitchingSupportedRequest{})
 	if err != nil {
 		return false, err
@@ -539,7 +423,7 @@ func (c *Client) IsMakeBeforeBreakWifiSwitchingSupported(ctx context.Context) (b
 }
 
 // IsP2PSupported calls the IsP2PSupported RPC.
-func (c *Client) IsP2PSupported(ctx context.Context) (bool, error) {
+func (c *ManagerClient) IsP2PSupported(ctx context.Context) (bool, error) {
 	resp, err := c.svc.IsP2PSupported(ctx, &pb.IsP2PSupportedRequest{})
 	if err != nil {
 		return false, err
@@ -548,7 +432,7 @@ func (c *Client) IsP2PSupported(ctx context.Context) (bool, error) {
 }
 
 // IsPasspointTermsAndConditionsSupported calls the IsPasspointTermsAndConditionsSupported RPC.
-func (c *Client) IsPasspointTermsAndConditionsSupported(ctx context.Context) (bool, error) {
+func (c *ManagerClient) IsPasspointTermsAndConditionsSupported(ctx context.Context) (bool, error) {
 	resp, err := c.svc.IsPasspointTermsAndConditionsSupported(ctx, &pb.IsPasspointTermsAndConditionsSupportedRequest{})
 	if err != nil {
 		return false, err
@@ -557,7 +441,7 @@ func (c *Client) IsPasspointTermsAndConditionsSupported(ctx context.Context) (bo
 }
 
 // IsPreferredNetworkOffloadSupported calls the IsPreferredNetworkOffloadSupported RPC.
-func (c *Client) IsPreferredNetworkOffloadSupported(ctx context.Context) (bool, error) {
+func (c *ManagerClient) IsPreferredNetworkOffloadSupported(ctx context.Context) (bool, error) {
 	resp, err := c.svc.IsPreferredNetworkOffloadSupported(ctx, &pb.IsPreferredNetworkOffloadSupportedRequest{})
 	if err != nil {
 		return false, err
@@ -566,7 +450,7 @@ func (c *Client) IsPreferredNetworkOffloadSupported(ctx context.Context) (bool, 
 }
 
 // IsScanAlwaysAvailable calls the IsScanAlwaysAvailable RPC.
-func (c *Client) IsScanAlwaysAvailable(ctx context.Context) (bool, error) {
+func (c *ManagerClient) IsScanAlwaysAvailable(ctx context.Context) (bool, error) {
 	resp, err := c.svc.IsScanAlwaysAvailable(ctx, &pb.IsScanAlwaysAvailableRequest{})
 	if err != nil {
 		return false, err
@@ -575,7 +459,7 @@ func (c *Client) IsScanAlwaysAvailable(ctx context.Context) (bool, error) {
 }
 
 // IsScanThrottleEnabled calls the IsScanThrottleEnabled RPC.
-func (c *Client) IsScanThrottleEnabled(ctx context.Context) (bool, error) {
+func (c *ManagerClient) IsScanThrottleEnabled(ctx context.Context) (bool, error) {
 	resp, err := c.svc.IsScanThrottleEnabled(ctx, &pb.IsScanThrottleEnabledRequest{})
 	if err != nil {
 		return false, err
@@ -584,7 +468,7 @@ func (c *Client) IsScanThrottleEnabled(ctx context.Context) (bool, error) {
 }
 
 // IsStaApConcurrencySupported calls the IsStaApConcurrencySupported RPC.
-func (c *Client) IsStaApConcurrencySupported(ctx context.Context) (bool, error) {
+func (c *ManagerClient) IsStaApConcurrencySupported(ctx context.Context) (bool, error) {
 	resp, err := c.svc.IsStaApConcurrencySupported(ctx, &pb.IsStaApConcurrencySupportedRequest{})
 	if err != nil {
 		return false, err
@@ -593,7 +477,7 @@ func (c *Client) IsStaApConcurrencySupported(ctx context.Context) (bool, error) 
 }
 
 // IsStaBridgedApConcurrencySupported calls the IsStaBridgedApConcurrencySupported RPC.
-func (c *Client) IsStaBridgedApConcurrencySupported(ctx context.Context) (bool, error) {
+func (c *ManagerClient) IsStaBridgedApConcurrencySupported(ctx context.Context) (bool, error) {
 	resp, err := c.svc.IsStaBridgedApConcurrencySupported(ctx, &pb.IsStaBridgedApConcurrencySupportedRequest{})
 	if err != nil {
 		return false, err
@@ -602,7 +486,7 @@ func (c *Client) IsStaBridgedApConcurrencySupported(ctx context.Context) (bool, 
 }
 
 // IsStaConcurrencyForLocalOnlyConnectionsSupported calls the IsStaConcurrencyForLocalOnlyConnectionsSupported RPC.
-func (c *Client) IsStaConcurrencyForLocalOnlyConnectionsSupported(ctx context.Context) (bool, error) {
+func (c *ManagerClient) IsStaConcurrencyForLocalOnlyConnectionsSupported(ctx context.Context) (bool, error) {
 	resp, err := c.svc.IsStaConcurrencyForLocalOnlyConnectionsSupported(ctx, &pb.IsStaConcurrencyForLocalOnlyConnectionsSupportedRequest{})
 	if err != nil {
 		return false, err
@@ -611,7 +495,7 @@ func (c *Client) IsStaConcurrencyForLocalOnlyConnectionsSupported(ctx context.Co
 }
 
 // IsStaConcurrencyForMultiInternetSupported calls the IsStaConcurrencyForMultiInternetSupported RPC.
-func (c *Client) IsStaConcurrencyForMultiInternetSupported(ctx context.Context) (bool, error) {
+func (c *ManagerClient) IsStaConcurrencyForMultiInternetSupported(ctx context.Context) (bool, error) {
 	resp, err := c.svc.IsStaConcurrencyForMultiInternetSupported(ctx, &pb.IsStaConcurrencyForMultiInternetSupportedRequest{})
 	if err != nil {
 		return false, err
@@ -619,17 +503,8 @@ func (c *Client) IsStaConcurrencyForMultiInternetSupported(ctx context.Context) 
 	return resp.GetResult(), nil
 }
 
-// IsTdlsOperationCurrentlyAvailable calls the IsTdlsOperationCurrentlyAvailable RPC.
-func (c *Client) IsTdlsOperationCurrentlyAvailable(ctx context.Context, arg0 int64, arg1 int64) error {
-	_, err := c.svc.IsTdlsOperationCurrentlyAvailable(ctx, &pb.IsTdlsOperationCurrentlyAvailableRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	return err
-}
-
 // IsTdlsSupported calls the IsTdlsSupported RPC.
-func (c *Client) IsTdlsSupported(ctx context.Context) (bool, error) {
+func (c *ManagerClient) IsTdlsSupported(ctx context.Context) (bool, error) {
 	resp, err := c.svc.IsTdlsSupported(ctx, &pb.IsTdlsSupportedRequest{})
 	if err != nil {
 		return false, err
@@ -638,7 +513,7 @@ func (c *Client) IsTdlsSupported(ctx context.Context) (bool, error) {
 }
 
 // IsTidToLinkMappingNegotiationSupported calls the IsTidToLinkMappingNegotiationSupported RPC.
-func (c *Client) IsTidToLinkMappingNegotiationSupported(ctx context.Context) (bool, error) {
+func (c *ManagerClient) IsTidToLinkMappingNegotiationSupported(ctx context.Context) (bool, error) {
 	resp, err := c.svc.IsTidToLinkMappingNegotiationSupported(ctx, &pb.IsTidToLinkMappingNegotiationSupportedRequest{})
 	if err != nil {
 		return false, err
@@ -647,7 +522,7 @@ func (c *Client) IsTidToLinkMappingNegotiationSupported(ctx context.Context) (bo
 }
 
 // IsTlsMinimumVersionSupported calls the IsTlsMinimumVersionSupported RPC.
-func (c *Client) IsTlsMinimumVersionSupported(ctx context.Context) (bool, error) {
+func (c *ManagerClient) IsTlsMinimumVersionSupported(ctx context.Context) (bool, error) {
 	resp, err := c.svc.IsTlsMinimumVersionSupported(ctx, &pb.IsTlsMinimumVersionSupportedRequest{})
 	if err != nil {
 		return false, err
@@ -656,7 +531,7 @@ func (c *Client) IsTlsMinimumVersionSupported(ctx context.Context) (bool, error)
 }
 
 // IsTlsV13Supported calls the IsTlsV13Supported RPC.
-func (c *Client) IsTlsV13Supported(ctx context.Context) (bool, error) {
+func (c *ManagerClient) IsTlsV13Supported(ctx context.Context) (bool, error) {
 	resp, err := c.svc.IsTlsV13Supported(ctx, &pb.IsTlsV13SupportedRequest{})
 	if err != nil {
 		return false, err
@@ -665,7 +540,7 @@ func (c *Client) IsTlsV13Supported(ctx context.Context) (bool, error) {
 }
 
 // IsTrustOnFirstUseSupported calls the IsTrustOnFirstUseSupported RPC.
-func (c *Client) IsTrustOnFirstUseSupported(ctx context.Context) (bool, error) {
+func (c *ManagerClient) IsTrustOnFirstUseSupported(ctx context.Context) (bool, error) {
 	resp, err := c.svc.IsTrustOnFirstUseSupported(ctx, &pb.IsTrustOnFirstUseSupportedRequest{})
 	if err != nil {
 		return false, err
@@ -674,7 +549,7 @@ func (c *Client) IsTrustOnFirstUseSupported(ctx context.Context) (bool, error) {
 }
 
 // IsWapiSupported calls the IsWapiSupported RPC.
-func (c *Client) IsWapiSupported(ctx context.Context) (bool, error) {
+func (c *ManagerClient) IsWapiSupported(ctx context.Context) (bool, error) {
 	resp, err := c.svc.IsWapiSupported(ctx, &pb.IsWapiSupportedRequest{})
 	if err != nil {
 		return false, err
@@ -683,7 +558,7 @@ func (c *Client) IsWapiSupported(ctx context.Context) (bool, error) {
 }
 
 // IsWepSupported calls the IsWepSupported RPC.
-func (c *Client) IsWepSupported(ctx context.Context) (bool, error) {
+func (c *ManagerClient) IsWepSupported(ctx context.Context) (bool, error) {
 	resp, err := c.svc.IsWepSupported(ctx, &pb.IsWepSupportedRequest{})
 	if err != nil {
 		return false, err
@@ -692,7 +567,7 @@ func (c *Client) IsWepSupported(ctx context.Context) (bool, error) {
 }
 
 // IsWifiDisplayR2Supported calls the IsWifiDisplayR2Supported RPC.
-func (c *Client) IsWifiDisplayR2Supported(ctx context.Context) (bool, error) {
+func (c *ManagerClient) IsWifiDisplayR2Supported(ctx context.Context) (bool, error) {
 	resp, err := c.svc.IsWifiDisplayR2Supported(ctx, &pb.IsWifiDisplayR2SupportedRequest{})
 	if err != nil {
 		return false, err
@@ -701,7 +576,7 @@ func (c *Client) IsWifiDisplayR2Supported(ctx context.Context) (bool, error) {
 }
 
 // IsWifiEnabled calls the IsWifiEnabled RPC.
-func (c *Client) IsWifiEnabled(ctx context.Context) (bool, error) {
+func (c *ManagerClient) IsWifiEnabled(ctx context.Context) (bool, error) {
 	resp, err := c.svc.IsWifiEnabled(ctx, &pb.IsWifiEnabledRequest{})
 	if err != nil {
 		return false, err
@@ -710,7 +585,7 @@ func (c *Client) IsWifiEnabled(ctx context.Context) (bool, error) {
 }
 
 // IsWifiPasspointEnabled calls the IsWifiPasspointEnabled RPC.
-func (c *Client) IsWifiPasspointEnabled(ctx context.Context) (bool, error) {
+func (c *ManagerClient) IsWifiPasspointEnabled(ctx context.Context) (bool, error) {
 	resp, err := c.svc.IsWifiPasspointEnabled(ctx, &pb.IsWifiPasspointEnabledRequest{})
 	if err != nil {
 		return false, err
@@ -719,7 +594,7 @@ func (c *Client) IsWifiPasspointEnabled(ctx context.Context) (bool, error) {
 }
 
 // IsWifiStandardSupported calls the IsWifiStandardSupported RPC.
-func (c *Client) IsWifiStandardSupported(ctx context.Context, arg0 int32) (bool, error) {
+func (c *ManagerClient) IsWifiStandardSupported(ctx context.Context, arg0 int32) (bool, error) {
 	resp, err := c.svc.IsWifiStandardSupported(ctx, &pb.IsWifiStandardSupportedRequest{
 		Arg0: arg0,
 	})
@@ -730,7 +605,7 @@ func (c *Client) IsWifiStandardSupported(ctx context.Context, arg0 int32) (bool,
 }
 
 // IsWpa3SaeH2ESupported calls the IsWpa3SaeH2ESupported RPC.
-func (c *Client) IsWpa3SaeH2ESupported(ctx context.Context) (bool, error) {
+func (c *ManagerClient) IsWpa3SaeH2ESupported(ctx context.Context) (bool, error) {
 	resp, err := c.svc.IsWpa3SaeH2ESupported(ctx, &pb.IsWpa3SaeH2ESupportedRequest{})
 	if err != nil {
 		return false, err
@@ -739,7 +614,7 @@ func (c *Client) IsWpa3SaeH2ESupported(ctx context.Context) (bool, error) {
 }
 
 // IsWpa3SaePublicKeySupported calls the IsWpa3SaePublicKeySupported RPC.
-func (c *Client) IsWpa3SaePublicKeySupported(ctx context.Context) (bool, error) {
+func (c *ManagerClient) IsWpa3SaePublicKeySupported(ctx context.Context) (bool, error) {
 	resp, err := c.svc.IsWpa3SaePublicKeySupported(ctx, &pb.IsWpa3SaePublicKeySupportedRequest{})
 	if err != nil {
 		return false, err
@@ -748,7 +623,7 @@ func (c *Client) IsWpa3SaePublicKeySupported(ctx context.Context) (bool, error) 
 }
 
 // IsWpa3SaeSupported calls the IsWpa3SaeSupported RPC.
-func (c *Client) IsWpa3SaeSupported(ctx context.Context) (bool, error) {
+func (c *ManagerClient) IsWpa3SaeSupported(ctx context.Context) (bool, error) {
 	resp, err := c.svc.IsWpa3SaeSupported(ctx, &pb.IsWpa3SaeSupportedRequest{})
 	if err != nil {
 		return false, err
@@ -757,7 +632,7 @@ func (c *Client) IsWpa3SaeSupported(ctx context.Context) (bool, error) {
 }
 
 // IsWpa3SuiteBSupported calls the IsWpa3SuiteBSupported RPC.
-func (c *Client) IsWpa3SuiteBSupported(ctx context.Context) (bool, error) {
+func (c *ManagerClient) IsWpa3SuiteBSupported(ctx context.Context) (bool, error) {
 	resp, err := c.svc.IsWpa3SuiteBSupported(ctx, &pb.IsWpa3SuiteBSupportedRequest{})
 	if err != nil {
 		return false, err
@@ -766,7 +641,7 @@ func (c *Client) IsWpa3SuiteBSupported(ctx context.Context) (bool, error) {
 }
 
 // IsWpaPersonalSupported calls the IsWpaPersonalSupported RPC.
-func (c *Client) IsWpaPersonalSupported(ctx context.Context) (bool, error) {
+func (c *ManagerClient) IsWpaPersonalSupported(ctx context.Context) (bool, error) {
 	resp, err := c.svc.IsWpaPersonalSupported(ctx, &pb.IsWpaPersonalSupportedRequest{})
 	if err != nil {
 		return false, err
@@ -775,7 +650,7 @@ func (c *Client) IsWpaPersonalSupported(ctx context.Context) (bool, error) {
 }
 
 // PingSupplicant calls the PingSupplicant RPC.
-func (c *Client) PingSupplicant(ctx context.Context) (bool, error) {
+func (c *ManagerClient) PingSupplicant(ctx context.Context) (bool, error) {
 	resp, err := c.svc.PingSupplicant(ctx, &pb.PingSupplicantRequest{})
 	if err != nil {
 		return false, err
@@ -783,17 +658,8 @@ func (c *Client) PingSupplicant(ctx context.Context) (bool, error) {
 	return resp.GetResult(), nil
 }
 
-// QueryAutojoinGlobal calls the QueryAutojoinGlobal RPC.
-func (c *Client) QueryAutojoinGlobal(ctx context.Context, arg0 int64, arg1 int64) error {
-	_, err := c.svc.QueryAutojoinGlobal(ctx, &pb.QueryAutojoinGlobalRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	return err
-}
-
 // QuerySendDhcpHostnameRestriction calls the QuerySendDhcpHostnameRestriction RPC.
-func (c *Client) QuerySendDhcpHostnameRestriction(ctx context.Context, arg0 int64, arg1 int64) error {
+func (c *ManagerClient) QuerySendDhcpHostnameRestriction(ctx context.Context, arg0 int64, arg1 int64) error {
 	_, err := c.svc.QuerySendDhcpHostnameRestriction(ctx, &pb.QuerySendDhcpHostnameRestrictionRequest{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -802,7 +668,7 @@ func (c *Client) QuerySendDhcpHostnameRestriction(ctx context.Context, arg0 int6
 }
 
 // Reassociate calls the Reassociate RPC.
-func (c *Client) Reassociate(ctx context.Context) (bool, error) {
+func (c *ManagerClient) Reassociate(ctx context.Context) (bool, error) {
 	resp, err := c.svc.Reassociate(ctx, &pb.ReassociateRequest{})
 	if err != nil {
 		return false, err
@@ -811,7 +677,7 @@ func (c *Client) Reassociate(ctx context.Context) (bool, error) {
 }
 
 // Reconnect calls the Reconnect RPC.
-func (c *Client) Reconnect(ctx context.Context) (bool, error) {
+func (c *ManagerClient) Reconnect(ctx context.Context) (bool, error) {
 	resp, err := c.svc.Reconnect(ctx, &pb.ReconnectRequest{})
 	if err != nil {
 		return false, err
@@ -820,7 +686,7 @@ func (c *Client) Reconnect(ctx context.Context) (bool, error) {
 }
 
 // RegisterScanResultsCallback calls the RegisterScanResultsCallback RPC.
-func (c *Client) RegisterScanResultsCallback(ctx context.Context, arg0 int64, arg1 int64) error {
+func (c *ManagerClient) RegisterScanResultsCallback(ctx context.Context, arg0 int64, arg1 int64) error {
 	_, err := c.svc.RegisterScanResultsCallback(ctx, &pb.RegisterScanResultsCallbackRequest{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -829,7 +695,7 @@ func (c *Client) RegisterScanResultsCallback(ctx context.Context, arg0 int64, ar
 }
 
 // RegisterSubsystemRestartTrackingCallback calls the RegisterSubsystemRestartTrackingCallback RPC.
-func (c *Client) RegisterSubsystemRestartTrackingCallback(ctx context.Context, arg0 int64, arg1 int64) error {
+func (c *ManagerClient) RegisterSubsystemRestartTrackingCallback(ctx context.Context, arg0 int64, arg1 int64) error {
 	_, err := c.svc.RegisterSubsystemRestartTrackingCallback(ctx, &pb.RegisterSubsystemRestartTrackingCallbackRequest{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -838,7 +704,7 @@ func (c *Client) RegisterSubsystemRestartTrackingCallback(ctx context.Context, a
 }
 
 // RemoveLocalOnlyConnectionFailureListener calls the RemoveLocalOnlyConnectionFailureListener RPC.
-func (c *Client) RemoveLocalOnlyConnectionFailureListener(ctx context.Context, arg0 int64) error {
+func (c *ManagerClient) RemoveLocalOnlyConnectionFailureListener(ctx context.Context, arg0 int64) error {
 	_, err := c.svc.RemoveLocalOnlyConnectionFailureListener(ctx, &pb.RemoveLocalOnlyConnectionFailureListenerRequest{
 		Arg0: arg0,
 	})
@@ -846,7 +712,7 @@ func (c *Client) RemoveLocalOnlyConnectionFailureListener(ctx context.Context, a
 }
 
 // RemoveNetwork calls the RemoveNetwork RPC.
-func (c *Client) RemoveNetwork(ctx context.Context, arg0 int32) (bool, error) {
+func (c *ManagerClient) RemoveNetwork(ctx context.Context, arg0 int32) (bool, error) {
 	resp, err := c.svc.RemoveNetwork(ctx, &pb.RemoveNetworkRequest{
 		Arg0: arg0,
 	})
@@ -856,31 +722,8 @@ func (c *Client) RemoveNetwork(ctx context.Context, arg0 int32) (bool, error) {
 	return resp.GetResult(), nil
 }
 
-// RemoveNetworkSuggestions1 calls the RemoveNetworkSuggestions1 RPC.
-func (c *Client) RemoveNetworkSuggestions1(ctx context.Context, arg0 int64) (int32, error) {
-	resp, err := c.svc.RemoveNetworkSuggestions1(ctx, &pb.RemoveNetworkSuggestions1Request{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// RemoveNetworkSuggestions2_1 calls the RemoveNetworkSuggestions2_1 RPC.
-func (c *Client) RemoveNetworkSuggestions2_1(ctx context.Context, arg0 int64, arg1 int32) (int32, error) {
-	resp, err := c.svc.RemoveNetworkSuggestions2_1(ctx, &pb.RemoveNetworkSuggestions2_1Request{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
 // RemoveNonCallerConfiguredNetworks calls the RemoveNonCallerConfiguredNetworks RPC.
-func (c *Client) RemoveNonCallerConfiguredNetworks(ctx context.Context) (bool, error) {
+func (c *ManagerClient) RemoveNonCallerConfiguredNetworks(ctx context.Context) (bool, error) {
 	resp, err := c.svc.RemoveNonCallerConfiguredNetworks(ctx, &pb.RemoveNonCallerConfiguredNetworksRequest{})
 	if err != nil {
 		return false, err
@@ -889,7 +732,7 @@ func (c *Client) RemoveNonCallerConfiguredNetworks(ctx context.Context) (bool, e
 }
 
 // RemovePasspointConfiguration calls the RemovePasspointConfiguration RPC.
-func (c *Client) RemovePasspointConfiguration(ctx context.Context, arg0 string) error {
+func (c *ManagerClient) RemovePasspointConfiguration(ctx context.Context, arg0 string) error {
 	_, err := c.svc.RemovePasspointConfiguration(ctx, &pb.RemovePasspointConfigurationRequest{
 		Arg0: arg0,
 	})
@@ -897,7 +740,7 @@ func (c *Client) RemovePasspointConfiguration(ctx context.Context, arg0 string) 
 }
 
 // RemovePerSsidRoamingMode calls the RemovePerSsidRoamingMode RPC.
-func (c *Client) RemovePerSsidRoamingMode(ctx context.Context, arg0 int64) error {
+func (c *ManagerClient) RemovePerSsidRoamingMode(ctx context.Context, arg0 int64) error {
 	_, err := c.svc.RemovePerSsidRoamingMode(ctx, &pb.RemovePerSsidRoamingModeRequest{
 		Arg0: arg0,
 	})
@@ -905,7 +748,7 @@ func (c *Client) RemovePerSsidRoamingMode(ctx context.Context, arg0 int64) error
 }
 
 // RemoveSuggestionConnectionStatusListener calls the RemoveSuggestionConnectionStatusListener RPC.
-func (c *Client) RemoveSuggestionConnectionStatusListener(ctx context.Context, arg0 int64) error {
+func (c *ManagerClient) RemoveSuggestionConnectionStatusListener(ctx context.Context, arg0 int64) error {
 	_, err := c.svc.RemoveSuggestionConnectionStatusListener(ctx, &pb.RemoveSuggestionConnectionStatusListenerRequest{
 		Arg0: arg0,
 	})
@@ -913,7 +756,7 @@ func (c *Client) RemoveSuggestionConnectionStatusListener(ctx context.Context, a
 }
 
 // RemoveSuggestionUserApprovalStatusListener calls the RemoveSuggestionUserApprovalStatusListener RPC.
-func (c *Client) RemoveSuggestionUserApprovalStatusListener(ctx context.Context, arg0 int64) error {
+func (c *ManagerClient) RemoveSuggestionUserApprovalStatusListener(ctx context.Context, arg0 int64) error {
 	_, err := c.svc.RemoveSuggestionUserApprovalStatusListener(ctx, &pb.RemoveSuggestionUserApprovalStatusListenerRequest{
 		Arg0: arg0,
 	})
@@ -921,26 +764,15 @@ func (c *Client) RemoveSuggestionUserApprovalStatusListener(ctx context.Context,
 }
 
 // RemoveWifiStateChangedListener calls the RemoveWifiStateChangedListener RPC.
-func (c *Client) RemoveWifiStateChangedListener(ctx context.Context, arg0 int64) error {
+func (c *ManagerClient) RemoveWifiStateChangedListener(ctx context.Context, arg0 int64) error {
 	_, err := c.svc.RemoveWifiStateChangedListener(ctx, &pb.RemoveWifiStateChangedListenerRequest{
 		Arg0: arg0,
 	})
 	return err
 }
 
-// ReportCreateInterfaceImpact calls the ReportCreateInterfaceImpact RPC.
-func (c *Client) ReportCreateInterfaceImpact(ctx context.Context, arg0 int32, arg1 bool, arg2 int64, arg3 int64) error {
-	_, err := c.svc.ReportCreateInterfaceImpact(ctx, &pb.ReportCreateInterfaceImpactRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
-	})
-	return err
-}
-
 // SaveConfiguration calls the SaveConfiguration RPC.
-func (c *Client) SaveConfiguration(ctx context.Context) (bool, error) {
+func (c *ManagerClient) SaveConfiguration(ctx context.Context) (bool, error) {
 	resp, err := c.svc.SaveConfiguration(ctx, &pb.SaveConfigurationRequest{})
 	if err != nil {
 		return false, err
@@ -949,7 +781,7 @@ func (c *Client) SaveConfiguration(ctx context.Context) (bool, error) {
 }
 
 // SetPerSsidRoamingMode calls the SetPerSsidRoamingMode RPC.
-func (c *Client) SetPerSsidRoamingMode(ctx context.Context, arg0 int64, arg1 int32) error {
+func (c *ManagerClient) SetPerSsidRoamingMode(ctx context.Context, arg0 int64, arg1 int32) error {
 	_, err := c.svc.SetPerSsidRoamingMode(ctx, &pb.SetPerSsidRoamingModeRequest{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -958,55 +790,33 @@ func (c *Client) SetPerSsidRoamingMode(ctx context.Context, arg0 int64, arg1 int
 }
 
 // SetSendDhcpHostnameRestriction calls the SetSendDhcpHostnameRestriction RPC.
-func (c *Client) SetSendDhcpHostnameRestriction(ctx context.Context, arg0 int32) error {
+func (c *ManagerClient) SetSendDhcpHostnameRestriction(ctx context.Context, arg0 int32) error {
 	_, err := c.svc.SetSendDhcpHostnameRestriction(ctx, &pb.SetSendDhcpHostnameRestrictionRequest{
 		Arg0: arg0,
 	})
 	return err
 }
 
-// SetTdlsEnabled2 calls the SetTdlsEnabled2 RPC.
-func (c *Client) SetTdlsEnabled2(ctx context.Context, arg0 int64, arg1 bool) error {
-	_, err := c.svc.SetTdlsEnabled2(ctx, &pb.SetTdlsEnabled2Request{
+// SetTdlsEnabled calls the SetTdlsEnabled RPC.
+func (c *ManagerClient) SetTdlsEnabled(ctx context.Context, arg0 int64, arg1 bool) error {
+	_, err := c.svc.SetTdlsEnabled(ctx, &pb.SetTdlsEnabledRequest{
 		Arg0: arg0,
 		Arg1: arg1,
 	})
 	return err
 }
 
-// SetTdlsEnabled4_1 calls the SetTdlsEnabled4_1 RPC.
-func (c *Client) SetTdlsEnabled4_1(ctx context.Context, arg0 int64, arg1 bool, arg2 int64, arg3 int64) error {
-	_, err := c.svc.SetTdlsEnabled4_1(ctx, &pb.SetTdlsEnabled4_1Request{
+// SetTdlsEnabledWithMacAddress calls the SetTdlsEnabledWithMacAddress RPC.
+func (c *ManagerClient) SetTdlsEnabledWithMacAddress(ctx context.Context, arg0 string, arg1 bool) error {
+	_, err := c.svc.SetTdlsEnabledWithMacAddress(ctx, &pb.SetTdlsEnabledWithMacAddressRequest{
 		Arg0: arg0,
 		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
-	})
-	return err
-}
-
-// SetTdlsEnabledWithMacAddress2 calls the SetTdlsEnabledWithMacAddress2 RPC.
-func (c *Client) SetTdlsEnabledWithMacAddress2(ctx context.Context, arg0 string, arg1 bool) error {
-	_, err := c.svc.SetTdlsEnabledWithMacAddress2(ctx, &pb.SetTdlsEnabledWithMacAddress2Request{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	return err
-}
-
-// SetTdlsEnabledWithMacAddress4_1 calls the SetTdlsEnabledWithMacAddress4_1 RPC.
-func (c *Client) SetTdlsEnabledWithMacAddress4_1(ctx context.Context, arg0 string, arg1 bool, arg2 int64, arg3 int64) error {
-	_, err := c.svc.SetTdlsEnabledWithMacAddress4_1(ctx, &pb.SetTdlsEnabledWithMacAddress4_1Request{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
 	})
 	return err
 }
 
 // SetWifiEnabled calls the SetWifiEnabled RPC.
-func (c *Client) SetWifiEnabled(ctx context.Context, arg0 bool) (bool, error) {
+func (c *ManagerClient) SetWifiEnabled(ctx context.Context, arg0 bool) (bool, error) {
 	resp, err := c.svc.SetWifiEnabled(ctx, &pb.SetWifiEnabledRequest{
 		Arg0: arg0,
 	})
@@ -1017,7 +827,7 @@ func (c *Client) SetWifiEnabled(ctx context.Context, arg0 bool) (bool, error) {
 }
 
 // StartLocalOnlyHotspotWithConfiguration calls the StartLocalOnlyHotspotWithConfiguration RPC.
-func (c *Client) StartLocalOnlyHotspotWithConfiguration(ctx context.Context, arg0 int64, arg1 int64, arg2 int64) error {
+func (c *ManagerClient) StartLocalOnlyHotspotWithConfiguration(ctx context.Context, arg0 int64, arg1 int64, arg2 int64) error {
 	_, err := c.svc.StartLocalOnlyHotspotWithConfiguration(ctx, &pb.StartLocalOnlyHotspotWithConfigurationRequest{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -1027,7 +837,7 @@ func (c *Client) StartLocalOnlyHotspotWithConfiguration(ctx context.Context, arg
 }
 
 // StartScan calls the StartScan RPC.
-func (c *Client) StartScan(ctx context.Context) (bool, error) {
+func (c *ManagerClient) StartScan(ctx context.Context) (bool, error) {
 	resp, err := c.svc.StartScan(ctx, &pb.StartScanRequest{})
 	if err != nil {
 		return false, err
@@ -1036,7 +846,7 @@ func (c *Client) StartScan(ctx context.Context) (bool, error) {
 }
 
 // StartWps calls the StartWps RPC.
-func (c *Client) StartWps(ctx context.Context, arg0 int64, arg1 int64) error {
+func (c *ManagerClient) StartWps(ctx context.Context, arg0 int64, arg1 int64) error {
 	_, err := c.svc.StartWps(ctx, &pb.StartWpsRequest{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -1045,7 +855,7 @@ func (c *Client) StartWps(ctx context.Context, arg0 int64, arg1 int64) error {
 }
 
 // UnregisterScanResultsCallback calls the UnregisterScanResultsCallback RPC.
-func (c *Client) UnregisterScanResultsCallback(ctx context.Context, arg0 int64) error {
+func (c *ManagerClient) UnregisterScanResultsCallback(ctx context.Context, arg0 int64) error {
 	_, err := c.svc.UnregisterScanResultsCallback(ctx, &pb.UnregisterScanResultsCallbackRequest{
 		Arg0: arg0,
 	})
@@ -1053,7 +863,7 @@ func (c *Client) UnregisterScanResultsCallback(ctx context.Context, arg0 int64) 
 }
 
 // UnregisterSubsystemRestartTrackingCallback calls the UnregisterSubsystemRestartTrackingCallback RPC.
-func (c *Client) UnregisterSubsystemRestartTrackingCallback(ctx context.Context, arg0 int64) error {
+func (c *ManagerClient) UnregisterSubsystemRestartTrackingCallback(ctx context.Context, arg0 int64) error {
 	_, err := c.svc.UnregisterSubsystemRestartTrackingCallback(ctx, &pb.UnregisterSubsystemRestartTrackingCallbackRequest{
 		Arg0: arg0,
 	})
@@ -1061,7 +871,7 @@ func (c *Client) UnregisterSubsystemRestartTrackingCallback(ctx context.Context,
 }
 
 // UpdateNetwork calls the UpdateNetwork RPC.
-func (c *Client) UpdateNetwork(ctx context.Context, arg0 int64) (int32, error) {
+func (c *ManagerClient) UpdateNetwork(ctx context.Context, arg0 int64) (int32, error) {
 	resp, err := c.svc.UpdateNetwork(ctx, &pb.UpdateNetworkRequest{
 		Arg0: arg0,
 	})
@@ -1072,7 +882,7 @@ func (c *Client) UpdateNetwork(ctx context.Context, arg0 int64) (int32, error) {
 }
 
 // ValidateSoftApConfiguration calls the ValidateSoftApConfiguration RPC.
-func (c *Client) ValidateSoftApConfiguration(ctx context.Context, arg0 int64) (bool, error) {
+func (c *ManagerClient) ValidateSoftApConfiguration(ctx context.Context, arg0 int64) (bool, error) {
 	resp, err := c.svc.ValidateSoftApConfiguration(ctx, &pb.ValidateSoftApConfigurationRequest{
 		Arg0: arg0,
 	})
@@ -1083,7 +893,7 @@ func (c *Client) ValidateSoftApConfiguration(ctx context.Context, arg0 int64) (b
 }
 
 // CalculateSignalLevel2_1 calls the CalculateSignalLevel2_1 RPC.
-func (c *Client) CalculateSignalLevel2_1(ctx context.Context, arg0 int32, arg1 int32) (int32, error) {
+func (c *ManagerClient) CalculateSignalLevel2_1(ctx context.Context, arg0 int32, arg1 int32) (int32, error) {
 	resp, err := c.svc.CalculateSignalLevel2_1(ctx, &pb.CalculateSignalLevel2_1Request{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -1095,7 +905,7 @@ func (c *Client) CalculateSignalLevel2_1(ctx context.Context, arg0 int32, arg1 i
 }
 
 // CompareSignalLevel calls the CompareSignalLevel RPC.
-func (c *Client) CompareSignalLevel(ctx context.Context, arg0 int32, arg1 int32) (int32, error) {
+func (c *ManagerClient) CompareSignalLevel(ctx context.Context, arg0 int32, arg1 int32) (int32, error) {
 	resp, err := c.svc.CompareSignalLevel(ctx, &pb.CompareSignalLevelRequest{
 		Arg0: arg0,
 		Arg1: arg1,

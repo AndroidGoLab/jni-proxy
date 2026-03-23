@@ -28,17 +28,6 @@ message AcceptRingingCall1_1Request {
 message AcceptRingingCall1_1Response {
 }
 
-message AddCallRequest {
-  int64 arg0 = 1;
-  int64 arg1 = 2;
-  int64 arg2 = 3;
-  int64 arg3 = 4;
-  int64 arg4 = 5;
-}
-
-message AddCallResponse {
-}
-
 message AddNewIncomingCallRequest {
   int64 arg0 = 1;
   int64 arg1 = 2;
@@ -83,13 +72,6 @@ message GetAdnUriForPhoneAccountResponse {
   int64 result = 1;
 }
 
-message GetCallCapablePhoneAccountsRequest {
-}
-
-message GetCallCapablePhoneAccountsResponse {
-  int64 result = 1;
-}
-
 message GetDefaultDialerPackageRequest {
 }
 
@@ -113,32 +95,11 @@ message GetLine1NumberResponse {
   string result = 1;
 }
 
-message GetOwnSelfManagedPhoneAccountsRequest {
-}
-
-message GetOwnSelfManagedPhoneAccountsResponse {
-  int64 result = 1;
-}
-
 message GetPhoneAccountRequest {
   int64 arg0 = 1;
 }
 
 message GetPhoneAccountResponse {
-  int64 result = 1;
-}
-
-message GetRegisteredPhoneAccountsRequest {
-}
-
-message GetRegisteredPhoneAccountsResponse {
-  int64 result = 1;
-}
-
-message GetSelfManagedPhoneAccountsRequest {
-}
-
-message GetSelfManagedPhoneAccountsResponse {
   int64 result = 1;
 }
 
@@ -277,14 +238,6 @@ message SilenceRingerRequest {
 message SilenceRingerResponse {
 }
 
-message StartConferenceRequest {
-  int64 arg0 = 1;
-  int64 arg1 = 2;
-}
-
-message StartConferenceResponse {
-}
-
 message UnregisterPhoneAccountRequest {
   int64 arg0 = 1;
 }
@@ -296,21 +249,16 @@ service ManagerService {
   rpc AcceptHandover (AcceptHandoverRequest) returns (AcceptHandoverResponse);
   rpc AcceptRingingCall0 (AcceptRingingCall0Request) returns (AcceptRingingCall0Response);
   rpc AcceptRingingCall1_1 (AcceptRingingCall1_1Request) returns (AcceptRingingCall1_1Response);
-  rpc AddCall (AddCallRequest) returns (AddCallResponse);
   rpc AddNewIncomingCall (AddNewIncomingCallRequest) returns (AddNewIncomingCallResponse);
   rpc AddNewIncomingConference (AddNewIncomingConferenceRequest) returns (AddNewIncomingConferenceResponse);
   rpc CancelMissedCallsNotification (CancelMissedCallsNotificationRequest) returns (CancelMissedCallsNotificationResponse);
   rpc CreateManageBlockedNumbersIntent (CreateManageBlockedNumbersIntentRequest) returns (CreateManageBlockedNumbersIntentResponse);
   rpc EndCall (EndCallRequest) returns (EndCallResponse);
   rpc GetAdnUriForPhoneAccount (GetAdnUriForPhoneAccountRequest) returns (GetAdnUriForPhoneAccountResponse);
-  rpc GetCallCapablePhoneAccounts (GetCallCapablePhoneAccountsRequest) returns (GetCallCapablePhoneAccountsResponse);
   rpc GetDefaultDialerPackage (GetDefaultDialerPackageRequest) returns (GetDefaultDialerPackageResponse);
   rpc GetDefaultOutgoingPhoneAccount (GetDefaultOutgoingPhoneAccountRequest) returns (GetDefaultOutgoingPhoneAccountResponse);
   rpc GetLine1Number (GetLine1NumberRequest) returns (GetLine1NumberResponse);
-  rpc GetOwnSelfManagedPhoneAccounts (GetOwnSelfManagedPhoneAccountsRequest) returns (GetOwnSelfManagedPhoneAccountsResponse);
   rpc GetPhoneAccount (GetPhoneAccountRequest) returns (GetPhoneAccountResponse);
-  rpc GetRegisteredPhoneAccounts (GetRegisteredPhoneAccountsRequest) returns (GetRegisteredPhoneAccountsResponse);
-  rpc GetSelfManagedPhoneAccounts (GetSelfManagedPhoneAccountsRequest) returns (GetSelfManagedPhoneAccountsResponse);
   rpc GetSimCallManager (GetSimCallManagerRequest) returns (GetSimCallManagerResponse);
   rpc GetSimCallManagerForSubscription (GetSimCallManagerForSubscriptionRequest) returns (GetSimCallManagerForSubscriptionResponse);
   rpc GetSystemDialerPackage (GetSystemDialerPackageRequest) returns (GetSystemDialerPackageResponse);
@@ -329,6 +277,5 @@ service ManagerService {
   rpc RegisterPhoneAccount (RegisterPhoneAccountRequest) returns (RegisterPhoneAccountResponse);
   rpc ShowInCallScreen (ShowInCallScreenRequest) returns (ShowInCallScreenResponse);
   rpc SilenceRinger (SilenceRingerRequest) returns (SilenceRingerResponse);
-  rpc StartConference (StartConferenceRequest) returns (StartConferenceResponse);
   rpc UnregisterPhoneAccount (UnregisterPhoneAccountRequest) returns (UnregisterPhoneAccountResponse);
 }

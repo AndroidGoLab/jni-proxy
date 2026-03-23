@@ -559,86 +559,6 @@ func (x *CreateSessionResponse) GetResult() int64 {
 	return 0
 }
 
-type GetLeasedBlobsRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetLeasedBlobsRequest) Reset() {
-	*x = GetLeasedBlobsRequest{}
-	mi := &file_proto_blob_blob_proto_msgTypes[12]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetLeasedBlobsRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetLeasedBlobsRequest) ProtoMessage() {}
-
-func (x *GetLeasedBlobsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_blob_blob_proto_msgTypes[12]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetLeasedBlobsRequest.ProtoReflect.Descriptor instead.
-func (*GetLeasedBlobsRequest) Descriptor() ([]byte, []int) {
-	return file_proto_blob_blob_proto_rawDescGZIP(), []int{12}
-}
-
-type GetLeasedBlobsResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetLeasedBlobsResponse) Reset() {
-	*x = GetLeasedBlobsResponse{}
-	mi := &file_proto_blob_blob_proto_msgTypes[13]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetLeasedBlobsResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetLeasedBlobsResponse) ProtoMessage() {}
-
-func (x *GetLeasedBlobsResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_blob_blob_proto_msgTypes[13]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetLeasedBlobsResponse.ProtoReflect.Descriptor instead.
-func (*GetLeasedBlobsResponse) Descriptor() ([]byte, []int) {
-	return file_proto_blob_blob_proto_rawDescGZIP(), []int{13}
-}
-
-func (x *GetLeasedBlobsResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
 type GetRemainingLeaseQuotaBytesRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	unknownFields protoimpl.UnknownFields
@@ -647,7 +567,7 @@ type GetRemainingLeaseQuotaBytesRequest struct {
 
 func (x *GetRemainingLeaseQuotaBytesRequest) Reset() {
 	*x = GetRemainingLeaseQuotaBytesRequest{}
-	mi := &file_proto_blob_blob_proto_msgTypes[14]
+	mi := &file_proto_blob_blob_proto_msgTypes[12]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -659,7 +579,7 @@ func (x *GetRemainingLeaseQuotaBytesRequest) String() string {
 func (*GetRemainingLeaseQuotaBytesRequest) ProtoMessage() {}
 
 func (x *GetRemainingLeaseQuotaBytesRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_blob_blob_proto_msgTypes[14]
+	mi := &file_proto_blob_blob_proto_msgTypes[12]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -672,7 +592,7 @@ func (x *GetRemainingLeaseQuotaBytesRequest) ProtoReflect() protoreflect.Message
 
 // Deprecated: Use GetRemainingLeaseQuotaBytesRequest.ProtoReflect.Descriptor instead.
 func (*GetRemainingLeaseQuotaBytesRequest) Descriptor() ([]byte, []int) {
-	return file_proto_blob_blob_proto_rawDescGZIP(), []int{14}
+	return file_proto_blob_blob_proto_rawDescGZIP(), []int{12}
 }
 
 type GetRemainingLeaseQuotaBytesResponse struct {
@@ -684,7 +604,7 @@ type GetRemainingLeaseQuotaBytesResponse struct {
 
 func (x *GetRemainingLeaseQuotaBytesResponse) Reset() {
 	*x = GetRemainingLeaseQuotaBytesResponse{}
-	mi := &file_proto_blob_blob_proto_msgTypes[15]
+	mi := &file_proto_blob_blob_proto_msgTypes[13]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -696,7 +616,7 @@ func (x *GetRemainingLeaseQuotaBytesResponse) String() string {
 func (*GetRemainingLeaseQuotaBytesResponse) ProtoMessage() {}
 
 func (x *GetRemainingLeaseQuotaBytesResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_blob_blob_proto_msgTypes[15]
+	mi := &file_proto_blob_blob_proto_msgTypes[13]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -709,7 +629,7 @@ func (x *GetRemainingLeaseQuotaBytesResponse) ProtoReflect() protoreflect.Messag
 
 // Deprecated: Use GetRemainingLeaseQuotaBytesResponse.ProtoReflect.Descriptor instead.
 func (*GetRemainingLeaseQuotaBytesResponse) Descriptor() ([]byte, []int) {
-	return file_proto_blob_blob_proto_rawDescGZIP(), []int{15}
+	return file_proto_blob_blob_proto_rawDescGZIP(), []int{13}
 }
 
 func (x *GetRemainingLeaseQuotaBytesResponse) GetResult() int64 {
@@ -728,7 +648,7 @@ type OpenBlobRequest struct {
 
 func (x *OpenBlobRequest) Reset() {
 	*x = OpenBlobRequest{}
-	mi := &file_proto_blob_blob_proto_msgTypes[16]
+	mi := &file_proto_blob_blob_proto_msgTypes[14]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -740,7 +660,7 @@ func (x *OpenBlobRequest) String() string {
 func (*OpenBlobRequest) ProtoMessage() {}
 
 func (x *OpenBlobRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_blob_blob_proto_msgTypes[16]
+	mi := &file_proto_blob_blob_proto_msgTypes[14]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -753,7 +673,7 @@ func (x *OpenBlobRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OpenBlobRequest.ProtoReflect.Descriptor instead.
 func (*OpenBlobRequest) Descriptor() ([]byte, []int) {
-	return file_proto_blob_blob_proto_rawDescGZIP(), []int{16}
+	return file_proto_blob_blob_proto_rawDescGZIP(), []int{14}
 }
 
 func (x *OpenBlobRequest) GetArg0() int64 {
@@ -772,7 +692,7 @@ type OpenBlobResponse struct {
 
 func (x *OpenBlobResponse) Reset() {
 	*x = OpenBlobResponse{}
-	mi := &file_proto_blob_blob_proto_msgTypes[17]
+	mi := &file_proto_blob_blob_proto_msgTypes[15]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -784,7 +704,7 @@ func (x *OpenBlobResponse) String() string {
 func (*OpenBlobResponse) ProtoMessage() {}
 
 func (x *OpenBlobResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_blob_blob_proto_msgTypes[17]
+	mi := &file_proto_blob_blob_proto_msgTypes[15]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -797,7 +717,7 @@ func (x *OpenBlobResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OpenBlobResponse.ProtoReflect.Descriptor instead.
 func (*OpenBlobResponse) Descriptor() ([]byte, []int) {
-	return file_proto_blob_blob_proto_rawDescGZIP(), []int{17}
+	return file_proto_blob_blob_proto_rawDescGZIP(), []int{15}
 }
 
 func (x *OpenBlobResponse) GetResult() int64 {
@@ -816,7 +736,7 @@ type OpenSessionRequest struct {
 
 func (x *OpenSessionRequest) Reset() {
 	*x = OpenSessionRequest{}
-	mi := &file_proto_blob_blob_proto_msgTypes[18]
+	mi := &file_proto_blob_blob_proto_msgTypes[16]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -828,7 +748,7 @@ func (x *OpenSessionRequest) String() string {
 func (*OpenSessionRequest) ProtoMessage() {}
 
 func (x *OpenSessionRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_blob_blob_proto_msgTypes[18]
+	mi := &file_proto_blob_blob_proto_msgTypes[16]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -841,7 +761,7 @@ func (x *OpenSessionRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OpenSessionRequest.ProtoReflect.Descriptor instead.
 func (*OpenSessionRequest) Descriptor() ([]byte, []int) {
-	return file_proto_blob_blob_proto_rawDescGZIP(), []int{18}
+	return file_proto_blob_blob_proto_rawDescGZIP(), []int{16}
 }
 
 func (x *OpenSessionRequest) GetArg0() int64 {
@@ -860,7 +780,7 @@ type OpenSessionResponse struct {
 
 func (x *OpenSessionResponse) Reset() {
 	*x = OpenSessionResponse{}
-	mi := &file_proto_blob_blob_proto_msgTypes[19]
+	mi := &file_proto_blob_blob_proto_msgTypes[17]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -872,7 +792,7 @@ func (x *OpenSessionResponse) String() string {
 func (*OpenSessionResponse) ProtoMessage() {}
 
 func (x *OpenSessionResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_blob_blob_proto_msgTypes[19]
+	mi := &file_proto_blob_blob_proto_msgTypes[17]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -885,7 +805,7 @@ func (x *OpenSessionResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OpenSessionResponse.ProtoReflect.Descriptor instead.
 func (*OpenSessionResponse) Descriptor() ([]byte, []int) {
-	return file_proto_blob_blob_proto_rawDescGZIP(), []int{19}
+	return file_proto_blob_blob_proto_rawDescGZIP(), []int{17}
 }
 
 func (x *OpenSessionResponse) GetResult() int64 {
@@ -904,7 +824,7 @@ type ReleaseLeaseRequest struct {
 
 func (x *ReleaseLeaseRequest) Reset() {
 	*x = ReleaseLeaseRequest{}
-	mi := &file_proto_blob_blob_proto_msgTypes[20]
+	mi := &file_proto_blob_blob_proto_msgTypes[18]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -916,7 +836,7 @@ func (x *ReleaseLeaseRequest) String() string {
 func (*ReleaseLeaseRequest) ProtoMessage() {}
 
 func (x *ReleaseLeaseRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_blob_blob_proto_msgTypes[20]
+	mi := &file_proto_blob_blob_proto_msgTypes[18]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -929,7 +849,7 @@ func (x *ReleaseLeaseRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ReleaseLeaseRequest.ProtoReflect.Descriptor instead.
 func (*ReleaseLeaseRequest) Descriptor() ([]byte, []int) {
-	return file_proto_blob_blob_proto_rawDescGZIP(), []int{20}
+	return file_proto_blob_blob_proto_rawDescGZIP(), []int{18}
 }
 
 func (x *ReleaseLeaseRequest) GetArg0() int64 {
@@ -947,7 +867,7 @@ type ReleaseLeaseResponse struct {
 
 func (x *ReleaseLeaseResponse) Reset() {
 	*x = ReleaseLeaseResponse{}
-	mi := &file_proto_blob_blob_proto_msgTypes[21]
+	mi := &file_proto_blob_blob_proto_msgTypes[19]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -959,7 +879,7 @@ func (x *ReleaseLeaseResponse) String() string {
 func (*ReleaseLeaseResponse) ProtoMessage() {}
 
 func (x *ReleaseLeaseResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_blob_blob_proto_msgTypes[21]
+	mi := &file_proto_blob_blob_proto_msgTypes[19]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -972,7 +892,7 @@ func (x *ReleaseLeaseResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ReleaseLeaseResponse.ProtoReflect.Descriptor instead.
 func (*ReleaseLeaseResponse) Descriptor() ([]byte, []int) {
-	return file_proto_blob_blob_proto_rawDescGZIP(), []int{21}
+	return file_proto_blob_blob_proto_rawDescGZIP(), []int{19}
 }
 
 var File_proto_blob_blob_proto protoreflect.FileDescriptor
@@ -1004,9 +924,6 @@ const file_proto_blob_blob_proto_rawDesc = "" +
 	"\x14CreateSessionRequest\x12\x12\n" +
 	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"/\n" +
 	"\x15CreateSessionResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"\x17\n" +
-	"\x15GetLeasedBlobsRequest\"0\n" +
-	"\x16GetLeasedBlobsResponse\x12\x16\n" +
 	"\x06result\x18\x01 \x01(\x03R\x06result\"$\n" +
 	"\"GetRemainingLeaseQuotaBytesRequest\"=\n" +
 	"#GetRemainingLeaseQuotaBytesResponse\x12\x16\n" +
@@ -1021,15 +938,14 @@ const file_proto_blob_blob_proto_rawDesc = "" +
 	"\x06result\x18\x01 \x01(\x03R\x06result\")\n" +
 	"\x13ReleaseLeaseRequest\x12\x12\n" +
 	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"\x16\n" +
-	"\x14ReleaseLeaseResponse2\xed\x06\n" +
+	"\x14ReleaseLeaseResponse2\xa0\x06\n" +
 	"\x13StoreManagerService\x12K\n" +
 	"\x0eAbandonSession\x12\x1b.blob.AbandonSessionRequest\x1a\x1c.blob.AbandonSessionResponse\x12H\n" +
 	"\rAcquireLease2\x12\x1a.blob.AcquireLease2Request\x1a\x1b.blob.AcquireLease2Response\x12N\n" +
 	"\x0fAcquireLease3_1\x12\x1c.blob.AcquireLease3_1Request\x1a\x1d.blob.AcquireLease3_1Response\x12N\n" +
 	"\x0fAcquireLease2_2\x12\x1c.blob.AcquireLease2_2Request\x1a\x1d.blob.AcquireLease2_2Response\x12N\n" +
 	"\x0fAcquireLease3_3\x12\x1c.blob.AcquireLease3_3Request\x1a\x1d.blob.AcquireLease3_3Response\x12H\n" +
-	"\rCreateSession\x12\x1a.blob.CreateSessionRequest\x1a\x1b.blob.CreateSessionResponse\x12K\n" +
-	"\x0eGetLeasedBlobs\x12\x1b.blob.GetLeasedBlobsRequest\x1a\x1c.blob.GetLeasedBlobsResponse\x12r\n" +
+	"\rCreateSession\x12\x1a.blob.CreateSessionRequest\x1a\x1b.blob.CreateSessionResponse\x12r\n" +
 	"\x1bGetRemainingLeaseQuotaBytes\x12(.blob.GetRemainingLeaseQuotaBytesRequest\x1a).blob.GetRemainingLeaseQuotaBytesResponse\x129\n" +
 	"\bOpenBlob\x12\x15.blob.OpenBlobRequest\x1a\x16.blob.OpenBlobResponse\x12B\n" +
 	"\vOpenSession\x12\x18.blob.OpenSessionRequest\x1a\x19.blob.OpenSessionResponse\x12E\n" +
@@ -1047,7 +963,7 @@ func file_proto_blob_blob_proto_rawDescGZIP() []byte {
 	return file_proto_blob_blob_proto_rawDescData
 }
 
-var file_proto_blob_blob_proto_msgTypes = make([]protoimpl.MessageInfo, 22)
+var file_proto_blob_blob_proto_msgTypes = make([]protoimpl.MessageInfo, 20)
 var file_proto_blob_blob_proto_goTypes = []any{
 	(*AbandonSessionRequest)(nil),               // 0: blob.AbandonSessionRequest
 	(*AbandonSessionResponse)(nil),              // 1: blob.AbandonSessionResponse
@@ -1061,16 +977,14 @@ var file_proto_blob_blob_proto_goTypes = []any{
 	(*AcquireLease3_3Response)(nil),             // 9: blob.AcquireLease3_3Response
 	(*CreateSessionRequest)(nil),                // 10: blob.CreateSessionRequest
 	(*CreateSessionResponse)(nil),               // 11: blob.CreateSessionResponse
-	(*GetLeasedBlobsRequest)(nil),               // 12: blob.GetLeasedBlobsRequest
-	(*GetLeasedBlobsResponse)(nil),              // 13: blob.GetLeasedBlobsResponse
-	(*GetRemainingLeaseQuotaBytesRequest)(nil),  // 14: blob.GetRemainingLeaseQuotaBytesRequest
-	(*GetRemainingLeaseQuotaBytesResponse)(nil), // 15: blob.GetRemainingLeaseQuotaBytesResponse
-	(*OpenBlobRequest)(nil),                     // 16: blob.OpenBlobRequest
-	(*OpenBlobResponse)(nil),                    // 17: blob.OpenBlobResponse
-	(*OpenSessionRequest)(nil),                  // 18: blob.OpenSessionRequest
-	(*OpenSessionResponse)(nil),                 // 19: blob.OpenSessionResponse
-	(*ReleaseLeaseRequest)(nil),                 // 20: blob.ReleaseLeaseRequest
-	(*ReleaseLeaseResponse)(nil),                // 21: blob.ReleaseLeaseResponse
+	(*GetRemainingLeaseQuotaBytesRequest)(nil),  // 12: blob.GetRemainingLeaseQuotaBytesRequest
+	(*GetRemainingLeaseQuotaBytesResponse)(nil), // 13: blob.GetRemainingLeaseQuotaBytesResponse
+	(*OpenBlobRequest)(nil),                     // 14: blob.OpenBlobRequest
+	(*OpenBlobResponse)(nil),                    // 15: blob.OpenBlobResponse
+	(*OpenSessionRequest)(nil),                  // 16: blob.OpenSessionRequest
+	(*OpenSessionResponse)(nil),                 // 17: blob.OpenSessionResponse
+	(*ReleaseLeaseRequest)(nil),                 // 18: blob.ReleaseLeaseRequest
+	(*ReleaseLeaseResponse)(nil),                // 19: blob.ReleaseLeaseResponse
 }
 var file_proto_blob_blob_proto_depIdxs = []int32{
 	0,  // 0: blob.StoreManagerService.AbandonSession:input_type -> blob.AbandonSessionRequest
@@ -1079,24 +993,22 @@ var file_proto_blob_blob_proto_depIdxs = []int32{
 	6,  // 3: blob.StoreManagerService.AcquireLease2_2:input_type -> blob.AcquireLease2_2Request
 	8,  // 4: blob.StoreManagerService.AcquireLease3_3:input_type -> blob.AcquireLease3_3Request
 	10, // 5: blob.StoreManagerService.CreateSession:input_type -> blob.CreateSessionRequest
-	12, // 6: blob.StoreManagerService.GetLeasedBlobs:input_type -> blob.GetLeasedBlobsRequest
-	14, // 7: blob.StoreManagerService.GetRemainingLeaseQuotaBytes:input_type -> blob.GetRemainingLeaseQuotaBytesRequest
-	16, // 8: blob.StoreManagerService.OpenBlob:input_type -> blob.OpenBlobRequest
-	18, // 9: blob.StoreManagerService.OpenSession:input_type -> blob.OpenSessionRequest
-	20, // 10: blob.StoreManagerService.ReleaseLease:input_type -> blob.ReleaseLeaseRequest
-	1,  // 11: blob.StoreManagerService.AbandonSession:output_type -> blob.AbandonSessionResponse
-	3,  // 12: blob.StoreManagerService.AcquireLease2:output_type -> blob.AcquireLease2Response
-	5,  // 13: blob.StoreManagerService.AcquireLease3_1:output_type -> blob.AcquireLease3_1Response
-	7,  // 14: blob.StoreManagerService.AcquireLease2_2:output_type -> blob.AcquireLease2_2Response
-	9,  // 15: blob.StoreManagerService.AcquireLease3_3:output_type -> blob.AcquireLease3_3Response
-	11, // 16: blob.StoreManagerService.CreateSession:output_type -> blob.CreateSessionResponse
-	13, // 17: blob.StoreManagerService.GetLeasedBlobs:output_type -> blob.GetLeasedBlobsResponse
-	15, // 18: blob.StoreManagerService.GetRemainingLeaseQuotaBytes:output_type -> blob.GetRemainingLeaseQuotaBytesResponse
-	17, // 19: blob.StoreManagerService.OpenBlob:output_type -> blob.OpenBlobResponse
-	19, // 20: blob.StoreManagerService.OpenSession:output_type -> blob.OpenSessionResponse
-	21, // 21: blob.StoreManagerService.ReleaseLease:output_type -> blob.ReleaseLeaseResponse
-	11, // [11:22] is the sub-list for method output_type
-	0,  // [0:11] is the sub-list for method input_type
+	12, // 6: blob.StoreManagerService.GetRemainingLeaseQuotaBytes:input_type -> blob.GetRemainingLeaseQuotaBytesRequest
+	14, // 7: blob.StoreManagerService.OpenBlob:input_type -> blob.OpenBlobRequest
+	16, // 8: blob.StoreManagerService.OpenSession:input_type -> blob.OpenSessionRequest
+	18, // 9: blob.StoreManagerService.ReleaseLease:input_type -> blob.ReleaseLeaseRequest
+	1,  // 10: blob.StoreManagerService.AbandonSession:output_type -> blob.AbandonSessionResponse
+	3,  // 11: blob.StoreManagerService.AcquireLease2:output_type -> blob.AcquireLease2Response
+	5,  // 12: blob.StoreManagerService.AcquireLease3_1:output_type -> blob.AcquireLease3_1Response
+	7,  // 13: blob.StoreManagerService.AcquireLease2_2:output_type -> blob.AcquireLease2_2Response
+	9,  // 14: blob.StoreManagerService.AcquireLease3_3:output_type -> blob.AcquireLease3_3Response
+	11, // 15: blob.StoreManagerService.CreateSession:output_type -> blob.CreateSessionResponse
+	13, // 16: blob.StoreManagerService.GetRemainingLeaseQuotaBytes:output_type -> blob.GetRemainingLeaseQuotaBytesResponse
+	15, // 17: blob.StoreManagerService.OpenBlob:output_type -> blob.OpenBlobResponse
+	17, // 18: blob.StoreManagerService.OpenSession:output_type -> blob.OpenSessionResponse
+	19, // 19: blob.StoreManagerService.ReleaseLease:output_type -> blob.ReleaseLeaseResponse
+	10, // [10:20] is the sub-list for method output_type
+	0,  // [0:10] is the sub-list for method input_type
 	0,  // [0:0] is the sub-list for extension type_name
 	0,  // [0:0] is the sub-list for extension extendee
 	0,  // [0:0] is the sub-list for field type_name
@@ -1113,7 +1025,7 @@ func file_proto_blob_blob_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_proto_blob_blob_proto_rawDesc), len(file_proto_blob_blob_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   22,
+			NumMessages:   20,
 			NumExtensions: 0,
 			NumServices:   1,
 		},

@@ -72,20 +72,6 @@ func (s *ManagerServer) AddNetworkPrivileged(_ context.Context, req *pb.AddNetwo
 	return &pb.AddNetworkPrivilegedResponse{Result: handle}, nil
 }
 
-func (s *ManagerServer) AddNetworkSuggestions(_ context.Context, req *pb.AddNetworkSuggestionsRequest) (*pb.AddNetworkSuggestionsResponse, error) {
-	mgr, err := jnipkg.NewManager(s.Ctx)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
-	}
-	defer mgr.Close()
-
-	result, err := mgr.AddNetworkSuggestions(s.Handles.Get(req.GetArg0()))
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.AddNetworkSuggestionsResponse{Result: result}, nil
-}
-
 func (s *ManagerServer) AddOrUpdatePasspointConfiguration(_ context.Context, req *pb.AddOrUpdatePasspointConfigurationRequest) (*pb.AddOrUpdatePasspointConfigurationResponse, error) {
 	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
@@ -315,88 +301,6 @@ func (s *ManagerServer) FlushPasspointAnqpCache(_ context.Context, req *pb.Flush
 	return &pb.FlushPasspointAnqpCacheResponse{}, nil
 }
 
-func (s *ManagerServer) GetAllowedChannels(_ context.Context, req *pb.GetAllowedChannelsRequest) (*pb.GetAllowedChannelsResponse, error) {
-	mgr, err := jnipkg.NewManager(s.Ctx)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
-	}
-	defer mgr.Close()
-
-	result, err := mgr.GetAllowedChannels(req.GetArg0(), req.GetArg1())
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	var handle int64
-	if result != nil {
-		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-			handle = s.Handles.Put(env, result)
-			return nil
-		}); doErr != nil {
-			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-		}
-	}
-	return &pb.GetAllowedChannelsResponse{Result: handle}, nil
-}
-
-func (s *ManagerServer) GetCallerConfiguredNetworks(_ context.Context, req *pb.GetCallerConfiguredNetworksRequest) (*pb.GetCallerConfiguredNetworksResponse, error) {
-	mgr, err := jnipkg.NewManager(s.Ctx)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
-	}
-	defer mgr.Close()
-
-	result, err := mgr.GetCallerConfiguredNetworks()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	var handle int64
-	if result != nil {
-		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-			handle = s.Handles.Put(env, result)
-			return nil
-		}); doErr != nil {
-			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-		}
-	}
-	return &pb.GetCallerConfiguredNetworksResponse{Result: handle}, nil
-}
-
-func (s *ManagerServer) GetChannelData(_ context.Context, req *pb.GetChannelDataRequest) (*pb.GetChannelDataResponse, error) {
-	mgr, err := jnipkg.NewManager(s.Ctx)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
-	}
-	defer mgr.Close()
-
-	if err := mgr.GetChannelData(s.Handles.Get(req.GetArg0()), s.Handles.Get(req.GetArg1())); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GetChannelDataResponse{}, nil
-}
-
-func (s *ManagerServer) GetConfiguredNetworks(_ context.Context, req *pb.GetConfiguredNetworksRequest) (*pb.GetConfiguredNetworksResponse, error) {
-	mgr, err := jnipkg.NewManager(s.Ctx)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
-	}
-	defer mgr.Close()
-
-	result, err := mgr.GetConfiguredNetworks()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	var handle int64
-	if result != nil {
-		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-			handle = s.Handles.Put(env, result)
-			return nil
-		}); doErr != nil {
-			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-		}
-	}
-	return &pb.GetConfiguredNetworksResponse{Result: handle}, nil
-}
-
 func (s *ManagerServer) GetConnectionInfo(_ context.Context, req *pb.GetConnectionInfoRequest) (*pb.GetConnectionInfoResponse, error) {
 	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
@@ -485,114 +389,6 @@ func (s *ManagerServer) GetMaxSignalLevel(_ context.Context, req *pb.GetMaxSigna
 	return &pb.GetMaxSignalLevelResponse{Result: result}, nil
 }
 
-func (s *ManagerServer) GetMaxSupportedConcurrentTdlsSessions(_ context.Context, req *pb.GetMaxSupportedConcurrentTdlsSessionsRequest) (*pb.GetMaxSupportedConcurrentTdlsSessionsResponse, error) {
-	mgr, err := jnipkg.NewManager(s.Ctx)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
-	}
-	defer mgr.Close()
-
-	if err := mgr.GetMaxSupportedConcurrentTdlsSessions(s.Handles.Get(req.GetArg0()), s.Handles.Get(req.GetArg1())); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GetMaxSupportedConcurrentTdlsSessionsResponse{}, nil
-}
-
-func (s *ManagerServer) GetNetworkSuggestions(_ context.Context, req *pb.GetNetworkSuggestionsRequest) (*pb.GetNetworkSuggestionsResponse, error) {
-	mgr, err := jnipkg.NewManager(s.Ctx)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
-	}
-	defer mgr.Close()
-
-	result, err := mgr.GetNetworkSuggestions()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	var handle int64
-	if result != nil {
-		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-			handle = s.Handles.Put(env, result)
-			return nil
-		}); doErr != nil {
-			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-		}
-	}
-	return &pb.GetNetworkSuggestionsResponse{Result: handle}, nil
-}
-
-func (s *ManagerServer) GetNumberOfEnabledTdlsSessions(_ context.Context, req *pb.GetNumberOfEnabledTdlsSessionsRequest) (*pb.GetNumberOfEnabledTdlsSessionsResponse, error) {
-	mgr, err := jnipkg.NewManager(s.Ctx)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
-	}
-	defer mgr.Close()
-
-	if err := mgr.GetNumberOfEnabledTdlsSessions(s.Handles.Get(req.GetArg0()), s.Handles.Get(req.GetArg1())); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GetNumberOfEnabledTdlsSessionsResponse{}, nil
-}
-
-func (s *ManagerServer) GetPasspointConfigurations(_ context.Context, req *pb.GetPasspointConfigurationsRequest) (*pb.GetPasspointConfigurationsResponse, error) {
-	mgr, err := jnipkg.NewManager(s.Ctx)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
-	}
-	defer mgr.Close()
-
-	result, err := mgr.GetPasspointConfigurations()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	var handle int64
-	if result != nil {
-		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-			handle = s.Handles.Put(env, result)
-			return nil
-		}); doErr != nil {
-			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-		}
-	}
-	return &pb.GetPasspointConfigurationsResponse{Result: handle}, nil
-}
-
-func (s *ManagerServer) GetPerSsidRoamingModes(_ context.Context, req *pb.GetPerSsidRoamingModesRequest) (*pb.GetPerSsidRoamingModesResponse, error) {
-	mgr, err := jnipkg.NewManager(s.Ctx)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
-	}
-	defer mgr.Close()
-
-	if err := mgr.GetPerSsidRoamingModes(s.Handles.Get(req.GetArg0()), s.Handles.Get(req.GetArg1())); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GetPerSsidRoamingModesResponse{}, nil
-}
-
-func (s *ManagerServer) GetScanResults(_ context.Context, req *pb.GetScanResultsRequest) (*pb.GetScanResultsResponse, error) {
-	mgr, err := jnipkg.NewManager(s.Ctx)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
-	}
-	defer mgr.Close()
-
-	result, err := mgr.GetScanResults()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	var handle int64
-	if result != nil {
-		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-			handle = s.Handles.Put(env, result)
-			return nil
-		}); doErr != nil {
-			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-		}
-	}
-	return &pb.GetScanResultsResponse{Result: handle}, nil
-}
-
 func (s *ManagerServer) GetStaConcurrencyForMultiInternetMode(_ context.Context, req *pb.GetStaConcurrencyForMultiInternetModeRequest) (*pb.GetStaConcurrencyForMultiInternetModeResponse, error) {
 	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
@@ -605,29 +401,6 @@ func (s *ManagerServer) GetStaConcurrencyForMultiInternetMode(_ context.Context,
 		return nil, status.Errorf(codes.Internal, "%v", err)
 	}
 	return &pb.GetStaConcurrencyForMultiInternetModeResponse{Result: result}, nil
-}
-
-func (s *ManagerServer) GetUsableChannels(_ context.Context, req *pb.GetUsableChannelsRequest) (*pb.GetUsableChannelsResponse, error) {
-	mgr, err := jnipkg.NewManager(s.Ctx)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
-	}
-	defer mgr.Close()
-
-	result, err := mgr.GetUsableChannels(req.GetArg0(), req.GetArg1())
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	var handle int64
-	if result != nil {
-		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-			handle = s.Handles.Put(env, result)
-			return nil
-		}); doErr != nil {
-			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-		}
-	}
-	return &pb.GetUsableChannelsResponse{Result: handle}, nil
 }
 
 func (s *ManagerServer) GetWifiState(_ context.Context, req *pb.GetWifiStateRequest) (*pb.GetWifiStateResponse, error) {
@@ -1022,19 +795,6 @@ func (s *ManagerServer) IsStaConcurrencyForMultiInternetSupported(_ context.Cont
 	return &pb.IsStaConcurrencyForMultiInternetSupportedResponse{Result: result}, nil
 }
 
-func (s *ManagerServer) IsTdlsOperationCurrentlyAvailable(_ context.Context, req *pb.IsTdlsOperationCurrentlyAvailableRequest) (*pb.IsTdlsOperationCurrentlyAvailableResponse, error) {
-	mgr, err := jnipkg.NewManager(s.Ctx)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
-	}
-	defer mgr.Close()
-
-	if err := mgr.IsTdlsOperationCurrentlyAvailable(s.Handles.Get(req.GetArg0()), s.Handles.Get(req.GetArg1())); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.IsTdlsOperationCurrentlyAvailableResponse{}, nil
-}
-
 func (s *ManagerServer) IsTdlsSupported(_ context.Context, req *pb.IsTdlsSupportedRequest) (*pb.IsTdlsSupportedResponse, error) {
 	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
@@ -1273,19 +1033,6 @@ func (s *ManagerServer) PingSupplicant(_ context.Context, req *pb.PingSupplicant
 	return &pb.PingSupplicantResponse{Result: result}, nil
 }
 
-func (s *ManagerServer) QueryAutojoinGlobal(_ context.Context, req *pb.QueryAutojoinGlobalRequest) (*pb.QueryAutojoinGlobalResponse, error) {
-	mgr, err := jnipkg.NewManager(s.Ctx)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
-	}
-	defer mgr.Close()
-
-	if err := mgr.QueryAutojoinGlobal(s.Handles.Get(req.GetArg0()), s.Handles.Get(req.GetArg1())); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.QueryAutojoinGlobalResponse{}, nil
-}
-
 func (s *ManagerServer) QuerySendDhcpHostnameRestriction(_ context.Context, req *pb.QuerySendDhcpHostnameRestrictionRequest) (*pb.QuerySendDhcpHostnameRestrictionResponse, error) {
 	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
@@ -1380,34 +1127,6 @@ func (s *ManagerServer) RemoveNetwork(_ context.Context, req *pb.RemoveNetworkRe
 	return &pb.RemoveNetworkResponse{Result: result}, nil
 }
 
-func (s *ManagerServer) RemoveNetworkSuggestions1(_ context.Context, req *pb.RemoveNetworkSuggestions1Request) (*pb.RemoveNetworkSuggestions1Response, error) {
-	mgr, err := jnipkg.NewManager(s.Ctx)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
-	}
-	defer mgr.Close()
-
-	result, err := mgr.RemoveNetworkSuggestions1(s.Handles.Get(req.GetArg0()))
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.RemoveNetworkSuggestions1Response{Result: result}, nil
-}
-
-func (s *ManagerServer) RemoveNetworkSuggestions2_1(_ context.Context, req *pb.RemoveNetworkSuggestions2_1Request) (*pb.RemoveNetworkSuggestions2_1Response, error) {
-	mgr, err := jnipkg.NewManager(s.Ctx)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
-	}
-	defer mgr.Close()
-
-	result, err := mgr.RemoveNetworkSuggestions2_1(s.Handles.Get(req.GetArg0()), req.GetArg1())
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.RemoveNetworkSuggestions2_1Response{Result: result}, nil
-}
-
 func (s *ManagerServer) RemoveNonCallerConfiguredNetworks(_ context.Context, req *pb.RemoveNonCallerConfiguredNetworksRequest) (*pb.RemoveNonCallerConfiguredNetworksResponse, error) {
 	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
@@ -1487,19 +1206,6 @@ func (s *ManagerServer) RemoveWifiStateChangedListener(_ context.Context, req *p
 	return &pb.RemoveWifiStateChangedListenerResponse{}, nil
 }
 
-func (s *ManagerServer) ReportCreateInterfaceImpact(_ context.Context, req *pb.ReportCreateInterfaceImpactRequest) (*pb.ReportCreateInterfaceImpactResponse, error) {
-	mgr, err := jnipkg.NewManager(s.Ctx)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
-	}
-	defer mgr.Close()
-
-	if err := mgr.ReportCreateInterfaceImpact(req.GetArg0(), req.GetArg1(), s.Handles.Get(req.GetArg2()), s.Handles.Get(req.GetArg3())); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.ReportCreateInterfaceImpactResponse{}, nil
-}
-
 func (s *ManagerServer) SaveConfiguration(_ context.Context, req *pb.SaveConfigurationRequest) (*pb.SaveConfigurationResponse, error) {
 	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
@@ -1540,56 +1246,30 @@ func (s *ManagerServer) SetSendDhcpHostnameRestriction(_ context.Context, req *p
 	return &pb.SetSendDhcpHostnameRestrictionResponse{}, nil
 }
 
-func (s *ManagerServer) SetTdlsEnabled2(_ context.Context, req *pb.SetTdlsEnabled2Request) (*pb.SetTdlsEnabled2Response, error) {
+func (s *ManagerServer) SetTdlsEnabled(_ context.Context, req *pb.SetTdlsEnabledRequest) (*pb.SetTdlsEnabledResponse, error) {
 	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
 	defer mgr.Close()
 
-	if err := mgr.SetTdlsEnabled2(s.Handles.Get(req.GetArg0()), req.GetArg1()); err != nil {
+	if err := mgr.SetTdlsEnabled(s.Handles.Get(req.GetArg0()), req.GetArg1()); err != nil {
 		return nil, status.Errorf(codes.Internal, "%v", err)
 	}
-	return &pb.SetTdlsEnabled2Response{}, nil
+	return &pb.SetTdlsEnabledResponse{}, nil
 }
 
-func (s *ManagerServer) SetTdlsEnabled4_1(_ context.Context, req *pb.SetTdlsEnabled4_1Request) (*pb.SetTdlsEnabled4_1Response, error) {
+func (s *ManagerServer) SetTdlsEnabledWithMacAddress(_ context.Context, req *pb.SetTdlsEnabledWithMacAddressRequest) (*pb.SetTdlsEnabledWithMacAddressResponse, error) {
 	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
 	defer mgr.Close()
 
-	if err := mgr.SetTdlsEnabled4_1(s.Handles.Get(req.GetArg0()), req.GetArg1(), s.Handles.Get(req.GetArg2()), s.Handles.Get(req.GetArg3())); err != nil {
+	if err := mgr.SetTdlsEnabledWithMacAddress(req.GetArg0(), req.GetArg1()); err != nil {
 		return nil, status.Errorf(codes.Internal, "%v", err)
 	}
-	return &pb.SetTdlsEnabled4_1Response{}, nil
-}
-
-func (s *ManagerServer) SetTdlsEnabledWithMacAddress2(_ context.Context, req *pb.SetTdlsEnabledWithMacAddress2Request) (*pb.SetTdlsEnabledWithMacAddress2Response, error) {
-	mgr, err := jnipkg.NewManager(s.Ctx)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
-	}
-	defer mgr.Close()
-
-	if err := mgr.SetTdlsEnabledWithMacAddress2(req.GetArg0(), req.GetArg1()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.SetTdlsEnabledWithMacAddress2Response{}, nil
-}
-
-func (s *ManagerServer) SetTdlsEnabledWithMacAddress4_1(_ context.Context, req *pb.SetTdlsEnabledWithMacAddress4_1Request) (*pb.SetTdlsEnabledWithMacAddress4_1Response, error) {
-	mgr, err := jnipkg.NewManager(s.Ctx)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
-	}
-	defer mgr.Close()
-
-	if err := mgr.SetTdlsEnabledWithMacAddress4_1(req.GetArg0(), req.GetArg1(), s.Handles.Get(req.GetArg2()), s.Handles.Get(req.GetArg3())); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.SetTdlsEnabledWithMacAddress4_1Response{}, nil
+	return &pb.SetTdlsEnabledWithMacAddressResponse{}, nil
 }
 
 func (s *ManagerServer) SetWifiEnabled(_ context.Context, req *pb.SetWifiEnabledRequest) (*pb.SetWifiEnabledResponse, error) {

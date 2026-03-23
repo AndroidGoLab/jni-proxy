@@ -33,9 +33,7 @@ import (
 	usbclient "github.com/AndroidGoLab/jni-proxy/grpc/client/usb"
 	vibratorclient "github.com/AndroidGoLab/jni-proxy/grpc/client/vibrator"
 	wificlient "github.com/AndroidGoLab/jni-proxy/grpc/client/wifi"
-	displaypb "github.com/AndroidGoLab/jni-proxy/proto/display"
 	handlepb "github.com/AndroidGoLab/jni-proxy/proto/handlestore"
-	locationpb "github.com/AndroidGoLab/jni-proxy/proto/location"
 	gomcp "github.com/modelcontextprotocol/go-sdk/mcp"
 )
 
@@ -116,8 +114,8 @@ func (s *Server) registerBatteryTools() {
 			Title:           "Get Battery Status",
 		},
 	}, func(ctx context.Context, req *gomcp.CallToolRequest, _ batteryInput) (*gomcp.CallToolResult, batteryOutput, error) {
-		bat := batteryclient.NewClient(s.conn)
-		pwr := powerclient.NewClient(s.conn)
+		bat := batteryclient.NewManagerClient(s.conn)
+		pwr := powerclient.NewManagerClient(s.conn)
 
 		var out batteryOutput
 		var err error
@@ -211,7 +209,7 @@ func (s *Server) registerLocationTools() {
 			provider = "gps"
 		}
 
-		locMgr := locationclient.NewClient(s.conn)
+		locMgr := locationclient.NewManagerClient(s.conn)
 		handle, err := locMgr.GetLastKnownLocation(ctx, provider)
 		if err != nil {
 			return nil, locationOutput{}, fmt.Errorf("get last known location: %w", err)
@@ -226,54 +224,12 @@ func (s *Server) registerLocationTools() {
 			_, _ = handles.ReleaseHandle(ctx, &handlepb.ReleaseHandleRequest{Handle: handle})
 		}()
 
-		// Query location properties via the LocationService.
-		// The server maps object-level RPCs to the handle returned above.
-		locSvc := locationpb.NewLocationServiceClient(s.conn)
-
+		// TODO: Location data class field extraction (latitude, longitude, etc.)
+		// is not yet available via gRPC. The LocationService was removed because
+		// Location is not a system_service. Once data-class field extraction is
+		// implemented, populate the output fields from the handle above.
 		var out locationOutput
 		out.Provider = provider
-
-		latResp, err := locSvc.GetLatitude(ctx, &locationpb.GetLatitudeRequest{})
-		if err != nil {
-			return nil, out, fmt.Errorf("get latitude: %w", err)
-		}
-		out.Latitude = latResp.GetResult()
-
-		lngResp, err := locSvc.GetLongitude(ctx, &locationpb.GetLongitudeRequest{})
-		if err != nil {
-			return nil, out, fmt.Errorf("get longitude: %w", err)
-		}
-		out.Longitude = lngResp.GetResult()
-
-		altResp, err := locSvc.GetAltitude(ctx, &locationpb.GetAltitudeRequest{})
-		if err != nil {
-			return nil, out, fmt.Errorf("get altitude: %w", err)
-		}
-		out.Altitude = altResp.GetResult()
-
-		accResp, err := locSvc.GetAccuracy(ctx, &locationpb.GetAccuracyRequest{})
-		if err != nil {
-			return nil, out, fmt.Errorf("get accuracy: %w", err)
-		}
-		out.Accuracy = accResp.GetResult()
-
-		speedResp, err := locSvc.GetSpeed(ctx, &locationpb.GetSpeedRequest{})
-		if err != nil {
-			return nil, out, fmt.Errorf("get speed: %w", err)
-		}
-		out.Speed = speedResp.GetResult()
-
-		bearingResp, err := locSvc.GetBearing(ctx, &locationpb.GetBearingRequest{})
-		if err != nil {
-			return nil, out, fmt.Errorf("get bearing: %w", err)
-		}
-		out.Bearing = bearingResp.GetResult()
-
-		timeResp, err := locSvc.GetTime(ctx, &locationpb.GetTimeRequest{})
-		if err != nil {
-			return nil, out, fmt.Errorf("get time: %w", err)
-		}
-		out.Time = timeResp.GetResult()
 
 		return nil, out, nil
 	})
@@ -300,7 +256,7 @@ func (s *Server) registerDisplayTools() {
 			Title:           "Get Display Info",
 		},
 	}, func(ctx context.Context, req *gomcp.CallToolRequest, _ displayInput) (*gomcp.CallToolResult, displayOutput, error) {
-		dispMgr := displayclient.NewClient(s.conn)
+		dispMgr := displayclient.NewWindowManagerClient(s.conn)
 		handle, err := dispMgr.GetDefaultDisplay(ctx)
 		if err != nil {
 			return nil, displayOutput{}, fmt.Errorf("get default display: %w", err)
@@ -315,47 +271,11 @@ func (s *Server) registerDisplayTools() {
 			_, _ = handles.ReleaseHandle(ctx, &handlepb.ReleaseHandleRequest{Handle: handle})
 		}()
 
-		// Query display properties via the DisplayService.
-		// The server maps object-level RPCs to the handle returned above.
-		dispSvc := displaypb.NewDisplayServiceClient(s.conn)
-
+		// TODO: Display data class field extraction (width, height, rotation, etc.)
+		// is not yet available via gRPC. The DisplayService was removed because
+		// Display is not a system_service. Once data-class field extraction is
+		// implemented, populate the output fields from the handle above.
 		var out displayOutput
-
-		wResp, err := dispSvc.GetWidth(ctx, &displaypb.GetWidthRequest{})
-		if err != nil {
-			return nil, out, fmt.Errorf("get width: %w", err)
-		}
-		out.Width = wResp.GetResult()
-
-		hResp, err := dispSvc.GetHeight(ctx, &displaypb.GetHeightRequest{})
-		if err != nil {
-			return nil, out, fmt.Errorf("get height: %w", err)
-		}
-		out.Height = hResp.GetResult()
-
-		rotResp, err := dispSvc.GetRotation(ctx, &displaypb.GetRotationRequest{})
-		if err != nil {
-			return nil, out, fmt.Errorf("get rotation: %w", err)
-		}
-		out.Rotation = rotResp.GetResult()
-
-		rrResp, err := dispSvc.GetRefreshRate(ctx, &displaypb.GetRefreshRateRequest{})
-		if err != nil {
-			return nil, out, fmt.Errorf("get refresh rate: %w", err)
-		}
-		out.RefreshRate = rrResp.GetResult()
-
-		stResp, err := dispSvc.GetState(ctx, &displaypb.GetStateRequest{})
-		if err != nil {
-			return nil, out, fmt.Errorf("get state: %w", err)
-		}
-		out.State = stResp.GetResult()
-
-		nameResp, err := dispSvc.GetName(ctx, &displaypb.GetNameRequest{})
-		if err != nil {
-			return nil, out, fmt.Errorf("get name: %w", err)
-		}
-		out.Name = nameResp.GetResult()
 
 		return nil, out, nil
 	})
@@ -387,7 +307,7 @@ func (s *Server) registerNetworkTools() {
 			Title:           "Query Network",
 		},
 	}, func(ctx context.Context, req *gomcp.CallToolRequest, _ networkInput) (*gomcp.CallToolResult, networkOutput, error) {
-		client := netclient.NewClient(s.conn)
+		client := netclient.NewConnectivityManagerClient(s.conn)
 
 		var out networkOutput
 		var err error
@@ -464,7 +384,7 @@ func (s *Server) registerWifiTools() {
 			Title:           "Scan WiFi Networks",
 		},
 	}, func(ctx context.Context, req *gomcp.CallToolRequest, _ scanWifiInput) (*gomcp.CallToolResult, scanWifiOutput, error) {
-		client := wificlient.NewClient(s.conn)
+		client := wificlient.NewManagerClient(s.conn)
 
 		var out scanWifiOutput
 		var err error
@@ -484,10 +404,9 @@ func (s *Server) registerWifiTools() {
 			return nil, out, fmt.Errorf("start scan: %w", err)
 		}
 
-		out.ScanResultsHandle, err = client.GetScanResults(ctx)
-		if err != nil {
-			return nil, out, fmt.Errorf("get scan results: %w", err)
-		}
+		// TODO: GetScanResults is no longer available on the generated WifiManager client.
+		// Use RegisterScanResultsCallback once callback streaming is supported.
+		out.ScanResultsHandle = 0
 
 		return nil, out, nil
 	})
@@ -502,7 +421,7 @@ func (s *Server) registerWifiTools() {
 			Title:           "Connect to WiFi Network",
 		},
 	}, func(ctx context.Context, req *gomcp.CallToolRequest, in connectWifiInput) (*gomcp.CallToolResult, any, error) {
-		client := wificlient.NewClient(s.conn)
+		client := wificlient.NewManagerClient(s.conn)
 
 		enabled, err := client.EnableNetwork(ctx, in.NetworkID, true)
 		if err != nil {
@@ -533,7 +452,7 @@ func (s *Server) registerWifiTools() {
 			Title:           "Set WiFi Enabled",
 		},
 	}, func(ctx context.Context, req *gomcp.CallToolRequest, in setWifiEnabledInput) (*gomcp.CallToolResult, setWifiEnabledOutput, error) {
-		client := wificlient.NewClient(s.conn)
+		client := wificlient.NewManagerClient(s.conn)
 
 		var out setWifiEnabledOutput
 		var err error
@@ -653,7 +572,7 @@ func (s *Server) registerTelephonyTools() {
 			Title:           "Get Cellular Info",
 		},
 	}, func(ctx context.Context, req *gomcp.CallToolRequest, _ cellularInput) (*gomcp.CallToolResult, cellularOutput, error) {
-		client := telephonyclient.NewClient(s.conn)
+		client := telephonyclient.NewManagerClient(s.conn)
 
 		var out cellularOutput
 		var err error
@@ -808,7 +727,7 @@ func (s *Server) registerAudioTools() {
 			Title:           "Get Audio Status",
 		},
 	}, func(ctx context.Context, req *gomcp.CallToolRequest, _ audioInput) (*gomcp.CallToolResult, audioOutput, error) {
-		client := audioclient.NewClient(s.conn)
+		client := audioclient.NewAudioManagerClient(s.conn)
 
 		var out audioOutput
 		var err error
@@ -893,7 +812,7 @@ func (s *Server) registerAudioTools() {
 			Title:           "Set Volume",
 		},
 	}, func(ctx context.Context, req *gomcp.CallToolRequest, in setVolumeInput) (*gomcp.CallToolResult, any, error) {
-		client := audioclient.NewClient(s.conn)
+		client := audioclient.NewAudioManagerClient(s.conn)
 
 		err := client.SetStreamVolume(ctx, in.Stream, in.Volume, in.Flags)
 		if err != nil {
@@ -924,7 +843,7 @@ func (s *Server) registerAudioTools() {
 			Title:           "Set Ringer Mode",
 		},
 	}, func(ctx context.Context, req *gomcp.CallToolRequest, in setRingerModeInput) (*gomcp.CallToolResult, any, error) {
-		client := audioclient.NewClient(s.conn)
+		client := audioclient.NewAudioManagerClient(s.conn)
 
 		err := client.SetRingerMode(ctx, in.Mode)
 		if err != nil {
@@ -972,7 +891,7 @@ func (s *Server) registerClipboardTools() {
 			Title:           "Get Clipboard",
 		},
 	}, func(ctx context.Context, req *gomcp.CallToolRequest, _ clipboardInput) (*gomcp.CallToolResult, clipboardOutput, error) {
-		client := clipboardclient.NewClient(s.conn)
+		client := clipboardclient.NewManagerClient(s.conn)
 
 		var out clipboardOutput
 		var err error
@@ -1007,7 +926,7 @@ func (s *Server) registerClipboardTools() {
 			Title:           "Set Clipboard",
 		},
 	}, func(ctx context.Context, req *gomcp.CallToolRequest, in setClipboardInput) (*gomcp.CallToolResult, any, error) {
-		client := clipboardclient.NewClient(s.conn)
+		client := clipboardclient.NewManagerClient(s.conn)
 
 		err := client.SetText(ctx, in.Text)
 		if err != nil {
@@ -1078,7 +997,7 @@ func (s *Server) registerNotificationTools() {
 			Title:           "Cancel Notification",
 		},
 	}, func(ctx context.Context, req *gomcp.CallToolRequest, in cancelNotifInput) (*gomcp.CallToolResult, any, error) {
-		client := notifclient.NewClient(s.conn)
+		client := notifclient.NewManagerClient(s.conn)
 
 		err := client.Cancel1(ctx, in.ID)
 		if err != nil {
@@ -1102,7 +1021,7 @@ func (s *Server) registerNotificationTools() {
 			Title:           "List Notification Channels",
 		},
 	}, func(ctx context.Context, req *gomcp.CallToolRequest, _ notifStatusInput) (*gomcp.CallToolResult, notifStatusOutput, error) {
-		client := notifclient.NewClient(s.conn)
+		client := notifclient.NewManagerClient(s.conn)
 
 		var out notifStatusOutput
 		var err error
@@ -1137,10 +1056,8 @@ func (s *Server) registerNotificationTools() {
 			return nil, out, fmt.Errorf("get interruption filter: %w", err)
 		}
 
-		out.ChannelsHandle, err = client.GetNotificationChannels(ctx)
-		if err != nil {
-			return nil, out, fmt.Errorf("get notification channels: %w", err)
-		}
+		// TODO: GetNotificationChannels was removed from the generated API;
+		// re-add when the jni spec exposes it again.
 
 		return nil, out, nil
 	})
@@ -1175,7 +1092,7 @@ func (s *Server) registerVibratorTools() {
 			Title:           "Vibrate",
 		},
 	}, func(ctx context.Context, req *gomcp.CallToolRequest, in vibrateInput) (*gomcp.CallToolResult, any, error) {
-		client := vibratorclient.NewClient(s.conn)
+		client := vibratorclient.NewVibratorClient(s.conn)
 
 		err := client.Vibrate1(ctx, in.DurationMS)
 		if err != nil {
@@ -1200,7 +1117,7 @@ func (s *Server) registerVibratorTools() {
 			Title:           "Get Vibrator Info",
 		},
 	}, func(ctx context.Context, req *gomcp.CallToolRequest, _ vibratorStatusInput) (*gomcp.CallToolResult, vibratorStatusOutput, error) {
-		client := vibratorclient.NewClient(s.conn)
+		client := vibratorclient.NewVibratorClient(s.conn)
 
 		var out vibratorStatusOutput
 		var err error
@@ -1274,7 +1191,7 @@ func (s *Server) registerIRTools() {
 			Title:           "Get IR Info",
 		},
 	}, func(ctx context.Context, req *gomcp.CallToolRequest, _ irStatusInput) (*gomcp.CallToolResult, irStatusOutput, error) {
-		client := irclient.NewClient(s.conn)
+		client := irclient.NewConsumerIrManagerClient(s.conn)
 
 		var out irStatusOutput
 		var err error
@@ -1319,7 +1236,7 @@ func (s *Server) registerCameraTools() {
 			Title:           "List Cameras",
 		},
 	}, func(ctx context.Context, req *gomcp.CallToolRequest, _ listCamerasInput) (*gomcp.CallToolResult, listCamerasOutput, error) {
-		client := cameraclient.NewClient(s.conn)
+		client := cameraclient.NewManagerClient(s.conn)
 
 		var out listCamerasOutput
 		var err error
@@ -1329,10 +1246,8 @@ func (s *Server) registerCameraTools() {
 			return nil, out, fmt.Errorf("get camera id list: %w", err)
 		}
 
-		out.ConcurrentCameraIDsHandle, err = client.GetConcurrentCameraIds(ctx)
-		if err != nil {
-			return nil, out, fmt.Errorf("get concurrent camera ids: %w", err)
-		}
+		// TODO: GetConcurrentCameraIds is no longer available on the generated CameraManager client.
+		out.ConcurrentCameraIDsHandle = 0
 
 		return nil, out, nil
 	})
@@ -1455,7 +1370,7 @@ func (s *Server) registerSchedulingTools() {
 			Title:           "Get Next Alarm",
 		},
 	}, func(ctx context.Context, req *gomcp.CallToolRequest, _ getNextAlarmInput) (*gomcp.CallToolResult, getNextAlarmOutput, error) {
-		client := alarmclient.NewClient(s.conn)
+		client := alarmclient.NewManagerClient(s.conn)
 
 		var out getNextAlarmOutput
 		var err error
@@ -1484,7 +1399,7 @@ func (s *Server) registerSchedulingTools() {
 			Title:           "Cancel All Alarms",
 		},
 	}, func(ctx context.Context, req *gomcp.CallToolRequest, _ cancelAllAlarmsInput) (*gomcp.CallToolResult, any, error) {
-		client := alarmclient.NewClient(s.conn)
+		client := alarmclient.NewManagerClient(s.conn)
 
 		err := client.CancelAll(ctx)
 		if err != nil {
@@ -1509,17 +1424,16 @@ func (s *Server) registerSchedulingTools() {
 			Title:           "Manage Jobs",
 		},
 	}, func(ctx context.Context, req *gomcp.CallToolRequest, in manageJobsInput) (*gomcp.CallToolResult, any, error) {
-		client := jobclient.NewClient(s.conn)
+		client := jobclient.NewSchedulerClient(s.conn)
 
 		switch in.Action {
 		case "list":
-			handle, err := client.GetAllPendingJobs(ctx)
-			if err != nil {
-				return nil, nil, fmt.Errorf("get all pending jobs: %w", err)
-			}
+			// TODO: GetAllPendingJobs is no longer available on the generated JobScheduler client.
+			// Use GetPendingJob(jobId) for individual job queries instead.
 			result := map[string]any{
 				"action":              "list",
-				"pending_jobs_handle": handle,
+				"pending_jobs_handle": int64(0),
+				"note":                "GetAllPendingJobs is not available; use GetPendingJob(jobId) for individual queries",
 			}
 			r, err := jsonResult(result)
 			return r, nil, err
@@ -1583,7 +1497,7 @@ func (s *Server) registerTelecomTools() {
 			Title:           "Get Call State",
 		},
 	}, func(ctx context.Context, req *gomcp.CallToolRequest, _ callStateInput) (*gomcp.CallToolResult, callStateOutput, error) {
-		client := telecomclient.NewClient(s.conn)
+		client := telecomclient.NewManagerClient(s.conn)
 
 		var out callStateOutput
 		var err error
@@ -1608,10 +1522,8 @@ func (s *Server) registerTelecomTools() {
 			return nil, out, fmt.Errorf("get system dialer package: %w", err)
 		}
 
-		out.CallCapableAccountsHandle, err = client.GetCallCapablePhoneAccounts(ctx)
-		if err != nil {
-			return nil, out, fmt.Errorf("get call capable phone accounts: %w", err)
-		}
+		// TODO: GetCallCapablePhoneAccounts is no longer available on the generated TelecomManager client.
+		out.CallCapableAccountsHandle = 0
 
 		out.HasManageOngoingCallsPerm, err = client.HasManageOngoingCallsPermission(ctx)
 		if err != nil {
@@ -1637,7 +1549,7 @@ func (s *Server) registerTelecomTools() {
 			Title:           "End Call",
 		},
 	}, func(ctx context.Context, req *gomcp.CallToolRequest, _ endCallInput) (*gomcp.CallToolResult, any, error) {
-		client := telecomclient.NewClient(s.conn)
+		client := telecomclient.NewManagerClient(s.conn)
 
 		ended, err := client.EndCall(ctx)
 		if err != nil {
@@ -1660,7 +1572,7 @@ func (s *Server) registerTelecomTools() {
 			Title:           "Silence Ringer",
 		},
 	}, func(ctx context.Context, req *gomcp.CallToolRequest, _ silenceRingerInput) (*gomcp.CallToolResult, any, error) {
-		client := telecomclient.NewClient(s.conn)
+		client := telecomclient.NewManagerClient(s.conn)
 
 		err := client.SilenceRinger(ctx)
 		if err != nil {
@@ -1683,7 +1595,7 @@ func (s *Server) registerTelecomTools() {
 			Title:           "Accept Ringing Call",
 		},
 	}, func(ctx context.Context, req *gomcp.CallToolRequest, _ acceptCallInput) (*gomcp.CallToolResult, any, error) {
-		client := telecomclient.NewClient(s.conn)
+		client := telecomclient.NewManagerClient(s.conn)
 
 		err := client.AcceptRingingCall0(ctx)
 		if err != nil {
@@ -1729,7 +1641,7 @@ func (s *Server) registerInputTools() {
 			Title:           "Get Input Methods",
 		},
 	}, func(ctx context.Context, req *gomcp.CallToolRequest, _ getInputMethodsInput) (*gomcp.CallToolResult, getInputMethodsOutput, error) {
-		client := inputmethodclient.NewClient(s.conn)
+		client := inputmethodclient.NewInputMethodManagerClient(s.conn)
 
 		var out getInputMethodsOutput
 		var err error
@@ -1754,15 +1666,10 @@ func (s *Server) registerInputTools() {
 			return nil, out, fmt.Errorf("get current input method info: %w", err)
 		}
 
-		out.EnabledListHandle, err = client.GetEnabledInputMethodList(ctx)
-		if err != nil {
-			return nil, out, fmt.Errorf("get enabled input method list: %w", err)
-		}
-
-		out.AllListHandle, err = client.GetInputMethodList(ctx)
-		if err != nil {
-			return nil, out, fmt.Errorf("get input method list: %w", err)
-		}
+		// TODO: GetEnabledInputMethodList and GetInputMethodList are no longer available
+		// on the generated InputMethodManager client.
+		out.EnabledListHandle = 0
+		out.AllListHandle = 0
 
 		return nil, out, nil
 	})
@@ -1779,7 +1686,7 @@ func (s *Server) registerInputTools() {
 			Title:           "Toggle Keyboard",
 		},
 	}, func(ctx context.Context, req *gomcp.CallToolRequest, in toggleKeyboardInput) (*gomcp.CallToolResult, any, error) {
-		client := inputmethodclient.NewClient(s.conn)
+		client := inputmethodclient.NewInputMethodManagerClient(s.conn)
 
 		err := client.ToggleSoftInput(ctx, in.ShowFlags, in.HideFlags)
 		if err != nil {
@@ -1806,7 +1713,7 @@ func (s *Server) registerInputTools() {
 			Title:           "Show Input Method Picker",
 		},
 	}, func(ctx context.Context, req *gomcp.CallToolRequest, _ showIMEPickerInput) (*gomcp.CallToolResult, any, error) {
-		client := inputmethodclient.NewClient(s.conn)
+		client := inputmethodclient.NewInputMethodManagerClient(s.conn)
 
 		err := client.ShowInputMethodPicker(ctx)
 		if err != nil {
@@ -1872,9 +1779,9 @@ func (s *Server) registerSecurityTools() {
 			Title:           "Get Security Status",
 		},
 	}, func(ctx context.Context, req *gomcp.CallToolRequest, _ securityInput) (*gomcp.CallToolResult, securityOutput, error) {
-		kg := keyguardclient.NewClient(s.conn)
-		bio := biometricclient.NewClient(s.conn)
-		adm := adminclient.NewClient(s.conn)
+		kg := keyguardclient.NewManagerClient(s.conn)
+		bio := biometricclient.NewManagerClient(s.conn)
+		adm := adminclient.NewDevicePolicyManagerClient(s.conn)
 
 		var out securityOutput
 		var err error
@@ -1929,7 +1836,7 @@ func (s *Server) registerSecurityTools() {
 			Title:           "Lock Device",
 		},
 	}, func(ctx context.Context, req *gomcp.CallToolRequest, _ lockDeviceInput) (*gomcp.CallToolResult, any, error) {
-		adm := adminclient.NewClient(s.conn)
+		adm := adminclient.NewDevicePolicyManagerClient(s.conn)
 
 		err := adm.LockNow0(ctx)
 		if err != nil {
@@ -1965,7 +1872,7 @@ func (s *Server) registerStorageTools() {
 			Title:           "Get Storage Info",
 		},
 	}, func(ctx context.Context, req *gomcp.CallToolRequest, _ storageInput) (*gomcp.CallToolResult, storageOutput, error) {
-		client := storageclient.NewClient(s.conn)
+		client := storageclient.NewManagerClient(s.conn)
 
 		var out storageOutput
 		var err error
@@ -1975,10 +1882,9 @@ func (s *Server) registerStorageTools() {
 			return nil, out, fmt.Errorf("get primary storage volume: %w", err)
 		}
 
-		out.AllVolumesHandle, err = client.GetStorageVolumes(ctx)
-		if err != nil {
-			return nil, out, fmt.Errorf("get storage volumes: %w", err)
-		}
+		// TODO: GetStorageVolumes is no longer available on the generated StorageManager client.
+		// Use GetStorageVolume1(fileHandle) for individual volume queries instead.
+		out.AllVolumesHandle = 0
 
 		out.CheckpointSupported, err = client.IsCheckpointSupported(ctx)
 		if err != nil {
@@ -2005,7 +1911,7 @@ func (s *Server) registerStorageTools() {
 			Title:           "Manage Downloads",
 		},
 	}, func(ctx context.Context, req *gomcp.CallToolRequest, in downloadInput) (*gomcp.CallToolResult, any, error) {
-		client := downloadclient.NewClient(s.conn)
+		client := downloadclient.NewManagerClient(s.conn)
 
 		switch in.Action {
 		case "get_mime_type":
@@ -2062,7 +1968,7 @@ func (s *Server) registerAppsTools() {
 			Title:           "Get App Usage",
 		},
 	}, func(ctx context.Context, req *gomcp.CallToolRequest, in appUsageInput) (*gomcp.CallToolResult, appUsageOutput, error) {
-		client := usageclient.NewClient(s.conn)
+		client := usageclient.NewStatsManagerClient(s.conn)
 
 		var out appUsageOutput
 		var err error
@@ -2103,7 +2009,7 @@ func (s *Server) registerAppsTools() {
 			Title:           "Check Role Permissions",
 		},
 	}, func(ctx context.Context, req *gomcp.CallToolRequest, in checkPermInput) (*gomcp.CallToolResult, checkPermOutput, error) {
-		client := roleclient.NewClient(s.conn)
+		client := roleclient.NewManagerClient(s.conn)
 
 		var out checkPermOutput
 		var err error
@@ -2147,7 +2053,7 @@ func (s *Server) registerAccountsTools() {
 			Title:           "List Accounts",
 		},
 	}, func(ctx context.Context, req *gomcp.CallToolRequest, in listAccountsInput) (*gomcp.CallToolResult, listAccountsOutput, error) {
-		client := accountsclient.NewClient(s.conn)
+		client := accountsclient.NewAccountManagerClient(s.conn)
 
 		var out listAccountsOutput
 		var err error
@@ -2197,21 +2103,16 @@ func (s *Server) registerCompanionTools() {
 			Title:           "Manage Companion Devices",
 		},
 	}, func(ctx context.Context, req *gomcp.CallToolRequest, in companionInput) (*gomcp.CallToolResult, any, error) {
-		client := companionclient.NewClient(s.conn)
+		client := companionclient.NewDeviceManagerClient(s.conn)
 
 		switch in.Action {
 		case "list":
-			associations, err := client.GetAssociations(ctx)
-			if err != nil {
-				return nil, nil, fmt.Errorf("get associations: %w", err)
-			}
-			myAssociations, err := client.GetMyAssociations(ctx)
-			if err != nil {
-				return nil, nil, fmt.Errorf("get my associations: %w", err)
-			}
+			// TODO: GetAssociations and GetMyAssociations are no longer available
+			// on the generated CompanionDeviceManager client.
 			result := map[string]any{
-				"associations_handle":    associations,
-				"my_associations_handle": myAssociations,
+				"associations_handle":    int64(0),
+				"my_associations_handle": int64(0),
+				"note":                   "GetAssociations/GetMyAssociations are not available on the current client",
 			}
 			r, err := jsonResult(result)
 			return r, nil, err
@@ -2393,7 +2294,7 @@ func (s *Server) registerUSBTools() {
 			Title:           "List USB Devices",
 		},
 	}, func(ctx context.Context, req *gomcp.CallToolRequest, _ usbInput) (*gomcp.CallToolResult, usbOutput, error) {
-		client := usbclient.NewClient(s.conn)
+		client := usbclient.NewManagerClient(s.conn)
 
 		handle, err := client.GetAccessoryList(ctx)
 		if err != nil {
@@ -2423,14 +2324,11 @@ func (s *Server) registerPrintTools() {
 			Title:           "Get Print Services",
 		},
 	}, func(ctx context.Context, req *gomcp.CallToolRequest, _ printInput) (*gomcp.CallToolResult, printOutput, error) {
-		client := printclient.NewClient(s.conn)
+		// TODO: GetPrintJobs is no longer available on the generated PrintManager client.
+		// The current client only has IsPrintServiceEnabled and Print methods.
+		_ = printclient.NewManagerClient(s.conn)
 
-		handle, err := client.GetPrintJobs(ctx)
-		if err != nil {
-			return nil, printOutput{}, fmt.Errorf("get print jobs: %w", err)
-		}
-
-		return nil, printOutput{PrintJobsHandle: handle}, nil
+		return nil, printOutput{PrintJobsHandle: 0}, nil
 	})
 }
 
@@ -2457,7 +2355,7 @@ func (s *Server) registerPowerTools() {
 			Title:           "Power Management",
 		},
 	}, func(ctx context.Context, req *gomcp.CallToolRequest, in powerInput) (*gomcp.CallToolResult, any, error) {
-		client := powerclient.NewClient(s.conn)
+		client := powerclient.NewManagerClient(s.conn)
 
 		switch in.Action {
 		case "status":

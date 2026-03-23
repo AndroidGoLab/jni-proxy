@@ -9,20 +9,123 @@ import (
 	"google.golang.org/grpc"
 )
 
-// Client wraps the gRPC ManagerService client.
-type Client struct {
+// CarrierConfigManagerClient wraps the gRPC CarrierConfigManagerService client.
+type CarrierConfigManagerClient struct {
+	svc pb.CarrierConfigManagerServiceClient
+}
+
+// NewCarrierConfigManagerClient creates a new CarrierConfigManager client.
+func NewCarrierConfigManagerClient(cc grpc.ClientConnInterface) *CarrierConfigManagerClient {
+	return &CarrierConfigManagerClient{
+		svc: pb.NewCarrierConfigManagerServiceClient(cc),
+	}
+}
+
+// GetConfig0 calls the GetConfig0 RPC.
+func (c *CarrierConfigManagerClient) GetConfig0(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetConfig0(ctx, &pb.GetConfig0Request{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetConfig1_1 calls the GetConfig1_1 RPC.
+func (c *CarrierConfigManagerClient) GetConfig1_1(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.GetConfig1_1(ctx, &pb.GetConfig1_1Request{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetConfigByComponentForSubId calls the GetConfigByComponentForSubId RPC.
+func (c *CarrierConfigManagerClient) GetConfigByComponentForSubId(ctx context.Context, arg0 string, arg1 int32) (int64, error) {
+	resp, err := c.svc.GetConfigByComponentForSubId(ctx, &pb.GetConfigByComponentForSubIdRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetConfigForSubId1 calls the GetConfigForSubId1 RPC.
+func (c *CarrierConfigManagerClient) GetConfigForSubId1(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.GetConfigForSubId1(ctx, &pb.GetConfigForSubId1Request{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetConfigForSubId2_1 calls the GetConfigForSubId2_1 RPC.
+func (c *CarrierConfigManagerClient) GetConfigForSubId2_1(ctx context.Context, arg0 int32, arg1 int64) (int64, error) {
+	resp, err := c.svc.GetConfigForSubId2_1(ctx, &pb.GetConfigForSubId2_1Request{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// NotifyConfigChangedForSubId calls the NotifyConfigChangedForSubId RPC.
+func (c *CarrierConfigManagerClient) NotifyConfigChangedForSubId(ctx context.Context, arg0 int32) error {
+	_, err := c.svc.NotifyConfigChangedForSubId(ctx, &pb.NotifyConfigChangedForSubIdRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// RegisterCarrierConfigChangeListener calls the RegisterCarrierConfigChangeListener RPC.
+func (c *CarrierConfigManagerClient) RegisterCarrierConfigChangeListener(ctx context.Context, arg0 int64, arg1 int64) error {
+	_, err := c.svc.RegisterCarrierConfigChangeListener(ctx, &pb.RegisterCarrierConfigChangeListenerRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// UnregisterCarrierConfigChangeListener calls the UnregisterCarrierConfigChangeListener RPC.
+func (c *CarrierConfigManagerClient) UnregisterCarrierConfigChangeListener(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.UnregisterCarrierConfigChangeListener(ctx, &pb.UnregisterCarrierConfigChangeListenerRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// IsConfigForIdentifiedCarrier calls the IsConfigForIdentifiedCarrier RPC.
+func (c *CarrierConfigManagerClient) IsConfigForIdentifiedCarrier(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.IsConfigForIdentifiedCarrier(ctx, &pb.IsConfigForIdentifiedCarrierRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ManagerClient wraps the gRPC ManagerService client.
+type ManagerClient struct {
 	svc pb.ManagerServiceClient
 }
 
-// NewClient creates a new telephony client.
-func NewClient(cc grpc.ClientConnInterface) *Client {
-	return &Client{
+// NewManagerClient creates a new Manager client.
+func NewManagerClient(cc grpc.ClientConnInterface) *ManagerClient {
+	return &ManagerClient{
 		svc: pb.NewManagerServiceClient(cc),
 	}
 }
 
 // CanChangeDtmfToneLength calls the CanChangeDtmfToneLength RPC.
-func (c *Client) CanChangeDtmfToneLength(ctx context.Context) (bool, error) {
+func (c *ManagerClient) CanChangeDtmfToneLength(ctx context.Context) (bool, error) {
 	resp, err := c.svc.CanChangeDtmfToneLength(ctx, &pb.CanChangeDtmfToneLengthRequest{})
 	if err != nil {
 		return false, err
@@ -31,7 +134,7 @@ func (c *Client) CanChangeDtmfToneLength(ctx context.Context) (bool, error) {
 }
 
 // ClearSignalStrengthUpdateRequest calls the ClearSignalStrengthUpdateRequest RPC.
-func (c *Client) ClearSignalStrengthUpdateRequest(ctx context.Context, arg0 int64) error {
+func (c *ManagerClient) ClearSignalStrengthUpdateRequest(ctx context.Context, arg0 int64) error {
 	_, err := c.svc.ClearSignalStrengthUpdateRequest(ctx, &pb.ClearSignalStrengthUpdateRequestRequest{
 		Arg0: arg0,
 	})
@@ -39,7 +142,7 @@ func (c *Client) ClearSignalStrengthUpdateRequest(ctx context.Context, arg0 int6
 }
 
 // CreateForPhoneAccountHandle calls the CreateForPhoneAccountHandle RPC.
-func (c *Client) CreateForPhoneAccountHandle(ctx context.Context, arg0 int64) (int64, error) {
+func (c *ManagerClient) CreateForPhoneAccountHandle(ctx context.Context, arg0 int64) (int64, error) {
 	resp, err := c.svc.CreateForPhoneAccountHandle(ctx, &pb.CreateForPhoneAccountHandleRequest{
 		Arg0: arg0,
 	})
@@ -50,7 +153,7 @@ func (c *Client) CreateForPhoneAccountHandle(ctx context.Context, arg0 int64) (i
 }
 
 // CreateForSubscriptionId calls the CreateForSubscriptionId RPC.
-func (c *Client) CreateForSubscriptionId(ctx context.Context, arg0 int32) (int64, error) {
+func (c *ManagerClient) CreateForSubscriptionId(ctx context.Context, arg0 int32) (int64, error) {
 	resp, err := c.svc.CreateForSubscriptionId(ctx, &pb.CreateForSubscriptionIdRequest{
 		Arg0: arg0,
 	})
@@ -61,7 +164,7 @@ func (c *Client) CreateForSubscriptionId(ctx context.Context, arg0 int32) (int64
 }
 
 // DoesSwitchMultiSimConfigTriggerReboot calls the DoesSwitchMultiSimConfigTriggerReboot RPC.
-func (c *Client) DoesSwitchMultiSimConfigTriggerReboot(ctx context.Context) (bool, error) {
+func (c *ManagerClient) DoesSwitchMultiSimConfigTriggerReboot(ctx context.Context) (bool, error) {
 	resp, err := c.svc.DoesSwitchMultiSimConfigTriggerReboot(ctx, &pb.DoesSwitchMultiSimConfigTriggerRebootRequest{})
 	if err != nil {
 		return false, err
@@ -70,7 +173,7 @@ func (c *Client) DoesSwitchMultiSimConfigTriggerReboot(ctx context.Context) (boo
 }
 
 // GetActiveModemCount calls the GetActiveModemCount RPC.
-func (c *Client) GetActiveModemCount(ctx context.Context) (int32, error) {
+func (c *ManagerClient) GetActiveModemCount(ctx context.Context) (int32, error) {
 	resp, err := c.svc.GetActiveModemCount(ctx, &pb.GetActiveModemCountRequest{})
 	if err != nil {
 		return 0, err
@@ -78,17 +181,8 @@ func (c *Client) GetActiveModemCount(ctx context.Context) (int32, error) {
 	return resp.GetResult(), nil
 }
 
-// GetAllCellInfo calls the GetAllCellInfo RPC.
-func (c *Client) GetAllCellInfo(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetAllCellInfo(ctx, &pb.GetAllCellInfoRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
 // GetAllowedNetworkTypesForReason calls the GetAllowedNetworkTypesForReason RPC.
-func (c *Client) GetAllowedNetworkTypesForReason(ctx context.Context, arg0 int32) (int64, error) {
+func (c *ManagerClient) GetAllowedNetworkTypesForReason(ctx context.Context, arg0 int32) (int64, error) {
 	resp, err := c.svc.GetAllowedNetworkTypesForReason(ctx, &pb.GetAllowedNetworkTypesForReasonRequest{
 		Arg0: arg0,
 	})
@@ -99,7 +193,7 @@ func (c *Client) GetAllowedNetworkTypesForReason(ctx context.Context, arg0 int32
 }
 
 // GetCallComposerStatus calls the GetCallComposerStatus RPC.
-func (c *Client) GetCallComposerStatus(ctx context.Context) (int32, error) {
+func (c *ManagerClient) GetCallComposerStatus(ctx context.Context) (int32, error) {
 	resp, err := c.svc.GetCallComposerStatus(ctx, &pb.GetCallComposerStatusRequest{})
 	if err != nil {
 		return 0, err
@@ -108,7 +202,7 @@ func (c *Client) GetCallComposerStatus(ctx context.Context) (int32, error) {
 }
 
 // GetCallState calls the GetCallState RPC.
-func (c *Client) GetCallState(ctx context.Context) (int32, error) {
+func (c *ManagerClient) GetCallState(ctx context.Context) (int32, error) {
 	resp, err := c.svc.GetCallState(ctx, &pb.GetCallStateRequest{})
 	if err != nil {
 		return 0, err
@@ -117,7 +211,7 @@ func (c *Client) GetCallState(ctx context.Context) (int32, error) {
 }
 
 // GetCallStateForSubscription calls the GetCallStateForSubscription RPC.
-func (c *Client) GetCallStateForSubscription(ctx context.Context) (int32, error) {
+func (c *ManagerClient) GetCallStateForSubscription(ctx context.Context) (int32, error) {
 	resp, err := c.svc.GetCallStateForSubscription(ctx, &pb.GetCallStateForSubscriptionRequest{})
 	if err != nil {
 		return 0, err
@@ -126,7 +220,7 @@ func (c *Client) GetCallStateForSubscription(ctx context.Context) (int32, error)
 }
 
 // GetCardIdForDefaultEuicc calls the GetCardIdForDefaultEuicc RPC.
-func (c *Client) GetCardIdForDefaultEuicc(ctx context.Context) (int32, error) {
+func (c *ManagerClient) GetCardIdForDefaultEuicc(ctx context.Context) (int32, error) {
 	resp, err := c.svc.GetCardIdForDefaultEuicc(ctx, &pb.GetCardIdForDefaultEuiccRequest{})
 	if err != nil {
 		return 0, err
@@ -135,7 +229,7 @@ func (c *Client) GetCardIdForDefaultEuicc(ctx context.Context) (int32, error) {
 }
 
 // GetCarrierConfig calls the GetCarrierConfig RPC.
-func (c *Client) GetCarrierConfig(ctx context.Context) (int64, error) {
+func (c *ManagerClient) GetCarrierConfig(ctx context.Context) (int64, error) {
 	resp, err := c.svc.GetCarrierConfig(ctx, &pb.GetCarrierConfigRequest{})
 	if err != nil {
 		return 0, err
@@ -144,7 +238,7 @@ func (c *Client) GetCarrierConfig(ctx context.Context) (int64, error) {
 }
 
 // GetCarrierIdFromSimMccMnc calls the GetCarrierIdFromSimMccMnc RPC.
-func (c *Client) GetCarrierIdFromSimMccMnc(ctx context.Context) (int32, error) {
+func (c *ManagerClient) GetCarrierIdFromSimMccMnc(ctx context.Context) (int32, error) {
 	resp, err := c.svc.GetCarrierIdFromSimMccMnc(ctx, &pb.GetCarrierIdFromSimMccMncRequest{})
 	if err != nil {
 		return 0, err
@@ -152,17 +246,8 @@ func (c *Client) GetCarrierIdFromSimMccMnc(ctx context.Context) (int32, error) {
 	return resp.GetResult(), nil
 }
 
-// GetCarrierRestrictionStatus calls the GetCarrierRestrictionStatus RPC.
-func (c *Client) GetCarrierRestrictionStatus(ctx context.Context, arg0 int64, arg1 int64) error {
-	_, err := c.svc.GetCarrierRestrictionStatus(ctx, &pb.GetCarrierRestrictionStatusRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	return err
-}
-
 // GetCellLocation calls the GetCellLocation RPC.
-func (c *Client) GetCellLocation(ctx context.Context) (int64, error) {
+func (c *ManagerClient) GetCellLocation(ctx context.Context) (int64, error) {
 	resp, err := c.svc.GetCellLocation(ctx, &pb.GetCellLocationRequest{})
 	if err != nil {
 		return 0, err
@@ -171,7 +256,7 @@ func (c *Client) GetCellLocation(ctx context.Context) (int64, error) {
 }
 
 // GetDataActivity calls the GetDataActivity RPC.
-func (c *Client) GetDataActivity(ctx context.Context) (int32, error) {
+func (c *ManagerClient) GetDataActivity(ctx context.Context) (int32, error) {
 	resp, err := c.svc.GetDataActivity(ctx, &pb.GetDataActivityRequest{})
 	if err != nil {
 		return 0, err
@@ -180,7 +265,7 @@ func (c *Client) GetDataActivity(ctx context.Context) (int32, error) {
 }
 
 // GetDataNetworkType calls the GetDataNetworkType RPC.
-func (c *Client) GetDataNetworkType(ctx context.Context) (int32, error) {
+func (c *ManagerClient) GetDataNetworkType(ctx context.Context) (int32, error) {
 	resp, err := c.svc.GetDataNetworkType(ctx, &pb.GetDataNetworkTypeRequest{})
 	if err != nil {
 		return 0, err
@@ -189,7 +274,7 @@ func (c *Client) GetDataNetworkType(ctx context.Context) (int32, error) {
 }
 
 // GetDataState calls the GetDataState RPC.
-func (c *Client) GetDataState(ctx context.Context) (int32, error) {
+func (c *ManagerClient) GetDataState(ctx context.Context) (int32, error) {
 	resp, err := c.svc.GetDataState(ctx, &pb.GetDataStateRequest{})
 	if err != nil {
 		return 0, err
@@ -198,7 +283,7 @@ func (c *Client) GetDataState(ctx context.Context) (int32, error) {
 }
 
 // GetDeviceId0 calls the GetDeviceId0 RPC.
-func (c *Client) GetDeviceId0(ctx context.Context) (string, error) {
+func (c *ManagerClient) GetDeviceId0(ctx context.Context) (string, error) {
 	resp, err := c.svc.GetDeviceId0(ctx, &pb.GetDeviceId0Request{})
 	if err != nil {
 		return "", err
@@ -207,7 +292,7 @@ func (c *Client) GetDeviceId0(ctx context.Context) (string, error) {
 }
 
 // GetDeviceId1_1 calls the GetDeviceId1_1 RPC.
-func (c *Client) GetDeviceId1_1(ctx context.Context, arg0 int32) (string, error) {
+func (c *ManagerClient) GetDeviceId1_1(ctx context.Context, arg0 int32) (string, error) {
 	resp, err := c.svc.GetDeviceId1_1(ctx, &pb.GetDeviceId1_1Request{
 		Arg0: arg0,
 	})
@@ -218,7 +303,7 @@ func (c *Client) GetDeviceId1_1(ctx context.Context, arg0 int32) (string, error)
 }
 
 // GetDeviceSoftwareVersion calls the GetDeviceSoftwareVersion RPC.
-func (c *Client) GetDeviceSoftwareVersion(ctx context.Context) (string, error) {
+func (c *ManagerClient) GetDeviceSoftwareVersion(ctx context.Context) (string, error) {
 	resp, err := c.svc.GetDeviceSoftwareVersion(ctx, &pb.GetDeviceSoftwareVersionRequest{})
 	if err != nil {
 		return "", err
@@ -226,17 +311,8 @@ func (c *Client) GetDeviceSoftwareVersion(ctx context.Context) (string, error) {
 	return resp.GetResult(), nil
 }
 
-// GetEquivalentHomePlmns calls the GetEquivalentHomePlmns RPC.
-func (c *Client) GetEquivalentHomePlmns(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetEquivalentHomePlmns(ctx, &pb.GetEquivalentHomePlmnsRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
 // GetForbiddenPlmns calls the GetForbiddenPlmns RPC.
-func (c *Client) GetForbiddenPlmns(ctx context.Context) (int64, error) {
+func (c *ManagerClient) GetForbiddenPlmns(ctx context.Context) (int64, error) {
 	resp, err := c.svc.GetForbiddenPlmns(ctx, &pb.GetForbiddenPlmnsRequest{})
 	if err != nil {
 		return 0, err
@@ -245,7 +321,7 @@ func (c *Client) GetForbiddenPlmns(ctx context.Context) (int64, error) {
 }
 
 // GetGroupIdLevel1 calls the GetGroupIdLevel1 RPC.
-func (c *Client) GetGroupIdLevel1(ctx context.Context) (string, error) {
+func (c *ManagerClient) GetGroupIdLevel1(ctx context.Context) (string, error) {
 	resp, err := c.svc.GetGroupIdLevel1(ctx, &pb.GetGroupIdLevel1Request{})
 	if err != nil {
 		return "", err
@@ -254,7 +330,7 @@ func (c *Client) GetGroupIdLevel1(ctx context.Context) (string, error) {
 }
 
 // GetIccAuthentication calls the GetIccAuthentication RPC.
-func (c *Client) GetIccAuthentication(ctx context.Context, arg0 int32, arg1 int32, arg2 string) (string, error) {
+func (c *ManagerClient) GetIccAuthentication(ctx context.Context, arg0 int32, arg1 int32, arg2 string) (string, error) {
 	resp, err := c.svc.GetIccAuthentication(ctx, &pb.GetIccAuthenticationRequest{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -267,7 +343,7 @@ func (c *Client) GetIccAuthentication(ctx context.Context, arg0 int32, arg1 int3
 }
 
 // GetImei0 calls the GetImei0 RPC.
-func (c *Client) GetImei0(ctx context.Context) (string, error) {
+func (c *ManagerClient) GetImei0(ctx context.Context) (string, error) {
 	resp, err := c.svc.GetImei0(ctx, &pb.GetImei0Request{})
 	if err != nil {
 		return "", err
@@ -276,7 +352,7 @@ func (c *Client) GetImei0(ctx context.Context) (string, error) {
 }
 
 // GetImei1_1 calls the GetImei1_1 RPC.
-func (c *Client) GetImei1_1(ctx context.Context, arg0 int32) (string, error) {
+func (c *ManagerClient) GetImei1_1(ctx context.Context, arg0 int32) (string, error) {
 	resp, err := c.svc.GetImei1_1(ctx, &pb.GetImei1_1Request{
 		Arg0: arg0,
 	})
@@ -287,7 +363,7 @@ func (c *Client) GetImei1_1(ctx context.Context, arg0 int32) (string, error) {
 }
 
 // GetLine1Number calls the GetLine1Number RPC.
-func (c *Client) GetLine1Number(ctx context.Context) (string, error) {
+func (c *ManagerClient) GetLine1Number(ctx context.Context) (string, error) {
 	resp, err := c.svc.GetLine1Number(ctx, &pb.GetLine1NumberRequest{})
 	if err != nil {
 		return "", err
@@ -296,7 +372,7 @@ func (c *Client) GetLine1Number(ctx context.Context) (string, error) {
 }
 
 // GetManualNetworkSelectionPlmn calls the GetManualNetworkSelectionPlmn RPC.
-func (c *Client) GetManualNetworkSelectionPlmn(ctx context.Context) (string, error) {
+func (c *ManagerClient) GetManualNetworkSelectionPlmn(ctx context.Context) (string, error) {
 	resp, err := c.svc.GetManualNetworkSelectionPlmn(ctx, &pb.GetManualNetworkSelectionPlmnRequest{})
 	if err != nil {
 		return "", err
@@ -305,7 +381,7 @@ func (c *Client) GetManualNetworkSelectionPlmn(ctx context.Context) (string, err
 }
 
 // GetManufacturerCode0 calls the GetManufacturerCode0 RPC.
-func (c *Client) GetManufacturerCode0(ctx context.Context) (string, error) {
+func (c *ManagerClient) GetManufacturerCode0(ctx context.Context) (string, error) {
 	resp, err := c.svc.GetManufacturerCode0(ctx, &pb.GetManufacturerCode0Request{})
 	if err != nil {
 		return "", err
@@ -314,7 +390,7 @@ func (c *Client) GetManufacturerCode0(ctx context.Context) (string, error) {
 }
 
 // GetManufacturerCode1_1 calls the GetManufacturerCode1_1 RPC.
-func (c *Client) GetManufacturerCode1_1(ctx context.Context, arg0 int32) (string, error) {
+func (c *ManagerClient) GetManufacturerCode1_1(ctx context.Context, arg0 int32) (string, error) {
 	resp, err := c.svc.GetManufacturerCode1_1(ctx, &pb.GetManufacturerCode1_1Request{
 		Arg0: arg0,
 	})
@@ -325,7 +401,7 @@ func (c *Client) GetManufacturerCode1_1(ctx context.Context, arg0 int32) (string
 }
 
 // GetMeid0 calls the GetMeid0 RPC.
-func (c *Client) GetMeid0(ctx context.Context) (string, error) {
+func (c *ManagerClient) GetMeid0(ctx context.Context) (string, error) {
 	resp, err := c.svc.GetMeid0(ctx, &pb.GetMeid0Request{})
 	if err != nil {
 		return "", err
@@ -334,7 +410,7 @@ func (c *Client) GetMeid0(ctx context.Context) (string, error) {
 }
 
 // GetMeid1_1 calls the GetMeid1_1 RPC.
-func (c *Client) GetMeid1_1(ctx context.Context, arg0 int32) (string, error) {
+func (c *ManagerClient) GetMeid1_1(ctx context.Context, arg0 int32) (string, error) {
 	resp, err := c.svc.GetMeid1_1(ctx, &pb.GetMeid1_1Request{
 		Arg0: arg0,
 	})
@@ -345,7 +421,7 @@ func (c *Client) GetMeid1_1(ctx context.Context, arg0 int32) (string, error) {
 }
 
 // GetMmsUAProfUrl calls the GetMmsUAProfUrl RPC.
-func (c *Client) GetMmsUAProfUrl(ctx context.Context) (string, error) {
+func (c *ManagerClient) GetMmsUAProfUrl(ctx context.Context) (string, error) {
 	resp, err := c.svc.GetMmsUAProfUrl(ctx, &pb.GetMmsUAProfUrlRequest{})
 	if err != nil {
 		return "", err
@@ -354,7 +430,7 @@ func (c *Client) GetMmsUAProfUrl(ctx context.Context) (string, error) {
 }
 
 // GetMmsUserAgent calls the GetMmsUserAgent RPC.
-func (c *Client) GetMmsUserAgent(ctx context.Context) (string, error) {
+func (c *ManagerClient) GetMmsUserAgent(ctx context.Context) (string, error) {
 	resp, err := c.svc.GetMmsUserAgent(ctx, &pb.GetMmsUserAgentRequest{})
 	if err != nil {
 		return "", err
@@ -363,7 +439,7 @@ func (c *Client) GetMmsUserAgent(ctx context.Context) (string, error) {
 }
 
 // GetNai calls the GetNai RPC.
-func (c *Client) GetNai(ctx context.Context) (string, error) {
+func (c *ManagerClient) GetNai(ctx context.Context) (string, error) {
 	resp, err := c.svc.GetNai(ctx, &pb.GetNaiRequest{})
 	if err != nil {
 		return "", err
@@ -372,7 +448,7 @@ func (c *Client) GetNai(ctx context.Context) (string, error) {
 }
 
 // GetNetworkCountryIso0 calls the GetNetworkCountryIso0 RPC.
-func (c *Client) GetNetworkCountryIso0(ctx context.Context) (string, error) {
+func (c *ManagerClient) GetNetworkCountryIso0(ctx context.Context) (string, error) {
 	resp, err := c.svc.GetNetworkCountryIso0(ctx, &pb.GetNetworkCountryIso0Request{})
 	if err != nil {
 		return "", err
@@ -381,7 +457,7 @@ func (c *Client) GetNetworkCountryIso0(ctx context.Context) (string, error) {
 }
 
 // GetNetworkCountryIso1_1 calls the GetNetworkCountryIso1_1 RPC.
-func (c *Client) GetNetworkCountryIso1_1(ctx context.Context, arg0 int32) (string, error) {
+func (c *ManagerClient) GetNetworkCountryIso1_1(ctx context.Context, arg0 int32) (string, error) {
 	resp, err := c.svc.GetNetworkCountryIso1_1(ctx, &pb.GetNetworkCountryIso1_1Request{
 		Arg0: arg0,
 	})
@@ -392,7 +468,7 @@ func (c *Client) GetNetworkCountryIso1_1(ctx context.Context, arg0 int32) (strin
 }
 
 // GetNetworkOperator calls the GetNetworkOperator RPC.
-func (c *Client) GetNetworkOperator(ctx context.Context) (string, error) {
+func (c *ManagerClient) GetNetworkOperator(ctx context.Context) (string, error) {
 	resp, err := c.svc.GetNetworkOperator(ctx, &pb.GetNetworkOperatorRequest{})
 	if err != nil {
 		return "", err
@@ -401,7 +477,7 @@ func (c *Client) GetNetworkOperator(ctx context.Context) (string, error) {
 }
 
 // GetNetworkOperatorName calls the GetNetworkOperatorName RPC.
-func (c *Client) GetNetworkOperatorName(ctx context.Context) (string, error) {
+func (c *ManagerClient) GetNetworkOperatorName(ctx context.Context) (string, error) {
 	resp, err := c.svc.GetNetworkOperatorName(ctx, &pb.GetNetworkOperatorNameRequest{})
 	if err != nil {
 		return "", err
@@ -410,7 +486,7 @@ func (c *Client) GetNetworkOperatorName(ctx context.Context) (string, error) {
 }
 
 // GetNetworkSelectionMode calls the GetNetworkSelectionMode RPC.
-func (c *Client) GetNetworkSelectionMode(ctx context.Context) (int32, error) {
+func (c *ManagerClient) GetNetworkSelectionMode(ctx context.Context) (int32, error) {
 	resp, err := c.svc.GetNetworkSelectionMode(ctx, &pb.GetNetworkSelectionModeRequest{})
 	if err != nil {
 		return 0, err
@@ -418,17 +494,8 @@ func (c *Client) GetNetworkSelectionMode(ctx context.Context) (int32, error) {
 	return resp.GetResult(), nil
 }
 
-// GetNetworkSlicingConfiguration calls the GetNetworkSlicingConfiguration RPC.
-func (c *Client) GetNetworkSlicingConfiguration(ctx context.Context, arg0 int64, arg1 int64) error {
-	_, err := c.svc.GetNetworkSlicingConfiguration(ctx, &pb.GetNetworkSlicingConfigurationRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	return err
-}
-
 // GetNetworkSpecifier calls the GetNetworkSpecifier RPC.
-func (c *Client) GetNetworkSpecifier(ctx context.Context) (string, error) {
+func (c *ManagerClient) GetNetworkSpecifier(ctx context.Context) (string, error) {
 	resp, err := c.svc.GetNetworkSpecifier(ctx, &pb.GetNetworkSpecifierRequest{})
 	if err != nil {
 		return "", err
@@ -437,7 +504,7 @@ func (c *Client) GetNetworkSpecifier(ctx context.Context) (string, error) {
 }
 
 // GetNetworkType calls the GetNetworkType RPC.
-func (c *Client) GetNetworkType(ctx context.Context) (int32, error) {
+func (c *ManagerClient) GetNetworkType(ctx context.Context) (int32, error) {
 	resp, err := c.svc.GetNetworkType(ctx, &pb.GetNetworkTypeRequest{})
 	if err != nil {
 		return 0, err
@@ -446,7 +513,7 @@ func (c *Client) GetNetworkType(ctx context.Context) (int32, error) {
 }
 
 // GetPhoneAccountHandle calls the GetPhoneAccountHandle RPC.
-func (c *Client) GetPhoneAccountHandle(ctx context.Context) (int64, error) {
+func (c *ManagerClient) GetPhoneAccountHandle(ctx context.Context) (int64, error) {
 	resp, err := c.svc.GetPhoneAccountHandle(ctx, &pb.GetPhoneAccountHandleRequest{})
 	if err != nil {
 		return 0, err
@@ -455,7 +522,7 @@ func (c *Client) GetPhoneAccountHandle(ctx context.Context) (int64, error) {
 }
 
 // GetPhoneCount calls the GetPhoneCount RPC.
-func (c *Client) GetPhoneCount(ctx context.Context) (int32, error) {
+func (c *ManagerClient) GetPhoneCount(ctx context.Context) (int32, error) {
 	resp, err := c.svc.GetPhoneCount(ctx, &pb.GetPhoneCountRequest{})
 	if err != nil {
 		return 0, err
@@ -464,7 +531,7 @@ func (c *Client) GetPhoneCount(ctx context.Context) (int32, error) {
 }
 
 // GetPhoneType calls the GetPhoneType RPC.
-func (c *Client) GetPhoneType(ctx context.Context) (int32, error) {
+func (c *ManagerClient) GetPhoneType(ctx context.Context) (int32, error) {
 	resp, err := c.svc.GetPhoneType(ctx, &pb.GetPhoneTypeRequest{})
 	if err != nil {
 		return 0, err
@@ -473,7 +540,7 @@ func (c *Client) GetPhoneType(ctx context.Context) (int32, error) {
 }
 
 // GetPreferredOpportunisticDataSubscription calls the GetPreferredOpportunisticDataSubscription RPC.
-func (c *Client) GetPreferredOpportunisticDataSubscription(ctx context.Context) (int32, error) {
+func (c *ManagerClient) GetPreferredOpportunisticDataSubscription(ctx context.Context) (int32, error) {
 	resp, err := c.svc.GetPreferredOpportunisticDataSubscription(ctx, &pb.GetPreferredOpportunisticDataSubscriptionRequest{})
 	if err != nil {
 		return 0, err
@@ -482,7 +549,7 @@ func (c *Client) GetPreferredOpportunisticDataSubscription(ctx context.Context) 
 }
 
 // GetPrimaryImei calls the GetPrimaryImei RPC.
-func (c *Client) GetPrimaryImei(ctx context.Context) (string, error) {
+func (c *ManagerClient) GetPrimaryImei(ctx context.Context) (string, error) {
 	resp, err := c.svc.GetPrimaryImei(ctx, &pb.GetPrimaryImeiRequest{})
 	if err != nil {
 		return "", err
@@ -491,7 +558,7 @@ func (c *Client) GetPrimaryImei(ctx context.Context) (string, error) {
 }
 
 // GetServiceState0 calls the GetServiceState0 RPC.
-func (c *Client) GetServiceState0(ctx context.Context) (int64, error) {
+func (c *ManagerClient) GetServiceState0(ctx context.Context) (int64, error) {
 	resp, err := c.svc.GetServiceState0(ctx, &pb.GetServiceState0Request{})
 	if err != nil {
 		return 0, err
@@ -500,7 +567,7 @@ func (c *Client) GetServiceState0(ctx context.Context) (int64, error) {
 }
 
 // GetServiceState1_1 calls the GetServiceState1_1 RPC.
-func (c *Client) GetServiceState1_1(ctx context.Context, arg0 int32) (int64, error) {
+func (c *ManagerClient) GetServiceState1_1(ctx context.Context, arg0 int32) (int64, error) {
 	resp, err := c.svc.GetServiceState1_1(ctx, &pb.GetServiceState1_1Request{
 		Arg0: arg0,
 	})
@@ -511,7 +578,7 @@ func (c *Client) GetServiceState1_1(ctx context.Context, arg0 int32) (int64, err
 }
 
 // GetSignalStrength calls the GetSignalStrength RPC.
-func (c *Client) GetSignalStrength(ctx context.Context) (int64, error) {
+func (c *ManagerClient) GetSignalStrength(ctx context.Context) (int64, error) {
 	resp, err := c.svc.GetSignalStrength(ctx, &pb.GetSignalStrengthRequest{})
 	if err != nil {
 		return 0, err
@@ -520,7 +587,7 @@ func (c *Client) GetSignalStrength(ctx context.Context) (int64, error) {
 }
 
 // GetSimCarrierId calls the GetSimCarrierId RPC.
-func (c *Client) GetSimCarrierId(ctx context.Context) (int32, error) {
+func (c *ManagerClient) GetSimCarrierId(ctx context.Context) (int32, error) {
 	resp, err := c.svc.GetSimCarrierId(ctx, &pb.GetSimCarrierIdRequest{})
 	if err != nil {
 		return 0, err
@@ -529,7 +596,7 @@ func (c *Client) GetSimCarrierId(ctx context.Context) (int32, error) {
 }
 
 // GetSimCarrierIdName calls the GetSimCarrierIdName RPC.
-func (c *Client) GetSimCarrierIdName(ctx context.Context) (int64, error) {
+func (c *ManagerClient) GetSimCarrierIdName(ctx context.Context) (int64, error) {
 	resp, err := c.svc.GetSimCarrierIdName(ctx, &pb.GetSimCarrierIdNameRequest{})
 	if err != nil {
 		return 0, err
@@ -538,7 +605,7 @@ func (c *Client) GetSimCarrierIdName(ctx context.Context) (int64, error) {
 }
 
 // GetSimCountryIso calls the GetSimCountryIso RPC.
-func (c *Client) GetSimCountryIso(ctx context.Context) (string, error) {
+func (c *ManagerClient) GetSimCountryIso(ctx context.Context) (string, error) {
 	resp, err := c.svc.GetSimCountryIso(ctx, &pb.GetSimCountryIsoRequest{})
 	if err != nil {
 		return "", err
@@ -547,7 +614,7 @@ func (c *Client) GetSimCountryIso(ctx context.Context) (string, error) {
 }
 
 // GetSimOperator calls the GetSimOperator RPC.
-func (c *Client) GetSimOperator(ctx context.Context) (string, error) {
+func (c *ManagerClient) GetSimOperator(ctx context.Context) (string, error) {
 	resp, err := c.svc.GetSimOperator(ctx, &pb.GetSimOperatorRequest{})
 	if err != nil {
 		return "", err
@@ -556,7 +623,7 @@ func (c *Client) GetSimOperator(ctx context.Context) (string, error) {
 }
 
 // GetSimOperatorName calls the GetSimOperatorName RPC.
-func (c *Client) GetSimOperatorName(ctx context.Context) (string, error) {
+func (c *ManagerClient) GetSimOperatorName(ctx context.Context) (string, error) {
 	resp, err := c.svc.GetSimOperatorName(ctx, &pb.GetSimOperatorNameRequest{})
 	if err != nil {
 		return "", err
@@ -565,7 +632,7 @@ func (c *Client) GetSimOperatorName(ctx context.Context) (string, error) {
 }
 
 // GetSimSerialNumber calls the GetSimSerialNumber RPC.
-func (c *Client) GetSimSerialNumber(ctx context.Context) (string, error) {
+func (c *ManagerClient) GetSimSerialNumber(ctx context.Context) (string, error) {
 	resp, err := c.svc.GetSimSerialNumber(ctx, &pb.GetSimSerialNumberRequest{})
 	if err != nil {
 		return "", err
@@ -574,7 +641,7 @@ func (c *Client) GetSimSerialNumber(ctx context.Context) (string, error) {
 }
 
 // GetSimSpecificCarrierId calls the GetSimSpecificCarrierId RPC.
-func (c *Client) GetSimSpecificCarrierId(ctx context.Context) (int32, error) {
+func (c *ManagerClient) GetSimSpecificCarrierId(ctx context.Context) (int32, error) {
 	resp, err := c.svc.GetSimSpecificCarrierId(ctx, &pb.GetSimSpecificCarrierIdRequest{})
 	if err != nil {
 		return 0, err
@@ -583,7 +650,7 @@ func (c *Client) GetSimSpecificCarrierId(ctx context.Context) (int32, error) {
 }
 
 // GetSimSpecificCarrierIdName calls the GetSimSpecificCarrierIdName RPC.
-func (c *Client) GetSimSpecificCarrierIdName(ctx context.Context) (int64, error) {
+func (c *ManagerClient) GetSimSpecificCarrierIdName(ctx context.Context) (int64, error) {
 	resp, err := c.svc.GetSimSpecificCarrierIdName(ctx, &pb.GetSimSpecificCarrierIdNameRequest{})
 	if err != nil {
 		return 0, err
@@ -592,7 +659,7 @@ func (c *Client) GetSimSpecificCarrierIdName(ctx context.Context) (int64, error)
 }
 
 // GetSimState0 calls the GetSimState0 RPC.
-func (c *Client) GetSimState0(ctx context.Context) (int32, error) {
+func (c *ManagerClient) GetSimState0(ctx context.Context) (int32, error) {
 	resp, err := c.svc.GetSimState0(ctx, &pb.GetSimState0Request{})
 	if err != nil {
 		return 0, err
@@ -601,7 +668,7 @@ func (c *Client) GetSimState0(ctx context.Context) (int32, error) {
 }
 
 // GetSimState1_1 calls the GetSimState1_1 RPC.
-func (c *Client) GetSimState1_1(ctx context.Context, arg0 int32) (int32, error) {
+func (c *ManagerClient) GetSimState1_1(ctx context.Context, arg0 int32) (int32, error) {
 	resp, err := c.svc.GetSimState1_1(ctx, &pb.GetSimState1_1Request{
 		Arg0: arg0,
 	})
@@ -612,7 +679,7 @@ func (c *Client) GetSimState1_1(ctx context.Context, arg0 int32) (int32, error) 
 }
 
 // GetSubscriberId calls the GetSubscriberId RPC.
-func (c *Client) GetSubscriberId(ctx context.Context) (string, error) {
+func (c *ManagerClient) GetSubscriberId(ctx context.Context) (string, error) {
 	resp, err := c.svc.GetSubscriberId(ctx, &pb.GetSubscriberIdRequest{})
 	if err != nil {
 		return "", err
@@ -621,7 +688,7 @@ func (c *Client) GetSubscriberId(ctx context.Context) (string, error) {
 }
 
 // GetSubscriptionId0 calls the GetSubscriptionId0 RPC.
-func (c *Client) GetSubscriptionId0(ctx context.Context) (int32, error) {
+func (c *ManagerClient) GetSubscriptionId0(ctx context.Context) (int32, error) {
 	resp, err := c.svc.GetSubscriptionId0(ctx, &pb.GetSubscriptionId0Request{})
 	if err != nil {
 		return 0, err
@@ -630,7 +697,7 @@ func (c *Client) GetSubscriptionId0(ctx context.Context) (int32, error) {
 }
 
 // GetSubscriptionId1_1 calls the GetSubscriptionId1_1 RPC.
-func (c *Client) GetSubscriptionId1_1(ctx context.Context, arg0 int64) (int32, error) {
+func (c *ManagerClient) GetSubscriptionId1_1(ctx context.Context, arg0 int64) (int32, error) {
 	resp, err := c.svc.GetSubscriptionId1_1(ctx, &pb.GetSubscriptionId1_1Request{
 		Arg0: arg0,
 	})
@@ -641,7 +708,7 @@ func (c *Client) GetSubscriptionId1_1(ctx context.Context, arg0 int64) (int32, e
 }
 
 // GetSupportedModemCount calls the GetSupportedModemCount RPC.
-func (c *Client) GetSupportedModemCount(ctx context.Context) (int32, error) {
+func (c *ManagerClient) GetSupportedModemCount(ctx context.Context) (int32, error) {
 	resp, err := c.svc.GetSupportedModemCount(ctx, &pb.GetSupportedModemCountRequest{})
 	if err != nil {
 		return 0, err
@@ -650,7 +717,7 @@ func (c *Client) GetSupportedModemCount(ctx context.Context) (int32, error) {
 }
 
 // GetSupportedRadioAccessFamily calls the GetSupportedRadioAccessFamily RPC.
-func (c *Client) GetSupportedRadioAccessFamily(ctx context.Context) (int64, error) {
+func (c *ManagerClient) GetSupportedRadioAccessFamily(ctx context.Context) (int64, error) {
 	resp, err := c.svc.GetSupportedRadioAccessFamily(ctx, &pb.GetSupportedRadioAccessFamilyRequest{})
 	if err != nil {
 		return 0, err
@@ -659,7 +726,7 @@ func (c *Client) GetSupportedRadioAccessFamily(ctx context.Context) (int64, erro
 }
 
 // GetTypeAllocationCode0 calls the GetTypeAllocationCode0 RPC.
-func (c *Client) GetTypeAllocationCode0(ctx context.Context) (string, error) {
+func (c *ManagerClient) GetTypeAllocationCode0(ctx context.Context) (string, error) {
 	resp, err := c.svc.GetTypeAllocationCode0(ctx, &pb.GetTypeAllocationCode0Request{})
 	if err != nil {
 		return "", err
@@ -668,7 +735,7 @@ func (c *Client) GetTypeAllocationCode0(ctx context.Context) (string, error) {
 }
 
 // GetTypeAllocationCode1_1 calls the GetTypeAllocationCode1_1 RPC.
-func (c *Client) GetTypeAllocationCode1_1(ctx context.Context, arg0 int32) (string, error) {
+func (c *ManagerClient) GetTypeAllocationCode1_1(ctx context.Context, arg0 int32) (string, error) {
 	resp, err := c.svc.GetTypeAllocationCode1_1(ctx, &pb.GetTypeAllocationCode1_1Request{
 		Arg0: arg0,
 	})
@@ -678,17 +745,8 @@ func (c *Client) GetTypeAllocationCode1_1(ctx context.Context, arg0 int32) (stri
 	return resp.GetResult(), nil
 }
 
-// GetUiccCardsInfo calls the GetUiccCardsInfo RPC.
-func (c *Client) GetUiccCardsInfo(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetUiccCardsInfo(ctx, &pb.GetUiccCardsInfoRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
 // GetVisualVoicemailPackageName calls the GetVisualVoicemailPackageName RPC.
-func (c *Client) GetVisualVoicemailPackageName(ctx context.Context) (string, error) {
+func (c *ManagerClient) GetVisualVoicemailPackageName(ctx context.Context) (string, error) {
 	resp, err := c.svc.GetVisualVoicemailPackageName(ctx, &pb.GetVisualVoicemailPackageNameRequest{})
 	if err != nil {
 		return "", err
@@ -697,7 +755,7 @@ func (c *Client) GetVisualVoicemailPackageName(ctx context.Context) (string, err
 }
 
 // GetVoiceMailAlphaTag calls the GetVoiceMailAlphaTag RPC.
-func (c *Client) GetVoiceMailAlphaTag(ctx context.Context) (string, error) {
+func (c *ManagerClient) GetVoiceMailAlphaTag(ctx context.Context) (string, error) {
 	resp, err := c.svc.GetVoiceMailAlphaTag(ctx, &pb.GetVoiceMailAlphaTagRequest{})
 	if err != nil {
 		return "", err
@@ -706,7 +764,7 @@ func (c *Client) GetVoiceMailAlphaTag(ctx context.Context) (string, error) {
 }
 
 // GetVoiceMailNumber calls the GetVoiceMailNumber RPC.
-func (c *Client) GetVoiceMailNumber(ctx context.Context) (string, error) {
+func (c *ManagerClient) GetVoiceMailNumber(ctx context.Context) (string, error) {
 	resp, err := c.svc.GetVoiceMailNumber(ctx, &pb.GetVoiceMailNumberRequest{})
 	if err != nil {
 		return "", err
@@ -715,7 +773,7 @@ func (c *Client) GetVoiceMailNumber(ctx context.Context) (string, error) {
 }
 
 // GetVoiceNetworkType calls the GetVoiceNetworkType RPC.
-func (c *Client) GetVoiceNetworkType(ctx context.Context) (int32, error) {
+func (c *ManagerClient) GetVoiceNetworkType(ctx context.Context) (int32, error) {
 	resp, err := c.svc.GetVoiceNetworkType(ctx, &pb.GetVoiceNetworkTypeRequest{})
 	if err != nil {
 		return 0, err
@@ -724,7 +782,7 @@ func (c *Client) GetVoiceNetworkType(ctx context.Context) (int32, error) {
 }
 
 // GetVoicemailRingtoneUri calls the GetVoicemailRingtoneUri RPC.
-func (c *Client) GetVoicemailRingtoneUri(ctx context.Context, arg0 int64) (int64, error) {
+func (c *ManagerClient) GetVoicemailRingtoneUri(ctx context.Context, arg0 int64) (int64, error) {
 	resp, err := c.svc.GetVoicemailRingtoneUri(ctx, &pb.GetVoicemailRingtoneUriRequest{
 		Arg0: arg0,
 	})
@@ -735,7 +793,7 @@ func (c *Client) GetVoicemailRingtoneUri(ctx context.Context, arg0 int64) (int64
 }
 
 // HasCarrierPrivileges calls the HasCarrierPrivileges RPC.
-func (c *Client) HasCarrierPrivileges(ctx context.Context) (bool, error) {
+func (c *ManagerClient) HasCarrierPrivileges(ctx context.Context) (bool, error) {
 	resp, err := c.svc.HasCarrierPrivileges(ctx, &pb.HasCarrierPrivilegesRequest{})
 	if err != nil {
 		return false, err
@@ -744,7 +802,7 @@ func (c *Client) HasCarrierPrivileges(ctx context.Context) (bool, error) {
 }
 
 // HasIccCard calls the HasIccCard RPC.
-func (c *Client) HasIccCard(ctx context.Context) (bool, error) {
+func (c *ManagerClient) HasIccCard(ctx context.Context) (bool, error) {
 	resp, err := c.svc.HasIccCard(ctx, &pb.HasIccCardRequest{})
 	if err != nil {
 		return false, err
@@ -753,7 +811,7 @@ func (c *Client) HasIccCard(ctx context.Context) (bool, error) {
 }
 
 // IccCloseLogicalChannel calls the IccCloseLogicalChannel RPC.
-func (c *Client) IccCloseLogicalChannel(ctx context.Context, arg0 int32) (bool, error) {
+func (c *ManagerClient) IccCloseLogicalChannel(ctx context.Context, arg0 int32) (bool, error) {
 	resp, err := c.svc.IccCloseLogicalChannel(ctx, &pb.IccCloseLogicalChannelRequest{
 		Arg0: arg0,
 	})
@@ -764,7 +822,7 @@ func (c *Client) IccCloseLogicalChannel(ctx context.Context, arg0 int32) (bool, 
 }
 
 // IccExchangeSimIO calls the IccExchangeSimIO RPC.
-func (c *Client) IccExchangeSimIO(ctx context.Context, arg0 int32, arg1 int32, arg2 int32, arg3 int32, arg4 int32, arg5 string) (int64, error) {
+func (c *ManagerClient) IccExchangeSimIO(ctx context.Context, arg0 int32, arg1 int32, arg2 int32, arg3 int32, arg4 int32, arg5 string) (int64, error) {
 	resp, err := c.svc.IccExchangeSimIO(ctx, &pb.IccExchangeSimIORequest{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -780,7 +838,7 @@ func (c *Client) IccExchangeSimIO(ctx context.Context, arg0 int32, arg1 int32, a
 }
 
 // IccOpenLogicalChannel1 calls the IccOpenLogicalChannel1 RPC.
-func (c *Client) IccOpenLogicalChannel1(ctx context.Context, arg0 string) (int64, error) {
+func (c *ManagerClient) IccOpenLogicalChannel1(ctx context.Context, arg0 string) (int64, error) {
 	resp, err := c.svc.IccOpenLogicalChannel1(ctx, &pb.IccOpenLogicalChannel1Request{
 		Arg0: arg0,
 	})
@@ -791,7 +849,7 @@ func (c *Client) IccOpenLogicalChannel1(ctx context.Context, arg0 string) (int64
 }
 
 // IccOpenLogicalChannel2_1 calls the IccOpenLogicalChannel2_1 RPC.
-func (c *Client) IccOpenLogicalChannel2_1(ctx context.Context, arg0 string, arg1 int32) (int64, error) {
+func (c *ManagerClient) IccOpenLogicalChannel2_1(ctx context.Context, arg0 string, arg1 int32) (int64, error) {
 	resp, err := c.svc.IccOpenLogicalChannel2_1(ctx, &pb.IccOpenLogicalChannel2_1Request{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -803,7 +861,7 @@ func (c *Client) IccOpenLogicalChannel2_1(ctx context.Context, arg0 string, arg1
 }
 
 // IccTransmitApduBasicChannel calls the IccTransmitApduBasicChannel RPC.
-func (c *Client) IccTransmitApduBasicChannel(ctx context.Context, arg0 int32, arg1 int32, arg2 int32, arg3 int32, arg4 int32, arg5 string) (string, error) {
+func (c *ManagerClient) IccTransmitApduBasicChannel(ctx context.Context, arg0 int32, arg1 int32, arg2 int32, arg3 int32, arg4 int32, arg5 string) (string, error) {
 	resp, err := c.svc.IccTransmitApduBasicChannel(ctx, &pb.IccTransmitApduBasicChannelRequest{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -819,7 +877,7 @@ func (c *Client) IccTransmitApduBasicChannel(ctx context.Context, arg0 int32, ar
 }
 
 // IccTransmitApduLogicalChannel calls the IccTransmitApduLogicalChannel RPC.
-func (c *Client) IccTransmitApduLogicalChannel(ctx context.Context, arg0 int32, arg1 int32, arg2 int32, arg3 int32, arg4 int32, arg5 int32, arg6 string) (string, error) {
+func (c *ManagerClient) IccTransmitApduLogicalChannel(ctx context.Context, arg0 int32, arg1 int32, arg2 int32, arg3 int32, arg4 int32, arg5 int32, arg6 string) (string, error) {
 	resp, err := c.svc.IccTransmitApduLogicalChannel(ctx, &pb.IccTransmitApduLogicalChannelRequest{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -836,7 +894,7 @@ func (c *Client) IccTransmitApduLogicalChannel(ctx context.Context, arg0 int32, 
 }
 
 // IsConcurrentVoiceAndDataSupported calls the IsConcurrentVoiceAndDataSupported RPC.
-func (c *Client) IsConcurrentVoiceAndDataSupported(ctx context.Context) (bool, error) {
+func (c *ManagerClient) IsConcurrentVoiceAndDataSupported(ctx context.Context) (bool, error) {
 	resp, err := c.svc.IsConcurrentVoiceAndDataSupported(ctx, &pb.IsConcurrentVoiceAndDataSupportedRequest{})
 	if err != nil {
 		return false, err
@@ -845,7 +903,7 @@ func (c *Client) IsConcurrentVoiceAndDataSupported(ctx context.Context) (bool, e
 }
 
 // IsDataCapable calls the IsDataCapable RPC.
-func (c *Client) IsDataCapable(ctx context.Context) (bool, error) {
+func (c *ManagerClient) IsDataCapable(ctx context.Context) (bool, error) {
 	resp, err := c.svc.IsDataCapable(ctx, &pb.IsDataCapableRequest{})
 	if err != nil {
 		return false, err
@@ -854,7 +912,7 @@ func (c *Client) IsDataCapable(ctx context.Context) (bool, error) {
 }
 
 // IsDataConnectionAllowed calls the IsDataConnectionAllowed RPC.
-func (c *Client) IsDataConnectionAllowed(ctx context.Context) (bool, error) {
+func (c *ManagerClient) IsDataConnectionAllowed(ctx context.Context) (bool, error) {
 	resp, err := c.svc.IsDataConnectionAllowed(ctx, &pb.IsDataConnectionAllowedRequest{})
 	if err != nil {
 		return false, err
@@ -863,7 +921,7 @@ func (c *Client) IsDataConnectionAllowed(ctx context.Context) (bool, error) {
 }
 
 // IsDataEnabled calls the IsDataEnabled RPC.
-func (c *Client) IsDataEnabled(ctx context.Context) (bool, error) {
+func (c *ManagerClient) IsDataEnabled(ctx context.Context) (bool, error) {
 	resp, err := c.svc.IsDataEnabled(ctx, &pb.IsDataEnabledRequest{})
 	if err != nil {
 		return false, err
@@ -872,7 +930,7 @@ func (c *Client) IsDataEnabled(ctx context.Context) (bool, error) {
 }
 
 // IsDataEnabledForReason calls the IsDataEnabledForReason RPC.
-func (c *Client) IsDataEnabledForReason(ctx context.Context, arg0 int32) (bool, error) {
+func (c *ManagerClient) IsDataEnabledForReason(ctx context.Context, arg0 int32) (bool, error) {
 	resp, err := c.svc.IsDataEnabledForReason(ctx, &pb.IsDataEnabledForReasonRequest{
 		Arg0: arg0,
 	})
@@ -883,7 +941,7 @@ func (c *Client) IsDataEnabledForReason(ctx context.Context, arg0 int32) (bool, 
 }
 
 // IsDataRoamingEnabled calls the IsDataRoamingEnabled RPC.
-func (c *Client) IsDataRoamingEnabled(ctx context.Context) (bool, error) {
+func (c *ManagerClient) IsDataRoamingEnabled(ctx context.Context) (bool, error) {
 	resp, err := c.svc.IsDataRoamingEnabled(ctx, &pb.IsDataRoamingEnabledRequest{})
 	if err != nil {
 		return false, err
@@ -892,7 +950,7 @@ func (c *Client) IsDataRoamingEnabled(ctx context.Context) (bool, error) {
 }
 
 // IsDeviceSmsCapable calls the IsDeviceSmsCapable RPC.
-func (c *Client) IsDeviceSmsCapable(ctx context.Context) (bool, error) {
+func (c *ManagerClient) IsDeviceSmsCapable(ctx context.Context) (bool, error) {
 	resp, err := c.svc.IsDeviceSmsCapable(ctx, &pb.IsDeviceSmsCapableRequest{})
 	if err != nil {
 		return false, err
@@ -901,7 +959,7 @@ func (c *Client) IsDeviceSmsCapable(ctx context.Context) (bool, error) {
 }
 
 // IsDeviceVoiceCapable calls the IsDeviceVoiceCapable RPC.
-func (c *Client) IsDeviceVoiceCapable(ctx context.Context) (bool, error) {
+func (c *ManagerClient) IsDeviceVoiceCapable(ctx context.Context) (bool, error) {
 	resp, err := c.svc.IsDeviceVoiceCapable(ctx, &pb.IsDeviceVoiceCapableRequest{})
 	if err != nil {
 		return false, err
@@ -910,7 +968,7 @@ func (c *Client) IsDeviceVoiceCapable(ctx context.Context) (bool, error) {
 }
 
 // IsEmergencyNumber calls the IsEmergencyNumber RPC.
-func (c *Client) IsEmergencyNumber(ctx context.Context, arg0 string) (bool, error) {
+func (c *ManagerClient) IsEmergencyNumber(ctx context.Context, arg0 string) (bool, error) {
 	resp, err := c.svc.IsEmergencyNumber(ctx, &pb.IsEmergencyNumberRequest{
 		Arg0: arg0,
 	})
@@ -921,7 +979,7 @@ func (c *Client) IsEmergencyNumber(ctx context.Context, arg0 string) (bool, erro
 }
 
 // IsHearingAidCompatibilitySupported calls the IsHearingAidCompatibilitySupported RPC.
-func (c *Client) IsHearingAidCompatibilitySupported(ctx context.Context) (bool, error) {
+func (c *ManagerClient) IsHearingAidCompatibilitySupported(ctx context.Context) (bool, error) {
 	resp, err := c.svc.IsHearingAidCompatibilitySupported(ctx, &pb.IsHearingAidCompatibilitySupportedRequest{})
 	if err != nil {
 		return false, err
@@ -930,7 +988,7 @@ func (c *Client) IsHearingAidCompatibilitySupported(ctx context.Context) (bool, 
 }
 
 // IsManualNetworkSelectionAllowed calls the IsManualNetworkSelectionAllowed RPC.
-func (c *Client) IsManualNetworkSelectionAllowed(ctx context.Context) (bool, error) {
+func (c *ManagerClient) IsManualNetworkSelectionAllowed(ctx context.Context) (bool, error) {
 	resp, err := c.svc.IsManualNetworkSelectionAllowed(ctx, &pb.IsManualNetworkSelectionAllowedRequest{})
 	if err != nil {
 		return false, err
@@ -939,7 +997,7 @@ func (c *Client) IsManualNetworkSelectionAllowed(ctx context.Context) (bool, err
 }
 
 // IsModemEnabledForSlot calls the IsModemEnabledForSlot RPC.
-func (c *Client) IsModemEnabledForSlot(ctx context.Context, arg0 int32) (bool, error) {
+func (c *ManagerClient) IsModemEnabledForSlot(ctx context.Context, arg0 int32) (bool, error) {
 	resp, err := c.svc.IsModemEnabledForSlot(ctx, &pb.IsModemEnabledForSlotRequest{
 		Arg0: arg0,
 	})
@@ -950,7 +1008,7 @@ func (c *Client) IsModemEnabledForSlot(ctx context.Context, arg0 int32) (bool, e
 }
 
 // IsMultiSimSupported calls the IsMultiSimSupported RPC.
-func (c *Client) IsMultiSimSupported(ctx context.Context) (int32, error) {
+func (c *ManagerClient) IsMultiSimSupported(ctx context.Context) (int32, error) {
 	resp, err := c.svc.IsMultiSimSupported(ctx, &pb.IsMultiSimSupportedRequest{})
 	if err != nil {
 		return 0, err
@@ -959,7 +1017,7 @@ func (c *Client) IsMultiSimSupported(ctx context.Context) (int32, error) {
 }
 
 // IsNetworkRoaming calls the IsNetworkRoaming RPC.
-func (c *Client) IsNetworkRoaming(ctx context.Context) (bool, error) {
+func (c *ManagerClient) IsNetworkRoaming(ctx context.Context) (bool, error) {
 	resp, err := c.svc.IsNetworkRoaming(ctx, &pb.IsNetworkRoamingRequest{})
 	if err != nil {
 		return false, err
@@ -968,7 +1026,7 @@ func (c *Client) IsNetworkRoaming(ctx context.Context) (bool, error) {
 }
 
 // IsPremiumCapabilityAvailableForPurchase calls the IsPremiumCapabilityAvailableForPurchase RPC.
-func (c *Client) IsPremiumCapabilityAvailableForPurchase(ctx context.Context, arg0 int32) (bool, error) {
+func (c *ManagerClient) IsPremiumCapabilityAvailableForPurchase(ctx context.Context, arg0 int32) (bool, error) {
 	resp, err := c.svc.IsPremiumCapabilityAvailableForPurchase(ctx, &pb.IsPremiumCapabilityAvailableForPurchaseRequest{
 		Arg0: arg0,
 	})
@@ -979,7 +1037,7 @@ func (c *Client) IsPremiumCapabilityAvailableForPurchase(ctx context.Context, ar
 }
 
 // IsRadioInterfaceCapabilitySupported calls the IsRadioInterfaceCapabilitySupported RPC.
-func (c *Client) IsRadioInterfaceCapabilitySupported(ctx context.Context, arg0 string) (bool, error) {
+func (c *ManagerClient) IsRadioInterfaceCapabilitySupported(ctx context.Context, arg0 string) (bool, error) {
 	resp, err := c.svc.IsRadioInterfaceCapabilitySupported(ctx, &pb.IsRadioInterfaceCapabilitySupportedRequest{
 		Arg0: arg0,
 	})
@@ -990,7 +1048,7 @@ func (c *Client) IsRadioInterfaceCapabilitySupported(ctx context.Context, arg0 s
 }
 
 // IsRttSupported calls the IsRttSupported RPC.
-func (c *Client) IsRttSupported(ctx context.Context) (bool, error) {
+func (c *ManagerClient) IsRttSupported(ctx context.Context) (bool, error) {
 	resp, err := c.svc.IsRttSupported(ctx, &pb.IsRttSupportedRequest{})
 	if err != nil {
 		return false, err
@@ -999,7 +1057,7 @@ func (c *Client) IsRttSupported(ctx context.Context) (bool, error) {
 }
 
 // IsSmsCapable calls the IsSmsCapable RPC.
-func (c *Client) IsSmsCapable(ctx context.Context) (bool, error) {
+func (c *ManagerClient) IsSmsCapable(ctx context.Context) (bool, error) {
 	resp, err := c.svc.IsSmsCapable(ctx, &pb.IsSmsCapableRequest{})
 	if err != nil {
 		return false, err
@@ -1008,7 +1066,7 @@ func (c *Client) IsSmsCapable(ctx context.Context) (bool, error) {
 }
 
 // IsTtyModeSupported calls the IsTtyModeSupported RPC.
-func (c *Client) IsTtyModeSupported(ctx context.Context) (bool, error) {
+func (c *ManagerClient) IsTtyModeSupported(ctx context.Context) (bool, error) {
 	resp, err := c.svc.IsTtyModeSupported(ctx, &pb.IsTtyModeSupportedRequest{})
 	if err != nil {
 		return false, err
@@ -1017,7 +1075,7 @@ func (c *Client) IsTtyModeSupported(ctx context.Context) (bool, error) {
 }
 
 // IsVoiceCapable calls the IsVoiceCapable RPC.
-func (c *Client) IsVoiceCapable(ctx context.Context) (bool, error) {
+func (c *ManagerClient) IsVoiceCapable(ctx context.Context) (bool, error) {
 	resp, err := c.svc.IsVoiceCapable(ctx, &pb.IsVoiceCapableRequest{})
 	if err != nil {
 		return false, err
@@ -1026,7 +1084,7 @@ func (c *Client) IsVoiceCapable(ctx context.Context) (bool, error) {
 }
 
 // IsVoicemailVibrationEnabled calls the IsVoicemailVibrationEnabled RPC.
-func (c *Client) IsVoicemailVibrationEnabled(ctx context.Context, arg0 int64) (bool, error) {
+func (c *ManagerClient) IsVoicemailVibrationEnabled(ctx context.Context, arg0 int64) (bool, error) {
 	resp, err := c.svc.IsVoicemailVibrationEnabled(ctx, &pb.IsVoicemailVibrationEnabledRequest{
 		Arg0: arg0,
 	})
@@ -1037,7 +1095,7 @@ func (c *Client) IsVoicemailVibrationEnabled(ctx context.Context, arg0 int64) (b
 }
 
 // IsWorldPhone calls the IsWorldPhone RPC.
-func (c *Client) IsWorldPhone(ctx context.Context) (bool, error) {
+func (c *ManagerClient) IsWorldPhone(ctx context.Context) (bool, error) {
 	resp, err := c.svc.IsWorldPhone(ctx, &pb.IsWorldPhoneRequest{})
 	if err != nil {
 		return false, err
@@ -1046,7 +1104,7 @@ func (c *Client) IsWorldPhone(ctx context.Context) (bool, error) {
 }
 
 // Listen calls the Listen RPC.
-func (c *Client) Listen(ctx context.Context, arg0 int64, arg1 int32) error {
+func (c *ManagerClient) Listen(ctx context.Context, arg0 int64, arg1 int32) error {
 	_, err := c.svc.Listen(ctx, &pb.ListenRequest{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -1054,24 +1112,14 @@ func (c *Client) Listen(ctx context.Context, arg0 int64, arg1 int32) error {
 	return err
 }
 
-// PurchasePremiumCapability calls the PurchasePremiumCapability RPC.
-func (c *Client) PurchasePremiumCapability(ctx context.Context, arg0 int32, arg1 int64, arg2 int64) error {
-	_, err := c.svc.PurchasePremiumCapability(ctx, &pb.PurchasePremiumCapabilityRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-	})
-	return err
-}
-
 // RebootModem calls the RebootModem RPC.
-func (c *Client) RebootModem(ctx context.Context) error {
+func (c *ManagerClient) RebootModem(ctx context.Context) error {
 	_, err := c.svc.RebootModem(ctx, &pb.RebootModemRequest{})
 	return err
 }
 
 // RegisterTelephonyCallback3 calls the RegisterTelephonyCallback3 RPC.
-func (c *Client) RegisterTelephonyCallback3(ctx context.Context, arg0 int32, arg1 int64, arg2 int64) error {
+func (c *ManagerClient) RegisterTelephonyCallback3(ctx context.Context, arg0 int32, arg1 int64, arg2 int64) error {
 	_, err := c.svc.RegisterTelephonyCallback3(ctx, &pb.RegisterTelephonyCallback3Request{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -1081,7 +1129,7 @@ func (c *Client) RegisterTelephonyCallback3(ctx context.Context, arg0 int32, arg
 }
 
 // RegisterTelephonyCallback2_1 calls the RegisterTelephonyCallback2_1 RPC.
-func (c *Client) RegisterTelephonyCallback2_1(ctx context.Context, arg0 int64, arg1 int64) error {
+func (c *ManagerClient) RegisterTelephonyCallback2_1(ctx context.Context, arg0 int64, arg1 int64) error {
 	_, err := c.svc.RegisterTelephonyCallback2_1(ctx, &pb.RegisterTelephonyCallback2_1Request{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -1090,7 +1138,7 @@ func (c *Client) RegisterTelephonyCallback2_1(ctx context.Context, arg0 int64, a
 }
 
 // RequestCellInfoUpdate calls the RequestCellInfoUpdate RPC.
-func (c *Client) RequestCellInfoUpdate(ctx context.Context, arg0 int64, arg1 int64) error {
+func (c *ManagerClient) RequestCellInfoUpdate(ctx context.Context, arg0 int64, arg1 int64) error {
 	_, err := c.svc.RequestCellInfoUpdate(ctx, &pb.RequestCellInfoUpdateRequest{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -1099,7 +1147,7 @@ func (c *Client) RequestCellInfoUpdate(ctx context.Context, arg0 int64, arg1 int
 }
 
 // RequestNetworkScan3 calls the RequestNetworkScan3 RPC.
-func (c *Client) RequestNetworkScan3(ctx context.Context, arg0 int64, arg1 int64, arg2 int64) (int64, error) {
+func (c *ManagerClient) RequestNetworkScan3(ctx context.Context, arg0 int64, arg1 int64, arg2 int64) (int64, error) {
 	resp, err := c.svc.RequestNetworkScan3(ctx, &pb.RequestNetworkScan3Request{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -1112,7 +1160,7 @@ func (c *Client) RequestNetworkScan3(ctx context.Context, arg0 int64, arg1 int64
 }
 
 // RequestNetworkScan4_1 calls the RequestNetworkScan4_1 RPC.
-func (c *Client) RequestNetworkScan4_1(ctx context.Context, arg0 int32, arg1 int64, arg2 int64, arg3 int64) (int64, error) {
+func (c *ManagerClient) RequestNetworkScan4_1(ctx context.Context, arg0 int32, arg1 int64, arg2 int64, arg3 int64) (int64, error) {
 	resp, err := c.svc.RequestNetworkScan4_1(ctx, &pb.RequestNetworkScan4_1Request{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -1126,7 +1174,7 @@ func (c *Client) RequestNetworkScan4_1(ctx context.Context, arg0 int32, arg1 int
 }
 
 // SendDialerSpecialCode calls the SendDialerSpecialCode RPC.
-func (c *Client) SendDialerSpecialCode(ctx context.Context, arg0 string) error {
+func (c *ManagerClient) SendDialerSpecialCode(ctx context.Context, arg0 string) error {
 	_, err := c.svc.SendDialerSpecialCode(ctx, &pb.SendDialerSpecialCodeRequest{
 		Arg0: arg0,
 	})
@@ -1134,7 +1182,7 @@ func (c *Client) SendDialerSpecialCode(ctx context.Context, arg0 string) error {
 }
 
 // SendEnvelopeWithStatus calls the SendEnvelopeWithStatus RPC.
-func (c *Client) SendEnvelopeWithStatus(ctx context.Context, arg0 string) (string, error) {
+func (c *ManagerClient) SendEnvelopeWithStatus(ctx context.Context, arg0 string) (string, error) {
 	resp, err := c.svc.SendEnvelopeWithStatus(ctx, &pb.SendEnvelopeWithStatusRequest{
 		Arg0: arg0,
 	})
@@ -1145,7 +1193,7 @@ func (c *Client) SendEnvelopeWithStatus(ctx context.Context, arg0 string) (strin
 }
 
 // SendVisualVoicemailSms calls the SendVisualVoicemailSms RPC.
-func (c *Client) SendVisualVoicemailSms(ctx context.Context, arg0 string, arg1 int32, arg2 string, arg3 int64) error {
+func (c *ManagerClient) SendVisualVoicemailSms(ctx context.Context, arg0 string, arg1 int32, arg2 string, arg3 int64) error {
 	_, err := c.svc.SendVisualVoicemailSms(ctx, &pb.SendVisualVoicemailSmsRequest{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -1156,7 +1204,7 @@ func (c *Client) SendVisualVoicemailSms(ctx context.Context, arg0 string, arg1 i
 }
 
 // SetAllowedNetworkTypesForReason calls the SetAllowedNetworkTypesForReason RPC.
-func (c *Client) SetAllowedNetworkTypesForReason(ctx context.Context, arg0 int32, arg1 int64) error {
+func (c *ManagerClient) SetAllowedNetworkTypesForReason(ctx context.Context, arg0 int32, arg1 int64) error {
 	_, err := c.svc.SetAllowedNetworkTypesForReason(ctx, &pb.SetAllowedNetworkTypesForReasonRequest{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -1165,7 +1213,7 @@ func (c *Client) SetAllowedNetworkTypesForReason(ctx context.Context, arg0 int32
 }
 
 // SetCallComposerStatus calls the SetCallComposerStatus RPC.
-func (c *Client) SetCallComposerStatus(ctx context.Context, arg0 int32) error {
+func (c *ManagerClient) SetCallComposerStatus(ctx context.Context, arg0 int32) error {
 	_, err := c.svc.SetCallComposerStatus(ctx, &pb.SetCallComposerStatusRequest{
 		Arg0: arg0,
 	})
@@ -1173,7 +1221,7 @@ func (c *Client) SetCallComposerStatus(ctx context.Context, arg0 int32) error {
 }
 
 // SetDataEnabled calls the SetDataEnabled RPC.
-func (c *Client) SetDataEnabled(ctx context.Context, arg0 bool) error {
+func (c *ManagerClient) SetDataEnabled(ctx context.Context, arg0 bool) error {
 	_, err := c.svc.SetDataEnabled(ctx, &pb.SetDataEnabledRequest{
 		Arg0: arg0,
 	})
@@ -1181,7 +1229,7 @@ func (c *Client) SetDataEnabled(ctx context.Context, arg0 bool) error {
 }
 
 // SetDataEnabledForReason calls the SetDataEnabledForReason RPC.
-func (c *Client) SetDataEnabledForReason(ctx context.Context, arg0 int32, arg1 bool) error {
+func (c *ManagerClient) SetDataEnabledForReason(ctx context.Context, arg0 int32, arg1 bool) error {
 	_, err := c.svc.SetDataEnabledForReason(ctx, &pb.SetDataEnabledForReasonRequest{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -1189,19 +1237,8 @@ func (c *Client) SetDataEnabledForReason(ctx context.Context, arg0 int32, arg1 b
 	return err
 }
 
-// SetForbiddenPlmns calls the SetForbiddenPlmns RPC.
-func (c *Client) SetForbiddenPlmns(ctx context.Context, arg0 int64) (int32, error) {
-	resp, err := c.svc.SetForbiddenPlmns(ctx, &pb.SetForbiddenPlmnsRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
 // SetLine1NumberForDisplay calls the SetLine1NumberForDisplay RPC.
-func (c *Client) SetLine1NumberForDisplay(ctx context.Context, arg0 string, arg1 string) (bool, error) {
+func (c *ManagerClient) SetLine1NumberForDisplay(ctx context.Context, arg0 string, arg1 string) (bool, error) {
 	resp, err := c.svc.SetLine1NumberForDisplay(ctx, &pb.SetLine1NumberForDisplayRequest{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -1213,13 +1250,13 @@ func (c *Client) SetLine1NumberForDisplay(ctx context.Context, arg0 string, arg1
 }
 
 // SetNetworkSelectionModeAutomatic calls the SetNetworkSelectionModeAutomatic RPC.
-func (c *Client) SetNetworkSelectionModeAutomatic(ctx context.Context) error {
+func (c *ManagerClient) SetNetworkSelectionModeAutomatic(ctx context.Context) error {
 	_, err := c.svc.SetNetworkSelectionModeAutomatic(ctx, &pb.SetNetworkSelectionModeAutomaticRequest{})
 	return err
 }
 
 // SetNetworkSelectionModeManual2 calls the SetNetworkSelectionModeManual2 RPC.
-func (c *Client) SetNetworkSelectionModeManual2(ctx context.Context, arg0 string, arg1 bool) (bool, error) {
+func (c *ManagerClient) SetNetworkSelectionModeManual2(ctx context.Context, arg0 string, arg1 bool) (bool, error) {
 	resp, err := c.svc.SetNetworkSelectionModeManual2(ctx, &pb.SetNetworkSelectionModeManual2Request{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -1231,7 +1268,7 @@ func (c *Client) SetNetworkSelectionModeManual2(ctx context.Context, arg0 string
 }
 
 // SetNetworkSelectionModeManual3_1 calls the SetNetworkSelectionModeManual3_1 RPC.
-func (c *Client) SetNetworkSelectionModeManual3_1(ctx context.Context, arg0 string, arg1 bool, arg2 int32) (bool, error) {
+func (c *ManagerClient) SetNetworkSelectionModeManual3_1(ctx context.Context, arg0 string, arg1 bool, arg2 int32) (bool, error) {
 	resp, err := c.svc.SetNetworkSelectionModeManual3_1(ctx, &pb.SetNetworkSelectionModeManual3_1Request{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -1244,7 +1281,7 @@ func (c *Client) SetNetworkSelectionModeManual3_1(ctx context.Context, arg0 stri
 }
 
 // SetOperatorBrandOverride calls the SetOperatorBrandOverride RPC.
-func (c *Client) SetOperatorBrandOverride(ctx context.Context, arg0 string) (bool, error) {
+func (c *ManagerClient) SetOperatorBrandOverride(ctx context.Context, arg0 string) (bool, error) {
 	resp, err := c.svc.SetOperatorBrandOverride(ctx, &pb.SetOperatorBrandOverrideRequest{
 		Arg0: arg0,
 	})
@@ -1255,7 +1292,7 @@ func (c *Client) SetOperatorBrandOverride(ctx context.Context, arg0 string) (boo
 }
 
 // SetPreferredNetworkTypeToGlobal calls the SetPreferredNetworkTypeToGlobal RPC.
-func (c *Client) SetPreferredNetworkTypeToGlobal(ctx context.Context) (bool, error) {
+func (c *ManagerClient) SetPreferredNetworkTypeToGlobal(ctx context.Context) (bool, error) {
 	resp, err := c.svc.SetPreferredNetworkTypeToGlobal(ctx, &pb.SetPreferredNetworkTypeToGlobalRequest{})
 	if err != nil {
 		return false, err
@@ -1263,19 +1300,8 @@ func (c *Client) SetPreferredNetworkTypeToGlobal(ctx context.Context) (bool, err
 	return resp.GetResult(), nil
 }
 
-// SetPreferredOpportunisticDataSubscription calls the SetPreferredOpportunisticDataSubscription RPC.
-func (c *Client) SetPreferredOpportunisticDataSubscription(ctx context.Context, arg0 int32, arg1 bool, arg2 int64, arg3 int64) error {
-	_, err := c.svc.SetPreferredOpportunisticDataSubscription(ctx, &pb.SetPreferredOpportunisticDataSubscriptionRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
-	})
-	return err
-}
-
 // SetSignalStrengthUpdateRequest calls the SetSignalStrengthUpdateRequest RPC.
-func (c *Client) SetSignalStrengthUpdateRequest(ctx context.Context, arg0 int64) error {
+func (c *ManagerClient) SetSignalStrengthUpdateRequest(ctx context.Context, arg0 int64) error {
 	_, err := c.svc.SetSignalStrengthUpdateRequest(ctx, &pb.SetSignalStrengthUpdateRequestRequest{
 		Arg0: arg0,
 	})
@@ -1283,7 +1309,7 @@ func (c *Client) SetSignalStrengthUpdateRequest(ctx context.Context, arg0 int64)
 }
 
 // SetVisualVoicemailSmsFilterSettings calls the SetVisualVoicemailSmsFilterSettings RPC.
-func (c *Client) SetVisualVoicemailSmsFilterSettings(ctx context.Context, arg0 int64) error {
+func (c *ManagerClient) SetVisualVoicemailSmsFilterSettings(ctx context.Context, arg0 int64) error {
 	_, err := c.svc.SetVisualVoicemailSmsFilterSettings(ctx, &pb.SetVisualVoicemailSmsFilterSettingsRequest{
 		Arg0: arg0,
 	})
@@ -1291,7 +1317,7 @@ func (c *Client) SetVisualVoicemailSmsFilterSettings(ctx context.Context, arg0 i
 }
 
 // SetVoiceMailNumber calls the SetVoiceMailNumber RPC.
-func (c *Client) SetVoiceMailNumber(ctx context.Context, arg0 string, arg1 string) (bool, error) {
+func (c *ManagerClient) SetVoiceMailNumber(ctx context.Context, arg0 string, arg1 string) (bool, error) {
 	resp, err := c.svc.SetVoiceMailNumber(ctx, &pb.SetVoiceMailNumberRequest{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -1303,7 +1329,7 @@ func (c *Client) SetVoiceMailNumber(ctx context.Context, arg0 string, arg1 strin
 }
 
 // SetVoicemailRingtoneUri calls the SetVoicemailRingtoneUri RPC.
-func (c *Client) SetVoicemailRingtoneUri(ctx context.Context, arg0 int64, arg1 int64) error {
+func (c *ManagerClient) SetVoicemailRingtoneUri(ctx context.Context, arg0 int64, arg1 int64) error {
 	_, err := c.svc.SetVoicemailRingtoneUri(ctx, &pb.SetVoicemailRingtoneUriRequest{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -1312,7 +1338,7 @@ func (c *Client) SetVoicemailRingtoneUri(ctx context.Context, arg0 int64, arg1 i
 }
 
 // SetVoicemailVibrationEnabled calls the SetVoicemailVibrationEnabled RPC.
-func (c *Client) SetVoicemailVibrationEnabled(ctx context.Context, arg0 int64, arg1 bool) error {
+func (c *ManagerClient) SetVoicemailVibrationEnabled(ctx context.Context, arg0 int64, arg1 bool) error {
 	_, err := c.svc.SetVoicemailVibrationEnabled(ctx, &pb.SetVoicemailVibrationEnabledRequest{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -1321,7 +1347,7 @@ func (c *Client) SetVoicemailVibrationEnabled(ctx context.Context, arg0 int64, a
 }
 
 // SwitchMultiSimConfig calls the SwitchMultiSimConfig RPC.
-func (c *Client) SwitchMultiSimConfig(ctx context.Context, arg0 int32) error {
+func (c *ManagerClient) SwitchMultiSimConfig(ctx context.Context, arg0 int32) error {
 	_, err := c.svc.SwitchMultiSimConfig(ctx, &pb.SwitchMultiSimConfigRequest{
 		Arg0: arg0,
 	})
@@ -1329,47 +1355,15 @@ func (c *Client) SwitchMultiSimConfig(ctx context.Context, arg0 int32) error {
 }
 
 // UnregisterTelephonyCallback calls the UnregisterTelephonyCallback RPC.
-func (c *Client) UnregisterTelephonyCallback(ctx context.Context, arg0 int64) error {
+func (c *ManagerClient) UnregisterTelephonyCallback(ctx context.Context, arg0 int64) error {
 	_, err := c.svc.UnregisterTelephonyCallback(ctx, &pb.UnregisterTelephonyCallbackRequest{
 		Arg0: arg0,
 	})
 	return err
 }
 
-// UpdateAvailableNetworks calls the UpdateAvailableNetworks RPC.
-func (c *Client) UpdateAvailableNetworks(ctx context.Context, arg0 int64, arg1 int64, arg2 int64) error {
-	_, err := c.svc.UpdateAvailableNetworks(ctx, &pb.UpdateAvailableNetworksRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-	})
-	return err
-}
-
-// UploadCallComposerPicture4 calls the UploadCallComposerPicture4 RPC.
-func (c *Client) UploadCallComposerPicture4(ctx context.Context, arg0 int64, arg1 string, arg2 int64, arg3 int64) error {
-	_, err := c.svc.UploadCallComposerPicture4(ctx, &pb.UploadCallComposerPicture4Request{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
-	})
-	return err
-}
-
-// UploadCallComposerPicture4_1 calls the UploadCallComposerPicture4_1 RPC.
-func (c *Client) UploadCallComposerPicture4_1(ctx context.Context, arg0 int64, arg1 string, arg2 int64, arg3 int64) error {
-	_, err := c.svc.UploadCallComposerPicture4_1(ctx, &pb.UploadCallComposerPicture4_1Request{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
-	})
-	return err
-}
-
 // GetMaximumCallComposerPictureSize calls the GetMaximumCallComposerPictureSize RPC.
-func (c *Client) GetMaximumCallComposerPictureSize(ctx context.Context) (int64, error) {
+func (c *ManagerClient) GetMaximumCallComposerPictureSize(ctx context.Context) (int64, error) {
 	resp, err := c.svc.GetMaximumCallComposerPictureSize(ctx, &pb.GetMaximumCallComposerPictureSizeRequest{})
 	if err != nil {
 		return 0, err

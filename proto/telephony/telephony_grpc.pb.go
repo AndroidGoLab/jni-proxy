@@ -21,13 +21,419 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
+	CarrierConfigManagerService_GetConfig0_FullMethodName                            = "/telephony.CarrierConfigManagerService/GetConfig0"
+	CarrierConfigManagerService_GetConfig1_1_FullMethodName                          = "/telephony.CarrierConfigManagerService/GetConfig1_1"
+	CarrierConfigManagerService_GetConfigByComponentForSubId_FullMethodName          = "/telephony.CarrierConfigManagerService/GetConfigByComponentForSubId"
+	CarrierConfigManagerService_GetConfigForSubId1_FullMethodName                    = "/telephony.CarrierConfigManagerService/GetConfigForSubId1"
+	CarrierConfigManagerService_GetConfigForSubId2_1_FullMethodName                  = "/telephony.CarrierConfigManagerService/GetConfigForSubId2_1"
+	CarrierConfigManagerService_NotifyConfigChangedForSubId_FullMethodName           = "/telephony.CarrierConfigManagerService/NotifyConfigChangedForSubId"
+	CarrierConfigManagerService_RegisterCarrierConfigChangeListener_FullMethodName   = "/telephony.CarrierConfigManagerService/RegisterCarrierConfigChangeListener"
+	CarrierConfigManagerService_UnregisterCarrierConfigChangeListener_FullMethodName = "/telephony.CarrierConfigManagerService/UnregisterCarrierConfigChangeListener"
+	CarrierConfigManagerService_IsConfigForIdentifiedCarrier_FullMethodName          = "/telephony.CarrierConfigManagerService/IsConfigForIdentifiedCarrier"
+)
+
+// CarrierConfigManagerServiceClient is the client API for CarrierConfigManagerService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type CarrierConfigManagerServiceClient interface {
+	GetConfig0(ctx context.Context, in *GetConfig0Request, opts ...grpc.CallOption) (*GetConfig0Response, error)
+	GetConfig1_1(ctx context.Context, in *GetConfig1_1Request, opts ...grpc.CallOption) (*GetConfig1_1Response, error)
+	GetConfigByComponentForSubId(ctx context.Context, in *GetConfigByComponentForSubIdRequest, opts ...grpc.CallOption) (*GetConfigByComponentForSubIdResponse, error)
+	GetConfigForSubId1(ctx context.Context, in *GetConfigForSubId1Request, opts ...grpc.CallOption) (*GetConfigForSubId1Response, error)
+	GetConfigForSubId2_1(ctx context.Context, in *GetConfigForSubId2_1Request, opts ...grpc.CallOption) (*GetConfigForSubId2_1Response, error)
+	NotifyConfigChangedForSubId(ctx context.Context, in *NotifyConfigChangedForSubIdRequest, opts ...grpc.CallOption) (*NotifyConfigChangedForSubIdResponse, error)
+	RegisterCarrierConfigChangeListener(ctx context.Context, in *RegisterCarrierConfigChangeListenerRequest, opts ...grpc.CallOption) (*RegisterCarrierConfigChangeListenerResponse, error)
+	UnregisterCarrierConfigChangeListener(ctx context.Context, in *UnregisterCarrierConfigChangeListenerRequest, opts ...grpc.CallOption) (*UnregisterCarrierConfigChangeListenerResponse, error)
+	IsConfigForIdentifiedCarrier(ctx context.Context, in *IsConfigForIdentifiedCarrierRequest, opts ...grpc.CallOption) (*IsConfigForIdentifiedCarrierResponse, error)
+}
+
+type carrierConfigManagerServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewCarrierConfigManagerServiceClient(cc grpc.ClientConnInterface) CarrierConfigManagerServiceClient {
+	return &carrierConfigManagerServiceClient{cc}
+}
+
+func (c *carrierConfigManagerServiceClient) GetConfig0(ctx context.Context, in *GetConfig0Request, opts ...grpc.CallOption) (*GetConfig0Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetConfig0Response)
+	err := c.cc.Invoke(ctx, CarrierConfigManagerService_GetConfig0_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *carrierConfigManagerServiceClient) GetConfig1_1(ctx context.Context, in *GetConfig1_1Request, opts ...grpc.CallOption) (*GetConfig1_1Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetConfig1_1Response)
+	err := c.cc.Invoke(ctx, CarrierConfigManagerService_GetConfig1_1_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *carrierConfigManagerServiceClient) GetConfigByComponentForSubId(ctx context.Context, in *GetConfigByComponentForSubIdRequest, opts ...grpc.CallOption) (*GetConfigByComponentForSubIdResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetConfigByComponentForSubIdResponse)
+	err := c.cc.Invoke(ctx, CarrierConfigManagerService_GetConfigByComponentForSubId_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *carrierConfigManagerServiceClient) GetConfigForSubId1(ctx context.Context, in *GetConfigForSubId1Request, opts ...grpc.CallOption) (*GetConfigForSubId1Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetConfigForSubId1Response)
+	err := c.cc.Invoke(ctx, CarrierConfigManagerService_GetConfigForSubId1_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *carrierConfigManagerServiceClient) GetConfigForSubId2_1(ctx context.Context, in *GetConfigForSubId2_1Request, opts ...grpc.CallOption) (*GetConfigForSubId2_1Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetConfigForSubId2_1Response)
+	err := c.cc.Invoke(ctx, CarrierConfigManagerService_GetConfigForSubId2_1_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *carrierConfigManagerServiceClient) NotifyConfigChangedForSubId(ctx context.Context, in *NotifyConfigChangedForSubIdRequest, opts ...grpc.CallOption) (*NotifyConfigChangedForSubIdResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(NotifyConfigChangedForSubIdResponse)
+	err := c.cc.Invoke(ctx, CarrierConfigManagerService_NotifyConfigChangedForSubId_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *carrierConfigManagerServiceClient) RegisterCarrierConfigChangeListener(ctx context.Context, in *RegisterCarrierConfigChangeListenerRequest, opts ...grpc.CallOption) (*RegisterCarrierConfigChangeListenerResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(RegisterCarrierConfigChangeListenerResponse)
+	err := c.cc.Invoke(ctx, CarrierConfigManagerService_RegisterCarrierConfigChangeListener_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *carrierConfigManagerServiceClient) UnregisterCarrierConfigChangeListener(ctx context.Context, in *UnregisterCarrierConfigChangeListenerRequest, opts ...grpc.CallOption) (*UnregisterCarrierConfigChangeListenerResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(UnregisterCarrierConfigChangeListenerResponse)
+	err := c.cc.Invoke(ctx, CarrierConfigManagerService_UnregisterCarrierConfigChangeListener_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *carrierConfigManagerServiceClient) IsConfigForIdentifiedCarrier(ctx context.Context, in *IsConfigForIdentifiedCarrierRequest, opts ...grpc.CallOption) (*IsConfigForIdentifiedCarrierResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IsConfigForIdentifiedCarrierResponse)
+	err := c.cc.Invoke(ctx, CarrierConfigManagerService_IsConfigForIdentifiedCarrier_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// CarrierConfigManagerServiceServer is the server API for CarrierConfigManagerService service.
+// All implementations must embed UnimplementedCarrierConfigManagerServiceServer
+// for forward compatibility.
+type CarrierConfigManagerServiceServer interface {
+	GetConfig0(context.Context, *GetConfig0Request) (*GetConfig0Response, error)
+	GetConfig1_1(context.Context, *GetConfig1_1Request) (*GetConfig1_1Response, error)
+	GetConfigByComponentForSubId(context.Context, *GetConfigByComponentForSubIdRequest) (*GetConfigByComponentForSubIdResponse, error)
+	GetConfigForSubId1(context.Context, *GetConfigForSubId1Request) (*GetConfigForSubId1Response, error)
+	GetConfigForSubId2_1(context.Context, *GetConfigForSubId2_1Request) (*GetConfigForSubId2_1Response, error)
+	NotifyConfigChangedForSubId(context.Context, *NotifyConfigChangedForSubIdRequest) (*NotifyConfigChangedForSubIdResponse, error)
+	RegisterCarrierConfigChangeListener(context.Context, *RegisterCarrierConfigChangeListenerRequest) (*RegisterCarrierConfigChangeListenerResponse, error)
+	UnregisterCarrierConfigChangeListener(context.Context, *UnregisterCarrierConfigChangeListenerRequest) (*UnregisterCarrierConfigChangeListenerResponse, error)
+	IsConfigForIdentifiedCarrier(context.Context, *IsConfigForIdentifiedCarrierRequest) (*IsConfigForIdentifiedCarrierResponse, error)
+	mustEmbedUnimplementedCarrierConfigManagerServiceServer()
+}
+
+// UnimplementedCarrierConfigManagerServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedCarrierConfigManagerServiceServer struct{}
+
+func (UnimplementedCarrierConfigManagerServiceServer) GetConfig0(context.Context, *GetConfig0Request) (*GetConfig0Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetConfig0 not implemented")
+}
+func (UnimplementedCarrierConfigManagerServiceServer) GetConfig1_1(context.Context, *GetConfig1_1Request) (*GetConfig1_1Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetConfig1_1 not implemented")
+}
+func (UnimplementedCarrierConfigManagerServiceServer) GetConfigByComponentForSubId(context.Context, *GetConfigByComponentForSubIdRequest) (*GetConfigByComponentForSubIdResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetConfigByComponentForSubId not implemented")
+}
+func (UnimplementedCarrierConfigManagerServiceServer) GetConfigForSubId1(context.Context, *GetConfigForSubId1Request) (*GetConfigForSubId1Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetConfigForSubId1 not implemented")
+}
+func (UnimplementedCarrierConfigManagerServiceServer) GetConfigForSubId2_1(context.Context, *GetConfigForSubId2_1Request) (*GetConfigForSubId2_1Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetConfigForSubId2_1 not implemented")
+}
+func (UnimplementedCarrierConfigManagerServiceServer) NotifyConfigChangedForSubId(context.Context, *NotifyConfigChangedForSubIdRequest) (*NotifyConfigChangedForSubIdResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NotifyConfigChangedForSubId not implemented")
+}
+func (UnimplementedCarrierConfigManagerServiceServer) RegisterCarrierConfigChangeListener(context.Context, *RegisterCarrierConfigChangeListenerRequest) (*RegisterCarrierConfigChangeListenerResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method RegisterCarrierConfigChangeListener not implemented")
+}
+func (UnimplementedCarrierConfigManagerServiceServer) UnregisterCarrierConfigChangeListener(context.Context, *UnregisterCarrierConfigChangeListenerRequest) (*UnregisterCarrierConfigChangeListenerResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method UnregisterCarrierConfigChangeListener not implemented")
+}
+func (UnimplementedCarrierConfigManagerServiceServer) IsConfigForIdentifiedCarrier(context.Context, *IsConfigForIdentifiedCarrierRequest) (*IsConfigForIdentifiedCarrierResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsConfigForIdentifiedCarrier not implemented")
+}
+func (UnimplementedCarrierConfigManagerServiceServer) mustEmbedUnimplementedCarrierConfigManagerServiceServer() {
+}
+func (UnimplementedCarrierConfigManagerServiceServer) testEmbeddedByValue() {}
+
+// UnsafeCarrierConfigManagerServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to CarrierConfigManagerServiceServer will
+// result in compilation errors.
+type UnsafeCarrierConfigManagerServiceServer interface {
+	mustEmbedUnimplementedCarrierConfigManagerServiceServer()
+}
+
+func RegisterCarrierConfigManagerServiceServer(s grpc.ServiceRegistrar, srv CarrierConfigManagerServiceServer) {
+	// If the following call panics, it indicates UnimplementedCarrierConfigManagerServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&CarrierConfigManagerService_ServiceDesc, srv)
+}
+
+func _CarrierConfigManagerService_GetConfig0_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetConfig0Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CarrierConfigManagerServiceServer).GetConfig0(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CarrierConfigManagerService_GetConfig0_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CarrierConfigManagerServiceServer).GetConfig0(ctx, req.(*GetConfig0Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CarrierConfigManagerService_GetConfig1_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetConfig1_1Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CarrierConfigManagerServiceServer).GetConfig1_1(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CarrierConfigManagerService_GetConfig1_1_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CarrierConfigManagerServiceServer).GetConfig1_1(ctx, req.(*GetConfig1_1Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CarrierConfigManagerService_GetConfigByComponentForSubId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetConfigByComponentForSubIdRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CarrierConfigManagerServiceServer).GetConfigByComponentForSubId(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CarrierConfigManagerService_GetConfigByComponentForSubId_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CarrierConfigManagerServiceServer).GetConfigByComponentForSubId(ctx, req.(*GetConfigByComponentForSubIdRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CarrierConfigManagerService_GetConfigForSubId1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetConfigForSubId1Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CarrierConfigManagerServiceServer).GetConfigForSubId1(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CarrierConfigManagerService_GetConfigForSubId1_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CarrierConfigManagerServiceServer).GetConfigForSubId1(ctx, req.(*GetConfigForSubId1Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CarrierConfigManagerService_GetConfigForSubId2_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetConfigForSubId2_1Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CarrierConfigManagerServiceServer).GetConfigForSubId2_1(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CarrierConfigManagerService_GetConfigForSubId2_1_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CarrierConfigManagerServiceServer).GetConfigForSubId2_1(ctx, req.(*GetConfigForSubId2_1Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CarrierConfigManagerService_NotifyConfigChangedForSubId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NotifyConfigChangedForSubIdRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CarrierConfigManagerServiceServer).NotifyConfigChangedForSubId(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CarrierConfigManagerService_NotifyConfigChangedForSubId_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CarrierConfigManagerServiceServer).NotifyConfigChangedForSubId(ctx, req.(*NotifyConfigChangedForSubIdRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CarrierConfigManagerService_RegisterCarrierConfigChangeListener_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(RegisterCarrierConfigChangeListenerRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CarrierConfigManagerServiceServer).RegisterCarrierConfigChangeListener(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CarrierConfigManagerService_RegisterCarrierConfigChangeListener_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CarrierConfigManagerServiceServer).RegisterCarrierConfigChangeListener(ctx, req.(*RegisterCarrierConfigChangeListenerRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CarrierConfigManagerService_UnregisterCarrierConfigChangeListener_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(UnregisterCarrierConfigChangeListenerRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CarrierConfigManagerServiceServer).UnregisterCarrierConfigChangeListener(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CarrierConfigManagerService_UnregisterCarrierConfigChangeListener_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CarrierConfigManagerServiceServer).UnregisterCarrierConfigChangeListener(ctx, req.(*UnregisterCarrierConfigChangeListenerRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CarrierConfigManagerService_IsConfigForIdentifiedCarrier_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsConfigForIdentifiedCarrierRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CarrierConfigManagerServiceServer).IsConfigForIdentifiedCarrier(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CarrierConfigManagerService_IsConfigForIdentifiedCarrier_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CarrierConfigManagerServiceServer).IsConfigForIdentifiedCarrier(ctx, req.(*IsConfigForIdentifiedCarrierRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// CarrierConfigManagerService_ServiceDesc is the grpc.ServiceDesc for CarrierConfigManagerService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var CarrierConfigManagerService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "telephony.CarrierConfigManagerService",
+	HandlerType: (*CarrierConfigManagerServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "GetConfig0",
+			Handler:    _CarrierConfigManagerService_GetConfig0_Handler,
+		},
+		{
+			MethodName: "GetConfig1_1",
+			Handler:    _CarrierConfigManagerService_GetConfig1_1_Handler,
+		},
+		{
+			MethodName: "GetConfigByComponentForSubId",
+			Handler:    _CarrierConfigManagerService_GetConfigByComponentForSubId_Handler,
+		},
+		{
+			MethodName: "GetConfigForSubId1",
+			Handler:    _CarrierConfigManagerService_GetConfigForSubId1_Handler,
+		},
+		{
+			MethodName: "GetConfigForSubId2_1",
+			Handler:    _CarrierConfigManagerService_GetConfigForSubId2_1_Handler,
+		},
+		{
+			MethodName: "NotifyConfigChangedForSubId",
+			Handler:    _CarrierConfigManagerService_NotifyConfigChangedForSubId_Handler,
+		},
+		{
+			MethodName: "RegisterCarrierConfigChangeListener",
+			Handler:    _CarrierConfigManagerService_RegisterCarrierConfigChangeListener_Handler,
+		},
+		{
+			MethodName: "UnregisterCarrierConfigChangeListener",
+			Handler:    _CarrierConfigManagerService_UnregisterCarrierConfigChangeListener_Handler,
+		},
+		{
+			MethodName: "IsConfigForIdentifiedCarrier",
+			Handler:    _CarrierConfigManagerService_IsConfigForIdentifiedCarrier_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/telephony/telephony.proto",
+}
+
+const (
 	ManagerService_CanChangeDtmfToneLength_FullMethodName                   = "/telephony.ManagerService/CanChangeDtmfToneLength"
 	ManagerService_ClearSignalStrengthUpdateRequest_FullMethodName          = "/telephony.ManagerService/ClearSignalStrengthUpdateRequest"
 	ManagerService_CreateForPhoneAccountHandle_FullMethodName               = "/telephony.ManagerService/CreateForPhoneAccountHandle"
 	ManagerService_CreateForSubscriptionId_FullMethodName                   = "/telephony.ManagerService/CreateForSubscriptionId"
 	ManagerService_DoesSwitchMultiSimConfigTriggerReboot_FullMethodName     = "/telephony.ManagerService/DoesSwitchMultiSimConfigTriggerReboot"
 	ManagerService_GetActiveModemCount_FullMethodName                       = "/telephony.ManagerService/GetActiveModemCount"
-	ManagerService_GetAllCellInfo_FullMethodName                            = "/telephony.ManagerService/GetAllCellInfo"
 	ManagerService_GetAllowedNetworkTypesForReason_FullMethodName           = "/telephony.ManagerService/GetAllowedNetworkTypesForReason"
 	ManagerService_GetCallComposerStatus_FullMethodName                     = "/telephony.ManagerService/GetCallComposerStatus"
 	ManagerService_GetCallState_FullMethodName                              = "/telephony.ManagerService/GetCallState"
@@ -35,7 +441,6 @@ const (
 	ManagerService_GetCardIdForDefaultEuicc_FullMethodName                  = "/telephony.ManagerService/GetCardIdForDefaultEuicc"
 	ManagerService_GetCarrierConfig_FullMethodName                          = "/telephony.ManagerService/GetCarrierConfig"
 	ManagerService_GetCarrierIdFromSimMccMnc_FullMethodName                 = "/telephony.ManagerService/GetCarrierIdFromSimMccMnc"
-	ManagerService_GetCarrierRestrictionStatus_FullMethodName               = "/telephony.ManagerService/GetCarrierRestrictionStatus"
 	ManagerService_GetCellLocation_FullMethodName                           = "/telephony.ManagerService/GetCellLocation"
 	ManagerService_GetDataActivity_FullMethodName                           = "/telephony.ManagerService/GetDataActivity"
 	ManagerService_GetDataNetworkType_FullMethodName                        = "/telephony.ManagerService/GetDataNetworkType"
@@ -43,7 +448,6 @@ const (
 	ManagerService_GetDeviceId0_FullMethodName                              = "/telephony.ManagerService/GetDeviceId0"
 	ManagerService_GetDeviceId1_1_FullMethodName                            = "/telephony.ManagerService/GetDeviceId1_1"
 	ManagerService_GetDeviceSoftwareVersion_FullMethodName                  = "/telephony.ManagerService/GetDeviceSoftwareVersion"
-	ManagerService_GetEquivalentHomePlmns_FullMethodName                    = "/telephony.ManagerService/GetEquivalentHomePlmns"
 	ManagerService_GetForbiddenPlmns_FullMethodName                         = "/telephony.ManagerService/GetForbiddenPlmns"
 	ManagerService_GetGroupIdLevel1_FullMethodName                          = "/telephony.ManagerService/GetGroupIdLevel1"
 	ManagerService_GetIccAuthentication_FullMethodName                      = "/telephony.ManagerService/GetIccAuthentication"
@@ -63,7 +467,6 @@ const (
 	ManagerService_GetNetworkOperator_FullMethodName                        = "/telephony.ManagerService/GetNetworkOperator"
 	ManagerService_GetNetworkOperatorName_FullMethodName                    = "/telephony.ManagerService/GetNetworkOperatorName"
 	ManagerService_GetNetworkSelectionMode_FullMethodName                   = "/telephony.ManagerService/GetNetworkSelectionMode"
-	ManagerService_GetNetworkSlicingConfiguration_FullMethodName            = "/telephony.ManagerService/GetNetworkSlicingConfiguration"
 	ManagerService_GetNetworkSpecifier_FullMethodName                       = "/telephony.ManagerService/GetNetworkSpecifier"
 	ManagerService_GetNetworkType_FullMethodName                            = "/telephony.ManagerService/GetNetworkType"
 	ManagerService_GetPhoneAccountHandle_FullMethodName                     = "/telephony.ManagerService/GetPhoneAccountHandle"
@@ -91,7 +494,6 @@ const (
 	ManagerService_GetSupportedRadioAccessFamily_FullMethodName             = "/telephony.ManagerService/GetSupportedRadioAccessFamily"
 	ManagerService_GetTypeAllocationCode0_FullMethodName                    = "/telephony.ManagerService/GetTypeAllocationCode0"
 	ManagerService_GetTypeAllocationCode1_1_FullMethodName                  = "/telephony.ManagerService/GetTypeAllocationCode1_1"
-	ManagerService_GetUiccCardsInfo_FullMethodName                          = "/telephony.ManagerService/GetUiccCardsInfo"
 	ManagerService_GetVisualVoicemailPackageName_FullMethodName             = "/telephony.ManagerService/GetVisualVoicemailPackageName"
 	ManagerService_GetVoiceMailAlphaTag_FullMethodName                      = "/telephony.ManagerService/GetVoiceMailAlphaTag"
 	ManagerService_GetVoiceMailNumber_FullMethodName                        = "/telephony.ManagerService/GetVoiceMailNumber"
@@ -128,7 +530,6 @@ const (
 	ManagerService_IsVoicemailVibrationEnabled_FullMethodName               = "/telephony.ManagerService/IsVoicemailVibrationEnabled"
 	ManagerService_IsWorldPhone_FullMethodName                              = "/telephony.ManagerService/IsWorldPhone"
 	ManagerService_Listen_FullMethodName                                    = "/telephony.ManagerService/Listen"
-	ManagerService_PurchasePremiumCapability_FullMethodName                 = "/telephony.ManagerService/PurchasePremiumCapability"
 	ManagerService_RebootModem_FullMethodName                               = "/telephony.ManagerService/RebootModem"
 	ManagerService_RegisterTelephonyCallback3_FullMethodName                = "/telephony.ManagerService/RegisterTelephonyCallback3"
 	ManagerService_RegisterTelephonyCallback2_1_FullMethodName              = "/telephony.ManagerService/RegisterTelephonyCallback2_1"
@@ -142,14 +543,12 @@ const (
 	ManagerService_SetCallComposerStatus_FullMethodName                     = "/telephony.ManagerService/SetCallComposerStatus"
 	ManagerService_SetDataEnabled_FullMethodName                            = "/telephony.ManagerService/SetDataEnabled"
 	ManagerService_SetDataEnabledForReason_FullMethodName                   = "/telephony.ManagerService/SetDataEnabledForReason"
-	ManagerService_SetForbiddenPlmns_FullMethodName                         = "/telephony.ManagerService/SetForbiddenPlmns"
 	ManagerService_SetLine1NumberForDisplay_FullMethodName                  = "/telephony.ManagerService/SetLine1NumberForDisplay"
 	ManagerService_SetNetworkSelectionModeAutomatic_FullMethodName          = "/telephony.ManagerService/SetNetworkSelectionModeAutomatic"
 	ManagerService_SetNetworkSelectionModeManual2_FullMethodName            = "/telephony.ManagerService/SetNetworkSelectionModeManual2"
 	ManagerService_SetNetworkSelectionModeManual3_1_FullMethodName          = "/telephony.ManagerService/SetNetworkSelectionModeManual3_1"
 	ManagerService_SetOperatorBrandOverride_FullMethodName                  = "/telephony.ManagerService/SetOperatorBrandOverride"
 	ManagerService_SetPreferredNetworkTypeToGlobal_FullMethodName           = "/telephony.ManagerService/SetPreferredNetworkTypeToGlobal"
-	ManagerService_SetPreferredOpportunisticDataSubscription_FullMethodName = "/telephony.ManagerService/SetPreferredOpportunisticDataSubscription"
 	ManagerService_SetSignalStrengthUpdateRequest_FullMethodName            = "/telephony.ManagerService/SetSignalStrengthUpdateRequest"
 	ManagerService_SetVisualVoicemailSmsFilterSettings_FullMethodName       = "/telephony.ManagerService/SetVisualVoicemailSmsFilterSettings"
 	ManagerService_SetVoiceMailNumber_FullMethodName                        = "/telephony.ManagerService/SetVoiceMailNumber"
@@ -157,9 +556,6 @@ const (
 	ManagerService_SetVoicemailVibrationEnabled_FullMethodName              = "/telephony.ManagerService/SetVoicemailVibrationEnabled"
 	ManagerService_SwitchMultiSimConfig_FullMethodName                      = "/telephony.ManagerService/SwitchMultiSimConfig"
 	ManagerService_UnregisterTelephonyCallback_FullMethodName               = "/telephony.ManagerService/UnregisterTelephonyCallback"
-	ManagerService_UpdateAvailableNetworks_FullMethodName                   = "/telephony.ManagerService/UpdateAvailableNetworks"
-	ManagerService_UploadCallComposerPicture4_FullMethodName                = "/telephony.ManagerService/UploadCallComposerPicture4"
-	ManagerService_UploadCallComposerPicture4_1_FullMethodName              = "/telephony.ManagerService/UploadCallComposerPicture4_1"
 	ManagerService_GetMaximumCallComposerPictureSize_FullMethodName         = "/telephony.ManagerService/GetMaximumCallComposerPictureSize"
 )
 
@@ -173,7 +569,6 @@ type ManagerServiceClient interface {
 	CreateForSubscriptionId(ctx context.Context, in *CreateForSubscriptionIdRequest, opts ...grpc.CallOption) (*CreateForSubscriptionIdResponse, error)
 	DoesSwitchMultiSimConfigTriggerReboot(ctx context.Context, in *DoesSwitchMultiSimConfigTriggerRebootRequest, opts ...grpc.CallOption) (*DoesSwitchMultiSimConfigTriggerRebootResponse, error)
 	GetActiveModemCount(ctx context.Context, in *GetActiveModemCountRequest, opts ...grpc.CallOption) (*GetActiveModemCountResponse, error)
-	GetAllCellInfo(ctx context.Context, in *GetAllCellInfoRequest, opts ...grpc.CallOption) (*GetAllCellInfoResponse, error)
 	GetAllowedNetworkTypesForReason(ctx context.Context, in *GetAllowedNetworkTypesForReasonRequest, opts ...grpc.CallOption) (*GetAllowedNetworkTypesForReasonResponse, error)
 	GetCallComposerStatus(ctx context.Context, in *GetCallComposerStatusRequest, opts ...grpc.CallOption) (*GetCallComposerStatusResponse, error)
 	GetCallState(ctx context.Context, in *GetCallStateRequest, opts ...grpc.CallOption) (*GetCallStateResponse, error)
@@ -181,7 +576,6 @@ type ManagerServiceClient interface {
 	GetCardIdForDefaultEuicc(ctx context.Context, in *GetCardIdForDefaultEuiccRequest, opts ...grpc.CallOption) (*GetCardIdForDefaultEuiccResponse, error)
 	GetCarrierConfig(ctx context.Context, in *GetCarrierConfigRequest, opts ...grpc.CallOption) (*GetCarrierConfigResponse, error)
 	GetCarrierIdFromSimMccMnc(ctx context.Context, in *GetCarrierIdFromSimMccMncRequest, opts ...grpc.CallOption) (*GetCarrierIdFromSimMccMncResponse, error)
-	GetCarrierRestrictionStatus(ctx context.Context, in *GetCarrierRestrictionStatusRequest, opts ...grpc.CallOption) (*GetCarrierRestrictionStatusResponse, error)
 	GetCellLocation(ctx context.Context, in *GetCellLocationRequest, opts ...grpc.CallOption) (*GetCellLocationResponse, error)
 	GetDataActivity(ctx context.Context, in *GetDataActivityRequest, opts ...grpc.CallOption) (*GetDataActivityResponse, error)
 	GetDataNetworkType(ctx context.Context, in *GetDataNetworkTypeRequest, opts ...grpc.CallOption) (*GetDataNetworkTypeResponse, error)
@@ -189,7 +583,6 @@ type ManagerServiceClient interface {
 	GetDeviceId0(ctx context.Context, in *GetDeviceId0Request, opts ...grpc.CallOption) (*GetDeviceId0Response, error)
 	GetDeviceId1_1(ctx context.Context, in *GetDeviceId1_1Request, opts ...grpc.CallOption) (*GetDeviceId1_1Response, error)
 	GetDeviceSoftwareVersion(ctx context.Context, in *GetDeviceSoftwareVersionRequest, opts ...grpc.CallOption) (*GetDeviceSoftwareVersionResponse, error)
-	GetEquivalentHomePlmns(ctx context.Context, in *GetEquivalentHomePlmnsRequest, opts ...grpc.CallOption) (*GetEquivalentHomePlmnsResponse, error)
 	GetForbiddenPlmns(ctx context.Context, in *GetForbiddenPlmnsRequest, opts ...grpc.CallOption) (*GetForbiddenPlmnsResponse, error)
 	GetGroupIdLevel1(ctx context.Context, in *GetGroupIdLevel1Request, opts ...grpc.CallOption) (*GetGroupIdLevel1Response, error)
 	GetIccAuthentication(ctx context.Context, in *GetIccAuthenticationRequest, opts ...grpc.CallOption) (*GetIccAuthenticationResponse, error)
@@ -209,7 +602,6 @@ type ManagerServiceClient interface {
 	GetNetworkOperator(ctx context.Context, in *GetNetworkOperatorRequest, opts ...grpc.CallOption) (*GetNetworkOperatorResponse, error)
 	GetNetworkOperatorName(ctx context.Context, in *GetNetworkOperatorNameRequest, opts ...grpc.CallOption) (*GetNetworkOperatorNameResponse, error)
 	GetNetworkSelectionMode(ctx context.Context, in *GetNetworkSelectionModeRequest, opts ...grpc.CallOption) (*GetNetworkSelectionModeResponse, error)
-	GetNetworkSlicingConfiguration(ctx context.Context, in *GetNetworkSlicingConfigurationRequest, opts ...grpc.CallOption) (*GetNetworkSlicingConfigurationResponse, error)
 	GetNetworkSpecifier(ctx context.Context, in *GetNetworkSpecifierRequest, opts ...grpc.CallOption) (*GetNetworkSpecifierResponse, error)
 	GetNetworkType(ctx context.Context, in *GetNetworkTypeRequest, opts ...grpc.CallOption) (*GetNetworkTypeResponse, error)
 	GetPhoneAccountHandle(ctx context.Context, in *GetPhoneAccountHandleRequest, opts ...grpc.CallOption) (*GetPhoneAccountHandleResponse, error)
@@ -237,7 +629,6 @@ type ManagerServiceClient interface {
 	GetSupportedRadioAccessFamily(ctx context.Context, in *GetSupportedRadioAccessFamilyRequest, opts ...grpc.CallOption) (*GetSupportedRadioAccessFamilyResponse, error)
 	GetTypeAllocationCode0(ctx context.Context, in *GetTypeAllocationCode0Request, opts ...grpc.CallOption) (*GetTypeAllocationCode0Response, error)
 	GetTypeAllocationCode1_1(ctx context.Context, in *GetTypeAllocationCode1_1Request, opts ...grpc.CallOption) (*GetTypeAllocationCode1_1Response, error)
-	GetUiccCardsInfo(ctx context.Context, in *GetUiccCardsInfoRequest, opts ...grpc.CallOption) (*GetUiccCardsInfoResponse, error)
 	GetVisualVoicemailPackageName(ctx context.Context, in *GetVisualVoicemailPackageNameRequest, opts ...grpc.CallOption) (*GetVisualVoicemailPackageNameResponse, error)
 	GetVoiceMailAlphaTag(ctx context.Context, in *GetVoiceMailAlphaTagRequest, opts ...grpc.CallOption) (*GetVoiceMailAlphaTagResponse, error)
 	GetVoiceMailNumber(ctx context.Context, in *GetVoiceMailNumberRequest, opts ...grpc.CallOption) (*GetVoiceMailNumberResponse, error)
@@ -274,7 +665,6 @@ type ManagerServiceClient interface {
 	IsVoicemailVibrationEnabled(ctx context.Context, in *IsVoicemailVibrationEnabledRequest, opts ...grpc.CallOption) (*IsVoicemailVibrationEnabledResponse, error)
 	IsWorldPhone(ctx context.Context, in *IsWorldPhoneRequest, opts ...grpc.CallOption) (*IsWorldPhoneResponse, error)
 	Listen(ctx context.Context, in *ListenRequest, opts ...grpc.CallOption) (*ListenResponse, error)
-	PurchasePremiumCapability(ctx context.Context, in *PurchasePremiumCapabilityRequest, opts ...grpc.CallOption) (*PurchasePremiumCapabilityResponse, error)
 	RebootModem(ctx context.Context, in *RebootModemRequest, opts ...grpc.CallOption) (*RebootModemResponse, error)
 	RegisterTelephonyCallback3(ctx context.Context, in *RegisterTelephonyCallback3Request, opts ...grpc.CallOption) (*RegisterTelephonyCallback3Response, error)
 	RegisterTelephonyCallback2_1(ctx context.Context, in *RegisterTelephonyCallback2_1Request, opts ...grpc.CallOption) (*RegisterTelephonyCallback2_1Response, error)
@@ -288,14 +678,12 @@ type ManagerServiceClient interface {
 	SetCallComposerStatus(ctx context.Context, in *SetCallComposerStatusRequest, opts ...grpc.CallOption) (*SetCallComposerStatusResponse, error)
 	SetDataEnabled(ctx context.Context, in *SetDataEnabledRequest, opts ...grpc.CallOption) (*SetDataEnabledResponse, error)
 	SetDataEnabledForReason(ctx context.Context, in *SetDataEnabledForReasonRequest, opts ...grpc.CallOption) (*SetDataEnabledForReasonResponse, error)
-	SetForbiddenPlmns(ctx context.Context, in *SetForbiddenPlmnsRequest, opts ...grpc.CallOption) (*SetForbiddenPlmnsResponse, error)
 	SetLine1NumberForDisplay(ctx context.Context, in *SetLine1NumberForDisplayRequest, opts ...grpc.CallOption) (*SetLine1NumberForDisplayResponse, error)
 	SetNetworkSelectionModeAutomatic(ctx context.Context, in *SetNetworkSelectionModeAutomaticRequest, opts ...grpc.CallOption) (*SetNetworkSelectionModeAutomaticResponse, error)
 	SetNetworkSelectionModeManual2(ctx context.Context, in *SetNetworkSelectionModeManual2Request, opts ...grpc.CallOption) (*SetNetworkSelectionModeManual2Response, error)
 	SetNetworkSelectionModeManual3_1(ctx context.Context, in *SetNetworkSelectionModeManual3_1Request, opts ...grpc.CallOption) (*SetNetworkSelectionModeManual3_1Response, error)
 	SetOperatorBrandOverride(ctx context.Context, in *SetOperatorBrandOverrideRequest, opts ...grpc.CallOption) (*SetOperatorBrandOverrideResponse, error)
 	SetPreferredNetworkTypeToGlobal(ctx context.Context, in *SetPreferredNetworkTypeToGlobalRequest, opts ...grpc.CallOption) (*SetPreferredNetworkTypeToGlobalResponse, error)
-	SetPreferredOpportunisticDataSubscription(ctx context.Context, in *SetPreferredOpportunisticDataSubscriptionRequest, opts ...grpc.CallOption) (*SetPreferredOpportunisticDataSubscriptionResponse, error)
 	SetSignalStrengthUpdateRequest(ctx context.Context, in *SetSignalStrengthUpdateRequestRequest, opts ...grpc.CallOption) (*SetSignalStrengthUpdateRequestResponse, error)
 	SetVisualVoicemailSmsFilterSettings(ctx context.Context, in *SetVisualVoicemailSmsFilterSettingsRequest, opts ...grpc.CallOption) (*SetVisualVoicemailSmsFilterSettingsResponse, error)
 	SetVoiceMailNumber(ctx context.Context, in *SetVoiceMailNumberRequest, opts ...grpc.CallOption) (*SetVoiceMailNumberResponse, error)
@@ -303,9 +691,6 @@ type ManagerServiceClient interface {
 	SetVoicemailVibrationEnabled(ctx context.Context, in *SetVoicemailVibrationEnabledRequest, opts ...grpc.CallOption) (*SetVoicemailVibrationEnabledResponse, error)
 	SwitchMultiSimConfig(ctx context.Context, in *SwitchMultiSimConfigRequest, opts ...grpc.CallOption) (*SwitchMultiSimConfigResponse, error)
 	UnregisterTelephonyCallback(ctx context.Context, in *UnregisterTelephonyCallbackRequest, opts ...grpc.CallOption) (*UnregisterTelephonyCallbackResponse, error)
-	UpdateAvailableNetworks(ctx context.Context, in *UpdateAvailableNetworksRequest, opts ...grpc.CallOption) (*UpdateAvailableNetworksResponse, error)
-	UploadCallComposerPicture4(ctx context.Context, in *UploadCallComposerPicture4Request, opts ...grpc.CallOption) (*UploadCallComposerPicture4Response, error)
-	UploadCallComposerPicture4_1(ctx context.Context, in *UploadCallComposerPicture4_1Request, opts ...grpc.CallOption) (*UploadCallComposerPicture4_1Response, error)
 	GetMaximumCallComposerPictureSize(ctx context.Context, in *GetMaximumCallComposerPictureSizeRequest, opts ...grpc.CallOption) (*GetMaximumCallComposerPictureSizeResponse, error)
 }
 
@@ -371,16 +756,6 @@ func (c *managerServiceClient) GetActiveModemCount(ctx context.Context, in *GetA
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(GetActiveModemCountResponse)
 	err := c.cc.Invoke(ctx, ManagerService_GetActiveModemCount_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *managerServiceClient) GetAllCellInfo(ctx context.Context, in *GetAllCellInfoRequest, opts ...grpc.CallOption) (*GetAllCellInfoResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetAllCellInfoResponse)
-	err := c.cc.Invoke(ctx, ManagerService_GetAllCellInfo_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
@@ -457,16 +832,6 @@ func (c *managerServiceClient) GetCarrierIdFromSimMccMnc(ctx context.Context, in
 	return out, nil
 }
 
-func (c *managerServiceClient) GetCarrierRestrictionStatus(ctx context.Context, in *GetCarrierRestrictionStatusRequest, opts ...grpc.CallOption) (*GetCarrierRestrictionStatusResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetCarrierRestrictionStatusResponse)
-	err := c.cc.Invoke(ctx, ManagerService_GetCarrierRestrictionStatus_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
 func (c *managerServiceClient) GetCellLocation(ctx context.Context, in *GetCellLocationRequest, opts ...grpc.CallOption) (*GetCellLocationResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(GetCellLocationResponse)
@@ -531,16 +896,6 @@ func (c *managerServiceClient) GetDeviceSoftwareVersion(ctx context.Context, in 
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(GetDeviceSoftwareVersionResponse)
 	err := c.cc.Invoke(ctx, ManagerService_GetDeviceSoftwareVersion_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *managerServiceClient) GetEquivalentHomePlmns(ctx context.Context, in *GetEquivalentHomePlmnsRequest, opts ...grpc.CallOption) (*GetEquivalentHomePlmnsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetEquivalentHomePlmnsResponse)
-	err := c.cc.Invoke(ctx, ManagerService_GetEquivalentHomePlmns_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
@@ -731,16 +1086,6 @@ func (c *managerServiceClient) GetNetworkSelectionMode(ctx context.Context, in *
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(GetNetworkSelectionModeResponse)
 	err := c.cc.Invoke(ctx, ManagerService_GetNetworkSelectionMode_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *managerServiceClient) GetNetworkSlicingConfiguration(ctx context.Context, in *GetNetworkSlicingConfigurationRequest, opts ...grpc.CallOption) (*GetNetworkSlicingConfigurationResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetNetworkSlicingConfigurationResponse)
-	err := c.cc.Invoke(ctx, ManagerService_GetNetworkSlicingConfiguration_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
@@ -1011,16 +1356,6 @@ func (c *managerServiceClient) GetTypeAllocationCode1_1(ctx context.Context, in 
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(GetTypeAllocationCode1_1Response)
 	err := c.cc.Invoke(ctx, ManagerService_GetTypeAllocationCode1_1_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *managerServiceClient) GetUiccCardsInfo(ctx context.Context, in *GetUiccCardsInfoRequest, opts ...grpc.CallOption) (*GetUiccCardsInfoResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetUiccCardsInfoResponse)
-	err := c.cc.Invoke(ctx, ManagerService_GetUiccCardsInfo_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
@@ -1387,16 +1722,6 @@ func (c *managerServiceClient) Listen(ctx context.Context, in *ListenRequest, op
 	return out, nil
 }
 
-func (c *managerServiceClient) PurchasePremiumCapability(ctx context.Context, in *PurchasePremiumCapabilityRequest, opts ...grpc.CallOption) (*PurchasePremiumCapabilityResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(PurchasePremiumCapabilityResponse)
-	err := c.cc.Invoke(ctx, ManagerService_PurchasePremiumCapability_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
 func (c *managerServiceClient) RebootModem(ctx context.Context, in *RebootModemRequest, opts ...grpc.CallOption) (*RebootModemResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(RebootModemResponse)
@@ -1527,16 +1852,6 @@ func (c *managerServiceClient) SetDataEnabledForReason(ctx context.Context, in *
 	return out, nil
 }
 
-func (c *managerServiceClient) SetForbiddenPlmns(ctx context.Context, in *SetForbiddenPlmnsRequest, opts ...grpc.CallOption) (*SetForbiddenPlmnsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetForbiddenPlmnsResponse)
-	err := c.cc.Invoke(ctx, ManagerService_SetForbiddenPlmns_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
 func (c *managerServiceClient) SetLine1NumberForDisplay(ctx context.Context, in *SetLine1NumberForDisplayRequest, opts ...grpc.CallOption) (*SetLine1NumberForDisplayResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(SetLine1NumberForDisplayResponse)
@@ -1591,16 +1906,6 @@ func (c *managerServiceClient) SetPreferredNetworkTypeToGlobal(ctx context.Conte
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(SetPreferredNetworkTypeToGlobalResponse)
 	err := c.cc.Invoke(ctx, ManagerService_SetPreferredNetworkTypeToGlobal_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *managerServiceClient) SetPreferredOpportunisticDataSubscription(ctx context.Context, in *SetPreferredOpportunisticDataSubscriptionRequest, opts ...grpc.CallOption) (*SetPreferredOpportunisticDataSubscriptionResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetPreferredOpportunisticDataSubscriptionResponse)
-	err := c.cc.Invoke(ctx, ManagerService_SetPreferredOpportunisticDataSubscription_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
@@ -1677,36 +1982,6 @@ func (c *managerServiceClient) UnregisterTelephonyCallback(ctx context.Context, 
 	return out, nil
 }
 
-func (c *managerServiceClient) UpdateAvailableNetworks(ctx context.Context, in *UpdateAvailableNetworksRequest, opts ...grpc.CallOption) (*UpdateAvailableNetworksResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(UpdateAvailableNetworksResponse)
-	err := c.cc.Invoke(ctx, ManagerService_UpdateAvailableNetworks_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *managerServiceClient) UploadCallComposerPicture4(ctx context.Context, in *UploadCallComposerPicture4Request, opts ...grpc.CallOption) (*UploadCallComposerPicture4Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(UploadCallComposerPicture4Response)
-	err := c.cc.Invoke(ctx, ManagerService_UploadCallComposerPicture4_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *managerServiceClient) UploadCallComposerPicture4_1(ctx context.Context, in *UploadCallComposerPicture4_1Request, opts ...grpc.CallOption) (*UploadCallComposerPicture4_1Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(UploadCallComposerPicture4_1Response)
-	err := c.cc.Invoke(ctx, ManagerService_UploadCallComposerPicture4_1_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
 func (c *managerServiceClient) GetMaximumCallComposerPictureSize(ctx context.Context, in *GetMaximumCallComposerPictureSizeRequest, opts ...grpc.CallOption) (*GetMaximumCallComposerPictureSizeResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(GetMaximumCallComposerPictureSizeResponse)
@@ -1727,7 +2002,6 @@ type ManagerServiceServer interface {
 	CreateForSubscriptionId(context.Context, *CreateForSubscriptionIdRequest) (*CreateForSubscriptionIdResponse, error)
 	DoesSwitchMultiSimConfigTriggerReboot(context.Context, *DoesSwitchMultiSimConfigTriggerRebootRequest) (*DoesSwitchMultiSimConfigTriggerRebootResponse, error)
 	GetActiveModemCount(context.Context, *GetActiveModemCountRequest) (*GetActiveModemCountResponse, error)
-	GetAllCellInfo(context.Context, *GetAllCellInfoRequest) (*GetAllCellInfoResponse, error)
 	GetAllowedNetworkTypesForReason(context.Context, *GetAllowedNetworkTypesForReasonRequest) (*GetAllowedNetworkTypesForReasonResponse, error)
 	GetCallComposerStatus(context.Context, *GetCallComposerStatusRequest) (*GetCallComposerStatusResponse, error)
 	GetCallState(context.Context, *GetCallStateRequest) (*GetCallStateResponse, error)
@@ -1735,7 +2009,6 @@ type ManagerServiceServer interface {
 	GetCardIdForDefaultEuicc(context.Context, *GetCardIdForDefaultEuiccRequest) (*GetCardIdForDefaultEuiccResponse, error)
 	GetCarrierConfig(context.Context, *GetCarrierConfigRequest) (*GetCarrierConfigResponse, error)
 	GetCarrierIdFromSimMccMnc(context.Context, *GetCarrierIdFromSimMccMncRequest) (*GetCarrierIdFromSimMccMncResponse, error)
-	GetCarrierRestrictionStatus(context.Context, *GetCarrierRestrictionStatusRequest) (*GetCarrierRestrictionStatusResponse, error)
 	GetCellLocation(context.Context, *GetCellLocationRequest) (*GetCellLocationResponse, error)
 	GetDataActivity(context.Context, *GetDataActivityRequest) (*GetDataActivityResponse, error)
 	GetDataNetworkType(context.Context, *GetDataNetworkTypeRequest) (*GetDataNetworkTypeResponse, error)
@@ -1743,7 +2016,6 @@ type ManagerServiceServer interface {
 	GetDeviceId0(context.Context, *GetDeviceId0Request) (*GetDeviceId0Response, error)
 	GetDeviceId1_1(context.Context, *GetDeviceId1_1Request) (*GetDeviceId1_1Response, error)
 	GetDeviceSoftwareVersion(context.Context, *GetDeviceSoftwareVersionRequest) (*GetDeviceSoftwareVersionResponse, error)
-	GetEquivalentHomePlmns(context.Context, *GetEquivalentHomePlmnsRequest) (*GetEquivalentHomePlmnsResponse, error)
 	GetForbiddenPlmns(context.Context, *GetForbiddenPlmnsRequest) (*GetForbiddenPlmnsResponse, error)
 	GetGroupIdLevel1(context.Context, *GetGroupIdLevel1Request) (*GetGroupIdLevel1Response, error)
 	GetIccAuthentication(context.Context, *GetIccAuthenticationRequest) (*GetIccAuthenticationResponse, error)
@@ -1763,7 +2035,6 @@ type ManagerServiceServer interface {
 	GetNetworkOperator(context.Context, *GetNetworkOperatorRequest) (*GetNetworkOperatorResponse, error)
 	GetNetworkOperatorName(context.Context, *GetNetworkOperatorNameRequest) (*GetNetworkOperatorNameResponse, error)
 	GetNetworkSelectionMode(context.Context, *GetNetworkSelectionModeRequest) (*GetNetworkSelectionModeResponse, error)
-	GetNetworkSlicingConfiguration(context.Context, *GetNetworkSlicingConfigurationRequest) (*GetNetworkSlicingConfigurationResponse, error)
 	GetNetworkSpecifier(context.Context, *GetNetworkSpecifierRequest) (*GetNetworkSpecifierResponse, error)
 	GetNetworkType(context.Context, *GetNetworkTypeRequest) (*GetNetworkTypeResponse, error)
 	GetPhoneAccountHandle(context.Context, *GetPhoneAccountHandleRequest) (*GetPhoneAccountHandleResponse, error)
@@ -1791,7 +2062,6 @@ type ManagerServiceServer interface {
 	GetSupportedRadioAccessFamily(context.Context, *GetSupportedRadioAccessFamilyRequest) (*GetSupportedRadioAccessFamilyResponse, error)
 	GetTypeAllocationCode0(context.Context, *GetTypeAllocationCode0Request) (*GetTypeAllocationCode0Response, error)
 	GetTypeAllocationCode1_1(context.Context, *GetTypeAllocationCode1_1Request) (*GetTypeAllocationCode1_1Response, error)
-	GetUiccCardsInfo(context.Context, *GetUiccCardsInfoRequest) (*GetUiccCardsInfoResponse, error)
 	GetVisualVoicemailPackageName(context.Context, *GetVisualVoicemailPackageNameRequest) (*GetVisualVoicemailPackageNameResponse, error)
 	GetVoiceMailAlphaTag(context.Context, *GetVoiceMailAlphaTagRequest) (*GetVoiceMailAlphaTagResponse, error)
 	GetVoiceMailNumber(context.Context, *GetVoiceMailNumberRequest) (*GetVoiceMailNumberResponse, error)
@@ -1828,7 +2098,6 @@ type ManagerServiceServer interface {
 	IsVoicemailVibrationEnabled(context.Context, *IsVoicemailVibrationEnabledRequest) (*IsVoicemailVibrationEnabledResponse, error)
 	IsWorldPhone(context.Context, *IsWorldPhoneRequest) (*IsWorldPhoneResponse, error)
 	Listen(context.Context, *ListenRequest) (*ListenResponse, error)
-	PurchasePremiumCapability(context.Context, *PurchasePremiumCapabilityRequest) (*PurchasePremiumCapabilityResponse, error)
 	RebootModem(context.Context, *RebootModemRequest) (*RebootModemResponse, error)
 	RegisterTelephonyCallback3(context.Context, *RegisterTelephonyCallback3Request) (*RegisterTelephonyCallback3Response, error)
 	RegisterTelephonyCallback2_1(context.Context, *RegisterTelephonyCallback2_1Request) (*RegisterTelephonyCallback2_1Response, error)
@@ -1842,14 +2111,12 @@ type ManagerServiceServer interface {
 	SetCallComposerStatus(context.Context, *SetCallComposerStatusRequest) (*SetCallComposerStatusResponse, error)
 	SetDataEnabled(context.Context, *SetDataEnabledRequest) (*SetDataEnabledResponse, error)
 	SetDataEnabledForReason(context.Context, *SetDataEnabledForReasonRequest) (*SetDataEnabledForReasonResponse, error)
-	SetForbiddenPlmns(context.Context, *SetForbiddenPlmnsRequest) (*SetForbiddenPlmnsResponse, error)
 	SetLine1NumberForDisplay(context.Context, *SetLine1NumberForDisplayRequest) (*SetLine1NumberForDisplayResponse, error)
 	SetNetworkSelectionModeAutomatic(context.Context, *SetNetworkSelectionModeAutomaticRequest) (*SetNetworkSelectionModeAutomaticResponse, error)
 	SetNetworkSelectionModeManual2(context.Context, *SetNetworkSelectionModeManual2Request) (*SetNetworkSelectionModeManual2Response, error)
 	SetNetworkSelectionModeManual3_1(context.Context, *SetNetworkSelectionModeManual3_1Request) (*SetNetworkSelectionModeManual3_1Response, error)
 	SetOperatorBrandOverride(context.Context, *SetOperatorBrandOverrideRequest) (*SetOperatorBrandOverrideResponse, error)
 	SetPreferredNetworkTypeToGlobal(context.Context, *SetPreferredNetworkTypeToGlobalRequest) (*SetPreferredNetworkTypeToGlobalResponse, error)
-	SetPreferredOpportunisticDataSubscription(context.Context, *SetPreferredOpportunisticDataSubscriptionRequest) (*SetPreferredOpportunisticDataSubscriptionResponse, error)
 	SetSignalStrengthUpdateRequest(context.Context, *SetSignalStrengthUpdateRequestRequest) (*SetSignalStrengthUpdateRequestResponse, error)
 	SetVisualVoicemailSmsFilterSettings(context.Context, *SetVisualVoicemailSmsFilterSettingsRequest) (*SetVisualVoicemailSmsFilterSettingsResponse, error)
 	SetVoiceMailNumber(context.Context, *SetVoiceMailNumberRequest) (*SetVoiceMailNumberResponse, error)
@@ -1857,9 +2124,6 @@ type ManagerServiceServer interface {
 	SetVoicemailVibrationEnabled(context.Context, *SetVoicemailVibrationEnabledRequest) (*SetVoicemailVibrationEnabledResponse, error)
 	SwitchMultiSimConfig(context.Context, *SwitchMultiSimConfigRequest) (*SwitchMultiSimConfigResponse, error)
 	UnregisterTelephonyCallback(context.Context, *UnregisterTelephonyCallbackRequest) (*UnregisterTelephonyCallbackResponse, error)
-	UpdateAvailableNetworks(context.Context, *UpdateAvailableNetworksRequest) (*UpdateAvailableNetworksResponse, error)
-	UploadCallComposerPicture4(context.Context, *UploadCallComposerPicture4Request) (*UploadCallComposerPicture4Response, error)
-	UploadCallComposerPicture4_1(context.Context, *UploadCallComposerPicture4_1Request) (*UploadCallComposerPicture4_1Response, error)
 	GetMaximumCallComposerPictureSize(context.Context, *GetMaximumCallComposerPictureSizeRequest) (*GetMaximumCallComposerPictureSizeResponse, error)
 	mustEmbedUnimplementedManagerServiceServer()
 }
@@ -1889,9 +2153,6 @@ func (UnimplementedManagerServiceServer) DoesSwitchMultiSimConfigTriggerReboot(c
 func (UnimplementedManagerServiceServer) GetActiveModemCount(context.Context, *GetActiveModemCountRequest) (*GetActiveModemCountResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetActiveModemCount not implemented")
 }
-func (UnimplementedManagerServiceServer) GetAllCellInfo(context.Context, *GetAllCellInfoRequest) (*GetAllCellInfoResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetAllCellInfo not implemented")
-}
 func (UnimplementedManagerServiceServer) GetAllowedNetworkTypesForReason(context.Context, *GetAllowedNetworkTypesForReasonRequest) (*GetAllowedNetworkTypesForReasonResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetAllowedNetworkTypesForReason not implemented")
 }
@@ -1913,9 +2174,6 @@ func (UnimplementedManagerServiceServer) GetCarrierConfig(context.Context, *GetC
 func (UnimplementedManagerServiceServer) GetCarrierIdFromSimMccMnc(context.Context, *GetCarrierIdFromSimMccMncRequest) (*GetCarrierIdFromSimMccMncResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetCarrierIdFromSimMccMnc not implemented")
 }
-func (UnimplementedManagerServiceServer) GetCarrierRestrictionStatus(context.Context, *GetCarrierRestrictionStatusRequest) (*GetCarrierRestrictionStatusResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetCarrierRestrictionStatus not implemented")
-}
 func (UnimplementedManagerServiceServer) GetCellLocation(context.Context, *GetCellLocationRequest) (*GetCellLocationResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetCellLocation not implemented")
 }
@@ -1936,9 +2194,6 @@ func (UnimplementedManagerServiceServer) GetDeviceId1_1(context.Context, *GetDev
 }
 func (UnimplementedManagerServiceServer) GetDeviceSoftwareVersion(context.Context, *GetDeviceSoftwareVersionRequest) (*GetDeviceSoftwareVersionResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetDeviceSoftwareVersion not implemented")
-}
-func (UnimplementedManagerServiceServer) GetEquivalentHomePlmns(context.Context, *GetEquivalentHomePlmnsRequest) (*GetEquivalentHomePlmnsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetEquivalentHomePlmns not implemented")
 }
 func (UnimplementedManagerServiceServer) GetForbiddenPlmns(context.Context, *GetForbiddenPlmnsRequest) (*GetForbiddenPlmnsResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetForbiddenPlmns not implemented")
@@ -1996,9 +2251,6 @@ func (UnimplementedManagerServiceServer) GetNetworkOperatorName(context.Context,
 }
 func (UnimplementedManagerServiceServer) GetNetworkSelectionMode(context.Context, *GetNetworkSelectionModeRequest) (*GetNetworkSelectionModeResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetNetworkSelectionMode not implemented")
-}
-func (UnimplementedManagerServiceServer) GetNetworkSlicingConfiguration(context.Context, *GetNetworkSlicingConfigurationRequest) (*GetNetworkSlicingConfigurationResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetNetworkSlicingConfiguration not implemented")
 }
 func (UnimplementedManagerServiceServer) GetNetworkSpecifier(context.Context, *GetNetworkSpecifierRequest) (*GetNetworkSpecifierResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetNetworkSpecifier not implemented")
@@ -2080,9 +2332,6 @@ func (UnimplementedManagerServiceServer) GetTypeAllocationCode0(context.Context,
 }
 func (UnimplementedManagerServiceServer) GetTypeAllocationCode1_1(context.Context, *GetTypeAllocationCode1_1Request) (*GetTypeAllocationCode1_1Response, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetTypeAllocationCode1_1 not implemented")
-}
-func (UnimplementedManagerServiceServer) GetUiccCardsInfo(context.Context, *GetUiccCardsInfoRequest) (*GetUiccCardsInfoResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetUiccCardsInfo not implemented")
 }
 func (UnimplementedManagerServiceServer) GetVisualVoicemailPackageName(context.Context, *GetVisualVoicemailPackageNameRequest) (*GetVisualVoicemailPackageNameResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetVisualVoicemailPackageName not implemented")
@@ -2192,9 +2441,6 @@ func (UnimplementedManagerServiceServer) IsWorldPhone(context.Context, *IsWorldP
 func (UnimplementedManagerServiceServer) Listen(context.Context, *ListenRequest) (*ListenResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method Listen not implemented")
 }
-func (UnimplementedManagerServiceServer) PurchasePremiumCapability(context.Context, *PurchasePremiumCapabilityRequest) (*PurchasePremiumCapabilityResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method PurchasePremiumCapability not implemented")
-}
 func (UnimplementedManagerServiceServer) RebootModem(context.Context, *RebootModemRequest) (*RebootModemResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method RebootModem not implemented")
 }
@@ -2234,9 +2480,6 @@ func (UnimplementedManagerServiceServer) SetDataEnabled(context.Context, *SetDat
 func (UnimplementedManagerServiceServer) SetDataEnabledForReason(context.Context, *SetDataEnabledForReasonRequest) (*SetDataEnabledForReasonResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method SetDataEnabledForReason not implemented")
 }
-func (UnimplementedManagerServiceServer) SetForbiddenPlmns(context.Context, *SetForbiddenPlmnsRequest) (*SetForbiddenPlmnsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetForbiddenPlmns not implemented")
-}
 func (UnimplementedManagerServiceServer) SetLine1NumberForDisplay(context.Context, *SetLine1NumberForDisplayRequest) (*SetLine1NumberForDisplayResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method SetLine1NumberForDisplay not implemented")
 }
@@ -2254,9 +2497,6 @@ func (UnimplementedManagerServiceServer) SetOperatorBrandOverride(context.Contex
 }
 func (UnimplementedManagerServiceServer) SetPreferredNetworkTypeToGlobal(context.Context, *SetPreferredNetworkTypeToGlobalRequest) (*SetPreferredNetworkTypeToGlobalResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method SetPreferredNetworkTypeToGlobal not implemented")
-}
-func (UnimplementedManagerServiceServer) SetPreferredOpportunisticDataSubscription(context.Context, *SetPreferredOpportunisticDataSubscriptionRequest) (*SetPreferredOpportunisticDataSubscriptionResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetPreferredOpportunisticDataSubscription not implemented")
 }
 func (UnimplementedManagerServiceServer) SetSignalStrengthUpdateRequest(context.Context, *SetSignalStrengthUpdateRequestRequest) (*SetSignalStrengthUpdateRequestResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method SetSignalStrengthUpdateRequest not implemented")
@@ -2278,15 +2518,6 @@ func (UnimplementedManagerServiceServer) SwitchMultiSimConfig(context.Context, *
 }
 func (UnimplementedManagerServiceServer) UnregisterTelephonyCallback(context.Context, *UnregisterTelephonyCallbackRequest) (*UnregisterTelephonyCallbackResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method UnregisterTelephonyCallback not implemented")
-}
-func (UnimplementedManagerServiceServer) UpdateAvailableNetworks(context.Context, *UpdateAvailableNetworksRequest) (*UpdateAvailableNetworksResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method UpdateAvailableNetworks not implemented")
-}
-func (UnimplementedManagerServiceServer) UploadCallComposerPicture4(context.Context, *UploadCallComposerPicture4Request) (*UploadCallComposerPicture4Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method UploadCallComposerPicture4 not implemented")
-}
-func (UnimplementedManagerServiceServer) UploadCallComposerPicture4_1(context.Context, *UploadCallComposerPicture4_1Request) (*UploadCallComposerPicture4_1Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method UploadCallComposerPicture4_1 not implemented")
 }
 func (UnimplementedManagerServiceServer) GetMaximumCallComposerPictureSize(context.Context, *GetMaximumCallComposerPictureSizeRequest) (*GetMaximumCallComposerPictureSizeResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetMaximumCallComposerPictureSize not implemented")
@@ -2420,24 +2651,6 @@ func _ManagerService_GetActiveModemCount_Handler(srv interface{}, ctx context.Co
 	return interceptor(ctx, in, info, handler)
 }
 
-func _ManagerService_GetAllCellInfo_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetAllCellInfoRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ManagerServiceServer).GetAllCellInfo(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ManagerService_GetAllCellInfo_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ManagerServiceServer).GetAllCellInfo(ctx, req.(*GetAllCellInfoRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
 func _ManagerService_GetAllowedNetworkTypesForReason_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(GetAllowedNetworkTypesForReasonRequest)
 	if err := dec(in); err != nil {
@@ -2564,24 +2777,6 @@ func _ManagerService_GetCarrierIdFromSimMccMnc_Handler(srv interface{}, ctx cont
 	return interceptor(ctx, in, info, handler)
 }
 
-func _ManagerService_GetCarrierRestrictionStatus_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetCarrierRestrictionStatusRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ManagerServiceServer).GetCarrierRestrictionStatus(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ManagerService_GetCarrierRestrictionStatus_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ManagerServiceServer).GetCarrierRestrictionStatus(ctx, req.(*GetCarrierRestrictionStatusRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
 func _ManagerService_GetCellLocation_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(GetCellLocationRequest)
 	if err := dec(in); err != nil {
@@ -2704,24 +2899,6 @@ func _ManagerService_GetDeviceSoftwareVersion_Handler(srv interface{}, ctx conte
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(ManagerServiceServer).GetDeviceSoftwareVersion(ctx, req.(*GetDeviceSoftwareVersionRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ManagerService_GetEquivalentHomePlmns_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetEquivalentHomePlmnsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ManagerServiceServer).GetEquivalentHomePlmns(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ManagerService_GetEquivalentHomePlmns_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ManagerServiceServer).GetEquivalentHomePlmns(ctx, req.(*GetEquivalentHomePlmnsRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -3064,24 +3241,6 @@ func _ManagerService_GetNetworkSelectionMode_Handler(srv interface{}, ctx contex
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(ManagerServiceServer).GetNetworkSelectionMode(ctx, req.(*GetNetworkSelectionModeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ManagerService_GetNetworkSlicingConfiguration_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetNetworkSlicingConfigurationRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ManagerServiceServer).GetNetworkSlicingConfiguration(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ManagerService_GetNetworkSlicingConfiguration_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ManagerServiceServer).GetNetworkSlicingConfiguration(ctx, req.(*GetNetworkSlicingConfigurationRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -3568,24 +3727,6 @@ func _ManagerService_GetTypeAllocationCode1_1_Handler(srv interface{}, ctx conte
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(ManagerServiceServer).GetTypeAllocationCode1_1(ctx, req.(*GetTypeAllocationCode1_1Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ManagerService_GetUiccCardsInfo_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetUiccCardsInfoRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ManagerServiceServer).GetUiccCardsInfo(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ManagerService_GetUiccCardsInfo_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ManagerServiceServer).GetUiccCardsInfo(ctx, req.(*GetUiccCardsInfoRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -4238,24 +4379,6 @@ func _ManagerService_Listen_Handler(srv interface{}, ctx context.Context, dec fu
 	return interceptor(ctx, in, info, handler)
 }
 
-func _ManagerService_PurchasePremiumCapability_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(PurchasePremiumCapabilityRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ManagerServiceServer).PurchasePremiumCapability(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ManagerService_PurchasePremiumCapability_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ManagerServiceServer).PurchasePremiumCapability(ctx, req.(*PurchasePremiumCapabilityRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
 func _ManagerService_RebootModem_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(RebootModemRequest)
 	if err := dec(in); err != nil {
@@ -4490,24 +4613,6 @@ func _ManagerService_SetDataEnabledForReason_Handler(srv interface{}, ctx contex
 	return interceptor(ctx, in, info, handler)
 }
 
-func _ManagerService_SetForbiddenPlmns_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetForbiddenPlmnsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ManagerServiceServer).SetForbiddenPlmns(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ManagerService_SetForbiddenPlmns_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ManagerServiceServer).SetForbiddenPlmns(ctx, req.(*SetForbiddenPlmnsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
 func _ManagerService_SetLine1NumberForDisplay_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(SetLine1NumberForDisplayRequest)
 	if err := dec(in); err != nil {
@@ -4612,24 +4717,6 @@ func _ManagerService_SetPreferredNetworkTypeToGlobal_Handler(srv interface{}, ct
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(ManagerServiceServer).SetPreferredNetworkTypeToGlobal(ctx, req.(*SetPreferredNetworkTypeToGlobalRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ManagerService_SetPreferredOpportunisticDataSubscription_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetPreferredOpportunisticDataSubscriptionRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ManagerServiceServer).SetPreferredOpportunisticDataSubscription(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ManagerService_SetPreferredOpportunisticDataSubscription_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ManagerServiceServer).SetPreferredOpportunisticDataSubscription(ctx, req.(*SetPreferredOpportunisticDataSubscriptionRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -4760,60 +4847,6 @@ func _ManagerService_UnregisterTelephonyCallback_Handler(srv interface{}, ctx co
 	return interceptor(ctx, in, info, handler)
 }
 
-func _ManagerService_UpdateAvailableNetworks_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(UpdateAvailableNetworksRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ManagerServiceServer).UpdateAvailableNetworks(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ManagerService_UpdateAvailableNetworks_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ManagerServiceServer).UpdateAvailableNetworks(ctx, req.(*UpdateAvailableNetworksRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ManagerService_UploadCallComposerPicture4_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(UploadCallComposerPicture4Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ManagerServiceServer).UploadCallComposerPicture4(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ManagerService_UploadCallComposerPicture4_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ManagerServiceServer).UploadCallComposerPicture4(ctx, req.(*UploadCallComposerPicture4Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ManagerService_UploadCallComposerPicture4_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(UploadCallComposerPicture4_1Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ManagerServiceServer).UploadCallComposerPicture4_1(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ManagerService_UploadCallComposerPicture4_1_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ManagerServiceServer).UploadCallComposerPicture4_1(ctx, req.(*UploadCallComposerPicture4_1Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
 func _ManagerService_GetMaximumCallComposerPictureSize_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(GetMaximumCallComposerPictureSizeRequest)
 	if err := dec(in); err != nil {
@@ -4864,10 +4897,6 @@ var ManagerService_ServiceDesc = grpc.ServiceDesc{
 			Handler:    _ManagerService_GetActiveModemCount_Handler,
 		},
 		{
-			MethodName: "GetAllCellInfo",
-			Handler:    _ManagerService_GetAllCellInfo_Handler,
-		},
-		{
 			MethodName: "GetAllowedNetworkTypesForReason",
 			Handler:    _ManagerService_GetAllowedNetworkTypesForReason_Handler,
 		},
@@ -4896,10 +4925,6 @@ var ManagerService_ServiceDesc = grpc.ServiceDesc{
 			Handler:    _ManagerService_GetCarrierIdFromSimMccMnc_Handler,
 		},
 		{
-			MethodName: "GetCarrierRestrictionStatus",
-			Handler:    _ManagerService_GetCarrierRestrictionStatus_Handler,
-		},
-		{
 			MethodName: "GetCellLocation",
 			Handler:    _ManagerService_GetCellLocation_Handler,
 		},
@@ -4926,10 +4951,6 @@ var ManagerService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "GetDeviceSoftwareVersion",
 			Handler:    _ManagerService_GetDeviceSoftwareVersion_Handler,
-		},
-		{
-			MethodName: "GetEquivalentHomePlmns",
-			Handler:    _ManagerService_GetEquivalentHomePlmns_Handler,
 		},
 		{
 			MethodName: "GetForbiddenPlmns",
@@ -5006,10 +5027,6 @@ var ManagerService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "GetNetworkSelectionMode",
 			Handler:    _ManagerService_GetNetworkSelectionMode_Handler,
-		},
-		{
-			MethodName: "GetNetworkSlicingConfiguration",
-			Handler:    _ManagerService_GetNetworkSlicingConfiguration_Handler,
 		},
 		{
 			MethodName: "GetNetworkSpecifier",
@@ -5118,10 +5135,6 @@ var ManagerService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "GetTypeAllocationCode1_1",
 			Handler:    _ManagerService_GetTypeAllocationCode1_1_Handler,
-		},
-		{
-			MethodName: "GetUiccCardsInfo",
-			Handler:    _ManagerService_GetUiccCardsInfo_Handler,
 		},
 		{
 			MethodName: "GetVisualVoicemailPackageName",
@@ -5268,10 +5281,6 @@ var ManagerService_ServiceDesc = grpc.ServiceDesc{
 			Handler:    _ManagerService_Listen_Handler,
 		},
 		{
-			MethodName: "PurchasePremiumCapability",
-			Handler:    _ManagerService_PurchasePremiumCapability_Handler,
-		},
-		{
 			MethodName: "RebootModem",
 			Handler:    _ManagerService_RebootModem_Handler,
 		},
@@ -5324,10 +5333,6 @@ var ManagerService_ServiceDesc = grpc.ServiceDesc{
 			Handler:    _ManagerService_SetDataEnabledForReason_Handler,
 		},
 		{
-			MethodName: "SetForbiddenPlmns",
-			Handler:    _ManagerService_SetForbiddenPlmns_Handler,
-		},
-		{
 			MethodName: "SetLine1NumberForDisplay",
 			Handler:    _ManagerService_SetLine1NumberForDisplay_Handler,
 		},
@@ -5350,10 +5355,6 @@ var ManagerService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "SetPreferredNetworkTypeToGlobal",
 			Handler:    _ManagerService_SetPreferredNetworkTypeToGlobal_Handler,
-		},
-		{
-			MethodName: "SetPreferredOpportunisticDataSubscription",
-			Handler:    _ManagerService_SetPreferredOpportunisticDataSubscription_Handler,
 		},
 		{
 			MethodName: "SetSignalStrengthUpdateRequest",
@@ -5382,18 +5383,6 @@ var ManagerService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "UnregisterTelephonyCallback",
 			Handler:    _ManagerService_UnregisterTelephonyCallback_Handler,
-		},
-		{
-			MethodName: "UpdateAvailableNetworks",
-			Handler:    _ManagerService_UpdateAvailableNetworks_Handler,
-		},
-		{
-			MethodName: "UploadCallComposerPicture4",
-			Handler:    _ManagerService_UploadCallComposerPicture4_Handler,
-		},
-		{
-			MethodName: "UploadCallComposerPicture4_1",
-			Handler:    _ManagerService_UploadCallComposerPicture4_1_Handler,
 		},
 		{
 			MethodName: "GetMaximumCallComposerPictureSize",

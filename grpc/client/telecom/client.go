@@ -9,20 +9,20 @@ import (
 	"google.golang.org/grpc"
 )
 
-// Client wraps the gRPC ManagerService client.
-type Client struct {
+// ManagerClient wraps the gRPC ManagerService client.
+type ManagerClient struct {
 	svc pb.ManagerServiceClient
 }
 
-// NewClient creates a new telecom client.
-func NewClient(cc grpc.ClientConnInterface) *Client {
-	return &Client{
+// NewManagerClient creates a new Manager client.
+func NewManagerClient(cc grpc.ClientConnInterface) *ManagerClient {
+	return &ManagerClient{
 		svc: pb.NewManagerServiceClient(cc),
 	}
 }
 
 // AcceptHandover calls the AcceptHandover RPC.
-func (c *Client) AcceptHandover(ctx context.Context, arg0 int64, arg1 int32, arg2 int64) error {
+func (c *ManagerClient) AcceptHandover(ctx context.Context, arg0 int64, arg1 int32, arg2 int64) error {
 	_, err := c.svc.AcceptHandover(ctx, &pb.AcceptHandoverRequest{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -32,33 +32,21 @@ func (c *Client) AcceptHandover(ctx context.Context, arg0 int64, arg1 int32, arg
 }
 
 // AcceptRingingCall0 calls the AcceptRingingCall0 RPC.
-func (c *Client) AcceptRingingCall0(ctx context.Context) error {
+func (c *ManagerClient) AcceptRingingCall0(ctx context.Context) error {
 	_, err := c.svc.AcceptRingingCall0(ctx, &pb.AcceptRingingCall0Request{})
 	return err
 }
 
 // AcceptRingingCall1_1 calls the AcceptRingingCall1_1 RPC.
-func (c *Client) AcceptRingingCall1_1(ctx context.Context, arg0 int32) error {
+func (c *ManagerClient) AcceptRingingCall1_1(ctx context.Context, arg0 int32) error {
 	_, err := c.svc.AcceptRingingCall1_1(ctx, &pb.AcceptRingingCall1_1Request{
 		Arg0: arg0,
 	})
 	return err
 }
 
-// AddCall calls the AddCall RPC.
-func (c *Client) AddCall(ctx context.Context, arg0 int64, arg1 int64, arg2 int64, arg3 int64, arg4 int64) error {
-	_, err := c.svc.AddCall(ctx, &pb.AddCallRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
-		Arg4: arg4,
-	})
-	return err
-}
-
 // AddNewIncomingCall calls the AddNewIncomingCall RPC.
-func (c *Client) AddNewIncomingCall(ctx context.Context, arg0 int64, arg1 int64) error {
+func (c *ManagerClient) AddNewIncomingCall(ctx context.Context, arg0 int64, arg1 int64) error {
 	_, err := c.svc.AddNewIncomingCall(ctx, &pb.AddNewIncomingCallRequest{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -67,7 +55,7 @@ func (c *Client) AddNewIncomingCall(ctx context.Context, arg0 int64, arg1 int64)
 }
 
 // AddNewIncomingConference calls the AddNewIncomingConference RPC.
-func (c *Client) AddNewIncomingConference(ctx context.Context, arg0 int64, arg1 int64) error {
+func (c *ManagerClient) AddNewIncomingConference(ctx context.Context, arg0 int64, arg1 int64) error {
 	_, err := c.svc.AddNewIncomingConference(ctx, &pb.AddNewIncomingConferenceRequest{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -76,13 +64,13 @@ func (c *Client) AddNewIncomingConference(ctx context.Context, arg0 int64, arg1 
 }
 
 // CancelMissedCallsNotification calls the CancelMissedCallsNotification RPC.
-func (c *Client) CancelMissedCallsNotification(ctx context.Context) error {
+func (c *ManagerClient) CancelMissedCallsNotification(ctx context.Context) error {
 	_, err := c.svc.CancelMissedCallsNotification(ctx, &pb.CancelMissedCallsNotificationRequest{})
 	return err
 }
 
 // CreateManageBlockedNumbersIntent calls the CreateManageBlockedNumbersIntent RPC.
-func (c *Client) CreateManageBlockedNumbersIntent(ctx context.Context) (int64, error) {
+func (c *ManagerClient) CreateManageBlockedNumbersIntent(ctx context.Context) (int64, error) {
 	resp, err := c.svc.CreateManageBlockedNumbersIntent(ctx, &pb.CreateManageBlockedNumbersIntentRequest{})
 	if err != nil {
 		return 0, err
@@ -91,7 +79,7 @@ func (c *Client) CreateManageBlockedNumbersIntent(ctx context.Context) (int64, e
 }
 
 // EndCall calls the EndCall RPC.
-func (c *Client) EndCall(ctx context.Context) (bool, error) {
+func (c *ManagerClient) EndCall(ctx context.Context) (bool, error) {
 	resp, err := c.svc.EndCall(ctx, &pb.EndCallRequest{})
 	if err != nil {
 		return false, err
@@ -100,7 +88,7 @@ func (c *Client) EndCall(ctx context.Context) (bool, error) {
 }
 
 // GetAdnUriForPhoneAccount calls the GetAdnUriForPhoneAccount RPC.
-func (c *Client) GetAdnUriForPhoneAccount(ctx context.Context, arg0 int64) (int64, error) {
+func (c *ManagerClient) GetAdnUriForPhoneAccount(ctx context.Context, arg0 int64) (int64, error) {
 	resp, err := c.svc.GetAdnUriForPhoneAccount(ctx, &pb.GetAdnUriForPhoneAccountRequest{
 		Arg0: arg0,
 	})
@@ -110,17 +98,8 @@ func (c *Client) GetAdnUriForPhoneAccount(ctx context.Context, arg0 int64) (int6
 	return resp.GetResult(), nil
 }
 
-// GetCallCapablePhoneAccounts calls the GetCallCapablePhoneAccounts RPC.
-func (c *Client) GetCallCapablePhoneAccounts(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetCallCapablePhoneAccounts(ctx, &pb.GetCallCapablePhoneAccountsRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
 // GetDefaultDialerPackage calls the GetDefaultDialerPackage RPC.
-func (c *Client) GetDefaultDialerPackage(ctx context.Context) (string, error) {
+func (c *ManagerClient) GetDefaultDialerPackage(ctx context.Context) (string, error) {
 	resp, err := c.svc.GetDefaultDialerPackage(ctx, &pb.GetDefaultDialerPackageRequest{})
 	if err != nil {
 		return "", err
@@ -129,7 +108,7 @@ func (c *Client) GetDefaultDialerPackage(ctx context.Context) (string, error) {
 }
 
 // GetDefaultOutgoingPhoneAccount calls the GetDefaultOutgoingPhoneAccount RPC.
-func (c *Client) GetDefaultOutgoingPhoneAccount(ctx context.Context, arg0 string) (int64, error) {
+func (c *ManagerClient) GetDefaultOutgoingPhoneAccount(ctx context.Context, arg0 string) (int64, error) {
 	resp, err := c.svc.GetDefaultOutgoingPhoneAccount(ctx, &pb.GetDefaultOutgoingPhoneAccountRequest{
 		Arg0: arg0,
 	})
@@ -140,7 +119,7 @@ func (c *Client) GetDefaultOutgoingPhoneAccount(ctx context.Context, arg0 string
 }
 
 // GetLine1Number calls the GetLine1Number RPC.
-func (c *Client) GetLine1Number(ctx context.Context, arg0 int64) (string, error) {
+func (c *ManagerClient) GetLine1Number(ctx context.Context, arg0 int64) (string, error) {
 	resp, err := c.svc.GetLine1Number(ctx, &pb.GetLine1NumberRequest{
 		Arg0: arg0,
 	})
@@ -150,17 +129,8 @@ func (c *Client) GetLine1Number(ctx context.Context, arg0 int64) (string, error)
 	return resp.GetResult(), nil
 }
 
-// GetOwnSelfManagedPhoneAccounts calls the GetOwnSelfManagedPhoneAccounts RPC.
-func (c *Client) GetOwnSelfManagedPhoneAccounts(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetOwnSelfManagedPhoneAccounts(ctx, &pb.GetOwnSelfManagedPhoneAccountsRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
 // GetPhoneAccount calls the GetPhoneAccount RPC.
-func (c *Client) GetPhoneAccount(ctx context.Context, arg0 int64) (int64, error) {
+func (c *ManagerClient) GetPhoneAccount(ctx context.Context, arg0 int64) (int64, error) {
 	resp, err := c.svc.GetPhoneAccount(ctx, &pb.GetPhoneAccountRequest{
 		Arg0: arg0,
 	})
@@ -170,26 +140,8 @@ func (c *Client) GetPhoneAccount(ctx context.Context, arg0 int64) (int64, error)
 	return resp.GetResult(), nil
 }
 
-// GetRegisteredPhoneAccounts calls the GetRegisteredPhoneAccounts RPC.
-func (c *Client) GetRegisteredPhoneAccounts(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetRegisteredPhoneAccounts(ctx, &pb.GetRegisteredPhoneAccountsRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetSelfManagedPhoneAccounts calls the GetSelfManagedPhoneAccounts RPC.
-func (c *Client) GetSelfManagedPhoneAccounts(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetSelfManagedPhoneAccounts(ctx, &pb.GetSelfManagedPhoneAccountsRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
 // GetSimCallManager calls the GetSimCallManager RPC.
-func (c *Client) GetSimCallManager(ctx context.Context) (int64, error) {
+func (c *ManagerClient) GetSimCallManager(ctx context.Context) (int64, error) {
 	resp, err := c.svc.GetSimCallManager(ctx, &pb.GetSimCallManagerRequest{})
 	if err != nil {
 		return 0, err
@@ -198,7 +150,7 @@ func (c *Client) GetSimCallManager(ctx context.Context) (int64, error) {
 }
 
 // GetSimCallManagerForSubscription calls the GetSimCallManagerForSubscription RPC.
-func (c *Client) GetSimCallManagerForSubscription(ctx context.Context, arg0 int32) (int64, error) {
+func (c *ManagerClient) GetSimCallManagerForSubscription(ctx context.Context, arg0 int32) (int64, error) {
 	resp, err := c.svc.GetSimCallManagerForSubscription(ctx, &pb.GetSimCallManagerForSubscriptionRequest{
 		Arg0: arg0,
 	})
@@ -209,7 +161,7 @@ func (c *Client) GetSimCallManagerForSubscription(ctx context.Context, arg0 int3
 }
 
 // GetSystemDialerPackage calls the GetSystemDialerPackage RPC.
-func (c *Client) GetSystemDialerPackage(ctx context.Context) (string, error) {
+func (c *ManagerClient) GetSystemDialerPackage(ctx context.Context) (string, error) {
 	resp, err := c.svc.GetSystemDialerPackage(ctx, &pb.GetSystemDialerPackageRequest{})
 	if err != nil {
 		return "", err
@@ -218,7 +170,7 @@ func (c *Client) GetSystemDialerPackage(ctx context.Context) (string, error) {
 }
 
 // GetUserSelectedOutgoingPhoneAccount calls the GetUserSelectedOutgoingPhoneAccount RPC.
-func (c *Client) GetUserSelectedOutgoingPhoneAccount(ctx context.Context) (int64, error) {
+func (c *ManagerClient) GetUserSelectedOutgoingPhoneAccount(ctx context.Context) (int64, error) {
 	resp, err := c.svc.GetUserSelectedOutgoingPhoneAccount(ctx, &pb.GetUserSelectedOutgoingPhoneAccountRequest{})
 	if err != nil {
 		return 0, err
@@ -227,7 +179,7 @@ func (c *Client) GetUserSelectedOutgoingPhoneAccount(ctx context.Context) (int64
 }
 
 // GetVoiceMailNumber calls the GetVoiceMailNumber RPC.
-func (c *Client) GetVoiceMailNumber(ctx context.Context, arg0 int64) (string, error) {
+func (c *ManagerClient) GetVoiceMailNumber(ctx context.Context, arg0 int64) (string, error) {
 	resp, err := c.svc.GetVoiceMailNumber(ctx, &pb.GetVoiceMailNumberRequest{
 		Arg0: arg0,
 	})
@@ -238,7 +190,7 @@ func (c *Client) GetVoiceMailNumber(ctx context.Context, arg0 int64) (string, er
 }
 
 // HandleMmi1 calls the HandleMmi1 RPC.
-func (c *Client) HandleMmi1(ctx context.Context, arg0 string) (bool, error) {
+func (c *ManagerClient) HandleMmi1(ctx context.Context, arg0 string) (bool, error) {
 	resp, err := c.svc.HandleMmi1(ctx, &pb.HandleMmi1Request{
 		Arg0: arg0,
 	})
@@ -249,7 +201,7 @@ func (c *Client) HandleMmi1(ctx context.Context, arg0 string) (bool, error) {
 }
 
 // HandleMmi2_1 calls the HandleMmi2_1 RPC.
-func (c *Client) HandleMmi2_1(ctx context.Context, arg0 string, arg1 int64) (bool, error) {
+func (c *ManagerClient) HandleMmi2_1(ctx context.Context, arg0 string, arg1 int64) (bool, error) {
 	resp, err := c.svc.HandleMmi2_1(ctx, &pb.HandleMmi2_1Request{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -261,7 +213,7 @@ func (c *Client) HandleMmi2_1(ctx context.Context, arg0 string, arg1 int64) (boo
 }
 
 // HasManageOngoingCallsPermission calls the HasManageOngoingCallsPermission RPC.
-func (c *Client) HasManageOngoingCallsPermission(ctx context.Context) (bool, error) {
+func (c *ManagerClient) HasManageOngoingCallsPermission(ctx context.Context) (bool, error) {
 	resp, err := c.svc.HasManageOngoingCallsPermission(ctx, &pb.HasManageOngoingCallsPermissionRequest{})
 	if err != nil {
 		return false, err
@@ -270,7 +222,7 @@ func (c *Client) HasManageOngoingCallsPermission(ctx context.Context) (bool, err
 }
 
 // IsInCall calls the IsInCall RPC.
-func (c *Client) IsInCall(ctx context.Context) (bool, error) {
+func (c *ManagerClient) IsInCall(ctx context.Context) (bool, error) {
 	resp, err := c.svc.IsInCall(ctx, &pb.IsInCallRequest{})
 	if err != nil {
 		return false, err
@@ -279,7 +231,7 @@ func (c *Client) IsInCall(ctx context.Context) (bool, error) {
 }
 
 // IsInManagedCall calls the IsInManagedCall RPC.
-func (c *Client) IsInManagedCall(ctx context.Context) (bool, error) {
+func (c *ManagerClient) IsInManagedCall(ctx context.Context) (bool, error) {
 	resp, err := c.svc.IsInManagedCall(ctx, &pb.IsInManagedCallRequest{})
 	if err != nil {
 		return false, err
@@ -288,7 +240,7 @@ func (c *Client) IsInManagedCall(ctx context.Context) (bool, error) {
 }
 
 // IsIncomingCallPermitted calls the IsIncomingCallPermitted RPC.
-func (c *Client) IsIncomingCallPermitted(ctx context.Context, arg0 int64) (bool, error) {
+func (c *ManagerClient) IsIncomingCallPermitted(ctx context.Context, arg0 int64) (bool, error) {
 	resp, err := c.svc.IsIncomingCallPermitted(ctx, &pb.IsIncomingCallPermittedRequest{
 		Arg0: arg0,
 	})
@@ -299,7 +251,7 @@ func (c *Client) IsIncomingCallPermitted(ctx context.Context, arg0 int64) (bool,
 }
 
 // IsOutgoingCallPermitted calls the IsOutgoingCallPermitted RPC.
-func (c *Client) IsOutgoingCallPermitted(ctx context.Context, arg0 int64) (bool, error) {
+func (c *ManagerClient) IsOutgoingCallPermitted(ctx context.Context, arg0 int64) (bool, error) {
 	resp, err := c.svc.IsOutgoingCallPermitted(ctx, &pb.IsOutgoingCallPermittedRequest{
 		Arg0: arg0,
 	})
@@ -310,7 +262,7 @@ func (c *Client) IsOutgoingCallPermitted(ctx context.Context, arg0 int64) (bool,
 }
 
 // IsTtySupported calls the IsTtySupported RPC.
-func (c *Client) IsTtySupported(ctx context.Context) (bool, error) {
+func (c *ManagerClient) IsTtySupported(ctx context.Context) (bool, error) {
 	resp, err := c.svc.IsTtySupported(ctx, &pb.IsTtySupportedRequest{})
 	if err != nil {
 		return false, err
@@ -319,7 +271,7 @@ func (c *Client) IsTtySupported(ctx context.Context) (bool, error) {
 }
 
 // IsVoiceMailNumber calls the IsVoiceMailNumber RPC.
-func (c *Client) IsVoiceMailNumber(ctx context.Context, arg0 int64, arg1 string) (bool, error) {
+func (c *ManagerClient) IsVoiceMailNumber(ctx context.Context, arg0 int64, arg1 string) (bool, error) {
 	resp, err := c.svc.IsVoiceMailNumber(ctx, &pb.IsVoiceMailNumberRequest{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -331,7 +283,7 @@ func (c *Client) IsVoiceMailNumber(ctx context.Context, arg0 int64, arg1 string)
 }
 
 // PlaceCall calls the PlaceCall RPC.
-func (c *Client) PlaceCall(ctx context.Context, arg0 int64, arg1 int64) error {
+func (c *ManagerClient) PlaceCall(ctx context.Context, arg0 int64, arg1 int64) error {
 	_, err := c.svc.PlaceCall(ctx, &pb.PlaceCallRequest{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -340,7 +292,7 @@ func (c *Client) PlaceCall(ctx context.Context, arg0 int64, arg1 int64) error {
 }
 
 // RegisterPhoneAccount calls the RegisterPhoneAccount RPC.
-func (c *Client) RegisterPhoneAccount(ctx context.Context, arg0 int64) error {
+func (c *ManagerClient) RegisterPhoneAccount(ctx context.Context, arg0 int64) error {
 	_, err := c.svc.RegisterPhoneAccount(ctx, &pb.RegisterPhoneAccountRequest{
 		Arg0: arg0,
 	})
@@ -348,7 +300,7 @@ func (c *Client) RegisterPhoneAccount(ctx context.Context, arg0 int64) error {
 }
 
 // ShowInCallScreen calls the ShowInCallScreen RPC.
-func (c *Client) ShowInCallScreen(ctx context.Context, arg0 bool) error {
+func (c *ManagerClient) ShowInCallScreen(ctx context.Context, arg0 bool) error {
 	_, err := c.svc.ShowInCallScreen(ctx, &pb.ShowInCallScreenRequest{
 		Arg0: arg0,
 	})
@@ -356,22 +308,13 @@ func (c *Client) ShowInCallScreen(ctx context.Context, arg0 bool) error {
 }
 
 // SilenceRinger calls the SilenceRinger RPC.
-func (c *Client) SilenceRinger(ctx context.Context) error {
+func (c *ManagerClient) SilenceRinger(ctx context.Context) error {
 	_, err := c.svc.SilenceRinger(ctx, &pb.SilenceRingerRequest{})
 	return err
 }
 
-// StartConference calls the StartConference RPC.
-func (c *Client) StartConference(ctx context.Context, arg0 int64, arg1 int64) error {
-	_, err := c.svc.StartConference(ctx, &pb.StartConferenceRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	return err
-}
-
 // UnregisterPhoneAccount calls the UnregisterPhoneAccount RPC.
-func (c *Client) UnregisterPhoneAccount(ctx context.Context, arg0 int64) error {
+func (c *ManagerClient) UnregisterPhoneAccount(ctx context.Context, arg0 int64) error {
 	_, err := c.svc.UnregisterPhoneAccount(ctx, &pb.UnregisterPhoneAccountRequest{
 		Arg0: arg0,
 	})

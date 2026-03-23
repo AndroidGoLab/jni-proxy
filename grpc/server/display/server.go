@@ -10,6 +10,7 @@ import (
 	"github.com/AndroidGoLab/jni-proxy/handlestore"
 	pb "github.com/AndroidGoLab/jni-proxy/proto/display"
 	"github.com/AndroidGoLab/jni/app"
+	jnipkg2 "github.com/AndroidGoLab/jni/hardware/display"
 	jnipkg "github.com/AndroidGoLab/jni/view/display"
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"
@@ -56,4 +57,189 @@ func (s *WindowManagerServer) RemoveViewImmediate(_ context.Context, req *pb.Rem
 		return nil, status.Errorf(codes.Internal, "%v", err)
 	}
 	return &pb.RemoveViewImmediateResponse{}, nil
+}
+
+// ManagerServer implements pb.ManagerServiceServer.
+type ManagerServer struct {
+	pb.UnimplementedManagerServiceServer
+	Ctx     *app.Context
+	Handles *handlestore.HandleStore
+}
+
+func (s *ManagerServer) CreateVirtualDisplay1(_ context.Context, req *pb.CreateVirtualDisplay1Request) (*pb.CreateVirtualDisplay1Response, error) {
+	mgr, err := jnipkg2.NewManager(s.Ctx)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
+	}
+	defer mgr.Close()
+
+	result, err := mgr.CreateVirtualDisplay1(s.Handles.Get(req.GetArg0()))
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.CreateVirtualDisplay1Response{Result: handle}, nil
+}
+
+func (s *ManagerServer) CreateVirtualDisplay6_1(_ context.Context, req *pb.CreateVirtualDisplay6_1Request) (*pb.CreateVirtualDisplay6_1Response, error) {
+	mgr, err := jnipkg2.NewManager(s.Ctx)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
+	}
+	defer mgr.Close()
+
+	result, err := mgr.CreateVirtualDisplay6_1(req.GetArg0(), req.GetArg1(), req.GetArg2(), req.GetArg3(), s.Handles.Get(req.GetArg4()), req.GetArg5())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.CreateVirtualDisplay6_1Response{Result: handle}, nil
+}
+
+func (s *ManagerServer) GetDisplay(_ context.Context, req *pb.GetDisplayRequest) (*pb.GetDisplayResponse, error) {
+	mgr, err := jnipkg2.NewManager(s.Ctx)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
+	}
+	defer mgr.Close()
+
+	result, err := mgr.GetDisplay(req.GetArg0())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetDisplayResponse{Result: handle}, nil
+}
+
+func (s *ManagerServer) GetDisplays0(_ context.Context, req *pb.GetDisplays0Request) (*pb.GetDisplays0Response, error) {
+	mgr, err := jnipkg2.NewManager(s.Ctx)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
+	}
+	defer mgr.Close()
+
+	result, err := mgr.GetDisplays0()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetDisplays0Response{Result: handle}, nil
+}
+
+func (s *ManagerServer) GetDisplays1_1(_ context.Context, req *pb.GetDisplays1_1Request) (*pb.GetDisplays1_1Response, error) {
+	mgr, err := jnipkg2.NewManager(s.Ctx)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
+	}
+	defer mgr.Close()
+
+	result, err := mgr.GetDisplays1_1(req.GetArg0())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetDisplays1_1Response{Result: handle}, nil
+}
+
+func (s *ManagerServer) GetHdrConversionMode(_ context.Context, req *pb.GetHdrConversionModeRequest) (*pb.GetHdrConversionModeResponse, error) {
+	mgr, err := jnipkg2.NewManager(s.Ctx)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
+	}
+	defer mgr.Close()
+
+	result, err := mgr.GetHdrConversionMode()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetHdrConversionModeResponse{Result: handle}, nil
+}
+
+func (s *ManagerServer) GetMatchContentFrameRateUserPreference(_ context.Context, req *pb.GetMatchContentFrameRateUserPreferenceRequest) (*pb.GetMatchContentFrameRateUserPreferenceResponse, error) {
+	mgr, err := jnipkg2.NewManager(s.Ctx)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
+	}
+	defer mgr.Close()
+
+	result, err := mgr.GetMatchContentFrameRateUserPreference()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetMatchContentFrameRateUserPreferenceResponse{Result: result}, nil
+}
+
+func (s *ManagerServer) RegisterDisplayListener(_ context.Context, req *pb.RegisterDisplayListenerRequest) (*pb.RegisterDisplayListenerResponse, error) {
+	mgr, err := jnipkg2.NewManager(s.Ctx)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
+	}
+	defer mgr.Close()
+
+	if err := mgr.RegisterDisplayListener(s.Handles.Get(req.GetArg0()), req.GetArg1(), s.Handles.Get(req.GetArg2())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.RegisterDisplayListenerResponse{}, nil
+}
+
+func (s *ManagerServer) UnregisterDisplayListener(_ context.Context, req *pb.UnregisterDisplayListenerRequest) (*pb.UnregisterDisplayListenerResponse, error) {
+	mgr, err := jnipkg2.NewManager(s.Ctx)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
+	}
+	defer mgr.Close()
+
+	if err := mgr.UnregisterDisplayListener(s.Handles.Get(req.GetArg0())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.UnregisterDisplayListenerResponse{}, nil
 }

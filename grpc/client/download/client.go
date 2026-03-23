@@ -9,20 +9,20 @@ import (
 	"google.golang.org/grpc"
 )
 
-// Client wraps the gRPC ManagerService client.
-type Client struct {
+// ManagerClient wraps the gRPC ManagerService client.
+type ManagerClient struct {
 	svc pb.ManagerServiceClient
 }
 
-// NewClient creates a new download client.
-func NewClient(cc grpc.ClientConnInterface) *Client {
-	return &Client{
+// NewManagerClient creates a new Manager client.
+func NewManagerClient(cc grpc.ClientConnInterface) *ManagerClient {
+	return &ManagerClient{
 		svc: pb.NewManagerServiceClient(cc),
 	}
 }
 
 // AddCompletedDownload7 calls the AddCompletedDownload7 RPC.
-func (c *Client) AddCompletedDownload7(ctx context.Context, arg0 string, arg1 string, arg2 bool, arg3 string, arg4 string, arg5 int64, arg6 bool) (int64, error) {
+func (c *ManagerClient) AddCompletedDownload7(ctx context.Context, arg0 string, arg1 string, arg2 bool, arg3 string, arg4 string, arg5 int64, arg6 bool) (int64, error) {
 	resp, err := c.svc.AddCompletedDownload7(ctx, &pb.AddCompletedDownload7Request{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -39,7 +39,7 @@ func (c *Client) AddCompletedDownload7(ctx context.Context, arg0 string, arg1 st
 }
 
 // AddCompletedDownload9_1 calls the AddCompletedDownload9_1 RPC.
-func (c *Client) AddCompletedDownload9_1(ctx context.Context, arg0 string, arg1 string, arg2 bool, arg3 string, arg4 string, arg5 int64, arg6 bool, arg7 int64, arg8 int64) (int64, error) {
+func (c *ManagerClient) AddCompletedDownload9_1(ctx context.Context, arg0 string, arg1 string, arg2 bool, arg3 string, arg4 string, arg5 int64, arg6 bool, arg7 int64, arg8 int64) (int64, error) {
 	resp, err := c.svc.AddCompletedDownload9_1(ctx, &pb.AddCompletedDownload9_1Request{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -58,7 +58,7 @@ func (c *Client) AddCompletedDownload9_1(ctx context.Context, arg0 string, arg1 
 }
 
 // Enqueue calls the Enqueue RPC.
-func (c *Client) Enqueue(ctx context.Context, arg0 int64) (int64, error) {
+func (c *ManagerClient) Enqueue(ctx context.Context, arg0 int64) (int64, error) {
 	resp, err := c.svc.Enqueue(ctx, &pb.EnqueueRequest{
 		Arg0: arg0,
 	})
@@ -69,7 +69,7 @@ func (c *Client) Enqueue(ctx context.Context, arg0 int64) (int64, error) {
 }
 
 // GetMimeTypeForDownloadedFile calls the GetMimeTypeForDownloadedFile RPC.
-func (c *Client) GetMimeTypeForDownloadedFile(ctx context.Context, arg0 int64) (string, error) {
+func (c *ManagerClient) GetMimeTypeForDownloadedFile(ctx context.Context, arg0 int64) (string, error) {
 	resp, err := c.svc.GetMimeTypeForDownloadedFile(ctx, &pb.GetMimeTypeForDownloadedFileRequest{
 		Arg0: arg0,
 	})
@@ -80,7 +80,7 @@ func (c *Client) GetMimeTypeForDownloadedFile(ctx context.Context, arg0 int64) (
 }
 
 // GetUriForDownloadedFile calls the GetUriForDownloadedFile RPC.
-func (c *Client) GetUriForDownloadedFile(ctx context.Context, arg0 int64) (int64, error) {
+func (c *ManagerClient) GetUriForDownloadedFile(ctx context.Context, arg0 int64) (int64, error) {
 	resp, err := c.svc.GetUriForDownloadedFile(ctx, &pb.GetUriForDownloadedFileRequest{
 		Arg0: arg0,
 	})
@@ -91,7 +91,7 @@ func (c *Client) GetUriForDownloadedFile(ctx context.Context, arg0 int64) (int64
 }
 
 // OpenDownloadedFile calls the OpenDownloadedFile RPC.
-func (c *Client) OpenDownloadedFile(ctx context.Context, arg0 int64) (int64, error) {
+func (c *ManagerClient) OpenDownloadedFile(ctx context.Context, arg0 int64) (int64, error) {
 	resp, err := c.svc.OpenDownloadedFile(ctx, &pb.OpenDownloadedFileRequest{
 		Arg0: arg0,
 	})
@@ -102,7 +102,7 @@ func (c *Client) OpenDownloadedFile(ctx context.Context, arg0 int64) (int64, err
 }
 
 // Query calls the Query RPC.
-func (c *Client) Query(ctx context.Context, arg0 int64) (int64, error) {
+func (c *ManagerClient) Query(ctx context.Context, arg0 int64) (int64, error) {
 	resp, err := c.svc.Query(ctx, &pb.QueryRequest{
 		Arg0: arg0,
 	})
@@ -113,7 +113,7 @@ func (c *Client) Query(ctx context.Context, arg0 int64) (int64, error) {
 }
 
 // Remove calls the Remove RPC.
-func (c *Client) Remove(ctx context.Context, arg0 int64) (int32, error) {
+func (c *ManagerClient) Remove(ctx context.Context, arg0 int64) (int32, error) {
 	resp, err := c.svc.Remove(ctx, &pb.RemoveRequest{
 		Arg0: arg0,
 	})
@@ -124,7 +124,7 @@ func (c *Client) Remove(ctx context.Context, arg0 int64) (int32, error) {
 }
 
 // GetMaxBytesOverMobile calls the GetMaxBytesOverMobile RPC.
-func (c *Client) GetMaxBytesOverMobile(ctx context.Context, arg0 int64) (int64, error) {
+func (c *ManagerClient) GetMaxBytesOverMobile(ctx context.Context, arg0 int64) (int64, error) {
 	resp, err := c.svc.GetMaxBytesOverMobile(ctx, &pb.GetMaxBytesOverMobileRequest{
 		Arg0: arg0,
 	})
@@ -135,7 +135,7 @@ func (c *Client) GetMaxBytesOverMobile(ctx context.Context, arg0 int64) (int64, 
 }
 
 // GetRecommendedMaxBytesOverMobile calls the GetRecommendedMaxBytesOverMobile RPC.
-func (c *Client) GetRecommendedMaxBytesOverMobile(ctx context.Context, arg0 int64) (int64, error) {
+func (c *ManagerClient) GetRecommendedMaxBytesOverMobile(ctx context.Context, arg0 int64) (int64, error) {
 	resp, err := c.svc.GetRecommendedMaxBytesOverMobile(ctx, &pb.GetRecommendedMaxBytesOverMobileRequest{
 		Arg0: arg0,
 	})

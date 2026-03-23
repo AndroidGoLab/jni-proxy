@@ -6,6 +6,77 @@ package telephony;
 
 option go_package = "github.com/AndroidGoLab/jni-proxy/proto/telephony";
 
+message GetConfig0Request {
+}
+
+message GetConfig0Response {
+  int64 result = 1;
+}
+
+message GetConfig1_1Request {
+  int64 arg0 = 1;
+}
+
+message GetConfig1_1Response {
+  int64 result = 1;
+}
+
+message GetConfigByComponentForSubIdRequest {
+  string arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message GetConfigByComponentForSubIdResponse {
+  int64 result = 1;
+}
+
+message GetConfigForSubId1Request {
+  int32 arg0 = 1;
+}
+
+message GetConfigForSubId1Response {
+  int64 result = 1;
+}
+
+message GetConfigForSubId2_1Request {
+  int32 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message GetConfigForSubId2_1Response {
+  int64 result = 1;
+}
+
+message NotifyConfigChangedForSubIdRequest {
+  int32 arg0 = 1;
+}
+
+message NotifyConfigChangedForSubIdResponse {
+}
+
+message RegisterCarrierConfigChangeListenerRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message RegisterCarrierConfigChangeListenerResponse {
+}
+
+message UnregisterCarrierConfigChangeListenerRequest {
+  int64 arg0 = 1;
+}
+
+message UnregisterCarrierConfigChangeListenerResponse {
+}
+
+message IsConfigForIdentifiedCarrierRequest {
+  int64 arg0 = 1;
+}
+
+message IsConfigForIdentifiedCarrierResponse {
+  bool result = 1;
+}
+
 message CanChangeDtmfToneLengthRequest {
 }
 
@@ -48,13 +119,6 @@ message GetActiveModemCountRequest {
 
 message GetActiveModemCountResponse {
   int32 result = 1;
-}
-
-message GetAllCellInfoRequest {
-}
-
-message GetAllCellInfoResponse {
-  int64 result = 1;
 }
 
 message GetAllowedNetworkTypesForReasonRequest {
@@ -107,14 +171,6 @@ message GetCarrierIdFromSimMccMncResponse {
   int32 result = 1;
 }
 
-message GetCarrierRestrictionStatusRequest {
-  int64 arg0 = 1;
-  int64 arg1 = 2;
-}
-
-message GetCarrierRestrictionStatusResponse {
-}
-
 message GetCellLocationRequest {
 }
 
@@ -163,13 +219,6 @@ message GetDeviceSoftwareVersionRequest {
 
 message GetDeviceSoftwareVersionResponse {
   string result = 1;
-}
-
-message GetEquivalentHomePlmnsRequest {
-}
-
-message GetEquivalentHomePlmnsResponse {
-  int64 result = 1;
 }
 
 message GetForbiddenPlmnsRequest {
@@ -310,14 +359,6 @@ message GetNetworkSelectionModeRequest {
 
 message GetNetworkSelectionModeResponse {
   int32 result = 1;
-}
-
-message GetNetworkSlicingConfigurationRequest {
-  int64 arg0 = 1;
-  int64 arg1 = 2;
-}
-
-message GetNetworkSlicingConfigurationResponse {
 }
 
 message GetNetworkSpecifierRequest {
@@ -511,13 +552,6 @@ message GetTypeAllocationCode1_1Request {
 
 message GetTypeAllocationCode1_1Response {
   string result = 1;
-}
-
-message GetUiccCardsInfoRequest {
-}
-
-message GetUiccCardsInfoResponse {
-  int64 result = 1;
 }
 
 message GetVisualVoicemailPackageNameRequest {
@@ -803,15 +837,6 @@ message ListenRequest {
 message ListenResponse {
 }
 
-message PurchasePremiumCapabilityRequest {
-  int32 arg0 = 1;
-  int64 arg1 = 2;
-  int64 arg2 = 3;
-}
-
-message PurchasePremiumCapabilityResponse {
-}
-
 message RebootModemRequest {
 }
 
@@ -919,14 +944,6 @@ message SetDataEnabledForReasonRequest {
 message SetDataEnabledForReasonResponse {
 }
 
-message SetForbiddenPlmnsRequest {
-  int64 arg0 = 1;
-}
-
-message SetForbiddenPlmnsResponse {
-  int32 result = 1;
-}
-
 message SetLine1NumberForDisplayRequest {
   string arg0 = 1;
   string arg1 = 2;
@@ -974,16 +991,6 @@ message SetPreferredNetworkTypeToGlobalRequest {
 
 message SetPreferredNetworkTypeToGlobalResponse {
   bool result = 1;
-}
-
-message SetPreferredOpportunisticDataSubscriptionRequest {
-  int32 arg0 = 1;
-  bool arg1 = 2;
-  int64 arg2 = 3;
-  int64 arg3 = 4;
-}
-
-message SetPreferredOpportunisticDataSubscriptionResponse {
 }
 
 message SetSignalStrengthUpdateRequestRequest {
@@ -1039,40 +1046,23 @@ message UnregisterTelephonyCallbackRequest {
 message UnregisterTelephonyCallbackResponse {
 }
 
-message UpdateAvailableNetworksRequest {
-  int64 arg0 = 1;
-  int64 arg1 = 2;
-  int64 arg2 = 3;
-}
-
-message UpdateAvailableNetworksResponse {
-}
-
-message UploadCallComposerPicture4Request {
-  int64 arg0 = 1;
-  string arg1 = 2;
-  int64 arg2 = 3;
-  int64 arg3 = 4;
-}
-
-message UploadCallComposerPicture4Response {
-}
-
-message UploadCallComposerPicture4_1Request {
-  int64 arg0 = 1;
-  string arg1 = 2;
-  int64 arg2 = 3;
-  int64 arg3 = 4;
-}
-
-message UploadCallComposerPicture4_1Response {
-}
-
 message GetMaximumCallComposerPictureSizeRequest {
 }
 
 message GetMaximumCallComposerPictureSizeResponse {
   int64 result = 1;
+}
+
+service CarrierConfigManagerService {
+  rpc GetConfig0 (GetConfig0Request) returns (GetConfig0Response);
+  rpc GetConfig1_1 (GetConfig1_1Request) returns (GetConfig1_1Response);
+  rpc GetConfigByComponentForSubId (GetConfigByComponentForSubIdRequest) returns (GetConfigByComponentForSubIdResponse);
+  rpc GetConfigForSubId1 (GetConfigForSubId1Request) returns (GetConfigForSubId1Response);
+  rpc GetConfigForSubId2_1 (GetConfigForSubId2_1Request) returns (GetConfigForSubId2_1Response);
+  rpc NotifyConfigChangedForSubId (NotifyConfigChangedForSubIdRequest) returns (NotifyConfigChangedForSubIdResponse);
+  rpc RegisterCarrierConfigChangeListener (RegisterCarrierConfigChangeListenerRequest) returns (RegisterCarrierConfigChangeListenerResponse);
+  rpc UnregisterCarrierConfigChangeListener (UnregisterCarrierConfigChangeListenerRequest) returns (UnregisterCarrierConfigChangeListenerResponse);
+  rpc IsConfigForIdentifiedCarrier (IsConfigForIdentifiedCarrierRequest) returns (IsConfigForIdentifiedCarrierResponse);
 }
 
 service ManagerService {
@@ -1082,7 +1072,6 @@ service ManagerService {
   rpc CreateForSubscriptionId (CreateForSubscriptionIdRequest) returns (CreateForSubscriptionIdResponse);
   rpc DoesSwitchMultiSimConfigTriggerReboot (DoesSwitchMultiSimConfigTriggerRebootRequest) returns (DoesSwitchMultiSimConfigTriggerRebootResponse);
   rpc GetActiveModemCount (GetActiveModemCountRequest) returns (GetActiveModemCountResponse);
-  rpc GetAllCellInfo (GetAllCellInfoRequest) returns (GetAllCellInfoResponse);
   rpc GetAllowedNetworkTypesForReason (GetAllowedNetworkTypesForReasonRequest) returns (GetAllowedNetworkTypesForReasonResponse);
   rpc GetCallComposerStatus (GetCallComposerStatusRequest) returns (GetCallComposerStatusResponse);
   rpc GetCallState (GetCallStateRequest) returns (GetCallStateResponse);
@@ -1090,7 +1079,6 @@ service ManagerService {
   rpc GetCardIdForDefaultEuicc (GetCardIdForDefaultEuiccRequest) returns (GetCardIdForDefaultEuiccResponse);
   rpc GetCarrierConfig (GetCarrierConfigRequest) returns (GetCarrierConfigResponse);
   rpc GetCarrierIdFromSimMccMnc (GetCarrierIdFromSimMccMncRequest) returns (GetCarrierIdFromSimMccMncResponse);
-  rpc GetCarrierRestrictionStatus (GetCarrierRestrictionStatusRequest) returns (GetCarrierRestrictionStatusResponse);
   rpc GetCellLocation (GetCellLocationRequest) returns (GetCellLocationResponse);
   rpc GetDataActivity (GetDataActivityRequest) returns (GetDataActivityResponse);
   rpc GetDataNetworkType (GetDataNetworkTypeRequest) returns (GetDataNetworkTypeResponse);
@@ -1098,7 +1086,6 @@ service ManagerService {
   rpc GetDeviceId0 (GetDeviceId0Request) returns (GetDeviceId0Response);
   rpc GetDeviceId1_1 (GetDeviceId1_1Request) returns (GetDeviceId1_1Response);
   rpc GetDeviceSoftwareVersion (GetDeviceSoftwareVersionRequest) returns (GetDeviceSoftwareVersionResponse);
-  rpc GetEquivalentHomePlmns (GetEquivalentHomePlmnsRequest) returns (GetEquivalentHomePlmnsResponse);
   rpc GetForbiddenPlmns (GetForbiddenPlmnsRequest) returns (GetForbiddenPlmnsResponse);
   rpc GetGroupIdLevel1 (GetGroupIdLevel1Request) returns (GetGroupIdLevel1Response);
   rpc GetIccAuthentication (GetIccAuthenticationRequest) returns (GetIccAuthenticationResponse);
@@ -1118,7 +1105,6 @@ service ManagerService {
   rpc GetNetworkOperator (GetNetworkOperatorRequest) returns (GetNetworkOperatorResponse);
   rpc GetNetworkOperatorName (GetNetworkOperatorNameRequest) returns (GetNetworkOperatorNameResponse);
   rpc GetNetworkSelectionMode (GetNetworkSelectionModeRequest) returns (GetNetworkSelectionModeResponse);
-  rpc GetNetworkSlicingConfiguration (GetNetworkSlicingConfigurationRequest) returns (GetNetworkSlicingConfigurationResponse);
   rpc GetNetworkSpecifier (GetNetworkSpecifierRequest) returns (GetNetworkSpecifierResponse);
   rpc GetNetworkType (GetNetworkTypeRequest) returns (GetNetworkTypeResponse);
   rpc GetPhoneAccountHandle (GetPhoneAccountHandleRequest) returns (GetPhoneAccountHandleResponse);
@@ -1146,7 +1132,6 @@ service ManagerService {
   rpc GetSupportedRadioAccessFamily (GetSupportedRadioAccessFamilyRequest) returns (GetSupportedRadioAccessFamilyResponse);
   rpc GetTypeAllocationCode0 (GetTypeAllocationCode0Request) returns (GetTypeAllocationCode0Response);
   rpc GetTypeAllocationCode1_1 (GetTypeAllocationCode1_1Request) returns (GetTypeAllocationCode1_1Response);
-  rpc GetUiccCardsInfo (GetUiccCardsInfoRequest) returns (GetUiccCardsInfoResponse);
   rpc GetVisualVoicemailPackageName (GetVisualVoicemailPackageNameRequest) returns (GetVisualVoicemailPackageNameResponse);
   rpc GetVoiceMailAlphaTag (GetVoiceMailAlphaTagRequest) returns (GetVoiceMailAlphaTagResponse);
   rpc GetVoiceMailNumber (GetVoiceMailNumberRequest) returns (GetVoiceMailNumberResponse);
@@ -1183,7 +1168,6 @@ service ManagerService {
   rpc IsVoicemailVibrationEnabled (IsVoicemailVibrationEnabledRequest) returns (IsVoicemailVibrationEnabledResponse);
   rpc IsWorldPhone (IsWorldPhoneRequest) returns (IsWorldPhoneResponse);
   rpc Listen (ListenRequest) returns (ListenResponse);
-  rpc PurchasePremiumCapability (PurchasePremiumCapabilityRequest) returns (PurchasePremiumCapabilityResponse);
   rpc RebootModem (RebootModemRequest) returns (RebootModemResponse);
   rpc RegisterTelephonyCallback3 (RegisterTelephonyCallback3Request) returns (RegisterTelephonyCallback3Response);
   rpc RegisterTelephonyCallback2_1 (RegisterTelephonyCallback2_1Request) returns (RegisterTelephonyCallback2_1Response);
@@ -1197,14 +1181,12 @@ service ManagerService {
   rpc SetCallComposerStatus (SetCallComposerStatusRequest) returns (SetCallComposerStatusResponse);
   rpc SetDataEnabled (SetDataEnabledRequest) returns (SetDataEnabledResponse);
   rpc SetDataEnabledForReason (SetDataEnabledForReasonRequest) returns (SetDataEnabledForReasonResponse);
-  rpc SetForbiddenPlmns (SetForbiddenPlmnsRequest) returns (SetForbiddenPlmnsResponse);
   rpc SetLine1NumberForDisplay (SetLine1NumberForDisplayRequest) returns (SetLine1NumberForDisplayResponse);
   rpc SetNetworkSelectionModeAutomatic (SetNetworkSelectionModeAutomaticRequest) returns (SetNetworkSelectionModeAutomaticResponse);
   rpc SetNetworkSelectionModeManual2 (SetNetworkSelectionModeManual2Request) returns (SetNetworkSelectionModeManual2Response);
   rpc SetNetworkSelectionModeManual3_1 (SetNetworkSelectionModeManual3_1Request) returns (SetNetworkSelectionModeManual3_1Response);
   rpc SetOperatorBrandOverride (SetOperatorBrandOverrideRequest) returns (SetOperatorBrandOverrideResponse);
   rpc SetPreferredNetworkTypeToGlobal (SetPreferredNetworkTypeToGlobalRequest) returns (SetPreferredNetworkTypeToGlobalResponse);
-  rpc SetPreferredOpportunisticDataSubscription (SetPreferredOpportunisticDataSubscriptionRequest) returns (SetPreferredOpportunisticDataSubscriptionResponse);
   rpc SetSignalStrengthUpdateRequest (SetSignalStrengthUpdateRequestRequest) returns (SetSignalStrengthUpdateRequestResponse);
   rpc SetVisualVoicemailSmsFilterSettings (SetVisualVoicemailSmsFilterSettingsRequest) returns (SetVisualVoicemailSmsFilterSettingsResponse);
   rpc SetVoiceMailNumber (SetVoiceMailNumberRequest) returns (SetVoiceMailNumberResponse);
@@ -1212,8 +1194,5 @@ service ManagerService {
   rpc SetVoicemailVibrationEnabled (SetVoicemailVibrationEnabledRequest) returns (SetVoicemailVibrationEnabledResponse);
   rpc SwitchMultiSimConfig (SwitchMultiSimConfigRequest) returns (SwitchMultiSimConfigResponse);
   rpc UnregisterTelephonyCallback (UnregisterTelephonyCallbackRequest) returns (UnregisterTelephonyCallbackResponse);
-  rpc UpdateAvailableNetworks (UpdateAvailableNetworksRequest) returns (UpdateAvailableNetworksResponse);
-  rpc UploadCallComposerPicture4 (UploadCallComposerPicture4Request) returns (UploadCallComposerPicture4Response);
-  rpc UploadCallComposerPicture4_1 (UploadCallComposerPicture4_1Request) returns (UploadCallComposerPicture4_1Response);
   rpc GetMaximumCallComposerPictureSize (GetMaximumCallComposerPictureSizeRequest) returns (GetMaximumCallComposerPictureSizeResponse);
 }

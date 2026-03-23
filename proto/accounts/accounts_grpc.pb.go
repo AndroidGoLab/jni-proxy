@@ -21,8 +21,7 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
-	AccountManagerService_AddAccountExplicitly3_FullMethodName           = "/accounts.AccountManagerService/AddAccountExplicitly3"
-	AccountManagerService_AddAccountExplicitly4_1_FullMethodName         = "/accounts.AccountManagerService/AddAccountExplicitly4_1"
+	AccountManagerService_AddAccountExplicitly_FullMethodName            = "/accounts.AccountManagerService/AddAccountExplicitly"
 	AccountManagerService_BlockingGetAuthToken_FullMethodName            = "/accounts.AccountManagerService/BlockingGetAuthToken"
 	AccountManagerService_ClearPassword_FullMethodName                   = "/accounts.AccountManagerService/ClearPassword"
 	AccountManagerService_GetAccountVisibility_FullMethodName            = "/accounts.AccountManagerService/GetAccountVisibility"
@@ -43,16 +42,13 @@ const (
 	AccountManagerService_SetPassword_FullMethodName                     = "/accounts.AccountManagerService/SetPassword"
 	AccountManagerService_SetUserData_FullMethodName                     = "/accounts.AccountManagerService/SetUserData"
 	AccountManagerService_Get_FullMethodName                             = "/accounts.AccountManagerService/Get"
-	AccountManagerService_NewChooseAccountIntent8_FullMethodName         = "/accounts.AccountManagerService/NewChooseAccountIntent8"
-	AccountManagerService_NewChooseAccountIntent7_1_FullMethodName       = "/accounts.AccountManagerService/NewChooseAccountIntent7_1"
 )
 
 // AccountManagerServiceClient is the client API for AccountManagerService service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type AccountManagerServiceClient interface {
-	AddAccountExplicitly3(ctx context.Context, in *AddAccountExplicitly3Request, opts ...grpc.CallOption) (*AddAccountExplicitly3Response, error)
-	AddAccountExplicitly4_1(ctx context.Context, in *AddAccountExplicitly4_1Request, opts ...grpc.CallOption) (*AddAccountExplicitly4_1Response, error)
+	AddAccountExplicitly(ctx context.Context, in *AddAccountExplicitlyRequest, opts ...grpc.CallOption) (*AddAccountExplicitlyResponse, error)
 	BlockingGetAuthToken(ctx context.Context, in *BlockingGetAuthTokenRequest, opts ...grpc.CallOption) (*BlockingGetAuthTokenResponse, error)
 	ClearPassword(ctx context.Context, in *ClearPasswordRequest, opts ...grpc.CallOption) (*ClearPasswordResponse, error)
 	GetAccountVisibility(ctx context.Context, in *GetAccountVisibilityRequest, opts ...grpc.CallOption) (*GetAccountVisibilityResponse, error)
@@ -73,8 +69,6 @@ type AccountManagerServiceClient interface {
 	SetPassword(ctx context.Context, in *SetPasswordRequest, opts ...grpc.CallOption) (*SetPasswordResponse, error)
 	SetUserData(ctx context.Context, in *SetUserDataRequest, opts ...grpc.CallOption) (*SetUserDataResponse, error)
 	Get(ctx context.Context, in *GetRequest, opts ...grpc.CallOption) (*GetResponse, error)
-	NewChooseAccountIntent8(ctx context.Context, in *NewChooseAccountIntent8Request, opts ...grpc.CallOption) (*NewChooseAccountIntent8Response, error)
-	NewChooseAccountIntent7_1(ctx context.Context, in *NewChooseAccountIntent7_1Request, opts ...grpc.CallOption) (*NewChooseAccountIntent7_1Response, error)
 }
 
 type accountManagerServiceClient struct {
@@ -85,20 +79,10 @@ func NewAccountManagerServiceClient(cc grpc.ClientConnInterface) AccountManagerS
 	return &accountManagerServiceClient{cc}
 }
 
-func (c *accountManagerServiceClient) AddAccountExplicitly3(ctx context.Context, in *AddAccountExplicitly3Request, opts ...grpc.CallOption) (*AddAccountExplicitly3Response, error) {
+func (c *accountManagerServiceClient) AddAccountExplicitly(ctx context.Context, in *AddAccountExplicitlyRequest, opts ...grpc.CallOption) (*AddAccountExplicitlyResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(AddAccountExplicitly3Response)
-	err := c.cc.Invoke(ctx, AccountManagerService_AddAccountExplicitly3_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *accountManagerServiceClient) AddAccountExplicitly4_1(ctx context.Context, in *AddAccountExplicitly4_1Request, opts ...grpc.CallOption) (*AddAccountExplicitly4_1Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(AddAccountExplicitly4_1Response)
-	err := c.cc.Invoke(ctx, AccountManagerService_AddAccountExplicitly4_1_FullMethodName, in, out, cOpts...)
+	out := new(AddAccountExplicitlyResponse)
+	err := c.cc.Invoke(ctx, AccountManagerService_AddAccountExplicitly_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
@@ -305,32 +289,11 @@ func (c *accountManagerServiceClient) Get(ctx context.Context, in *GetRequest, o
 	return out, nil
 }
 
-func (c *accountManagerServiceClient) NewChooseAccountIntent8(ctx context.Context, in *NewChooseAccountIntent8Request, opts ...grpc.CallOption) (*NewChooseAccountIntent8Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(NewChooseAccountIntent8Response)
-	err := c.cc.Invoke(ctx, AccountManagerService_NewChooseAccountIntent8_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *accountManagerServiceClient) NewChooseAccountIntent7_1(ctx context.Context, in *NewChooseAccountIntent7_1Request, opts ...grpc.CallOption) (*NewChooseAccountIntent7_1Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(NewChooseAccountIntent7_1Response)
-	err := c.cc.Invoke(ctx, AccountManagerService_NewChooseAccountIntent7_1_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
 // AccountManagerServiceServer is the server API for AccountManagerService service.
 // All implementations must embed UnimplementedAccountManagerServiceServer
 // for forward compatibility.
 type AccountManagerServiceServer interface {
-	AddAccountExplicitly3(context.Context, *AddAccountExplicitly3Request) (*AddAccountExplicitly3Response, error)
-	AddAccountExplicitly4_1(context.Context, *AddAccountExplicitly4_1Request) (*AddAccountExplicitly4_1Response, error)
+	AddAccountExplicitly(context.Context, *AddAccountExplicitlyRequest) (*AddAccountExplicitlyResponse, error)
 	BlockingGetAuthToken(context.Context, *BlockingGetAuthTokenRequest) (*BlockingGetAuthTokenResponse, error)
 	ClearPassword(context.Context, *ClearPasswordRequest) (*ClearPasswordResponse, error)
 	GetAccountVisibility(context.Context, *GetAccountVisibilityRequest) (*GetAccountVisibilityResponse, error)
@@ -351,8 +314,6 @@ type AccountManagerServiceServer interface {
 	SetPassword(context.Context, *SetPasswordRequest) (*SetPasswordResponse, error)
 	SetUserData(context.Context, *SetUserDataRequest) (*SetUserDataResponse, error)
 	Get(context.Context, *GetRequest) (*GetResponse, error)
-	NewChooseAccountIntent8(context.Context, *NewChooseAccountIntent8Request) (*NewChooseAccountIntent8Response, error)
-	NewChooseAccountIntent7_1(context.Context, *NewChooseAccountIntent7_1Request) (*NewChooseAccountIntent7_1Response, error)
 	mustEmbedUnimplementedAccountManagerServiceServer()
 }
 
@@ -363,11 +324,8 @@ type AccountManagerServiceServer interface {
 // pointer dereference when methods are called.
 type UnimplementedAccountManagerServiceServer struct{}
 
-func (UnimplementedAccountManagerServiceServer) AddAccountExplicitly3(context.Context, *AddAccountExplicitly3Request) (*AddAccountExplicitly3Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method AddAccountExplicitly3 not implemented")
-}
-func (UnimplementedAccountManagerServiceServer) AddAccountExplicitly4_1(context.Context, *AddAccountExplicitly4_1Request) (*AddAccountExplicitly4_1Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method AddAccountExplicitly4_1 not implemented")
+func (UnimplementedAccountManagerServiceServer) AddAccountExplicitly(context.Context, *AddAccountExplicitlyRequest) (*AddAccountExplicitlyResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method AddAccountExplicitly not implemented")
 }
 func (UnimplementedAccountManagerServiceServer) BlockingGetAuthToken(context.Context, *BlockingGetAuthTokenRequest) (*BlockingGetAuthTokenResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method BlockingGetAuthToken not implemented")
@@ -429,12 +387,6 @@ func (UnimplementedAccountManagerServiceServer) SetUserData(context.Context, *Se
 func (UnimplementedAccountManagerServiceServer) Get(context.Context, *GetRequest) (*GetResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method Get not implemented")
 }
-func (UnimplementedAccountManagerServiceServer) NewChooseAccountIntent8(context.Context, *NewChooseAccountIntent8Request) (*NewChooseAccountIntent8Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method NewChooseAccountIntent8 not implemented")
-}
-func (UnimplementedAccountManagerServiceServer) NewChooseAccountIntent7_1(context.Context, *NewChooseAccountIntent7_1Request) (*NewChooseAccountIntent7_1Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method NewChooseAccountIntent7_1 not implemented")
-}
 func (UnimplementedAccountManagerServiceServer) mustEmbedUnimplementedAccountManagerServiceServer() {}
 func (UnimplementedAccountManagerServiceServer) testEmbeddedByValue()                               {}
 
@@ -456,38 +408,20 @@ func RegisterAccountManagerServiceServer(s grpc.ServiceRegistrar, srv AccountMan
 	s.RegisterService(&AccountManagerService_ServiceDesc, srv)
 }
 
-func _AccountManagerService_AddAccountExplicitly3_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(AddAccountExplicitly3Request)
+func _AccountManagerService_AddAccountExplicitly_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(AddAccountExplicitlyRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(AccountManagerServiceServer).AddAccountExplicitly3(ctx, in)
+		return srv.(AccountManagerServiceServer).AddAccountExplicitly(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: AccountManagerService_AddAccountExplicitly3_FullMethodName,
+		FullMethod: AccountManagerService_AddAccountExplicitly_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AccountManagerServiceServer).AddAccountExplicitly3(ctx, req.(*AddAccountExplicitly3Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _AccountManagerService_AddAccountExplicitly4_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(AddAccountExplicitly4_1Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AccountManagerServiceServer).AddAccountExplicitly4_1(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AccountManagerService_AddAccountExplicitly4_1_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AccountManagerServiceServer).AddAccountExplicitly4_1(ctx, req.(*AddAccountExplicitly4_1Request))
+		return srv.(AccountManagerServiceServer).AddAccountExplicitly(ctx, req.(*AddAccountExplicitlyRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -852,42 +786,6 @@ func _AccountManagerService_Get_Handler(srv interface{}, ctx context.Context, de
 	return interceptor(ctx, in, info, handler)
 }
 
-func _AccountManagerService_NewChooseAccountIntent8_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(NewChooseAccountIntent8Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AccountManagerServiceServer).NewChooseAccountIntent8(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AccountManagerService_NewChooseAccountIntent8_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AccountManagerServiceServer).NewChooseAccountIntent8(ctx, req.(*NewChooseAccountIntent8Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _AccountManagerService_NewChooseAccountIntent7_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(NewChooseAccountIntent7_1Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AccountManagerServiceServer).NewChooseAccountIntent7_1(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AccountManagerService_NewChooseAccountIntent7_1_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AccountManagerServiceServer).NewChooseAccountIntent7_1(ctx, req.(*NewChooseAccountIntent7_1Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
 // AccountManagerService_ServiceDesc is the grpc.ServiceDesc for AccountManagerService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -896,12 +794,8 @@ var AccountManagerService_ServiceDesc = grpc.ServiceDesc{
 	HandlerType: (*AccountManagerServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
-			MethodName: "AddAccountExplicitly3",
-			Handler:    _AccountManagerService_AddAccountExplicitly3_Handler,
-		},
-		{
-			MethodName: "AddAccountExplicitly4_1",
-			Handler:    _AccountManagerService_AddAccountExplicitly4_1_Handler,
+			MethodName: "AddAccountExplicitly",
+			Handler:    _AccountManagerService_AddAccountExplicitly_Handler,
 		},
 		{
 			MethodName: "BlockingGetAuthToken",
@@ -982,268 +876,6 @@ var AccountManagerService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "Get",
 			Handler:    _AccountManagerService_Get_Handler,
-		},
-		{
-			MethodName: "NewChooseAccountIntent8",
-			Handler:    _AccountManagerService_NewChooseAccountIntent8_Handler,
-		},
-		{
-			MethodName: "NewChooseAccountIntent7_1",
-			Handler:    _AccountManagerService_NewChooseAccountIntent7_1_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/accounts/accounts.proto",
-}
-
-const (
-	AccountService_DescribeContents_FullMethodName = "/accounts.AccountService/DescribeContents"
-	AccountService_Equals_FullMethodName           = "/accounts.AccountService/Equals"
-	AccountService_HashCode_FullMethodName         = "/accounts.AccountService/HashCode"
-	AccountService_ToString_FullMethodName         = "/accounts.AccountService/ToString"
-	AccountService_WriteToParcel_FullMethodName    = "/accounts.AccountService/WriteToParcel"
-)
-
-// AccountServiceClient is the client API for AccountService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type AccountServiceClient interface {
-	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
-	Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
-	HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
-	ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
-	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
-}
-
-type accountServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewAccountServiceClient(cc grpc.ClientConnInterface) AccountServiceClient {
-	return &accountServiceClient{cc}
-}
-
-func (c *accountServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(DescribeContentsResponse)
-	err := c.cc.Invoke(ctx, AccountService_DescribeContents_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *accountServiceClient) Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(EqualsResponse)
-	err := c.cc.Invoke(ctx, AccountService_Equals_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *accountServiceClient) HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(HashCodeResponse)
-	err := c.cc.Invoke(ctx, AccountService_HashCode_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *accountServiceClient) ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ToStringResponse)
-	err := c.cc.Invoke(ctx, AccountService_ToString_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *accountServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(WriteToParcelResponse)
-	err := c.cc.Invoke(ctx, AccountService_WriteToParcel_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// AccountServiceServer is the server API for AccountService service.
-// All implementations must embed UnimplementedAccountServiceServer
-// for forward compatibility.
-type AccountServiceServer interface {
-	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
-	Equals(context.Context, *EqualsRequest) (*EqualsResponse, error)
-	HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error)
-	ToString(context.Context, *ToStringRequest) (*ToStringResponse, error)
-	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
-	mustEmbedUnimplementedAccountServiceServer()
-}
-
-// UnimplementedAccountServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedAccountServiceServer struct{}
-
-func (UnimplementedAccountServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
-}
-func (UnimplementedAccountServiceServer) Equals(context.Context, *EqualsRequest) (*EqualsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Equals not implemented")
-}
-func (UnimplementedAccountServiceServer) HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method HashCode not implemented")
-}
-func (UnimplementedAccountServiceServer) ToString(context.Context, *ToStringRequest) (*ToStringResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
-}
-func (UnimplementedAccountServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
-}
-func (UnimplementedAccountServiceServer) mustEmbedUnimplementedAccountServiceServer() {}
-func (UnimplementedAccountServiceServer) testEmbeddedByValue()                        {}
-
-// UnsafeAccountServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to AccountServiceServer will
-// result in compilation errors.
-type UnsafeAccountServiceServer interface {
-	mustEmbedUnimplementedAccountServiceServer()
-}
-
-func RegisterAccountServiceServer(s grpc.ServiceRegistrar, srv AccountServiceServer) {
-	// If the following call panics, it indicates UnimplementedAccountServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&AccountService_ServiceDesc, srv)
-}
-
-func _AccountService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(DescribeContentsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AccountServiceServer).DescribeContents(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AccountService_DescribeContents_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AccountServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _AccountService_Equals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(EqualsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AccountServiceServer).Equals(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AccountService_Equals_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AccountServiceServer).Equals(ctx, req.(*EqualsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _AccountService_HashCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(HashCodeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AccountServiceServer).HashCode(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AccountService_HashCode_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AccountServiceServer).HashCode(ctx, req.(*HashCodeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _AccountService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ToStringRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AccountServiceServer).ToString(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AccountService_ToString_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AccountServiceServer).ToString(ctx, req.(*ToStringRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _AccountService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(WriteToParcelRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AccountServiceServer).WriteToParcel(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AccountService_WriteToParcel_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AccountServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// AccountService_ServiceDesc is the grpc.ServiceDesc for AccountService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var AccountService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "accounts.AccountService",
-	HandlerType: (*AccountServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "DescribeContents",
-			Handler:    _AccountService_DescribeContents_Handler,
-		},
-		{
-			MethodName: "Equals",
-			Handler:    _AccountService_Equals_Handler,
-		},
-		{
-			MethodName: "HashCode",
-			Handler:    _AccountService_HashCode_Handler,
-		},
-		{
-			MethodName: "ToString",
-			Handler:    _AccountService_ToString_Handler,
-		},
-		{
-			MethodName: "WriteToParcel",
-			Handler:    _AccountService_WriteToParcel_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

@@ -76,20 +76,6 @@ message EnableSystemDataSyncForTypesRequest {
 message EnableSystemDataSyncForTypesResponse {
 }
 
-message GetAssociationsRequest {
-}
-
-message GetAssociationsResponse {
-  int64 result = 1;
-}
-
-message GetMyAssociationsRequest {
-}
-
-message GetMyAssociationsResponse {
-  int64 result = 1;
-}
-
 message HasNotificationAccessRequest {
   int64 arg0 = 1;
 }
@@ -143,15 +129,6 @@ message StartObservingDevicePresence1_1Request {
 message StartObservingDevicePresence1_1Response {
 }
 
-message StartSystemDataTransferRequest {
-  int32 arg0 = 1;
-  int64 arg1 = 2;
-  int64 arg2 = 3;
-}
-
-message StartSystemDataTransferResponse {
-}
-
 message StopObservingDevicePresence1Request {
   int64 arg0 = 1;
 }
@@ -176,8 +153,6 @@ service DeviceManagerService {
   rpc Disassociate1 (Disassociate1Request) returns (Disassociate1Response);
   rpc Disassociate1_1 (Disassociate1_1Request) returns (Disassociate1_1Response);
   rpc EnableSystemDataSyncForTypes (EnableSystemDataSyncForTypesRequest) returns (EnableSystemDataSyncForTypesResponse);
-  rpc GetAssociations (GetAssociationsRequest) returns (GetAssociationsResponse);
-  rpc GetMyAssociations (GetMyAssociationsRequest) returns (GetMyAssociationsResponse);
   rpc HasNotificationAccess (HasNotificationAccessRequest) returns (HasNotificationAccessResponse);
   rpc IsPermissionTransferUserConsented (IsPermissionTransferUserConsentedRequest) returns (IsPermissionTransferUserConsentedResponse);
   rpc RemoveBond (RemoveBondRequest) returns (RemoveBondResponse);
@@ -185,7 +160,6 @@ service DeviceManagerService {
   rpc SetDeviceId (SetDeviceIdRequest) returns (SetDeviceIdResponse);
   rpc StartObservingDevicePresence1 (StartObservingDevicePresence1Request) returns (StartObservingDevicePresence1Response);
   rpc StartObservingDevicePresence1_1 (StartObservingDevicePresence1_1Request) returns (StartObservingDevicePresence1_1Response);
-  rpc StartSystemDataTransfer (StartSystemDataTransferRequest) returns (StartSystemDataTransferResponse);
   rpc StopObservingDevicePresence1 (StopObservingDevicePresence1Request) returns (StopObservingDevicePresence1Response);
   rpc StopObservingDevicePresence1_1 (StopObservingDevicePresence1_1Request) returns (StopObservingDevicePresence1_1Response);
 }

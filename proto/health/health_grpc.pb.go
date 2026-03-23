@@ -21,253 +21,368 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
-	ManagerService_GetOrCreateRaw_FullMethodName   = "/health.ManagerService/GetOrCreateRaw"
-	ManagerService_InsertRecordsRaw_FullMethodName = "/health.ManagerService/InsertRecordsRaw"
-	ManagerService_ReadRecordsRaw_FullMethodName   = "/health.ManagerService/ReadRecordsRaw"
-	ManagerService_AggregateRaw_FullMethodName     = "/health.ManagerService/AggregateRaw"
-	ManagerService_DeleteRecordsRaw_FullMethodName = "/health.ManagerService/DeleteRecordsRaw"
+	SystemHealthManagerService_GetCpuHeadroom_FullMethodName                  = "/health.SystemHealthManagerService/GetCpuHeadroom"
+	SystemHealthManagerService_GetCpuHeadroomMinIntervalMillis_FullMethodName = "/health.SystemHealthManagerService/GetCpuHeadroomMinIntervalMillis"
+	SystemHealthManagerService_GetGpuHeadroom_FullMethodName                  = "/health.SystemHealthManagerService/GetGpuHeadroom"
+	SystemHealthManagerService_GetGpuHeadroomMinIntervalMillis_FullMethodName = "/health.SystemHealthManagerService/GetGpuHeadroomMinIntervalMillis"
+	SystemHealthManagerService_GetMaxCpuHeadroomTidsSize_FullMethodName       = "/health.SystemHealthManagerService/GetMaxCpuHeadroomTidsSize"
+	SystemHealthManagerService_TakeMyUidSnapshot_FullMethodName               = "/health.SystemHealthManagerService/TakeMyUidSnapshot"
+	SystemHealthManagerService_TakeUidSnapshot_FullMethodName                 = "/health.SystemHealthManagerService/TakeUidSnapshot"
+	SystemHealthManagerService_TakeUidSnapshots_FullMethodName                = "/health.SystemHealthManagerService/TakeUidSnapshots"
 )
 
-// ManagerServiceClient is the client API for ManagerService service.
+// SystemHealthManagerServiceClient is the client API for SystemHealthManagerService service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type ManagerServiceClient interface {
-	GetOrCreateRaw(ctx context.Context, in *GetOrCreateRawRequest, opts ...grpc.CallOption) (*GetOrCreateRawResponse, error)
-	InsertRecordsRaw(ctx context.Context, in *InsertRecordsRawRequest, opts ...grpc.CallOption) (*InsertRecordsRawResponse, error)
-	ReadRecordsRaw(ctx context.Context, in *ReadRecordsRawRequest, opts ...grpc.CallOption) (*ReadRecordsRawResponse, error)
-	AggregateRaw(ctx context.Context, in *AggregateRawRequest, opts ...grpc.CallOption) (*AggregateRawResponse, error)
-	DeleteRecordsRaw(ctx context.Context, in *DeleteRecordsRawRequest, opts ...grpc.CallOption) (*DeleteRecordsRawResponse, error)
+type SystemHealthManagerServiceClient interface {
+	GetCpuHeadroom(ctx context.Context, in *GetCpuHeadroomRequest, opts ...grpc.CallOption) (*GetCpuHeadroomResponse, error)
+	GetCpuHeadroomMinIntervalMillis(ctx context.Context, in *GetCpuHeadroomMinIntervalMillisRequest, opts ...grpc.CallOption) (*GetCpuHeadroomMinIntervalMillisResponse, error)
+	GetGpuHeadroom(ctx context.Context, in *GetGpuHeadroomRequest, opts ...grpc.CallOption) (*GetGpuHeadroomResponse, error)
+	GetGpuHeadroomMinIntervalMillis(ctx context.Context, in *GetGpuHeadroomMinIntervalMillisRequest, opts ...grpc.CallOption) (*GetGpuHeadroomMinIntervalMillisResponse, error)
+	GetMaxCpuHeadroomTidsSize(ctx context.Context, in *GetMaxCpuHeadroomTidsSizeRequest, opts ...grpc.CallOption) (*GetMaxCpuHeadroomTidsSizeResponse, error)
+	TakeMyUidSnapshot(ctx context.Context, in *TakeMyUidSnapshotRequest, opts ...grpc.CallOption) (*TakeMyUidSnapshotResponse, error)
+	TakeUidSnapshot(ctx context.Context, in *TakeUidSnapshotRequest, opts ...grpc.CallOption) (*TakeUidSnapshotResponse, error)
+	TakeUidSnapshots(ctx context.Context, in *TakeUidSnapshotsRequest, opts ...grpc.CallOption) (*TakeUidSnapshotsResponse, error)
 }
 
-type managerServiceClient struct {
+type systemHealthManagerServiceClient struct {
 	cc grpc.ClientConnInterface
 }
 
-func NewManagerServiceClient(cc grpc.ClientConnInterface) ManagerServiceClient {
-	return &managerServiceClient{cc}
+func NewSystemHealthManagerServiceClient(cc grpc.ClientConnInterface) SystemHealthManagerServiceClient {
+	return &systemHealthManagerServiceClient{cc}
 }
 
-func (c *managerServiceClient) GetOrCreateRaw(ctx context.Context, in *GetOrCreateRawRequest, opts ...grpc.CallOption) (*GetOrCreateRawResponse, error) {
+func (c *systemHealthManagerServiceClient) GetCpuHeadroom(ctx context.Context, in *GetCpuHeadroomRequest, opts ...grpc.CallOption) (*GetCpuHeadroomResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetOrCreateRawResponse)
-	err := c.cc.Invoke(ctx, ManagerService_GetOrCreateRaw_FullMethodName, in, out, cOpts...)
+	out := new(GetCpuHeadroomResponse)
+	err := c.cc.Invoke(ctx, SystemHealthManagerService_GetCpuHeadroom_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *managerServiceClient) InsertRecordsRaw(ctx context.Context, in *InsertRecordsRawRequest, opts ...grpc.CallOption) (*InsertRecordsRawResponse, error) {
+func (c *systemHealthManagerServiceClient) GetCpuHeadroomMinIntervalMillis(ctx context.Context, in *GetCpuHeadroomMinIntervalMillisRequest, opts ...grpc.CallOption) (*GetCpuHeadroomMinIntervalMillisResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(InsertRecordsRawResponse)
-	err := c.cc.Invoke(ctx, ManagerService_InsertRecordsRaw_FullMethodName, in, out, cOpts...)
+	out := new(GetCpuHeadroomMinIntervalMillisResponse)
+	err := c.cc.Invoke(ctx, SystemHealthManagerService_GetCpuHeadroomMinIntervalMillis_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *managerServiceClient) ReadRecordsRaw(ctx context.Context, in *ReadRecordsRawRequest, opts ...grpc.CallOption) (*ReadRecordsRawResponse, error) {
+func (c *systemHealthManagerServiceClient) GetGpuHeadroom(ctx context.Context, in *GetGpuHeadroomRequest, opts ...grpc.CallOption) (*GetGpuHeadroomResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ReadRecordsRawResponse)
-	err := c.cc.Invoke(ctx, ManagerService_ReadRecordsRaw_FullMethodName, in, out, cOpts...)
+	out := new(GetGpuHeadroomResponse)
+	err := c.cc.Invoke(ctx, SystemHealthManagerService_GetGpuHeadroom_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *managerServiceClient) AggregateRaw(ctx context.Context, in *AggregateRawRequest, opts ...grpc.CallOption) (*AggregateRawResponse, error) {
+func (c *systemHealthManagerServiceClient) GetGpuHeadroomMinIntervalMillis(ctx context.Context, in *GetGpuHeadroomMinIntervalMillisRequest, opts ...grpc.CallOption) (*GetGpuHeadroomMinIntervalMillisResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(AggregateRawResponse)
-	err := c.cc.Invoke(ctx, ManagerService_AggregateRaw_FullMethodName, in, out, cOpts...)
+	out := new(GetGpuHeadroomMinIntervalMillisResponse)
+	err := c.cc.Invoke(ctx, SystemHealthManagerService_GetGpuHeadroomMinIntervalMillis_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *managerServiceClient) DeleteRecordsRaw(ctx context.Context, in *DeleteRecordsRawRequest, opts ...grpc.CallOption) (*DeleteRecordsRawResponse, error) {
+func (c *systemHealthManagerServiceClient) GetMaxCpuHeadroomTidsSize(ctx context.Context, in *GetMaxCpuHeadroomTidsSizeRequest, opts ...grpc.CallOption) (*GetMaxCpuHeadroomTidsSizeResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(DeleteRecordsRawResponse)
-	err := c.cc.Invoke(ctx, ManagerService_DeleteRecordsRaw_FullMethodName, in, out, cOpts...)
+	out := new(GetMaxCpuHeadroomTidsSizeResponse)
+	err := c.cc.Invoke(ctx, SystemHealthManagerService_GetMaxCpuHeadroomTidsSize_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-// ManagerServiceServer is the server API for ManagerService service.
-// All implementations must embed UnimplementedManagerServiceServer
+func (c *systemHealthManagerServiceClient) TakeMyUidSnapshot(ctx context.Context, in *TakeMyUidSnapshotRequest, opts ...grpc.CallOption) (*TakeMyUidSnapshotResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(TakeMyUidSnapshotResponse)
+	err := c.cc.Invoke(ctx, SystemHealthManagerService_TakeMyUidSnapshot_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *systemHealthManagerServiceClient) TakeUidSnapshot(ctx context.Context, in *TakeUidSnapshotRequest, opts ...grpc.CallOption) (*TakeUidSnapshotResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(TakeUidSnapshotResponse)
+	err := c.cc.Invoke(ctx, SystemHealthManagerService_TakeUidSnapshot_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *systemHealthManagerServiceClient) TakeUidSnapshots(ctx context.Context, in *TakeUidSnapshotsRequest, opts ...grpc.CallOption) (*TakeUidSnapshotsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(TakeUidSnapshotsResponse)
+	err := c.cc.Invoke(ctx, SystemHealthManagerService_TakeUidSnapshots_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// SystemHealthManagerServiceServer is the server API for SystemHealthManagerService service.
+// All implementations must embed UnimplementedSystemHealthManagerServiceServer
 // for forward compatibility.
-type ManagerServiceServer interface {
-	GetOrCreateRaw(context.Context, *GetOrCreateRawRequest) (*GetOrCreateRawResponse, error)
-	InsertRecordsRaw(context.Context, *InsertRecordsRawRequest) (*InsertRecordsRawResponse, error)
-	ReadRecordsRaw(context.Context, *ReadRecordsRawRequest) (*ReadRecordsRawResponse, error)
-	AggregateRaw(context.Context, *AggregateRawRequest) (*AggregateRawResponse, error)
-	DeleteRecordsRaw(context.Context, *DeleteRecordsRawRequest) (*DeleteRecordsRawResponse, error)
-	mustEmbedUnimplementedManagerServiceServer()
+type SystemHealthManagerServiceServer interface {
+	GetCpuHeadroom(context.Context, *GetCpuHeadroomRequest) (*GetCpuHeadroomResponse, error)
+	GetCpuHeadroomMinIntervalMillis(context.Context, *GetCpuHeadroomMinIntervalMillisRequest) (*GetCpuHeadroomMinIntervalMillisResponse, error)
+	GetGpuHeadroom(context.Context, *GetGpuHeadroomRequest) (*GetGpuHeadroomResponse, error)
+	GetGpuHeadroomMinIntervalMillis(context.Context, *GetGpuHeadroomMinIntervalMillisRequest) (*GetGpuHeadroomMinIntervalMillisResponse, error)
+	GetMaxCpuHeadroomTidsSize(context.Context, *GetMaxCpuHeadroomTidsSizeRequest) (*GetMaxCpuHeadroomTidsSizeResponse, error)
+	TakeMyUidSnapshot(context.Context, *TakeMyUidSnapshotRequest) (*TakeMyUidSnapshotResponse, error)
+	TakeUidSnapshot(context.Context, *TakeUidSnapshotRequest) (*TakeUidSnapshotResponse, error)
+	TakeUidSnapshots(context.Context, *TakeUidSnapshotsRequest) (*TakeUidSnapshotsResponse, error)
+	mustEmbedUnimplementedSystemHealthManagerServiceServer()
 }
 
-// UnimplementedManagerServiceServer must be embedded to have
+// UnimplementedSystemHealthManagerServiceServer must be embedded to have
 // forward compatible implementations.
 //
 // NOTE: this should be embedded by value instead of pointer to avoid a nil
 // pointer dereference when methods are called.
-type UnimplementedManagerServiceServer struct{}
+type UnimplementedSystemHealthManagerServiceServer struct{}
 
-func (UnimplementedManagerServiceServer) GetOrCreateRaw(context.Context, *GetOrCreateRawRequest) (*GetOrCreateRawResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetOrCreateRaw not implemented")
+func (UnimplementedSystemHealthManagerServiceServer) GetCpuHeadroom(context.Context, *GetCpuHeadroomRequest) (*GetCpuHeadroomResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetCpuHeadroom not implemented")
 }
-func (UnimplementedManagerServiceServer) InsertRecordsRaw(context.Context, *InsertRecordsRawRequest) (*InsertRecordsRawResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method InsertRecordsRaw not implemented")
+func (UnimplementedSystemHealthManagerServiceServer) GetCpuHeadroomMinIntervalMillis(context.Context, *GetCpuHeadroomMinIntervalMillisRequest) (*GetCpuHeadroomMinIntervalMillisResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetCpuHeadroomMinIntervalMillis not implemented")
 }
-func (UnimplementedManagerServiceServer) ReadRecordsRaw(context.Context, *ReadRecordsRawRequest) (*ReadRecordsRawResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method ReadRecordsRaw not implemented")
+func (UnimplementedSystemHealthManagerServiceServer) GetGpuHeadroom(context.Context, *GetGpuHeadroomRequest) (*GetGpuHeadroomResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetGpuHeadroom not implemented")
 }
-func (UnimplementedManagerServiceServer) AggregateRaw(context.Context, *AggregateRawRequest) (*AggregateRawResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method AggregateRaw not implemented")
+func (UnimplementedSystemHealthManagerServiceServer) GetGpuHeadroomMinIntervalMillis(context.Context, *GetGpuHeadroomMinIntervalMillisRequest) (*GetGpuHeadroomMinIntervalMillisResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetGpuHeadroomMinIntervalMillis not implemented")
 }
-func (UnimplementedManagerServiceServer) DeleteRecordsRaw(context.Context, *DeleteRecordsRawRequest) (*DeleteRecordsRawResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method DeleteRecordsRaw not implemented")
+func (UnimplementedSystemHealthManagerServiceServer) GetMaxCpuHeadroomTidsSize(context.Context, *GetMaxCpuHeadroomTidsSizeRequest) (*GetMaxCpuHeadroomTidsSizeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetMaxCpuHeadroomTidsSize not implemented")
 }
-func (UnimplementedManagerServiceServer) mustEmbedUnimplementedManagerServiceServer() {}
-func (UnimplementedManagerServiceServer) testEmbeddedByValue()                        {}
+func (UnimplementedSystemHealthManagerServiceServer) TakeMyUidSnapshot(context.Context, *TakeMyUidSnapshotRequest) (*TakeMyUidSnapshotResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method TakeMyUidSnapshot not implemented")
+}
+func (UnimplementedSystemHealthManagerServiceServer) TakeUidSnapshot(context.Context, *TakeUidSnapshotRequest) (*TakeUidSnapshotResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method TakeUidSnapshot not implemented")
+}
+func (UnimplementedSystemHealthManagerServiceServer) TakeUidSnapshots(context.Context, *TakeUidSnapshotsRequest) (*TakeUidSnapshotsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method TakeUidSnapshots not implemented")
+}
+func (UnimplementedSystemHealthManagerServiceServer) mustEmbedUnimplementedSystemHealthManagerServiceServer() {
+}
+func (UnimplementedSystemHealthManagerServiceServer) testEmbeddedByValue() {}
 
-// UnsafeManagerServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to ManagerServiceServer will
+// UnsafeSystemHealthManagerServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to SystemHealthManagerServiceServer will
 // result in compilation errors.
-type UnsafeManagerServiceServer interface {
-	mustEmbedUnimplementedManagerServiceServer()
+type UnsafeSystemHealthManagerServiceServer interface {
+	mustEmbedUnimplementedSystemHealthManagerServiceServer()
 }
 
-func RegisterManagerServiceServer(s grpc.ServiceRegistrar, srv ManagerServiceServer) {
-	// If the following call panics, it indicates UnimplementedManagerServiceServer was
+func RegisterSystemHealthManagerServiceServer(s grpc.ServiceRegistrar, srv SystemHealthManagerServiceServer) {
+	// If the following call panics, it indicates UnimplementedSystemHealthManagerServiceServer was
 	// embedded by pointer and is nil.  This will cause panics if an
 	// unimplemented method is ever invoked, so we test this at initialization
 	// time to prevent it from happening at runtime later due to I/O.
 	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
 		t.testEmbeddedByValue()
 	}
-	s.RegisterService(&ManagerService_ServiceDesc, srv)
+	s.RegisterService(&SystemHealthManagerService_ServiceDesc, srv)
 }
 
-func _ManagerService_GetOrCreateRaw_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetOrCreateRawRequest)
+func _SystemHealthManagerService_GetCpuHeadroom_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetCpuHeadroomRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(ManagerServiceServer).GetOrCreateRaw(ctx, in)
+		return srv.(SystemHealthManagerServiceServer).GetCpuHeadroom(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: ManagerService_GetOrCreateRaw_FullMethodName,
+		FullMethod: SystemHealthManagerService_GetCpuHeadroom_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ManagerServiceServer).GetOrCreateRaw(ctx, req.(*GetOrCreateRawRequest))
+		return srv.(SystemHealthManagerServiceServer).GetCpuHeadroom(ctx, req.(*GetCpuHeadroomRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _ManagerService_InsertRecordsRaw_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(InsertRecordsRawRequest)
+func _SystemHealthManagerService_GetCpuHeadroomMinIntervalMillis_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetCpuHeadroomMinIntervalMillisRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(ManagerServiceServer).InsertRecordsRaw(ctx, in)
+		return srv.(SystemHealthManagerServiceServer).GetCpuHeadroomMinIntervalMillis(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: ManagerService_InsertRecordsRaw_FullMethodName,
+		FullMethod: SystemHealthManagerService_GetCpuHeadroomMinIntervalMillis_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ManagerServiceServer).InsertRecordsRaw(ctx, req.(*InsertRecordsRawRequest))
+		return srv.(SystemHealthManagerServiceServer).GetCpuHeadroomMinIntervalMillis(ctx, req.(*GetCpuHeadroomMinIntervalMillisRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _ManagerService_ReadRecordsRaw_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ReadRecordsRawRequest)
+func _SystemHealthManagerService_GetGpuHeadroom_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetGpuHeadroomRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(ManagerServiceServer).ReadRecordsRaw(ctx, in)
+		return srv.(SystemHealthManagerServiceServer).GetGpuHeadroom(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: ManagerService_ReadRecordsRaw_FullMethodName,
+		FullMethod: SystemHealthManagerService_GetGpuHeadroom_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ManagerServiceServer).ReadRecordsRaw(ctx, req.(*ReadRecordsRawRequest))
+		return srv.(SystemHealthManagerServiceServer).GetGpuHeadroom(ctx, req.(*GetGpuHeadroomRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _ManagerService_AggregateRaw_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(AggregateRawRequest)
+func _SystemHealthManagerService_GetGpuHeadroomMinIntervalMillis_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetGpuHeadroomMinIntervalMillisRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(ManagerServiceServer).AggregateRaw(ctx, in)
+		return srv.(SystemHealthManagerServiceServer).GetGpuHeadroomMinIntervalMillis(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: ManagerService_AggregateRaw_FullMethodName,
+		FullMethod: SystemHealthManagerService_GetGpuHeadroomMinIntervalMillis_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ManagerServiceServer).AggregateRaw(ctx, req.(*AggregateRawRequest))
+		return srv.(SystemHealthManagerServiceServer).GetGpuHeadroomMinIntervalMillis(ctx, req.(*GetGpuHeadroomMinIntervalMillisRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _ManagerService_DeleteRecordsRaw_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(DeleteRecordsRawRequest)
+func _SystemHealthManagerService_GetMaxCpuHeadroomTidsSize_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetMaxCpuHeadroomTidsSizeRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(ManagerServiceServer).DeleteRecordsRaw(ctx, in)
+		return srv.(SystemHealthManagerServiceServer).GetMaxCpuHeadroomTidsSize(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: ManagerService_DeleteRecordsRaw_FullMethodName,
+		FullMethod: SystemHealthManagerService_GetMaxCpuHeadroomTidsSize_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ManagerServiceServer).DeleteRecordsRaw(ctx, req.(*DeleteRecordsRawRequest))
+		return srv.(SystemHealthManagerServiceServer).GetMaxCpuHeadroomTidsSize(ctx, req.(*GetMaxCpuHeadroomTidsSizeRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-// ManagerService_ServiceDesc is the grpc.ServiceDesc for ManagerService service.
+func _SystemHealthManagerService_TakeMyUidSnapshot_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(TakeMyUidSnapshotRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SystemHealthManagerServiceServer).TakeMyUidSnapshot(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SystemHealthManagerService_TakeMyUidSnapshot_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SystemHealthManagerServiceServer).TakeMyUidSnapshot(ctx, req.(*TakeMyUidSnapshotRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SystemHealthManagerService_TakeUidSnapshot_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(TakeUidSnapshotRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SystemHealthManagerServiceServer).TakeUidSnapshot(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SystemHealthManagerService_TakeUidSnapshot_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SystemHealthManagerServiceServer).TakeUidSnapshot(ctx, req.(*TakeUidSnapshotRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SystemHealthManagerService_TakeUidSnapshots_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(TakeUidSnapshotsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SystemHealthManagerServiceServer).TakeUidSnapshots(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SystemHealthManagerService_TakeUidSnapshots_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SystemHealthManagerServiceServer).TakeUidSnapshots(ctx, req.(*TakeUidSnapshotsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// SystemHealthManagerService_ServiceDesc is the grpc.ServiceDesc for SystemHealthManagerService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
-var ManagerService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "health.ManagerService",
-	HandlerType: (*ManagerServiceServer)(nil),
+var SystemHealthManagerService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "health.SystemHealthManagerService",
+	HandlerType: (*SystemHealthManagerServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
-			MethodName: "GetOrCreateRaw",
-			Handler:    _ManagerService_GetOrCreateRaw_Handler,
+			MethodName: "GetCpuHeadroom",
+			Handler:    _SystemHealthManagerService_GetCpuHeadroom_Handler,
 		},
 		{
-			MethodName: "InsertRecordsRaw",
-			Handler:    _ManagerService_InsertRecordsRaw_Handler,
+			MethodName: "GetCpuHeadroomMinIntervalMillis",
+			Handler:    _SystemHealthManagerService_GetCpuHeadroomMinIntervalMillis_Handler,
 		},
 		{
-			MethodName: "ReadRecordsRaw",
-			Handler:    _ManagerService_ReadRecordsRaw_Handler,
+			MethodName: "GetGpuHeadroom",
+			Handler:    _SystemHealthManagerService_GetGpuHeadroom_Handler,
 		},
 		{
-			MethodName: "AggregateRaw",
-			Handler:    _ManagerService_AggregateRaw_Handler,
+			MethodName: "GetGpuHeadroomMinIntervalMillis",
+			Handler:    _SystemHealthManagerService_GetGpuHeadroomMinIntervalMillis_Handler,
 		},
 		{
-			MethodName: "DeleteRecordsRaw",
-			Handler:    _ManagerService_DeleteRecordsRaw_Handler,
+			MethodName: "GetMaxCpuHeadroomTidsSize",
+			Handler:    _SystemHealthManagerService_GetMaxCpuHeadroomTidsSize_Handler,
+		},
+		{
+			MethodName: "TakeMyUidSnapshot",
+			Handler:    _SystemHealthManagerService_TakeMyUidSnapshot_Handler,
+		},
+		{
+			MethodName: "TakeUidSnapshot",
+			Handler:    _SystemHealthManagerService_TakeUidSnapshot_Handler,
+		},
+		{
+			MethodName: "TakeUidSnapshots",
+			Handler:    _SystemHealthManagerService_TakeUidSnapshots_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

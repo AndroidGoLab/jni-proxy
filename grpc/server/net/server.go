@@ -15,6 +15,275 @@ import (
 	"google.golang.org/grpc/status"
 )
 
+// ConnectivityDiagnosticsManagerServer implements pb.ConnectivityDiagnosticsManagerServiceServer.
+type ConnectivityDiagnosticsManagerServer struct {
+	pb.UnimplementedConnectivityDiagnosticsManagerServiceServer
+	Ctx     *app.Context
+	Handles *handlestore.HandleStore
+}
+
+func (s *ConnectivityDiagnosticsManagerServer) RegisterConnectivityDiagnosticsCallback(_ context.Context, req *pb.RegisterConnectivityDiagnosticsCallbackRequest) (*pb.RegisterConnectivityDiagnosticsCallbackResponse, error) {
+	mgr, err := jnipkg.NewConnectivityDiagnosticsManager(s.Ctx)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
+	}
+	defer mgr.Close()
+
+	if err := mgr.RegisterConnectivityDiagnosticsCallback(s.Handles.Get(req.GetArg0()), s.Handles.Get(req.GetArg1()), s.Handles.Get(req.GetArg2())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.RegisterConnectivityDiagnosticsCallbackResponse{}, nil
+}
+
+func (s *ConnectivityDiagnosticsManagerServer) UnregisterConnectivityDiagnosticsCallback(_ context.Context, req *pb.UnregisterConnectivityDiagnosticsCallbackRequest) (*pb.UnregisterConnectivityDiagnosticsCallbackResponse, error) {
+	mgr, err := jnipkg.NewConnectivityDiagnosticsManager(s.Ctx)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
+	}
+	defer mgr.Close()
+
+	if err := mgr.UnregisterConnectivityDiagnosticsCallback(s.Handles.Get(req.GetArg0())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.UnregisterConnectivityDiagnosticsCallbackResponse{}, nil
+}
+
+// IpSecManagerServer implements pb.IpSecManagerServiceServer.
+type IpSecManagerServer struct {
+	pb.UnimplementedIpSecManagerServiceServer
+	Ctx     *app.Context
+	Handles *handlestore.HandleStore
+}
+
+func (s *IpSecManagerServer) AllocateSecurityParameterIndex1(_ context.Context, req *pb.AllocateSecurityParameterIndex1Request) (*pb.AllocateSecurityParameterIndex1Response, error) {
+	mgr, err := jnipkg.NewIpSecManager(s.Ctx)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
+	}
+	defer mgr.Close()
+
+	result, err := mgr.AllocateSecurityParameterIndex1(s.Handles.Get(req.GetArg0()))
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.AllocateSecurityParameterIndex1Response{Result: handle}, nil
+}
+
+func (s *IpSecManagerServer) AllocateSecurityParameterIndex2_1(_ context.Context, req *pb.AllocateSecurityParameterIndex2_1Request) (*pb.AllocateSecurityParameterIndex2_1Response, error) {
+	mgr, err := jnipkg.NewIpSecManager(s.Ctx)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
+	}
+	defer mgr.Close()
+
+	result, err := mgr.AllocateSecurityParameterIndex2_1(s.Handles.Get(req.GetArg0()), req.GetArg1())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.AllocateSecurityParameterIndex2_1Response{Result: handle}, nil
+}
+
+func (s *IpSecManagerServer) ApplyTransportModeTransform3(_ context.Context, req *pb.ApplyTransportModeTransform3Request) (*pb.ApplyTransportModeTransform3Response, error) {
+	mgr, err := jnipkg.NewIpSecManager(s.Ctx)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
+	}
+	defer mgr.Close()
+
+	if err := mgr.ApplyTransportModeTransform3(s.Handles.Get(req.GetArg0()), req.GetArg1(), s.Handles.Get(req.GetArg2())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.ApplyTransportModeTransform3Response{}, nil
+}
+
+func (s *IpSecManagerServer) ApplyTransportModeTransform3_1(_ context.Context, req *pb.ApplyTransportModeTransform3_1Request) (*pb.ApplyTransportModeTransform3_1Response, error) {
+	mgr, err := jnipkg.NewIpSecManager(s.Ctx)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
+	}
+	defer mgr.Close()
+
+	if err := mgr.ApplyTransportModeTransform3_1(s.Handles.Get(req.GetArg0()), req.GetArg1(), s.Handles.Get(req.GetArg2())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.ApplyTransportModeTransform3_1Response{}, nil
+}
+
+func (s *IpSecManagerServer) ApplyTransportModeTransform3_2(_ context.Context, req *pb.ApplyTransportModeTransform3_2Request) (*pb.ApplyTransportModeTransform3_2Response, error) {
+	mgr, err := jnipkg.NewIpSecManager(s.Ctx)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
+	}
+	defer mgr.Close()
+
+	if err := mgr.ApplyTransportModeTransform3_2(s.Handles.Get(req.GetArg0()), req.GetArg1(), s.Handles.Get(req.GetArg2())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.ApplyTransportModeTransform3_2Response{}, nil
+}
+
+func (s *IpSecManagerServer) OpenUdpEncapsulationSocket0(_ context.Context, req *pb.OpenUdpEncapsulationSocket0Request) (*pb.OpenUdpEncapsulationSocket0Response, error) {
+	mgr, err := jnipkg.NewIpSecManager(s.Ctx)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
+	}
+	defer mgr.Close()
+
+	result, err := mgr.OpenUdpEncapsulationSocket0()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.OpenUdpEncapsulationSocket0Response{Result: handle}, nil
+}
+
+func (s *IpSecManagerServer) OpenUdpEncapsulationSocket1_1(_ context.Context, req *pb.OpenUdpEncapsulationSocket1_1Request) (*pb.OpenUdpEncapsulationSocket1_1Response, error) {
+	mgr, err := jnipkg.NewIpSecManager(s.Ctx)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
+	}
+	defer mgr.Close()
+
+	result, err := mgr.OpenUdpEncapsulationSocket1_1(req.GetArg0())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.OpenUdpEncapsulationSocket1_1Response{Result: handle}, nil
+}
+
+func (s *IpSecManagerServer) RemoveTransportModeTransforms1(_ context.Context, req *pb.RemoveTransportModeTransforms1Request) (*pb.RemoveTransportModeTransforms1Response, error) {
+	mgr, err := jnipkg.NewIpSecManager(s.Ctx)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
+	}
+	defer mgr.Close()
+
+	if err := mgr.RemoveTransportModeTransforms1(s.Handles.Get(req.GetArg0())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.RemoveTransportModeTransforms1Response{}, nil
+}
+
+func (s *IpSecManagerServer) RemoveTransportModeTransforms1_1(_ context.Context, req *pb.RemoveTransportModeTransforms1_1Request) (*pb.RemoveTransportModeTransforms1_1Response, error) {
+	mgr, err := jnipkg.NewIpSecManager(s.Ctx)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
+	}
+	defer mgr.Close()
+
+	if err := mgr.RemoveTransportModeTransforms1_1(s.Handles.Get(req.GetArg0())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.RemoveTransportModeTransforms1_1Response{}, nil
+}
+
+func (s *IpSecManagerServer) RemoveTransportModeTransforms1_2(_ context.Context, req *pb.RemoveTransportModeTransforms1_2Request) (*pb.RemoveTransportModeTransforms1_2Response, error) {
+	mgr, err := jnipkg.NewIpSecManager(s.Ctx)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
+	}
+	defer mgr.Close()
+
+	if err := mgr.RemoveTransportModeTransforms1_2(s.Handles.Get(req.GetArg0())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.RemoveTransportModeTransforms1_2Response{}, nil
+}
+
+// TetheringManagerServer implements pb.TetheringManagerServiceServer.
+type TetheringManagerServer struct {
+	pb.UnimplementedTetheringManagerServiceServer
+	Ctx     *app.Context
+	Handles *handlestore.HandleStore
+}
+
+func (s *TetheringManagerServer) RegisterTetheringEventCallback(_ context.Context, req *pb.RegisterTetheringEventCallbackRequest) (*pb.RegisterTetheringEventCallbackResponse, error) {
+	mgr, err := jnipkg.NewTetheringManager(s.Ctx)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
+	}
+	defer mgr.Close()
+
+	if err := mgr.RegisterTetheringEventCallback(s.Handles.Get(req.GetArg0()), s.Handles.Get(req.GetArg1())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.RegisterTetheringEventCallbackResponse{}, nil
+}
+
+func (s *TetheringManagerServer) StartTethering(_ context.Context, req *pb.StartTetheringRequest) (*pb.StartTetheringResponse, error) {
+	mgr, err := jnipkg.NewTetheringManager(s.Ctx)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
+	}
+	defer mgr.Close()
+
+	if err := mgr.StartTethering(s.Handles.Get(req.GetArg0()), s.Handles.Get(req.GetArg1()), s.Handles.Get(req.GetArg2())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.StartTetheringResponse{}, nil
+}
+
+func (s *TetheringManagerServer) StopTethering(_ context.Context, req *pb.StopTetheringRequest) (*pb.StopTetheringResponse, error) {
+	mgr, err := jnipkg.NewTetheringManager(s.Ctx)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
+	}
+	defer mgr.Close()
+
+	if err := mgr.StopTethering(s.Handles.Get(req.GetArg0()), s.Handles.Get(req.GetArg1()), s.Handles.Get(req.GetArg2())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.StopTetheringResponse{}, nil
+}
+
+func (s *TetheringManagerServer) UnregisterTetheringEventCallback(_ context.Context, req *pb.UnregisterTetheringEventCallbackRequest) (*pb.UnregisterTetheringEventCallbackResponse, error) {
+	mgr, err := jnipkg.NewTetheringManager(s.Ctx)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
+	}
+	defer mgr.Close()
+
+	if err := mgr.UnregisterTetheringEventCallback(s.Handles.Get(req.GetArg0())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.UnregisterTetheringEventCallbackResponse{}, nil
+}
+
 // ConnectivityManagerServer implements pb.ConnectivityManagerServiceServer.
 type ConnectivityManagerServer struct {
 	pb.UnimplementedConnectivityManagerServiceServer

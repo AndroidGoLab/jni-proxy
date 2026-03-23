@@ -71,43 +71,6 @@ var irConsumerIrManagerTransmitCmd = &cobra.Command{
 	},
 }
 
-var irConsumerIrManagerCarrierFrequencyRangeCmd = &cobra.Command{
-	Use:   "consumer-ir-manager-carrier-frequency-range",
-	Short: "ConsumerIrManagerCarrierFrequencyRangeService operations",
-}
-
-var irConsumerIrManagerCarrierFrequencyRangeGetMaxFrequencyCmd = &cobra.Command{
-	Use:   "get-max-frequency",
-	Short: "GetMaxFrequency RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewConsumerIrManagerCarrierFrequencyRangeServiceClient(grpcConn)
-		req := &pb.GetMaxFrequencyRequest{}
-		resp, err := client.GetMaxFrequency(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var irConsumerIrManagerCarrierFrequencyRangeGetMinFrequencyCmd = &cobra.Command{
-	Use:   "get-min-frequency",
-	Short: "GetMinFrequency RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewConsumerIrManagerCarrierFrequencyRangeServiceClient(grpcConn)
-		req := &pb.GetMinFrequencyRequest{}
-		resp, err := client.GetMinFrequency(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
 func init() {
 	irConsumerIrManagerCmd.AddCommand(irConsumerIrManagerGetCarrierFrequenciesCmd)
 	irConsumerIrManagerCmd.AddCommand(irConsumerIrManagerHasIrEmitterCmd)
@@ -115,8 +78,5 @@ func init() {
 	irConsumerIrManagerTransmitCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
 	irConsumerIrManagerCmd.AddCommand(irConsumerIrManagerTransmitCmd)
 	irCmd.AddCommand(irConsumerIrManagerCmd)
-	irConsumerIrManagerCarrierFrequencyRangeCmd.AddCommand(irConsumerIrManagerCarrierFrequencyRangeGetMaxFrequencyCmd)
-	irConsumerIrManagerCarrierFrequencyRangeCmd.AddCommand(irConsumerIrManagerCarrierFrequencyRangeGetMinFrequencyCmd)
-	irCmd.AddCommand(irConsumerIrManagerCarrierFrequencyRangeCmd)
 	rootCmd.AddCommand(irCmd)
 }

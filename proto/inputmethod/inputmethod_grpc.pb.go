@@ -23,15 +23,10 @@ const _ = grpc.SupportPackageIsVersion9
 const (
 	InputMethodManagerService_AcceptStylusHandwritingDelegation1_FullMethodName                   = "/inputmethod.InputMethodManagerService/AcceptStylusHandwritingDelegation1"
 	InputMethodManagerService_AcceptStylusHandwritingDelegation2_1_FullMethodName                 = "/inputmethod.InputMethodManagerService/AcceptStylusHandwritingDelegation2_1"
-	InputMethodManagerService_AcceptStylusHandwritingDelegation5_2_FullMethodName                 = "/inputmethod.InputMethodManagerService/AcceptStylusHandwritingDelegation5_2"
-	InputMethodManagerService_AcceptStylusHandwritingDelegation4_3_FullMethodName                 = "/inputmethod.InputMethodManagerService/AcceptStylusHandwritingDelegation4_3"
 	InputMethodManagerService_DispatchKeyEventFromInputMethod_FullMethodName                      = "/inputmethod.InputMethodManagerService/DispatchKeyEventFromInputMethod"
 	InputMethodManagerService_DisplayCompletions_FullMethodName                                   = "/inputmethod.InputMethodManagerService/DisplayCompletions"
 	InputMethodManagerService_GetCurrentInputMethodInfo_FullMethodName                            = "/inputmethod.InputMethodManagerService/GetCurrentInputMethodInfo"
 	InputMethodManagerService_GetCurrentInputMethodSubtype_FullMethodName                         = "/inputmethod.InputMethodManagerService/GetCurrentInputMethodSubtype"
-	InputMethodManagerService_GetEnabledInputMethodList_FullMethodName                            = "/inputmethod.InputMethodManagerService/GetEnabledInputMethodList"
-	InputMethodManagerService_GetEnabledInputMethodSubtypeList_FullMethodName                     = "/inputmethod.InputMethodManagerService/GetEnabledInputMethodSubtypeList"
-	InputMethodManagerService_GetInputMethodList_FullMethodName                                   = "/inputmethod.InputMethodManagerService/GetInputMethodList"
 	InputMethodManagerService_GetLastInputMethodSubtype_FullMethodName                            = "/inputmethod.InputMethodManagerService/GetLastInputMethodSubtype"
 	InputMethodManagerService_HideSoftInputFromInputMethod_FullMethodName                         = "/inputmethod.InputMethodManagerService/HideSoftInputFromInputMethod"
 	InputMethodManagerService_HideSoftInputFromWindow2_FullMethodName                             = "/inputmethod.InputMethodManagerService/HideSoftInputFromWindow2"
@@ -83,15 +78,10 @@ const (
 type InputMethodManagerServiceClient interface {
 	AcceptStylusHandwritingDelegation1(ctx context.Context, in *AcceptStylusHandwritingDelegation1Request, opts ...grpc.CallOption) (*AcceptStylusHandwritingDelegation1Response, error)
 	AcceptStylusHandwritingDelegation2_1(ctx context.Context, in *AcceptStylusHandwritingDelegation2_1Request, opts ...grpc.CallOption) (*AcceptStylusHandwritingDelegation2_1Response, error)
-	AcceptStylusHandwritingDelegation5_2(ctx context.Context, in *AcceptStylusHandwritingDelegation5_2Request, opts ...grpc.CallOption) (*AcceptStylusHandwritingDelegation5_2Response, error)
-	AcceptStylusHandwritingDelegation4_3(ctx context.Context, in *AcceptStylusHandwritingDelegation4_3Request, opts ...grpc.CallOption) (*AcceptStylusHandwritingDelegation4_3Response, error)
 	DispatchKeyEventFromInputMethod(ctx context.Context, in *DispatchKeyEventFromInputMethodRequest, opts ...grpc.CallOption) (*DispatchKeyEventFromInputMethodResponse, error)
 	DisplayCompletions(ctx context.Context, in *DisplayCompletionsRequest, opts ...grpc.CallOption) (*DisplayCompletionsResponse, error)
 	GetCurrentInputMethodInfo(ctx context.Context, in *GetCurrentInputMethodInfoRequest, opts ...grpc.CallOption) (*GetCurrentInputMethodInfoResponse, error)
 	GetCurrentInputMethodSubtype(ctx context.Context, in *GetCurrentInputMethodSubtypeRequest, opts ...grpc.CallOption) (*GetCurrentInputMethodSubtypeResponse, error)
-	GetEnabledInputMethodList(ctx context.Context, in *GetEnabledInputMethodListRequest, opts ...grpc.CallOption) (*GetEnabledInputMethodListResponse, error)
-	GetEnabledInputMethodSubtypeList(ctx context.Context, in *GetEnabledInputMethodSubtypeListRequest, opts ...grpc.CallOption) (*GetEnabledInputMethodSubtypeListResponse, error)
-	GetInputMethodList(ctx context.Context, in *GetInputMethodListRequest, opts ...grpc.CallOption) (*GetInputMethodListResponse, error)
 	GetLastInputMethodSubtype(ctx context.Context, in *GetLastInputMethodSubtypeRequest, opts ...grpc.CallOption) (*GetLastInputMethodSubtypeResponse, error)
 	HideSoftInputFromInputMethod(ctx context.Context, in *HideSoftInputFromInputMethodRequest, opts ...grpc.CallOption) (*HideSoftInputFromInputMethodResponse, error)
 	HideSoftInputFromWindow2(ctx context.Context, in *HideSoftInputFromWindow2Request, opts ...grpc.CallOption) (*HideSoftInputFromWindow2Response, error)
@@ -165,26 +155,6 @@ func (c *inputMethodManagerServiceClient) AcceptStylusHandwritingDelegation2_1(c
 	return out, nil
 }
 
-func (c *inputMethodManagerServiceClient) AcceptStylusHandwritingDelegation5_2(ctx context.Context, in *AcceptStylusHandwritingDelegation5_2Request, opts ...grpc.CallOption) (*AcceptStylusHandwritingDelegation5_2Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(AcceptStylusHandwritingDelegation5_2Response)
-	err := c.cc.Invoke(ctx, InputMethodManagerService_AcceptStylusHandwritingDelegation5_2_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *inputMethodManagerServiceClient) AcceptStylusHandwritingDelegation4_3(ctx context.Context, in *AcceptStylusHandwritingDelegation4_3Request, opts ...grpc.CallOption) (*AcceptStylusHandwritingDelegation4_3Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(AcceptStylusHandwritingDelegation4_3Response)
-	err := c.cc.Invoke(ctx, InputMethodManagerService_AcceptStylusHandwritingDelegation4_3_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
 func (c *inputMethodManagerServiceClient) DispatchKeyEventFromInputMethod(ctx context.Context, in *DispatchKeyEventFromInputMethodRequest, opts ...grpc.CallOption) (*DispatchKeyEventFromInputMethodResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(DispatchKeyEventFromInputMethodResponse)
@@ -219,36 +189,6 @@ func (c *inputMethodManagerServiceClient) GetCurrentInputMethodSubtype(ctx conte
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(GetCurrentInputMethodSubtypeResponse)
 	err := c.cc.Invoke(ctx, InputMethodManagerService_GetCurrentInputMethodSubtype_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *inputMethodManagerServiceClient) GetEnabledInputMethodList(ctx context.Context, in *GetEnabledInputMethodListRequest, opts ...grpc.CallOption) (*GetEnabledInputMethodListResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetEnabledInputMethodListResponse)
-	err := c.cc.Invoke(ctx, InputMethodManagerService_GetEnabledInputMethodList_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *inputMethodManagerServiceClient) GetEnabledInputMethodSubtypeList(ctx context.Context, in *GetEnabledInputMethodSubtypeListRequest, opts ...grpc.CallOption) (*GetEnabledInputMethodSubtypeListResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetEnabledInputMethodSubtypeListResponse)
-	err := c.cc.Invoke(ctx, InputMethodManagerService_GetEnabledInputMethodSubtypeList_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *inputMethodManagerServiceClient) GetInputMethodList(ctx context.Context, in *GetInputMethodListRequest, opts ...grpc.CallOption) (*GetInputMethodListResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetInputMethodListResponse)
-	err := c.cc.Invoke(ctx, InputMethodManagerService_GetInputMethodList_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
@@ -691,15 +631,10 @@ func (c *inputMethodManagerServiceClient) ViewClicked(ctx context.Context, in *V
 type InputMethodManagerServiceServer interface {
 	AcceptStylusHandwritingDelegation1(context.Context, *AcceptStylusHandwritingDelegation1Request) (*AcceptStylusHandwritingDelegation1Response, error)
 	AcceptStylusHandwritingDelegation2_1(context.Context, *AcceptStylusHandwritingDelegation2_1Request) (*AcceptStylusHandwritingDelegation2_1Response, error)
-	AcceptStylusHandwritingDelegation5_2(context.Context, *AcceptStylusHandwritingDelegation5_2Request) (*AcceptStylusHandwritingDelegation5_2Response, error)
-	AcceptStylusHandwritingDelegation4_3(context.Context, *AcceptStylusHandwritingDelegation4_3Request) (*AcceptStylusHandwritingDelegation4_3Response, error)
 	DispatchKeyEventFromInputMethod(context.Context, *DispatchKeyEventFromInputMethodRequest) (*DispatchKeyEventFromInputMethodResponse, error)
 	DisplayCompletions(context.Context, *DisplayCompletionsRequest) (*DisplayCompletionsResponse, error)
 	GetCurrentInputMethodInfo(context.Context, *GetCurrentInputMethodInfoRequest) (*GetCurrentInputMethodInfoResponse, error)
 	GetCurrentInputMethodSubtype(context.Context, *GetCurrentInputMethodSubtypeRequest) (*GetCurrentInputMethodSubtypeResponse, error)
-	GetEnabledInputMethodList(context.Context, *GetEnabledInputMethodListRequest) (*GetEnabledInputMethodListResponse, error)
-	GetEnabledInputMethodSubtypeList(context.Context, *GetEnabledInputMethodSubtypeListRequest) (*GetEnabledInputMethodSubtypeListResponse, error)
-	GetInputMethodList(context.Context, *GetInputMethodListRequest) (*GetInputMethodListResponse, error)
 	GetLastInputMethodSubtype(context.Context, *GetLastInputMethodSubtypeRequest) (*GetLastInputMethodSubtypeResponse, error)
 	HideSoftInputFromInputMethod(context.Context, *HideSoftInputFromInputMethodRequest) (*HideSoftInputFromInputMethodResponse, error)
 	HideSoftInputFromWindow2(context.Context, *HideSoftInputFromWindow2Request) (*HideSoftInputFromWindow2Response, error)
@@ -759,12 +694,6 @@ func (UnimplementedInputMethodManagerServiceServer) AcceptStylusHandwritingDeleg
 func (UnimplementedInputMethodManagerServiceServer) AcceptStylusHandwritingDelegation2_1(context.Context, *AcceptStylusHandwritingDelegation2_1Request) (*AcceptStylusHandwritingDelegation2_1Response, error) {
 	return nil, status.Error(codes.Unimplemented, "method AcceptStylusHandwritingDelegation2_1 not implemented")
 }
-func (UnimplementedInputMethodManagerServiceServer) AcceptStylusHandwritingDelegation5_2(context.Context, *AcceptStylusHandwritingDelegation5_2Request) (*AcceptStylusHandwritingDelegation5_2Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method AcceptStylusHandwritingDelegation5_2 not implemented")
-}
-func (UnimplementedInputMethodManagerServiceServer) AcceptStylusHandwritingDelegation4_3(context.Context, *AcceptStylusHandwritingDelegation4_3Request) (*AcceptStylusHandwritingDelegation4_3Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method AcceptStylusHandwritingDelegation4_3 not implemented")
-}
 func (UnimplementedInputMethodManagerServiceServer) DispatchKeyEventFromInputMethod(context.Context, *DispatchKeyEventFromInputMethodRequest) (*DispatchKeyEventFromInputMethodResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method DispatchKeyEventFromInputMethod not implemented")
 }
@@ -776,15 +705,6 @@ func (UnimplementedInputMethodManagerServiceServer) GetCurrentInputMethodInfo(co
 }
 func (UnimplementedInputMethodManagerServiceServer) GetCurrentInputMethodSubtype(context.Context, *GetCurrentInputMethodSubtypeRequest) (*GetCurrentInputMethodSubtypeResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetCurrentInputMethodSubtype not implemented")
-}
-func (UnimplementedInputMethodManagerServiceServer) GetEnabledInputMethodList(context.Context, *GetEnabledInputMethodListRequest) (*GetEnabledInputMethodListResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetEnabledInputMethodList not implemented")
-}
-func (UnimplementedInputMethodManagerServiceServer) GetEnabledInputMethodSubtypeList(context.Context, *GetEnabledInputMethodSubtypeListRequest) (*GetEnabledInputMethodSubtypeListResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetEnabledInputMethodSubtypeList not implemented")
-}
-func (UnimplementedInputMethodManagerServiceServer) GetInputMethodList(context.Context, *GetInputMethodListRequest) (*GetInputMethodListResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetInputMethodList not implemented")
 }
 func (UnimplementedInputMethodManagerServiceServer) GetLastInputMethodSubtype(context.Context, *GetLastInputMethodSubtypeRequest) (*GetLastInputMethodSubtypeResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetLastInputMethodSubtype not implemented")
@@ -973,42 +893,6 @@ func _InputMethodManagerService_AcceptStylusHandwritingDelegation2_1_Handler(srv
 	return interceptor(ctx, in, info, handler)
 }
 
-func _InputMethodManagerService_AcceptStylusHandwritingDelegation5_2_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(AcceptStylusHandwritingDelegation5_2Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(InputMethodManagerServiceServer).AcceptStylusHandwritingDelegation5_2(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: InputMethodManagerService_AcceptStylusHandwritingDelegation5_2_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(InputMethodManagerServiceServer).AcceptStylusHandwritingDelegation5_2(ctx, req.(*AcceptStylusHandwritingDelegation5_2Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _InputMethodManagerService_AcceptStylusHandwritingDelegation4_3_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(AcceptStylusHandwritingDelegation4_3Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(InputMethodManagerServiceServer).AcceptStylusHandwritingDelegation4_3(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: InputMethodManagerService_AcceptStylusHandwritingDelegation4_3_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(InputMethodManagerServiceServer).AcceptStylusHandwritingDelegation4_3(ctx, req.(*AcceptStylusHandwritingDelegation4_3Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
 func _InputMethodManagerService_DispatchKeyEventFromInputMethod_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(DispatchKeyEventFromInputMethodRequest)
 	if err := dec(in); err != nil {
@@ -1077,60 +961,6 @@ func _InputMethodManagerService_GetCurrentInputMethodSubtype_Handler(srv interfa
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(InputMethodManagerServiceServer).GetCurrentInputMethodSubtype(ctx, req.(*GetCurrentInputMethodSubtypeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _InputMethodManagerService_GetEnabledInputMethodList_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetEnabledInputMethodListRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(InputMethodManagerServiceServer).GetEnabledInputMethodList(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: InputMethodManagerService_GetEnabledInputMethodList_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(InputMethodManagerServiceServer).GetEnabledInputMethodList(ctx, req.(*GetEnabledInputMethodListRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _InputMethodManagerService_GetEnabledInputMethodSubtypeList_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetEnabledInputMethodSubtypeListRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(InputMethodManagerServiceServer).GetEnabledInputMethodSubtypeList(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: InputMethodManagerService_GetEnabledInputMethodSubtypeList_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(InputMethodManagerServiceServer).GetEnabledInputMethodSubtypeList(ctx, req.(*GetEnabledInputMethodSubtypeListRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _InputMethodManagerService_GetInputMethodList_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetInputMethodListRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(InputMethodManagerServiceServer).GetInputMethodList(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: InputMethodManagerService_GetInputMethodList_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(InputMethodManagerServiceServer).GetInputMethodList(ctx, req.(*GetInputMethodListRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -1925,14 +1755,6 @@ var InputMethodManagerService_ServiceDesc = grpc.ServiceDesc{
 			Handler:    _InputMethodManagerService_AcceptStylusHandwritingDelegation2_1_Handler,
 		},
 		{
-			MethodName: "AcceptStylusHandwritingDelegation5_2",
-			Handler:    _InputMethodManagerService_AcceptStylusHandwritingDelegation5_2_Handler,
-		},
-		{
-			MethodName: "AcceptStylusHandwritingDelegation4_3",
-			Handler:    _InputMethodManagerService_AcceptStylusHandwritingDelegation4_3_Handler,
-		},
-		{
 			MethodName: "DispatchKeyEventFromInputMethod",
 			Handler:    _InputMethodManagerService_DispatchKeyEventFromInputMethod_Handler,
 		},
@@ -1947,18 +1769,6 @@ var InputMethodManagerService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "GetCurrentInputMethodSubtype",
 			Handler:    _InputMethodManagerService_GetCurrentInputMethodSubtype_Handler,
-		},
-		{
-			MethodName: "GetEnabledInputMethodList",
-			Handler:    _InputMethodManagerService_GetEnabledInputMethodList_Handler,
-		},
-		{
-			MethodName: "GetEnabledInputMethodSubtypeList",
-			Handler:    _InputMethodManagerService_GetEnabledInputMethodSubtypeList_Handler,
-		},
-		{
-			MethodName: "GetInputMethodList",
-			Handler:    _InputMethodManagerService_GetInputMethodList_Handler,
 		},
 		{
 			MethodName: "GetLastInputMethodSubtype",

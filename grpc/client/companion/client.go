@@ -9,20 +9,20 @@ import (
 	"google.golang.org/grpc"
 )
 
-// Client wraps the gRPC DeviceManagerService client.
-type Client struct {
+// DeviceManagerClient wraps the gRPC DeviceManagerService client.
+type DeviceManagerClient struct {
 	svc pb.DeviceManagerServiceClient
 }
 
-// NewClient creates a new companion client.
-func NewClient(cc grpc.ClientConnInterface) *Client {
-	return &Client{
+// NewDeviceManagerClient creates a new DeviceManager client.
+func NewDeviceManagerClient(cc grpc.ClientConnInterface) *DeviceManagerClient {
+	return &DeviceManagerClient{
 		svc: pb.NewDeviceManagerServiceClient(cc),
 	}
 }
 
 // Associate calls the Associate RPC.
-func (c *Client) Associate(ctx context.Context, arg0 int64, arg1 int64, arg2 int64) error {
+func (c *DeviceManagerClient) Associate(ctx context.Context, arg0 int64, arg1 int64, arg2 int64) error {
 	_, err := c.svc.Associate(ctx, &pb.AssociateRequest{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -32,7 +32,7 @@ func (c *Client) Associate(ctx context.Context, arg0 int64, arg1 int64, arg2 int
 }
 
 // AttachSystemDataTransport calls the AttachSystemDataTransport RPC.
-func (c *Client) AttachSystemDataTransport(ctx context.Context, arg0 int32, arg1 int64, arg2 int64) error {
+func (c *DeviceManagerClient) AttachSystemDataTransport(ctx context.Context, arg0 int32, arg1 int64, arg2 int64) error {
 	_, err := c.svc.AttachSystemDataTransport(ctx, &pb.AttachSystemDataTransportRequest{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -42,7 +42,7 @@ func (c *Client) AttachSystemDataTransport(ctx context.Context, arg0 int32, arg1
 }
 
 // BuildAssociationCancellationIntent calls the BuildAssociationCancellationIntent RPC.
-func (c *Client) BuildAssociationCancellationIntent(ctx context.Context) (int64, error) {
+func (c *DeviceManagerClient) BuildAssociationCancellationIntent(ctx context.Context) (int64, error) {
 	resp, err := c.svc.BuildAssociationCancellationIntent(ctx, &pb.BuildAssociationCancellationIntentRequest{})
 	if err != nil {
 		return 0, err
@@ -51,7 +51,7 @@ func (c *Client) BuildAssociationCancellationIntent(ctx context.Context) (int64,
 }
 
 // BuildPermissionTransferUserConsentIntent calls the BuildPermissionTransferUserConsentIntent RPC.
-func (c *Client) BuildPermissionTransferUserConsentIntent(ctx context.Context, arg0 int32) (int64, error) {
+func (c *DeviceManagerClient) BuildPermissionTransferUserConsentIntent(ctx context.Context, arg0 int32) (int64, error) {
 	resp, err := c.svc.BuildPermissionTransferUserConsentIntent(ctx, &pb.BuildPermissionTransferUserConsentIntentRequest{
 		Arg0: arg0,
 	})
@@ -62,7 +62,7 @@ func (c *Client) BuildPermissionTransferUserConsentIntent(ctx context.Context, a
 }
 
 // DetachSystemDataTransport calls the DetachSystemDataTransport RPC.
-func (c *Client) DetachSystemDataTransport(ctx context.Context, arg0 int32) error {
+func (c *DeviceManagerClient) DetachSystemDataTransport(ctx context.Context, arg0 int32) error {
 	_, err := c.svc.DetachSystemDataTransport(ctx, &pb.DetachSystemDataTransportRequest{
 		Arg0: arg0,
 	})
@@ -70,7 +70,7 @@ func (c *Client) DetachSystemDataTransport(ctx context.Context, arg0 int32) erro
 }
 
 // DisableSystemDataSyncForTypes calls the DisableSystemDataSyncForTypes RPC.
-func (c *Client) DisableSystemDataSyncForTypes(ctx context.Context, arg0 int32, arg1 int32) error {
+func (c *DeviceManagerClient) DisableSystemDataSyncForTypes(ctx context.Context, arg0 int32, arg1 int32) error {
 	_, err := c.svc.DisableSystemDataSyncForTypes(ctx, &pb.DisableSystemDataSyncForTypesRequest{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -79,7 +79,7 @@ func (c *Client) DisableSystemDataSyncForTypes(ctx context.Context, arg0 int32, 
 }
 
 // Disassociate1 calls the Disassociate1 RPC.
-func (c *Client) Disassociate1(ctx context.Context, arg0 int32) error {
+func (c *DeviceManagerClient) Disassociate1(ctx context.Context, arg0 int32) error {
 	_, err := c.svc.Disassociate1(ctx, &pb.Disassociate1Request{
 		Arg0: arg0,
 	})
@@ -87,7 +87,7 @@ func (c *Client) Disassociate1(ctx context.Context, arg0 int32) error {
 }
 
 // Disassociate1_1 calls the Disassociate1_1 RPC.
-func (c *Client) Disassociate1_1(ctx context.Context, arg0 string) error {
+func (c *DeviceManagerClient) Disassociate1_1(ctx context.Context, arg0 string) error {
 	_, err := c.svc.Disassociate1_1(ctx, &pb.Disassociate1_1Request{
 		Arg0: arg0,
 	})
@@ -95,7 +95,7 @@ func (c *Client) Disassociate1_1(ctx context.Context, arg0 string) error {
 }
 
 // EnableSystemDataSyncForTypes calls the EnableSystemDataSyncForTypes RPC.
-func (c *Client) EnableSystemDataSyncForTypes(ctx context.Context, arg0 int32, arg1 int32) error {
+func (c *DeviceManagerClient) EnableSystemDataSyncForTypes(ctx context.Context, arg0 int32, arg1 int32) error {
 	_, err := c.svc.EnableSystemDataSyncForTypes(ctx, &pb.EnableSystemDataSyncForTypesRequest{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -103,26 +103,8 @@ func (c *Client) EnableSystemDataSyncForTypes(ctx context.Context, arg0 int32, a
 	return err
 }
 
-// GetAssociations calls the GetAssociations RPC.
-func (c *Client) GetAssociations(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetAssociations(ctx, &pb.GetAssociationsRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetMyAssociations calls the GetMyAssociations RPC.
-func (c *Client) GetMyAssociations(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetMyAssociations(ctx, &pb.GetMyAssociationsRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
 // HasNotificationAccess calls the HasNotificationAccess RPC.
-func (c *Client) HasNotificationAccess(ctx context.Context, arg0 int64) (bool, error) {
+func (c *DeviceManagerClient) HasNotificationAccess(ctx context.Context, arg0 int64) (bool, error) {
 	resp, err := c.svc.HasNotificationAccess(ctx, &pb.HasNotificationAccessRequest{
 		Arg0: arg0,
 	})
@@ -133,7 +115,7 @@ func (c *Client) HasNotificationAccess(ctx context.Context, arg0 int64) (bool, e
 }
 
 // IsPermissionTransferUserConsented calls the IsPermissionTransferUserConsented RPC.
-func (c *Client) IsPermissionTransferUserConsented(ctx context.Context, arg0 int32) (bool, error) {
+func (c *DeviceManagerClient) IsPermissionTransferUserConsented(ctx context.Context, arg0 int32) (bool, error) {
 	resp, err := c.svc.IsPermissionTransferUserConsented(ctx, &pb.IsPermissionTransferUserConsentedRequest{
 		Arg0: arg0,
 	})
@@ -144,7 +126,7 @@ func (c *Client) IsPermissionTransferUserConsented(ctx context.Context, arg0 int
 }
 
 // RemoveBond calls the RemoveBond RPC.
-func (c *Client) RemoveBond(ctx context.Context, arg0 int32) (bool, error) {
+func (c *DeviceManagerClient) RemoveBond(ctx context.Context, arg0 int32) (bool, error) {
 	resp, err := c.svc.RemoveBond(ctx, &pb.RemoveBondRequest{
 		Arg0: arg0,
 	})
@@ -155,7 +137,7 @@ func (c *Client) RemoveBond(ctx context.Context, arg0 int32) (bool, error) {
 }
 
 // RequestNotificationAccess calls the RequestNotificationAccess RPC.
-func (c *Client) RequestNotificationAccess(ctx context.Context, arg0 int64) error {
+func (c *DeviceManagerClient) RequestNotificationAccess(ctx context.Context, arg0 int64) error {
 	_, err := c.svc.RequestNotificationAccess(ctx, &pb.RequestNotificationAccessRequest{
 		Arg0: arg0,
 	})
@@ -163,7 +145,7 @@ func (c *Client) RequestNotificationAccess(ctx context.Context, arg0 int64) erro
 }
 
 // SetDeviceId calls the SetDeviceId RPC.
-func (c *Client) SetDeviceId(ctx context.Context, arg0 int32, arg1 int64) error {
+func (c *DeviceManagerClient) SetDeviceId(ctx context.Context, arg0 int32, arg1 int64) error {
 	_, err := c.svc.SetDeviceId(ctx, &pb.SetDeviceIdRequest{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -172,7 +154,7 @@ func (c *Client) SetDeviceId(ctx context.Context, arg0 int32, arg1 int64) error 
 }
 
 // StartObservingDevicePresence1 calls the StartObservingDevicePresence1 RPC.
-func (c *Client) StartObservingDevicePresence1(ctx context.Context, arg0 int64) error {
+func (c *DeviceManagerClient) StartObservingDevicePresence1(ctx context.Context, arg0 int64) error {
 	_, err := c.svc.StartObservingDevicePresence1(ctx, &pb.StartObservingDevicePresence1Request{
 		Arg0: arg0,
 	})
@@ -180,25 +162,15 @@ func (c *Client) StartObservingDevicePresence1(ctx context.Context, arg0 int64) 
 }
 
 // StartObservingDevicePresence1_1 calls the StartObservingDevicePresence1_1 RPC.
-func (c *Client) StartObservingDevicePresence1_1(ctx context.Context, arg0 string) error {
+func (c *DeviceManagerClient) StartObservingDevicePresence1_1(ctx context.Context, arg0 string) error {
 	_, err := c.svc.StartObservingDevicePresence1_1(ctx, &pb.StartObservingDevicePresence1_1Request{
 		Arg0: arg0,
 	})
 	return err
 }
 
-// StartSystemDataTransfer calls the StartSystemDataTransfer RPC.
-func (c *Client) StartSystemDataTransfer(ctx context.Context, arg0 int32, arg1 int64, arg2 int64) error {
-	_, err := c.svc.StartSystemDataTransfer(ctx, &pb.StartSystemDataTransferRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-	})
-	return err
-}
-
 // StopObservingDevicePresence1 calls the StopObservingDevicePresence1 RPC.
-func (c *Client) StopObservingDevicePresence1(ctx context.Context, arg0 int64) error {
+func (c *DeviceManagerClient) StopObservingDevicePresence1(ctx context.Context, arg0 int64) error {
 	_, err := c.svc.StopObservingDevicePresence1(ctx, &pb.StopObservingDevicePresence1Request{
 		Arg0: arg0,
 	})
@@ -206,7 +178,7 @@ func (c *Client) StopObservingDevicePresence1(ctx context.Context, arg0 int64) e
 }
 
 // StopObservingDevicePresence1_1 calls the StopObservingDevicePresence1_1 RPC.
-func (c *Client) StopObservingDevicePresence1_1(ctx context.Context, arg0 string) error {
+func (c *DeviceManagerClient) StopObservingDevicePresence1_1(ctx context.Context, arg0 string) error {
 	_, err := c.svc.StopObservingDevicePresence1_1(ctx, &pb.StopObservingDevicePresence1_1Request{
 		Arg0: arg0,
 	})

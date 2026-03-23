@@ -24,21 +24,16 @@ const (
 	ManagerService_AcceptHandover_FullMethodName                      = "/telecom.ManagerService/AcceptHandover"
 	ManagerService_AcceptRingingCall0_FullMethodName                  = "/telecom.ManagerService/AcceptRingingCall0"
 	ManagerService_AcceptRingingCall1_1_FullMethodName                = "/telecom.ManagerService/AcceptRingingCall1_1"
-	ManagerService_AddCall_FullMethodName                             = "/telecom.ManagerService/AddCall"
 	ManagerService_AddNewIncomingCall_FullMethodName                  = "/telecom.ManagerService/AddNewIncomingCall"
 	ManagerService_AddNewIncomingConference_FullMethodName            = "/telecom.ManagerService/AddNewIncomingConference"
 	ManagerService_CancelMissedCallsNotification_FullMethodName       = "/telecom.ManagerService/CancelMissedCallsNotification"
 	ManagerService_CreateManageBlockedNumbersIntent_FullMethodName    = "/telecom.ManagerService/CreateManageBlockedNumbersIntent"
 	ManagerService_EndCall_FullMethodName                             = "/telecom.ManagerService/EndCall"
 	ManagerService_GetAdnUriForPhoneAccount_FullMethodName            = "/telecom.ManagerService/GetAdnUriForPhoneAccount"
-	ManagerService_GetCallCapablePhoneAccounts_FullMethodName         = "/telecom.ManagerService/GetCallCapablePhoneAccounts"
 	ManagerService_GetDefaultDialerPackage_FullMethodName             = "/telecom.ManagerService/GetDefaultDialerPackage"
 	ManagerService_GetDefaultOutgoingPhoneAccount_FullMethodName      = "/telecom.ManagerService/GetDefaultOutgoingPhoneAccount"
 	ManagerService_GetLine1Number_FullMethodName                      = "/telecom.ManagerService/GetLine1Number"
-	ManagerService_GetOwnSelfManagedPhoneAccounts_FullMethodName      = "/telecom.ManagerService/GetOwnSelfManagedPhoneAccounts"
 	ManagerService_GetPhoneAccount_FullMethodName                     = "/telecom.ManagerService/GetPhoneAccount"
-	ManagerService_GetRegisteredPhoneAccounts_FullMethodName          = "/telecom.ManagerService/GetRegisteredPhoneAccounts"
-	ManagerService_GetSelfManagedPhoneAccounts_FullMethodName         = "/telecom.ManagerService/GetSelfManagedPhoneAccounts"
 	ManagerService_GetSimCallManager_FullMethodName                   = "/telecom.ManagerService/GetSimCallManager"
 	ManagerService_GetSimCallManagerForSubscription_FullMethodName    = "/telecom.ManagerService/GetSimCallManagerForSubscription"
 	ManagerService_GetSystemDialerPackage_FullMethodName              = "/telecom.ManagerService/GetSystemDialerPackage"
@@ -57,7 +52,6 @@ const (
 	ManagerService_RegisterPhoneAccount_FullMethodName                = "/telecom.ManagerService/RegisterPhoneAccount"
 	ManagerService_ShowInCallScreen_FullMethodName                    = "/telecom.ManagerService/ShowInCallScreen"
 	ManagerService_SilenceRinger_FullMethodName                       = "/telecom.ManagerService/SilenceRinger"
-	ManagerService_StartConference_FullMethodName                     = "/telecom.ManagerService/StartConference"
 	ManagerService_UnregisterPhoneAccount_FullMethodName              = "/telecom.ManagerService/UnregisterPhoneAccount"
 )
 
@@ -68,21 +62,16 @@ type ManagerServiceClient interface {
 	AcceptHandover(ctx context.Context, in *AcceptHandoverRequest, opts ...grpc.CallOption) (*AcceptHandoverResponse, error)
 	AcceptRingingCall0(ctx context.Context, in *AcceptRingingCall0Request, opts ...grpc.CallOption) (*AcceptRingingCall0Response, error)
 	AcceptRingingCall1_1(ctx context.Context, in *AcceptRingingCall1_1Request, opts ...grpc.CallOption) (*AcceptRingingCall1_1Response, error)
-	AddCall(ctx context.Context, in *AddCallRequest, opts ...grpc.CallOption) (*AddCallResponse, error)
 	AddNewIncomingCall(ctx context.Context, in *AddNewIncomingCallRequest, opts ...grpc.CallOption) (*AddNewIncomingCallResponse, error)
 	AddNewIncomingConference(ctx context.Context, in *AddNewIncomingConferenceRequest, opts ...grpc.CallOption) (*AddNewIncomingConferenceResponse, error)
 	CancelMissedCallsNotification(ctx context.Context, in *CancelMissedCallsNotificationRequest, opts ...grpc.CallOption) (*CancelMissedCallsNotificationResponse, error)
 	CreateManageBlockedNumbersIntent(ctx context.Context, in *CreateManageBlockedNumbersIntentRequest, opts ...grpc.CallOption) (*CreateManageBlockedNumbersIntentResponse, error)
 	EndCall(ctx context.Context, in *EndCallRequest, opts ...grpc.CallOption) (*EndCallResponse, error)
 	GetAdnUriForPhoneAccount(ctx context.Context, in *GetAdnUriForPhoneAccountRequest, opts ...grpc.CallOption) (*GetAdnUriForPhoneAccountResponse, error)
-	GetCallCapablePhoneAccounts(ctx context.Context, in *GetCallCapablePhoneAccountsRequest, opts ...grpc.CallOption) (*GetCallCapablePhoneAccountsResponse, error)
 	GetDefaultDialerPackage(ctx context.Context, in *GetDefaultDialerPackageRequest, opts ...grpc.CallOption) (*GetDefaultDialerPackageResponse, error)
 	GetDefaultOutgoingPhoneAccount(ctx context.Context, in *GetDefaultOutgoingPhoneAccountRequest, opts ...grpc.CallOption) (*GetDefaultOutgoingPhoneAccountResponse, error)
 	GetLine1Number(ctx context.Context, in *GetLine1NumberRequest, opts ...grpc.CallOption) (*GetLine1NumberResponse, error)
-	GetOwnSelfManagedPhoneAccounts(ctx context.Context, in *GetOwnSelfManagedPhoneAccountsRequest, opts ...grpc.CallOption) (*GetOwnSelfManagedPhoneAccountsResponse, error)
 	GetPhoneAccount(ctx context.Context, in *GetPhoneAccountRequest, opts ...grpc.CallOption) (*GetPhoneAccountResponse, error)
-	GetRegisteredPhoneAccounts(ctx context.Context, in *GetRegisteredPhoneAccountsRequest, opts ...grpc.CallOption) (*GetRegisteredPhoneAccountsResponse, error)
-	GetSelfManagedPhoneAccounts(ctx context.Context, in *GetSelfManagedPhoneAccountsRequest, opts ...grpc.CallOption) (*GetSelfManagedPhoneAccountsResponse, error)
 	GetSimCallManager(ctx context.Context, in *GetSimCallManagerRequest, opts ...grpc.CallOption) (*GetSimCallManagerResponse, error)
 	GetSimCallManagerForSubscription(ctx context.Context, in *GetSimCallManagerForSubscriptionRequest, opts ...grpc.CallOption) (*GetSimCallManagerForSubscriptionResponse, error)
 	GetSystemDialerPackage(ctx context.Context, in *GetSystemDialerPackageRequest, opts ...grpc.CallOption) (*GetSystemDialerPackageResponse, error)
@@ -101,7 +90,6 @@ type ManagerServiceClient interface {
 	RegisterPhoneAccount(ctx context.Context, in *RegisterPhoneAccountRequest, opts ...grpc.CallOption) (*RegisterPhoneAccountResponse, error)
 	ShowInCallScreen(ctx context.Context, in *ShowInCallScreenRequest, opts ...grpc.CallOption) (*ShowInCallScreenResponse, error)
 	SilenceRinger(ctx context.Context, in *SilenceRingerRequest, opts ...grpc.CallOption) (*SilenceRingerResponse, error)
-	StartConference(ctx context.Context, in *StartConferenceRequest, opts ...grpc.CallOption) (*StartConferenceResponse, error)
 	UnregisterPhoneAccount(ctx context.Context, in *UnregisterPhoneAccountRequest, opts ...grpc.CallOption) (*UnregisterPhoneAccountResponse, error)
 }
 
@@ -137,16 +125,6 @@ func (c *managerServiceClient) AcceptRingingCall1_1(ctx context.Context, in *Acc
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(AcceptRingingCall1_1Response)
 	err := c.cc.Invoke(ctx, ManagerService_AcceptRingingCall1_1_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *managerServiceClient) AddCall(ctx context.Context, in *AddCallRequest, opts ...grpc.CallOption) (*AddCallResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(AddCallResponse)
-	err := c.cc.Invoke(ctx, ManagerService_AddCall_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
@@ -213,16 +191,6 @@ func (c *managerServiceClient) GetAdnUriForPhoneAccount(ctx context.Context, in 
 	return out, nil
 }
 
-func (c *managerServiceClient) GetCallCapablePhoneAccounts(ctx context.Context, in *GetCallCapablePhoneAccountsRequest, opts ...grpc.CallOption) (*GetCallCapablePhoneAccountsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetCallCapablePhoneAccountsResponse)
-	err := c.cc.Invoke(ctx, ManagerService_GetCallCapablePhoneAccounts_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
 func (c *managerServiceClient) GetDefaultDialerPackage(ctx context.Context, in *GetDefaultDialerPackageRequest, opts ...grpc.CallOption) (*GetDefaultDialerPackageResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(GetDefaultDialerPackageResponse)
@@ -253,40 +221,10 @@ func (c *managerServiceClient) GetLine1Number(ctx context.Context, in *GetLine1N
 	return out, nil
 }
 
-func (c *managerServiceClient) GetOwnSelfManagedPhoneAccounts(ctx context.Context, in *GetOwnSelfManagedPhoneAccountsRequest, opts ...grpc.CallOption) (*GetOwnSelfManagedPhoneAccountsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetOwnSelfManagedPhoneAccountsResponse)
-	err := c.cc.Invoke(ctx, ManagerService_GetOwnSelfManagedPhoneAccounts_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
 func (c *managerServiceClient) GetPhoneAccount(ctx context.Context, in *GetPhoneAccountRequest, opts ...grpc.CallOption) (*GetPhoneAccountResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(GetPhoneAccountResponse)
 	err := c.cc.Invoke(ctx, ManagerService_GetPhoneAccount_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *managerServiceClient) GetRegisteredPhoneAccounts(ctx context.Context, in *GetRegisteredPhoneAccountsRequest, opts ...grpc.CallOption) (*GetRegisteredPhoneAccountsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetRegisteredPhoneAccountsResponse)
-	err := c.cc.Invoke(ctx, ManagerService_GetRegisteredPhoneAccounts_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *managerServiceClient) GetSelfManagedPhoneAccounts(ctx context.Context, in *GetSelfManagedPhoneAccountsRequest, opts ...grpc.CallOption) (*GetSelfManagedPhoneAccountsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetSelfManagedPhoneAccountsResponse)
-	err := c.cc.Invoke(ctx, ManagerService_GetSelfManagedPhoneAccounts_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
@@ -473,16 +411,6 @@ func (c *managerServiceClient) SilenceRinger(ctx context.Context, in *SilenceRin
 	return out, nil
 }
 
-func (c *managerServiceClient) StartConference(ctx context.Context, in *StartConferenceRequest, opts ...grpc.CallOption) (*StartConferenceResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(StartConferenceResponse)
-	err := c.cc.Invoke(ctx, ManagerService_StartConference_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
 func (c *managerServiceClient) UnregisterPhoneAccount(ctx context.Context, in *UnregisterPhoneAccountRequest, opts ...grpc.CallOption) (*UnregisterPhoneAccountResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(UnregisterPhoneAccountResponse)
@@ -500,21 +428,16 @@ type ManagerServiceServer interface {
 	AcceptHandover(context.Context, *AcceptHandoverRequest) (*AcceptHandoverResponse, error)
 	AcceptRingingCall0(context.Context, *AcceptRingingCall0Request) (*AcceptRingingCall0Response, error)
 	AcceptRingingCall1_1(context.Context, *AcceptRingingCall1_1Request) (*AcceptRingingCall1_1Response, error)
-	AddCall(context.Context, *AddCallRequest) (*AddCallResponse, error)
 	AddNewIncomingCall(context.Context, *AddNewIncomingCallRequest) (*AddNewIncomingCallResponse, error)
 	AddNewIncomingConference(context.Context, *AddNewIncomingConferenceRequest) (*AddNewIncomingConferenceResponse, error)
 	CancelMissedCallsNotification(context.Context, *CancelMissedCallsNotificationRequest) (*CancelMissedCallsNotificationResponse, error)
 	CreateManageBlockedNumbersIntent(context.Context, *CreateManageBlockedNumbersIntentRequest) (*CreateManageBlockedNumbersIntentResponse, error)
 	EndCall(context.Context, *EndCallRequest) (*EndCallResponse, error)
 	GetAdnUriForPhoneAccount(context.Context, *GetAdnUriForPhoneAccountRequest) (*GetAdnUriForPhoneAccountResponse, error)
-	GetCallCapablePhoneAccounts(context.Context, *GetCallCapablePhoneAccountsRequest) (*GetCallCapablePhoneAccountsResponse, error)
 	GetDefaultDialerPackage(context.Context, *GetDefaultDialerPackageRequest) (*GetDefaultDialerPackageResponse, error)
 	GetDefaultOutgoingPhoneAccount(context.Context, *GetDefaultOutgoingPhoneAccountRequest) (*GetDefaultOutgoingPhoneAccountResponse, error)
 	GetLine1Number(context.Context, *GetLine1NumberRequest) (*GetLine1NumberResponse, error)
-	GetOwnSelfManagedPhoneAccounts(context.Context, *GetOwnSelfManagedPhoneAccountsRequest) (*GetOwnSelfManagedPhoneAccountsResponse, error)
 	GetPhoneAccount(context.Context, *GetPhoneAccountRequest) (*GetPhoneAccountResponse, error)
-	GetRegisteredPhoneAccounts(context.Context, *GetRegisteredPhoneAccountsRequest) (*GetRegisteredPhoneAccountsResponse, error)
-	GetSelfManagedPhoneAccounts(context.Context, *GetSelfManagedPhoneAccountsRequest) (*GetSelfManagedPhoneAccountsResponse, error)
 	GetSimCallManager(context.Context, *GetSimCallManagerRequest) (*GetSimCallManagerResponse, error)
 	GetSimCallManagerForSubscription(context.Context, *GetSimCallManagerForSubscriptionRequest) (*GetSimCallManagerForSubscriptionResponse, error)
 	GetSystemDialerPackage(context.Context, *GetSystemDialerPackageRequest) (*GetSystemDialerPackageResponse, error)
@@ -533,7 +456,6 @@ type ManagerServiceServer interface {
 	RegisterPhoneAccount(context.Context, *RegisterPhoneAccountRequest) (*RegisterPhoneAccountResponse, error)
 	ShowInCallScreen(context.Context, *ShowInCallScreenRequest) (*ShowInCallScreenResponse, error)
 	SilenceRinger(context.Context, *SilenceRingerRequest) (*SilenceRingerResponse, error)
-	StartConference(context.Context, *StartConferenceRequest) (*StartConferenceResponse, error)
 	UnregisterPhoneAccount(context.Context, *UnregisterPhoneAccountRequest) (*UnregisterPhoneAccountResponse, error)
 	mustEmbedUnimplementedManagerServiceServer()
 }
@@ -554,9 +476,6 @@ func (UnimplementedManagerServiceServer) AcceptRingingCall0(context.Context, *Ac
 func (UnimplementedManagerServiceServer) AcceptRingingCall1_1(context.Context, *AcceptRingingCall1_1Request) (*AcceptRingingCall1_1Response, error) {
 	return nil, status.Error(codes.Unimplemented, "method AcceptRingingCall1_1 not implemented")
 }
-func (UnimplementedManagerServiceServer) AddCall(context.Context, *AddCallRequest) (*AddCallResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method AddCall not implemented")
-}
 func (UnimplementedManagerServiceServer) AddNewIncomingCall(context.Context, *AddNewIncomingCallRequest) (*AddNewIncomingCallResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method AddNewIncomingCall not implemented")
 }
@@ -575,9 +494,6 @@ func (UnimplementedManagerServiceServer) EndCall(context.Context, *EndCallReques
 func (UnimplementedManagerServiceServer) GetAdnUriForPhoneAccount(context.Context, *GetAdnUriForPhoneAccountRequest) (*GetAdnUriForPhoneAccountResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetAdnUriForPhoneAccount not implemented")
 }
-func (UnimplementedManagerServiceServer) GetCallCapablePhoneAccounts(context.Context, *GetCallCapablePhoneAccountsRequest) (*GetCallCapablePhoneAccountsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetCallCapablePhoneAccounts not implemented")
-}
 func (UnimplementedManagerServiceServer) GetDefaultDialerPackage(context.Context, *GetDefaultDialerPackageRequest) (*GetDefaultDialerPackageResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetDefaultDialerPackage not implemented")
 }
@@ -587,17 +503,8 @@ func (UnimplementedManagerServiceServer) GetDefaultOutgoingPhoneAccount(context.
 func (UnimplementedManagerServiceServer) GetLine1Number(context.Context, *GetLine1NumberRequest) (*GetLine1NumberResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetLine1Number not implemented")
 }
-func (UnimplementedManagerServiceServer) GetOwnSelfManagedPhoneAccounts(context.Context, *GetOwnSelfManagedPhoneAccountsRequest) (*GetOwnSelfManagedPhoneAccountsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetOwnSelfManagedPhoneAccounts not implemented")
-}
 func (UnimplementedManagerServiceServer) GetPhoneAccount(context.Context, *GetPhoneAccountRequest) (*GetPhoneAccountResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetPhoneAccount not implemented")
-}
-func (UnimplementedManagerServiceServer) GetRegisteredPhoneAccounts(context.Context, *GetRegisteredPhoneAccountsRequest) (*GetRegisteredPhoneAccountsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetRegisteredPhoneAccounts not implemented")
-}
-func (UnimplementedManagerServiceServer) GetSelfManagedPhoneAccounts(context.Context, *GetSelfManagedPhoneAccountsRequest) (*GetSelfManagedPhoneAccountsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetSelfManagedPhoneAccounts not implemented")
 }
 func (UnimplementedManagerServiceServer) GetSimCallManager(context.Context, *GetSimCallManagerRequest) (*GetSimCallManagerResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetSimCallManager not implemented")
@@ -652,9 +559,6 @@ func (UnimplementedManagerServiceServer) ShowInCallScreen(context.Context, *Show
 }
 func (UnimplementedManagerServiceServer) SilenceRinger(context.Context, *SilenceRingerRequest) (*SilenceRingerResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method SilenceRinger not implemented")
-}
-func (UnimplementedManagerServiceServer) StartConference(context.Context, *StartConferenceRequest) (*StartConferenceResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method StartConference not implemented")
 }
 func (UnimplementedManagerServiceServer) UnregisterPhoneAccount(context.Context, *UnregisterPhoneAccountRequest) (*UnregisterPhoneAccountResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method UnregisterPhoneAccount not implemented")
@@ -730,24 +634,6 @@ func _ManagerService_AcceptRingingCall1_1_Handler(srv interface{}, ctx context.C
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(ManagerServiceServer).AcceptRingingCall1_1(ctx, req.(*AcceptRingingCall1_1Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ManagerService_AddCall_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(AddCallRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ManagerServiceServer).AddCall(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ManagerService_AddCall_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ManagerServiceServer).AddCall(ctx, req.(*AddCallRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -860,24 +746,6 @@ func _ManagerService_GetAdnUriForPhoneAccount_Handler(srv interface{}, ctx conte
 	return interceptor(ctx, in, info, handler)
 }
 
-func _ManagerService_GetCallCapablePhoneAccounts_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetCallCapablePhoneAccountsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ManagerServiceServer).GetCallCapablePhoneAccounts(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ManagerService_GetCallCapablePhoneAccounts_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ManagerServiceServer).GetCallCapablePhoneAccounts(ctx, req.(*GetCallCapablePhoneAccountsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
 func _ManagerService_GetDefaultDialerPackage_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(GetDefaultDialerPackageRequest)
 	if err := dec(in); err != nil {
@@ -932,24 +800,6 @@ func _ManagerService_GetLine1Number_Handler(srv interface{}, ctx context.Context
 	return interceptor(ctx, in, info, handler)
 }
 
-func _ManagerService_GetOwnSelfManagedPhoneAccounts_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetOwnSelfManagedPhoneAccountsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ManagerServiceServer).GetOwnSelfManagedPhoneAccounts(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ManagerService_GetOwnSelfManagedPhoneAccounts_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ManagerServiceServer).GetOwnSelfManagedPhoneAccounts(ctx, req.(*GetOwnSelfManagedPhoneAccountsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
 func _ManagerService_GetPhoneAccount_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(GetPhoneAccountRequest)
 	if err := dec(in); err != nil {
@@ -964,42 +814,6 @@ func _ManagerService_GetPhoneAccount_Handler(srv interface{}, ctx context.Contex
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(ManagerServiceServer).GetPhoneAccount(ctx, req.(*GetPhoneAccountRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ManagerService_GetRegisteredPhoneAccounts_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetRegisteredPhoneAccountsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ManagerServiceServer).GetRegisteredPhoneAccounts(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ManagerService_GetRegisteredPhoneAccounts_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ManagerServiceServer).GetRegisteredPhoneAccounts(ctx, req.(*GetRegisteredPhoneAccountsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ManagerService_GetSelfManagedPhoneAccounts_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetSelfManagedPhoneAccountsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ManagerServiceServer).GetSelfManagedPhoneAccounts(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ManagerService_GetSelfManagedPhoneAccounts_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ManagerServiceServer).GetSelfManagedPhoneAccounts(ctx, req.(*GetSelfManagedPhoneAccountsRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -1328,24 +1142,6 @@ func _ManagerService_SilenceRinger_Handler(srv interface{}, ctx context.Context,
 	return interceptor(ctx, in, info, handler)
 }
 
-func _ManagerService_StartConference_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(StartConferenceRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ManagerServiceServer).StartConference(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ManagerService_StartConference_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ManagerServiceServer).StartConference(ctx, req.(*StartConferenceRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
 func _ManagerService_UnregisterPhoneAccount_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(UnregisterPhoneAccountRequest)
 	if err := dec(in); err != nil {
@@ -1384,10 +1180,6 @@ var ManagerService_ServiceDesc = grpc.ServiceDesc{
 			Handler:    _ManagerService_AcceptRingingCall1_1_Handler,
 		},
 		{
-			MethodName: "AddCall",
-			Handler:    _ManagerService_AddCall_Handler,
-		},
-		{
 			MethodName: "AddNewIncomingCall",
 			Handler:    _ManagerService_AddNewIncomingCall_Handler,
 		},
@@ -1412,10 +1204,6 @@ var ManagerService_ServiceDesc = grpc.ServiceDesc{
 			Handler:    _ManagerService_GetAdnUriForPhoneAccount_Handler,
 		},
 		{
-			MethodName: "GetCallCapablePhoneAccounts",
-			Handler:    _ManagerService_GetCallCapablePhoneAccounts_Handler,
-		},
-		{
 			MethodName: "GetDefaultDialerPackage",
 			Handler:    _ManagerService_GetDefaultDialerPackage_Handler,
 		},
@@ -1428,20 +1216,8 @@ var ManagerService_ServiceDesc = grpc.ServiceDesc{
 			Handler:    _ManagerService_GetLine1Number_Handler,
 		},
 		{
-			MethodName: "GetOwnSelfManagedPhoneAccounts",
-			Handler:    _ManagerService_GetOwnSelfManagedPhoneAccounts_Handler,
-		},
-		{
 			MethodName: "GetPhoneAccount",
 			Handler:    _ManagerService_GetPhoneAccount_Handler,
-		},
-		{
-			MethodName: "GetRegisteredPhoneAccounts",
-			Handler:    _ManagerService_GetRegisteredPhoneAccounts_Handler,
-		},
-		{
-			MethodName: "GetSelfManagedPhoneAccounts",
-			Handler:    _ManagerService_GetSelfManagedPhoneAccounts_Handler,
 		},
 		{
 			MethodName: "GetSimCallManager",
@@ -1514,10 +1290,6 @@ var ManagerService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "SilenceRinger",
 			Handler:    _ManagerService_SilenceRinger_Handler,
-		},
-		{
-			MethodName: "StartConference",
-			Handler:    _ManagerService_StartConference_Handler,
 		},
 		{
 			MethodName: "UnregisterPhoneAccount",

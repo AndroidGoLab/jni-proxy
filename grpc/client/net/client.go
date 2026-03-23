@@ -9,20 +9,208 @@ import (
 	"google.golang.org/grpc"
 )
 
-// Client wraps the gRPC ConnectivityManagerService client.
-type Client struct {
+// ConnectivityDiagnosticsManagerClient wraps the gRPC ConnectivityDiagnosticsManagerService client.
+type ConnectivityDiagnosticsManagerClient struct {
+	svc pb.ConnectivityDiagnosticsManagerServiceClient
+}
+
+// NewConnectivityDiagnosticsManagerClient creates a new ConnectivityDiagnosticsManager client.
+func NewConnectivityDiagnosticsManagerClient(cc grpc.ClientConnInterface) *ConnectivityDiagnosticsManagerClient {
+	return &ConnectivityDiagnosticsManagerClient{
+		svc: pb.NewConnectivityDiagnosticsManagerServiceClient(cc),
+	}
+}
+
+// RegisterConnectivityDiagnosticsCallback calls the RegisterConnectivityDiagnosticsCallback RPC.
+func (c *ConnectivityDiagnosticsManagerClient) RegisterConnectivityDiagnosticsCallback(ctx context.Context, arg0 int64, arg1 int64, arg2 int64) error {
+	_, err := c.svc.RegisterConnectivityDiagnosticsCallback(ctx, &pb.RegisterConnectivityDiagnosticsCallbackRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	return err
+}
+
+// UnregisterConnectivityDiagnosticsCallback calls the UnregisterConnectivityDiagnosticsCallback RPC.
+func (c *ConnectivityDiagnosticsManagerClient) UnregisterConnectivityDiagnosticsCallback(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.UnregisterConnectivityDiagnosticsCallback(ctx, &pb.UnregisterConnectivityDiagnosticsCallbackRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// IpSecManagerClient wraps the gRPC IpSecManagerService client.
+type IpSecManagerClient struct {
+	svc pb.IpSecManagerServiceClient
+}
+
+// NewIpSecManagerClient creates a new IpSecManager client.
+func NewIpSecManagerClient(cc grpc.ClientConnInterface) *IpSecManagerClient {
+	return &IpSecManagerClient{
+		svc: pb.NewIpSecManagerServiceClient(cc),
+	}
+}
+
+// AllocateSecurityParameterIndex1 calls the AllocateSecurityParameterIndex1 RPC.
+func (c *IpSecManagerClient) AllocateSecurityParameterIndex1(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.AllocateSecurityParameterIndex1(ctx, &pb.AllocateSecurityParameterIndex1Request{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// AllocateSecurityParameterIndex2_1 calls the AllocateSecurityParameterIndex2_1 RPC.
+func (c *IpSecManagerClient) AllocateSecurityParameterIndex2_1(ctx context.Context, arg0 int64, arg1 int32) (int64, error) {
+	resp, err := c.svc.AllocateSecurityParameterIndex2_1(ctx, &pb.AllocateSecurityParameterIndex2_1Request{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ApplyTransportModeTransform3 calls the ApplyTransportModeTransform3 RPC.
+func (c *IpSecManagerClient) ApplyTransportModeTransform3(ctx context.Context, arg0 int64, arg1 int32, arg2 int64) error {
+	_, err := c.svc.ApplyTransportModeTransform3(ctx, &pb.ApplyTransportModeTransform3Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	return err
+}
+
+// ApplyTransportModeTransform3_1 calls the ApplyTransportModeTransform3_1 RPC.
+func (c *IpSecManagerClient) ApplyTransportModeTransform3_1(ctx context.Context, arg0 int64, arg1 int32, arg2 int64) error {
+	_, err := c.svc.ApplyTransportModeTransform3_1(ctx, &pb.ApplyTransportModeTransform3_1Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	return err
+}
+
+// ApplyTransportModeTransform3_2 calls the ApplyTransportModeTransform3_2 RPC.
+func (c *IpSecManagerClient) ApplyTransportModeTransform3_2(ctx context.Context, arg0 int64, arg1 int32, arg2 int64) error {
+	_, err := c.svc.ApplyTransportModeTransform3_2(ctx, &pb.ApplyTransportModeTransform3_2Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	return err
+}
+
+// OpenUdpEncapsulationSocket0 calls the OpenUdpEncapsulationSocket0 RPC.
+func (c *IpSecManagerClient) OpenUdpEncapsulationSocket0(ctx context.Context) (int64, error) {
+	resp, err := c.svc.OpenUdpEncapsulationSocket0(ctx, &pb.OpenUdpEncapsulationSocket0Request{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// OpenUdpEncapsulationSocket1_1 calls the OpenUdpEncapsulationSocket1_1 RPC.
+func (c *IpSecManagerClient) OpenUdpEncapsulationSocket1_1(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.OpenUdpEncapsulationSocket1_1(ctx, &pb.OpenUdpEncapsulationSocket1_1Request{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// RemoveTransportModeTransforms1 calls the RemoveTransportModeTransforms1 RPC.
+func (c *IpSecManagerClient) RemoveTransportModeTransforms1(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.RemoveTransportModeTransforms1(ctx, &pb.RemoveTransportModeTransforms1Request{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// RemoveTransportModeTransforms1_1 calls the RemoveTransportModeTransforms1_1 RPC.
+func (c *IpSecManagerClient) RemoveTransportModeTransforms1_1(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.RemoveTransportModeTransforms1_1(ctx, &pb.RemoveTransportModeTransforms1_1Request{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// RemoveTransportModeTransforms1_2 calls the RemoveTransportModeTransforms1_2 RPC.
+func (c *IpSecManagerClient) RemoveTransportModeTransforms1_2(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.RemoveTransportModeTransforms1_2(ctx, &pb.RemoveTransportModeTransforms1_2Request{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// TetheringManagerClient wraps the gRPC TetheringManagerService client.
+type TetheringManagerClient struct {
+	svc pb.TetheringManagerServiceClient
+}
+
+// NewTetheringManagerClient creates a new TetheringManager client.
+func NewTetheringManagerClient(cc grpc.ClientConnInterface) *TetheringManagerClient {
+	return &TetheringManagerClient{
+		svc: pb.NewTetheringManagerServiceClient(cc),
+	}
+}
+
+// RegisterTetheringEventCallback calls the RegisterTetheringEventCallback RPC.
+func (c *TetheringManagerClient) RegisterTetheringEventCallback(ctx context.Context, arg0 int64, arg1 int64) error {
+	_, err := c.svc.RegisterTetheringEventCallback(ctx, &pb.RegisterTetheringEventCallbackRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// StartTethering calls the StartTethering RPC.
+func (c *TetheringManagerClient) StartTethering(ctx context.Context, arg0 int64, arg1 int64, arg2 int64) error {
+	_, err := c.svc.StartTethering(ctx, &pb.StartTetheringRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	return err
+}
+
+// StopTethering calls the StopTethering RPC.
+func (c *TetheringManagerClient) StopTethering(ctx context.Context, arg0 int64, arg1 int64, arg2 int64) error {
+	_, err := c.svc.StopTethering(ctx, &pb.StopTetheringRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	return err
+}
+
+// UnregisterTetheringEventCallback calls the UnregisterTetheringEventCallback RPC.
+func (c *TetheringManagerClient) UnregisterTetheringEventCallback(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.UnregisterTetheringEventCallback(ctx, &pb.UnregisterTetheringEventCallbackRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// ConnectivityManagerClient wraps the gRPC ConnectivityManagerService client.
+type ConnectivityManagerClient struct {
 	svc pb.ConnectivityManagerServiceClient
 }
 
-// NewClient creates a new net client.
-func NewClient(cc grpc.ClientConnInterface) *Client {
-	return &Client{
+// NewConnectivityManagerClient creates a new ConnectivityManager client.
+func NewConnectivityManagerClient(cc grpc.ClientConnInterface) *ConnectivityManagerClient {
+	return &ConnectivityManagerClient{
 		svc: pb.NewConnectivityManagerServiceClient(cc),
 	}
 }
 
 // AddDefaultNetworkActiveListener calls the AddDefaultNetworkActiveListener RPC.
-func (c *Client) AddDefaultNetworkActiveListener(ctx context.Context, arg0 int64) error {
+func (c *ConnectivityManagerClient) AddDefaultNetworkActiveListener(ctx context.Context, arg0 int64) error {
 	_, err := c.svc.AddDefaultNetworkActiveListener(ctx, &pb.AddDefaultNetworkActiveListenerRequest{
 		Arg0: arg0,
 	})
@@ -30,7 +218,7 @@ func (c *Client) AddDefaultNetworkActiveListener(ctx context.Context, arg0 int64
 }
 
 // BindProcessToNetwork calls the BindProcessToNetwork RPC.
-func (c *Client) BindProcessToNetwork(ctx context.Context, arg0 int64) (bool, error) {
+func (c *ConnectivityManagerClient) BindProcessToNetwork(ctx context.Context, arg0 int64) (bool, error) {
 	resp, err := c.svc.BindProcessToNetwork(ctx, &pb.BindProcessToNetworkRequest{
 		Arg0: arg0,
 	})
@@ -41,7 +229,7 @@ func (c *Client) BindProcessToNetwork(ctx context.Context, arg0 int64) (bool, er
 }
 
 // CreateSocketKeepalive calls the CreateSocketKeepalive RPC.
-func (c *Client) CreateSocketKeepalive(ctx context.Context, arg0 int64, arg1 int64, arg2 int64, arg3 int64, arg4 int64, arg5 int64) (int64, error) {
+func (c *ConnectivityManagerClient) CreateSocketKeepalive(ctx context.Context, arg0 int64, arg1 int64, arg2 int64, arg3 int64, arg4 int64, arg5 int64) (int64, error) {
 	resp, err := c.svc.CreateSocketKeepalive(ctx, &pb.CreateSocketKeepaliveRequest{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -57,7 +245,7 @@ func (c *Client) CreateSocketKeepalive(ctx context.Context, arg0 int64, arg1 int
 }
 
 // GetActiveNetwork calls the GetActiveNetwork RPC.
-func (c *Client) GetActiveNetwork(ctx context.Context) (int64, error) {
+func (c *ConnectivityManagerClient) GetActiveNetwork(ctx context.Context) (int64, error) {
 	resp, err := c.svc.GetActiveNetwork(ctx, &pb.GetActiveNetworkRequest{})
 	if err != nil {
 		return 0, err
@@ -66,7 +254,7 @@ func (c *Client) GetActiveNetwork(ctx context.Context) (int64, error) {
 }
 
 // GetActiveNetworkInfo calls the GetActiveNetworkInfo RPC.
-func (c *Client) GetActiveNetworkInfo(ctx context.Context) (int64, error) {
+func (c *ConnectivityManagerClient) GetActiveNetworkInfo(ctx context.Context) (int64, error) {
 	resp, err := c.svc.GetActiveNetworkInfo(ctx, &pb.GetActiveNetworkInfoRequest{})
 	if err != nil {
 		return 0, err
@@ -75,7 +263,7 @@ func (c *Client) GetActiveNetworkInfo(ctx context.Context) (int64, error) {
 }
 
 // GetAllNetworkInfo calls the GetAllNetworkInfo RPC.
-func (c *Client) GetAllNetworkInfo(ctx context.Context) (int64, error) {
+func (c *ConnectivityManagerClient) GetAllNetworkInfo(ctx context.Context) (int64, error) {
 	resp, err := c.svc.GetAllNetworkInfo(ctx, &pb.GetAllNetworkInfoRequest{})
 	if err != nil {
 		return 0, err
@@ -84,7 +272,7 @@ func (c *Client) GetAllNetworkInfo(ctx context.Context) (int64, error) {
 }
 
 // GetAllNetworks calls the GetAllNetworks RPC.
-func (c *Client) GetAllNetworks(ctx context.Context) (int64, error) {
+func (c *ConnectivityManagerClient) GetAllNetworks(ctx context.Context) (int64, error) {
 	resp, err := c.svc.GetAllNetworks(ctx, &pb.GetAllNetworksRequest{})
 	if err != nil {
 		return 0, err
@@ -93,7 +281,7 @@ func (c *Client) GetAllNetworks(ctx context.Context) (int64, error) {
 }
 
 // GetBackgroundDataSetting calls the GetBackgroundDataSetting RPC.
-func (c *Client) GetBackgroundDataSetting(ctx context.Context) (bool, error) {
+func (c *ConnectivityManagerClient) GetBackgroundDataSetting(ctx context.Context) (bool, error) {
 	resp, err := c.svc.GetBackgroundDataSetting(ctx, &pb.GetBackgroundDataSettingRequest{})
 	if err != nil {
 		return false, err
@@ -102,7 +290,7 @@ func (c *Client) GetBackgroundDataSetting(ctx context.Context) (bool, error) {
 }
 
 // GetBoundNetworkForProcess calls the GetBoundNetworkForProcess RPC.
-func (c *Client) GetBoundNetworkForProcess(ctx context.Context) (int64, error) {
+func (c *ConnectivityManagerClient) GetBoundNetworkForProcess(ctx context.Context) (int64, error) {
 	resp, err := c.svc.GetBoundNetworkForProcess(ctx, &pb.GetBoundNetworkForProcessRequest{})
 	if err != nil {
 		return 0, err
@@ -111,7 +299,7 @@ func (c *Client) GetBoundNetworkForProcess(ctx context.Context) (int64, error) {
 }
 
 // GetConnectionOwnerUid calls the GetConnectionOwnerUid RPC.
-func (c *Client) GetConnectionOwnerUid(ctx context.Context, arg0 int32, arg1 int64, arg2 int64) (int32, error) {
+func (c *ConnectivityManagerClient) GetConnectionOwnerUid(ctx context.Context, arg0 int32, arg1 int64, arg2 int64) (int32, error) {
 	resp, err := c.svc.GetConnectionOwnerUid(ctx, &pb.GetConnectionOwnerUidRequest{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -124,7 +312,7 @@ func (c *Client) GetConnectionOwnerUid(ctx context.Context, arg0 int32, arg1 int
 }
 
 // GetDefaultProxy calls the GetDefaultProxy RPC.
-func (c *Client) GetDefaultProxy(ctx context.Context) (int64, error) {
+func (c *ConnectivityManagerClient) GetDefaultProxy(ctx context.Context) (int64, error) {
 	resp, err := c.svc.GetDefaultProxy(ctx, &pb.GetDefaultProxyRequest{})
 	if err != nil {
 		return 0, err
@@ -133,7 +321,7 @@ func (c *Client) GetDefaultProxy(ctx context.Context) (int64, error) {
 }
 
 // GetLinkProperties calls the GetLinkProperties RPC.
-func (c *Client) GetLinkProperties(ctx context.Context, arg0 int64) (int64, error) {
+func (c *ConnectivityManagerClient) GetLinkProperties(ctx context.Context, arg0 int64) (int64, error) {
 	resp, err := c.svc.GetLinkProperties(ctx, &pb.GetLinkPropertiesRequest{
 		Arg0: arg0,
 	})
@@ -144,7 +332,7 @@ func (c *Client) GetLinkProperties(ctx context.Context, arg0 int64) (int64, erro
 }
 
 // GetMultipathPreference calls the GetMultipathPreference RPC.
-func (c *Client) GetMultipathPreference(ctx context.Context, arg0 int64) (int32, error) {
+func (c *ConnectivityManagerClient) GetMultipathPreference(ctx context.Context, arg0 int64) (int32, error) {
 	resp, err := c.svc.GetMultipathPreference(ctx, &pb.GetMultipathPreferenceRequest{
 		Arg0: arg0,
 	})
@@ -155,7 +343,7 @@ func (c *Client) GetMultipathPreference(ctx context.Context, arg0 int64) (int32,
 }
 
 // GetNetworkCapabilities calls the GetNetworkCapabilities RPC.
-func (c *Client) GetNetworkCapabilities(ctx context.Context, arg0 int64) (int64, error) {
+func (c *ConnectivityManagerClient) GetNetworkCapabilities(ctx context.Context, arg0 int64) (int64, error) {
 	resp, err := c.svc.GetNetworkCapabilities(ctx, &pb.GetNetworkCapabilitiesRequest{
 		Arg0: arg0,
 	})
@@ -166,7 +354,7 @@ func (c *Client) GetNetworkCapabilities(ctx context.Context, arg0 int64) (int64,
 }
 
 // GetNetworkInfo1 calls the GetNetworkInfo1 RPC.
-func (c *Client) GetNetworkInfo1(ctx context.Context, arg0 int64) (int64, error) {
+func (c *ConnectivityManagerClient) GetNetworkInfo1(ctx context.Context, arg0 int64) (int64, error) {
 	resp, err := c.svc.GetNetworkInfo1(ctx, &pb.GetNetworkInfo1Request{
 		Arg0: arg0,
 	})
@@ -177,7 +365,7 @@ func (c *Client) GetNetworkInfo1(ctx context.Context, arg0 int64) (int64, error)
 }
 
 // GetNetworkInfo1_1 calls the GetNetworkInfo1_1 RPC.
-func (c *Client) GetNetworkInfo1_1(ctx context.Context, arg0 int32) (int64, error) {
+func (c *ConnectivityManagerClient) GetNetworkInfo1_1(ctx context.Context, arg0 int32) (int64, error) {
 	resp, err := c.svc.GetNetworkInfo1_1(ctx, &pb.GetNetworkInfo1_1Request{
 		Arg0: arg0,
 	})
@@ -188,7 +376,7 @@ func (c *Client) GetNetworkInfo1_1(ctx context.Context, arg0 int32) (int64, erro
 }
 
 // GetNetworkPreference calls the GetNetworkPreference RPC.
-func (c *Client) GetNetworkPreference(ctx context.Context) (int32, error) {
+func (c *ConnectivityManagerClient) GetNetworkPreference(ctx context.Context) (int32, error) {
 	resp, err := c.svc.GetNetworkPreference(ctx, &pb.GetNetworkPreferenceRequest{})
 	if err != nil {
 		return 0, err
@@ -197,7 +385,7 @@ func (c *Client) GetNetworkPreference(ctx context.Context) (int32, error) {
 }
 
 // GetNetworkWatchlistConfigHash calls the GetNetworkWatchlistConfigHash RPC.
-func (c *Client) GetNetworkWatchlistConfigHash(ctx context.Context) (int64, error) {
+func (c *ConnectivityManagerClient) GetNetworkWatchlistConfigHash(ctx context.Context) (int64, error) {
 	resp, err := c.svc.GetNetworkWatchlistConfigHash(ctx, &pb.GetNetworkWatchlistConfigHashRequest{})
 	if err != nil {
 		return 0, err
@@ -206,7 +394,7 @@ func (c *Client) GetNetworkWatchlistConfigHash(ctx context.Context) (int64, erro
 }
 
 // GetRestrictBackgroundStatus calls the GetRestrictBackgroundStatus RPC.
-func (c *Client) GetRestrictBackgroundStatus(ctx context.Context) (int32, error) {
+func (c *ConnectivityManagerClient) GetRestrictBackgroundStatus(ctx context.Context) (int32, error) {
 	resp, err := c.svc.GetRestrictBackgroundStatus(ctx, &pb.GetRestrictBackgroundStatusRequest{})
 	if err != nil {
 		return 0, err
@@ -215,7 +403,7 @@ func (c *Client) GetRestrictBackgroundStatus(ctx context.Context) (int32, error)
 }
 
 // IsActiveNetworkMetered calls the IsActiveNetworkMetered RPC.
-func (c *Client) IsActiveNetworkMetered(ctx context.Context) (bool, error) {
+func (c *ConnectivityManagerClient) IsActiveNetworkMetered(ctx context.Context) (bool, error) {
 	resp, err := c.svc.IsActiveNetworkMetered(ctx, &pb.IsActiveNetworkMeteredRequest{})
 	if err != nil {
 		return false, err
@@ -224,7 +412,7 @@ func (c *Client) IsActiveNetworkMetered(ctx context.Context) (bool, error) {
 }
 
 // IsDefaultNetworkActive calls the IsDefaultNetworkActive RPC.
-func (c *Client) IsDefaultNetworkActive(ctx context.Context) (bool, error) {
+func (c *ConnectivityManagerClient) IsDefaultNetworkActive(ctx context.Context) (bool, error) {
 	resp, err := c.svc.IsDefaultNetworkActive(ctx, &pb.IsDefaultNetworkActiveRequest{})
 	if err != nil {
 		return false, err
@@ -233,7 +421,7 @@ func (c *Client) IsDefaultNetworkActive(ctx context.Context) (bool, error) {
 }
 
 // RegisterDefaultNetworkCallback calls the RegisterDefaultNetworkCallback RPC.
-func (c *Client) RegisterDefaultNetworkCallback(ctx context.Context, arg0 int64) error {
+func (c *ConnectivityManagerClient) RegisterDefaultNetworkCallback(ctx context.Context, arg0 int64) error {
 	_, err := c.svc.RegisterDefaultNetworkCallback(ctx, &pb.RegisterDefaultNetworkCallbackRequest{
 		Arg0: arg0,
 	})
@@ -241,7 +429,7 @@ func (c *Client) RegisterDefaultNetworkCallback(ctx context.Context, arg0 int64)
 }
 
 // RegisterNetworkCallback2 calls the RegisterNetworkCallback2 RPC.
-func (c *Client) RegisterNetworkCallback2(ctx context.Context, arg0 int64, arg1 int64) error {
+func (c *ConnectivityManagerClient) RegisterNetworkCallback2(ctx context.Context, arg0 int64, arg1 int64) error {
 	_, err := c.svc.RegisterNetworkCallback2(ctx, &pb.RegisterNetworkCallback2Request{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -250,7 +438,7 @@ func (c *Client) RegisterNetworkCallback2(ctx context.Context, arg0 int64, arg1 
 }
 
 // RegisterNetworkCallback2_1 calls the RegisterNetworkCallback2_1 RPC.
-func (c *Client) RegisterNetworkCallback2_1(ctx context.Context, arg0 int64, arg1 int64) error {
+func (c *ConnectivityManagerClient) RegisterNetworkCallback2_1(ctx context.Context, arg0 int64, arg1 int64) error {
 	_, err := c.svc.RegisterNetworkCallback2_1(ctx, &pb.RegisterNetworkCallback2_1Request{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -259,7 +447,7 @@ func (c *Client) RegisterNetworkCallback2_1(ctx context.Context, arg0 int64, arg
 }
 
 // ReleaseNetworkRequest calls the ReleaseNetworkRequest RPC.
-func (c *Client) ReleaseNetworkRequest(ctx context.Context, arg0 int64) error {
+func (c *ConnectivityManagerClient) ReleaseNetworkRequest(ctx context.Context, arg0 int64) error {
 	_, err := c.svc.ReleaseNetworkRequest(ctx, &pb.ReleaseNetworkRequestRequest{
 		Arg0: arg0,
 	})
@@ -267,7 +455,7 @@ func (c *Client) ReleaseNetworkRequest(ctx context.Context, arg0 int64) error {
 }
 
 // RemoveDefaultNetworkActiveListener calls the RemoveDefaultNetworkActiveListener RPC.
-func (c *Client) RemoveDefaultNetworkActiveListener(ctx context.Context, arg0 int64) error {
+func (c *ConnectivityManagerClient) RemoveDefaultNetworkActiveListener(ctx context.Context, arg0 int64) error {
 	_, err := c.svc.RemoveDefaultNetworkActiveListener(ctx, &pb.RemoveDefaultNetworkActiveListenerRequest{
 		Arg0: arg0,
 	})
@@ -275,7 +463,7 @@ func (c *Client) RemoveDefaultNetworkActiveListener(ctx context.Context, arg0 in
 }
 
 // ReportBadNetwork calls the ReportBadNetwork RPC.
-func (c *Client) ReportBadNetwork(ctx context.Context, arg0 int64) error {
+func (c *ConnectivityManagerClient) ReportBadNetwork(ctx context.Context, arg0 int64) error {
 	_, err := c.svc.ReportBadNetwork(ctx, &pb.ReportBadNetworkRequest{
 		Arg0: arg0,
 	})
@@ -283,7 +471,7 @@ func (c *Client) ReportBadNetwork(ctx context.Context, arg0 int64) error {
 }
 
 // ReportNetworkConnectivity calls the ReportNetworkConnectivity RPC.
-func (c *Client) ReportNetworkConnectivity(ctx context.Context, arg0 int64, arg1 bool) error {
+func (c *ConnectivityManagerClient) ReportNetworkConnectivity(ctx context.Context, arg0 int64, arg1 bool) error {
 	_, err := c.svc.ReportNetworkConnectivity(ctx, &pb.ReportNetworkConnectivityRequest{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -292,7 +480,7 @@ func (c *Client) ReportNetworkConnectivity(ctx context.Context, arg0 int64, arg1
 }
 
 // RequestBandwidthUpdate calls the RequestBandwidthUpdate RPC.
-func (c *Client) RequestBandwidthUpdate(ctx context.Context, arg0 int64) (bool, error) {
+func (c *ConnectivityManagerClient) RequestBandwidthUpdate(ctx context.Context, arg0 int64) (bool, error) {
 	resp, err := c.svc.RequestBandwidthUpdate(ctx, &pb.RequestBandwidthUpdateRequest{
 		Arg0: arg0,
 	})
@@ -303,7 +491,7 @@ func (c *Client) RequestBandwidthUpdate(ctx context.Context, arg0 int64) (bool, 
 }
 
 // RequestNetwork2 calls the RequestNetwork2 RPC.
-func (c *Client) RequestNetwork2(ctx context.Context, arg0 int64, arg1 int64) error {
+func (c *ConnectivityManagerClient) RequestNetwork2(ctx context.Context, arg0 int64, arg1 int64) error {
 	_, err := c.svc.RequestNetwork2(ctx, &pb.RequestNetwork2Request{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -312,7 +500,7 @@ func (c *Client) RequestNetwork2(ctx context.Context, arg0 int64, arg1 int64) er
 }
 
 // RequestNetwork2_1 calls the RequestNetwork2_1 RPC.
-func (c *Client) RequestNetwork2_1(ctx context.Context, arg0 int64, arg1 int64) error {
+func (c *ConnectivityManagerClient) RequestNetwork2_1(ctx context.Context, arg0 int64, arg1 int64) error {
 	_, err := c.svc.RequestNetwork2_1(ctx, &pb.RequestNetwork2_1Request{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -321,7 +509,7 @@ func (c *Client) RequestNetwork2_1(ctx context.Context, arg0 int64, arg1 int64) 
 }
 
 // RequestNetwork3_2 calls the RequestNetwork3_2 RPC.
-func (c *Client) RequestNetwork3_2(ctx context.Context, arg0 int64, arg1 int64, arg2 int32) error {
+func (c *ConnectivityManagerClient) RequestNetwork3_2(ctx context.Context, arg0 int64, arg1 int64, arg2 int32) error {
 	_, err := c.svc.RequestNetwork3_2(ctx, &pb.RequestNetwork3_2Request{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -331,7 +519,7 @@ func (c *Client) RequestNetwork3_2(ctx context.Context, arg0 int64, arg1 int64, 
 }
 
 // SetNetworkPreference calls the SetNetworkPreference RPC.
-func (c *Client) SetNetworkPreference(ctx context.Context, arg0 int32) error {
+func (c *ConnectivityManagerClient) SetNetworkPreference(ctx context.Context, arg0 int32) error {
 	_, err := c.svc.SetNetworkPreference(ctx, &pb.SetNetworkPreferenceRequest{
 		Arg0: arg0,
 	})
@@ -339,7 +527,7 @@ func (c *Client) SetNetworkPreference(ctx context.Context, arg0 int32) error {
 }
 
 // UnregisterNetworkCallback1 calls the UnregisterNetworkCallback1 RPC.
-func (c *Client) UnregisterNetworkCallback1(ctx context.Context, arg0 int64) error {
+func (c *ConnectivityManagerClient) UnregisterNetworkCallback1(ctx context.Context, arg0 int64) error {
 	_, err := c.svc.UnregisterNetworkCallback1(ctx, &pb.UnregisterNetworkCallback1Request{
 		Arg0: arg0,
 	})
@@ -347,7 +535,7 @@ func (c *Client) UnregisterNetworkCallback1(ctx context.Context, arg0 int64) err
 }
 
 // UnregisterNetworkCallback1_1 calls the UnregisterNetworkCallback1_1 RPC.
-func (c *Client) UnregisterNetworkCallback1_1(ctx context.Context, arg0 int64) error {
+func (c *ConnectivityManagerClient) UnregisterNetworkCallback1_1(ctx context.Context, arg0 int64) error {
 	_, err := c.svc.UnregisterNetworkCallback1_1(ctx, &pb.UnregisterNetworkCallback1_1Request{
 		Arg0: arg0,
 	})
@@ -355,7 +543,7 @@ func (c *Client) UnregisterNetworkCallback1_1(ctx context.Context, arg0 int64) e
 }
 
 // GetProcessDefaultNetwork calls the GetProcessDefaultNetwork RPC.
-func (c *Client) GetProcessDefaultNetwork(ctx context.Context) (int64, error) {
+func (c *ConnectivityManagerClient) GetProcessDefaultNetwork(ctx context.Context) (int64, error) {
 	resp, err := c.svc.GetProcessDefaultNetwork(ctx, &pb.GetProcessDefaultNetworkRequest{})
 	if err != nil {
 		return 0, err
@@ -364,7 +552,7 @@ func (c *Client) GetProcessDefaultNetwork(ctx context.Context) (int64, error) {
 }
 
 // IsNetworkTypeValid calls the IsNetworkTypeValid RPC.
-func (c *Client) IsNetworkTypeValid(ctx context.Context, arg0 int32) (bool, error) {
+func (c *ConnectivityManagerClient) IsNetworkTypeValid(ctx context.Context, arg0 int32) (bool, error) {
 	resp, err := c.svc.IsNetworkTypeValid(ctx, &pb.IsNetworkTypeValidRequest{
 		Arg0: arg0,
 	})
@@ -375,7 +563,7 @@ func (c *Client) IsNetworkTypeValid(ctx context.Context, arg0 int32) (bool, erro
 }
 
 // SetProcessDefaultNetwork calls the SetProcessDefaultNetwork RPC.
-func (c *Client) SetProcessDefaultNetwork(ctx context.Context, arg0 int64) (bool, error) {
+func (c *ConnectivityManagerClient) SetProcessDefaultNetwork(ctx context.Context, arg0 int64) (bool, error) {
 	resp, err := c.svc.SetProcessDefaultNetwork(ctx, &pb.SetProcessDefaultNetworkRequest{
 		Arg0: arg0,
 	})

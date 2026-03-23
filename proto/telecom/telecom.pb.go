@@ -271,118 +271,6 @@ func (*AcceptRingingCall1_1Response) Descriptor() ([]byte, []int) {
 	return file_proto_telecom_telecom_proto_rawDescGZIP(), []int{5}
 }
 
-type AddCallRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
-	Arg2          int64                  `protobuf:"varint,3,opt,name=arg2,proto3" json:"arg2,omitempty"`
-	Arg3          int64                  `protobuf:"varint,4,opt,name=arg3,proto3" json:"arg3,omitempty"`
-	Arg4          int64                  `protobuf:"varint,5,opt,name=arg4,proto3" json:"arg4,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *AddCallRequest) Reset() {
-	*x = AddCallRequest{}
-	mi := &file_proto_telecom_telecom_proto_msgTypes[6]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *AddCallRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*AddCallRequest) ProtoMessage() {}
-
-func (x *AddCallRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_telecom_telecom_proto_msgTypes[6]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use AddCallRequest.ProtoReflect.Descriptor instead.
-func (*AddCallRequest) Descriptor() ([]byte, []int) {
-	return file_proto_telecom_telecom_proto_rawDescGZIP(), []int{6}
-}
-
-func (x *AddCallRequest) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-func (x *AddCallRequest) GetArg1() int64 {
-	if x != nil {
-		return x.Arg1
-	}
-	return 0
-}
-
-func (x *AddCallRequest) GetArg2() int64 {
-	if x != nil {
-		return x.Arg2
-	}
-	return 0
-}
-
-func (x *AddCallRequest) GetArg3() int64 {
-	if x != nil {
-		return x.Arg3
-	}
-	return 0
-}
-
-func (x *AddCallRequest) GetArg4() int64 {
-	if x != nil {
-		return x.Arg4
-	}
-	return 0
-}
-
-type AddCallResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *AddCallResponse) Reset() {
-	*x = AddCallResponse{}
-	mi := &file_proto_telecom_telecom_proto_msgTypes[7]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *AddCallResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*AddCallResponse) ProtoMessage() {}
-
-func (x *AddCallResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_telecom_telecom_proto_msgTypes[7]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use AddCallResponse.ProtoReflect.Descriptor instead.
-func (*AddCallResponse) Descriptor() ([]byte, []int) {
-	return file_proto_telecom_telecom_proto_rawDescGZIP(), []int{7}
-}
-
 type AddNewIncomingCallRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
@@ -393,7 +281,7 @@ type AddNewIncomingCallRequest struct {
 
 func (x *AddNewIncomingCallRequest) Reset() {
 	*x = AddNewIncomingCallRequest{}
-	mi := &file_proto_telecom_telecom_proto_msgTypes[8]
+	mi := &file_proto_telecom_telecom_proto_msgTypes[6]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -405,7 +293,7 @@ func (x *AddNewIncomingCallRequest) String() string {
 func (*AddNewIncomingCallRequest) ProtoMessage() {}
 
 func (x *AddNewIncomingCallRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_telecom_telecom_proto_msgTypes[8]
+	mi := &file_proto_telecom_telecom_proto_msgTypes[6]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -418,7 +306,7 @@ func (x *AddNewIncomingCallRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use AddNewIncomingCallRequest.ProtoReflect.Descriptor instead.
 func (*AddNewIncomingCallRequest) Descriptor() ([]byte, []int) {
-	return file_proto_telecom_telecom_proto_rawDescGZIP(), []int{8}
+	return file_proto_telecom_telecom_proto_rawDescGZIP(), []int{6}
 }
 
 func (x *AddNewIncomingCallRequest) GetArg0() int64 {
@@ -443,7 +331,7 @@ type AddNewIncomingCallResponse struct {
 
 func (x *AddNewIncomingCallResponse) Reset() {
 	*x = AddNewIncomingCallResponse{}
-	mi := &file_proto_telecom_telecom_proto_msgTypes[9]
+	mi := &file_proto_telecom_telecom_proto_msgTypes[7]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -455,7 +343,7 @@ func (x *AddNewIncomingCallResponse) String() string {
 func (*AddNewIncomingCallResponse) ProtoMessage() {}
 
 func (x *AddNewIncomingCallResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_telecom_telecom_proto_msgTypes[9]
+	mi := &file_proto_telecom_telecom_proto_msgTypes[7]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -468,7 +356,7 @@ func (x *AddNewIncomingCallResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use AddNewIncomingCallResponse.ProtoReflect.Descriptor instead.
 func (*AddNewIncomingCallResponse) Descriptor() ([]byte, []int) {
-	return file_proto_telecom_telecom_proto_rawDescGZIP(), []int{9}
+	return file_proto_telecom_telecom_proto_rawDescGZIP(), []int{7}
 }
 
 type AddNewIncomingConferenceRequest struct {
@@ -481,7 +369,7 @@ type AddNewIncomingConferenceRequest struct {
 
 func (x *AddNewIncomingConferenceRequest) Reset() {
 	*x = AddNewIncomingConferenceRequest{}
-	mi := &file_proto_telecom_telecom_proto_msgTypes[10]
+	mi := &file_proto_telecom_telecom_proto_msgTypes[8]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -493,7 +381,7 @@ func (x *AddNewIncomingConferenceRequest) String() string {
 func (*AddNewIncomingConferenceRequest) ProtoMessage() {}
 
 func (x *AddNewIncomingConferenceRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_telecom_telecom_proto_msgTypes[10]
+	mi := &file_proto_telecom_telecom_proto_msgTypes[8]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -506,7 +394,7 @@ func (x *AddNewIncomingConferenceRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use AddNewIncomingConferenceRequest.ProtoReflect.Descriptor instead.
 func (*AddNewIncomingConferenceRequest) Descriptor() ([]byte, []int) {
-	return file_proto_telecom_telecom_proto_rawDescGZIP(), []int{10}
+	return file_proto_telecom_telecom_proto_rawDescGZIP(), []int{8}
 }
 
 func (x *AddNewIncomingConferenceRequest) GetArg0() int64 {
@@ -531,7 +419,7 @@ type AddNewIncomingConferenceResponse struct {
 
 func (x *AddNewIncomingConferenceResponse) Reset() {
 	*x = AddNewIncomingConferenceResponse{}
-	mi := &file_proto_telecom_telecom_proto_msgTypes[11]
+	mi := &file_proto_telecom_telecom_proto_msgTypes[9]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -543,7 +431,7 @@ func (x *AddNewIncomingConferenceResponse) String() string {
 func (*AddNewIncomingConferenceResponse) ProtoMessage() {}
 
 func (x *AddNewIncomingConferenceResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_telecom_telecom_proto_msgTypes[11]
+	mi := &file_proto_telecom_telecom_proto_msgTypes[9]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -556,7 +444,7 @@ func (x *AddNewIncomingConferenceResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use AddNewIncomingConferenceResponse.ProtoReflect.Descriptor instead.
 func (*AddNewIncomingConferenceResponse) Descriptor() ([]byte, []int) {
-	return file_proto_telecom_telecom_proto_rawDescGZIP(), []int{11}
+	return file_proto_telecom_telecom_proto_rawDescGZIP(), []int{9}
 }
 
 type CancelMissedCallsNotificationRequest struct {
@@ -567,7 +455,7 @@ type CancelMissedCallsNotificationRequest struct {
 
 func (x *CancelMissedCallsNotificationRequest) Reset() {
 	*x = CancelMissedCallsNotificationRequest{}
-	mi := &file_proto_telecom_telecom_proto_msgTypes[12]
+	mi := &file_proto_telecom_telecom_proto_msgTypes[10]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -579,7 +467,7 @@ func (x *CancelMissedCallsNotificationRequest) String() string {
 func (*CancelMissedCallsNotificationRequest) ProtoMessage() {}
 
 func (x *CancelMissedCallsNotificationRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_telecom_telecom_proto_msgTypes[12]
+	mi := &file_proto_telecom_telecom_proto_msgTypes[10]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -592,7 +480,7 @@ func (x *CancelMissedCallsNotificationRequest) ProtoReflect() protoreflect.Messa
 
 // Deprecated: Use CancelMissedCallsNotificationRequest.ProtoReflect.Descriptor instead.
 func (*CancelMissedCallsNotificationRequest) Descriptor() ([]byte, []int) {
-	return file_proto_telecom_telecom_proto_rawDescGZIP(), []int{12}
+	return file_proto_telecom_telecom_proto_rawDescGZIP(), []int{10}
 }
 
 type CancelMissedCallsNotificationResponse struct {
@@ -603,7 +491,7 @@ type CancelMissedCallsNotificationResponse struct {
 
 func (x *CancelMissedCallsNotificationResponse) Reset() {
 	*x = CancelMissedCallsNotificationResponse{}
-	mi := &file_proto_telecom_telecom_proto_msgTypes[13]
+	mi := &file_proto_telecom_telecom_proto_msgTypes[11]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -615,7 +503,7 @@ func (x *CancelMissedCallsNotificationResponse) String() string {
 func (*CancelMissedCallsNotificationResponse) ProtoMessage() {}
 
 func (x *CancelMissedCallsNotificationResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_telecom_telecom_proto_msgTypes[13]
+	mi := &file_proto_telecom_telecom_proto_msgTypes[11]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -628,7 +516,7 @@ func (x *CancelMissedCallsNotificationResponse) ProtoReflect() protoreflect.Mess
 
 // Deprecated: Use CancelMissedCallsNotificationResponse.ProtoReflect.Descriptor instead.
 func (*CancelMissedCallsNotificationResponse) Descriptor() ([]byte, []int) {
-	return file_proto_telecom_telecom_proto_rawDescGZIP(), []int{13}
+	return file_proto_telecom_telecom_proto_rawDescGZIP(), []int{11}
 }
 
 type CreateManageBlockedNumbersIntentRequest struct {
@@ -639,7 +527,7 @@ type CreateManageBlockedNumbersIntentRequest struct {
 
 func (x *CreateManageBlockedNumbersIntentRequest) Reset() {
 	*x = CreateManageBlockedNumbersIntentRequest{}
-	mi := &file_proto_telecom_telecom_proto_msgTypes[14]
+	mi := &file_proto_telecom_telecom_proto_msgTypes[12]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -651,7 +539,7 @@ func (x *CreateManageBlockedNumbersIntentRequest) String() string {
 func (*CreateManageBlockedNumbersIntentRequest) ProtoMessage() {}
 
 func (x *CreateManageBlockedNumbersIntentRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_telecom_telecom_proto_msgTypes[14]
+	mi := &file_proto_telecom_telecom_proto_msgTypes[12]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -664,7 +552,7 @@ func (x *CreateManageBlockedNumbersIntentRequest) ProtoReflect() protoreflect.Me
 
 // Deprecated: Use CreateManageBlockedNumbersIntentRequest.ProtoReflect.Descriptor instead.
 func (*CreateManageBlockedNumbersIntentRequest) Descriptor() ([]byte, []int) {
-	return file_proto_telecom_telecom_proto_rawDescGZIP(), []int{14}
+	return file_proto_telecom_telecom_proto_rawDescGZIP(), []int{12}
 }
 
 type CreateManageBlockedNumbersIntentResponse struct {
@@ -676,7 +564,7 @@ type CreateManageBlockedNumbersIntentResponse struct {
 
 func (x *CreateManageBlockedNumbersIntentResponse) Reset() {
 	*x = CreateManageBlockedNumbersIntentResponse{}
-	mi := &file_proto_telecom_telecom_proto_msgTypes[15]
+	mi := &file_proto_telecom_telecom_proto_msgTypes[13]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -688,7 +576,7 @@ func (x *CreateManageBlockedNumbersIntentResponse) String() string {
 func (*CreateManageBlockedNumbersIntentResponse) ProtoMessage() {}
 
 func (x *CreateManageBlockedNumbersIntentResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_telecom_telecom_proto_msgTypes[15]
+	mi := &file_proto_telecom_telecom_proto_msgTypes[13]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -701,7 +589,7 @@ func (x *CreateManageBlockedNumbersIntentResponse) ProtoReflect() protoreflect.M
 
 // Deprecated: Use CreateManageBlockedNumbersIntentResponse.ProtoReflect.Descriptor instead.
 func (*CreateManageBlockedNumbersIntentResponse) Descriptor() ([]byte, []int) {
-	return file_proto_telecom_telecom_proto_rawDescGZIP(), []int{15}
+	return file_proto_telecom_telecom_proto_rawDescGZIP(), []int{13}
 }
 
 func (x *CreateManageBlockedNumbersIntentResponse) GetResult() int64 {
@@ -719,7 +607,7 @@ type EndCallRequest struct {
 
 func (x *EndCallRequest) Reset() {
 	*x = EndCallRequest{}
-	mi := &file_proto_telecom_telecom_proto_msgTypes[16]
+	mi := &file_proto_telecom_telecom_proto_msgTypes[14]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -731,7 +619,7 @@ func (x *EndCallRequest) String() string {
 func (*EndCallRequest) ProtoMessage() {}
 
 func (x *EndCallRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_telecom_telecom_proto_msgTypes[16]
+	mi := &file_proto_telecom_telecom_proto_msgTypes[14]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -744,7 +632,7 @@ func (x *EndCallRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use EndCallRequest.ProtoReflect.Descriptor instead.
 func (*EndCallRequest) Descriptor() ([]byte, []int) {
-	return file_proto_telecom_telecom_proto_rawDescGZIP(), []int{16}
+	return file_proto_telecom_telecom_proto_rawDescGZIP(), []int{14}
 }
 
 type EndCallResponse struct {
@@ -756,7 +644,7 @@ type EndCallResponse struct {
 
 func (x *EndCallResponse) Reset() {
 	*x = EndCallResponse{}
-	mi := &file_proto_telecom_telecom_proto_msgTypes[17]
+	mi := &file_proto_telecom_telecom_proto_msgTypes[15]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -768,7 +656,7 @@ func (x *EndCallResponse) String() string {
 func (*EndCallResponse) ProtoMessage() {}
 
 func (x *EndCallResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_telecom_telecom_proto_msgTypes[17]
+	mi := &file_proto_telecom_telecom_proto_msgTypes[15]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -781,7 +669,7 @@ func (x *EndCallResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use EndCallResponse.ProtoReflect.Descriptor instead.
 func (*EndCallResponse) Descriptor() ([]byte, []int) {
-	return file_proto_telecom_telecom_proto_rawDescGZIP(), []int{17}
+	return file_proto_telecom_telecom_proto_rawDescGZIP(), []int{15}
 }
 
 func (x *EndCallResponse) GetResult() bool {
@@ -800,7 +688,7 @@ type GetAdnUriForPhoneAccountRequest struct {
 
 func (x *GetAdnUriForPhoneAccountRequest) Reset() {
 	*x = GetAdnUriForPhoneAccountRequest{}
-	mi := &file_proto_telecom_telecom_proto_msgTypes[18]
+	mi := &file_proto_telecom_telecom_proto_msgTypes[16]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -812,7 +700,7 @@ func (x *GetAdnUriForPhoneAccountRequest) String() string {
 func (*GetAdnUriForPhoneAccountRequest) ProtoMessage() {}
 
 func (x *GetAdnUriForPhoneAccountRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_telecom_telecom_proto_msgTypes[18]
+	mi := &file_proto_telecom_telecom_proto_msgTypes[16]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -825,7 +713,7 @@ func (x *GetAdnUriForPhoneAccountRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetAdnUriForPhoneAccountRequest.ProtoReflect.Descriptor instead.
 func (*GetAdnUriForPhoneAccountRequest) Descriptor() ([]byte, []int) {
-	return file_proto_telecom_telecom_proto_rawDescGZIP(), []int{18}
+	return file_proto_telecom_telecom_proto_rawDescGZIP(), []int{16}
 }
 
 func (x *GetAdnUriForPhoneAccountRequest) GetArg0() int64 {
@@ -844,7 +732,7 @@ type GetAdnUriForPhoneAccountResponse struct {
 
 func (x *GetAdnUriForPhoneAccountResponse) Reset() {
 	*x = GetAdnUriForPhoneAccountResponse{}
-	mi := &file_proto_telecom_telecom_proto_msgTypes[19]
+	mi := &file_proto_telecom_telecom_proto_msgTypes[17]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -856,7 +744,7 @@ func (x *GetAdnUriForPhoneAccountResponse) String() string {
 func (*GetAdnUriForPhoneAccountResponse) ProtoMessage() {}
 
 func (x *GetAdnUriForPhoneAccountResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_telecom_telecom_proto_msgTypes[19]
+	mi := &file_proto_telecom_telecom_proto_msgTypes[17]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -869,90 +757,10 @@ func (x *GetAdnUriForPhoneAccountResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetAdnUriForPhoneAccountResponse.ProtoReflect.Descriptor instead.
 func (*GetAdnUriForPhoneAccountResponse) Descriptor() ([]byte, []int) {
-	return file_proto_telecom_telecom_proto_rawDescGZIP(), []int{19}
+	return file_proto_telecom_telecom_proto_rawDescGZIP(), []int{17}
 }
 
 func (x *GetAdnUriForPhoneAccountResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type GetCallCapablePhoneAccountsRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetCallCapablePhoneAccountsRequest) Reset() {
-	*x = GetCallCapablePhoneAccountsRequest{}
-	mi := &file_proto_telecom_telecom_proto_msgTypes[20]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetCallCapablePhoneAccountsRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetCallCapablePhoneAccountsRequest) ProtoMessage() {}
-
-func (x *GetCallCapablePhoneAccountsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_telecom_telecom_proto_msgTypes[20]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetCallCapablePhoneAccountsRequest.ProtoReflect.Descriptor instead.
-func (*GetCallCapablePhoneAccountsRequest) Descriptor() ([]byte, []int) {
-	return file_proto_telecom_telecom_proto_rawDescGZIP(), []int{20}
-}
-
-type GetCallCapablePhoneAccountsResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetCallCapablePhoneAccountsResponse) Reset() {
-	*x = GetCallCapablePhoneAccountsResponse{}
-	mi := &file_proto_telecom_telecom_proto_msgTypes[21]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetCallCapablePhoneAccountsResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetCallCapablePhoneAccountsResponse) ProtoMessage() {}
-
-func (x *GetCallCapablePhoneAccountsResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_telecom_telecom_proto_msgTypes[21]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetCallCapablePhoneAccountsResponse.ProtoReflect.Descriptor instead.
-func (*GetCallCapablePhoneAccountsResponse) Descriptor() ([]byte, []int) {
-	return file_proto_telecom_telecom_proto_rawDescGZIP(), []int{21}
-}
-
-func (x *GetCallCapablePhoneAccountsResponse) GetResult() int64 {
 	if x != nil {
 		return x.Result
 	}
@@ -967,7 +775,7 @@ type GetDefaultDialerPackageRequest struct {
 
 func (x *GetDefaultDialerPackageRequest) Reset() {
 	*x = GetDefaultDialerPackageRequest{}
-	mi := &file_proto_telecom_telecom_proto_msgTypes[22]
+	mi := &file_proto_telecom_telecom_proto_msgTypes[18]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -979,7 +787,7 @@ func (x *GetDefaultDialerPackageRequest) String() string {
 func (*GetDefaultDialerPackageRequest) ProtoMessage() {}
 
 func (x *GetDefaultDialerPackageRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_telecom_telecom_proto_msgTypes[22]
+	mi := &file_proto_telecom_telecom_proto_msgTypes[18]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -992,7 +800,7 @@ func (x *GetDefaultDialerPackageRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetDefaultDialerPackageRequest.ProtoReflect.Descriptor instead.
 func (*GetDefaultDialerPackageRequest) Descriptor() ([]byte, []int) {
-	return file_proto_telecom_telecom_proto_rawDescGZIP(), []int{22}
+	return file_proto_telecom_telecom_proto_rawDescGZIP(), []int{18}
 }
 
 type GetDefaultDialerPackageResponse struct {
@@ -1004,7 +812,7 @@ type GetDefaultDialerPackageResponse struct {
 
 func (x *GetDefaultDialerPackageResponse) Reset() {
 	*x = GetDefaultDialerPackageResponse{}
-	mi := &file_proto_telecom_telecom_proto_msgTypes[23]
+	mi := &file_proto_telecom_telecom_proto_msgTypes[19]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1016,7 +824,7 @@ func (x *GetDefaultDialerPackageResponse) String() string {
 func (*GetDefaultDialerPackageResponse) ProtoMessage() {}
 
 func (x *GetDefaultDialerPackageResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_telecom_telecom_proto_msgTypes[23]
+	mi := &file_proto_telecom_telecom_proto_msgTypes[19]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1029,7 +837,7 @@ func (x *GetDefaultDialerPackageResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetDefaultDialerPackageResponse.ProtoReflect.Descriptor instead.
 func (*GetDefaultDialerPackageResponse) Descriptor() ([]byte, []int) {
-	return file_proto_telecom_telecom_proto_rawDescGZIP(), []int{23}
+	return file_proto_telecom_telecom_proto_rawDescGZIP(), []int{19}
 }
 
 func (x *GetDefaultDialerPackageResponse) GetResult() string {
@@ -1048,7 +856,7 @@ type GetDefaultOutgoingPhoneAccountRequest struct {
 
 func (x *GetDefaultOutgoingPhoneAccountRequest) Reset() {
 	*x = GetDefaultOutgoingPhoneAccountRequest{}
-	mi := &file_proto_telecom_telecom_proto_msgTypes[24]
+	mi := &file_proto_telecom_telecom_proto_msgTypes[20]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1060,7 +868,7 @@ func (x *GetDefaultOutgoingPhoneAccountRequest) String() string {
 func (*GetDefaultOutgoingPhoneAccountRequest) ProtoMessage() {}
 
 func (x *GetDefaultOutgoingPhoneAccountRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_telecom_telecom_proto_msgTypes[24]
+	mi := &file_proto_telecom_telecom_proto_msgTypes[20]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1073,7 +881,7 @@ func (x *GetDefaultOutgoingPhoneAccountRequest) ProtoReflect() protoreflect.Mess
 
 // Deprecated: Use GetDefaultOutgoingPhoneAccountRequest.ProtoReflect.Descriptor instead.
 func (*GetDefaultOutgoingPhoneAccountRequest) Descriptor() ([]byte, []int) {
-	return file_proto_telecom_telecom_proto_rawDescGZIP(), []int{24}
+	return file_proto_telecom_telecom_proto_rawDescGZIP(), []int{20}
 }
 
 func (x *GetDefaultOutgoingPhoneAccountRequest) GetArg0() string {
@@ -1092,7 +900,7 @@ type GetDefaultOutgoingPhoneAccountResponse struct {
 
 func (x *GetDefaultOutgoingPhoneAccountResponse) Reset() {
 	*x = GetDefaultOutgoingPhoneAccountResponse{}
-	mi := &file_proto_telecom_telecom_proto_msgTypes[25]
+	mi := &file_proto_telecom_telecom_proto_msgTypes[21]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1104,7 +912,7 @@ func (x *GetDefaultOutgoingPhoneAccountResponse) String() string {
 func (*GetDefaultOutgoingPhoneAccountResponse) ProtoMessage() {}
 
 func (x *GetDefaultOutgoingPhoneAccountResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_telecom_telecom_proto_msgTypes[25]
+	mi := &file_proto_telecom_telecom_proto_msgTypes[21]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1117,7 +925,7 @@ func (x *GetDefaultOutgoingPhoneAccountResponse) ProtoReflect() protoreflect.Mes
 
 // Deprecated: Use GetDefaultOutgoingPhoneAccountResponse.ProtoReflect.Descriptor instead.
 func (*GetDefaultOutgoingPhoneAccountResponse) Descriptor() ([]byte, []int) {
-	return file_proto_telecom_telecom_proto_rawDescGZIP(), []int{25}
+	return file_proto_telecom_telecom_proto_rawDescGZIP(), []int{21}
 }
 
 func (x *GetDefaultOutgoingPhoneAccountResponse) GetResult() int64 {
@@ -1136,7 +944,7 @@ type GetLine1NumberRequest struct {
 
 func (x *GetLine1NumberRequest) Reset() {
 	*x = GetLine1NumberRequest{}
-	mi := &file_proto_telecom_telecom_proto_msgTypes[26]
+	mi := &file_proto_telecom_telecom_proto_msgTypes[22]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1148,7 +956,7 @@ func (x *GetLine1NumberRequest) String() string {
 func (*GetLine1NumberRequest) ProtoMessage() {}
 
 func (x *GetLine1NumberRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_telecom_telecom_proto_msgTypes[26]
+	mi := &file_proto_telecom_telecom_proto_msgTypes[22]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1161,7 +969,7 @@ func (x *GetLine1NumberRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetLine1NumberRequest.ProtoReflect.Descriptor instead.
 func (*GetLine1NumberRequest) Descriptor() ([]byte, []int) {
-	return file_proto_telecom_telecom_proto_rawDescGZIP(), []int{26}
+	return file_proto_telecom_telecom_proto_rawDescGZIP(), []int{22}
 }
 
 func (x *GetLine1NumberRequest) GetArg0() int64 {
@@ -1180,7 +988,7 @@ type GetLine1NumberResponse struct {
 
 func (x *GetLine1NumberResponse) Reset() {
 	*x = GetLine1NumberResponse{}
-	mi := &file_proto_telecom_telecom_proto_msgTypes[27]
+	mi := &file_proto_telecom_telecom_proto_msgTypes[23]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1192,7 +1000,7 @@ func (x *GetLine1NumberResponse) String() string {
 func (*GetLine1NumberResponse) ProtoMessage() {}
 
 func (x *GetLine1NumberResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_telecom_telecom_proto_msgTypes[27]
+	mi := &file_proto_telecom_telecom_proto_msgTypes[23]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1205,7 +1013,7 @@ func (x *GetLine1NumberResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetLine1NumberResponse.ProtoReflect.Descriptor instead.
 func (*GetLine1NumberResponse) Descriptor() ([]byte, []int) {
-	return file_proto_telecom_telecom_proto_rawDescGZIP(), []int{27}
+	return file_proto_telecom_telecom_proto_rawDescGZIP(), []int{23}
 }
 
 func (x *GetLine1NumberResponse) GetResult() string {
@@ -1213,86 +1021,6 @@ func (x *GetLine1NumberResponse) GetResult() string {
 		return x.Result
 	}
 	return ""
-}
-
-type GetOwnSelfManagedPhoneAccountsRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetOwnSelfManagedPhoneAccountsRequest) Reset() {
-	*x = GetOwnSelfManagedPhoneAccountsRequest{}
-	mi := &file_proto_telecom_telecom_proto_msgTypes[28]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetOwnSelfManagedPhoneAccountsRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetOwnSelfManagedPhoneAccountsRequest) ProtoMessage() {}
-
-func (x *GetOwnSelfManagedPhoneAccountsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_telecom_telecom_proto_msgTypes[28]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetOwnSelfManagedPhoneAccountsRequest.ProtoReflect.Descriptor instead.
-func (*GetOwnSelfManagedPhoneAccountsRequest) Descriptor() ([]byte, []int) {
-	return file_proto_telecom_telecom_proto_rawDescGZIP(), []int{28}
-}
-
-type GetOwnSelfManagedPhoneAccountsResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetOwnSelfManagedPhoneAccountsResponse) Reset() {
-	*x = GetOwnSelfManagedPhoneAccountsResponse{}
-	mi := &file_proto_telecom_telecom_proto_msgTypes[29]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetOwnSelfManagedPhoneAccountsResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetOwnSelfManagedPhoneAccountsResponse) ProtoMessage() {}
-
-func (x *GetOwnSelfManagedPhoneAccountsResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_telecom_telecom_proto_msgTypes[29]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetOwnSelfManagedPhoneAccountsResponse.ProtoReflect.Descriptor instead.
-func (*GetOwnSelfManagedPhoneAccountsResponse) Descriptor() ([]byte, []int) {
-	return file_proto_telecom_telecom_proto_rawDescGZIP(), []int{29}
-}
-
-func (x *GetOwnSelfManagedPhoneAccountsResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
 }
 
 type GetPhoneAccountRequest struct {
@@ -1304,7 +1032,7 @@ type GetPhoneAccountRequest struct {
 
 func (x *GetPhoneAccountRequest) Reset() {
 	*x = GetPhoneAccountRequest{}
-	mi := &file_proto_telecom_telecom_proto_msgTypes[30]
+	mi := &file_proto_telecom_telecom_proto_msgTypes[24]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1316,7 +1044,7 @@ func (x *GetPhoneAccountRequest) String() string {
 func (*GetPhoneAccountRequest) ProtoMessage() {}
 
 func (x *GetPhoneAccountRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_telecom_telecom_proto_msgTypes[30]
+	mi := &file_proto_telecom_telecom_proto_msgTypes[24]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1329,7 +1057,7 @@ func (x *GetPhoneAccountRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetPhoneAccountRequest.ProtoReflect.Descriptor instead.
 func (*GetPhoneAccountRequest) Descriptor() ([]byte, []int) {
-	return file_proto_telecom_telecom_proto_rawDescGZIP(), []int{30}
+	return file_proto_telecom_telecom_proto_rawDescGZIP(), []int{24}
 }
 
 func (x *GetPhoneAccountRequest) GetArg0() int64 {
@@ -1348,7 +1076,7 @@ type GetPhoneAccountResponse struct {
 
 func (x *GetPhoneAccountResponse) Reset() {
 	*x = GetPhoneAccountResponse{}
-	mi := &file_proto_telecom_telecom_proto_msgTypes[31]
+	mi := &file_proto_telecom_telecom_proto_msgTypes[25]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1360,7 +1088,7 @@ func (x *GetPhoneAccountResponse) String() string {
 func (*GetPhoneAccountResponse) ProtoMessage() {}
 
 func (x *GetPhoneAccountResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_telecom_telecom_proto_msgTypes[31]
+	mi := &file_proto_telecom_telecom_proto_msgTypes[25]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1373,170 +1101,10 @@ func (x *GetPhoneAccountResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetPhoneAccountResponse.ProtoReflect.Descriptor instead.
 func (*GetPhoneAccountResponse) Descriptor() ([]byte, []int) {
-	return file_proto_telecom_telecom_proto_rawDescGZIP(), []int{31}
+	return file_proto_telecom_telecom_proto_rawDescGZIP(), []int{25}
 }
 
 func (x *GetPhoneAccountResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type GetRegisteredPhoneAccountsRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetRegisteredPhoneAccountsRequest) Reset() {
-	*x = GetRegisteredPhoneAccountsRequest{}
-	mi := &file_proto_telecom_telecom_proto_msgTypes[32]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetRegisteredPhoneAccountsRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetRegisteredPhoneAccountsRequest) ProtoMessage() {}
-
-func (x *GetRegisteredPhoneAccountsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_telecom_telecom_proto_msgTypes[32]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetRegisteredPhoneAccountsRequest.ProtoReflect.Descriptor instead.
-func (*GetRegisteredPhoneAccountsRequest) Descriptor() ([]byte, []int) {
-	return file_proto_telecom_telecom_proto_rawDescGZIP(), []int{32}
-}
-
-type GetRegisteredPhoneAccountsResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetRegisteredPhoneAccountsResponse) Reset() {
-	*x = GetRegisteredPhoneAccountsResponse{}
-	mi := &file_proto_telecom_telecom_proto_msgTypes[33]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetRegisteredPhoneAccountsResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetRegisteredPhoneAccountsResponse) ProtoMessage() {}
-
-func (x *GetRegisteredPhoneAccountsResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_telecom_telecom_proto_msgTypes[33]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetRegisteredPhoneAccountsResponse.ProtoReflect.Descriptor instead.
-func (*GetRegisteredPhoneAccountsResponse) Descriptor() ([]byte, []int) {
-	return file_proto_telecom_telecom_proto_rawDescGZIP(), []int{33}
-}
-
-func (x *GetRegisteredPhoneAccountsResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type GetSelfManagedPhoneAccountsRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetSelfManagedPhoneAccountsRequest) Reset() {
-	*x = GetSelfManagedPhoneAccountsRequest{}
-	mi := &file_proto_telecom_telecom_proto_msgTypes[34]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetSelfManagedPhoneAccountsRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetSelfManagedPhoneAccountsRequest) ProtoMessage() {}
-
-func (x *GetSelfManagedPhoneAccountsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_telecom_telecom_proto_msgTypes[34]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetSelfManagedPhoneAccountsRequest.ProtoReflect.Descriptor instead.
-func (*GetSelfManagedPhoneAccountsRequest) Descriptor() ([]byte, []int) {
-	return file_proto_telecom_telecom_proto_rawDescGZIP(), []int{34}
-}
-
-type GetSelfManagedPhoneAccountsResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetSelfManagedPhoneAccountsResponse) Reset() {
-	*x = GetSelfManagedPhoneAccountsResponse{}
-	mi := &file_proto_telecom_telecom_proto_msgTypes[35]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetSelfManagedPhoneAccountsResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetSelfManagedPhoneAccountsResponse) ProtoMessage() {}
-
-func (x *GetSelfManagedPhoneAccountsResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_telecom_telecom_proto_msgTypes[35]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetSelfManagedPhoneAccountsResponse.ProtoReflect.Descriptor instead.
-func (*GetSelfManagedPhoneAccountsResponse) Descriptor() ([]byte, []int) {
-	return file_proto_telecom_telecom_proto_rawDescGZIP(), []int{35}
-}
-
-func (x *GetSelfManagedPhoneAccountsResponse) GetResult() int64 {
 	if x != nil {
 		return x.Result
 	}
@@ -1551,7 +1119,7 @@ type GetSimCallManagerRequest struct {
 
 func (x *GetSimCallManagerRequest) Reset() {
 	*x = GetSimCallManagerRequest{}
-	mi := &file_proto_telecom_telecom_proto_msgTypes[36]
+	mi := &file_proto_telecom_telecom_proto_msgTypes[26]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1563,7 +1131,7 @@ func (x *GetSimCallManagerRequest) String() string {
 func (*GetSimCallManagerRequest) ProtoMessage() {}
 
 func (x *GetSimCallManagerRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_telecom_telecom_proto_msgTypes[36]
+	mi := &file_proto_telecom_telecom_proto_msgTypes[26]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1576,7 +1144,7 @@ func (x *GetSimCallManagerRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetSimCallManagerRequest.ProtoReflect.Descriptor instead.
 func (*GetSimCallManagerRequest) Descriptor() ([]byte, []int) {
-	return file_proto_telecom_telecom_proto_rawDescGZIP(), []int{36}
+	return file_proto_telecom_telecom_proto_rawDescGZIP(), []int{26}
 }
 
 type GetSimCallManagerResponse struct {
@@ -1588,7 +1156,7 @@ type GetSimCallManagerResponse struct {
 
 func (x *GetSimCallManagerResponse) Reset() {
 	*x = GetSimCallManagerResponse{}
-	mi := &file_proto_telecom_telecom_proto_msgTypes[37]
+	mi := &file_proto_telecom_telecom_proto_msgTypes[27]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1600,7 +1168,7 @@ func (x *GetSimCallManagerResponse) String() string {
 func (*GetSimCallManagerResponse) ProtoMessage() {}
 
 func (x *GetSimCallManagerResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_telecom_telecom_proto_msgTypes[37]
+	mi := &file_proto_telecom_telecom_proto_msgTypes[27]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1613,7 +1181,7 @@ func (x *GetSimCallManagerResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetSimCallManagerResponse.ProtoReflect.Descriptor instead.
 func (*GetSimCallManagerResponse) Descriptor() ([]byte, []int) {
-	return file_proto_telecom_telecom_proto_rawDescGZIP(), []int{37}
+	return file_proto_telecom_telecom_proto_rawDescGZIP(), []int{27}
 }
 
 func (x *GetSimCallManagerResponse) GetResult() int64 {
@@ -1632,7 +1200,7 @@ type GetSimCallManagerForSubscriptionRequest struct {
 
 func (x *GetSimCallManagerForSubscriptionRequest) Reset() {
 	*x = GetSimCallManagerForSubscriptionRequest{}
-	mi := &file_proto_telecom_telecom_proto_msgTypes[38]
+	mi := &file_proto_telecom_telecom_proto_msgTypes[28]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1644,7 +1212,7 @@ func (x *GetSimCallManagerForSubscriptionRequest) String() string {
 func (*GetSimCallManagerForSubscriptionRequest) ProtoMessage() {}
 
 func (x *GetSimCallManagerForSubscriptionRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_telecom_telecom_proto_msgTypes[38]
+	mi := &file_proto_telecom_telecom_proto_msgTypes[28]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1657,7 +1225,7 @@ func (x *GetSimCallManagerForSubscriptionRequest) ProtoReflect() protoreflect.Me
 
 // Deprecated: Use GetSimCallManagerForSubscriptionRequest.ProtoReflect.Descriptor instead.
 func (*GetSimCallManagerForSubscriptionRequest) Descriptor() ([]byte, []int) {
-	return file_proto_telecom_telecom_proto_rawDescGZIP(), []int{38}
+	return file_proto_telecom_telecom_proto_rawDescGZIP(), []int{28}
 }
 
 func (x *GetSimCallManagerForSubscriptionRequest) GetArg0() int32 {
@@ -1676,7 +1244,7 @@ type GetSimCallManagerForSubscriptionResponse struct {
 
 func (x *GetSimCallManagerForSubscriptionResponse) Reset() {
 	*x = GetSimCallManagerForSubscriptionResponse{}
-	mi := &file_proto_telecom_telecom_proto_msgTypes[39]
+	mi := &file_proto_telecom_telecom_proto_msgTypes[29]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1688,7 +1256,7 @@ func (x *GetSimCallManagerForSubscriptionResponse) String() string {
 func (*GetSimCallManagerForSubscriptionResponse) ProtoMessage() {}
 
 func (x *GetSimCallManagerForSubscriptionResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_telecom_telecom_proto_msgTypes[39]
+	mi := &file_proto_telecom_telecom_proto_msgTypes[29]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1701,7 +1269,7 @@ func (x *GetSimCallManagerForSubscriptionResponse) ProtoReflect() protoreflect.M
 
 // Deprecated: Use GetSimCallManagerForSubscriptionResponse.ProtoReflect.Descriptor instead.
 func (*GetSimCallManagerForSubscriptionResponse) Descriptor() ([]byte, []int) {
-	return file_proto_telecom_telecom_proto_rawDescGZIP(), []int{39}
+	return file_proto_telecom_telecom_proto_rawDescGZIP(), []int{29}
 }
 
 func (x *GetSimCallManagerForSubscriptionResponse) GetResult() int64 {
@@ -1719,7 +1287,7 @@ type GetSystemDialerPackageRequest struct {
 
 func (x *GetSystemDialerPackageRequest) Reset() {
 	*x = GetSystemDialerPackageRequest{}
-	mi := &file_proto_telecom_telecom_proto_msgTypes[40]
+	mi := &file_proto_telecom_telecom_proto_msgTypes[30]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1731,7 +1299,7 @@ func (x *GetSystemDialerPackageRequest) String() string {
 func (*GetSystemDialerPackageRequest) ProtoMessage() {}
 
 func (x *GetSystemDialerPackageRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_telecom_telecom_proto_msgTypes[40]
+	mi := &file_proto_telecom_telecom_proto_msgTypes[30]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1744,7 +1312,7 @@ func (x *GetSystemDialerPackageRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetSystemDialerPackageRequest.ProtoReflect.Descriptor instead.
 func (*GetSystemDialerPackageRequest) Descriptor() ([]byte, []int) {
-	return file_proto_telecom_telecom_proto_rawDescGZIP(), []int{40}
+	return file_proto_telecom_telecom_proto_rawDescGZIP(), []int{30}
 }
 
 type GetSystemDialerPackageResponse struct {
@@ -1756,7 +1324,7 @@ type GetSystemDialerPackageResponse struct {
 
 func (x *GetSystemDialerPackageResponse) Reset() {
 	*x = GetSystemDialerPackageResponse{}
-	mi := &file_proto_telecom_telecom_proto_msgTypes[41]
+	mi := &file_proto_telecom_telecom_proto_msgTypes[31]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1768,7 +1336,7 @@ func (x *GetSystemDialerPackageResponse) String() string {
 func (*GetSystemDialerPackageResponse) ProtoMessage() {}
 
 func (x *GetSystemDialerPackageResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_telecom_telecom_proto_msgTypes[41]
+	mi := &file_proto_telecom_telecom_proto_msgTypes[31]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1781,7 +1349,7 @@ func (x *GetSystemDialerPackageResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetSystemDialerPackageResponse.ProtoReflect.Descriptor instead.
 func (*GetSystemDialerPackageResponse) Descriptor() ([]byte, []int) {
-	return file_proto_telecom_telecom_proto_rawDescGZIP(), []int{41}
+	return file_proto_telecom_telecom_proto_rawDescGZIP(), []int{31}
 }
 
 func (x *GetSystemDialerPackageResponse) GetResult() string {
@@ -1799,7 +1367,7 @@ type GetUserSelectedOutgoingPhoneAccountRequest struct {
 
 func (x *GetUserSelectedOutgoingPhoneAccountRequest) Reset() {
 	*x = GetUserSelectedOutgoingPhoneAccountRequest{}
-	mi := &file_proto_telecom_telecom_proto_msgTypes[42]
+	mi := &file_proto_telecom_telecom_proto_msgTypes[32]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1811,7 +1379,7 @@ func (x *GetUserSelectedOutgoingPhoneAccountRequest) String() string {
 func (*GetUserSelectedOutgoingPhoneAccountRequest) ProtoMessage() {}
 
 func (x *GetUserSelectedOutgoingPhoneAccountRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_telecom_telecom_proto_msgTypes[42]
+	mi := &file_proto_telecom_telecom_proto_msgTypes[32]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1824,7 +1392,7 @@ func (x *GetUserSelectedOutgoingPhoneAccountRequest) ProtoReflect() protoreflect
 
 // Deprecated: Use GetUserSelectedOutgoingPhoneAccountRequest.ProtoReflect.Descriptor instead.
 func (*GetUserSelectedOutgoingPhoneAccountRequest) Descriptor() ([]byte, []int) {
-	return file_proto_telecom_telecom_proto_rawDescGZIP(), []int{42}
+	return file_proto_telecom_telecom_proto_rawDescGZIP(), []int{32}
 }
 
 type GetUserSelectedOutgoingPhoneAccountResponse struct {
@@ -1836,7 +1404,7 @@ type GetUserSelectedOutgoingPhoneAccountResponse struct {
 
 func (x *GetUserSelectedOutgoingPhoneAccountResponse) Reset() {
 	*x = GetUserSelectedOutgoingPhoneAccountResponse{}
-	mi := &file_proto_telecom_telecom_proto_msgTypes[43]
+	mi := &file_proto_telecom_telecom_proto_msgTypes[33]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1848,7 +1416,7 @@ func (x *GetUserSelectedOutgoingPhoneAccountResponse) String() string {
 func (*GetUserSelectedOutgoingPhoneAccountResponse) ProtoMessage() {}
 
 func (x *GetUserSelectedOutgoingPhoneAccountResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_telecom_telecom_proto_msgTypes[43]
+	mi := &file_proto_telecom_telecom_proto_msgTypes[33]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1861,7 +1429,7 @@ func (x *GetUserSelectedOutgoingPhoneAccountResponse) ProtoReflect() protoreflec
 
 // Deprecated: Use GetUserSelectedOutgoingPhoneAccountResponse.ProtoReflect.Descriptor instead.
 func (*GetUserSelectedOutgoingPhoneAccountResponse) Descriptor() ([]byte, []int) {
-	return file_proto_telecom_telecom_proto_rawDescGZIP(), []int{43}
+	return file_proto_telecom_telecom_proto_rawDescGZIP(), []int{33}
 }
 
 func (x *GetUserSelectedOutgoingPhoneAccountResponse) GetResult() int64 {
@@ -1880,7 +1448,7 @@ type GetVoiceMailNumberRequest struct {
 
 func (x *GetVoiceMailNumberRequest) Reset() {
 	*x = GetVoiceMailNumberRequest{}
-	mi := &file_proto_telecom_telecom_proto_msgTypes[44]
+	mi := &file_proto_telecom_telecom_proto_msgTypes[34]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1892,7 +1460,7 @@ func (x *GetVoiceMailNumberRequest) String() string {
 func (*GetVoiceMailNumberRequest) ProtoMessage() {}
 
 func (x *GetVoiceMailNumberRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_telecom_telecom_proto_msgTypes[44]
+	mi := &file_proto_telecom_telecom_proto_msgTypes[34]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1905,7 +1473,7 @@ func (x *GetVoiceMailNumberRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetVoiceMailNumberRequest.ProtoReflect.Descriptor instead.
 func (*GetVoiceMailNumberRequest) Descriptor() ([]byte, []int) {
-	return file_proto_telecom_telecom_proto_rawDescGZIP(), []int{44}
+	return file_proto_telecom_telecom_proto_rawDescGZIP(), []int{34}
 }
 
 func (x *GetVoiceMailNumberRequest) GetArg0() int64 {
@@ -1924,7 +1492,7 @@ type GetVoiceMailNumberResponse struct {
 
 func (x *GetVoiceMailNumberResponse) Reset() {
 	*x = GetVoiceMailNumberResponse{}
-	mi := &file_proto_telecom_telecom_proto_msgTypes[45]
+	mi := &file_proto_telecom_telecom_proto_msgTypes[35]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1936,7 +1504,7 @@ func (x *GetVoiceMailNumberResponse) String() string {
 func (*GetVoiceMailNumberResponse) ProtoMessage() {}
 
 func (x *GetVoiceMailNumberResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_telecom_telecom_proto_msgTypes[45]
+	mi := &file_proto_telecom_telecom_proto_msgTypes[35]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1949,7 +1517,7 @@ func (x *GetVoiceMailNumberResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetVoiceMailNumberResponse.ProtoReflect.Descriptor instead.
 func (*GetVoiceMailNumberResponse) Descriptor() ([]byte, []int) {
-	return file_proto_telecom_telecom_proto_rawDescGZIP(), []int{45}
+	return file_proto_telecom_telecom_proto_rawDescGZIP(), []int{35}
 }
 
 func (x *GetVoiceMailNumberResponse) GetResult() string {
@@ -1968,7 +1536,7 @@ type HandleMmi1Request struct {
 
 func (x *HandleMmi1Request) Reset() {
 	*x = HandleMmi1Request{}
-	mi := &file_proto_telecom_telecom_proto_msgTypes[46]
+	mi := &file_proto_telecom_telecom_proto_msgTypes[36]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1980,7 +1548,7 @@ func (x *HandleMmi1Request) String() string {
 func (*HandleMmi1Request) ProtoMessage() {}
 
 func (x *HandleMmi1Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_telecom_telecom_proto_msgTypes[46]
+	mi := &file_proto_telecom_telecom_proto_msgTypes[36]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1993,7 +1561,7 @@ func (x *HandleMmi1Request) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use HandleMmi1Request.ProtoReflect.Descriptor instead.
 func (*HandleMmi1Request) Descriptor() ([]byte, []int) {
-	return file_proto_telecom_telecom_proto_rawDescGZIP(), []int{46}
+	return file_proto_telecom_telecom_proto_rawDescGZIP(), []int{36}
 }
 
 func (x *HandleMmi1Request) GetArg0() string {
@@ -2012,7 +1580,7 @@ type HandleMmi1Response struct {
 
 func (x *HandleMmi1Response) Reset() {
 	*x = HandleMmi1Response{}
-	mi := &file_proto_telecom_telecom_proto_msgTypes[47]
+	mi := &file_proto_telecom_telecom_proto_msgTypes[37]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2024,7 +1592,7 @@ func (x *HandleMmi1Response) String() string {
 func (*HandleMmi1Response) ProtoMessage() {}
 
 func (x *HandleMmi1Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_telecom_telecom_proto_msgTypes[47]
+	mi := &file_proto_telecom_telecom_proto_msgTypes[37]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2037,7 +1605,7 @@ func (x *HandleMmi1Response) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use HandleMmi1Response.ProtoReflect.Descriptor instead.
 func (*HandleMmi1Response) Descriptor() ([]byte, []int) {
-	return file_proto_telecom_telecom_proto_rawDescGZIP(), []int{47}
+	return file_proto_telecom_telecom_proto_rawDescGZIP(), []int{37}
 }
 
 func (x *HandleMmi1Response) GetResult() bool {
@@ -2057,7 +1625,7 @@ type HandleMmi2_1Request struct {
 
 func (x *HandleMmi2_1Request) Reset() {
 	*x = HandleMmi2_1Request{}
-	mi := &file_proto_telecom_telecom_proto_msgTypes[48]
+	mi := &file_proto_telecom_telecom_proto_msgTypes[38]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2069,7 +1637,7 @@ func (x *HandleMmi2_1Request) String() string {
 func (*HandleMmi2_1Request) ProtoMessage() {}
 
 func (x *HandleMmi2_1Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_telecom_telecom_proto_msgTypes[48]
+	mi := &file_proto_telecom_telecom_proto_msgTypes[38]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2082,7 +1650,7 @@ func (x *HandleMmi2_1Request) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use HandleMmi2_1Request.ProtoReflect.Descriptor instead.
 func (*HandleMmi2_1Request) Descriptor() ([]byte, []int) {
-	return file_proto_telecom_telecom_proto_rawDescGZIP(), []int{48}
+	return file_proto_telecom_telecom_proto_rawDescGZIP(), []int{38}
 }
 
 func (x *HandleMmi2_1Request) GetArg0() string {
@@ -2108,7 +1676,7 @@ type HandleMmi2_1Response struct {
 
 func (x *HandleMmi2_1Response) Reset() {
 	*x = HandleMmi2_1Response{}
-	mi := &file_proto_telecom_telecom_proto_msgTypes[49]
+	mi := &file_proto_telecom_telecom_proto_msgTypes[39]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2120,7 +1688,7 @@ func (x *HandleMmi2_1Response) String() string {
 func (*HandleMmi2_1Response) ProtoMessage() {}
 
 func (x *HandleMmi2_1Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_telecom_telecom_proto_msgTypes[49]
+	mi := &file_proto_telecom_telecom_proto_msgTypes[39]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2133,7 +1701,7 @@ func (x *HandleMmi2_1Response) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use HandleMmi2_1Response.ProtoReflect.Descriptor instead.
 func (*HandleMmi2_1Response) Descriptor() ([]byte, []int) {
-	return file_proto_telecom_telecom_proto_rawDescGZIP(), []int{49}
+	return file_proto_telecom_telecom_proto_rawDescGZIP(), []int{39}
 }
 
 func (x *HandleMmi2_1Response) GetResult() bool {
@@ -2151,7 +1719,7 @@ type HasManageOngoingCallsPermissionRequest struct {
 
 func (x *HasManageOngoingCallsPermissionRequest) Reset() {
 	*x = HasManageOngoingCallsPermissionRequest{}
-	mi := &file_proto_telecom_telecom_proto_msgTypes[50]
+	mi := &file_proto_telecom_telecom_proto_msgTypes[40]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2163,7 +1731,7 @@ func (x *HasManageOngoingCallsPermissionRequest) String() string {
 func (*HasManageOngoingCallsPermissionRequest) ProtoMessage() {}
 
 func (x *HasManageOngoingCallsPermissionRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_telecom_telecom_proto_msgTypes[50]
+	mi := &file_proto_telecom_telecom_proto_msgTypes[40]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2176,7 +1744,7 @@ func (x *HasManageOngoingCallsPermissionRequest) ProtoReflect() protoreflect.Mes
 
 // Deprecated: Use HasManageOngoingCallsPermissionRequest.ProtoReflect.Descriptor instead.
 func (*HasManageOngoingCallsPermissionRequest) Descriptor() ([]byte, []int) {
-	return file_proto_telecom_telecom_proto_rawDescGZIP(), []int{50}
+	return file_proto_telecom_telecom_proto_rawDescGZIP(), []int{40}
 }
 
 type HasManageOngoingCallsPermissionResponse struct {
@@ -2188,7 +1756,7 @@ type HasManageOngoingCallsPermissionResponse struct {
 
 func (x *HasManageOngoingCallsPermissionResponse) Reset() {
 	*x = HasManageOngoingCallsPermissionResponse{}
-	mi := &file_proto_telecom_telecom_proto_msgTypes[51]
+	mi := &file_proto_telecom_telecom_proto_msgTypes[41]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2200,7 +1768,7 @@ func (x *HasManageOngoingCallsPermissionResponse) String() string {
 func (*HasManageOngoingCallsPermissionResponse) ProtoMessage() {}
 
 func (x *HasManageOngoingCallsPermissionResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_telecom_telecom_proto_msgTypes[51]
+	mi := &file_proto_telecom_telecom_proto_msgTypes[41]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2213,7 +1781,7 @@ func (x *HasManageOngoingCallsPermissionResponse) ProtoReflect() protoreflect.Me
 
 // Deprecated: Use HasManageOngoingCallsPermissionResponse.ProtoReflect.Descriptor instead.
 func (*HasManageOngoingCallsPermissionResponse) Descriptor() ([]byte, []int) {
-	return file_proto_telecom_telecom_proto_rawDescGZIP(), []int{51}
+	return file_proto_telecom_telecom_proto_rawDescGZIP(), []int{41}
 }
 
 func (x *HasManageOngoingCallsPermissionResponse) GetResult() bool {
@@ -2231,7 +1799,7 @@ type IsInCallRequest struct {
 
 func (x *IsInCallRequest) Reset() {
 	*x = IsInCallRequest{}
-	mi := &file_proto_telecom_telecom_proto_msgTypes[52]
+	mi := &file_proto_telecom_telecom_proto_msgTypes[42]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2243,7 +1811,7 @@ func (x *IsInCallRequest) String() string {
 func (*IsInCallRequest) ProtoMessage() {}
 
 func (x *IsInCallRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_telecom_telecom_proto_msgTypes[52]
+	mi := &file_proto_telecom_telecom_proto_msgTypes[42]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2256,7 +1824,7 @@ func (x *IsInCallRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use IsInCallRequest.ProtoReflect.Descriptor instead.
 func (*IsInCallRequest) Descriptor() ([]byte, []int) {
-	return file_proto_telecom_telecom_proto_rawDescGZIP(), []int{52}
+	return file_proto_telecom_telecom_proto_rawDescGZIP(), []int{42}
 }
 
 type IsInCallResponse struct {
@@ -2268,7 +1836,7 @@ type IsInCallResponse struct {
 
 func (x *IsInCallResponse) Reset() {
 	*x = IsInCallResponse{}
-	mi := &file_proto_telecom_telecom_proto_msgTypes[53]
+	mi := &file_proto_telecom_telecom_proto_msgTypes[43]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2280,7 +1848,7 @@ func (x *IsInCallResponse) String() string {
 func (*IsInCallResponse) ProtoMessage() {}
 
 func (x *IsInCallResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_telecom_telecom_proto_msgTypes[53]
+	mi := &file_proto_telecom_telecom_proto_msgTypes[43]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2293,7 +1861,7 @@ func (x *IsInCallResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use IsInCallResponse.ProtoReflect.Descriptor instead.
 func (*IsInCallResponse) Descriptor() ([]byte, []int) {
-	return file_proto_telecom_telecom_proto_rawDescGZIP(), []int{53}
+	return file_proto_telecom_telecom_proto_rawDescGZIP(), []int{43}
 }
 
 func (x *IsInCallResponse) GetResult() bool {
@@ -2311,7 +1879,7 @@ type IsInManagedCallRequest struct {
 
 func (x *IsInManagedCallRequest) Reset() {
 	*x = IsInManagedCallRequest{}
-	mi := &file_proto_telecom_telecom_proto_msgTypes[54]
+	mi := &file_proto_telecom_telecom_proto_msgTypes[44]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2323,7 +1891,7 @@ func (x *IsInManagedCallRequest) String() string {
 func (*IsInManagedCallRequest) ProtoMessage() {}
 
 func (x *IsInManagedCallRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_telecom_telecom_proto_msgTypes[54]
+	mi := &file_proto_telecom_telecom_proto_msgTypes[44]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2336,7 +1904,7 @@ func (x *IsInManagedCallRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use IsInManagedCallRequest.ProtoReflect.Descriptor instead.
 func (*IsInManagedCallRequest) Descriptor() ([]byte, []int) {
-	return file_proto_telecom_telecom_proto_rawDescGZIP(), []int{54}
+	return file_proto_telecom_telecom_proto_rawDescGZIP(), []int{44}
 }
 
 type IsInManagedCallResponse struct {
@@ -2348,7 +1916,7 @@ type IsInManagedCallResponse struct {
 
 func (x *IsInManagedCallResponse) Reset() {
 	*x = IsInManagedCallResponse{}
-	mi := &file_proto_telecom_telecom_proto_msgTypes[55]
+	mi := &file_proto_telecom_telecom_proto_msgTypes[45]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2360,7 +1928,7 @@ func (x *IsInManagedCallResponse) String() string {
 func (*IsInManagedCallResponse) ProtoMessage() {}
 
 func (x *IsInManagedCallResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_telecom_telecom_proto_msgTypes[55]
+	mi := &file_proto_telecom_telecom_proto_msgTypes[45]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2373,7 +1941,7 @@ func (x *IsInManagedCallResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use IsInManagedCallResponse.ProtoReflect.Descriptor instead.
 func (*IsInManagedCallResponse) Descriptor() ([]byte, []int) {
-	return file_proto_telecom_telecom_proto_rawDescGZIP(), []int{55}
+	return file_proto_telecom_telecom_proto_rawDescGZIP(), []int{45}
 }
 
 func (x *IsInManagedCallResponse) GetResult() bool {
@@ -2392,7 +1960,7 @@ type IsIncomingCallPermittedRequest struct {
 
 func (x *IsIncomingCallPermittedRequest) Reset() {
 	*x = IsIncomingCallPermittedRequest{}
-	mi := &file_proto_telecom_telecom_proto_msgTypes[56]
+	mi := &file_proto_telecom_telecom_proto_msgTypes[46]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2404,7 +1972,7 @@ func (x *IsIncomingCallPermittedRequest) String() string {
 func (*IsIncomingCallPermittedRequest) ProtoMessage() {}
 
 func (x *IsIncomingCallPermittedRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_telecom_telecom_proto_msgTypes[56]
+	mi := &file_proto_telecom_telecom_proto_msgTypes[46]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2417,7 +1985,7 @@ func (x *IsIncomingCallPermittedRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use IsIncomingCallPermittedRequest.ProtoReflect.Descriptor instead.
 func (*IsIncomingCallPermittedRequest) Descriptor() ([]byte, []int) {
-	return file_proto_telecom_telecom_proto_rawDescGZIP(), []int{56}
+	return file_proto_telecom_telecom_proto_rawDescGZIP(), []int{46}
 }
 
 func (x *IsIncomingCallPermittedRequest) GetArg0() int64 {
@@ -2436,7 +2004,7 @@ type IsIncomingCallPermittedResponse struct {
 
 func (x *IsIncomingCallPermittedResponse) Reset() {
 	*x = IsIncomingCallPermittedResponse{}
-	mi := &file_proto_telecom_telecom_proto_msgTypes[57]
+	mi := &file_proto_telecom_telecom_proto_msgTypes[47]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2448,7 +2016,7 @@ func (x *IsIncomingCallPermittedResponse) String() string {
 func (*IsIncomingCallPermittedResponse) ProtoMessage() {}
 
 func (x *IsIncomingCallPermittedResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_telecom_telecom_proto_msgTypes[57]
+	mi := &file_proto_telecom_telecom_proto_msgTypes[47]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2461,7 +2029,7 @@ func (x *IsIncomingCallPermittedResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use IsIncomingCallPermittedResponse.ProtoReflect.Descriptor instead.
 func (*IsIncomingCallPermittedResponse) Descriptor() ([]byte, []int) {
-	return file_proto_telecom_telecom_proto_rawDescGZIP(), []int{57}
+	return file_proto_telecom_telecom_proto_rawDescGZIP(), []int{47}
 }
 
 func (x *IsIncomingCallPermittedResponse) GetResult() bool {
@@ -2480,7 +2048,7 @@ type IsOutgoingCallPermittedRequest struct {
 
 func (x *IsOutgoingCallPermittedRequest) Reset() {
 	*x = IsOutgoingCallPermittedRequest{}
-	mi := &file_proto_telecom_telecom_proto_msgTypes[58]
+	mi := &file_proto_telecom_telecom_proto_msgTypes[48]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2492,7 +2060,7 @@ func (x *IsOutgoingCallPermittedRequest) String() string {
 func (*IsOutgoingCallPermittedRequest) ProtoMessage() {}
 
 func (x *IsOutgoingCallPermittedRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_telecom_telecom_proto_msgTypes[58]
+	mi := &file_proto_telecom_telecom_proto_msgTypes[48]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2505,7 +2073,7 @@ func (x *IsOutgoingCallPermittedRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use IsOutgoingCallPermittedRequest.ProtoReflect.Descriptor instead.
 func (*IsOutgoingCallPermittedRequest) Descriptor() ([]byte, []int) {
-	return file_proto_telecom_telecom_proto_rawDescGZIP(), []int{58}
+	return file_proto_telecom_telecom_proto_rawDescGZIP(), []int{48}
 }
 
 func (x *IsOutgoingCallPermittedRequest) GetArg0() int64 {
@@ -2524,7 +2092,7 @@ type IsOutgoingCallPermittedResponse struct {
 
 func (x *IsOutgoingCallPermittedResponse) Reset() {
 	*x = IsOutgoingCallPermittedResponse{}
-	mi := &file_proto_telecom_telecom_proto_msgTypes[59]
+	mi := &file_proto_telecom_telecom_proto_msgTypes[49]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2536,7 +2104,7 @@ func (x *IsOutgoingCallPermittedResponse) String() string {
 func (*IsOutgoingCallPermittedResponse) ProtoMessage() {}
 
 func (x *IsOutgoingCallPermittedResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_telecom_telecom_proto_msgTypes[59]
+	mi := &file_proto_telecom_telecom_proto_msgTypes[49]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2549,7 +2117,7 @@ func (x *IsOutgoingCallPermittedResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use IsOutgoingCallPermittedResponse.ProtoReflect.Descriptor instead.
 func (*IsOutgoingCallPermittedResponse) Descriptor() ([]byte, []int) {
-	return file_proto_telecom_telecom_proto_rawDescGZIP(), []int{59}
+	return file_proto_telecom_telecom_proto_rawDescGZIP(), []int{49}
 }
 
 func (x *IsOutgoingCallPermittedResponse) GetResult() bool {
@@ -2567,7 +2135,7 @@ type IsTtySupportedRequest struct {
 
 func (x *IsTtySupportedRequest) Reset() {
 	*x = IsTtySupportedRequest{}
-	mi := &file_proto_telecom_telecom_proto_msgTypes[60]
+	mi := &file_proto_telecom_telecom_proto_msgTypes[50]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2579,7 +2147,7 @@ func (x *IsTtySupportedRequest) String() string {
 func (*IsTtySupportedRequest) ProtoMessage() {}
 
 func (x *IsTtySupportedRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_telecom_telecom_proto_msgTypes[60]
+	mi := &file_proto_telecom_telecom_proto_msgTypes[50]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2592,7 +2160,7 @@ func (x *IsTtySupportedRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use IsTtySupportedRequest.ProtoReflect.Descriptor instead.
 func (*IsTtySupportedRequest) Descriptor() ([]byte, []int) {
-	return file_proto_telecom_telecom_proto_rawDescGZIP(), []int{60}
+	return file_proto_telecom_telecom_proto_rawDescGZIP(), []int{50}
 }
 
 type IsTtySupportedResponse struct {
@@ -2604,7 +2172,7 @@ type IsTtySupportedResponse struct {
 
 func (x *IsTtySupportedResponse) Reset() {
 	*x = IsTtySupportedResponse{}
-	mi := &file_proto_telecom_telecom_proto_msgTypes[61]
+	mi := &file_proto_telecom_telecom_proto_msgTypes[51]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2616,7 +2184,7 @@ func (x *IsTtySupportedResponse) String() string {
 func (*IsTtySupportedResponse) ProtoMessage() {}
 
 func (x *IsTtySupportedResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_telecom_telecom_proto_msgTypes[61]
+	mi := &file_proto_telecom_telecom_proto_msgTypes[51]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2629,7 +2197,7 @@ func (x *IsTtySupportedResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use IsTtySupportedResponse.ProtoReflect.Descriptor instead.
 func (*IsTtySupportedResponse) Descriptor() ([]byte, []int) {
-	return file_proto_telecom_telecom_proto_rawDescGZIP(), []int{61}
+	return file_proto_telecom_telecom_proto_rawDescGZIP(), []int{51}
 }
 
 func (x *IsTtySupportedResponse) GetResult() bool {
@@ -2649,7 +2217,7 @@ type IsVoiceMailNumberRequest struct {
 
 func (x *IsVoiceMailNumberRequest) Reset() {
 	*x = IsVoiceMailNumberRequest{}
-	mi := &file_proto_telecom_telecom_proto_msgTypes[62]
+	mi := &file_proto_telecom_telecom_proto_msgTypes[52]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2661,7 +2229,7 @@ func (x *IsVoiceMailNumberRequest) String() string {
 func (*IsVoiceMailNumberRequest) ProtoMessage() {}
 
 func (x *IsVoiceMailNumberRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_telecom_telecom_proto_msgTypes[62]
+	mi := &file_proto_telecom_telecom_proto_msgTypes[52]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2674,7 +2242,7 @@ func (x *IsVoiceMailNumberRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use IsVoiceMailNumberRequest.ProtoReflect.Descriptor instead.
 func (*IsVoiceMailNumberRequest) Descriptor() ([]byte, []int) {
-	return file_proto_telecom_telecom_proto_rawDescGZIP(), []int{62}
+	return file_proto_telecom_telecom_proto_rawDescGZIP(), []int{52}
 }
 
 func (x *IsVoiceMailNumberRequest) GetArg0() int64 {
@@ -2700,7 +2268,7 @@ type IsVoiceMailNumberResponse struct {
 
 func (x *IsVoiceMailNumberResponse) Reset() {
 	*x = IsVoiceMailNumberResponse{}
-	mi := &file_proto_telecom_telecom_proto_msgTypes[63]
+	mi := &file_proto_telecom_telecom_proto_msgTypes[53]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2712,7 +2280,7 @@ func (x *IsVoiceMailNumberResponse) String() string {
 func (*IsVoiceMailNumberResponse) ProtoMessage() {}
 
 func (x *IsVoiceMailNumberResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_telecom_telecom_proto_msgTypes[63]
+	mi := &file_proto_telecom_telecom_proto_msgTypes[53]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2725,7 +2293,7 @@ func (x *IsVoiceMailNumberResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use IsVoiceMailNumberResponse.ProtoReflect.Descriptor instead.
 func (*IsVoiceMailNumberResponse) Descriptor() ([]byte, []int) {
-	return file_proto_telecom_telecom_proto_rawDescGZIP(), []int{63}
+	return file_proto_telecom_telecom_proto_rawDescGZIP(), []int{53}
 }
 
 func (x *IsVoiceMailNumberResponse) GetResult() bool {
@@ -2745,7 +2313,7 @@ type PlaceCallRequest struct {
 
 func (x *PlaceCallRequest) Reset() {
 	*x = PlaceCallRequest{}
-	mi := &file_proto_telecom_telecom_proto_msgTypes[64]
+	mi := &file_proto_telecom_telecom_proto_msgTypes[54]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2757,7 +2325,7 @@ func (x *PlaceCallRequest) String() string {
 func (*PlaceCallRequest) ProtoMessage() {}
 
 func (x *PlaceCallRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_telecom_telecom_proto_msgTypes[64]
+	mi := &file_proto_telecom_telecom_proto_msgTypes[54]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2770,7 +2338,7 @@ func (x *PlaceCallRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use PlaceCallRequest.ProtoReflect.Descriptor instead.
 func (*PlaceCallRequest) Descriptor() ([]byte, []int) {
-	return file_proto_telecom_telecom_proto_rawDescGZIP(), []int{64}
+	return file_proto_telecom_telecom_proto_rawDescGZIP(), []int{54}
 }
 
 func (x *PlaceCallRequest) GetArg0() int64 {
@@ -2795,7 +2363,7 @@ type PlaceCallResponse struct {
 
 func (x *PlaceCallResponse) Reset() {
 	*x = PlaceCallResponse{}
-	mi := &file_proto_telecom_telecom_proto_msgTypes[65]
+	mi := &file_proto_telecom_telecom_proto_msgTypes[55]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2807,7 +2375,7 @@ func (x *PlaceCallResponse) String() string {
 func (*PlaceCallResponse) ProtoMessage() {}
 
 func (x *PlaceCallResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_telecom_telecom_proto_msgTypes[65]
+	mi := &file_proto_telecom_telecom_proto_msgTypes[55]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2820,7 +2388,7 @@ func (x *PlaceCallResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use PlaceCallResponse.ProtoReflect.Descriptor instead.
 func (*PlaceCallResponse) Descriptor() ([]byte, []int) {
-	return file_proto_telecom_telecom_proto_rawDescGZIP(), []int{65}
+	return file_proto_telecom_telecom_proto_rawDescGZIP(), []int{55}
 }
 
 type RegisterPhoneAccountRequest struct {
@@ -2832,7 +2400,7 @@ type RegisterPhoneAccountRequest struct {
 
 func (x *RegisterPhoneAccountRequest) Reset() {
 	*x = RegisterPhoneAccountRequest{}
-	mi := &file_proto_telecom_telecom_proto_msgTypes[66]
+	mi := &file_proto_telecom_telecom_proto_msgTypes[56]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2844,7 +2412,7 @@ func (x *RegisterPhoneAccountRequest) String() string {
 func (*RegisterPhoneAccountRequest) ProtoMessage() {}
 
 func (x *RegisterPhoneAccountRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_telecom_telecom_proto_msgTypes[66]
+	mi := &file_proto_telecom_telecom_proto_msgTypes[56]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2857,7 +2425,7 @@ func (x *RegisterPhoneAccountRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use RegisterPhoneAccountRequest.ProtoReflect.Descriptor instead.
 func (*RegisterPhoneAccountRequest) Descriptor() ([]byte, []int) {
-	return file_proto_telecom_telecom_proto_rawDescGZIP(), []int{66}
+	return file_proto_telecom_telecom_proto_rawDescGZIP(), []int{56}
 }
 
 func (x *RegisterPhoneAccountRequest) GetArg0() int64 {
@@ -2875,7 +2443,7 @@ type RegisterPhoneAccountResponse struct {
 
 func (x *RegisterPhoneAccountResponse) Reset() {
 	*x = RegisterPhoneAccountResponse{}
-	mi := &file_proto_telecom_telecom_proto_msgTypes[67]
+	mi := &file_proto_telecom_telecom_proto_msgTypes[57]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2887,7 +2455,7 @@ func (x *RegisterPhoneAccountResponse) String() string {
 func (*RegisterPhoneAccountResponse) ProtoMessage() {}
 
 func (x *RegisterPhoneAccountResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_telecom_telecom_proto_msgTypes[67]
+	mi := &file_proto_telecom_telecom_proto_msgTypes[57]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2900,7 +2468,7 @@ func (x *RegisterPhoneAccountResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use RegisterPhoneAccountResponse.ProtoReflect.Descriptor instead.
 func (*RegisterPhoneAccountResponse) Descriptor() ([]byte, []int) {
-	return file_proto_telecom_telecom_proto_rawDescGZIP(), []int{67}
+	return file_proto_telecom_telecom_proto_rawDescGZIP(), []int{57}
 }
 
 type ShowInCallScreenRequest struct {
@@ -2912,7 +2480,7 @@ type ShowInCallScreenRequest struct {
 
 func (x *ShowInCallScreenRequest) Reset() {
 	*x = ShowInCallScreenRequest{}
-	mi := &file_proto_telecom_telecom_proto_msgTypes[68]
+	mi := &file_proto_telecom_telecom_proto_msgTypes[58]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2924,7 +2492,7 @@ func (x *ShowInCallScreenRequest) String() string {
 func (*ShowInCallScreenRequest) ProtoMessage() {}
 
 func (x *ShowInCallScreenRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_telecom_telecom_proto_msgTypes[68]
+	mi := &file_proto_telecom_telecom_proto_msgTypes[58]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2937,7 +2505,7 @@ func (x *ShowInCallScreenRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ShowInCallScreenRequest.ProtoReflect.Descriptor instead.
 func (*ShowInCallScreenRequest) Descriptor() ([]byte, []int) {
-	return file_proto_telecom_telecom_proto_rawDescGZIP(), []int{68}
+	return file_proto_telecom_telecom_proto_rawDescGZIP(), []int{58}
 }
 
 func (x *ShowInCallScreenRequest) GetArg0() bool {
@@ -2955,7 +2523,7 @@ type ShowInCallScreenResponse struct {
 
 func (x *ShowInCallScreenResponse) Reset() {
 	*x = ShowInCallScreenResponse{}
-	mi := &file_proto_telecom_telecom_proto_msgTypes[69]
+	mi := &file_proto_telecom_telecom_proto_msgTypes[59]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2967,7 +2535,7 @@ func (x *ShowInCallScreenResponse) String() string {
 func (*ShowInCallScreenResponse) ProtoMessage() {}
 
 func (x *ShowInCallScreenResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_telecom_telecom_proto_msgTypes[69]
+	mi := &file_proto_telecom_telecom_proto_msgTypes[59]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2980,7 +2548,7 @@ func (x *ShowInCallScreenResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ShowInCallScreenResponse.ProtoReflect.Descriptor instead.
 func (*ShowInCallScreenResponse) Descriptor() ([]byte, []int) {
-	return file_proto_telecom_telecom_proto_rawDescGZIP(), []int{69}
+	return file_proto_telecom_telecom_proto_rawDescGZIP(), []int{59}
 }
 
 type SilenceRingerRequest struct {
@@ -2991,7 +2559,7 @@ type SilenceRingerRequest struct {
 
 func (x *SilenceRingerRequest) Reset() {
 	*x = SilenceRingerRequest{}
-	mi := &file_proto_telecom_telecom_proto_msgTypes[70]
+	mi := &file_proto_telecom_telecom_proto_msgTypes[60]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3003,7 +2571,7 @@ func (x *SilenceRingerRequest) String() string {
 func (*SilenceRingerRequest) ProtoMessage() {}
 
 func (x *SilenceRingerRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_telecom_telecom_proto_msgTypes[70]
+	mi := &file_proto_telecom_telecom_proto_msgTypes[60]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3016,7 +2584,7 @@ func (x *SilenceRingerRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SilenceRingerRequest.ProtoReflect.Descriptor instead.
 func (*SilenceRingerRequest) Descriptor() ([]byte, []int) {
-	return file_proto_telecom_telecom_proto_rawDescGZIP(), []int{70}
+	return file_proto_telecom_telecom_proto_rawDescGZIP(), []int{60}
 }
 
 type SilenceRingerResponse struct {
@@ -3027,7 +2595,7 @@ type SilenceRingerResponse struct {
 
 func (x *SilenceRingerResponse) Reset() {
 	*x = SilenceRingerResponse{}
-	mi := &file_proto_telecom_telecom_proto_msgTypes[71]
+	mi := &file_proto_telecom_telecom_proto_msgTypes[61]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3039,7 +2607,7 @@ func (x *SilenceRingerResponse) String() string {
 func (*SilenceRingerResponse) ProtoMessage() {}
 
 func (x *SilenceRingerResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_telecom_telecom_proto_msgTypes[71]
+	mi := &file_proto_telecom_telecom_proto_msgTypes[61]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3052,95 +2620,7 @@ func (x *SilenceRingerResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SilenceRingerResponse.ProtoReflect.Descriptor instead.
 func (*SilenceRingerResponse) Descriptor() ([]byte, []int) {
-	return file_proto_telecom_telecom_proto_rawDescGZIP(), []int{71}
-}
-
-type StartConferenceRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *StartConferenceRequest) Reset() {
-	*x = StartConferenceRequest{}
-	mi := &file_proto_telecom_telecom_proto_msgTypes[72]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *StartConferenceRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*StartConferenceRequest) ProtoMessage() {}
-
-func (x *StartConferenceRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_telecom_telecom_proto_msgTypes[72]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use StartConferenceRequest.ProtoReflect.Descriptor instead.
-func (*StartConferenceRequest) Descriptor() ([]byte, []int) {
-	return file_proto_telecom_telecom_proto_rawDescGZIP(), []int{72}
-}
-
-func (x *StartConferenceRequest) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-func (x *StartConferenceRequest) GetArg1() int64 {
-	if x != nil {
-		return x.Arg1
-	}
-	return 0
-}
-
-type StartConferenceResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *StartConferenceResponse) Reset() {
-	*x = StartConferenceResponse{}
-	mi := &file_proto_telecom_telecom_proto_msgTypes[73]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *StartConferenceResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*StartConferenceResponse) ProtoMessage() {}
-
-func (x *StartConferenceResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_telecom_telecom_proto_msgTypes[73]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use StartConferenceResponse.ProtoReflect.Descriptor instead.
-func (*StartConferenceResponse) Descriptor() ([]byte, []int) {
-	return file_proto_telecom_telecom_proto_rawDescGZIP(), []int{73}
+	return file_proto_telecom_telecom_proto_rawDescGZIP(), []int{61}
 }
 
 type UnregisterPhoneAccountRequest struct {
@@ -3152,7 +2632,7 @@ type UnregisterPhoneAccountRequest struct {
 
 func (x *UnregisterPhoneAccountRequest) Reset() {
 	*x = UnregisterPhoneAccountRequest{}
-	mi := &file_proto_telecom_telecom_proto_msgTypes[74]
+	mi := &file_proto_telecom_telecom_proto_msgTypes[62]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3164,7 +2644,7 @@ func (x *UnregisterPhoneAccountRequest) String() string {
 func (*UnregisterPhoneAccountRequest) ProtoMessage() {}
 
 func (x *UnregisterPhoneAccountRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_telecom_telecom_proto_msgTypes[74]
+	mi := &file_proto_telecom_telecom_proto_msgTypes[62]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3177,7 +2657,7 @@ func (x *UnregisterPhoneAccountRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use UnregisterPhoneAccountRequest.ProtoReflect.Descriptor instead.
 func (*UnregisterPhoneAccountRequest) Descriptor() ([]byte, []int) {
-	return file_proto_telecom_telecom_proto_rawDescGZIP(), []int{74}
+	return file_proto_telecom_telecom_proto_rawDescGZIP(), []int{62}
 }
 
 func (x *UnregisterPhoneAccountRequest) GetArg0() int64 {
@@ -3195,7 +2675,7 @@ type UnregisterPhoneAccountResponse struct {
 
 func (x *UnregisterPhoneAccountResponse) Reset() {
 	*x = UnregisterPhoneAccountResponse{}
-	mi := &file_proto_telecom_telecom_proto_msgTypes[75]
+	mi := &file_proto_telecom_telecom_proto_msgTypes[63]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3207,7 +2687,7 @@ func (x *UnregisterPhoneAccountResponse) String() string {
 func (*UnregisterPhoneAccountResponse) ProtoMessage() {}
 
 func (x *UnregisterPhoneAccountResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_telecom_telecom_proto_msgTypes[75]
+	mi := &file_proto_telecom_telecom_proto_msgTypes[63]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3220,7 +2700,7 @@ func (x *UnregisterPhoneAccountResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use UnregisterPhoneAccountResponse.ProtoReflect.Descriptor instead.
 func (*UnregisterPhoneAccountResponse) Descriptor() ([]byte, []int) {
-	return file_proto_telecom_telecom_proto_rawDescGZIP(), []int{75}
+	return file_proto_telecom_telecom_proto_rawDescGZIP(), []int{63}
 }
 
 var File_proto_telecom_telecom_proto protoreflect.FileDescriptor
@@ -3237,14 +2717,7 @@ const file_proto_telecom_telecom_proto_rawDesc = "" +
 	"\x1aAcceptRingingCall0Response\"1\n" +
 	"\x1bAcceptRingingCall1_1Request\x12\x12\n" +
 	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\"\x1e\n" +
-	"\x1cAcceptRingingCall1_1Response\"t\n" +
-	"\x0eAddCallRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
-	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\x12\x12\n" +
-	"\x04arg2\x18\x03 \x01(\x03R\x04arg2\x12\x12\n" +
-	"\x04arg3\x18\x04 \x01(\x03R\x04arg3\x12\x12\n" +
-	"\x04arg4\x18\x05 \x01(\x03R\x04arg4\"\x11\n" +
-	"\x0fAddCallResponse\"C\n" +
+	"\x1cAcceptRingingCall1_1Response\"C\n" +
 	"\x19AddNewIncomingCallRequest\x12\x12\n" +
 	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
 	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\"\x1c\n" +
@@ -3264,9 +2737,6 @@ const file_proto_telecom_telecom_proto_rawDesc = "" +
 	"\x1fGetAdnUriForPhoneAccountRequest\x12\x12\n" +
 	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\":\n" +
 	" GetAdnUriForPhoneAccountResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"$\n" +
-	"\"GetCallCapablePhoneAccountsRequest\"=\n" +
-	"#GetCallCapablePhoneAccountsResponse\x12\x16\n" +
 	"\x06result\x18\x01 \x01(\x03R\x06result\" \n" +
 	"\x1eGetDefaultDialerPackageRequest\"9\n" +
 	"\x1fGetDefaultDialerPackageResponse\x12\x16\n" +
@@ -3278,19 +2748,10 @@ const file_proto_telecom_telecom_proto_rawDesc = "" +
 	"\x15GetLine1NumberRequest\x12\x12\n" +
 	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"0\n" +
 	"\x16GetLine1NumberResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\tR\x06result\"'\n" +
-	"%GetOwnSelfManagedPhoneAccountsRequest\"@\n" +
-	"&GetOwnSelfManagedPhoneAccountsResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\",\n" +
+	"\x06result\x18\x01 \x01(\tR\x06result\",\n" +
 	"\x16GetPhoneAccountRequest\x12\x12\n" +
 	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"1\n" +
 	"\x17GetPhoneAccountResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"#\n" +
-	"!GetRegisteredPhoneAccountsRequest\"<\n" +
-	"\"GetRegisteredPhoneAccountsResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"$\n" +
-	"\"GetSelfManagedPhoneAccountsRequest\"=\n" +
-	"#GetSelfManagedPhoneAccountsResponse\x12\x16\n" +
 	"\x06result\x18\x01 \x01(\x03R\x06result\"\x1a\n" +
 	"\x18GetSimCallManagerRequest\"3\n" +
 	"\x19GetSimCallManagerResponse\x12\x16\n" +
@@ -3354,33 +2815,24 @@ const file_proto_telecom_telecom_proto_rawDesc = "" +
 	"\x04arg0\x18\x01 \x01(\bR\x04arg0\"\x1a\n" +
 	"\x18ShowInCallScreenResponse\"\x16\n" +
 	"\x14SilenceRingerRequest\"\x17\n" +
-	"\x15SilenceRingerResponse\"@\n" +
-	"\x16StartConferenceRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
-	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\"\x19\n" +
-	"\x17StartConferenceResponse\"3\n" +
+	"\x15SilenceRingerResponse\"3\n" +
 	"\x1dUnregisterPhoneAccountRequest\x12\x12\n" +
 	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\" \n" +
-	"\x1eUnregisterPhoneAccountResponse2\x8b\x1e\n" +
+	"\x1eUnregisterPhoneAccountResponse2\x88\x19\n" +
 	"\x0eManagerService\x12Q\n" +
 	"\x0eAcceptHandover\x12\x1e.telecom.AcceptHandoverRequest\x1a\x1f.telecom.AcceptHandoverResponse\x12]\n" +
 	"\x12AcceptRingingCall0\x12\".telecom.AcceptRingingCall0Request\x1a#.telecom.AcceptRingingCall0Response\x12c\n" +
-	"\x14AcceptRingingCall1_1\x12$.telecom.AcceptRingingCall1_1Request\x1a%.telecom.AcceptRingingCall1_1Response\x12<\n" +
-	"\aAddCall\x12\x17.telecom.AddCallRequest\x1a\x18.telecom.AddCallResponse\x12]\n" +
+	"\x14AcceptRingingCall1_1\x12$.telecom.AcceptRingingCall1_1Request\x1a%.telecom.AcceptRingingCall1_1Response\x12]\n" +
 	"\x12AddNewIncomingCall\x12\".telecom.AddNewIncomingCallRequest\x1a#.telecom.AddNewIncomingCallResponse\x12o\n" +
 	"\x18AddNewIncomingConference\x12(.telecom.AddNewIncomingConferenceRequest\x1a).telecom.AddNewIncomingConferenceResponse\x12~\n" +
 	"\x1dCancelMissedCallsNotification\x12-.telecom.CancelMissedCallsNotificationRequest\x1a..telecom.CancelMissedCallsNotificationResponse\x12\x87\x01\n" +
 	" CreateManageBlockedNumbersIntent\x120.telecom.CreateManageBlockedNumbersIntentRequest\x1a1.telecom.CreateManageBlockedNumbersIntentResponse\x12<\n" +
 	"\aEndCall\x12\x17.telecom.EndCallRequest\x1a\x18.telecom.EndCallResponse\x12o\n" +
-	"\x18GetAdnUriForPhoneAccount\x12(.telecom.GetAdnUriForPhoneAccountRequest\x1a).telecom.GetAdnUriForPhoneAccountResponse\x12x\n" +
-	"\x1bGetCallCapablePhoneAccounts\x12+.telecom.GetCallCapablePhoneAccountsRequest\x1a,.telecom.GetCallCapablePhoneAccountsResponse\x12l\n" +
+	"\x18GetAdnUriForPhoneAccount\x12(.telecom.GetAdnUriForPhoneAccountRequest\x1a).telecom.GetAdnUriForPhoneAccountResponse\x12l\n" +
 	"\x17GetDefaultDialerPackage\x12'.telecom.GetDefaultDialerPackageRequest\x1a(.telecom.GetDefaultDialerPackageResponse\x12\x81\x01\n" +
 	"\x1eGetDefaultOutgoingPhoneAccount\x12..telecom.GetDefaultOutgoingPhoneAccountRequest\x1a/.telecom.GetDefaultOutgoingPhoneAccountResponse\x12Q\n" +
-	"\x0eGetLine1Number\x12\x1e.telecom.GetLine1NumberRequest\x1a\x1f.telecom.GetLine1NumberResponse\x12\x81\x01\n" +
-	"\x1eGetOwnSelfManagedPhoneAccounts\x12..telecom.GetOwnSelfManagedPhoneAccountsRequest\x1a/.telecom.GetOwnSelfManagedPhoneAccountsResponse\x12T\n" +
-	"\x0fGetPhoneAccount\x12\x1f.telecom.GetPhoneAccountRequest\x1a .telecom.GetPhoneAccountResponse\x12u\n" +
-	"\x1aGetRegisteredPhoneAccounts\x12*.telecom.GetRegisteredPhoneAccountsRequest\x1a+.telecom.GetRegisteredPhoneAccountsResponse\x12x\n" +
-	"\x1bGetSelfManagedPhoneAccounts\x12+.telecom.GetSelfManagedPhoneAccountsRequest\x1a,.telecom.GetSelfManagedPhoneAccountsResponse\x12Z\n" +
+	"\x0eGetLine1Number\x12\x1e.telecom.GetLine1NumberRequest\x1a\x1f.telecom.GetLine1NumberResponse\x12T\n" +
+	"\x0fGetPhoneAccount\x12\x1f.telecom.GetPhoneAccountRequest\x1a .telecom.GetPhoneAccountResponse\x12Z\n" +
 	"\x11GetSimCallManager\x12!.telecom.GetSimCallManagerRequest\x1a\".telecom.GetSimCallManagerResponse\x12\x87\x01\n" +
 	" GetSimCallManagerForSubscription\x120.telecom.GetSimCallManagerForSubscriptionRequest\x1a1.telecom.GetSimCallManagerForSubscriptionResponse\x12i\n" +
 	"\x16GetSystemDialerPackage\x12&.telecom.GetSystemDialerPackageRequest\x1a'.telecom.GetSystemDialerPackageResponse\x12\x90\x01\n" +
@@ -3399,8 +2851,7 @@ const file_proto_telecom_telecom_proto_rawDesc = "" +
 	"\tPlaceCall\x12\x19.telecom.PlaceCallRequest\x1a\x1a.telecom.PlaceCallResponse\x12c\n" +
 	"\x14RegisterPhoneAccount\x12$.telecom.RegisterPhoneAccountRequest\x1a%.telecom.RegisterPhoneAccountResponse\x12W\n" +
 	"\x10ShowInCallScreen\x12 .telecom.ShowInCallScreenRequest\x1a!.telecom.ShowInCallScreenResponse\x12N\n" +
-	"\rSilenceRinger\x12\x1d.telecom.SilenceRingerRequest\x1a\x1e.telecom.SilenceRingerResponse\x12T\n" +
-	"\x0fStartConference\x12\x1f.telecom.StartConferenceRequest\x1a .telecom.StartConferenceResponse\x12i\n" +
+	"\rSilenceRinger\x12\x1d.telecom.SilenceRingerRequest\x1a\x1e.telecom.SilenceRingerResponse\x12i\n" +
 	"\x16UnregisterPhoneAccount\x12&.telecom.UnregisterPhoneAccountRequest\x1a'.telecom.UnregisterPhoneAccountResponseB1Z/github.com/AndroidGoLab/jni-proxy/proto/telecomb\x06proto3"
 
 var (
@@ -3415,7 +2866,7 @@ func file_proto_telecom_telecom_proto_rawDescGZIP() []byte {
 	return file_proto_telecom_telecom_proto_rawDescData
 }
 
-var file_proto_telecom_telecom_proto_msgTypes = make([]protoimpl.MessageInfo, 76)
+var file_proto_telecom_telecom_proto_msgTypes = make([]protoimpl.MessageInfo, 64)
 var file_proto_telecom_telecom_proto_goTypes = []any{
 	(*AcceptHandoverRequest)(nil),                       // 0: telecom.AcceptHandoverRequest
 	(*AcceptHandoverResponse)(nil),                      // 1: telecom.AcceptHandoverResponse
@@ -3423,156 +2874,132 @@ var file_proto_telecom_telecom_proto_goTypes = []any{
 	(*AcceptRingingCall0Response)(nil),                  // 3: telecom.AcceptRingingCall0Response
 	(*AcceptRingingCall1_1Request)(nil),                 // 4: telecom.AcceptRingingCall1_1Request
 	(*AcceptRingingCall1_1Response)(nil),                // 5: telecom.AcceptRingingCall1_1Response
-	(*AddCallRequest)(nil),                              // 6: telecom.AddCallRequest
-	(*AddCallResponse)(nil),                             // 7: telecom.AddCallResponse
-	(*AddNewIncomingCallRequest)(nil),                   // 8: telecom.AddNewIncomingCallRequest
-	(*AddNewIncomingCallResponse)(nil),                  // 9: telecom.AddNewIncomingCallResponse
-	(*AddNewIncomingConferenceRequest)(nil),             // 10: telecom.AddNewIncomingConferenceRequest
-	(*AddNewIncomingConferenceResponse)(nil),            // 11: telecom.AddNewIncomingConferenceResponse
-	(*CancelMissedCallsNotificationRequest)(nil),        // 12: telecom.CancelMissedCallsNotificationRequest
-	(*CancelMissedCallsNotificationResponse)(nil),       // 13: telecom.CancelMissedCallsNotificationResponse
-	(*CreateManageBlockedNumbersIntentRequest)(nil),     // 14: telecom.CreateManageBlockedNumbersIntentRequest
-	(*CreateManageBlockedNumbersIntentResponse)(nil),    // 15: telecom.CreateManageBlockedNumbersIntentResponse
-	(*EndCallRequest)(nil),                              // 16: telecom.EndCallRequest
-	(*EndCallResponse)(nil),                             // 17: telecom.EndCallResponse
-	(*GetAdnUriForPhoneAccountRequest)(nil),             // 18: telecom.GetAdnUriForPhoneAccountRequest
-	(*GetAdnUriForPhoneAccountResponse)(nil),            // 19: telecom.GetAdnUriForPhoneAccountResponse
-	(*GetCallCapablePhoneAccountsRequest)(nil),          // 20: telecom.GetCallCapablePhoneAccountsRequest
-	(*GetCallCapablePhoneAccountsResponse)(nil),         // 21: telecom.GetCallCapablePhoneAccountsResponse
-	(*GetDefaultDialerPackageRequest)(nil),              // 22: telecom.GetDefaultDialerPackageRequest
-	(*GetDefaultDialerPackageResponse)(nil),             // 23: telecom.GetDefaultDialerPackageResponse
-	(*GetDefaultOutgoingPhoneAccountRequest)(nil),       // 24: telecom.GetDefaultOutgoingPhoneAccountRequest
-	(*GetDefaultOutgoingPhoneAccountResponse)(nil),      // 25: telecom.GetDefaultOutgoingPhoneAccountResponse
-	(*GetLine1NumberRequest)(nil),                       // 26: telecom.GetLine1NumberRequest
-	(*GetLine1NumberResponse)(nil),                      // 27: telecom.GetLine1NumberResponse
-	(*GetOwnSelfManagedPhoneAccountsRequest)(nil),       // 28: telecom.GetOwnSelfManagedPhoneAccountsRequest
-	(*GetOwnSelfManagedPhoneAccountsResponse)(nil),      // 29: telecom.GetOwnSelfManagedPhoneAccountsResponse
-	(*GetPhoneAccountRequest)(nil),                      // 30: telecom.GetPhoneAccountRequest
-	(*GetPhoneAccountResponse)(nil),                     // 31: telecom.GetPhoneAccountResponse
-	(*GetRegisteredPhoneAccountsRequest)(nil),           // 32: telecom.GetRegisteredPhoneAccountsRequest
-	(*GetRegisteredPhoneAccountsResponse)(nil),          // 33: telecom.GetRegisteredPhoneAccountsResponse
-	(*GetSelfManagedPhoneAccountsRequest)(nil),          // 34: telecom.GetSelfManagedPhoneAccountsRequest
-	(*GetSelfManagedPhoneAccountsResponse)(nil),         // 35: telecom.GetSelfManagedPhoneAccountsResponse
-	(*GetSimCallManagerRequest)(nil),                    // 36: telecom.GetSimCallManagerRequest
-	(*GetSimCallManagerResponse)(nil),                   // 37: telecom.GetSimCallManagerResponse
-	(*GetSimCallManagerForSubscriptionRequest)(nil),     // 38: telecom.GetSimCallManagerForSubscriptionRequest
-	(*GetSimCallManagerForSubscriptionResponse)(nil),    // 39: telecom.GetSimCallManagerForSubscriptionResponse
-	(*GetSystemDialerPackageRequest)(nil),               // 40: telecom.GetSystemDialerPackageRequest
-	(*GetSystemDialerPackageResponse)(nil),              // 41: telecom.GetSystemDialerPackageResponse
-	(*GetUserSelectedOutgoingPhoneAccountRequest)(nil),  // 42: telecom.GetUserSelectedOutgoingPhoneAccountRequest
-	(*GetUserSelectedOutgoingPhoneAccountResponse)(nil), // 43: telecom.GetUserSelectedOutgoingPhoneAccountResponse
-	(*GetVoiceMailNumberRequest)(nil),                   // 44: telecom.GetVoiceMailNumberRequest
-	(*GetVoiceMailNumberResponse)(nil),                  // 45: telecom.GetVoiceMailNumberResponse
-	(*HandleMmi1Request)(nil),                           // 46: telecom.HandleMmi1Request
-	(*HandleMmi1Response)(nil),                          // 47: telecom.HandleMmi1Response
-	(*HandleMmi2_1Request)(nil),                         // 48: telecom.HandleMmi2_1Request
-	(*HandleMmi2_1Response)(nil),                        // 49: telecom.HandleMmi2_1Response
-	(*HasManageOngoingCallsPermissionRequest)(nil),      // 50: telecom.HasManageOngoingCallsPermissionRequest
-	(*HasManageOngoingCallsPermissionResponse)(nil),     // 51: telecom.HasManageOngoingCallsPermissionResponse
-	(*IsInCallRequest)(nil),                             // 52: telecom.IsInCallRequest
-	(*IsInCallResponse)(nil),                            // 53: telecom.IsInCallResponse
-	(*IsInManagedCallRequest)(nil),                      // 54: telecom.IsInManagedCallRequest
-	(*IsInManagedCallResponse)(nil),                     // 55: telecom.IsInManagedCallResponse
-	(*IsIncomingCallPermittedRequest)(nil),              // 56: telecom.IsIncomingCallPermittedRequest
-	(*IsIncomingCallPermittedResponse)(nil),             // 57: telecom.IsIncomingCallPermittedResponse
-	(*IsOutgoingCallPermittedRequest)(nil),              // 58: telecom.IsOutgoingCallPermittedRequest
-	(*IsOutgoingCallPermittedResponse)(nil),             // 59: telecom.IsOutgoingCallPermittedResponse
-	(*IsTtySupportedRequest)(nil),                       // 60: telecom.IsTtySupportedRequest
-	(*IsTtySupportedResponse)(nil),                      // 61: telecom.IsTtySupportedResponse
-	(*IsVoiceMailNumberRequest)(nil),                    // 62: telecom.IsVoiceMailNumberRequest
-	(*IsVoiceMailNumberResponse)(nil),                   // 63: telecom.IsVoiceMailNumberResponse
-	(*PlaceCallRequest)(nil),                            // 64: telecom.PlaceCallRequest
-	(*PlaceCallResponse)(nil),                           // 65: telecom.PlaceCallResponse
-	(*RegisterPhoneAccountRequest)(nil),                 // 66: telecom.RegisterPhoneAccountRequest
-	(*RegisterPhoneAccountResponse)(nil),                // 67: telecom.RegisterPhoneAccountResponse
-	(*ShowInCallScreenRequest)(nil),                     // 68: telecom.ShowInCallScreenRequest
-	(*ShowInCallScreenResponse)(nil),                    // 69: telecom.ShowInCallScreenResponse
-	(*SilenceRingerRequest)(nil),                        // 70: telecom.SilenceRingerRequest
-	(*SilenceRingerResponse)(nil),                       // 71: telecom.SilenceRingerResponse
-	(*StartConferenceRequest)(nil),                      // 72: telecom.StartConferenceRequest
-	(*StartConferenceResponse)(nil),                     // 73: telecom.StartConferenceResponse
-	(*UnregisterPhoneAccountRequest)(nil),               // 74: telecom.UnregisterPhoneAccountRequest
-	(*UnregisterPhoneAccountResponse)(nil),              // 75: telecom.UnregisterPhoneAccountResponse
+	(*AddNewIncomingCallRequest)(nil),                   // 6: telecom.AddNewIncomingCallRequest
+	(*AddNewIncomingCallResponse)(nil),                  // 7: telecom.AddNewIncomingCallResponse
+	(*AddNewIncomingConferenceRequest)(nil),             // 8: telecom.AddNewIncomingConferenceRequest
+	(*AddNewIncomingConferenceResponse)(nil),            // 9: telecom.AddNewIncomingConferenceResponse
+	(*CancelMissedCallsNotificationRequest)(nil),        // 10: telecom.CancelMissedCallsNotificationRequest
+	(*CancelMissedCallsNotificationResponse)(nil),       // 11: telecom.CancelMissedCallsNotificationResponse
+	(*CreateManageBlockedNumbersIntentRequest)(nil),     // 12: telecom.CreateManageBlockedNumbersIntentRequest
+	(*CreateManageBlockedNumbersIntentResponse)(nil),    // 13: telecom.CreateManageBlockedNumbersIntentResponse
+	(*EndCallRequest)(nil),                              // 14: telecom.EndCallRequest
+	(*EndCallResponse)(nil),                             // 15: telecom.EndCallResponse
+	(*GetAdnUriForPhoneAccountRequest)(nil),             // 16: telecom.GetAdnUriForPhoneAccountRequest
+	(*GetAdnUriForPhoneAccountResponse)(nil),            // 17: telecom.GetAdnUriForPhoneAccountResponse
+	(*GetDefaultDialerPackageRequest)(nil),              // 18: telecom.GetDefaultDialerPackageRequest
+	(*GetDefaultDialerPackageResponse)(nil),             // 19: telecom.GetDefaultDialerPackageResponse
+	(*GetDefaultOutgoingPhoneAccountRequest)(nil),       // 20: telecom.GetDefaultOutgoingPhoneAccountRequest
+	(*GetDefaultOutgoingPhoneAccountResponse)(nil),      // 21: telecom.GetDefaultOutgoingPhoneAccountResponse
+	(*GetLine1NumberRequest)(nil),                       // 22: telecom.GetLine1NumberRequest
+	(*GetLine1NumberResponse)(nil),                      // 23: telecom.GetLine1NumberResponse
+	(*GetPhoneAccountRequest)(nil),                      // 24: telecom.GetPhoneAccountRequest
+	(*GetPhoneAccountResponse)(nil),                     // 25: telecom.GetPhoneAccountResponse
+	(*GetSimCallManagerRequest)(nil),                    // 26: telecom.GetSimCallManagerRequest
+	(*GetSimCallManagerResponse)(nil),                   // 27: telecom.GetSimCallManagerResponse
+	(*GetSimCallManagerForSubscriptionRequest)(nil),     // 28: telecom.GetSimCallManagerForSubscriptionRequest
+	(*GetSimCallManagerForSubscriptionResponse)(nil),    // 29: telecom.GetSimCallManagerForSubscriptionResponse
+	(*GetSystemDialerPackageRequest)(nil),               // 30: telecom.GetSystemDialerPackageRequest
+	(*GetSystemDialerPackageResponse)(nil),              // 31: telecom.GetSystemDialerPackageResponse
+	(*GetUserSelectedOutgoingPhoneAccountRequest)(nil),  // 32: telecom.GetUserSelectedOutgoingPhoneAccountRequest
+	(*GetUserSelectedOutgoingPhoneAccountResponse)(nil), // 33: telecom.GetUserSelectedOutgoingPhoneAccountResponse
+	(*GetVoiceMailNumberRequest)(nil),                   // 34: telecom.GetVoiceMailNumberRequest
+	(*GetVoiceMailNumberResponse)(nil),                  // 35: telecom.GetVoiceMailNumberResponse
+	(*HandleMmi1Request)(nil),                           // 36: telecom.HandleMmi1Request
+	(*HandleMmi1Response)(nil),                          // 37: telecom.HandleMmi1Response
+	(*HandleMmi2_1Request)(nil),                         // 38: telecom.HandleMmi2_1Request
+	(*HandleMmi2_1Response)(nil),                        // 39: telecom.HandleMmi2_1Response
+	(*HasManageOngoingCallsPermissionRequest)(nil),      // 40: telecom.HasManageOngoingCallsPermissionRequest
+	(*HasManageOngoingCallsPermissionResponse)(nil),     // 41: telecom.HasManageOngoingCallsPermissionResponse
+	(*IsInCallRequest)(nil),                             // 42: telecom.IsInCallRequest
+	(*IsInCallResponse)(nil),                            // 43: telecom.IsInCallResponse
+	(*IsInManagedCallRequest)(nil),                      // 44: telecom.IsInManagedCallRequest
+	(*IsInManagedCallResponse)(nil),                     // 45: telecom.IsInManagedCallResponse
+	(*IsIncomingCallPermittedRequest)(nil),              // 46: telecom.IsIncomingCallPermittedRequest
+	(*IsIncomingCallPermittedResponse)(nil),             // 47: telecom.IsIncomingCallPermittedResponse
+	(*IsOutgoingCallPermittedRequest)(nil),              // 48: telecom.IsOutgoingCallPermittedRequest
+	(*IsOutgoingCallPermittedResponse)(nil),             // 49: telecom.IsOutgoingCallPermittedResponse
+	(*IsTtySupportedRequest)(nil),                       // 50: telecom.IsTtySupportedRequest
+	(*IsTtySupportedResponse)(nil),                      // 51: telecom.IsTtySupportedResponse
+	(*IsVoiceMailNumberRequest)(nil),                    // 52: telecom.IsVoiceMailNumberRequest
+	(*IsVoiceMailNumberResponse)(nil),                   // 53: telecom.IsVoiceMailNumberResponse
+	(*PlaceCallRequest)(nil),                            // 54: telecom.PlaceCallRequest
+	(*PlaceCallResponse)(nil),                           // 55: telecom.PlaceCallResponse
+	(*RegisterPhoneAccountRequest)(nil),                 // 56: telecom.RegisterPhoneAccountRequest
+	(*RegisterPhoneAccountResponse)(nil),                // 57: telecom.RegisterPhoneAccountResponse
+	(*ShowInCallScreenRequest)(nil),                     // 58: telecom.ShowInCallScreenRequest
+	(*ShowInCallScreenResponse)(nil),                    // 59: telecom.ShowInCallScreenResponse
+	(*SilenceRingerRequest)(nil),                        // 60: telecom.SilenceRingerRequest
+	(*SilenceRingerResponse)(nil),                       // 61: telecom.SilenceRingerResponse
+	(*UnregisterPhoneAccountRequest)(nil),               // 62: telecom.UnregisterPhoneAccountRequest
+	(*UnregisterPhoneAccountResponse)(nil),              // 63: telecom.UnregisterPhoneAccountResponse
 }
 var file_proto_telecom_telecom_proto_depIdxs = []int32{
 	0,  // 0: telecom.ManagerService.AcceptHandover:input_type -> telecom.AcceptHandoverRequest
 	2,  // 1: telecom.ManagerService.AcceptRingingCall0:input_type -> telecom.AcceptRingingCall0Request
 	4,  // 2: telecom.ManagerService.AcceptRingingCall1_1:input_type -> telecom.AcceptRingingCall1_1Request
-	6,  // 3: telecom.ManagerService.AddCall:input_type -> telecom.AddCallRequest
-	8,  // 4: telecom.ManagerService.AddNewIncomingCall:input_type -> telecom.AddNewIncomingCallRequest
-	10, // 5: telecom.ManagerService.AddNewIncomingConference:input_type -> telecom.AddNewIncomingConferenceRequest
-	12, // 6: telecom.ManagerService.CancelMissedCallsNotification:input_type -> telecom.CancelMissedCallsNotificationRequest
-	14, // 7: telecom.ManagerService.CreateManageBlockedNumbersIntent:input_type -> telecom.CreateManageBlockedNumbersIntentRequest
-	16, // 8: telecom.ManagerService.EndCall:input_type -> telecom.EndCallRequest
-	18, // 9: telecom.ManagerService.GetAdnUriForPhoneAccount:input_type -> telecom.GetAdnUriForPhoneAccountRequest
-	20, // 10: telecom.ManagerService.GetCallCapablePhoneAccounts:input_type -> telecom.GetCallCapablePhoneAccountsRequest
-	22, // 11: telecom.ManagerService.GetDefaultDialerPackage:input_type -> telecom.GetDefaultDialerPackageRequest
-	24, // 12: telecom.ManagerService.GetDefaultOutgoingPhoneAccount:input_type -> telecom.GetDefaultOutgoingPhoneAccountRequest
-	26, // 13: telecom.ManagerService.GetLine1Number:input_type -> telecom.GetLine1NumberRequest
-	28, // 14: telecom.ManagerService.GetOwnSelfManagedPhoneAccounts:input_type -> telecom.GetOwnSelfManagedPhoneAccountsRequest
-	30, // 15: telecom.ManagerService.GetPhoneAccount:input_type -> telecom.GetPhoneAccountRequest
-	32, // 16: telecom.ManagerService.GetRegisteredPhoneAccounts:input_type -> telecom.GetRegisteredPhoneAccountsRequest
-	34, // 17: telecom.ManagerService.GetSelfManagedPhoneAccounts:input_type -> telecom.GetSelfManagedPhoneAccountsRequest
-	36, // 18: telecom.ManagerService.GetSimCallManager:input_type -> telecom.GetSimCallManagerRequest
-	38, // 19: telecom.ManagerService.GetSimCallManagerForSubscription:input_type -> telecom.GetSimCallManagerForSubscriptionRequest
-	40, // 20: telecom.ManagerService.GetSystemDialerPackage:input_type -> telecom.GetSystemDialerPackageRequest
-	42, // 21: telecom.ManagerService.GetUserSelectedOutgoingPhoneAccount:input_type -> telecom.GetUserSelectedOutgoingPhoneAccountRequest
-	44, // 22: telecom.ManagerService.GetVoiceMailNumber:input_type -> telecom.GetVoiceMailNumberRequest
-	46, // 23: telecom.ManagerService.HandleMmi1:input_type -> telecom.HandleMmi1Request
-	48, // 24: telecom.ManagerService.HandleMmi2_1:input_type -> telecom.HandleMmi2_1Request
-	50, // 25: telecom.ManagerService.HasManageOngoingCallsPermission:input_type -> telecom.HasManageOngoingCallsPermissionRequest
-	52, // 26: telecom.ManagerService.IsInCall:input_type -> telecom.IsInCallRequest
-	54, // 27: telecom.ManagerService.IsInManagedCall:input_type -> telecom.IsInManagedCallRequest
-	56, // 28: telecom.ManagerService.IsIncomingCallPermitted:input_type -> telecom.IsIncomingCallPermittedRequest
-	58, // 29: telecom.ManagerService.IsOutgoingCallPermitted:input_type -> telecom.IsOutgoingCallPermittedRequest
-	60, // 30: telecom.ManagerService.IsTtySupported:input_type -> telecom.IsTtySupportedRequest
-	62, // 31: telecom.ManagerService.IsVoiceMailNumber:input_type -> telecom.IsVoiceMailNumberRequest
-	64, // 32: telecom.ManagerService.PlaceCall:input_type -> telecom.PlaceCallRequest
-	66, // 33: telecom.ManagerService.RegisterPhoneAccount:input_type -> telecom.RegisterPhoneAccountRequest
-	68, // 34: telecom.ManagerService.ShowInCallScreen:input_type -> telecom.ShowInCallScreenRequest
-	70, // 35: telecom.ManagerService.SilenceRinger:input_type -> telecom.SilenceRingerRequest
-	72, // 36: telecom.ManagerService.StartConference:input_type -> telecom.StartConferenceRequest
-	74, // 37: telecom.ManagerService.UnregisterPhoneAccount:input_type -> telecom.UnregisterPhoneAccountRequest
-	1,  // 38: telecom.ManagerService.AcceptHandover:output_type -> telecom.AcceptHandoverResponse
-	3,  // 39: telecom.ManagerService.AcceptRingingCall0:output_type -> telecom.AcceptRingingCall0Response
-	5,  // 40: telecom.ManagerService.AcceptRingingCall1_1:output_type -> telecom.AcceptRingingCall1_1Response
-	7,  // 41: telecom.ManagerService.AddCall:output_type -> telecom.AddCallResponse
-	9,  // 42: telecom.ManagerService.AddNewIncomingCall:output_type -> telecom.AddNewIncomingCallResponse
-	11, // 43: telecom.ManagerService.AddNewIncomingConference:output_type -> telecom.AddNewIncomingConferenceResponse
-	13, // 44: telecom.ManagerService.CancelMissedCallsNotification:output_type -> telecom.CancelMissedCallsNotificationResponse
-	15, // 45: telecom.ManagerService.CreateManageBlockedNumbersIntent:output_type -> telecom.CreateManageBlockedNumbersIntentResponse
-	17, // 46: telecom.ManagerService.EndCall:output_type -> telecom.EndCallResponse
-	19, // 47: telecom.ManagerService.GetAdnUriForPhoneAccount:output_type -> telecom.GetAdnUriForPhoneAccountResponse
-	21, // 48: telecom.ManagerService.GetCallCapablePhoneAccounts:output_type -> telecom.GetCallCapablePhoneAccountsResponse
-	23, // 49: telecom.ManagerService.GetDefaultDialerPackage:output_type -> telecom.GetDefaultDialerPackageResponse
-	25, // 50: telecom.ManagerService.GetDefaultOutgoingPhoneAccount:output_type -> telecom.GetDefaultOutgoingPhoneAccountResponse
-	27, // 51: telecom.ManagerService.GetLine1Number:output_type -> telecom.GetLine1NumberResponse
-	29, // 52: telecom.ManagerService.GetOwnSelfManagedPhoneAccounts:output_type -> telecom.GetOwnSelfManagedPhoneAccountsResponse
-	31, // 53: telecom.ManagerService.GetPhoneAccount:output_type -> telecom.GetPhoneAccountResponse
-	33, // 54: telecom.ManagerService.GetRegisteredPhoneAccounts:output_type -> telecom.GetRegisteredPhoneAccountsResponse
-	35, // 55: telecom.ManagerService.GetSelfManagedPhoneAccounts:output_type -> telecom.GetSelfManagedPhoneAccountsResponse
-	37, // 56: telecom.ManagerService.GetSimCallManager:output_type -> telecom.GetSimCallManagerResponse
-	39, // 57: telecom.ManagerService.GetSimCallManagerForSubscription:output_type -> telecom.GetSimCallManagerForSubscriptionResponse
-	41, // 58: telecom.ManagerService.GetSystemDialerPackage:output_type -> telecom.GetSystemDialerPackageResponse
-	43, // 59: telecom.ManagerService.GetUserSelectedOutgoingPhoneAccount:output_type -> telecom.GetUserSelectedOutgoingPhoneAccountResponse
-	45, // 60: telecom.ManagerService.GetVoiceMailNumber:output_type -> telecom.GetVoiceMailNumberResponse
-	47, // 61: telecom.ManagerService.HandleMmi1:output_type -> telecom.HandleMmi1Response
-	49, // 62: telecom.ManagerService.HandleMmi2_1:output_type -> telecom.HandleMmi2_1Response
-	51, // 63: telecom.ManagerService.HasManageOngoingCallsPermission:output_type -> telecom.HasManageOngoingCallsPermissionResponse
-	53, // 64: telecom.ManagerService.IsInCall:output_type -> telecom.IsInCallResponse
-	55, // 65: telecom.ManagerService.IsInManagedCall:output_type -> telecom.IsInManagedCallResponse
-	57, // 66: telecom.ManagerService.IsIncomingCallPermitted:output_type -> telecom.IsIncomingCallPermittedResponse
-	59, // 67: telecom.ManagerService.IsOutgoingCallPermitted:output_type -> telecom.IsOutgoingCallPermittedResponse
-	61, // 68: telecom.ManagerService.IsTtySupported:output_type -> telecom.IsTtySupportedResponse
-	63, // 69: telecom.ManagerService.IsVoiceMailNumber:output_type -> telecom.IsVoiceMailNumberResponse
-	65, // 70: telecom.ManagerService.PlaceCall:output_type -> telecom.PlaceCallResponse
-	67, // 71: telecom.ManagerService.RegisterPhoneAccount:output_type -> telecom.RegisterPhoneAccountResponse
-	69, // 72: telecom.ManagerService.ShowInCallScreen:output_type -> telecom.ShowInCallScreenResponse
-	71, // 73: telecom.ManagerService.SilenceRinger:output_type -> telecom.SilenceRingerResponse
-	73, // 74: telecom.ManagerService.StartConference:output_type -> telecom.StartConferenceResponse
-	75, // 75: telecom.ManagerService.UnregisterPhoneAccount:output_type -> telecom.UnregisterPhoneAccountResponse
-	38, // [38:76] is the sub-list for method output_type
-	0,  // [0:38] is the sub-list for method input_type
+	6,  // 3: telecom.ManagerService.AddNewIncomingCall:input_type -> telecom.AddNewIncomingCallRequest
+	8,  // 4: telecom.ManagerService.AddNewIncomingConference:input_type -> telecom.AddNewIncomingConferenceRequest
+	10, // 5: telecom.ManagerService.CancelMissedCallsNotification:input_type -> telecom.CancelMissedCallsNotificationRequest
+	12, // 6: telecom.ManagerService.CreateManageBlockedNumbersIntent:input_type -> telecom.CreateManageBlockedNumbersIntentRequest
+	14, // 7: telecom.ManagerService.EndCall:input_type -> telecom.EndCallRequest
+	16, // 8: telecom.ManagerService.GetAdnUriForPhoneAccount:input_type -> telecom.GetAdnUriForPhoneAccountRequest
+	18, // 9: telecom.ManagerService.GetDefaultDialerPackage:input_type -> telecom.GetDefaultDialerPackageRequest
+	20, // 10: telecom.ManagerService.GetDefaultOutgoingPhoneAccount:input_type -> telecom.GetDefaultOutgoingPhoneAccountRequest
+	22, // 11: telecom.ManagerService.GetLine1Number:input_type -> telecom.GetLine1NumberRequest
+	24, // 12: telecom.ManagerService.GetPhoneAccount:input_type -> telecom.GetPhoneAccountRequest
+	26, // 13: telecom.ManagerService.GetSimCallManager:input_type -> telecom.GetSimCallManagerRequest
+	28, // 14: telecom.ManagerService.GetSimCallManagerForSubscription:input_type -> telecom.GetSimCallManagerForSubscriptionRequest
+	30, // 15: telecom.ManagerService.GetSystemDialerPackage:input_type -> telecom.GetSystemDialerPackageRequest
+	32, // 16: telecom.ManagerService.GetUserSelectedOutgoingPhoneAccount:input_type -> telecom.GetUserSelectedOutgoingPhoneAccountRequest
+	34, // 17: telecom.ManagerService.GetVoiceMailNumber:input_type -> telecom.GetVoiceMailNumberRequest
+	36, // 18: telecom.ManagerService.HandleMmi1:input_type -> telecom.HandleMmi1Request
+	38, // 19: telecom.ManagerService.HandleMmi2_1:input_type -> telecom.HandleMmi2_1Request
+	40, // 20: telecom.ManagerService.HasManageOngoingCallsPermission:input_type -> telecom.HasManageOngoingCallsPermissionRequest
+	42, // 21: telecom.ManagerService.IsInCall:input_type -> telecom.IsInCallRequest
+	44, // 22: telecom.ManagerService.IsInManagedCall:input_type -> telecom.IsInManagedCallRequest
+	46, // 23: telecom.ManagerService.IsIncomingCallPermitted:input_type -> telecom.IsIncomingCallPermittedRequest
+	48, // 24: telecom.ManagerService.IsOutgoingCallPermitted:input_type -> telecom.IsOutgoingCallPermittedRequest
+	50, // 25: telecom.ManagerService.IsTtySupported:input_type -> telecom.IsTtySupportedRequest
+	52, // 26: telecom.ManagerService.IsVoiceMailNumber:input_type -> telecom.IsVoiceMailNumberRequest
+	54, // 27: telecom.ManagerService.PlaceCall:input_type -> telecom.PlaceCallRequest
+	56, // 28: telecom.ManagerService.RegisterPhoneAccount:input_type -> telecom.RegisterPhoneAccountRequest
+	58, // 29: telecom.ManagerService.ShowInCallScreen:input_type -> telecom.ShowInCallScreenRequest
+	60, // 30: telecom.ManagerService.SilenceRinger:input_type -> telecom.SilenceRingerRequest
+	62, // 31: telecom.ManagerService.UnregisterPhoneAccount:input_type -> telecom.UnregisterPhoneAccountRequest
+	1,  // 32: telecom.ManagerService.AcceptHandover:output_type -> telecom.AcceptHandoverResponse
+	3,  // 33: telecom.ManagerService.AcceptRingingCall0:output_type -> telecom.AcceptRingingCall0Response
+	5,  // 34: telecom.ManagerService.AcceptRingingCall1_1:output_type -> telecom.AcceptRingingCall1_1Response
+	7,  // 35: telecom.ManagerService.AddNewIncomingCall:output_type -> telecom.AddNewIncomingCallResponse
+	9,  // 36: telecom.ManagerService.AddNewIncomingConference:output_type -> telecom.AddNewIncomingConferenceResponse
+	11, // 37: telecom.ManagerService.CancelMissedCallsNotification:output_type -> telecom.CancelMissedCallsNotificationResponse
+	13, // 38: telecom.ManagerService.CreateManageBlockedNumbersIntent:output_type -> telecom.CreateManageBlockedNumbersIntentResponse
+	15, // 39: telecom.ManagerService.EndCall:output_type -> telecom.EndCallResponse
+	17, // 40: telecom.ManagerService.GetAdnUriForPhoneAccount:output_type -> telecom.GetAdnUriForPhoneAccountResponse
+	19, // 41: telecom.ManagerService.GetDefaultDialerPackage:output_type -> telecom.GetDefaultDialerPackageResponse
+	21, // 42: telecom.ManagerService.GetDefaultOutgoingPhoneAccount:output_type -> telecom.GetDefaultOutgoingPhoneAccountResponse
+	23, // 43: telecom.ManagerService.GetLine1Number:output_type -> telecom.GetLine1NumberResponse
+	25, // 44: telecom.ManagerService.GetPhoneAccount:output_type -> telecom.GetPhoneAccountResponse
+	27, // 45: telecom.ManagerService.GetSimCallManager:output_type -> telecom.GetSimCallManagerResponse
+	29, // 46: telecom.ManagerService.GetSimCallManagerForSubscription:output_type -> telecom.GetSimCallManagerForSubscriptionResponse
+	31, // 47: telecom.ManagerService.GetSystemDialerPackage:output_type -> telecom.GetSystemDialerPackageResponse
+	33, // 48: telecom.ManagerService.GetUserSelectedOutgoingPhoneAccount:output_type -> telecom.GetUserSelectedOutgoingPhoneAccountResponse
+	35, // 49: telecom.ManagerService.GetVoiceMailNumber:output_type -> telecom.GetVoiceMailNumberResponse
+	37, // 50: telecom.ManagerService.HandleMmi1:output_type -> telecom.HandleMmi1Response
+	39, // 51: telecom.ManagerService.HandleMmi2_1:output_type -> telecom.HandleMmi2_1Response
+	41, // 52: telecom.ManagerService.HasManageOngoingCallsPermission:output_type -> telecom.HasManageOngoingCallsPermissionResponse
+	43, // 53: telecom.ManagerService.IsInCall:output_type -> telecom.IsInCallResponse
+	45, // 54: telecom.ManagerService.IsInManagedCall:output_type -> telecom.IsInManagedCallResponse
+	47, // 55: telecom.ManagerService.IsIncomingCallPermitted:output_type -> telecom.IsIncomingCallPermittedResponse
+	49, // 56: telecom.ManagerService.IsOutgoingCallPermitted:output_type -> telecom.IsOutgoingCallPermittedResponse
+	51, // 57: telecom.ManagerService.IsTtySupported:output_type -> telecom.IsTtySupportedResponse
+	53, // 58: telecom.ManagerService.IsVoiceMailNumber:output_type -> telecom.IsVoiceMailNumberResponse
+	55, // 59: telecom.ManagerService.PlaceCall:output_type -> telecom.PlaceCallResponse
+	57, // 60: telecom.ManagerService.RegisterPhoneAccount:output_type -> telecom.RegisterPhoneAccountResponse
+	59, // 61: telecom.ManagerService.ShowInCallScreen:output_type -> telecom.ShowInCallScreenResponse
+	61, // 62: telecom.ManagerService.SilenceRinger:output_type -> telecom.SilenceRingerResponse
+	63, // 63: telecom.ManagerService.UnregisterPhoneAccount:output_type -> telecom.UnregisterPhoneAccountResponse
+	32, // [32:64] is the sub-list for method output_type
+	0,  // [0:32] is the sub-list for method input_type
 	0,  // [0:0] is the sub-list for extension type_name
 	0,  // [0:0] is the sub-list for extension extendee
 	0,  // [0:0] is the sub-list for field type_name
@@ -3589,7 +3016,7 @@ func file_proto_telecom_telecom_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_proto_telecom_telecom_proto_rawDesc), len(file_proto_telecom_telecom_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   76,
+			NumMessages:   64,
 			NumExtensions: 0,
 			NumServices:   1,
 		},

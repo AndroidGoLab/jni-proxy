@@ -104,30 +104,17 @@ func (s *ManagerServer) AddTestProvider2(_ context.Context, req *pb.AddTestProvi
 	return &pb.AddTestProvider2Response{}, nil
 }
 
-func (s *ManagerServer) AddTestProvider3_1(_ context.Context, req *pb.AddTestProvider3_1Request) (*pb.AddTestProvider3_1Response, error) {
+func (s *ManagerServer) AddTestProvider10_1(_ context.Context, req *pb.AddTestProvider10_1Request) (*pb.AddTestProvider10_1Response, error) {
 	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
 	defer mgr.Close()
 
-	if err := mgr.AddTestProvider3_1(req.GetArg0(), s.Handles.Get(req.GetArg1()), s.Handles.Get(req.GetArg2())); err != nil {
+	if err := mgr.AddTestProvider10_1(req.GetArg0(), req.GetArg1(), req.GetArg2(), req.GetArg3(), req.GetArg4(), req.GetArg5(), req.GetArg6(), req.GetArg7(), req.GetArg8(), req.GetArg9()); err != nil {
 		return nil, status.Errorf(codes.Internal, "%v", err)
 	}
-	return &pb.AddTestProvider3_1Response{}, nil
-}
-
-func (s *ManagerServer) AddTestProvider10_2(_ context.Context, req *pb.AddTestProvider10_2Request) (*pb.AddTestProvider10_2Response, error) {
-	mgr, err := jnipkg.NewManager(s.Ctx)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
-	}
-	defer mgr.Close()
-
-	if err := mgr.AddTestProvider10_2(req.GetArg0(), req.GetArg1(), req.GetArg2(), req.GetArg3(), req.GetArg4(), req.GetArg5(), req.GetArg6(), req.GetArg7(), req.GetArg8(), req.GetArg9()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.AddTestProvider10_2Response{}, nil
+	return &pb.AddTestProvider10_1Response{}, nil
 }
 
 func (s *ManagerServer) ClearTestProviderEnabled(_ context.Context, req *pb.ClearTestProviderEnabledRequest) (*pb.ClearTestProviderEnabledResponse, error) {
@@ -169,29 +156,6 @@ func (s *ManagerServer) ClearTestProviderStatus(_ context.Context, req *pb.Clear
 	return &pb.ClearTestProviderStatusResponse{}, nil
 }
 
-func (s *ManagerServer) GetAllProviders(_ context.Context, req *pb.GetAllProvidersRequest) (*pb.GetAllProvidersResponse, error) {
-	mgr, err := jnipkg.NewManager(s.Ctx)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
-	}
-	defer mgr.Close()
-
-	result, err := mgr.GetAllProviders()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	var handle int64
-	if result != nil {
-		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-			handle = s.Handles.Put(env, result)
-			return nil
-		}); doErr != nil {
-			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-		}
-	}
-	return &pb.GetAllProvidersResponse{Result: handle}, nil
-}
-
 func (s *ManagerServer) GetBestProvider(_ context.Context, req *pb.GetBestProviderRequest) (*pb.GetBestProviderResponse, error) {
 	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
@@ -204,55 +168,6 @@ func (s *ManagerServer) GetBestProvider(_ context.Context, req *pb.GetBestProvid
 		return nil, status.Errorf(codes.Internal, "%v", err)
 	}
 	return &pb.GetBestProviderResponse{Result: result}, nil
-}
-
-func (s *ManagerServer) GetCurrentLocation5(_ context.Context, req *pb.GetCurrentLocation5Request) (*pb.GetCurrentLocation5Response, error) {
-	mgr, err := jnipkg.NewManager(s.Ctx)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
-	}
-	defer mgr.Close()
-
-	if err := mgr.GetCurrentLocation5(req.GetArg0(), s.Handles.Get(req.GetArg1()), s.Handles.Get(req.GetArg2()), s.Handles.Get(req.GetArg3()), s.Handles.Get(req.GetArg4())); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GetCurrentLocation5Response{}, nil
-}
-
-func (s *ManagerServer) GetCurrentLocation4_1(_ context.Context, req *pb.GetCurrentLocation4_1Request) (*pb.GetCurrentLocation4_1Response, error) {
-	mgr, err := jnipkg.NewManager(s.Ctx)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
-	}
-	defer mgr.Close()
-
-	if err := mgr.GetCurrentLocation4_1(req.GetArg0(), s.Handles.Get(req.GetArg1()), s.Handles.Get(req.GetArg2()), s.Handles.Get(req.GetArg3())); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GetCurrentLocation4_1Response{}, nil
-}
-
-func (s *ManagerServer) GetGnssAntennaInfos(_ context.Context, req *pb.GetGnssAntennaInfosRequest) (*pb.GetGnssAntennaInfosResponse, error) {
-	mgr, err := jnipkg.NewManager(s.Ctx)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
-	}
-	defer mgr.Close()
-
-	result, err := mgr.GetGnssAntennaInfos()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	var handle int64
-	if result != nil {
-		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-			handle = s.Handles.Put(env, result)
-			return nil
-		}); doErr != nil {
-			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-		}
-	}
-	return &pb.GetGnssAntennaInfosResponse{Result: handle}, nil
 }
 
 func (s *ManagerServer) GetGnssCapabilities(_ context.Context, req *pb.GetGnssCapabilitiesRequest) (*pb.GetGnssCapabilitiesResponse, error) {
@@ -352,7 +267,7 @@ func (s *ManagerServer) GetLastKnownLocation(_ context.Context, req *pb.GetLastK
 	return &pb.GetLastKnownLocationResponse{Result: handle}, nil
 }
 
-func (s *ManagerServer) GetProvider(_ context.Context, req *pb.ManagerGetProviderRequest) (*pb.ManagerGetProviderResponse, error) {
+func (s *ManagerServer) GetProvider(_ context.Context, req *pb.GetProviderRequest) (*pb.GetProviderResponse, error) {
 	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
@@ -372,7 +287,7 @@ func (s *ManagerServer) GetProvider(_ context.Context, req *pb.ManagerGetProvide
 			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
 		}
 	}
-	return &pb.ManagerGetProviderResponse{Result: handle}, nil
+	return &pb.GetProviderResponse{Result: handle}, nil
 }
 
 func (s *ManagerServer) GetProviderProperties(_ context.Context, req *pb.GetProviderPropertiesRequest) (*pb.GetProviderPropertiesResponse, error) {
@@ -396,52 +311,6 @@ func (s *ManagerServer) GetProviderProperties(_ context.Context, req *pb.GetProv
 		}
 	}
 	return &pb.GetProviderPropertiesResponse{Result: handle}, nil
-}
-
-func (s *ManagerServer) GetProviders2(_ context.Context, req *pb.GetProviders2Request) (*pb.GetProviders2Response, error) {
-	mgr, err := jnipkg.NewManager(s.Ctx)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
-	}
-	defer mgr.Close()
-
-	result, err := mgr.GetProviders2(s.Handles.Get(req.GetArg0()), req.GetArg1())
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	var handle int64
-	if result != nil {
-		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-			handle = s.Handles.Put(env, result)
-			return nil
-		}); doErr != nil {
-			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-		}
-	}
-	return &pb.GetProviders2Response{Result: handle}, nil
-}
-
-func (s *ManagerServer) GetProviders1_1(_ context.Context, req *pb.GetProviders1_1Request) (*pb.GetProviders1_1Response, error) {
-	mgr, err := jnipkg.NewManager(s.Ctx)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
-	}
-	defer mgr.Close()
-
-	result, err := mgr.GetProviders1_1(req.GetArg0())
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	var handle int64
-	if result != nil {
-		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-			handle = s.Handles.Put(env, result)
-			return nil
-		}); doErr != nil {
-			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-		}
-	}
-	return &pb.GetProviders1_1Response{Result: handle}, nil
 }
 
 func (s *ManagerServer) HasProvider(_ context.Context, req *pb.HasProviderRequest) (*pb.HasProviderResponse, error) {

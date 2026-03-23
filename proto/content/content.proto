@@ -6,169 +6,48 @@ package content;
 
 option go_package = "github.com/AndroidGoLab/jni-proxy/proto/content";
 
-message AbortBroadcastRequest {
+message CreateLocalApprovalIntentRequest {
 }
 
-message AbortBroadcastResponse {
-}
-
-message ClearAbortBroadcastRequest {
-}
-
-message ClearAbortBroadcastResponse {
-}
-
-message GetAbortBroadcastRequest {
-}
-
-message GetAbortBroadcastResponse {
-  bool result = 1;
-}
-
-message GetDebugUnregisterRequest {
-}
-
-message GetDebugUnregisterResponse {
-  bool result = 1;
-}
-
-message GetResultCodeRequest {
-}
-
-message GetResultCodeResponse {
-  int32 result = 1;
-}
-
-message GetResultDataRequest {
-}
-
-message GetResultDataResponse {
-  string result = 1;
-}
-
-message GetResultExtrasRequest {
-  bool arg0 = 1;
-}
-
-message GetResultExtrasResponse {
+message CreateLocalApprovalIntentResponse {
   int64 result = 1;
 }
 
-message GetSentFromPackageRequest {
+message GetApplicationRestrictionsRequest {
 }
 
-message GetSentFromPackageResponse {
-  string result = 1;
-}
-
-message GetSentFromUidRequest {
-}
-
-message GetSentFromUidResponse {
-  int32 result = 1;
-}
-
-message GoAsyncRequest {
-}
-
-message GoAsyncResponse {
+message GetApplicationRestrictionsResponse {
   int64 result = 1;
 }
 
-message IsInitialStickyBroadcastRequest {
+message HasRestrictionsProviderRequest {
 }
 
-message IsInitialStickyBroadcastResponse {
+message HasRestrictionsProviderResponse {
   bool result = 1;
 }
 
-message IsOrderedBroadcastRequest {
-}
-
-message IsOrderedBroadcastResponse {
-  bool result = 1;
-}
-
-message OnReceiveRequest {
-  int64 arg0 = 1;
+message NotifyPermissionResponseRequest {
+  string arg0 = 1;
   int64 arg1 = 2;
 }
 
-message OnReceiveResponse {
+message NotifyPermissionResponseResponse {
 }
 
-message PeekServiceRequest {
-  int64 arg0 = 1;
-  int64 arg1 = 2;
-}
-
-message PeekServiceResponse {
-  int64 result = 1;
-}
-
-message SetDebugUnregisterRequest {
-  bool arg0 = 1;
-}
-
-message SetDebugUnregisterResponse {
-}
-
-message SetOrderedHintRequest {
-  bool arg0 = 1;
-}
-
-message SetOrderedHintResponse {
-}
-
-message SetResultRequest {
-  int32 arg0 = 1;
+message RequestPermissionRequest {
+  string arg0 = 1;
   string arg1 = 2;
   int64 arg2 = 3;
 }
 
-message SetResultResponse {
+message RequestPermissionResponse {
 }
 
-message SetResultCodeRequest {
-  int32 arg0 = 1;
-}
-
-message SetResultCodeResponse {
-}
-
-message SetResultDataRequest {
-  string arg0 = 1;
-}
-
-message SetResultDataResponse {
-}
-
-message SetResultExtrasRequest {
-  int64 arg0 = 1;
-}
-
-message SetResultExtrasResponse {
-}
-
-service BroadcastReceiverService {
-  rpc AbortBroadcast (AbortBroadcastRequest) returns (AbortBroadcastResponse);
-  rpc ClearAbortBroadcast (ClearAbortBroadcastRequest) returns (ClearAbortBroadcastResponse);
-  rpc GetAbortBroadcast (GetAbortBroadcastRequest) returns (GetAbortBroadcastResponse);
-  rpc GetDebugUnregister (GetDebugUnregisterRequest) returns (GetDebugUnregisterResponse);
-  rpc GetResultCode (GetResultCodeRequest) returns (GetResultCodeResponse);
-  rpc GetResultData (GetResultDataRequest) returns (GetResultDataResponse);
-  rpc GetResultExtras (GetResultExtrasRequest) returns (GetResultExtrasResponse);
-  rpc GetSentFromPackage (GetSentFromPackageRequest) returns (GetSentFromPackageResponse);
-  rpc GetSentFromUid (GetSentFromUidRequest) returns (GetSentFromUidResponse);
-  rpc GoAsync (GoAsyncRequest) returns (GoAsyncResponse);
-  rpc IsInitialStickyBroadcast (IsInitialStickyBroadcastRequest) returns (IsInitialStickyBroadcastResponse);
-  rpc IsOrderedBroadcast (IsOrderedBroadcastRequest) returns (IsOrderedBroadcastResponse);
-  rpc OnReceive (OnReceiveRequest) returns (OnReceiveResponse);
-  rpc PeekService (PeekServiceRequest) returns (PeekServiceResponse);
-  rpc SetDebugUnregister (SetDebugUnregisterRequest) returns (SetDebugUnregisterResponse);
-  rpc SetOrderedHint (SetOrderedHintRequest) returns (SetOrderedHintResponse);
-  rpc SetResult (SetResultRequest) returns (SetResultResponse);
-  rpc SetResultCode (SetResultCodeRequest) returns (SetResultCodeResponse);
-  rpc SetResultData (SetResultDataRequest) returns (SetResultDataResponse);
-  rpc SetResultExtras (SetResultExtrasRequest) returns (SetResultExtrasResponse);
+service RestrictionsManagerService {
+  rpc CreateLocalApprovalIntent (CreateLocalApprovalIntentRequest) returns (CreateLocalApprovalIntentResponse);
+  rpc GetApplicationRestrictions (GetApplicationRestrictionsRequest) returns (GetApplicationRestrictionsResponse);
+  rpc HasRestrictionsProvider (HasRestrictionsProviderRequest) returns (HasRestrictionsProviderResponse);
+  rpc NotifyPermissionResponse (NotifyPermissionResponseRequest) returns (NotifyPermissionResponseResponse);
+  rpc RequestPermission (RequestPermissionRequest) returns (RequestPermissionResponse);
 }

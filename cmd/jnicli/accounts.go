@@ -17,14 +17,14 @@ var accountsAccountManagerCmd = &cobra.Command{
 	Short: "AccountManagerService operations",
 }
 
-var accountsAccountManagerAddAccountExplicitly3Cmd = &cobra.Command{
-	Use:   "add-account-explicitly3",
-	Short: "AddAccountExplicitly3 RPC",
+var accountsAccountManagerAddAccountExplicitlyCmd = &cobra.Command{
+	Use:   "add-account-explicitly",
+	Short: "AddAccountExplicitly RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
 		client := pb.NewAccountManagerServiceClient(grpcConn)
-		req := &pb.AddAccountExplicitly3Request{}
+		req := &pb.AddAccountExplicitlyRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
 		}
@@ -34,35 +34,7 @@ var accountsAccountManagerAddAccountExplicitly3Cmd = &cobra.Command{
 		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
 			req.Arg2 = v
 		}
-		resp, err := client.AddAccountExplicitly3(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var accountsAccountManagerAddAccountExplicitly4_1Cmd = &cobra.Command{
-	Use:   "add-account-explicitly4_1",
-	Short: "AddAccountExplicitly4_1 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAccountManagerServiceClient(grpcConn)
-		req := &pb.AddAccountExplicitly4_1Request{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetString("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg3"); err == nil {
-			req.Arg3 = v
-		}
-		resp, err := client.AddAccountExplicitly4_1(ctx, req)
+		resp, err := client.AddAccountExplicitly(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -486,187 +458,11 @@ var accountsAccountManagerGetCmd = &cobra.Command{
 	},
 }
 
-var accountsAccountManagerNewChooseAccountIntent8Cmd = &cobra.Command{
-	Use:   "new-choose-account-intent8",
-	Short: "NewChooseAccountIntent8 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAccountManagerServiceClient(grpcConn)
-		req := &pb.NewChooseAccountIntent8Request{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		if v, err := cmd.Flags().GetBool("arg3"); err == nil {
-			req.Arg3 = v
-		}
-		if v, err := cmd.Flags().GetString("arg4"); err == nil {
-			req.Arg4 = v
-		}
-		if v, err := cmd.Flags().GetString("arg5"); err == nil {
-			req.Arg5 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg6"); err == nil {
-			req.Arg6 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg7"); err == nil {
-			req.Arg7 = v
-		}
-		resp, err := client.NewChooseAccountIntent8(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var accountsAccountManagerNewChooseAccountIntent7_1Cmd = &cobra.Command{
-	Use:   "new-choose-account-intent7_1",
-	Short: "NewChooseAccountIntent7_1 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAccountManagerServiceClient(grpcConn)
-		req := &pb.NewChooseAccountIntent7_1Request{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		if v, err := cmd.Flags().GetString("arg3"); err == nil {
-			req.Arg3 = v
-		}
-		if v, err := cmd.Flags().GetString("arg4"); err == nil {
-			req.Arg4 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg5"); err == nil {
-			req.Arg5 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg6"); err == nil {
-			req.Arg6 = v
-		}
-		resp, err := client.NewChooseAccountIntent7_1(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var accountsAccountCmd = &cobra.Command{
-	Use:   "account",
-	Short: "AccountService operations",
-}
-
-var accountsAccountDescribeContentsCmd = &cobra.Command{
-	Use:   "describe-contents",
-	Short: "DescribeContents RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAccountServiceClient(grpcConn)
-		req := &pb.DescribeContentsRequest{}
-		resp, err := client.DescribeContents(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var accountsAccountEqualsCmd = &cobra.Command{
-	Use:   "equals",
-	Short: "Equals RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAccountServiceClient(grpcConn)
-		req := &pb.EqualsRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.Equals(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var accountsAccountHashCodeCmd = &cobra.Command{
-	Use:   "hash-code",
-	Short: "HashCode RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAccountServiceClient(grpcConn)
-		req := &pb.HashCodeRequest{}
-		resp, err := client.HashCode(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var accountsAccountToStringCmd = &cobra.Command{
-	Use:   "to-string",
-	Short: "ToString RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAccountServiceClient(grpcConn)
-		req := &pb.ToStringRequest{}
-		resp, err := client.ToString(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var accountsAccountWriteToParcelCmd = &cobra.Command{
-	Use:   "write-to-parcel",
-	Short: "WriteToParcel RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAccountServiceClient(grpcConn)
-		req := &pb.WriteToParcelRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.WriteToParcel(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
 func init() {
-	accountsAccountManagerAddAccountExplicitly3Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	accountsAccountManagerAddAccountExplicitly3Cmd.Flags().String("arg1", "", "arg1 (string)")
-	accountsAccountManagerAddAccountExplicitly3Cmd.Flags().Int64("arg2", 0, "arg2 (int64)")
-	accountsAccountManagerCmd.AddCommand(accountsAccountManagerAddAccountExplicitly3Cmd)
-	accountsAccountManagerAddAccountExplicitly4_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	accountsAccountManagerAddAccountExplicitly4_1Cmd.Flags().String("arg1", "", "arg1 (string)")
-	accountsAccountManagerAddAccountExplicitly4_1Cmd.Flags().Int64("arg2", 0, "arg2 (int64)")
-	accountsAccountManagerAddAccountExplicitly4_1Cmd.Flags().Int64("arg3", 0, "arg3 (int64)")
-	accountsAccountManagerCmd.AddCommand(accountsAccountManagerAddAccountExplicitly4_1Cmd)
+	accountsAccountManagerAddAccountExplicitlyCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	accountsAccountManagerAddAccountExplicitlyCmd.Flags().String("arg1", "", "arg1 (string)")
+	accountsAccountManagerAddAccountExplicitlyCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	accountsAccountManagerCmd.AddCommand(accountsAccountManagerAddAccountExplicitlyCmd)
 	accountsAccountManagerBlockingGetAuthTokenCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	accountsAccountManagerBlockingGetAuthTokenCmd.Flags().String("arg1", "", "arg1 (string)")
 	accountsAccountManagerBlockingGetAuthTokenCmd.Flags().Bool("arg2", false, "arg2 (bool)")
@@ -719,32 +515,6 @@ func init() {
 	accountsAccountManagerCmd.AddCommand(accountsAccountManagerSetUserDataCmd)
 	accountsAccountManagerGetCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	accountsAccountManagerCmd.AddCommand(accountsAccountManagerGetCmd)
-	accountsAccountManagerNewChooseAccountIntent8Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	accountsAccountManagerNewChooseAccountIntent8Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	accountsAccountManagerNewChooseAccountIntent8Cmd.Flags().Int64("arg2", 0, "arg2 (int64)")
-	accountsAccountManagerNewChooseAccountIntent8Cmd.Flags().Bool("arg3", false, "arg3 (bool)")
-	accountsAccountManagerNewChooseAccountIntent8Cmd.Flags().String("arg4", "", "arg4 (string)")
-	accountsAccountManagerNewChooseAccountIntent8Cmd.Flags().String("arg5", "", "arg5 (string)")
-	accountsAccountManagerNewChooseAccountIntent8Cmd.Flags().Int64("arg6", 0, "arg6 (int64)")
-	accountsAccountManagerNewChooseAccountIntent8Cmd.Flags().Int64("arg7", 0, "arg7 (int64)")
-	accountsAccountManagerCmd.AddCommand(accountsAccountManagerNewChooseAccountIntent8Cmd)
-	accountsAccountManagerNewChooseAccountIntent7_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	accountsAccountManagerNewChooseAccountIntent7_1Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	accountsAccountManagerNewChooseAccountIntent7_1Cmd.Flags().Int64("arg2", 0, "arg2 (int64)")
-	accountsAccountManagerNewChooseAccountIntent7_1Cmd.Flags().String("arg3", "", "arg3 (string)")
-	accountsAccountManagerNewChooseAccountIntent7_1Cmd.Flags().String("arg4", "", "arg4 (string)")
-	accountsAccountManagerNewChooseAccountIntent7_1Cmd.Flags().Int64("arg5", 0, "arg5 (int64)")
-	accountsAccountManagerNewChooseAccountIntent7_1Cmd.Flags().Int64("arg6", 0, "arg6 (int64)")
-	accountsAccountManagerCmd.AddCommand(accountsAccountManagerNewChooseAccountIntent7_1Cmd)
 	accountsCmd.AddCommand(accountsAccountManagerCmd)
-	accountsAccountCmd.AddCommand(accountsAccountDescribeContentsCmd)
-	accountsAccountEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	accountsAccountCmd.AddCommand(accountsAccountEqualsCmd)
-	accountsAccountCmd.AddCommand(accountsAccountHashCodeCmd)
-	accountsAccountCmd.AddCommand(accountsAccountToStringCmd)
-	accountsAccountWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	accountsAccountWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	accountsAccountCmd.AddCommand(accountsAccountWriteToParcelCmd)
-	accountsCmd.AddCommand(accountsAccountCmd)
 	rootCmd.AddCommand(accountsCmd)
 }

@@ -5,6 +5,8 @@ import (
 	"path/filepath"
 	"strings"
 	"testing"
+
+	"github.com/AndroidGoLab/jni/tools/pkg/javagen"
 )
 
 func TestRenderProtoToString_MinimalData(t *testing.T) {
@@ -274,27 +276,54 @@ func TestRenderProto_BluetoothIntegration(t *testing.T) {
 	outputDir := t.TempDir()
 	goModule := "github.com/AndroidGoLab/jni"
 
-	if err := Generate(specPath, overlayPath, outputDir, goModule); err != nil {
-		t.Fatalf("Generate: %v", err)
+	spec, err := javagen.LoadSpec(specPath)
+	if err != nil {
+		t.Fatalf("LoadSpec: %v", err)
+	}
+	overlay, err := javagen.LoadOverlay(overlayPath)
+	if err != nil {
+		t.Fatalf("LoadOverlay: %v", err)
+	}
+	merged, err := javagen.Merge(spec, overlay)
+	if err != nil {
+		t.Fatalf("Merge: %v", err)
 	}
 
-	protoPath := filepath.Join(outputDir, "bluetooth", "bluetooth.proto")
-	data, err := os.ReadFile(protoPath)
+	// The bluetooth spec doesn't set obtain on its classes. Set it on
+	// GattCharacteristic so it becomes eligible for service generation.
+	for i := range merged.Classes {
+		if merged.Classes[i].GoType == "GattCharacteristic" {
+			merged.Classes[i].Obtain = "system_service"
+		}
+	}
+
+	data := BuildProtoData(merged, goModule)
+
+	pkgDir := filepath.Join(outputDir, merged.Package)
+	if err := os.MkdirAll(pkgDir, 0o755); err != nil {
+		t.Fatalf("MkdirAll: %v", err)
+	}
+	outputPath := filepath.Join(pkgDir, "bluetooth.proto")
+	if err := renderProto(data, outputPath); err != nil {
+		t.Fatalf("renderProto: %v", err)
+	}
+
+	content, err := os.ReadFile(outputPath)
 	if err != nil {
 		t.Fatalf("read proto: %v", err)
 	}
-	content := string(data)
+	s := string(content)
 
 	// Verify basic bluetooth structure.
-	if !strings.Contains(content, "service GattCharacteristicService {") {
+	if !strings.Contains(s, "service GattCharacteristicService {") {
 		t.Error("missing GattCharacteristicService")
 	}
-	if !strings.Contains(content, "rpc ") {
+	if !strings.Contains(s, "rpc ") {
 		t.Error("no RPCs generated for bluetooth")
 	}
 	// The old hand-curated spec had callbacks; the generated spec from .class
 	// files doesn't include callback interfaces. Verify just basic presence.
-	if !strings.Contains(content, "message ") {
+	if !strings.Contains(s, "message ") {
 		t.Error("missing messages in bluetooth proto")
 	}
 }

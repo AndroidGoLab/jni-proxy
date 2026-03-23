@@ -21,755 +21,6 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
-	AudioDeviceInfoService_Equals_FullMethodName                        = "/audiomanager.AudioDeviceInfoService/Equals"
-	AudioDeviceInfoService_GetAddress_FullMethodName                    = "/audiomanager.AudioDeviceInfoService/GetAddress"
-	AudioDeviceInfoService_GetAudioDescriptors_FullMethodName           = "/audiomanager.AudioDeviceInfoService/GetAudioDescriptors"
-	AudioDeviceInfoService_GetAudioProfiles_FullMethodName              = "/audiomanager.AudioDeviceInfoService/GetAudioProfiles"
-	AudioDeviceInfoService_GetChannelCounts_FullMethodName              = "/audiomanager.AudioDeviceInfoService/GetChannelCounts"
-	AudioDeviceInfoService_GetChannelIndexMasks_FullMethodName          = "/audiomanager.AudioDeviceInfoService/GetChannelIndexMasks"
-	AudioDeviceInfoService_GetChannelMasks_FullMethodName               = "/audiomanager.AudioDeviceInfoService/GetChannelMasks"
-	AudioDeviceInfoService_GetEncapsulationMetadataTypes_FullMethodName = "/audiomanager.AudioDeviceInfoService/GetEncapsulationMetadataTypes"
-	AudioDeviceInfoService_GetEncapsulationModes_FullMethodName         = "/audiomanager.AudioDeviceInfoService/GetEncapsulationModes"
-	AudioDeviceInfoService_GetEncodings_FullMethodName                  = "/audiomanager.AudioDeviceInfoService/GetEncodings"
-	AudioDeviceInfoService_GetId_FullMethodName                         = "/audiomanager.AudioDeviceInfoService/GetId"
-	AudioDeviceInfoService_GetProductName_FullMethodName                = "/audiomanager.AudioDeviceInfoService/GetProductName"
-	AudioDeviceInfoService_GetSampleRates_FullMethodName                = "/audiomanager.AudioDeviceInfoService/GetSampleRates"
-	AudioDeviceInfoService_GetSpeakerLayoutChannelMask_FullMethodName   = "/audiomanager.AudioDeviceInfoService/GetSpeakerLayoutChannelMask"
-	AudioDeviceInfoService_GetType_FullMethodName                       = "/audiomanager.AudioDeviceInfoService/GetType"
-	AudioDeviceInfoService_HashCode_FullMethodName                      = "/audiomanager.AudioDeviceInfoService/HashCode"
-	AudioDeviceInfoService_IsSink_FullMethodName                        = "/audiomanager.AudioDeviceInfoService/IsSink"
-	AudioDeviceInfoService_IsSource_FullMethodName                      = "/audiomanager.AudioDeviceInfoService/IsSource"
-)
-
-// AudioDeviceInfoServiceClient is the client API for AudioDeviceInfoService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type AudioDeviceInfoServiceClient interface {
-	Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
-	GetAddress(ctx context.Context, in *GetAddressRequest, opts ...grpc.CallOption) (*GetAddressResponse, error)
-	GetAudioDescriptors(ctx context.Context, in *GetAudioDescriptorsRequest, opts ...grpc.CallOption) (*GetAudioDescriptorsResponse, error)
-	GetAudioProfiles(ctx context.Context, in *GetAudioProfilesRequest, opts ...grpc.CallOption) (*GetAudioProfilesResponse, error)
-	GetChannelCounts(ctx context.Context, in *GetChannelCountsRequest, opts ...grpc.CallOption) (*GetChannelCountsResponse, error)
-	GetChannelIndexMasks(ctx context.Context, in *GetChannelIndexMasksRequest, opts ...grpc.CallOption) (*GetChannelIndexMasksResponse, error)
-	GetChannelMasks(ctx context.Context, in *GetChannelMasksRequest, opts ...grpc.CallOption) (*GetChannelMasksResponse, error)
-	GetEncapsulationMetadataTypes(ctx context.Context, in *GetEncapsulationMetadataTypesRequest, opts ...grpc.CallOption) (*GetEncapsulationMetadataTypesResponse, error)
-	GetEncapsulationModes(ctx context.Context, in *GetEncapsulationModesRequest, opts ...grpc.CallOption) (*GetEncapsulationModesResponse, error)
-	GetEncodings(ctx context.Context, in *GetEncodingsRequest, opts ...grpc.CallOption) (*GetEncodingsResponse, error)
-	GetId(ctx context.Context, in *GetIdRequest, opts ...grpc.CallOption) (*GetIdResponse, error)
-	GetProductName(ctx context.Context, in *GetProductNameRequest, opts ...grpc.CallOption) (*GetProductNameResponse, error)
-	GetSampleRates(ctx context.Context, in *GetSampleRatesRequest, opts ...grpc.CallOption) (*GetSampleRatesResponse, error)
-	GetSpeakerLayoutChannelMask(ctx context.Context, in *GetSpeakerLayoutChannelMaskRequest, opts ...grpc.CallOption) (*GetSpeakerLayoutChannelMaskResponse, error)
-	GetType(ctx context.Context, in *GetTypeRequest, opts ...grpc.CallOption) (*GetTypeResponse, error)
-	HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
-	IsSink(ctx context.Context, in *IsSinkRequest, opts ...grpc.CallOption) (*IsSinkResponse, error)
-	IsSource(ctx context.Context, in *IsSourceRequest, opts ...grpc.CallOption) (*IsSourceResponse, error)
-}
-
-type audioDeviceInfoServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewAudioDeviceInfoServiceClient(cc grpc.ClientConnInterface) AudioDeviceInfoServiceClient {
-	return &audioDeviceInfoServiceClient{cc}
-}
-
-func (c *audioDeviceInfoServiceClient) Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(EqualsResponse)
-	err := c.cc.Invoke(ctx, AudioDeviceInfoService_Equals_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *audioDeviceInfoServiceClient) GetAddress(ctx context.Context, in *GetAddressRequest, opts ...grpc.CallOption) (*GetAddressResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetAddressResponse)
-	err := c.cc.Invoke(ctx, AudioDeviceInfoService_GetAddress_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *audioDeviceInfoServiceClient) GetAudioDescriptors(ctx context.Context, in *GetAudioDescriptorsRequest, opts ...grpc.CallOption) (*GetAudioDescriptorsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetAudioDescriptorsResponse)
-	err := c.cc.Invoke(ctx, AudioDeviceInfoService_GetAudioDescriptors_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *audioDeviceInfoServiceClient) GetAudioProfiles(ctx context.Context, in *GetAudioProfilesRequest, opts ...grpc.CallOption) (*GetAudioProfilesResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetAudioProfilesResponse)
-	err := c.cc.Invoke(ctx, AudioDeviceInfoService_GetAudioProfiles_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *audioDeviceInfoServiceClient) GetChannelCounts(ctx context.Context, in *GetChannelCountsRequest, opts ...grpc.CallOption) (*GetChannelCountsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetChannelCountsResponse)
-	err := c.cc.Invoke(ctx, AudioDeviceInfoService_GetChannelCounts_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *audioDeviceInfoServiceClient) GetChannelIndexMasks(ctx context.Context, in *GetChannelIndexMasksRequest, opts ...grpc.CallOption) (*GetChannelIndexMasksResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetChannelIndexMasksResponse)
-	err := c.cc.Invoke(ctx, AudioDeviceInfoService_GetChannelIndexMasks_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *audioDeviceInfoServiceClient) GetChannelMasks(ctx context.Context, in *GetChannelMasksRequest, opts ...grpc.CallOption) (*GetChannelMasksResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetChannelMasksResponse)
-	err := c.cc.Invoke(ctx, AudioDeviceInfoService_GetChannelMasks_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *audioDeviceInfoServiceClient) GetEncapsulationMetadataTypes(ctx context.Context, in *GetEncapsulationMetadataTypesRequest, opts ...grpc.CallOption) (*GetEncapsulationMetadataTypesResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetEncapsulationMetadataTypesResponse)
-	err := c.cc.Invoke(ctx, AudioDeviceInfoService_GetEncapsulationMetadataTypes_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *audioDeviceInfoServiceClient) GetEncapsulationModes(ctx context.Context, in *GetEncapsulationModesRequest, opts ...grpc.CallOption) (*GetEncapsulationModesResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetEncapsulationModesResponse)
-	err := c.cc.Invoke(ctx, AudioDeviceInfoService_GetEncapsulationModes_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *audioDeviceInfoServiceClient) GetEncodings(ctx context.Context, in *GetEncodingsRequest, opts ...grpc.CallOption) (*GetEncodingsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetEncodingsResponse)
-	err := c.cc.Invoke(ctx, AudioDeviceInfoService_GetEncodings_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *audioDeviceInfoServiceClient) GetId(ctx context.Context, in *GetIdRequest, opts ...grpc.CallOption) (*GetIdResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetIdResponse)
-	err := c.cc.Invoke(ctx, AudioDeviceInfoService_GetId_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *audioDeviceInfoServiceClient) GetProductName(ctx context.Context, in *GetProductNameRequest, opts ...grpc.CallOption) (*GetProductNameResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetProductNameResponse)
-	err := c.cc.Invoke(ctx, AudioDeviceInfoService_GetProductName_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *audioDeviceInfoServiceClient) GetSampleRates(ctx context.Context, in *GetSampleRatesRequest, opts ...grpc.CallOption) (*GetSampleRatesResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetSampleRatesResponse)
-	err := c.cc.Invoke(ctx, AudioDeviceInfoService_GetSampleRates_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *audioDeviceInfoServiceClient) GetSpeakerLayoutChannelMask(ctx context.Context, in *GetSpeakerLayoutChannelMaskRequest, opts ...grpc.CallOption) (*GetSpeakerLayoutChannelMaskResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetSpeakerLayoutChannelMaskResponse)
-	err := c.cc.Invoke(ctx, AudioDeviceInfoService_GetSpeakerLayoutChannelMask_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *audioDeviceInfoServiceClient) GetType(ctx context.Context, in *GetTypeRequest, opts ...grpc.CallOption) (*GetTypeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetTypeResponse)
-	err := c.cc.Invoke(ctx, AudioDeviceInfoService_GetType_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *audioDeviceInfoServiceClient) HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(HashCodeResponse)
-	err := c.cc.Invoke(ctx, AudioDeviceInfoService_HashCode_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *audioDeviceInfoServiceClient) IsSink(ctx context.Context, in *IsSinkRequest, opts ...grpc.CallOption) (*IsSinkResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(IsSinkResponse)
-	err := c.cc.Invoke(ctx, AudioDeviceInfoService_IsSink_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *audioDeviceInfoServiceClient) IsSource(ctx context.Context, in *IsSourceRequest, opts ...grpc.CallOption) (*IsSourceResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(IsSourceResponse)
-	err := c.cc.Invoke(ctx, AudioDeviceInfoService_IsSource_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// AudioDeviceInfoServiceServer is the server API for AudioDeviceInfoService service.
-// All implementations must embed UnimplementedAudioDeviceInfoServiceServer
-// for forward compatibility.
-type AudioDeviceInfoServiceServer interface {
-	Equals(context.Context, *EqualsRequest) (*EqualsResponse, error)
-	GetAddress(context.Context, *GetAddressRequest) (*GetAddressResponse, error)
-	GetAudioDescriptors(context.Context, *GetAudioDescriptorsRequest) (*GetAudioDescriptorsResponse, error)
-	GetAudioProfiles(context.Context, *GetAudioProfilesRequest) (*GetAudioProfilesResponse, error)
-	GetChannelCounts(context.Context, *GetChannelCountsRequest) (*GetChannelCountsResponse, error)
-	GetChannelIndexMasks(context.Context, *GetChannelIndexMasksRequest) (*GetChannelIndexMasksResponse, error)
-	GetChannelMasks(context.Context, *GetChannelMasksRequest) (*GetChannelMasksResponse, error)
-	GetEncapsulationMetadataTypes(context.Context, *GetEncapsulationMetadataTypesRequest) (*GetEncapsulationMetadataTypesResponse, error)
-	GetEncapsulationModes(context.Context, *GetEncapsulationModesRequest) (*GetEncapsulationModesResponse, error)
-	GetEncodings(context.Context, *GetEncodingsRequest) (*GetEncodingsResponse, error)
-	GetId(context.Context, *GetIdRequest) (*GetIdResponse, error)
-	GetProductName(context.Context, *GetProductNameRequest) (*GetProductNameResponse, error)
-	GetSampleRates(context.Context, *GetSampleRatesRequest) (*GetSampleRatesResponse, error)
-	GetSpeakerLayoutChannelMask(context.Context, *GetSpeakerLayoutChannelMaskRequest) (*GetSpeakerLayoutChannelMaskResponse, error)
-	GetType(context.Context, *GetTypeRequest) (*GetTypeResponse, error)
-	HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error)
-	IsSink(context.Context, *IsSinkRequest) (*IsSinkResponse, error)
-	IsSource(context.Context, *IsSourceRequest) (*IsSourceResponse, error)
-	mustEmbedUnimplementedAudioDeviceInfoServiceServer()
-}
-
-// UnimplementedAudioDeviceInfoServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedAudioDeviceInfoServiceServer struct{}
-
-func (UnimplementedAudioDeviceInfoServiceServer) Equals(context.Context, *EqualsRequest) (*EqualsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Equals not implemented")
-}
-func (UnimplementedAudioDeviceInfoServiceServer) GetAddress(context.Context, *GetAddressRequest) (*GetAddressResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetAddress not implemented")
-}
-func (UnimplementedAudioDeviceInfoServiceServer) GetAudioDescriptors(context.Context, *GetAudioDescriptorsRequest) (*GetAudioDescriptorsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetAudioDescriptors not implemented")
-}
-func (UnimplementedAudioDeviceInfoServiceServer) GetAudioProfiles(context.Context, *GetAudioProfilesRequest) (*GetAudioProfilesResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetAudioProfiles not implemented")
-}
-func (UnimplementedAudioDeviceInfoServiceServer) GetChannelCounts(context.Context, *GetChannelCountsRequest) (*GetChannelCountsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetChannelCounts not implemented")
-}
-func (UnimplementedAudioDeviceInfoServiceServer) GetChannelIndexMasks(context.Context, *GetChannelIndexMasksRequest) (*GetChannelIndexMasksResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetChannelIndexMasks not implemented")
-}
-func (UnimplementedAudioDeviceInfoServiceServer) GetChannelMasks(context.Context, *GetChannelMasksRequest) (*GetChannelMasksResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetChannelMasks not implemented")
-}
-func (UnimplementedAudioDeviceInfoServiceServer) GetEncapsulationMetadataTypes(context.Context, *GetEncapsulationMetadataTypesRequest) (*GetEncapsulationMetadataTypesResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetEncapsulationMetadataTypes not implemented")
-}
-func (UnimplementedAudioDeviceInfoServiceServer) GetEncapsulationModes(context.Context, *GetEncapsulationModesRequest) (*GetEncapsulationModesResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetEncapsulationModes not implemented")
-}
-func (UnimplementedAudioDeviceInfoServiceServer) GetEncodings(context.Context, *GetEncodingsRequest) (*GetEncodingsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetEncodings not implemented")
-}
-func (UnimplementedAudioDeviceInfoServiceServer) GetId(context.Context, *GetIdRequest) (*GetIdResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetId not implemented")
-}
-func (UnimplementedAudioDeviceInfoServiceServer) GetProductName(context.Context, *GetProductNameRequest) (*GetProductNameResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetProductName not implemented")
-}
-func (UnimplementedAudioDeviceInfoServiceServer) GetSampleRates(context.Context, *GetSampleRatesRequest) (*GetSampleRatesResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetSampleRates not implemented")
-}
-func (UnimplementedAudioDeviceInfoServiceServer) GetSpeakerLayoutChannelMask(context.Context, *GetSpeakerLayoutChannelMaskRequest) (*GetSpeakerLayoutChannelMaskResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetSpeakerLayoutChannelMask not implemented")
-}
-func (UnimplementedAudioDeviceInfoServiceServer) GetType(context.Context, *GetTypeRequest) (*GetTypeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetType not implemented")
-}
-func (UnimplementedAudioDeviceInfoServiceServer) HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method HashCode not implemented")
-}
-func (UnimplementedAudioDeviceInfoServiceServer) IsSink(context.Context, *IsSinkRequest) (*IsSinkResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method IsSink not implemented")
-}
-func (UnimplementedAudioDeviceInfoServiceServer) IsSource(context.Context, *IsSourceRequest) (*IsSourceResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method IsSource not implemented")
-}
-func (UnimplementedAudioDeviceInfoServiceServer) mustEmbedUnimplementedAudioDeviceInfoServiceServer() {
-}
-func (UnimplementedAudioDeviceInfoServiceServer) testEmbeddedByValue() {}
-
-// UnsafeAudioDeviceInfoServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to AudioDeviceInfoServiceServer will
-// result in compilation errors.
-type UnsafeAudioDeviceInfoServiceServer interface {
-	mustEmbedUnimplementedAudioDeviceInfoServiceServer()
-}
-
-func RegisterAudioDeviceInfoServiceServer(s grpc.ServiceRegistrar, srv AudioDeviceInfoServiceServer) {
-	// If the following call panics, it indicates UnimplementedAudioDeviceInfoServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&AudioDeviceInfoService_ServiceDesc, srv)
-}
-
-func _AudioDeviceInfoService_Equals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(EqualsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AudioDeviceInfoServiceServer).Equals(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AudioDeviceInfoService_Equals_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AudioDeviceInfoServiceServer).Equals(ctx, req.(*EqualsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _AudioDeviceInfoService_GetAddress_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetAddressRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AudioDeviceInfoServiceServer).GetAddress(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AudioDeviceInfoService_GetAddress_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AudioDeviceInfoServiceServer).GetAddress(ctx, req.(*GetAddressRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _AudioDeviceInfoService_GetAudioDescriptors_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetAudioDescriptorsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AudioDeviceInfoServiceServer).GetAudioDescriptors(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AudioDeviceInfoService_GetAudioDescriptors_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AudioDeviceInfoServiceServer).GetAudioDescriptors(ctx, req.(*GetAudioDescriptorsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _AudioDeviceInfoService_GetAudioProfiles_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetAudioProfilesRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AudioDeviceInfoServiceServer).GetAudioProfiles(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AudioDeviceInfoService_GetAudioProfiles_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AudioDeviceInfoServiceServer).GetAudioProfiles(ctx, req.(*GetAudioProfilesRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _AudioDeviceInfoService_GetChannelCounts_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetChannelCountsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AudioDeviceInfoServiceServer).GetChannelCounts(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AudioDeviceInfoService_GetChannelCounts_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AudioDeviceInfoServiceServer).GetChannelCounts(ctx, req.(*GetChannelCountsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _AudioDeviceInfoService_GetChannelIndexMasks_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetChannelIndexMasksRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AudioDeviceInfoServiceServer).GetChannelIndexMasks(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AudioDeviceInfoService_GetChannelIndexMasks_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AudioDeviceInfoServiceServer).GetChannelIndexMasks(ctx, req.(*GetChannelIndexMasksRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _AudioDeviceInfoService_GetChannelMasks_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetChannelMasksRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AudioDeviceInfoServiceServer).GetChannelMasks(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AudioDeviceInfoService_GetChannelMasks_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AudioDeviceInfoServiceServer).GetChannelMasks(ctx, req.(*GetChannelMasksRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _AudioDeviceInfoService_GetEncapsulationMetadataTypes_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetEncapsulationMetadataTypesRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AudioDeviceInfoServiceServer).GetEncapsulationMetadataTypes(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AudioDeviceInfoService_GetEncapsulationMetadataTypes_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AudioDeviceInfoServiceServer).GetEncapsulationMetadataTypes(ctx, req.(*GetEncapsulationMetadataTypesRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _AudioDeviceInfoService_GetEncapsulationModes_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetEncapsulationModesRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AudioDeviceInfoServiceServer).GetEncapsulationModes(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AudioDeviceInfoService_GetEncapsulationModes_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AudioDeviceInfoServiceServer).GetEncapsulationModes(ctx, req.(*GetEncapsulationModesRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _AudioDeviceInfoService_GetEncodings_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetEncodingsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AudioDeviceInfoServiceServer).GetEncodings(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AudioDeviceInfoService_GetEncodings_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AudioDeviceInfoServiceServer).GetEncodings(ctx, req.(*GetEncodingsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _AudioDeviceInfoService_GetId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetIdRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AudioDeviceInfoServiceServer).GetId(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AudioDeviceInfoService_GetId_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AudioDeviceInfoServiceServer).GetId(ctx, req.(*GetIdRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _AudioDeviceInfoService_GetProductName_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetProductNameRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AudioDeviceInfoServiceServer).GetProductName(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AudioDeviceInfoService_GetProductName_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AudioDeviceInfoServiceServer).GetProductName(ctx, req.(*GetProductNameRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _AudioDeviceInfoService_GetSampleRates_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetSampleRatesRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AudioDeviceInfoServiceServer).GetSampleRates(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AudioDeviceInfoService_GetSampleRates_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AudioDeviceInfoServiceServer).GetSampleRates(ctx, req.(*GetSampleRatesRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _AudioDeviceInfoService_GetSpeakerLayoutChannelMask_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetSpeakerLayoutChannelMaskRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AudioDeviceInfoServiceServer).GetSpeakerLayoutChannelMask(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AudioDeviceInfoService_GetSpeakerLayoutChannelMask_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AudioDeviceInfoServiceServer).GetSpeakerLayoutChannelMask(ctx, req.(*GetSpeakerLayoutChannelMaskRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _AudioDeviceInfoService_GetType_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetTypeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AudioDeviceInfoServiceServer).GetType(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AudioDeviceInfoService_GetType_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AudioDeviceInfoServiceServer).GetType(ctx, req.(*GetTypeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _AudioDeviceInfoService_HashCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(HashCodeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AudioDeviceInfoServiceServer).HashCode(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AudioDeviceInfoService_HashCode_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AudioDeviceInfoServiceServer).HashCode(ctx, req.(*HashCodeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _AudioDeviceInfoService_IsSink_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(IsSinkRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AudioDeviceInfoServiceServer).IsSink(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AudioDeviceInfoService_IsSink_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AudioDeviceInfoServiceServer).IsSink(ctx, req.(*IsSinkRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _AudioDeviceInfoService_IsSource_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(IsSourceRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AudioDeviceInfoServiceServer).IsSource(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AudioDeviceInfoService_IsSource_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AudioDeviceInfoServiceServer).IsSource(ctx, req.(*IsSourceRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// AudioDeviceInfoService_ServiceDesc is the grpc.ServiceDesc for AudioDeviceInfoService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var AudioDeviceInfoService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "audiomanager.AudioDeviceInfoService",
-	HandlerType: (*AudioDeviceInfoServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "Equals",
-			Handler:    _AudioDeviceInfoService_Equals_Handler,
-		},
-		{
-			MethodName: "GetAddress",
-			Handler:    _AudioDeviceInfoService_GetAddress_Handler,
-		},
-		{
-			MethodName: "GetAudioDescriptors",
-			Handler:    _AudioDeviceInfoService_GetAudioDescriptors_Handler,
-		},
-		{
-			MethodName: "GetAudioProfiles",
-			Handler:    _AudioDeviceInfoService_GetAudioProfiles_Handler,
-		},
-		{
-			MethodName: "GetChannelCounts",
-			Handler:    _AudioDeviceInfoService_GetChannelCounts_Handler,
-		},
-		{
-			MethodName: "GetChannelIndexMasks",
-			Handler:    _AudioDeviceInfoService_GetChannelIndexMasks_Handler,
-		},
-		{
-			MethodName: "GetChannelMasks",
-			Handler:    _AudioDeviceInfoService_GetChannelMasks_Handler,
-		},
-		{
-			MethodName: "GetEncapsulationMetadataTypes",
-			Handler:    _AudioDeviceInfoService_GetEncapsulationMetadataTypes_Handler,
-		},
-		{
-			MethodName: "GetEncapsulationModes",
-			Handler:    _AudioDeviceInfoService_GetEncapsulationModes_Handler,
-		},
-		{
-			MethodName: "GetEncodings",
-			Handler:    _AudioDeviceInfoService_GetEncodings_Handler,
-		},
-		{
-			MethodName: "GetId",
-			Handler:    _AudioDeviceInfoService_GetId_Handler,
-		},
-		{
-			MethodName: "GetProductName",
-			Handler:    _AudioDeviceInfoService_GetProductName_Handler,
-		},
-		{
-			MethodName: "GetSampleRates",
-			Handler:    _AudioDeviceInfoService_GetSampleRates_Handler,
-		},
-		{
-			MethodName: "GetSpeakerLayoutChannelMask",
-			Handler:    _AudioDeviceInfoService_GetSpeakerLayoutChannelMask_Handler,
-		},
-		{
-			MethodName: "GetType",
-			Handler:    _AudioDeviceInfoService_GetType_Handler,
-		},
-		{
-			MethodName: "HashCode",
-			Handler:    _AudioDeviceInfoService_HashCode_Handler,
-		},
-		{
-			MethodName: "IsSink",
-			Handler:    _AudioDeviceInfoService_IsSink_Handler,
-		},
-		{
-			MethodName: "IsSource",
-			Handler:    _AudioDeviceInfoService_IsSource_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/audiomanager/audiomanager.proto",
-}
-
-const (
 	AudioManagerService_AbandonAudioFocus_FullMethodName                               = "/audiomanager.AudioManagerService/AbandonAudioFocus"
 	AudioManagerService_AbandonAudioFocusRequestOp_FullMethodName                      = "/audiomanager.AudioManagerService/AbandonAudioFocusRequestOp"
 	AudioManagerService_AddOnCommunicationDeviceChangedListener_FullMethodName         = "/audiomanager.AudioManagerService/AddOnCommunicationDeviceChangedListener"
@@ -783,17 +34,11 @@ const (
 	AudioManagerService_ClearPreferredMixerAttributes_FullMethodName                   = "/audiomanager.AudioManagerService/ClearPreferredMixerAttributes"
 	AudioManagerService_DispatchMediaKeyEvent_FullMethodName                           = "/audiomanager.AudioManagerService/DispatchMediaKeyEvent"
 	AudioManagerService_GenerateAudioSessionId_FullMethodName                          = "/audiomanager.AudioManagerService/GenerateAudioSessionId"
-	AudioManagerService_GetActivePlaybackConfigurations_FullMethodName                 = "/audiomanager.AudioManagerService/GetActivePlaybackConfigurations"
-	AudioManagerService_GetActiveRecordingConfigurations_FullMethodName                = "/audiomanager.AudioManagerService/GetActiveRecordingConfigurations"
 	AudioManagerService_GetAllowedCapturePolicy_FullMethodName                         = "/audiomanager.AudioManagerService/GetAllowedCapturePolicy"
-	AudioManagerService_GetAudioDevicesForAttributes_FullMethodName                    = "/audiomanager.AudioManagerService/GetAudioDevicesForAttributes"
 	AudioManagerService_GetAudioHwSyncForSession_FullMethodName                        = "/audiomanager.AudioManagerService/GetAudioHwSyncForSession"
-	AudioManagerService_GetAvailableCommunicationDevices_FullMethodName                = "/audiomanager.AudioManagerService/GetAvailableCommunicationDevices"
 	AudioManagerService_GetCommunicationDevice_FullMethodName                          = "/audiomanager.AudioManagerService/GetCommunicationDevice"
 	AudioManagerService_GetDevices_FullMethodName                                      = "/audiomanager.AudioManagerService/GetDevices"
-	AudioManagerService_GetDirectProfilesForAttributes_FullMethodName                  = "/audiomanager.AudioManagerService/GetDirectProfilesForAttributes"
 	AudioManagerService_GetEncodedSurroundMode_FullMethodName                          = "/audiomanager.AudioManagerService/GetEncodedSurroundMode"
-	AudioManagerService_GetMicrophones_FullMethodName                                  = "/audiomanager.AudioManagerService/GetMicrophones"
 	AudioManagerService_GetMode_FullMethodName                                         = "/audiomanager.AudioManagerService/GetMode"
 	AudioManagerService_GetParameters_FullMethodName                                   = "/audiomanager.AudioManagerService/GetParameters"
 	AudioManagerService_GetPreferredMixerAttributes_FullMethodName                     = "/audiomanager.AudioManagerService/GetPreferredMixerAttributes"
@@ -805,8 +50,6 @@ const (
 	AudioManagerService_GetStreamMinVolume_FullMethodName                              = "/audiomanager.AudioManagerService/GetStreamMinVolume"
 	AudioManagerService_GetStreamVolume_FullMethodName                                 = "/audiomanager.AudioManagerService/GetStreamVolume"
 	AudioManagerService_GetStreamVolumeDb_FullMethodName                               = "/audiomanager.AudioManagerService/GetStreamVolumeDb"
-	AudioManagerService_GetSupportedDeviceTypes_FullMethodName                         = "/audiomanager.AudioManagerService/GetSupportedDeviceTypes"
-	AudioManagerService_GetSupportedMixerAttributes_FullMethodName                     = "/audiomanager.AudioManagerService/GetSupportedMixerAttributes"
 	AudioManagerService_GetVibrateSetting_FullMethodName                               = "/audiomanager.AudioManagerService/GetVibrateSetting"
 	AudioManagerService_GetVolumeGroupIdForAttributes_FullMethodName                   = "/audiomanager.AudioManagerService/GetVolumeGroupIdForAttributes"
 	AudioManagerService_IsBluetoothA2DpOn_FullMethodName                               = "/audiomanager.AudioManagerService/IsBluetoothA2dpOn"
@@ -886,17 +129,11 @@ type AudioManagerServiceClient interface {
 	ClearPreferredMixerAttributes(ctx context.Context, in *ClearPreferredMixerAttributesRequest, opts ...grpc.CallOption) (*ClearPreferredMixerAttributesResponse, error)
 	DispatchMediaKeyEvent(ctx context.Context, in *DispatchMediaKeyEventRequest, opts ...grpc.CallOption) (*DispatchMediaKeyEventResponse, error)
 	GenerateAudioSessionId(ctx context.Context, in *GenerateAudioSessionIdRequest, opts ...grpc.CallOption) (*GenerateAudioSessionIdResponse, error)
-	GetActivePlaybackConfigurations(ctx context.Context, in *GetActivePlaybackConfigurationsRequest, opts ...grpc.CallOption) (*GetActivePlaybackConfigurationsResponse, error)
-	GetActiveRecordingConfigurations(ctx context.Context, in *GetActiveRecordingConfigurationsRequest, opts ...grpc.CallOption) (*GetActiveRecordingConfigurationsResponse, error)
 	GetAllowedCapturePolicy(ctx context.Context, in *GetAllowedCapturePolicyRequest, opts ...grpc.CallOption) (*GetAllowedCapturePolicyResponse, error)
-	GetAudioDevicesForAttributes(ctx context.Context, in *GetAudioDevicesForAttributesRequest, opts ...grpc.CallOption) (*GetAudioDevicesForAttributesResponse, error)
 	GetAudioHwSyncForSession(ctx context.Context, in *GetAudioHwSyncForSessionRequest, opts ...grpc.CallOption) (*GetAudioHwSyncForSessionResponse, error)
-	GetAvailableCommunicationDevices(ctx context.Context, in *GetAvailableCommunicationDevicesRequest, opts ...grpc.CallOption) (*GetAvailableCommunicationDevicesResponse, error)
 	GetCommunicationDevice(ctx context.Context, in *GetCommunicationDeviceRequest, opts ...grpc.CallOption) (*GetCommunicationDeviceResponse, error)
 	GetDevices(ctx context.Context, in *GetDevicesRequest, opts ...grpc.CallOption) (*GetDevicesResponse, error)
-	GetDirectProfilesForAttributes(ctx context.Context, in *GetDirectProfilesForAttributesRequest, opts ...grpc.CallOption) (*GetDirectProfilesForAttributesResponse, error)
 	GetEncodedSurroundMode(ctx context.Context, in *GetEncodedSurroundModeRequest, opts ...grpc.CallOption) (*GetEncodedSurroundModeResponse, error)
-	GetMicrophones(ctx context.Context, in *GetMicrophonesRequest, opts ...grpc.CallOption) (*GetMicrophonesResponse, error)
 	GetMode(ctx context.Context, in *GetModeRequest, opts ...grpc.CallOption) (*GetModeResponse, error)
 	GetParameters(ctx context.Context, in *GetParametersRequest, opts ...grpc.CallOption) (*GetParametersResponse, error)
 	GetPreferredMixerAttributes(ctx context.Context, in *GetPreferredMixerAttributesRequest, opts ...grpc.CallOption) (*GetPreferredMixerAttributesResponse, error)
@@ -908,8 +145,6 @@ type AudioManagerServiceClient interface {
 	GetStreamMinVolume(ctx context.Context, in *GetStreamMinVolumeRequest, opts ...grpc.CallOption) (*GetStreamMinVolumeResponse, error)
 	GetStreamVolume(ctx context.Context, in *GetStreamVolumeRequest, opts ...grpc.CallOption) (*GetStreamVolumeResponse, error)
 	GetStreamVolumeDb(ctx context.Context, in *GetStreamVolumeDbRequest, opts ...grpc.CallOption) (*GetStreamVolumeDbResponse, error)
-	GetSupportedDeviceTypes(ctx context.Context, in *GetSupportedDeviceTypesRequest, opts ...grpc.CallOption) (*GetSupportedDeviceTypesResponse, error)
-	GetSupportedMixerAttributes(ctx context.Context, in *GetSupportedMixerAttributesRequest, opts ...grpc.CallOption) (*GetSupportedMixerAttributesResponse, error)
 	GetVibrateSetting(ctx context.Context, in *GetVibrateSettingRequest, opts ...grpc.CallOption) (*GetVibrateSettingResponse, error)
 	GetVolumeGroupIdForAttributes(ctx context.Context, in *GetVolumeGroupIdForAttributesRequest, opts ...grpc.CallOption) (*GetVolumeGroupIdForAttributesResponse, error)
 	IsBluetoothA2DpOn(ctx context.Context, in *IsBluetoothA2DpOnRequest, opts ...grpc.CallOption) (*IsBluetoothA2DpOnResponse, error)
@@ -1110,26 +345,6 @@ func (c *audioManagerServiceClient) GenerateAudioSessionId(ctx context.Context, 
 	return out, nil
 }
 
-func (c *audioManagerServiceClient) GetActivePlaybackConfigurations(ctx context.Context, in *GetActivePlaybackConfigurationsRequest, opts ...grpc.CallOption) (*GetActivePlaybackConfigurationsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetActivePlaybackConfigurationsResponse)
-	err := c.cc.Invoke(ctx, AudioManagerService_GetActivePlaybackConfigurations_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *audioManagerServiceClient) GetActiveRecordingConfigurations(ctx context.Context, in *GetActiveRecordingConfigurationsRequest, opts ...grpc.CallOption) (*GetActiveRecordingConfigurationsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetActiveRecordingConfigurationsResponse)
-	err := c.cc.Invoke(ctx, AudioManagerService_GetActiveRecordingConfigurations_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
 func (c *audioManagerServiceClient) GetAllowedCapturePolicy(ctx context.Context, in *GetAllowedCapturePolicyRequest, opts ...grpc.CallOption) (*GetAllowedCapturePolicyResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(GetAllowedCapturePolicyResponse)
@@ -1140,30 +355,10 @@ func (c *audioManagerServiceClient) GetAllowedCapturePolicy(ctx context.Context,
 	return out, nil
 }
 
-func (c *audioManagerServiceClient) GetAudioDevicesForAttributes(ctx context.Context, in *GetAudioDevicesForAttributesRequest, opts ...grpc.CallOption) (*GetAudioDevicesForAttributesResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetAudioDevicesForAttributesResponse)
-	err := c.cc.Invoke(ctx, AudioManagerService_GetAudioDevicesForAttributes_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
 func (c *audioManagerServiceClient) GetAudioHwSyncForSession(ctx context.Context, in *GetAudioHwSyncForSessionRequest, opts ...grpc.CallOption) (*GetAudioHwSyncForSessionResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(GetAudioHwSyncForSessionResponse)
 	err := c.cc.Invoke(ctx, AudioManagerService_GetAudioHwSyncForSession_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *audioManagerServiceClient) GetAvailableCommunicationDevices(ctx context.Context, in *GetAvailableCommunicationDevicesRequest, opts ...grpc.CallOption) (*GetAvailableCommunicationDevicesResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetAvailableCommunicationDevicesResponse)
-	err := c.cc.Invoke(ctx, AudioManagerService_GetAvailableCommunicationDevices_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
@@ -1190,30 +385,10 @@ func (c *audioManagerServiceClient) GetDevices(ctx context.Context, in *GetDevic
 	return out, nil
 }
 
-func (c *audioManagerServiceClient) GetDirectProfilesForAttributes(ctx context.Context, in *GetDirectProfilesForAttributesRequest, opts ...grpc.CallOption) (*GetDirectProfilesForAttributesResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetDirectProfilesForAttributesResponse)
-	err := c.cc.Invoke(ctx, AudioManagerService_GetDirectProfilesForAttributes_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
 func (c *audioManagerServiceClient) GetEncodedSurroundMode(ctx context.Context, in *GetEncodedSurroundModeRequest, opts ...grpc.CallOption) (*GetEncodedSurroundModeResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(GetEncodedSurroundModeResponse)
 	err := c.cc.Invoke(ctx, AudioManagerService_GetEncodedSurroundMode_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *audioManagerServiceClient) GetMicrophones(ctx context.Context, in *GetMicrophonesRequest, opts ...grpc.CallOption) (*GetMicrophonesResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetMicrophonesResponse)
-	err := c.cc.Invoke(ctx, AudioManagerService_GetMicrophones_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
@@ -1324,26 +499,6 @@ func (c *audioManagerServiceClient) GetStreamVolumeDb(ctx context.Context, in *G
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(GetStreamVolumeDbResponse)
 	err := c.cc.Invoke(ctx, AudioManagerService_GetStreamVolumeDb_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *audioManagerServiceClient) GetSupportedDeviceTypes(ctx context.Context, in *GetSupportedDeviceTypesRequest, opts ...grpc.CallOption) (*GetSupportedDeviceTypesResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetSupportedDeviceTypesResponse)
-	err := c.cc.Invoke(ctx, AudioManagerService_GetSupportedDeviceTypes_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *audioManagerServiceClient) GetSupportedMixerAttributes(ctx context.Context, in *GetSupportedMixerAttributesRequest, opts ...grpc.CallOption) (*GetSupportedMixerAttributesResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetSupportedMixerAttributesResponse)
-	err := c.cc.Invoke(ctx, AudioManagerService_GetSupportedMixerAttributes_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
@@ -1967,17 +1122,11 @@ type AudioManagerServiceServer interface {
 	ClearPreferredMixerAttributes(context.Context, *ClearPreferredMixerAttributesRequest) (*ClearPreferredMixerAttributesResponse, error)
 	DispatchMediaKeyEvent(context.Context, *DispatchMediaKeyEventRequest) (*DispatchMediaKeyEventResponse, error)
 	GenerateAudioSessionId(context.Context, *GenerateAudioSessionIdRequest) (*GenerateAudioSessionIdResponse, error)
-	GetActivePlaybackConfigurations(context.Context, *GetActivePlaybackConfigurationsRequest) (*GetActivePlaybackConfigurationsResponse, error)
-	GetActiveRecordingConfigurations(context.Context, *GetActiveRecordingConfigurationsRequest) (*GetActiveRecordingConfigurationsResponse, error)
 	GetAllowedCapturePolicy(context.Context, *GetAllowedCapturePolicyRequest) (*GetAllowedCapturePolicyResponse, error)
-	GetAudioDevicesForAttributes(context.Context, *GetAudioDevicesForAttributesRequest) (*GetAudioDevicesForAttributesResponse, error)
 	GetAudioHwSyncForSession(context.Context, *GetAudioHwSyncForSessionRequest) (*GetAudioHwSyncForSessionResponse, error)
-	GetAvailableCommunicationDevices(context.Context, *GetAvailableCommunicationDevicesRequest) (*GetAvailableCommunicationDevicesResponse, error)
 	GetCommunicationDevice(context.Context, *GetCommunicationDeviceRequest) (*GetCommunicationDeviceResponse, error)
 	GetDevices(context.Context, *GetDevicesRequest) (*GetDevicesResponse, error)
-	GetDirectProfilesForAttributes(context.Context, *GetDirectProfilesForAttributesRequest) (*GetDirectProfilesForAttributesResponse, error)
 	GetEncodedSurroundMode(context.Context, *GetEncodedSurroundModeRequest) (*GetEncodedSurroundModeResponse, error)
-	GetMicrophones(context.Context, *GetMicrophonesRequest) (*GetMicrophonesResponse, error)
 	GetMode(context.Context, *GetModeRequest) (*GetModeResponse, error)
 	GetParameters(context.Context, *GetParametersRequest) (*GetParametersResponse, error)
 	GetPreferredMixerAttributes(context.Context, *GetPreferredMixerAttributesRequest) (*GetPreferredMixerAttributesResponse, error)
@@ -1989,8 +1138,6 @@ type AudioManagerServiceServer interface {
 	GetStreamMinVolume(context.Context, *GetStreamMinVolumeRequest) (*GetStreamMinVolumeResponse, error)
 	GetStreamVolume(context.Context, *GetStreamVolumeRequest) (*GetStreamVolumeResponse, error)
 	GetStreamVolumeDb(context.Context, *GetStreamVolumeDbRequest) (*GetStreamVolumeDbResponse, error)
-	GetSupportedDeviceTypes(context.Context, *GetSupportedDeviceTypesRequest) (*GetSupportedDeviceTypesResponse, error)
-	GetSupportedMixerAttributes(context.Context, *GetSupportedMixerAttributesRequest) (*GetSupportedMixerAttributesResponse, error)
 	GetVibrateSetting(context.Context, *GetVibrateSettingRequest) (*GetVibrateSettingResponse, error)
 	GetVolumeGroupIdForAttributes(context.Context, *GetVolumeGroupIdForAttributesRequest) (*GetVolumeGroupIdForAttributesResponse, error)
 	IsBluetoothA2DpOn(context.Context, *IsBluetoothA2DpOnRequest) (*IsBluetoothA2DpOnResponse, error)
@@ -2100,23 +1247,11 @@ func (UnimplementedAudioManagerServiceServer) DispatchMediaKeyEvent(context.Cont
 func (UnimplementedAudioManagerServiceServer) GenerateAudioSessionId(context.Context, *GenerateAudioSessionIdRequest) (*GenerateAudioSessionIdResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GenerateAudioSessionId not implemented")
 }
-func (UnimplementedAudioManagerServiceServer) GetActivePlaybackConfigurations(context.Context, *GetActivePlaybackConfigurationsRequest) (*GetActivePlaybackConfigurationsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetActivePlaybackConfigurations not implemented")
-}
-func (UnimplementedAudioManagerServiceServer) GetActiveRecordingConfigurations(context.Context, *GetActiveRecordingConfigurationsRequest) (*GetActiveRecordingConfigurationsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetActiveRecordingConfigurations not implemented")
-}
 func (UnimplementedAudioManagerServiceServer) GetAllowedCapturePolicy(context.Context, *GetAllowedCapturePolicyRequest) (*GetAllowedCapturePolicyResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetAllowedCapturePolicy not implemented")
 }
-func (UnimplementedAudioManagerServiceServer) GetAudioDevicesForAttributes(context.Context, *GetAudioDevicesForAttributesRequest) (*GetAudioDevicesForAttributesResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetAudioDevicesForAttributes not implemented")
-}
 func (UnimplementedAudioManagerServiceServer) GetAudioHwSyncForSession(context.Context, *GetAudioHwSyncForSessionRequest) (*GetAudioHwSyncForSessionResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetAudioHwSyncForSession not implemented")
-}
-func (UnimplementedAudioManagerServiceServer) GetAvailableCommunicationDevices(context.Context, *GetAvailableCommunicationDevicesRequest) (*GetAvailableCommunicationDevicesResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetAvailableCommunicationDevices not implemented")
 }
 func (UnimplementedAudioManagerServiceServer) GetCommunicationDevice(context.Context, *GetCommunicationDeviceRequest) (*GetCommunicationDeviceResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetCommunicationDevice not implemented")
@@ -2124,14 +1259,8 @@ func (UnimplementedAudioManagerServiceServer) GetCommunicationDevice(context.Con
 func (UnimplementedAudioManagerServiceServer) GetDevices(context.Context, *GetDevicesRequest) (*GetDevicesResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetDevices not implemented")
 }
-func (UnimplementedAudioManagerServiceServer) GetDirectProfilesForAttributes(context.Context, *GetDirectProfilesForAttributesRequest) (*GetDirectProfilesForAttributesResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetDirectProfilesForAttributes not implemented")
-}
 func (UnimplementedAudioManagerServiceServer) GetEncodedSurroundMode(context.Context, *GetEncodedSurroundModeRequest) (*GetEncodedSurroundModeResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetEncodedSurroundMode not implemented")
-}
-func (UnimplementedAudioManagerServiceServer) GetMicrophones(context.Context, *GetMicrophonesRequest) (*GetMicrophonesResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetMicrophones not implemented")
 }
 func (UnimplementedAudioManagerServiceServer) GetMode(context.Context, *GetModeRequest) (*GetModeResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetMode not implemented")
@@ -2165,12 +1294,6 @@ func (UnimplementedAudioManagerServiceServer) GetStreamVolume(context.Context, *
 }
 func (UnimplementedAudioManagerServiceServer) GetStreamVolumeDb(context.Context, *GetStreamVolumeDbRequest) (*GetStreamVolumeDbResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetStreamVolumeDb not implemented")
-}
-func (UnimplementedAudioManagerServiceServer) GetSupportedDeviceTypes(context.Context, *GetSupportedDeviceTypesRequest) (*GetSupportedDeviceTypesResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetSupportedDeviceTypes not implemented")
-}
-func (UnimplementedAudioManagerServiceServer) GetSupportedMixerAttributes(context.Context, *GetSupportedMixerAttributesRequest) (*GetSupportedMixerAttributesResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetSupportedMixerAttributes not implemented")
 }
 func (UnimplementedAudioManagerServiceServer) GetVibrateSetting(context.Context, *GetVibrateSettingRequest) (*GetVibrateSettingResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetVibrateSetting not implemented")
@@ -2607,42 +1730,6 @@ func _AudioManagerService_GenerateAudioSessionId_Handler(srv interface{}, ctx co
 	return interceptor(ctx, in, info, handler)
 }
 
-func _AudioManagerService_GetActivePlaybackConfigurations_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetActivePlaybackConfigurationsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AudioManagerServiceServer).GetActivePlaybackConfigurations(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AudioManagerService_GetActivePlaybackConfigurations_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AudioManagerServiceServer).GetActivePlaybackConfigurations(ctx, req.(*GetActivePlaybackConfigurationsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _AudioManagerService_GetActiveRecordingConfigurations_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetActiveRecordingConfigurationsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AudioManagerServiceServer).GetActiveRecordingConfigurations(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AudioManagerService_GetActiveRecordingConfigurations_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AudioManagerServiceServer).GetActiveRecordingConfigurations(ctx, req.(*GetActiveRecordingConfigurationsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
 func _AudioManagerService_GetAllowedCapturePolicy_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(GetAllowedCapturePolicyRequest)
 	if err := dec(in); err != nil {
@@ -2661,24 +1748,6 @@ func _AudioManagerService_GetAllowedCapturePolicy_Handler(srv interface{}, ctx c
 	return interceptor(ctx, in, info, handler)
 }
 
-func _AudioManagerService_GetAudioDevicesForAttributes_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetAudioDevicesForAttributesRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AudioManagerServiceServer).GetAudioDevicesForAttributes(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AudioManagerService_GetAudioDevicesForAttributes_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AudioManagerServiceServer).GetAudioDevicesForAttributes(ctx, req.(*GetAudioDevicesForAttributesRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
 func _AudioManagerService_GetAudioHwSyncForSession_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(GetAudioHwSyncForSessionRequest)
 	if err := dec(in); err != nil {
@@ -2693,24 +1762,6 @@ func _AudioManagerService_GetAudioHwSyncForSession_Handler(srv interface{}, ctx 
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(AudioManagerServiceServer).GetAudioHwSyncForSession(ctx, req.(*GetAudioHwSyncForSessionRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _AudioManagerService_GetAvailableCommunicationDevices_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetAvailableCommunicationDevicesRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AudioManagerServiceServer).GetAvailableCommunicationDevices(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AudioManagerService_GetAvailableCommunicationDevices_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AudioManagerServiceServer).GetAvailableCommunicationDevices(ctx, req.(*GetAvailableCommunicationDevicesRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -2751,24 +1802,6 @@ func _AudioManagerService_GetDevices_Handler(srv interface{}, ctx context.Contex
 	return interceptor(ctx, in, info, handler)
 }
 
-func _AudioManagerService_GetDirectProfilesForAttributes_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetDirectProfilesForAttributesRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AudioManagerServiceServer).GetDirectProfilesForAttributes(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AudioManagerService_GetDirectProfilesForAttributes_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AudioManagerServiceServer).GetDirectProfilesForAttributes(ctx, req.(*GetDirectProfilesForAttributesRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
 func _AudioManagerService_GetEncodedSurroundMode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(GetEncodedSurroundModeRequest)
 	if err := dec(in); err != nil {
@@ -2783,24 +1816,6 @@ func _AudioManagerService_GetEncodedSurroundMode_Handler(srv interface{}, ctx co
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(AudioManagerServiceServer).GetEncodedSurroundMode(ctx, req.(*GetEncodedSurroundModeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _AudioManagerService_GetMicrophones_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetMicrophonesRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AudioManagerServiceServer).GetMicrophones(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AudioManagerService_GetMicrophones_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AudioManagerServiceServer).GetMicrophones(ctx, req.(*GetMicrophonesRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -2999,42 +2014,6 @@ func _AudioManagerService_GetStreamVolumeDb_Handler(srv interface{}, ctx context
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(AudioManagerServiceServer).GetStreamVolumeDb(ctx, req.(*GetStreamVolumeDbRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _AudioManagerService_GetSupportedDeviceTypes_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetSupportedDeviceTypesRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AudioManagerServiceServer).GetSupportedDeviceTypes(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AudioManagerService_GetSupportedDeviceTypes_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AudioManagerServiceServer).GetSupportedDeviceTypes(ctx, req.(*GetSupportedDeviceTypesRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _AudioManagerService_GetSupportedMixerAttributes_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetSupportedMixerAttributesRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AudioManagerServiceServer).GetSupportedMixerAttributes(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AudioManagerService_GetSupportedMixerAttributes_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AudioManagerServiceServer).GetSupportedMixerAttributes(ctx, req.(*GetSupportedMixerAttributesRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -4179,28 +3158,12 @@ var AudioManagerService_ServiceDesc = grpc.ServiceDesc{
 			Handler:    _AudioManagerService_GenerateAudioSessionId_Handler,
 		},
 		{
-			MethodName: "GetActivePlaybackConfigurations",
-			Handler:    _AudioManagerService_GetActivePlaybackConfigurations_Handler,
-		},
-		{
-			MethodName: "GetActiveRecordingConfigurations",
-			Handler:    _AudioManagerService_GetActiveRecordingConfigurations_Handler,
-		},
-		{
 			MethodName: "GetAllowedCapturePolicy",
 			Handler:    _AudioManagerService_GetAllowedCapturePolicy_Handler,
 		},
 		{
-			MethodName: "GetAudioDevicesForAttributes",
-			Handler:    _AudioManagerService_GetAudioDevicesForAttributes_Handler,
-		},
-		{
 			MethodName: "GetAudioHwSyncForSession",
 			Handler:    _AudioManagerService_GetAudioHwSyncForSession_Handler,
-		},
-		{
-			MethodName: "GetAvailableCommunicationDevices",
-			Handler:    _AudioManagerService_GetAvailableCommunicationDevices_Handler,
 		},
 		{
 			MethodName: "GetCommunicationDevice",
@@ -4211,16 +3174,8 @@ var AudioManagerService_ServiceDesc = grpc.ServiceDesc{
 			Handler:    _AudioManagerService_GetDevices_Handler,
 		},
 		{
-			MethodName: "GetDirectProfilesForAttributes",
-			Handler:    _AudioManagerService_GetDirectProfilesForAttributes_Handler,
-		},
-		{
 			MethodName: "GetEncodedSurroundMode",
 			Handler:    _AudioManagerService_GetEncodedSurroundMode_Handler,
-		},
-		{
-			MethodName: "GetMicrophones",
-			Handler:    _AudioManagerService_GetMicrophones_Handler,
 		},
 		{
 			MethodName: "GetMode",
@@ -4265,14 +3220,6 @@ var AudioManagerService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "GetStreamVolumeDb",
 			Handler:    _AudioManagerService_GetStreamVolumeDb_Handler,
-		},
-		{
-			MethodName: "GetSupportedDeviceTypes",
-			Handler:    _AudioManagerService_GetSupportedDeviceTypes_Handler,
-		},
-		{
-			MethodName: "GetSupportedMixerAttributes",
-			Handler:    _AudioManagerService_GetSupportedMixerAttributes_Handler,
 		},
 		{
 			MethodName: "GetVibrateSetting",

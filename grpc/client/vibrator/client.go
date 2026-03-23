@@ -9,20 +9,20 @@ import (
 	"google.golang.org/grpc"
 )
 
-// Client wraps the gRPC VibratorService client.
-type Client struct {
+// VibratorClient wraps the gRPC VibratorService client.
+type VibratorClient struct {
 	svc pb.VibratorServiceClient
 }
 
-// NewClient creates a new vibrator client.
-func NewClient(cc grpc.ClientConnInterface) *Client {
-	return &Client{
+// NewVibratorClient creates a new Vibrator client.
+func NewVibratorClient(cc grpc.ClientConnInterface) *VibratorClient {
+	return &VibratorClient{
 		svc: pb.NewVibratorServiceClient(cc),
 	}
 }
 
 // AreAllEffectsSupported calls the AreAllEffectsSupported RPC.
-func (c *Client) AreAllEffectsSupported(ctx context.Context, arg0 int64) (int32, error) {
+func (c *VibratorClient) AreAllEffectsSupported(ctx context.Context, arg0 int64) (int32, error) {
 	resp, err := c.svc.AreAllEffectsSupported(ctx, &pb.AreAllEffectsSupportedRequest{
 		Arg0: arg0,
 	})
@@ -33,7 +33,7 @@ func (c *Client) AreAllEffectsSupported(ctx context.Context, arg0 int64) (int32,
 }
 
 // AreAllPrimitivesSupported calls the AreAllPrimitivesSupported RPC.
-func (c *Client) AreAllPrimitivesSupported(ctx context.Context, arg0 int64) (bool, error) {
+func (c *VibratorClient) AreAllPrimitivesSupported(ctx context.Context, arg0 int64) (bool, error) {
 	resp, err := c.svc.AreAllPrimitivesSupported(ctx, &pb.AreAllPrimitivesSupportedRequest{
 		Arg0: arg0,
 	})
@@ -44,7 +44,7 @@ func (c *Client) AreAllPrimitivesSupported(ctx context.Context, arg0 int64) (boo
 }
 
 // AreEffectsSupported calls the AreEffectsSupported RPC.
-func (c *Client) AreEffectsSupported(ctx context.Context, arg0 int64) (int64, error) {
+func (c *VibratorClient) AreEffectsSupported(ctx context.Context, arg0 int64) (int64, error) {
 	resp, err := c.svc.AreEffectsSupported(ctx, &pb.AreEffectsSupportedRequest{
 		Arg0: arg0,
 	})
@@ -55,7 +55,7 @@ func (c *Client) AreEffectsSupported(ctx context.Context, arg0 int64) (int64, er
 }
 
 // AreEnvelopeEffectsSupported calls the AreEnvelopeEffectsSupported RPC.
-func (c *Client) AreEnvelopeEffectsSupported(ctx context.Context) (bool, error) {
+func (c *VibratorClient) AreEnvelopeEffectsSupported(ctx context.Context) (bool, error) {
 	resp, err := c.svc.AreEnvelopeEffectsSupported(ctx, &pb.AreEnvelopeEffectsSupportedRequest{})
 	if err != nil {
 		return false, err
@@ -64,7 +64,7 @@ func (c *Client) AreEnvelopeEffectsSupported(ctx context.Context) (bool, error) 
 }
 
 // ArePrimitivesSupported calls the ArePrimitivesSupported RPC.
-func (c *Client) ArePrimitivesSupported(ctx context.Context, arg0 int64) (int64, error) {
+func (c *VibratorClient) ArePrimitivesSupported(ctx context.Context, arg0 int64) (int64, error) {
 	resp, err := c.svc.ArePrimitivesSupported(ctx, &pb.ArePrimitivesSupportedRequest{
 		Arg0: arg0,
 	})
@@ -75,13 +75,13 @@ func (c *Client) ArePrimitivesSupported(ctx context.Context, arg0 int64) (int64,
 }
 
 // Cancel calls the Cancel RPC.
-func (c *Client) Cancel(ctx context.Context) error {
+func (c *VibratorClient) Cancel(ctx context.Context) error {
 	_, err := c.svc.Cancel(ctx, &pb.CancelRequest{})
 	return err
 }
 
 // GetEnvelopeEffectInfo calls the GetEnvelopeEffectInfo RPC.
-func (c *Client) GetEnvelopeEffectInfo(ctx context.Context) (int64, error) {
+func (c *VibratorClient) GetEnvelopeEffectInfo(ctx context.Context) (int64, error) {
 	resp, err := c.svc.GetEnvelopeEffectInfo(ctx, &pb.GetEnvelopeEffectInfoRequest{})
 	if err != nil {
 		return 0, err
@@ -90,7 +90,7 @@ func (c *Client) GetEnvelopeEffectInfo(ctx context.Context) (int64, error) {
 }
 
 // GetFrequencyProfile calls the GetFrequencyProfile RPC.
-func (c *Client) GetFrequencyProfile(ctx context.Context) (int64, error) {
+func (c *VibratorClient) GetFrequencyProfile(ctx context.Context) (int64, error) {
 	resp, err := c.svc.GetFrequencyProfile(ctx, &pb.GetFrequencyProfileRequest{})
 	if err != nil {
 		return 0, err
@@ -99,7 +99,7 @@ func (c *Client) GetFrequencyProfile(ctx context.Context) (int64, error) {
 }
 
 // GetId calls the GetId RPC.
-func (c *Client) GetId(ctx context.Context) (int32, error) {
+func (c *VibratorClient) GetId(ctx context.Context) (int32, error) {
 	resp, err := c.svc.GetId(ctx, &pb.GetIdRequest{})
 	if err != nil {
 		return 0, err
@@ -108,7 +108,7 @@ func (c *Client) GetId(ctx context.Context) (int32, error) {
 }
 
 // GetPrimitiveDurations calls the GetPrimitiveDurations RPC.
-func (c *Client) GetPrimitiveDurations(ctx context.Context, arg0 int64) (int64, error) {
+func (c *VibratorClient) GetPrimitiveDurations(ctx context.Context, arg0 int64) (int64, error) {
 	resp, err := c.svc.GetPrimitiveDurations(ctx, &pb.GetPrimitiveDurationsRequest{
 		Arg0: arg0,
 	})
@@ -119,7 +119,7 @@ func (c *Client) GetPrimitiveDurations(ctx context.Context, arg0 int64) (int64, 
 }
 
 // GetQFactor calls the GetQFactor RPC.
-func (c *Client) GetQFactor(ctx context.Context) (float32, error) {
+func (c *VibratorClient) GetQFactor(ctx context.Context) (float32, error) {
 	resp, err := c.svc.GetQFactor(ctx, &pb.GetQFactorRequest{})
 	if err != nil {
 		return 0, err
@@ -128,7 +128,7 @@ func (c *Client) GetQFactor(ctx context.Context) (float32, error) {
 }
 
 // GetResonantFrequency calls the GetResonantFrequency RPC.
-func (c *Client) GetResonantFrequency(ctx context.Context) (float32, error) {
+func (c *VibratorClient) GetResonantFrequency(ctx context.Context) (float32, error) {
 	resp, err := c.svc.GetResonantFrequency(ctx, &pb.GetResonantFrequencyRequest{})
 	if err != nil {
 		return 0, err
@@ -137,7 +137,7 @@ func (c *Client) GetResonantFrequency(ctx context.Context) (float32, error) {
 }
 
 // HasAmplitudeControl calls the HasAmplitudeControl RPC.
-func (c *Client) HasAmplitudeControl(ctx context.Context) (bool, error) {
+func (c *VibratorClient) HasAmplitudeControl(ctx context.Context) (bool, error) {
 	resp, err := c.svc.HasAmplitudeControl(ctx, &pb.HasAmplitudeControlRequest{})
 	if err != nil {
 		return false, err
@@ -146,7 +146,7 @@ func (c *Client) HasAmplitudeControl(ctx context.Context) (bool, error) {
 }
 
 // HasVibrator calls the HasVibrator RPC.
-func (c *Client) HasVibrator(ctx context.Context) (bool, error) {
+func (c *VibratorClient) HasVibrator(ctx context.Context) (bool, error) {
 	resp, err := c.svc.HasVibrator(ctx, &pb.HasVibratorRequest{})
 	if err != nil {
 		return false, err
@@ -155,7 +155,7 @@ func (c *Client) HasVibrator(ctx context.Context) (bool, error) {
 }
 
 // Vibrate1 calls the Vibrate1 RPC.
-func (c *Client) Vibrate1(ctx context.Context, arg0 int64) error {
+func (c *VibratorClient) Vibrate1(ctx context.Context, arg0 int64) error {
 	_, err := c.svc.Vibrate1(ctx, &pb.Vibrate1Request{
 		Arg0: arg0,
 	})
@@ -163,7 +163,7 @@ func (c *Client) Vibrate1(ctx context.Context, arg0 int64) error {
 }
 
 // Vibrate2_1 calls the Vibrate2_1 RPC.
-func (c *Client) Vibrate2_1(ctx context.Context, arg0 int64, arg1 int64) error {
+func (c *VibratorClient) Vibrate2_1(ctx context.Context, arg0 int64, arg1 int64) error {
 	_, err := c.svc.Vibrate2_1(ctx, &pb.Vibrate2_1Request{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -172,7 +172,7 @@ func (c *Client) Vibrate2_1(ctx context.Context, arg0 int64, arg1 int64) error {
 }
 
 // Vibrate2_2 calls the Vibrate2_2 RPC.
-func (c *Client) Vibrate2_2(ctx context.Context, arg0 int64, arg1 int64) error {
+func (c *VibratorClient) Vibrate2_2(ctx context.Context, arg0 int64, arg1 int64) error {
 	_, err := c.svc.Vibrate2_2(ctx, &pb.Vibrate2_2Request{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -181,7 +181,7 @@ func (c *Client) Vibrate2_2(ctx context.Context, arg0 int64, arg1 int64) error {
 }
 
 // Vibrate1_3 calls the Vibrate1_3 RPC.
-func (c *Client) Vibrate1_3(ctx context.Context, arg0 int64) error {
+func (c *VibratorClient) Vibrate1_3(ctx context.Context, arg0 int64) error {
 	_, err := c.svc.Vibrate1_3(ctx, &pb.Vibrate1_3Request{
 		Arg0: arg0,
 	})
@@ -189,7 +189,7 @@ func (c *Client) Vibrate1_3(ctx context.Context, arg0 int64) error {
 }
 
 // Vibrate2_4 calls the Vibrate2_4 RPC.
-func (c *Client) Vibrate2_4(ctx context.Context, arg0 int64, arg1 int64) error {
+func (c *VibratorClient) Vibrate2_4(ctx context.Context, arg0 int64, arg1 int64) error {
 	_, err := c.svc.Vibrate2_4(ctx, &pb.Vibrate2_4Request{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -198,7 +198,7 @@ func (c *Client) Vibrate2_4(ctx context.Context, arg0 int64, arg1 int64) error {
 }
 
 // Vibrate2_5 calls the Vibrate2_5 RPC.
-func (c *Client) Vibrate2_5(ctx context.Context, arg0 int64, arg1 int32) error {
+func (c *VibratorClient) Vibrate2_5(ctx context.Context, arg0 int64, arg1 int32) error {
 	_, err := c.svc.Vibrate2_5(ctx, &pb.Vibrate2_5Request{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -207,7 +207,7 @@ func (c *Client) Vibrate2_5(ctx context.Context, arg0 int64, arg1 int32) error {
 }
 
 // Vibrate3_6 calls the Vibrate3_6 RPC.
-func (c *Client) Vibrate3_6(ctx context.Context, arg0 int64, arg1 int32, arg2 int64) error {
+func (c *VibratorClient) Vibrate3_6(ctx context.Context, arg0 int64, arg1 int32, arg2 int64) error {
 	_, err := c.svc.Vibrate3_6(ctx, &pb.Vibrate3_6Request{
 		Arg0: arg0,
 		Arg1: arg1,

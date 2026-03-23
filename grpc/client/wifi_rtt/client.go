@@ -9,20 +9,20 @@ import (
 	"google.golang.org/grpc"
 )
 
-// Client wraps the gRPC WifiRttManagerService client.
-type Client struct {
+// WifiRttManagerClient wraps the gRPC WifiRttManagerService client.
+type WifiRttManagerClient struct {
 	svc pb.WifiRttManagerServiceClient
 }
 
-// NewClient creates a new wifi_rtt client.
-func NewClient(cc grpc.ClientConnInterface) *Client {
-	return &Client{
+// NewWifiRttManagerClient creates a new WifiRttManager client.
+func NewWifiRttManagerClient(cc grpc.ClientConnInterface) *WifiRttManagerClient {
+	return &WifiRttManagerClient{
 		svc: pb.NewWifiRttManagerServiceClient(cc),
 	}
 }
 
 // GetRttCharacteristics calls the GetRttCharacteristics RPC.
-func (c *Client) GetRttCharacteristics(ctx context.Context) (int64, error) {
+func (c *WifiRttManagerClient) GetRttCharacteristics(ctx context.Context) (int64, error) {
 	resp, err := c.svc.GetRttCharacteristics(ctx, &pb.GetRttCharacteristicsRequest{})
 	if err != nil {
 		return 0, err
@@ -31,7 +31,7 @@ func (c *Client) GetRttCharacteristics(ctx context.Context) (int64, error) {
 }
 
 // IsAvailable calls the IsAvailable RPC.
-func (c *Client) IsAvailable(ctx context.Context) (bool, error) {
+func (c *WifiRttManagerClient) IsAvailable(ctx context.Context) (bool, error) {
 	resp, err := c.svc.IsAvailable(ctx, &pb.IsAvailableRequest{})
 	if err != nil {
 		return false, err
@@ -40,7 +40,7 @@ func (c *Client) IsAvailable(ctx context.Context) (bool, error) {
 }
 
 // StartRanging calls the StartRanging RPC.
-func (c *Client) StartRanging(ctx context.Context, arg0 int64, arg1 int64, arg2 int64) error {
+func (c *WifiRttManagerClient) StartRanging(ctx context.Context, arg0 int64, arg1 int64, arg2 int64) error {
 	_, err := c.svc.StartRanging(ctx, &pb.StartRangingRequest{
 		Arg0: arg0,
 		Arg1: arg1,

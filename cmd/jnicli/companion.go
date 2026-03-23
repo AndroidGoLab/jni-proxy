@@ -203,38 +203,6 @@ var companionDeviceManagerEnableSystemDataSyncForTypesCmd = &cobra.Command{
 	},
 }
 
-var companionDeviceManagerGetAssociationsCmd = &cobra.Command{
-	Use:   "get-associations",
-	Short: "GetAssociations RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewDeviceManagerServiceClient(grpcConn)
-		req := &pb.GetAssociationsRequest{}
-		resp, err := client.GetAssociations(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var companionDeviceManagerGetMyAssociationsCmd = &cobra.Command{
-	Use:   "get-my-associations",
-	Short: "GetMyAssociations RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewDeviceManagerServiceClient(grpcConn)
-		req := &pb.GetMyAssociationsRequest{}
-		resp, err := client.GetMyAssociations(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
 var companionDeviceManagerHasNotificationAccessCmd = &cobra.Command{
 	Use:   "has-notification-access",
 	Short: "HasNotificationAccess RPC",
@@ -371,31 +339,6 @@ var companionDeviceManagerStartObservingDevicePresence1_1Cmd = &cobra.Command{
 	},
 }
 
-var companionDeviceManagerStartSystemDataTransferCmd = &cobra.Command{
-	Use:   "start-system-data-transfer",
-	Short: "StartSystemDataTransfer RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewDeviceManagerServiceClient(grpcConn)
-		req := &pb.StartSystemDataTransferRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		resp, err := client.StartSystemDataTransfer(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
 var companionDeviceManagerStopObservingDevicePresence1Cmd = &cobra.Command{
 	Use:   "stop-observing-device-presence1",
 	Short: "StopObservingDevicePresence1 RPC",
@@ -458,8 +401,6 @@ func init() {
 	companionDeviceManagerEnableSystemDataSyncForTypesCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
 	companionDeviceManagerEnableSystemDataSyncForTypesCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
 	companionDeviceManagerCmd.AddCommand(companionDeviceManagerEnableSystemDataSyncForTypesCmd)
-	companionDeviceManagerCmd.AddCommand(companionDeviceManagerGetAssociationsCmd)
-	companionDeviceManagerCmd.AddCommand(companionDeviceManagerGetMyAssociationsCmd)
 	companionDeviceManagerHasNotificationAccessCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	companionDeviceManagerCmd.AddCommand(companionDeviceManagerHasNotificationAccessCmd)
 	companionDeviceManagerIsPermissionTransferUserConsentedCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
@@ -475,10 +416,6 @@ func init() {
 	companionDeviceManagerCmd.AddCommand(companionDeviceManagerStartObservingDevicePresence1Cmd)
 	companionDeviceManagerStartObservingDevicePresence1_1Cmd.Flags().String("arg0", "", "arg0 (string)")
 	companionDeviceManagerCmd.AddCommand(companionDeviceManagerStartObservingDevicePresence1_1Cmd)
-	companionDeviceManagerStartSystemDataTransferCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	companionDeviceManagerStartSystemDataTransferCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	companionDeviceManagerStartSystemDataTransferCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
-	companionDeviceManagerCmd.AddCommand(companionDeviceManagerStartSystemDataTransferCmd)
 	companionDeviceManagerStopObservingDevicePresence1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	companionDeviceManagerCmd.AddCommand(companionDeviceManagerStopObservingDevicePresence1Cmd)
 	companionDeviceManagerStopObservingDevicePresence1_1Cmd.Flags().String("arg0", "", "arg0 (string)")

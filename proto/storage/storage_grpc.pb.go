@@ -21,32 +21,29 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
-	ManagerService_AllocateBytes2_FullMethodName                           = "/storage.ManagerService/AllocateBytes2"
-	ManagerService_AllocateBytes2_1_FullMethodName                         = "/storage.ManagerService/AllocateBytes2_1"
-	ManagerService_GetAllocatableBytes_FullMethodName                      = "/storage.ManagerService/GetAllocatableBytes"
-	ManagerService_GetCacheQuotaBytes_FullMethodName                       = "/storage.ManagerService/GetCacheQuotaBytes"
-	ManagerService_GetCacheSizeBytes_FullMethodName                        = "/storage.ManagerService/GetCacheSizeBytes"
-	ManagerService_GetManageSpaceActivityIntent_FullMethodName             = "/storage.ManagerService/GetManageSpaceActivityIntent"
-	ManagerService_GetMountedObbPath_FullMethodName                        = "/storage.ManagerService/GetMountedObbPath"
-	ManagerService_GetPrimaryStorageVolume_FullMethodName                  = "/storage.ManagerService/GetPrimaryStorageVolume"
-	ManagerService_GetRecentStorageVolumes_FullMethodName                  = "/storage.ManagerService/GetRecentStorageVolumes"
-	ManagerService_GetStorageVolume1_FullMethodName                        = "/storage.ManagerService/GetStorageVolume1"
-	ManagerService_GetStorageVolume1_1_FullMethodName                      = "/storage.ManagerService/GetStorageVolume1_1"
-	ManagerService_GetStorageVolumes_FullMethodName                        = "/storage.ManagerService/GetStorageVolumes"
-	ManagerService_GetStorageVolumesIncludingSharedProfiles_FullMethodName = "/storage.ManagerService/GetStorageVolumesIncludingSharedProfiles"
-	ManagerService_GetUuidForPath_FullMethodName                           = "/storage.ManagerService/GetUuidForPath"
-	ManagerService_IsAllocationSupported_FullMethodName                    = "/storage.ManagerService/IsAllocationSupported"
-	ManagerService_IsCacheBehaviorGroup_FullMethodName                     = "/storage.ManagerService/IsCacheBehaviorGroup"
-	ManagerService_IsCacheBehaviorTombstone_FullMethodName                 = "/storage.ManagerService/IsCacheBehaviorTombstone"
-	ManagerService_IsCheckpointSupported_FullMethodName                    = "/storage.ManagerService/IsCheckpointSupported"
-	ManagerService_IsEncrypted_FullMethodName                              = "/storage.ManagerService/IsEncrypted"
-	ManagerService_IsObbMounted_FullMethodName                             = "/storage.ManagerService/IsObbMounted"
-	ManagerService_MountObb_FullMethodName                                 = "/storage.ManagerService/MountObb"
-	ManagerService_RegisterStorageVolumeCallback_FullMethodName            = "/storage.ManagerService/RegisterStorageVolumeCallback"
-	ManagerService_SetCacheBehaviorGroup_FullMethodName                    = "/storage.ManagerService/SetCacheBehaviorGroup"
-	ManagerService_SetCacheBehaviorTombstone_FullMethodName                = "/storage.ManagerService/SetCacheBehaviorTombstone"
-	ManagerService_UnmountObb_FullMethodName                               = "/storage.ManagerService/UnmountObb"
-	ManagerService_UnregisterStorageVolumeCallback_FullMethodName          = "/storage.ManagerService/UnregisterStorageVolumeCallback"
+	ManagerService_AllocateBytes2_FullMethodName                  = "/storage.ManagerService/AllocateBytes2"
+	ManagerService_AllocateBytes2_1_FullMethodName                = "/storage.ManagerService/AllocateBytes2_1"
+	ManagerService_GetAllocatableBytes_FullMethodName             = "/storage.ManagerService/GetAllocatableBytes"
+	ManagerService_GetCacheQuotaBytes_FullMethodName              = "/storage.ManagerService/GetCacheQuotaBytes"
+	ManagerService_GetCacheSizeBytes_FullMethodName               = "/storage.ManagerService/GetCacheSizeBytes"
+	ManagerService_GetManageSpaceActivityIntent_FullMethodName    = "/storage.ManagerService/GetManageSpaceActivityIntent"
+	ManagerService_GetMountedObbPath_FullMethodName               = "/storage.ManagerService/GetMountedObbPath"
+	ManagerService_GetPrimaryStorageVolume_FullMethodName         = "/storage.ManagerService/GetPrimaryStorageVolume"
+	ManagerService_GetStorageVolume1_FullMethodName               = "/storage.ManagerService/GetStorageVolume1"
+	ManagerService_GetStorageVolume1_1_FullMethodName             = "/storage.ManagerService/GetStorageVolume1_1"
+	ManagerService_GetUuidForPath_FullMethodName                  = "/storage.ManagerService/GetUuidForPath"
+	ManagerService_IsAllocationSupported_FullMethodName           = "/storage.ManagerService/IsAllocationSupported"
+	ManagerService_IsCacheBehaviorGroup_FullMethodName            = "/storage.ManagerService/IsCacheBehaviorGroup"
+	ManagerService_IsCacheBehaviorTombstone_FullMethodName        = "/storage.ManagerService/IsCacheBehaviorTombstone"
+	ManagerService_IsCheckpointSupported_FullMethodName           = "/storage.ManagerService/IsCheckpointSupported"
+	ManagerService_IsEncrypted_FullMethodName                     = "/storage.ManagerService/IsEncrypted"
+	ManagerService_IsObbMounted_FullMethodName                    = "/storage.ManagerService/IsObbMounted"
+	ManagerService_MountObb_FullMethodName                        = "/storage.ManagerService/MountObb"
+	ManagerService_RegisterStorageVolumeCallback_FullMethodName   = "/storage.ManagerService/RegisterStorageVolumeCallback"
+	ManagerService_SetCacheBehaviorGroup_FullMethodName           = "/storage.ManagerService/SetCacheBehaviorGroup"
+	ManagerService_SetCacheBehaviorTombstone_FullMethodName       = "/storage.ManagerService/SetCacheBehaviorTombstone"
+	ManagerService_UnmountObb_FullMethodName                      = "/storage.ManagerService/UnmountObb"
+	ManagerService_UnregisterStorageVolumeCallback_FullMethodName = "/storage.ManagerService/UnregisterStorageVolumeCallback"
 )
 
 // ManagerServiceClient is the client API for ManagerService service.
@@ -61,11 +58,8 @@ type ManagerServiceClient interface {
 	GetManageSpaceActivityIntent(ctx context.Context, in *GetManageSpaceActivityIntentRequest, opts ...grpc.CallOption) (*GetManageSpaceActivityIntentResponse, error)
 	GetMountedObbPath(ctx context.Context, in *GetMountedObbPathRequest, opts ...grpc.CallOption) (*GetMountedObbPathResponse, error)
 	GetPrimaryStorageVolume(ctx context.Context, in *GetPrimaryStorageVolumeRequest, opts ...grpc.CallOption) (*GetPrimaryStorageVolumeResponse, error)
-	GetRecentStorageVolumes(ctx context.Context, in *GetRecentStorageVolumesRequest, opts ...grpc.CallOption) (*GetRecentStorageVolumesResponse, error)
 	GetStorageVolume1(ctx context.Context, in *GetStorageVolume1Request, opts ...grpc.CallOption) (*GetStorageVolume1Response, error)
 	GetStorageVolume1_1(ctx context.Context, in *GetStorageVolume1_1Request, opts ...grpc.CallOption) (*GetStorageVolume1_1Response, error)
-	GetStorageVolumes(ctx context.Context, in *GetStorageVolumesRequest, opts ...grpc.CallOption) (*GetStorageVolumesResponse, error)
-	GetStorageVolumesIncludingSharedProfiles(ctx context.Context, in *GetStorageVolumesIncludingSharedProfilesRequest, opts ...grpc.CallOption) (*GetStorageVolumesIncludingSharedProfilesResponse, error)
 	GetUuidForPath(ctx context.Context, in *GetUuidForPathRequest, opts ...grpc.CallOption) (*GetUuidForPathResponse, error)
 	IsAllocationSupported(ctx context.Context, in *IsAllocationSupportedRequest, opts ...grpc.CallOption) (*IsAllocationSupportedResponse, error)
 	IsCacheBehaviorGroup(ctx context.Context, in *IsCacheBehaviorGroupRequest, opts ...grpc.CallOption) (*IsCacheBehaviorGroupResponse, error)
@@ -169,16 +163,6 @@ func (c *managerServiceClient) GetPrimaryStorageVolume(ctx context.Context, in *
 	return out, nil
 }
 
-func (c *managerServiceClient) GetRecentStorageVolumes(ctx context.Context, in *GetRecentStorageVolumesRequest, opts ...grpc.CallOption) (*GetRecentStorageVolumesResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetRecentStorageVolumesResponse)
-	err := c.cc.Invoke(ctx, ManagerService_GetRecentStorageVolumes_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
 func (c *managerServiceClient) GetStorageVolume1(ctx context.Context, in *GetStorageVolume1Request, opts ...grpc.CallOption) (*GetStorageVolume1Response, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(GetStorageVolume1Response)
@@ -193,26 +177,6 @@ func (c *managerServiceClient) GetStorageVolume1_1(ctx context.Context, in *GetS
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(GetStorageVolume1_1Response)
 	err := c.cc.Invoke(ctx, ManagerService_GetStorageVolume1_1_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *managerServiceClient) GetStorageVolumes(ctx context.Context, in *GetStorageVolumesRequest, opts ...grpc.CallOption) (*GetStorageVolumesResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetStorageVolumesResponse)
-	err := c.cc.Invoke(ctx, ManagerService_GetStorageVolumes_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *managerServiceClient) GetStorageVolumesIncludingSharedProfiles(ctx context.Context, in *GetStorageVolumesIncludingSharedProfilesRequest, opts ...grpc.CallOption) (*GetStorageVolumesIncludingSharedProfilesResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetStorageVolumesIncludingSharedProfilesResponse)
-	err := c.cc.Invoke(ctx, ManagerService_GetStorageVolumesIncludingSharedProfiles_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
@@ -361,11 +325,8 @@ type ManagerServiceServer interface {
 	GetManageSpaceActivityIntent(context.Context, *GetManageSpaceActivityIntentRequest) (*GetManageSpaceActivityIntentResponse, error)
 	GetMountedObbPath(context.Context, *GetMountedObbPathRequest) (*GetMountedObbPathResponse, error)
 	GetPrimaryStorageVolume(context.Context, *GetPrimaryStorageVolumeRequest) (*GetPrimaryStorageVolumeResponse, error)
-	GetRecentStorageVolumes(context.Context, *GetRecentStorageVolumesRequest) (*GetRecentStorageVolumesResponse, error)
 	GetStorageVolume1(context.Context, *GetStorageVolume1Request) (*GetStorageVolume1Response, error)
 	GetStorageVolume1_1(context.Context, *GetStorageVolume1_1Request) (*GetStorageVolume1_1Response, error)
-	GetStorageVolumes(context.Context, *GetStorageVolumesRequest) (*GetStorageVolumesResponse, error)
-	GetStorageVolumesIncludingSharedProfiles(context.Context, *GetStorageVolumesIncludingSharedProfilesRequest) (*GetStorageVolumesIncludingSharedProfilesResponse, error)
 	GetUuidForPath(context.Context, *GetUuidForPathRequest) (*GetUuidForPathResponse, error)
 	IsAllocationSupported(context.Context, *IsAllocationSupportedRequest) (*IsAllocationSupportedResponse, error)
 	IsCacheBehaviorGroup(context.Context, *IsCacheBehaviorGroupRequest) (*IsCacheBehaviorGroupResponse, error)
@@ -413,20 +374,11 @@ func (UnimplementedManagerServiceServer) GetMountedObbPath(context.Context, *Get
 func (UnimplementedManagerServiceServer) GetPrimaryStorageVolume(context.Context, *GetPrimaryStorageVolumeRequest) (*GetPrimaryStorageVolumeResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetPrimaryStorageVolume not implemented")
 }
-func (UnimplementedManagerServiceServer) GetRecentStorageVolumes(context.Context, *GetRecentStorageVolumesRequest) (*GetRecentStorageVolumesResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetRecentStorageVolumes not implemented")
-}
 func (UnimplementedManagerServiceServer) GetStorageVolume1(context.Context, *GetStorageVolume1Request) (*GetStorageVolume1Response, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetStorageVolume1 not implemented")
 }
 func (UnimplementedManagerServiceServer) GetStorageVolume1_1(context.Context, *GetStorageVolume1_1Request) (*GetStorageVolume1_1Response, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetStorageVolume1_1 not implemented")
-}
-func (UnimplementedManagerServiceServer) GetStorageVolumes(context.Context, *GetStorageVolumesRequest) (*GetStorageVolumesResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetStorageVolumes not implemented")
-}
-func (UnimplementedManagerServiceServer) GetStorageVolumesIncludingSharedProfiles(context.Context, *GetStorageVolumesIncludingSharedProfilesRequest) (*GetStorageVolumesIncludingSharedProfilesResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetStorageVolumesIncludingSharedProfiles not implemented")
 }
 func (UnimplementedManagerServiceServer) GetUuidForPath(context.Context, *GetUuidForPathRequest) (*GetUuidForPathResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetUuidForPath not implemented")
@@ -632,24 +584,6 @@ func _ManagerService_GetPrimaryStorageVolume_Handler(srv interface{}, ctx contex
 	return interceptor(ctx, in, info, handler)
 }
 
-func _ManagerService_GetRecentStorageVolumes_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetRecentStorageVolumesRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ManagerServiceServer).GetRecentStorageVolumes(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ManagerService_GetRecentStorageVolumes_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ManagerServiceServer).GetRecentStorageVolumes(ctx, req.(*GetRecentStorageVolumesRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
 func _ManagerService_GetStorageVolume1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(GetStorageVolume1Request)
 	if err := dec(in); err != nil {
@@ -682,42 +616,6 @@ func _ManagerService_GetStorageVolume1_1_Handler(srv interface{}, ctx context.Co
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(ManagerServiceServer).GetStorageVolume1_1(ctx, req.(*GetStorageVolume1_1Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ManagerService_GetStorageVolumes_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetStorageVolumesRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ManagerServiceServer).GetStorageVolumes(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ManagerService_GetStorageVolumes_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ManagerServiceServer).GetStorageVolumes(ctx, req.(*GetStorageVolumesRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ManagerService_GetStorageVolumesIncludingSharedProfiles_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetStorageVolumesIncludingSharedProfilesRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ManagerServiceServer).GetStorageVolumesIncludingSharedProfiles(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ManagerService_GetStorageVolumesIncludingSharedProfiles_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ManagerServiceServer).GetStorageVolumesIncludingSharedProfiles(ctx, req.(*GetStorageVolumesIncludingSharedProfilesRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -996,24 +894,12 @@ var ManagerService_ServiceDesc = grpc.ServiceDesc{
 			Handler:    _ManagerService_GetPrimaryStorageVolume_Handler,
 		},
 		{
-			MethodName: "GetRecentStorageVolumes",
-			Handler:    _ManagerService_GetRecentStorageVolumes_Handler,
-		},
-		{
 			MethodName: "GetStorageVolume1",
 			Handler:    _ManagerService_GetStorageVolume1_Handler,
 		},
 		{
 			MethodName: "GetStorageVolume1_1",
 			Handler:    _ManagerService_GetStorageVolume1_1_Handler,
-		},
-		{
-			MethodName: "GetStorageVolumes",
-			Handler:    _ManagerService_GetStorageVolumes_Handler,
-		},
-		{
-			MethodName: "GetStorageVolumesIncludingSharedProfiles",
-			Handler:    _ManagerService_GetStorageVolumesIncludingSharedProfiles_Handler,
 		},
 		{
 			MethodName: "GetUuidForPath",
@@ -1066,716 +952,6 @@ var ManagerService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "UnregisterStorageVolumeCallback",
 			Handler:    _ManagerService_UnregisterStorageVolumeCallback_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/storage/storage.proto",
-}
-
-const (
-	VolumeService_CreateAccessIntent_FullMethodName           = "/storage.VolumeService/CreateAccessIntent"
-	VolumeService_CreateOpenDocumentTreeIntent_FullMethodName = "/storage.VolumeService/CreateOpenDocumentTreeIntent"
-	VolumeService_DescribeContents_FullMethodName             = "/storage.VolumeService/DescribeContents"
-	VolumeService_Equals_FullMethodName                       = "/storage.VolumeService/Equals"
-	VolumeService_GetDescription_FullMethodName               = "/storage.VolumeService/GetDescription"
-	VolumeService_GetDirectory_FullMethodName                 = "/storage.VolumeService/GetDirectory"
-	VolumeService_GetMediaStoreVolumeName_FullMethodName      = "/storage.VolumeService/GetMediaStoreVolumeName"
-	VolumeService_GetOwner_FullMethodName                     = "/storage.VolumeService/GetOwner"
-	VolumeService_GetState_FullMethodName                     = "/storage.VolumeService/GetState"
-	VolumeService_GetStorageUuid_FullMethodName               = "/storage.VolumeService/GetStorageUuid"
-	VolumeService_GetUuid_FullMethodName                      = "/storage.VolumeService/GetUuid"
-	VolumeService_HashCode_FullMethodName                     = "/storage.VolumeService/HashCode"
-	VolumeService_IsEmulated_FullMethodName                   = "/storage.VolumeService/IsEmulated"
-	VolumeService_IsPrimary_FullMethodName                    = "/storage.VolumeService/IsPrimary"
-	VolumeService_IsRemovable_FullMethodName                  = "/storage.VolumeService/IsRemovable"
-	VolumeService_ToString_FullMethodName                     = "/storage.VolumeService/ToString"
-	VolumeService_WriteToParcel_FullMethodName                = "/storage.VolumeService/WriteToParcel"
-)
-
-// VolumeServiceClient is the client API for VolumeService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type VolumeServiceClient interface {
-	CreateAccessIntent(ctx context.Context, in *CreateAccessIntentRequest, opts ...grpc.CallOption) (*CreateAccessIntentResponse, error)
-	CreateOpenDocumentTreeIntent(ctx context.Context, in *CreateOpenDocumentTreeIntentRequest, opts ...grpc.CallOption) (*CreateOpenDocumentTreeIntentResponse, error)
-	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
-	Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
-	GetDescription(ctx context.Context, in *GetDescriptionRequest, opts ...grpc.CallOption) (*GetDescriptionResponse, error)
-	GetDirectory(ctx context.Context, in *GetDirectoryRequest, opts ...grpc.CallOption) (*GetDirectoryResponse, error)
-	GetMediaStoreVolumeName(ctx context.Context, in *GetMediaStoreVolumeNameRequest, opts ...grpc.CallOption) (*GetMediaStoreVolumeNameResponse, error)
-	GetOwner(ctx context.Context, in *GetOwnerRequest, opts ...grpc.CallOption) (*GetOwnerResponse, error)
-	GetState(ctx context.Context, in *GetStateRequest, opts ...grpc.CallOption) (*GetStateResponse, error)
-	GetStorageUuid(ctx context.Context, in *GetStorageUuidRequest, opts ...grpc.CallOption) (*GetStorageUuidResponse, error)
-	GetUuid(ctx context.Context, in *GetUuidRequest, opts ...grpc.CallOption) (*GetUuidResponse, error)
-	HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
-	IsEmulated(ctx context.Context, in *IsEmulatedRequest, opts ...grpc.CallOption) (*IsEmulatedResponse, error)
-	IsPrimary(ctx context.Context, in *IsPrimaryRequest, opts ...grpc.CallOption) (*IsPrimaryResponse, error)
-	IsRemovable(ctx context.Context, in *IsRemovableRequest, opts ...grpc.CallOption) (*IsRemovableResponse, error)
-	ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
-	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
-}
-
-type volumeServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewVolumeServiceClient(cc grpc.ClientConnInterface) VolumeServiceClient {
-	return &volumeServiceClient{cc}
-}
-
-func (c *volumeServiceClient) CreateAccessIntent(ctx context.Context, in *CreateAccessIntentRequest, opts ...grpc.CallOption) (*CreateAccessIntentResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(CreateAccessIntentResponse)
-	err := c.cc.Invoke(ctx, VolumeService_CreateAccessIntent_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *volumeServiceClient) CreateOpenDocumentTreeIntent(ctx context.Context, in *CreateOpenDocumentTreeIntentRequest, opts ...grpc.CallOption) (*CreateOpenDocumentTreeIntentResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(CreateOpenDocumentTreeIntentResponse)
-	err := c.cc.Invoke(ctx, VolumeService_CreateOpenDocumentTreeIntent_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *volumeServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(DescribeContentsResponse)
-	err := c.cc.Invoke(ctx, VolumeService_DescribeContents_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *volumeServiceClient) Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(EqualsResponse)
-	err := c.cc.Invoke(ctx, VolumeService_Equals_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *volumeServiceClient) GetDescription(ctx context.Context, in *GetDescriptionRequest, opts ...grpc.CallOption) (*GetDescriptionResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetDescriptionResponse)
-	err := c.cc.Invoke(ctx, VolumeService_GetDescription_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *volumeServiceClient) GetDirectory(ctx context.Context, in *GetDirectoryRequest, opts ...grpc.CallOption) (*GetDirectoryResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetDirectoryResponse)
-	err := c.cc.Invoke(ctx, VolumeService_GetDirectory_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *volumeServiceClient) GetMediaStoreVolumeName(ctx context.Context, in *GetMediaStoreVolumeNameRequest, opts ...grpc.CallOption) (*GetMediaStoreVolumeNameResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetMediaStoreVolumeNameResponse)
-	err := c.cc.Invoke(ctx, VolumeService_GetMediaStoreVolumeName_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *volumeServiceClient) GetOwner(ctx context.Context, in *GetOwnerRequest, opts ...grpc.CallOption) (*GetOwnerResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetOwnerResponse)
-	err := c.cc.Invoke(ctx, VolumeService_GetOwner_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *volumeServiceClient) GetState(ctx context.Context, in *GetStateRequest, opts ...grpc.CallOption) (*GetStateResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetStateResponse)
-	err := c.cc.Invoke(ctx, VolumeService_GetState_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *volumeServiceClient) GetStorageUuid(ctx context.Context, in *GetStorageUuidRequest, opts ...grpc.CallOption) (*GetStorageUuidResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetStorageUuidResponse)
-	err := c.cc.Invoke(ctx, VolumeService_GetStorageUuid_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *volumeServiceClient) GetUuid(ctx context.Context, in *GetUuidRequest, opts ...grpc.CallOption) (*GetUuidResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetUuidResponse)
-	err := c.cc.Invoke(ctx, VolumeService_GetUuid_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *volumeServiceClient) HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(HashCodeResponse)
-	err := c.cc.Invoke(ctx, VolumeService_HashCode_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *volumeServiceClient) IsEmulated(ctx context.Context, in *IsEmulatedRequest, opts ...grpc.CallOption) (*IsEmulatedResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(IsEmulatedResponse)
-	err := c.cc.Invoke(ctx, VolumeService_IsEmulated_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *volumeServiceClient) IsPrimary(ctx context.Context, in *IsPrimaryRequest, opts ...grpc.CallOption) (*IsPrimaryResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(IsPrimaryResponse)
-	err := c.cc.Invoke(ctx, VolumeService_IsPrimary_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *volumeServiceClient) IsRemovable(ctx context.Context, in *IsRemovableRequest, opts ...grpc.CallOption) (*IsRemovableResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(IsRemovableResponse)
-	err := c.cc.Invoke(ctx, VolumeService_IsRemovable_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *volumeServiceClient) ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ToStringResponse)
-	err := c.cc.Invoke(ctx, VolumeService_ToString_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *volumeServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(WriteToParcelResponse)
-	err := c.cc.Invoke(ctx, VolumeService_WriteToParcel_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// VolumeServiceServer is the server API for VolumeService service.
-// All implementations must embed UnimplementedVolumeServiceServer
-// for forward compatibility.
-type VolumeServiceServer interface {
-	CreateAccessIntent(context.Context, *CreateAccessIntentRequest) (*CreateAccessIntentResponse, error)
-	CreateOpenDocumentTreeIntent(context.Context, *CreateOpenDocumentTreeIntentRequest) (*CreateOpenDocumentTreeIntentResponse, error)
-	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
-	Equals(context.Context, *EqualsRequest) (*EqualsResponse, error)
-	GetDescription(context.Context, *GetDescriptionRequest) (*GetDescriptionResponse, error)
-	GetDirectory(context.Context, *GetDirectoryRequest) (*GetDirectoryResponse, error)
-	GetMediaStoreVolumeName(context.Context, *GetMediaStoreVolumeNameRequest) (*GetMediaStoreVolumeNameResponse, error)
-	GetOwner(context.Context, *GetOwnerRequest) (*GetOwnerResponse, error)
-	GetState(context.Context, *GetStateRequest) (*GetStateResponse, error)
-	GetStorageUuid(context.Context, *GetStorageUuidRequest) (*GetStorageUuidResponse, error)
-	GetUuid(context.Context, *GetUuidRequest) (*GetUuidResponse, error)
-	HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error)
-	IsEmulated(context.Context, *IsEmulatedRequest) (*IsEmulatedResponse, error)
-	IsPrimary(context.Context, *IsPrimaryRequest) (*IsPrimaryResponse, error)
-	IsRemovable(context.Context, *IsRemovableRequest) (*IsRemovableResponse, error)
-	ToString(context.Context, *ToStringRequest) (*ToStringResponse, error)
-	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
-	mustEmbedUnimplementedVolumeServiceServer()
-}
-
-// UnimplementedVolumeServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedVolumeServiceServer struct{}
-
-func (UnimplementedVolumeServiceServer) CreateAccessIntent(context.Context, *CreateAccessIntentRequest) (*CreateAccessIntentResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method CreateAccessIntent not implemented")
-}
-func (UnimplementedVolumeServiceServer) CreateOpenDocumentTreeIntent(context.Context, *CreateOpenDocumentTreeIntentRequest) (*CreateOpenDocumentTreeIntentResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method CreateOpenDocumentTreeIntent not implemented")
-}
-func (UnimplementedVolumeServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
-}
-func (UnimplementedVolumeServiceServer) Equals(context.Context, *EqualsRequest) (*EqualsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Equals not implemented")
-}
-func (UnimplementedVolumeServiceServer) GetDescription(context.Context, *GetDescriptionRequest) (*GetDescriptionResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetDescription not implemented")
-}
-func (UnimplementedVolumeServiceServer) GetDirectory(context.Context, *GetDirectoryRequest) (*GetDirectoryResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetDirectory not implemented")
-}
-func (UnimplementedVolumeServiceServer) GetMediaStoreVolumeName(context.Context, *GetMediaStoreVolumeNameRequest) (*GetMediaStoreVolumeNameResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetMediaStoreVolumeName not implemented")
-}
-func (UnimplementedVolumeServiceServer) GetOwner(context.Context, *GetOwnerRequest) (*GetOwnerResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetOwner not implemented")
-}
-func (UnimplementedVolumeServiceServer) GetState(context.Context, *GetStateRequest) (*GetStateResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetState not implemented")
-}
-func (UnimplementedVolumeServiceServer) GetStorageUuid(context.Context, *GetStorageUuidRequest) (*GetStorageUuidResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetStorageUuid not implemented")
-}
-func (UnimplementedVolumeServiceServer) GetUuid(context.Context, *GetUuidRequest) (*GetUuidResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetUuid not implemented")
-}
-func (UnimplementedVolumeServiceServer) HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method HashCode not implemented")
-}
-func (UnimplementedVolumeServiceServer) IsEmulated(context.Context, *IsEmulatedRequest) (*IsEmulatedResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method IsEmulated not implemented")
-}
-func (UnimplementedVolumeServiceServer) IsPrimary(context.Context, *IsPrimaryRequest) (*IsPrimaryResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method IsPrimary not implemented")
-}
-func (UnimplementedVolumeServiceServer) IsRemovable(context.Context, *IsRemovableRequest) (*IsRemovableResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method IsRemovable not implemented")
-}
-func (UnimplementedVolumeServiceServer) ToString(context.Context, *ToStringRequest) (*ToStringResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
-}
-func (UnimplementedVolumeServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
-}
-func (UnimplementedVolumeServiceServer) mustEmbedUnimplementedVolumeServiceServer() {}
-func (UnimplementedVolumeServiceServer) testEmbeddedByValue()                       {}
-
-// UnsafeVolumeServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to VolumeServiceServer will
-// result in compilation errors.
-type UnsafeVolumeServiceServer interface {
-	mustEmbedUnimplementedVolumeServiceServer()
-}
-
-func RegisterVolumeServiceServer(s grpc.ServiceRegistrar, srv VolumeServiceServer) {
-	// If the following call panics, it indicates UnimplementedVolumeServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&VolumeService_ServiceDesc, srv)
-}
-
-func _VolumeService_CreateAccessIntent_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(CreateAccessIntentRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(VolumeServiceServer).CreateAccessIntent(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: VolumeService_CreateAccessIntent_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(VolumeServiceServer).CreateAccessIntent(ctx, req.(*CreateAccessIntentRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _VolumeService_CreateOpenDocumentTreeIntent_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(CreateOpenDocumentTreeIntentRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(VolumeServiceServer).CreateOpenDocumentTreeIntent(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: VolumeService_CreateOpenDocumentTreeIntent_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(VolumeServiceServer).CreateOpenDocumentTreeIntent(ctx, req.(*CreateOpenDocumentTreeIntentRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _VolumeService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(DescribeContentsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(VolumeServiceServer).DescribeContents(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: VolumeService_DescribeContents_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(VolumeServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _VolumeService_Equals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(EqualsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(VolumeServiceServer).Equals(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: VolumeService_Equals_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(VolumeServiceServer).Equals(ctx, req.(*EqualsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _VolumeService_GetDescription_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetDescriptionRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(VolumeServiceServer).GetDescription(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: VolumeService_GetDescription_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(VolumeServiceServer).GetDescription(ctx, req.(*GetDescriptionRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _VolumeService_GetDirectory_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetDirectoryRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(VolumeServiceServer).GetDirectory(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: VolumeService_GetDirectory_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(VolumeServiceServer).GetDirectory(ctx, req.(*GetDirectoryRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _VolumeService_GetMediaStoreVolumeName_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetMediaStoreVolumeNameRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(VolumeServiceServer).GetMediaStoreVolumeName(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: VolumeService_GetMediaStoreVolumeName_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(VolumeServiceServer).GetMediaStoreVolumeName(ctx, req.(*GetMediaStoreVolumeNameRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _VolumeService_GetOwner_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetOwnerRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(VolumeServiceServer).GetOwner(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: VolumeService_GetOwner_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(VolumeServiceServer).GetOwner(ctx, req.(*GetOwnerRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _VolumeService_GetState_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetStateRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(VolumeServiceServer).GetState(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: VolumeService_GetState_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(VolumeServiceServer).GetState(ctx, req.(*GetStateRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _VolumeService_GetStorageUuid_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetStorageUuidRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(VolumeServiceServer).GetStorageUuid(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: VolumeService_GetStorageUuid_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(VolumeServiceServer).GetStorageUuid(ctx, req.(*GetStorageUuidRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _VolumeService_GetUuid_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetUuidRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(VolumeServiceServer).GetUuid(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: VolumeService_GetUuid_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(VolumeServiceServer).GetUuid(ctx, req.(*GetUuidRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _VolumeService_HashCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(HashCodeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(VolumeServiceServer).HashCode(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: VolumeService_HashCode_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(VolumeServiceServer).HashCode(ctx, req.(*HashCodeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _VolumeService_IsEmulated_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(IsEmulatedRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(VolumeServiceServer).IsEmulated(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: VolumeService_IsEmulated_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(VolumeServiceServer).IsEmulated(ctx, req.(*IsEmulatedRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _VolumeService_IsPrimary_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(IsPrimaryRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(VolumeServiceServer).IsPrimary(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: VolumeService_IsPrimary_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(VolumeServiceServer).IsPrimary(ctx, req.(*IsPrimaryRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _VolumeService_IsRemovable_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(IsRemovableRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(VolumeServiceServer).IsRemovable(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: VolumeService_IsRemovable_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(VolumeServiceServer).IsRemovable(ctx, req.(*IsRemovableRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _VolumeService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ToStringRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(VolumeServiceServer).ToString(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: VolumeService_ToString_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(VolumeServiceServer).ToString(ctx, req.(*ToStringRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _VolumeService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(WriteToParcelRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(VolumeServiceServer).WriteToParcel(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: VolumeService_WriteToParcel_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(VolumeServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// VolumeService_ServiceDesc is the grpc.ServiceDesc for VolumeService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var VolumeService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "storage.VolumeService",
-	HandlerType: (*VolumeServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "CreateAccessIntent",
-			Handler:    _VolumeService_CreateAccessIntent_Handler,
-		},
-		{
-			MethodName: "CreateOpenDocumentTreeIntent",
-			Handler:    _VolumeService_CreateOpenDocumentTreeIntent_Handler,
-		},
-		{
-			MethodName: "DescribeContents",
-			Handler:    _VolumeService_DescribeContents_Handler,
-		},
-		{
-			MethodName: "Equals",
-			Handler:    _VolumeService_Equals_Handler,
-		},
-		{
-			MethodName: "GetDescription",
-			Handler:    _VolumeService_GetDescription_Handler,
-		},
-		{
-			MethodName: "GetDirectory",
-			Handler:    _VolumeService_GetDirectory_Handler,
-		},
-		{
-			MethodName: "GetMediaStoreVolumeName",
-			Handler:    _VolumeService_GetMediaStoreVolumeName_Handler,
-		},
-		{
-			MethodName: "GetOwner",
-			Handler:    _VolumeService_GetOwner_Handler,
-		},
-		{
-			MethodName: "GetState",
-			Handler:    _VolumeService_GetState_Handler,
-		},
-		{
-			MethodName: "GetStorageUuid",
-			Handler:    _VolumeService_GetStorageUuid_Handler,
-		},
-		{
-			MethodName: "GetUuid",
-			Handler:    _VolumeService_GetUuid_Handler,
-		},
-		{
-			MethodName: "HashCode",
-			Handler:    _VolumeService_HashCode_Handler,
-		},
-		{
-			MethodName: "IsEmulated",
-			Handler:    _VolumeService_IsEmulated_Handler,
-		},
-		{
-			MethodName: "IsPrimary",
-			Handler:    _VolumeService_IsPrimary_Handler,
-		},
-		{
-			MethodName: "IsRemovable",
-			Handler:    _VolumeService_IsRemovable_Handler,
-		},
-		{
-			MethodName: "ToString",
-			Handler:    _VolumeService_ToString_Handler,
-		},
-		{
-			MethodName: "WriteToParcel",
-			Handler:    _VolumeService_WriteToParcel_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

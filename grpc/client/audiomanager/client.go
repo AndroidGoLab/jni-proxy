@@ -9,20 +9,20 @@ import (
 	"google.golang.org/grpc"
 )
 
-// Client wraps the gRPC AudioManagerService client.
-type Client struct {
+// AudioManagerClient wraps the gRPC AudioManagerService client.
+type AudioManagerClient struct {
 	svc pb.AudioManagerServiceClient
 }
 
-// NewClient creates a new audiomanager client.
-func NewClient(cc grpc.ClientConnInterface) *Client {
-	return &Client{
+// NewAudioManagerClient creates a new AudioManager client.
+func NewAudioManagerClient(cc grpc.ClientConnInterface) *AudioManagerClient {
+	return &AudioManagerClient{
 		svc: pb.NewAudioManagerServiceClient(cc),
 	}
 }
 
 // AbandonAudioFocus calls the AbandonAudioFocus RPC.
-func (c *Client) AbandonAudioFocus(ctx context.Context, arg0 int64) (int32, error) {
+func (c *AudioManagerClient) AbandonAudioFocus(ctx context.Context, arg0 int64) (int32, error) {
 	resp, err := c.svc.AbandonAudioFocus(ctx, &pb.AbandonAudioFocusRequest{
 		Arg0: arg0,
 	})
@@ -33,7 +33,7 @@ func (c *Client) AbandonAudioFocus(ctx context.Context, arg0 int64) (int32, erro
 }
 
 // AbandonAudioFocusRequestOp calls the AbandonAudioFocusRequestOp RPC.
-func (c *Client) AbandonAudioFocusRequestOp(ctx context.Context, arg0 int64) (int32, error) {
+func (c *AudioManagerClient) AbandonAudioFocusRequestOp(ctx context.Context, arg0 int64) (int32, error) {
 	resp, err := c.svc.AbandonAudioFocusRequestOp(ctx, &pb.AbandonAudioFocusRequestOpRequest{
 		Arg0: arg0,
 	})
@@ -44,7 +44,7 @@ func (c *Client) AbandonAudioFocusRequestOp(ctx context.Context, arg0 int64) (in
 }
 
 // AddOnCommunicationDeviceChangedListener calls the AddOnCommunicationDeviceChangedListener RPC.
-func (c *Client) AddOnCommunicationDeviceChangedListener(ctx context.Context, arg0 int64, arg1 int64) error {
+func (c *AudioManagerClient) AddOnCommunicationDeviceChangedListener(ctx context.Context, arg0 int64, arg1 int64) error {
 	_, err := c.svc.AddOnCommunicationDeviceChangedListener(ctx, &pb.AddOnCommunicationDeviceChangedListenerRequest{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -53,7 +53,7 @@ func (c *Client) AddOnCommunicationDeviceChangedListener(ctx context.Context, ar
 }
 
 // AddOnModeChangedListener calls the AddOnModeChangedListener RPC.
-func (c *Client) AddOnModeChangedListener(ctx context.Context, arg0 int64, arg1 int64) error {
+func (c *AudioManagerClient) AddOnModeChangedListener(ctx context.Context, arg0 int64, arg1 int64) error {
 	_, err := c.svc.AddOnModeChangedListener(ctx, &pb.AddOnModeChangedListenerRequest{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -62,7 +62,7 @@ func (c *Client) AddOnModeChangedListener(ctx context.Context, arg0 int64, arg1 
 }
 
 // AddOnPreferredMixerAttributesChangedListener calls the AddOnPreferredMixerAttributesChangedListener RPC.
-func (c *Client) AddOnPreferredMixerAttributesChangedListener(ctx context.Context, arg0 int64, arg1 int64) error {
+func (c *AudioManagerClient) AddOnPreferredMixerAttributesChangedListener(ctx context.Context, arg0 int64, arg1 int64) error {
 	_, err := c.svc.AddOnPreferredMixerAttributesChangedListener(ctx, &pb.AddOnPreferredMixerAttributesChangedListenerRequest{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -71,7 +71,7 @@ func (c *Client) AddOnPreferredMixerAttributesChangedListener(ctx context.Contex
 }
 
 // AdjustStreamVolume calls the AdjustStreamVolume RPC.
-func (c *Client) AdjustStreamVolume(ctx context.Context, arg0 int32, arg1 int32, arg2 int32) error {
+func (c *AudioManagerClient) AdjustStreamVolume(ctx context.Context, arg0 int32, arg1 int32, arg2 int32) error {
 	_, err := c.svc.AdjustStreamVolume(ctx, &pb.AdjustStreamVolumeRequest{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -81,7 +81,7 @@ func (c *Client) AdjustStreamVolume(ctx context.Context, arg0 int32, arg1 int32,
 }
 
 // AdjustSuggestedStreamVolume calls the AdjustSuggestedStreamVolume RPC.
-func (c *Client) AdjustSuggestedStreamVolume(ctx context.Context, arg0 int32, arg1 int32, arg2 int32) error {
+func (c *AudioManagerClient) AdjustSuggestedStreamVolume(ctx context.Context, arg0 int32, arg1 int32, arg2 int32) error {
 	_, err := c.svc.AdjustSuggestedStreamVolume(ctx, &pb.AdjustSuggestedStreamVolumeRequest{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -91,7 +91,7 @@ func (c *Client) AdjustSuggestedStreamVolume(ctx context.Context, arg0 int32, ar
 }
 
 // AdjustVolume calls the AdjustVolume RPC.
-func (c *Client) AdjustVolume(ctx context.Context, arg0 int32, arg1 int32) error {
+func (c *AudioManagerClient) AdjustVolume(ctx context.Context, arg0 int32, arg1 int32) error {
 	_, err := c.svc.AdjustVolume(ctx, &pb.AdjustVolumeRequest{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -100,7 +100,7 @@ func (c *Client) AdjustVolume(ctx context.Context, arg0 int32, arg1 int32) error
 }
 
 // AdjustVolumeGroupVolume calls the AdjustVolumeGroupVolume RPC.
-func (c *Client) AdjustVolumeGroupVolume(ctx context.Context, arg0 int32, arg1 int32, arg2 int32) error {
+func (c *AudioManagerClient) AdjustVolumeGroupVolume(ctx context.Context, arg0 int32, arg1 int32, arg2 int32) error {
 	_, err := c.svc.AdjustVolumeGroupVolume(ctx, &pb.AdjustVolumeGroupVolumeRequest{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -110,13 +110,13 @@ func (c *Client) AdjustVolumeGroupVolume(ctx context.Context, arg0 int32, arg1 i
 }
 
 // ClearCommunicationDevice calls the ClearCommunicationDevice RPC.
-func (c *Client) ClearCommunicationDevice(ctx context.Context) error {
+func (c *AudioManagerClient) ClearCommunicationDevice(ctx context.Context) error {
 	_, err := c.svc.ClearCommunicationDevice(ctx, &pb.ClearCommunicationDeviceRequest{})
 	return err
 }
 
 // ClearPreferredMixerAttributes calls the ClearPreferredMixerAttributes RPC.
-func (c *Client) ClearPreferredMixerAttributes(ctx context.Context, arg0 int64, arg1 int64) (bool, error) {
+func (c *AudioManagerClient) ClearPreferredMixerAttributes(ctx context.Context, arg0 int64, arg1 int64) (bool, error) {
 	resp, err := c.svc.ClearPreferredMixerAttributes(ctx, &pb.ClearPreferredMixerAttributesRequest{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -128,7 +128,7 @@ func (c *Client) ClearPreferredMixerAttributes(ctx context.Context, arg0 int64, 
 }
 
 // DispatchMediaKeyEvent calls the DispatchMediaKeyEvent RPC.
-func (c *Client) DispatchMediaKeyEvent(ctx context.Context, arg0 int64) error {
+func (c *AudioManagerClient) DispatchMediaKeyEvent(ctx context.Context, arg0 int64) error {
 	_, err := c.svc.DispatchMediaKeyEvent(ctx, &pb.DispatchMediaKeyEventRequest{
 		Arg0: arg0,
 	})
@@ -136,7 +136,7 @@ func (c *Client) DispatchMediaKeyEvent(ctx context.Context, arg0 int64) error {
 }
 
 // GenerateAudioSessionId calls the GenerateAudioSessionId RPC.
-func (c *Client) GenerateAudioSessionId(ctx context.Context) (int32, error) {
+func (c *AudioManagerClient) GenerateAudioSessionId(ctx context.Context) (int32, error) {
 	resp, err := c.svc.GenerateAudioSessionId(ctx, &pb.GenerateAudioSessionIdRequest{})
 	if err != nil {
 		return 0, err
@@ -144,26 +144,8 @@ func (c *Client) GenerateAudioSessionId(ctx context.Context) (int32, error) {
 	return resp.GetResult(), nil
 }
 
-// GetActivePlaybackConfigurations calls the GetActivePlaybackConfigurations RPC.
-func (c *Client) GetActivePlaybackConfigurations(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetActivePlaybackConfigurations(ctx, &pb.GetActivePlaybackConfigurationsRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetActiveRecordingConfigurations calls the GetActiveRecordingConfigurations RPC.
-func (c *Client) GetActiveRecordingConfigurations(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetActiveRecordingConfigurations(ctx, &pb.GetActiveRecordingConfigurationsRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
 // GetAllowedCapturePolicy calls the GetAllowedCapturePolicy RPC.
-func (c *Client) GetAllowedCapturePolicy(ctx context.Context) (int32, error) {
+func (c *AudioManagerClient) GetAllowedCapturePolicy(ctx context.Context) (int32, error) {
 	resp, err := c.svc.GetAllowedCapturePolicy(ctx, &pb.GetAllowedCapturePolicyRequest{})
 	if err != nil {
 		return 0, err
@@ -171,19 +153,8 @@ func (c *Client) GetAllowedCapturePolicy(ctx context.Context) (int32, error) {
 	return resp.GetResult(), nil
 }
 
-// GetAudioDevicesForAttributes calls the GetAudioDevicesForAttributes RPC.
-func (c *Client) GetAudioDevicesForAttributes(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.GetAudioDevicesForAttributes(ctx, &pb.GetAudioDevicesForAttributesRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
 // GetAudioHwSyncForSession calls the GetAudioHwSyncForSession RPC.
-func (c *Client) GetAudioHwSyncForSession(ctx context.Context, arg0 int32) (int32, error) {
+func (c *AudioManagerClient) GetAudioHwSyncForSession(ctx context.Context, arg0 int32) (int32, error) {
 	resp, err := c.svc.GetAudioHwSyncForSession(ctx, &pb.GetAudioHwSyncForSessionRequest{
 		Arg0: arg0,
 	})
@@ -193,17 +164,8 @@ func (c *Client) GetAudioHwSyncForSession(ctx context.Context, arg0 int32) (int3
 	return resp.GetResult(), nil
 }
 
-// GetAvailableCommunicationDevices calls the GetAvailableCommunicationDevices RPC.
-func (c *Client) GetAvailableCommunicationDevices(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetAvailableCommunicationDevices(ctx, &pb.GetAvailableCommunicationDevicesRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
 // GetCommunicationDevice calls the GetCommunicationDevice RPC.
-func (c *Client) GetCommunicationDevice(ctx context.Context) (int64, error) {
+func (c *AudioManagerClient) GetCommunicationDevice(ctx context.Context) (int64, error) {
 	resp, err := c.svc.GetCommunicationDevice(ctx, &pb.GetCommunicationDeviceRequest{})
 	if err != nil {
 		return 0, err
@@ -212,7 +174,7 @@ func (c *Client) GetCommunicationDevice(ctx context.Context) (int64, error) {
 }
 
 // GetDevices calls the GetDevices RPC.
-func (c *Client) GetDevices(ctx context.Context, arg0 int32) (int64, error) {
+func (c *AudioManagerClient) GetDevices(ctx context.Context, arg0 int32) (int64, error) {
 	resp, err := c.svc.GetDevices(ctx, &pb.GetDevicesRequest{
 		Arg0: arg0,
 	})
@@ -222,19 +184,8 @@ func (c *Client) GetDevices(ctx context.Context, arg0 int32) (int64, error) {
 	return resp.GetResult(), nil
 }
 
-// GetDirectProfilesForAttributes calls the GetDirectProfilesForAttributes RPC.
-func (c *Client) GetDirectProfilesForAttributes(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.GetDirectProfilesForAttributes(ctx, &pb.GetDirectProfilesForAttributesRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
 // GetEncodedSurroundMode calls the GetEncodedSurroundMode RPC.
-func (c *Client) GetEncodedSurroundMode(ctx context.Context) (int32, error) {
+func (c *AudioManagerClient) GetEncodedSurroundMode(ctx context.Context) (int32, error) {
 	resp, err := c.svc.GetEncodedSurroundMode(ctx, &pb.GetEncodedSurroundModeRequest{})
 	if err != nil {
 		return 0, err
@@ -242,17 +193,8 @@ func (c *Client) GetEncodedSurroundMode(ctx context.Context) (int32, error) {
 	return resp.GetResult(), nil
 }
 
-// GetMicrophones calls the GetMicrophones RPC.
-func (c *Client) GetMicrophones(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetMicrophones(ctx, &pb.GetMicrophonesRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
 // GetMode calls the GetMode RPC.
-func (c *Client) GetMode(ctx context.Context) (int32, error) {
+func (c *AudioManagerClient) GetMode(ctx context.Context) (int32, error) {
 	resp, err := c.svc.GetMode(ctx, &pb.GetModeRequest{})
 	if err != nil {
 		return 0, err
@@ -261,7 +203,7 @@ func (c *Client) GetMode(ctx context.Context) (int32, error) {
 }
 
 // GetParameters calls the GetParameters RPC.
-func (c *Client) GetParameters(ctx context.Context, arg0 string) (string, error) {
+func (c *AudioManagerClient) GetParameters(ctx context.Context, arg0 string) (string, error) {
 	resp, err := c.svc.GetParameters(ctx, &pb.GetParametersRequest{
 		Arg0: arg0,
 	})
@@ -272,7 +214,7 @@ func (c *Client) GetParameters(ctx context.Context, arg0 string) (string, error)
 }
 
 // GetPreferredMixerAttributes calls the GetPreferredMixerAttributes RPC.
-func (c *Client) GetPreferredMixerAttributes(ctx context.Context, arg0 int64, arg1 int64) (int64, error) {
+func (c *AudioManagerClient) GetPreferredMixerAttributes(ctx context.Context, arg0 int64, arg1 int64) (int64, error) {
 	resp, err := c.svc.GetPreferredMixerAttributes(ctx, &pb.GetPreferredMixerAttributesRequest{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -284,7 +226,7 @@ func (c *Client) GetPreferredMixerAttributes(ctx context.Context, arg0 int64, ar
 }
 
 // GetProperty calls the GetProperty RPC.
-func (c *Client) GetProperty(ctx context.Context, arg0 string) (string, error) {
+func (c *AudioManagerClient) GetProperty(ctx context.Context, arg0 string) (string, error) {
 	resp, err := c.svc.GetProperty(ctx, &pb.GetPropertyRequest{
 		Arg0: arg0,
 	})
@@ -295,7 +237,7 @@ func (c *Client) GetProperty(ctx context.Context, arg0 string) (string, error) {
 }
 
 // GetRingerMode calls the GetRingerMode RPC.
-func (c *Client) GetRingerMode(ctx context.Context) (int32, error) {
+func (c *AudioManagerClient) GetRingerMode(ctx context.Context) (int32, error) {
 	resp, err := c.svc.GetRingerMode(ctx, &pb.GetRingerModeRequest{})
 	if err != nil {
 		return 0, err
@@ -304,7 +246,7 @@ func (c *Client) GetRingerMode(ctx context.Context) (int32, error) {
 }
 
 // GetRouting calls the GetRouting RPC.
-func (c *Client) GetRouting(ctx context.Context, arg0 int32) (int32, error) {
+func (c *AudioManagerClient) GetRouting(ctx context.Context, arg0 int32) (int32, error) {
 	resp, err := c.svc.GetRouting(ctx, &pb.GetRoutingRequest{
 		Arg0: arg0,
 	})
@@ -315,7 +257,7 @@ func (c *Client) GetRouting(ctx context.Context, arg0 int32) (int32, error) {
 }
 
 // GetSpatializer calls the GetSpatializer RPC.
-func (c *Client) GetSpatializer(ctx context.Context) (int64, error) {
+func (c *AudioManagerClient) GetSpatializer(ctx context.Context) (int64, error) {
 	resp, err := c.svc.GetSpatializer(ctx, &pb.GetSpatializerRequest{})
 	if err != nil {
 		return 0, err
@@ -324,7 +266,7 @@ func (c *Client) GetSpatializer(ctx context.Context) (int64, error) {
 }
 
 // GetStreamMaxVolume calls the GetStreamMaxVolume RPC.
-func (c *Client) GetStreamMaxVolume(ctx context.Context, arg0 int32) (int32, error) {
+func (c *AudioManagerClient) GetStreamMaxVolume(ctx context.Context, arg0 int32) (int32, error) {
 	resp, err := c.svc.GetStreamMaxVolume(ctx, &pb.GetStreamMaxVolumeRequest{
 		Arg0: arg0,
 	})
@@ -335,7 +277,7 @@ func (c *Client) GetStreamMaxVolume(ctx context.Context, arg0 int32) (int32, err
 }
 
 // GetStreamMinVolume calls the GetStreamMinVolume RPC.
-func (c *Client) GetStreamMinVolume(ctx context.Context, arg0 int32) (int32, error) {
+func (c *AudioManagerClient) GetStreamMinVolume(ctx context.Context, arg0 int32) (int32, error) {
 	resp, err := c.svc.GetStreamMinVolume(ctx, &pb.GetStreamMinVolumeRequest{
 		Arg0: arg0,
 	})
@@ -346,7 +288,7 @@ func (c *Client) GetStreamMinVolume(ctx context.Context, arg0 int32) (int32, err
 }
 
 // GetStreamVolume calls the GetStreamVolume RPC.
-func (c *Client) GetStreamVolume(ctx context.Context, arg0 int32) (int32, error) {
+func (c *AudioManagerClient) GetStreamVolume(ctx context.Context, arg0 int32) (int32, error) {
 	resp, err := c.svc.GetStreamVolume(ctx, &pb.GetStreamVolumeRequest{
 		Arg0: arg0,
 	})
@@ -357,7 +299,7 @@ func (c *Client) GetStreamVolume(ctx context.Context, arg0 int32) (int32, error)
 }
 
 // GetStreamVolumeDb calls the GetStreamVolumeDb RPC.
-func (c *Client) GetStreamVolumeDb(ctx context.Context, arg0 int32, arg1 int32, arg2 int32) (float32, error) {
+func (c *AudioManagerClient) GetStreamVolumeDb(ctx context.Context, arg0 int32, arg1 int32, arg2 int32) (float32, error) {
 	resp, err := c.svc.GetStreamVolumeDb(ctx, &pb.GetStreamVolumeDbRequest{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -369,30 +311,8 @@ func (c *Client) GetStreamVolumeDb(ctx context.Context, arg0 int32, arg1 int32, 
 	return resp.GetResult(), nil
 }
 
-// GetSupportedDeviceTypes calls the GetSupportedDeviceTypes RPC.
-func (c *Client) GetSupportedDeviceTypes(ctx context.Context, arg0 int32) (int64, error) {
-	resp, err := c.svc.GetSupportedDeviceTypes(ctx, &pb.GetSupportedDeviceTypesRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetSupportedMixerAttributes calls the GetSupportedMixerAttributes RPC.
-func (c *Client) GetSupportedMixerAttributes(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.GetSupportedMixerAttributes(ctx, &pb.GetSupportedMixerAttributesRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
 // GetVibrateSetting calls the GetVibrateSetting RPC.
-func (c *Client) GetVibrateSetting(ctx context.Context, arg0 int32) (int32, error) {
+func (c *AudioManagerClient) GetVibrateSetting(ctx context.Context, arg0 int32) (int32, error) {
 	resp, err := c.svc.GetVibrateSetting(ctx, &pb.GetVibrateSettingRequest{
 		Arg0: arg0,
 	})
@@ -403,7 +323,7 @@ func (c *Client) GetVibrateSetting(ctx context.Context, arg0 int32) (int32, erro
 }
 
 // GetVolumeGroupIdForAttributes calls the GetVolumeGroupIdForAttributes RPC.
-func (c *Client) GetVolumeGroupIdForAttributes(ctx context.Context, arg0 int64) (int32, error) {
+func (c *AudioManagerClient) GetVolumeGroupIdForAttributes(ctx context.Context, arg0 int64) (int32, error) {
 	resp, err := c.svc.GetVolumeGroupIdForAttributes(ctx, &pb.GetVolumeGroupIdForAttributesRequest{
 		Arg0: arg0,
 	})
@@ -414,7 +334,7 @@ func (c *Client) GetVolumeGroupIdForAttributes(ctx context.Context, arg0 int64) 
 }
 
 // IsBluetoothA2DpOn calls the IsBluetoothA2DpOn RPC.
-func (c *Client) IsBluetoothA2DpOn(ctx context.Context) (bool, error) {
+func (c *AudioManagerClient) IsBluetoothA2DpOn(ctx context.Context) (bool, error) {
 	resp, err := c.svc.IsBluetoothA2DpOn(ctx, &pb.IsBluetoothA2DpOnRequest{})
 	if err != nil {
 		return false, err
@@ -423,7 +343,7 @@ func (c *Client) IsBluetoothA2DpOn(ctx context.Context) (bool, error) {
 }
 
 // IsBluetoothScoAvailableOffCall calls the IsBluetoothScoAvailableOffCall RPC.
-func (c *Client) IsBluetoothScoAvailableOffCall(ctx context.Context) (bool, error) {
+func (c *AudioManagerClient) IsBluetoothScoAvailableOffCall(ctx context.Context) (bool, error) {
 	resp, err := c.svc.IsBluetoothScoAvailableOffCall(ctx, &pb.IsBluetoothScoAvailableOffCallRequest{})
 	if err != nil {
 		return false, err
@@ -432,7 +352,7 @@ func (c *Client) IsBluetoothScoAvailableOffCall(ctx context.Context) (bool, erro
 }
 
 // IsBluetoothScoOn calls the IsBluetoothScoOn RPC.
-func (c *Client) IsBluetoothScoOn(ctx context.Context) (bool, error) {
+func (c *AudioManagerClient) IsBluetoothScoOn(ctx context.Context) (bool, error) {
 	resp, err := c.svc.IsBluetoothScoOn(ctx, &pb.IsBluetoothScoOnRequest{})
 	if err != nil {
 		return false, err
@@ -441,7 +361,7 @@ func (c *Client) IsBluetoothScoOn(ctx context.Context) (bool, error) {
 }
 
 // IsCallScreeningModeSupported calls the IsCallScreeningModeSupported RPC.
-func (c *Client) IsCallScreeningModeSupported(ctx context.Context) (bool, error) {
+func (c *AudioManagerClient) IsCallScreeningModeSupported(ctx context.Context) (bool, error) {
 	resp, err := c.svc.IsCallScreeningModeSupported(ctx, &pb.IsCallScreeningModeSupportedRequest{})
 	if err != nil {
 		return false, err
@@ -450,7 +370,7 @@ func (c *Client) IsCallScreeningModeSupported(ctx context.Context) (bool, error)
 }
 
 // IsMicrophoneMute calls the IsMicrophoneMute RPC.
-func (c *Client) IsMicrophoneMute(ctx context.Context) (bool, error) {
+func (c *AudioManagerClient) IsMicrophoneMute(ctx context.Context) (bool, error) {
 	resp, err := c.svc.IsMicrophoneMute(ctx, &pb.IsMicrophoneMuteRequest{})
 	if err != nil {
 		return false, err
@@ -459,7 +379,7 @@ func (c *Client) IsMicrophoneMute(ctx context.Context) (bool, error) {
 }
 
 // IsMusicActive calls the IsMusicActive RPC.
-func (c *Client) IsMusicActive(ctx context.Context) (bool, error) {
+func (c *AudioManagerClient) IsMusicActive(ctx context.Context) (bool, error) {
 	resp, err := c.svc.IsMusicActive(ctx, &pb.IsMusicActiveRequest{})
 	if err != nil {
 		return false, err
@@ -468,7 +388,7 @@ func (c *Client) IsMusicActive(ctx context.Context) (bool, error) {
 }
 
 // IsRampingRingerEnabled calls the IsRampingRingerEnabled RPC.
-func (c *Client) IsRampingRingerEnabled(ctx context.Context) (bool, error) {
+func (c *AudioManagerClient) IsRampingRingerEnabled(ctx context.Context) (bool, error) {
 	resp, err := c.svc.IsRampingRingerEnabled(ctx, &pb.IsRampingRingerEnabledRequest{})
 	if err != nil {
 		return false, err
@@ -477,7 +397,7 @@ func (c *Client) IsRampingRingerEnabled(ctx context.Context) (bool, error) {
 }
 
 // IsSpeakerphoneOn calls the IsSpeakerphoneOn RPC.
-func (c *Client) IsSpeakerphoneOn(ctx context.Context) (bool, error) {
+func (c *AudioManagerClient) IsSpeakerphoneOn(ctx context.Context) (bool, error) {
 	resp, err := c.svc.IsSpeakerphoneOn(ctx, &pb.IsSpeakerphoneOnRequest{})
 	if err != nil {
 		return false, err
@@ -486,7 +406,7 @@ func (c *Client) IsSpeakerphoneOn(ctx context.Context) (bool, error) {
 }
 
 // IsStreamMute calls the IsStreamMute RPC.
-func (c *Client) IsStreamMute(ctx context.Context, arg0 int32) (bool, error) {
+func (c *AudioManagerClient) IsStreamMute(ctx context.Context, arg0 int32) (bool, error) {
 	resp, err := c.svc.IsStreamMute(ctx, &pb.IsStreamMuteRequest{
 		Arg0: arg0,
 	})
@@ -497,7 +417,7 @@ func (c *Client) IsStreamMute(ctx context.Context, arg0 int32) (bool, error) {
 }
 
 // IsSurroundFormatEnabled calls the IsSurroundFormatEnabled RPC.
-func (c *Client) IsSurroundFormatEnabled(ctx context.Context, arg0 int32) (bool, error) {
+func (c *AudioManagerClient) IsSurroundFormatEnabled(ctx context.Context, arg0 int32) (bool, error) {
 	resp, err := c.svc.IsSurroundFormatEnabled(ctx, &pb.IsSurroundFormatEnabledRequest{
 		Arg0: arg0,
 	})
@@ -508,7 +428,7 @@ func (c *Client) IsSurroundFormatEnabled(ctx context.Context, arg0 int32) (bool,
 }
 
 // IsVolumeFixed calls the IsVolumeFixed RPC.
-func (c *Client) IsVolumeFixed(ctx context.Context) (bool, error) {
+func (c *AudioManagerClient) IsVolumeFixed(ctx context.Context) (bool, error) {
 	resp, err := c.svc.IsVolumeFixed(ctx, &pb.IsVolumeFixedRequest{})
 	if err != nil {
 		return false, err
@@ -517,7 +437,7 @@ func (c *Client) IsVolumeFixed(ctx context.Context) (bool, error) {
 }
 
 // IsVolumeGroupMuted calls the IsVolumeGroupMuted RPC.
-func (c *Client) IsVolumeGroupMuted(ctx context.Context, arg0 int32) (bool, error) {
+func (c *AudioManagerClient) IsVolumeGroupMuted(ctx context.Context, arg0 int32) (bool, error) {
 	resp, err := c.svc.IsVolumeGroupMuted(ctx, &pb.IsVolumeGroupMutedRequest{
 		Arg0: arg0,
 	})
@@ -528,7 +448,7 @@ func (c *Client) IsVolumeGroupMuted(ctx context.Context, arg0 int32) (bool, erro
 }
 
 // IsWiredHeadsetOn calls the IsWiredHeadsetOn RPC.
-func (c *Client) IsWiredHeadsetOn(ctx context.Context) (bool, error) {
+func (c *AudioManagerClient) IsWiredHeadsetOn(ctx context.Context) (bool, error) {
 	resp, err := c.svc.IsWiredHeadsetOn(ctx, &pb.IsWiredHeadsetOnRequest{})
 	if err != nil {
 		return false, err
@@ -537,13 +457,13 @@ func (c *Client) IsWiredHeadsetOn(ctx context.Context) (bool, error) {
 }
 
 // LoadSoundEffects calls the LoadSoundEffects RPC.
-func (c *Client) LoadSoundEffects(ctx context.Context) error {
+func (c *AudioManagerClient) LoadSoundEffects(ctx context.Context) error {
 	_, err := c.svc.LoadSoundEffects(ctx, &pb.LoadSoundEffectsRequest{})
 	return err
 }
 
 // PlaySoundEffect1 calls the PlaySoundEffect1 RPC.
-func (c *Client) PlaySoundEffect1(ctx context.Context, arg0 int32) error {
+func (c *AudioManagerClient) PlaySoundEffect1(ctx context.Context, arg0 int32) error {
 	_, err := c.svc.PlaySoundEffect1(ctx, &pb.PlaySoundEffect1Request{
 		Arg0: arg0,
 	})
@@ -551,7 +471,7 @@ func (c *Client) PlaySoundEffect1(ctx context.Context, arg0 int32) error {
 }
 
 // PlaySoundEffect2_1 calls the PlaySoundEffect2_1 RPC.
-func (c *Client) PlaySoundEffect2_1(ctx context.Context, arg0 int32, arg1 float32) error {
+func (c *AudioManagerClient) PlaySoundEffect2_1(ctx context.Context, arg0 int32, arg1 float32) error {
 	_, err := c.svc.PlaySoundEffect2_1(ctx, &pb.PlaySoundEffect2_1Request{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -560,7 +480,7 @@ func (c *Client) PlaySoundEffect2_1(ctx context.Context, arg0 int32, arg1 float3
 }
 
 // RegisterMediaButtonEventReceiver1 calls the RegisterMediaButtonEventReceiver1 RPC.
-func (c *Client) RegisterMediaButtonEventReceiver1(ctx context.Context, arg0 int64) error {
+func (c *AudioManagerClient) RegisterMediaButtonEventReceiver1(ctx context.Context, arg0 int64) error {
 	_, err := c.svc.RegisterMediaButtonEventReceiver1(ctx, &pb.RegisterMediaButtonEventReceiver1Request{
 		Arg0: arg0,
 	})
@@ -568,7 +488,7 @@ func (c *Client) RegisterMediaButtonEventReceiver1(ctx context.Context, arg0 int
 }
 
 // RegisterMediaButtonEventReceiver1_1 calls the RegisterMediaButtonEventReceiver1_1 RPC.
-func (c *Client) RegisterMediaButtonEventReceiver1_1(ctx context.Context, arg0 int64) error {
+func (c *AudioManagerClient) RegisterMediaButtonEventReceiver1_1(ctx context.Context, arg0 int64) error {
 	_, err := c.svc.RegisterMediaButtonEventReceiver1_1(ctx, &pb.RegisterMediaButtonEventReceiver1_1Request{
 		Arg0: arg0,
 	})
@@ -576,7 +496,7 @@ func (c *Client) RegisterMediaButtonEventReceiver1_1(ctx context.Context, arg0 i
 }
 
 // RegisterRemoteControlClient calls the RegisterRemoteControlClient RPC.
-func (c *Client) RegisterRemoteControlClient(ctx context.Context, arg0 int64) error {
+func (c *AudioManagerClient) RegisterRemoteControlClient(ctx context.Context, arg0 int64) error {
 	_, err := c.svc.RegisterRemoteControlClient(ctx, &pb.RegisterRemoteControlClientRequest{
 		Arg0: arg0,
 	})
@@ -584,7 +504,7 @@ func (c *Client) RegisterRemoteControlClient(ctx context.Context, arg0 int64) er
 }
 
 // RegisterRemoteController calls the RegisterRemoteController RPC.
-func (c *Client) RegisterRemoteController(ctx context.Context, arg0 int64) (bool, error) {
+func (c *AudioManagerClient) RegisterRemoteController(ctx context.Context, arg0 int64) (bool, error) {
 	resp, err := c.svc.RegisterRemoteController(ctx, &pb.RegisterRemoteControllerRequest{
 		Arg0: arg0,
 	})
@@ -595,7 +515,7 @@ func (c *Client) RegisterRemoteController(ctx context.Context, arg0 int64) (bool
 }
 
 // RemoveOnCommunicationDeviceChangedListener calls the RemoveOnCommunicationDeviceChangedListener RPC.
-func (c *Client) RemoveOnCommunicationDeviceChangedListener(ctx context.Context, arg0 int64) error {
+func (c *AudioManagerClient) RemoveOnCommunicationDeviceChangedListener(ctx context.Context, arg0 int64) error {
 	_, err := c.svc.RemoveOnCommunicationDeviceChangedListener(ctx, &pb.RemoveOnCommunicationDeviceChangedListenerRequest{
 		Arg0: arg0,
 	})
@@ -603,7 +523,7 @@ func (c *Client) RemoveOnCommunicationDeviceChangedListener(ctx context.Context,
 }
 
 // RemoveOnModeChangedListener calls the RemoveOnModeChangedListener RPC.
-func (c *Client) RemoveOnModeChangedListener(ctx context.Context, arg0 int64) error {
+func (c *AudioManagerClient) RemoveOnModeChangedListener(ctx context.Context, arg0 int64) error {
 	_, err := c.svc.RemoveOnModeChangedListener(ctx, &pb.RemoveOnModeChangedListenerRequest{
 		Arg0: arg0,
 	})
@@ -611,7 +531,7 @@ func (c *Client) RemoveOnModeChangedListener(ctx context.Context, arg0 int64) er
 }
 
 // RemoveOnPreferredMixerAttributesChangedListener calls the RemoveOnPreferredMixerAttributesChangedListener RPC.
-func (c *Client) RemoveOnPreferredMixerAttributesChangedListener(ctx context.Context, arg0 int64) error {
+func (c *AudioManagerClient) RemoveOnPreferredMixerAttributesChangedListener(ctx context.Context, arg0 int64) error {
 	_, err := c.svc.RemoveOnPreferredMixerAttributesChangedListener(ctx, &pb.RemoveOnPreferredMixerAttributesChangedListenerRequest{
 		Arg0: arg0,
 	})
@@ -619,7 +539,7 @@ func (c *Client) RemoveOnPreferredMixerAttributesChangedListener(ctx context.Con
 }
 
 // RequestAudioFocus1 calls the RequestAudioFocus1 RPC.
-func (c *Client) RequestAudioFocus1(ctx context.Context, arg0 int64) (int32, error) {
+func (c *AudioManagerClient) RequestAudioFocus1(ctx context.Context, arg0 int64) (int32, error) {
 	resp, err := c.svc.RequestAudioFocus1(ctx, &pb.RequestAudioFocus1Request{
 		Arg0: arg0,
 	})
@@ -630,7 +550,7 @@ func (c *Client) RequestAudioFocus1(ctx context.Context, arg0 int64) (int32, err
 }
 
 // RequestAudioFocus3_1 calls the RequestAudioFocus3_1 RPC.
-func (c *Client) RequestAudioFocus3_1(ctx context.Context, arg0 int64, arg1 int32, arg2 int32) (int32, error) {
+func (c *AudioManagerClient) RequestAudioFocus3_1(ctx context.Context, arg0 int64, arg1 int32, arg2 int32) (int32, error) {
 	resp, err := c.svc.RequestAudioFocus3_1(ctx, &pb.RequestAudioFocus3_1Request{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -643,7 +563,7 @@ func (c *Client) RequestAudioFocus3_1(ctx context.Context, arg0 int64, arg1 int3
 }
 
 // SetAllowedCapturePolicy calls the SetAllowedCapturePolicy RPC.
-func (c *Client) SetAllowedCapturePolicy(ctx context.Context, arg0 int32) error {
+func (c *AudioManagerClient) SetAllowedCapturePolicy(ctx context.Context, arg0 int32) error {
 	_, err := c.svc.SetAllowedCapturePolicy(ctx, &pb.SetAllowedCapturePolicyRequest{
 		Arg0: arg0,
 	})
@@ -651,7 +571,7 @@ func (c *Client) SetAllowedCapturePolicy(ctx context.Context, arg0 int32) error 
 }
 
 // SetBluetoothA2DpOn calls the SetBluetoothA2DpOn RPC.
-func (c *Client) SetBluetoothA2DpOn(ctx context.Context, arg0 bool) error {
+func (c *AudioManagerClient) SetBluetoothA2DpOn(ctx context.Context, arg0 bool) error {
 	_, err := c.svc.SetBluetoothA2DpOn(ctx, &pb.SetBluetoothA2DpOnRequest{
 		Arg0: arg0,
 	})
@@ -659,7 +579,7 @@ func (c *Client) SetBluetoothA2DpOn(ctx context.Context, arg0 bool) error {
 }
 
 // SetBluetoothScoOn calls the SetBluetoothScoOn RPC.
-func (c *Client) SetBluetoothScoOn(ctx context.Context, arg0 bool) error {
+func (c *AudioManagerClient) SetBluetoothScoOn(ctx context.Context, arg0 bool) error {
 	_, err := c.svc.SetBluetoothScoOn(ctx, &pb.SetBluetoothScoOnRequest{
 		Arg0: arg0,
 	})
@@ -667,7 +587,7 @@ func (c *Client) SetBluetoothScoOn(ctx context.Context, arg0 bool) error {
 }
 
 // SetCommunicationDevice calls the SetCommunicationDevice RPC.
-func (c *Client) SetCommunicationDevice(ctx context.Context, arg0 int64) (bool, error) {
+func (c *AudioManagerClient) SetCommunicationDevice(ctx context.Context, arg0 int64) (bool, error) {
 	resp, err := c.svc.SetCommunicationDevice(ctx, &pb.SetCommunicationDeviceRequest{
 		Arg0: arg0,
 	})
@@ -678,7 +598,7 @@ func (c *Client) SetCommunicationDevice(ctx context.Context, arg0 int64) (bool, 
 }
 
 // SetEncodedSurroundMode calls the SetEncodedSurroundMode RPC.
-func (c *Client) SetEncodedSurroundMode(ctx context.Context, arg0 int32) (bool, error) {
+func (c *AudioManagerClient) SetEncodedSurroundMode(ctx context.Context, arg0 int32) (bool, error) {
 	resp, err := c.svc.SetEncodedSurroundMode(ctx, &pb.SetEncodedSurroundModeRequest{
 		Arg0: arg0,
 	})
@@ -689,7 +609,7 @@ func (c *Client) SetEncodedSurroundMode(ctx context.Context, arg0 int32) (bool, 
 }
 
 // SetMicrophoneMute calls the SetMicrophoneMute RPC.
-func (c *Client) SetMicrophoneMute(ctx context.Context, arg0 bool) error {
+func (c *AudioManagerClient) SetMicrophoneMute(ctx context.Context, arg0 bool) error {
 	_, err := c.svc.SetMicrophoneMute(ctx, &pb.SetMicrophoneMuteRequest{
 		Arg0: arg0,
 	})
@@ -697,7 +617,7 @@ func (c *Client) SetMicrophoneMute(ctx context.Context, arg0 bool) error {
 }
 
 // SetMode calls the SetMode RPC.
-func (c *Client) SetMode(ctx context.Context, arg0 int32) error {
+func (c *AudioManagerClient) SetMode(ctx context.Context, arg0 int32) error {
 	_, err := c.svc.SetMode(ctx, &pb.SetModeRequest{
 		Arg0: arg0,
 	})
@@ -705,7 +625,7 @@ func (c *Client) SetMode(ctx context.Context, arg0 int32) error {
 }
 
 // SetParameters calls the SetParameters RPC.
-func (c *Client) SetParameters(ctx context.Context, arg0 string) error {
+func (c *AudioManagerClient) SetParameters(ctx context.Context, arg0 string) error {
 	_, err := c.svc.SetParameters(ctx, &pb.SetParametersRequest{
 		Arg0: arg0,
 	})
@@ -713,7 +633,7 @@ func (c *Client) SetParameters(ctx context.Context, arg0 string) error {
 }
 
 // SetPreferredMixerAttributes calls the SetPreferredMixerAttributes RPC.
-func (c *Client) SetPreferredMixerAttributes(ctx context.Context, arg0 int64, arg1 int64, arg2 int64) (bool, error) {
+func (c *AudioManagerClient) SetPreferredMixerAttributes(ctx context.Context, arg0 int64, arg1 int64, arg2 int64) (bool, error) {
 	resp, err := c.svc.SetPreferredMixerAttributes(ctx, &pb.SetPreferredMixerAttributesRequest{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -726,7 +646,7 @@ func (c *Client) SetPreferredMixerAttributes(ctx context.Context, arg0 int64, ar
 }
 
 // SetRingerMode calls the SetRingerMode RPC.
-func (c *Client) SetRingerMode(ctx context.Context, arg0 int32) error {
+func (c *AudioManagerClient) SetRingerMode(ctx context.Context, arg0 int32) error {
 	_, err := c.svc.SetRingerMode(ctx, &pb.SetRingerModeRequest{
 		Arg0: arg0,
 	})
@@ -734,7 +654,7 @@ func (c *Client) SetRingerMode(ctx context.Context, arg0 int32) error {
 }
 
 // SetRouting calls the SetRouting RPC.
-func (c *Client) SetRouting(ctx context.Context, arg0 int32, arg1 int32, arg2 int32) error {
+func (c *AudioManagerClient) SetRouting(ctx context.Context, arg0 int32, arg1 int32, arg2 int32) error {
 	_, err := c.svc.SetRouting(ctx, &pb.SetRoutingRequest{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -744,7 +664,7 @@ func (c *Client) SetRouting(ctx context.Context, arg0 int32, arg1 int32, arg2 in
 }
 
 // SetSpeakerphoneOn calls the SetSpeakerphoneOn RPC.
-func (c *Client) SetSpeakerphoneOn(ctx context.Context, arg0 bool) error {
+func (c *AudioManagerClient) SetSpeakerphoneOn(ctx context.Context, arg0 bool) error {
 	_, err := c.svc.SetSpeakerphoneOn(ctx, &pb.SetSpeakerphoneOnRequest{
 		Arg0: arg0,
 	})
@@ -752,7 +672,7 @@ func (c *Client) SetSpeakerphoneOn(ctx context.Context, arg0 bool) error {
 }
 
 // SetStreamMute calls the SetStreamMute RPC.
-func (c *Client) SetStreamMute(ctx context.Context, arg0 int32, arg1 bool) error {
+func (c *AudioManagerClient) SetStreamMute(ctx context.Context, arg0 int32, arg1 bool) error {
 	_, err := c.svc.SetStreamMute(ctx, &pb.SetStreamMuteRequest{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -761,7 +681,7 @@ func (c *Client) SetStreamMute(ctx context.Context, arg0 int32, arg1 bool) error
 }
 
 // SetStreamSolo calls the SetStreamSolo RPC.
-func (c *Client) SetStreamSolo(ctx context.Context, arg0 int32, arg1 bool) error {
+func (c *AudioManagerClient) SetStreamSolo(ctx context.Context, arg0 int32, arg1 bool) error {
 	_, err := c.svc.SetStreamSolo(ctx, &pb.SetStreamSoloRequest{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -770,7 +690,7 @@ func (c *Client) SetStreamSolo(ctx context.Context, arg0 int32, arg1 bool) error
 }
 
 // SetStreamVolume calls the SetStreamVolume RPC.
-func (c *Client) SetStreamVolume(ctx context.Context, arg0 int32, arg1 int32, arg2 int32) error {
+func (c *AudioManagerClient) SetStreamVolume(ctx context.Context, arg0 int32, arg1 int32, arg2 int32) error {
 	_, err := c.svc.SetStreamVolume(ctx, &pb.SetStreamVolumeRequest{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -780,7 +700,7 @@ func (c *Client) SetStreamVolume(ctx context.Context, arg0 int32, arg1 int32, ar
 }
 
 // SetSurroundFormatEnabled calls the SetSurroundFormatEnabled RPC.
-func (c *Client) SetSurroundFormatEnabled(ctx context.Context, arg0 int32, arg1 bool) (bool, error) {
+func (c *AudioManagerClient) SetSurroundFormatEnabled(ctx context.Context, arg0 int32, arg1 bool) (bool, error) {
 	resp, err := c.svc.SetSurroundFormatEnabled(ctx, &pb.SetSurroundFormatEnabledRequest{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -792,7 +712,7 @@ func (c *Client) SetSurroundFormatEnabled(ctx context.Context, arg0 int32, arg1 
 }
 
 // SetVibrateSetting calls the SetVibrateSetting RPC.
-func (c *Client) SetVibrateSetting(ctx context.Context, arg0 int32, arg1 int32) error {
+func (c *AudioManagerClient) SetVibrateSetting(ctx context.Context, arg0 int32, arg1 int32) error {
 	_, err := c.svc.SetVibrateSetting(ctx, &pb.SetVibrateSettingRequest{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -801,7 +721,7 @@ func (c *Client) SetVibrateSetting(ctx context.Context, arg0 int32, arg1 int32) 
 }
 
 // SetWiredHeadsetOn calls the SetWiredHeadsetOn RPC.
-func (c *Client) SetWiredHeadsetOn(ctx context.Context, arg0 bool) error {
+func (c *AudioManagerClient) SetWiredHeadsetOn(ctx context.Context, arg0 bool) error {
 	_, err := c.svc.SetWiredHeadsetOn(ctx, &pb.SetWiredHeadsetOnRequest{
 		Arg0: arg0,
 	})
@@ -809,7 +729,7 @@ func (c *Client) SetWiredHeadsetOn(ctx context.Context, arg0 bool) error {
 }
 
 // ShouldVibrate calls the ShouldVibrate RPC.
-func (c *Client) ShouldVibrate(ctx context.Context, arg0 int32) (bool, error) {
+func (c *AudioManagerClient) ShouldVibrate(ctx context.Context, arg0 int32) (bool, error) {
 	resp, err := c.svc.ShouldVibrate(ctx, &pb.ShouldVibrateRequest{
 		Arg0: arg0,
 	})
@@ -820,25 +740,25 @@ func (c *Client) ShouldVibrate(ctx context.Context, arg0 int32) (bool, error) {
 }
 
 // StartBluetoothSco calls the StartBluetoothSco RPC.
-func (c *Client) StartBluetoothSco(ctx context.Context) error {
+func (c *AudioManagerClient) StartBluetoothSco(ctx context.Context) error {
 	_, err := c.svc.StartBluetoothSco(ctx, &pb.StartBluetoothScoRequest{})
 	return err
 }
 
 // StopBluetoothSco calls the StopBluetoothSco RPC.
-func (c *Client) StopBluetoothSco(ctx context.Context) error {
+func (c *AudioManagerClient) StopBluetoothSco(ctx context.Context) error {
 	_, err := c.svc.StopBluetoothSco(ctx, &pb.StopBluetoothScoRequest{})
 	return err
 }
 
 // UnloadSoundEffects calls the UnloadSoundEffects RPC.
-func (c *Client) UnloadSoundEffects(ctx context.Context) error {
+func (c *AudioManagerClient) UnloadSoundEffects(ctx context.Context) error {
 	_, err := c.svc.UnloadSoundEffects(ctx, &pb.UnloadSoundEffectsRequest{})
 	return err
 }
 
 // UnregisterAudioDeviceCallback calls the UnregisterAudioDeviceCallback RPC.
-func (c *Client) UnregisterAudioDeviceCallback(ctx context.Context, arg0 int64) error {
+func (c *AudioManagerClient) UnregisterAudioDeviceCallback(ctx context.Context, arg0 int64) error {
 	_, err := c.svc.UnregisterAudioDeviceCallback(ctx, &pb.UnregisterAudioDeviceCallbackRequest{
 		Arg0: arg0,
 	})
@@ -846,7 +766,7 @@ func (c *Client) UnregisterAudioDeviceCallback(ctx context.Context, arg0 int64) 
 }
 
 // UnregisterAudioPlaybackCallback calls the UnregisterAudioPlaybackCallback RPC.
-func (c *Client) UnregisterAudioPlaybackCallback(ctx context.Context, arg0 int64) error {
+func (c *AudioManagerClient) UnregisterAudioPlaybackCallback(ctx context.Context, arg0 int64) error {
 	_, err := c.svc.UnregisterAudioPlaybackCallback(ctx, &pb.UnregisterAudioPlaybackCallbackRequest{
 		Arg0: arg0,
 	})
@@ -854,7 +774,7 @@ func (c *Client) UnregisterAudioPlaybackCallback(ctx context.Context, arg0 int64
 }
 
 // UnregisterAudioRecordingCallback calls the UnregisterAudioRecordingCallback RPC.
-func (c *Client) UnregisterAudioRecordingCallback(ctx context.Context, arg0 int64) error {
+func (c *AudioManagerClient) UnregisterAudioRecordingCallback(ctx context.Context, arg0 int64) error {
 	_, err := c.svc.UnregisterAudioRecordingCallback(ctx, &pb.UnregisterAudioRecordingCallbackRequest{
 		Arg0: arg0,
 	})
@@ -862,7 +782,7 @@ func (c *Client) UnregisterAudioRecordingCallback(ctx context.Context, arg0 int6
 }
 
 // UnregisterMediaButtonEventReceiver1 calls the UnregisterMediaButtonEventReceiver1 RPC.
-func (c *Client) UnregisterMediaButtonEventReceiver1(ctx context.Context, arg0 int64) error {
+func (c *AudioManagerClient) UnregisterMediaButtonEventReceiver1(ctx context.Context, arg0 int64) error {
 	_, err := c.svc.UnregisterMediaButtonEventReceiver1(ctx, &pb.UnregisterMediaButtonEventReceiver1Request{
 		Arg0: arg0,
 	})
@@ -870,7 +790,7 @@ func (c *Client) UnregisterMediaButtonEventReceiver1(ctx context.Context, arg0 i
 }
 
 // UnregisterMediaButtonEventReceiver1_1 calls the UnregisterMediaButtonEventReceiver1_1 RPC.
-func (c *Client) UnregisterMediaButtonEventReceiver1_1(ctx context.Context, arg0 int64) error {
+func (c *AudioManagerClient) UnregisterMediaButtonEventReceiver1_1(ctx context.Context, arg0 int64) error {
 	_, err := c.svc.UnregisterMediaButtonEventReceiver1_1(ctx, &pb.UnregisterMediaButtonEventReceiver1_1Request{
 		Arg0: arg0,
 	})
@@ -878,7 +798,7 @@ func (c *Client) UnregisterMediaButtonEventReceiver1_1(ctx context.Context, arg0
 }
 
 // UnregisterRemoteControlClient calls the UnregisterRemoteControlClient RPC.
-func (c *Client) UnregisterRemoteControlClient(ctx context.Context, arg0 int64) error {
+func (c *AudioManagerClient) UnregisterRemoteControlClient(ctx context.Context, arg0 int64) error {
 	_, err := c.svc.UnregisterRemoteControlClient(ctx, &pb.UnregisterRemoteControlClientRequest{
 		Arg0: arg0,
 	})
@@ -886,7 +806,7 @@ func (c *Client) UnregisterRemoteControlClient(ctx context.Context, arg0 int64) 
 }
 
 // UnregisterRemoteController calls the UnregisterRemoteController RPC.
-func (c *Client) UnregisterRemoteController(ctx context.Context, arg0 int64) error {
+func (c *AudioManagerClient) UnregisterRemoteController(ctx context.Context, arg0 int64) error {
 	_, err := c.svc.UnregisterRemoteController(ctx, &pb.UnregisterRemoteControllerRequest{
 		Arg0: arg0,
 	})
@@ -894,7 +814,7 @@ func (c *Client) UnregisterRemoteController(ctx context.Context, arg0 int64) err
 }
 
 // GetDirectPlaybackSupport calls the GetDirectPlaybackSupport RPC.
-func (c *Client) GetDirectPlaybackSupport(ctx context.Context, arg0 int64, arg1 int64) (int32, error) {
+func (c *AudioManagerClient) GetDirectPlaybackSupport(ctx context.Context, arg0 int64, arg1 int64) (int32, error) {
 	resp, err := c.svc.GetDirectPlaybackSupport(ctx, &pb.GetDirectPlaybackSupportRequest{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -906,7 +826,7 @@ func (c *Client) GetDirectPlaybackSupport(ctx context.Context, arg0 int64, arg1 
 }
 
 // GetPlaybackOffloadSupport calls the GetPlaybackOffloadSupport RPC.
-func (c *Client) GetPlaybackOffloadSupport(ctx context.Context, arg0 int64, arg1 int64) (int32, error) {
+func (c *AudioManagerClient) GetPlaybackOffloadSupport(ctx context.Context, arg0 int64, arg1 int64) (int32, error) {
 	resp, err := c.svc.GetPlaybackOffloadSupport(ctx, &pb.GetPlaybackOffloadSupportRequest{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -918,7 +838,7 @@ func (c *Client) GetPlaybackOffloadSupport(ctx context.Context, arg0 int64, arg1
 }
 
 // IsHapticPlaybackSupported calls the IsHapticPlaybackSupported RPC.
-func (c *Client) IsHapticPlaybackSupported(ctx context.Context) (bool, error) {
+func (c *AudioManagerClient) IsHapticPlaybackSupported(ctx context.Context) (bool, error) {
 	resp, err := c.svc.IsHapticPlaybackSupported(ctx, &pb.IsHapticPlaybackSupportedRequest{})
 	if err != nil {
 		return false, err
@@ -927,7 +847,7 @@ func (c *Client) IsHapticPlaybackSupported(ctx context.Context) (bool, error) {
 }
 
 // IsOffloadedPlaybackSupported calls the IsOffloadedPlaybackSupported RPC.
-func (c *Client) IsOffloadedPlaybackSupported(ctx context.Context, arg0 int64, arg1 int64) (bool, error) {
+func (c *AudioManagerClient) IsOffloadedPlaybackSupported(ctx context.Context, arg0 int64, arg1 int64) (bool, error) {
 	resp, err := c.svc.IsOffloadedPlaybackSupported(ctx, &pb.IsOffloadedPlaybackSupportedRequest{
 		Arg0: arg0,
 		Arg1: arg1,

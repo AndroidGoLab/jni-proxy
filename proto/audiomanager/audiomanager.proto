@@ -6,133 +6,6 @@ package audiomanager;
 
 option go_package = "github.com/AndroidGoLab/jni-proxy/proto/audiomanager";
 
-message EqualsRequest {
-  int64 arg0 = 1;
-}
-
-message EqualsResponse {
-  bool result = 1;
-}
-
-message GetAddressRequest {
-}
-
-message GetAddressResponse {
-  string result = 1;
-}
-
-message GetAudioDescriptorsRequest {
-}
-
-message GetAudioDescriptorsResponse {
-  int64 result = 1;
-}
-
-message GetAudioProfilesRequest {
-}
-
-message GetAudioProfilesResponse {
-  int64 result = 1;
-}
-
-message GetChannelCountsRequest {
-}
-
-message GetChannelCountsResponse {
-  int64 result = 1;
-}
-
-message GetChannelIndexMasksRequest {
-}
-
-message GetChannelIndexMasksResponse {
-  int64 result = 1;
-}
-
-message GetChannelMasksRequest {
-}
-
-message GetChannelMasksResponse {
-  int64 result = 1;
-}
-
-message GetEncapsulationMetadataTypesRequest {
-}
-
-message GetEncapsulationMetadataTypesResponse {
-  int64 result = 1;
-}
-
-message GetEncapsulationModesRequest {
-}
-
-message GetEncapsulationModesResponse {
-  int64 result = 1;
-}
-
-message GetEncodingsRequest {
-}
-
-message GetEncodingsResponse {
-  int64 result = 1;
-}
-
-message GetIdRequest {
-}
-
-message GetIdResponse {
-  int32 result = 1;
-}
-
-message GetProductNameRequest {
-}
-
-message GetProductNameResponse {
-  int64 result = 1;
-}
-
-message GetSampleRatesRequest {
-}
-
-message GetSampleRatesResponse {
-  int64 result = 1;
-}
-
-message GetSpeakerLayoutChannelMaskRequest {
-}
-
-message GetSpeakerLayoutChannelMaskResponse {
-  int32 result = 1;
-}
-
-message GetTypeRequest {
-}
-
-message GetTypeResponse {
-  int32 result = 1;
-}
-
-message HashCodeRequest {
-}
-
-message HashCodeResponse {
-  int32 result = 1;
-}
-
-message IsSinkRequest {
-}
-
-message IsSinkResponse {
-  bool result = 1;
-}
-
-message IsSourceRequest {
-}
-
-message IsSourceResponse {
-  bool result = 1;
-}
-
 message AbandonAudioFocusRequest {
   int64 arg0 = 1;
 }
@@ -237,33 +110,11 @@ message GenerateAudioSessionIdResponse {
   int32 result = 1;
 }
 
-message GetActivePlaybackConfigurationsRequest {
-}
-
-message GetActivePlaybackConfigurationsResponse {
-  int64 result = 1;
-}
-
-message GetActiveRecordingConfigurationsRequest {
-}
-
-message GetActiveRecordingConfigurationsResponse {
-  int64 result = 1;
-}
-
 message GetAllowedCapturePolicyRequest {
 }
 
 message GetAllowedCapturePolicyResponse {
   int32 result = 1;
-}
-
-message GetAudioDevicesForAttributesRequest {
-  int64 arg0 = 1;
-}
-
-message GetAudioDevicesForAttributesResponse {
-  int64 result = 1;
 }
 
 message GetAudioHwSyncForSessionRequest {
@@ -272,13 +123,6 @@ message GetAudioHwSyncForSessionRequest {
 
 message GetAudioHwSyncForSessionResponse {
   int32 result = 1;
-}
-
-message GetAvailableCommunicationDevicesRequest {
-}
-
-message GetAvailableCommunicationDevicesResponse {
-  int64 result = 1;
 }
 
 message GetCommunicationDeviceRequest {
@@ -296,26 +140,11 @@ message GetDevicesResponse {
   int64 result = 1;
 }
 
-message GetDirectProfilesForAttributesRequest {
-  int64 arg0 = 1;
-}
-
-message GetDirectProfilesForAttributesResponse {
-  int64 result = 1;
-}
-
 message GetEncodedSurroundModeRequest {
 }
 
 message GetEncodedSurroundModeResponse {
   int32 result = 1;
-}
-
-message GetMicrophonesRequest {
-}
-
-message GetMicrophonesResponse {
-  int64 result = 1;
 }
 
 message GetModeRequest {
@@ -404,22 +233,6 @@ message GetStreamVolumeDbRequest {
 
 message GetStreamVolumeDbResponse {
   float result = 1;
-}
-
-message GetSupportedDeviceTypesRequest {
-  int32 arg0 = 1;
-}
-
-message GetSupportedDeviceTypesResponse {
-  int64 result = 1;
-}
-
-message GetSupportedMixerAttributesRequest {
-  int64 arg0 = 1;
-}
-
-message GetSupportedMixerAttributesResponse {
-  int64 result = 1;
 }
 
 message GetVibrateSettingRequest {
@@ -878,27 +691,6 @@ message AbandonAudioFocusRequestOpResponse {
   int32 result = 1;
 }
 
-service AudioDeviceInfoService {
-  rpc Equals (EqualsRequest) returns (EqualsResponse);
-  rpc GetAddress (GetAddressRequest) returns (GetAddressResponse);
-  rpc GetAudioDescriptors (GetAudioDescriptorsRequest) returns (GetAudioDescriptorsResponse);
-  rpc GetAudioProfiles (GetAudioProfilesRequest) returns (GetAudioProfilesResponse);
-  rpc GetChannelCounts (GetChannelCountsRequest) returns (GetChannelCountsResponse);
-  rpc GetChannelIndexMasks (GetChannelIndexMasksRequest) returns (GetChannelIndexMasksResponse);
-  rpc GetChannelMasks (GetChannelMasksRequest) returns (GetChannelMasksResponse);
-  rpc GetEncapsulationMetadataTypes (GetEncapsulationMetadataTypesRequest) returns (GetEncapsulationMetadataTypesResponse);
-  rpc GetEncapsulationModes (GetEncapsulationModesRequest) returns (GetEncapsulationModesResponse);
-  rpc GetEncodings (GetEncodingsRequest) returns (GetEncodingsResponse);
-  rpc GetId (GetIdRequest) returns (GetIdResponse);
-  rpc GetProductName (GetProductNameRequest) returns (GetProductNameResponse);
-  rpc GetSampleRates (GetSampleRatesRequest) returns (GetSampleRatesResponse);
-  rpc GetSpeakerLayoutChannelMask (GetSpeakerLayoutChannelMaskRequest) returns (GetSpeakerLayoutChannelMaskResponse);
-  rpc GetType (GetTypeRequest) returns (GetTypeResponse);
-  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
-  rpc IsSink (IsSinkRequest) returns (IsSinkResponse);
-  rpc IsSource (IsSourceRequest) returns (IsSourceResponse);
-}
-
 service AudioManagerService {
   rpc AbandonAudioFocus (AbandonAudioFocusRequest) returns (AbandonAudioFocusResponse);
   rpc AbandonAudioFocusRequestOp (AbandonAudioFocusRequestOpRequest) returns (AbandonAudioFocusRequestOpResponse);
@@ -913,17 +705,11 @@ service AudioManagerService {
   rpc ClearPreferredMixerAttributes (ClearPreferredMixerAttributesRequest) returns (ClearPreferredMixerAttributesResponse);
   rpc DispatchMediaKeyEvent (DispatchMediaKeyEventRequest) returns (DispatchMediaKeyEventResponse);
   rpc GenerateAudioSessionId (GenerateAudioSessionIdRequest) returns (GenerateAudioSessionIdResponse);
-  rpc GetActivePlaybackConfigurations (GetActivePlaybackConfigurationsRequest) returns (GetActivePlaybackConfigurationsResponse);
-  rpc GetActiveRecordingConfigurations (GetActiveRecordingConfigurationsRequest) returns (GetActiveRecordingConfigurationsResponse);
   rpc GetAllowedCapturePolicy (GetAllowedCapturePolicyRequest) returns (GetAllowedCapturePolicyResponse);
-  rpc GetAudioDevicesForAttributes (GetAudioDevicesForAttributesRequest) returns (GetAudioDevicesForAttributesResponse);
   rpc GetAudioHwSyncForSession (GetAudioHwSyncForSessionRequest) returns (GetAudioHwSyncForSessionResponse);
-  rpc GetAvailableCommunicationDevices (GetAvailableCommunicationDevicesRequest) returns (GetAvailableCommunicationDevicesResponse);
   rpc GetCommunicationDevice (GetCommunicationDeviceRequest) returns (GetCommunicationDeviceResponse);
   rpc GetDevices (GetDevicesRequest) returns (GetDevicesResponse);
-  rpc GetDirectProfilesForAttributes (GetDirectProfilesForAttributesRequest) returns (GetDirectProfilesForAttributesResponse);
   rpc GetEncodedSurroundMode (GetEncodedSurroundModeRequest) returns (GetEncodedSurroundModeResponse);
-  rpc GetMicrophones (GetMicrophonesRequest) returns (GetMicrophonesResponse);
   rpc GetMode (GetModeRequest) returns (GetModeResponse);
   rpc GetParameters (GetParametersRequest) returns (GetParametersResponse);
   rpc GetPreferredMixerAttributes (GetPreferredMixerAttributesRequest) returns (GetPreferredMixerAttributesResponse);
@@ -935,8 +721,6 @@ service AudioManagerService {
   rpc GetStreamMinVolume (GetStreamMinVolumeRequest) returns (GetStreamMinVolumeResponse);
   rpc GetStreamVolume (GetStreamVolumeRequest) returns (GetStreamVolumeResponse);
   rpc GetStreamVolumeDb (GetStreamVolumeDbRequest) returns (GetStreamVolumeDbResponse);
-  rpc GetSupportedDeviceTypes (GetSupportedDeviceTypesRequest) returns (GetSupportedDeviceTypesResponse);
-  rpc GetSupportedMixerAttributes (GetSupportedMixerAttributesRequest) returns (GetSupportedMixerAttributesResponse);
   rpc GetVibrateSetting (GetVibrateSettingRequest) returns (GetVibrateSettingResponse);
   rpc GetVolumeGroupIdForAttributes (GetVolumeGroupIdForAttributesRequest) returns (GetVolumeGroupIdForAttributesResponse);
   rpc IsBluetoothA2dpOn (IsBluetoothA2dpOnRequest) returns (IsBluetoothA2dpOnResponse);

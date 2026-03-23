@@ -12,212 +12,6 @@ var usageCmd = &cobra.Command{
 	Short: "usage service operations",
 }
 
-var usageStatsCmd = &cobra.Command{
-	Use:   "stats",
-	Short: "StatsService operations",
-}
-
-var usageStatsAddCmd = &cobra.Command{
-	Use:   "add",
-	Short: "Add RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewStatsServiceClient(grpcConn)
-		req := &pb.AddRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.Add(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var usageStatsDescribeContentsCmd = &cobra.Command{
-	Use:   "describe-contents",
-	Short: "DescribeContents RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewStatsServiceClient(grpcConn)
-		req := &pb.DescribeContentsRequest{}
-		resp, err := client.DescribeContents(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var usageStatsGetFirstTimeStampCmd = &cobra.Command{
-	Use:   "get-first-time-stamp",
-	Short: "GetFirstTimeStamp RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewStatsServiceClient(grpcConn)
-		req := &pb.GetFirstTimeStampRequest{}
-		resp, err := client.GetFirstTimeStamp(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var usageStatsGetLastTimeForegroundServiceUsedCmd = &cobra.Command{
-	Use:   "get-last-time-foreground-service-used",
-	Short: "GetLastTimeForegroundServiceUsed RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewStatsServiceClient(grpcConn)
-		req := &pb.GetLastTimeForegroundServiceUsedRequest{}
-		resp, err := client.GetLastTimeForegroundServiceUsed(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var usageStatsGetLastTimeStampCmd = &cobra.Command{
-	Use:   "get-last-time-stamp",
-	Short: "GetLastTimeStamp RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewStatsServiceClient(grpcConn)
-		req := &pb.GetLastTimeStampRequest{}
-		resp, err := client.GetLastTimeStamp(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var usageStatsGetLastTimeUsedCmd = &cobra.Command{
-	Use:   "get-last-time-used",
-	Short: "GetLastTimeUsed RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewStatsServiceClient(grpcConn)
-		req := &pb.GetLastTimeUsedRequest{}
-		resp, err := client.GetLastTimeUsed(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var usageStatsGetLastTimeVisibleCmd = &cobra.Command{
-	Use:   "get-last-time-visible",
-	Short: "GetLastTimeVisible RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewStatsServiceClient(grpcConn)
-		req := &pb.GetLastTimeVisibleRequest{}
-		resp, err := client.GetLastTimeVisible(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var usageStatsGetPackageNameCmd = &cobra.Command{
-	Use:   "get-package-name",
-	Short: "GetPackageName RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewStatsServiceClient(grpcConn)
-		req := &pb.GetPackageNameRequest{}
-		resp, err := client.GetPackageName(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var usageStatsGetTotalTimeForegroundServiceUsedCmd = &cobra.Command{
-	Use:   "get-total-time-foreground-service-used",
-	Short: "GetTotalTimeForegroundServiceUsed RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewStatsServiceClient(grpcConn)
-		req := &pb.GetTotalTimeForegroundServiceUsedRequest{}
-		resp, err := client.GetTotalTimeForegroundServiceUsed(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var usageStatsGetTotalTimeInForegroundCmd = &cobra.Command{
-	Use:   "get-total-time-in-foreground",
-	Short: "GetTotalTimeInForeground RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewStatsServiceClient(grpcConn)
-		req := &pb.GetTotalTimeInForegroundRequest{}
-		resp, err := client.GetTotalTimeInForeground(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var usageStatsGetTotalTimeVisibleCmd = &cobra.Command{
-	Use:   "get-total-time-visible",
-	Short: "GetTotalTimeVisible RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewStatsServiceClient(grpcConn)
-		req := &pb.GetTotalTimeVisibleRequest{}
-		resp, err := client.GetTotalTimeVisible(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var usageStatsWriteToParcelCmd = &cobra.Command{
-	Use:   "write-to-parcel",
-	Short: "WriteToParcel RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewStatsServiceClient(grpcConn)
-		req := &pb.WriteToParcelRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.WriteToParcel(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
 var usageStatsManagerCmd = &cobra.Command{
 	Use:   "stats-manager",
 	Short: "StatsManagerService operations",
@@ -251,56 +45,6 @@ var usageStatsManagerIsAppInactiveCmd = &cobra.Command{
 			req.Arg0 = v
 		}
 		resp, err := client.IsAppInactive(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var usageStatsManagerQueryConfigurationsCmd = &cobra.Command{
-	Use:   "query-configurations",
-	Short: "QueryConfigurations RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewStatsManagerServiceClient(grpcConn)
-		req := &pb.QueryConfigurationsRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		resp, err := client.QueryConfigurations(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var usageStatsManagerQueryEventStatsCmd = &cobra.Command{
-	Use:   "query-event-stats",
-	Short: "QueryEventStats RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewStatsManagerServiceClient(grpcConn)
-		req := &pb.QueryEventStatsRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		resp, err := client.QueryEventStats(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -371,24 +115,399 @@ var usageStatsManagerQueryEventsForSelfCmd = &cobra.Command{
 	},
 }
 
-var usageStatsManagerQueryUsageStatsCmd = &cobra.Command{
-	Use:   "query-usage-stats",
-	Short: "QueryUsageStats RPC",
+var usageStorageStatsManagerCmd = &cobra.Command{
+	Use:   "storage-stats-manager",
+	Short: "StorageStatsManagerService operations",
+}
+
+var usageStorageStatsManagerGetFreeBytesCmd = &cobra.Command{
+	Use:   "get-free-bytes",
+	Short: "GetFreeBytes RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewStatsManagerServiceClient(grpcConn)
-		req := &pb.QueryUsageStatsRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+		client := pb.NewStorageStatsManagerServiceClient(grpcConn)
+		req := &pb.GetFreeBytesRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetFreeBytes(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var usageStorageStatsManagerGetTotalBytesCmd = &cobra.Command{
+	Use:   "get-total-bytes",
+	Short: "GetTotalBytes RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewStorageStatsManagerServiceClient(grpcConn)
+		req := &pb.GetTotalBytesRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetTotalBytes(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var usageStorageStatsManagerQueryExternalStatsForUserCmd = &cobra.Command{
+	Use:   "query-external-stats-for-user",
+	Short: "QueryExternalStatsForUser RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewStorageStatsManagerServiceClient(grpcConn)
+		req := &pb.QueryExternalStatsForUserRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
 		}
 		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
 			req.Arg1 = v
 		}
+		resp, err := client.QueryExternalStatsForUser(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var usageStorageStatsManagerQueryStatsForPackageCmd = &cobra.Command{
+	Use:   "query-stats-for-package",
+	Short: "QueryStatsForPackage RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewStorageStatsManagerServiceClient(grpcConn)
+		req := &pb.QueryStatsForPackageRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetString("arg1"); err == nil {
+			req.Arg1 = v
+		}
 		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
 			req.Arg2 = v
 		}
-		resp, err := client.QueryUsageStats(ctx, req)
+		resp, err := client.QueryStatsForPackage(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var usageStorageStatsManagerQueryStatsForUidCmd = &cobra.Command{
+	Use:   "query-stats-for-uid",
+	Short: "QueryStatsForUid RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewStorageStatsManagerServiceClient(grpcConn)
+		req := &pb.QueryStatsForUidRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.QueryStatsForUid(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var usageStorageStatsManagerQueryStatsForUserCmd = &cobra.Command{
+	Use:   "query-stats-for-user",
+	Short: "QueryStatsForUser RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewStorageStatsManagerServiceClient(grpcConn)
+		req := &pb.QueryStatsForUserRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.QueryStatsForUser(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var usageNetworkStatsManagerCmd = &cobra.Command{
+	Use:   "network-stats-manager",
+	Short: "NetworkStatsManagerService operations",
+}
+
+var usageNetworkStatsManagerQueryDetailsCmd = &cobra.Command{
+	Use:   "query-details",
+	Short: "QueryDetails RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewNetworkStatsManagerServiceClient(grpcConn)
+		req := &pb.QueryDetailsRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetString("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		resp, err := client.QueryDetails(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var usageNetworkStatsManagerQueryDetailsForUidCmd = &cobra.Command{
+	Use:   "query-details-for-uid",
+	Short: "QueryDetailsForUid RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewNetworkStatsManagerServiceClient(grpcConn)
+		req := &pb.QueryDetailsForUidRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetString("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg4"); err == nil {
+			req.Arg4 = v
+		}
+		resp, err := client.QueryDetailsForUid(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var usageNetworkStatsManagerQueryDetailsForUidTagCmd = &cobra.Command{
+	Use:   "query-details-for-uid-tag",
+	Short: "QueryDetailsForUidTag RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewNetworkStatsManagerServiceClient(grpcConn)
+		req := &pb.QueryDetailsForUidTagRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetString("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg4"); err == nil {
+			req.Arg4 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg5"); err == nil {
+			req.Arg5 = v
+		}
+		resp, err := client.QueryDetailsForUidTag(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var usageNetworkStatsManagerQueryDetailsForUidTagStateCmd = &cobra.Command{
+	Use:   "query-details-for-uid-tag-state",
+	Short: "QueryDetailsForUidTagState RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewNetworkStatsManagerServiceClient(grpcConn)
+		req := &pb.QueryDetailsForUidTagStateRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetString("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg4"); err == nil {
+			req.Arg4 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg5"); err == nil {
+			req.Arg5 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg6"); err == nil {
+			req.Arg6 = v
+		}
+		resp, err := client.QueryDetailsForUidTagState(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var usageNetworkStatsManagerQuerySummaryCmd = &cobra.Command{
+	Use:   "query-summary",
+	Short: "QuerySummary RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewNetworkStatsManagerServiceClient(grpcConn)
+		req := &pb.QuerySummaryRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetString("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		resp, err := client.QuerySummary(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var usageNetworkStatsManagerQuerySummaryForDeviceCmd = &cobra.Command{
+	Use:   "query-summary-for-device",
+	Short: "QuerySummaryForDevice RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewNetworkStatsManagerServiceClient(grpcConn)
+		req := &pb.QuerySummaryForDeviceRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetString("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		resp, err := client.QuerySummaryForDevice(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var usageNetworkStatsManagerQuerySummaryForUserCmd = &cobra.Command{
+	Use:   "query-summary-for-user",
+	Short: "QuerySummaryForUser RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewNetworkStatsManagerServiceClient(grpcConn)
+		req := &pb.QuerySummaryForUserRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetString("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		resp, err := client.QuerySummaryForUser(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var usageNetworkStatsManagerRegisterUsageCallbackCmd = &cobra.Command{
+	Use:   "register-usage-callback",
+	Short: "RegisterUsageCallback RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewNetworkStatsManagerServiceClient(grpcConn)
+		req := &pb.RegisterUsageCallbackRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetString("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		resp, err := client.RegisterUsageCallback(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var usageNetworkStatsManagerUnregisterUsageCallbackCmd = &cobra.Command{
+	Use:   "unregister-usage-callback",
+	Short: "UnregisterUsageCallback RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewNetworkStatsManagerServiceClient(grpcConn)
+		req := &pb.UnregisterUsageCallbackRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.UnregisterUsageCallback(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -397,33 +516,9 @@ var usageStatsManagerQueryUsageStatsCmd = &cobra.Command{
 }
 
 func init() {
-	usageStatsAddCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	usageStatsCmd.AddCommand(usageStatsAddCmd)
-	usageStatsCmd.AddCommand(usageStatsDescribeContentsCmd)
-	usageStatsCmd.AddCommand(usageStatsGetFirstTimeStampCmd)
-	usageStatsCmd.AddCommand(usageStatsGetLastTimeForegroundServiceUsedCmd)
-	usageStatsCmd.AddCommand(usageStatsGetLastTimeStampCmd)
-	usageStatsCmd.AddCommand(usageStatsGetLastTimeUsedCmd)
-	usageStatsCmd.AddCommand(usageStatsGetLastTimeVisibleCmd)
-	usageStatsCmd.AddCommand(usageStatsGetPackageNameCmd)
-	usageStatsCmd.AddCommand(usageStatsGetTotalTimeForegroundServiceUsedCmd)
-	usageStatsCmd.AddCommand(usageStatsGetTotalTimeInForegroundCmd)
-	usageStatsCmd.AddCommand(usageStatsGetTotalTimeVisibleCmd)
-	usageStatsWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	usageStatsWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	usageStatsCmd.AddCommand(usageStatsWriteToParcelCmd)
-	usageCmd.AddCommand(usageStatsCmd)
 	usageStatsManagerCmd.AddCommand(usageStatsManagerGetAppStandbyBucketCmd)
 	usageStatsManagerIsAppInactiveCmd.Flags().String("arg0", "", "arg0 (string)")
 	usageStatsManagerCmd.AddCommand(usageStatsManagerIsAppInactiveCmd)
-	usageStatsManagerQueryConfigurationsCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	usageStatsManagerQueryConfigurationsCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	usageStatsManagerQueryConfigurationsCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
-	usageStatsManagerCmd.AddCommand(usageStatsManagerQueryConfigurationsCmd)
-	usageStatsManagerQueryEventStatsCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	usageStatsManagerQueryEventStatsCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	usageStatsManagerQueryEventStatsCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
-	usageStatsManagerCmd.AddCommand(usageStatsManagerQueryEventStatsCmd)
 	usageStatsManagerQueryEvents1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	usageStatsManagerCmd.AddCommand(usageStatsManagerQueryEvents1Cmd)
 	usageStatsManagerQueryEvents2_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
@@ -432,10 +527,73 @@ func init() {
 	usageStatsManagerQueryEventsForSelfCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	usageStatsManagerQueryEventsForSelfCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
 	usageStatsManagerCmd.AddCommand(usageStatsManagerQueryEventsForSelfCmd)
-	usageStatsManagerQueryUsageStatsCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	usageStatsManagerQueryUsageStatsCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	usageStatsManagerQueryUsageStatsCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
-	usageStatsManagerCmd.AddCommand(usageStatsManagerQueryUsageStatsCmd)
 	usageCmd.AddCommand(usageStatsManagerCmd)
+	usageStorageStatsManagerGetFreeBytesCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	usageStorageStatsManagerCmd.AddCommand(usageStorageStatsManagerGetFreeBytesCmd)
+	usageStorageStatsManagerGetTotalBytesCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	usageStorageStatsManagerCmd.AddCommand(usageStorageStatsManagerGetTotalBytesCmd)
+	usageStorageStatsManagerQueryExternalStatsForUserCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	usageStorageStatsManagerQueryExternalStatsForUserCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	usageStorageStatsManagerCmd.AddCommand(usageStorageStatsManagerQueryExternalStatsForUserCmd)
+	usageStorageStatsManagerQueryStatsForPackageCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	usageStorageStatsManagerQueryStatsForPackageCmd.Flags().String("arg1", "", "arg1 (string)")
+	usageStorageStatsManagerQueryStatsForPackageCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	usageStorageStatsManagerCmd.AddCommand(usageStorageStatsManagerQueryStatsForPackageCmd)
+	usageStorageStatsManagerQueryStatsForUidCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	usageStorageStatsManagerQueryStatsForUidCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	usageStorageStatsManagerCmd.AddCommand(usageStorageStatsManagerQueryStatsForUidCmd)
+	usageStorageStatsManagerQueryStatsForUserCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	usageStorageStatsManagerQueryStatsForUserCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	usageStorageStatsManagerCmd.AddCommand(usageStorageStatsManagerQueryStatsForUserCmd)
+	usageCmd.AddCommand(usageStorageStatsManagerCmd)
+	usageNetworkStatsManagerQueryDetailsCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	usageNetworkStatsManagerQueryDetailsCmd.Flags().String("arg1", "", "arg1 (string)")
+	usageNetworkStatsManagerQueryDetailsCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	usageNetworkStatsManagerQueryDetailsCmd.Flags().Int64("arg3", 0, "arg3 (int64)")
+	usageNetworkStatsManagerCmd.AddCommand(usageNetworkStatsManagerQueryDetailsCmd)
+	usageNetworkStatsManagerQueryDetailsForUidCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	usageNetworkStatsManagerQueryDetailsForUidCmd.Flags().String("arg1", "", "arg1 (string)")
+	usageNetworkStatsManagerQueryDetailsForUidCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	usageNetworkStatsManagerQueryDetailsForUidCmd.Flags().Int64("arg3", 0, "arg3 (int64)")
+	usageNetworkStatsManagerQueryDetailsForUidCmd.Flags().Int32("arg4", 0, "arg4 (int32)")
+	usageNetworkStatsManagerCmd.AddCommand(usageNetworkStatsManagerQueryDetailsForUidCmd)
+	usageNetworkStatsManagerQueryDetailsForUidTagCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	usageNetworkStatsManagerQueryDetailsForUidTagCmd.Flags().String("arg1", "", "arg1 (string)")
+	usageNetworkStatsManagerQueryDetailsForUidTagCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	usageNetworkStatsManagerQueryDetailsForUidTagCmd.Flags().Int64("arg3", 0, "arg3 (int64)")
+	usageNetworkStatsManagerQueryDetailsForUidTagCmd.Flags().Int32("arg4", 0, "arg4 (int32)")
+	usageNetworkStatsManagerQueryDetailsForUidTagCmd.Flags().Int32("arg5", 0, "arg5 (int32)")
+	usageNetworkStatsManagerCmd.AddCommand(usageNetworkStatsManagerQueryDetailsForUidTagCmd)
+	usageNetworkStatsManagerQueryDetailsForUidTagStateCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	usageNetworkStatsManagerQueryDetailsForUidTagStateCmd.Flags().String("arg1", "", "arg1 (string)")
+	usageNetworkStatsManagerQueryDetailsForUidTagStateCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	usageNetworkStatsManagerQueryDetailsForUidTagStateCmd.Flags().Int64("arg3", 0, "arg3 (int64)")
+	usageNetworkStatsManagerQueryDetailsForUidTagStateCmd.Flags().Int32("arg4", 0, "arg4 (int32)")
+	usageNetworkStatsManagerQueryDetailsForUidTagStateCmd.Flags().Int32("arg5", 0, "arg5 (int32)")
+	usageNetworkStatsManagerQueryDetailsForUidTagStateCmd.Flags().Int32("arg6", 0, "arg6 (int32)")
+	usageNetworkStatsManagerCmd.AddCommand(usageNetworkStatsManagerQueryDetailsForUidTagStateCmd)
+	usageNetworkStatsManagerQuerySummaryCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	usageNetworkStatsManagerQuerySummaryCmd.Flags().String("arg1", "", "arg1 (string)")
+	usageNetworkStatsManagerQuerySummaryCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	usageNetworkStatsManagerQuerySummaryCmd.Flags().Int64("arg3", 0, "arg3 (int64)")
+	usageNetworkStatsManagerCmd.AddCommand(usageNetworkStatsManagerQuerySummaryCmd)
+	usageNetworkStatsManagerQuerySummaryForDeviceCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	usageNetworkStatsManagerQuerySummaryForDeviceCmd.Flags().String("arg1", "", "arg1 (string)")
+	usageNetworkStatsManagerQuerySummaryForDeviceCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	usageNetworkStatsManagerQuerySummaryForDeviceCmd.Flags().Int64("arg3", 0, "arg3 (int64)")
+	usageNetworkStatsManagerCmd.AddCommand(usageNetworkStatsManagerQuerySummaryForDeviceCmd)
+	usageNetworkStatsManagerQuerySummaryForUserCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	usageNetworkStatsManagerQuerySummaryForUserCmd.Flags().String("arg1", "", "arg1 (string)")
+	usageNetworkStatsManagerQuerySummaryForUserCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	usageNetworkStatsManagerQuerySummaryForUserCmd.Flags().Int64("arg3", 0, "arg3 (int64)")
+	usageNetworkStatsManagerCmd.AddCommand(usageNetworkStatsManagerQuerySummaryForUserCmd)
+	usageNetworkStatsManagerRegisterUsageCallbackCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	usageNetworkStatsManagerRegisterUsageCallbackCmd.Flags().String("arg1", "", "arg1 (string)")
+	usageNetworkStatsManagerRegisterUsageCallbackCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	usageNetworkStatsManagerRegisterUsageCallbackCmd.Flags().Int64("arg3", 0, "arg3 (int64)")
+	usageNetworkStatsManagerCmd.AddCommand(usageNetworkStatsManagerRegisterUsageCallbackCmd)
+	usageNetworkStatsManagerUnregisterUsageCallbackCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	usageNetworkStatsManagerCmd.AddCommand(usageNetworkStatsManagerUnregisterUsageCallbackCmd)
+	usageCmd.AddCommand(usageNetworkStatsManagerCmd)
 	rootCmd.AddCommand(usageCmd)
 }

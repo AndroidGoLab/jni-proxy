@@ -9,20 +9,20 @@ import (
 	"google.golang.org/grpc"
 )
 
-// Client wraps the gRPC InputMethodManagerService client.
-type Client struct {
+// InputMethodManagerClient wraps the gRPC InputMethodManagerService client.
+type InputMethodManagerClient struct {
 	svc pb.InputMethodManagerServiceClient
 }
 
-// NewClient creates a new inputmethod client.
-func NewClient(cc grpc.ClientConnInterface) *Client {
-	return &Client{
+// NewInputMethodManagerClient creates a new InputMethodManager client.
+func NewInputMethodManagerClient(cc grpc.ClientConnInterface) *InputMethodManagerClient {
+	return &InputMethodManagerClient{
 		svc: pb.NewInputMethodManagerServiceClient(cc),
 	}
 }
 
 // AcceptStylusHandwritingDelegation1 calls the AcceptStylusHandwritingDelegation1 RPC.
-func (c *Client) AcceptStylusHandwritingDelegation1(ctx context.Context, arg0 int64) (bool, error) {
+func (c *InputMethodManagerClient) AcceptStylusHandwritingDelegation1(ctx context.Context, arg0 int64) (bool, error) {
 	resp, err := c.svc.AcceptStylusHandwritingDelegation1(ctx, &pb.AcceptStylusHandwritingDelegation1Request{
 		Arg0: arg0,
 	})
@@ -33,7 +33,7 @@ func (c *Client) AcceptStylusHandwritingDelegation1(ctx context.Context, arg0 in
 }
 
 // AcceptStylusHandwritingDelegation2_1 calls the AcceptStylusHandwritingDelegation2_1 RPC.
-func (c *Client) AcceptStylusHandwritingDelegation2_1(ctx context.Context, arg0 int64, arg1 string) (bool, error) {
+func (c *InputMethodManagerClient) AcceptStylusHandwritingDelegation2_1(ctx context.Context, arg0 int64, arg1 string) (bool, error) {
 	resp, err := c.svc.AcceptStylusHandwritingDelegation2_1(ctx, &pb.AcceptStylusHandwritingDelegation2_1Request{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -44,31 +44,8 @@ func (c *Client) AcceptStylusHandwritingDelegation2_1(ctx context.Context, arg0 
 	return resp.GetResult(), nil
 }
 
-// AcceptStylusHandwritingDelegation5_2 calls the AcceptStylusHandwritingDelegation5_2 RPC.
-func (c *Client) AcceptStylusHandwritingDelegation5_2(ctx context.Context, arg0 int64, arg1 string, arg2 int32, arg3 int64, arg4 int64) error {
-	_, err := c.svc.AcceptStylusHandwritingDelegation5_2(ctx, &pb.AcceptStylusHandwritingDelegation5_2Request{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
-		Arg4: arg4,
-	})
-	return err
-}
-
-// AcceptStylusHandwritingDelegation4_3 calls the AcceptStylusHandwritingDelegation4_3 RPC.
-func (c *Client) AcceptStylusHandwritingDelegation4_3(ctx context.Context, arg0 int64, arg1 string, arg2 int64, arg3 int64) error {
-	_, err := c.svc.AcceptStylusHandwritingDelegation4_3(ctx, &pb.AcceptStylusHandwritingDelegation4_3Request{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
-	})
-	return err
-}
-
 // DispatchKeyEventFromInputMethod calls the DispatchKeyEventFromInputMethod RPC.
-func (c *Client) DispatchKeyEventFromInputMethod(ctx context.Context, arg0 int64, arg1 int64) error {
+func (c *InputMethodManagerClient) DispatchKeyEventFromInputMethod(ctx context.Context, arg0 int64, arg1 int64) error {
 	_, err := c.svc.DispatchKeyEventFromInputMethod(ctx, &pb.DispatchKeyEventFromInputMethodRequest{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -77,7 +54,7 @@ func (c *Client) DispatchKeyEventFromInputMethod(ctx context.Context, arg0 int64
 }
 
 // DisplayCompletions calls the DisplayCompletions RPC.
-func (c *Client) DisplayCompletions(ctx context.Context, arg0 int64, arg1 int64) error {
+func (c *InputMethodManagerClient) DisplayCompletions(ctx context.Context, arg0 int64, arg1 int64) error {
 	_, err := c.svc.DisplayCompletions(ctx, &pb.DisplayCompletionsRequest{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -86,7 +63,7 @@ func (c *Client) DisplayCompletions(ctx context.Context, arg0 int64, arg1 int64)
 }
 
 // GetCurrentInputMethodInfo calls the GetCurrentInputMethodInfo RPC.
-func (c *Client) GetCurrentInputMethodInfo(ctx context.Context) (int64, error) {
+func (c *InputMethodManagerClient) GetCurrentInputMethodInfo(ctx context.Context) (int64, error) {
 	resp, err := c.svc.GetCurrentInputMethodInfo(ctx, &pb.GetCurrentInputMethodInfoRequest{})
 	if err != nil {
 		return 0, err
@@ -95,7 +72,7 @@ func (c *Client) GetCurrentInputMethodInfo(ctx context.Context) (int64, error) {
 }
 
 // GetCurrentInputMethodSubtype calls the GetCurrentInputMethodSubtype RPC.
-func (c *Client) GetCurrentInputMethodSubtype(ctx context.Context) (int64, error) {
+func (c *InputMethodManagerClient) GetCurrentInputMethodSubtype(ctx context.Context) (int64, error) {
 	resp, err := c.svc.GetCurrentInputMethodSubtype(ctx, &pb.GetCurrentInputMethodSubtypeRequest{})
 	if err != nil {
 		return 0, err
@@ -103,38 +80,8 @@ func (c *Client) GetCurrentInputMethodSubtype(ctx context.Context) (int64, error
 	return resp.GetResult(), nil
 }
 
-// GetEnabledInputMethodList calls the GetEnabledInputMethodList RPC.
-func (c *Client) GetEnabledInputMethodList(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetEnabledInputMethodList(ctx, &pb.GetEnabledInputMethodListRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetEnabledInputMethodSubtypeList calls the GetEnabledInputMethodSubtypeList RPC.
-func (c *Client) GetEnabledInputMethodSubtypeList(ctx context.Context, arg0 int64, arg1 bool) (int64, error) {
-	resp, err := c.svc.GetEnabledInputMethodSubtypeList(ctx, &pb.GetEnabledInputMethodSubtypeListRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetInputMethodList calls the GetInputMethodList RPC.
-func (c *Client) GetInputMethodList(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetInputMethodList(ctx, &pb.GetInputMethodListRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
 // GetLastInputMethodSubtype calls the GetLastInputMethodSubtype RPC.
-func (c *Client) GetLastInputMethodSubtype(ctx context.Context) (int64, error) {
+func (c *InputMethodManagerClient) GetLastInputMethodSubtype(ctx context.Context) (int64, error) {
 	resp, err := c.svc.GetLastInputMethodSubtype(ctx, &pb.GetLastInputMethodSubtypeRequest{})
 	if err != nil {
 		return 0, err
@@ -143,7 +90,7 @@ func (c *Client) GetLastInputMethodSubtype(ctx context.Context) (int64, error) {
 }
 
 // HideSoftInputFromInputMethod calls the HideSoftInputFromInputMethod RPC.
-func (c *Client) HideSoftInputFromInputMethod(ctx context.Context, arg0 int64, arg1 int32) error {
+func (c *InputMethodManagerClient) HideSoftInputFromInputMethod(ctx context.Context, arg0 int64, arg1 int32) error {
 	_, err := c.svc.HideSoftInputFromInputMethod(ctx, &pb.HideSoftInputFromInputMethodRequest{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -152,7 +99,7 @@ func (c *Client) HideSoftInputFromInputMethod(ctx context.Context, arg0 int64, a
 }
 
 // HideSoftInputFromWindow2 calls the HideSoftInputFromWindow2 RPC.
-func (c *Client) HideSoftInputFromWindow2(ctx context.Context, arg0 int64, arg1 int32) (bool, error) {
+func (c *InputMethodManagerClient) HideSoftInputFromWindow2(ctx context.Context, arg0 int64, arg1 int32) (bool, error) {
 	resp, err := c.svc.HideSoftInputFromWindow2(ctx, &pb.HideSoftInputFromWindow2Request{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -164,7 +111,7 @@ func (c *Client) HideSoftInputFromWindow2(ctx context.Context, arg0 int64, arg1 
 }
 
 // HideSoftInputFromWindow3_1 calls the HideSoftInputFromWindow3_1 RPC.
-func (c *Client) HideSoftInputFromWindow3_1(ctx context.Context, arg0 int64, arg1 int32, arg2 int64) (bool, error) {
+func (c *InputMethodManagerClient) HideSoftInputFromWindow3_1(ctx context.Context, arg0 int64, arg1 int32, arg2 int64) (bool, error) {
 	resp, err := c.svc.HideSoftInputFromWindow3_1(ctx, &pb.HideSoftInputFromWindow3_1Request{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -177,7 +124,7 @@ func (c *Client) HideSoftInputFromWindow3_1(ctx context.Context, arg0 int64, arg
 }
 
 // HideStatusIcon calls the HideStatusIcon RPC.
-func (c *Client) HideStatusIcon(ctx context.Context, arg0 int64) error {
+func (c *InputMethodManagerClient) HideStatusIcon(ctx context.Context, arg0 int64) error {
 	_, err := c.svc.HideStatusIcon(ctx, &pb.HideStatusIconRequest{
 		Arg0: arg0,
 	})
@@ -185,7 +132,7 @@ func (c *Client) HideStatusIcon(ctx context.Context, arg0 int64) error {
 }
 
 // InvalidateInput calls the InvalidateInput RPC.
-func (c *Client) InvalidateInput(ctx context.Context, arg0 int64) error {
+func (c *InputMethodManagerClient) InvalidateInput(ctx context.Context, arg0 int64) error {
 	_, err := c.svc.InvalidateInput(ctx, &pb.InvalidateInputRequest{
 		Arg0: arg0,
 	})
@@ -193,7 +140,7 @@ func (c *Client) InvalidateInput(ctx context.Context, arg0 int64) error {
 }
 
 // IsAcceptingText calls the IsAcceptingText RPC.
-func (c *Client) IsAcceptingText(ctx context.Context) (bool, error) {
+func (c *InputMethodManagerClient) IsAcceptingText(ctx context.Context) (bool, error) {
 	resp, err := c.svc.IsAcceptingText(ctx, &pb.IsAcceptingTextRequest{})
 	if err != nil {
 		return false, err
@@ -202,7 +149,7 @@ func (c *Client) IsAcceptingText(ctx context.Context) (bool, error) {
 }
 
 // IsActive0 calls the IsActive0 RPC.
-func (c *Client) IsActive0(ctx context.Context) (bool, error) {
+func (c *InputMethodManagerClient) IsActive0(ctx context.Context) (bool, error) {
 	resp, err := c.svc.IsActive0(ctx, &pb.IsActive0Request{})
 	if err != nil {
 		return false, err
@@ -211,7 +158,7 @@ func (c *Client) IsActive0(ctx context.Context) (bool, error) {
 }
 
 // IsActive1_1 calls the IsActive1_1 RPC.
-func (c *Client) IsActive1_1(ctx context.Context, arg0 int64) (bool, error) {
+func (c *InputMethodManagerClient) IsActive1_1(ctx context.Context, arg0 int64) (bool, error) {
 	resp, err := c.svc.IsActive1_1(ctx, &pb.IsActive1_1Request{
 		Arg0: arg0,
 	})
@@ -222,7 +169,7 @@ func (c *Client) IsActive1_1(ctx context.Context, arg0 int64) (bool, error) {
 }
 
 // IsConnectionlessStylusHandwritingAvailable calls the IsConnectionlessStylusHandwritingAvailable RPC.
-func (c *Client) IsConnectionlessStylusHandwritingAvailable(ctx context.Context) (bool, error) {
+func (c *InputMethodManagerClient) IsConnectionlessStylusHandwritingAvailable(ctx context.Context) (bool, error) {
 	resp, err := c.svc.IsConnectionlessStylusHandwritingAvailable(ctx, &pb.IsConnectionlessStylusHandwritingAvailableRequest{})
 	if err != nil {
 		return false, err
@@ -231,7 +178,7 @@ func (c *Client) IsConnectionlessStylusHandwritingAvailable(ctx context.Context)
 }
 
 // IsFullscreenMode calls the IsFullscreenMode RPC.
-func (c *Client) IsFullscreenMode(ctx context.Context) (bool, error) {
+func (c *InputMethodManagerClient) IsFullscreenMode(ctx context.Context) (bool, error) {
 	resp, err := c.svc.IsFullscreenMode(ctx, &pb.IsFullscreenModeRequest{})
 	if err != nil {
 		return false, err
@@ -240,7 +187,7 @@ func (c *Client) IsFullscreenMode(ctx context.Context) (bool, error) {
 }
 
 // IsInputMethodSuppressingSpellChecker calls the IsInputMethodSuppressingSpellChecker RPC.
-func (c *Client) IsInputMethodSuppressingSpellChecker(ctx context.Context) (bool, error) {
+func (c *InputMethodManagerClient) IsInputMethodSuppressingSpellChecker(ctx context.Context) (bool, error) {
 	resp, err := c.svc.IsInputMethodSuppressingSpellChecker(ctx, &pb.IsInputMethodSuppressingSpellCheckerRequest{})
 	if err != nil {
 		return false, err
@@ -249,7 +196,7 @@ func (c *Client) IsInputMethodSuppressingSpellChecker(ctx context.Context) (bool
 }
 
 // IsStylusHandwritingAvailable calls the IsStylusHandwritingAvailable RPC.
-func (c *Client) IsStylusHandwritingAvailable(ctx context.Context) (bool, error) {
+func (c *InputMethodManagerClient) IsStylusHandwritingAvailable(ctx context.Context) (bool, error) {
 	resp, err := c.svc.IsStylusHandwritingAvailable(ctx, &pb.IsStylusHandwritingAvailableRequest{})
 	if err != nil {
 		return false, err
@@ -258,7 +205,7 @@ func (c *Client) IsStylusHandwritingAvailable(ctx context.Context) (bool, error)
 }
 
 // IsWatchingCursor calls the IsWatchingCursor RPC.
-func (c *Client) IsWatchingCursor(ctx context.Context, arg0 int64) (bool, error) {
+func (c *InputMethodManagerClient) IsWatchingCursor(ctx context.Context, arg0 int64) (bool, error) {
 	resp, err := c.svc.IsWatchingCursor(ctx, &pb.IsWatchingCursorRequest{
 		Arg0: arg0,
 	})
@@ -269,7 +216,7 @@ func (c *Client) IsWatchingCursor(ctx context.Context, arg0 int64) (bool, error)
 }
 
 // PrepareStylusHandwritingDelegation1 calls the PrepareStylusHandwritingDelegation1 RPC.
-func (c *Client) PrepareStylusHandwritingDelegation1(ctx context.Context, arg0 int64) error {
+func (c *InputMethodManagerClient) PrepareStylusHandwritingDelegation1(ctx context.Context, arg0 int64) error {
 	_, err := c.svc.PrepareStylusHandwritingDelegation1(ctx, &pb.PrepareStylusHandwritingDelegation1Request{
 		Arg0: arg0,
 	})
@@ -277,7 +224,7 @@ func (c *Client) PrepareStylusHandwritingDelegation1(ctx context.Context, arg0 i
 }
 
 // PrepareStylusHandwritingDelegation2_1 calls the PrepareStylusHandwritingDelegation2_1 RPC.
-func (c *Client) PrepareStylusHandwritingDelegation2_1(ctx context.Context, arg0 int64, arg1 string) error {
+func (c *InputMethodManagerClient) PrepareStylusHandwritingDelegation2_1(ctx context.Context, arg0 int64, arg1 string) error {
 	_, err := c.svc.PrepareStylusHandwritingDelegation2_1(ctx, &pb.PrepareStylusHandwritingDelegation2_1Request{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -286,7 +233,7 @@ func (c *Client) PrepareStylusHandwritingDelegation2_1(ctx context.Context, arg0
 }
 
 // RestartInput calls the RestartInput RPC.
-func (c *Client) RestartInput(ctx context.Context, arg0 int64) error {
+func (c *InputMethodManagerClient) RestartInput(ctx context.Context, arg0 int64) error {
 	_, err := c.svc.RestartInput(ctx, &pb.RestartInputRequest{
 		Arg0: arg0,
 	})
@@ -294,7 +241,7 @@ func (c *Client) RestartInput(ctx context.Context, arg0 int64) error {
 }
 
 // SendAppPrivateCommand calls the SendAppPrivateCommand RPC.
-func (c *Client) SendAppPrivateCommand(ctx context.Context, arg0 int64, arg1 string, arg2 int64) error {
+func (c *InputMethodManagerClient) SendAppPrivateCommand(ctx context.Context, arg0 int64, arg1 string, arg2 int64) error {
 	_, err := c.svc.SendAppPrivateCommand(ctx, &pb.SendAppPrivateCommandRequest{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -304,7 +251,7 @@ func (c *Client) SendAppPrivateCommand(ctx context.Context, arg0 int64, arg1 str
 }
 
 // SetAdditionalInputMethodSubtypes calls the SetAdditionalInputMethodSubtypes RPC.
-func (c *Client) SetAdditionalInputMethodSubtypes(ctx context.Context, arg0 string, arg1 int64) error {
+func (c *InputMethodManagerClient) SetAdditionalInputMethodSubtypes(ctx context.Context, arg0 string, arg1 int64) error {
 	_, err := c.svc.SetAdditionalInputMethodSubtypes(ctx, &pb.SetAdditionalInputMethodSubtypesRequest{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -313,7 +260,7 @@ func (c *Client) SetAdditionalInputMethodSubtypes(ctx context.Context, arg0 stri
 }
 
 // SetCurrentInputMethodSubtype calls the SetCurrentInputMethodSubtype RPC.
-func (c *Client) SetCurrentInputMethodSubtype(ctx context.Context, arg0 int64) (bool, error) {
+func (c *InputMethodManagerClient) SetCurrentInputMethodSubtype(ctx context.Context, arg0 int64) (bool, error) {
 	resp, err := c.svc.SetCurrentInputMethodSubtype(ctx, &pb.SetCurrentInputMethodSubtypeRequest{
 		Arg0: arg0,
 	})
@@ -324,7 +271,7 @@ func (c *Client) SetCurrentInputMethodSubtype(ctx context.Context, arg0 int64) (
 }
 
 // SetExplicitlyEnabledInputMethodSubtypes calls the SetExplicitlyEnabledInputMethodSubtypes RPC.
-func (c *Client) SetExplicitlyEnabledInputMethodSubtypes(ctx context.Context, arg0 string, arg1 int64) error {
+func (c *InputMethodManagerClient) SetExplicitlyEnabledInputMethodSubtypes(ctx context.Context, arg0 string, arg1 int64) error {
 	_, err := c.svc.SetExplicitlyEnabledInputMethodSubtypes(ctx, &pb.SetExplicitlyEnabledInputMethodSubtypesRequest{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -333,7 +280,7 @@ func (c *Client) SetExplicitlyEnabledInputMethodSubtypes(ctx context.Context, ar
 }
 
 // SetInputMethod calls the SetInputMethod RPC.
-func (c *Client) SetInputMethod(ctx context.Context, arg0 int64, arg1 string) error {
+func (c *InputMethodManagerClient) SetInputMethod(ctx context.Context, arg0 int64, arg1 string) error {
 	_, err := c.svc.SetInputMethod(ctx, &pb.SetInputMethodRequest{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -342,7 +289,7 @@ func (c *Client) SetInputMethod(ctx context.Context, arg0 int64, arg1 string) er
 }
 
 // SetInputMethodAndSubtype calls the SetInputMethodAndSubtype RPC.
-func (c *Client) SetInputMethodAndSubtype(ctx context.Context, arg0 int64, arg1 string, arg2 int64) error {
+func (c *InputMethodManagerClient) SetInputMethodAndSubtype(ctx context.Context, arg0 int64, arg1 string, arg2 int64) error {
 	_, err := c.svc.SetInputMethodAndSubtype(ctx, &pb.SetInputMethodAndSubtypeRequest{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -352,7 +299,7 @@ func (c *Client) SetInputMethodAndSubtype(ctx context.Context, arg0 int64, arg1 
 }
 
 // ShouldOfferSwitchingToNextInputMethod calls the ShouldOfferSwitchingToNextInputMethod RPC.
-func (c *Client) ShouldOfferSwitchingToNextInputMethod(ctx context.Context, arg0 int64) (bool, error) {
+func (c *InputMethodManagerClient) ShouldOfferSwitchingToNextInputMethod(ctx context.Context, arg0 int64) (bool, error) {
 	resp, err := c.svc.ShouldOfferSwitchingToNextInputMethod(ctx, &pb.ShouldOfferSwitchingToNextInputMethodRequest{
 		Arg0: arg0,
 	})
@@ -363,7 +310,7 @@ func (c *Client) ShouldOfferSwitchingToNextInputMethod(ctx context.Context, arg0
 }
 
 // ShowInputMethodAndSubtypeEnabler calls the ShowInputMethodAndSubtypeEnabler RPC.
-func (c *Client) ShowInputMethodAndSubtypeEnabler(ctx context.Context, arg0 string) error {
+func (c *InputMethodManagerClient) ShowInputMethodAndSubtypeEnabler(ctx context.Context, arg0 string) error {
 	_, err := c.svc.ShowInputMethodAndSubtypeEnabler(ctx, &pb.ShowInputMethodAndSubtypeEnablerRequest{
 		Arg0: arg0,
 	})
@@ -371,13 +318,13 @@ func (c *Client) ShowInputMethodAndSubtypeEnabler(ctx context.Context, arg0 stri
 }
 
 // ShowInputMethodPicker calls the ShowInputMethodPicker RPC.
-func (c *Client) ShowInputMethodPicker(ctx context.Context) error {
+func (c *InputMethodManagerClient) ShowInputMethodPicker(ctx context.Context) error {
 	_, err := c.svc.ShowInputMethodPicker(ctx, &pb.ShowInputMethodPickerRequest{})
 	return err
 }
 
 // ShowSoftInput2 calls the ShowSoftInput2 RPC.
-func (c *Client) ShowSoftInput2(ctx context.Context, arg0 int64, arg1 int32) (bool, error) {
+func (c *InputMethodManagerClient) ShowSoftInput2(ctx context.Context, arg0 int64, arg1 int32) (bool, error) {
 	resp, err := c.svc.ShowSoftInput2(ctx, &pb.ShowSoftInput2Request{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -389,7 +336,7 @@ func (c *Client) ShowSoftInput2(ctx context.Context, arg0 int64, arg1 int32) (bo
 }
 
 // ShowSoftInput3_1 calls the ShowSoftInput3_1 RPC.
-func (c *Client) ShowSoftInput3_1(ctx context.Context, arg0 int64, arg1 int32, arg2 int64) (bool, error) {
+func (c *InputMethodManagerClient) ShowSoftInput3_1(ctx context.Context, arg0 int64, arg1 int32, arg2 int64) (bool, error) {
 	resp, err := c.svc.ShowSoftInput3_1(ctx, &pb.ShowSoftInput3_1Request{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -402,7 +349,7 @@ func (c *Client) ShowSoftInput3_1(ctx context.Context, arg0 int64, arg1 int32, a
 }
 
 // ShowSoftInputFromInputMethod calls the ShowSoftInputFromInputMethod RPC.
-func (c *Client) ShowSoftInputFromInputMethod(ctx context.Context, arg0 int64, arg1 int32) error {
+func (c *InputMethodManagerClient) ShowSoftInputFromInputMethod(ctx context.Context, arg0 int64, arg1 int32) error {
 	_, err := c.svc.ShowSoftInputFromInputMethod(ctx, &pb.ShowSoftInputFromInputMethodRequest{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -411,7 +358,7 @@ func (c *Client) ShowSoftInputFromInputMethod(ctx context.Context, arg0 int64, a
 }
 
 // ShowStatusIcon calls the ShowStatusIcon RPC.
-func (c *Client) ShowStatusIcon(ctx context.Context, arg0 int64, arg1 string, arg2 int32) error {
+func (c *InputMethodManagerClient) ShowStatusIcon(ctx context.Context, arg0 int64, arg1 string, arg2 int32) error {
 	_, err := c.svc.ShowStatusIcon(ctx, &pb.ShowStatusIconRequest{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -421,7 +368,7 @@ func (c *Client) ShowStatusIcon(ctx context.Context, arg0 int64, arg1 string, ar
 }
 
 // StartConnectionlessStylusHandwriting calls the StartConnectionlessStylusHandwriting RPC.
-func (c *Client) StartConnectionlessStylusHandwriting(ctx context.Context, arg0 int64, arg1 int64, arg2 int64, arg3 int64) error {
+func (c *InputMethodManagerClient) StartConnectionlessStylusHandwriting(ctx context.Context, arg0 int64, arg1 int64, arg2 int64, arg3 int64) error {
 	_, err := c.svc.StartConnectionlessStylusHandwriting(ctx, &pb.StartConnectionlessStylusHandwritingRequest{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -432,7 +379,7 @@ func (c *Client) StartConnectionlessStylusHandwriting(ctx context.Context, arg0 
 }
 
 // StartConnectionlessStylusHandwritingForDelegation5 calls the StartConnectionlessStylusHandwritingForDelegation5 RPC.
-func (c *Client) StartConnectionlessStylusHandwritingForDelegation5(ctx context.Context, arg0 int64, arg1 int64, arg2 string, arg3 int64, arg4 int64) error {
+func (c *InputMethodManagerClient) StartConnectionlessStylusHandwritingForDelegation5(ctx context.Context, arg0 int64, arg1 int64, arg2 string, arg3 int64, arg4 int64) error {
 	_, err := c.svc.StartConnectionlessStylusHandwritingForDelegation5(ctx, &pb.StartConnectionlessStylusHandwritingForDelegation5Request{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -444,7 +391,7 @@ func (c *Client) StartConnectionlessStylusHandwritingForDelegation5(ctx context.
 }
 
 // StartConnectionlessStylusHandwritingForDelegation4_1 calls the StartConnectionlessStylusHandwritingForDelegation4_1 RPC.
-func (c *Client) StartConnectionlessStylusHandwritingForDelegation4_1(ctx context.Context, arg0 int64, arg1 int64, arg2 int64, arg3 int64) error {
+func (c *InputMethodManagerClient) StartConnectionlessStylusHandwritingForDelegation4_1(ctx context.Context, arg0 int64, arg1 int64, arg2 int64, arg3 int64) error {
 	_, err := c.svc.StartConnectionlessStylusHandwritingForDelegation4_1(ctx, &pb.StartConnectionlessStylusHandwritingForDelegation4_1Request{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -455,7 +402,7 @@ func (c *Client) StartConnectionlessStylusHandwritingForDelegation4_1(ctx contex
 }
 
 // StartStylusHandwriting calls the StartStylusHandwriting RPC.
-func (c *Client) StartStylusHandwriting(ctx context.Context, arg0 int64) error {
+func (c *InputMethodManagerClient) StartStylusHandwriting(ctx context.Context, arg0 int64) error {
 	_, err := c.svc.StartStylusHandwriting(ctx, &pb.StartStylusHandwritingRequest{
 		Arg0: arg0,
 	})
@@ -463,7 +410,7 @@ func (c *Client) StartStylusHandwriting(ctx context.Context, arg0 int64) error {
 }
 
 // SwitchToLastInputMethod calls the SwitchToLastInputMethod RPC.
-func (c *Client) SwitchToLastInputMethod(ctx context.Context, arg0 int64) (bool, error) {
+func (c *InputMethodManagerClient) SwitchToLastInputMethod(ctx context.Context, arg0 int64) (bool, error) {
 	resp, err := c.svc.SwitchToLastInputMethod(ctx, &pb.SwitchToLastInputMethodRequest{
 		Arg0: arg0,
 	})
@@ -474,7 +421,7 @@ func (c *Client) SwitchToLastInputMethod(ctx context.Context, arg0 int64) (bool,
 }
 
 // SwitchToNextInputMethod calls the SwitchToNextInputMethod RPC.
-func (c *Client) SwitchToNextInputMethod(ctx context.Context, arg0 int64, arg1 bool) (bool, error) {
+func (c *InputMethodManagerClient) SwitchToNextInputMethod(ctx context.Context, arg0 int64, arg1 bool) (bool, error) {
 	resp, err := c.svc.SwitchToNextInputMethod(ctx, &pb.SwitchToNextInputMethodRequest{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -486,7 +433,7 @@ func (c *Client) SwitchToNextInputMethod(ctx context.Context, arg0 int64, arg1 b
 }
 
 // ToggleSoftInput calls the ToggleSoftInput RPC.
-func (c *Client) ToggleSoftInput(ctx context.Context, arg0 int32, arg1 int32) error {
+func (c *InputMethodManagerClient) ToggleSoftInput(ctx context.Context, arg0 int32, arg1 int32) error {
 	_, err := c.svc.ToggleSoftInput(ctx, &pb.ToggleSoftInputRequest{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -495,7 +442,7 @@ func (c *Client) ToggleSoftInput(ctx context.Context, arg0 int32, arg1 int32) er
 }
 
 // ToggleSoftInputFromWindow calls the ToggleSoftInputFromWindow RPC.
-func (c *Client) ToggleSoftInputFromWindow(ctx context.Context, arg0 int64, arg1 int32, arg2 int32) error {
+func (c *InputMethodManagerClient) ToggleSoftInputFromWindow(ctx context.Context, arg0 int64, arg1 int32, arg2 int32) error {
 	_, err := c.svc.ToggleSoftInputFromWindow(ctx, &pb.ToggleSoftInputFromWindowRequest{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -505,7 +452,7 @@ func (c *Client) ToggleSoftInputFromWindow(ctx context.Context, arg0 int64, arg1
 }
 
 // UpdateCursor calls the UpdateCursor RPC.
-func (c *Client) UpdateCursor(ctx context.Context, arg0 int64, arg1 int32, arg2 int32, arg3 int32, arg4 int32) error {
+func (c *InputMethodManagerClient) UpdateCursor(ctx context.Context, arg0 int64, arg1 int32, arg2 int32, arg3 int32, arg4 int32) error {
 	_, err := c.svc.UpdateCursor(ctx, &pb.UpdateCursorRequest{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -517,7 +464,7 @@ func (c *Client) UpdateCursor(ctx context.Context, arg0 int64, arg1 int32, arg2 
 }
 
 // UpdateCursorAnchorInfo calls the UpdateCursorAnchorInfo RPC.
-func (c *Client) UpdateCursorAnchorInfo(ctx context.Context, arg0 int64, arg1 int64) error {
+func (c *InputMethodManagerClient) UpdateCursorAnchorInfo(ctx context.Context, arg0 int64, arg1 int64) error {
 	_, err := c.svc.UpdateCursorAnchorInfo(ctx, &pb.UpdateCursorAnchorInfoRequest{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -526,7 +473,7 @@ func (c *Client) UpdateCursorAnchorInfo(ctx context.Context, arg0 int64, arg1 in
 }
 
 // UpdateExtractedText calls the UpdateExtractedText RPC.
-func (c *Client) UpdateExtractedText(ctx context.Context, arg0 int64, arg1 int32, arg2 int64) error {
+func (c *InputMethodManagerClient) UpdateExtractedText(ctx context.Context, arg0 int64, arg1 int32, arg2 int64) error {
 	_, err := c.svc.UpdateExtractedText(ctx, &pb.UpdateExtractedTextRequest{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -536,7 +483,7 @@ func (c *Client) UpdateExtractedText(ctx context.Context, arg0 int64, arg1 int32
 }
 
 // UpdateSelection calls the UpdateSelection RPC.
-func (c *Client) UpdateSelection(ctx context.Context, arg0 int64, arg1 int32, arg2 int32, arg3 int32, arg4 int32) error {
+func (c *InputMethodManagerClient) UpdateSelection(ctx context.Context, arg0 int64, arg1 int32, arg2 int32, arg3 int32, arg4 int32) error {
 	_, err := c.svc.UpdateSelection(ctx, &pb.UpdateSelectionRequest{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -548,7 +495,7 @@ func (c *Client) UpdateSelection(ctx context.Context, arg0 int64, arg1 int32, ar
 }
 
 // ViewClicked calls the ViewClicked RPC.
-func (c *Client) ViewClicked(ctx context.Context, arg0 int64) error {
+func (c *InputMethodManagerClient) ViewClicked(ctx context.Context, arg0 int64) error {
 	_, err := c.svc.ViewClicked(ctx, &pb.ViewClickedRequest{
 		Arg0: arg0,
 	})

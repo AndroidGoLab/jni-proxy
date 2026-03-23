@@ -41,13 +41,13 @@ func BuildProtoData(merged *javagen.MergedSpec, goModule string) *ProtoData {
 		seenMessageFields[m.Name] = messageFingerprint(m)
 	}
 
-	// 2. Services from classes that have methods.
+	// 2. Services from classes eligible for gRPC wrapping.
 	// When two classes in the same package share a method name with
 	// different parameter lists, their Request/Response messages
 	// collide. We detect this and prefix the second class's RPC
 	// and messages with the class name to disambiguate.
 	for _, cls := range merged.Classes {
-		if len(cls.Methods) == 0 {
+		if !IsServiceEligible(cls) {
 			continue
 		}
 		svc, msgs := buildServiceFromClass(cls, dataClassNames, javaClassToDataMsg)

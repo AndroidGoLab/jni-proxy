@@ -21,824 +21,254 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
-	BroadcastReceiverService_AbortBroadcast_FullMethodName           = "/content.BroadcastReceiverService/AbortBroadcast"
-	BroadcastReceiverService_ClearAbortBroadcast_FullMethodName      = "/content.BroadcastReceiverService/ClearAbortBroadcast"
-	BroadcastReceiverService_GetAbortBroadcast_FullMethodName        = "/content.BroadcastReceiverService/GetAbortBroadcast"
-	BroadcastReceiverService_GetDebugUnregister_FullMethodName       = "/content.BroadcastReceiverService/GetDebugUnregister"
-	BroadcastReceiverService_GetResultCode_FullMethodName            = "/content.BroadcastReceiverService/GetResultCode"
-	BroadcastReceiverService_GetResultData_FullMethodName            = "/content.BroadcastReceiverService/GetResultData"
-	BroadcastReceiverService_GetResultExtras_FullMethodName          = "/content.BroadcastReceiverService/GetResultExtras"
-	BroadcastReceiverService_GetSentFromPackage_FullMethodName       = "/content.BroadcastReceiverService/GetSentFromPackage"
-	BroadcastReceiverService_GetSentFromUid_FullMethodName           = "/content.BroadcastReceiverService/GetSentFromUid"
-	BroadcastReceiverService_GoAsync_FullMethodName                  = "/content.BroadcastReceiverService/GoAsync"
-	BroadcastReceiverService_IsInitialStickyBroadcast_FullMethodName = "/content.BroadcastReceiverService/IsInitialStickyBroadcast"
-	BroadcastReceiverService_IsOrderedBroadcast_FullMethodName       = "/content.BroadcastReceiverService/IsOrderedBroadcast"
-	BroadcastReceiverService_OnReceive_FullMethodName                = "/content.BroadcastReceiverService/OnReceive"
-	BroadcastReceiverService_PeekService_FullMethodName              = "/content.BroadcastReceiverService/PeekService"
-	BroadcastReceiverService_SetDebugUnregister_FullMethodName       = "/content.BroadcastReceiverService/SetDebugUnregister"
-	BroadcastReceiverService_SetOrderedHint_FullMethodName           = "/content.BroadcastReceiverService/SetOrderedHint"
-	BroadcastReceiverService_SetResult_FullMethodName                = "/content.BroadcastReceiverService/SetResult"
-	BroadcastReceiverService_SetResultCode_FullMethodName            = "/content.BroadcastReceiverService/SetResultCode"
-	BroadcastReceiverService_SetResultData_FullMethodName            = "/content.BroadcastReceiverService/SetResultData"
-	BroadcastReceiverService_SetResultExtras_FullMethodName          = "/content.BroadcastReceiverService/SetResultExtras"
+	RestrictionsManagerService_CreateLocalApprovalIntent_FullMethodName  = "/content.RestrictionsManagerService/CreateLocalApprovalIntent"
+	RestrictionsManagerService_GetApplicationRestrictions_FullMethodName = "/content.RestrictionsManagerService/GetApplicationRestrictions"
+	RestrictionsManagerService_HasRestrictionsProvider_FullMethodName    = "/content.RestrictionsManagerService/HasRestrictionsProvider"
+	RestrictionsManagerService_NotifyPermissionResponse_FullMethodName   = "/content.RestrictionsManagerService/NotifyPermissionResponse"
+	RestrictionsManagerService_RequestPermission_FullMethodName          = "/content.RestrictionsManagerService/RequestPermission"
 )
 
-// BroadcastReceiverServiceClient is the client API for BroadcastReceiverService service.
+// RestrictionsManagerServiceClient is the client API for RestrictionsManagerService service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type BroadcastReceiverServiceClient interface {
-	AbortBroadcast(ctx context.Context, in *AbortBroadcastRequest, opts ...grpc.CallOption) (*AbortBroadcastResponse, error)
-	ClearAbortBroadcast(ctx context.Context, in *ClearAbortBroadcastRequest, opts ...grpc.CallOption) (*ClearAbortBroadcastResponse, error)
-	GetAbortBroadcast(ctx context.Context, in *GetAbortBroadcastRequest, opts ...grpc.CallOption) (*GetAbortBroadcastResponse, error)
-	GetDebugUnregister(ctx context.Context, in *GetDebugUnregisterRequest, opts ...grpc.CallOption) (*GetDebugUnregisterResponse, error)
-	GetResultCode(ctx context.Context, in *GetResultCodeRequest, opts ...grpc.CallOption) (*GetResultCodeResponse, error)
-	GetResultData(ctx context.Context, in *GetResultDataRequest, opts ...grpc.CallOption) (*GetResultDataResponse, error)
-	GetResultExtras(ctx context.Context, in *GetResultExtrasRequest, opts ...grpc.CallOption) (*GetResultExtrasResponse, error)
-	GetSentFromPackage(ctx context.Context, in *GetSentFromPackageRequest, opts ...grpc.CallOption) (*GetSentFromPackageResponse, error)
-	GetSentFromUid(ctx context.Context, in *GetSentFromUidRequest, opts ...grpc.CallOption) (*GetSentFromUidResponse, error)
-	GoAsync(ctx context.Context, in *GoAsyncRequest, opts ...grpc.CallOption) (*GoAsyncResponse, error)
-	IsInitialStickyBroadcast(ctx context.Context, in *IsInitialStickyBroadcastRequest, opts ...grpc.CallOption) (*IsInitialStickyBroadcastResponse, error)
-	IsOrderedBroadcast(ctx context.Context, in *IsOrderedBroadcastRequest, opts ...grpc.CallOption) (*IsOrderedBroadcastResponse, error)
-	OnReceive(ctx context.Context, in *OnReceiveRequest, opts ...grpc.CallOption) (*OnReceiveResponse, error)
-	PeekService(ctx context.Context, in *PeekServiceRequest, opts ...grpc.CallOption) (*PeekServiceResponse, error)
-	SetDebugUnregister(ctx context.Context, in *SetDebugUnregisterRequest, opts ...grpc.CallOption) (*SetDebugUnregisterResponse, error)
-	SetOrderedHint(ctx context.Context, in *SetOrderedHintRequest, opts ...grpc.CallOption) (*SetOrderedHintResponse, error)
-	SetResult(ctx context.Context, in *SetResultRequest, opts ...grpc.CallOption) (*SetResultResponse, error)
-	SetResultCode(ctx context.Context, in *SetResultCodeRequest, opts ...grpc.CallOption) (*SetResultCodeResponse, error)
-	SetResultData(ctx context.Context, in *SetResultDataRequest, opts ...grpc.CallOption) (*SetResultDataResponse, error)
-	SetResultExtras(ctx context.Context, in *SetResultExtrasRequest, opts ...grpc.CallOption) (*SetResultExtrasResponse, error)
+type RestrictionsManagerServiceClient interface {
+	CreateLocalApprovalIntent(ctx context.Context, in *CreateLocalApprovalIntentRequest, opts ...grpc.CallOption) (*CreateLocalApprovalIntentResponse, error)
+	GetApplicationRestrictions(ctx context.Context, in *GetApplicationRestrictionsRequest, opts ...grpc.CallOption) (*GetApplicationRestrictionsResponse, error)
+	HasRestrictionsProvider(ctx context.Context, in *HasRestrictionsProviderRequest, opts ...grpc.CallOption) (*HasRestrictionsProviderResponse, error)
+	NotifyPermissionResponse(ctx context.Context, in *NotifyPermissionResponseRequest, opts ...grpc.CallOption) (*NotifyPermissionResponseResponse, error)
+	RequestPermission(ctx context.Context, in *RequestPermissionRequest, opts ...grpc.CallOption) (*RequestPermissionResponse, error)
 }
 
-type broadcastReceiverServiceClient struct {
+type restrictionsManagerServiceClient struct {
 	cc grpc.ClientConnInterface
 }
 
-func NewBroadcastReceiverServiceClient(cc grpc.ClientConnInterface) BroadcastReceiverServiceClient {
-	return &broadcastReceiverServiceClient{cc}
+func NewRestrictionsManagerServiceClient(cc grpc.ClientConnInterface) RestrictionsManagerServiceClient {
+	return &restrictionsManagerServiceClient{cc}
 }
 
-func (c *broadcastReceiverServiceClient) AbortBroadcast(ctx context.Context, in *AbortBroadcastRequest, opts ...grpc.CallOption) (*AbortBroadcastResponse, error) {
+func (c *restrictionsManagerServiceClient) CreateLocalApprovalIntent(ctx context.Context, in *CreateLocalApprovalIntentRequest, opts ...grpc.CallOption) (*CreateLocalApprovalIntentResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(AbortBroadcastResponse)
-	err := c.cc.Invoke(ctx, BroadcastReceiverService_AbortBroadcast_FullMethodName, in, out, cOpts...)
+	out := new(CreateLocalApprovalIntentResponse)
+	err := c.cc.Invoke(ctx, RestrictionsManagerService_CreateLocalApprovalIntent_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *broadcastReceiverServiceClient) ClearAbortBroadcast(ctx context.Context, in *ClearAbortBroadcastRequest, opts ...grpc.CallOption) (*ClearAbortBroadcastResponse, error) {
+func (c *restrictionsManagerServiceClient) GetApplicationRestrictions(ctx context.Context, in *GetApplicationRestrictionsRequest, opts ...grpc.CallOption) (*GetApplicationRestrictionsResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ClearAbortBroadcastResponse)
-	err := c.cc.Invoke(ctx, BroadcastReceiverService_ClearAbortBroadcast_FullMethodName, in, out, cOpts...)
+	out := new(GetApplicationRestrictionsResponse)
+	err := c.cc.Invoke(ctx, RestrictionsManagerService_GetApplicationRestrictions_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *broadcastReceiverServiceClient) GetAbortBroadcast(ctx context.Context, in *GetAbortBroadcastRequest, opts ...grpc.CallOption) (*GetAbortBroadcastResponse, error) {
+func (c *restrictionsManagerServiceClient) HasRestrictionsProvider(ctx context.Context, in *HasRestrictionsProviderRequest, opts ...grpc.CallOption) (*HasRestrictionsProviderResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetAbortBroadcastResponse)
-	err := c.cc.Invoke(ctx, BroadcastReceiverService_GetAbortBroadcast_FullMethodName, in, out, cOpts...)
+	out := new(HasRestrictionsProviderResponse)
+	err := c.cc.Invoke(ctx, RestrictionsManagerService_HasRestrictionsProvider_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *broadcastReceiverServiceClient) GetDebugUnregister(ctx context.Context, in *GetDebugUnregisterRequest, opts ...grpc.CallOption) (*GetDebugUnregisterResponse, error) {
+func (c *restrictionsManagerServiceClient) NotifyPermissionResponse(ctx context.Context, in *NotifyPermissionResponseRequest, opts ...grpc.CallOption) (*NotifyPermissionResponseResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetDebugUnregisterResponse)
-	err := c.cc.Invoke(ctx, BroadcastReceiverService_GetDebugUnregister_FullMethodName, in, out, cOpts...)
+	out := new(NotifyPermissionResponseResponse)
+	err := c.cc.Invoke(ctx, RestrictionsManagerService_NotifyPermissionResponse_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *broadcastReceiverServiceClient) GetResultCode(ctx context.Context, in *GetResultCodeRequest, opts ...grpc.CallOption) (*GetResultCodeResponse, error) {
+func (c *restrictionsManagerServiceClient) RequestPermission(ctx context.Context, in *RequestPermissionRequest, opts ...grpc.CallOption) (*RequestPermissionResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetResultCodeResponse)
-	err := c.cc.Invoke(ctx, BroadcastReceiverService_GetResultCode_FullMethodName, in, out, cOpts...)
+	out := new(RequestPermissionResponse)
+	err := c.cc.Invoke(ctx, RestrictionsManagerService_RequestPermission_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *broadcastReceiverServiceClient) GetResultData(ctx context.Context, in *GetResultDataRequest, opts ...grpc.CallOption) (*GetResultDataResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetResultDataResponse)
-	err := c.cc.Invoke(ctx, BroadcastReceiverService_GetResultData_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *broadcastReceiverServiceClient) GetResultExtras(ctx context.Context, in *GetResultExtrasRequest, opts ...grpc.CallOption) (*GetResultExtrasResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetResultExtrasResponse)
-	err := c.cc.Invoke(ctx, BroadcastReceiverService_GetResultExtras_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *broadcastReceiverServiceClient) GetSentFromPackage(ctx context.Context, in *GetSentFromPackageRequest, opts ...grpc.CallOption) (*GetSentFromPackageResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetSentFromPackageResponse)
-	err := c.cc.Invoke(ctx, BroadcastReceiverService_GetSentFromPackage_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *broadcastReceiverServiceClient) GetSentFromUid(ctx context.Context, in *GetSentFromUidRequest, opts ...grpc.CallOption) (*GetSentFromUidResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetSentFromUidResponse)
-	err := c.cc.Invoke(ctx, BroadcastReceiverService_GetSentFromUid_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *broadcastReceiverServiceClient) GoAsync(ctx context.Context, in *GoAsyncRequest, opts ...grpc.CallOption) (*GoAsyncResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GoAsyncResponse)
-	err := c.cc.Invoke(ctx, BroadcastReceiverService_GoAsync_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *broadcastReceiverServiceClient) IsInitialStickyBroadcast(ctx context.Context, in *IsInitialStickyBroadcastRequest, opts ...grpc.CallOption) (*IsInitialStickyBroadcastResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(IsInitialStickyBroadcastResponse)
-	err := c.cc.Invoke(ctx, BroadcastReceiverService_IsInitialStickyBroadcast_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *broadcastReceiverServiceClient) IsOrderedBroadcast(ctx context.Context, in *IsOrderedBroadcastRequest, opts ...grpc.CallOption) (*IsOrderedBroadcastResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(IsOrderedBroadcastResponse)
-	err := c.cc.Invoke(ctx, BroadcastReceiverService_IsOrderedBroadcast_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *broadcastReceiverServiceClient) OnReceive(ctx context.Context, in *OnReceiveRequest, opts ...grpc.CallOption) (*OnReceiveResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(OnReceiveResponse)
-	err := c.cc.Invoke(ctx, BroadcastReceiverService_OnReceive_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *broadcastReceiverServiceClient) PeekService(ctx context.Context, in *PeekServiceRequest, opts ...grpc.CallOption) (*PeekServiceResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(PeekServiceResponse)
-	err := c.cc.Invoke(ctx, BroadcastReceiverService_PeekService_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *broadcastReceiverServiceClient) SetDebugUnregister(ctx context.Context, in *SetDebugUnregisterRequest, opts ...grpc.CallOption) (*SetDebugUnregisterResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetDebugUnregisterResponse)
-	err := c.cc.Invoke(ctx, BroadcastReceiverService_SetDebugUnregister_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *broadcastReceiverServiceClient) SetOrderedHint(ctx context.Context, in *SetOrderedHintRequest, opts ...grpc.CallOption) (*SetOrderedHintResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetOrderedHintResponse)
-	err := c.cc.Invoke(ctx, BroadcastReceiverService_SetOrderedHint_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *broadcastReceiverServiceClient) SetResult(ctx context.Context, in *SetResultRequest, opts ...grpc.CallOption) (*SetResultResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetResultResponse)
-	err := c.cc.Invoke(ctx, BroadcastReceiverService_SetResult_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *broadcastReceiverServiceClient) SetResultCode(ctx context.Context, in *SetResultCodeRequest, opts ...grpc.CallOption) (*SetResultCodeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetResultCodeResponse)
-	err := c.cc.Invoke(ctx, BroadcastReceiverService_SetResultCode_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *broadcastReceiverServiceClient) SetResultData(ctx context.Context, in *SetResultDataRequest, opts ...grpc.CallOption) (*SetResultDataResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetResultDataResponse)
-	err := c.cc.Invoke(ctx, BroadcastReceiverService_SetResultData_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *broadcastReceiverServiceClient) SetResultExtras(ctx context.Context, in *SetResultExtrasRequest, opts ...grpc.CallOption) (*SetResultExtrasResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetResultExtrasResponse)
-	err := c.cc.Invoke(ctx, BroadcastReceiverService_SetResultExtras_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// BroadcastReceiverServiceServer is the server API for BroadcastReceiverService service.
-// All implementations must embed UnimplementedBroadcastReceiverServiceServer
+// RestrictionsManagerServiceServer is the server API for RestrictionsManagerService service.
+// All implementations must embed UnimplementedRestrictionsManagerServiceServer
 // for forward compatibility.
-type BroadcastReceiverServiceServer interface {
-	AbortBroadcast(context.Context, *AbortBroadcastRequest) (*AbortBroadcastResponse, error)
-	ClearAbortBroadcast(context.Context, *ClearAbortBroadcastRequest) (*ClearAbortBroadcastResponse, error)
-	GetAbortBroadcast(context.Context, *GetAbortBroadcastRequest) (*GetAbortBroadcastResponse, error)
-	GetDebugUnregister(context.Context, *GetDebugUnregisterRequest) (*GetDebugUnregisterResponse, error)
-	GetResultCode(context.Context, *GetResultCodeRequest) (*GetResultCodeResponse, error)
-	GetResultData(context.Context, *GetResultDataRequest) (*GetResultDataResponse, error)
-	GetResultExtras(context.Context, *GetResultExtrasRequest) (*GetResultExtrasResponse, error)
-	GetSentFromPackage(context.Context, *GetSentFromPackageRequest) (*GetSentFromPackageResponse, error)
-	GetSentFromUid(context.Context, *GetSentFromUidRequest) (*GetSentFromUidResponse, error)
-	GoAsync(context.Context, *GoAsyncRequest) (*GoAsyncResponse, error)
-	IsInitialStickyBroadcast(context.Context, *IsInitialStickyBroadcastRequest) (*IsInitialStickyBroadcastResponse, error)
-	IsOrderedBroadcast(context.Context, *IsOrderedBroadcastRequest) (*IsOrderedBroadcastResponse, error)
-	OnReceive(context.Context, *OnReceiveRequest) (*OnReceiveResponse, error)
-	PeekService(context.Context, *PeekServiceRequest) (*PeekServiceResponse, error)
-	SetDebugUnregister(context.Context, *SetDebugUnregisterRequest) (*SetDebugUnregisterResponse, error)
-	SetOrderedHint(context.Context, *SetOrderedHintRequest) (*SetOrderedHintResponse, error)
-	SetResult(context.Context, *SetResultRequest) (*SetResultResponse, error)
-	SetResultCode(context.Context, *SetResultCodeRequest) (*SetResultCodeResponse, error)
-	SetResultData(context.Context, *SetResultDataRequest) (*SetResultDataResponse, error)
-	SetResultExtras(context.Context, *SetResultExtrasRequest) (*SetResultExtrasResponse, error)
-	mustEmbedUnimplementedBroadcastReceiverServiceServer()
+type RestrictionsManagerServiceServer interface {
+	CreateLocalApprovalIntent(context.Context, *CreateLocalApprovalIntentRequest) (*CreateLocalApprovalIntentResponse, error)
+	GetApplicationRestrictions(context.Context, *GetApplicationRestrictionsRequest) (*GetApplicationRestrictionsResponse, error)
+	HasRestrictionsProvider(context.Context, *HasRestrictionsProviderRequest) (*HasRestrictionsProviderResponse, error)
+	NotifyPermissionResponse(context.Context, *NotifyPermissionResponseRequest) (*NotifyPermissionResponseResponse, error)
+	RequestPermission(context.Context, *RequestPermissionRequest) (*RequestPermissionResponse, error)
+	mustEmbedUnimplementedRestrictionsManagerServiceServer()
 }
 
-// UnimplementedBroadcastReceiverServiceServer must be embedded to have
+// UnimplementedRestrictionsManagerServiceServer must be embedded to have
 // forward compatible implementations.
 //
 // NOTE: this should be embedded by value instead of pointer to avoid a nil
 // pointer dereference when methods are called.
-type UnimplementedBroadcastReceiverServiceServer struct{}
+type UnimplementedRestrictionsManagerServiceServer struct{}
 
-func (UnimplementedBroadcastReceiverServiceServer) AbortBroadcast(context.Context, *AbortBroadcastRequest) (*AbortBroadcastResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method AbortBroadcast not implemented")
+func (UnimplementedRestrictionsManagerServiceServer) CreateLocalApprovalIntent(context.Context, *CreateLocalApprovalIntentRequest) (*CreateLocalApprovalIntentResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method CreateLocalApprovalIntent not implemented")
 }
-func (UnimplementedBroadcastReceiverServiceServer) ClearAbortBroadcast(context.Context, *ClearAbortBroadcastRequest) (*ClearAbortBroadcastResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method ClearAbortBroadcast not implemented")
+func (UnimplementedRestrictionsManagerServiceServer) GetApplicationRestrictions(context.Context, *GetApplicationRestrictionsRequest) (*GetApplicationRestrictionsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetApplicationRestrictions not implemented")
 }
-func (UnimplementedBroadcastReceiverServiceServer) GetAbortBroadcast(context.Context, *GetAbortBroadcastRequest) (*GetAbortBroadcastResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetAbortBroadcast not implemented")
+func (UnimplementedRestrictionsManagerServiceServer) HasRestrictionsProvider(context.Context, *HasRestrictionsProviderRequest) (*HasRestrictionsProviderResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method HasRestrictionsProvider not implemented")
 }
-func (UnimplementedBroadcastReceiverServiceServer) GetDebugUnregister(context.Context, *GetDebugUnregisterRequest) (*GetDebugUnregisterResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetDebugUnregister not implemented")
+func (UnimplementedRestrictionsManagerServiceServer) NotifyPermissionResponse(context.Context, *NotifyPermissionResponseRequest) (*NotifyPermissionResponseResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NotifyPermissionResponse not implemented")
 }
-func (UnimplementedBroadcastReceiverServiceServer) GetResultCode(context.Context, *GetResultCodeRequest) (*GetResultCodeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetResultCode not implemented")
+func (UnimplementedRestrictionsManagerServiceServer) RequestPermission(context.Context, *RequestPermissionRequest) (*RequestPermissionResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method RequestPermission not implemented")
 }
-func (UnimplementedBroadcastReceiverServiceServer) GetResultData(context.Context, *GetResultDataRequest) (*GetResultDataResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetResultData not implemented")
+func (UnimplementedRestrictionsManagerServiceServer) mustEmbedUnimplementedRestrictionsManagerServiceServer() {
 }
-func (UnimplementedBroadcastReceiverServiceServer) GetResultExtras(context.Context, *GetResultExtrasRequest) (*GetResultExtrasResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetResultExtras not implemented")
-}
-func (UnimplementedBroadcastReceiverServiceServer) GetSentFromPackage(context.Context, *GetSentFromPackageRequest) (*GetSentFromPackageResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetSentFromPackage not implemented")
-}
-func (UnimplementedBroadcastReceiverServiceServer) GetSentFromUid(context.Context, *GetSentFromUidRequest) (*GetSentFromUidResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetSentFromUid not implemented")
-}
-func (UnimplementedBroadcastReceiverServiceServer) GoAsync(context.Context, *GoAsyncRequest) (*GoAsyncResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GoAsync not implemented")
-}
-func (UnimplementedBroadcastReceiverServiceServer) IsInitialStickyBroadcast(context.Context, *IsInitialStickyBroadcastRequest) (*IsInitialStickyBroadcastResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method IsInitialStickyBroadcast not implemented")
-}
-func (UnimplementedBroadcastReceiverServiceServer) IsOrderedBroadcast(context.Context, *IsOrderedBroadcastRequest) (*IsOrderedBroadcastResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method IsOrderedBroadcast not implemented")
-}
-func (UnimplementedBroadcastReceiverServiceServer) OnReceive(context.Context, *OnReceiveRequest) (*OnReceiveResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method OnReceive not implemented")
-}
-func (UnimplementedBroadcastReceiverServiceServer) PeekService(context.Context, *PeekServiceRequest) (*PeekServiceResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method PeekService not implemented")
-}
-func (UnimplementedBroadcastReceiverServiceServer) SetDebugUnregister(context.Context, *SetDebugUnregisterRequest) (*SetDebugUnregisterResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetDebugUnregister not implemented")
-}
-func (UnimplementedBroadcastReceiverServiceServer) SetOrderedHint(context.Context, *SetOrderedHintRequest) (*SetOrderedHintResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetOrderedHint not implemented")
-}
-func (UnimplementedBroadcastReceiverServiceServer) SetResult(context.Context, *SetResultRequest) (*SetResultResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetResult not implemented")
-}
-func (UnimplementedBroadcastReceiverServiceServer) SetResultCode(context.Context, *SetResultCodeRequest) (*SetResultCodeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetResultCode not implemented")
-}
-func (UnimplementedBroadcastReceiverServiceServer) SetResultData(context.Context, *SetResultDataRequest) (*SetResultDataResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetResultData not implemented")
-}
-func (UnimplementedBroadcastReceiverServiceServer) SetResultExtras(context.Context, *SetResultExtrasRequest) (*SetResultExtrasResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetResultExtras not implemented")
-}
-func (UnimplementedBroadcastReceiverServiceServer) mustEmbedUnimplementedBroadcastReceiverServiceServer() {
-}
-func (UnimplementedBroadcastReceiverServiceServer) testEmbeddedByValue() {}
+func (UnimplementedRestrictionsManagerServiceServer) testEmbeddedByValue() {}
 
-// UnsafeBroadcastReceiverServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to BroadcastReceiverServiceServer will
+// UnsafeRestrictionsManagerServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to RestrictionsManagerServiceServer will
 // result in compilation errors.
-type UnsafeBroadcastReceiverServiceServer interface {
-	mustEmbedUnimplementedBroadcastReceiverServiceServer()
+type UnsafeRestrictionsManagerServiceServer interface {
+	mustEmbedUnimplementedRestrictionsManagerServiceServer()
 }
 
-func RegisterBroadcastReceiverServiceServer(s grpc.ServiceRegistrar, srv BroadcastReceiverServiceServer) {
-	// If the following call panics, it indicates UnimplementedBroadcastReceiverServiceServer was
+func RegisterRestrictionsManagerServiceServer(s grpc.ServiceRegistrar, srv RestrictionsManagerServiceServer) {
+	// If the following call panics, it indicates UnimplementedRestrictionsManagerServiceServer was
 	// embedded by pointer and is nil.  This will cause panics if an
 	// unimplemented method is ever invoked, so we test this at initialization
 	// time to prevent it from happening at runtime later due to I/O.
 	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
 		t.testEmbeddedByValue()
 	}
-	s.RegisterService(&BroadcastReceiverService_ServiceDesc, srv)
+	s.RegisterService(&RestrictionsManagerService_ServiceDesc, srv)
 }
 
-func _BroadcastReceiverService_AbortBroadcast_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(AbortBroadcastRequest)
+func _RestrictionsManagerService_CreateLocalApprovalIntent_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CreateLocalApprovalIntentRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(BroadcastReceiverServiceServer).AbortBroadcast(ctx, in)
+		return srv.(RestrictionsManagerServiceServer).CreateLocalApprovalIntent(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: BroadcastReceiverService_AbortBroadcast_FullMethodName,
+		FullMethod: RestrictionsManagerService_CreateLocalApprovalIntent_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(BroadcastReceiverServiceServer).AbortBroadcast(ctx, req.(*AbortBroadcastRequest))
+		return srv.(RestrictionsManagerServiceServer).CreateLocalApprovalIntent(ctx, req.(*CreateLocalApprovalIntentRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _BroadcastReceiverService_ClearAbortBroadcast_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ClearAbortBroadcastRequest)
+func _RestrictionsManagerService_GetApplicationRestrictions_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetApplicationRestrictionsRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(BroadcastReceiverServiceServer).ClearAbortBroadcast(ctx, in)
+		return srv.(RestrictionsManagerServiceServer).GetApplicationRestrictions(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: BroadcastReceiverService_ClearAbortBroadcast_FullMethodName,
+		FullMethod: RestrictionsManagerService_GetApplicationRestrictions_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(BroadcastReceiverServiceServer).ClearAbortBroadcast(ctx, req.(*ClearAbortBroadcastRequest))
+		return srv.(RestrictionsManagerServiceServer).GetApplicationRestrictions(ctx, req.(*GetApplicationRestrictionsRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _BroadcastReceiverService_GetAbortBroadcast_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetAbortBroadcastRequest)
+func _RestrictionsManagerService_HasRestrictionsProvider_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(HasRestrictionsProviderRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(BroadcastReceiverServiceServer).GetAbortBroadcast(ctx, in)
+		return srv.(RestrictionsManagerServiceServer).HasRestrictionsProvider(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: BroadcastReceiverService_GetAbortBroadcast_FullMethodName,
+		FullMethod: RestrictionsManagerService_HasRestrictionsProvider_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(BroadcastReceiverServiceServer).GetAbortBroadcast(ctx, req.(*GetAbortBroadcastRequest))
+		return srv.(RestrictionsManagerServiceServer).HasRestrictionsProvider(ctx, req.(*HasRestrictionsProviderRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _BroadcastReceiverService_GetDebugUnregister_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetDebugUnregisterRequest)
+func _RestrictionsManagerService_NotifyPermissionResponse_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NotifyPermissionResponseRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(BroadcastReceiverServiceServer).GetDebugUnregister(ctx, in)
+		return srv.(RestrictionsManagerServiceServer).NotifyPermissionResponse(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: BroadcastReceiverService_GetDebugUnregister_FullMethodName,
+		FullMethod: RestrictionsManagerService_NotifyPermissionResponse_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(BroadcastReceiverServiceServer).GetDebugUnregister(ctx, req.(*GetDebugUnregisterRequest))
+		return srv.(RestrictionsManagerServiceServer).NotifyPermissionResponse(ctx, req.(*NotifyPermissionResponseRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _BroadcastReceiverService_GetResultCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetResultCodeRequest)
+func _RestrictionsManagerService_RequestPermission_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(RequestPermissionRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(BroadcastReceiverServiceServer).GetResultCode(ctx, in)
+		return srv.(RestrictionsManagerServiceServer).RequestPermission(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: BroadcastReceiverService_GetResultCode_FullMethodName,
+		FullMethod: RestrictionsManagerService_RequestPermission_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(BroadcastReceiverServiceServer).GetResultCode(ctx, req.(*GetResultCodeRequest))
+		return srv.(RestrictionsManagerServiceServer).RequestPermission(ctx, req.(*RequestPermissionRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _BroadcastReceiverService_GetResultData_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetResultDataRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(BroadcastReceiverServiceServer).GetResultData(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: BroadcastReceiverService_GetResultData_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(BroadcastReceiverServiceServer).GetResultData(ctx, req.(*GetResultDataRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _BroadcastReceiverService_GetResultExtras_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetResultExtrasRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(BroadcastReceiverServiceServer).GetResultExtras(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: BroadcastReceiverService_GetResultExtras_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(BroadcastReceiverServiceServer).GetResultExtras(ctx, req.(*GetResultExtrasRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _BroadcastReceiverService_GetSentFromPackage_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetSentFromPackageRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(BroadcastReceiverServiceServer).GetSentFromPackage(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: BroadcastReceiverService_GetSentFromPackage_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(BroadcastReceiverServiceServer).GetSentFromPackage(ctx, req.(*GetSentFromPackageRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _BroadcastReceiverService_GetSentFromUid_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetSentFromUidRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(BroadcastReceiverServiceServer).GetSentFromUid(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: BroadcastReceiverService_GetSentFromUid_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(BroadcastReceiverServiceServer).GetSentFromUid(ctx, req.(*GetSentFromUidRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _BroadcastReceiverService_GoAsync_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GoAsyncRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(BroadcastReceiverServiceServer).GoAsync(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: BroadcastReceiverService_GoAsync_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(BroadcastReceiverServiceServer).GoAsync(ctx, req.(*GoAsyncRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _BroadcastReceiverService_IsInitialStickyBroadcast_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(IsInitialStickyBroadcastRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(BroadcastReceiverServiceServer).IsInitialStickyBroadcast(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: BroadcastReceiverService_IsInitialStickyBroadcast_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(BroadcastReceiverServiceServer).IsInitialStickyBroadcast(ctx, req.(*IsInitialStickyBroadcastRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _BroadcastReceiverService_IsOrderedBroadcast_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(IsOrderedBroadcastRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(BroadcastReceiverServiceServer).IsOrderedBroadcast(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: BroadcastReceiverService_IsOrderedBroadcast_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(BroadcastReceiverServiceServer).IsOrderedBroadcast(ctx, req.(*IsOrderedBroadcastRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _BroadcastReceiverService_OnReceive_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(OnReceiveRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(BroadcastReceiverServiceServer).OnReceive(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: BroadcastReceiverService_OnReceive_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(BroadcastReceiverServiceServer).OnReceive(ctx, req.(*OnReceiveRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _BroadcastReceiverService_PeekService_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(PeekServiceRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(BroadcastReceiverServiceServer).PeekService(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: BroadcastReceiverService_PeekService_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(BroadcastReceiverServiceServer).PeekService(ctx, req.(*PeekServiceRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _BroadcastReceiverService_SetDebugUnregister_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetDebugUnregisterRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(BroadcastReceiverServiceServer).SetDebugUnregister(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: BroadcastReceiverService_SetDebugUnregister_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(BroadcastReceiverServiceServer).SetDebugUnregister(ctx, req.(*SetDebugUnregisterRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _BroadcastReceiverService_SetOrderedHint_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetOrderedHintRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(BroadcastReceiverServiceServer).SetOrderedHint(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: BroadcastReceiverService_SetOrderedHint_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(BroadcastReceiverServiceServer).SetOrderedHint(ctx, req.(*SetOrderedHintRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _BroadcastReceiverService_SetResult_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetResultRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(BroadcastReceiverServiceServer).SetResult(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: BroadcastReceiverService_SetResult_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(BroadcastReceiverServiceServer).SetResult(ctx, req.(*SetResultRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _BroadcastReceiverService_SetResultCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetResultCodeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(BroadcastReceiverServiceServer).SetResultCode(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: BroadcastReceiverService_SetResultCode_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(BroadcastReceiverServiceServer).SetResultCode(ctx, req.(*SetResultCodeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _BroadcastReceiverService_SetResultData_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetResultDataRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(BroadcastReceiverServiceServer).SetResultData(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: BroadcastReceiverService_SetResultData_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(BroadcastReceiverServiceServer).SetResultData(ctx, req.(*SetResultDataRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _BroadcastReceiverService_SetResultExtras_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetResultExtrasRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(BroadcastReceiverServiceServer).SetResultExtras(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: BroadcastReceiverService_SetResultExtras_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(BroadcastReceiverServiceServer).SetResultExtras(ctx, req.(*SetResultExtrasRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// BroadcastReceiverService_ServiceDesc is the grpc.ServiceDesc for BroadcastReceiverService service.
+// RestrictionsManagerService_ServiceDesc is the grpc.ServiceDesc for RestrictionsManagerService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
-var BroadcastReceiverService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "content.BroadcastReceiverService",
-	HandlerType: (*BroadcastReceiverServiceServer)(nil),
+var RestrictionsManagerService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "content.RestrictionsManagerService",
+	HandlerType: (*RestrictionsManagerServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
-			MethodName: "AbortBroadcast",
-			Handler:    _BroadcastReceiverService_AbortBroadcast_Handler,
+			MethodName: "CreateLocalApprovalIntent",
+			Handler:    _RestrictionsManagerService_CreateLocalApprovalIntent_Handler,
 		},
 		{
-			MethodName: "ClearAbortBroadcast",
-			Handler:    _BroadcastReceiverService_ClearAbortBroadcast_Handler,
+			MethodName: "GetApplicationRestrictions",
+			Handler:    _RestrictionsManagerService_GetApplicationRestrictions_Handler,
 		},
 		{
-			MethodName: "GetAbortBroadcast",
-			Handler:    _BroadcastReceiverService_GetAbortBroadcast_Handler,
+			MethodName: "HasRestrictionsProvider",
+			Handler:    _RestrictionsManagerService_HasRestrictionsProvider_Handler,
 		},
 		{
-			MethodName: "GetDebugUnregister",
-			Handler:    _BroadcastReceiverService_GetDebugUnregister_Handler,
+			MethodName: "NotifyPermissionResponse",
+			Handler:    _RestrictionsManagerService_NotifyPermissionResponse_Handler,
 		},
 		{
-			MethodName: "GetResultCode",
-			Handler:    _BroadcastReceiverService_GetResultCode_Handler,
-		},
-		{
-			MethodName: "GetResultData",
-			Handler:    _BroadcastReceiverService_GetResultData_Handler,
-		},
-		{
-			MethodName: "GetResultExtras",
-			Handler:    _BroadcastReceiverService_GetResultExtras_Handler,
-		},
-		{
-			MethodName: "GetSentFromPackage",
-			Handler:    _BroadcastReceiverService_GetSentFromPackage_Handler,
-		},
-		{
-			MethodName: "GetSentFromUid",
-			Handler:    _BroadcastReceiverService_GetSentFromUid_Handler,
-		},
-		{
-			MethodName: "GoAsync",
-			Handler:    _BroadcastReceiverService_GoAsync_Handler,
-		},
-		{
-			MethodName: "IsInitialStickyBroadcast",
-			Handler:    _BroadcastReceiverService_IsInitialStickyBroadcast_Handler,
-		},
-		{
-			MethodName: "IsOrderedBroadcast",
-			Handler:    _BroadcastReceiverService_IsOrderedBroadcast_Handler,
-		},
-		{
-			MethodName: "OnReceive",
-			Handler:    _BroadcastReceiverService_OnReceive_Handler,
-		},
-		{
-			MethodName: "PeekService",
-			Handler:    _BroadcastReceiverService_PeekService_Handler,
-		},
-		{
-			MethodName: "SetDebugUnregister",
-			Handler:    _BroadcastReceiverService_SetDebugUnregister_Handler,
-		},
-		{
-			MethodName: "SetOrderedHint",
-			Handler:    _BroadcastReceiverService_SetOrderedHint_Handler,
-		},
-		{
-			MethodName: "SetResult",
-			Handler:    _BroadcastReceiverService_SetResult_Handler,
-		},
-		{
-			MethodName: "SetResultCode",
-			Handler:    _BroadcastReceiverService_SetResultCode_Handler,
-		},
-		{
-			MethodName: "SetResultData",
-			Handler:    _BroadcastReceiverService_SetResultData_Handler,
-		},
-		{
-			MethodName: "SetResultExtras",
-			Handler:    _BroadcastReceiverService_SetResultExtras_Handler,
+			MethodName: "RequestPermission",
+			Handler:    _RestrictionsManagerService_RequestPermission_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

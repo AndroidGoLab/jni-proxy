@@ -45,9 +45,6 @@ const (
 	DevicePolicyManagerService_EnableSystemApp2_1_FullMethodName                             = "/admin.DevicePolicyManagerService/EnableSystemApp2_1"
 	DevicePolicyManagerService_GenerateKeyPair_FullMethodName                                = "/admin.DevicePolicyManagerService/GenerateKeyPair"
 	DevicePolicyManagerService_GetAccountTypesWithManagementDisabled_FullMethodName          = "/admin.DevicePolicyManagerService/GetAccountTypesWithManagementDisabled"
-	DevicePolicyManagerService_GetActiveAdmins_FullMethodName                                = "/admin.DevicePolicyManagerService/GetActiveAdmins"
-	DevicePolicyManagerService_GetAffiliationIds_FullMethodName                              = "/admin.DevicePolicyManagerService/GetAffiliationIds"
-	DevicePolicyManagerService_GetAlwaysOnVpnLockdownWhitelist_FullMethodName                = "/admin.DevicePolicyManagerService/GetAlwaysOnVpnLockdownWhitelist"
 	DevicePolicyManagerService_GetAlwaysOnVpnPackage_FullMethodName                          = "/admin.DevicePolicyManagerService/GetAlwaysOnVpnPackage"
 	DevicePolicyManagerService_GetAppFunctionsPolicy_FullMethodName                          = "/admin.DevicePolicyManagerService/GetAppFunctionsPolicy"
 	DevicePolicyManagerService_GetApplicationRestrictions_FullMethodName                     = "/admin.DevicePolicyManagerService/GetApplicationRestrictions"
@@ -57,20 +54,14 @@ const (
 	DevicePolicyManagerService_GetAutoTimeRequired_FullMethodName                            = "/admin.DevicePolicyManagerService/GetAutoTimeRequired"
 	DevicePolicyManagerService_GetAutoTimeZoneEnabled_FullMethodName                         = "/admin.DevicePolicyManagerService/GetAutoTimeZoneEnabled"
 	DevicePolicyManagerService_GetAutoTimeZonePolicy_FullMethodName                          = "/admin.DevicePolicyManagerService/GetAutoTimeZonePolicy"
-	DevicePolicyManagerService_GetBindDeviceAdminTargetUsers_FullMethodName                  = "/admin.DevicePolicyManagerService/GetBindDeviceAdminTargetUsers"
 	DevicePolicyManagerService_GetBluetoothContactSharingDisabled_FullMethodName             = "/admin.DevicePolicyManagerService/GetBluetoothContactSharingDisabled"
 	DevicePolicyManagerService_GetCameraDisabled_FullMethodName                              = "/admin.DevicePolicyManagerService/GetCameraDisabled"
 	DevicePolicyManagerService_GetCertInstallerPackage_FullMethodName                        = "/admin.DevicePolicyManagerService/GetCertInstallerPackage"
 	DevicePolicyManagerService_GetContentProtectionPolicy_FullMethodName                     = "/admin.DevicePolicyManagerService/GetContentProtectionPolicy"
 	DevicePolicyManagerService_GetCredentialManagerPolicy_FullMethodName                     = "/admin.DevicePolicyManagerService/GetCredentialManagerPolicy"
-	DevicePolicyManagerService_GetCrossProfileCalendarPackages_FullMethodName                = "/admin.DevicePolicyManagerService/GetCrossProfileCalendarPackages"
 	DevicePolicyManagerService_GetCrossProfileCallerIdDisabled_FullMethodName                = "/admin.DevicePolicyManagerService/GetCrossProfileCallerIdDisabled"
 	DevicePolicyManagerService_GetCrossProfileContactsSearchDisabled_FullMethodName          = "/admin.DevicePolicyManagerService/GetCrossProfileContactsSearchDisabled"
-	DevicePolicyManagerService_GetCrossProfilePackages_FullMethodName                        = "/admin.DevicePolicyManagerService/GetCrossProfilePackages"
-	DevicePolicyManagerService_GetCrossProfileWidgetProviders_FullMethodName                 = "/admin.DevicePolicyManagerService/GetCrossProfileWidgetProviders"
 	DevicePolicyManagerService_GetCurrentFailedPasswordAttempts_FullMethodName               = "/admin.DevicePolicyManagerService/GetCurrentFailedPasswordAttempts"
-	DevicePolicyManagerService_GetDelegatePackages_FullMethodName                            = "/admin.DevicePolicyManagerService/GetDelegatePackages"
-	DevicePolicyManagerService_GetDelegatedScopes_FullMethodName                             = "/admin.DevicePolicyManagerService/GetDelegatedScopes"
 	DevicePolicyManagerService_GetDeviceOwnerLockScreenInfo_FullMethodName                   = "/admin.DevicePolicyManagerService/GetDeviceOwnerLockScreenInfo"
 	DevicePolicyManagerService_GetDevicePolicyManagementRoleHolderPackage_FullMethodName     = "/admin.DevicePolicyManagerService/GetDevicePolicyManagementRoleHolderPackage"
 	DevicePolicyManagerService_GetEndUserSessionMessage_FullMethodName                       = "/admin.DevicePolicyManagerService/GetEndUserSessionMessage"
@@ -78,8 +69,6 @@ const (
 	DevicePolicyManagerService_GetFactoryResetProtectionPolicy_FullMethodName                = "/admin.DevicePolicyManagerService/GetFactoryResetProtectionPolicy"
 	DevicePolicyManagerService_GetGlobalPrivateDnsHost_FullMethodName                        = "/admin.DevicePolicyManagerService/GetGlobalPrivateDnsHost"
 	DevicePolicyManagerService_GetGlobalPrivateDnsMode_FullMethodName                        = "/admin.DevicePolicyManagerService/GetGlobalPrivateDnsMode"
-	DevicePolicyManagerService_GetInstalledCaCerts_FullMethodName                            = "/admin.DevicePolicyManagerService/GetInstalledCaCerts"
-	DevicePolicyManagerService_GetKeepUninstalledPackages_FullMethodName                     = "/admin.DevicePolicyManagerService/GetKeepUninstalledPackages"
 	DevicePolicyManagerService_GetKeyguardDisabledFeatures_FullMethodName                    = "/admin.DevicePolicyManagerService/GetKeyguardDisabledFeatures"
 	DevicePolicyManagerService_GetLockTaskFeatures_FullMethodName                            = "/admin.DevicePolicyManagerService/GetLockTaskFeatures"
 	DevicePolicyManagerService_GetLockTaskPackages_FullMethodName                            = "/admin.DevicePolicyManagerService/GetLockTaskPackages"
@@ -90,14 +79,12 @@ const (
 	DevicePolicyManagerService_GetManagedSubscriptionsPolicy_FullMethodName                  = "/admin.DevicePolicyManagerService/GetManagedSubscriptionsPolicy"
 	DevicePolicyManagerService_GetMaximumFailedPasswordsForWipe_FullMethodName               = "/admin.DevicePolicyManagerService/GetMaximumFailedPasswordsForWipe"
 	DevicePolicyManagerService_GetMaximumTimeToLock_FullMethodName                           = "/admin.DevicePolicyManagerService/GetMaximumTimeToLock"
-	DevicePolicyManagerService_GetMeteredDataDisabledPackages_FullMethodName                 = "/admin.DevicePolicyManagerService/GetMeteredDataDisabledPackages"
 	DevicePolicyManagerService_GetMinimumRequiredWifiSecurityLevel_FullMethodName            = "/admin.DevicePolicyManagerService/GetMinimumRequiredWifiSecurityLevel"
 	DevicePolicyManagerService_GetMtePolicy_FullMethodName                                   = "/admin.DevicePolicyManagerService/GetMtePolicy"
 	DevicePolicyManagerService_GetNearbyAppStreamingPolicy_FullMethodName                    = "/admin.DevicePolicyManagerService/GetNearbyAppStreamingPolicy"
 	DevicePolicyManagerService_GetNearbyNotificationStreamingPolicy_FullMethodName           = "/admin.DevicePolicyManagerService/GetNearbyNotificationStreamingPolicy"
 	DevicePolicyManagerService_GetOrganizationColor_FullMethodName                           = "/admin.DevicePolicyManagerService/GetOrganizationColor"
 	DevicePolicyManagerService_GetOrganizationName_FullMethodName                            = "/admin.DevicePolicyManagerService/GetOrganizationName"
-	DevicePolicyManagerService_GetOverrideApns_FullMethodName                                = "/admin.DevicePolicyManagerService/GetOverrideApns"
 	DevicePolicyManagerService_GetParentProfileInstance_FullMethodName                       = "/admin.DevicePolicyManagerService/GetParentProfileInstance"
 	DevicePolicyManagerService_GetPasswordComplexity_FullMethodName                          = "/admin.DevicePolicyManagerService/GetPasswordComplexity"
 	DevicePolicyManagerService_GetPasswordExpiration_FullMethodName                          = "/admin.DevicePolicyManagerService/GetPasswordExpiration"
@@ -115,25 +102,17 @@ const (
 	DevicePolicyManagerService_GetPendingSystemUpdate_FullMethodName                         = "/admin.DevicePolicyManagerService/GetPendingSystemUpdate"
 	DevicePolicyManagerService_GetPermissionGrantState_FullMethodName                        = "/admin.DevicePolicyManagerService/GetPermissionGrantState"
 	DevicePolicyManagerService_GetPermissionPolicy_FullMethodName                            = "/admin.DevicePolicyManagerService/GetPermissionPolicy"
-	DevicePolicyManagerService_GetPermittedAccessibilityServices_FullMethodName              = "/admin.DevicePolicyManagerService/GetPermittedAccessibilityServices"
-	DevicePolicyManagerService_GetPermittedCrossProfileNotificationListeners_FullMethodName  = "/admin.DevicePolicyManagerService/GetPermittedCrossProfileNotificationListeners"
-	DevicePolicyManagerService_GetPermittedInputMethods_FullMethodName                       = "/admin.DevicePolicyManagerService/GetPermittedInputMethods"
 	DevicePolicyManagerService_GetPersonalAppsSuspendedReasons_FullMethodName                = "/admin.DevicePolicyManagerService/GetPersonalAppsSuspendedReasons"
-	DevicePolicyManagerService_GetPreferentialNetworkServiceConfigs_FullMethodName           = "/admin.DevicePolicyManagerService/GetPreferentialNetworkServiceConfigs"
 	DevicePolicyManagerService_GetRequiredPasswordComplexity_FullMethodName                  = "/admin.DevicePolicyManagerService/GetRequiredPasswordComplexity"
 	DevicePolicyManagerService_GetRequiredStrongAuthTimeout_FullMethodName                   = "/admin.DevicePolicyManagerService/GetRequiredStrongAuthTimeout"
 	DevicePolicyManagerService_GetResources_FullMethodName                                   = "/admin.DevicePolicyManagerService/GetResources"
 	DevicePolicyManagerService_GetScreenCaptureDisabled_FullMethodName                       = "/admin.DevicePolicyManagerService/GetScreenCaptureDisabled"
-	DevicePolicyManagerService_GetSecondaryUsers_FullMethodName                              = "/admin.DevicePolicyManagerService/GetSecondaryUsers"
 	DevicePolicyManagerService_GetShortSupportMessage_FullMethodName                         = "/admin.DevicePolicyManagerService/GetShortSupportMessage"
 	DevicePolicyManagerService_GetStartUserSessionMessage_FullMethodName                     = "/admin.DevicePolicyManagerService/GetStartUserSessionMessage"
 	DevicePolicyManagerService_GetStorageEncryption_FullMethodName                           = "/admin.DevicePolicyManagerService/GetStorageEncryption"
 	DevicePolicyManagerService_GetStorageEncryptionStatus_FullMethodName                     = "/admin.DevicePolicyManagerService/GetStorageEncryptionStatus"
-	DevicePolicyManagerService_GetSubscriptionIds_FullMethodName                             = "/admin.DevicePolicyManagerService/GetSubscriptionIds"
 	DevicePolicyManagerService_GetSystemUpdatePolicy_FullMethodName                          = "/admin.DevicePolicyManagerService/GetSystemUpdatePolicy"
 	DevicePolicyManagerService_GetTransferOwnershipBundle_FullMethodName                     = "/admin.DevicePolicyManagerService/GetTransferOwnershipBundle"
-	DevicePolicyManagerService_GetTrustAgentConfiguration_FullMethodName                     = "/admin.DevicePolicyManagerService/GetTrustAgentConfiguration"
-	DevicePolicyManagerService_GetUserControlDisabledPackages_FullMethodName                 = "/admin.DevicePolicyManagerService/GetUserControlDisabledPackages"
 	DevicePolicyManagerService_GetUserRestrictions_FullMethodName                            = "/admin.DevicePolicyManagerService/GetUserRestrictions"
 	DevicePolicyManagerService_GetUserRestrictionsGlobally_FullMethodName                    = "/admin.DevicePolicyManagerService/GetUserRestrictionsGlobally"
 	DevicePolicyManagerService_GetWifiMacAddress_FullMethodName                              = "/admin.DevicePolicyManagerService/GetWifiMacAddress"
@@ -184,7 +163,6 @@ const (
 	DevicePolicyManagerService_IsUniqueDeviceAttestationSupported_FullMethodName             = "/admin.DevicePolicyManagerService/IsUniqueDeviceAttestationSupported"
 	DevicePolicyManagerService_IsUsbDataSignalingEnabled_FullMethodName                      = "/admin.DevicePolicyManagerService/IsUsbDataSignalingEnabled"
 	DevicePolicyManagerService_IsUsingUnifiedPassword_FullMethodName                         = "/admin.DevicePolicyManagerService/IsUsingUnifiedPassword"
-	DevicePolicyManagerService_ListForegroundAffiliatedUsers_FullMethodName                  = "/admin.DevicePolicyManagerService/ListForegroundAffiliatedUsers"
 	DevicePolicyManagerService_LockNow0_FullMethodName                                       = "/admin.DevicePolicyManagerService/LockNow0"
 	DevicePolicyManagerService_LockNow1_1_FullMethodName                                     = "/admin.DevicePolicyManagerService/LockNow1_1"
 	DevicePolicyManagerService_LogoutUser_FullMethodName                                     = "/admin.DevicePolicyManagerService/LogoutUser"
@@ -197,15 +175,10 @@ const (
 	DevicePolicyManagerService_RequestBugreport_FullMethodName                               = "/admin.DevicePolicyManagerService/RequestBugreport"
 	DevicePolicyManagerService_ResetPassword_FullMethodName                                  = "/admin.DevicePolicyManagerService/ResetPassword"
 	DevicePolicyManagerService_ResetPasswordWithToken_FullMethodName                         = "/admin.DevicePolicyManagerService/ResetPasswordWithToken"
-	DevicePolicyManagerService_RetrieveNetworkLogs_FullMethodName                            = "/admin.DevicePolicyManagerService/RetrieveNetworkLogs"
-	DevicePolicyManagerService_RetrievePreRebootSecurityLogs_FullMethodName                  = "/admin.DevicePolicyManagerService/RetrievePreRebootSecurityLogs"
-	DevicePolicyManagerService_RetrieveSecurityLogs_FullMethodName                           = "/admin.DevicePolicyManagerService/RetrieveSecurityLogs"
 	DevicePolicyManagerService_RevokeKeyPairFromApp_FullMethodName                           = "/admin.DevicePolicyManagerService/RevokeKeyPairFromApp"
 	DevicePolicyManagerService_RevokeKeyPairFromWifiAuth_FullMethodName                      = "/admin.DevicePolicyManagerService/RevokeKeyPairFromWifiAuth"
 	DevicePolicyManagerService_SetAccountManagementDisabled_FullMethodName                   = "/admin.DevicePolicyManagerService/SetAccountManagementDisabled"
-	DevicePolicyManagerService_SetAffiliationIds_FullMethodName                              = "/admin.DevicePolicyManagerService/SetAffiliationIds"
-	DevicePolicyManagerService_SetAlwaysOnVpnPackage3_FullMethodName                         = "/admin.DevicePolicyManagerService/SetAlwaysOnVpnPackage3"
-	DevicePolicyManagerService_SetAlwaysOnVpnPackage4_1_FullMethodName                       = "/admin.DevicePolicyManagerService/SetAlwaysOnVpnPackage4_1"
+	DevicePolicyManagerService_SetAlwaysOnVpnPackage_FullMethodName                          = "/admin.DevicePolicyManagerService/SetAlwaysOnVpnPackage"
 	DevicePolicyManagerService_SetAppFunctionsPolicy_FullMethodName                          = "/admin.DevicePolicyManagerService/SetAppFunctionsPolicy"
 	DevicePolicyManagerService_SetApplicationHidden_FullMethodName                           = "/admin.DevicePolicyManagerService/SetApplicationHidden"
 	DevicePolicyManagerService_SetApplicationRestrictions_FullMethodName                     = "/admin.DevicePolicyManagerService/SetApplicationRestrictions"
@@ -223,21 +196,16 @@ const (
 	DevicePolicyManagerService_SetConfiguredNetworksLockdownState_FullMethodName             = "/admin.DevicePolicyManagerService/SetConfiguredNetworksLockdownState"
 	DevicePolicyManagerService_SetContentProtectionPolicy_FullMethodName                     = "/admin.DevicePolicyManagerService/SetContentProtectionPolicy"
 	DevicePolicyManagerService_SetCredentialManagerPolicy_FullMethodName                     = "/admin.DevicePolicyManagerService/SetCredentialManagerPolicy"
-	DevicePolicyManagerService_SetCrossProfileCalendarPackages_FullMethodName                = "/admin.DevicePolicyManagerService/SetCrossProfileCalendarPackages"
 	DevicePolicyManagerService_SetCrossProfileCallerIdDisabled_FullMethodName                = "/admin.DevicePolicyManagerService/SetCrossProfileCallerIdDisabled"
 	DevicePolicyManagerService_SetCrossProfileContactsSearchDisabled_FullMethodName          = "/admin.DevicePolicyManagerService/SetCrossProfileContactsSearchDisabled"
-	DevicePolicyManagerService_SetCrossProfilePackages_FullMethodName                        = "/admin.DevicePolicyManagerService/SetCrossProfilePackages"
 	DevicePolicyManagerService_SetDefaultDialerApplication_FullMethodName                    = "/admin.DevicePolicyManagerService/SetDefaultDialerApplication"
 	DevicePolicyManagerService_SetDefaultSmsApplication_FullMethodName                       = "/admin.DevicePolicyManagerService/SetDefaultSmsApplication"
-	DevicePolicyManagerService_SetDelegatedScopes_FullMethodName                             = "/admin.DevicePolicyManagerService/SetDelegatedScopes"
 	DevicePolicyManagerService_SetDeviceOwnerLockScreenInfo_FullMethodName                   = "/admin.DevicePolicyManagerService/SetDeviceOwnerLockScreenInfo"
 	DevicePolicyManagerService_SetEndUserSessionMessage_FullMethodName                       = "/admin.DevicePolicyManagerService/SetEndUserSessionMessage"
 	DevicePolicyManagerService_SetFactoryResetProtectionPolicy_FullMethodName                = "/admin.DevicePolicyManagerService/SetFactoryResetProtectionPolicy"
 	DevicePolicyManagerService_SetGlobalPrivateDnsModeOpportunistic_FullMethodName           = "/admin.DevicePolicyManagerService/SetGlobalPrivateDnsModeOpportunistic"
 	DevicePolicyManagerService_SetGlobalPrivateDnsModeSpecifiedHost_FullMethodName           = "/admin.DevicePolicyManagerService/SetGlobalPrivateDnsModeSpecifiedHost"
 	DevicePolicyManagerService_SetGlobalSetting_FullMethodName                               = "/admin.DevicePolicyManagerService/SetGlobalSetting"
-	DevicePolicyManagerService_SetKeepUninstalledPackages_FullMethodName                     = "/admin.DevicePolicyManagerService/SetKeepUninstalledPackages"
-	DevicePolicyManagerService_SetKeyPairCertificate_FullMethodName                          = "/admin.DevicePolicyManagerService/SetKeyPairCertificate"
 	DevicePolicyManagerService_SetKeyguardDisabled_FullMethodName                            = "/admin.DevicePolicyManagerService/SetKeyguardDisabled"
 	DevicePolicyManagerService_SetKeyguardDisabledFeatures_FullMethodName                    = "/admin.DevicePolicyManagerService/SetKeyguardDisabledFeatures"
 	DevicePolicyManagerService_SetLocationEnabled_FullMethodName                             = "/admin.DevicePolicyManagerService/SetLocationEnabled"
@@ -252,7 +220,6 @@ const (
 	DevicePolicyManagerService_SetMasterVolumeMuted_FullMethodName                           = "/admin.DevicePolicyManagerService/SetMasterVolumeMuted"
 	DevicePolicyManagerService_SetMaximumFailedPasswordsForWipe_FullMethodName               = "/admin.DevicePolicyManagerService/SetMaximumFailedPasswordsForWipe"
 	DevicePolicyManagerService_SetMaximumTimeToLock_FullMethodName                           = "/admin.DevicePolicyManagerService/SetMaximumTimeToLock"
-	DevicePolicyManagerService_SetMeteredDataDisabledPackages_FullMethodName                 = "/admin.DevicePolicyManagerService/SetMeteredDataDisabledPackages"
 	DevicePolicyManagerService_SetMinimumRequiredWifiSecurityLevel_FullMethodName            = "/admin.DevicePolicyManagerService/SetMinimumRequiredWifiSecurityLevel"
 	DevicePolicyManagerService_SetMtePolicy_FullMethodName                                   = "/admin.DevicePolicyManagerService/SetMtePolicy"
 	DevicePolicyManagerService_SetNearbyAppStreamingPolicy_FullMethodName                    = "/admin.DevicePolicyManagerService/SetNearbyAppStreamingPolicy"
@@ -275,11 +242,7 @@ const (
 	DevicePolicyManagerService_SetPasswordQuality_FullMethodName                             = "/admin.DevicePolicyManagerService/SetPasswordQuality"
 	DevicePolicyManagerService_SetPermissionGrantState_FullMethodName                        = "/admin.DevicePolicyManagerService/SetPermissionGrantState"
 	DevicePolicyManagerService_SetPermissionPolicy_FullMethodName                            = "/admin.DevicePolicyManagerService/SetPermissionPolicy"
-	DevicePolicyManagerService_SetPermittedAccessibilityServices_FullMethodName              = "/admin.DevicePolicyManagerService/SetPermittedAccessibilityServices"
-	DevicePolicyManagerService_SetPermittedCrossProfileNotificationListeners_FullMethodName  = "/admin.DevicePolicyManagerService/SetPermittedCrossProfileNotificationListeners"
-	DevicePolicyManagerService_SetPermittedInputMethods_FullMethodName                       = "/admin.DevicePolicyManagerService/SetPermittedInputMethods"
 	DevicePolicyManagerService_SetPersonalAppsSuspended_FullMethodName                       = "/admin.DevicePolicyManagerService/SetPersonalAppsSuspended"
-	DevicePolicyManagerService_SetPreferentialNetworkServiceConfigs_FullMethodName           = "/admin.DevicePolicyManagerService/SetPreferentialNetworkServiceConfigs"
 	DevicePolicyManagerService_SetPreferentialNetworkServiceEnabled_FullMethodName           = "/admin.DevicePolicyManagerService/SetPreferentialNetworkServiceEnabled"
 	DevicePolicyManagerService_SetProfileEnabled_FullMethodName                              = "/admin.DevicePolicyManagerService/SetProfileEnabled"
 	DevicePolicyManagerService_SetProfileName_FullMethodName                                 = "/admin.DevicePolicyManagerService/SetProfileName"
@@ -302,7 +265,6 @@ const (
 	DevicePolicyManagerService_SetTrustAgentConfiguration_FullMethodName                     = "/admin.DevicePolicyManagerService/SetTrustAgentConfiguration"
 	DevicePolicyManagerService_SetUninstallBlocked_FullMethodName                            = "/admin.DevicePolicyManagerService/SetUninstallBlocked"
 	DevicePolicyManagerService_SetUsbDataSignalingEnabled_FullMethodName                     = "/admin.DevicePolicyManagerService/SetUsbDataSignalingEnabled"
-	DevicePolicyManagerService_SetUserControlDisabledPackages_FullMethodName                 = "/admin.DevicePolicyManagerService/SetUserControlDisabledPackages"
 	DevicePolicyManagerService_SetUserIcon_FullMethodName                                    = "/admin.DevicePolicyManagerService/SetUserIcon"
 	DevicePolicyManagerService_SetWifiSsidPolicy_FullMethodName                              = "/admin.DevicePolicyManagerService/SetWifiSsidPolicy"
 	DevicePolicyManagerService_StartUserInBackground_FullMethodName                          = "/admin.DevicePolicyManagerService/StartUserInBackground"
@@ -346,9 +308,6 @@ type DevicePolicyManagerServiceClient interface {
 	EnableSystemApp2_1(ctx context.Context, in *EnableSystemApp2_1Request, opts ...grpc.CallOption) (*EnableSystemApp2_1Response, error)
 	GenerateKeyPair(ctx context.Context, in *GenerateKeyPairRequest, opts ...grpc.CallOption) (*GenerateKeyPairResponse, error)
 	GetAccountTypesWithManagementDisabled(ctx context.Context, in *GetAccountTypesWithManagementDisabledRequest, opts ...grpc.CallOption) (*GetAccountTypesWithManagementDisabledResponse, error)
-	GetActiveAdmins(ctx context.Context, in *GetActiveAdminsRequest, opts ...grpc.CallOption) (*GetActiveAdminsResponse, error)
-	GetAffiliationIds(ctx context.Context, in *GetAffiliationIdsRequest, opts ...grpc.CallOption) (*GetAffiliationIdsResponse, error)
-	GetAlwaysOnVpnLockdownWhitelist(ctx context.Context, in *GetAlwaysOnVpnLockdownWhitelistRequest, opts ...grpc.CallOption) (*GetAlwaysOnVpnLockdownWhitelistResponse, error)
 	GetAlwaysOnVpnPackage(ctx context.Context, in *GetAlwaysOnVpnPackageRequest, opts ...grpc.CallOption) (*GetAlwaysOnVpnPackageResponse, error)
 	GetAppFunctionsPolicy(ctx context.Context, in *GetAppFunctionsPolicyRequest, opts ...grpc.CallOption) (*GetAppFunctionsPolicyResponse, error)
 	GetApplicationRestrictions(ctx context.Context, in *GetApplicationRestrictionsRequest, opts ...grpc.CallOption) (*GetApplicationRestrictionsResponse, error)
@@ -358,20 +317,14 @@ type DevicePolicyManagerServiceClient interface {
 	GetAutoTimeRequired(ctx context.Context, in *GetAutoTimeRequiredRequest, opts ...grpc.CallOption) (*GetAutoTimeRequiredResponse, error)
 	GetAutoTimeZoneEnabled(ctx context.Context, in *GetAutoTimeZoneEnabledRequest, opts ...grpc.CallOption) (*GetAutoTimeZoneEnabledResponse, error)
 	GetAutoTimeZonePolicy(ctx context.Context, in *GetAutoTimeZonePolicyRequest, opts ...grpc.CallOption) (*GetAutoTimeZonePolicyResponse, error)
-	GetBindDeviceAdminTargetUsers(ctx context.Context, in *GetBindDeviceAdminTargetUsersRequest, opts ...grpc.CallOption) (*GetBindDeviceAdminTargetUsersResponse, error)
 	GetBluetoothContactSharingDisabled(ctx context.Context, in *GetBluetoothContactSharingDisabledRequest, opts ...grpc.CallOption) (*GetBluetoothContactSharingDisabledResponse, error)
 	GetCameraDisabled(ctx context.Context, in *GetCameraDisabledRequest, opts ...grpc.CallOption) (*GetCameraDisabledResponse, error)
 	GetCertInstallerPackage(ctx context.Context, in *GetCertInstallerPackageRequest, opts ...grpc.CallOption) (*GetCertInstallerPackageResponse, error)
 	GetContentProtectionPolicy(ctx context.Context, in *GetContentProtectionPolicyRequest, opts ...grpc.CallOption) (*GetContentProtectionPolicyResponse, error)
 	GetCredentialManagerPolicy(ctx context.Context, in *GetCredentialManagerPolicyRequest, opts ...grpc.CallOption) (*GetCredentialManagerPolicyResponse, error)
-	GetCrossProfileCalendarPackages(ctx context.Context, in *GetCrossProfileCalendarPackagesRequest, opts ...grpc.CallOption) (*GetCrossProfileCalendarPackagesResponse, error)
 	GetCrossProfileCallerIdDisabled(ctx context.Context, in *GetCrossProfileCallerIdDisabledRequest, opts ...grpc.CallOption) (*GetCrossProfileCallerIdDisabledResponse, error)
 	GetCrossProfileContactsSearchDisabled(ctx context.Context, in *GetCrossProfileContactsSearchDisabledRequest, opts ...grpc.CallOption) (*GetCrossProfileContactsSearchDisabledResponse, error)
-	GetCrossProfilePackages(ctx context.Context, in *GetCrossProfilePackagesRequest, opts ...grpc.CallOption) (*GetCrossProfilePackagesResponse, error)
-	GetCrossProfileWidgetProviders(ctx context.Context, in *GetCrossProfileWidgetProvidersRequest, opts ...grpc.CallOption) (*GetCrossProfileWidgetProvidersResponse, error)
 	GetCurrentFailedPasswordAttempts(ctx context.Context, in *GetCurrentFailedPasswordAttemptsRequest, opts ...grpc.CallOption) (*GetCurrentFailedPasswordAttemptsResponse, error)
-	GetDelegatePackages(ctx context.Context, in *GetDelegatePackagesRequest, opts ...grpc.CallOption) (*GetDelegatePackagesResponse, error)
-	GetDelegatedScopes(ctx context.Context, in *GetDelegatedScopesRequest, opts ...grpc.CallOption) (*GetDelegatedScopesResponse, error)
 	GetDeviceOwnerLockScreenInfo(ctx context.Context, in *GetDeviceOwnerLockScreenInfoRequest, opts ...grpc.CallOption) (*GetDeviceOwnerLockScreenInfoResponse, error)
 	GetDevicePolicyManagementRoleHolderPackage(ctx context.Context, in *GetDevicePolicyManagementRoleHolderPackageRequest, opts ...grpc.CallOption) (*GetDevicePolicyManagementRoleHolderPackageResponse, error)
 	GetEndUserSessionMessage(ctx context.Context, in *GetEndUserSessionMessageRequest, opts ...grpc.CallOption) (*GetEndUserSessionMessageResponse, error)
@@ -379,8 +332,6 @@ type DevicePolicyManagerServiceClient interface {
 	GetFactoryResetProtectionPolicy(ctx context.Context, in *GetFactoryResetProtectionPolicyRequest, opts ...grpc.CallOption) (*GetFactoryResetProtectionPolicyResponse, error)
 	GetGlobalPrivateDnsHost(ctx context.Context, in *GetGlobalPrivateDnsHostRequest, opts ...grpc.CallOption) (*GetGlobalPrivateDnsHostResponse, error)
 	GetGlobalPrivateDnsMode(ctx context.Context, in *GetGlobalPrivateDnsModeRequest, opts ...grpc.CallOption) (*GetGlobalPrivateDnsModeResponse, error)
-	GetInstalledCaCerts(ctx context.Context, in *GetInstalledCaCertsRequest, opts ...grpc.CallOption) (*GetInstalledCaCertsResponse, error)
-	GetKeepUninstalledPackages(ctx context.Context, in *GetKeepUninstalledPackagesRequest, opts ...grpc.CallOption) (*GetKeepUninstalledPackagesResponse, error)
 	GetKeyguardDisabledFeatures(ctx context.Context, in *GetKeyguardDisabledFeaturesRequest, opts ...grpc.CallOption) (*GetKeyguardDisabledFeaturesResponse, error)
 	GetLockTaskFeatures(ctx context.Context, in *GetLockTaskFeaturesRequest, opts ...grpc.CallOption) (*GetLockTaskFeaturesResponse, error)
 	GetLockTaskPackages(ctx context.Context, in *GetLockTaskPackagesRequest, opts ...grpc.CallOption) (*GetLockTaskPackagesResponse, error)
@@ -391,14 +342,12 @@ type DevicePolicyManagerServiceClient interface {
 	GetManagedSubscriptionsPolicy(ctx context.Context, in *GetManagedSubscriptionsPolicyRequest, opts ...grpc.CallOption) (*GetManagedSubscriptionsPolicyResponse, error)
 	GetMaximumFailedPasswordsForWipe(ctx context.Context, in *GetMaximumFailedPasswordsForWipeRequest, opts ...grpc.CallOption) (*GetMaximumFailedPasswordsForWipeResponse, error)
 	GetMaximumTimeToLock(ctx context.Context, in *GetMaximumTimeToLockRequest, opts ...grpc.CallOption) (*GetMaximumTimeToLockResponse, error)
-	GetMeteredDataDisabledPackages(ctx context.Context, in *GetMeteredDataDisabledPackagesRequest, opts ...grpc.CallOption) (*GetMeteredDataDisabledPackagesResponse, error)
 	GetMinimumRequiredWifiSecurityLevel(ctx context.Context, in *GetMinimumRequiredWifiSecurityLevelRequest, opts ...grpc.CallOption) (*GetMinimumRequiredWifiSecurityLevelResponse, error)
 	GetMtePolicy(ctx context.Context, in *GetMtePolicyRequest, opts ...grpc.CallOption) (*GetMtePolicyResponse, error)
 	GetNearbyAppStreamingPolicy(ctx context.Context, in *GetNearbyAppStreamingPolicyRequest, opts ...grpc.CallOption) (*GetNearbyAppStreamingPolicyResponse, error)
 	GetNearbyNotificationStreamingPolicy(ctx context.Context, in *GetNearbyNotificationStreamingPolicyRequest, opts ...grpc.CallOption) (*GetNearbyNotificationStreamingPolicyResponse, error)
 	GetOrganizationColor(ctx context.Context, in *GetOrganizationColorRequest, opts ...grpc.CallOption) (*GetOrganizationColorResponse, error)
 	GetOrganizationName(ctx context.Context, in *GetOrganizationNameRequest, opts ...grpc.CallOption) (*GetOrganizationNameResponse, error)
-	GetOverrideApns(ctx context.Context, in *GetOverrideApnsRequest, opts ...grpc.CallOption) (*GetOverrideApnsResponse, error)
 	GetParentProfileInstance(ctx context.Context, in *GetParentProfileInstanceRequest, opts ...grpc.CallOption) (*GetParentProfileInstanceResponse, error)
 	GetPasswordComplexity(ctx context.Context, in *GetPasswordComplexityRequest, opts ...grpc.CallOption) (*GetPasswordComplexityResponse, error)
 	GetPasswordExpiration(ctx context.Context, in *GetPasswordExpirationRequest, opts ...grpc.CallOption) (*GetPasswordExpirationResponse, error)
@@ -416,25 +365,17 @@ type DevicePolicyManagerServiceClient interface {
 	GetPendingSystemUpdate(ctx context.Context, in *GetPendingSystemUpdateRequest, opts ...grpc.CallOption) (*GetPendingSystemUpdateResponse, error)
 	GetPermissionGrantState(ctx context.Context, in *GetPermissionGrantStateRequest, opts ...grpc.CallOption) (*GetPermissionGrantStateResponse, error)
 	GetPermissionPolicy(ctx context.Context, in *GetPermissionPolicyRequest, opts ...grpc.CallOption) (*GetPermissionPolicyResponse, error)
-	GetPermittedAccessibilityServices(ctx context.Context, in *GetPermittedAccessibilityServicesRequest, opts ...grpc.CallOption) (*GetPermittedAccessibilityServicesResponse, error)
-	GetPermittedCrossProfileNotificationListeners(ctx context.Context, in *GetPermittedCrossProfileNotificationListenersRequest, opts ...grpc.CallOption) (*GetPermittedCrossProfileNotificationListenersResponse, error)
-	GetPermittedInputMethods(ctx context.Context, in *GetPermittedInputMethodsRequest, opts ...grpc.CallOption) (*GetPermittedInputMethodsResponse, error)
 	GetPersonalAppsSuspendedReasons(ctx context.Context, in *GetPersonalAppsSuspendedReasonsRequest, opts ...grpc.CallOption) (*GetPersonalAppsSuspendedReasonsResponse, error)
-	GetPreferentialNetworkServiceConfigs(ctx context.Context, in *GetPreferentialNetworkServiceConfigsRequest, opts ...grpc.CallOption) (*GetPreferentialNetworkServiceConfigsResponse, error)
 	GetRequiredPasswordComplexity(ctx context.Context, in *GetRequiredPasswordComplexityRequest, opts ...grpc.CallOption) (*GetRequiredPasswordComplexityResponse, error)
 	GetRequiredStrongAuthTimeout(ctx context.Context, in *GetRequiredStrongAuthTimeoutRequest, opts ...grpc.CallOption) (*GetRequiredStrongAuthTimeoutResponse, error)
 	GetResources(ctx context.Context, in *GetResourcesRequest, opts ...grpc.CallOption) (*GetResourcesResponse, error)
 	GetScreenCaptureDisabled(ctx context.Context, in *GetScreenCaptureDisabledRequest, opts ...grpc.CallOption) (*GetScreenCaptureDisabledResponse, error)
-	GetSecondaryUsers(ctx context.Context, in *GetSecondaryUsersRequest, opts ...grpc.CallOption) (*GetSecondaryUsersResponse, error)
 	GetShortSupportMessage(ctx context.Context, in *GetShortSupportMessageRequest, opts ...grpc.CallOption) (*GetShortSupportMessageResponse, error)
 	GetStartUserSessionMessage(ctx context.Context, in *GetStartUserSessionMessageRequest, opts ...grpc.CallOption) (*GetStartUserSessionMessageResponse, error)
 	GetStorageEncryption(ctx context.Context, in *GetStorageEncryptionRequest, opts ...grpc.CallOption) (*GetStorageEncryptionResponse, error)
 	GetStorageEncryptionStatus(ctx context.Context, in *GetStorageEncryptionStatusRequest, opts ...grpc.CallOption) (*GetStorageEncryptionStatusResponse, error)
-	GetSubscriptionIds(ctx context.Context, in *GetSubscriptionIdsRequest, opts ...grpc.CallOption) (*GetSubscriptionIdsResponse, error)
 	GetSystemUpdatePolicy(ctx context.Context, in *GetSystemUpdatePolicyRequest, opts ...grpc.CallOption) (*GetSystemUpdatePolicyResponse, error)
 	GetTransferOwnershipBundle(ctx context.Context, in *GetTransferOwnershipBundleRequest, opts ...grpc.CallOption) (*GetTransferOwnershipBundleResponse, error)
-	GetTrustAgentConfiguration(ctx context.Context, in *GetTrustAgentConfigurationRequest, opts ...grpc.CallOption) (*GetTrustAgentConfigurationResponse, error)
-	GetUserControlDisabledPackages(ctx context.Context, in *GetUserControlDisabledPackagesRequest, opts ...grpc.CallOption) (*GetUserControlDisabledPackagesResponse, error)
 	GetUserRestrictions(ctx context.Context, in *GetUserRestrictionsRequest, opts ...grpc.CallOption) (*GetUserRestrictionsResponse, error)
 	GetUserRestrictionsGlobally(ctx context.Context, in *GetUserRestrictionsGloballyRequest, opts ...grpc.CallOption) (*GetUserRestrictionsGloballyResponse, error)
 	GetWifiMacAddress(ctx context.Context, in *GetWifiMacAddressRequest, opts ...grpc.CallOption) (*GetWifiMacAddressResponse, error)
@@ -485,7 +426,6 @@ type DevicePolicyManagerServiceClient interface {
 	IsUniqueDeviceAttestationSupported(ctx context.Context, in *IsUniqueDeviceAttestationSupportedRequest, opts ...grpc.CallOption) (*IsUniqueDeviceAttestationSupportedResponse, error)
 	IsUsbDataSignalingEnabled(ctx context.Context, in *IsUsbDataSignalingEnabledRequest, opts ...grpc.CallOption) (*IsUsbDataSignalingEnabledResponse, error)
 	IsUsingUnifiedPassword(ctx context.Context, in *IsUsingUnifiedPasswordRequest, opts ...grpc.CallOption) (*IsUsingUnifiedPasswordResponse, error)
-	ListForegroundAffiliatedUsers(ctx context.Context, in *ListForegroundAffiliatedUsersRequest, opts ...grpc.CallOption) (*ListForegroundAffiliatedUsersResponse, error)
 	LockNow0(ctx context.Context, in *LockNow0Request, opts ...grpc.CallOption) (*LockNow0Response, error)
 	LockNow1_1(ctx context.Context, in *LockNow1_1Request, opts ...grpc.CallOption) (*LockNow1_1Response, error)
 	LogoutUser(ctx context.Context, in *LogoutUserRequest, opts ...grpc.CallOption) (*LogoutUserResponse, error)
@@ -498,15 +438,10 @@ type DevicePolicyManagerServiceClient interface {
 	RequestBugreport(ctx context.Context, in *RequestBugreportRequest, opts ...grpc.CallOption) (*RequestBugreportResponse, error)
 	ResetPassword(ctx context.Context, in *ResetPasswordRequest, opts ...grpc.CallOption) (*ResetPasswordResponse, error)
 	ResetPasswordWithToken(ctx context.Context, in *ResetPasswordWithTokenRequest, opts ...grpc.CallOption) (*ResetPasswordWithTokenResponse, error)
-	RetrieveNetworkLogs(ctx context.Context, in *RetrieveNetworkLogsRequest, opts ...grpc.CallOption) (*RetrieveNetworkLogsResponse, error)
-	RetrievePreRebootSecurityLogs(ctx context.Context, in *RetrievePreRebootSecurityLogsRequest, opts ...grpc.CallOption) (*RetrievePreRebootSecurityLogsResponse, error)
-	RetrieveSecurityLogs(ctx context.Context, in *RetrieveSecurityLogsRequest, opts ...grpc.CallOption) (*RetrieveSecurityLogsResponse, error)
 	RevokeKeyPairFromApp(ctx context.Context, in *RevokeKeyPairFromAppRequest, opts ...grpc.CallOption) (*RevokeKeyPairFromAppResponse, error)
 	RevokeKeyPairFromWifiAuth(ctx context.Context, in *RevokeKeyPairFromWifiAuthRequest, opts ...grpc.CallOption) (*RevokeKeyPairFromWifiAuthResponse, error)
 	SetAccountManagementDisabled(ctx context.Context, in *SetAccountManagementDisabledRequest, opts ...grpc.CallOption) (*SetAccountManagementDisabledResponse, error)
-	SetAffiliationIds(ctx context.Context, in *SetAffiliationIdsRequest, opts ...grpc.CallOption) (*SetAffiliationIdsResponse, error)
-	SetAlwaysOnVpnPackage3(ctx context.Context, in *SetAlwaysOnVpnPackage3Request, opts ...grpc.CallOption) (*SetAlwaysOnVpnPackage3Response, error)
-	SetAlwaysOnVpnPackage4_1(ctx context.Context, in *SetAlwaysOnVpnPackage4_1Request, opts ...grpc.CallOption) (*SetAlwaysOnVpnPackage4_1Response, error)
+	SetAlwaysOnVpnPackage(ctx context.Context, in *SetAlwaysOnVpnPackageRequest, opts ...grpc.CallOption) (*SetAlwaysOnVpnPackageResponse, error)
 	SetAppFunctionsPolicy(ctx context.Context, in *SetAppFunctionsPolicyRequest, opts ...grpc.CallOption) (*SetAppFunctionsPolicyResponse, error)
 	SetApplicationHidden(ctx context.Context, in *SetApplicationHiddenRequest, opts ...grpc.CallOption) (*SetApplicationHiddenResponse, error)
 	SetApplicationRestrictions(ctx context.Context, in *SetApplicationRestrictionsRequest, opts ...grpc.CallOption) (*SetApplicationRestrictionsResponse, error)
@@ -524,21 +459,16 @@ type DevicePolicyManagerServiceClient interface {
 	SetConfiguredNetworksLockdownState(ctx context.Context, in *SetConfiguredNetworksLockdownStateRequest, opts ...grpc.CallOption) (*SetConfiguredNetworksLockdownStateResponse, error)
 	SetContentProtectionPolicy(ctx context.Context, in *SetContentProtectionPolicyRequest, opts ...grpc.CallOption) (*SetContentProtectionPolicyResponse, error)
 	SetCredentialManagerPolicy(ctx context.Context, in *SetCredentialManagerPolicyRequest, opts ...grpc.CallOption) (*SetCredentialManagerPolicyResponse, error)
-	SetCrossProfileCalendarPackages(ctx context.Context, in *SetCrossProfileCalendarPackagesRequest, opts ...grpc.CallOption) (*SetCrossProfileCalendarPackagesResponse, error)
 	SetCrossProfileCallerIdDisabled(ctx context.Context, in *SetCrossProfileCallerIdDisabledRequest, opts ...grpc.CallOption) (*SetCrossProfileCallerIdDisabledResponse, error)
 	SetCrossProfileContactsSearchDisabled(ctx context.Context, in *SetCrossProfileContactsSearchDisabledRequest, opts ...grpc.CallOption) (*SetCrossProfileContactsSearchDisabledResponse, error)
-	SetCrossProfilePackages(ctx context.Context, in *SetCrossProfilePackagesRequest, opts ...grpc.CallOption) (*SetCrossProfilePackagesResponse, error)
 	SetDefaultDialerApplication(ctx context.Context, in *SetDefaultDialerApplicationRequest, opts ...grpc.CallOption) (*SetDefaultDialerApplicationResponse, error)
 	SetDefaultSmsApplication(ctx context.Context, in *SetDefaultSmsApplicationRequest, opts ...grpc.CallOption) (*SetDefaultSmsApplicationResponse, error)
-	SetDelegatedScopes(ctx context.Context, in *SetDelegatedScopesRequest, opts ...grpc.CallOption) (*SetDelegatedScopesResponse, error)
 	SetDeviceOwnerLockScreenInfo(ctx context.Context, in *SetDeviceOwnerLockScreenInfoRequest, opts ...grpc.CallOption) (*SetDeviceOwnerLockScreenInfoResponse, error)
 	SetEndUserSessionMessage(ctx context.Context, in *SetEndUserSessionMessageRequest, opts ...grpc.CallOption) (*SetEndUserSessionMessageResponse, error)
 	SetFactoryResetProtectionPolicy(ctx context.Context, in *SetFactoryResetProtectionPolicyRequest, opts ...grpc.CallOption) (*SetFactoryResetProtectionPolicyResponse, error)
 	SetGlobalPrivateDnsModeOpportunistic(ctx context.Context, in *SetGlobalPrivateDnsModeOpportunisticRequest, opts ...grpc.CallOption) (*SetGlobalPrivateDnsModeOpportunisticResponse, error)
 	SetGlobalPrivateDnsModeSpecifiedHost(ctx context.Context, in *SetGlobalPrivateDnsModeSpecifiedHostRequest, opts ...grpc.CallOption) (*SetGlobalPrivateDnsModeSpecifiedHostResponse, error)
 	SetGlobalSetting(ctx context.Context, in *SetGlobalSettingRequest, opts ...grpc.CallOption) (*SetGlobalSettingResponse, error)
-	SetKeepUninstalledPackages(ctx context.Context, in *SetKeepUninstalledPackagesRequest, opts ...grpc.CallOption) (*SetKeepUninstalledPackagesResponse, error)
-	SetKeyPairCertificate(ctx context.Context, in *SetKeyPairCertificateRequest, opts ...grpc.CallOption) (*SetKeyPairCertificateResponse, error)
 	SetKeyguardDisabled(ctx context.Context, in *SetKeyguardDisabledRequest, opts ...grpc.CallOption) (*SetKeyguardDisabledResponse, error)
 	SetKeyguardDisabledFeatures(ctx context.Context, in *SetKeyguardDisabledFeaturesRequest, opts ...grpc.CallOption) (*SetKeyguardDisabledFeaturesResponse, error)
 	SetLocationEnabled(ctx context.Context, in *SetLocationEnabledRequest, opts ...grpc.CallOption) (*SetLocationEnabledResponse, error)
@@ -553,7 +483,6 @@ type DevicePolicyManagerServiceClient interface {
 	SetMasterVolumeMuted(ctx context.Context, in *SetMasterVolumeMutedRequest, opts ...grpc.CallOption) (*SetMasterVolumeMutedResponse, error)
 	SetMaximumFailedPasswordsForWipe(ctx context.Context, in *SetMaximumFailedPasswordsForWipeRequest, opts ...grpc.CallOption) (*SetMaximumFailedPasswordsForWipeResponse, error)
 	SetMaximumTimeToLock(ctx context.Context, in *SetMaximumTimeToLockRequest, opts ...grpc.CallOption) (*SetMaximumTimeToLockResponse, error)
-	SetMeteredDataDisabledPackages(ctx context.Context, in *SetMeteredDataDisabledPackagesRequest, opts ...grpc.CallOption) (*SetMeteredDataDisabledPackagesResponse, error)
 	SetMinimumRequiredWifiSecurityLevel(ctx context.Context, in *SetMinimumRequiredWifiSecurityLevelRequest, opts ...grpc.CallOption) (*SetMinimumRequiredWifiSecurityLevelResponse, error)
 	SetMtePolicy(ctx context.Context, in *SetMtePolicyRequest, opts ...grpc.CallOption) (*SetMtePolicyResponse, error)
 	SetNearbyAppStreamingPolicy(ctx context.Context, in *SetNearbyAppStreamingPolicyRequest, opts ...grpc.CallOption) (*SetNearbyAppStreamingPolicyResponse, error)
@@ -576,11 +505,7 @@ type DevicePolicyManagerServiceClient interface {
 	SetPasswordQuality(ctx context.Context, in *SetPasswordQualityRequest, opts ...grpc.CallOption) (*SetPasswordQualityResponse, error)
 	SetPermissionGrantState(ctx context.Context, in *SetPermissionGrantStateRequest, opts ...grpc.CallOption) (*SetPermissionGrantStateResponse, error)
 	SetPermissionPolicy(ctx context.Context, in *SetPermissionPolicyRequest, opts ...grpc.CallOption) (*SetPermissionPolicyResponse, error)
-	SetPermittedAccessibilityServices(ctx context.Context, in *SetPermittedAccessibilityServicesRequest, opts ...grpc.CallOption) (*SetPermittedAccessibilityServicesResponse, error)
-	SetPermittedCrossProfileNotificationListeners(ctx context.Context, in *SetPermittedCrossProfileNotificationListenersRequest, opts ...grpc.CallOption) (*SetPermittedCrossProfileNotificationListenersResponse, error)
-	SetPermittedInputMethods(ctx context.Context, in *SetPermittedInputMethodsRequest, opts ...grpc.CallOption) (*SetPermittedInputMethodsResponse, error)
 	SetPersonalAppsSuspended(ctx context.Context, in *SetPersonalAppsSuspendedRequest, opts ...grpc.CallOption) (*SetPersonalAppsSuspendedResponse, error)
-	SetPreferentialNetworkServiceConfigs(ctx context.Context, in *SetPreferentialNetworkServiceConfigsRequest, opts ...grpc.CallOption) (*SetPreferentialNetworkServiceConfigsResponse, error)
 	SetPreferentialNetworkServiceEnabled(ctx context.Context, in *SetPreferentialNetworkServiceEnabledRequest, opts ...grpc.CallOption) (*SetPreferentialNetworkServiceEnabledResponse, error)
 	SetProfileEnabled(ctx context.Context, in *SetProfileEnabledRequest, opts ...grpc.CallOption) (*SetProfileEnabledResponse, error)
 	SetProfileName(ctx context.Context, in *SetProfileNameRequest, opts ...grpc.CallOption) (*SetProfileNameResponse, error)
@@ -603,7 +528,6 @@ type DevicePolicyManagerServiceClient interface {
 	SetTrustAgentConfiguration(ctx context.Context, in *SetTrustAgentConfigurationRequest, opts ...grpc.CallOption) (*SetTrustAgentConfigurationResponse, error)
 	SetUninstallBlocked(ctx context.Context, in *SetUninstallBlockedRequest, opts ...grpc.CallOption) (*SetUninstallBlockedResponse, error)
 	SetUsbDataSignalingEnabled(ctx context.Context, in *SetUsbDataSignalingEnabledRequest, opts ...grpc.CallOption) (*SetUsbDataSignalingEnabledResponse, error)
-	SetUserControlDisabledPackages(ctx context.Context, in *SetUserControlDisabledPackagesRequest, opts ...grpc.CallOption) (*SetUserControlDisabledPackagesResponse, error)
 	SetUserIcon(ctx context.Context, in *SetUserIconRequest, opts ...grpc.CallOption) (*SetUserIconResponse, error)
 	SetWifiSsidPolicy(ctx context.Context, in *SetWifiSsidPolicyRequest, opts ...grpc.CallOption) (*SetWifiSsidPolicyResponse, error)
 	StartUserInBackground(ctx context.Context, in *StartUserInBackgroundRequest, opts ...grpc.CallOption) (*StartUserInBackgroundResponse, error)
@@ -867,36 +791,6 @@ func (c *devicePolicyManagerServiceClient) GetAccountTypesWithManagementDisabled
 	return out, nil
 }
 
-func (c *devicePolicyManagerServiceClient) GetActiveAdmins(ctx context.Context, in *GetActiveAdminsRequest, opts ...grpc.CallOption) (*GetActiveAdminsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetActiveAdminsResponse)
-	err := c.cc.Invoke(ctx, DevicePolicyManagerService_GetActiveAdmins_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *devicePolicyManagerServiceClient) GetAffiliationIds(ctx context.Context, in *GetAffiliationIdsRequest, opts ...grpc.CallOption) (*GetAffiliationIdsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetAffiliationIdsResponse)
-	err := c.cc.Invoke(ctx, DevicePolicyManagerService_GetAffiliationIds_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *devicePolicyManagerServiceClient) GetAlwaysOnVpnLockdownWhitelist(ctx context.Context, in *GetAlwaysOnVpnLockdownWhitelistRequest, opts ...grpc.CallOption) (*GetAlwaysOnVpnLockdownWhitelistResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetAlwaysOnVpnLockdownWhitelistResponse)
-	err := c.cc.Invoke(ctx, DevicePolicyManagerService_GetAlwaysOnVpnLockdownWhitelist_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
 func (c *devicePolicyManagerServiceClient) GetAlwaysOnVpnPackage(ctx context.Context, in *GetAlwaysOnVpnPackageRequest, opts ...grpc.CallOption) (*GetAlwaysOnVpnPackageResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(GetAlwaysOnVpnPackageResponse)
@@ -987,16 +881,6 @@ func (c *devicePolicyManagerServiceClient) GetAutoTimeZonePolicy(ctx context.Con
 	return out, nil
 }
 
-func (c *devicePolicyManagerServiceClient) GetBindDeviceAdminTargetUsers(ctx context.Context, in *GetBindDeviceAdminTargetUsersRequest, opts ...grpc.CallOption) (*GetBindDeviceAdminTargetUsersResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetBindDeviceAdminTargetUsersResponse)
-	err := c.cc.Invoke(ctx, DevicePolicyManagerService_GetBindDeviceAdminTargetUsers_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
 func (c *devicePolicyManagerServiceClient) GetBluetoothContactSharingDisabled(ctx context.Context, in *GetBluetoothContactSharingDisabledRequest, opts ...grpc.CallOption) (*GetBluetoothContactSharingDisabledResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(GetBluetoothContactSharingDisabledResponse)
@@ -1047,16 +931,6 @@ func (c *devicePolicyManagerServiceClient) GetCredentialManagerPolicy(ctx contex
 	return out, nil
 }
 
-func (c *devicePolicyManagerServiceClient) GetCrossProfileCalendarPackages(ctx context.Context, in *GetCrossProfileCalendarPackagesRequest, opts ...grpc.CallOption) (*GetCrossProfileCalendarPackagesResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetCrossProfileCalendarPackagesResponse)
-	err := c.cc.Invoke(ctx, DevicePolicyManagerService_GetCrossProfileCalendarPackages_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
 func (c *devicePolicyManagerServiceClient) GetCrossProfileCallerIdDisabled(ctx context.Context, in *GetCrossProfileCallerIdDisabledRequest, opts ...grpc.CallOption) (*GetCrossProfileCallerIdDisabledResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(GetCrossProfileCallerIdDisabledResponse)
@@ -1077,50 +951,10 @@ func (c *devicePolicyManagerServiceClient) GetCrossProfileContactsSearchDisabled
 	return out, nil
 }
 
-func (c *devicePolicyManagerServiceClient) GetCrossProfilePackages(ctx context.Context, in *GetCrossProfilePackagesRequest, opts ...grpc.CallOption) (*GetCrossProfilePackagesResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetCrossProfilePackagesResponse)
-	err := c.cc.Invoke(ctx, DevicePolicyManagerService_GetCrossProfilePackages_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *devicePolicyManagerServiceClient) GetCrossProfileWidgetProviders(ctx context.Context, in *GetCrossProfileWidgetProvidersRequest, opts ...grpc.CallOption) (*GetCrossProfileWidgetProvidersResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetCrossProfileWidgetProvidersResponse)
-	err := c.cc.Invoke(ctx, DevicePolicyManagerService_GetCrossProfileWidgetProviders_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
 func (c *devicePolicyManagerServiceClient) GetCurrentFailedPasswordAttempts(ctx context.Context, in *GetCurrentFailedPasswordAttemptsRequest, opts ...grpc.CallOption) (*GetCurrentFailedPasswordAttemptsResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(GetCurrentFailedPasswordAttemptsResponse)
 	err := c.cc.Invoke(ctx, DevicePolicyManagerService_GetCurrentFailedPasswordAttempts_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *devicePolicyManagerServiceClient) GetDelegatePackages(ctx context.Context, in *GetDelegatePackagesRequest, opts ...grpc.CallOption) (*GetDelegatePackagesResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetDelegatePackagesResponse)
-	err := c.cc.Invoke(ctx, DevicePolicyManagerService_GetDelegatePackages_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *devicePolicyManagerServiceClient) GetDelegatedScopes(ctx context.Context, in *GetDelegatedScopesRequest, opts ...grpc.CallOption) (*GetDelegatedScopesResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetDelegatedScopesResponse)
-	err := c.cc.Invoke(ctx, DevicePolicyManagerService_GetDelegatedScopes_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
@@ -1191,26 +1025,6 @@ func (c *devicePolicyManagerServiceClient) GetGlobalPrivateDnsMode(ctx context.C
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(GetGlobalPrivateDnsModeResponse)
 	err := c.cc.Invoke(ctx, DevicePolicyManagerService_GetGlobalPrivateDnsMode_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *devicePolicyManagerServiceClient) GetInstalledCaCerts(ctx context.Context, in *GetInstalledCaCertsRequest, opts ...grpc.CallOption) (*GetInstalledCaCertsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetInstalledCaCertsResponse)
-	err := c.cc.Invoke(ctx, DevicePolicyManagerService_GetInstalledCaCerts_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *devicePolicyManagerServiceClient) GetKeepUninstalledPackages(ctx context.Context, in *GetKeepUninstalledPackagesRequest, opts ...grpc.CallOption) (*GetKeepUninstalledPackagesResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetKeepUninstalledPackagesResponse)
-	err := c.cc.Invoke(ctx, DevicePolicyManagerService_GetKeepUninstalledPackages_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
@@ -1317,16 +1131,6 @@ func (c *devicePolicyManagerServiceClient) GetMaximumTimeToLock(ctx context.Cont
 	return out, nil
 }
 
-func (c *devicePolicyManagerServiceClient) GetMeteredDataDisabledPackages(ctx context.Context, in *GetMeteredDataDisabledPackagesRequest, opts ...grpc.CallOption) (*GetMeteredDataDisabledPackagesResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetMeteredDataDisabledPackagesResponse)
-	err := c.cc.Invoke(ctx, DevicePolicyManagerService_GetMeteredDataDisabledPackages_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
 func (c *devicePolicyManagerServiceClient) GetMinimumRequiredWifiSecurityLevel(ctx context.Context, in *GetMinimumRequiredWifiSecurityLevelRequest, opts ...grpc.CallOption) (*GetMinimumRequiredWifiSecurityLevelResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(GetMinimumRequiredWifiSecurityLevelResponse)
@@ -1381,16 +1185,6 @@ func (c *devicePolicyManagerServiceClient) GetOrganizationName(ctx context.Conte
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(GetOrganizationNameResponse)
 	err := c.cc.Invoke(ctx, DevicePolicyManagerService_GetOrganizationName_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *devicePolicyManagerServiceClient) GetOverrideApns(ctx context.Context, in *GetOverrideApnsRequest, opts ...grpc.CallOption) (*GetOverrideApnsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetOverrideApnsResponse)
-	err := c.cc.Invoke(ctx, DevicePolicyManagerService_GetOverrideApns_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
@@ -1567,50 +1361,10 @@ func (c *devicePolicyManagerServiceClient) GetPermissionPolicy(ctx context.Conte
 	return out, nil
 }
 
-func (c *devicePolicyManagerServiceClient) GetPermittedAccessibilityServices(ctx context.Context, in *GetPermittedAccessibilityServicesRequest, opts ...grpc.CallOption) (*GetPermittedAccessibilityServicesResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetPermittedAccessibilityServicesResponse)
-	err := c.cc.Invoke(ctx, DevicePolicyManagerService_GetPermittedAccessibilityServices_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *devicePolicyManagerServiceClient) GetPermittedCrossProfileNotificationListeners(ctx context.Context, in *GetPermittedCrossProfileNotificationListenersRequest, opts ...grpc.CallOption) (*GetPermittedCrossProfileNotificationListenersResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetPermittedCrossProfileNotificationListenersResponse)
-	err := c.cc.Invoke(ctx, DevicePolicyManagerService_GetPermittedCrossProfileNotificationListeners_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *devicePolicyManagerServiceClient) GetPermittedInputMethods(ctx context.Context, in *GetPermittedInputMethodsRequest, opts ...grpc.CallOption) (*GetPermittedInputMethodsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetPermittedInputMethodsResponse)
-	err := c.cc.Invoke(ctx, DevicePolicyManagerService_GetPermittedInputMethods_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
 func (c *devicePolicyManagerServiceClient) GetPersonalAppsSuspendedReasons(ctx context.Context, in *GetPersonalAppsSuspendedReasonsRequest, opts ...grpc.CallOption) (*GetPersonalAppsSuspendedReasonsResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(GetPersonalAppsSuspendedReasonsResponse)
 	err := c.cc.Invoke(ctx, DevicePolicyManagerService_GetPersonalAppsSuspendedReasons_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *devicePolicyManagerServiceClient) GetPreferentialNetworkServiceConfigs(ctx context.Context, in *GetPreferentialNetworkServiceConfigsRequest, opts ...grpc.CallOption) (*GetPreferentialNetworkServiceConfigsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetPreferentialNetworkServiceConfigsResponse)
-	err := c.cc.Invoke(ctx, DevicePolicyManagerService_GetPreferentialNetworkServiceConfigs_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
@@ -1657,16 +1411,6 @@ func (c *devicePolicyManagerServiceClient) GetScreenCaptureDisabled(ctx context.
 	return out, nil
 }
 
-func (c *devicePolicyManagerServiceClient) GetSecondaryUsers(ctx context.Context, in *GetSecondaryUsersRequest, opts ...grpc.CallOption) (*GetSecondaryUsersResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetSecondaryUsersResponse)
-	err := c.cc.Invoke(ctx, DevicePolicyManagerService_GetSecondaryUsers_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
 func (c *devicePolicyManagerServiceClient) GetShortSupportMessage(ctx context.Context, in *GetShortSupportMessageRequest, opts ...grpc.CallOption) (*GetShortSupportMessageResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(GetShortSupportMessageResponse)
@@ -1707,16 +1451,6 @@ func (c *devicePolicyManagerServiceClient) GetStorageEncryptionStatus(ctx contex
 	return out, nil
 }
 
-func (c *devicePolicyManagerServiceClient) GetSubscriptionIds(ctx context.Context, in *GetSubscriptionIdsRequest, opts ...grpc.CallOption) (*GetSubscriptionIdsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetSubscriptionIdsResponse)
-	err := c.cc.Invoke(ctx, DevicePolicyManagerService_GetSubscriptionIds_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
 func (c *devicePolicyManagerServiceClient) GetSystemUpdatePolicy(ctx context.Context, in *GetSystemUpdatePolicyRequest, opts ...grpc.CallOption) (*GetSystemUpdatePolicyResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(GetSystemUpdatePolicyResponse)
@@ -1731,26 +1465,6 @@ func (c *devicePolicyManagerServiceClient) GetTransferOwnershipBundle(ctx contex
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(GetTransferOwnershipBundleResponse)
 	err := c.cc.Invoke(ctx, DevicePolicyManagerService_GetTransferOwnershipBundle_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *devicePolicyManagerServiceClient) GetTrustAgentConfiguration(ctx context.Context, in *GetTrustAgentConfigurationRequest, opts ...grpc.CallOption) (*GetTrustAgentConfigurationResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetTrustAgentConfigurationResponse)
-	err := c.cc.Invoke(ctx, DevicePolicyManagerService_GetTrustAgentConfiguration_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *devicePolicyManagerServiceClient) GetUserControlDisabledPackages(ctx context.Context, in *GetUserControlDisabledPackagesRequest, opts ...grpc.CallOption) (*GetUserControlDisabledPackagesResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetUserControlDisabledPackagesResponse)
-	err := c.cc.Invoke(ctx, DevicePolicyManagerService_GetUserControlDisabledPackages_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
@@ -2257,16 +1971,6 @@ func (c *devicePolicyManagerServiceClient) IsUsingUnifiedPassword(ctx context.Co
 	return out, nil
 }
 
-func (c *devicePolicyManagerServiceClient) ListForegroundAffiliatedUsers(ctx context.Context, in *ListForegroundAffiliatedUsersRequest, opts ...grpc.CallOption) (*ListForegroundAffiliatedUsersResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ListForegroundAffiliatedUsersResponse)
-	err := c.cc.Invoke(ctx, DevicePolicyManagerService_ListForegroundAffiliatedUsers_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
 func (c *devicePolicyManagerServiceClient) LockNow0(ctx context.Context, in *LockNow0Request, opts ...grpc.CallOption) (*LockNow0Response, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(LockNow0Response)
@@ -2387,36 +2091,6 @@ func (c *devicePolicyManagerServiceClient) ResetPasswordWithToken(ctx context.Co
 	return out, nil
 }
 
-func (c *devicePolicyManagerServiceClient) RetrieveNetworkLogs(ctx context.Context, in *RetrieveNetworkLogsRequest, opts ...grpc.CallOption) (*RetrieveNetworkLogsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(RetrieveNetworkLogsResponse)
-	err := c.cc.Invoke(ctx, DevicePolicyManagerService_RetrieveNetworkLogs_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *devicePolicyManagerServiceClient) RetrievePreRebootSecurityLogs(ctx context.Context, in *RetrievePreRebootSecurityLogsRequest, opts ...grpc.CallOption) (*RetrievePreRebootSecurityLogsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(RetrievePreRebootSecurityLogsResponse)
-	err := c.cc.Invoke(ctx, DevicePolicyManagerService_RetrievePreRebootSecurityLogs_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *devicePolicyManagerServiceClient) RetrieveSecurityLogs(ctx context.Context, in *RetrieveSecurityLogsRequest, opts ...grpc.CallOption) (*RetrieveSecurityLogsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(RetrieveSecurityLogsResponse)
-	err := c.cc.Invoke(ctx, DevicePolicyManagerService_RetrieveSecurityLogs_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
 func (c *devicePolicyManagerServiceClient) RevokeKeyPairFromApp(ctx context.Context, in *RevokeKeyPairFromAppRequest, opts ...grpc.CallOption) (*RevokeKeyPairFromAppResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(RevokeKeyPairFromAppResponse)
@@ -2447,30 +2121,10 @@ func (c *devicePolicyManagerServiceClient) SetAccountManagementDisabled(ctx cont
 	return out, nil
 }
 
-func (c *devicePolicyManagerServiceClient) SetAffiliationIds(ctx context.Context, in *SetAffiliationIdsRequest, opts ...grpc.CallOption) (*SetAffiliationIdsResponse, error) {
+func (c *devicePolicyManagerServiceClient) SetAlwaysOnVpnPackage(ctx context.Context, in *SetAlwaysOnVpnPackageRequest, opts ...grpc.CallOption) (*SetAlwaysOnVpnPackageResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetAffiliationIdsResponse)
-	err := c.cc.Invoke(ctx, DevicePolicyManagerService_SetAffiliationIds_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *devicePolicyManagerServiceClient) SetAlwaysOnVpnPackage3(ctx context.Context, in *SetAlwaysOnVpnPackage3Request, opts ...grpc.CallOption) (*SetAlwaysOnVpnPackage3Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetAlwaysOnVpnPackage3Response)
-	err := c.cc.Invoke(ctx, DevicePolicyManagerService_SetAlwaysOnVpnPackage3_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *devicePolicyManagerServiceClient) SetAlwaysOnVpnPackage4_1(ctx context.Context, in *SetAlwaysOnVpnPackage4_1Request, opts ...grpc.CallOption) (*SetAlwaysOnVpnPackage4_1Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetAlwaysOnVpnPackage4_1Response)
-	err := c.cc.Invoke(ctx, DevicePolicyManagerService_SetAlwaysOnVpnPackage4_1_FullMethodName, in, out, cOpts...)
+	out := new(SetAlwaysOnVpnPackageResponse)
+	err := c.cc.Invoke(ctx, DevicePolicyManagerService_SetAlwaysOnVpnPackage_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
@@ -2647,16 +2301,6 @@ func (c *devicePolicyManagerServiceClient) SetCredentialManagerPolicy(ctx contex
 	return out, nil
 }
 
-func (c *devicePolicyManagerServiceClient) SetCrossProfileCalendarPackages(ctx context.Context, in *SetCrossProfileCalendarPackagesRequest, opts ...grpc.CallOption) (*SetCrossProfileCalendarPackagesResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetCrossProfileCalendarPackagesResponse)
-	err := c.cc.Invoke(ctx, DevicePolicyManagerService_SetCrossProfileCalendarPackages_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
 func (c *devicePolicyManagerServiceClient) SetCrossProfileCallerIdDisabled(ctx context.Context, in *SetCrossProfileCallerIdDisabledRequest, opts ...grpc.CallOption) (*SetCrossProfileCallerIdDisabledResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(SetCrossProfileCallerIdDisabledResponse)
@@ -2677,16 +2321,6 @@ func (c *devicePolicyManagerServiceClient) SetCrossProfileContactsSearchDisabled
 	return out, nil
 }
 
-func (c *devicePolicyManagerServiceClient) SetCrossProfilePackages(ctx context.Context, in *SetCrossProfilePackagesRequest, opts ...grpc.CallOption) (*SetCrossProfilePackagesResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetCrossProfilePackagesResponse)
-	err := c.cc.Invoke(ctx, DevicePolicyManagerService_SetCrossProfilePackages_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
 func (c *devicePolicyManagerServiceClient) SetDefaultDialerApplication(ctx context.Context, in *SetDefaultDialerApplicationRequest, opts ...grpc.CallOption) (*SetDefaultDialerApplicationResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(SetDefaultDialerApplicationResponse)
@@ -2701,16 +2335,6 @@ func (c *devicePolicyManagerServiceClient) SetDefaultSmsApplication(ctx context.
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(SetDefaultSmsApplicationResponse)
 	err := c.cc.Invoke(ctx, DevicePolicyManagerService_SetDefaultSmsApplication_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *devicePolicyManagerServiceClient) SetDelegatedScopes(ctx context.Context, in *SetDelegatedScopesRequest, opts ...grpc.CallOption) (*SetDelegatedScopesResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetDelegatedScopesResponse)
-	err := c.cc.Invoke(ctx, DevicePolicyManagerService_SetDelegatedScopes_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
@@ -2771,26 +2395,6 @@ func (c *devicePolicyManagerServiceClient) SetGlobalSetting(ctx context.Context,
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(SetGlobalSettingResponse)
 	err := c.cc.Invoke(ctx, DevicePolicyManagerService_SetGlobalSetting_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *devicePolicyManagerServiceClient) SetKeepUninstalledPackages(ctx context.Context, in *SetKeepUninstalledPackagesRequest, opts ...grpc.CallOption) (*SetKeepUninstalledPackagesResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetKeepUninstalledPackagesResponse)
-	err := c.cc.Invoke(ctx, DevicePolicyManagerService_SetKeepUninstalledPackages_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *devicePolicyManagerServiceClient) SetKeyPairCertificate(ctx context.Context, in *SetKeyPairCertificateRequest, opts ...grpc.CallOption) (*SetKeyPairCertificateResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetKeyPairCertificateResponse)
-	err := c.cc.Invoke(ctx, DevicePolicyManagerService_SetKeyPairCertificate_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
@@ -2931,16 +2535,6 @@ func (c *devicePolicyManagerServiceClient) SetMaximumTimeToLock(ctx context.Cont
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(SetMaximumTimeToLockResponse)
 	err := c.cc.Invoke(ctx, DevicePolicyManagerService_SetMaximumTimeToLock_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *devicePolicyManagerServiceClient) SetMeteredDataDisabledPackages(ctx context.Context, in *SetMeteredDataDisabledPackagesRequest, opts ...grpc.CallOption) (*SetMeteredDataDisabledPackagesResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetMeteredDataDisabledPackagesResponse)
-	err := c.cc.Invoke(ctx, DevicePolicyManagerService_SetMeteredDataDisabledPackages_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
@@ -3167,50 +2761,10 @@ func (c *devicePolicyManagerServiceClient) SetPermissionPolicy(ctx context.Conte
 	return out, nil
 }
 
-func (c *devicePolicyManagerServiceClient) SetPermittedAccessibilityServices(ctx context.Context, in *SetPermittedAccessibilityServicesRequest, opts ...grpc.CallOption) (*SetPermittedAccessibilityServicesResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetPermittedAccessibilityServicesResponse)
-	err := c.cc.Invoke(ctx, DevicePolicyManagerService_SetPermittedAccessibilityServices_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *devicePolicyManagerServiceClient) SetPermittedCrossProfileNotificationListeners(ctx context.Context, in *SetPermittedCrossProfileNotificationListenersRequest, opts ...grpc.CallOption) (*SetPermittedCrossProfileNotificationListenersResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetPermittedCrossProfileNotificationListenersResponse)
-	err := c.cc.Invoke(ctx, DevicePolicyManagerService_SetPermittedCrossProfileNotificationListeners_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *devicePolicyManagerServiceClient) SetPermittedInputMethods(ctx context.Context, in *SetPermittedInputMethodsRequest, opts ...grpc.CallOption) (*SetPermittedInputMethodsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetPermittedInputMethodsResponse)
-	err := c.cc.Invoke(ctx, DevicePolicyManagerService_SetPermittedInputMethods_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
 func (c *devicePolicyManagerServiceClient) SetPersonalAppsSuspended(ctx context.Context, in *SetPersonalAppsSuspendedRequest, opts ...grpc.CallOption) (*SetPersonalAppsSuspendedResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(SetPersonalAppsSuspendedResponse)
 	err := c.cc.Invoke(ctx, DevicePolicyManagerService_SetPersonalAppsSuspended_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *devicePolicyManagerServiceClient) SetPreferentialNetworkServiceConfigs(ctx context.Context, in *SetPreferentialNetworkServiceConfigsRequest, opts ...grpc.CallOption) (*SetPreferentialNetworkServiceConfigsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetPreferentialNetworkServiceConfigsResponse)
-	err := c.cc.Invoke(ctx, DevicePolicyManagerService_SetPreferentialNetworkServiceConfigs_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
@@ -3437,16 +2991,6 @@ func (c *devicePolicyManagerServiceClient) SetUsbDataSignalingEnabled(ctx contex
 	return out, nil
 }
 
-func (c *devicePolicyManagerServiceClient) SetUserControlDisabledPackages(ctx context.Context, in *SetUserControlDisabledPackagesRequest, opts ...grpc.CallOption) (*SetUserControlDisabledPackagesResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetUserControlDisabledPackagesResponse)
-	err := c.cc.Invoke(ctx, DevicePolicyManagerService_SetUserControlDisabledPackages_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
 func (c *devicePolicyManagerServiceClient) SetUserIcon(ctx context.Context, in *SetUserIconRequest, opts ...grpc.CallOption) (*SetUserIconResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(SetUserIconResponse)
@@ -3605,9 +3149,6 @@ type DevicePolicyManagerServiceServer interface {
 	EnableSystemApp2_1(context.Context, *EnableSystemApp2_1Request) (*EnableSystemApp2_1Response, error)
 	GenerateKeyPair(context.Context, *GenerateKeyPairRequest) (*GenerateKeyPairResponse, error)
 	GetAccountTypesWithManagementDisabled(context.Context, *GetAccountTypesWithManagementDisabledRequest) (*GetAccountTypesWithManagementDisabledResponse, error)
-	GetActiveAdmins(context.Context, *GetActiveAdminsRequest) (*GetActiveAdminsResponse, error)
-	GetAffiliationIds(context.Context, *GetAffiliationIdsRequest) (*GetAffiliationIdsResponse, error)
-	GetAlwaysOnVpnLockdownWhitelist(context.Context, *GetAlwaysOnVpnLockdownWhitelistRequest) (*GetAlwaysOnVpnLockdownWhitelistResponse, error)
 	GetAlwaysOnVpnPackage(context.Context, *GetAlwaysOnVpnPackageRequest) (*GetAlwaysOnVpnPackageResponse, error)
 	GetAppFunctionsPolicy(context.Context, *GetAppFunctionsPolicyRequest) (*GetAppFunctionsPolicyResponse, error)
 	GetApplicationRestrictions(context.Context, *GetApplicationRestrictionsRequest) (*GetApplicationRestrictionsResponse, error)
@@ -3617,20 +3158,14 @@ type DevicePolicyManagerServiceServer interface {
 	GetAutoTimeRequired(context.Context, *GetAutoTimeRequiredRequest) (*GetAutoTimeRequiredResponse, error)
 	GetAutoTimeZoneEnabled(context.Context, *GetAutoTimeZoneEnabledRequest) (*GetAutoTimeZoneEnabledResponse, error)
 	GetAutoTimeZonePolicy(context.Context, *GetAutoTimeZonePolicyRequest) (*GetAutoTimeZonePolicyResponse, error)
-	GetBindDeviceAdminTargetUsers(context.Context, *GetBindDeviceAdminTargetUsersRequest) (*GetBindDeviceAdminTargetUsersResponse, error)
 	GetBluetoothContactSharingDisabled(context.Context, *GetBluetoothContactSharingDisabledRequest) (*GetBluetoothContactSharingDisabledResponse, error)
 	GetCameraDisabled(context.Context, *GetCameraDisabledRequest) (*GetCameraDisabledResponse, error)
 	GetCertInstallerPackage(context.Context, *GetCertInstallerPackageRequest) (*GetCertInstallerPackageResponse, error)
 	GetContentProtectionPolicy(context.Context, *GetContentProtectionPolicyRequest) (*GetContentProtectionPolicyResponse, error)
 	GetCredentialManagerPolicy(context.Context, *GetCredentialManagerPolicyRequest) (*GetCredentialManagerPolicyResponse, error)
-	GetCrossProfileCalendarPackages(context.Context, *GetCrossProfileCalendarPackagesRequest) (*GetCrossProfileCalendarPackagesResponse, error)
 	GetCrossProfileCallerIdDisabled(context.Context, *GetCrossProfileCallerIdDisabledRequest) (*GetCrossProfileCallerIdDisabledResponse, error)
 	GetCrossProfileContactsSearchDisabled(context.Context, *GetCrossProfileContactsSearchDisabledRequest) (*GetCrossProfileContactsSearchDisabledResponse, error)
-	GetCrossProfilePackages(context.Context, *GetCrossProfilePackagesRequest) (*GetCrossProfilePackagesResponse, error)
-	GetCrossProfileWidgetProviders(context.Context, *GetCrossProfileWidgetProvidersRequest) (*GetCrossProfileWidgetProvidersResponse, error)
 	GetCurrentFailedPasswordAttempts(context.Context, *GetCurrentFailedPasswordAttemptsRequest) (*GetCurrentFailedPasswordAttemptsResponse, error)
-	GetDelegatePackages(context.Context, *GetDelegatePackagesRequest) (*GetDelegatePackagesResponse, error)
-	GetDelegatedScopes(context.Context, *GetDelegatedScopesRequest) (*GetDelegatedScopesResponse, error)
 	GetDeviceOwnerLockScreenInfo(context.Context, *GetDeviceOwnerLockScreenInfoRequest) (*GetDeviceOwnerLockScreenInfoResponse, error)
 	GetDevicePolicyManagementRoleHolderPackage(context.Context, *GetDevicePolicyManagementRoleHolderPackageRequest) (*GetDevicePolicyManagementRoleHolderPackageResponse, error)
 	GetEndUserSessionMessage(context.Context, *GetEndUserSessionMessageRequest) (*GetEndUserSessionMessageResponse, error)
@@ -3638,8 +3173,6 @@ type DevicePolicyManagerServiceServer interface {
 	GetFactoryResetProtectionPolicy(context.Context, *GetFactoryResetProtectionPolicyRequest) (*GetFactoryResetProtectionPolicyResponse, error)
 	GetGlobalPrivateDnsHost(context.Context, *GetGlobalPrivateDnsHostRequest) (*GetGlobalPrivateDnsHostResponse, error)
 	GetGlobalPrivateDnsMode(context.Context, *GetGlobalPrivateDnsModeRequest) (*GetGlobalPrivateDnsModeResponse, error)
-	GetInstalledCaCerts(context.Context, *GetInstalledCaCertsRequest) (*GetInstalledCaCertsResponse, error)
-	GetKeepUninstalledPackages(context.Context, *GetKeepUninstalledPackagesRequest) (*GetKeepUninstalledPackagesResponse, error)
 	GetKeyguardDisabledFeatures(context.Context, *GetKeyguardDisabledFeaturesRequest) (*GetKeyguardDisabledFeaturesResponse, error)
 	GetLockTaskFeatures(context.Context, *GetLockTaskFeaturesRequest) (*GetLockTaskFeaturesResponse, error)
 	GetLockTaskPackages(context.Context, *GetLockTaskPackagesRequest) (*GetLockTaskPackagesResponse, error)
@@ -3650,14 +3183,12 @@ type DevicePolicyManagerServiceServer interface {
 	GetManagedSubscriptionsPolicy(context.Context, *GetManagedSubscriptionsPolicyRequest) (*GetManagedSubscriptionsPolicyResponse, error)
 	GetMaximumFailedPasswordsForWipe(context.Context, *GetMaximumFailedPasswordsForWipeRequest) (*GetMaximumFailedPasswordsForWipeResponse, error)
 	GetMaximumTimeToLock(context.Context, *GetMaximumTimeToLockRequest) (*GetMaximumTimeToLockResponse, error)
-	GetMeteredDataDisabledPackages(context.Context, *GetMeteredDataDisabledPackagesRequest) (*GetMeteredDataDisabledPackagesResponse, error)
 	GetMinimumRequiredWifiSecurityLevel(context.Context, *GetMinimumRequiredWifiSecurityLevelRequest) (*GetMinimumRequiredWifiSecurityLevelResponse, error)
 	GetMtePolicy(context.Context, *GetMtePolicyRequest) (*GetMtePolicyResponse, error)
 	GetNearbyAppStreamingPolicy(context.Context, *GetNearbyAppStreamingPolicyRequest) (*GetNearbyAppStreamingPolicyResponse, error)
 	GetNearbyNotificationStreamingPolicy(context.Context, *GetNearbyNotificationStreamingPolicyRequest) (*GetNearbyNotificationStreamingPolicyResponse, error)
 	GetOrganizationColor(context.Context, *GetOrganizationColorRequest) (*GetOrganizationColorResponse, error)
 	GetOrganizationName(context.Context, *GetOrganizationNameRequest) (*GetOrganizationNameResponse, error)
-	GetOverrideApns(context.Context, *GetOverrideApnsRequest) (*GetOverrideApnsResponse, error)
 	GetParentProfileInstance(context.Context, *GetParentProfileInstanceRequest) (*GetParentProfileInstanceResponse, error)
 	GetPasswordComplexity(context.Context, *GetPasswordComplexityRequest) (*GetPasswordComplexityResponse, error)
 	GetPasswordExpiration(context.Context, *GetPasswordExpirationRequest) (*GetPasswordExpirationResponse, error)
@@ -3675,25 +3206,17 @@ type DevicePolicyManagerServiceServer interface {
 	GetPendingSystemUpdate(context.Context, *GetPendingSystemUpdateRequest) (*GetPendingSystemUpdateResponse, error)
 	GetPermissionGrantState(context.Context, *GetPermissionGrantStateRequest) (*GetPermissionGrantStateResponse, error)
 	GetPermissionPolicy(context.Context, *GetPermissionPolicyRequest) (*GetPermissionPolicyResponse, error)
-	GetPermittedAccessibilityServices(context.Context, *GetPermittedAccessibilityServicesRequest) (*GetPermittedAccessibilityServicesResponse, error)
-	GetPermittedCrossProfileNotificationListeners(context.Context, *GetPermittedCrossProfileNotificationListenersRequest) (*GetPermittedCrossProfileNotificationListenersResponse, error)
-	GetPermittedInputMethods(context.Context, *GetPermittedInputMethodsRequest) (*GetPermittedInputMethodsResponse, error)
 	GetPersonalAppsSuspendedReasons(context.Context, *GetPersonalAppsSuspendedReasonsRequest) (*GetPersonalAppsSuspendedReasonsResponse, error)
-	GetPreferentialNetworkServiceConfigs(context.Context, *GetPreferentialNetworkServiceConfigsRequest) (*GetPreferentialNetworkServiceConfigsResponse, error)
 	GetRequiredPasswordComplexity(context.Context, *GetRequiredPasswordComplexityRequest) (*GetRequiredPasswordComplexityResponse, error)
 	GetRequiredStrongAuthTimeout(context.Context, *GetRequiredStrongAuthTimeoutRequest) (*GetRequiredStrongAuthTimeoutResponse, error)
 	GetResources(context.Context, *GetResourcesRequest) (*GetResourcesResponse, error)
 	GetScreenCaptureDisabled(context.Context, *GetScreenCaptureDisabledRequest) (*GetScreenCaptureDisabledResponse, error)
-	GetSecondaryUsers(context.Context, *GetSecondaryUsersRequest) (*GetSecondaryUsersResponse, error)
 	GetShortSupportMessage(context.Context, *GetShortSupportMessageRequest) (*GetShortSupportMessageResponse, error)
 	GetStartUserSessionMessage(context.Context, *GetStartUserSessionMessageRequest) (*GetStartUserSessionMessageResponse, error)
 	GetStorageEncryption(context.Context, *GetStorageEncryptionRequest) (*GetStorageEncryptionResponse, error)
 	GetStorageEncryptionStatus(context.Context, *GetStorageEncryptionStatusRequest) (*GetStorageEncryptionStatusResponse, error)
-	GetSubscriptionIds(context.Context, *GetSubscriptionIdsRequest) (*GetSubscriptionIdsResponse, error)
 	GetSystemUpdatePolicy(context.Context, *GetSystemUpdatePolicyRequest) (*GetSystemUpdatePolicyResponse, error)
 	GetTransferOwnershipBundle(context.Context, *GetTransferOwnershipBundleRequest) (*GetTransferOwnershipBundleResponse, error)
-	GetTrustAgentConfiguration(context.Context, *GetTrustAgentConfigurationRequest) (*GetTrustAgentConfigurationResponse, error)
-	GetUserControlDisabledPackages(context.Context, *GetUserControlDisabledPackagesRequest) (*GetUserControlDisabledPackagesResponse, error)
 	GetUserRestrictions(context.Context, *GetUserRestrictionsRequest) (*GetUserRestrictionsResponse, error)
 	GetUserRestrictionsGlobally(context.Context, *GetUserRestrictionsGloballyRequest) (*GetUserRestrictionsGloballyResponse, error)
 	GetWifiMacAddress(context.Context, *GetWifiMacAddressRequest) (*GetWifiMacAddressResponse, error)
@@ -3744,7 +3267,6 @@ type DevicePolicyManagerServiceServer interface {
 	IsUniqueDeviceAttestationSupported(context.Context, *IsUniqueDeviceAttestationSupportedRequest) (*IsUniqueDeviceAttestationSupportedResponse, error)
 	IsUsbDataSignalingEnabled(context.Context, *IsUsbDataSignalingEnabledRequest) (*IsUsbDataSignalingEnabledResponse, error)
 	IsUsingUnifiedPassword(context.Context, *IsUsingUnifiedPasswordRequest) (*IsUsingUnifiedPasswordResponse, error)
-	ListForegroundAffiliatedUsers(context.Context, *ListForegroundAffiliatedUsersRequest) (*ListForegroundAffiliatedUsersResponse, error)
 	LockNow0(context.Context, *LockNow0Request) (*LockNow0Response, error)
 	LockNow1_1(context.Context, *LockNow1_1Request) (*LockNow1_1Response, error)
 	LogoutUser(context.Context, *LogoutUserRequest) (*LogoutUserResponse, error)
@@ -3757,15 +3279,10 @@ type DevicePolicyManagerServiceServer interface {
 	RequestBugreport(context.Context, *RequestBugreportRequest) (*RequestBugreportResponse, error)
 	ResetPassword(context.Context, *ResetPasswordRequest) (*ResetPasswordResponse, error)
 	ResetPasswordWithToken(context.Context, *ResetPasswordWithTokenRequest) (*ResetPasswordWithTokenResponse, error)
-	RetrieveNetworkLogs(context.Context, *RetrieveNetworkLogsRequest) (*RetrieveNetworkLogsResponse, error)
-	RetrievePreRebootSecurityLogs(context.Context, *RetrievePreRebootSecurityLogsRequest) (*RetrievePreRebootSecurityLogsResponse, error)
-	RetrieveSecurityLogs(context.Context, *RetrieveSecurityLogsRequest) (*RetrieveSecurityLogsResponse, error)
 	RevokeKeyPairFromApp(context.Context, *RevokeKeyPairFromAppRequest) (*RevokeKeyPairFromAppResponse, error)
 	RevokeKeyPairFromWifiAuth(context.Context, *RevokeKeyPairFromWifiAuthRequest) (*RevokeKeyPairFromWifiAuthResponse, error)
 	SetAccountManagementDisabled(context.Context, *SetAccountManagementDisabledRequest) (*SetAccountManagementDisabledResponse, error)
-	SetAffiliationIds(context.Context, *SetAffiliationIdsRequest) (*SetAffiliationIdsResponse, error)
-	SetAlwaysOnVpnPackage3(context.Context, *SetAlwaysOnVpnPackage3Request) (*SetAlwaysOnVpnPackage3Response, error)
-	SetAlwaysOnVpnPackage4_1(context.Context, *SetAlwaysOnVpnPackage4_1Request) (*SetAlwaysOnVpnPackage4_1Response, error)
+	SetAlwaysOnVpnPackage(context.Context, *SetAlwaysOnVpnPackageRequest) (*SetAlwaysOnVpnPackageResponse, error)
 	SetAppFunctionsPolicy(context.Context, *SetAppFunctionsPolicyRequest) (*SetAppFunctionsPolicyResponse, error)
 	SetApplicationHidden(context.Context, *SetApplicationHiddenRequest) (*SetApplicationHiddenResponse, error)
 	SetApplicationRestrictions(context.Context, *SetApplicationRestrictionsRequest) (*SetApplicationRestrictionsResponse, error)
@@ -3783,21 +3300,16 @@ type DevicePolicyManagerServiceServer interface {
 	SetConfiguredNetworksLockdownState(context.Context, *SetConfiguredNetworksLockdownStateRequest) (*SetConfiguredNetworksLockdownStateResponse, error)
 	SetContentProtectionPolicy(context.Context, *SetContentProtectionPolicyRequest) (*SetContentProtectionPolicyResponse, error)
 	SetCredentialManagerPolicy(context.Context, *SetCredentialManagerPolicyRequest) (*SetCredentialManagerPolicyResponse, error)
-	SetCrossProfileCalendarPackages(context.Context, *SetCrossProfileCalendarPackagesRequest) (*SetCrossProfileCalendarPackagesResponse, error)
 	SetCrossProfileCallerIdDisabled(context.Context, *SetCrossProfileCallerIdDisabledRequest) (*SetCrossProfileCallerIdDisabledResponse, error)
 	SetCrossProfileContactsSearchDisabled(context.Context, *SetCrossProfileContactsSearchDisabledRequest) (*SetCrossProfileContactsSearchDisabledResponse, error)
-	SetCrossProfilePackages(context.Context, *SetCrossProfilePackagesRequest) (*SetCrossProfilePackagesResponse, error)
 	SetDefaultDialerApplication(context.Context, *SetDefaultDialerApplicationRequest) (*SetDefaultDialerApplicationResponse, error)
 	SetDefaultSmsApplication(context.Context, *SetDefaultSmsApplicationRequest) (*SetDefaultSmsApplicationResponse, error)
-	SetDelegatedScopes(context.Context, *SetDelegatedScopesRequest) (*SetDelegatedScopesResponse, error)
 	SetDeviceOwnerLockScreenInfo(context.Context, *SetDeviceOwnerLockScreenInfoRequest) (*SetDeviceOwnerLockScreenInfoResponse, error)
 	SetEndUserSessionMessage(context.Context, *SetEndUserSessionMessageRequest) (*SetEndUserSessionMessageResponse, error)
 	SetFactoryResetProtectionPolicy(context.Context, *SetFactoryResetProtectionPolicyRequest) (*SetFactoryResetProtectionPolicyResponse, error)
 	SetGlobalPrivateDnsModeOpportunistic(context.Context, *SetGlobalPrivateDnsModeOpportunisticRequest) (*SetGlobalPrivateDnsModeOpportunisticResponse, error)
 	SetGlobalPrivateDnsModeSpecifiedHost(context.Context, *SetGlobalPrivateDnsModeSpecifiedHostRequest) (*SetGlobalPrivateDnsModeSpecifiedHostResponse, error)
 	SetGlobalSetting(context.Context, *SetGlobalSettingRequest) (*SetGlobalSettingResponse, error)
-	SetKeepUninstalledPackages(context.Context, *SetKeepUninstalledPackagesRequest) (*SetKeepUninstalledPackagesResponse, error)
-	SetKeyPairCertificate(context.Context, *SetKeyPairCertificateRequest) (*SetKeyPairCertificateResponse, error)
 	SetKeyguardDisabled(context.Context, *SetKeyguardDisabledRequest) (*SetKeyguardDisabledResponse, error)
 	SetKeyguardDisabledFeatures(context.Context, *SetKeyguardDisabledFeaturesRequest) (*SetKeyguardDisabledFeaturesResponse, error)
 	SetLocationEnabled(context.Context, *SetLocationEnabledRequest) (*SetLocationEnabledResponse, error)
@@ -3812,7 +3324,6 @@ type DevicePolicyManagerServiceServer interface {
 	SetMasterVolumeMuted(context.Context, *SetMasterVolumeMutedRequest) (*SetMasterVolumeMutedResponse, error)
 	SetMaximumFailedPasswordsForWipe(context.Context, *SetMaximumFailedPasswordsForWipeRequest) (*SetMaximumFailedPasswordsForWipeResponse, error)
 	SetMaximumTimeToLock(context.Context, *SetMaximumTimeToLockRequest) (*SetMaximumTimeToLockResponse, error)
-	SetMeteredDataDisabledPackages(context.Context, *SetMeteredDataDisabledPackagesRequest) (*SetMeteredDataDisabledPackagesResponse, error)
 	SetMinimumRequiredWifiSecurityLevel(context.Context, *SetMinimumRequiredWifiSecurityLevelRequest) (*SetMinimumRequiredWifiSecurityLevelResponse, error)
 	SetMtePolicy(context.Context, *SetMtePolicyRequest) (*SetMtePolicyResponse, error)
 	SetNearbyAppStreamingPolicy(context.Context, *SetNearbyAppStreamingPolicyRequest) (*SetNearbyAppStreamingPolicyResponse, error)
@@ -3835,11 +3346,7 @@ type DevicePolicyManagerServiceServer interface {
 	SetPasswordQuality(context.Context, *SetPasswordQualityRequest) (*SetPasswordQualityResponse, error)
 	SetPermissionGrantState(context.Context, *SetPermissionGrantStateRequest) (*SetPermissionGrantStateResponse, error)
 	SetPermissionPolicy(context.Context, *SetPermissionPolicyRequest) (*SetPermissionPolicyResponse, error)
-	SetPermittedAccessibilityServices(context.Context, *SetPermittedAccessibilityServicesRequest) (*SetPermittedAccessibilityServicesResponse, error)
-	SetPermittedCrossProfileNotificationListeners(context.Context, *SetPermittedCrossProfileNotificationListenersRequest) (*SetPermittedCrossProfileNotificationListenersResponse, error)
-	SetPermittedInputMethods(context.Context, *SetPermittedInputMethodsRequest) (*SetPermittedInputMethodsResponse, error)
 	SetPersonalAppsSuspended(context.Context, *SetPersonalAppsSuspendedRequest) (*SetPersonalAppsSuspendedResponse, error)
-	SetPreferentialNetworkServiceConfigs(context.Context, *SetPreferentialNetworkServiceConfigsRequest) (*SetPreferentialNetworkServiceConfigsResponse, error)
 	SetPreferentialNetworkServiceEnabled(context.Context, *SetPreferentialNetworkServiceEnabledRequest) (*SetPreferentialNetworkServiceEnabledResponse, error)
 	SetProfileEnabled(context.Context, *SetProfileEnabledRequest) (*SetProfileEnabledResponse, error)
 	SetProfileName(context.Context, *SetProfileNameRequest) (*SetProfileNameResponse, error)
@@ -3862,7 +3369,6 @@ type DevicePolicyManagerServiceServer interface {
 	SetTrustAgentConfiguration(context.Context, *SetTrustAgentConfigurationRequest) (*SetTrustAgentConfigurationResponse, error)
 	SetUninstallBlocked(context.Context, *SetUninstallBlockedRequest) (*SetUninstallBlockedResponse, error)
 	SetUsbDataSignalingEnabled(context.Context, *SetUsbDataSignalingEnabledRequest) (*SetUsbDataSignalingEnabledResponse, error)
-	SetUserControlDisabledPackages(context.Context, *SetUserControlDisabledPackagesRequest) (*SetUserControlDisabledPackagesResponse, error)
 	SetUserIcon(context.Context, *SetUserIconRequest) (*SetUserIconResponse, error)
 	SetWifiSsidPolicy(context.Context, *SetWifiSsidPolicyRequest) (*SetWifiSsidPolicyResponse, error)
 	StartUserInBackground(context.Context, *StartUserInBackgroundRequest) (*StartUserInBackgroundResponse, error)
@@ -3958,15 +3464,6 @@ func (UnimplementedDevicePolicyManagerServiceServer) GenerateKeyPair(context.Con
 func (UnimplementedDevicePolicyManagerServiceServer) GetAccountTypesWithManagementDisabled(context.Context, *GetAccountTypesWithManagementDisabledRequest) (*GetAccountTypesWithManagementDisabledResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetAccountTypesWithManagementDisabled not implemented")
 }
-func (UnimplementedDevicePolicyManagerServiceServer) GetActiveAdmins(context.Context, *GetActiveAdminsRequest) (*GetActiveAdminsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetActiveAdmins not implemented")
-}
-func (UnimplementedDevicePolicyManagerServiceServer) GetAffiliationIds(context.Context, *GetAffiliationIdsRequest) (*GetAffiliationIdsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetAffiliationIds not implemented")
-}
-func (UnimplementedDevicePolicyManagerServiceServer) GetAlwaysOnVpnLockdownWhitelist(context.Context, *GetAlwaysOnVpnLockdownWhitelistRequest) (*GetAlwaysOnVpnLockdownWhitelistResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetAlwaysOnVpnLockdownWhitelist not implemented")
-}
 func (UnimplementedDevicePolicyManagerServiceServer) GetAlwaysOnVpnPackage(context.Context, *GetAlwaysOnVpnPackageRequest) (*GetAlwaysOnVpnPackageResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetAlwaysOnVpnPackage not implemented")
 }
@@ -3994,9 +3491,6 @@ func (UnimplementedDevicePolicyManagerServiceServer) GetAutoTimeZoneEnabled(cont
 func (UnimplementedDevicePolicyManagerServiceServer) GetAutoTimeZonePolicy(context.Context, *GetAutoTimeZonePolicyRequest) (*GetAutoTimeZonePolicyResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetAutoTimeZonePolicy not implemented")
 }
-func (UnimplementedDevicePolicyManagerServiceServer) GetBindDeviceAdminTargetUsers(context.Context, *GetBindDeviceAdminTargetUsersRequest) (*GetBindDeviceAdminTargetUsersResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetBindDeviceAdminTargetUsers not implemented")
-}
 func (UnimplementedDevicePolicyManagerServiceServer) GetBluetoothContactSharingDisabled(context.Context, *GetBluetoothContactSharingDisabledRequest) (*GetBluetoothContactSharingDisabledResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetBluetoothContactSharingDisabled not implemented")
 }
@@ -4012,29 +3506,14 @@ func (UnimplementedDevicePolicyManagerServiceServer) GetContentProtectionPolicy(
 func (UnimplementedDevicePolicyManagerServiceServer) GetCredentialManagerPolicy(context.Context, *GetCredentialManagerPolicyRequest) (*GetCredentialManagerPolicyResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetCredentialManagerPolicy not implemented")
 }
-func (UnimplementedDevicePolicyManagerServiceServer) GetCrossProfileCalendarPackages(context.Context, *GetCrossProfileCalendarPackagesRequest) (*GetCrossProfileCalendarPackagesResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetCrossProfileCalendarPackages not implemented")
-}
 func (UnimplementedDevicePolicyManagerServiceServer) GetCrossProfileCallerIdDisabled(context.Context, *GetCrossProfileCallerIdDisabledRequest) (*GetCrossProfileCallerIdDisabledResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetCrossProfileCallerIdDisabled not implemented")
 }
 func (UnimplementedDevicePolicyManagerServiceServer) GetCrossProfileContactsSearchDisabled(context.Context, *GetCrossProfileContactsSearchDisabledRequest) (*GetCrossProfileContactsSearchDisabledResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetCrossProfileContactsSearchDisabled not implemented")
 }
-func (UnimplementedDevicePolicyManagerServiceServer) GetCrossProfilePackages(context.Context, *GetCrossProfilePackagesRequest) (*GetCrossProfilePackagesResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetCrossProfilePackages not implemented")
-}
-func (UnimplementedDevicePolicyManagerServiceServer) GetCrossProfileWidgetProviders(context.Context, *GetCrossProfileWidgetProvidersRequest) (*GetCrossProfileWidgetProvidersResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetCrossProfileWidgetProviders not implemented")
-}
 func (UnimplementedDevicePolicyManagerServiceServer) GetCurrentFailedPasswordAttempts(context.Context, *GetCurrentFailedPasswordAttemptsRequest) (*GetCurrentFailedPasswordAttemptsResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetCurrentFailedPasswordAttempts not implemented")
-}
-func (UnimplementedDevicePolicyManagerServiceServer) GetDelegatePackages(context.Context, *GetDelegatePackagesRequest) (*GetDelegatePackagesResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetDelegatePackages not implemented")
-}
-func (UnimplementedDevicePolicyManagerServiceServer) GetDelegatedScopes(context.Context, *GetDelegatedScopesRequest) (*GetDelegatedScopesResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetDelegatedScopes not implemented")
 }
 func (UnimplementedDevicePolicyManagerServiceServer) GetDeviceOwnerLockScreenInfo(context.Context, *GetDeviceOwnerLockScreenInfoRequest) (*GetDeviceOwnerLockScreenInfoResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetDeviceOwnerLockScreenInfo not implemented")
@@ -4056,12 +3535,6 @@ func (UnimplementedDevicePolicyManagerServiceServer) GetGlobalPrivateDnsHost(con
 }
 func (UnimplementedDevicePolicyManagerServiceServer) GetGlobalPrivateDnsMode(context.Context, *GetGlobalPrivateDnsModeRequest) (*GetGlobalPrivateDnsModeResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetGlobalPrivateDnsMode not implemented")
-}
-func (UnimplementedDevicePolicyManagerServiceServer) GetInstalledCaCerts(context.Context, *GetInstalledCaCertsRequest) (*GetInstalledCaCertsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetInstalledCaCerts not implemented")
-}
-func (UnimplementedDevicePolicyManagerServiceServer) GetKeepUninstalledPackages(context.Context, *GetKeepUninstalledPackagesRequest) (*GetKeepUninstalledPackagesResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetKeepUninstalledPackages not implemented")
 }
 func (UnimplementedDevicePolicyManagerServiceServer) GetKeyguardDisabledFeatures(context.Context, *GetKeyguardDisabledFeaturesRequest) (*GetKeyguardDisabledFeaturesResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetKeyguardDisabledFeatures not implemented")
@@ -4093,9 +3566,6 @@ func (UnimplementedDevicePolicyManagerServiceServer) GetMaximumFailedPasswordsFo
 func (UnimplementedDevicePolicyManagerServiceServer) GetMaximumTimeToLock(context.Context, *GetMaximumTimeToLockRequest) (*GetMaximumTimeToLockResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetMaximumTimeToLock not implemented")
 }
-func (UnimplementedDevicePolicyManagerServiceServer) GetMeteredDataDisabledPackages(context.Context, *GetMeteredDataDisabledPackagesRequest) (*GetMeteredDataDisabledPackagesResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetMeteredDataDisabledPackages not implemented")
-}
 func (UnimplementedDevicePolicyManagerServiceServer) GetMinimumRequiredWifiSecurityLevel(context.Context, *GetMinimumRequiredWifiSecurityLevelRequest) (*GetMinimumRequiredWifiSecurityLevelResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetMinimumRequiredWifiSecurityLevel not implemented")
 }
@@ -4113,9 +3583,6 @@ func (UnimplementedDevicePolicyManagerServiceServer) GetOrganizationColor(contex
 }
 func (UnimplementedDevicePolicyManagerServiceServer) GetOrganizationName(context.Context, *GetOrganizationNameRequest) (*GetOrganizationNameResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetOrganizationName not implemented")
-}
-func (UnimplementedDevicePolicyManagerServiceServer) GetOverrideApns(context.Context, *GetOverrideApnsRequest) (*GetOverrideApnsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetOverrideApns not implemented")
 }
 func (UnimplementedDevicePolicyManagerServiceServer) GetParentProfileInstance(context.Context, *GetParentProfileInstanceRequest) (*GetParentProfileInstanceResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetParentProfileInstance not implemented")
@@ -4168,20 +3635,8 @@ func (UnimplementedDevicePolicyManagerServiceServer) GetPermissionGrantState(con
 func (UnimplementedDevicePolicyManagerServiceServer) GetPermissionPolicy(context.Context, *GetPermissionPolicyRequest) (*GetPermissionPolicyResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetPermissionPolicy not implemented")
 }
-func (UnimplementedDevicePolicyManagerServiceServer) GetPermittedAccessibilityServices(context.Context, *GetPermittedAccessibilityServicesRequest) (*GetPermittedAccessibilityServicesResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetPermittedAccessibilityServices not implemented")
-}
-func (UnimplementedDevicePolicyManagerServiceServer) GetPermittedCrossProfileNotificationListeners(context.Context, *GetPermittedCrossProfileNotificationListenersRequest) (*GetPermittedCrossProfileNotificationListenersResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetPermittedCrossProfileNotificationListeners not implemented")
-}
-func (UnimplementedDevicePolicyManagerServiceServer) GetPermittedInputMethods(context.Context, *GetPermittedInputMethodsRequest) (*GetPermittedInputMethodsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetPermittedInputMethods not implemented")
-}
 func (UnimplementedDevicePolicyManagerServiceServer) GetPersonalAppsSuspendedReasons(context.Context, *GetPersonalAppsSuspendedReasonsRequest) (*GetPersonalAppsSuspendedReasonsResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetPersonalAppsSuspendedReasons not implemented")
-}
-func (UnimplementedDevicePolicyManagerServiceServer) GetPreferentialNetworkServiceConfigs(context.Context, *GetPreferentialNetworkServiceConfigsRequest) (*GetPreferentialNetworkServiceConfigsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetPreferentialNetworkServiceConfigs not implemented")
 }
 func (UnimplementedDevicePolicyManagerServiceServer) GetRequiredPasswordComplexity(context.Context, *GetRequiredPasswordComplexityRequest) (*GetRequiredPasswordComplexityResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetRequiredPasswordComplexity not implemented")
@@ -4195,9 +3650,6 @@ func (UnimplementedDevicePolicyManagerServiceServer) GetResources(context.Contex
 func (UnimplementedDevicePolicyManagerServiceServer) GetScreenCaptureDisabled(context.Context, *GetScreenCaptureDisabledRequest) (*GetScreenCaptureDisabledResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetScreenCaptureDisabled not implemented")
 }
-func (UnimplementedDevicePolicyManagerServiceServer) GetSecondaryUsers(context.Context, *GetSecondaryUsersRequest) (*GetSecondaryUsersResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetSecondaryUsers not implemented")
-}
 func (UnimplementedDevicePolicyManagerServiceServer) GetShortSupportMessage(context.Context, *GetShortSupportMessageRequest) (*GetShortSupportMessageResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetShortSupportMessage not implemented")
 }
@@ -4210,20 +3662,11 @@ func (UnimplementedDevicePolicyManagerServiceServer) GetStorageEncryption(contex
 func (UnimplementedDevicePolicyManagerServiceServer) GetStorageEncryptionStatus(context.Context, *GetStorageEncryptionStatusRequest) (*GetStorageEncryptionStatusResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetStorageEncryptionStatus not implemented")
 }
-func (UnimplementedDevicePolicyManagerServiceServer) GetSubscriptionIds(context.Context, *GetSubscriptionIdsRequest) (*GetSubscriptionIdsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetSubscriptionIds not implemented")
-}
 func (UnimplementedDevicePolicyManagerServiceServer) GetSystemUpdatePolicy(context.Context, *GetSystemUpdatePolicyRequest) (*GetSystemUpdatePolicyResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetSystemUpdatePolicy not implemented")
 }
 func (UnimplementedDevicePolicyManagerServiceServer) GetTransferOwnershipBundle(context.Context, *GetTransferOwnershipBundleRequest) (*GetTransferOwnershipBundleResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetTransferOwnershipBundle not implemented")
-}
-func (UnimplementedDevicePolicyManagerServiceServer) GetTrustAgentConfiguration(context.Context, *GetTrustAgentConfigurationRequest) (*GetTrustAgentConfigurationResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetTrustAgentConfiguration not implemented")
-}
-func (UnimplementedDevicePolicyManagerServiceServer) GetUserControlDisabledPackages(context.Context, *GetUserControlDisabledPackagesRequest) (*GetUserControlDisabledPackagesResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetUserControlDisabledPackages not implemented")
 }
 func (UnimplementedDevicePolicyManagerServiceServer) GetUserRestrictions(context.Context, *GetUserRestrictionsRequest) (*GetUserRestrictionsResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetUserRestrictions not implemented")
@@ -4375,9 +3818,6 @@ func (UnimplementedDevicePolicyManagerServiceServer) IsUsbDataSignalingEnabled(c
 func (UnimplementedDevicePolicyManagerServiceServer) IsUsingUnifiedPassword(context.Context, *IsUsingUnifiedPasswordRequest) (*IsUsingUnifiedPasswordResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method IsUsingUnifiedPassword not implemented")
 }
-func (UnimplementedDevicePolicyManagerServiceServer) ListForegroundAffiliatedUsers(context.Context, *ListForegroundAffiliatedUsersRequest) (*ListForegroundAffiliatedUsersResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method ListForegroundAffiliatedUsers not implemented")
-}
 func (UnimplementedDevicePolicyManagerServiceServer) LockNow0(context.Context, *LockNow0Request) (*LockNow0Response, error) {
 	return nil, status.Error(codes.Unimplemented, "method LockNow0 not implemented")
 }
@@ -4414,15 +3854,6 @@ func (UnimplementedDevicePolicyManagerServiceServer) ResetPassword(context.Conte
 func (UnimplementedDevicePolicyManagerServiceServer) ResetPasswordWithToken(context.Context, *ResetPasswordWithTokenRequest) (*ResetPasswordWithTokenResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method ResetPasswordWithToken not implemented")
 }
-func (UnimplementedDevicePolicyManagerServiceServer) RetrieveNetworkLogs(context.Context, *RetrieveNetworkLogsRequest) (*RetrieveNetworkLogsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method RetrieveNetworkLogs not implemented")
-}
-func (UnimplementedDevicePolicyManagerServiceServer) RetrievePreRebootSecurityLogs(context.Context, *RetrievePreRebootSecurityLogsRequest) (*RetrievePreRebootSecurityLogsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method RetrievePreRebootSecurityLogs not implemented")
-}
-func (UnimplementedDevicePolicyManagerServiceServer) RetrieveSecurityLogs(context.Context, *RetrieveSecurityLogsRequest) (*RetrieveSecurityLogsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method RetrieveSecurityLogs not implemented")
-}
 func (UnimplementedDevicePolicyManagerServiceServer) RevokeKeyPairFromApp(context.Context, *RevokeKeyPairFromAppRequest) (*RevokeKeyPairFromAppResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method RevokeKeyPairFromApp not implemented")
 }
@@ -4432,14 +3863,8 @@ func (UnimplementedDevicePolicyManagerServiceServer) RevokeKeyPairFromWifiAuth(c
 func (UnimplementedDevicePolicyManagerServiceServer) SetAccountManagementDisabled(context.Context, *SetAccountManagementDisabledRequest) (*SetAccountManagementDisabledResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method SetAccountManagementDisabled not implemented")
 }
-func (UnimplementedDevicePolicyManagerServiceServer) SetAffiliationIds(context.Context, *SetAffiliationIdsRequest) (*SetAffiliationIdsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetAffiliationIds not implemented")
-}
-func (UnimplementedDevicePolicyManagerServiceServer) SetAlwaysOnVpnPackage3(context.Context, *SetAlwaysOnVpnPackage3Request) (*SetAlwaysOnVpnPackage3Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetAlwaysOnVpnPackage3 not implemented")
-}
-func (UnimplementedDevicePolicyManagerServiceServer) SetAlwaysOnVpnPackage4_1(context.Context, *SetAlwaysOnVpnPackage4_1Request) (*SetAlwaysOnVpnPackage4_1Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetAlwaysOnVpnPackage4_1 not implemented")
+func (UnimplementedDevicePolicyManagerServiceServer) SetAlwaysOnVpnPackage(context.Context, *SetAlwaysOnVpnPackageRequest) (*SetAlwaysOnVpnPackageResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetAlwaysOnVpnPackage not implemented")
 }
 func (UnimplementedDevicePolicyManagerServiceServer) SetAppFunctionsPolicy(context.Context, *SetAppFunctionsPolicyRequest) (*SetAppFunctionsPolicyResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method SetAppFunctionsPolicy not implemented")
@@ -4492,26 +3917,17 @@ func (UnimplementedDevicePolicyManagerServiceServer) SetContentProtectionPolicy(
 func (UnimplementedDevicePolicyManagerServiceServer) SetCredentialManagerPolicy(context.Context, *SetCredentialManagerPolicyRequest) (*SetCredentialManagerPolicyResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method SetCredentialManagerPolicy not implemented")
 }
-func (UnimplementedDevicePolicyManagerServiceServer) SetCrossProfileCalendarPackages(context.Context, *SetCrossProfileCalendarPackagesRequest) (*SetCrossProfileCalendarPackagesResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetCrossProfileCalendarPackages not implemented")
-}
 func (UnimplementedDevicePolicyManagerServiceServer) SetCrossProfileCallerIdDisabled(context.Context, *SetCrossProfileCallerIdDisabledRequest) (*SetCrossProfileCallerIdDisabledResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method SetCrossProfileCallerIdDisabled not implemented")
 }
 func (UnimplementedDevicePolicyManagerServiceServer) SetCrossProfileContactsSearchDisabled(context.Context, *SetCrossProfileContactsSearchDisabledRequest) (*SetCrossProfileContactsSearchDisabledResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method SetCrossProfileContactsSearchDisabled not implemented")
 }
-func (UnimplementedDevicePolicyManagerServiceServer) SetCrossProfilePackages(context.Context, *SetCrossProfilePackagesRequest) (*SetCrossProfilePackagesResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetCrossProfilePackages not implemented")
-}
 func (UnimplementedDevicePolicyManagerServiceServer) SetDefaultDialerApplication(context.Context, *SetDefaultDialerApplicationRequest) (*SetDefaultDialerApplicationResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method SetDefaultDialerApplication not implemented")
 }
 func (UnimplementedDevicePolicyManagerServiceServer) SetDefaultSmsApplication(context.Context, *SetDefaultSmsApplicationRequest) (*SetDefaultSmsApplicationResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method SetDefaultSmsApplication not implemented")
-}
-func (UnimplementedDevicePolicyManagerServiceServer) SetDelegatedScopes(context.Context, *SetDelegatedScopesRequest) (*SetDelegatedScopesResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetDelegatedScopes not implemented")
 }
 func (UnimplementedDevicePolicyManagerServiceServer) SetDeviceOwnerLockScreenInfo(context.Context, *SetDeviceOwnerLockScreenInfoRequest) (*SetDeviceOwnerLockScreenInfoResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method SetDeviceOwnerLockScreenInfo not implemented")
@@ -4530,12 +3946,6 @@ func (UnimplementedDevicePolicyManagerServiceServer) SetGlobalPrivateDnsModeSpec
 }
 func (UnimplementedDevicePolicyManagerServiceServer) SetGlobalSetting(context.Context, *SetGlobalSettingRequest) (*SetGlobalSettingResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method SetGlobalSetting not implemented")
-}
-func (UnimplementedDevicePolicyManagerServiceServer) SetKeepUninstalledPackages(context.Context, *SetKeepUninstalledPackagesRequest) (*SetKeepUninstalledPackagesResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetKeepUninstalledPackages not implemented")
-}
-func (UnimplementedDevicePolicyManagerServiceServer) SetKeyPairCertificate(context.Context, *SetKeyPairCertificateRequest) (*SetKeyPairCertificateResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetKeyPairCertificate not implemented")
 }
 func (UnimplementedDevicePolicyManagerServiceServer) SetKeyguardDisabled(context.Context, *SetKeyguardDisabledRequest) (*SetKeyguardDisabledResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method SetKeyguardDisabled not implemented")
@@ -4578,9 +3988,6 @@ func (UnimplementedDevicePolicyManagerServiceServer) SetMaximumFailedPasswordsFo
 }
 func (UnimplementedDevicePolicyManagerServiceServer) SetMaximumTimeToLock(context.Context, *SetMaximumTimeToLockRequest) (*SetMaximumTimeToLockResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method SetMaximumTimeToLock not implemented")
-}
-func (UnimplementedDevicePolicyManagerServiceServer) SetMeteredDataDisabledPackages(context.Context, *SetMeteredDataDisabledPackagesRequest) (*SetMeteredDataDisabledPackagesResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetMeteredDataDisabledPackages not implemented")
 }
 func (UnimplementedDevicePolicyManagerServiceServer) SetMinimumRequiredWifiSecurityLevel(context.Context, *SetMinimumRequiredWifiSecurityLevelRequest) (*SetMinimumRequiredWifiSecurityLevelResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method SetMinimumRequiredWifiSecurityLevel not implemented")
@@ -4648,20 +4055,8 @@ func (UnimplementedDevicePolicyManagerServiceServer) SetPermissionGrantState(con
 func (UnimplementedDevicePolicyManagerServiceServer) SetPermissionPolicy(context.Context, *SetPermissionPolicyRequest) (*SetPermissionPolicyResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method SetPermissionPolicy not implemented")
 }
-func (UnimplementedDevicePolicyManagerServiceServer) SetPermittedAccessibilityServices(context.Context, *SetPermittedAccessibilityServicesRequest) (*SetPermittedAccessibilityServicesResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetPermittedAccessibilityServices not implemented")
-}
-func (UnimplementedDevicePolicyManagerServiceServer) SetPermittedCrossProfileNotificationListeners(context.Context, *SetPermittedCrossProfileNotificationListenersRequest) (*SetPermittedCrossProfileNotificationListenersResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetPermittedCrossProfileNotificationListeners not implemented")
-}
-func (UnimplementedDevicePolicyManagerServiceServer) SetPermittedInputMethods(context.Context, *SetPermittedInputMethodsRequest) (*SetPermittedInputMethodsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetPermittedInputMethods not implemented")
-}
 func (UnimplementedDevicePolicyManagerServiceServer) SetPersonalAppsSuspended(context.Context, *SetPersonalAppsSuspendedRequest) (*SetPersonalAppsSuspendedResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method SetPersonalAppsSuspended not implemented")
-}
-func (UnimplementedDevicePolicyManagerServiceServer) SetPreferentialNetworkServiceConfigs(context.Context, *SetPreferentialNetworkServiceConfigsRequest) (*SetPreferentialNetworkServiceConfigsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetPreferentialNetworkServiceConfigs not implemented")
 }
 func (UnimplementedDevicePolicyManagerServiceServer) SetPreferentialNetworkServiceEnabled(context.Context, *SetPreferentialNetworkServiceEnabledRequest) (*SetPreferentialNetworkServiceEnabledResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method SetPreferentialNetworkServiceEnabled not implemented")
@@ -4728,9 +4123,6 @@ func (UnimplementedDevicePolicyManagerServiceServer) SetUninstallBlocked(context
 }
 func (UnimplementedDevicePolicyManagerServiceServer) SetUsbDataSignalingEnabled(context.Context, *SetUsbDataSignalingEnabledRequest) (*SetUsbDataSignalingEnabledResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method SetUsbDataSignalingEnabled not implemented")
-}
-func (UnimplementedDevicePolicyManagerServiceServer) SetUserControlDisabledPackages(context.Context, *SetUserControlDisabledPackagesRequest) (*SetUserControlDisabledPackagesResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetUserControlDisabledPackages not implemented")
 }
 func (UnimplementedDevicePolicyManagerServiceServer) SetUserIcon(context.Context, *SetUserIconRequest) (*SetUserIconResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method SetUserIcon not implemented")
@@ -5225,60 +4617,6 @@ func _DevicePolicyManagerService_GetAccountTypesWithManagementDisabled_Handler(s
 	return interceptor(ctx, in, info, handler)
 }
 
-func _DevicePolicyManagerService_GetActiveAdmins_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetActiveAdminsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(DevicePolicyManagerServiceServer).GetActiveAdmins(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: DevicePolicyManagerService_GetActiveAdmins_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DevicePolicyManagerServiceServer).GetActiveAdmins(ctx, req.(*GetActiveAdminsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _DevicePolicyManagerService_GetAffiliationIds_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetAffiliationIdsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(DevicePolicyManagerServiceServer).GetAffiliationIds(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: DevicePolicyManagerService_GetAffiliationIds_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DevicePolicyManagerServiceServer).GetAffiliationIds(ctx, req.(*GetAffiliationIdsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _DevicePolicyManagerService_GetAlwaysOnVpnLockdownWhitelist_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetAlwaysOnVpnLockdownWhitelistRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(DevicePolicyManagerServiceServer).GetAlwaysOnVpnLockdownWhitelist(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: DevicePolicyManagerService_GetAlwaysOnVpnLockdownWhitelist_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DevicePolicyManagerServiceServer).GetAlwaysOnVpnLockdownWhitelist(ctx, req.(*GetAlwaysOnVpnLockdownWhitelistRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
 func _DevicePolicyManagerService_GetAlwaysOnVpnPackage_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(GetAlwaysOnVpnPackageRequest)
 	if err := dec(in); err != nil {
@@ -5441,24 +4779,6 @@ func _DevicePolicyManagerService_GetAutoTimeZonePolicy_Handler(srv interface{}, 
 	return interceptor(ctx, in, info, handler)
 }
 
-func _DevicePolicyManagerService_GetBindDeviceAdminTargetUsers_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetBindDeviceAdminTargetUsersRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(DevicePolicyManagerServiceServer).GetBindDeviceAdminTargetUsers(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: DevicePolicyManagerService_GetBindDeviceAdminTargetUsers_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DevicePolicyManagerServiceServer).GetBindDeviceAdminTargetUsers(ctx, req.(*GetBindDeviceAdminTargetUsersRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
 func _DevicePolicyManagerService_GetBluetoothContactSharingDisabled_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(GetBluetoothContactSharingDisabledRequest)
 	if err := dec(in); err != nil {
@@ -5549,24 +4869,6 @@ func _DevicePolicyManagerService_GetCredentialManagerPolicy_Handler(srv interfac
 	return interceptor(ctx, in, info, handler)
 }
 
-func _DevicePolicyManagerService_GetCrossProfileCalendarPackages_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetCrossProfileCalendarPackagesRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(DevicePolicyManagerServiceServer).GetCrossProfileCalendarPackages(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: DevicePolicyManagerService_GetCrossProfileCalendarPackages_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DevicePolicyManagerServiceServer).GetCrossProfileCalendarPackages(ctx, req.(*GetCrossProfileCalendarPackagesRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
 func _DevicePolicyManagerService_GetCrossProfileCallerIdDisabled_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(GetCrossProfileCallerIdDisabledRequest)
 	if err := dec(in); err != nil {
@@ -5603,42 +4905,6 @@ func _DevicePolicyManagerService_GetCrossProfileContactsSearchDisabled_Handler(s
 	return interceptor(ctx, in, info, handler)
 }
 
-func _DevicePolicyManagerService_GetCrossProfilePackages_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetCrossProfilePackagesRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(DevicePolicyManagerServiceServer).GetCrossProfilePackages(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: DevicePolicyManagerService_GetCrossProfilePackages_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DevicePolicyManagerServiceServer).GetCrossProfilePackages(ctx, req.(*GetCrossProfilePackagesRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _DevicePolicyManagerService_GetCrossProfileWidgetProviders_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetCrossProfileWidgetProvidersRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(DevicePolicyManagerServiceServer).GetCrossProfileWidgetProviders(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: DevicePolicyManagerService_GetCrossProfileWidgetProviders_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DevicePolicyManagerServiceServer).GetCrossProfileWidgetProviders(ctx, req.(*GetCrossProfileWidgetProvidersRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
 func _DevicePolicyManagerService_GetCurrentFailedPasswordAttempts_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(GetCurrentFailedPasswordAttemptsRequest)
 	if err := dec(in); err != nil {
@@ -5653,42 +4919,6 @@ func _DevicePolicyManagerService_GetCurrentFailedPasswordAttempts_Handler(srv in
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(DevicePolicyManagerServiceServer).GetCurrentFailedPasswordAttempts(ctx, req.(*GetCurrentFailedPasswordAttemptsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _DevicePolicyManagerService_GetDelegatePackages_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetDelegatePackagesRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(DevicePolicyManagerServiceServer).GetDelegatePackages(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: DevicePolicyManagerService_GetDelegatePackages_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DevicePolicyManagerServiceServer).GetDelegatePackages(ctx, req.(*GetDelegatePackagesRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _DevicePolicyManagerService_GetDelegatedScopes_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetDelegatedScopesRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(DevicePolicyManagerServiceServer).GetDelegatedScopes(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: DevicePolicyManagerService_GetDelegatedScopes_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DevicePolicyManagerServiceServer).GetDelegatedScopes(ctx, req.(*GetDelegatedScopesRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -5815,42 +5045,6 @@ func _DevicePolicyManagerService_GetGlobalPrivateDnsMode_Handler(srv interface{}
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(DevicePolicyManagerServiceServer).GetGlobalPrivateDnsMode(ctx, req.(*GetGlobalPrivateDnsModeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _DevicePolicyManagerService_GetInstalledCaCerts_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetInstalledCaCertsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(DevicePolicyManagerServiceServer).GetInstalledCaCerts(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: DevicePolicyManagerService_GetInstalledCaCerts_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DevicePolicyManagerServiceServer).GetInstalledCaCerts(ctx, req.(*GetInstalledCaCertsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _DevicePolicyManagerService_GetKeepUninstalledPackages_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetKeepUninstalledPackagesRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(DevicePolicyManagerServiceServer).GetKeepUninstalledPackages(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: DevicePolicyManagerService_GetKeepUninstalledPackages_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DevicePolicyManagerServiceServer).GetKeepUninstalledPackages(ctx, req.(*GetKeepUninstalledPackagesRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -6035,24 +5229,6 @@ func _DevicePolicyManagerService_GetMaximumTimeToLock_Handler(srv interface{}, c
 	return interceptor(ctx, in, info, handler)
 }
 
-func _DevicePolicyManagerService_GetMeteredDataDisabledPackages_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetMeteredDataDisabledPackagesRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(DevicePolicyManagerServiceServer).GetMeteredDataDisabledPackages(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: DevicePolicyManagerService_GetMeteredDataDisabledPackages_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DevicePolicyManagerServiceServer).GetMeteredDataDisabledPackages(ctx, req.(*GetMeteredDataDisabledPackagesRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
 func _DevicePolicyManagerService_GetMinimumRequiredWifiSecurityLevel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(GetMinimumRequiredWifiSecurityLevelRequest)
 	if err := dec(in); err != nil {
@@ -6157,24 +5333,6 @@ func _DevicePolicyManagerService_GetOrganizationName_Handler(srv interface{}, ct
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(DevicePolicyManagerServiceServer).GetOrganizationName(ctx, req.(*GetOrganizationNameRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _DevicePolicyManagerService_GetOverrideApns_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetOverrideApnsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(DevicePolicyManagerServiceServer).GetOverrideApns(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: DevicePolicyManagerService_GetOverrideApns_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DevicePolicyManagerServiceServer).GetOverrideApns(ctx, req.(*GetOverrideApnsRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -6485,60 +5643,6 @@ func _DevicePolicyManagerService_GetPermissionPolicy_Handler(srv interface{}, ct
 	return interceptor(ctx, in, info, handler)
 }
 
-func _DevicePolicyManagerService_GetPermittedAccessibilityServices_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetPermittedAccessibilityServicesRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(DevicePolicyManagerServiceServer).GetPermittedAccessibilityServices(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: DevicePolicyManagerService_GetPermittedAccessibilityServices_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DevicePolicyManagerServiceServer).GetPermittedAccessibilityServices(ctx, req.(*GetPermittedAccessibilityServicesRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _DevicePolicyManagerService_GetPermittedCrossProfileNotificationListeners_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetPermittedCrossProfileNotificationListenersRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(DevicePolicyManagerServiceServer).GetPermittedCrossProfileNotificationListeners(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: DevicePolicyManagerService_GetPermittedCrossProfileNotificationListeners_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DevicePolicyManagerServiceServer).GetPermittedCrossProfileNotificationListeners(ctx, req.(*GetPermittedCrossProfileNotificationListenersRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _DevicePolicyManagerService_GetPermittedInputMethods_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetPermittedInputMethodsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(DevicePolicyManagerServiceServer).GetPermittedInputMethods(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: DevicePolicyManagerService_GetPermittedInputMethods_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DevicePolicyManagerServiceServer).GetPermittedInputMethods(ctx, req.(*GetPermittedInputMethodsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
 func _DevicePolicyManagerService_GetPersonalAppsSuspendedReasons_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(GetPersonalAppsSuspendedReasonsRequest)
 	if err := dec(in); err != nil {
@@ -6553,24 +5657,6 @@ func _DevicePolicyManagerService_GetPersonalAppsSuspendedReasons_Handler(srv int
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(DevicePolicyManagerServiceServer).GetPersonalAppsSuspendedReasons(ctx, req.(*GetPersonalAppsSuspendedReasonsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _DevicePolicyManagerService_GetPreferentialNetworkServiceConfigs_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetPreferentialNetworkServiceConfigsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(DevicePolicyManagerServiceServer).GetPreferentialNetworkServiceConfigs(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: DevicePolicyManagerService_GetPreferentialNetworkServiceConfigs_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DevicePolicyManagerServiceServer).GetPreferentialNetworkServiceConfigs(ctx, req.(*GetPreferentialNetworkServiceConfigsRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -6647,24 +5733,6 @@ func _DevicePolicyManagerService_GetScreenCaptureDisabled_Handler(srv interface{
 	return interceptor(ctx, in, info, handler)
 }
 
-func _DevicePolicyManagerService_GetSecondaryUsers_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetSecondaryUsersRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(DevicePolicyManagerServiceServer).GetSecondaryUsers(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: DevicePolicyManagerService_GetSecondaryUsers_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DevicePolicyManagerServiceServer).GetSecondaryUsers(ctx, req.(*GetSecondaryUsersRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
 func _DevicePolicyManagerService_GetShortSupportMessage_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(GetShortSupportMessageRequest)
 	if err := dec(in); err != nil {
@@ -6737,24 +5805,6 @@ func _DevicePolicyManagerService_GetStorageEncryptionStatus_Handler(srv interfac
 	return interceptor(ctx, in, info, handler)
 }
 
-func _DevicePolicyManagerService_GetSubscriptionIds_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetSubscriptionIdsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(DevicePolicyManagerServiceServer).GetSubscriptionIds(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: DevicePolicyManagerService_GetSubscriptionIds_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DevicePolicyManagerServiceServer).GetSubscriptionIds(ctx, req.(*GetSubscriptionIdsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
 func _DevicePolicyManagerService_GetSystemUpdatePolicy_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(GetSystemUpdatePolicyRequest)
 	if err := dec(in); err != nil {
@@ -6787,42 +5837,6 @@ func _DevicePolicyManagerService_GetTransferOwnershipBundle_Handler(srv interfac
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(DevicePolicyManagerServiceServer).GetTransferOwnershipBundle(ctx, req.(*GetTransferOwnershipBundleRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _DevicePolicyManagerService_GetTrustAgentConfiguration_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetTrustAgentConfigurationRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(DevicePolicyManagerServiceServer).GetTrustAgentConfiguration(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: DevicePolicyManagerService_GetTrustAgentConfiguration_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DevicePolicyManagerServiceServer).GetTrustAgentConfiguration(ctx, req.(*GetTrustAgentConfigurationRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _DevicePolicyManagerService_GetUserControlDisabledPackages_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetUserControlDisabledPackagesRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(DevicePolicyManagerServiceServer).GetUserControlDisabledPackages(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: DevicePolicyManagerService_GetUserControlDisabledPackages_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DevicePolicyManagerServiceServer).GetUserControlDisabledPackages(ctx, req.(*GetUserControlDisabledPackagesRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -7727,24 +6741,6 @@ func _DevicePolicyManagerService_IsUsingUnifiedPassword_Handler(srv interface{},
 	return interceptor(ctx, in, info, handler)
 }
 
-func _DevicePolicyManagerService_ListForegroundAffiliatedUsers_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ListForegroundAffiliatedUsersRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(DevicePolicyManagerServiceServer).ListForegroundAffiliatedUsers(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: DevicePolicyManagerService_ListForegroundAffiliatedUsers_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DevicePolicyManagerServiceServer).ListForegroundAffiliatedUsers(ctx, req.(*ListForegroundAffiliatedUsersRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
 func _DevicePolicyManagerService_LockNow0_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(LockNow0Request)
 	if err := dec(in); err != nil {
@@ -7961,60 +6957,6 @@ func _DevicePolicyManagerService_ResetPasswordWithToken_Handler(srv interface{},
 	return interceptor(ctx, in, info, handler)
 }
 
-func _DevicePolicyManagerService_RetrieveNetworkLogs_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(RetrieveNetworkLogsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(DevicePolicyManagerServiceServer).RetrieveNetworkLogs(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: DevicePolicyManagerService_RetrieveNetworkLogs_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DevicePolicyManagerServiceServer).RetrieveNetworkLogs(ctx, req.(*RetrieveNetworkLogsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _DevicePolicyManagerService_RetrievePreRebootSecurityLogs_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(RetrievePreRebootSecurityLogsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(DevicePolicyManagerServiceServer).RetrievePreRebootSecurityLogs(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: DevicePolicyManagerService_RetrievePreRebootSecurityLogs_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DevicePolicyManagerServiceServer).RetrievePreRebootSecurityLogs(ctx, req.(*RetrievePreRebootSecurityLogsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _DevicePolicyManagerService_RetrieveSecurityLogs_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(RetrieveSecurityLogsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(DevicePolicyManagerServiceServer).RetrieveSecurityLogs(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: DevicePolicyManagerService_RetrieveSecurityLogs_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DevicePolicyManagerServiceServer).RetrieveSecurityLogs(ctx, req.(*RetrieveSecurityLogsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
 func _DevicePolicyManagerService_RevokeKeyPairFromApp_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(RevokeKeyPairFromAppRequest)
 	if err := dec(in); err != nil {
@@ -8069,56 +7011,20 @@ func _DevicePolicyManagerService_SetAccountManagementDisabled_Handler(srv interf
 	return interceptor(ctx, in, info, handler)
 }
 
-func _DevicePolicyManagerService_SetAffiliationIds_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetAffiliationIdsRequest)
+func _DevicePolicyManagerService_SetAlwaysOnVpnPackage_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetAlwaysOnVpnPackageRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(DevicePolicyManagerServiceServer).SetAffiliationIds(ctx, in)
+		return srv.(DevicePolicyManagerServiceServer).SetAlwaysOnVpnPackage(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: DevicePolicyManagerService_SetAffiliationIds_FullMethodName,
+		FullMethod: DevicePolicyManagerService_SetAlwaysOnVpnPackage_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DevicePolicyManagerServiceServer).SetAffiliationIds(ctx, req.(*SetAffiliationIdsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _DevicePolicyManagerService_SetAlwaysOnVpnPackage3_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetAlwaysOnVpnPackage3Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(DevicePolicyManagerServiceServer).SetAlwaysOnVpnPackage3(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: DevicePolicyManagerService_SetAlwaysOnVpnPackage3_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DevicePolicyManagerServiceServer).SetAlwaysOnVpnPackage3(ctx, req.(*SetAlwaysOnVpnPackage3Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _DevicePolicyManagerService_SetAlwaysOnVpnPackage4_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetAlwaysOnVpnPackage4_1Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(DevicePolicyManagerServiceServer).SetAlwaysOnVpnPackage4_1(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: DevicePolicyManagerService_SetAlwaysOnVpnPackage4_1_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DevicePolicyManagerServiceServer).SetAlwaysOnVpnPackage4_1(ctx, req.(*SetAlwaysOnVpnPackage4_1Request))
+		return srv.(DevicePolicyManagerServiceServer).SetAlwaysOnVpnPackage(ctx, req.(*SetAlwaysOnVpnPackageRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -8429,24 +7335,6 @@ func _DevicePolicyManagerService_SetCredentialManagerPolicy_Handler(srv interfac
 	return interceptor(ctx, in, info, handler)
 }
 
-func _DevicePolicyManagerService_SetCrossProfileCalendarPackages_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetCrossProfileCalendarPackagesRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(DevicePolicyManagerServiceServer).SetCrossProfileCalendarPackages(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: DevicePolicyManagerService_SetCrossProfileCalendarPackages_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DevicePolicyManagerServiceServer).SetCrossProfileCalendarPackages(ctx, req.(*SetCrossProfileCalendarPackagesRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
 func _DevicePolicyManagerService_SetCrossProfileCallerIdDisabled_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(SetCrossProfileCallerIdDisabledRequest)
 	if err := dec(in); err != nil {
@@ -8483,24 +7371,6 @@ func _DevicePolicyManagerService_SetCrossProfileContactsSearchDisabled_Handler(s
 	return interceptor(ctx, in, info, handler)
 }
 
-func _DevicePolicyManagerService_SetCrossProfilePackages_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetCrossProfilePackagesRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(DevicePolicyManagerServiceServer).SetCrossProfilePackages(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: DevicePolicyManagerService_SetCrossProfilePackages_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DevicePolicyManagerServiceServer).SetCrossProfilePackages(ctx, req.(*SetCrossProfilePackagesRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
 func _DevicePolicyManagerService_SetDefaultDialerApplication_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(SetDefaultDialerApplicationRequest)
 	if err := dec(in); err != nil {
@@ -8533,24 +7403,6 @@ func _DevicePolicyManagerService_SetDefaultSmsApplication_Handler(srv interface{
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(DevicePolicyManagerServiceServer).SetDefaultSmsApplication(ctx, req.(*SetDefaultSmsApplicationRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _DevicePolicyManagerService_SetDelegatedScopes_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetDelegatedScopesRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(DevicePolicyManagerServiceServer).SetDelegatedScopes(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: DevicePolicyManagerService_SetDelegatedScopes_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DevicePolicyManagerServiceServer).SetDelegatedScopes(ctx, req.(*SetDelegatedScopesRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -8659,42 +7511,6 @@ func _DevicePolicyManagerService_SetGlobalSetting_Handler(srv interface{}, ctx c
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(DevicePolicyManagerServiceServer).SetGlobalSetting(ctx, req.(*SetGlobalSettingRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _DevicePolicyManagerService_SetKeepUninstalledPackages_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetKeepUninstalledPackagesRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(DevicePolicyManagerServiceServer).SetKeepUninstalledPackages(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: DevicePolicyManagerService_SetKeepUninstalledPackages_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DevicePolicyManagerServiceServer).SetKeepUninstalledPackages(ctx, req.(*SetKeepUninstalledPackagesRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _DevicePolicyManagerService_SetKeyPairCertificate_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetKeyPairCertificateRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(DevicePolicyManagerServiceServer).SetKeyPairCertificate(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: DevicePolicyManagerService_SetKeyPairCertificate_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DevicePolicyManagerServiceServer).SetKeyPairCertificate(ctx, req.(*SetKeyPairCertificateRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -8947,24 +7763,6 @@ func _DevicePolicyManagerService_SetMaximumTimeToLock_Handler(srv interface{}, c
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(DevicePolicyManagerServiceServer).SetMaximumTimeToLock(ctx, req.(*SetMaximumTimeToLockRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _DevicePolicyManagerService_SetMeteredDataDisabledPackages_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetMeteredDataDisabledPackagesRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(DevicePolicyManagerServiceServer).SetMeteredDataDisabledPackages(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: DevicePolicyManagerService_SetMeteredDataDisabledPackages_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DevicePolicyManagerServiceServer).SetMeteredDataDisabledPackages(ctx, req.(*SetMeteredDataDisabledPackagesRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -9365,60 +8163,6 @@ func _DevicePolicyManagerService_SetPermissionPolicy_Handler(srv interface{}, ct
 	return interceptor(ctx, in, info, handler)
 }
 
-func _DevicePolicyManagerService_SetPermittedAccessibilityServices_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetPermittedAccessibilityServicesRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(DevicePolicyManagerServiceServer).SetPermittedAccessibilityServices(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: DevicePolicyManagerService_SetPermittedAccessibilityServices_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DevicePolicyManagerServiceServer).SetPermittedAccessibilityServices(ctx, req.(*SetPermittedAccessibilityServicesRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _DevicePolicyManagerService_SetPermittedCrossProfileNotificationListeners_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetPermittedCrossProfileNotificationListenersRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(DevicePolicyManagerServiceServer).SetPermittedCrossProfileNotificationListeners(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: DevicePolicyManagerService_SetPermittedCrossProfileNotificationListeners_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DevicePolicyManagerServiceServer).SetPermittedCrossProfileNotificationListeners(ctx, req.(*SetPermittedCrossProfileNotificationListenersRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _DevicePolicyManagerService_SetPermittedInputMethods_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetPermittedInputMethodsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(DevicePolicyManagerServiceServer).SetPermittedInputMethods(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: DevicePolicyManagerService_SetPermittedInputMethods_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DevicePolicyManagerServiceServer).SetPermittedInputMethods(ctx, req.(*SetPermittedInputMethodsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
 func _DevicePolicyManagerService_SetPersonalAppsSuspended_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(SetPersonalAppsSuspendedRequest)
 	if err := dec(in); err != nil {
@@ -9433,24 +8177,6 @@ func _DevicePolicyManagerService_SetPersonalAppsSuspended_Handler(srv interface{
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(DevicePolicyManagerServiceServer).SetPersonalAppsSuspended(ctx, req.(*SetPersonalAppsSuspendedRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _DevicePolicyManagerService_SetPreferentialNetworkServiceConfigs_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetPreferentialNetworkServiceConfigsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(DevicePolicyManagerServiceServer).SetPreferentialNetworkServiceConfigs(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: DevicePolicyManagerService_SetPreferentialNetworkServiceConfigs_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DevicePolicyManagerServiceServer).SetPreferentialNetworkServiceConfigs(ctx, req.(*SetPreferentialNetworkServiceConfigsRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -9851,24 +8577,6 @@ func _DevicePolicyManagerService_SetUsbDataSignalingEnabled_Handler(srv interfac
 	return interceptor(ctx, in, info, handler)
 }
 
-func _DevicePolicyManagerService_SetUserControlDisabledPackages_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetUserControlDisabledPackagesRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(DevicePolicyManagerServiceServer).SetUserControlDisabledPackages(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: DevicePolicyManagerService_SetUserControlDisabledPackages_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DevicePolicyManagerServiceServer).SetUserControlDisabledPackages(ctx, req.(*SetUserControlDisabledPackagesRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
 func _DevicePolicyManagerService_SetUserIcon_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(SetUserIconRequest)
 	if err := dec(in); err != nil {
@@ -10207,18 +8915,6 @@ var DevicePolicyManagerService_ServiceDesc = grpc.ServiceDesc{
 			Handler:    _DevicePolicyManagerService_GetAccountTypesWithManagementDisabled_Handler,
 		},
 		{
-			MethodName: "GetActiveAdmins",
-			Handler:    _DevicePolicyManagerService_GetActiveAdmins_Handler,
-		},
-		{
-			MethodName: "GetAffiliationIds",
-			Handler:    _DevicePolicyManagerService_GetAffiliationIds_Handler,
-		},
-		{
-			MethodName: "GetAlwaysOnVpnLockdownWhitelist",
-			Handler:    _DevicePolicyManagerService_GetAlwaysOnVpnLockdownWhitelist_Handler,
-		},
-		{
 			MethodName: "GetAlwaysOnVpnPackage",
 			Handler:    _DevicePolicyManagerService_GetAlwaysOnVpnPackage_Handler,
 		},
@@ -10255,10 +8951,6 @@ var DevicePolicyManagerService_ServiceDesc = grpc.ServiceDesc{
 			Handler:    _DevicePolicyManagerService_GetAutoTimeZonePolicy_Handler,
 		},
 		{
-			MethodName: "GetBindDeviceAdminTargetUsers",
-			Handler:    _DevicePolicyManagerService_GetBindDeviceAdminTargetUsers_Handler,
-		},
-		{
 			MethodName: "GetBluetoothContactSharingDisabled",
 			Handler:    _DevicePolicyManagerService_GetBluetoothContactSharingDisabled_Handler,
 		},
@@ -10279,10 +8971,6 @@ var DevicePolicyManagerService_ServiceDesc = grpc.ServiceDesc{
 			Handler:    _DevicePolicyManagerService_GetCredentialManagerPolicy_Handler,
 		},
 		{
-			MethodName: "GetCrossProfileCalendarPackages",
-			Handler:    _DevicePolicyManagerService_GetCrossProfileCalendarPackages_Handler,
-		},
-		{
 			MethodName: "GetCrossProfileCallerIdDisabled",
 			Handler:    _DevicePolicyManagerService_GetCrossProfileCallerIdDisabled_Handler,
 		},
@@ -10291,24 +8979,8 @@ var DevicePolicyManagerService_ServiceDesc = grpc.ServiceDesc{
 			Handler:    _DevicePolicyManagerService_GetCrossProfileContactsSearchDisabled_Handler,
 		},
 		{
-			MethodName: "GetCrossProfilePackages",
-			Handler:    _DevicePolicyManagerService_GetCrossProfilePackages_Handler,
-		},
-		{
-			MethodName: "GetCrossProfileWidgetProviders",
-			Handler:    _DevicePolicyManagerService_GetCrossProfileWidgetProviders_Handler,
-		},
-		{
 			MethodName: "GetCurrentFailedPasswordAttempts",
 			Handler:    _DevicePolicyManagerService_GetCurrentFailedPasswordAttempts_Handler,
-		},
-		{
-			MethodName: "GetDelegatePackages",
-			Handler:    _DevicePolicyManagerService_GetDelegatePackages_Handler,
-		},
-		{
-			MethodName: "GetDelegatedScopes",
-			Handler:    _DevicePolicyManagerService_GetDelegatedScopes_Handler,
 		},
 		{
 			MethodName: "GetDeviceOwnerLockScreenInfo",
@@ -10337,14 +9009,6 @@ var DevicePolicyManagerService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "GetGlobalPrivateDnsMode",
 			Handler:    _DevicePolicyManagerService_GetGlobalPrivateDnsMode_Handler,
-		},
-		{
-			MethodName: "GetInstalledCaCerts",
-			Handler:    _DevicePolicyManagerService_GetInstalledCaCerts_Handler,
-		},
-		{
-			MethodName: "GetKeepUninstalledPackages",
-			Handler:    _DevicePolicyManagerService_GetKeepUninstalledPackages_Handler,
 		},
 		{
 			MethodName: "GetKeyguardDisabledFeatures",
@@ -10387,10 +9051,6 @@ var DevicePolicyManagerService_ServiceDesc = grpc.ServiceDesc{
 			Handler:    _DevicePolicyManagerService_GetMaximumTimeToLock_Handler,
 		},
 		{
-			MethodName: "GetMeteredDataDisabledPackages",
-			Handler:    _DevicePolicyManagerService_GetMeteredDataDisabledPackages_Handler,
-		},
-		{
 			MethodName: "GetMinimumRequiredWifiSecurityLevel",
 			Handler:    _DevicePolicyManagerService_GetMinimumRequiredWifiSecurityLevel_Handler,
 		},
@@ -10413,10 +9073,6 @@ var DevicePolicyManagerService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "GetOrganizationName",
 			Handler:    _DevicePolicyManagerService_GetOrganizationName_Handler,
-		},
-		{
-			MethodName: "GetOverrideApns",
-			Handler:    _DevicePolicyManagerService_GetOverrideApns_Handler,
 		},
 		{
 			MethodName: "GetParentProfileInstance",
@@ -10487,24 +9143,8 @@ var DevicePolicyManagerService_ServiceDesc = grpc.ServiceDesc{
 			Handler:    _DevicePolicyManagerService_GetPermissionPolicy_Handler,
 		},
 		{
-			MethodName: "GetPermittedAccessibilityServices",
-			Handler:    _DevicePolicyManagerService_GetPermittedAccessibilityServices_Handler,
-		},
-		{
-			MethodName: "GetPermittedCrossProfileNotificationListeners",
-			Handler:    _DevicePolicyManagerService_GetPermittedCrossProfileNotificationListeners_Handler,
-		},
-		{
-			MethodName: "GetPermittedInputMethods",
-			Handler:    _DevicePolicyManagerService_GetPermittedInputMethods_Handler,
-		},
-		{
 			MethodName: "GetPersonalAppsSuspendedReasons",
 			Handler:    _DevicePolicyManagerService_GetPersonalAppsSuspendedReasons_Handler,
-		},
-		{
-			MethodName: "GetPreferentialNetworkServiceConfigs",
-			Handler:    _DevicePolicyManagerService_GetPreferentialNetworkServiceConfigs_Handler,
 		},
 		{
 			MethodName: "GetRequiredPasswordComplexity",
@@ -10523,10 +9163,6 @@ var DevicePolicyManagerService_ServiceDesc = grpc.ServiceDesc{
 			Handler:    _DevicePolicyManagerService_GetScreenCaptureDisabled_Handler,
 		},
 		{
-			MethodName: "GetSecondaryUsers",
-			Handler:    _DevicePolicyManagerService_GetSecondaryUsers_Handler,
-		},
-		{
 			MethodName: "GetShortSupportMessage",
 			Handler:    _DevicePolicyManagerService_GetShortSupportMessage_Handler,
 		},
@@ -10543,24 +9179,12 @@ var DevicePolicyManagerService_ServiceDesc = grpc.ServiceDesc{
 			Handler:    _DevicePolicyManagerService_GetStorageEncryptionStatus_Handler,
 		},
 		{
-			MethodName: "GetSubscriptionIds",
-			Handler:    _DevicePolicyManagerService_GetSubscriptionIds_Handler,
-		},
-		{
 			MethodName: "GetSystemUpdatePolicy",
 			Handler:    _DevicePolicyManagerService_GetSystemUpdatePolicy_Handler,
 		},
 		{
 			MethodName: "GetTransferOwnershipBundle",
 			Handler:    _DevicePolicyManagerService_GetTransferOwnershipBundle_Handler,
-		},
-		{
-			MethodName: "GetTrustAgentConfiguration",
-			Handler:    _DevicePolicyManagerService_GetTrustAgentConfiguration_Handler,
-		},
-		{
-			MethodName: "GetUserControlDisabledPackages",
-			Handler:    _DevicePolicyManagerService_GetUserControlDisabledPackages_Handler,
 		},
 		{
 			MethodName: "GetUserRestrictions",
@@ -10763,10 +9387,6 @@ var DevicePolicyManagerService_ServiceDesc = grpc.ServiceDesc{
 			Handler:    _DevicePolicyManagerService_IsUsingUnifiedPassword_Handler,
 		},
 		{
-			MethodName: "ListForegroundAffiliatedUsers",
-			Handler:    _DevicePolicyManagerService_ListForegroundAffiliatedUsers_Handler,
-		},
-		{
 			MethodName: "LockNow0",
 			Handler:    _DevicePolicyManagerService_LockNow0_Handler,
 		},
@@ -10815,18 +9435,6 @@ var DevicePolicyManagerService_ServiceDesc = grpc.ServiceDesc{
 			Handler:    _DevicePolicyManagerService_ResetPasswordWithToken_Handler,
 		},
 		{
-			MethodName: "RetrieveNetworkLogs",
-			Handler:    _DevicePolicyManagerService_RetrieveNetworkLogs_Handler,
-		},
-		{
-			MethodName: "RetrievePreRebootSecurityLogs",
-			Handler:    _DevicePolicyManagerService_RetrievePreRebootSecurityLogs_Handler,
-		},
-		{
-			MethodName: "RetrieveSecurityLogs",
-			Handler:    _DevicePolicyManagerService_RetrieveSecurityLogs_Handler,
-		},
-		{
 			MethodName: "RevokeKeyPairFromApp",
 			Handler:    _DevicePolicyManagerService_RevokeKeyPairFromApp_Handler,
 		},
@@ -10839,16 +9447,8 @@ var DevicePolicyManagerService_ServiceDesc = grpc.ServiceDesc{
 			Handler:    _DevicePolicyManagerService_SetAccountManagementDisabled_Handler,
 		},
 		{
-			MethodName: "SetAffiliationIds",
-			Handler:    _DevicePolicyManagerService_SetAffiliationIds_Handler,
-		},
-		{
-			MethodName: "SetAlwaysOnVpnPackage3",
-			Handler:    _DevicePolicyManagerService_SetAlwaysOnVpnPackage3_Handler,
-		},
-		{
-			MethodName: "SetAlwaysOnVpnPackage4_1",
-			Handler:    _DevicePolicyManagerService_SetAlwaysOnVpnPackage4_1_Handler,
+			MethodName: "SetAlwaysOnVpnPackage",
+			Handler:    _DevicePolicyManagerService_SetAlwaysOnVpnPackage_Handler,
 		},
 		{
 			MethodName: "SetAppFunctionsPolicy",
@@ -10919,10 +9519,6 @@ var DevicePolicyManagerService_ServiceDesc = grpc.ServiceDesc{
 			Handler:    _DevicePolicyManagerService_SetCredentialManagerPolicy_Handler,
 		},
 		{
-			MethodName: "SetCrossProfileCalendarPackages",
-			Handler:    _DevicePolicyManagerService_SetCrossProfileCalendarPackages_Handler,
-		},
-		{
 			MethodName: "SetCrossProfileCallerIdDisabled",
 			Handler:    _DevicePolicyManagerService_SetCrossProfileCallerIdDisabled_Handler,
 		},
@@ -10931,20 +9527,12 @@ var DevicePolicyManagerService_ServiceDesc = grpc.ServiceDesc{
 			Handler:    _DevicePolicyManagerService_SetCrossProfileContactsSearchDisabled_Handler,
 		},
 		{
-			MethodName: "SetCrossProfilePackages",
-			Handler:    _DevicePolicyManagerService_SetCrossProfilePackages_Handler,
-		},
-		{
 			MethodName: "SetDefaultDialerApplication",
 			Handler:    _DevicePolicyManagerService_SetDefaultDialerApplication_Handler,
 		},
 		{
 			MethodName: "SetDefaultSmsApplication",
 			Handler:    _DevicePolicyManagerService_SetDefaultSmsApplication_Handler,
-		},
-		{
-			MethodName: "SetDelegatedScopes",
-			Handler:    _DevicePolicyManagerService_SetDelegatedScopes_Handler,
 		},
 		{
 			MethodName: "SetDeviceOwnerLockScreenInfo",
@@ -10969,14 +9557,6 @@ var DevicePolicyManagerService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "SetGlobalSetting",
 			Handler:    _DevicePolicyManagerService_SetGlobalSetting_Handler,
-		},
-		{
-			MethodName: "SetKeepUninstalledPackages",
-			Handler:    _DevicePolicyManagerService_SetKeepUninstalledPackages_Handler,
-		},
-		{
-			MethodName: "SetKeyPairCertificate",
-			Handler:    _DevicePolicyManagerService_SetKeyPairCertificate_Handler,
 		},
 		{
 			MethodName: "SetKeyguardDisabled",
@@ -11033,10 +9613,6 @@ var DevicePolicyManagerService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "SetMaximumTimeToLock",
 			Handler:    _DevicePolicyManagerService_SetMaximumTimeToLock_Handler,
-		},
-		{
-			MethodName: "SetMeteredDataDisabledPackages",
-			Handler:    _DevicePolicyManagerService_SetMeteredDataDisabledPackages_Handler,
 		},
 		{
 			MethodName: "SetMinimumRequiredWifiSecurityLevel",
@@ -11127,24 +9703,8 @@ var DevicePolicyManagerService_ServiceDesc = grpc.ServiceDesc{
 			Handler:    _DevicePolicyManagerService_SetPermissionPolicy_Handler,
 		},
 		{
-			MethodName: "SetPermittedAccessibilityServices",
-			Handler:    _DevicePolicyManagerService_SetPermittedAccessibilityServices_Handler,
-		},
-		{
-			MethodName: "SetPermittedCrossProfileNotificationListeners",
-			Handler:    _DevicePolicyManagerService_SetPermittedCrossProfileNotificationListeners_Handler,
-		},
-		{
-			MethodName: "SetPermittedInputMethods",
-			Handler:    _DevicePolicyManagerService_SetPermittedInputMethods_Handler,
-		},
-		{
 			MethodName: "SetPersonalAppsSuspended",
 			Handler:    _DevicePolicyManagerService_SetPersonalAppsSuspended_Handler,
-		},
-		{
-			MethodName: "SetPreferentialNetworkServiceConfigs",
-			Handler:    _DevicePolicyManagerService_SetPreferentialNetworkServiceConfigs_Handler,
 		},
 		{
 			MethodName: "SetPreferentialNetworkServiceEnabled",
@@ -11233,10 +9793,6 @@ var DevicePolicyManagerService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "SetUsbDataSignalingEnabled",
 			Handler:    _DevicePolicyManagerService_SetUsbDataSignalingEnabled_Handler,
-		},
-		{
-			MethodName: "SetUserControlDisabledPackages",
-			Handler:    _DevicePolicyManagerService_SetUserControlDisabledPackages_Handler,
 		},
 		{
 			MethodName: "SetUserIcon",

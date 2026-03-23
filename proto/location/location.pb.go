@@ -23,5782 +23,6 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
-type BearingToRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *BearingToRequest) Reset() {
-	*x = BearingToRequest{}
-	mi := &file_proto_location_location_proto_msgTypes[0]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *BearingToRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*BearingToRequest) ProtoMessage() {}
-
-func (x *BearingToRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_location_location_proto_msgTypes[0]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use BearingToRequest.ProtoReflect.Descriptor instead.
-func (*BearingToRequest) Descriptor() ([]byte, []int) {
-	return file_proto_location_location_proto_rawDescGZIP(), []int{0}
-}
-
-func (x *BearingToRequest) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type BearingToResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        float32                `protobuf:"fixed32,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *BearingToResponse) Reset() {
-	*x = BearingToResponse{}
-	mi := &file_proto_location_location_proto_msgTypes[1]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *BearingToResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*BearingToResponse) ProtoMessage() {}
-
-func (x *BearingToResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_location_location_proto_msgTypes[1]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use BearingToResponse.ProtoReflect.Descriptor instead.
-func (*BearingToResponse) Descriptor() ([]byte, []int) {
-	return file_proto_location_location_proto_rawDescGZIP(), []int{1}
-}
-
-func (x *BearingToResponse) GetResult() float32 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type DescribeContentsRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *DescribeContentsRequest) Reset() {
-	*x = DescribeContentsRequest{}
-	mi := &file_proto_location_location_proto_msgTypes[2]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *DescribeContentsRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*DescribeContentsRequest) ProtoMessage() {}
-
-func (x *DescribeContentsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_location_location_proto_msgTypes[2]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use DescribeContentsRequest.ProtoReflect.Descriptor instead.
-func (*DescribeContentsRequest) Descriptor() ([]byte, []int) {
-	return file_proto_location_location_proto_rawDescGZIP(), []int{2}
-}
-
-type DescribeContentsResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *DescribeContentsResponse) Reset() {
-	*x = DescribeContentsResponse{}
-	mi := &file_proto_location_location_proto_msgTypes[3]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *DescribeContentsResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*DescribeContentsResponse) ProtoMessage() {}
-
-func (x *DescribeContentsResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_location_location_proto_msgTypes[3]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use DescribeContentsResponse.ProtoReflect.Descriptor instead.
-func (*DescribeContentsResponse) Descriptor() ([]byte, []int) {
-	return file_proto_location_location_proto_rawDescGZIP(), []int{3}
-}
-
-func (x *DescribeContentsResponse) GetResult() int32 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type DistanceToRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *DistanceToRequest) Reset() {
-	*x = DistanceToRequest{}
-	mi := &file_proto_location_location_proto_msgTypes[4]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *DistanceToRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*DistanceToRequest) ProtoMessage() {}
-
-func (x *DistanceToRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_location_location_proto_msgTypes[4]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use DistanceToRequest.ProtoReflect.Descriptor instead.
-func (*DistanceToRequest) Descriptor() ([]byte, []int) {
-	return file_proto_location_location_proto_rawDescGZIP(), []int{4}
-}
-
-func (x *DistanceToRequest) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type DistanceToResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        float32                `protobuf:"fixed32,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *DistanceToResponse) Reset() {
-	*x = DistanceToResponse{}
-	mi := &file_proto_location_location_proto_msgTypes[5]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *DistanceToResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*DistanceToResponse) ProtoMessage() {}
-
-func (x *DistanceToResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_location_location_proto_msgTypes[5]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use DistanceToResponse.ProtoReflect.Descriptor instead.
-func (*DistanceToResponse) Descriptor() ([]byte, []int) {
-	return file_proto_location_location_proto_rawDescGZIP(), []int{5}
-}
-
-func (x *DistanceToResponse) GetResult() float32 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type DumpRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	Arg1          string                 `protobuf:"bytes,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *DumpRequest) Reset() {
-	*x = DumpRequest{}
-	mi := &file_proto_location_location_proto_msgTypes[6]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *DumpRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*DumpRequest) ProtoMessage() {}
-
-func (x *DumpRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_location_location_proto_msgTypes[6]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use DumpRequest.ProtoReflect.Descriptor instead.
-func (*DumpRequest) Descriptor() ([]byte, []int) {
-	return file_proto_location_location_proto_rawDescGZIP(), []int{6}
-}
-
-func (x *DumpRequest) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-func (x *DumpRequest) GetArg1() string {
-	if x != nil {
-		return x.Arg1
-	}
-	return ""
-}
-
-type DumpResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *DumpResponse) Reset() {
-	*x = DumpResponse{}
-	mi := &file_proto_location_location_proto_msgTypes[7]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *DumpResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*DumpResponse) ProtoMessage() {}
-
-func (x *DumpResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_location_location_proto_msgTypes[7]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use DumpResponse.ProtoReflect.Descriptor instead.
-func (*DumpResponse) Descriptor() ([]byte, []int) {
-	return file_proto_location_location_proto_rawDescGZIP(), []int{7}
-}
-
-type EqualsRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *EqualsRequest) Reset() {
-	*x = EqualsRequest{}
-	mi := &file_proto_location_location_proto_msgTypes[8]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *EqualsRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*EqualsRequest) ProtoMessage() {}
-
-func (x *EqualsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_location_location_proto_msgTypes[8]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use EqualsRequest.ProtoReflect.Descriptor instead.
-func (*EqualsRequest) Descriptor() ([]byte, []int) {
-	return file_proto_location_location_proto_rawDescGZIP(), []int{8}
-}
-
-func (x *EqualsRequest) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type EqualsResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *EqualsResponse) Reset() {
-	*x = EqualsResponse{}
-	mi := &file_proto_location_location_proto_msgTypes[9]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *EqualsResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*EqualsResponse) ProtoMessage() {}
-
-func (x *EqualsResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_location_location_proto_msgTypes[9]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use EqualsResponse.ProtoReflect.Descriptor instead.
-func (*EqualsResponse) Descriptor() ([]byte, []int) {
-	return file_proto_location_location_proto_rawDescGZIP(), []int{9}
-}
-
-func (x *EqualsResponse) GetResult() bool {
-	if x != nil {
-		return x.Result
-	}
-	return false
-}
-
-type GetAccuracyRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetAccuracyRequest) Reset() {
-	*x = GetAccuracyRequest{}
-	mi := &file_proto_location_location_proto_msgTypes[10]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetAccuracyRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetAccuracyRequest) ProtoMessage() {}
-
-func (x *GetAccuracyRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_location_location_proto_msgTypes[10]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetAccuracyRequest.ProtoReflect.Descriptor instead.
-func (*GetAccuracyRequest) Descriptor() ([]byte, []int) {
-	return file_proto_location_location_proto_rawDescGZIP(), []int{10}
-}
-
-type GetAccuracyResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        float32                `protobuf:"fixed32,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetAccuracyResponse) Reset() {
-	*x = GetAccuracyResponse{}
-	mi := &file_proto_location_location_proto_msgTypes[11]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetAccuracyResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetAccuracyResponse) ProtoMessage() {}
-
-func (x *GetAccuracyResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_location_location_proto_msgTypes[11]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetAccuracyResponse.ProtoReflect.Descriptor instead.
-func (*GetAccuracyResponse) Descriptor() ([]byte, []int) {
-	return file_proto_location_location_proto_rawDescGZIP(), []int{11}
-}
-
-func (x *GetAccuracyResponse) GetResult() float32 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type GetAltitudeRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetAltitudeRequest) Reset() {
-	*x = GetAltitudeRequest{}
-	mi := &file_proto_location_location_proto_msgTypes[12]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetAltitudeRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetAltitudeRequest) ProtoMessage() {}
-
-func (x *GetAltitudeRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_location_location_proto_msgTypes[12]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetAltitudeRequest.ProtoReflect.Descriptor instead.
-func (*GetAltitudeRequest) Descriptor() ([]byte, []int) {
-	return file_proto_location_location_proto_rawDescGZIP(), []int{12}
-}
-
-type GetAltitudeResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        float64                `protobuf:"fixed64,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetAltitudeResponse) Reset() {
-	*x = GetAltitudeResponse{}
-	mi := &file_proto_location_location_proto_msgTypes[13]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetAltitudeResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetAltitudeResponse) ProtoMessage() {}
-
-func (x *GetAltitudeResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_location_location_proto_msgTypes[13]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetAltitudeResponse.ProtoReflect.Descriptor instead.
-func (*GetAltitudeResponse) Descriptor() ([]byte, []int) {
-	return file_proto_location_location_proto_rawDescGZIP(), []int{13}
-}
-
-func (x *GetAltitudeResponse) GetResult() float64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type GetBearingRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetBearingRequest) Reset() {
-	*x = GetBearingRequest{}
-	mi := &file_proto_location_location_proto_msgTypes[14]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetBearingRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetBearingRequest) ProtoMessage() {}
-
-func (x *GetBearingRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_location_location_proto_msgTypes[14]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetBearingRequest.ProtoReflect.Descriptor instead.
-func (*GetBearingRequest) Descriptor() ([]byte, []int) {
-	return file_proto_location_location_proto_rawDescGZIP(), []int{14}
-}
-
-type GetBearingResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        float32                `protobuf:"fixed32,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetBearingResponse) Reset() {
-	*x = GetBearingResponse{}
-	mi := &file_proto_location_location_proto_msgTypes[15]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetBearingResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetBearingResponse) ProtoMessage() {}
-
-func (x *GetBearingResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_location_location_proto_msgTypes[15]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetBearingResponse.ProtoReflect.Descriptor instead.
-func (*GetBearingResponse) Descriptor() ([]byte, []int) {
-	return file_proto_location_location_proto_rawDescGZIP(), []int{15}
-}
-
-func (x *GetBearingResponse) GetResult() float32 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type GetBearingAccuracyDegreesRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetBearingAccuracyDegreesRequest) Reset() {
-	*x = GetBearingAccuracyDegreesRequest{}
-	mi := &file_proto_location_location_proto_msgTypes[16]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetBearingAccuracyDegreesRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetBearingAccuracyDegreesRequest) ProtoMessage() {}
-
-func (x *GetBearingAccuracyDegreesRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_location_location_proto_msgTypes[16]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetBearingAccuracyDegreesRequest.ProtoReflect.Descriptor instead.
-func (*GetBearingAccuracyDegreesRequest) Descriptor() ([]byte, []int) {
-	return file_proto_location_location_proto_rawDescGZIP(), []int{16}
-}
-
-type GetBearingAccuracyDegreesResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        float32                `protobuf:"fixed32,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetBearingAccuracyDegreesResponse) Reset() {
-	*x = GetBearingAccuracyDegreesResponse{}
-	mi := &file_proto_location_location_proto_msgTypes[17]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetBearingAccuracyDegreesResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetBearingAccuracyDegreesResponse) ProtoMessage() {}
-
-func (x *GetBearingAccuracyDegreesResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_location_location_proto_msgTypes[17]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetBearingAccuracyDegreesResponse.ProtoReflect.Descriptor instead.
-func (*GetBearingAccuracyDegreesResponse) Descriptor() ([]byte, []int) {
-	return file_proto_location_location_proto_rawDescGZIP(), []int{17}
-}
-
-func (x *GetBearingAccuracyDegreesResponse) GetResult() float32 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type GetElapsedRealtimeAgeMillis0Request struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetElapsedRealtimeAgeMillis0Request) Reset() {
-	*x = GetElapsedRealtimeAgeMillis0Request{}
-	mi := &file_proto_location_location_proto_msgTypes[18]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetElapsedRealtimeAgeMillis0Request) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetElapsedRealtimeAgeMillis0Request) ProtoMessage() {}
-
-func (x *GetElapsedRealtimeAgeMillis0Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_location_location_proto_msgTypes[18]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetElapsedRealtimeAgeMillis0Request.ProtoReflect.Descriptor instead.
-func (*GetElapsedRealtimeAgeMillis0Request) Descriptor() ([]byte, []int) {
-	return file_proto_location_location_proto_rawDescGZIP(), []int{18}
-}
-
-type GetElapsedRealtimeAgeMillis0Response struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetElapsedRealtimeAgeMillis0Response) Reset() {
-	*x = GetElapsedRealtimeAgeMillis0Response{}
-	mi := &file_proto_location_location_proto_msgTypes[19]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetElapsedRealtimeAgeMillis0Response) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetElapsedRealtimeAgeMillis0Response) ProtoMessage() {}
-
-func (x *GetElapsedRealtimeAgeMillis0Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_location_location_proto_msgTypes[19]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetElapsedRealtimeAgeMillis0Response.ProtoReflect.Descriptor instead.
-func (*GetElapsedRealtimeAgeMillis0Response) Descriptor() ([]byte, []int) {
-	return file_proto_location_location_proto_rawDescGZIP(), []int{19}
-}
-
-func (x *GetElapsedRealtimeAgeMillis0Response) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type GetElapsedRealtimeAgeMillis1_1Request struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetElapsedRealtimeAgeMillis1_1Request) Reset() {
-	*x = GetElapsedRealtimeAgeMillis1_1Request{}
-	mi := &file_proto_location_location_proto_msgTypes[20]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetElapsedRealtimeAgeMillis1_1Request) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetElapsedRealtimeAgeMillis1_1Request) ProtoMessage() {}
-
-func (x *GetElapsedRealtimeAgeMillis1_1Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_location_location_proto_msgTypes[20]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetElapsedRealtimeAgeMillis1_1Request.ProtoReflect.Descriptor instead.
-func (*GetElapsedRealtimeAgeMillis1_1Request) Descriptor() ([]byte, []int) {
-	return file_proto_location_location_proto_rawDescGZIP(), []int{20}
-}
-
-func (x *GetElapsedRealtimeAgeMillis1_1Request) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type GetElapsedRealtimeAgeMillis1_1Response struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetElapsedRealtimeAgeMillis1_1Response) Reset() {
-	*x = GetElapsedRealtimeAgeMillis1_1Response{}
-	mi := &file_proto_location_location_proto_msgTypes[21]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetElapsedRealtimeAgeMillis1_1Response) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetElapsedRealtimeAgeMillis1_1Response) ProtoMessage() {}
-
-func (x *GetElapsedRealtimeAgeMillis1_1Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_location_location_proto_msgTypes[21]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetElapsedRealtimeAgeMillis1_1Response.ProtoReflect.Descriptor instead.
-func (*GetElapsedRealtimeAgeMillis1_1Response) Descriptor() ([]byte, []int) {
-	return file_proto_location_location_proto_rawDescGZIP(), []int{21}
-}
-
-func (x *GetElapsedRealtimeAgeMillis1_1Response) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type GetElapsedRealtimeMillisRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetElapsedRealtimeMillisRequest) Reset() {
-	*x = GetElapsedRealtimeMillisRequest{}
-	mi := &file_proto_location_location_proto_msgTypes[22]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetElapsedRealtimeMillisRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetElapsedRealtimeMillisRequest) ProtoMessage() {}
-
-func (x *GetElapsedRealtimeMillisRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_location_location_proto_msgTypes[22]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetElapsedRealtimeMillisRequest.ProtoReflect.Descriptor instead.
-func (*GetElapsedRealtimeMillisRequest) Descriptor() ([]byte, []int) {
-	return file_proto_location_location_proto_rawDescGZIP(), []int{22}
-}
-
-type GetElapsedRealtimeMillisResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetElapsedRealtimeMillisResponse) Reset() {
-	*x = GetElapsedRealtimeMillisResponse{}
-	mi := &file_proto_location_location_proto_msgTypes[23]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetElapsedRealtimeMillisResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetElapsedRealtimeMillisResponse) ProtoMessage() {}
-
-func (x *GetElapsedRealtimeMillisResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_location_location_proto_msgTypes[23]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetElapsedRealtimeMillisResponse.ProtoReflect.Descriptor instead.
-func (*GetElapsedRealtimeMillisResponse) Descriptor() ([]byte, []int) {
-	return file_proto_location_location_proto_rawDescGZIP(), []int{23}
-}
-
-func (x *GetElapsedRealtimeMillisResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type GetElapsedRealtimeNanosRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetElapsedRealtimeNanosRequest) Reset() {
-	*x = GetElapsedRealtimeNanosRequest{}
-	mi := &file_proto_location_location_proto_msgTypes[24]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetElapsedRealtimeNanosRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetElapsedRealtimeNanosRequest) ProtoMessage() {}
-
-func (x *GetElapsedRealtimeNanosRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_location_location_proto_msgTypes[24]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetElapsedRealtimeNanosRequest.ProtoReflect.Descriptor instead.
-func (*GetElapsedRealtimeNanosRequest) Descriptor() ([]byte, []int) {
-	return file_proto_location_location_proto_rawDescGZIP(), []int{24}
-}
-
-type GetElapsedRealtimeNanosResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetElapsedRealtimeNanosResponse) Reset() {
-	*x = GetElapsedRealtimeNanosResponse{}
-	mi := &file_proto_location_location_proto_msgTypes[25]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetElapsedRealtimeNanosResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetElapsedRealtimeNanosResponse) ProtoMessage() {}
-
-func (x *GetElapsedRealtimeNanosResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_location_location_proto_msgTypes[25]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetElapsedRealtimeNanosResponse.ProtoReflect.Descriptor instead.
-func (*GetElapsedRealtimeNanosResponse) Descriptor() ([]byte, []int) {
-	return file_proto_location_location_proto_rawDescGZIP(), []int{25}
-}
-
-func (x *GetElapsedRealtimeNanosResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type GetElapsedRealtimeUncertaintyNanosRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetElapsedRealtimeUncertaintyNanosRequest) Reset() {
-	*x = GetElapsedRealtimeUncertaintyNanosRequest{}
-	mi := &file_proto_location_location_proto_msgTypes[26]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetElapsedRealtimeUncertaintyNanosRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetElapsedRealtimeUncertaintyNanosRequest) ProtoMessage() {}
-
-func (x *GetElapsedRealtimeUncertaintyNanosRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_location_location_proto_msgTypes[26]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetElapsedRealtimeUncertaintyNanosRequest.ProtoReflect.Descriptor instead.
-func (*GetElapsedRealtimeUncertaintyNanosRequest) Descriptor() ([]byte, []int) {
-	return file_proto_location_location_proto_rawDescGZIP(), []int{26}
-}
-
-type GetElapsedRealtimeUncertaintyNanosResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        float64                `protobuf:"fixed64,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetElapsedRealtimeUncertaintyNanosResponse) Reset() {
-	*x = GetElapsedRealtimeUncertaintyNanosResponse{}
-	mi := &file_proto_location_location_proto_msgTypes[27]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetElapsedRealtimeUncertaintyNanosResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetElapsedRealtimeUncertaintyNanosResponse) ProtoMessage() {}
-
-func (x *GetElapsedRealtimeUncertaintyNanosResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_location_location_proto_msgTypes[27]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetElapsedRealtimeUncertaintyNanosResponse.ProtoReflect.Descriptor instead.
-func (*GetElapsedRealtimeUncertaintyNanosResponse) Descriptor() ([]byte, []int) {
-	return file_proto_location_location_proto_rawDescGZIP(), []int{27}
-}
-
-func (x *GetElapsedRealtimeUncertaintyNanosResponse) GetResult() float64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type GetExtrasRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetExtrasRequest) Reset() {
-	*x = GetExtrasRequest{}
-	mi := &file_proto_location_location_proto_msgTypes[28]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetExtrasRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetExtrasRequest) ProtoMessage() {}
-
-func (x *GetExtrasRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_location_location_proto_msgTypes[28]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetExtrasRequest.ProtoReflect.Descriptor instead.
-func (*GetExtrasRequest) Descriptor() ([]byte, []int) {
-	return file_proto_location_location_proto_rawDescGZIP(), []int{28}
-}
-
-type GetExtrasResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetExtrasResponse) Reset() {
-	*x = GetExtrasResponse{}
-	mi := &file_proto_location_location_proto_msgTypes[29]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetExtrasResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetExtrasResponse) ProtoMessage() {}
-
-func (x *GetExtrasResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_location_location_proto_msgTypes[29]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetExtrasResponse.ProtoReflect.Descriptor instead.
-func (*GetExtrasResponse) Descriptor() ([]byte, []int) {
-	return file_proto_location_location_proto_rawDescGZIP(), []int{29}
-}
-
-func (x *GetExtrasResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type GetLatitudeRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetLatitudeRequest) Reset() {
-	*x = GetLatitudeRequest{}
-	mi := &file_proto_location_location_proto_msgTypes[30]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetLatitudeRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetLatitudeRequest) ProtoMessage() {}
-
-func (x *GetLatitudeRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_location_location_proto_msgTypes[30]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetLatitudeRequest.ProtoReflect.Descriptor instead.
-func (*GetLatitudeRequest) Descriptor() ([]byte, []int) {
-	return file_proto_location_location_proto_rawDescGZIP(), []int{30}
-}
-
-type GetLatitudeResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        float64                `protobuf:"fixed64,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetLatitudeResponse) Reset() {
-	*x = GetLatitudeResponse{}
-	mi := &file_proto_location_location_proto_msgTypes[31]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetLatitudeResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetLatitudeResponse) ProtoMessage() {}
-
-func (x *GetLatitudeResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_location_location_proto_msgTypes[31]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetLatitudeResponse.ProtoReflect.Descriptor instead.
-func (*GetLatitudeResponse) Descriptor() ([]byte, []int) {
-	return file_proto_location_location_proto_rawDescGZIP(), []int{31}
-}
-
-func (x *GetLatitudeResponse) GetResult() float64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type GetLongitudeRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetLongitudeRequest) Reset() {
-	*x = GetLongitudeRequest{}
-	mi := &file_proto_location_location_proto_msgTypes[32]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetLongitudeRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetLongitudeRequest) ProtoMessage() {}
-
-func (x *GetLongitudeRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_location_location_proto_msgTypes[32]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetLongitudeRequest.ProtoReflect.Descriptor instead.
-func (*GetLongitudeRequest) Descriptor() ([]byte, []int) {
-	return file_proto_location_location_proto_rawDescGZIP(), []int{32}
-}
-
-type GetLongitudeResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        float64                `protobuf:"fixed64,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetLongitudeResponse) Reset() {
-	*x = GetLongitudeResponse{}
-	mi := &file_proto_location_location_proto_msgTypes[33]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetLongitudeResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetLongitudeResponse) ProtoMessage() {}
-
-func (x *GetLongitudeResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_location_location_proto_msgTypes[33]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetLongitudeResponse.ProtoReflect.Descriptor instead.
-func (*GetLongitudeResponse) Descriptor() ([]byte, []int) {
-	return file_proto_location_location_proto_rawDescGZIP(), []int{33}
-}
-
-func (x *GetLongitudeResponse) GetResult() float64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type GetMslAltitudeAccuracyMetersRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetMslAltitudeAccuracyMetersRequest) Reset() {
-	*x = GetMslAltitudeAccuracyMetersRequest{}
-	mi := &file_proto_location_location_proto_msgTypes[34]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetMslAltitudeAccuracyMetersRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetMslAltitudeAccuracyMetersRequest) ProtoMessage() {}
-
-func (x *GetMslAltitudeAccuracyMetersRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_location_location_proto_msgTypes[34]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetMslAltitudeAccuracyMetersRequest.ProtoReflect.Descriptor instead.
-func (*GetMslAltitudeAccuracyMetersRequest) Descriptor() ([]byte, []int) {
-	return file_proto_location_location_proto_rawDescGZIP(), []int{34}
-}
-
-type GetMslAltitudeAccuracyMetersResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        float32                `protobuf:"fixed32,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetMslAltitudeAccuracyMetersResponse) Reset() {
-	*x = GetMslAltitudeAccuracyMetersResponse{}
-	mi := &file_proto_location_location_proto_msgTypes[35]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetMslAltitudeAccuracyMetersResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetMslAltitudeAccuracyMetersResponse) ProtoMessage() {}
-
-func (x *GetMslAltitudeAccuracyMetersResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_location_location_proto_msgTypes[35]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetMslAltitudeAccuracyMetersResponse.ProtoReflect.Descriptor instead.
-func (*GetMslAltitudeAccuracyMetersResponse) Descriptor() ([]byte, []int) {
-	return file_proto_location_location_proto_rawDescGZIP(), []int{35}
-}
-
-func (x *GetMslAltitudeAccuracyMetersResponse) GetResult() float32 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type GetMslAltitudeMetersRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetMslAltitudeMetersRequest) Reset() {
-	*x = GetMslAltitudeMetersRequest{}
-	mi := &file_proto_location_location_proto_msgTypes[36]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetMslAltitudeMetersRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetMslAltitudeMetersRequest) ProtoMessage() {}
-
-func (x *GetMslAltitudeMetersRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_location_location_proto_msgTypes[36]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetMslAltitudeMetersRequest.ProtoReflect.Descriptor instead.
-func (*GetMslAltitudeMetersRequest) Descriptor() ([]byte, []int) {
-	return file_proto_location_location_proto_rawDescGZIP(), []int{36}
-}
-
-type GetMslAltitudeMetersResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        float64                `protobuf:"fixed64,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetMslAltitudeMetersResponse) Reset() {
-	*x = GetMslAltitudeMetersResponse{}
-	mi := &file_proto_location_location_proto_msgTypes[37]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetMslAltitudeMetersResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetMslAltitudeMetersResponse) ProtoMessage() {}
-
-func (x *GetMslAltitudeMetersResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_location_location_proto_msgTypes[37]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetMslAltitudeMetersResponse.ProtoReflect.Descriptor instead.
-func (*GetMslAltitudeMetersResponse) Descriptor() ([]byte, []int) {
-	return file_proto_location_location_proto_rawDescGZIP(), []int{37}
-}
-
-func (x *GetMslAltitudeMetersResponse) GetResult() float64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type GetProviderRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetProviderRequest) Reset() {
-	*x = GetProviderRequest{}
-	mi := &file_proto_location_location_proto_msgTypes[38]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetProviderRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetProviderRequest) ProtoMessage() {}
-
-func (x *GetProviderRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_location_location_proto_msgTypes[38]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetProviderRequest.ProtoReflect.Descriptor instead.
-func (*GetProviderRequest) Descriptor() ([]byte, []int) {
-	return file_proto_location_location_proto_rawDescGZIP(), []int{38}
-}
-
-type GetProviderResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetProviderResponse) Reset() {
-	*x = GetProviderResponse{}
-	mi := &file_proto_location_location_proto_msgTypes[39]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetProviderResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetProviderResponse) ProtoMessage() {}
-
-func (x *GetProviderResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_location_location_proto_msgTypes[39]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetProviderResponse.ProtoReflect.Descriptor instead.
-func (*GetProviderResponse) Descriptor() ([]byte, []int) {
-	return file_proto_location_location_proto_rawDescGZIP(), []int{39}
-}
-
-func (x *GetProviderResponse) GetResult() string {
-	if x != nil {
-		return x.Result
-	}
-	return ""
-}
-
-type GetSpeedRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetSpeedRequest) Reset() {
-	*x = GetSpeedRequest{}
-	mi := &file_proto_location_location_proto_msgTypes[40]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetSpeedRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetSpeedRequest) ProtoMessage() {}
-
-func (x *GetSpeedRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_location_location_proto_msgTypes[40]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetSpeedRequest.ProtoReflect.Descriptor instead.
-func (*GetSpeedRequest) Descriptor() ([]byte, []int) {
-	return file_proto_location_location_proto_rawDescGZIP(), []int{40}
-}
-
-type GetSpeedResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        float32                `protobuf:"fixed32,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetSpeedResponse) Reset() {
-	*x = GetSpeedResponse{}
-	mi := &file_proto_location_location_proto_msgTypes[41]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetSpeedResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetSpeedResponse) ProtoMessage() {}
-
-func (x *GetSpeedResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_location_location_proto_msgTypes[41]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetSpeedResponse.ProtoReflect.Descriptor instead.
-func (*GetSpeedResponse) Descriptor() ([]byte, []int) {
-	return file_proto_location_location_proto_rawDescGZIP(), []int{41}
-}
-
-func (x *GetSpeedResponse) GetResult() float32 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type GetSpeedAccuracyMetersPerSecondRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetSpeedAccuracyMetersPerSecondRequest) Reset() {
-	*x = GetSpeedAccuracyMetersPerSecondRequest{}
-	mi := &file_proto_location_location_proto_msgTypes[42]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetSpeedAccuracyMetersPerSecondRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetSpeedAccuracyMetersPerSecondRequest) ProtoMessage() {}
-
-func (x *GetSpeedAccuracyMetersPerSecondRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_location_location_proto_msgTypes[42]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetSpeedAccuracyMetersPerSecondRequest.ProtoReflect.Descriptor instead.
-func (*GetSpeedAccuracyMetersPerSecondRequest) Descriptor() ([]byte, []int) {
-	return file_proto_location_location_proto_rawDescGZIP(), []int{42}
-}
-
-type GetSpeedAccuracyMetersPerSecondResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        float32                `protobuf:"fixed32,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetSpeedAccuracyMetersPerSecondResponse) Reset() {
-	*x = GetSpeedAccuracyMetersPerSecondResponse{}
-	mi := &file_proto_location_location_proto_msgTypes[43]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetSpeedAccuracyMetersPerSecondResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetSpeedAccuracyMetersPerSecondResponse) ProtoMessage() {}
-
-func (x *GetSpeedAccuracyMetersPerSecondResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_location_location_proto_msgTypes[43]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetSpeedAccuracyMetersPerSecondResponse.ProtoReflect.Descriptor instead.
-func (*GetSpeedAccuracyMetersPerSecondResponse) Descriptor() ([]byte, []int) {
-	return file_proto_location_location_proto_rawDescGZIP(), []int{43}
-}
-
-func (x *GetSpeedAccuracyMetersPerSecondResponse) GetResult() float32 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type GetTimeRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetTimeRequest) Reset() {
-	*x = GetTimeRequest{}
-	mi := &file_proto_location_location_proto_msgTypes[44]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetTimeRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetTimeRequest) ProtoMessage() {}
-
-func (x *GetTimeRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_location_location_proto_msgTypes[44]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetTimeRequest.ProtoReflect.Descriptor instead.
-func (*GetTimeRequest) Descriptor() ([]byte, []int) {
-	return file_proto_location_location_proto_rawDescGZIP(), []int{44}
-}
-
-type GetTimeResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetTimeResponse) Reset() {
-	*x = GetTimeResponse{}
-	mi := &file_proto_location_location_proto_msgTypes[45]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetTimeResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetTimeResponse) ProtoMessage() {}
-
-func (x *GetTimeResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_location_location_proto_msgTypes[45]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetTimeResponse.ProtoReflect.Descriptor instead.
-func (*GetTimeResponse) Descriptor() ([]byte, []int) {
-	return file_proto_location_location_proto_rawDescGZIP(), []int{45}
-}
-
-func (x *GetTimeResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type GetVerticalAccuracyMetersRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetVerticalAccuracyMetersRequest) Reset() {
-	*x = GetVerticalAccuracyMetersRequest{}
-	mi := &file_proto_location_location_proto_msgTypes[46]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetVerticalAccuracyMetersRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetVerticalAccuracyMetersRequest) ProtoMessage() {}
-
-func (x *GetVerticalAccuracyMetersRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_location_location_proto_msgTypes[46]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetVerticalAccuracyMetersRequest.ProtoReflect.Descriptor instead.
-func (*GetVerticalAccuracyMetersRequest) Descriptor() ([]byte, []int) {
-	return file_proto_location_location_proto_rawDescGZIP(), []int{46}
-}
-
-type GetVerticalAccuracyMetersResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        float32                `protobuf:"fixed32,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetVerticalAccuracyMetersResponse) Reset() {
-	*x = GetVerticalAccuracyMetersResponse{}
-	mi := &file_proto_location_location_proto_msgTypes[47]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetVerticalAccuracyMetersResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetVerticalAccuracyMetersResponse) ProtoMessage() {}
-
-func (x *GetVerticalAccuracyMetersResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_location_location_proto_msgTypes[47]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetVerticalAccuracyMetersResponse.ProtoReflect.Descriptor instead.
-func (*GetVerticalAccuracyMetersResponse) Descriptor() ([]byte, []int) {
-	return file_proto_location_location_proto_rawDescGZIP(), []int{47}
-}
-
-func (x *GetVerticalAccuracyMetersResponse) GetResult() float32 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type HasAccuracyRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *HasAccuracyRequest) Reset() {
-	*x = HasAccuracyRequest{}
-	mi := &file_proto_location_location_proto_msgTypes[48]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *HasAccuracyRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*HasAccuracyRequest) ProtoMessage() {}
-
-func (x *HasAccuracyRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_location_location_proto_msgTypes[48]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use HasAccuracyRequest.ProtoReflect.Descriptor instead.
-func (*HasAccuracyRequest) Descriptor() ([]byte, []int) {
-	return file_proto_location_location_proto_rawDescGZIP(), []int{48}
-}
-
-type HasAccuracyResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *HasAccuracyResponse) Reset() {
-	*x = HasAccuracyResponse{}
-	mi := &file_proto_location_location_proto_msgTypes[49]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *HasAccuracyResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*HasAccuracyResponse) ProtoMessage() {}
-
-func (x *HasAccuracyResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_location_location_proto_msgTypes[49]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use HasAccuracyResponse.ProtoReflect.Descriptor instead.
-func (*HasAccuracyResponse) Descriptor() ([]byte, []int) {
-	return file_proto_location_location_proto_rawDescGZIP(), []int{49}
-}
-
-func (x *HasAccuracyResponse) GetResult() bool {
-	if x != nil {
-		return x.Result
-	}
-	return false
-}
-
-type HasAltitudeRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *HasAltitudeRequest) Reset() {
-	*x = HasAltitudeRequest{}
-	mi := &file_proto_location_location_proto_msgTypes[50]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *HasAltitudeRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*HasAltitudeRequest) ProtoMessage() {}
-
-func (x *HasAltitudeRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_location_location_proto_msgTypes[50]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use HasAltitudeRequest.ProtoReflect.Descriptor instead.
-func (*HasAltitudeRequest) Descriptor() ([]byte, []int) {
-	return file_proto_location_location_proto_rawDescGZIP(), []int{50}
-}
-
-type HasAltitudeResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *HasAltitudeResponse) Reset() {
-	*x = HasAltitudeResponse{}
-	mi := &file_proto_location_location_proto_msgTypes[51]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *HasAltitudeResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*HasAltitudeResponse) ProtoMessage() {}
-
-func (x *HasAltitudeResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_location_location_proto_msgTypes[51]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use HasAltitudeResponse.ProtoReflect.Descriptor instead.
-func (*HasAltitudeResponse) Descriptor() ([]byte, []int) {
-	return file_proto_location_location_proto_rawDescGZIP(), []int{51}
-}
-
-func (x *HasAltitudeResponse) GetResult() bool {
-	if x != nil {
-		return x.Result
-	}
-	return false
-}
-
-type HasBearingRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *HasBearingRequest) Reset() {
-	*x = HasBearingRequest{}
-	mi := &file_proto_location_location_proto_msgTypes[52]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *HasBearingRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*HasBearingRequest) ProtoMessage() {}
-
-func (x *HasBearingRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_location_location_proto_msgTypes[52]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use HasBearingRequest.ProtoReflect.Descriptor instead.
-func (*HasBearingRequest) Descriptor() ([]byte, []int) {
-	return file_proto_location_location_proto_rawDescGZIP(), []int{52}
-}
-
-type HasBearingResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *HasBearingResponse) Reset() {
-	*x = HasBearingResponse{}
-	mi := &file_proto_location_location_proto_msgTypes[53]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *HasBearingResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*HasBearingResponse) ProtoMessage() {}
-
-func (x *HasBearingResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_location_location_proto_msgTypes[53]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use HasBearingResponse.ProtoReflect.Descriptor instead.
-func (*HasBearingResponse) Descriptor() ([]byte, []int) {
-	return file_proto_location_location_proto_rawDescGZIP(), []int{53}
-}
-
-func (x *HasBearingResponse) GetResult() bool {
-	if x != nil {
-		return x.Result
-	}
-	return false
-}
-
-type HasBearingAccuracyRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *HasBearingAccuracyRequest) Reset() {
-	*x = HasBearingAccuracyRequest{}
-	mi := &file_proto_location_location_proto_msgTypes[54]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *HasBearingAccuracyRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*HasBearingAccuracyRequest) ProtoMessage() {}
-
-func (x *HasBearingAccuracyRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_location_location_proto_msgTypes[54]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use HasBearingAccuracyRequest.ProtoReflect.Descriptor instead.
-func (*HasBearingAccuracyRequest) Descriptor() ([]byte, []int) {
-	return file_proto_location_location_proto_rawDescGZIP(), []int{54}
-}
-
-type HasBearingAccuracyResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *HasBearingAccuracyResponse) Reset() {
-	*x = HasBearingAccuracyResponse{}
-	mi := &file_proto_location_location_proto_msgTypes[55]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *HasBearingAccuracyResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*HasBearingAccuracyResponse) ProtoMessage() {}
-
-func (x *HasBearingAccuracyResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_location_location_proto_msgTypes[55]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use HasBearingAccuracyResponse.ProtoReflect.Descriptor instead.
-func (*HasBearingAccuracyResponse) Descriptor() ([]byte, []int) {
-	return file_proto_location_location_proto_rawDescGZIP(), []int{55}
-}
-
-func (x *HasBearingAccuracyResponse) GetResult() bool {
-	if x != nil {
-		return x.Result
-	}
-	return false
-}
-
-type HasElapsedRealtimeUncertaintyNanosRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *HasElapsedRealtimeUncertaintyNanosRequest) Reset() {
-	*x = HasElapsedRealtimeUncertaintyNanosRequest{}
-	mi := &file_proto_location_location_proto_msgTypes[56]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *HasElapsedRealtimeUncertaintyNanosRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*HasElapsedRealtimeUncertaintyNanosRequest) ProtoMessage() {}
-
-func (x *HasElapsedRealtimeUncertaintyNanosRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_location_location_proto_msgTypes[56]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use HasElapsedRealtimeUncertaintyNanosRequest.ProtoReflect.Descriptor instead.
-func (*HasElapsedRealtimeUncertaintyNanosRequest) Descriptor() ([]byte, []int) {
-	return file_proto_location_location_proto_rawDescGZIP(), []int{56}
-}
-
-type HasElapsedRealtimeUncertaintyNanosResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *HasElapsedRealtimeUncertaintyNanosResponse) Reset() {
-	*x = HasElapsedRealtimeUncertaintyNanosResponse{}
-	mi := &file_proto_location_location_proto_msgTypes[57]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *HasElapsedRealtimeUncertaintyNanosResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*HasElapsedRealtimeUncertaintyNanosResponse) ProtoMessage() {}
-
-func (x *HasElapsedRealtimeUncertaintyNanosResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_location_location_proto_msgTypes[57]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use HasElapsedRealtimeUncertaintyNanosResponse.ProtoReflect.Descriptor instead.
-func (*HasElapsedRealtimeUncertaintyNanosResponse) Descriptor() ([]byte, []int) {
-	return file_proto_location_location_proto_rawDescGZIP(), []int{57}
-}
-
-func (x *HasElapsedRealtimeUncertaintyNanosResponse) GetResult() bool {
-	if x != nil {
-		return x.Result
-	}
-	return false
-}
-
-type HasMslAltitudeRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *HasMslAltitudeRequest) Reset() {
-	*x = HasMslAltitudeRequest{}
-	mi := &file_proto_location_location_proto_msgTypes[58]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *HasMslAltitudeRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*HasMslAltitudeRequest) ProtoMessage() {}
-
-func (x *HasMslAltitudeRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_location_location_proto_msgTypes[58]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use HasMslAltitudeRequest.ProtoReflect.Descriptor instead.
-func (*HasMslAltitudeRequest) Descriptor() ([]byte, []int) {
-	return file_proto_location_location_proto_rawDescGZIP(), []int{58}
-}
-
-type HasMslAltitudeResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *HasMslAltitudeResponse) Reset() {
-	*x = HasMslAltitudeResponse{}
-	mi := &file_proto_location_location_proto_msgTypes[59]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *HasMslAltitudeResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*HasMslAltitudeResponse) ProtoMessage() {}
-
-func (x *HasMslAltitudeResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_location_location_proto_msgTypes[59]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use HasMslAltitudeResponse.ProtoReflect.Descriptor instead.
-func (*HasMslAltitudeResponse) Descriptor() ([]byte, []int) {
-	return file_proto_location_location_proto_rawDescGZIP(), []int{59}
-}
-
-func (x *HasMslAltitudeResponse) GetResult() bool {
-	if x != nil {
-		return x.Result
-	}
-	return false
-}
-
-type HasMslAltitudeAccuracyRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *HasMslAltitudeAccuracyRequest) Reset() {
-	*x = HasMslAltitudeAccuracyRequest{}
-	mi := &file_proto_location_location_proto_msgTypes[60]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *HasMslAltitudeAccuracyRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*HasMslAltitudeAccuracyRequest) ProtoMessage() {}
-
-func (x *HasMslAltitudeAccuracyRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_location_location_proto_msgTypes[60]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use HasMslAltitudeAccuracyRequest.ProtoReflect.Descriptor instead.
-func (*HasMslAltitudeAccuracyRequest) Descriptor() ([]byte, []int) {
-	return file_proto_location_location_proto_rawDescGZIP(), []int{60}
-}
-
-type HasMslAltitudeAccuracyResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *HasMslAltitudeAccuracyResponse) Reset() {
-	*x = HasMslAltitudeAccuracyResponse{}
-	mi := &file_proto_location_location_proto_msgTypes[61]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *HasMslAltitudeAccuracyResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*HasMslAltitudeAccuracyResponse) ProtoMessage() {}
-
-func (x *HasMslAltitudeAccuracyResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_location_location_proto_msgTypes[61]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use HasMslAltitudeAccuracyResponse.ProtoReflect.Descriptor instead.
-func (*HasMslAltitudeAccuracyResponse) Descriptor() ([]byte, []int) {
-	return file_proto_location_location_proto_rawDescGZIP(), []int{61}
-}
-
-func (x *HasMslAltitudeAccuracyResponse) GetResult() bool {
-	if x != nil {
-		return x.Result
-	}
-	return false
-}
-
-type HasSpeedRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *HasSpeedRequest) Reset() {
-	*x = HasSpeedRequest{}
-	mi := &file_proto_location_location_proto_msgTypes[62]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *HasSpeedRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*HasSpeedRequest) ProtoMessage() {}
-
-func (x *HasSpeedRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_location_location_proto_msgTypes[62]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use HasSpeedRequest.ProtoReflect.Descriptor instead.
-func (*HasSpeedRequest) Descriptor() ([]byte, []int) {
-	return file_proto_location_location_proto_rawDescGZIP(), []int{62}
-}
-
-type HasSpeedResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *HasSpeedResponse) Reset() {
-	*x = HasSpeedResponse{}
-	mi := &file_proto_location_location_proto_msgTypes[63]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *HasSpeedResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*HasSpeedResponse) ProtoMessage() {}
-
-func (x *HasSpeedResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_location_location_proto_msgTypes[63]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use HasSpeedResponse.ProtoReflect.Descriptor instead.
-func (*HasSpeedResponse) Descriptor() ([]byte, []int) {
-	return file_proto_location_location_proto_rawDescGZIP(), []int{63}
-}
-
-func (x *HasSpeedResponse) GetResult() bool {
-	if x != nil {
-		return x.Result
-	}
-	return false
-}
-
-type HasSpeedAccuracyRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *HasSpeedAccuracyRequest) Reset() {
-	*x = HasSpeedAccuracyRequest{}
-	mi := &file_proto_location_location_proto_msgTypes[64]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *HasSpeedAccuracyRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*HasSpeedAccuracyRequest) ProtoMessage() {}
-
-func (x *HasSpeedAccuracyRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_location_location_proto_msgTypes[64]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use HasSpeedAccuracyRequest.ProtoReflect.Descriptor instead.
-func (*HasSpeedAccuracyRequest) Descriptor() ([]byte, []int) {
-	return file_proto_location_location_proto_rawDescGZIP(), []int{64}
-}
-
-type HasSpeedAccuracyResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *HasSpeedAccuracyResponse) Reset() {
-	*x = HasSpeedAccuracyResponse{}
-	mi := &file_proto_location_location_proto_msgTypes[65]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *HasSpeedAccuracyResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*HasSpeedAccuracyResponse) ProtoMessage() {}
-
-func (x *HasSpeedAccuracyResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_location_location_proto_msgTypes[65]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use HasSpeedAccuracyResponse.ProtoReflect.Descriptor instead.
-func (*HasSpeedAccuracyResponse) Descriptor() ([]byte, []int) {
-	return file_proto_location_location_proto_rawDescGZIP(), []int{65}
-}
-
-func (x *HasSpeedAccuracyResponse) GetResult() bool {
-	if x != nil {
-		return x.Result
-	}
-	return false
-}
-
-type HasVerticalAccuracyRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *HasVerticalAccuracyRequest) Reset() {
-	*x = HasVerticalAccuracyRequest{}
-	mi := &file_proto_location_location_proto_msgTypes[66]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *HasVerticalAccuracyRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*HasVerticalAccuracyRequest) ProtoMessage() {}
-
-func (x *HasVerticalAccuracyRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_location_location_proto_msgTypes[66]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use HasVerticalAccuracyRequest.ProtoReflect.Descriptor instead.
-func (*HasVerticalAccuracyRequest) Descriptor() ([]byte, []int) {
-	return file_proto_location_location_proto_rawDescGZIP(), []int{66}
-}
-
-type HasVerticalAccuracyResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *HasVerticalAccuracyResponse) Reset() {
-	*x = HasVerticalAccuracyResponse{}
-	mi := &file_proto_location_location_proto_msgTypes[67]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *HasVerticalAccuracyResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*HasVerticalAccuracyResponse) ProtoMessage() {}
-
-func (x *HasVerticalAccuracyResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_location_location_proto_msgTypes[67]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use HasVerticalAccuracyResponse.ProtoReflect.Descriptor instead.
-func (*HasVerticalAccuracyResponse) Descriptor() ([]byte, []int) {
-	return file_proto_location_location_proto_rawDescGZIP(), []int{67}
-}
-
-func (x *HasVerticalAccuracyResponse) GetResult() bool {
-	if x != nil {
-		return x.Result
-	}
-	return false
-}
-
-type HashCodeRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *HashCodeRequest) Reset() {
-	*x = HashCodeRequest{}
-	mi := &file_proto_location_location_proto_msgTypes[68]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *HashCodeRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*HashCodeRequest) ProtoMessage() {}
-
-func (x *HashCodeRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_location_location_proto_msgTypes[68]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use HashCodeRequest.ProtoReflect.Descriptor instead.
-func (*HashCodeRequest) Descriptor() ([]byte, []int) {
-	return file_proto_location_location_proto_rawDescGZIP(), []int{68}
-}
-
-type HashCodeResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *HashCodeResponse) Reset() {
-	*x = HashCodeResponse{}
-	mi := &file_proto_location_location_proto_msgTypes[69]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *HashCodeResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*HashCodeResponse) ProtoMessage() {}
-
-func (x *HashCodeResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_location_location_proto_msgTypes[69]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use HashCodeResponse.ProtoReflect.Descriptor instead.
-func (*HashCodeResponse) Descriptor() ([]byte, []int) {
-	return file_proto_location_location_proto_rawDescGZIP(), []int{69}
-}
-
-func (x *HashCodeResponse) GetResult() int32 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type IsCompleteRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *IsCompleteRequest) Reset() {
-	*x = IsCompleteRequest{}
-	mi := &file_proto_location_location_proto_msgTypes[70]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *IsCompleteRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*IsCompleteRequest) ProtoMessage() {}
-
-func (x *IsCompleteRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_location_location_proto_msgTypes[70]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use IsCompleteRequest.ProtoReflect.Descriptor instead.
-func (*IsCompleteRequest) Descriptor() ([]byte, []int) {
-	return file_proto_location_location_proto_rawDescGZIP(), []int{70}
-}
-
-type IsCompleteResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *IsCompleteResponse) Reset() {
-	*x = IsCompleteResponse{}
-	mi := &file_proto_location_location_proto_msgTypes[71]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *IsCompleteResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*IsCompleteResponse) ProtoMessage() {}
-
-func (x *IsCompleteResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_location_location_proto_msgTypes[71]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use IsCompleteResponse.ProtoReflect.Descriptor instead.
-func (*IsCompleteResponse) Descriptor() ([]byte, []int) {
-	return file_proto_location_location_proto_rawDescGZIP(), []int{71}
-}
-
-func (x *IsCompleteResponse) GetResult() bool {
-	if x != nil {
-		return x.Result
-	}
-	return false
-}
-
-type IsFromMockProviderRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *IsFromMockProviderRequest) Reset() {
-	*x = IsFromMockProviderRequest{}
-	mi := &file_proto_location_location_proto_msgTypes[72]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *IsFromMockProviderRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*IsFromMockProviderRequest) ProtoMessage() {}
-
-func (x *IsFromMockProviderRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_location_location_proto_msgTypes[72]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use IsFromMockProviderRequest.ProtoReflect.Descriptor instead.
-func (*IsFromMockProviderRequest) Descriptor() ([]byte, []int) {
-	return file_proto_location_location_proto_rawDescGZIP(), []int{72}
-}
-
-type IsFromMockProviderResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *IsFromMockProviderResponse) Reset() {
-	*x = IsFromMockProviderResponse{}
-	mi := &file_proto_location_location_proto_msgTypes[73]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *IsFromMockProviderResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*IsFromMockProviderResponse) ProtoMessage() {}
-
-func (x *IsFromMockProviderResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_location_location_proto_msgTypes[73]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use IsFromMockProviderResponse.ProtoReflect.Descriptor instead.
-func (*IsFromMockProviderResponse) Descriptor() ([]byte, []int) {
-	return file_proto_location_location_proto_rawDescGZIP(), []int{73}
-}
-
-func (x *IsFromMockProviderResponse) GetResult() bool {
-	if x != nil {
-		return x.Result
-	}
-	return false
-}
-
-type IsMockRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *IsMockRequest) Reset() {
-	*x = IsMockRequest{}
-	mi := &file_proto_location_location_proto_msgTypes[74]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *IsMockRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*IsMockRequest) ProtoMessage() {}
-
-func (x *IsMockRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_location_location_proto_msgTypes[74]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use IsMockRequest.ProtoReflect.Descriptor instead.
-func (*IsMockRequest) Descriptor() ([]byte, []int) {
-	return file_proto_location_location_proto_rawDescGZIP(), []int{74}
-}
-
-type IsMockResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *IsMockResponse) Reset() {
-	*x = IsMockResponse{}
-	mi := &file_proto_location_location_proto_msgTypes[75]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *IsMockResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*IsMockResponse) ProtoMessage() {}
-
-func (x *IsMockResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_location_location_proto_msgTypes[75]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use IsMockResponse.ProtoReflect.Descriptor instead.
-func (*IsMockResponse) Descriptor() ([]byte, []int) {
-	return file_proto_location_location_proto_rawDescGZIP(), []int{75}
-}
-
-func (x *IsMockResponse) GetResult() bool {
-	if x != nil {
-		return x.Result
-	}
-	return false
-}
-
-type RemoveAccuracyRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *RemoveAccuracyRequest) Reset() {
-	*x = RemoveAccuracyRequest{}
-	mi := &file_proto_location_location_proto_msgTypes[76]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *RemoveAccuracyRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*RemoveAccuracyRequest) ProtoMessage() {}
-
-func (x *RemoveAccuracyRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_location_location_proto_msgTypes[76]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use RemoveAccuracyRequest.ProtoReflect.Descriptor instead.
-func (*RemoveAccuracyRequest) Descriptor() ([]byte, []int) {
-	return file_proto_location_location_proto_rawDescGZIP(), []int{76}
-}
-
-type RemoveAccuracyResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *RemoveAccuracyResponse) Reset() {
-	*x = RemoveAccuracyResponse{}
-	mi := &file_proto_location_location_proto_msgTypes[77]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *RemoveAccuracyResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*RemoveAccuracyResponse) ProtoMessage() {}
-
-func (x *RemoveAccuracyResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_location_location_proto_msgTypes[77]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use RemoveAccuracyResponse.ProtoReflect.Descriptor instead.
-func (*RemoveAccuracyResponse) Descriptor() ([]byte, []int) {
-	return file_proto_location_location_proto_rawDescGZIP(), []int{77}
-}
-
-type RemoveAltitudeRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *RemoveAltitudeRequest) Reset() {
-	*x = RemoveAltitudeRequest{}
-	mi := &file_proto_location_location_proto_msgTypes[78]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *RemoveAltitudeRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*RemoveAltitudeRequest) ProtoMessage() {}
-
-func (x *RemoveAltitudeRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_location_location_proto_msgTypes[78]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use RemoveAltitudeRequest.ProtoReflect.Descriptor instead.
-func (*RemoveAltitudeRequest) Descriptor() ([]byte, []int) {
-	return file_proto_location_location_proto_rawDescGZIP(), []int{78}
-}
-
-type RemoveAltitudeResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *RemoveAltitudeResponse) Reset() {
-	*x = RemoveAltitudeResponse{}
-	mi := &file_proto_location_location_proto_msgTypes[79]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *RemoveAltitudeResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*RemoveAltitudeResponse) ProtoMessage() {}
-
-func (x *RemoveAltitudeResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_location_location_proto_msgTypes[79]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use RemoveAltitudeResponse.ProtoReflect.Descriptor instead.
-func (*RemoveAltitudeResponse) Descriptor() ([]byte, []int) {
-	return file_proto_location_location_proto_rawDescGZIP(), []int{79}
-}
-
-type RemoveBearingRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *RemoveBearingRequest) Reset() {
-	*x = RemoveBearingRequest{}
-	mi := &file_proto_location_location_proto_msgTypes[80]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *RemoveBearingRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*RemoveBearingRequest) ProtoMessage() {}
-
-func (x *RemoveBearingRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_location_location_proto_msgTypes[80]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use RemoveBearingRequest.ProtoReflect.Descriptor instead.
-func (*RemoveBearingRequest) Descriptor() ([]byte, []int) {
-	return file_proto_location_location_proto_rawDescGZIP(), []int{80}
-}
-
-type RemoveBearingResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *RemoveBearingResponse) Reset() {
-	*x = RemoveBearingResponse{}
-	mi := &file_proto_location_location_proto_msgTypes[81]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *RemoveBearingResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*RemoveBearingResponse) ProtoMessage() {}
-
-func (x *RemoveBearingResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_location_location_proto_msgTypes[81]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use RemoveBearingResponse.ProtoReflect.Descriptor instead.
-func (*RemoveBearingResponse) Descriptor() ([]byte, []int) {
-	return file_proto_location_location_proto_rawDescGZIP(), []int{81}
-}
-
-type RemoveBearingAccuracyRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *RemoveBearingAccuracyRequest) Reset() {
-	*x = RemoveBearingAccuracyRequest{}
-	mi := &file_proto_location_location_proto_msgTypes[82]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *RemoveBearingAccuracyRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*RemoveBearingAccuracyRequest) ProtoMessage() {}
-
-func (x *RemoveBearingAccuracyRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_location_location_proto_msgTypes[82]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use RemoveBearingAccuracyRequest.ProtoReflect.Descriptor instead.
-func (*RemoveBearingAccuracyRequest) Descriptor() ([]byte, []int) {
-	return file_proto_location_location_proto_rawDescGZIP(), []int{82}
-}
-
-type RemoveBearingAccuracyResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *RemoveBearingAccuracyResponse) Reset() {
-	*x = RemoveBearingAccuracyResponse{}
-	mi := &file_proto_location_location_proto_msgTypes[83]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *RemoveBearingAccuracyResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*RemoveBearingAccuracyResponse) ProtoMessage() {}
-
-func (x *RemoveBearingAccuracyResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_location_location_proto_msgTypes[83]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use RemoveBearingAccuracyResponse.ProtoReflect.Descriptor instead.
-func (*RemoveBearingAccuracyResponse) Descriptor() ([]byte, []int) {
-	return file_proto_location_location_proto_rawDescGZIP(), []int{83}
-}
-
-type RemoveElapsedRealtimeUncertaintyNanosRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *RemoveElapsedRealtimeUncertaintyNanosRequest) Reset() {
-	*x = RemoveElapsedRealtimeUncertaintyNanosRequest{}
-	mi := &file_proto_location_location_proto_msgTypes[84]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *RemoveElapsedRealtimeUncertaintyNanosRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*RemoveElapsedRealtimeUncertaintyNanosRequest) ProtoMessage() {}
-
-func (x *RemoveElapsedRealtimeUncertaintyNanosRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_location_location_proto_msgTypes[84]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use RemoveElapsedRealtimeUncertaintyNanosRequest.ProtoReflect.Descriptor instead.
-func (*RemoveElapsedRealtimeUncertaintyNanosRequest) Descriptor() ([]byte, []int) {
-	return file_proto_location_location_proto_rawDescGZIP(), []int{84}
-}
-
-type RemoveElapsedRealtimeUncertaintyNanosResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *RemoveElapsedRealtimeUncertaintyNanosResponse) Reset() {
-	*x = RemoveElapsedRealtimeUncertaintyNanosResponse{}
-	mi := &file_proto_location_location_proto_msgTypes[85]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *RemoveElapsedRealtimeUncertaintyNanosResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*RemoveElapsedRealtimeUncertaintyNanosResponse) ProtoMessage() {}
-
-func (x *RemoveElapsedRealtimeUncertaintyNanosResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_location_location_proto_msgTypes[85]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use RemoveElapsedRealtimeUncertaintyNanosResponse.ProtoReflect.Descriptor instead.
-func (*RemoveElapsedRealtimeUncertaintyNanosResponse) Descriptor() ([]byte, []int) {
-	return file_proto_location_location_proto_rawDescGZIP(), []int{85}
-}
-
-type RemoveMslAltitudeRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *RemoveMslAltitudeRequest) Reset() {
-	*x = RemoveMslAltitudeRequest{}
-	mi := &file_proto_location_location_proto_msgTypes[86]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *RemoveMslAltitudeRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*RemoveMslAltitudeRequest) ProtoMessage() {}
-
-func (x *RemoveMslAltitudeRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_location_location_proto_msgTypes[86]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use RemoveMslAltitudeRequest.ProtoReflect.Descriptor instead.
-func (*RemoveMslAltitudeRequest) Descriptor() ([]byte, []int) {
-	return file_proto_location_location_proto_rawDescGZIP(), []int{86}
-}
-
-type RemoveMslAltitudeResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *RemoveMslAltitudeResponse) Reset() {
-	*x = RemoveMslAltitudeResponse{}
-	mi := &file_proto_location_location_proto_msgTypes[87]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *RemoveMslAltitudeResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*RemoveMslAltitudeResponse) ProtoMessage() {}
-
-func (x *RemoveMslAltitudeResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_location_location_proto_msgTypes[87]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use RemoveMslAltitudeResponse.ProtoReflect.Descriptor instead.
-func (*RemoveMslAltitudeResponse) Descriptor() ([]byte, []int) {
-	return file_proto_location_location_proto_rawDescGZIP(), []int{87}
-}
-
-type RemoveMslAltitudeAccuracyRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *RemoveMslAltitudeAccuracyRequest) Reset() {
-	*x = RemoveMslAltitudeAccuracyRequest{}
-	mi := &file_proto_location_location_proto_msgTypes[88]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *RemoveMslAltitudeAccuracyRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*RemoveMslAltitudeAccuracyRequest) ProtoMessage() {}
-
-func (x *RemoveMslAltitudeAccuracyRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_location_location_proto_msgTypes[88]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use RemoveMslAltitudeAccuracyRequest.ProtoReflect.Descriptor instead.
-func (*RemoveMslAltitudeAccuracyRequest) Descriptor() ([]byte, []int) {
-	return file_proto_location_location_proto_rawDescGZIP(), []int{88}
-}
-
-type RemoveMslAltitudeAccuracyResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *RemoveMslAltitudeAccuracyResponse) Reset() {
-	*x = RemoveMslAltitudeAccuracyResponse{}
-	mi := &file_proto_location_location_proto_msgTypes[89]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *RemoveMslAltitudeAccuracyResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*RemoveMslAltitudeAccuracyResponse) ProtoMessage() {}
-
-func (x *RemoveMslAltitudeAccuracyResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_location_location_proto_msgTypes[89]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use RemoveMslAltitudeAccuracyResponse.ProtoReflect.Descriptor instead.
-func (*RemoveMslAltitudeAccuracyResponse) Descriptor() ([]byte, []int) {
-	return file_proto_location_location_proto_rawDescGZIP(), []int{89}
-}
-
-type RemoveSpeedRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *RemoveSpeedRequest) Reset() {
-	*x = RemoveSpeedRequest{}
-	mi := &file_proto_location_location_proto_msgTypes[90]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *RemoveSpeedRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*RemoveSpeedRequest) ProtoMessage() {}
-
-func (x *RemoveSpeedRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_location_location_proto_msgTypes[90]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use RemoveSpeedRequest.ProtoReflect.Descriptor instead.
-func (*RemoveSpeedRequest) Descriptor() ([]byte, []int) {
-	return file_proto_location_location_proto_rawDescGZIP(), []int{90}
-}
-
-type RemoveSpeedResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *RemoveSpeedResponse) Reset() {
-	*x = RemoveSpeedResponse{}
-	mi := &file_proto_location_location_proto_msgTypes[91]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *RemoveSpeedResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*RemoveSpeedResponse) ProtoMessage() {}
-
-func (x *RemoveSpeedResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_location_location_proto_msgTypes[91]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use RemoveSpeedResponse.ProtoReflect.Descriptor instead.
-func (*RemoveSpeedResponse) Descriptor() ([]byte, []int) {
-	return file_proto_location_location_proto_rawDescGZIP(), []int{91}
-}
-
-type RemoveSpeedAccuracyRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *RemoveSpeedAccuracyRequest) Reset() {
-	*x = RemoveSpeedAccuracyRequest{}
-	mi := &file_proto_location_location_proto_msgTypes[92]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *RemoveSpeedAccuracyRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*RemoveSpeedAccuracyRequest) ProtoMessage() {}
-
-func (x *RemoveSpeedAccuracyRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_location_location_proto_msgTypes[92]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use RemoveSpeedAccuracyRequest.ProtoReflect.Descriptor instead.
-func (*RemoveSpeedAccuracyRequest) Descriptor() ([]byte, []int) {
-	return file_proto_location_location_proto_rawDescGZIP(), []int{92}
-}
-
-type RemoveSpeedAccuracyResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *RemoveSpeedAccuracyResponse) Reset() {
-	*x = RemoveSpeedAccuracyResponse{}
-	mi := &file_proto_location_location_proto_msgTypes[93]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *RemoveSpeedAccuracyResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*RemoveSpeedAccuracyResponse) ProtoMessage() {}
-
-func (x *RemoveSpeedAccuracyResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_location_location_proto_msgTypes[93]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use RemoveSpeedAccuracyResponse.ProtoReflect.Descriptor instead.
-func (*RemoveSpeedAccuracyResponse) Descriptor() ([]byte, []int) {
-	return file_proto_location_location_proto_rawDescGZIP(), []int{93}
-}
-
-type RemoveVerticalAccuracyRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *RemoveVerticalAccuracyRequest) Reset() {
-	*x = RemoveVerticalAccuracyRequest{}
-	mi := &file_proto_location_location_proto_msgTypes[94]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *RemoveVerticalAccuracyRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*RemoveVerticalAccuracyRequest) ProtoMessage() {}
-
-func (x *RemoveVerticalAccuracyRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_location_location_proto_msgTypes[94]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use RemoveVerticalAccuracyRequest.ProtoReflect.Descriptor instead.
-func (*RemoveVerticalAccuracyRequest) Descriptor() ([]byte, []int) {
-	return file_proto_location_location_proto_rawDescGZIP(), []int{94}
-}
-
-type RemoveVerticalAccuracyResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *RemoveVerticalAccuracyResponse) Reset() {
-	*x = RemoveVerticalAccuracyResponse{}
-	mi := &file_proto_location_location_proto_msgTypes[95]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *RemoveVerticalAccuracyResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*RemoveVerticalAccuracyResponse) ProtoMessage() {}
-
-func (x *RemoveVerticalAccuracyResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_location_location_proto_msgTypes[95]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use RemoveVerticalAccuracyResponse.ProtoReflect.Descriptor instead.
-func (*RemoveVerticalAccuracyResponse) Descriptor() ([]byte, []int) {
-	return file_proto_location_location_proto_rawDescGZIP(), []int{95}
-}
-
-type ResetRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *ResetRequest) Reset() {
-	*x = ResetRequest{}
-	mi := &file_proto_location_location_proto_msgTypes[96]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *ResetRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*ResetRequest) ProtoMessage() {}
-
-func (x *ResetRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_location_location_proto_msgTypes[96]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use ResetRequest.ProtoReflect.Descriptor instead.
-func (*ResetRequest) Descriptor() ([]byte, []int) {
-	return file_proto_location_location_proto_rawDescGZIP(), []int{96}
-}
-
-type ResetResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *ResetResponse) Reset() {
-	*x = ResetResponse{}
-	mi := &file_proto_location_location_proto_msgTypes[97]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *ResetResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*ResetResponse) ProtoMessage() {}
-
-func (x *ResetResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_location_location_proto_msgTypes[97]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use ResetResponse.ProtoReflect.Descriptor instead.
-func (*ResetResponse) Descriptor() ([]byte, []int) {
-	return file_proto_location_location_proto_rawDescGZIP(), []int{97}
-}
-
-type SetRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetRequest) Reset() {
-	*x = SetRequest{}
-	mi := &file_proto_location_location_proto_msgTypes[98]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetRequest) ProtoMessage() {}
-
-func (x *SetRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_location_location_proto_msgTypes[98]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetRequest.ProtoReflect.Descriptor instead.
-func (*SetRequest) Descriptor() ([]byte, []int) {
-	return file_proto_location_location_proto_rawDescGZIP(), []int{98}
-}
-
-func (x *SetRequest) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type SetResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetResponse) Reset() {
-	*x = SetResponse{}
-	mi := &file_proto_location_location_proto_msgTypes[99]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetResponse) ProtoMessage() {}
-
-func (x *SetResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_location_location_proto_msgTypes[99]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetResponse.ProtoReflect.Descriptor instead.
-func (*SetResponse) Descriptor() ([]byte, []int) {
-	return file_proto_location_location_proto_rawDescGZIP(), []int{99}
-}
-
-type SetAccuracyRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          float32                `protobuf:"fixed32,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetAccuracyRequest) Reset() {
-	*x = SetAccuracyRequest{}
-	mi := &file_proto_location_location_proto_msgTypes[100]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetAccuracyRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetAccuracyRequest) ProtoMessage() {}
-
-func (x *SetAccuracyRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_location_location_proto_msgTypes[100]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetAccuracyRequest.ProtoReflect.Descriptor instead.
-func (*SetAccuracyRequest) Descriptor() ([]byte, []int) {
-	return file_proto_location_location_proto_rawDescGZIP(), []int{100}
-}
-
-func (x *SetAccuracyRequest) GetArg0() float32 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type SetAccuracyResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetAccuracyResponse) Reset() {
-	*x = SetAccuracyResponse{}
-	mi := &file_proto_location_location_proto_msgTypes[101]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetAccuracyResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetAccuracyResponse) ProtoMessage() {}
-
-func (x *SetAccuracyResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_location_location_proto_msgTypes[101]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetAccuracyResponse.ProtoReflect.Descriptor instead.
-func (*SetAccuracyResponse) Descriptor() ([]byte, []int) {
-	return file_proto_location_location_proto_rawDescGZIP(), []int{101}
-}
-
-type SetAltitudeRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          float64                `protobuf:"fixed64,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetAltitudeRequest) Reset() {
-	*x = SetAltitudeRequest{}
-	mi := &file_proto_location_location_proto_msgTypes[102]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetAltitudeRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetAltitudeRequest) ProtoMessage() {}
-
-func (x *SetAltitudeRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_location_location_proto_msgTypes[102]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetAltitudeRequest.ProtoReflect.Descriptor instead.
-func (*SetAltitudeRequest) Descriptor() ([]byte, []int) {
-	return file_proto_location_location_proto_rawDescGZIP(), []int{102}
-}
-
-func (x *SetAltitudeRequest) GetArg0() float64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type SetAltitudeResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetAltitudeResponse) Reset() {
-	*x = SetAltitudeResponse{}
-	mi := &file_proto_location_location_proto_msgTypes[103]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetAltitudeResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetAltitudeResponse) ProtoMessage() {}
-
-func (x *SetAltitudeResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_location_location_proto_msgTypes[103]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetAltitudeResponse.ProtoReflect.Descriptor instead.
-func (*SetAltitudeResponse) Descriptor() ([]byte, []int) {
-	return file_proto_location_location_proto_rawDescGZIP(), []int{103}
-}
-
-type SetBearingRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          float32                `protobuf:"fixed32,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetBearingRequest) Reset() {
-	*x = SetBearingRequest{}
-	mi := &file_proto_location_location_proto_msgTypes[104]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetBearingRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetBearingRequest) ProtoMessage() {}
-
-func (x *SetBearingRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_location_location_proto_msgTypes[104]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetBearingRequest.ProtoReflect.Descriptor instead.
-func (*SetBearingRequest) Descriptor() ([]byte, []int) {
-	return file_proto_location_location_proto_rawDescGZIP(), []int{104}
-}
-
-func (x *SetBearingRequest) GetArg0() float32 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type SetBearingResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetBearingResponse) Reset() {
-	*x = SetBearingResponse{}
-	mi := &file_proto_location_location_proto_msgTypes[105]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetBearingResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetBearingResponse) ProtoMessage() {}
-
-func (x *SetBearingResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_location_location_proto_msgTypes[105]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetBearingResponse.ProtoReflect.Descriptor instead.
-func (*SetBearingResponse) Descriptor() ([]byte, []int) {
-	return file_proto_location_location_proto_rawDescGZIP(), []int{105}
-}
-
-type SetBearingAccuracyDegreesRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          float32                `protobuf:"fixed32,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetBearingAccuracyDegreesRequest) Reset() {
-	*x = SetBearingAccuracyDegreesRequest{}
-	mi := &file_proto_location_location_proto_msgTypes[106]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetBearingAccuracyDegreesRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetBearingAccuracyDegreesRequest) ProtoMessage() {}
-
-func (x *SetBearingAccuracyDegreesRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_location_location_proto_msgTypes[106]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetBearingAccuracyDegreesRequest.ProtoReflect.Descriptor instead.
-func (*SetBearingAccuracyDegreesRequest) Descriptor() ([]byte, []int) {
-	return file_proto_location_location_proto_rawDescGZIP(), []int{106}
-}
-
-func (x *SetBearingAccuracyDegreesRequest) GetArg0() float32 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type SetBearingAccuracyDegreesResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetBearingAccuracyDegreesResponse) Reset() {
-	*x = SetBearingAccuracyDegreesResponse{}
-	mi := &file_proto_location_location_proto_msgTypes[107]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetBearingAccuracyDegreesResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetBearingAccuracyDegreesResponse) ProtoMessage() {}
-
-func (x *SetBearingAccuracyDegreesResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_location_location_proto_msgTypes[107]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetBearingAccuracyDegreesResponse.ProtoReflect.Descriptor instead.
-func (*SetBearingAccuracyDegreesResponse) Descriptor() ([]byte, []int) {
-	return file_proto_location_location_proto_rawDescGZIP(), []int{107}
-}
-
-type SetElapsedRealtimeNanosRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetElapsedRealtimeNanosRequest) Reset() {
-	*x = SetElapsedRealtimeNanosRequest{}
-	mi := &file_proto_location_location_proto_msgTypes[108]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetElapsedRealtimeNanosRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetElapsedRealtimeNanosRequest) ProtoMessage() {}
-
-func (x *SetElapsedRealtimeNanosRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_location_location_proto_msgTypes[108]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetElapsedRealtimeNanosRequest.ProtoReflect.Descriptor instead.
-func (*SetElapsedRealtimeNanosRequest) Descriptor() ([]byte, []int) {
-	return file_proto_location_location_proto_rawDescGZIP(), []int{108}
-}
-
-func (x *SetElapsedRealtimeNanosRequest) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type SetElapsedRealtimeNanosResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetElapsedRealtimeNanosResponse) Reset() {
-	*x = SetElapsedRealtimeNanosResponse{}
-	mi := &file_proto_location_location_proto_msgTypes[109]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetElapsedRealtimeNanosResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetElapsedRealtimeNanosResponse) ProtoMessage() {}
-
-func (x *SetElapsedRealtimeNanosResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_location_location_proto_msgTypes[109]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetElapsedRealtimeNanosResponse.ProtoReflect.Descriptor instead.
-func (*SetElapsedRealtimeNanosResponse) Descriptor() ([]byte, []int) {
-	return file_proto_location_location_proto_rawDescGZIP(), []int{109}
-}
-
-type SetElapsedRealtimeUncertaintyNanosRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          float64                `protobuf:"fixed64,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetElapsedRealtimeUncertaintyNanosRequest) Reset() {
-	*x = SetElapsedRealtimeUncertaintyNanosRequest{}
-	mi := &file_proto_location_location_proto_msgTypes[110]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetElapsedRealtimeUncertaintyNanosRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetElapsedRealtimeUncertaintyNanosRequest) ProtoMessage() {}
-
-func (x *SetElapsedRealtimeUncertaintyNanosRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_location_location_proto_msgTypes[110]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetElapsedRealtimeUncertaintyNanosRequest.ProtoReflect.Descriptor instead.
-func (*SetElapsedRealtimeUncertaintyNanosRequest) Descriptor() ([]byte, []int) {
-	return file_proto_location_location_proto_rawDescGZIP(), []int{110}
-}
-
-func (x *SetElapsedRealtimeUncertaintyNanosRequest) GetArg0() float64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type SetElapsedRealtimeUncertaintyNanosResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetElapsedRealtimeUncertaintyNanosResponse) Reset() {
-	*x = SetElapsedRealtimeUncertaintyNanosResponse{}
-	mi := &file_proto_location_location_proto_msgTypes[111]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetElapsedRealtimeUncertaintyNanosResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetElapsedRealtimeUncertaintyNanosResponse) ProtoMessage() {}
-
-func (x *SetElapsedRealtimeUncertaintyNanosResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_location_location_proto_msgTypes[111]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetElapsedRealtimeUncertaintyNanosResponse.ProtoReflect.Descriptor instead.
-func (*SetElapsedRealtimeUncertaintyNanosResponse) Descriptor() ([]byte, []int) {
-	return file_proto_location_location_proto_rawDescGZIP(), []int{111}
-}
-
-type SetExtrasRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetExtrasRequest) Reset() {
-	*x = SetExtrasRequest{}
-	mi := &file_proto_location_location_proto_msgTypes[112]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetExtrasRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetExtrasRequest) ProtoMessage() {}
-
-func (x *SetExtrasRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_location_location_proto_msgTypes[112]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetExtrasRequest.ProtoReflect.Descriptor instead.
-func (*SetExtrasRequest) Descriptor() ([]byte, []int) {
-	return file_proto_location_location_proto_rawDescGZIP(), []int{112}
-}
-
-func (x *SetExtrasRequest) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type SetExtrasResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetExtrasResponse) Reset() {
-	*x = SetExtrasResponse{}
-	mi := &file_proto_location_location_proto_msgTypes[113]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetExtrasResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetExtrasResponse) ProtoMessage() {}
-
-func (x *SetExtrasResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_location_location_proto_msgTypes[113]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetExtrasResponse.ProtoReflect.Descriptor instead.
-func (*SetExtrasResponse) Descriptor() ([]byte, []int) {
-	return file_proto_location_location_proto_rawDescGZIP(), []int{113}
-}
-
-type SetLatitudeRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          float64                `protobuf:"fixed64,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetLatitudeRequest) Reset() {
-	*x = SetLatitudeRequest{}
-	mi := &file_proto_location_location_proto_msgTypes[114]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetLatitudeRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetLatitudeRequest) ProtoMessage() {}
-
-func (x *SetLatitudeRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_location_location_proto_msgTypes[114]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetLatitudeRequest.ProtoReflect.Descriptor instead.
-func (*SetLatitudeRequest) Descriptor() ([]byte, []int) {
-	return file_proto_location_location_proto_rawDescGZIP(), []int{114}
-}
-
-func (x *SetLatitudeRequest) GetArg0() float64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type SetLatitudeResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetLatitudeResponse) Reset() {
-	*x = SetLatitudeResponse{}
-	mi := &file_proto_location_location_proto_msgTypes[115]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetLatitudeResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetLatitudeResponse) ProtoMessage() {}
-
-func (x *SetLatitudeResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_location_location_proto_msgTypes[115]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetLatitudeResponse.ProtoReflect.Descriptor instead.
-func (*SetLatitudeResponse) Descriptor() ([]byte, []int) {
-	return file_proto_location_location_proto_rawDescGZIP(), []int{115}
-}
-
-type SetLongitudeRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          float64                `protobuf:"fixed64,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetLongitudeRequest) Reset() {
-	*x = SetLongitudeRequest{}
-	mi := &file_proto_location_location_proto_msgTypes[116]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetLongitudeRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetLongitudeRequest) ProtoMessage() {}
-
-func (x *SetLongitudeRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_location_location_proto_msgTypes[116]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetLongitudeRequest.ProtoReflect.Descriptor instead.
-func (*SetLongitudeRequest) Descriptor() ([]byte, []int) {
-	return file_proto_location_location_proto_rawDescGZIP(), []int{116}
-}
-
-func (x *SetLongitudeRequest) GetArg0() float64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type SetLongitudeResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetLongitudeResponse) Reset() {
-	*x = SetLongitudeResponse{}
-	mi := &file_proto_location_location_proto_msgTypes[117]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetLongitudeResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetLongitudeResponse) ProtoMessage() {}
-
-func (x *SetLongitudeResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_location_location_proto_msgTypes[117]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetLongitudeResponse.ProtoReflect.Descriptor instead.
-func (*SetLongitudeResponse) Descriptor() ([]byte, []int) {
-	return file_proto_location_location_proto_rawDescGZIP(), []int{117}
-}
-
-type SetMockRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          bool                   `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetMockRequest) Reset() {
-	*x = SetMockRequest{}
-	mi := &file_proto_location_location_proto_msgTypes[118]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetMockRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetMockRequest) ProtoMessage() {}
-
-func (x *SetMockRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_location_location_proto_msgTypes[118]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetMockRequest.ProtoReflect.Descriptor instead.
-func (*SetMockRequest) Descriptor() ([]byte, []int) {
-	return file_proto_location_location_proto_rawDescGZIP(), []int{118}
-}
-
-func (x *SetMockRequest) GetArg0() bool {
-	if x != nil {
-		return x.Arg0
-	}
-	return false
-}
-
-type SetMockResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetMockResponse) Reset() {
-	*x = SetMockResponse{}
-	mi := &file_proto_location_location_proto_msgTypes[119]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetMockResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetMockResponse) ProtoMessage() {}
-
-func (x *SetMockResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_location_location_proto_msgTypes[119]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetMockResponse.ProtoReflect.Descriptor instead.
-func (*SetMockResponse) Descriptor() ([]byte, []int) {
-	return file_proto_location_location_proto_rawDescGZIP(), []int{119}
-}
-
-type SetMslAltitudeAccuracyMetersRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          float32                `protobuf:"fixed32,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetMslAltitudeAccuracyMetersRequest) Reset() {
-	*x = SetMslAltitudeAccuracyMetersRequest{}
-	mi := &file_proto_location_location_proto_msgTypes[120]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetMslAltitudeAccuracyMetersRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetMslAltitudeAccuracyMetersRequest) ProtoMessage() {}
-
-func (x *SetMslAltitudeAccuracyMetersRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_location_location_proto_msgTypes[120]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetMslAltitudeAccuracyMetersRequest.ProtoReflect.Descriptor instead.
-func (*SetMslAltitudeAccuracyMetersRequest) Descriptor() ([]byte, []int) {
-	return file_proto_location_location_proto_rawDescGZIP(), []int{120}
-}
-
-func (x *SetMslAltitudeAccuracyMetersRequest) GetArg0() float32 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type SetMslAltitudeAccuracyMetersResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetMslAltitudeAccuracyMetersResponse) Reset() {
-	*x = SetMslAltitudeAccuracyMetersResponse{}
-	mi := &file_proto_location_location_proto_msgTypes[121]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetMslAltitudeAccuracyMetersResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetMslAltitudeAccuracyMetersResponse) ProtoMessage() {}
-
-func (x *SetMslAltitudeAccuracyMetersResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_location_location_proto_msgTypes[121]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetMslAltitudeAccuracyMetersResponse.ProtoReflect.Descriptor instead.
-func (*SetMslAltitudeAccuracyMetersResponse) Descriptor() ([]byte, []int) {
-	return file_proto_location_location_proto_rawDescGZIP(), []int{121}
-}
-
-type SetMslAltitudeMetersRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          float64                `protobuf:"fixed64,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetMslAltitudeMetersRequest) Reset() {
-	*x = SetMslAltitudeMetersRequest{}
-	mi := &file_proto_location_location_proto_msgTypes[122]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetMslAltitudeMetersRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetMslAltitudeMetersRequest) ProtoMessage() {}
-
-func (x *SetMslAltitudeMetersRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_location_location_proto_msgTypes[122]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetMslAltitudeMetersRequest.ProtoReflect.Descriptor instead.
-func (*SetMslAltitudeMetersRequest) Descriptor() ([]byte, []int) {
-	return file_proto_location_location_proto_rawDescGZIP(), []int{122}
-}
-
-func (x *SetMslAltitudeMetersRequest) GetArg0() float64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type SetMslAltitudeMetersResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetMslAltitudeMetersResponse) Reset() {
-	*x = SetMslAltitudeMetersResponse{}
-	mi := &file_proto_location_location_proto_msgTypes[123]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetMslAltitudeMetersResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetMslAltitudeMetersResponse) ProtoMessage() {}
-
-func (x *SetMslAltitudeMetersResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_location_location_proto_msgTypes[123]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetMslAltitudeMetersResponse.ProtoReflect.Descriptor instead.
-func (*SetMslAltitudeMetersResponse) Descriptor() ([]byte, []int) {
-	return file_proto_location_location_proto_rawDescGZIP(), []int{123}
-}
-
-type SetProviderRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetProviderRequest) Reset() {
-	*x = SetProviderRequest{}
-	mi := &file_proto_location_location_proto_msgTypes[124]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetProviderRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetProviderRequest) ProtoMessage() {}
-
-func (x *SetProviderRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_location_location_proto_msgTypes[124]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetProviderRequest.ProtoReflect.Descriptor instead.
-func (*SetProviderRequest) Descriptor() ([]byte, []int) {
-	return file_proto_location_location_proto_rawDescGZIP(), []int{124}
-}
-
-func (x *SetProviderRequest) GetArg0() string {
-	if x != nil {
-		return x.Arg0
-	}
-	return ""
-}
-
-type SetProviderResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetProviderResponse) Reset() {
-	*x = SetProviderResponse{}
-	mi := &file_proto_location_location_proto_msgTypes[125]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetProviderResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetProviderResponse) ProtoMessage() {}
-
-func (x *SetProviderResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_location_location_proto_msgTypes[125]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetProviderResponse.ProtoReflect.Descriptor instead.
-func (*SetProviderResponse) Descriptor() ([]byte, []int) {
-	return file_proto_location_location_proto_rawDescGZIP(), []int{125}
-}
-
-type SetSpeedRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          float32                `protobuf:"fixed32,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetSpeedRequest) Reset() {
-	*x = SetSpeedRequest{}
-	mi := &file_proto_location_location_proto_msgTypes[126]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetSpeedRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetSpeedRequest) ProtoMessage() {}
-
-func (x *SetSpeedRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_location_location_proto_msgTypes[126]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetSpeedRequest.ProtoReflect.Descriptor instead.
-func (*SetSpeedRequest) Descriptor() ([]byte, []int) {
-	return file_proto_location_location_proto_rawDescGZIP(), []int{126}
-}
-
-func (x *SetSpeedRequest) GetArg0() float32 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type SetSpeedResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetSpeedResponse) Reset() {
-	*x = SetSpeedResponse{}
-	mi := &file_proto_location_location_proto_msgTypes[127]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetSpeedResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetSpeedResponse) ProtoMessage() {}
-
-func (x *SetSpeedResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_location_location_proto_msgTypes[127]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetSpeedResponse.ProtoReflect.Descriptor instead.
-func (*SetSpeedResponse) Descriptor() ([]byte, []int) {
-	return file_proto_location_location_proto_rawDescGZIP(), []int{127}
-}
-
-type SetSpeedAccuracyMetersPerSecondRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          float32                `protobuf:"fixed32,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetSpeedAccuracyMetersPerSecondRequest) Reset() {
-	*x = SetSpeedAccuracyMetersPerSecondRequest{}
-	mi := &file_proto_location_location_proto_msgTypes[128]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetSpeedAccuracyMetersPerSecondRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetSpeedAccuracyMetersPerSecondRequest) ProtoMessage() {}
-
-func (x *SetSpeedAccuracyMetersPerSecondRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_location_location_proto_msgTypes[128]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetSpeedAccuracyMetersPerSecondRequest.ProtoReflect.Descriptor instead.
-func (*SetSpeedAccuracyMetersPerSecondRequest) Descriptor() ([]byte, []int) {
-	return file_proto_location_location_proto_rawDescGZIP(), []int{128}
-}
-
-func (x *SetSpeedAccuracyMetersPerSecondRequest) GetArg0() float32 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type SetSpeedAccuracyMetersPerSecondResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetSpeedAccuracyMetersPerSecondResponse) Reset() {
-	*x = SetSpeedAccuracyMetersPerSecondResponse{}
-	mi := &file_proto_location_location_proto_msgTypes[129]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetSpeedAccuracyMetersPerSecondResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetSpeedAccuracyMetersPerSecondResponse) ProtoMessage() {}
-
-func (x *SetSpeedAccuracyMetersPerSecondResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_location_location_proto_msgTypes[129]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetSpeedAccuracyMetersPerSecondResponse.ProtoReflect.Descriptor instead.
-func (*SetSpeedAccuracyMetersPerSecondResponse) Descriptor() ([]byte, []int) {
-	return file_proto_location_location_proto_rawDescGZIP(), []int{129}
-}
-
-type SetTimeRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetTimeRequest) Reset() {
-	*x = SetTimeRequest{}
-	mi := &file_proto_location_location_proto_msgTypes[130]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetTimeRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetTimeRequest) ProtoMessage() {}
-
-func (x *SetTimeRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_location_location_proto_msgTypes[130]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetTimeRequest.ProtoReflect.Descriptor instead.
-func (*SetTimeRequest) Descriptor() ([]byte, []int) {
-	return file_proto_location_location_proto_rawDescGZIP(), []int{130}
-}
-
-func (x *SetTimeRequest) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type SetTimeResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetTimeResponse) Reset() {
-	*x = SetTimeResponse{}
-	mi := &file_proto_location_location_proto_msgTypes[131]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetTimeResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetTimeResponse) ProtoMessage() {}
-
-func (x *SetTimeResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_location_location_proto_msgTypes[131]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetTimeResponse.ProtoReflect.Descriptor instead.
-func (*SetTimeResponse) Descriptor() ([]byte, []int) {
-	return file_proto_location_location_proto_rawDescGZIP(), []int{131}
-}
-
-type SetVerticalAccuracyMetersRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          float32                `protobuf:"fixed32,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetVerticalAccuracyMetersRequest) Reset() {
-	*x = SetVerticalAccuracyMetersRequest{}
-	mi := &file_proto_location_location_proto_msgTypes[132]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetVerticalAccuracyMetersRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetVerticalAccuracyMetersRequest) ProtoMessage() {}
-
-func (x *SetVerticalAccuracyMetersRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_location_location_proto_msgTypes[132]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetVerticalAccuracyMetersRequest.ProtoReflect.Descriptor instead.
-func (*SetVerticalAccuracyMetersRequest) Descriptor() ([]byte, []int) {
-	return file_proto_location_location_proto_rawDescGZIP(), []int{132}
-}
-
-func (x *SetVerticalAccuracyMetersRequest) GetArg0() float32 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type SetVerticalAccuracyMetersResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetVerticalAccuracyMetersResponse) Reset() {
-	*x = SetVerticalAccuracyMetersResponse{}
-	mi := &file_proto_location_location_proto_msgTypes[133]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetVerticalAccuracyMetersResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetVerticalAccuracyMetersResponse) ProtoMessage() {}
-
-func (x *SetVerticalAccuracyMetersResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_location_location_proto_msgTypes[133]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetVerticalAccuracyMetersResponse.ProtoReflect.Descriptor instead.
-func (*SetVerticalAccuracyMetersResponse) Descriptor() ([]byte, []int) {
-	return file_proto_location_location_proto_rawDescGZIP(), []int{133}
-}
-
-type ToStringRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *ToStringRequest) Reset() {
-	*x = ToStringRequest{}
-	mi := &file_proto_location_location_proto_msgTypes[134]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *ToStringRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*ToStringRequest) ProtoMessage() {}
-
-func (x *ToStringRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_location_location_proto_msgTypes[134]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use ToStringRequest.ProtoReflect.Descriptor instead.
-func (*ToStringRequest) Descriptor() ([]byte, []int) {
-	return file_proto_location_location_proto_rawDescGZIP(), []int{134}
-}
-
-type ToStringResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *ToStringResponse) Reset() {
-	*x = ToStringResponse{}
-	mi := &file_proto_location_location_proto_msgTypes[135]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *ToStringResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*ToStringResponse) ProtoMessage() {}
-
-func (x *ToStringResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_location_location_proto_msgTypes[135]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use ToStringResponse.ProtoReflect.Descriptor instead.
-func (*ToStringResponse) Descriptor() ([]byte, []int) {
-	return file_proto_location_location_proto_rawDescGZIP(), []int{135}
-}
-
-func (x *ToStringResponse) GetResult() string {
-	if x != nil {
-		return x.Result
-	}
-	return ""
-}
-
-type WriteToParcelRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	Arg1          int32                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *WriteToParcelRequest) Reset() {
-	*x = WriteToParcelRequest{}
-	mi := &file_proto_location_location_proto_msgTypes[136]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *WriteToParcelRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*WriteToParcelRequest) ProtoMessage() {}
-
-func (x *WriteToParcelRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_location_location_proto_msgTypes[136]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use WriteToParcelRequest.ProtoReflect.Descriptor instead.
-func (*WriteToParcelRequest) Descriptor() ([]byte, []int) {
-	return file_proto_location_location_proto_rawDescGZIP(), []int{136}
-}
-
-func (x *WriteToParcelRequest) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-func (x *WriteToParcelRequest) GetArg1() int32 {
-	if x != nil {
-		return x.Arg1
-	}
-	return 0
-}
-
-type WriteToParcelResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *WriteToParcelResponse) Reset() {
-	*x = WriteToParcelResponse{}
-	mi := &file_proto_location_location_proto_msgTypes[137]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *WriteToParcelResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*WriteToParcelResponse) ProtoMessage() {}
-
-func (x *WriteToParcelResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_location_location_proto_msgTypes[137]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use WriteToParcelResponse.ProtoReflect.Descriptor instead.
-func (*WriteToParcelResponse) Descriptor() ([]byte, []int) {
-	return file_proto_location_location_proto_rawDescGZIP(), []int{137}
-}
-
-type Convert2Request struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          float64                `protobuf:"fixed64,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	Arg1          int32                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *Convert2Request) Reset() {
-	*x = Convert2Request{}
-	mi := &file_proto_location_location_proto_msgTypes[138]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *Convert2Request) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*Convert2Request) ProtoMessage() {}
-
-func (x *Convert2Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_location_location_proto_msgTypes[138]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use Convert2Request.ProtoReflect.Descriptor instead.
-func (*Convert2Request) Descriptor() ([]byte, []int) {
-	return file_proto_location_location_proto_rawDescGZIP(), []int{138}
-}
-
-func (x *Convert2Request) GetArg0() float64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-func (x *Convert2Request) GetArg1() int32 {
-	if x != nil {
-		return x.Arg1
-	}
-	return 0
-}
-
-type Convert2Response struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *Convert2Response) Reset() {
-	*x = Convert2Response{}
-	mi := &file_proto_location_location_proto_msgTypes[139]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *Convert2Response) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*Convert2Response) ProtoMessage() {}
-
-func (x *Convert2Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_location_location_proto_msgTypes[139]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use Convert2Response.ProtoReflect.Descriptor instead.
-func (*Convert2Response) Descriptor() ([]byte, []int) {
-	return file_proto_location_location_proto_rawDescGZIP(), []int{139}
-}
-
-func (x *Convert2Response) GetResult() string {
-	if x != nil {
-		return x.Result
-	}
-	return ""
-}
-
-type Convert1_1Request struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *Convert1_1Request) Reset() {
-	*x = Convert1_1Request{}
-	mi := &file_proto_location_location_proto_msgTypes[140]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *Convert1_1Request) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*Convert1_1Request) ProtoMessage() {}
-
-func (x *Convert1_1Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_location_location_proto_msgTypes[140]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use Convert1_1Request.ProtoReflect.Descriptor instead.
-func (*Convert1_1Request) Descriptor() ([]byte, []int) {
-	return file_proto_location_location_proto_rawDescGZIP(), []int{140}
-}
-
-func (x *Convert1_1Request) GetArg0() string {
-	if x != nil {
-		return x.Arg0
-	}
-	return ""
-}
-
-type Convert1_1Response struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        float64                `protobuf:"fixed64,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *Convert1_1Response) Reset() {
-	*x = Convert1_1Response{}
-	mi := &file_proto_location_location_proto_msgTypes[141]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *Convert1_1Response) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*Convert1_1Response) ProtoMessage() {}
-
-func (x *Convert1_1Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_location_location_proto_msgTypes[141]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use Convert1_1Response.ProtoReflect.Descriptor instead.
-func (*Convert1_1Response) Descriptor() ([]byte, []int) {
-	return file_proto_location_location_proto_rawDescGZIP(), []int{141}
-}
-
-func (x *Convert1_1Response) GetResult() float64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type DistanceBetweenRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          float64                `protobuf:"fixed64,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	Arg1          float64                `protobuf:"fixed64,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
-	Arg2          float64                `protobuf:"fixed64,3,opt,name=arg2,proto3" json:"arg2,omitempty"`
-	Arg3          float64                `protobuf:"fixed64,4,opt,name=arg3,proto3" json:"arg3,omitempty"`
-	Arg4          int64                  `protobuf:"varint,5,opt,name=arg4,proto3" json:"arg4,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *DistanceBetweenRequest) Reset() {
-	*x = DistanceBetweenRequest{}
-	mi := &file_proto_location_location_proto_msgTypes[142]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *DistanceBetweenRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*DistanceBetweenRequest) ProtoMessage() {}
-
-func (x *DistanceBetweenRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_location_location_proto_msgTypes[142]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use DistanceBetweenRequest.ProtoReflect.Descriptor instead.
-func (*DistanceBetweenRequest) Descriptor() ([]byte, []int) {
-	return file_proto_location_location_proto_rawDescGZIP(), []int{142}
-}
-
-func (x *DistanceBetweenRequest) GetArg0() float64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-func (x *DistanceBetweenRequest) GetArg1() float64 {
-	if x != nil {
-		return x.Arg1
-	}
-	return 0
-}
-
-func (x *DistanceBetweenRequest) GetArg2() float64 {
-	if x != nil {
-		return x.Arg2
-	}
-	return 0
-}
-
-func (x *DistanceBetweenRequest) GetArg3() float64 {
-	if x != nil {
-		return x.Arg3
-	}
-	return 0
-}
-
-func (x *DistanceBetweenRequest) GetArg4() int64 {
-	if x != nil {
-		return x.Arg4
-	}
-	return 0
-}
-
-type DistanceBetweenResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *DistanceBetweenResponse) Reset() {
-	*x = DistanceBetweenResponse{}
-	mi := &file_proto_location_location_proto_msgTypes[143]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *DistanceBetweenResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*DistanceBetweenResponse) ProtoMessage() {}
-
-func (x *DistanceBetweenResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_location_location_proto_msgTypes[143]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use DistanceBetweenResponse.ProtoReflect.Descriptor instead.
-func (*DistanceBetweenResponse) Descriptor() ([]byte, []int) {
-	return file_proto_location_location_proto_rawDescGZIP(), []int{143}
-}
-
 type AddGpsStatusListenerRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
@@ -5808,7 +32,7 @@ type AddGpsStatusListenerRequest struct {
 
 func (x *AddGpsStatusListenerRequest) Reset() {
 	*x = AddGpsStatusListenerRequest{}
-	mi := &file_proto_location_location_proto_msgTypes[144]
+	mi := &file_proto_location_location_proto_msgTypes[0]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5820,7 +44,7 @@ func (x *AddGpsStatusListenerRequest) String() string {
 func (*AddGpsStatusListenerRequest) ProtoMessage() {}
 
 func (x *AddGpsStatusListenerRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_location_location_proto_msgTypes[144]
+	mi := &file_proto_location_location_proto_msgTypes[0]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5833,7 +57,7 @@ func (x *AddGpsStatusListenerRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use AddGpsStatusListenerRequest.ProtoReflect.Descriptor instead.
 func (*AddGpsStatusListenerRequest) Descriptor() ([]byte, []int) {
-	return file_proto_location_location_proto_rawDescGZIP(), []int{144}
+	return file_proto_location_location_proto_rawDescGZIP(), []int{0}
 }
 
 func (x *AddGpsStatusListenerRequest) GetArg0() int64 {
@@ -5852,7 +76,7 @@ type AddGpsStatusListenerResponse struct {
 
 func (x *AddGpsStatusListenerResponse) Reset() {
 	*x = AddGpsStatusListenerResponse{}
-	mi := &file_proto_location_location_proto_msgTypes[145]
+	mi := &file_proto_location_location_proto_msgTypes[1]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5864,7 +88,7 @@ func (x *AddGpsStatusListenerResponse) String() string {
 func (*AddGpsStatusListenerResponse) ProtoMessage() {}
 
 func (x *AddGpsStatusListenerResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_location_location_proto_msgTypes[145]
+	mi := &file_proto_location_location_proto_msgTypes[1]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5877,7 +101,7 @@ func (x *AddGpsStatusListenerResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use AddGpsStatusListenerResponse.ProtoReflect.Descriptor instead.
 func (*AddGpsStatusListenerResponse) Descriptor() ([]byte, []int) {
-	return file_proto_location_location_proto_rawDescGZIP(), []int{145}
+	return file_proto_location_location_proto_rawDescGZIP(), []int{1}
 }
 
 func (x *AddGpsStatusListenerResponse) GetResult() bool {
@@ -5896,7 +120,7 @@ type AddNmeaListener1Request struct {
 
 func (x *AddNmeaListener1Request) Reset() {
 	*x = AddNmeaListener1Request{}
-	mi := &file_proto_location_location_proto_msgTypes[146]
+	mi := &file_proto_location_location_proto_msgTypes[2]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5908,7 +132,7 @@ func (x *AddNmeaListener1Request) String() string {
 func (*AddNmeaListener1Request) ProtoMessage() {}
 
 func (x *AddNmeaListener1Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_location_location_proto_msgTypes[146]
+	mi := &file_proto_location_location_proto_msgTypes[2]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5921,7 +145,7 @@ func (x *AddNmeaListener1Request) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use AddNmeaListener1Request.ProtoReflect.Descriptor instead.
 func (*AddNmeaListener1Request) Descriptor() ([]byte, []int) {
-	return file_proto_location_location_proto_rawDescGZIP(), []int{146}
+	return file_proto_location_location_proto_rawDescGZIP(), []int{2}
 }
 
 func (x *AddNmeaListener1Request) GetArg0() int64 {
@@ -5940,7 +164,7 @@ type AddNmeaListener1Response struct {
 
 func (x *AddNmeaListener1Response) Reset() {
 	*x = AddNmeaListener1Response{}
-	mi := &file_proto_location_location_proto_msgTypes[147]
+	mi := &file_proto_location_location_proto_msgTypes[3]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5952,7 +176,7 @@ func (x *AddNmeaListener1Response) String() string {
 func (*AddNmeaListener1Response) ProtoMessage() {}
 
 func (x *AddNmeaListener1Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_location_location_proto_msgTypes[147]
+	mi := &file_proto_location_location_proto_msgTypes[3]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5965,7 +189,7 @@ func (x *AddNmeaListener1Response) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use AddNmeaListener1Response.ProtoReflect.Descriptor instead.
 func (*AddNmeaListener1Response) Descriptor() ([]byte, []int) {
-	return file_proto_location_location_proto_rawDescGZIP(), []int{147}
+	return file_proto_location_location_proto_rawDescGZIP(), []int{3}
 }
 
 func (x *AddNmeaListener1Response) GetResult() bool {
@@ -5984,7 +208,7 @@ type AddNmeaListener1_1Request struct {
 
 func (x *AddNmeaListener1_1Request) Reset() {
 	*x = AddNmeaListener1_1Request{}
-	mi := &file_proto_location_location_proto_msgTypes[148]
+	mi := &file_proto_location_location_proto_msgTypes[4]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5996,7 +220,7 @@ func (x *AddNmeaListener1_1Request) String() string {
 func (*AddNmeaListener1_1Request) ProtoMessage() {}
 
 func (x *AddNmeaListener1_1Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_location_location_proto_msgTypes[148]
+	mi := &file_proto_location_location_proto_msgTypes[4]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6009,7 +233,7 @@ func (x *AddNmeaListener1_1Request) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use AddNmeaListener1_1Request.ProtoReflect.Descriptor instead.
 func (*AddNmeaListener1_1Request) Descriptor() ([]byte, []int) {
-	return file_proto_location_location_proto_rawDescGZIP(), []int{148}
+	return file_proto_location_location_proto_rawDescGZIP(), []int{4}
 }
 
 func (x *AddNmeaListener1_1Request) GetArg0() int64 {
@@ -6028,7 +252,7 @@ type AddNmeaListener1_1Response struct {
 
 func (x *AddNmeaListener1_1Response) Reset() {
 	*x = AddNmeaListener1_1Response{}
-	mi := &file_proto_location_location_proto_msgTypes[149]
+	mi := &file_proto_location_location_proto_msgTypes[5]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6040,7 +264,7 @@ func (x *AddNmeaListener1_1Response) String() string {
 func (*AddNmeaListener1_1Response) ProtoMessage() {}
 
 func (x *AddNmeaListener1_1Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_location_location_proto_msgTypes[149]
+	mi := &file_proto_location_location_proto_msgTypes[5]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6053,7 +277,7 @@ func (x *AddNmeaListener1_1Response) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use AddNmeaListener1_1Response.ProtoReflect.Descriptor instead.
 func (*AddNmeaListener1_1Response) Descriptor() ([]byte, []int) {
-	return file_proto_location_location_proto_rawDescGZIP(), []int{149}
+	return file_proto_location_location_proto_rawDescGZIP(), []int{5}
 }
 
 func (x *AddNmeaListener1_1Response) GetResult() bool {
@@ -6073,7 +297,7 @@ type AddNmeaListener2_2Request struct {
 
 func (x *AddNmeaListener2_2Request) Reset() {
 	*x = AddNmeaListener2_2Request{}
-	mi := &file_proto_location_location_proto_msgTypes[150]
+	mi := &file_proto_location_location_proto_msgTypes[6]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6085,7 +309,7 @@ func (x *AddNmeaListener2_2Request) String() string {
 func (*AddNmeaListener2_2Request) ProtoMessage() {}
 
 func (x *AddNmeaListener2_2Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_location_location_proto_msgTypes[150]
+	mi := &file_proto_location_location_proto_msgTypes[6]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6098,7 +322,7 @@ func (x *AddNmeaListener2_2Request) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use AddNmeaListener2_2Request.ProtoReflect.Descriptor instead.
 func (*AddNmeaListener2_2Request) Descriptor() ([]byte, []int) {
-	return file_proto_location_location_proto_rawDescGZIP(), []int{150}
+	return file_proto_location_location_proto_rawDescGZIP(), []int{6}
 }
 
 func (x *AddNmeaListener2_2Request) GetArg0() int64 {
@@ -6124,7 +348,7 @@ type AddNmeaListener2_2Response struct {
 
 func (x *AddNmeaListener2_2Response) Reset() {
 	*x = AddNmeaListener2_2Response{}
-	mi := &file_proto_location_location_proto_msgTypes[151]
+	mi := &file_proto_location_location_proto_msgTypes[7]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6136,7 +360,7 @@ func (x *AddNmeaListener2_2Response) String() string {
 func (*AddNmeaListener2_2Response) ProtoMessage() {}
 
 func (x *AddNmeaListener2_2Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_location_location_proto_msgTypes[151]
+	mi := &file_proto_location_location_proto_msgTypes[7]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6149,7 +373,7 @@ func (x *AddNmeaListener2_2Response) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use AddNmeaListener2_2Response.ProtoReflect.Descriptor instead.
 func (*AddNmeaListener2_2Response) Descriptor() ([]byte, []int) {
-	return file_proto_location_location_proto_rawDescGZIP(), []int{151}
+	return file_proto_location_location_proto_rawDescGZIP(), []int{7}
 }
 
 func (x *AddNmeaListener2_2Response) GetResult() bool {
@@ -6172,7 +396,7 @@ type AddProximityAlertRequest struct {
 
 func (x *AddProximityAlertRequest) Reset() {
 	*x = AddProximityAlertRequest{}
-	mi := &file_proto_location_location_proto_msgTypes[152]
+	mi := &file_proto_location_location_proto_msgTypes[8]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6184,7 +408,7 @@ func (x *AddProximityAlertRequest) String() string {
 func (*AddProximityAlertRequest) ProtoMessage() {}
 
 func (x *AddProximityAlertRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_location_location_proto_msgTypes[152]
+	mi := &file_proto_location_location_proto_msgTypes[8]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6197,7 +421,7 @@ func (x *AddProximityAlertRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use AddProximityAlertRequest.ProtoReflect.Descriptor instead.
 func (*AddProximityAlertRequest) Descriptor() ([]byte, []int) {
-	return file_proto_location_location_proto_rawDescGZIP(), []int{152}
+	return file_proto_location_location_proto_rawDescGZIP(), []int{8}
 }
 
 func (x *AddProximityAlertRequest) GetArg0() float64 {
@@ -6243,7 +467,7 @@ type AddProximityAlertResponse struct {
 
 func (x *AddProximityAlertResponse) Reset() {
 	*x = AddProximityAlertResponse{}
-	mi := &file_proto_location_location_proto_msgTypes[153]
+	mi := &file_proto_location_location_proto_msgTypes[9]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6255,7 +479,7 @@ func (x *AddProximityAlertResponse) String() string {
 func (*AddProximityAlertResponse) ProtoMessage() {}
 
 func (x *AddProximityAlertResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_location_location_proto_msgTypes[153]
+	mi := &file_proto_location_location_proto_msgTypes[9]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6268,7 +492,7 @@ func (x *AddProximityAlertResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use AddProximityAlertResponse.ProtoReflect.Descriptor instead.
 func (*AddProximityAlertResponse) Descriptor() ([]byte, []int) {
-	return file_proto_location_location_proto_rawDescGZIP(), []int{153}
+	return file_proto_location_location_proto_rawDescGZIP(), []int{9}
 }
 
 type AddTestProvider2Request struct {
@@ -6281,7 +505,7 @@ type AddTestProvider2Request struct {
 
 func (x *AddTestProvider2Request) Reset() {
 	*x = AddTestProvider2Request{}
-	mi := &file_proto_location_location_proto_msgTypes[154]
+	mi := &file_proto_location_location_proto_msgTypes[10]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6293,7 +517,7 @@ func (x *AddTestProvider2Request) String() string {
 func (*AddTestProvider2Request) ProtoMessage() {}
 
 func (x *AddTestProvider2Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_location_location_proto_msgTypes[154]
+	mi := &file_proto_location_location_proto_msgTypes[10]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6306,7 +530,7 @@ func (x *AddTestProvider2Request) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use AddTestProvider2Request.ProtoReflect.Descriptor instead.
 func (*AddTestProvider2Request) Descriptor() ([]byte, []int) {
-	return file_proto_location_location_proto_rawDescGZIP(), []int{154}
+	return file_proto_location_location_proto_rawDescGZIP(), []int{10}
 }
 
 func (x *AddTestProvider2Request) GetArg0() string {
@@ -6331,7 +555,7 @@ type AddTestProvider2Response struct {
 
 func (x *AddTestProvider2Response) Reset() {
 	*x = AddTestProvider2Response{}
-	mi := &file_proto_location_location_proto_msgTypes[155]
+	mi := &file_proto_location_location_proto_msgTypes[11]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6343,7 +567,7 @@ func (x *AddTestProvider2Response) String() string {
 func (*AddTestProvider2Response) ProtoMessage() {}
 
 func (x *AddTestProvider2Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_location_location_proto_msgTypes[155]
+	mi := &file_proto_location_location_proto_msgTypes[11]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6356,106 +580,10 @@ func (x *AddTestProvider2Response) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use AddTestProvider2Response.ProtoReflect.Descriptor instead.
 func (*AddTestProvider2Response) Descriptor() ([]byte, []int) {
-	return file_proto_location_location_proto_rawDescGZIP(), []int{155}
+	return file_proto_location_location_proto_rawDescGZIP(), []int{11}
 }
 
-type AddTestProvider3_1Request struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
-	Arg2          int64                  `protobuf:"varint,3,opt,name=arg2,proto3" json:"arg2,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *AddTestProvider3_1Request) Reset() {
-	*x = AddTestProvider3_1Request{}
-	mi := &file_proto_location_location_proto_msgTypes[156]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *AddTestProvider3_1Request) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*AddTestProvider3_1Request) ProtoMessage() {}
-
-func (x *AddTestProvider3_1Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_location_location_proto_msgTypes[156]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use AddTestProvider3_1Request.ProtoReflect.Descriptor instead.
-func (*AddTestProvider3_1Request) Descriptor() ([]byte, []int) {
-	return file_proto_location_location_proto_rawDescGZIP(), []int{156}
-}
-
-func (x *AddTestProvider3_1Request) GetArg0() string {
-	if x != nil {
-		return x.Arg0
-	}
-	return ""
-}
-
-func (x *AddTestProvider3_1Request) GetArg1() int64 {
-	if x != nil {
-		return x.Arg1
-	}
-	return 0
-}
-
-func (x *AddTestProvider3_1Request) GetArg2() int64 {
-	if x != nil {
-		return x.Arg2
-	}
-	return 0
-}
-
-type AddTestProvider3_1Response struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *AddTestProvider3_1Response) Reset() {
-	*x = AddTestProvider3_1Response{}
-	mi := &file_proto_location_location_proto_msgTypes[157]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *AddTestProvider3_1Response) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*AddTestProvider3_1Response) ProtoMessage() {}
-
-func (x *AddTestProvider3_1Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_location_location_proto_msgTypes[157]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use AddTestProvider3_1Response.ProtoReflect.Descriptor instead.
-func (*AddTestProvider3_1Response) Descriptor() ([]byte, []int) {
-	return file_proto_location_location_proto_rawDescGZIP(), []int{157}
-}
-
-type AddTestProvider10_2Request struct {
+type AddTestProvider10_1Request struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
 	Arg1          bool                   `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
@@ -6471,21 +599,21 @@ type AddTestProvider10_2Request struct {
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *AddTestProvider10_2Request) Reset() {
-	*x = AddTestProvider10_2Request{}
-	mi := &file_proto_location_location_proto_msgTypes[158]
+func (x *AddTestProvider10_1Request) Reset() {
+	*x = AddTestProvider10_1Request{}
+	mi := &file_proto_location_location_proto_msgTypes[12]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *AddTestProvider10_2Request) String() string {
+func (x *AddTestProvider10_1Request) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*AddTestProvider10_2Request) ProtoMessage() {}
+func (*AddTestProvider10_1Request) ProtoMessage() {}
 
-func (x *AddTestProvider10_2Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_location_location_proto_msgTypes[158]
+func (x *AddTestProvider10_1Request) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_location_location_proto_msgTypes[12]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6496,102 +624,102 @@ func (x *AddTestProvider10_2Request) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use AddTestProvider10_2Request.ProtoReflect.Descriptor instead.
-func (*AddTestProvider10_2Request) Descriptor() ([]byte, []int) {
-	return file_proto_location_location_proto_rawDescGZIP(), []int{158}
+// Deprecated: Use AddTestProvider10_1Request.ProtoReflect.Descriptor instead.
+func (*AddTestProvider10_1Request) Descriptor() ([]byte, []int) {
+	return file_proto_location_location_proto_rawDescGZIP(), []int{12}
 }
 
-func (x *AddTestProvider10_2Request) GetArg0() string {
+func (x *AddTestProvider10_1Request) GetArg0() string {
 	if x != nil {
 		return x.Arg0
 	}
 	return ""
 }
 
-func (x *AddTestProvider10_2Request) GetArg1() bool {
+func (x *AddTestProvider10_1Request) GetArg1() bool {
 	if x != nil {
 		return x.Arg1
 	}
 	return false
 }
 
-func (x *AddTestProvider10_2Request) GetArg2() bool {
+func (x *AddTestProvider10_1Request) GetArg2() bool {
 	if x != nil {
 		return x.Arg2
 	}
 	return false
 }
 
-func (x *AddTestProvider10_2Request) GetArg3() bool {
+func (x *AddTestProvider10_1Request) GetArg3() bool {
 	if x != nil {
 		return x.Arg3
 	}
 	return false
 }
 
-func (x *AddTestProvider10_2Request) GetArg4() bool {
+func (x *AddTestProvider10_1Request) GetArg4() bool {
 	if x != nil {
 		return x.Arg4
 	}
 	return false
 }
 
-func (x *AddTestProvider10_2Request) GetArg5() bool {
+func (x *AddTestProvider10_1Request) GetArg5() bool {
 	if x != nil {
 		return x.Arg5
 	}
 	return false
 }
 
-func (x *AddTestProvider10_2Request) GetArg6() bool {
+func (x *AddTestProvider10_1Request) GetArg6() bool {
 	if x != nil {
 		return x.Arg6
 	}
 	return false
 }
 
-func (x *AddTestProvider10_2Request) GetArg7() bool {
+func (x *AddTestProvider10_1Request) GetArg7() bool {
 	if x != nil {
 		return x.Arg7
 	}
 	return false
 }
 
-func (x *AddTestProvider10_2Request) GetArg8() int32 {
+func (x *AddTestProvider10_1Request) GetArg8() int32 {
 	if x != nil {
 		return x.Arg8
 	}
 	return 0
 }
 
-func (x *AddTestProvider10_2Request) GetArg9() int32 {
+func (x *AddTestProvider10_1Request) GetArg9() int32 {
 	if x != nil {
 		return x.Arg9
 	}
 	return 0
 }
 
-type AddTestProvider10_2Response struct {
+type AddTestProvider10_1Response struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *AddTestProvider10_2Response) Reset() {
-	*x = AddTestProvider10_2Response{}
-	mi := &file_proto_location_location_proto_msgTypes[159]
+func (x *AddTestProvider10_1Response) Reset() {
+	*x = AddTestProvider10_1Response{}
+	mi := &file_proto_location_location_proto_msgTypes[13]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *AddTestProvider10_2Response) String() string {
+func (x *AddTestProvider10_1Response) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*AddTestProvider10_2Response) ProtoMessage() {}
+func (*AddTestProvider10_1Response) ProtoMessage() {}
 
-func (x *AddTestProvider10_2Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_location_location_proto_msgTypes[159]
+func (x *AddTestProvider10_1Response) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_location_location_proto_msgTypes[13]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6602,9 +730,9 @@ func (x *AddTestProvider10_2Response) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use AddTestProvider10_2Response.ProtoReflect.Descriptor instead.
-func (*AddTestProvider10_2Response) Descriptor() ([]byte, []int) {
-	return file_proto_location_location_proto_rawDescGZIP(), []int{159}
+// Deprecated: Use AddTestProvider10_1Response.ProtoReflect.Descriptor instead.
+func (*AddTestProvider10_1Response) Descriptor() ([]byte, []int) {
+	return file_proto_location_location_proto_rawDescGZIP(), []int{13}
 }
 
 type ClearTestProviderEnabledRequest struct {
@@ -6616,7 +744,7 @@ type ClearTestProviderEnabledRequest struct {
 
 func (x *ClearTestProviderEnabledRequest) Reset() {
 	*x = ClearTestProviderEnabledRequest{}
-	mi := &file_proto_location_location_proto_msgTypes[160]
+	mi := &file_proto_location_location_proto_msgTypes[14]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6628,7 +756,7 @@ func (x *ClearTestProviderEnabledRequest) String() string {
 func (*ClearTestProviderEnabledRequest) ProtoMessage() {}
 
 func (x *ClearTestProviderEnabledRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_location_location_proto_msgTypes[160]
+	mi := &file_proto_location_location_proto_msgTypes[14]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6641,7 +769,7 @@ func (x *ClearTestProviderEnabledRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ClearTestProviderEnabledRequest.ProtoReflect.Descriptor instead.
 func (*ClearTestProviderEnabledRequest) Descriptor() ([]byte, []int) {
-	return file_proto_location_location_proto_rawDescGZIP(), []int{160}
+	return file_proto_location_location_proto_rawDescGZIP(), []int{14}
 }
 
 func (x *ClearTestProviderEnabledRequest) GetArg0() string {
@@ -6659,7 +787,7 @@ type ClearTestProviderEnabledResponse struct {
 
 func (x *ClearTestProviderEnabledResponse) Reset() {
 	*x = ClearTestProviderEnabledResponse{}
-	mi := &file_proto_location_location_proto_msgTypes[161]
+	mi := &file_proto_location_location_proto_msgTypes[15]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6671,7 +799,7 @@ func (x *ClearTestProviderEnabledResponse) String() string {
 func (*ClearTestProviderEnabledResponse) ProtoMessage() {}
 
 func (x *ClearTestProviderEnabledResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_location_location_proto_msgTypes[161]
+	mi := &file_proto_location_location_proto_msgTypes[15]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6684,7 +812,7 @@ func (x *ClearTestProviderEnabledResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ClearTestProviderEnabledResponse.ProtoReflect.Descriptor instead.
 func (*ClearTestProviderEnabledResponse) Descriptor() ([]byte, []int) {
-	return file_proto_location_location_proto_rawDescGZIP(), []int{161}
+	return file_proto_location_location_proto_rawDescGZIP(), []int{15}
 }
 
 type ClearTestProviderLocationRequest struct {
@@ -6696,7 +824,7 @@ type ClearTestProviderLocationRequest struct {
 
 func (x *ClearTestProviderLocationRequest) Reset() {
 	*x = ClearTestProviderLocationRequest{}
-	mi := &file_proto_location_location_proto_msgTypes[162]
+	mi := &file_proto_location_location_proto_msgTypes[16]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6708,7 +836,7 @@ func (x *ClearTestProviderLocationRequest) String() string {
 func (*ClearTestProviderLocationRequest) ProtoMessage() {}
 
 func (x *ClearTestProviderLocationRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_location_location_proto_msgTypes[162]
+	mi := &file_proto_location_location_proto_msgTypes[16]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6721,7 +849,7 @@ func (x *ClearTestProviderLocationRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ClearTestProviderLocationRequest.ProtoReflect.Descriptor instead.
 func (*ClearTestProviderLocationRequest) Descriptor() ([]byte, []int) {
-	return file_proto_location_location_proto_rawDescGZIP(), []int{162}
+	return file_proto_location_location_proto_rawDescGZIP(), []int{16}
 }
 
 func (x *ClearTestProviderLocationRequest) GetArg0() string {
@@ -6739,7 +867,7 @@ type ClearTestProviderLocationResponse struct {
 
 func (x *ClearTestProviderLocationResponse) Reset() {
 	*x = ClearTestProviderLocationResponse{}
-	mi := &file_proto_location_location_proto_msgTypes[163]
+	mi := &file_proto_location_location_proto_msgTypes[17]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6751,7 +879,7 @@ func (x *ClearTestProviderLocationResponse) String() string {
 func (*ClearTestProviderLocationResponse) ProtoMessage() {}
 
 func (x *ClearTestProviderLocationResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_location_location_proto_msgTypes[163]
+	mi := &file_proto_location_location_proto_msgTypes[17]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6764,7 +892,7 @@ func (x *ClearTestProviderLocationResponse) ProtoReflect() protoreflect.Message 
 
 // Deprecated: Use ClearTestProviderLocationResponse.ProtoReflect.Descriptor instead.
 func (*ClearTestProviderLocationResponse) Descriptor() ([]byte, []int) {
-	return file_proto_location_location_proto_rawDescGZIP(), []int{163}
+	return file_proto_location_location_proto_rawDescGZIP(), []int{17}
 }
 
 type ClearTestProviderStatusRequest struct {
@@ -6776,7 +904,7 @@ type ClearTestProviderStatusRequest struct {
 
 func (x *ClearTestProviderStatusRequest) Reset() {
 	*x = ClearTestProviderStatusRequest{}
-	mi := &file_proto_location_location_proto_msgTypes[164]
+	mi := &file_proto_location_location_proto_msgTypes[18]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6788,7 +916,7 @@ func (x *ClearTestProviderStatusRequest) String() string {
 func (*ClearTestProviderStatusRequest) ProtoMessage() {}
 
 func (x *ClearTestProviderStatusRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_location_location_proto_msgTypes[164]
+	mi := &file_proto_location_location_proto_msgTypes[18]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6801,7 +929,7 @@ func (x *ClearTestProviderStatusRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ClearTestProviderStatusRequest.ProtoReflect.Descriptor instead.
 func (*ClearTestProviderStatusRequest) Descriptor() ([]byte, []int) {
-	return file_proto_location_location_proto_rawDescGZIP(), []int{164}
+	return file_proto_location_location_proto_rawDescGZIP(), []int{18}
 }
 
 func (x *ClearTestProviderStatusRequest) GetArg0() string {
@@ -6819,7 +947,7 @@ type ClearTestProviderStatusResponse struct {
 
 func (x *ClearTestProviderStatusResponse) Reset() {
 	*x = ClearTestProviderStatusResponse{}
-	mi := &file_proto_location_location_proto_msgTypes[165]
+	mi := &file_proto_location_location_proto_msgTypes[19]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6831,7 +959,7 @@ func (x *ClearTestProviderStatusResponse) String() string {
 func (*ClearTestProviderStatusResponse) ProtoMessage() {}
 
 func (x *ClearTestProviderStatusResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_location_location_proto_msgTypes[165]
+	mi := &file_proto_location_location_proto_msgTypes[19]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6844,87 +972,7 @@ func (x *ClearTestProviderStatusResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ClearTestProviderStatusResponse.ProtoReflect.Descriptor instead.
 func (*ClearTestProviderStatusResponse) Descriptor() ([]byte, []int) {
-	return file_proto_location_location_proto_rawDescGZIP(), []int{165}
-}
-
-type GetAllProvidersRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetAllProvidersRequest) Reset() {
-	*x = GetAllProvidersRequest{}
-	mi := &file_proto_location_location_proto_msgTypes[166]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetAllProvidersRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetAllProvidersRequest) ProtoMessage() {}
-
-func (x *GetAllProvidersRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_location_location_proto_msgTypes[166]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetAllProvidersRequest.ProtoReflect.Descriptor instead.
-func (*GetAllProvidersRequest) Descriptor() ([]byte, []int) {
-	return file_proto_location_location_proto_rawDescGZIP(), []int{166}
-}
-
-type GetAllProvidersResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetAllProvidersResponse) Reset() {
-	*x = GetAllProvidersResponse{}
-	mi := &file_proto_location_location_proto_msgTypes[167]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetAllProvidersResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetAllProvidersResponse) ProtoMessage() {}
-
-func (x *GetAllProvidersResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_location_location_proto_msgTypes[167]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetAllProvidersResponse.ProtoReflect.Descriptor instead.
-func (*GetAllProvidersResponse) Descriptor() ([]byte, []int) {
-	return file_proto_location_location_proto_rawDescGZIP(), []int{167}
-}
-
-func (x *GetAllProvidersResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
+	return file_proto_location_location_proto_rawDescGZIP(), []int{19}
 }
 
 type GetBestProviderRequest struct {
@@ -6937,7 +985,7 @@ type GetBestProviderRequest struct {
 
 func (x *GetBestProviderRequest) Reset() {
 	*x = GetBestProviderRequest{}
-	mi := &file_proto_location_location_proto_msgTypes[168]
+	mi := &file_proto_location_location_proto_msgTypes[20]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6949,7 +997,7 @@ func (x *GetBestProviderRequest) String() string {
 func (*GetBestProviderRequest) ProtoMessage() {}
 
 func (x *GetBestProviderRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_location_location_proto_msgTypes[168]
+	mi := &file_proto_location_location_proto_msgTypes[20]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6962,7 +1010,7 @@ func (x *GetBestProviderRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetBestProviderRequest.ProtoReflect.Descriptor instead.
 func (*GetBestProviderRequest) Descriptor() ([]byte, []int) {
-	return file_proto_location_location_proto_rawDescGZIP(), []int{168}
+	return file_proto_location_location_proto_rawDescGZIP(), []int{20}
 }
 
 func (x *GetBestProviderRequest) GetArg0() int64 {
@@ -6988,7 +1036,7 @@ type GetBestProviderResponse struct {
 
 func (x *GetBestProviderResponse) Reset() {
 	*x = GetBestProviderResponse{}
-	mi := &file_proto_location_location_proto_msgTypes[169]
+	mi := &file_proto_location_location_proto_msgTypes[21]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7000,7 +1048,7 @@ func (x *GetBestProviderResponse) String() string {
 func (*GetBestProviderResponse) ProtoMessage() {}
 
 func (x *GetBestProviderResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_location_location_proto_msgTypes[169]
+	mi := &file_proto_location_location_proto_msgTypes[21]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7013,7 +1061,7 @@ func (x *GetBestProviderResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetBestProviderResponse.ProtoReflect.Descriptor instead.
 func (*GetBestProviderResponse) Descriptor() ([]byte, []int) {
-	return file_proto_location_location_proto_rawDescGZIP(), []int{169}
+	return file_proto_location_location_proto_rawDescGZIP(), []int{21}
 }
 
 func (x *GetBestProviderResponse) GetResult() string {
@@ -7021,302 +1069,6 @@ func (x *GetBestProviderResponse) GetResult() string {
 		return x.Result
 	}
 	return ""
-}
-
-type GetCurrentLocation5Request struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
-	Arg2          int64                  `protobuf:"varint,3,opt,name=arg2,proto3" json:"arg2,omitempty"`
-	Arg3          int64                  `protobuf:"varint,4,opt,name=arg3,proto3" json:"arg3,omitempty"`
-	Arg4          int64                  `protobuf:"varint,5,opt,name=arg4,proto3" json:"arg4,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetCurrentLocation5Request) Reset() {
-	*x = GetCurrentLocation5Request{}
-	mi := &file_proto_location_location_proto_msgTypes[170]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetCurrentLocation5Request) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetCurrentLocation5Request) ProtoMessage() {}
-
-func (x *GetCurrentLocation5Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_location_location_proto_msgTypes[170]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetCurrentLocation5Request.ProtoReflect.Descriptor instead.
-func (*GetCurrentLocation5Request) Descriptor() ([]byte, []int) {
-	return file_proto_location_location_proto_rawDescGZIP(), []int{170}
-}
-
-func (x *GetCurrentLocation5Request) GetArg0() string {
-	if x != nil {
-		return x.Arg0
-	}
-	return ""
-}
-
-func (x *GetCurrentLocation5Request) GetArg1() int64 {
-	if x != nil {
-		return x.Arg1
-	}
-	return 0
-}
-
-func (x *GetCurrentLocation5Request) GetArg2() int64 {
-	if x != nil {
-		return x.Arg2
-	}
-	return 0
-}
-
-func (x *GetCurrentLocation5Request) GetArg3() int64 {
-	if x != nil {
-		return x.Arg3
-	}
-	return 0
-}
-
-func (x *GetCurrentLocation5Request) GetArg4() int64 {
-	if x != nil {
-		return x.Arg4
-	}
-	return 0
-}
-
-type GetCurrentLocation5Response struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetCurrentLocation5Response) Reset() {
-	*x = GetCurrentLocation5Response{}
-	mi := &file_proto_location_location_proto_msgTypes[171]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetCurrentLocation5Response) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetCurrentLocation5Response) ProtoMessage() {}
-
-func (x *GetCurrentLocation5Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_location_location_proto_msgTypes[171]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetCurrentLocation5Response.ProtoReflect.Descriptor instead.
-func (*GetCurrentLocation5Response) Descriptor() ([]byte, []int) {
-	return file_proto_location_location_proto_rawDescGZIP(), []int{171}
-}
-
-type GetCurrentLocation4_1Request struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
-	Arg2          int64                  `protobuf:"varint,3,opt,name=arg2,proto3" json:"arg2,omitempty"`
-	Arg3          int64                  `protobuf:"varint,4,opt,name=arg3,proto3" json:"arg3,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetCurrentLocation4_1Request) Reset() {
-	*x = GetCurrentLocation4_1Request{}
-	mi := &file_proto_location_location_proto_msgTypes[172]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetCurrentLocation4_1Request) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetCurrentLocation4_1Request) ProtoMessage() {}
-
-func (x *GetCurrentLocation4_1Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_location_location_proto_msgTypes[172]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetCurrentLocation4_1Request.ProtoReflect.Descriptor instead.
-func (*GetCurrentLocation4_1Request) Descriptor() ([]byte, []int) {
-	return file_proto_location_location_proto_rawDescGZIP(), []int{172}
-}
-
-func (x *GetCurrentLocation4_1Request) GetArg0() string {
-	if x != nil {
-		return x.Arg0
-	}
-	return ""
-}
-
-func (x *GetCurrentLocation4_1Request) GetArg1() int64 {
-	if x != nil {
-		return x.Arg1
-	}
-	return 0
-}
-
-func (x *GetCurrentLocation4_1Request) GetArg2() int64 {
-	if x != nil {
-		return x.Arg2
-	}
-	return 0
-}
-
-func (x *GetCurrentLocation4_1Request) GetArg3() int64 {
-	if x != nil {
-		return x.Arg3
-	}
-	return 0
-}
-
-type GetCurrentLocation4_1Response struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetCurrentLocation4_1Response) Reset() {
-	*x = GetCurrentLocation4_1Response{}
-	mi := &file_proto_location_location_proto_msgTypes[173]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetCurrentLocation4_1Response) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetCurrentLocation4_1Response) ProtoMessage() {}
-
-func (x *GetCurrentLocation4_1Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_location_location_proto_msgTypes[173]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetCurrentLocation4_1Response.ProtoReflect.Descriptor instead.
-func (*GetCurrentLocation4_1Response) Descriptor() ([]byte, []int) {
-	return file_proto_location_location_proto_rawDescGZIP(), []int{173}
-}
-
-type GetGnssAntennaInfosRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetGnssAntennaInfosRequest) Reset() {
-	*x = GetGnssAntennaInfosRequest{}
-	mi := &file_proto_location_location_proto_msgTypes[174]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetGnssAntennaInfosRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetGnssAntennaInfosRequest) ProtoMessage() {}
-
-func (x *GetGnssAntennaInfosRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_location_location_proto_msgTypes[174]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetGnssAntennaInfosRequest.ProtoReflect.Descriptor instead.
-func (*GetGnssAntennaInfosRequest) Descriptor() ([]byte, []int) {
-	return file_proto_location_location_proto_rawDescGZIP(), []int{174}
-}
-
-type GetGnssAntennaInfosResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetGnssAntennaInfosResponse) Reset() {
-	*x = GetGnssAntennaInfosResponse{}
-	mi := &file_proto_location_location_proto_msgTypes[175]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetGnssAntennaInfosResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetGnssAntennaInfosResponse) ProtoMessage() {}
-
-func (x *GetGnssAntennaInfosResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_location_location_proto_msgTypes[175]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetGnssAntennaInfosResponse.ProtoReflect.Descriptor instead.
-func (*GetGnssAntennaInfosResponse) Descriptor() ([]byte, []int) {
-	return file_proto_location_location_proto_rawDescGZIP(), []int{175}
-}
-
-func (x *GetGnssAntennaInfosResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
 }
 
 type GetGnssCapabilitiesRequest struct {
@@ -7327,7 +1079,7 @@ type GetGnssCapabilitiesRequest struct {
 
 func (x *GetGnssCapabilitiesRequest) Reset() {
 	*x = GetGnssCapabilitiesRequest{}
-	mi := &file_proto_location_location_proto_msgTypes[176]
+	mi := &file_proto_location_location_proto_msgTypes[22]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7339,7 +1091,7 @@ func (x *GetGnssCapabilitiesRequest) String() string {
 func (*GetGnssCapabilitiesRequest) ProtoMessage() {}
 
 func (x *GetGnssCapabilitiesRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_location_location_proto_msgTypes[176]
+	mi := &file_proto_location_location_proto_msgTypes[22]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7352,7 +1104,7 @@ func (x *GetGnssCapabilitiesRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetGnssCapabilitiesRequest.ProtoReflect.Descriptor instead.
 func (*GetGnssCapabilitiesRequest) Descriptor() ([]byte, []int) {
-	return file_proto_location_location_proto_rawDescGZIP(), []int{176}
+	return file_proto_location_location_proto_rawDescGZIP(), []int{22}
 }
 
 type GetGnssCapabilitiesResponse struct {
@@ -7364,7 +1116,7 @@ type GetGnssCapabilitiesResponse struct {
 
 func (x *GetGnssCapabilitiesResponse) Reset() {
 	*x = GetGnssCapabilitiesResponse{}
-	mi := &file_proto_location_location_proto_msgTypes[177]
+	mi := &file_proto_location_location_proto_msgTypes[23]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7376,7 +1128,7 @@ func (x *GetGnssCapabilitiesResponse) String() string {
 func (*GetGnssCapabilitiesResponse) ProtoMessage() {}
 
 func (x *GetGnssCapabilitiesResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_location_location_proto_msgTypes[177]
+	mi := &file_proto_location_location_proto_msgTypes[23]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7389,7 +1141,7 @@ func (x *GetGnssCapabilitiesResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetGnssCapabilitiesResponse.ProtoReflect.Descriptor instead.
 func (*GetGnssCapabilitiesResponse) Descriptor() ([]byte, []int) {
-	return file_proto_location_location_proto_rawDescGZIP(), []int{177}
+	return file_proto_location_location_proto_rawDescGZIP(), []int{23}
 }
 
 func (x *GetGnssCapabilitiesResponse) GetResult() int64 {
@@ -7407,7 +1159,7 @@ type GetGnssHardwareModelNameRequest struct {
 
 func (x *GetGnssHardwareModelNameRequest) Reset() {
 	*x = GetGnssHardwareModelNameRequest{}
-	mi := &file_proto_location_location_proto_msgTypes[178]
+	mi := &file_proto_location_location_proto_msgTypes[24]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7419,7 +1171,7 @@ func (x *GetGnssHardwareModelNameRequest) String() string {
 func (*GetGnssHardwareModelNameRequest) ProtoMessage() {}
 
 func (x *GetGnssHardwareModelNameRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_location_location_proto_msgTypes[178]
+	mi := &file_proto_location_location_proto_msgTypes[24]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7432,7 +1184,7 @@ func (x *GetGnssHardwareModelNameRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetGnssHardwareModelNameRequest.ProtoReflect.Descriptor instead.
 func (*GetGnssHardwareModelNameRequest) Descriptor() ([]byte, []int) {
-	return file_proto_location_location_proto_rawDescGZIP(), []int{178}
+	return file_proto_location_location_proto_rawDescGZIP(), []int{24}
 }
 
 type GetGnssHardwareModelNameResponse struct {
@@ -7444,7 +1196,7 @@ type GetGnssHardwareModelNameResponse struct {
 
 func (x *GetGnssHardwareModelNameResponse) Reset() {
 	*x = GetGnssHardwareModelNameResponse{}
-	mi := &file_proto_location_location_proto_msgTypes[179]
+	mi := &file_proto_location_location_proto_msgTypes[25]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7456,7 +1208,7 @@ func (x *GetGnssHardwareModelNameResponse) String() string {
 func (*GetGnssHardwareModelNameResponse) ProtoMessage() {}
 
 func (x *GetGnssHardwareModelNameResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_location_location_proto_msgTypes[179]
+	mi := &file_proto_location_location_proto_msgTypes[25]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7469,7 +1221,7 @@ func (x *GetGnssHardwareModelNameResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetGnssHardwareModelNameResponse.ProtoReflect.Descriptor instead.
 func (*GetGnssHardwareModelNameResponse) Descriptor() ([]byte, []int) {
-	return file_proto_location_location_proto_rawDescGZIP(), []int{179}
+	return file_proto_location_location_proto_rawDescGZIP(), []int{25}
 }
 
 func (x *GetGnssHardwareModelNameResponse) GetResult() string {
@@ -7487,7 +1239,7 @@ type GetGnssYearOfHardwareRequest struct {
 
 func (x *GetGnssYearOfHardwareRequest) Reset() {
 	*x = GetGnssYearOfHardwareRequest{}
-	mi := &file_proto_location_location_proto_msgTypes[180]
+	mi := &file_proto_location_location_proto_msgTypes[26]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7499,7 +1251,7 @@ func (x *GetGnssYearOfHardwareRequest) String() string {
 func (*GetGnssYearOfHardwareRequest) ProtoMessage() {}
 
 func (x *GetGnssYearOfHardwareRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_location_location_proto_msgTypes[180]
+	mi := &file_proto_location_location_proto_msgTypes[26]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7512,7 +1264,7 @@ func (x *GetGnssYearOfHardwareRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetGnssYearOfHardwareRequest.ProtoReflect.Descriptor instead.
 func (*GetGnssYearOfHardwareRequest) Descriptor() ([]byte, []int) {
-	return file_proto_location_location_proto_rawDescGZIP(), []int{180}
+	return file_proto_location_location_proto_rawDescGZIP(), []int{26}
 }
 
 type GetGnssYearOfHardwareResponse struct {
@@ -7524,7 +1276,7 @@ type GetGnssYearOfHardwareResponse struct {
 
 func (x *GetGnssYearOfHardwareResponse) Reset() {
 	*x = GetGnssYearOfHardwareResponse{}
-	mi := &file_proto_location_location_proto_msgTypes[181]
+	mi := &file_proto_location_location_proto_msgTypes[27]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7536,7 +1288,7 @@ func (x *GetGnssYearOfHardwareResponse) String() string {
 func (*GetGnssYearOfHardwareResponse) ProtoMessage() {}
 
 func (x *GetGnssYearOfHardwareResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_location_location_proto_msgTypes[181]
+	mi := &file_proto_location_location_proto_msgTypes[27]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7549,7 +1301,7 @@ func (x *GetGnssYearOfHardwareResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetGnssYearOfHardwareResponse.ProtoReflect.Descriptor instead.
 func (*GetGnssYearOfHardwareResponse) Descriptor() ([]byte, []int) {
-	return file_proto_location_location_proto_rawDescGZIP(), []int{181}
+	return file_proto_location_location_proto_rawDescGZIP(), []int{27}
 }
 
 func (x *GetGnssYearOfHardwareResponse) GetResult() int32 {
@@ -7568,7 +1320,7 @@ type GetGpsStatusRequest struct {
 
 func (x *GetGpsStatusRequest) Reset() {
 	*x = GetGpsStatusRequest{}
-	mi := &file_proto_location_location_proto_msgTypes[182]
+	mi := &file_proto_location_location_proto_msgTypes[28]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7580,7 +1332,7 @@ func (x *GetGpsStatusRequest) String() string {
 func (*GetGpsStatusRequest) ProtoMessage() {}
 
 func (x *GetGpsStatusRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_location_location_proto_msgTypes[182]
+	mi := &file_proto_location_location_proto_msgTypes[28]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7593,7 +1345,7 @@ func (x *GetGpsStatusRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetGpsStatusRequest.ProtoReflect.Descriptor instead.
 func (*GetGpsStatusRequest) Descriptor() ([]byte, []int) {
-	return file_proto_location_location_proto_rawDescGZIP(), []int{182}
+	return file_proto_location_location_proto_rawDescGZIP(), []int{28}
 }
 
 func (x *GetGpsStatusRequest) GetArg0() int64 {
@@ -7612,7 +1364,7 @@ type GetGpsStatusResponse struct {
 
 func (x *GetGpsStatusResponse) Reset() {
 	*x = GetGpsStatusResponse{}
-	mi := &file_proto_location_location_proto_msgTypes[183]
+	mi := &file_proto_location_location_proto_msgTypes[29]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7624,7 +1376,7 @@ func (x *GetGpsStatusResponse) String() string {
 func (*GetGpsStatusResponse) ProtoMessage() {}
 
 func (x *GetGpsStatusResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_location_location_proto_msgTypes[183]
+	mi := &file_proto_location_location_proto_msgTypes[29]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7637,7 +1389,7 @@ func (x *GetGpsStatusResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetGpsStatusResponse.ProtoReflect.Descriptor instead.
 func (*GetGpsStatusResponse) Descriptor() ([]byte, []int) {
-	return file_proto_location_location_proto_rawDescGZIP(), []int{183}
+	return file_proto_location_location_proto_rawDescGZIP(), []int{29}
 }
 
 func (x *GetGpsStatusResponse) GetResult() int64 {
@@ -7656,7 +1408,7 @@ type GetLastKnownLocationRequest struct {
 
 func (x *GetLastKnownLocationRequest) Reset() {
 	*x = GetLastKnownLocationRequest{}
-	mi := &file_proto_location_location_proto_msgTypes[184]
+	mi := &file_proto_location_location_proto_msgTypes[30]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7668,7 +1420,7 @@ func (x *GetLastKnownLocationRequest) String() string {
 func (*GetLastKnownLocationRequest) ProtoMessage() {}
 
 func (x *GetLastKnownLocationRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_location_location_proto_msgTypes[184]
+	mi := &file_proto_location_location_proto_msgTypes[30]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7681,7 +1433,7 @@ func (x *GetLastKnownLocationRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetLastKnownLocationRequest.ProtoReflect.Descriptor instead.
 func (*GetLastKnownLocationRequest) Descriptor() ([]byte, []int) {
-	return file_proto_location_location_proto_rawDescGZIP(), []int{184}
+	return file_proto_location_location_proto_rawDescGZIP(), []int{30}
 }
 
 func (x *GetLastKnownLocationRequest) GetArg0() string {
@@ -7700,7 +1452,7 @@ type GetLastKnownLocationResponse struct {
 
 func (x *GetLastKnownLocationResponse) Reset() {
 	*x = GetLastKnownLocationResponse{}
-	mi := &file_proto_location_location_proto_msgTypes[185]
+	mi := &file_proto_location_location_proto_msgTypes[31]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7712,7 +1464,7 @@ func (x *GetLastKnownLocationResponse) String() string {
 func (*GetLastKnownLocationResponse) ProtoMessage() {}
 
 func (x *GetLastKnownLocationResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_location_location_proto_msgTypes[185]
+	mi := &file_proto_location_location_proto_msgTypes[31]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7725,7 +1477,7 @@ func (x *GetLastKnownLocationResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetLastKnownLocationResponse.ProtoReflect.Descriptor instead.
 func (*GetLastKnownLocationResponse) Descriptor() ([]byte, []int) {
-	return file_proto_location_location_proto_rawDescGZIP(), []int{185}
+	return file_proto_location_location_proto_rawDescGZIP(), []int{31}
 }
 
 func (x *GetLastKnownLocationResponse) GetResult() int64 {
@@ -7735,28 +1487,28 @@ func (x *GetLastKnownLocationResponse) GetResult() int64 {
 	return 0
 }
 
-type ManagerGetProviderRequest struct {
+type GetProviderRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *ManagerGetProviderRequest) Reset() {
-	*x = ManagerGetProviderRequest{}
-	mi := &file_proto_location_location_proto_msgTypes[186]
+func (x *GetProviderRequest) Reset() {
+	*x = GetProviderRequest{}
+	mi := &file_proto_location_location_proto_msgTypes[32]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *ManagerGetProviderRequest) String() string {
+func (x *GetProviderRequest) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*ManagerGetProviderRequest) ProtoMessage() {}
+func (*GetProviderRequest) ProtoMessage() {}
 
-func (x *ManagerGetProviderRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_location_location_proto_msgTypes[186]
+func (x *GetProviderRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_location_location_proto_msgTypes[32]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7767,40 +1519,40 @@ func (x *ManagerGetProviderRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use ManagerGetProviderRequest.ProtoReflect.Descriptor instead.
-func (*ManagerGetProviderRequest) Descriptor() ([]byte, []int) {
-	return file_proto_location_location_proto_rawDescGZIP(), []int{186}
+// Deprecated: Use GetProviderRequest.ProtoReflect.Descriptor instead.
+func (*GetProviderRequest) Descriptor() ([]byte, []int) {
+	return file_proto_location_location_proto_rawDescGZIP(), []int{32}
 }
 
-func (x *ManagerGetProviderRequest) GetArg0() string {
+func (x *GetProviderRequest) GetArg0() string {
 	if x != nil {
 		return x.Arg0
 	}
 	return ""
 }
 
-type ManagerGetProviderResponse struct {
+type GetProviderResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *ManagerGetProviderResponse) Reset() {
-	*x = ManagerGetProviderResponse{}
-	mi := &file_proto_location_location_proto_msgTypes[187]
+func (x *GetProviderResponse) Reset() {
+	*x = GetProviderResponse{}
+	mi := &file_proto_location_location_proto_msgTypes[33]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *ManagerGetProviderResponse) String() string {
+func (x *GetProviderResponse) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*ManagerGetProviderResponse) ProtoMessage() {}
+func (*GetProviderResponse) ProtoMessage() {}
 
-func (x *ManagerGetProviderResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_location_location_proto_msgTypes[187]
+func (x *GetProviderResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_location_location_proto_msgTypes[33]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7811,12 +1563,12 @@ func (x *ManagerGetProviderResponse) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use ManagerGetProviderResponse.ProtoReflect.Descriptor instead.
-func (*ManagerGetProviderResponse) Descriptor() ([]byte, []int) {
-	return file_proto_location_location_proto_rawDescGZIP(), []int{187}
+// Deprecated: Use GetProviderResponse.ProtoReflect.Descriptor instead.
+func (*GetProviderResponse) Descriptor() ([]byte, []int) {
+	return file_proto_location_location_proto_rawDescGZIP(), []int{33}
 }
 
-func (x *ManagerGetProviderResponse) GetResult() int64 {
+func (x *GetProviderResponse) GetResult() int64 {
 	if x != nil {
 		return x.Result
 	}
@@ -7832,7 +1584,7 @@ type GetProviderPropertiesRequest struct {
 
 func (x *GetProviderPropertiesRequest) Reset() {
 	*x = GetProviderPropertiesRequest{}
-	mi := &file_proto_location_location_proto_msgTypes[188]
+	mi := &file_proto_location_location_proto_msgTypes[34]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7844,7 +1596,7 @@ func (x *GetProviderPropertiesRequest) String() string {
 func (*GetProviderPropertiesRequest) ProtoMessage() {}
 
 func (x *GetProviderPropertiesRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_location_location_proto_msgTypes[188]
+	mi := &file_proto_location_location_proto_msgTypes[34]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7857,7 +1609,7 @@ func (x *GetProviderPropertiesRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetProviderPropertiesRequest.ProtoReflect.Descriptor instead.
 func (*GetProviderPropertiesRequest) Descriptor() ([]byte, []int) {
-	return file_proto_location_location_proto_rawDescGZIP(), []int{188}
+	return file_proto_location_location_proto_rawDescGZIP(), []int{34}
 }
 
 func (x *GetProviderPropertiesRequest) GetArg0() string {
@@ -7876,7 +1628,7 @@ type GetProviderPropertiesResponse struct {
 
 func (x *GetProviderPropertiesResponse) Reset() {
 	*x = GetProviderPropertiesResponse{}
-	mi := &file_proto_location_location_proto_msgTypes[189]
+	mi := &file_proto_location_location_proto_msgTypes[35]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7888,7 +1640,7 @@ func (x *GetProviderPropertiesResponse) String() string {
 func (*GetProviderPropertiesResponse) ProtoMessage() {}
 
 func (x *GetProviderPropertiesResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_location_location_proto_msgTypes[189]
+	mi := &file_proto_location_location_proto_msgTypes[35]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7901,194 +1653,10 @@ func (x *GetProviderPropertiesResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetProviderPropertiesResponse.ProtoReflect.Descriptor instead.
 func (*GetProviderPropertiesResponse) Descriptor() ([]byte, []int) {
-	return file_proto_location_location_proto_rawDescGZIP(), []int{189}
+	return file_proto_location_location_proto_rawDescGZIP(), []int{35}
 }
 
 func (x *GetProviderPropertiesResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type GetProviders2Request struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	Arg1          bool                   `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetProviders2Request) Reset() {
-	*x = GetProviders2Request{}
-	mi := &file_proto_location_location_proto_msgTypes[190]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetProviders2Request) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetProviders2Request) ProtoMessage() {}
-
-func (x *GetProviders2Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_location_location_proto_msgTypes[190]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetProviders2Request.ProtoReflect.Descriptor instead.
-func (*GetProviders2Request) Descriptor() ([]byte, []int) {
-	return file_proto_location_location_proto_rawDescGZIP(), []int{190}
-}
-
-func (x *GetProviders2Request) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-func (x *GetProviders2Request) GetArg1() bool {
-	if x != nil {
-		return x.Arg1
-	}
-	return false
-}
-
-type GetProviders2Response struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetProviders2Response) Reset() {
-	*x = GetProviders2Response{}
-	mi := &file_proto_location_location_proto_msgTypes[191]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetProviders2Response) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetProviders2Response) ProtoMessage() {}
-
-func (x *GetProviders2Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_location_location_proto_msgTypes[191]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetProviders2Response.ProtoReflect.Descriptor instead.
-func (*GetProviders2Response) Descriptor() ([]byte, []int) {
-	return file_proto_location_location_proto_rawDescGZIP(), []int{191}
-}
-
-func (x *GetProviders2Response) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type GetProviders1_1Request struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          bool                   `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetProviders1_1Request) Reset() {
-	*x = GetProviders1_1Request{}
-	mi := &file_proto_location_location_proto_msgTypes[192]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetProviders1_1Request) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetProviders1_1Request) ProtoMessage() {}
-
-func (x *GetProviders1_1Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_location_location_proto_msgTypes[192]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetProviders1_1Request.ProtoReflect.Descriptor instead.
-func (*GetProviders1_1Request) Descriptor() ([]byte, []int) {
-	return file_proto_location_location_proto_rawDescGZIP(), []int{192}
-}
-
-func (x *GetProviders1_1Request) GetArg0() bool {
-	if x != nil {
-		return x.Arg0
-	}
-	return false
-}
-
-type GetProviders1_1Response struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetProviders1_1Response) Reset() {
-	*x = GetProviders1_1Response{}
-	mi := &file_proto_location_location_proto_msgTypes[193]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetProviders1_1Response) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetProviders1_1Response) ProtoMessage() {}
-
-func (x *GetProviders1_1Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_location_location_proto_msgTypes[193]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetProviders1_1Response.ProtoReflect.Descriptor instead.
-func (*GetProviders1_1Response) Descriptor() ([]byte, []int) {
-	return file_proto_location_location_proto_rawDescGZIP(), []int{193}
-}
-
-func (x *GetProviders1_1Response) GetResult() int64 {
 	if x != nil {
 		return x.Result
 	}
@@ -8104,7 +1672,7 @@ type HasProviderRequest struct {
 
 func (x *HasProviderRequest) Reset() {
 	*x = HasProviderRequest{}
-	mi := &file_proto_location_location_proto_msgTypes[194]
+	mi := &file_proto_location_location_proto_msgTypes[36]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -8116,7 +1684,7 @@ func (x *HasProviderRequest) String() string {
 func (*HasProviderRequest) ProtoMessage() {}
 
 func (x *HasProviderRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_location_location_proto_msgTypes[194]
+	mi := &file_proto_location_location_proto_msgTypes[36]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -8129,7 +1697,7 @@ func (x *HasProviderRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use HasProviderRequest.ProtoReflect.Descriptor instead.
 func (*HasProviderRequest) Descriptor() ([]byte, []int) {
-	return file_proto_location_location_proto_rawDescGZIP(), []int{194}
+	return file_proto_location_location_proto_rawDescGZIP(), []int{36}
 }
 
 func (x *HasProviderRequest) GetArg0() string {
@@ -8148,7 +1716,7 @@ type HasProviderResponse struct {
 
 func (x *HasProviderResponse) Reset() {
 	*x = HasProviderResponse{}
-	mi := &file_proto_location_location_proto_msgTypes[195]
+	mi := &file_proto_location_location_proto_msgTypes[37]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -8160,7 +1728,7 @@ func (x *HasProviderResponse) String() string {
 func (*HasProviderResponse) ProtoMessage() {}
 
 func (x *HasProviderResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_location_location_proto_msgTypes[195]
+	mi := &file_proto_location_location_proto_msgTypes[37]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -8173,7 +1741,7 @@ func (x *HasProviderResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use HasProviderResponse.ProtoReflect.Descriptor instead.
 func (*HasProviderResponse) Descriptor() ([]byte, []int) {
-	return file_proto_location_location_proto_rawDescGZIP(), []int{195}
+	return file_proto_location_location_proto_rawDescGZIP(), []int{37}
 }
 
 func (x *HasProviderResponse) GetResult() bool {
@@ -8191,7 +1759,7 @@ type IsLocationEnabledRequest struct {
 
 func (x *IsLocationEnabledRequest) Reset() {
 	*x = IsLocationEnabledRequest{}
-	mi := &file_proto_location_location_proto_msgTypes[196]
+	mi := &file_proto_location_location_proto_msgTypes[38]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -8203,7 +1771,7 @@ func (x *IsLocationEnabledRequest) String() string {
 func (*IsLocationEnabledRequest) ProtoMessage() {}
 
 func (x *IsLocationEnabledRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_location_location_proto_msgTypes[196]
+	mi := &file_proto_location_location_proto_msgTypes[38]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -8216,7 +1784,7 @@ func (x *IsLocationEnabledRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use IsLocationEnabledRequest.ProtoReflect.Descriptor instead.
 func (*IsLocationEnabledRequest) Descriptor() ([]byte, []int) {
-	return file_proto_location_location_proto_rawDescGZIP(), []int{196}
+	return file_proto_location_location_proto_rawDescGZIP(), []int{38}
 }
 
 type IsLocationEnabledResponse struct {
@@ -8228,7 +1796,7 @@ type IsLocationEnabledResponse struct {
 
 func (x *IsLocationEnabledResponse) Reset() {
 	*x = IsLocationEnabledResponse{}
-	mi := &file_proto_location_location_proto_msgTypes[197]
+	mi := &file_proto_location_location_proto_msgTypes[39]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -8240,7 +1808,7 @@ func (x *IsLocationEnabledResponse) String() string {
 func (*IsLocationEnabledResponse) ProtoMessage() {}
 
 func (x *IsLocationEnabledResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_location_location_proto_msgTypes[197]
+	mi := &file_proto_location_location_proto_msgTypes[39]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -8253,7 +1821,7 @@ func (x *IsLocationEnabledResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use IsLocationEnabledResponse.ProtoReflect.Descriptor instead.
 func (*IsLocationEnabledResponse) Descriptor() ([]byte, []int) {
-	return file_proto_location_location_proto_rawDescGZIP(), []int{197}
+	return file_proto_location_location_proto_rawDescGZIP(), []int{39}
 }
 
 func (x *IsLocationEnabledResponse) GetResult() bool {
@@ -8272,7 +1840,7 @@ type IsProviderEnabledRequest struct {
 
 func (x *IsProviderEnabledRequest) Reset() {
 	*x = IsProviderEnabledRequest{}
-	mi := &file_proto_location_location_proto_msgTypes[198]
+	mi := &file_proto_location_location_proto_msgTypes[40]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -8284,7 +1852,7 @@ func (x *IsProviderEnabledRequest) String() string {
 func (*IsProviderEnabledRequest) ProtoMessage() {}
 
 func (x *IsProviderEnabledRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_location_location_proto_msgTypes[198]
+	mi := &file_proto_location_location_proto_msgTypes[40]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -8297,7 +1865,7 @@ func (x *IsProviderEnabledRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use IsProviderEnabledRequest.ProtoReflect.Descriptor instead.
 func (*IsProviderEnabledRequest) Descriptor() ([]byte, []int) {
-	return file_proto_location_location_proto_rawDescGZIP(), []int{198}
+	return file_proto_location_location_proto_rawDescGZIP(), []int{40}
 }
 
 func (x *IsProviderEnabledRequest) GetArg0() string {
@@ -8316,7 +1884,7 @@ type IsProviderEnabledResponse struct {
 
 func (x *IsProviderEnabledResponse) Reset() {
 	*x = IsProviderEnabledResponse{}
-	mi := &file_proto_location_location_proto_msgTypes[199]
+	mi := &file_proto_location_location_proto_msgTypes[41]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -8328,7 +1896,7 @@ func (x *IsProviderEnabledResponse) String() string {
 func (*IsProviderEnabledResponse) ProtoMessage() {}
 
 func (x *IsProviderEnabledResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_location_location_proto_msgTypes[199]
+	mi := &file_proto_location_location_proto_msgTypes[41]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -8341,7 +1909,7 @@ func (x *IsProviderEnabledResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use IsProviderEnabledResponse.ProtoReflect.Descriptor instead.
 func (*IsProviderEnabledResponse) Descriptor() ([]byte, []int) {
-	return file_proto_location_location_proto_rawDescGZIP(), []int{199}
+	return file_proto_location_location_proto_rawDescGZIP(), []int{41}
 }
 
 func (x *IsProviderEnabledResponse) GetResult() bool {
@@ -8361,7 +1929,7 @@ type RegisterAntennaInfoListenerRequest struct {
 
 func (x *RegisterAntennaInfoListenerRequest) Reset() {
 	*x = RegisterAntennaInfoListenerRequest{}
-	mi := &file_proto_location_location_proto_msgTypes[200]
+	mi := &file_proto_location_location_proto_msgTypes[42]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -8373,7 +1941,7 @@ func (x *RegisterAntennaInfoListenerRequest) String() string {
 func (*RegisterAntennaInfoListenerRequest) ProtoMessage() {}
 
 func (x *RegisterAntennaInfoListenerRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_location_location_proto_msgTypes[200]
+	mi := &file_proto_location_location_proto_msgTypes[42]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -8386,7 +1954,7 @@ func (x *RegisterAntennaInfoListenerRequest) ProtoReflect() protoreflect.Message
 
 // Deprecated: Use RegisterAntennaInfoListenerRequest.ProtoReflect.Descriptor instead.
 func (*RegisterAntennaInfoListenerRequest) Descriptor() ([]byte, []int) {
-	return file_proto_location_location_proto_rawDescGZIP(), []int{200}
+	return file_proto_location_location_proto_rawDescGZIP(), []int{42}
 }
 
 func (x *RegisterAntennaInfoListenerRequest) GetArg0() int64 {
@@ -8412,7 +1980,7 @@ type RegisterAntennaInfoListenerResponse struct {
 
 func (x *RegisterAntennaInfoListenerResponse) Reset() {
 	*x = RegisterAntennaInfoListenerResponse{}
-	mi := &file_proto_location_location_proto_msgTypes[201]
+	mi := &file_proto_location_location_proto_msgTypes[43]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -8424,7 +1992,7 @@ func (x *RegisterAntennaInfoListenerResponse) String() string {
 func (*RegisterAntennaInfoListenerResponse) ProtoMessage() {}
 
 func (x *RegisterAntennaInfoListenerResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_location_location_proto_msgTypes[201]
+	mi := &file_proto_location_location_proto_msgTypes[43]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -8437,7 +2005,7 @@ func (x *RegisterAntennaInfoListenerResponse) ProtoReflect() protoreflect.Messag
 
 // Deprecated: Use RegisterAntennaInfoListenerResponse.ProtoReflect.Descriptor instead.
 func (*RegisterAntennaInfoListenerResponse) Descriptor() ([]byte, []int) {
-	return file_proto_location_location_proto_rawDescGZIP(), []int{201}
+	return file_proto_location_location_proto_rawDescGZIP(), []int{43}
 }
 
 func (x *RegisterAntennaInfoListenerResponse) GetResult() bool {
@@ -8458,7 +2026,7 @@ type RegisterGnssMeasurementsCallback3Request struct {
 
 func (x *RegisterGnssMeasurementsCallback3Request) Reset() {
 	*x = RegisterGnssMeasurementsCallback3Request{}
-	mi := &file_proto_location_location_proto_msgTypes[202]
+	mi := &file_proto_location_location_proto_msgTypes[44]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -8470,7 +2038,7 @@ func (x *RegisterGnssMeasurementsCallback3Request) String() string {
 func (*RegisterGnssMeasurementsCallback3Request) ProtoMessage() {}
 
 func (x *RegisterGnssMeasurementsCallback3Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_location_location_proto_msgTypes[202]
+	mi := &file_proto_location_location_proto_msgTypes[44]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -8483,7 +2051,7 @@ func (x *RegisterGnssMeasurementsCallback3Request) ProtoReflect() protoreflect.M
 
 // Deprecated: Use RegisterGnssMeasurementsCallback3Request.ProtoReflect.Descriptor instead.
 func (*RegisterGnssMeasurementsCallback3Request) Descriptor() ([]byte, []int) {
-	return file_proto_location_location_proto_rawDescGZIP(), []int{202}
+	return file_proto_location_location_proto_rawDescGZIP(), []int{44}
 }
 
 func (x *RegisterGnssMeasurementsCallback3Request) GetArg0() int64 {
@@ -8516,7 +2084,7 @@ type RegisterGnssMeasurementsCallback3Response struct {
 
 func (x *RegisterGnssMeasurementsCallback3Response) Reset() {
 	*x = RegisterGnssMeasurementsCallback3Response{}
-	mi := &file_proto_location_location_proto_msgTypes[203]
+	mi := &file_proto_location_location_proto_msgTypes[45]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -8528,7 +2096,7 @@ func (x *RegisterGnssMeasurementsCallback3Response) String() string {
 func (*RegisterGnssMeasurementsCallback3Response) ProtoMessage() {}
 
 func (x *RegisterGnssMeasurementsCallback3Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_location_location_proto_msgTypes[203]
+	mi := &file_proto_location_location_proto_msgTypes[45]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -8541,7 +2109,7 @@ func (x *RegisterGnssMeasurementsCallback3Response) ProtoReflect() protoreflect.
 
 // Deprecated: Use RegisterGnssMeasurementsCallback3Response.ProtoReflect.Descriptor instead.
 func (*RegisterGnssMeasurementsCallback3Response) Descriptor() ([]byte, []int) {
-	return file_proto_location_location_proto_rawDescGZIP(), []int{203}
+	return file_proto_location_location_proto_rawDescGZIP(), []int{45}
 }
 
 func (x *RegisterGnssMeasurementsCallback3Response) GetResult() bool {
@@ -8560,7 +2128,7 @@ type RegisterGnssMeasurementsCallback1_1Request struct {
 
 func (x *RegisterGnssMeasurementsCallback1_1Request) Reset() {
 	*x = RegisterGnssMeasurementsCallback1_1Request{}
-	mi := &file_proto_location_location_proto_msgTypes[204]
+	mi := &file_proto_location_location_proto_msgTypes[46]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -8572,7 +2140,7 @@ func (x *RegisterGnssMeasurementsCallback1_1Request) String() string {
 func (*RegisterGnssMeasurementsCallback1_1Request) ProtoMessage() {}
 
 func (x *RegisterGnssMeasurementsCallback1_1Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_location_location_proto_msgTypes[204]
+	mi := &file_proto_location_location_proto_msgTypes[46]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -8585,7 +2153,7 @@ func (x *RegisterGnssMeasurementsCallback1_1Request) ProtoReflect() protoreflect
 
 // Deprecated: Use RegisterGnssMeasurementsCallback1_1Request.ProtoReflect.Descriptor instead.
 func (*RegisterGnssMeasurementsCallback1_1Request) Descriptor() ([]byte, []int) {
-	return file_proto_location_location_proto_rawDescGZIP(), []int{204}
+	return file_proto_location_location_proto_rawDescGZIP(), []int{46}
 }
 
 func (x *RegisterGnssMeasurementsCallback1_1Request) GetArg0() int64 {
@@ -8604,7 +2172,7 @@ type RegisterGnssMeasurementsCallback1_1Response struct {
 
 func (x *RegisterGnssMeasurementsCallback1_1Response) Reset() {
 	*x = RegisterGnssMeasurementsCallback1_1Response{}
-	mi := &file_proto_location_location_proto_msgTypes[205]
+	mi := &file_proto_location_location_proto_msgTypes[47]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -8616,7 +2184,7 @@ func (x *RegisterGnssMeasurementsCallback1_1Response) String() string {
 func (*RegisterGnssMeasurementsCallback1_1Response) ProtoMessage() {}
 
 func (x *RegisterGnssMeasurementsCallback1_1Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_location_location_proto_msgTypes[205]
+	mi := &file_proto_location_location_proto_msgTypes[47]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -8629,7 +2197,7 @@ func (x *RegisterGnssMeasurementsCallback1_1Response) ProtoReflect() protoreflec
 
 // Deprecated: Use RegisterGnssMeasurementsCallback1_1Response.ProtoReflect.Descriptor instead.
 func (*RegisterGnssMeasurementsCallback1_1Response) Descriptor() ([]byte, []int) {
-	return file_proto_location_location_proto_rawDescGZIP(), []int{205}
+	return file_proto_location_location_proto_rawDescGZIP(), []int{47}
 }
 
 func (x *RegisterGnssMeasurementsCallback1_1Response) GetResult() bool {
@@ -8649,7 +2217,7 @@ type RegisterGnssMeasurementsCallback2_2Request struct {
 
 func (x *RegisterGnssMeasurementsCallback2_2Request) Reset() {
 	*x = RegisterGnssMeasurementsCallback2_2Request{}
-	mi := &file_proto_location_location_proto_msgTypes[206]
+	mi := &file_proto_location_location_proto_msgTypes[48]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -8661,7 +2229,7 @@ func (x *RegisterGnssMeasurementsCallback2_2Request) String() string {
 func (*RegisterGnssMeasurementsCallback2_2Request) ProtoMessage() {}
 
 func (x *RegisterGnssMeasurementsCallback2_2Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_location_location_proto_msgTypes[206]
+	mi := &file_proto_location_location_proto_msgTypes[48]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -8674,7 +2242,7 @@ func (x *RegisterGnssMeasurementsCallback2_2Request) ProtoReflect() protoreflect
 
 // Deprecated: Use RegisterGnssMeasurementsCallback2_2Request.ProtoReflect.Descriptor instead.
 func (*RegisterGnssMeasurementsCallback2_2Request) Descriptor() ([]byte, []int) {
-	return file_proto_location_location_proto_rawDescGZIP(), []int{206}
+	return file_proto_location_location_proto_rawDescGZIP(), []int{48}
 }
 
 func (x *RegisterGnssMeasurementsCallback2_2Request) GetArg0() int64 {
@@ -8700,7 +2268,7 @@ type RegisterGnssMeasurementsCallback2_2Response struct {
 
 func (x *RegisterGnssMeasurementsCallback2_2Response) Reset() {
 	*x = RegisterGnssMeasurementsCallback2_2Response{}
-	mi := &file_proto_location_location_proto_msgTypes[207]
+	mi := &file_proto_location_location_proto_msgTypes[49]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -8712,7 +2280,7 @@ func (x *RegisterGnssMeasurementsCallback2_2Response) String() string {
 func (*RegisterGnssMeasurementsCallback2_2Response) ProtoMessage() {}
 
 func (x *RegisterGnssMeasurementsCallback2_2Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_location_location_proto_msgTypes[207]
+	mi := &file_proto_location_location_proto_msgTypes[49]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -8725,7 +2293,7 @@ func (x *RegisterGnssMeasurementsCallback2_2Response) ProtoReflect() protoreflec
 
 // Deprecated: Use RegisterGnssMeasurementsCallback2_2Response.ProtoReflect.Descriptor instead.
 func (*RegisterGnssMeasurementsCallback2_2Response) Descriptor() ([]byte, []int) {
-	return file_proto_location_location_proto_rawDescGZIP(), []int{207}
+	return file_proto_location_location_proto_rawDescGZIP(), []int{49}
 }
 
 func (x *RegisterGnssMeasurementsCallback2_2Response) GetResult() bool {
@@ -8744,7 +2312,7 @@ type RegisterGnssNavigationMessageCallback1Request struct {
 
 func (x *RegisterGnssNavigationMessageCallback1Request) Reset() {
 	*x = RegisterGnssNavigationMessageCallback1Request{}
-	mi := &file_proto_location_location_proto_msgTypes[208]
+	mi := &file_proto_location_location_proto_msgTypes[50]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -8756,7 +2324,7 @@ func (x *RegisterGnssNavigationMessageCallback1Request) String() string {
 func (*RegisterGnssNavigationMessageCallback1Request) ProtoMessage() {}
 
 func (x *RegisterGnssNavigationMessageCallback1Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_location_location_proto_msgTypes[208]
+	mi := &file_proto_location_location_proto_msgTypes[50]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -8769,7 +2337,7 @@ func (x *RegisterGnssNavigationMessageCallback1Request) ProtoReflect() protorefl
 
 // Deprecated: Use RegisterGnssNavigationMessageCallback1Request.ProtoReflect.Descriptor instead.
 func (*RegisterGnssNavigationMessageCallback1Request) Descriptor() ([]byte, []int) {
-	return file_proto_location_location_proto_rawDescGZIP(), []int{208}
+	return file_proto_location_location_proto_rawDescGZIP(), []int{50}
 }
 
 func (x *RegisterGnssNavigationMessageCallback1Request) GetArg0() int64 {
@@ -8788,7 +2356,7 @@ type RegisterGnssNavigationMessageCallback1Response struct {
 
 func (x *RegisterGnssNavigationMessageCallback1Response) Reset() {
 	*x = RegisterGnssNavigationMessageCallback1Response{}
-	mi := &file_proto_location_location_proto_msgTypes[209]
+	mi := &file_proto_location_location_proto_msgTypes[51]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -8800,7 +2368,7 @@ func (x *RegisterGnssNavigationMessageCallback1Response) String() string {
 func (*RegisterGnssNavigationMessageCallback1Response) ProtoMessage() {}
 
 func (x *RegisterGnssNavigationMessageCallback1Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_location_location_proto_msgTypes[209]
+	mi := &file_proto_location_location_proto_msgTypes[51]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -8813,7 +2381,7 @@ func (x *RegisterGnssNavigationMessageCallback1Response) ProtoReflect() protoref
 
 // Deprecated: Use RegisterGnssNavigationMessageCallback1Response.ProtoReflect.Descriptor instead.
 func (*RegisterGnssNavigationMessageCallback1Response) Descriptor() ([]byte, []int) {
-	return file_proto_location_location_proto_rawDescGZIP(), []int{209}
+	return file_proto_location_location_proto_rawDescGZIP(), []int{51}
 }
 
 func (x *RegisterGnssNavigationMessageCallback1Response) GetResult() bool {
@@ -8833,7 +2401,7 @@ type RegisterGnssNavigationMessageCallback2_1Request struct {
 
 func (x *RegisterGnssNavigationMessageCallback2_1Request) Reset() {
 	*x = RegisterGnssNavigationMessageCallback2_1Request{}
-	mi := &file_proto_location_location_proto_msgTypes[210]
+	mi := &file_proto_location_location_proto_msgTypes[52]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -8845,7 +2413,7 @@ func (x *RegisterGnssNavigationMessageCallback2_1Request) String() string {
 func (*RegisterGnssNavigationMessageCallback2_1Request) ProtoMessage() {}
 
 func (x *RegisterGnssNavigationMessageCallback2_1Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_location_location_proto_msgTypes[210]
+	mi := &file_proto_location_location_proto_msgTypes[52]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -8858,7 +2426,7 @@ func (x *RegisterGnssNavigationMessageCallback2_1Request) ProtoReflect() protore
 
 // Deprecated: Use RegisterGnssNavigationMessageCallback2_1Request.ProtoReflect.Descriptor instead.
 func (*RegisterGnssNavigationMessageCallback2_1Request) Descriptor() ([]byte, []int) {
-	return file_proto_location_location_proto_rawDescGZIP(), []int{210}
+	return file_proto_location_location_proto_rawDescGZIP(), []int{52}
 }
 
 func (x *RegisterGnssNavigationMessageCallback2_1Request) GetArg0() int64 {
@@ -8884,7 +2452,7 @@ type RegisterGnssNavigationMessageCallback2_1Response struct {
 
 func (x *RegisterGnssNavigationMessageCallback2_1Response) Reset() {
 	*x = RegisterGnssNavigationMessageCallback2_1Response{}
-	mi := &file_proto_location_location_proto_msgTypes[211]
+	mi := &file_proto_location_location_proto_msgTypes[53]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -8896,7 +2464,7 @@ func (x *RegisterGnssNavigationMessageCallback2_1Response) String() string {
 func (*RegisterGnssNavigationMessageCallback2_1Response) ProtoMessage() {}
 
 func (x *RegisterGnssNavigationMessageCallback2_1Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_location_location_proto_msgTypes[211]
+	mi := &file_proto_location_location_proto_msgTypes[53]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -8909,7 +2477,7 @@ func (x *RegisterGnssNavigationMessageCallback2_1Response) ProtoReflect() protor
 
 // Deprecated: Use RegisterGnssNavigationMessageCallback2_1Response.ProtoReflect.Descriptor instead.
 func (*RegisterGnssNavigationMessageCallback2_1Response) Descriptor() ([]byte, []int) {
-	return file_proto_location_location_proto_rawDescGZIP(), []int{211}
+	return file_proto_location_location_proto_rawDescGZIP(), []int{53}
 }
 
 func (x *RegisterGnssNavigationMessageCallback2_1Response) GetResult() bool {
@@ -8928,7 +2496,7 @@ type RegisterGnssStatusCallback1Request struct {
 
 func (x *RegisterGnssStatusCallback1Request) Reset() {
 	*x = RegisterGnssStatusCallback1Request{}
-	mi := &file_proto_location_location_proto_msgTypes[212]
+	mi := &file_proto_location_location_proto_msgTypes[54]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -8940,7 +2508,7 @@ func (x *RegisterGnssStatusCallback1Request) String() string {
 func (*RegisterGnssStatusCallback1Request) ProtoMessage() {}
 
 func (x *RegisterGnssStatusCallback1Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_location_location_proto_msgTypes[212]
+	mi := &file_proto_location_location_proto_msgTypes[54]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -8953,7 +2521,7 @@ func (x *RegisterGnssStatusCallback1Request) ProtoReflect() protoreflect.Message
 
 // Deprecated: Use RegisterGnssStatusCallback1Request.ProtoReflect.Descriptor instead.
 func (*RegisterGnssStatusCallback1Request) Descriptor() ([]byte, []int) {
-	return file_proto_location_location_proto_rawDescGZIP(), []int{212}
+	return file_proto_location_location_proto_rawDescGZIP(), []int{54}
 }
 
 func (x *RegisterGnssStatusCallback1Request) GetArg0() int64 {
@@ -8972,7 +2540,7 @@ type RegisterGnssStatusCallback1Response struct {
 
 func (x *RegisterGnssStatusCallback1Response) Reset() {
 	*x = RegisterGnssStatusCallback1Response{}
-	mi := &file_proto_location_location_proto_msgTypes[213]
+	mi := &file_proto_location_location_proto_msgTypes[55]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -8984,7 +2552,7 @@ func (x *RegisterGnssStatusCallback1Response) String() string {
 func (*RegisterGnssStatusCallback1Response) ProtoMessage() {}
 
 func (x *RegisterGnssStatusCallback1Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_location_location_proto_msgTypes[213]
+	mi := &file_proto_location_location_proto_msgTypes[55]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -8997,7 +2565,7 @@ func (x *RegisterGnssStatusCallback1Response) ProtoReflect() protoreflect.Messag
 
 // Deprecated: Use RegisterGnssStatusCallback1Response.ProtoReflect.Descriptor instead.
 func (*RegisterGnssStatusCallback1Response) Descriptor() ([]byte, []int) {
-	return file_proto_location_location_proto_rawDescGZIP(), []int{213}
+	return file_proto_location_location_proto_rawDescGZIP(), []int{55}
 }
 
 func (x *RegisterGnssStatusCallback1Response) GetResult() bool {
@@ -9017,7 +2585,7 @@ type RegisterGnssStatusCallback2_1Request struct {
 
 func (x *RegisterGnssStatusCallback2_1Request) Reset() {
 	*x = RegisterGnssStatusCallback2_1Request{}
-	mi := &file_proto_location_location_proto_msgTypes[214]
+	mi := &file_proto_location_location_proto_msgTypes[56]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -9029,7 +2597,7 @@ func (x *RegisterGnssStatusCallback2_1Request) String() string {
 func (*RegisterGnssStatusCallback2_1Request) ProtoMessage() {}
 
 func (x *RegisterGnssStatusCallback2_1Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_location_location_proto_msgTypes[214]
+	mi := &file_proto_location_location_proto_msgTypes[56]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -9042,7 +2610,7 @@ func (x *RegisterGnssStatusCallback2_1Request) ProtoReflect() protoreflect.Messa
 
 // Deprecated: Use RegisterGnssStatusCallback2_1Request.ProtoReflect.Descriptor instead.
 func (*RegisterGnssStatusCallback2_1Request) Descriptor() ([]byte, []int) {
-	return file_proto_location_location_proto_rawDescGZIP(), []int{214}
+	return file_proto_location_location_proto_rawDescGZIP(), []int{56}
 }
 
 func (x *RegisterGnssStatusCallback2_1Request) GetArg0() int64 {
@@ -9068,7 +2636,7 @@ type RegisterGnssStatusCallback2_1Response struct {
 
 func (x *RegisterGnssStatusCallback2_1Response) Reset() {
 	*x = RegisterGnssStatusCallback2_1Response{}
-	mi := &file_proto_location_location_proto_msgTypes[215]
+	mi := &file_proto_location_location_proto_msgTypes[57]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -9080,7 +2648,7 @@ func (x *RegisterGnssStatusCallback2_1Response) String() string {
 func (*RegisterGnssStatusCallback2_1Response) ProtoMessage() {}
 
 func (x *RegisterGnssStatusCallback2_1Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_location_location_proto_msgTypes[215]
+	mi := &file_proto_location_location_proto_msgTypes[57]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -9093,7 +2661,7 @@ func (x *RegisterGnssStatusCallback2_1Response) ProtoReflect() protoreflect.Mess
 
 // Deprecated: Use RegisterGnssStatusCallback2_1Response.ProtoReflect.Descriptor instead.
 func (*RegisterGnssStatusCallback2_1Response) Descriptor() ([]byte, []int) {
-	return file_proto_location_location_proto_rawDescGZIP(), []int{215}
+	return file_proto_location_location_proto_rawDescGZIP(), []int{57}
 }
 
 func (x *RegisterGnssStatusCallback2_1Response) GetResult() bool {
@@ -9112,7 +2680,7 @@ type RemoveGpsStatusListenerRequest struct {
 
 func (x *RemoveGpsStatusListenerRequest) Reset() {
 	*x = RemoveGpsStatusListenerRequest{}
-	mi := &file_proto_location_location_proto_msgTypes[216]
+	mi := &file_proto_location_location_proto_msgTypes[58]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -9124,7 +2692,7 @@ func (x *RemoveGpsStatusListenerRequest) String() string {
 func (*RemoveGpsStatusListenerRequest) ProtoMessage() {}
 
 func (x *RemoveGpsStatusListenerRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_location_location_proto_msgTypes[216]
+	mi := &file_proto_location_location_proto_msgTypes[58]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -9137,7 +2705,7 @@ func (x *RemoveGpsStatusListenerRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use RemoveGpsStatusListenerRequest.ProtoReflect.Descriptor instead.
 func (*RemoveGpsStatusListenerRequest) Descriptor() ([]byte, []int) {
-	return file_proto_location_location_proto_rawDescGZIP(), []int{216}
+	return file_proto_location_location_proto_rawDescGZIP(), []int{58}
 }
 
 func (x *RemoveGpsStatusListenerRequest) GetArg0() int64 {
@@ -9155,7 +2723,7 @@ type RemoveGpsStatusListenerResponse struct {
 
 func (x *RemoveGpsStatusListenerResponse) Reset() {
 	*x = RemoveGpsStatusListenerResponse{}
-	mi := &file_proto_location_location_proto_msgTypes[217]
+	mi := &file_proto_location_location_proto_msgTypes[59]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -9167,7 +2735,7 @@ func (x *RemoveGpsStatusListenerResponse) String() string {
 func (*RemoveGpsStatusListenerResponse) ProtoMessage() {}
 
 func (x *RemoveGpsStatusListenerResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_location_location_proto_msgTypes[217]
+	mi := &file_proto_location_location_proto_msgTypes[59]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -9180,7 +2748,7 @@ func (x *RemoveGpsStatusListenerResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use RemoveGpsStatusListenerResponse.ProtoReflect.Descriptor instead.
 func (*RemoveGpsStatusListenerResponse) Descriptor() ([]byte, []int) {
-	return file_proto_location_location_proto_rawDescGZIP(), []int{217}
+	return file_proto_location_location_proto_rawDescGZIP(), []int{59}
 }
 
 type RemoveNmeaListener1Request struct {
@@ -9192,7 +2760,7 @@ type RemoveNmeaListener1Request struct {
 
 func (x *RemoveNmeaListener1Request) Reset() {
 	*x = RemoveNmeaListener1Request{}
-	mi := &file_proto_location_location_proto_msgTypes[218]
+	mi := &file_proto_location_location_proto_msgTypes[60]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -9204,7 +2772,7 @@ func (x *RemoveNmeaListener1Request) String() string {
 func (*RemoveNmeaListener1Request) ProtoMessage() {}
 
 func (x *RemoveNmeaListener1Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_location_location_proto_msgTypes[218]
+	mi := &file_proto_location_location_proto_msgTypes[60]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -9217,7 +2785,7 @@ func (x *RemoveNmeaListener1Request) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use RemoveNmeaListener1Request.ProtoReflect.Descriptor instead.
 func (*RemoveNmeaListener1Request) Descriptor() ([]byte, []int) {
-	return file_proto_location_location_proto_rawDescGZIP(), []int{218}
+	return file_proto_location_location_proto_rawDescGZIP(), []int{60}
 }
 
 func (x *RemoveNmeaListener1Request) GetArg0() int64 {
@@ -9235,7 +2803,7 @@ type RemoveNmeaListener1Response struct {
 
 func (x *RemoveNmeaListener1Response) Reset() {
 	*x = RemoveNmeaListener1Response{}
-	mi := &file_proto_location_location_proto_msgTypes[219]
+	mi := &file_proto_location_location_proto_msgTypes[61]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -9247,7 +2815,7 @@ func (x *RemoveNmeaListener1Response) String() string {
 func (*RemoveNmeaListener1Response) ProtoMessage() {}
 
 func (x *RemoveNmeaListener1Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_location_location_proto_msgTypes[219]
+	mi := &file_proto_location_location_proto_msgTypes[61]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -9260,7 +2828,7 @@ func (x *RemoveNmeaListener1Response) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use RemoveNmeaListener1Response.ProtoReflect.Descriptor instead.
 func (*RemoveNmeaListener1Response) Descriptor() ([]byte, []int) {
-	return file_proto_location_location_proto_rawDescGZIP(), []int{219}
+	return file_proto_location_location_proto_rawDescGZIP(), []int{61}
 }
 
 type RemoveNmeaListener1_1Request struct {
@@ -9272,7 +2840,7 @@ type RemoveNmeaListener1_1Request struct {
 
 func (x *RemoveNmeaListener1_1Request) Reset() {
 	*x = RemoveNmeaListener1_1Request{}
-	mi := &file_proto_location_location_proto_msgTypes[220]
+	mi := &file_proto_location_location_proto_msgTypes[62]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -9284,7 +2852,7 @@ func (x *RemoveNmeaListener1_1Request) String() string {
 func (*RemoveNmeaListener1_1Request) ProtoMessage() {}
 
 func (x *RemoveNmeaListener1_1Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_location_location_proto_msgTypes[220]
+	mi := &file_proto_location_location_proto_msgTypes[62]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -9297,7 +2865,7 @@ func (x *RemoveNmeaListener1_1Request) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use RemoveNmeaListener1_1Request.ProtoReflect.Descriptor instead.
 func (*RemoveNmeaListener1_1Request) Descriptor() ([]byte, []int) {
-	return file_proto_location_location_proto_rawDescGZIP(), []int{220}
+	return file_proto_location_location_proto_rawDescGZIP(), []int{62}
 }
 
 func (x *RemoveNmeaListener1_1Request) GetArg0() int64 {
@@ -9315,7 +2883,7 @@ type RemoveNmeaListener1_1Response struct {
 
 func (x *RemoveNmeaListener1_1Response) Reset() {
 	*x = RemoveNmeaListener1_1Response{}
-	mi := &file_proto_location_location_proto_msgTypes[221]
+	mi := &file_proto_location_location_proto_msgTypes[63]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -9327,7 +2895,7 @@ func (x *RemoveNmeaListener1_1Response) String() string {
 func (*RemoveNmeaListener1_1Response) ProtoMessage() {}
 
 func (x *RemoveNmeaListener1_1Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_location_location_proto_msgTypes[221]
+	mi := &file_proto_location_location_proto_msgTypes[63]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -9340,7 +2908,7 @@ func (x *RemoveNmeaListener1_1Response) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use RemoveNmeaListener1_1Response.ProtoReflect.Descriptor instead.
 func (*RemoveNmeaListener1_1Response) Descriptor() ([]byte, []int) {
-	return file_proto_location_location_proto_rawDescGZIP(), []int{221}
+	return file_proto_location_location_proto_rawDescGZIP(), []int{63}
 }
 
 type RemoveProximityAlertRequest struct {
@@ -9352,7 +2920,7 @@ type RemoveProximityAlertRequest struct {
 
 func (x *RemoveProximityAlertRequest) Reset() {
 	*x = RemoveProximityAlertRequest{}
-	mi := &file_proto_location_location_proto_msgTypes[222]
+	mi := &file_proto_location_location_proto_msgTypes[64]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -9364,7 +2932,7 @@ func (x *RemoveProximityAlertRequest) String() string {
 func (*RemoveProximityAlertRequest) ProtoMessage() {}
 
 func (x *RemoveProximityAlertRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_location_location_proto_msgTypes[222]
+	mi := &file_proto_location_location_proto_msgTypes[64]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -9377,7 +2945,7 @@ func (x *RemoveProximityAlertRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use RemoveProximityAlertRequest.ProtoReflect.Descriptor instead.
 func (*RemoveProximityAlertRequest) Descriptor() ([]byte, []int) {
-	return file_proto_location_location_proto_rawDescGZIP(), []int{222}
+	return file_proto_location_location_proto_rawDescGZIP(), []int{64}
 }
 
 func (x *RemoveProximityAlertRequest) GetArg0() int64 {
@@ -9395,7 +2963,7 @@ type RemoveProximityAlertResponse struct {
 
 func (x *RemoveProximityAlertResponse) Reset() {
 	*x = RemoveProximityAlertResponse{}
-	mi := &file_proto_location_location_proto_msgTypes[223]
+	mi := &file_proto_location_location_proto_msgTypes[65]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -9407,7 +2975,7 @@ func (x *RemoveProximityAlertResponse) String() string {
 func (*RemoveProximityAlertResponse) ProtoMessage() {}
 
 func (x *RemoveProximityAlertResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_location_location_proto_msgTypes[223]
+	mi := &file_proto_location_location_proto_msgTypes[65]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -9420,7 +2988,7 @@ func (x *RemoveProximityAlertResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use RemoveProximityAlertResponse.ProtoReflect.Descriptor instead.
 func (*RemoveProximityAlertResponse) Descriptor() ([]byte, []int) {
-	return file_proto_location_location_proto_rawDescGZIP(), []int{223}
+	return file_proto_location_location_proto_rawDescGZIP(), []int{65}
 }
 
 type RemoveTestProviderRequest struct {
@@ -9432,7 +3000,7 @@ type RemoveTestProviderRequest struct {
 
 func (x *RemoveTestProviderRequest) Reset() {
 	*x = RemoveTestProviderRequest{}
-	mi := &file_proto_location_location_proto_msgTypes[224]
+	mi := &file_proto_location_location_proto_msgTypes[66]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -9444,7 +3012,7 @@ func (x *RemoveTestProviderRequest) String() string {
 func (*RemoveTestProviderRequest) ProtoMessage() {}
 
 func (x *RemoveTestProviderRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_location_location_proto_msgTypes[224]
+	mi := &file_proto_location_location_proto_msgTypes[66]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -9457,7 +3025,7 @@ func (x *RemoveTestProviderRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use RemoveTestProviderRequest.ProtoReflect.Descriptor instead.
 func (*RemoveTestProviderRequest) Descriptor() ([]byte, []int) {
-	return file_proto_location_location_proto_rawDescGZIP(), []int{224}
+	return file_proto_location_location_proto_rawDescGZIP(), []int{66}
 }
 
 func (x *RemoveTestProviderRequest) GetArg0() string {
@@ -9475,7 +3043,7 @@ type RemoveTestProviderResponse struct {
 
 func (x *RemoveTestProviderResponse) Reset() {
 	*x = RemoveTestProviderResponse{}
-	mi := &file_proto_location_location_proto_msgTypes[225]
+	mi := &file_proto_location_location_proto_msgTypes[67]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -9487,7 +3055,7 @@ func (x *RemoveTestProviderResponse) String() string {
 func (*RemoveTestProviderResponse) ProtoMessage() {}
 
 func (x *RemoveTestProviderResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_location_location_proto_msgTypes[225]
+	mi := &file_proto_location_location_proto_msgTypes[67]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -9500,7 +3068,7 @@ func (x *RemoveTestProviderResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use RemoveTestProviderResponse.ProtoReflect.Descriptor instead.
 func (*RemoveTestProviderResponse) Descriptor() ([]byte, []int) {
-	return file_proto_location_location_proto_rawDescGZIP(), []int{225}
+	return file_proto_location_location_proto_rawDescGZIP(), []int{67}
 }
 
 type RemoveUpdates1Request struct {
@@ -9512,7 +3080,7 @@ type RemoveUpdates1Request struct {
 
 func (x *RemoveUpdates1Request) Reset() {
 	*x = RemoveUpdates1Request{}
-	mi := &file_proto_location_location_proto_msgTypes[226]
+	mi := &file_proto_location_location_proto_msgTypes[68]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -9524,7 +3092,7 @@ func (x *RemoveUpdates1Request) String() string {
 func (*RemoveUpdates1Request) ProtoMessage() {}
 
 func (x *RemoveUpdates1Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_location_location_proto_msgTypes[226]
+	mi := &file_proto_location_location_proto_msgTypes[68]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -9537,7 +3105,7 @@ func (x *RemoveUpdates1Request) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use RemoveUpdates1Request.ProtoReflect.Descriptor instead.
 func (*RemoveUpdates1Request) Descriptor() ([]byte, []int) {
-	return file_proto_location_location_proto_rawDescGZIP(), []int{226}
+	return file_proto_location_location_proto_rawDescGZIP(), []int{68}
 }
 
 func (x *RemoveUpdates1Request) GetArg0() int64 {
@@ -9555,7 +3123,7 @@ type RemoveUpdates1Response struct {
 
 func (x *RemoveUpdates1Response) Reset() {
 	*x = RemoveUpdates1Response{}
-	mi := &file_proto_location_location_proto_msgTypes[227]
+	mi := &file_proto_location_location_proto_msgTypes[69]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -9567,7 +3135,7 @@ func (x *RemoveUpdates1Response) String() string {
 func (*RemoveUpdates1Response) ProtoMessage() {}
 
 func (x *RemoveUpdates1Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_location_location_proto_msgTypes[227]
+	mi := &file_proto_location_location_proto_msgTypes[69]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -9580,7 +3148,7 @@ func (x *RemoveUpdates1Response) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use RemoveUpdates1Response.ProtoReflect.Descriptor instead.
 func (*RemoveUpdates1Response) Descriptor() ([]byte, []int) {
-	return file_proto_location_location_proto_rawDescGZIP(), []int{227}
+	return file_proto_location_location_proto_rawDescGZIP(), []int{69}
 }
 
 type RemoveUpdates1_1Request struct {
@@ -9592,7 +3160,7 @@ type RemoveUpdates1_1Request struct {
 
 func (x *RemoveUpdates1_1Request) Reset() {
 	*x = RemoveUpdates1_1Request{}
-	mi := &file_proto_location_location_proto_msgTypes[228]
+	mi := &file_proto_location_location_proto_msgTypes[70]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -9604,7 +3172,7 @@ func (x *RemoveUpdates1_1Request) String() string {
 func (*RemoveUpdates1_1Request) ProtoMessage() {}
 
 func (x *RemoveUpdates1_1Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_location_location_proto_msgTypes[228]
+	mi := &file_proto_location_location_proto_msgTypes[70]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -9617,7 +3185,7 @@ func (x *RemoveUpdates1_1Request) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use RemoveUpdates1_1Request.ProtoReflect.Descriptor instead.
 func (*RemoveUpdates1_1Request) Descriptor() ([]byte, []int) {
-	return file_proto_location_location_proto_rawDescGZIP(), []int{228}
+	return file_proto_location_location_proto_rawDescGZIP(), []int{70}
 }
 
 func (x *RemoveUpdates1_1Request) GetArg0() int64 {
@@ -9635,7 +3203,7 @@ type RemoveUpdates1_1Response struct {
 
 func (x *RemoveUpdates1_1Response) Reset() {
 	*x = RemoveUpdates1_1Response{}
-	mi := &file_proto_location_location_proto_msgTypes[229]
+	mi := &file_proto_location_location_proto_msgTypes[71]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -9647,7 +3215,7 @@ func (x *RemoveUpdates1_1Response) String() string {
 func (*RemoveUpdates1_1Response) ProtoMessage() {}
 
 func (x *RemoveUpdates1_1Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_location_location_proto_msgTypes[229]
+	mi := &file_proto_location_location_proto_msgTypes[71]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -9660,7 +3228,7 @@ func (x *RemoveUpdates1_1Response) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use RemoveUpdates1_1Response.ProtoReflect.Descriptor instead.
 func (*RemoveUpdates1_1Response) Descriptor() ([]byte, []int) {
-	return file_proto_location_location_proto_rawDescGZIP(), []int{229}
+	return file_proto_location_location_proto_rawDescGZIP(), []int{71}
 }
 
 type RequestFlush3Request struct {
@@ -9674,7 +3242,7 @@ type RequestFlush3Request struct {
 
 func (x *RequestFlush3Request) Reset() {
 	*x = RequestFlush3Request{}
-	mi := &file_proto_location_location_proto_msgTypes[230]
+	mi := &file_proto_location_location_proto_msgTypes[72]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -9686,7 +3254,7 @@ func (x *RequestFlush3Request) String() string {
 func (*RequestFlush3Request) ProtoMessage() {}
 
 func (x *RequestFlush3Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_location_location_proto_msgTypes[230]
+	mi := &file_proto_location_location_proto_msgTypes[72]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -9699,7 +3267,7 @@ func (x *RequestFlush3Request) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use RequestFlush3Request.ProtoReflect.Descriptor instead.
 func (*RequestFlush3Request) Descriptor() ([]byte, []int) {
-	return file_proto_location_location_proto_rawDescGZIP(), []int{230}
+	return file_proto_location_location_proto_rawDescGZIP(), []int{72}
 }
 
 func (x *RequestFlush3Request) GetArg0() string {
@@ -9731,7 +3299,7 @@ type RequestFlush3Response struct {
 
 func (x *RequestFlush3Response) Reset() {
 	*x = RequestFlush3Response{}
-	mi := &file_proto_location_location_proto_msgTypes[231]
+	mi := &file_proto_location_location_proto_msgTypes[73]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -9743,7 +3311,7 @@ func (x *RequestFlush3Response) String() string {
 func (*RequestFlush3Response) ProtoMessage() {}
 
 func (x *RequestFlush3Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_location_location_proto_msgTypes[231]
+	mi := &file_proto_location_location_proto_msgTypes[73]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -9756,7 +3324,7 @@ func (x *RequestFlush3Response) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use RequestFlush3Response.ProtoReflect.Descriptor instead.
 func (*RequestFlush3Response) Descriptor() ([]byte, []int) {
-	return file_proto_location_location_proto_rawDescGZIP(), []int{231}
+	return file_proto_location_location_proto_rawDescGZIP(), []int{73}
 }
 
 type RequestFlush3_1Request struct {
@@ -9770,7 +3338,7 @@ type RequestFlush3_1Request struct {
 
 func (x *RequestFlush3_1Request) Reset() {
 	*x = RequestFlush3_1Request{}
-	mi := &file_proto_location_location_proto_msgTypes[232]
+	mi := &file_proto_location_location_proto_msgTypes[74]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -9782,7 +3350,7 @@ func (x *RequestFlush3_1Request) String() string {
 func (*RequestFlush3_1Request) ProtoMessage() {}
 
 func (x *RequestFlush3_1Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_location_location_proto_msgTypes[232]
+	mi := &file_proto_location_location_proto_msgTypes[74]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -9795,7 +3363,7 @@ func (x *RequestFlush3_1Request) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use RequestFlush3_1Request.ProtoReflect.Descriptor instead.
 func (*RequestFlush3_1Request) Descriptor() ([]byte, []int) {
-	return file_proto_location_location_proto_rawDescGZIP(), []int{232}
+	return file_proto_location_location_proto_rawDescGZIP(), []int{74}
 }
 
 func (x *RequestFlush3_1Request) GetArg0() string {
@@ -9827,7 +3395,7 @@ type RequestFlush3_1Response struct {
 
 func (x *RequestFlush3_1Response) Reset() {
 	*x = RequestFlush3_1Response{}
-	mi := &file_proto_location_location_proto_msgTypes[233]
+	mi := &file_proto_location_location_proto_msgTypes[75]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -9839,7 +3407,7 @@ func (x *RequestFlush3_1Response) String() string {
 func (*RequestFlush3_1Response) ProtoMessage() {}
 
 func (x *RequestFlush3_1Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_location_location_proto_msgTypes[233]
+	mi := &file_proto_location_location_proto_msgTypes[75]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -9852,7 +3420,7 @@ func (x *RequestFlush3_1Response) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use RequestFlush3_1Response.ProtoReflect.Descriptor instead.
 func (*RequestFlush3_1Response) Descriptor() ([]byte, []int) {
-	return file_proto_location_location_proto_rawDescGZIP(), []int{233}
+	return file_proto_location_location_proto_rawDescGZIP(), []int{75}
 }
 
 type RequestLocationUpdates3Request struct {
@@ -9866,7 +3434,7 @@ type RequestLocationUpdates3Request struct {
 
 func (x *RequestLocationUpdates3Request) Reset() {
 	*x = RequestLocationUpdates3Request{}
-	mi := &file_proto_location_location_proto_msgTypes[234]
+	mi := &file_proto_location_location_proto_msgTypes[76]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -9878,7 +3446,7 @@ func (x *RequestLocationUpdates3Request) String() string {
 func (*RequestLocationUpdates3Request) ProtoMessage() {}
 
 func (x *RequestLocationUpdates3Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_location_location_proto_msgTypes[234]
+	mi := &file_proto_location_location_proto_msgTypes[76]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -9891,7 +3459,7 @@ func (x *RequestLocationUpdates3Request) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use RequestLocationUpdates3Request.ProtoReflect.Descriptor instead.
 func (*RequestLocationUpdates3Request) Descriptor() ([]byte, []int) {
-	return file_proto_location_location_proto_rawDescGZIP(), []int{234}
+	return file_proto_location_location_proto_rawDescGZIP(), []int{76}
 }
 
 func (x *RequestLocationUpdates3Request) GetArg0() string {
@@ -9923,7 +3491,7 @@ type RequestLocationUpdates3Response struct {
 
 func (x *RequestLocationUpdates3Response) Reset() {
 	*x = RequestLocationUpdates3Response{}
-	mi := &file_proto_location_location_proto_msgTypes[235]
+	mi := &file_proto_location_location_proto_msgTypes[77]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -9935,7 +3503,7 @@ func (x *RequestLocationUpdates3Response) String() string {
 func (*RequestLocationUpdates3Response) ProtoMessage() {}
 
 func (x *RequestLocationUpdates3Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_location_location_proto_msgTypes[235]
+	mi := &file_proto_location_location_proto_msgTypes[77]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -9948,7 +3516,7 @@ func (x *RequestLocationUpdates3Response) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use RequestLocationUpdates3Response.ProtoReflect.Descriptor instead.
 func (*RequestLocationUpdates3Response) Descriptor() ([]byte, []int) {
-	return file_proto_location_location_proto_rawDescGZIP(), []int{235}
+	return file_proto_location_location_proto_rawDescGZIP(), []int{77}
 }
 
 type RequestLocationUpdates4_1Request struct {
@@ -9963,7 +3531,7 @@ type RequestLocationUpdates4_1Request struct {
 
 func (x *RequestLocationUpdates4_1Request) Reset() {
 	*x = RequestLocationUpdates4_1Request{}
-	mi := &file_proto_location_location_proto_msgTypes[236]
+	mi := &file_proto_location_location_proto_msgTypes[78]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -9975,7 +3543,7 @@ func (x *RequestLocationUpdates4_1Request) String() string {
 func (*RequestLocationUpdates4_1Request) ProtoMessage() {}
 
 func (x *RequestLocationUpdates4_1Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_location_location_proto_msgTypes[236]
+	mi := &file_proto_location_location_proto_msgTypes[78]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -9988,7 +3556,7 @@ func (x *RequestLocationUpdates4_1Request) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use RequestLocationUpdates4_1Request.ProtoReflect.Descriptor instead.
 func (*RequestLocationUpdates4_1Request) Descriptor() ([]byte, []int) {
-	return file_proto_location_location_proto_rawDescGZIP(), []int{236}
+	return file_proto_location_location_proto_rawDescGZIP(), []int{78}
 }
 
 func (x *RequestLocationUpdates4_1Request) GetArg0() string {
@@ -10027,7 +3595,7 @@ type RequestLocationUpdates4_1Response struct {
 
 func (x *RequestLocationUpdates4_1Response) Reset() {
 	*x = RequestLocationUpdates4_1Response{}
-	mi := &file_proto_location_location_proto_msgTypes[237]
+	mi := &file_proto_location_location_proto_msgTypes[79]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -10039,7 +3607,7 @@ func (x *RequestLocationUpdates4_1Response) String() string {
 func (*RequestLocationUpdates4_1Response) ProtoMessage() {}
 
 func (x *RequestLocationUpdates4_1Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_location_location_proto_msgTypes[237]
+	mi := &file_proto_location_location_proto_msgTypes[79]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -10052,7 +3620,7 @@ func (x *RequestLocationUpdates4_1Response) ProtoReflect() protoreflect.Message 
 
 // Deprecated: Use RequestLocationUpdates4_1Response.ProtoReflect.Descriptor instead.
 func (*RequestLocationUpdates4_1Response) Descriptor() ([]byte, []int) {
-	return file_proto_location_location_proto_rawDescGZIP(), []int{237}
+	return file_proto_location_location_proto_rawDescGZIP(), []int{79}
 }
 
 type RequestLocationUpdates4_2Request struct {
@@ -10067,7 +3635,7 @@ type RequestLocationUpdates4_2Request struct {
 
 func (x *RequestLocationUpdates4_2Request) Reset() {
 	*x = RequestLocationUpdates4_2Request{}
-	mi := &file_proto_location_location_proto_msgTypes[238]
+	mi := &file_proto_location_location_proto_msgTypes[80]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -10079,7 +3647,7 @@ func (x *RequestLocationUpdates4_2Request) String() string {
 func (*RequestLocationUpdates4_2Request) ProtoMessage() {}
 
 func (x *RequestLocationUpdates4_2Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_location_location_proto_msgTypes[238]
+	mi := &file_proto_location_location_proto_msgTypes[80]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -10092,7 +3660,7 @@ func (x *RequestLocationUpdates4_2Request) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use RequestLocationUpdates4_2Request.ProtoReflect.Descriptor instead.
 func (*RequestLocationUpdates4_2Request) Descriptor() ([]byte, []int) {
-	return file_proto_location_location_proto_rawDescGZIP(), []int{238}
+	return file_proto_location_location_proto_rawDescGZIP(), []int{80}
 }
 
 func (x *RequestLocationUpdates4_2Request) GetArg0() string {
@@ -10131,7 +3699,7 @@ type RequestLocationUpdates4_2Response struct {
 
 func (x *RequestLocationUpdates4_2Response) Reset() {
 	*x = RequestLocationUpdates4_2Response{}
-	mi := &file_proto_location_location_proto_msgTypes[239]
+	mi := &file_proto_location_location_proto_msgTypes[81]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -10143,7 +3711,7 @@ func (x *RequestLocationUpdates4_2Response) String() string {
 func (*RequestLocationUpdates4_2Response) ProtoMessage() {}
 
 func (x *RequestLocationUpdates4_2Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_location_location_proto_msgTypes[239]
+	mi := &file_proto_location_location_proto_msgTypes[81]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -10156,7 +3724,7 @@ func (x *RequestLocationUpdates4_2Response) ProtoReflect() protoreflect.Message 
 
 // Deprecated: Use RequestLocationUpdates4_2Response.ProtoReflect.Descriptor instead.
 func (*RequestLocationUpdates4_2Response) Descriptor() ([]byte, []int) {
-	return file_proto_location_location_proto_rawDescGZIP(), []int{239}
+	return file_proto_location_location_proto_rawDescGZIP(), []int{81}
 }
 
 type RequestLocationUpdates4_3Request struct {
@@ -10171,7 +3739,7 @@ type RequestLocationUpdates4_3Request struct {
 
 func (x *RequestLocationUpdates4_3Request) Reset() {
 	*x = RequestLocationUpdates4_3Request{}
-	mi := &file_proto_location_location_proto_msgTypes[240]
+	mi := &file_proto_location_location_proto_msgTypes[82]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -10183,7 +3751,7 @@ func (x *RequestLocationUpdates4_3Request) String() string {
 func (*RequestLocationUpdates4_3Request) ProtoMessage() {}
 
 func (x *RequestLocationUpdates4_3Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_location_location_proto_msgTypes[240]
+	mi := &file_proto_location_location_proto_msgTypes[82]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -10196,7 +3764,7 @@ func (x *RequestLocationUpdates4_3Request) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use RequestLocationUpdates4_3Request.ProtoReflect.Descriptor instead.
 func (*RequestLocationUpdates4_3Request) Descriptor() ([]byte, []int) {
-	return file_proto_location_location_proto_rawDescGZIP(), []int{240}
+	return file_proto_location_location_proto_rawDescGZIP(), []int{82}
 }
 
 func (x *RequestLocationUpdates4_3Request) GetArg0() string {
@@ -10235,7 +3803,7 @@ type RequestLocationUpdates4_3Response struct {
 
 func (x *RequestLocationUpdates4_3Response) Reset() {
 	*x = RequestLocationUpdates4_3Response{}
-	mi := &file_proto_location_location_proto_msgTypes[241]
+	mi := &file_proto_location_location_proto_msgTypes[83]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -10247,7 +3815,7 @@ func (x *RequestLocationUpdates4_3Response) String() string {
 func (*RequestLocationUpdates4_3Response) ProtoMessage() {}
 
 func (x *RequestLocationUpdates4_3Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_location_location_proto_msgTypes[241]
+	mi := &file_proto_location_location_proto_msgTypes[83]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -10260,7 +3828,7 @@ func (x *RequestLocationUpdates4_3Response) ProtoReflect() protoreflect.Message 
 
 // Deprecated: Use RequestLocationUpdates4_3Response.ProtoReflect.Descriptor instead.
 func (*RequestLocationUpdates4_3Response) Descriptor() ([]byte, []int) {
-	return file_proto_location_location_proto_rawDescGZIP(), []int{241}
+	return file_proto_location_location_proto_rawDescGZIP(), []int{83}
 }
 
 type RequestLocationUpdates5_4Request struct {
@@ -10276,7 +3844,7 @@ type RequestLocationUpdates5_4Request struct {
 
 func (x *RequestLocationUpdates5_4Request) Reset() {
 	*x = RequestLocationUpdates5_4Request{}
-	mi := &file_proto_location_location_proto_msgTypes[242]
+	mi := &file_proto_location_location_proto_msgTypes[84]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -10288,7 +3856,7 @@ func (x *RequestLocationUpdates5_4Request) String() string {
 func (*RequestLocationUpdates5_4Request) ProtoMessage() {}
 
 func (x *RequestLocationUpdates5_4Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_location_location_proto_msgTypes[242]
+	mi := &file_proto_location_location_proto_msgTypes[84]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -10301,7 +3869,7 @@ func (x *RequestLocationUpdates5_4Request) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use RequestLocationUpdates5_4Request.ProtoReflect.Descriptor instead.
 func (*RequestLocationUpdates5_4Request) Descriptor() ([]byte, []int) {
-	return file_proto_location_location_proto_rawDescGZIP(), []int{242}
+	return file_proto_location_location_proto_rawDescGZIP(), []int{84}
 }
 
 func (x *RequestLocationUpdates5_4Request) GetArg0() string {
@@ -10347,7 +3915,7 @@ type RequestLocationUpdates5_4Response struct {
 
 func (x *RequestLocationUpdates5_4Response) Reset() {
 	*x = RequestLocationUpdates5_4Response{}
-	mi := &file_proto_location_location_proto_msgTypes[243]
+	mi := &file_proto_location_location_proto_msgTypes[85]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -10359,7 +3927,7 @@ func (x *RequestLocationUpdates5_4Response) String() string {
 func (*RequestLocationUpdates5_4Response) ProtoMessage() {}
 
 func (x *RequestLocationUpdates5_4Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_location_location_proto_msgTypes[243]
+	mi := &file_proto_location_location_proto_msgTypes[85]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -10372,7 +3940,7 @@ func (x *RequestLocationUpdates5_4Response) ProtoReflect() protoreflect.Message 
 
 // Deprecated: Use RequestLocationUpdates5_4Response.ProtoReflect.Descriptor instead.
 func (*RequestLocationUpdates5_4Response) Descriptor() ([]byte, []int) {
-	return file_proto_location_location_proto_rawDescGZIP(), []int{243}
+	return file_proto_location_location_proto_rawDescGZIP(), []int{85}
 }
 
 type RequestLocationUpdates5_5Request struct {
@@ -10388,7 +3956,7 @@ type RequestLocationUpdates5_5Request struct {
 
 func (x *RequestLocationUpdates5_5Request) Reset() {
 	*x = RequestLocationUpdates5_5Request{}
-	mi := &file_proto_location_location_proto_msgTypes[244]
+	mi := &file_proto_location_location_proto_msgTypes[86]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -10400,7 +3968,7 @@ func (x *RequestLocationUpdates5_5Request) String() string {
 func (*RequestLocationUpdates5_5Request) ProtoMessage() {}
 
 func (x *RequestLocationUpdates5_5Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_location_location_proto_msgTypes[244]
+	mi := &file_proto_location_location_proto_msgTypes[86]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -10413,7 +3981,7 @@ func (x *RequestLocationUpdates5_5Request) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use RequestLocationUpdates5_5Request.ProtoReflect.Descriptor instead.
 func (*RequestLocationUpdates5_5Request) Descriptor() ([]byte, []int) {
-	return file_proto_location_location_proto_rawDescGZIP(), []int{244}
+	return file_proto_location_location_proto_rawDescGZIP(), []int{86}
 }
 
 func (x *RequestLocationUpdates5_5Request) GetArg0() string {
@@ -10459,7 +4027,7 @@ type RequestLocationUpdates5_5Response struct {
 
 func (x *RequestLocationUpdates5_5Response) Reset() {
 	*x = RequestLocationUpdates5_5Response{}
-	mi := &file_proto_location_location_proto_msgTypes[245]
+	mi := &file_proto_location_location_proto_msgTypes[87]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -10471,7 +4039,7 @@ func (x *RequestLocationUpdates5_5Response) String() string {
 func (*RequestLocationUpdates5_5Response) ProtoMessage() {}
 
 func (x *RequestLocationUpdates5_5Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_location_location_proto_msgTypes[245]
+	mi := &file_proto_location_location_proto_msgTypes[87]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -10484,7 +4052,7 @@ func (x *RequestLocationUpdates5_5Response) ProtoReflect() protoreflect.Message 
 
 // Deprecated: Use RequestLocationUpdates5_5Response.ProtoReflect.Descriptor instead.
 func (*RequestLocationUpdates5_5Response) Descriptor() ([]byte, []int) {
-	return file_proto_location_location_proto_rawDescGZIP(), []int{245}
+	return file_proto_location_location_proto_rawDescGZIP(), []int{87}
 }
 
 type RequestLocationUpdates4_6Request struct {
@@ -10499,7 +4067,7 @@ type RequestLocationUpdates4_6Request struct {
 
 func (x *RequestLocationUpdates4_6Request) Reset() {
 	*x = RequestLocationUpdates4_6Request{}
-	mi := &file_proto_location_location_proto_msgTypes[246]
+	mi := &file_proto_location_location_proto_msgTypes[88]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -10511,7 +4079,7 @@ func (x *RequestLocationUpdates4_6Request) String() string {
 func (*RequestLocationUpdates4_6Request) ProtoMessage() {}
 
 func (x *RequestLocationUpdates4_6Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_location_location_proto_msgTypes[246]
+	mi := &file_proto_location_location_proto_msgTypes[88]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -10524,7 +4092,7 @@ func (x *RequestLocationUpdates4_6Request) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use RequestLocationUpdates4_6Request.ProtoReflect.Descriptor instead.
 func (*RequestLocationUpdates4_6Request) Descriptor() ([]byte, []int) {
-	return file_proto_location_location_proto_rawDescGZIP(), []int{246}
+	return file_proto_location_location_proto_rawDescGZIP(), []int{88}
 }
 
 func (x *RequestLocationUpdates4_6Request) GetArg0() int64 {
@@ -10563,7 +4131,7 @@ type RequestLocationUpdates4_6Response struct {
 
 func (x *RequestLocationUpdates4_6Response) Reset() {
 	*x = RequestLocationUpdates4_6Response{}
-	mi := &file_proto_location_location_proto_msgTypes[247]
+	mi := &file_proto_location_location_proto_msgTypes[89]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -10575,7 +4143,7 @@ func (x *RequestLocationUpdates4_6Response) String() string {
 func (*RequestLocationUpdates4_6Response) ProtoMessage() {}
 
 func (x *RequestLocationUpdates4_6Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_location_location_proto_msgTypes[247]
+	mi := &file_proto_location_location_proto_msgTypes[89]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -10588,7 +4156,7 @@ func (x *RequestLocationUpdates4_6Response) ProtoReflect() protoreflect.Message 
 
 // Deprecated: Use RequestLocationUpdates4_6Response.ProtoReflect.Descriptor instead.
 func (*RequestLocationUpdates4_6Response) Descriptor() ([]byte, []int) {
-	return file_proto_location_location_proto_rawDescGZIP(), []int{247}
+	return file_proto_location_location_proto_rawDescGZIP(), []int{89}
 }
 
 type RequestLocationUpdates5_7Request struct {
@@ -10604,7 +4172,7 @@ type RequestLocationUpdates5_7Request struct {
 
 func (x *RequestLocationUpdates5_7Request) Reset() {
 	*x = RequestLocationUpdates5_7Request{}
-	mi := &file_proto_location_location_proto_msgTypes[248]
+	mi := &file_proto_location_location_proto_msgTypes[90]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -10616,7 +4184,7 @@ func (x *RequestLocationUpdates5_7Request) String() string {
 func (*RequestLocationUpdates5_7Request) ProtoMessage() {}
 
 func (x *RequestLocationUpdates5_7Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_location_location_proto_msgTypes[248]
+	mi := &file_proto_location_location_proto_msgTypes[90]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -10629,7 +4197,7 @@ func (x *RequestLocationUpdates5_7Request) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use RequestLocationUpdates5_7Request.ProtoReflect.Descriptor instead.
 func (*RequestLocationUpdates5_7Request) Descriptor() ([]byte, []int) {
-	return file_proto_location_location_proto_rawDescGZIP(), []int{248}
+	return file_proto_location_location_proto_rawDescGZIP(), []int{90}
 }
 
 func (x *RequestLocationUpdates5_7Request) GetArg0() int64 {
@@ -10675,7 +4243,7 @@ type RequestLocationUpdates5_7Response struct {
 
 func (x *RequestLocationUpdates5_7Response) Reset() {
 	*x = RequestLocationUpdates5_7Response{}
-	mi := &file_proto_location_location_proto_msgTypes[249]
+	mi := &file_proto_location_location_proto_msgTypes[91]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -10687,7 +4255,7 @@ func (x *RequestLocationUpdates5_7Response) String() string {
 func (*RequestLocationUpdates5_7Response) ProtoMessage() {}
 
 func (x *RequestLocationUpdates5_7Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_location_location_proto_msgTypes[249]
+	mi := &file_proto_location_location_proto_msgTypes[91]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -10700,7 +4268,7 @@ func (x *RequestLocationUpdates5_7Response) ProtoReflect() protoreflect.Message 
 
 // Deprecated: Use RequestLocationUpdates5_7Response.ProtoReflect.Descriptor instead.
 func (*RequestLocationUpdates5_7Response) Descriptor() ([]byte, []int) {
-	return file_proto_location_location_proto_rawDescGZIP(), []int{249}
+	return file_proto_location_location_proto_rawDescGZIP(), []int{91}
 }
 
 type RequestLocationUpdates5_8Request struct {
@@ -10716,7 +4284,7 @@ type RequestLocationUpdates5_8Request struct {
 
 func (x *RequestLocationUpdates5_8Request) Reset() {
 	*x = RequestLocationUpdates5_8Request{}
-	mi := &file_proto_location_location_proto_msgTypes[250]
+	mi := &file_proto_location_location_proto_msgTypes[92]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -10728,7 +4296,7 @@ func (x *RequestLocationUpdates5_8Request) String() string {
 func (*RequestLocationUpdates5_8Request) ProtoMessage() {}
 
 func (x *RequestLocationUpdates5_8Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_location_location_proto_msgTypes[250]
+	mi := &file_proto_location_location_proto_msgTypes[92]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -10741,7 +4309,7 @@ func (x *RequestLocationUpdates5_8Request) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use RequestLocationUpdates5_8Request.ProtoReflect.Descriptor instead.
 func (*RequestLocationUpdates5_8Request) Descriptor() ([]byte, []int) {
-	return file_proto_location_location_proto_rawDescGZIP(), []int{250}
+	return file_proto_location_location_proto_rawDescGZIP(), []int{92}
 }
 
 func (x *RequestLocationUpdates5_8Request) GetArg0() int64 {
@@ -10787,7 +4355,7 @@ type RequestLocationUpdates5_8Response struct {
 
 func (x *RequestLocationUpdates5_8Response) Reset() {
 	*x = RequestLocationUpdates5_8Response{}
-	mi := &file_proto_location_location_proto_msgTypes[251]
+	mi := &file_proto_location_location_proto_msgTypes[93]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -10799,7 +4367,7 @@ func (x *RequestLocationUpdates5_8Response) String() string {
 func (*RequestLocationUpdates5_8Response) ProtoMessage() {}
 
 func (x *RequestLocationUpdates5_8Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_location_location_proto_msgTypes[251]
+	mi := &file_proto_location_location_proto_msgTypes[93]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -10812,7 +4380,7 @@ func (x *RequestLocationUpdates5_8Response) ProtoReflect() protoreflect.Message 
 
 // Deprecated: Use RequestLocationUpdates5_8Response.ProtoReflect.Descriptor instead.
 func (*RequestLocationUpdates5_8Response) Descriptor() ([]byte, []int) {
-	return file_proto_location_location_proto_rawDescGZIP(), []int{251}
+	return file_proto_location_location_proto_rawDescGZIP(), []int{93}
 }
 
 type RequestSingleUpdate2Request struct {
@@ -10825,7 +4393,7 @@ type RequestSingleUpdate2Request struct {
 
 func (x *RequestSingleUpdate2Request) Reset() {
 	*x = RequestSingleUpdate2Request{}
-	mi := &file_proto_location_location_proto_msgTypes[252]
+	mi := &file_proto_location_location_proto_msgTypes[94]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -10837,7 +4405,7 @@ func (x *RequestSingleUpdate2Request) String() string {
 func (*RequestSingleUpdate2Request) ProtoMessage() {}
 
 func (x *RequestSingleUpdate2Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_location_location_proto_msgTypes[252]
+	mi := &file_proto_location_location_proto_msgTypes[94]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -10850,7 +4418,7 @@ func (x *RequestSingleUpdate2Request) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use RequestSingleUpdate2Request.ProtoReflect.Descriptor instead.
 func (*RequestSingleUpdate2Request) Descriptor() ([]byte, []int) {
-	return file_proto_location_location_proto_rawDescGZIP(), []int{252}
+	return file_proto_location_location_proto_rawDescGZIP(), []int{94}
 }
 
 func (x *RequestSingleUpdate2Request) GetArg0() int64 {
@@ -10875,7 +4443,7 @@ type RequestSingleUpdate2Response struct {
 
 func (x *RequestSingleUpdate2Response) Reset() {
 	*x = RequestSingleUpdate2Response{}
-	mi := &file_proto_location_location_proto_msgTypes[253]
+	mi := &file_proto_location_location_proto_msgTypes[95]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -10887,7 +4455,7 @@ func (x *RequestSingleUpdate2Response) String() string {
 func (*RequestSingleUpdate2Response) ProtoMessage() {}
 
 func (x *RequestSingleUpdate2Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_location_location_proto_msgTypes[253]
+	mi := &file_proto_location_location_proto_msgTypes[95]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -10900,7 +4468,7 @@ func (x *RequestSingleUpdate2Response) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use RequestSingleUpdate2Response.ProtoReflect.Descriptor instead.
 func (*RequestSingleUpdate2Response) Descriptor() ([]byte, []int) {
-	return file_proto_location_location_proto_rawDescGZIP(), []int{253}
+	return file_proto_location_location_proto_rawDescGZIP(), []int{95}
 }
 
 type RequestSingleUpdate3_1Request struct {
@@ -10914,7 +4482,7 @@ type RequestSingleUpdate3_1Request struct {
 
 func (x *RequestSingleUpdate3_1Request) Reset() {
 	*x = RequestSingleUpdate3_1Request{}
-	mi := &file_proto_location_location_proto_msgTypes[254]
+	mi := &file_proto_location_location_proto_msgTypes[96]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -10926,7 +4494,7 @@ func (x *RequestSingleUpdate3_1Request) String() string {
 func (*RequestSingleUpdate3_1Request) ProtoMessage() {}
 
 func (x *RequestSingleUpdate3_1Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_location_location_proto_msgTypes[254]
+	mi := &file_proto_location_location_proto_msgTypes[96]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -10939,7 +4507,7 @@ func (x *RequestSingleUpdate3_1Request) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use RequestSingleUpdate3_1Request.ProtoReflect.Descriptor instead.
 func (*RequestSingleUpdate3_1Request) Descriptor() ([]byte, []int) {
-	return file_proto_location_location_proto_rawDescGZIP(), []int{254}
+	return file_proto_location_location_proto_rawDescGZIP(), []int{96}
 }
 
 func (x *RequestSingleUpdate3_1Request) GetArg0() int64 {
@@ -10971,7 +4539,7 @@ type RequestSingleUpdate3_1Response struct {
 
 func (x *RequestSingleUpdate3_1Response) Reset() {
 	*x = RequestSingleUpdate3_1Response{}
-	mi := &file_proto_location_location_proto_msgTypes[255]
+	mi := &file_proto_location_location_proto_msgTypes[97]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -10983,7 +4551,7 @@ func (x *RequestSingleUpdate3_1Response) String() string {
 func (*RequestSingleUpdate3_1Response) ProtoMessage() {}
 
 func (x *RequestSingleUpdate3_1Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_location_location_proto_msgTypes[255]
+	mi := &file_proto_location_location_proto_msgTypes[97]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -10996,7 +4564,7 @@ func (x *RequestSingleUpdate3_1Response) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use RequestSingleUpdate3_1Response.ProtoReflect.Descriptor instead.
 func (*RequestSingleUpdate3_1Response) Descriptor() ([]byte, []int) {
-	return file_proto_location_location_proto_rawDescGZIP(), []int{255}
+	return file_proto_location_location_proto_rawDescGZIP(), []int{97}
 }
 
 type RequestSingleUpdate2_2Request struct {
@@ -11009,7 +4577,7 @@ type RequestSingleUpdate2_2Request struct {
 
 func (x *RequestSingleUpdate2_2Request) Reset() {
 	*x = RequestSingleUpdate2_2Request{}
-	mi := &file_proto_location_location_proto_msgTypes[256]
+	mi := &file_proto_location_location_proto_msgTypes[98]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -11021,7 +4589,7 @@ func (x *RequestSingleUpdate2_2Request) String() string {
 func (*RequestSingleUpdate2_2Request) ProtoMessage() {}
 
 func (x *RequestSingleUpdate2_2Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_location_location_proto_msgTypes[256]
+	mi := &file_proto_location_location_proto_msgTypes[98]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -11034,7 +4602,7 @@ func (x *RequestSingleUpdate2_2Request) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use RequestSingleUpdate2_2Request.ProtoReflect.Descriptor instead.
 func (*RequestSingleUpdate2_2Request) Descriptor() ([]byte, []int) {
-	return file_proto_location_location_proto_rawDescGZIP(), []int{256}
+	return file_proto_location_location_proto_rawDescGZIP(), []int{98}
 }
 
 func (x *RequestSingleUpdate2_2Request) GetArg0() string {
@@ -11059,7 +4627,7 @@ type RequestSingleUpdate2_2Response struct {
 
 func (x *RequestSingleUpdate2_2Response) Reset() {
 	*x = RequestSingleUpdate2_2Response{}
-	mi := &file_proto_location_location_proto_msgTypes[257]
+	mi := &file_proto_location_location_proto_msgTypes[99]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -11071,7 +4639,7 @@ func (x *RequestSingleUpdate2_2Response) String() string {
 func (*RequestSingleUpdate2_2Response) ProtoMessage() {}
 
 func (x *RequestSingleUpdate2_2Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_location_location_proto_msgTypes[257]
+	mi := &file_proto_location_location_proto_msgTypes[99]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -11084,7 +4652,7 @@ func (x *RequestSingleUpdate2_2Response) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use RequestSingleUpdate2_2Response.ProtoReflect.Descriptor instead.
 func (*RequestSingleUpdate2_2Response) Descriptor() ([]byte, []int) {
-	return file_proto_location_location_proto_rawDescGZIP(), []int{257}
+	return file_proto_location_location_proto_rawDescGZIP(), []int{99}
 }
 
 type RequestSingleUpdate3_3Request struct {
@@ -11098,7 +4666,7 @@ type RequestSingleUpdate3_3Request struct {
 
 func (x *RequestSingleUpdate3_3Request) Reset() {
 	*x = RequestSingleUpdate3_3Request{}
-	mi := &file_proto_location_location_proto_msgTypes[258]
+	mi := &file_proto_location_location_proto_msgTypes[100]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -11110,7 +4678,7 @@ func (x *RequestSingleUpdate3_3Request) String() string {
 func (*RequestSingleUpdate3_3Request) ProtoMessage() {}
 
 func (x *RequestSingleUpdate3_3Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_location_location_proto_msgTypes[258]
+	mi := &file_proto_location_location_proto_msgTypes[100]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -11123,7 +4691,7 @@ func (x *RequestSingleUpdate3_3Request) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use RequestSingleUpdate3_3Request.ProtoReflect.Descriptor instead.
 func (*RequestSingleUpdate3_3Request) Descriptor() ([]byte, []int) {
-	return file_proto_location_location_proto_rawDescGZIP(), []int{258}
+	return file_proto_location_location_proto_rawDescGZIP(), []int{100}
 }
 
 func (x *RequestSingleUpdate3_3Request) GetArg0() string {
@@ -11155,7 +4723,7 @@ type RequestSingleUpdate3_3Response struct {
 
 func (x *RequestSingleUpdate3_3Response) Reset() {
 	*x = RequestSingleUpdate3_3Response{}
-	mi := &file_proto_location_location_proto_msgTypes[259]
+	mi := &file_proto_location_location_proto_msgTypes[101]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -11167,7 +4735,7 @@ func (x *RequestSingleUpdate3_3Response) String() string {
 func (*RequestSingleUpdate3_3Response) ProtoMessage() {}
 
 func (x *RequestSingleUpdate3_3Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_location_location_proto_msgTypes[259]
+	mi := &file_proto_location_location_proto_msgTypes[101]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -11180,7 +4748,7 @@ func (x *RequestSingleUpdate3_3Response) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use RequestSingleUpdate3_3Response.ProtoReflect.Descriptor instead.
 func (*RequestSingleUpdate3_3Response) Descriptor() ([]byte, []int) {
-	return file_proto_location_location_proto_rawDescGZIP(), []int{259}
+	return file_proto_location_location_proto_rawDescGZIP(), []int{101}
 }
 
 type SendExtraCommandRequest struct {
@@ -11194,7 +4762,7 @@ type SendExtraCommandRequest struct {
 
 func (x *SendExtraCommandRequest) Reset() {
 	*x = SendExtraCommandRequest{}
-	mi := &file_proto_location_location_proto_msgTypes[260]
+	mi := &file_proto_location_location_proto_msgTypes[102]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -11206,7 +4774,7 @@ func (x *SendExtraCommandRequest) String() string {
 func (*SendExtraCommandRequest) ProtoMessage() {}
 
 func (x *SendExtraCommandRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_location_location_proto_msgTypes[260]
+	mi := &file_proto_location_location_proto_msgTypes[102]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -11219,7 +4787,7 @@ func (x *SendExtraCommandRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SendExtraCommandRequest.ProtoReflect.Descriptor instead.
 func (*SendExtraCommandRequest) Descriptor() ([]byte, []int) {
-	return file_proto_location_location_proto_rawDescGZIP(), []int{260}
+	return file_proto_location_location_proto_rawDescGZIP(), []int{102}
 }
 
 func (x *SendExtraCommandRequest) GetArg0() string {
@@ -11252,7 +4820,7 @@ type SendExtraCommandResponse struct {
 
 func (x *SendExtraCommandResponse) Reset() {
 	*x = SendExtraCommandResponse{}
-	mi := &file_proto_location_location_proto_msgTypes[261]
+	mi := &file_proto_location_location_proto_msgTypes[103]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -11264,7 +4832,7 @@ func (x *SendExtraCommandResponse) String() string {
 func (*SendExtraCommandResponse) ProtoMessage() {}
 
 func (x *SendExtraCommandResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_location_location_proto_msgTypes[261]
+	mi := &file_proto_location_location_proto_msgTypes[103]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -11277,7 +4845,7 @@ func (x *SendExtraCommandResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SendExtraCommandResponse.ProtoReflect.Descriptor instead.
 func (*SendExtraCommandResponse) Descriptor() ([]byte, []int) {
-	return file_proto_location_location_proto_rawDescGZIP(), []int{261}
+	return file_proto_location_location_proto_rawDescGZIP(), []int{103}
 }
 
 func (x *SendExtraCommandResponse) GetResult() bool {
@@ -11297,7 +4865,7 @@ type SetTestProviderEnabledRequest struct {
 
 func (x *SetTestProviderEnabledRequest) Reset() {
 	*x = SetTestProviderEnabledRequest{}
-	mi := &file_proto_location_location_proto_msgTypes[262]
+	mi := &file_proto_location_location_proto_msgTypes[104]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -11309,7 +4877,7 @@ func (x *SetTestProviderEnabledRequest) String() string {
 func (*SetTestProviderEnabledRequest) ProtoMessage() {}
 
 func (x *SetTestProviderEnabledRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_location_location_proto_msgTypes[262]
+	mi := &file_proto_location_location_proto_msgTypes[104]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -11322,7 +4890,7 @@ func (x *SetTestProviderEnabledRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetTestProviderEnabledRequest.ProtoReflect.Descriptor instead.
 func (*SetTestProviderEnabledRequest) Descriptor() ([]byte, []int) {
-	return file_proto_location_location_proto_rawDescGZIP(), []int{262}
+	return file_proto_location_location_proto_rawDescGZIP(), []int{104}
 }
 
 func (x *SetTestProviderEnabledRequest) GetArg0() string {
@@ -11347,7 +4915,7 @@ type SetTestProviderEnabledResponse struct {
 
 func (x *SetTestProviderEnabledResponse) Reset() {
 	*x = SetTestProviderEnabledResponse{}
-	mi := &file_proto_location_location_proto_msgTypes[263]
+	mi := &file_proto_location_location_proto_msgTypes[105]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -11359,7 +4927,7 @@ func (x *SetTestProviderEnabledResponse) String() string {
 func (*SetTestProviderEnabledResponse) ProtoMessage() {}
 
 func (x *SetTestProviderEnabledResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_location_location_proto_msgTypes[263]
+	mi := &file_proto_location_location_proto_msgTypes[105]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -11372,7 +4940,7 @@ func (x *SetTestProviderEnabledResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetTestProviderEnabledResponse.ProtoReflect.Descriptor instead.
 func (*SetTestProviderEnabledResponse) Descriptor() ([]byte, []int) {
-	return file_proto_location_location_proto_rawDescGZIP(), []int{263}
+	return file_proto_location_location_proto_rawDescGZIP(), []int{105}
 }
 
 type SetTestProviderLocationRequest struct {
@@ -11385,7 +4953,7 @@ type SetTestProviderLocationRequest struct {
 
 func (x *SetTestProviderLocationRequest) Reset() {
 	*x = SetTestProviderLocationRequest{}
-	mi := &file_proto_location_location_proto_msgTypes[264]
+	mi := &file_proto_location_location_proto_msgTypes[106]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -11397,7 +4965,7 @@ func (x *SetTestProviderLocationRequest) String() string {
 func (*SetTestProviderLocationRequest) ProtoMessage() {}
 
 func (x *SetTestProviderLocationRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_location_location_proto_msgTypes[264]
+	mi := &file_proto_location_location_proto_msgTypes[106]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -11410,7 +4978,7 @@ func (x *SetTestProviderLocationRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetTestProviderLocationRequest.ProtoReflect.Descriptor instead.
 func (*SetTestProviderLocationRequest) Descriptor() ([]byte, []int) {
-	return file_proto_location_location_proto_rawDescGZIP(), []int{264}
+	return file_proto_location_location_proto_rawDescGZIP(), []int{106}
 }
 
 func (x *SetTestProviderLocationRequest) GetArg0() string {
@@ -11435,7 +5003,7 @@ type SetTestProviderLocationResponse struct {
 
 func (x *SetTestProviderLocationResponse) Reset() {
 	*x = SetTestProviderLocationResponse{}
-	mi := &file_proto_location_location_proto_msgTypes[265]
+	mi := &file_proto_location_location_proto_msgTypes[107]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -11447,7 +5015,7 @@ func (x *SetTestProviderLocationResponse) String() string {
 func (*SetTestProviderLocationResponse) ProtoMessage() {}
 
 func (x *SetTestProviderLocationResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_location_location_proto_msgTypes[265]
+	mi := &file_proto_location_location_proto_msgTypes[107]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -11460,7 +5028,7 @@ func (x *SetTestProviderLocationResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetTestProviderLocationResponse.ProtoReflect.Descriptor instead.
 func (*SetTestProviderLocationResponse) Descriptor() ([]byte, []int) {
-	return file_proto_location_location_proto_rawDescGZIP(), []int{265}
+	return file_proto_location_location_proto_rawDescGZIP(), []int{107}
 }
 
 type SetTestProviderStatusRequest struct {
@@ -11475,7 +5043,7 @@ type SetTestProviderStatusRequest struct {
 
 func (x *SetTestProviderStatusRequest) Reset() {
 	*x = SetTestProviderStatusRequest{}
-	mi := &file_proto_location_location_proto_msgTypes[266]
+	mi := &file_proto_location_location_proto_msgTypes[108]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -11487,7 +5055,7 @@ func (x *SetTestProviderStatusRequest) String() string {
 func (*SetTestProviderStatusRequest) ProtoMessage() {}
 
 func (x *SetTestProviderStatusRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_location_location_proto_msgTypes[266]
+	mi := &file_proto_location_location_proto_msgTypes[108]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -11500,7 +5068,7 @@ func (x *SetTestProviderStatusRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetTestProviderStatusRequest.ProtoReflect.Descriptor instead.
 func (*SetTestProviderStatusRequest) Descriptor() ([]byte, []int) {
-	return file_proto_location_location_proto_rawDescGZIP(), []int{266}
+	return file_proto_location_location_proto_rawDescGZIP(), []int{108}
 }
 
 func (x *SetTestProviderStatusRequest) GetArg0() string {
@@ -11539,7 +5107,7 @@ type SetTestProviderStatusResponse struct {
 
 func (x *SetTestProviderStatusResponse) Reset() {
 	*x = SetTestProviderStatusResponse{}
-	mi := &file_proto_location_location_proto_msgTypes[267]
+	mi := &file_proto_location_location_proto_msgTypes[109]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -11551,7 +5119,7 @@ func (x *SetTestProviderStatusResponse) String() string {
 func (*SetTestProviderStatusResponse) ProtoMessage() {}
 
 func (x *SetTestProviderStatusResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_location_location_proto_msgTypes[267]
+	mi := &file_proto_location_location_proto_msgTypes[109]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -11564,7 +5132,7 @@ func (x *SetTestProviderStatusResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetTestProviderStatusResponse.ProtoReflect.Descriptor instead.
 func (*SetTestProviderStatusResponse) Descriptor() ([]byte, []int) {
-	return file_proto_location_location_proto_rawDescGZIP(), []int{267}
+	return file_proto_location_location_proto_rawDescGZIP(), []int{109}
 }
 
 type UnregisterAntennaInfoListenerRequest struct {
@@ -11576,7 +5144,7 @@ type UnregisterAntennaInfoListenerRequest struct {
 
 func (x *UnregisterAntennaInfoListenerRequest) Reset() {
 	*x = UnregisterAntennaInfoListenerRequest{}
-	mi := &file_proto_location_location_proto_msgTypes[268]
+	mi := &file_proto_location_location_proto_msgTypes[110]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -11588,7 +5156,7 @@ func (x *UnregisterAntennaInfoListenerRequest) String() string {
 func (*UnregisterAntennaInfoListenerRequest) ProtoMessage() {}
 
 func (x *UnregisterAntennaInfoListenerRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_location_location_proto_msgTypes[268]
+	mi := &file_proto_location_location_proto_msgTypes[110]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -11601,7 +5169,7 @@ func (x *UnregisterAntennaInfoListenerRequest) ProtoReflect() protoreflect.Messa
 
 // Deprecated: Use UnregisterAntennaInfoListenerRequest.ProtoReflect.Descriptor instead.
 func (*UnregisterAntennaInfoListenerRequest) Descriptor() ([]byte, []int) {
-	return file_proto_location_location_proto_rawDescGZIP(), []int{268}
+	return file_proto_location_location_proto_rawDescGZIP(), []int{110}
 }
 
 func (x *UnregisterAntennaInfoListenerRequest) GetArg0() int64 {
@@ -11619,7 +5187,7 @@ type UnregisterAntennaInfoListenerResponse struct {
 
 func (x *UnregisterAntennaInfoListenerResponse) Reset() {
 	*x = UnregisterAntennaInfoListenerResponse{}
-	mi := &file_proto_location_location_proto_msgTypes[269]
+	mi := &file_proto_location_location_proto_msgTypes[111]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -11631,7 +5199,7 @@ func (x *UnregisterAntennaInfoListenerResponse) String() string {
 func (*UnregisterAntennaInfoListenerResponse) ProtoMessage() {}
 
 func (x *UnregisterAntennaInfoListenerResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_location_location_proto_msgTypes[269]
+	mi := &file_proto_location_location_proto_msgTypes[111]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -11644,7 +5212,7 @@ func (x *UnregisterAntennaInfoListenerResponse) ProtoReflect() protoreflect.Mess
 
 // Deprecated: Use UnregisterAntennaInfoListenerResponse.ProtoReflect.Descriptor instead.
 func (*UnregisterAntennaInfoListenerResponse) Descriptor() ([]byte, []int) {
-	return file_proto_location_location_proto_rawDescGZIP(), []int{269}
+	return file_proto_location_location_proto_rawDescGZIP(), []int{111}
 }
 
 type UnregisterGnssMeasurementsCallbackRequest struct {
@@ -11656,7 +5224,7 @@ type UnregisterGnssMeasurementsCallbackRequest struct {
 
 func (x *UnregisterGnssMeasurementsCallbackRequest) Reset() {
 	*x = UnregisterGnssMeasurementsCallbackRequest{}
-	mi := &file_proto_location_location_proto_msgTypes[270]
+	mi := &file_proto_location_location_proto_msgTypes[112]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -11668,7 +5236,7 @@ func (x *UnregisterGnssMeasurementsCallbackRequest) String() string {
 func (*UnregisterGnssMeasurementsCallbackRequest) ProtoMessage() {}
 
 func (x *UnregisterGnssMeasurementsCallbackRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_location_location_proto_msgTypes[270]
+	mi := &file_proto_location_location_proto_msgTypes[112]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -11681,7 +5249,7 @@ func (x *UnregisterGnssMeasurementsCallbackRequest) ProtoReflect() protoreflect.
 
 // Deprecated: Use UnregisterGnssMeasurementsCallbackRequest.ProtoReflect.Descriptor instead.
 func (*UnregisterGnssMeasurementsCallbackRequest) Descriptor() ([]byte, []int) {
-	return file_proto_location_location_proto_rawDescGZIP(), []int{270}
+	return file_proto_location_location_proto_rawDescGZIP(), []int{112}
 }
 
 func (x *UnregisterGnssMeasurementsCallbackRequest) GetArg0() int64 {
@@ -11699,7 +5267,7 @@ type UnregisterGnssMeasurementsCallbackResponse struct {
 
 func (x *UnregisterGnssMeasurementsCallbackResponse) Reset() {
 	*x = UnregisterGnssMeasurementsCallbackResponse{}
-	mi := &file_proto_location_location_proto_msgTypes[271]
+	mi := &file_proto_location_location_proto_msgTypes[113]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -11711,7 +5279,7 @@ func (x *UnregisterGnssMeasurementsCallbackResponse) String() string {
 func (*UnregisterGnssMeasurementsCallbackResponse) ProtoMessage() {}
 
 func (x *UnregisterGnssMeasurementsCallbackResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_location_location_proto_msgTypes[271]
+	mi := &file_proto_location_location_proto_msgTypes[113]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -11724,7 +5292,7 @@ func (x *UnregisterGnssMeasurementsCallbackResponse) ProtoReflect() protoreflect
 
 // Deprecated: Use UnregisterGnssMeasurementsCallbackResponse.ProtoReflect.Descriptor instead.
 func (*UnregisterGnssMeasurementsCallbackResponse) Descriptor() ([]byte, []int) {
-	return file_proto_location_location_proto_rawDescGZIP(), []int{271}
+	return file_proto_location_location_proto_rawDescGZIP(), []int{113}
 }
 
 type UnregisterGnssNavigationMessageCallbackRequest struct {
@@ -11736,7 +5304,7 @@ type UnregisterGnssNavigationMessageCallbackRequest struct {
 
 func (x *UnregisterGnssNavigationMessageCallbackRequest) Reset() {
 	*x = UnregisterGnssNavigationMessageCallbackRequest{}
-	mi := &file_proto_location_location_proto_msgTypes[272]
+	mi := &file_proto_location_location_proto_msgTypes[114]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -11748,7 +5316,7 @@ func (x *UnregisterGnssNavigationMessageCallbackRequest) String() string {
 func (*UnregisterGnssNavigationMessageCallbackRequest) ProtoMessage() {}
 
 func (x *UnregisterGnssNavigationMessageCallbackRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_location_location_proto_msgTypes[272]
+	mi := &file_proto_location_location_proto_msgTypes[114]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -11761,7 +5329,7 @@ func (x *UnregisterGnssNavigationMessageCallbackRequest) ProtoReflect() protoref
 
 // Deprecated: Use UnregisterGnssNavigationMessageCallbackRequest.ProtoReflect.Descriptor instead.
 func (*UnregisterGnssNavigationMessageCallbackRequest) Descriptor() ([]byte, []int) {
-	return file_proto_location_location_proto_rawDescGZIP(), []int{272}
+	return file_proto_location_location_proto_rawDescGZIP(), []int{114}
 }
 
 func (x *UnregisterGnssNavigationMessageCallbackRequest) GetArg0() int64 {
@@ -11779,7 +5347,7 @@ type UnregisterGnssNavigationMessageCallbackResponse struct {
 
 func (x *UnregisterGnssNavigationMessageCallbackResponse) Reset() {
 	*x = UnregisterGnssNavigationMessageCallbackResponse{}
-	mi := &file_proto_location_location_proto_msgTypes[273]
+	mi := &file_proto_location_location_proto_msgTypes[115]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -11791,7 +5359,7 @@ func (x *UnregisterGnssNavigationMessageCallbackResponse) String() string {
 func (*UnregisterGnssNavigationMessageCallbackResponse) ProtoMessage() {}
 
 func (x *UnregisterGnssNavigationMessageCallbackResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_location_location_proto_msgTypes[273]
+	mi := &file_proto_location_location_proto_msgTypes[115]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -11804,7 +5372,7 @@ func (x *UnregisterGnssNavigationMessageCallbackResponse) ProtoReflect() protore
 
 // Deprecated: Use UnregisterGnssNavigationMessageCallbackResponse.ProtoReflect.Descriptor instead.
 func (*UnregisterGnssNavigationMessageCallbackResponse) Descriptor() ([]byte, []int) {
-	return file_proto_location_location_proto_rawDescGZIP(), []int{273}
+	return file_proto_location_location_proto_rawDescGZIP(), []int{115}
 }
 
 type UnregisterGnssStatusCallbackRequest struct {
@@ -11816,7 +5384,7 @@ type UnregisterGnssStatusCallbackRequest struct {
 
 func (x *UnregisterGnssStatusCallbackRequest) Reset() {
 	*x = UnregisterGnssStatusCallbackRequest{}
-	mi := &file_proto_location_location_proto_msgTypes[274]
+	mi := &file_proto_location_location_proto_msgTypes[116]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -11828,7 +5396,7 @@ func (x *UnregisterGnssStatusCallbackRequest) String() string {
 func (*UnregisterGnssStatusCallbackRequest) ProtoMessage() {}
 
 func (x *UnregisterGnssStatusCallbackRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_location_location_proto_msgTypes[274]
+	mi := &file_proto_location_location_proto_msgTypes[116]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -11841,7 +5409,7 @@ func (x *UnregisterGnssStatusCallbackRequest) ProtoReflect() protoreflect.Messag
 
 // Deprecated: Use UnregisterGnssStatusCallbackRequest.ProtoReflect.Descriptor instead.
 func (*UnregisterGnssStatusCallbackRequest) Descriptor() ([]byte, []int) {
-	return file_proto_location_location_proto_rawDescGZIP(), []int{274}
+	return file_proto_location_location_proto_rawDescGZIP(), []int{116}
 }
 
 func (x *UnregisterGnssStatusCallbackRequest) GetArg0() int64 {
@@ -11859,7 +5427,7 @@ type UnregisterGnssStatusCallbackResponse struct {
 
 func (x *UnregisterGnssStatusCallbackResponse) Reset() {
 	*x = UnregisterGnssStatusCallbackResponse{}
-	mi := &file_proto_location_location_proto_msgTypes[275]
+	mi := &file_proto_location_location_proto_msgTypes[117]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -11871,7 +5439,7 @@ func (x *UnregisterGnssStatusCallbackResponse) String() string {
 func (*UnregisterGnssStatusCallbackResponse) ProtoMessage() {}
 
 func (x *UnregisterGnssStatusCallbackResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_location_location_proto_msgTypes[275]
+	mi := &file_proto_location_location_proto_msgTypes[117]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -11884,1369 +5452,14 @@ func (x *UnregisterGnssStatusCallbackResponse) ProtoReflect() protoreflect.Messa
 
 // Deprecated: Use UnregisterGnssStatusCallbackResponse.ProtoReflect.Descriptor instead.
 func (*UnregisterGnssStatusCallbackResponse) Descriptor() ([]byte, []int) {
-	return file_proto_location_location_proto_rawDescGZIP(), []int{275}
-}
-
-type GetAzimuthDegreesRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetAzimuthDegreesRequest) Reset() {
-	*x = GetAzimuthDegreesRequest{}
-	mi := &file_proto_location_location_proto_msgTypes[276]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetAzimuthDegreesRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetAzimuthDegreesRequest) ProtoMessage() {}
-
-func (x *GetAzimuthDegreesRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_location_location_proto_msgTypes[276]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetAzimuthDegreesRequest.ProtoReflect.Descriptor instead.
-func (*GetAzimuthDegreesRequest) Descriptor() ([]byte, []int) {
-	return file_proto_location_location_proto_rawDescGZIP(), []int{276}
-}
-
-func (x *GetAzimuthDegreesRequest) GetArg0() int32 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type GetAzimuthDegreesResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        float32                `protobuf:"fixed32,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetAzimuthDegreesResponse) Reset() {
-	*x = GetAzimuthDegreesResponse{}
-	mi := &file_proto_location_location_proto_msgTypes[277]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetAzimuthDegreesResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetAzimuthDegreesResponse) ProtoMessage() {}
-
-func (x *GetAzimuthDegreesResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_location_location_proto_msgTypes[277]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetAzimuthDegreesResponse.ProtoReflect.Descriptor instead.
-func (*GetAzimuthDegreesResponse) Descriptor() ([]byte, []int) {
-	return file_proto_location_location_proto_rawDescGZIP(), []int{277}
-}
-
-func (x *GetAzimuthDegreesResponse) GetResult() float32 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type GetBasebandCn0DbHzRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetBasebandCn0DbHzRequest) Reset() {
-	*x = GetBasebandCn0DbHzRequest{}
-	mi := &file_proto_location_location_proto_msgTypes[278]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetBasebandCn0DbHzRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetBasebandCn0DbHzRequest) ProtoMessage() {}
-
-func (x *GetBasebandCn0DbHzRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_location_location_proto_msgTypes[278]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetBasebandCn0DbHzRequest.ProtoReflect.Descriptor instead.
-func (*GetBasebandCn0DbHzRequest) Descriptor() ([]byte, []int) {
-	return file_proto_location_location_proto_rawDescGZIP(), []int{278}
-}
-
-func (x *GetBasebandCn0DbHzRequest) GetArg0() int32 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type GetBasebandCn0DbHzResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        float32                `protobuf:"fixed32,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetBasebandCn0DbHzResponse) Reset() {
-	*x = GetBasebandCn0DbHzResponse{}
-	mi := &file_proto_location_location_proto_msgTypes[279]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetBasebandCn0DbHzResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetBasebandCn0DbHzResponse) ProtoMessage() {}
-
-func (x *GetBasebandCn0DbHzResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_location_location_proto_msgTypes[279]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetBasebandCn0DbHzResponse.ProtoReflect.Descriptor instead.
-func (*GetBasebandCn0DbHzResponse) Descriptor() ([]byte, []int) {
-	return file_proto_location_location_proto_rawDescGZIP(), []int{279}
-}
-
-func (x *GetBasebandCn0DbHzResponse) GetResult() float32 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type GetCarrierFrequencyHzRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetCarrierFrequencyHzRequest) Reset() {
-	*x = GetCarrierFrequencyHzRequest{}
-	mi := &file_proto_location_location_proto_msgTypes[280]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetCarrierFrequencyHzRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetCarrierFrequencyHzRequest) ProtoMessage() {}
-
-func (x *GetCarrierFrequencyHzRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_location_location_proto_msgTypes[280]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetCarrierFrequencyHzRequest.ProtoReflect.Descriptor instead.
-func (*GetCarrierFrequencyHzRequest) Descriptor() ([]byte, []int) {
-	return file_proto_location_location_proto_rawDescGZIP(), []int{280}
-}
-
-func (x *GetCarrierFrequencyHzRequest) GetArg0() int32 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type GetCarrierFrequencyHzResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        float32                `protobuf:"fixed32,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetCarrierFrequencyHzResponse) Reset() {
-	*x = GetCarrierFrequencyHzResponse{}
-	mi := &file_proto_location_location_proto_msgTypes[281]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetCarrierFrequencyHzResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetCarrierFrequencyHzResponse) ProtoMessage() {}
-
-func (x *GetCarrierFrequencyHzResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_location_location_proto_msgTypes[281]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetCarrierFrequencyHzResponse.ProtoReflect.Descriptor instead.
-func (*GetCarrierFrequencyHzResponse) Descriptor() ([]byte, []int) {
-	return file_proto_location_location_proto_rawDescGZIP(), []int{281}
-}
-
-func (x *GetCarrierFrequencyHzResponse) GetResult() float32 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type GetCn0DbHzRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetCn0DbHzRequest) Reset() {
-	*x = GetCn0DbHzRequest{}
-	mi := &file_proto_location_location_proto_msgTypes[282]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetCn0DbHzRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetCn0DbHzRequest) ProtoMessage() {}
-
-func (x *GetCn0DbHzRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_location_location_proto_msgTypes[282]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetCn0DbHzRequest.ProtoReflect.Descriptor instead.
-func (*GetCn0DbHzRequest) Descriptor() ([]byte, []int) {
-	return file_proto_location_location_proto_rawDescGZIP(), []int{282}
-}
-
-func (x *GetCn0DbHzRequest) GetArg0() int32 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type GetCn0DbHzResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        float32                `protobuf:"fixed32,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetCn0DbHzResponse) Reset() {
-	*x = GetCn0DbHzResponse{}
-	mi := &file_proto_location_location_proto_msgTypes[283]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetCn0DbHzResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetCn0DbHzResponse) ProtoMessage() {}
-
-func (x *GetCn0DbHzResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_location_location_proto_msgTypes[283]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetCn0DbHzResponse.ProtoReflect.Descriptor instead.
-func (*GetCn0DbHzResponse) Descriptor() ([]byte, []int) {
-	return file_proto_location_location_proto_rawDescGZIP(), []int{283}
-}
-
-func (x *GetCn0DbHzResponse) GetResult() float32 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type GetConstellationTypeRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetConstellationTypeRequest) Reset() {
-	*x = GetConstellationTypeRequest{}
-	mi := &file_proto_location_location_proto_msgTypes[284]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetConstellationTypeRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetConstellationTypeRequest) ProtoMessage() {}
-
-func (x *GetConstellationTypeRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_location_location_proto_msgTypes[284]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetConstellationTypeRequest.ProtoReflect.Descriptor instead.
-func (*GetConstellationTypeRequest) Descriptor() ([]byte, []int) {
-	return file_proto_location_location_proto_rawDescGZIP(), []int{284}
-}
-
-func (x *GetConstellationTypeRequest) GetArg0() int32 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type GetConstellationTypeResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetConstellationTypeResponse) Reset() {
-	*x = GetConstellationTypeResponse{}
-	mi := &file_proto_location_location_proto_msgTypes[285]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetConstellationTypeResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetConstellationTypeResponse) ProtoMessage() {}
-
-func (x *GetConstellationTypeResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_location_location_proto_msgTypes[285]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetConstellationTypeResponse.ProtoReflect.Descriptor instead.
-func (*GetConstellationTypeResponse) Descriptor() ([]byte, []int) {
-	return file_proto_location_location_proto_rawDescGZIP(), []int{285}
-}
-
-func (x *GetConstellationTypeResponse) GetResult() int32 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type GetElevationDegreesRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetElevationDegreesRequest) Reset() {
-	*x = GetElevationDegreesRequest{}
-	mi := &file_proto_location_location_proto_msgTypes[286]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetElevationDegreesRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetElevationDegreesRequest) ProtoMessage() {}
-
-func (x *GetElevationDegreesRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_location_location_proto_msgTypes[286]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetElevationDegreesRequest.ProtoReflect.Descriptor instead.
-func (*GetElevationDegreesRequest) Descriptor() ([]byte, []int) {
-	return file_proto_location_location_proto_rawDescGZIP(), []int{286}
-}
-
-func (x *GetElevationDegreesRequest) GetArg0() int32 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type GetElevationDegreesResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        float32                `protobuf:"fixed32,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetElevationDegreesResponse) Reset() {
-	*x = GetElevationDegreesResponse{}
-	mi := &file_proto_location_location_proto_msgTypes[287]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetElevationDegreesResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetElevationDegreesResponse) ProtoMessage() {}
-
-func (x *GetElevationDegreesResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_location_location_proto_msgTypes[287]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetElevationDegreesResponse.ProtoReflect.Descriptor instead.
-func (*GetElevationDegreesResponse) Descriptor() ([]byte, []int) {
-	return file_proto_location_location_proto_rawDescGZIP(), []int{287}
-}
-
-func (x *GetElevationDegreesResponse) GetResult() float32 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type GetSatelliteCountRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetSatelliteCountRequest) Reset() {
-	*x = GetSatelliteCountRequest{}
-	mi := &file_proto_location_location_proto_msgTypes[288]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetSatelliteCountRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetSatelliteCountRequest) ProtoMessage() {}
-
-func (x *GetSatelliteCountRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_location_location_proto_msgTypes[288]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetSatelliteCountRequest.ProtoReflect.Descriptor instead.
-func (*GetSatelliteCountRequest) Descriptor() ([]byte, []int) {
-	return file_proto_location_location_proto_rawDescGZIP(), []int{288}
-}
-
-type GetSatelliteCountResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetSatelliteCountResponse) Reset() {
-	*x = GetSatelliteCountResponse{}
-	mi := &file_proto_location_location_proto_msgTypes[289]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetSatelliteCountResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetSatelliteCountResponse) ProtoMessage() {}
-
-func (x *GetSatelliteCountResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_location_location_proto_msgTypes[289]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetSatelliteCountResponse.ProtoReflect.Descriptor instead.
-func (*GetSatelliteCountResponse) Descriptor() ([]byte, []int) {
-	return file_proto_location_location_proto_rawDescGZIP(), []int{289}
-}
-
-func (x *GetSatelliteCountResponse) GetResult() int32 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type GetSvidRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetSvidRequest) Reset() {
-	*x = GetSvidRequest{}
-	mi := &file_proto_location_location_proto_msgTypes[290]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetSvidRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetSvidRequest) ProtoMessage() {}
-
-func (x *GetSvidRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_location_location_proto_msgTypes[290]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetSvidRequest.ProtoReflect.Descriptor instead.
-func (*GetSvidRequest) Descriptor() ([]byte, []int) {
-	return file_proto_location_location_proto_rawDescGZIP(), []int{290}
-}
-
-func (x *GetSvidRequest) GetArg0() int32 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type GetSvidResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetSvidResponse) Reset() {
-	*x = GetSvidResponse{}
-	mi := &file_proto_location_location_proto_msgTypes[291]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetSvidResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetSvidResponse) ProtoMessage() {}
-
-func (x *GetSvidResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_location_location_proto_msgTypes[291]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetSvidResponse.ProtoReflect.Descriptor instead.
-func (*GetSvidResponse) Descriptor() ([]byte, []int) {
-	return file_proto_location_location_proto_rawDescGZIP(), []int{291}
-}
-
-func (x *GetSvidResponse) GetResult() int32 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type HasAlmanacDataRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *HasAlmanacDataRequest) Reset() {
-	*x = HasAlmanacDataRequest{}
-	mi := &file_proto_location_location_proto_msgTypes[292]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *HasAlmanacDataRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*HasAlmanacDataRequest) ProtoMessage() {}
-
-func (x *HasAlmanacDataRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_location_location_proto_msgTypes[292]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use HasAlmanacDataRequest.ProtoReflect.Descriptor instead.
-func (*HasAlmanacDataRequest) Descriptor() ([]byte, []int) {
-	return file_proto_location_location_proto_rawDescGZIP(), []int{292}
-}
-
-func (x *HasAlmanacDataRequest) GetArg0() int32 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type HasAlmanacDataResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *HasAlmanacDataResponse) Reset() {
-	*x = HasAlmanacDataResponse{}
-	mi := &file_proto_location_location_proto_msgTypes[293]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *HasAlmanacDataResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*HasAlmanacDataResponse) ProtoMessage() {}
-
-func (x *HasAlmanacDataResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_location_location_proto_msgTypes[293]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use HasAlmanacDataResponse.ProtoReflect.Descriptor instead.
-func (*HasAlmanacDataResponse) Descriptor() ([]byte, []int) {
-	return file_proto_location_location_proto_rawDescGZIP(), []int{293}
-}
-
-func (x *HasAlmanacDataResponse) GetResult() bool {
-	if x != nil {
-		return x.Result
-	}
-	return false
-}
-
-type HasBasebandCn0DbHzRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *HasBasebandCn0DbHzRequest) Reset() {
-	*x = HasBasebandCn0DbHzRequest{}
-	mi := &file_proto_location_location_proto_msgTypes[294]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *HasBasebandCn0DbHzRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*HasBasebandCn0DbHzRequest) ProtoMessage() {}
-
-func (x *HasBasebandCn0DbHzRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_location_location_proto_msgTypes[294]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use HasBasebandCn0DbHzRequest.ProtoReflect.Descriptor instead.
-func (*HasBasebandCn0DbHzRequest) Descriptor() ([]byte, []int) {
-	return file_proto_location_location_proto_rawDescGZIP(), []int{294}
-}
-
-func (x *HasBasebandCn0DbHzRequest) GetArg0() int32 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type HasBasebandCn0DbHzResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *HasBasebandCn0DbHzResponse) Reset() {
-	*x = HasBasebandCn0DbHzResponse{}
-	mi := &file_proto_location_location_proto_msgTypes[295]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *HasBasebandCn0DbHzResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*HasBasebandCn0DbHzResponse) ProtoMessage() {}
-
-func (x *HasBasebandCn0DbHzResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_location_location_proto_msgTypes[295]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use HasBasebandCn0DbHzResponse.ProtoReflect.Descriptor instead.
-func (*HasBasebandCn0DbHzResponse) Descriptor() ([]byte, []int) {
-	return file_proto_location_location_proto_rawDescGZIP(), []int{295}
-}
-
-func (x *HasBasebandCn0DbHzResponse) GetResult() bool {
-	if x != nil {
-		return x.Result
-	}
-	return false
-}
-
-type HasCarrierFrequencyHzRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *HasCarrierFrequencyHzRequest) Reset() {
-	*x = HasCarrierFrequencyHzRequest{}
-	mi := &file_proto_location_location_proto_msgTypes[296]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *HasCarrierFrequencyHzRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*HasCarrierFrequencyHzRequest) ProtoMessage() {}
-
-func (x *HasCarrierFrequencyHzRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_location_location_proto_msgTypes[296]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use HasCarrierFrequencyHzRequest.ProtoReflect.Descriptor instead.
-func (*HasCarrierFrequencyHzRequest) Descriptor() ([]byte, []int) {
-	return file_proto_location_location_proto_rawDescGZIP(), []int{296}
-}
-
-func (x *HasCarrierFrequencyHzRequest) GetArg0() int32 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type HasCarrierFrequencyHzResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *HasCarrierFrequencyHzResponse) Reset() {
-	*x = HasCarrierFrequencyHzResponse{}
-	mi := &file_proto_location_location_proto_msgTypes[297]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *HasCarrierFrequencyHzResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*HasCarrierFrequencyHzResponse) ProtoMessage() {}
-
-func (x *HasCarrierFrequencyHzResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_location_location_proto_msgTypes[297]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use HasCarrierFrequencyHzResponse.ProtoReflect.Descriptor instead.
-func (*HasCarrierFrequencyHzResponse) Descriptor() ([]byte, []int) {
-	return file_proto_location_location_proto_rawDescGZIP(), []int{297}
-}
-
-func (x *HasCarrierFrequencyHzResponse) GetResult() bool {
-	if x != nil {
-		return x.Result
-	}
-	return false
-}
-
-type HasEphemerisDataRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *HasEphemerisDataRequest) Reset() {
-	*x = HasEphemerisDataRequest{}
-	mi := &file_proto_location_location_proto_msgTypes[298]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *HasEphemerisDataRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*HasEphemerisDataRequest) ProtoMessage() {}
-
-func (x *HasEphemerisDataRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_location_location_proto_msgTypes[298]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use HasEphemerisDataRequest.ProtoReflect.Descriptor instead.
-func (*HasEphemerisDataRequest) Descriptor() ([]byte, []int) {
-	return file_proto_location_location_proto_rawDescGZIP(), []int{298}
-}
-
-func (x *HasEphemerisDataRequest) GetArg0() int32 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type HasEphemerisDataResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *HasEphemerisDataResponse) Reset() {
-	*x = HasEphemerisDataResponse{}
-	mi := &file_proto_location_location_proto_msgTypes[299]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *HasEphemerisDataResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*HasEphemerisDataResponse) ProtoMessage() {}
-
-func (x *HasEphemerisDataResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_location_location_proto_msgTypes[299]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use HasEphemerisDataResponse.ProtoReflect.Descriptor instead.
-func (*HasEphemerisDataResponse) Descriptor() ([]byte, []int) {
-	return file_proto_location_location_proto_rawDescGZIP(), []int{299}
-}
-
-func (x *HasEphemerisDataResponse) GetResult() bool {
-	if x != nil {
-		return x.Result
-	}
-	return false
-}
-
-type UsedInFixRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *UsedInFixRequest) Reset() {
-	*x = UsedInFixRequest{}
-	mi := &file_proto_location_location_proto_msgTypes[300]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *UsedInFixRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*UsedInFixRequest) ProtoMessage() {}
-
-func (x *UsedInFixRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_location_location_proto_msgTypes[300]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use UsedInFixRequest.ProtoReflect.Descriptor instead.
-func (*UsedInFixRequest) Descriptor() ([]byte, []int) {
-	return file_proto_location_location_proto_rawDescGZIP(), []int{300}
-}
-
-func (x *UsedInFixRequest) GetArg0() int32 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type UsedInFixResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *UsedInFixResponse) Reset() {
-	*x = UsedInFixResponse{}
-	mi := &file_proto_location_location_proto_msgTypes[301]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *UsedInFixResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*UsedInFixResponse) ProtoMessage() {}
-
-func (x *UsedInFixResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_location_location_proto_msgTypes[301]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use UsedInFixResponse.ProtoReflect.Descriptor instead.
-func (*UsedInFixResponse) Descriptor() ([]byte, []int) {
-	return file_proto_location_location_proto_rawDescGZIP(), []int{301}
-}
-
-func (x *UsedInFixResponse) GetResult() bool {
-	if x != nil {
-		return x.Result
-	}
-	return false
+	return file_proto_location_location_proto_rawDescGZIP(), []int{117}
 }
 
 var File_proto_location_location_proto protoreflect.FileDescriptor
 
 const file_proto_location_location_proto_rawDesc = "" +
 	"\n" +
-	"\x1dproto/location/location.proto\x12\blocation\"&\n" +
-	"\x10BearingToRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"+\n" +
-	"\x11BearingToResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x02R\x06result\"\x19\n" +
-	"\x17DescribeContentsRequest\"2\n" +
-	"\x18DescribeContentsResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x05R\x06result\"'\n" +
-	"\x11DistanceToRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\",\n" +
-	"\x12DistanceToResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x02R\x06result\"5\n" +
-	"\vDumpRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
-	"\x04arg1\x18\x02 \x01(\tR\x04arg1\"\x0e\n" +
-	"\fDumpResponse\"#\n" +
-	"\rEqualsRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"(\n" +
-	"\x0eEqualsResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\bR\x06result\"\x14\n" +
-	"\x12GetAccuracyRequest\"-\n" +
-	"\x13GetAccuracyResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x02R\x06result\"\x14\n" +
-	"\x12GetAltitudeRequest\"-\n" +
-	"\x13GetAltitudeResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x01R\x06result\"\x13\n" +
-	"\x11GetBearingRequest\",\n" +
-	"\x12GetBearingResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x02R\x06result\"\"\n" +
-	" GetBearingAccuracyDegreesRequest\";\n" +
-	"!GetBearingAccuracyDegreesResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x02R\x06result\"%\n" +
-	"#GetElapsedRealtimeAgeMillis0Request\">\n" +
-	"$GetElapsedRealtimeAgeMillis0Response\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\";\n" +
-	"%GetElapsedRealtimeAgeMillis1_1Request\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"@\n" +
-	"&GetElapsedRealtimeAgeMillis1_1Response\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"!\n" +
-	"\x1fGetElapsedRealtimeMillisRequest\":\n" +
-	" GetElapsedRealtimeMillisResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\" \n" +
-	"\x1eGetElapsedRealtimeNanosRequest\"9\n" +
-	"\x1fGetElapsedRealtimeNanosResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"+\n" +
-	")GetElapsedRealtimeUncertaintyNanosRequest\"D\n" +
-	"*GetElapsedRealtimeUncertaintyNanosResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x01R\x06result\"\x12\n" +
-	"\x10GetExtrasRequest\"+\n" +
-	"\x11GetExtrasResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"\x14\n" +
-	"\x12GetLatitudeRequest\"-\n" +
-	"\x13GetLatitudeResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x01R\x06result\"\x15\n" +
-	"\x13GetLongitudeRequest\".\n" +
-	"\x14GetLongitudeResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x01R\x06result\"%\n" +
-	"#GetMslAltitudeAccuracyMetersRequest\">\n" +
-	"$GetMslAltitudeAccuracyMetersResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x02R\x06result\"\x1d\n" +
-	"\x1bGetMslAltitudeMetersRequest\"6\n" +
-	"\x1cGetMslAltitudeMetersResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x01R\x06result\"\x14\n" +
-	"\x12GetProviderRequest\"-\n" +
-	"\x13GetProviderResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\tR\x06result\"\x11\n" +
-	"\x0fGetSpeedRequest\"*\n" +
-	"\x10GetSpeedResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x02R\x06result\"(\n" +
-	"&GetSpeedAccuracyMetersPerSecondRequest\"A\n" +
-	"'GetSpeedAccuracyMetersPerSecondResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x02R\x06result\"\x10\n" +
-	"\x0eGetTimeRequest\")\n" +
-	"\x0fGetTimeResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"\"\n" +
-	" GetVerticalAccuracyMetersRequest\";\n" +
-	"!GetVerticalAccuracyMetersResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x02R\x06result\"\x14\n" +
-	"\x12HasAccuracyRequest\"-\n" +
-	"\x13HasAccuracyResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\bR\x06result\"\x14\n" +
-	"\x12HasAltitudeRequest\"-\n" +
-	"\x13HasAltitudeResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\bR\x06result\"\x13\n" +
-	"\x11HasBearingRequest\",\n" +
-	"\x12HasBearingResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\bR\x06result\"\x1b\n" +
-	"\x19HasBearingAccuracyRequest\"4\n" +
-	"\x1aHasBearingAccuracyResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\bR\x06result\"+\n" +
-	")HasElapsedRealtimeUncertaintyNanosRequest\"D\n" +
-	"*HasElapsedRealtimeUncertaintyNanosResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\bR\x06result\"\x17\n" +
-	"\x15HasMslAltitudeRequest\"0\n" +
-	"\x16HasMslAltitudeResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\bR\x06result\"\x1f\n" +
-	"\x1dHasMslAltitudeAccuracyRequest\"8\n" +
-	"\x1eHasMslAltitudeAccuracyResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\bR\x06result\"\x11\n" +
-	"\x0fHasSpeedRequest\"*\n" +
-	"\x10HasSpeedResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\bR\x06result\"\x19\n" +
-	"\x17HasSpeedAccuracyRequest\"2\n" +
-	"\x18HasSpeedAccuracyResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\bR\x06result\"\x1c\n" +
-	"\x1aHasVerticalAccuracyRequest\"5\n" +
-	"\x1bHasVerticalAccuracyResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\bR\x06result\"\x11\n" +
-	"\x0fHashCodeRequest\"*\n" +
-	"\x10HashCodeResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x05R\x06result\"\x13\n" +
-	"\x11IsCompleteRequest\",\n" +
-	"\x12IsCompleteResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\bR\x06result\"\x1b\n" +
-	"\x19IsFromMockProviderRequest\"4\n" +
-	"\x1aIsFromMockProviderResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\bR\x06result\"\x0f\n" +
-	"\rIsMockRequest\"(\n" +
-	"\x0eIsMockResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\bR\x06result\"\x17\n" +
-	"\x15RemoveAccuracyRequest\"\x18\n" +
-	"\x16RemoveAccuracyResponse\"\x17\n" +
-	"\x15RemoveAltitudeRequest\"\x18\n" +
-	"\x16RemoveAltitudeResponse\"\x16\n" +
-	"\x14RemoveBearingRequest\"\x17\n" +
-	"\x15RemoveBearingResponse\"\x1e\n" +
-	"\x1cRemoveBearingAccuracyRequest\"\x1f\n" +
-	"\x1dRemoveBearingAccuracyResponse\".\n" +
-	",RemoveElapsedRealtimeUncertaintyNanosRequest\"/\n" +
-	"-RemoveElapsedRealtimeUncertaintyNanosResponse\"\x1a\n" +
-	"\x18RemoveMslAltitudeRequest\"\x1b\n" +
-	"\x19RemoveMslAltitudeResponse\"\"\n" +
-	" RemoveMslAltitudeAccuracyRequest\"#\n" +
-	"!RemoveMslAltitudeAccuracyResponse\"\x14\n" +
-	"\x12RemoveSpeedRequest\"\x15\n" +
-	"\x13RemoveSpeedResponse\"\x1c\n" +
-	"\x1aRemoveSpeedAccuracyRequest\"\x1d\n" +
-	"\x1bRemoveSpeedAccuracyResponse\"\x1f\n" +
-	"\x1dRemoveVerticalAccuracyRequest\" \n" +
-	"\x1eRemoveVerticalAccuracyResponse\"\x0e\n" +
-	"\fResetRequest\"\x0f\n" +
-	"\rResetResponse\" \n" +
-	"\n" +
-	"SetRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"\r\n" +
-	"\vSetResponse\"(\n" +
-	"\x12SetAccuracyRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x02R\x04arg0\"\x15\n" +
-	"\x13SetAccuracyResponse\"(\n" +
-	"\x12SetAltitudeRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x01R\x04arg0\"\x15\n" +
-	"\x13SetAltitudeResponse\"'\n" +
-	"\x11SetBearingRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x02R\x04arg0\"\x14\n" +
-	"\x12SetBearingResponse\"6\n" +
-	" SetBearingAccuracyDegreesRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x02R\x04arg0\"#\n" +
-	"!SetBearingAccuracyDegreesResponse\"4\n" +
-	"\x1eSetElapsedRealtimeNanosRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"!\n" +
-	"\x1fSetElapsedRealtimeNanosResponse\"?\n" +
-	")SetElapsedRealtimeUncertaintyNanosRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x01R\x04arg0\",\n" +
-	"*SetElapsedRealtimeUncertaintyNanosResponse\"&\n" +
-	"\x10SetExtrasRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"\x13\n" +
-	"\x11SetExtrasResponse\"(\n" +
-	"\x12SetLatitudeRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x01R\x04arg0\"\x15\n" +
-	"\x13SetLatitudeResponse\")\n" +
-	"\x13SetLongitudeRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x01R\x04arg0\"\x16\n" +
-	"\x14SetLongitudeResponse\"$\n" +
-	"\x0eSetMockRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\bR\x04arg0\"\x11\n" +
-	"\x0fSetMockResponse\"9\n" +
-	"#SetMslAltitudeAccuracyMetersRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x02R\x04arg0\"&\n" +
-	"$SetMslAltitudeAccuracyMetersResponse\"1\n" +
-	"\x1bSetMslAltitudeMetersRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x01R\x04arg0\"\x1e\n" +
-	"\x1cSetMslAltitudeMetersResponse\"(\n" +
-	"\x12SetProviderRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\tR\x04arg0\"\x15\n" +
-	"\x13SetProviderResponse\"%\n" +
-	"\x0fSetSpeedRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x02R\x04arg0\"\x12\n" +
-	"\x10SetSpeedResponse\"<\n" +
-	"&SetSpeedAccuracyMetersPerSecondRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x02R\x04arg0\")\n" +
-	"'SetSpeedAccuracyMetersPerSecondResponse\"$\n" +
-	"\x0eSetTimeRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"\x11\n" +
-	"\x0fSetTimeResponse\"6\n" +
-	" SetVerticalAccuracyMetersRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x02R\x04arg0\"#\n" +
-	"!SetVerticalAccuracyMetersResponse\"\x11\n" +
-	"\x0fToStringRequest\"*\n" +
-	"\x10ToStringResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\tR\x06result\">\n" +
-	"\x14WriteToParcelRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
-	"\x04arg1\x18\x02 \x01(\x05R\x04arg1\"\x17\n" +
-	"\x15WriteToParcelResponse\"9\n" +
-	"\x0fConvert2Request\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x01R\x04arg0\x12\x12\n" +
-	"\x04arg1\x18\x02 \x01(\x05R\x04arg1\"*\n" +
-	"\x10Convert2Response\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\tR\x06result\"'\n" +
-	"\x11Convert1_1Request\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\tR\x04arg0\",\n" +
-	"\x12Convert1_1Response\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x01R\x06result\"|\n" +
-	"\x16DistanceBetweenRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x01R\x04arg0\x12\x12\n" +
-	"\x04arg1\x18\x02 \x01(\x01R\x04arg1\x12\x12\n" +
-	"\x04arg2\x18\x03 \x01(\x01R\x04arg2\x12\x12\n" +
-	"\x04arg3\x18\x04 \x01(\x01R\x04arg3\x12\x12\n" +
-	"\x04arg4\x18\x05 \x01(\x03R\x04arg4\"\x19\n" +
-	"\x17DistanceBetweenResponse\"1\n" +
+	"\x1dproto/location/location.proto\x12\blocation\"1\n" +
 	"\x1bAddGpsStatusListenerRequest\x12\x12\n" +
 	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"6\n" +
 	"\x1cAddGpsStatusListenerResponse\x12\x16\n" +
@@ -13274,13 +5487,8 @@ const file_proto_location_location_proto_rawDesc = "" +
 	"\x17AddTestProvider2Request\x12\x12\n" +
 	"\x04arg0\x18\x01 \x01(\tR\x04arg0\x12\x12\n" +
 	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\"\x1a\n" +
-	"\x18AddTestProvider2Response\"W\n" +
-	"\x19AddTestProvider3_1Request\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\tR\x04arg0\x12\x12\n" +
-	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\x12\x12\n" +
-	"\x04arg2\x18\x03 \x01(\x03R\x04arg2\"\x1c\n" +
-	"\x1aAddTestProvider3_1Response\"\xe4\x01\n" +
-	"\x1aAddTestProvider10_2Request\x12\x12\n" +
+	"\x18AddTestProvider2Response\"\xe4\x01\n" +
+	"\x1aAddTestProvider10_1Request\x12\x12\n" +
 	"\x04arg0\x18\x01 \x01(\tR\x04arg0\x12\x12\n" +
 	"\x04arg1\x18\x02 \x01(\bR\x04arg1\x12\x12\n" +
 	"\x04arg2\x18\x03 \x01(\bR\x04arg2\x12\x12\n" +
@@ -13292,7 +5500,7 @@ const file_proto_location_location_proto_rawDesc = "" +
 	"\x04arg8\x18\t \x01(\x05R\x04arg8\x12\x12\n" +
 	"\x04arg9\x18\n" +
 	" \x01(\x05R\x04arg9\"\x1d\n" +
-	"\x1bAddTestProvider10_2Response\"5\n" +
+	"\x1bAddTestProvider10_1Response\"5\n" +
 	"\x1fClearTestProviderEnabledRequest\x12\x12\n" +
 	"\x04arg0\x18\x01 \x01(\tR\x04arg0\"\"\n" +
 	" ClearTestProviderEnabledResponse\"6\n" +
@@ -13301,31 +5509,12 @@ const file_proto_location_location_proto_rawDesc = "" +
 	"!ClearTestProviderLocationResponse\"4\n" +
 	"\x1eClearTestProviderStatusRequest\x12\x12\n" +
 	"\x04arg0\x18\x01 \x01(\tR\x04arg0\"!\n" +
-	"\x1fClearTestProviderStatusResponse\"\x18\n" +
-	"\x16GetAllProvidersRequest\"1\n" +
-	"\x17GetAllProvidersResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"@\n" +
+	"\x1fClearTestProviderStatusResponse\"@\n" +
 	"\x16GetBestProviderRequest\x12\x12\n" +
 	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
 	"\x04arg1\x18\x02 \x01(\bR\x04arg1\"1\n" +
 	"\x17GetBestProviderResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\tR\x06result\"\x80\x01\n" +
-	"\x1aGetCurrentLocation5Request\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\tR\x04arg0\x12\x12\n" +
-	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\x12\x12\n" +
-	"\x04arg2\x18\x03 \x01(\x03R\x04arg2\x12\x12\n" +
-	"\x04arg3\x18\x04 \x01(\x03R\x04arg3\x12\x12\n" +
-	"\x04arg4\x18\x05 \x01(\x03R\x04arg4\"\x1d\n" +
-	"\x1bGetCurrentLocation5Response\"n\n" +
-	"\x1cGetCurrentLocation4_1Request\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\tR\x04arg0\x12\x12\n" +
-	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\x12\x12\n" +
-	"\x04arg2\x18\x03 \x01(\x03R\x04arg2\x12\x12\n" +
-	"\x04arg3\x18\x04 \x01(\x03R\x04arg3\"\x1f\n" +
-	"\x1dGetCurrentLocation4_1Response\"\x1c\n" +
-	"\x1aGetGnssAntennaInfosRequest\"5\n" +
-	"\x1bGetGnssAntennaInfosResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"\x1c\n" +
+	"\x06result\x18\x01 \x01(\tR\x06result\"\x1c\n" +
 	"\x1aGetGnssCapabilitiesRequest\"5\n" +
 	"\x1bGetGnssCapabilitiesResponse\x12\x16\n" +
 	"\x06result\x18\x01 \x01(\x03R\x06result\"!\n" +
@@ -13342,23 +5531,14 @@ const file_proto_location_location_proto_rawDesc = "" +
 	"\x1bGetLastKnownLocationRequest\x12\x12\n" +
 	"\x04arg0\x18\x01 \x01(\tR\x04arg0\"6\n" +
 	"\x1cGetLastKnownLocationResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"/\n" +
-	"\x19ManagerGetProviderRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\tR\x04arg0\"4\n" +
-	"\x1aManagerGetProviderResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"(\n" +
+	"\x12GetProviderRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\tR\x04arg0\"-\n" +
+	"\x13GetProviderResponse\x12\x16\n" +
 	"\x06result\x18\x01 \x01(\x03R\x06result\"2\n" +
 	"\x1cGetProviderPropertiesRequest\x12\x12\n" +
 	"\x04arg0\x18\x01 \x01(\tR\x04arg0\"7\n" +
 	"\x1dGetProviderPropertiesResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\">\n" +
-	"\x14GetProviders2Request\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
-	"\x04arg1\x18\x02 \x01(\bR\x04arg1\"/\n" +
-	"\x15GetProviders2Response\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\",\n" +
-	"\x16GetProviders1_1Request\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\bR\x04arg0\"1\n" +
-	"\x17GetProviders1_1Response\x12\x16\n" +
 	"\x06result\x18\x01 \x01(\x03R\x06result\"(\n" +
 	"\x12HasProviderRequest\x12\x12\n" +
 	"\x04arg0\x18\x01 \x01(\tR\x04arg0\"-\n" +
@@ -13546,163 +5726,26 @@ const file_proto_location_location_proto_rawDesc = "" +
 	"/UnregisterGnssNavigationMessageCallbackResponse\"9\n" +
 	"#UnregisterGnssStatusCallbackRequest\x12\x12\n" +
 	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"&\n" +
-	"$UnregisterGnssStatusCallbackResponse\".\n" +
-	"\x18GetAzimuthDegreesRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\"3\n" +
-	"\x19GetAzimuthDegreesResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x02R\x06result\"/\n" +
-	"\x19GetBasebandCn0DbHzRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\"4\n" +
-	"\x1aGetBasebandCn0DbHzResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x02R\x06result\"2\n" +
-	"\x1cGetCarrierFrequencyHzRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\"7\n" +
-	"\x1dGetCarrierFrequencyHzResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x02R\x06result\"'\n" +
-	"\x11GetCn0DbHzRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\",\n" +
-	"\x12GetCn0DbHzResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x02R\x06result\"1\n" +
-	"\x1bGetConstellationTypeRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\"6\n" +
-	"\x1cGetConstellationTypeResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x05R\x06result\"0\n" +
-	"\x1aGetElevationDegreesRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\"5\n" +
-	"\x1bGetElevationDegreesResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x02R\x06result\"\x1a\n" +
-	"\x18GetSatelliteCountRequest\"3\n" +
-	"\x19GetSatelliteCountResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x05R\x06result\"$\n" +
-	"\x0eGetSvidRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\")\n" +
-	"\x0fGetSvidResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x05R\x06result\"+\n" +
-	"\x15HasAlmanacDataRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\"0\n" +
-	"\x16HasAlmanacDataResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\bR\x06result\"/\n" +
-	"\x19HasBasebandCn0DbHzRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\"4\n" +
-	"\x1aHasBasebandCn0DbHzResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\bR\x06result\"2\n" +
-	"\x1cHasCarrierFrequencyHzRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\"7\n" +
-	"\x1dHasCarrierFrequencyHzResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\bR\x06result\"-\n" +
-	"\x17HasEphemerisDataRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\"2\n" +
-	"\x18HasEphemerisDataResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\bR\x06result\"&\n" +
-	"\x10UsedInFixRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\"+\n" +
-	"\x11UsedInFixResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\bR\x06result2\x9e3\n" +
-	"\x0fLocationService\x12D\n" +
-	"\tBearingTo\x12\x1a.location.BearingToRequest\x1a\x1b.location.BearingToResponse\x12Y\n" +
-	"\x10DescribeContents\x12!.location.DescribeContentsRequest\x1a\".location.DescribeContentsResponse\x12G\n" +
-	"\n" +
-	"DistanceTo\x12\x1b.location.DistanceToRequest\x1a\x1c.location.DistanceToResponse\x125\n" +
-	"\x04Dump\x12\x15.location.DumpRequest\x1a\x16.location.DumpResponse\x12;\n" +
-	"\x06Equals\x12\x17.location.EqualsRequest\x1a\x18.location.EqualsResponse\x12J\n" +
-	"\vGetAccuracy\x12\x1c.location.GetAccuracyRequest\x1a\x1d.location.GetAccuracyResponse\x12J\n" +
-	"\vGetAltitude\x12\x1c.location.GetAltitudeRequest\x1a\x1d.location.GetAltitudeResponse\x12G\n" +
-	"\n" +
-	"GetBearing\x12\x1b.location.GetBearingRequest\x1a\x1c.location.GetBearingResponse\x12t\n" +
-	"\x19GetBearingAccuracyDegrees\x12*.location.GetBearingAccuracyDegreesRequest\x1a+.location.GetBearingAccuracyDegreesResponse\x12}\n" +
-	"\x1cGetElapsedRealtimeAgeMillis0\x12-.location.GetElapsedRealtimeAgeMillis0Request\x1a..location.GetElapsedRealtimeAgeMillis0Response\x12\x83\x01\n" +
-	"\x1eGetElapsedRealtimeAgeMillis1_1\x12/.location.GetElapsedRealtimeAgeMillis1_1Request\x1a0.location.GetElapsedRealtimeAgeMillis1_1Response\x12q\n" +
-	"\x18GetElapsedRealtimeMillis\x12).location.GetElapsedRealtimeMillisRequest\x1a*.location.GetElapsedRealtimeMillisResponse\x12n\n" +
-	"\x17GetElapsedRealtimeNanos\x12(.location.GetElapsedRealtimeNanosRequest\x1a).location.GetElapsedRealtimeNanosResponse\x12\x8f\x01\n" +
-	"\"GetElapsedRealtimeUncertaintyNanos\x123.location.GetElapsedRealtimeUncertaintyNanosRequest\x1a4.location.GetElapsedRealtimeUncertaintyNanosResponse\x12D\n" +
-	"\tGetExtras\x12\x1a.location.GetExtrasRequest\x1a\x1b.location.GetExtrasResponse\x12J\n" +
-	"\vGetLatitude\x12\x1c.location.GetLatitudeRequest\x1a\x1d.location.GetLatitudeResponse\x12M\n" +
-	"\fGetLongitude\x12\x1d.location.GetLongitudeRequest\x1a\x1e.location.GetLongitudeResponse\x12}\n" +
-	"\x1cGetMslAltitudeAccuracyMeters\x12-.location.GetMslAltitudeAccuracyMetersRequest\x1a..location.GetMslAltitudeAccuracyMetersResponse\x12e\n" +
-	"\x14GetMslAltitudeMeters\x12%.location.GetMslAltitudeMetersRequest\x1a&.location.GetMslAltitudeMetersResponse\x12J\n" +
-	"\vGetProvider\x12\x1c.location.GetProviderRequest\x1a\x1d.location.GetProviderResponse\x12A\n" +
-	"\bGetSpeed\x12\x19.location.GetSpeedRequest\x1a\x1a.location.GetSpeedResponse\x12\x86\x01\n" +
-	"\x1fGetSpeedAccuracyMetersPerSecond\x120.location.GetSpeedAccuracyMetersPerSecondRequest\x1a1.location.GetSpeedAccuracyMetersPerSecondResponse\x12>\n" +
-	"\aGetTime\x12\x18.location.GetTimeRequest\x1a\x19.location.GetTimeResponse\x12t\n" +
-	"\x19GetVerticalAccuracyMeters\x12*.location.GetVerticalAccuracyMetersRequest\x1a+.location.GetVerticalAccuracyMetersResponse\x12J\n" +
-	"\vHasAccuracy\x12\x1c.location.HasAccuracyRequest\x1a\x1d.location.HasAccuracyResponse\x12J\n" +
-	"\vHasAltitude\x12\x1c.location.HasAltitudeRequest\x1a\x1d.location.HasAltitudeResponse\x12G\n" +
-	"\n" +
-	"HasBearing\x12\x1b.location.HasBearingRequest\x1a\x1c.location.HasBearingResponse\x12_\n" +
-	"\x12HasBearingAccuracy\x12#.location.HasBearingAccuracyRequest\x1a$.location.HasBearingAccuracyResponse\x12\x8f\x01\n" +
-	"\"HasElapsedRealtimeUncertaintyNanos\x123.location.HasElapsedRealtimeUncertaintyNanosRequest\x1a4.location.HasElapsedRealtimeUncertaintyNanosResponse\x12S\n" +
-	"\x0eHasMslAltitude\x12\x1f.location.HasMslAltitudeRequest\x1a .location.HasMslAltitudeResponse\x12k\n" +
-	"\x16HasMslAltitudeAccuracy\x12'.location.HasMslAltitudeAccuracyRequest\x1a(.location.HasMslAltitudeAccuracyResponse\x12A\n" +
-	"\bHasSpeed\x12\x19.location.HasSpeedRequest\x1a\x1a.location.HasSpeedResponse\x12Y\n" +
-	"\x10HasSpeedAccuracy\x12!.location.HasSpeedAccuracyRequest\x1a\".location.HasSpeedAccuracyResponse\x12b\n" +
-	"\x13HasVerticalAccuracy\x12$.location.HasVerticalAccuracyRequest\x1a%.location.HasVerticalAccuracyResponse\x12A\n" +
-	"\bHashCode\x12\x19.location.HashCodeRequest\x1a\x1a.location.HashCodeResponse\x12G\n" +
-	"\n" +
-	"IsComplete\x12\x1b.location.IsCompleteRequest\x1a\x1c.location.IsCompleteResponse\x12_\n" +
-	"\x12IsFromMockProvider\x12#.location.IsFromMockProviderRequest\x1a$.location.IsFromMockProviderResponse\x12;\n" +
-	"\x06IsMock\x12\x17.location.IsMockRequest\x1a\x18.location.IsMockResponse\x12S\n" +
-	"\x0eRemoveAccuracy\x12\x1f.location.RemoveAccuracyRequest\x1a .location.RemoveAccuracyResponse\x12S\n" +
-	"\x0eRemoveAltitude\x12\x1f.location.RemoveAltitudeRequest\x1a .location.RemoveAltitudeResponse\x12P\n" +
-	"\rRemoveBearing\x12\x1e.location.RemoveBearingRequest\x1a\x1f.location.RemoveBearingResponse\x12h\n" +
-	"\x15RemoveBearingAccuracy\x12&.location.RemoveBearingAccuracyRequest\x1a'.location.RemoveBearingAccuracyResponse\x12\x98\x01\n" +
-	"%RemoveElapsedRealtimeUncertaintyNanos\x126.location.RemoveElapsedRealtimeUncertaintyNanosRequest\x1a7.location.RemoveElapsedRealtimeUncertaintyNanosResponse\x12\\\n" +
-	"\x11RemoveMslAltitude\x12\".location.RemoveMslAltitudeRequest\x1a#.location.RemoveMslAltitudeResponse\x12t\n" +
-	"\x19RemoveMslAltitudeAccuracy\x12*.location.RemoveMslAltitudeAccuracyRequest\x1a+.location.RemoveMslAltitudeAccuracyResponse\x12J\n" +
-	"\vRemoveSpeed\x12\x1c.location.RemoveSpeedRequest\x1a\x1d.location.RemoveSpeedResponse\x12b\n" +
-	"\x13RemoveSpeedAccuracy\x12$.location.RemoveSpeedAccuracyRequest\x1a%.location.RemoveSpeedAccuracyResponse\x12k\n" +
-	"\x16RemoveVerticalAccuracy\x12'.location.RemoveVerticalAccuracyRequest\x1a(.location.RemoveVerticalAccuracyResponse\x128\n" +
-	"\x05Reset\x12\x16.location.ResetRequest\x1a\x17.location.ResetResponse\x122\n" +
-	"\x03Set\x12\x14.location.SetRequest\x1a\x15.location.SetResponse\x12J\n" +
-	"\vSetAccuracy\x12\x1c.location.SetAccuracyRequest\x1a\x1d.location.SetAccuracyResponse\x12J\n" +
-	"\vSetAltitude\x12\x1c.location.SetAltitudeRequest\x1a\x1d.location.SetAltitudeResponse\x12G\n" +
-	"\n" +
-	"SetBearing\x12\x1b.location.SetBearingRequest\x1a\x1c.location.SetBearingResponse\x12t\n" +
-	"\x19SetBearingAccuracyDegrees\x12*.location.SetBearingAccuracyDegreesRequest\x1a+.location.SetBearingAccuracyDegreesResponse\x12n\n" +
-	"\x17SetElapsedRealtimeNanos\x12(.location.SetElapsedRealtimeNanosRequest\x1a).location.SetElapsedRealtimeNanosResponse\x12\x8f\x01\n" +
-	"\"SetElapsedRealtimeUncertaintyNanos\x123.location.SetElapsedRealtimeUncertaintyNanosRequest\x1a4.location.SetElapsedRealtimeUncertaintyNanosResponse\x12D\n" +
-	"\tSetExtras\x12\x1a.location.SetExtrasRequest\x1a\x1b.location.SetExtrasResponse\x12J\n" +
-	"\vSetLatitude\x12\x1c.location.SetLatitudeRequest\x1a\x1d.location.SetLatitudeResponse\x12M\n" +
-	"\fSetLongitude\x12\x1d.location.SetLongitudeRequest\x1a\x1e.location.SetLongitudeResponse\x12>\n" +
-	"\aSetMock\x12\x18.location.SetMockRequest\x1a\x19.location.SetMockResponse\x12}\n" +
-	"\x1cSetMslAltitudeAccuracyMeters\x12-.location.SetMslAltitudeAccuracyMetersRequest\x1a..location.SetMslAltitudeAccuracyMetersResponse\x12e\n" +
-	"\x14SetMslAltitudeMeters\x12%.location.SetMslAltitudeMetersRequest\x1a&.location.SetMslAltitudeMetersResponse\x12J\n" +
-	"\vSetProvider\x12\x1c.location.SetProviderRequest\x1a\x1d.location.SetProviderResponse\x12A\n" +
-	"\bSetSpeed\x12\x19.location.SetSpeedRequest\x1a\x1a.location.SetSpeedResponse\x12\x86\x01\n" +
-	"\x1fSetSpeedAccuracyMetersPerSecond\x120.location.SetSpeedAccuracyMetersPerSecondRequest\x1a1.location.SetSpeedAccuracyMetersPerSecondResponse\x12>\n" +
-	"\aSetTime\x12\x18.location.SetTimeRequest\x1a\x19.location.SetTimeResponse\x12t\n" +
-	"\x19SetVerticalAccuracyMeters\x12*.location.SetVerticalAccuracyMetersRequest\x1a+.location.SetVerticalAccuracyMetersResponse\x12A\n" +
-	"\bToString\x12\x19.location.ToStringRequest\x1a\x1a.location.ToStringResponse\x12P\n" +
-	"\rWriteToParcel\x12\x1e.location.WriteToParcelRequest\x1a\x1f.location.WriteToParcelResponse\x12A\n" +
-	"\bConvert2\x12\x19.location.Convert2Request\x1a\x1a.location.Convert2Response\x12G\n" +
-	"\n" +
-	"Convert1_1\x12\x1b.location.Convert1_1Request\x1a\x1c.location.Convert1_1Response\x12V\n" +
-	"\x0fDistanceBetween\x12 .location.DistanceBetweenRequest\x1a!.location.DistanceBetweenResponse2\xb58\n" +
+	"$UnregisterGnssStatusCallbackResponse2\x923\n" +
 	"\x0eManagerService\x12e\n" +
 	"\x14AddGpsStatusListener\x12%.location.AddGpsStatusListenerRequest\x1a&.location.AddGpsStatusListenerResponse\x12Y\n" +
 	"\x10AddNmeaListener1\x12!.location.AddNmeaListener1Request\x1a\".location.AddNmeaListener1Response\x12_\n" +
 	"\x12AddNmeaListener1_1\x12#.location.AddNmeaListener1_1Request\x1a$.location.AddNmeaListener1_1Response\x12_\n" +
 	"\x12AddNmeaListener2_2\x12#.location.AddNmeaListener2_2Request\x1a$.location.AddNmeaListener2_2Response\x12\\\n" +
 	"\x11AddProximityAlert\x12\".location.AddProximityAlertRequest\x1a#.location.AddProximityAlertResponse\x12Y\n" +
-	"\x10AddTestProvider2\x12!.location.AddTestProvider2Request\x1a\".location.AddTestProvider2Response\x12_\n" +
-	"\x12AddTestProvider3_1\x12#.location.AddTestProvider3_1Request\x1a$.location.AddTestProvider3_1Response\x12b\n" +
-	"\x13AddTestProvider10_2\x12$.location.AddTestProvider10_2Request\x1a%.location.AddTestProvider10_2Response\x12q\n" +
+	"\x10AddTestProvider2\x12!.location.AddTestProvider2Request\x1a\".location.AddTestProvider2Response\x12b\n" +
+	"\x13AddTestProvider10_1\x12$.location.AddTestProvider10_1Request\x1a%.location.AddTestProvider10_1Response\x12q\n" +
 	"\x18ClearTestProviderEnabled\x12).location.ClearTestProviderEnabledRequest\x1a*.location.ClearTestProviderEnabledResponse\x12t\n" +
 	"\x19ClearTestProviderLocation\x12*.location.ClearTestProviderLocationRequest\x1a+.location.ClearTestProviderLocationResponse\x12n\n" +
 	"\x17ClearTestProviderStatus\x12(.location.ClearTestProviderStatusRequest\x1a).location.ClearTestProviderStatusResponse\x12V\n" +
-	"\x0fGetAllProviders\x12 .location.GetAllProvidersRequest\x1a!.location.GetAllProvidersResponse\x12V\n" +
 	"\x0fGetBestProvider\x12 .location.GetBestProviderRequest\x1a!.location.GetBestProviderResponse\x12b\n" +
-	"\x13GetCurrentLocation5\x12$.location.GetCurrentLocation5Request\x1a%.location.GetCurrentLocation5Response\x12h\n" +
-	"\x15GetCurrentLocation4_1\x12&.location.GetCurrentLocation4_1Request\x1a'.location.GetCurrentLocation4_1Response\x12b\n" +
-	"\x13GetGnssAntennaInfos\x12$.location.GetGnssAntennaInfosRequest\x1a%.location.GetGnssAntennaInfosResponse\x12b\n" +
 	"\x13GetGnssCapabilities\x12$.location.GetGnssCapabilitiesRequest\x1a%.location.GetGnssCapabilitiesResponse\x12q\n" +
 	"\x18GetGnssHardwareModelName\x12).location.GetGnssHardwareModelNameRequest\x1a*.location.GetGnssHardwareModelNameResponse\x12h\n" +
 	"\x15GetGnssYearOfHardware\x12&.location.GetGnssYearOfHardwareRequest\x1a'.location.GetGnssYearOfHardwareResponse\x12M\n" +
 	"\fGetGpsStatus\x12\x1d.location.GetGpsStatusRequest\x1a\x1e.location.GetGpsStatusResponse\x12e\n" +
-	"\x14GetLastKnownLocation\x12%.location.GetLastKnownLocationRequest\x1a&.location.GetLastKnownLocationResponse\x12X\n" +
-	"\vGetProvider\x12#.location.ManagerGetProviderRequest\x1a$.location.ManagerGetProviderResponse\x12h\n" +
-	"\x15GetProviderProperties\x12&.location.GetProviderPropertiesRequest\x1a'.location.GetProviderPropertiesResponse\x12P\n" +
-	"\rGetProviders2\x12\x1e.location.GetProviders2Request\x1a\x1f.location.GetProviders2Response\x12V\n" +
-	"\x0fGetProviders1_1\x12 .location.GetProviders1_1Request\x1a!.location.GetProviders1_1Response\x12J\n" +
+	"\x14GetLastKnownLocation\x12%.location.GetLastKnownLocationRequest\x1a&.location.GetLastKnownLocationResponse\x12J\n" +
+	"\vGetProvider\x12\x1c.location.GetProviderRequest\x1a\x1d.location.GetProviderResponse\x12h\n" +
+	"\x15GetProviderProperties\x12&.location.GetProviderPropertiesRequest\x1a'.location.GetProviderPropertiesResponse\x12J\n" +
 	"\vHasProvider\x12\x1c.location.HasProviderRequest\x1a\x1d.location.HasProviderResponse\x12\\\n" +
 	"\x11IsLocationEnabled\x12\".location.IsLocationEnabledRequest\x1a#.location.IsLocationEnabledResponse\x12\\\n" +
 	"\x11IsProviderEnabled\x12\".location.IsProviderEnabledRequest\x1a#.location.IsProviderEnabledResponse\x12z\n" +
@@ -13743,26 +5786,7 @@ const file_proto_location_location_proto_rawDesc = "" +
 	"\x1dUnregisterAntennaInfoListener\x12..location.UnregisterAntennaInfoListenerRequest\x1a/.location.UnregisterAntennaInfoListenerResponse\x12\x8f\x01\n" +
 	"\"UnregisterGnssMeasurementsCallback\x123.location.UnregisterGnssMeasurementsCallbackRequest\x1a4.location.UnregisterGnssMeasurementsCallbackResponse\x12\x9e\x01\n" +
 	"'UnregisterGnssNavigationMessageCallback\x128.location.UnregisterGnssNavigationMessageCallbackRequest\x1a9.location.UnregisterGnssNavigationMessageCallbackResponse\x12}\n" +
-	"\x1cUnregisterGnssStatusCallback\x12-.location.UnregisterGnssStatusCallbackRequest\x1a..location.UnregisterGnssStatusCallbackResponse2\xdc\v\n" +
-	"\x11GnssStatusService\x12Y\n" +
-	"\x10DescribeContents\x12!.location.DescribeContentsRequest\x1a\".location.DescribeContentsResponse\x12;\n" +
-	"\x06Equals\x12\x17.location.EqualsRequest\x1a\x18.location.EqualsResponse\x12\\\n" +
-	"\x11GetAzimuthDegrees\x12\".location.GetAzimuthDegreesRequest\x1a#.location.GetAzimuthDegreesResponse\x12_\n" +
-	"\x12GetBasebandCn0DbHz\x12#.location.GetBasebandCn0DbHzRequest\x1a$.location.GetBasebandCn0DbHzResponse\x12h\n" +
-	"\x15GetCarrierFrequencyHz\x12&.location.GetCarrierFrequencyHzRequest\x1a'.location.GetCarrierFrequencyHzResponse\x12G\n" +
-	"\n" +
-	"GetCn0DbHz\x12\x1b.location.GetCn0DbHzRequest\x1a\x1c.location.GetCn0DbHzResponse\x12e\n" +
-	"\x14GetConstellationType\x12%.location.GetConstellationTypeRequest\x1a&.location.GetConstellationTypeResponse\x12b\n" +
-	"\x13GetElevationDegrees\x12$.location.GetElevationDegreesRequest\x1a%.location.GetElevationDegreesResponse\x12\\\n" +
-	"\x11GetSatelliteCount\x12\".location.GetSatelliteCountRequest\x1a#.location.GetSatelliteCountResponse\x12>\n" +
-	"\aGetSvid\x12\x18.location.GetSvidRequest\x1a\x19.location.GetSvidResponse\x12S\n" +
-	"\x0eHasAlmanacData\x12\x1f.location.HasAlmanacDataRequest\x1a .location.HasAlmanacDataResponse\x12_\n" +
-	"\x12HasBasebandCn0DbHz\x12#.location.HasBasebandCn0DbHzRequest\x1a$.location.HasBasebandCn0DbHzResponse\x12h\n" +
-	"\x15HasCarrierFrequencyHz\x12&.location.HasCarrierFrequencyHzRequest\x1a'.location.HasCarrierFrequencyHzResponse\x12Y\n" +
-	"\x10HasEphemerisData\x12!.location.HasEphemerisDataRequest\x1a\".location.HasEphemerisDataResponse\x12A\n" +
-	"\bHashCode\x12\x19.location.HashCodeRequest\x1a\x1a.location.HashCodeResponse\x12D\n" +
-	"\tUsedInFix\x12\x1a.location.UsedInFixRequest\x1a\x1b.location.UsedInFixResponse\x12P\n" +
-	"\rWriteToParcel\x12\x1e.location.WriteToParcelRequest\x1a\x1f.location.WriteToParcelResponseB2Z0github.com/AndroidGoLab/jni-proxy/proto/locationb\x06proto3"
+	"\x1cUnregisterGnssStatusCallback\x12-.location.UnregisterGnssStatusCallbackRequest\x1a..location.UnregisterGnssStatusCallbackResponseB2Z0github.com/AndroidGoLab/jni-proxy/proto/locationb\x06proto3"
 
 var (
 	file_proto_location_location_proto_rawDescOnce sync.Once
@@ -13776,624 +5800,248 @@ func file_proto_location_location_proto_rawDescGZIP() []byte {
 	return file_proto_location_location_proto_rawDescData
 }
 
-var file_proto_location_location_proto_msgTypes = make([]protoimpl.MessageInfo, 302)
+var file_proto_location_location_proto_msgTypes = make([]protoimpl.MessageInfo, 118)
 var file_proto_location_location_proto_goTypes = []any{
-	(*BearingToRequest)(nil),                                 // 0: location.BearingToRequest
-	(*BearingToResponse)(nil),                                // 1: location.BearingToResponse
-	(*DescribeContentsRequest)(nil),                          // 2: location.DescribeContentsRequest
-	(*DescribeContentsResponse)(nil),                         // 3: location.DescribeContentsResponse
-	(*DistanceToRequest)(nil),                                // 4: location.DistanceToRequest
-	(*DistanceToResponse)(nil),                               // 5: location.DistanceToResponse
-	(*DumpRequest)(nil),                                      // 6: location.DumpRequest
-	(*DumpResponse)(nil),                                     // 7: location.DumpResponse
-	(*EqualsRequest)(nil),                                    // 8: location.EqualsRequest
-	(*EqualsResponse)(nil),                                   // 9: location.EqualsResponse
-	(*GetAccuracyRequest)(nil),                               // 10: location.GetAccuracyRequest
-	(*GetAccuracyResponse)(nil),                              // 11: location.GetAccuracyResponse
-	(*GetAltitudeRequest)(nil),                               // 12: location.GetAltitudeRequest
-	(*GetAltitudeResponse)(nil),                              // 13: location.GetAltitudeResponse
-	(*GetBearingRequest)(nil),                                // 14: location.GetBearingRequest
-	(*GetBearingResponse)(nil),                               // 15: location.GetBearingResponse
-	(*GetBearingAccuracyDegreesRequest)(nil),                 // 16: location.GetBearingAccuracyDegreesRequest
-	(*GetBearingAccuracyDegreesResponse)(nil),                // 17: location.GetBearingAccuracyDegreesResponse
-	(*GetElapsedRealtimeAgeMillis0Request)(nil),              // 18: location.GetElapsedRealtimeAgeMillis0Request
-	(*GetElapsedRealtimeAgeMillis0Response)(nil),             // 19: location.GetElapsedRealtimeAgeMillis0Response
-	(*GetElapsedRealtimeAgeMillis1_1Request)(nil),            // 20: location.GetElapsedRealtimeAgeMillis1_1Request
-	(*GetElapsedRealtimeAgeMillis1_1Response)(nil),           // 21: location.GetElapsedRealtimeAgeMillis1_1Response
-	(*GetElapsedRealtimeMillisRequest)(nil),                  // 22: location.GetElapsedRealtimeMillisRequest
-	(*GetElapsedRealtimeMillisResponse)(nil),                 // 23: location.GetElapsedRealtimeMillisResponse
-	(*GetElapsedRealtimeNanosRequest)(nil),                   // 24: location.GetElapsedRealtimeNanosRequest
-	(*GetElapsedRealtimeNanosResponse)(nil),                  // 25: location.GetElapsedRealtimeNanosResponse
-	(*GetElapsedRealtimeUncertaintyNanosRequest)(nil),        // 26: location.GetElapsedRealtimeUncertaintyNanosRequest
-	(*GetElapsedRealtimeUncertaintyNanosResponse)(nil),       // 27: location.GetElapsedRealtimeUncertaintyNanosResponse
-	(*GetExtrasRequest)(nil),                                 // 28: location.GetExtrasRequest
-	(*GetExtrasResponse)(nil),                                // 29: location.GetExtrasResponse
-	(*GetLatitudeRequest)(nil),                               // 30: location.GetLatitudeRequest
-	(*GetLatitudeResponse)(nil),                              // 31: location.GetLatitudeResponse
-	(*GetLongitudeRequest)(nil),                              // 32: location.GetLongitudeRequest
-	(*GetLongitudeResponse)(nil),                             // 33: location.GetLongitudeResponse
-	(*GetMslAltitudeAccuracyMetersRequest)(nil),              // 34: location.GetMslAltitudeAccuracyMetersRequest
-	(*GetMslAltitudeAccuracyMetersResponse)(nil),             // 35: location.GetMslAltitudeAccuracyMetersResponse
-	(*GetMslAltitudeMetersRequest)(nil),                      // 36: location.GetMslAltitudeMetersRequest
-	(*GetMslAltitudeMetersResponse)(nil),                     // 37: location.GetMslAltitudeMetersResponse
-	(*GetProviderRequest)(nil),                               // 38: location.GetProviderRequest
-	(*GetProviderResponse)(nil),                              // 39: location.GetProviderResponse
-	(*GetSpeedRequest)(nil),                                  // 40: location.GetSpeedRequest
-	(*GetSpeedResponse)(nil),                                 // 41: location.GetSpeedResponse
-	(*GetSpeedAccuracyMetersPerSecondRequest)(nil),           // 42: location.GetSpeedAccuracyMetersPerSecondRequest
-	(*GetSpeedAccuracyMetersPerSecondResponse)(nil),          // 43: location.GetSpeedAccuracyMetersPerSecondResponse
-	(*GetTimeRequest)(nil),                                   // 44: location.GetTimeRequest
-	(*GetTimeResponse)(nil),                                  // 45: location.GetTimeResponse
-	(*GetVerticalAccuracyMetersRequest)(nil),                 // 46: location.GetVerticalAccuracyMetersRequest
-	(*GetVerticalAccuracyMetersResponse)(nil),                // 47: location.GetVerticalAccuracyMetersResponse
-	(*HasAccuracyRequest)(nil),                               // 48: location.HasAccuracyRequest
-	(*HasAccuracyResponse)(nil),                              // 49: location.HasAccuracyResponse
-	(*HasAltitudeRequest)(nil),                               // 50: location.HasAltitudeRequest
-	(*HasAltitudeResponse)(nil),                              // 51: location.HasAltitudeResponse
-	(*HasBearingRequest)(nil),                                // 52: location.HasBearingRequest
-	(*HasBearingResponse)(nil),                               // 53: location.HasBearingResponse
-	(*HasBearingAccuracyRequest)(nil),                        // 54: location.HasBearingAccuracyRequest
-	(*HasBearingAccuracyResponse)(nil),                       // 55: location.HasBearingAccuracyResponse
-	(*HasElapsedRealtimeUncertaintyNanosRequest)(nil),        // 56: location.HasElapsedRealtimeUncertaintyNanosRequest
-	(*HasElapsedRealtimeUncertaintyNanosResponse)(nil),       // 57: location.HasElapsedRealtimeUncertaintyNanosResponse
-	(*HasMslAltitudeRequest)(nil),                            // 58: location.HasMslAltitudeRequest
-	(*HasMslAltitudeResponse)(nil),                           // 59: location.HasMslAltitudeResponse
-	(*HasMslAltitudeAccuracyRequest)(nil),                    // 60: location.HasMslAltitudeAccuracyRequest
-	(*HasMslAltitudeAccuracyResponse)(nil),                   // 61: location.HasMslAltitudeAccuracyResponse
-	(*HasSpeedRequest)(nil),                                  // 62: location.HasSpeedRequest
-	(*HasSpeedResponse)(nil),                                 // 63: location.HasSpeedResponse
-	(*HasSpeedAccuracyRequest)(nil),                          // 64: location.HasSpeedAccuracyRequest
-	(*HasSpeedAccuracyResponse)(nil),                         // 65: location.HasSpeedAccuracyResponse
-	(*HasVerticalAccuracyRequest)(nil),                       // 66: location.HasVerticalAccuracyRequest
-	(*HasVerticalAccuracyResponse)(nil),                      // 67: location.HasVerticalAccuracyResponse
-	(*HashCodeRequest)(nil),                                  // 68: location.HashCodeRequest
-	(*HashCodeResponse)(nil),                                 // 69: location.HashCodeResponse
-	(*IsCompleteRequest)(nil),                                // 70: location.IsCompleteRequest
-	(*IsCompleteResponse)(nil),                               // 71: location.IsCompleteResponse
-	(*IsFromMockProviderRequest)(nil),                        // 72: location.IsFromMockProviderRequest
-	(*IsFromMockProviderResponse)(nil),                       // 73: location.IsFromMockProviderResponse
-	(*IsMockRequest)(nil),                                    // 74: location.IsMockRequest
-	(*IsMockResponse)(nil),                                   // 75: location.IsMockResponse
-	(*RemoveAccuracyRequest)(nil),                            // 76: location.RemoveAccuracyRequest
-	(*RemoveAccuracyResponse)(nil),                           // 77: location.RemoveAccuracyResponse
-	(*RemoveAltitudeRequest)(nil),                            // 78: location.RemoveAltitudeRequest
-	(*RemoveAltitudeResponse)(nil),                           // 79: location.RemoveAltitudeResponse
-	(*RemoveBearingRequest)(nil),                             // 80: location.RemoveBearingRequest
-	(*RemoveBearingResponse)(nil),                            // 81: location.RemoveBearingResponse
-	(*RemoveBearingAccuracyRequest)(nil),                     // 82: location.RemoveBearingAccuracyRequest
-	(*RemoveBearingAccuracyResponse)(nil),                    // 83: location.RemoveBearingAccuracyResponse
-	(*RemoveElapsedRealtimeUncertaintyNanosRequest)(nil),     // 84: location.RemoveElapsedRealtimeUncertaintyNanosRequest
-	(*RemoveElapsedRealtimeUncertaintyNanosResponse)(nil),    // 85: location.RemoveElapsedRealtimeUncertaintyNanosResponse
-	(*RemoveMslAltitudeRequest)(nil),                         // 86: location.RemoveMslAltitudeRequest
-	(*RemoveMslAltitudeResponse)(nil),                        // 87: location.RemoveMslAltitudeResponse
-	(*RemoveMslAltitudeAccuracyRequest)(nil),                 // 88: location.RemoveMslAltitudeAccuracyRequest
-	(*RemoveMslAltitudeAccuracyResponse)(nil),                // 89: location.RemoveMslAltitudeAccuracyResponse
-	(*RemoveSpeedRequest)(nil),                               // 90: location.RemoveSpeedRequest
-	(*RemoveSpeedResponse)(nil),                              // 91: location.RemoveSpeedResponse
-	(*RemoveSpeedAccuracyRequest)(nil),                       // 92: location.RemoveSpeedAccuracyRequest
-	(*RemoveSpeedAccuracyResponse)(nil),                      // 93: location.RemoveSpeedAccuracyResponse
-	(*RemoveVerticalAccuracyRequest)(nil),                    // 94: location.RemoveVerticalAccuracyRequest
-	(*RemoveVerticalAccuracyResponse)(nil),                   // 95: location.RemoveVerticalAccuracyResponse
-	(*ResetRequest)(nil),                                     // 96: location.ResetRequest
-	(*ResetResponse)(nil),                                    // 97: location.ResetResponse
-	(*SetRequest)(nil),                                       // 98: location.SetRequest
-	(*SetResponse)(nil),                                      // 99: location.SetResponse
-	(*SetAccuracyRequest)(nil),                               // 100: location.SetAccuracyRequest
-	(*SetAccuracyResponse)(nil),                              // 101: location.SetAccuracyResponse
-	(*SetAltitudeRequest)(nil),                               // 102: location.SetAltitudeRequest
-	(*SetAltitudeResponse)(nil),                              // 103: location.SetAltitudeResponse
-	(*SetBearingRequest)(nil),                                // 104: location.SetBearingRequest
-	(*SetBearingResponse)(nil),                               // 105: location.SetBearingResponse
-	(*SetBearingAccuracyDegreesRequest)(nil),                 // 106: location.SetBearingAccuracyDegreesRequest
-	(*SetBearingAccuracyDegreesResponse)(nil),                // 107: location.SetBearingAccuracyDegreesResponse
-	(*SetElapsedRealtimeNanosRequest)(nil),                   // 108: location.SetElapsedRealtimeNanosRequest
-	(*SetElapsedRealtimeNanosResponse)(nil),                  // 109: location.SetElapsedRealtimeNanosResponse
-	(*SetElapsedRealtimeUncertaintyNanosRequest)(nil),        // 110: location.SetElapsedRealtimeUncertaintyNanosRequest
-	(*SetElapsedRealtimeUncertaintyNanosResponse)(nil),       // 111: location.SetElapsedRealtimeUncertaintyNanosResponse
-	(*SetExtrasRequest)(nil),                                 // 112: location.SetExtrasRequest
-	(*SetExtrasResponse)(nil),                                // 113: location.SetExtrasResponse
-	(*SetLatitudeRequest)(nil),                               // 114: location.SetLatitudeRequest
-	(*SetLatitudeResponse)(nil),                              // 115: location.SetLatitudeResponse
-	(*SetLongitudeRequest)(nil),                              // 116: location.SetLongitudeRequest
-	(*SetLongitudeResponse)(nil),                             // 117: location.SetLongitudeResponse
-	(*SetMockRequest)(nil),                                   // 118: location.SetMockRequest
-	(*SetMockResponse)(nil),                                  // 119: location.SetMockResponse
-	(*SetMslAltitudeAccuracyMetersRequest)(nil),              // 120: location.SetMslAltitudeAccuracyMetersRequest
-	(*SetMslAltitudeAccuracyMetersResponse)(nil),             // 121: location.SetMslAltitudeAccuracyMetersResponse
-	(*SetMslAltitudeMetersRequest)(nil),                      // 122: location.SetMslAltitudeMetersRequest
-	(*SetMslAltitudeMetersResponse)(nil),                     // 123: location.SetMslAltitudeMetersResponse
-	(*SetProviderRequest)(nil),                               // 124: location.SetProviderRequest
-	(*SetProviderResponse)(nil),                              // 125: location.SetProviderResponse
-	(*SetSpeedRequest)(nil),                                  // 126: location.SetSpeedRequest
-	(*SetSpeedResponse)(nil),                                 // 127: location.SetSpeedResponse
-	(*SetSpeedAccuracyMetersPerSecondRequest)(nil),           // 128: location.SetSpeedAccuracyMetersPerSecondRequest
-	(*SetSpeedAccuracyMetersPerSecondResponse)(nil),          // 129: location.SetSpeedAccuracyMetersPerSecondResponse
-	(*SetTimeRequest)(nil),                                   // 130: location.SetTimeRequest
-	(*SetTimeResponse)(nil),                                  // 131: location.SetTimeResponse
-	(*SetVerticalAccuracyMetersRequest)(nil),                 // 132: location.SetVerticalAccuracyMetersRequest
-	(*SetVerticalAccuracyMetersResponse)(nil),                // 133: location.SetVerticalAccuracyMetersResponse
-	(*ToStringRequest)(nil),                                  // 134: location.ToStringRequest
-	(*ToStringResponse)(nil),                                 // 135: location.ToStringResponse
-	(*WriteToParcelRequest)(nil),                             // 136: location.WriteToParcelRequest
-	(*WriteToParcelResponse)(nil),                            // 137: location.WriteToParcelResponse
-	(*Convert2Request)(nil),                                  // 138: location.Convert2Request
-	(*Convert2Response)(nil),                                 // 139: location.Convert2Response
-	(*Convert1_1Request)(nil),                                // 140: location.Convert1_1Request
-	(*Convert1_1Response)(nil),                               // 141: location.Convert1_1Response
-	(*DistanceBetweenRequest)(nil),                           // 142: location.DistanceBetweenRequest
-	(*DistanceBetweenResponse)(nil),                          // 143: location.DistanceBetweenResponse
-	(*AddGpsStatusListenerRequest)(nil),                      // 144: location.AddGpsStatusListenerRequest
-	(*AddGpsStatusListenerResponse)(nil),                     // 145: location.AddGpsStatusListenerResponse
-	(*AddNmeaListener1Request)(nil),                          // 146: location.AddNmeaListener1Request
-	(*AddNmeaListener1Response)(nil),                         // 147: location.AddNmeaListener1Response
-	(*AddNmeaListener1_1Request)(nil),                        // 148: location.AddNmeaListener1_1Request
-	(*AddNmeaListener1_1Response)(nil),                       // 149: location.AddNmeaListener1_1Response
-	(*AddNmeaListener2_2Request)(nil),                        // 150: location.AddNmeaListener2_2Request
-	(*AddNmeaListener2_2Response)(nil),                       // 151: location.AddNmeaListener2_2Response
-	(*AddProximityAlertRequest)(nil),                         // 152: location.AddProximityAlertRequest
-	(*AddProximityAlertResponse)(nil),                        // 153: location.AddProximityAlertResponse
-	(*AddTestProvider2Request)(nil),                          // 154: location.AddTestProvider2Request
-	(*AddTestProvider2Response)(nil),                         // 155: location.AddTestProvider2Response
-	(*AddTestProvider3_1Request)(nil),                        // 156: location.AddTestProvider3_1Request
-	(*AddTestProvider3_1Response)(nil),                       // 157: location.AddTestProvider3_1Response
-	(*AddTestProvider10_2Request)(nil),                       // 158: location.AddTestProvider10_2Request
-	(*AddTestProvider10_2Response)(nil),                      // 159: location.AddTestProvider10_2Response
-	(*ClearTestProviderEnabledRequest)(nil),                  // 160: location.ClearTestProviderEnabledRequest
-	(*ClearTestProviderEnabledResponse)(nil),                 // 161: location.ClearTestProviderEnabledResponse
-	(*ClearTestProviderLocationRequest)(nil),                 // 162: location.ClearTestProviderLocationRequest
-	(*ClearTestProviderLocationResponse)(nil),                // 163: location.ClearTestProviderLocationResponse
-	(*ClearTestProviderStatusRequest)(nil),                   // 164: location.ClearTestProviderStatusRequest
-	(*ClearTestProviderStatusResponse)(nil),                  // 165: location.ClearTestProviderStatusResponse
-	(*GetAllProvidersRequest)(nil),                           // 166: location.GetAllProvidersRequest
-	(*GetAllProvidersResponse)(nil),                          // 167: location.GetAllProvidersResponse
-	(*GetBestProviderRequest)(nil),                           // 168: location.GetBestProviderRequest
-	(*GetBestProviderResponse)(nil),                          // 169: location.GetBestProviderResponse
-	(*GetCurrentLocation5Request)(nil),                       // 170: location.GetCurrentLocation5Request
-	(*GetCurrentLocation5Response)(nil),                      // 171: location.GetCurrentLocation5Response
-	(*GetCurrentLocation4_1Request)(nil),                     // 172: location.GetCurrentLocation4_1Request
-	(*GetCurrentLocation4_1Response)(nil),                    // 173: location.GetCurrentLocation4_1Response
-	(*GetGnssAntennaInfosRequest)(nil),                       // 174: location.GetGnssAntennaInfosRequest
-	(*GetGnssAntennaInfosResponse)(nil),                      // 175: location.GetGnssAntennaInfosResponse
-	(*GetGnssCapabilitiesRequest)(nil),                       // 176: location.GetGnssCapabilitiesRequest
-	(*GetGnssCapabilitiesResponse)(nil),                      // 177: location.GetGnssCapabilitiesResponse
-	(*GetGnssHardwareModelNameRequest)(nil),                  // 178: location.GetGnssHardwareModelNameRequest
-	(*GetGnssHardwareModelNameResponse)(nil),                 // 179: location.GetGnssHardwareModelNameResponse
-	(*GetGnssYearOfHardwareRequest)(nil),                     // 180: location.GetGnssYearOfHardwareRequest
-	(*GetGnssYearOfHardwareResponse)(nil),                    // 181: location.GetGnssYearOfHardwareResponse
-	(*GetGpsStatusRequest)(nil),                              // 182: location.GetGpsStatusRequest
-	(*GetGpsStatusResponse)(nil),                             // 183: location.GetGpsStatusResponse
-	(*GetLastKnownLocationRequest)(nil),                      // 184: location.GetLastKnownLocationRequest
-	(*GetLastKnownLocationResponse)(nil),                     // 185: location.GetLastKnownLocationResponse
-	(*ManagerGetProviderRequest)(nil),                        // 186: location.ManagerGetProviderRequest
-	(*ManagerGetProviderResponse)(nil),                       // 187: location.ManagerGetProviderResponse
-	(*GetProviderPropertiesRequest)(nil),                     // 188: location.GetProviderPropertiesRequest
-	(*GetProviderPropertiesResponse)(nil),                    // 189: location.GetProviderPropertiesResponse
-	(*GetProviders2Request)(nil),                             // 190: location.GetProviders2Request
-	(*GetProviders2Response)(nil),                            // 191: location.GetProviders2Response
-	(*GetProviders1_1Request)(nil),                           // 192: location.GetProviders1_1Request
-	(*GetProviders1_1Response)(nil),                          // 193: location.GetProviders1_1Response
-	(*HasProviderRequest)(nil),                               // 194: location.HasProviderRequest
-	(*HasProviderResponse)(nil),                              // 195: location.HasProviderResponse
-	(*IsLocationEnabledRequest)(nil),                         // 196: location.IsLocationEnabledRequest
-	(*IsLocationEnabledResponse)(nil),                        // 197: location.IsLocationEnabledResponse
-	(*IsProviderEnabledRequest)(nil),                         // 198: location.IsProviderEnabledRequest
-	(*IsProviderEnabledResponse)(nil),                        // 199: location.IsProviderEnabledResponse
-	(*RegisterAntennaInfoListenerRequest)(nil),               // 200: location.RegisterAntennaInfoListenerRequest
-	(*RegisterAntennaInfoListenerResponse)(nil),              // 201: location.RegisterAntennaInfoListenerResponse
-	(*RegisterGnssMeasurementsCallback3Request)(nil),         // 202: location.RegisterGnssMeasurementsCallback3Request
-	(*RegisterGnssMeasurementsCallback3Response)(nil),        // 203: location.RegisterGnssMeasurementsCallback3Response
-	(*RegisterGnssMeasurementsCallback1_1Request)(nil),       // 204: location.RegisterGnssMeasurementsCallback1_1Request
-	(*RegisterGnssMeasurementsCallback1_1Response)(nil),      // 205: location.RegisterGnssMeasurementsCallback1_1Response
-	(*RegisterGnssMeasurementsCallback2_2Request)(nil),       // 206: location.RegisterGnssMeasurementsCallback2_2Request
-	(*RegisterGnssMeasurementsCallback2_2Response)(nil),      // 207: location.RegisterGnssMeasurementsCallback2_2Response
-	(*RegisterGnssNavigationMessageCallback1Request)(nil),    // 208: location.RegisterGnssNavigationMessageCallback1Request
-	(*RegisterGnssNavigationMessageCallback1Response)(nil),   // 209: location.RegisterGnssNavigationMessageCallback1Response
-	(*RegisterGnssNavigationMessageCallback2_1Request)(nil),  // 210: location.RegisterGnssNavigationMessageCallback2_1Request
-	(*RegisterGnssNavigationMessageCallback2_1Response)(nil), // 211: location.RegisterGnssNavigationMessageCallback2_1Response
-	(*RegisterGnssStatusCallback1Request)(nil),               // 212: location.RegisterGnssStatusCallback1Request
-	(*RegisterGnssStatusCallback1Response)(nil),              // 213: location.RegisterGnssStatusCallback1Response
-	(*RegisterGnssStatusCallback2_1Request)(nil),             // 214: location.RegisterGnssStatusCallback2_1Request
-	(*RegisterGnssStatusCallback2_1Response)(nil),            // 215: location.RegisterGnssStatusCallback2_1Response
-	(*RemoveGpsStatusListenerRequest)(nil),                   // 216: location.RemoveGpsStatusListenerRequest
-	(*RemoveGpsStatusListenerResponse)(nil),                  // 217: location.RemoveGpsStatusListenerResponse
-	(*RemoveNmeaListener1Request)(nil),                       // 218: location.RemoveNmeaListener1Request
-	(*RemoveNmeaListener1Response)(nil),                      // 219: location.RemoveNmeaListener1Response
-	(*RemoveNmeaListener1_1Request)(nil),                     // 220: location.RemoveNmeaListener1_1Request
-	(*RemoveNmeaListener1_1Response)(nil),                    // 221: location.RemoveNmeaListener1_1Response
-	(*RemoveProximityAlertRequest)(nil),                      // 222: location.RemoveProximityAlertRequest
-	(*RemoveProximityAlertResponse)(nil),                     // 223: location.RemoveProximityAlertResponse
-	(*RemoveTestProviderRequest)(nil),                        // 224: location.RemoveTestProviderRequest
-	(*RemoveTestProviderResponse)(nil),                       // 225: location.RemoveTestProviderResponse
-	(*RemoveUpdates1Request)(nil),                            // 226: location.RemoveUpdates1Request
-	(*RemoveUpdates1Response)(nil),                           // 227: location.RemoveUpdates1Response
-	(*RemoveUpdates1_1Request)(nil),                          // 228: location.RemoveUpdates1_1Request
-	(*RemoveUpdates1_1Response)(nil),                         // 229: location.RemoveUpdates1_1Response
-	(*RequestFlush3Request)(nil),                             // 230: location.RequestFlush3Request
-	(*RequestFlush3Response)(nil),                            // 231: location.RequestFlush3Response
-	(*RequestFlush3_1Request)(nil),                           // 232: location.RequestFlush3_1Request
-	(*RequestFlush3_1Response)(nil),                          // 233: location.RequestFlush3_1Response
-	(*RequestLocationUpdates3Request)(nil),                   // 234: location.RequestLocationUpdates3Request
-	(*RequestLocationUpdates3Response)(nil),                  // 235: location.RequestLocationUpdates3Response
-	(*RequestLocationUpdates4_1Request)(nil),                 // 236: location.RequestLocationUpdates4_1Request
-	(*RequestLocationUpdates4_1Response)(nil),                // 237: location.RequestLocationUpdates4_1Response
-	(*RequestLocationUpdates4_2Request)(nil),                 // 238: location.RequestLocationUpdates4_2Request
-	(*RequestLocationUpdates4_2Response)(nil),                // 239: location.RequestLocationUpdates4_2Response
-	(*RequestLocationUpdates4_3Request)(nil),                 // 240: location.RequestLocationUpdates4_3Request
-	(*RequestLocationUpdates4_3Response)(nil),                // 241: location.RequestLocationUpdates4_3Response
-	(*RequestLocationUpdates5_4Request)(nil),                 // 242: location.RequestLocationUpdates5_4Request
-	(*RequestLocationUpdates5_4Response)(nil),                // 243: location.RequestLocationUpdates5_4Response
-	(*RequestLocationUpdates5_5Request)(nil),                 // 244: location.RequestLocationUpdates5_5Request
-	(*RequestLocationUpdates5_5Response)(nil),                // 245: location.RequestLocationUpdates5_5Response
-	(*RequestLocationUpdates4_6Request)(nil),                 // 246: location.RequestLocationUpdates4_6Request
-	(*RequestLocationUpdates4_6Response)(nil),                // 247: location.RequestLocationUpdates4_6Response
-	(*RequestLocationUpdates5_7Request)(nil),                 // 248: location.RequestLocationUpdates5_7Request
-	(*RequestLocationUpdates5_7Response)(nil),                // 249: location.RequestLocationUpdates5_7Response
-	(*RequestLocationUpdates5_8Request)(nil),                 // 250: location.RequestLocationUpdates5_8Request
-	(*RequestLocationUpdates5_8Response)(nil),                // 251: location.RequestLocationUpdates5_8Response
-	(*RequestSingleUpdate2Request)(nil),                      // 252: location.RequestSingleUpdate2Request
-	(*RequestSingleUpdate2Response)(nil),                     // 253: location.RequestSingleUpdate2Response
-	(*RequestSingleUpdate3_1Request)(nil),                    // 254: location.RequestSingleUpdate3_1Request
-	(*RequestSingleUpdate3_1Response)(nil),                   // 255: location.RequestSingleUpdate3_1Response
-	(*RequestSingleUpdate2_2Request)(nil),                    // 256: location.RequestSingleUpdate2_2Request
-	(*RequestSingleUpdate2_2Response)(nil),                   // 257: location.RequestSingleUpdate2_2Response
-	(*RequestSingleUpdate3_3Request)(nil),                    // 258: location.RequestSingleUpdate3_3Request
-	(*RequestSingleUpdate3_3Response)(nil),                   // 259: location.RequestSingleUpdate3_3Response
-	(*SendExtraCommandRequest)(nil),                          // 260: location.SendExtraCommandRequest
-	(*SendExtraCommandResponse)(nil),                         // 261: location.SendExtraCommandResponse
-	(*SetTestProviderEnabledRequest)(nil),                    // 262: location.SetTestProviderEnabledRequest
-	(*SetTestProviderEnabledResponse)(nil),                   // 263: location.SetTestProviderEnabledResponse
-	(*SetTestProviderLocationRequest)(nil),                   // 264: location.SetTestProviderLocationRequest
-	(*SetTestProviderLocationResponse)(nil),                  // 265: location.SetTestProviderLocationResponse
-	(*SetTestProviderStatusRequest)(nil),                     // 266: location.SetTestProviderStatusRequest
-	(*SetTestProviderStatusResponse)(nil),                    // 267: location.SetTestProviderStatusResponse
-	(*UnregisterAntennaInfoListenerRequest)(nil),             // 268: location.UnregisterAntennaInfoListenerRequest
-	(*UnregisterAntennaInfoListenerResponse)(nil),            // 269: location.UnregisterAntennaInfoListenerResponse
-	(*UnregisterGnssMeasurementsCallbackRequest)(nil),        // 270: location.UnregisterGnssMeasurementsCallbackRequest
-	(*UnregisterGnssMeasurementsCallbackResponse)(nil),       // 271: location.UnregisterGnssMeasurementsCallbackResponse
-	(*UnregisterGnssNavigationMessageCallbackRequest)(nil),   // 272: location.UnregisterGnssNavigationMessageCallbackRequest
-	(*UnregisterGnssNavigationMessageCallbackResponse)(nil),  // 273: location.UnregisterGnssNavigationMessageCallbackResponse
-	(*UnregisterGnssStatusCallbackRequest)(nil),              // 274: location.UnregisterGnssStatusCallbackRequest
-	(*UnregisterGnssStatusCallbackResponse)(nil),             // 275: location.UnregisterGnssStatusCallbackResponse
-	(*GetAzimuthDegreesRequest)(nil),                         // 276: location.GetAzimuthDegreesRequest
-	(*GetAzimuthDegreesResponse)(nil),                        // 277: location.GetAzimuthDegreesResponse
-	(*GetBasebandCn0DbHzRequest)(nil),                        // 278: location.GetBasebandCn0DbHzRequest
-	(*GetBasebandCn0DbHzResponse)(nil),                       // 279: location.GetBasebandCn0DbHzResponse
-	(*GetCarrierFrequencyHzRequest)(nil),                     // 280: location.GetCarrierFrequencyHzRequest
-	(*GetCarrierFrequencyHzResponse)(nil),                    // 281: location.GetCarrierFrequencyHzResponse
-	(*GetCn0DbHzRequest)(nil),                                // 282: location.GetCn0DbHzRequest
-	(*GetCn0DbHzResponse)(nil),                               // 283: location.GetCn0DbHzResponse
-	(*GetConstellationTypeRequest)(nil),                      // 284: location.GetConstellationTypeRequest
-	(*GetConstellationTypeResponse)(nil),                     // 285: location.GetConstellationTypeResponse
-	(*GetElevationDegreesRequest)(nil),                       // 286: location.GetElevationDegreesRequest
-	(*GetElevationDegreesResponse)(nil),                      // 287: location.GetElevationDegreesResponse
-	(*GetSatelliteCountRequest)(nil),                         // 288: location.GetSatelliteCountRequest
-	(*GetSatelliteCountResponse)(nil),                        // 289: location.GetSatelliteCountResponse
-	(*GetSvidRequest)(nil),                                   // 290: location.GetSvidRequest
-	(*GetSvidResponse)(nil),                                  // 291: location.GetSvidResponse
-	(*HasAlmanacDataRequest)(nil),                            // 292: location.HasAlmanacDataRequest
-	(*HasAlmanacDataResponse)(nil),                           // 293: location.HasAlmanacDataResponse
-	(*HasBasebandCn0DbHzRequest)(nil),                        // 294: location.HasBasebandCn0DbHzRequest
-	(*HasBasebandCn0DbHzResponse)(nil),                       // 295: location.HasBasebandCn0DbHzResponse
-	(*HasCarrierFrequencyHzRequest)(nil),                     // 296: location.HasCarrierFrequencyHzRequest
-	(*HasCarrierFrequencyHzResponse)(nil),                    // 297: location.HasCarrierFrequencyHzResponse
-	(*HasEphemerisDataRequest)(nil),                          // 298: location.HasEphemerisDataRequest
-	(*HasEphemerisDataResponse)(nil),                         // 299: location.HasEphemerisDataResponse
-	(*UsedInFixRequest)(nil),                                 // 300: location.UsedInFixRequest
-	(*UsedInFixResponse)(nil),                                // 301: location.UsedInFixResponse
+	(*AddGpsStatusListenerRequest)(nil),                      // 0: location.AddGpsStatusListenerRequest
+	(*AddGpsStatusListenerResponse)(nil),                     // 1: location.AddGpsStatusListenerResponse
+	(*AddNmeaListener1Request)(nil),                          // 2: location.AddNmeaListener1Request
+	(*AddNmeaListener1Response)(nil),                         // 3: location.AddNmeaListener1Response
+	(*AddNmeaListener1_1Request)(nil),                        // 4: location.AddNmeaListener1_1Request
+	(*AddNmeaListener1_1Response)(nil),                       // 5: location.AddNmeaListener1_1Response
+	(*AddNmeaListener2_2Request)(nil),                        // 6: location.AddNmeaListener2_2Request
+	(*AddNmeaListener2_2Response)(nil),                       // 7: location.AddNmeaListener2_2Response
+	(*AddProximityAlertRequest)(nil),                         // 8: location.AddProximityAlertRequest
+	(*AddProximityAlertResponse)(nil),                        // 9: location.AddProximityAlertResponse
+	(*AddTestProvider2Request)(nil),                          // 10: location.AddTestProvider2Request
+	(*AddTestProvider2Response)(nil),                         // 11: location.AddTestProvider2Response
+	(*AddTestProvider10_1Request)(nil),                       // 12: location.AddTestProvider10_1Request
+	(*AddTestProvider10_1Response)(nil),                      // 13: location.AddTestProvider10_1Response
+	(*ClearTestProviderEnabledRequest)(nil),                  // 14: location.ClearTestProviderEnabledRequest
+	(*ClearTestProviderEnabledResponse)(nil),                 // 15: location.ClearTestProviderEnabledResponse
+	(*ClearTestProviderLocationRequest)(nil),                 // 16: location.ClearTestProviderLocationRequest
+	(*ClearTestProviderLocationResponse)(nil),                // 17: location.ClearTestProviderLocationResponse
+	(*ClearTestProviderStatusRequest)(nil),                   // 18: location.ClearTestProviderStatusRequest
+	(*ClearTestProviderStatusResponse)(nil),                  // 19: location.ClearTestProviderStatusResponse
+	(*GetBestProviderRequest)(nil),                           // 20: location.GetBestProviderRequest
+	(*GetBestProviderResponse)(nil),                          // 21: location.GetBestProviderResponse
+	(*GetGnssCapabilitiesRequest)(nil),                       // 22: location.GetGnssCapabilitiesRequest
+	(*GetGnssCapabilitiesResponse)(nil),                      // 23: location.GetGnssCapabilitiesResponse
+	(*GetGnssHardwareModelNameRequest)(nil),                  // 24: location.GetGnssHardwareModelNameRequest
+	(*GetGnssHardwareModelNameResponse)(nil),                 // 25: location.GetGnssHardwareModelNameResponse
+	(*GetGnssYearOfHardwareRequest)(nil),                     // 26: location.GetGnssYearOfHardwareRequest
+	(*GetGnssYearOfHardwareResponse)(nil),                    // 27: location.GetGnssYearOfHardwareResponse
+	(*GetGpsStatusRequest)(nil),                              // 28: location.GetGpsStatusRequest
+	(*GetGpsStatusResponse)(nil),                             // 29: location.GetGpsStatusResponse
+	(*GetLastKnownLocationRequest)(nil),                      // 30: location.GetLastKnownLocationRequest
+	(*GetLastKnownLocationResponse)(nil),                     // 31: location.GetLastKnownLocationResponse
+	(*GetProviderRequest)(nil),                               // 32: location.GetProviderRequest
+	(*GetProviderResponse)(nil),                              // 33: location.GetProviderResponse
+	(*GetProviderPropertiesRequest)(nil),                     // 34: location.GetProviderPropertiesRequest
+	(*GetProviderPropertiesResponse)(nil),                    // 35: location.GetProviderPropertiesResponse
+	(*HasProviderRequest)(nil),                               // 36: location.HasProviderRequest
+	(*HasProviderResponse)(nil),                              // 37: location.HasProviderResponse
+	(*IsLocationEnabledRequest)(nil),                         // 38: location.IsLocationEnabledRequest
+	(*IsLocationEnabledResponse)(nil),                        // 39: location.IsLocationEnabledResponse
+	(*IsProviderEnabledRequest)(nil),                         // 40: location.IsProviderEnabledRequest
+	(*IsProviderEnabledResponse)(nil),                        // 41: location.IsProviderEnabledResponse
+	(*RegisterAntennaInfoListenerRequest)(nil),               // 42: location.RegisterAntennaInfoListenerRequest
+	(*RegisterAntennaInfoListenerResponse)(nil),              // 43: location.RegisterAntennaInfoListenerResponse
+	(*RegisterGnssMeasurementsCallback3Request)(nil),         // 44: location.RegisterGnssMeasurementsCallback3Request
+	(*RegisterGnssMeasurementsCallback3Response)(nil),        // 45: location.RegisterGnssMeasurementsCallback3Response
+	(*RegisterGnssMeasurementsCallback1_1Request)(nil),       // 46: location.RegisterGnssMeasurementsCallback1_1Request
+	(*RegisterGnssMeasurementsCallback1_1Response)(nil),      // 47: location.RegisterGnssMeasurementsCallback1_1Response
+	(*RegisterGnssMeasurementsCallback2_2Request)(nil),       // 48: location.RegisterGnssMeasurementsCallback2_2Request
+	(*RegisterGnssMeasurementsCallback2_2Response)(nil),      // 49: location.RegisterGnssMeasurementsCallback2_2Response
+	(*RegisterGnssNavigationMessageCallback1Request)(nil),    // 50: location.RegisterGnssNavigationMessageCallback1Request
+	(*RegisterGnssNavigationMessageCallback1Response)(nil),   // 51: location.RegisterGnssNavigationMessageCallback1Response
+	(*RegisterGnssNavigationMessageCallback2_1Request)(nil),  // 52: location.RegisterGnssNavigationMessageCallback2_1Request
+	(*RegisterGnssNavigationMessageCallback2_1Response)(nil), // 53: location.RegisterGnssNavigationMessageCallback2_1Response
+	(*RegisterGnssStatusCallback1Request)(nil),               // 54: location.RegisterGnssStatusCallback1Request
+	(*RegisterGnssStatusCallback1Response)(nil),              // 55: location.RegisterGnssStatusCallback1Response
+	(*RegisterGnssStatusCallback2_1Request)(nil),             // 56: location.RegisterGnssStatusCallback2_1Request
+	(*RegisterGnssStatusCallback2_1Response)(nil),            // 57: location.RegisterGnssStatusCallback2_1Response
+	(*RemoveGpsStatusListenerRequest)(nil),                   // 58: location.RemoveGpsStatusListenerRequest
+	(*RemoveGpsStatusListenerResponse)(nil),                  // 59: location.RemoveGpsStatusListenerResponse
+	(*RemoveNmeaListener1Request)(nil),                       // 60: location.RemoveNmeaListener1Request
+	(*RemoveNmeaListener1Response)(nil),                      // 61: location.RemoveNmeaListener1Response
+	(*RemoveNmeaListener1_1Request)(nil),                     // 62: location.RemoveNmeaListener1_1Request
+	(*RemoveNmeaListener1_1Response)(nil),                    // 63: location.RemoveNmeaListener1_1Response
+	(*RemoveProximityAlertRequest)(nil),                      // 64: location.RemoveProximityAlertRequest
+	(*RemoveProximityAlertResponse)(nil),                     // 65: location.RemoveProximityAlertResponse
+	(*RemoveTestProviderRequest)(nil),                        // 66: location.RemoveTestProviderRequest
+	(*RemoveTestProviderResponse)(nil),                       // 67: location.RemoveTestProviderResponse
+	(*RemoveUpdates1Request)(nil),                            // 68: location.RemoveUpdates1Request
+	(*RemoveUpdates1Response)(nil),                           // 69: location.RemoveUpdates1Response
+	(*RemoveUpdates1_1Request)(nil),                          // 70: location.RemoveUpdates1_1Request
+	(*RemoveUpdates1_1Response)(nil),                         // 71: location.RemoveUpdates1_1Response
+	(*RequestFlush3Request)(nil),                             // 72: location.RequestFlush3Request
+	(*RequestFlush3Response)(nil),                            // 73: location.RequestFlush3Response
+	(*RequestFlush3_1Request)(nil),                           // 74: location.RequestFlush3_1Request
+	(*RequestFlush3_1Response)(nil),                          // 75: location.RequestFlush3_1Response
+	(*RequestLocationUpdates3Request)(nil),                   // 76: location.RequestLocationUpdates3Request
+	(*RequestLocationUpdates3Response)(nil),                  // 77: location.RequestLocationUpdates3Response
+	(*RequestLocationUpdates4_1Request)(nil),                 // 78: location.RequestLocationUpdates4_1Request
+	(*RequestLocationUpdates4_1Response)(nil),                // 79: location.RequestLocationUpdates4_1Response
+	(*RequestLocationUpdates4_2Request)(nil),                 // 80: location.RequestLocationUpdates4_2Request
+	(*RequestLocationUpdates4_2Response)(nil),                // 81: location.RequestLocationUpdates4_2Response
+	(*RequestLocationUpdates4_3Request)(nil),                 // 82: location.RequestLocationUpdates4_3Request
+	(*RequestLocationUpdates4_3Response)(nil),                // 83: location.RequestLocationUpdates4_3Response
+	(*RequestLocationUpdates5_4Request)(nil),                 // 84: location.RequestLocationUpdates5_4Request
+	(*RequestLocationUpdates5_4Response)(nil),                // 85: location.RequestLocationUpdates5_4Response
+	(*RequestLocationUpdates5_5Request)(nil),                 // 86: location.RequestLocationUpdates5_5Request
+	(*RequestLocationUpdates5_5Response)(nil),                // 87: location.RequestLocationUpdates5_5Response
+	(*RequestLocationUpdates4_6Request)(nil),                 // 88: location.RequestLocationUpdates4_6Request
+	(*RequestLocationUpdates4_6Response)(nil),                // 89: location.RequestLocationUpdates4_6Response
+	(*RequestLocationUpdates5_7Request)(nil),                 // 90: location.RequestLocationUpdates5_7Request
+	(*RequestLocationUpdates5_7Response)(nil),                // 91: location.RequestLocationUpdates5_7Response
+	(*RequestLocationUpdates5_8Request)(nil),                 // 92: location.RequestLocationUpdates5_8Request
+	(*RequestLocationUpdates5_8Response)(nil),                // 93: location.RequestLocationUpdates5_8Response
+	(*RequestSingleUpdate2Request)(nil),                      // 94: location.RequestSingleUpdate2Request
+	(*RequestSingleUpdate2Response)(nil),                     // 95: location.RequestSingleUpdate2Response
+	(*RequestSingleUpdate3_1Request)(nil),                    // 96: location.RequestSingleUpdate3_1Request
+	(*RequestSingleUpdate3_1Response)(nil),                   // 97: location.RequestSingleUpdate3_1Response
+	(*RequestSingleUpdate2_2Request)(nil),                    // 98: location.RequestSingleUpdate2_2Request
+	(*RequestSingleUpdate2_2Response)(nil),                   // 99: location.RequestSingleUpdate2_2Response
+	(*RequestSingleUpdate3_3Request)(nil),                    // 100: location.RequestSingleUpdate3_3Request
+	(*RequestSingleUpdate3_3Response)(nil),                   // 101: location.RequestSingleUpdate3_3Response
+	(*SendExtraCommandRequest)(nil),                          // 102: location.SendExtraCommandRequest
+	(*SendExtraCommandResponse)(nil),                         // 103: location.SendExtraCommandResponse
+	(*SetTestProviderEnabledRequest)(nil),                    // 104: location.SetTestProviderEnabledRequest
+	(*SetTestProviderEnabledResponse)(nil),                   // 105: location.SetTestProviderEnabledResponse
+	(*SetTestProviderLocationRequest)(nil),                   // 106: location.SetTestProviderLocationRequest
+	(*SetTestProviderLocationResponse)(nil),                  // 107: location.SetTestProviderLocationResponse
+	(*SetTestProviderStatusRequest)(nil),                     // 108: location.SetTestProviderStatusRequest
+	(*SetTestProviderStatusResponse)(nil),                    // 109: location.SetTestProviderStatusResponse
+	(*UnregisterAntennaInfoListenerRequest)(nil),             // 110: location.UnregisterAntennaInfoListenerRequest
+	(*UnregisterAntennaInfoListenerResponse)(nil),            // 111: location.UnregisterAntennaInfoListenerResponse
+	(*UnregisterGnssMeasurementsCallbackRequest)(nil),        // 112: location.UnregisterGnssMeasurementsCallbackRequest
+	(*UnregisterGnssMeasurementsCallbackResponse)(nil),       // 113: location.UnregisterGnssMeasurementsCallbackResponse
+	(*UnregisterGnssNavigationMessageCallbackRequest)(nil),   // 114: location.UnregisterGnssNavigationMessageCallbackRequest
+	(*UnregisterGnssNavigationMessageCallbackResponse)(nil),  // 115: location.UnregisterGnssNavigationMessageCallbackResponse
+	(*UnregisterGnssStatusCallbackRequest)(nil),              // 116: location.UnregisterGnssStatusCallbackRequest
+	(*UnregisterGnssStatusCallbackResponse)(nil),             // 117: location.UnregisterGnssStatusCallbackResponse
 }
 var file_proto_location_location_proto_depIdxs = []int32{
-	0,   // 0: location.LocationService.BearingTo:input_type -> location.BearingToRequest
-	2,   // 1: location.LocationService.DescribeContents:input_type -> location.DescribeContentsRequest
-	4,   // 2: location.LocationService.DistanceTo:input_type -> location.DistanceToRequest
-	6,   // 3: location.LocationService.Dump:input_type -> location.DumpRequest
-	8,   // 4: location.LocationService.Equals:input_type -> location.EqualsRequest
-	10,  // 5: location.LocationService.GetAccuracy:input_type -> location.GetAccuracyRequest
-	12,  // 6: location.LocationService.GetAltitude:input_type -> location.GetAltitudeRequest
-	14,  // 7: location.LocationService.GetBearing:input_type -> location.GetBearingRequest
-	16,  // 8: location.LocationService.GetBearingAccuracyDegrees:input_type -> location.GetBearingAccuracyDegreesRequest
-	18,  // 9: location.LocationService.GetElapsedRealtimeAgeMillis0:input_type -> location.GetElapsedRealtimeAgeMillis0Request
-	20,  // 10: location.LocationService.GetElapsedRealtimeAgeMillis1_1:input_type -> location.GetElapsedRealtimeAgeMillis1_1Request
-	22,  // 11: location.LocationService.GetElapsedRealtimeMillis:input_type -> location.GetElapsedRealtimeMillisRequest
-	24,  // 12: location.LocationService.GetElapsedRealtimeNanos:input_type -> location.GetElapsedRealtimeNanosRequest
-	26,  // 13: location.LocationService.GetElapsedRealtimeUncertaintyNanos:input_type -> location.GetElapsedRealtimeUncertaintyNanosRequest
-	28,  // 14: location.LocationService.GetExtras:input_type -> location.GetExtrasRequest
-	30,  // 15: location.LocationService.GetLatitude:input_type -> location.GetLatitudeRequest
-	32,  // 16: location.LocationService.GetLongitude:input_type -> location.GetLongitudeRequest
-	34,  // 17: location.LocationService.GetMslAltitudeAccuracyMeters:input_type -> location.GetMslAltitudeAccuracyMetersRequest
-	36,  // 18: location.LocationService.GetMslAltitudeMeters:input_type -> location.GetMslAltitudeMetersRequest
-	38,  // 19: location.LocationService.GetProvider:input_type -> location.GetProviderRequest
-	40,  // 20: location.LocationService.GetSpeed:input_type -> location.GetSpeedRequest
-	42,  // 21: location.LocationService.GetSpeedAccuracyMetersPerSecond:input_type -> location.GetSpeedAccuracyMetersPerSecondRequest
-	44,  // 22: location.LocationService.GetTime:input_type -> location.GetTimeRequest
-	46,  // 23: location.LocationService.GetVerticalAccuracyMeters:input_type -> location.GetVerticalAccuracyMetersRequest
-	48,  // 24: location.LocationService.HasAccuracy:input_type -> location.HasAccuracyRequest
-	50,  // 25: location.LocationService.HasAltitude:input_type -> location.HasAltitudeRequest
-	52,  // 26: location.LocationService.HasBearing:input_type -> location.HasBearingRequest
-	54,  // 27: location.LocationService.HasBearingAccuracy:input_type -> location.HasBearingAccuracyRequest
-	56,  // 28: location.LocationService.HasElapsedRealtimeUncertaintyNanos:input_type -> location.HasElapsedRealtimeUncertaintyNanosRequest
-	58,  // 29: location.LocationService.HasMslAltitude:input_type -> location.HasMslAltitudeRequest
-	60,  // 30: location.LocationService.HasMslAltitudeAccuracy:input_type -> location.HasMslAltitudeAccuracyRequest
-	62,  // 31: location.LocationService.HasSpeed:input_type -> location.HasSpeedRequest
-	64,  // 32: location.LocationService.HasSpeedAccuracy:input_type -> location.HasSpeedAccuracyRequest
-	66,  // 33: location.LocationService.HasVerticalAccuracy:input_type -> location.HasVerticalAccuracyRequest
-	68,  // 34: location.LocationService.HashCode:input_type -> location.HashCodeRequest
-	70,  // 35: location.LocationService.IsComplete:input_type -> location.IsCompleteRequest
-	72,  // 36: location.LocationService.IsFromMockProvider:input_type -> location.IsFromMockProviderRequest
-	74,  // 37: location.LocationService.IsMock:input_type -> location.IsMockRequest
-	76,  // 38: location.LocationService.RemoveAccuracy:input_type -> location.RemoveAccuracyRequest
-	78,  // 39: location.LocationService.RemoveAltitude:input_type -> location.RemoveAltitudeRequest
-	80,  // 40: location.LocationService.RemoveBearing:input_type -> location.RemoveBearingRequest
-	82,  // 41: location.LocationService.RemoveBearingAccuracy:input_type -> location.RemoveBearingAccuracyRequest
-	84,  // 42: location.LocationService.RemoveElapsedRealtimeUncertaintyNanos:input_type -> location.RemoveElapsedRealtimeUncertaintyNanosRequest
-	86,  // 43: location.LocationService.RemoveMslAltitude:input_type -> location.RemoveMslAltitudeRequest
-	88,  // 44: location.LocationService.RemoveMslAltitudeAccuracy:input_type -> location.RemoveMslAltitudeAccuracyRequest
-	90,  // 45: location.LocationService.RemoveSpeed:input_type -> location.RemoveSpeedRequest
-	92,  // 46: location.LocationService.RemoveSpeedAccuracy:input_type -> location.RemoveSpeedAccuracyRequest
-	94,  // 47: location.LocationService.RemoveVerticalAccuracy:input_type -> location.RemoveVerticalAccuracyRequest
-	96,  // 48: location.LocationService.Reset:input_type -> location.ResetRequest
-	98,  // 49: location.LocationService.Set:input_type -> location.SetRequest
-	100, // 50: location.LocationService.SetAccuracy:input_type -> location.SetAccuracyRequest
-	102, // 51: location.LocationService.SetAltitude:input_type -> location.SetAltitudeRequest
-	104, // 52: location.LocationService.SetBearing:input_type -> location.SetBearingRequest
-	106, // 53: location.LocationService.SetBearingAccuracyDegrees:input_type -> location.SetBearingAccuracyDegreesRequest
-	108, // 54: location.LocationService.SetElapsedRealtimeNanos:input_type -> location.SetElapsedRealtimeNanosRequest
-	110, // 55: location.LocationService.SetElapsedRealtimeUncertaintyNanos:input_type -> location.SetElapsedRealtimeUncertaintyNanosRequest
-	112, // 56: location.LocationService.SetExtras:input_type -> location.SetExtrasRequest
-	114, // 57: location.LocationService.SetLatitude:input_type -> location.SetLatitudeRequest
-	116, // 58: location.LocationService.SetLongitude:input_type -> location.SetLongitudeRequest
-	118, // 59: location.LocationService.SetMock:input_type -> location.SetMockRequest
-	120, // 60: location.LocationService.SetMslAltitudeAccuracyMeters:input_type -> location.SetMslAltitudeAccuracyMetersRequest
-	122, // 61: location.LocationService.SetMslAltitudeMeters:input_type -> location.SetMslAltitudeMetersRequest
-	124, // 62: location.LocationService.SetProvider:input_type -> location.SetProviderRequest
-	126, // 63: location.LocationService.SetSpeed:input_type -> location.SetSpeedRequest
-	128, // 64: location.LocationService.SetSpeedAccuracyMetersPerSecond:input_type -> location.SetSpeedAccuracyMetersPerSecondRequest
-	130, // 65: location.LocationService.SetTime:input_type -> location.SetTimeRequest
-	132, // 66: location.LocationService.SetVerticalAccuracyMeters:input_type -> location.SetVerticalAccuracyMetersRequest
-	134, // 67: location.LocationService.ToString:input_type -> location.ToStringRequest
-	136, // 68: location.LocationService.WriteToParcel:input_type -> location.WriteToParcelRequest
-	138, // 69: location.LocationService.Convert2:input_type -> location.Convert2Request
-	140, // 70: location.LocationService.Convert1_1:input_type -> location.Convert1_1Request
-	142, // 71: location.LocationService.DistanceBetween:input_type -> location.DistanceBetweenRequest
-	144, // 72: location.ManagerService.AddGpsStatusListener:input_type -> location.AddGpsStatusListenerRequest
-	146, // 73: location.ManagerService.AddNmeaListener1:input_type -> location.AddNmeaListener1Request
-	148, // 74: location.ManagerService.AddNmeaListener1_1:input_type -> location.AddNmeaListener1_1Request
-	150, // 75: location.ManagerService.AddNmeaListener2_2:input_type -> location.AddNmeaListener2_2Request
-	152, // 76: location.ManagerService.AddProximityAlert:input_type -> location.AddProximityAlertRequest
-	154, // 77: location.ManagerService.AddTestProvider2:input_type -> location.AddTestProvider2Request
-	156, // 78: location.ManagerService.AddTestProvider3_1:input_type -> location.AddTestProvider3_1Request
-	158, // 79: location.ManagerService.AddTestProvider10_2:input_type -> location.AddTestProvider10_2Request
-	160, // 80: location.ManagerService.ClearTestProviderEnabled:input_type -> location.ClearTestProviderEnabledRequest
-	162, // 81: location.ManagerService.ClearTestProviderLocation:input_type -> location.ClearTestProviderLocationRequest
-	164, // 82: location.ManagerService.ClearTestProviderStatus:input_type -> location.ClearTestProviderStatusRequest
-	166, // 83: location.ManagerService.GetAllProviders:input_type -> location.GetAllProvidersRequest
-	168, // 84: location.ManagerService.GetBestProvider:input_type -> location.GetBestProviderRequest
-	170, // 85: location.ManagerService.GetCurrentLocation5:input_type -> location.GetCurrentLocation5Request
-	172, // 86: location.ManagerService.GetCurrentLocation4_1:input_type -> location.GetCurrentLocation4_1Request
-	174, // 87: location.ManagerService.GetGnssAntennaInfos:input_type -> location.GetGnssAntennaInfosRequest
-	176, // 88: location.ManagerService.GetGnssCapabilities:input_type -> location.GetGnssCapabilitiesRequest
-	178, // 89: location.ManagerService.GetGnssHardwareModelName:input_type -> location.GetGnssHardwareModelNameRequest
-	180, // 90: location.ManagerService.GetGnssYearOfHardware:input_type -> location.GetGnssYearOfHardwareRequest
-	182, // 91: location.ManagerService.GetGpsStatus:input_type -> location.GetGpsStatusRequest
-	184, // 92: location.ManagerService.GetLastKnownLocation:input_type -> location.GetLastKnownLocationRequest
-	186, // 93: location.ManagerService.GetProvider:input_type -> location.ManagerGetProviderRequest
-	188, // 94: location.ManagerService.GetProviderProperties:input_type -> location.GetProviderPropertiesRequest
-	190, // 95: location.ManagerService.GetProviders2:input_type -> location.GetProviders2Request
-	192, // 96: location.ManagerService.GetProviders1_1:input_type -> location.GetProviders1_1Request
-	194, // 97: location.ManagerService.HasProvider:input_type -> location.HasProviderRequest
-	196, // 98: location.ManagerService.IsLocationEnabled:input_type -> location.IsLocationEnabledRequest
-	198, // 99: location.ManagerService.IsProviderEnabled:input_type -> location.IsProviderEnabledRequest
-	200, // 100: location.ManagerService.RegisterAntennaInfoListener:input_type -> location.RegisterAntennaInfoListenerRequest
-	202, // 101: location.ManagerService.RegisterGnssMeasurementsCallback3:input_type -> location.RegisterGnssMeasurementsCallback3Request
-	204, // 102: location.ManagerService.RegisterGnssMeasurementsCallback1_1:input_type -> location.RegisterGnssMeasurementsCallback1_1Request
-	206, // 103: location.ManagerService.RegisterGnssMeasurementsCallback2_2:input_type -> location.RegisterGnssMeasurementsCallback2_2Request
-	208, // 104: location.ManagerService.RegisterGnssNavigationMessageCallback1:input_type -> location.RegisterGnssNavigationMessageCallback1Request
-	210, // 105: location.ManagerService.RegisterGnssNavigationMessageCallback2_1:input_type -> location.RegisterGnssNavigationMessageCallback2_1Request
-	212, // 106: location.ManagerService.RegisterGnssStatusCallback1:input_type -> location.RegisterGnssStatusCallback1Request
-	214, // 107: location.ManagerService.RegisterGnssStatusCallback2_1:input_type -> location.RegisterGnssStatusCallback2_1Request
-	216, // 108: location.ManagerService.RemoveGpsStatusListener:input_type -> location.RemoveGpsStatusListenerRequest
-	218, // 109: location.ManagerService.RemoveNmeaListener1:input_type -> location.RemoveNmeaListener1Request
-	220, // 110: location.ManagerService.RemoveNmeaListener1_1:input_type -> location.RemoveNmeaListener1_1Request
-	222, // 111: location.ManagerService.RemoveProximityAlert:input_type -> location.RemoveProximityAlertRequest
-	224, // 112: location.ManagerService.RemoveTestProvider:input_type -> location.RemoveTestProviderRequest
-	226, // 113: location.ManagerService.RemoveUpdates1:input_type -> location.RemoveUpdates1Request
-	228, // 114: location.ManagerService.RemoveUpdates1_1:input_type -> location.RemoveUpdates1_1Request
-	230, // 115: location.ManagerService.RequestFlush3:input_type -> location.RequestFlush3Request
-	232, // 116: location.ManagerService.RequestFlush3_1:input_type -> location.RequestFlush3_1Request
-	234, // 117: location.ManagerService.RequestLocationUpdates3:input_type -> location.RequestLocationUpdates3Request
-	236, // 118: location.ManagerService.RequestLocationUpdates4_1:input_type -> location.RequestLocationUpdates4_1Request
-	238, // 119: location.ManagerService.RequestLocationUpdates4_2:input_type -> location.RequestLocationUpdates4_2Request
-	240, // 120: location.ManagerService.RequestLocationUpdates4_3:input_type -> location.RequestLocationUpdates4_3Request
-	242, // 121: location.ManagerService.RequestLocationUpdates5_4:input_type -> location.RequestLocationUpdates5_4Request
-	244, // 122: location.ManagerService.RequestLocationUpdates5_5:input_type -> location.RequestLocationUpdates5_5Request
-	246, // 123: location.ManagerService.RequestLocationUpdates4_6:input_type -> location.RequestLocationUpdates4_6Request
-	248, // 124: location.ManagerService.RequestLocationUpdates5_7:input_type -> location.RequestLocationUpdates5_7Request
-	250, // 125: location.ManagerService.RequestLocationUpdates5_8:input_type -> location.RequestLocationUpdates5_8Request
-	252, // 126: location.ManagerService.RequestSingleUpdate2:input_type -> location.RequestSingleUpdate2Request
-	254, // 127: location.ManagerService.RequestSingleUpdate3_1:input_type -> location.RequestSingleUpdate3_1Request
-	256, // 128: location.ManagerService.RequestSingleUpdate2_2:input_type -> location.RequestSingleUpdate2_2Request
-	258, // 129: location.ManagerService.RequestSingleUpdate3_3:input_type -> location.RequestSingleUpdate3_3Request
-	260, // 130: location.ManagerService.SendExtraCommand:input_type -> location.SendExtraCommandRequest
-	262, // 131: location.ManagerService.SetTestProviderEnabled:input_type -> location.SetTestProviderEnabledRequest
-	264, // 132: location.ManagerService.SetTestProviderLocation:input_type -> location.SetTestProviderLocationRequest
-	266, // 133: location.ManagerService.SetTestProviderStatus:input_type -> location.SetTestProviderStatusRequest
-	268, // 134: location.ManagerService.UnregisterAntennaInfoListener:input_type -> location.UnregisterAntennaInfoListenerRequest
-	270, // 135: location.ManagerService.UnregisterGnssMeasurementsCallback:input_type -> location.UnregisterGnssMeasurementsCallbackRequest
-	272, // 136: location.ManagerService.UnregisterGnssNavigationMessageCallback:input_type -> location.UnregisterGnssNavigationMessageCallbackRequest
-	274, // 137: location.ManagerService.UnregisterGnssStatusCallback:input_type -> location.UnregisterGnssStatusCallbackRequest
-	2,   // 138: location.GnssStatusService.DescribeContents:input_type -> location.DescribeContentsRequest
-	8,   // 139: location.GnssStatusService.Equals:input_type -> location.EqualsRequest
-	276, // 140: location.GnssStatusService.GetAzimuthDegrees:input_type -> location.GetAzimuthDegreesRequest
-	278, // 141: location.GnssStatusService.GetBasebandCn0DbHz:input_type -> location.GetBasebandCn0DbHzRequest
-	280, // 142: location.GnssStatusService.GetCarrierFrequencyHz:input_type -> location.GetCarrierFrequencyHzRequest
-	282, // 143: location.GnssStatusService.GetCn0DbHz:input_type -> location.GetCn0DbHzRequest
-	284, // 144: location.GnssStatusService.GetConstellationType:input_type -> location.GetConstellationTypeRequest
-	286, // 145: location.GnssStatusService.GetElevationDegrees:input_type -> location.GetElevationDegreesRequest
-	288, // 146: location.GnssStatusService.GetSatelliteCount:input_type -> location.GetSatelliteCountRequest
-	290, // 147: location.GnssStatusService.GetSvid:input_type -> location.GetSvidRequest
-	292, // 148: location.GnssStatusService.HasAlmanacData:input_type -> location.HasAlmanacDataRequest
-	294, // 149: location.GnssStatusService.HasBasebandCn0DbHz:input_type -> location.HasBasebandCn0DbHzRequest
-	296, // 150: location.GnssStatusService.HasCarrierFrequencyHz:input_type -> location.HasCarrierFrequencyHzRequest
-	298, // 151: location.GnssStatusService.HasEphemerisData:input_type -> location.HasEphemerisDataRequest
-	68,  // 152: location.GnssStatusService.HashCode:input_type -> location.HashCodeRequest
-	300, // 153: location.GnssStatusService.UsedInFix:input_type -> location.UsedInFixRequest
-	136, // 154: location.GnssStatusService.WriteToParcel:input_type -> location.WriteToParcelRequest
-	1,   // 155: location.LocationService.BearingTo:output_type -> location.BearingToResponse
-	3,   // 156: location.LocationService.DescribeContents:output_type -> location.DescribeContentsResponse
-	5,   // 157: location.LocationService.DistanceTo:output_type -> location.DistanceToResponse
-	7,   // 158: location.LocationService.Dump:output_type -> location.DumpResponse
-	9,   // 159: location.LocationService.Equals:output_type -> location.EqualsResponse
-	11,  // 160: location.LocationService.GetAccuracy:output_type -> location.GetAccuracyResponse
-	13,  // 161: location.LocationService.GetAltitude:output_type -> location.GetAltitudeResponse
-	15,  // 162: location.LocationService.GetBearing:output_type -> location.GetBearingResponse
-	17,  // 163: location.LocationService.GetBearingAccuracyDegrees:output_type -> location.GetBearingAccuracyDegreesResponse
-	19,  // 164: location.LocationService.GetElapsedRealtimeAgeMillis0:output_type -> location.GetElapsedRealtimeAgeMillis0Response
-	21,  // 165: location.LocationService.GetElapsedRealtimeAgeMillis1_1:output_type -> location.GetElapsedRealtimeAgeMillis1_1Response
-	23,  // 166: location.LocationService.GetElapsedRealtimeMillis:output_type -> location.GetElapsedRealtimeMillisResponse
-	25,  // 167: location.LocationService.GetElapsedRealtimeNanos:output_type -> location.GetElapsedRealtimeNanosResponse
-	27,  // 168: location.LocationService.GetElapsedRealtimeUncertaintyNanos:output_type -> location.GetElapsedRealtimeUncertaintyNanosResponse
-	29,  // 169: location.LocationService.GetExtras:output_type -> location.GetExtrasResponse
-	31,  // 170: location.LocationService.GetLatitude:output_type -> location.GetLatitudeResponse
-	33,  // 171: location.LocationService.GetLongitude:output_type -> location.GetLongitudeResponse
-	35,  // 172: location.LocationService.GetMslAltitudeAccuracyMeters:output_type -> location.GetMslAltitudeAccuracyMetersResponse
-	37,  // 173: location.LocationService.GetMslAltitudeMeters:output_type -> location.GetMslAltitudeMetersResponse
-	39,  // 174: location.LocationService.GetProvider:output_type -> location.GetProviderResponse
-	41,  // 175: location.LocationService.GetSpeed:output_type -> location.GetSpeedResponse
-	43,  // 176: location.LocationService.GetSpeedAccuracyMetersPerSecond:output_type -> location.GetSpeedAccuracyMetersPerSecondResponse
-	45,  // 177: location.LocationService.GetTime:output_type -> location.GetTimeResponse
-	47,  // 178: location.LocationService.GetVerticalAccuracyMeters:output_type -> location.GetVerticalAccuracyMetersResponse
-	49,  // 179: location.LocationService.HasAccuracy:output_type -> location.HasAccuracyResponse
-	51,  // 180: location.LocationService.HasAltitude:output_type -> location.HasAltitudeResponse
-	53,  // 181: location.LocationService.HasBearing:output_type -> location.HasBearingResponse
-	55,  // 182: location.LocationService.HasBearingAccuracy:output_type -> location.HasBearingAccuracyResponse
-	57,  // 183: location.LocationService.HasElapsedRealtimeUncertaintyNanos:output_type -> location.HasElapsedRealtimeUncertaintyNanosResponse
-	59,  // 184: location.LocationService.HasMslAltitude:output_type -> location.HasMslAltitudeResponse
-	61,  // 185: location.LocationService.HasMslAltitudeAccuracy:output_type -> location.HasMslAltitudeAccuracyResponse
-	63,  // 186: location.LocationService.HasSpeed:output_type -> location.HasSpeedResponse
-	65,  // 187: location.LocationService.HasSpeedAccuracy:output_type -> location.HasSpeedAccuracyResponse
-	67,  // 188: location.LocationService.HasVerticalAccuracy:output_type -> location.HasVerticalAccuracyResponse
-	69,  // 189: location.LocationService.HashCode:output_type -> location.HashCodeResponse
-	71,  // 190: location.LocationService.IsComplete:output_type -> location.IsCompleteResponse
-	73,  // 191: location.LocationService.IsFromMockProvider:output_type -> location.IsFromMockProviderResponse
-	75,  // 192: location.LocationService.IsMock:output_type -> location.IsMockResponse
-	77,  // 193: location.LocationService.RemoveAccuracy:output_type -> location.RemoveAccuracyResponse
-	79,  // 194: location.LocationService.RemoveAltitude:output_type -> location.RemoveAltitudeResponse
-	81,  // 195: location.LocationService.RemoveBearing:output_type -> location.RemoveBearingResponse
-	83,  // 196: location.LocationService.RemoveBearingAccuracy:output_type -> location.RemoveBearingAccuracyResponse
-	85,  // 197: location.LocationService.RemoveElapsedRealtimeUncertaintyNanos:output_type -> location.RemoveElapsedRealtimeUncertaintyNanosResponse
-	87,  // 198: location.LocationService.RemoveMslAltitude:output_type -> location.RemoveMslAltitudeResponse
-	89,  // 199: location.LocationService.RemoveMslAltitudeAccuracy:output_type -> location.RemoveMslAltitudeAccuracyResponse
-	91,  // 200: location.LocationService.RemoveSpeed:output_type -> location.RemoveSpeedResponse
-	93,  // 201: location.LocationService.RemoveSpeedAccuracy:output_type -> location.RemoveSpeedAccuracyResponse
-	95,  // 202: location.LocationService.RemoveVerticalAccuracy:output_type -> location.RemoveVerticalAccuracyResponse
-	97,  // 203: location.LocationService.Reset:output_type -> location.ResetResponse
-	99,  // 204: location.LocationService.Set:output_type -> location.SetResponse
-	101, // 205: location.LocationService.SetAccuracy:output_type -> location.SetAccuracyResponse
-	103, // 206: location.LocationService.SetAltitude:output_type -> location.SetAltitudeResponse
-	105, // 207: location.LocationService.SetBearing:output_type -> location.SetBearingResponse
-	107, // 208: location.LocationService.SetBearingAccuracyDegrees:output_type -> location.SetBearingAccuracyDegreesResponse
-	109, // 209: location.LocationService.SetElapsedRealtimeNanos:output_type -> location.SetElapsedRealtimeNanosResponse
-	111, // 210: location.LocationService.SetElapsedRealtimeUncertaintyNanos:output_type -> location.SetElapsedRealtimeUncertaintyNanosResponse
-	113, // 211: location.LocationService.SetExtras:output_type -> location.SetExtrasResponse
-	115, // 212: location.LocationService.SetLatitude:output_type -> location.SetLatitudeResponse
-	117, // 213: location.LocationService.SetLongitude:output_type -> location.SetLongitudeResponse
-	119, // 214: location.LocationService.SetMock:output_type -> location.SetMockResponse
-	121, // 215: location.LocationService.SetMslAltitudeAccuracyMeters:output_type -> location.SetMslAltitudeAccuracyMetersResponse
-	123, // 216: location.LocationService.SetMslAltitudeMeters:output_type -> location.SetMslAltitudeMetersResponse
-	125, // 217: location.LocationService.SetProvider:output_type -> location.SetProviderResponse
-	127, // 218: location.LocationService.SetSpeed:output_type -> location.SetSpeedResponse
-	129, // 219: location.LocationService.SetSpeedAccuracyMetersPerSecond:output_type -> location.SetSpeedAccuracyMetersPerSecondResponse
-	131, // 220: location.LocationService.SetTime:output_type -> location.SetTimeResponse
-	133, // 221: location.LocationService.SetVerticalAccuracyMeters:output_type -> location.SetVerticalAccuracyMetersResponse
-	135, // 222: location.LocationService.ToString:output_type -> location.ToStringResponse
-	137, // 223: location.LocationService.WriteToParcel:output_type -> location.WriteToParcelResponse
-	139, // 224: location.LocationService.Convert2:output_type -> location.Convert2Response
-	141, // 225: location.LocationService.Convert1_1:output_type -> location.Convert1_1Response
-	143, // 226: location.LocationService.DistanceBetween:output_type -> location.DistanceBetweenResponse
-	145, // 227: location.ManagerService.AddGpsStatusListener:output_type -> location.AddGpsStatusListenerResponse
-	147, // 228: location.ManagerService.AddNmeaListener1:output_type -> location.AddNmeaListener1Response
-	149, // 229: location.ManagerService.AddNmeaListener1_1:output_type -> location.AddNmeaListener1_1Response
-	151, // 230: location.ManagerService.AddNmeaListener2_2:output_type -> location.AddNmeaListener2_2Response
-	153, // 231: location.ManagerService.AddProximityAlert:output_type -> location.AddProximityAlertResponse
-	155, // 232: location.ManagerService.AddTestProvider2:output_type -> location.AddTestProvider2Response
-	157, // 233: location.ManagerService.AddTestProvider3_1:output_type -> location.AddTestProvider3_1Response
-	159, // 234: location.ManagerService.AddTestProvider10_2:output_type -> location.AddTestProvider10_2Response
-	161, // 235: location.ManagerService.ClearTestProviderEnabled:output_type -> location.ClearTestProviderEnabledResponse
-	163, // 236: location.ManagerService.ClearTestProviderLocation:output_type -> location.ClearTestProviderLocationResponse
-	165, // 237: location.ManagerService.ClearTestProviderStatus:output_type -> location.ClearTestProviderStatusResponse
-	167, // 238: location.ManagerService.GetAllProviders:output_type -> location.GetAllProvidersResponse
-	169, // 239: location.ManagerService.GetBestProvider:output_type -> location.GetBestProviderResponse
-	171, // 240: location.ManagerService.GetCurrentLocation5:output_type -> location.GetCurrentLocation5Response
-	173, // 241: location.ManagerService.GetCurrentLocation4_1:output_type -> location.GetCurrentLocation4_1Response
-	175, // 242: location.ManagerService.GetGnssAntennaInfos:output_type -> location.GetGnssAntennaInfosResponse
-	177, // 243: location.ManagerService.GetGnssCapabilities:output_type -> location.GetGnssCapabilitiesResponse
-	179, // 244: location.ManagerService.GetGnssHardwareModelName:output_type -> location.GetGnssHardwareModelNameResponse
-	181, // 245: location.ManagerService.GetGnssYearOfHardware:output_type -> location.GetGnssYearOfHardwareResponse
-	183, // 246: location.ManagerService.GetGpsStatus:output_type -> location.GetGpsStatusResponse
-	185, // 247: location.ManagerService.GetLastKnownLocation:output_type -> location.GetLastKnownLocationResponse
-	187, // 248: location.ManagerService.GetProvider:output_type -> location.ManagerGetProviderResponse
-	189, // 249: location.ManagerService.GetProviderProperties:output_type -> location.GetProviderPropertiesResponse
-	191, // 250: location.ManagerService.GetProviders2:output_type -> location.GetProviders2Response
-	193, // 251: location.ManagerService.GetProviders1_1:output_type -> location.GetProviders1_1Response
-	195, // 252: location.ManagerService.HasProvider:output_type -> location.HasProviderResponse
-	197, // 253: location.ManagerService.IsLocationEnabled:output_type -> location.IsLocationEnabledResponse
-	199, // 254: location.ManagerService.IsProviderEnabled:output_type -> location.IsProviderEnabledResponse
-	201, // 255: location.ManagerService.RegisterAntennaInfoListener:output_type -> location.RegisterAntennaInfoListenerResponse
-	203, // 256: location.ManagerService.RegisterGnssMeasurementsCallback3:output_type -> location.RegisterGnssMeasurementsCallback3Response
-	205, // 257: location.ManagerService.RegisterGnssMeasurementsCallback1_1:output_type -> location.RegisterGnssMeasurementsCallback1_1Response
-	207, // 258: location.ManagerService.RegisterGnssMeasurementsCallback2_2:output_type -> location.RegisterGnssMeasurementsCallback2_2Response
-	209, // 259: location.ManagerService.RegisterGnssNavigationMessageCallback1:output_type -> location.RegisterGnssNavigationMessageCallback1Response
-	211, // 260: location.ManagerService.RegisterGnssNavigationMessageCallback2_1:output_type -> location.RegisterGnssNavigationMessageCallback2_1Response
-	213, // 261: location.ManagerService.RegisterGnssStatusCallback1:output_type -> location.RegisterGnssStatusCallback1Response
-	215, // 262: location.ManagerService.RegisterGnssStatusCallback2_1:output_type -> location.RegisterGnssStatusCallback2_1Response
-	217, // 263: location.ManagerService.RemoveGpsStatusListener:output_type -> location.RemoveGpsStatusListenerResponse
-	219, // 264: location.ManagerService.RemoveNmeaListener1:output_type -> location.RemoveNmeaListener1Response
-	221, // 265: location.ManagerService.RemoveNmeaListener1_1:output_type -> location.RemoveNmeaListener1_1Response
-	223, // 266: location.ManagerService.RemoveProximityAlert:output_type -> location.RemoveProximityAlertResponse
-	225, // 267: location.ManagerService.RemoveTestProvider:output_type -> location.RemoveTestProviderResponse
-	227, // 268: location.ManagerService.RemoveUpdates1:output_type -> location.RemoveUpdates1Response
-	229, // 269: location.ManagerService.RemoveUpdates1_1:output_type -> location.RemoveUpdates1_1Response
-	231, // 270: location.ManagerService.RequestFlush3:output_type -> location.RequestFlush3Response
-	233, // 271: location.ManagerService.RequestFlush3_1:output_type -> location.RequestFlush3_1Response
-	235, // 272: location.ManagerService.RequestLocationUpdates3:output_type -> location.RequestLocationUpdates3Response
-	237, // 273: location.ManagerService.RequestLocationUpdates4_1:output_type -> location.RequestLocationUpdates4_1Response
-	239, // 274: location.ManagerService.RequestLocationUpdates4_2:output_type -> location.RequestLocationUpdates4_2Response
-	241, // 275: location.ManagerService.RequestLocationUpdates4_3:output_type -> location.RequestLocationUpdates4_3Response
-	243, // 276: location.ManagerService.RequestLocationUpdates5_4:output_type -> location.RequestLocationUpdates5_4Response
-	245, // 277: location.ManagerService.RequestLocationUpdates5_5:output_type -> location.RequestLocationUpdates5_5Response
-	247, // 278: location.ManagerService.RequestLocationUpdates4_6:output_type -> location.RequestLocationUpdates4_6Response
-	249, // 279: location.ManagerService.RequestLocationUpdates5_7:output_type -> location.RequestLocationUpdates5_7Response
-	251, // 280: location.ManagerService.RequestLocationUpdates5_8:output_type -> location.RequestLocationUpdates5_8Response
-	253, // 281: location.ManagerService.RequestSingleUpdate2:output_type -> location.RequestSingleUpdate2Response
-	255, // 282: location.ManagerService.RequestSingleUpdate3_1:output_type -> location.RequestSingleUpdate3_1Response
-	257, // 283: location.ManagerService.RequestSingleUpdate2_2:output_type -> location.RequestSingleUpdate2_2Response
-	259, // 284: location.ManagerService.RequestSingleUpdate3_3:output_type -> location.RequestSingleUpdate3_3Response
-	261, // 285: location.ManagerService.SendExtraCommand:output_type -> location.SendExtraCommandResponse
-	263, // 286: location.ManagerService.SetTestProviderEnabled:output_type -> location.SetTestProviderEnabledResponse
-	265, // 287: location.ManagerService.SetTestProviderLocation:output_type -> location.SetTestProviderLocationResponse
-	267, // 288: location.ManagerService.SetTestProviderStatus:output_type -> location.SetTestProviderStatusResponse
-	269, // 289: location.ManagerService.UnregisterAntennaInfoListener:output_type -> location.UnregisterAntennaInfoListenerResponse
-	271, // 290: location.ManagerService.UnregisterGnssMeasurementsCallback:output_type -> location.UnregisterGnssMeasurementsCallbackResponse
-	273, // 291: location.ManagerService.UnregisterGnssNavigationMessageCallback:output_type -> location.UnregisterGnssNavigationMessageCallbackResponse
-	275, // 292: location.ManagerService.UnregisterGnssStatusCallback:output_type -> location.UnregisterGnssStatusCallbackResponse
-	3,   // 293: location.GnssStatusService.DescribeContents:output_type -> location.DescribeContentsResponse
-	9,   // 294: location.GnssStatusService.Equals:output_type -> location.EqualsResponse
-	277, // 295: location.GnssStatusService.GetAzimuthDegrees:output_type -> location.GetAzimuthDegreesResponse
-	279, // 296: location.GnssStatusService.GetBasebandCn0DbHz:output_type -> location.GetBasebandCn0DbHzResponse
-	281, // 297: location.GnssStatusService.GetCarrierFrequencyHz:output_type -> location.GetCarrierFrequencyHzResponse
-	283, // 298: location.GnssStatusService.GetCn0DbHz:output_type -> location.GetCn0DbHzResponse
-	285, // 299: location.GnssStatusService.GetConstellationType:output_type -> location.GetConstellationTypeResponse
-	287, // 300: location.GnssStatusService.GetElevationDegrees:output_type -> location.GetElevationDegreesResponse
-	289, // 301: location.GnssStatusService.GetSatelliteCount:output_type -> location.GetSatelliteCountResponse
-	291, // 302: location.GnssStatusService.GetSvid:output_type -> location.GetSvidResponse
-	293, // 303: location.GnssStatusService.HasAlmanacData:output_type -> location.HasAlmanacDataResponse
-	295, // 304: location.GnssStatusService.HasBasebandCn0DbHz:output_type -> location.HasBasebandCn0DbHzResponse
-	297, // 305: location.GnssStatusService.HasCarrierFrequencyHz:output_type -> location.HasCarrierFrequencyHzResponse
-	299, // 306: location.GnssStatusService.HasEphemerisData:output_type -> location.HasEphemerisDataResponse
-	69,  // 307: location.GnssStatusService.HashCode:output_type -> location.HashCodeResponse
-	301, // 308: location.GnssStatusService.UsedInFix:output_type -> location.UsedInFixResponse
-	137, // 309: location.GnssStatusService.WriteToParcel:output_type -> location.WriteToParcelResponse
-	155, // [155:310] is the sub-list for method output_type
-	0,   // [0:155] is the sub-list for method input_type
+	0,   // 0: location.ManagerService.AddGpsStatusListener:input_type -> location.AddGpsStatusListenerRequest
+	2,   // 1: location.ManagerService.AddNmeaListener1:input_type -> location.AddNmeaListener1Request
+	4,   // 2: location.ManagerService.AddNmeaListener1_1:input_type -> location.AddNmeaListener1_1Request
+	6,   // 3: location.ManagerService.AddNmeaListener2_2:input_type -> location.AddNmeaListener2_2Request
+	8,   // 4: location.ManagerService.AddProximityAlert:input_type -> location.AddProximityAlertRequest
+	10,  // 5: location.ManagerService.AddTestProvider2:input_type -> location.AddTestProvider2Request
+	12,  // 6: location.ManagerService.AddTestProvider10_1:input_type -> location.AddTestProvider10_1Request
+	14,  // 7: location.ManagerService.ClearTestProviderEnabled:input_type -> location.ClearTestProviderEnabledRequest
+	16,  // 8: location.ManagerService.ClearTestProviderLocation:input_type -> location.ClearTestProviderLocationRequest
+	18,  // 9: location.ManagerService.ClearTestProviderStatus:input_type -> location.ClearTestProviderStatusRequest
+	20,  // 10: location.ManagerService.GetBestProvider:input_type -> location.GetBestProviderRequest
+	22,  // 11: location.ManagerService.GetGnssCapabilities:input_type -> location.GetGnssCapabilitiesRequest
+	24,  // 12: location.ManagerService.GetGnssHardwareModelName:input_type -> location.GetGnssHardwareModelNameRequest
+	26,  // 13: location.ManagerService.GetGnssYearOfHardware:input_type -> location.GetGnssYearOfHardwareRequest
+	28,  // 14: location.ManagerService.GetGpsStatus:input_type -> location.GetGpsStatusRequest
+	30,  // 15: location.ManagerService.GetLastKnownLocation:input_type -> location.GetLastKnownLocationRequest
+	32,  // 16: location.ManagerService.GetProvider:input_type -> location.GetProviderRequest
+	34,  // 17: location.ManagerService.GetProviderProperties:input_type -> location.GetProviderPropertiesRequest
+	36,  // 18: location.ManagerService.HasProvider:input_type -> location.HasProviderRequest
+	38,  // 19: location.ManagerService.IsLocationEnabled:input_type -> location.IsLocationEnabledRequest
+	40,  // 20: location.ManagerService.IsProviderEnabled:input_type -> location.IsProviderEnabledRequest
+	42,  // 21: location.ManagerService.RegisterAntennaInfoListener:input_type -> location.RegisterAntennaInfoListenerRequest
+	44,  // 22: location.ManagerService.RegisterGnssMeasurementsCallback3:input_type -> location.RegisterGnssMeasurementsCallback3Request
+	46,  // 23: location.ManagerService.RegisterGnssMeasurementsCallback1_1:input_type -> location.RegisterGnssMeasurementsCallback1_1Request
+	48,  // 24: location.ManagerService.RegisterGnssMeasurementsCallback2_2:input_type -> location.RegisterGnssMeasurementsCallback2_2Request
+	50,  // 25: location.ManagerService.RegisterGnssNavigationMessageCallback1:input_type -> location.RegisterGnssNavigationMessageCallback1Request
+	52,  // 26: location.ManagerService.RegisterGnssNavigationMessageCallback2_1:input_type -> location.RegisterGnssNavigationMessageCallback2_1Request
+	54,  // 27: location.ManagerService.RegisterGnssStatusCallback1:input_type -> location.RegisterGnssStatusCallback1Request
+	56,  // 28: location.ManagerService.RegisterGnssStatusCallback2_1:input_type -> location.RegisterGnssStatusCallback2_1Request
+	58,  // 29: location.ManagerService.RemoveGpsStatusListener:input_type -> location.RemoveGpsStatusListenerRequest
+	60,  // 30: location.ManagerService.RemoveNmeaListener1:input_type -> location.RemoveNmeaListener1Request
+	62,  // 31: location.ManagerService.RemoveNmeaListener1_1:input_type -> location.RemoveNmeaListener1_1Request
+	64,  // 32: location.ManagerService.RemoveProximityAlert:input_type -> location.RemoveProximityAlertRequest
+	66,  // 33: location.ManagerService.RemoveTestProvider:input_type -> location.RemoveTestProviderRequest
+	68,  // 34: location.ManagerService.RemoveUpdates1:input_type -> location.RemoveUpdates1Request
+	70,  // 35: location.ManagerService.RemoveUpdates1_1:input_type -> location.RemoveUpdates1_1Request
+	72,  // 36: location.ManagerService.RequestFlush3:input_type -> location.RequestFlush3Request
+	74,  // 37: location.ManagerService.RequestFlush3_1:input_type -> location.RequestFlush3_1Request
+	76,  // 38: location.ManagerService.RequestLocationUpdates3:input_type -> location.RequestLocationUpdates3Request
+	78,  // 39: location.ManagerService.RequestLocationUpdates4_1:input_type -> location.RequestLocationUpdates4_1Request
+	80,  // 40: location.ManagerService.RequestLocationUpdates4_2:input_type -> location.RequestLocationUpdates4_2Request
+	82,  // 41: location.ManagerService.RequestLocationUpdates4_3:input_type -> location.RequestLocationUpdates4_3Request
+	84,  // 42: location.ManagerService.RequestLocationUpdates5_4:input_type -> location.RequestLocationUpdates5_4Request
+	86,  // 43: location.ManagerService.RequestLocationUpdates5_5:input_type -> location.RequestLocationUpdates5_5Request
+	88,  // 44: location.ManagerService.RequestLocationUpdates4_6:input_type -> location.RequestLocationUpdates4_6Request
+	90,  // 45: location.ManagerService.RequestLocationUpdates5_7:input_type -> location.RequestLocationUpdates5_7Request
+	92,  // 46: location.ManagerService.RequestLocationUpdates5_8:input_type -> location.RequestLocationUpdates5_8Request
+	94,  // 47: location.ManagerService.RequestSingleUpdate2:input_type -> location.RequestSingleUpdate2Request
+	96,  // 48: location.ManagerService.RequestSingleUpdate3_1:input_type -> location.RequestSingleUpdate3_1Request
+	98,  // 49: location.ManagerService.RequestSingleUpdate2_2:input_type -> location.RequestSingleUpdate2_2Request
+	100, // 50: location.ManagerService.RequestSingleUpdate3_3:input_type -> location.RequestSingleUpdate3_3Request
+	102, // 51: location.ManagerService.SendExtraCommand:input_type -> location.SendExtraCommandRequest
+	104, // 52: location.ManagerService.SetTestProviderEnabled:input_type -> location.SetTestProviderEnabledRequest
+	106, // 53: location.ManagerService.SetTestProviderLocation:input_type -> location.SetTestProviderLocationRequest
+	108, // 54: location.ManagerService.SetTestProviderStatus:input_type -> location.SetTestProviderStatusRequest
+	110, // 55: location.ManagerService.UnregisterAntennaInfoListener:input_type -> location.UnregisterAntennaInfoListenerRequest
+	112, // 56: location.ManagerService.UnregisterGnssMeasurementsCallback:input_type -> location.UnregisterGnssMeasurementsCallbackRequest
+	114, // 57: location.ManagerService.UnregisterGnssNavigationMessageCallback:input_type -> location.UnregisterGnssNavigationMessageCallbackRequest
+	116, // 58: location.ManagerService.UnregisterGnssStatusCallback:input_type -> location.UnregisterGnssStatusCallbackRequest
+	1,   // 59: location.ManagerService.AddGpsStatusListener:output_type -> location.AddGpsStatusListenerResponse
+	3,   // 60: location.ManagerService.AddNmeaListener1:output_type -> location.AddNmeaListener1Response
+	5,   // 61: location.ManagerService.AddNmeaListener1_1:output_type -> location.AddNmeaListener1_1Response
+	7,   // 62: location.ManagerService.AddNmeaListener2_2:output_type -> location.AddNmeaListener2_2Response
+	9,   // 63: location.ManagerService.AddProximityAlert:output_type -> location.AddProximityAlertResponse
+	11,  // 64: location.ManagerService.AddTestProvider2:output_type -> location.AddTestProvider2Response
+	13,  // 65: location.ManagerService.AddTestProvider10_1:output_type -> location.AddTestProvider10_1Response
+	15,  // 66: location.ManagerService.ClearTestProviderEnabled:output_type -> location.ClearTestProviderEnabledResponse
+	17,  // 67: location.ManagerService.ClearTestProviderLocation:output_type -> location.ClearTestProviderLocationResponse
+	19,  // 68: location.ManagerService.ClearTestProviderStatus:output_type -> location.ClearTestProviderStatusResponse
+	21,  // 69: location.ManagerService.GetBestProvider:output_type -> location.GetBestProviderResponse
+	23,  // 70: location.ManagerService.GetGnssCapabilities:output_type -> location.GetGnssCapabilitiesResponse
+	25,  // 71: location.ManagerService.GetGnssHardwareModelName:output_type -> location.GetGnssHardwareModelNameResponse
+	27,  // 72: location.ManagerService.GetGnssYearOfHardware:output_type -> location.GetGnssYearOfHardwareResponse
+	29,  // 73: location.ManagerService.GetGpsStatus:output_type -> location.GetGpsStatusResponse
+	31,  // 74: location.ManagerService.GetLastKnownLocation:output_type -> location.GetLastKnownLocationResponse
+	33,  // 75: location.ManagerService.GetProvider:output_type -> location.GetProviderResponse
+	35,  // 76: location.ManagerService.GetProviderProperties:output_type -> location.GetProviderPropertiesResponse
+	37,  // 77: location.ManagerService.HasProvider:output_type -> location.HasProviderResponse
+	39,  // 78: location.ManagerService.IsLocationEnabled:output_type -> location.IsLocationEnabledResponse
+	41,  // 79: location.ManagerService.IsProviderEnabled:output_type -> location.IsProviderEnabledResponse
+	43,  // 80: location.ManagerService.RegisterAntennaInfoListener:output_type -> location.RegisterAntennaInfoListenerResponse
+	45,  // 81: location.ManagerService.RegisterGnssMeasurementsCallback3:output_type -> location.RegisterGnssMeasurementsCallback3Response
+	47,  // 82: location.ManagerService.RegisterGnssMeasurementsCallback1_1:output_type -> location.RegisterGnssMeasurementsCallback1_1Response
+	49,  // 83: location.ManagerService.RegisterGnssMeasurementsCallback2_2:output_type -> location.RegisterGnssMeasurementsCallback2_2Response
+	51,  // 84: location.ManagerService.RegisterGnssNavigationMessageCallback1:output_type -> location.RegisterGnssNavigationMessageCallback1Response
+	53,  // 85: location.ManagerService.RegisterGnssNavigationMessageCallback2_1:output_type -> location.RegisterGnssNavigationMessageCallback2_1Response
+	55,  // 86: location.ManagerService.RegisterGnssStatusCallback1:output_type -> location.RegisterGnssStatusCallback1Response
+	57,  // 87: location.ManagerService.RegisterGnssStatusCallback2_1:output_type -> location.RegisterGnssStatusCallback2_1Response
+	59,  // 88: location.ManagerService.RemoveGpsStatusListener:output_type -> location.RemoveGpsStatusListenerResponse
+	61,  // 89: location.ManagerService.RemoveNmeaListener1:output_type -> location.RemoveNmeaListener1Response
+	63,  // 90: location.ManagerService.RemoveNmeaListener1_1:output_type -> location.RemoveNmeaListener1_1Response
+	65,  // 91: location.ManagerService.RemoveProximityAlert:output_type -> location.RemoveProximityAlertResponse
+	67,  // 92: location.ManagerService.RemoveTestProvider:output_type -> location.RemoveTestProviderResponse
+	69,  // 93: location.ManagerService.RemoveUpdates1:output_type -> location.RemoveUpdates1Response
+	71,  // 94: location.ManagerService.RemoveUpdates1_1:output_type -> location.RemoveUpdates1_1Response
+	73,  // 95: location.ManagerService.RequestFlush3:output_type -> location.RequestFlush3Response
+	75,  // 96: location.ManagerService.RequestFlush3_1:output_type -> location.RequestFlush3_1Response
+	77,  // 97: location.ManagerService.RequestLocationUpdates3:output_type -> location.RequestLocationUpdates3Response
+	79,  // 98: location.ManagerService.RequestLocationUpdates4_1:output_type -> location.RequestLocationUpdates4_1Response
+	81,  // 99: location.ManagerService.RequestLocationUpdates4_2:output_type -> location.RequestLocationUpdates4_2Response
+	83,  // 100: location.ManagerService.RequestLocationUpdates4_3:output_type -> location.RequestLocationUpdates4_3Response
+	85,  // 101: location.ManagerService.RequestLocationUpdates5_4:output_type -> location.RequestLocationUpdates5_4Response
+	87,  // 102: location.ManagerService.RequestLocationUpdates5_5:output_type -> location.RequestLocationUpdates5_5Response
+	89,  // 103: location.ManagerService.RequestLocationUpdates4_6:output_type -> location.RequestLocationUpdates4_6Response
+	91,  // 104: location.ManagerService.RequestLocationUpdates5_7:output_type -> location.RequestLocationUpdates5_7Response
+	93,  // 105: location.ManagerService.RequestLocationUpdates5_8:output_type -> location.RequestLocationUpdates5_8Response
+	95,  // 106: location.ManagerService.RequestSingleUpdate2:output_type -> location.RequestSingleUpdate2Response
+	97,  // 107: location.ManagerService.RequestSingleUpdate3_1:output_type -> location.RequestSingleUpdate3_1Response
+	99,  // 108: location.ManagerService.RequestSingleUpdate2_2:output_type -> location.RequestSingleUpdate2_2Response
+	101, // 109: location.ManagerService.RequestSingleUpdate3_3:output_type -> location.RequestSingleUpdate3_3Response
+	103, // 110: location.ManagerService.SendExtraCommand:output_type -> location.SendExtraCommandResponse
+	105, // 111: location.ManagerService.SetTestProviderEnabled:output_type -> location.SetTestProviderEnabledResponse
+	107, // 112: location.ManagerService.SetTestProviderLocation:output_type -> location.SetTestProviderLocationResponse
+	109, // 113: location.ManagerService.SetTestProviderStatus:output_type -> location.SetTestProviderStatusResponse
+	111, // 114: location.ManagerService.UnregisterAntennaInfoListener:output_type -> location.UnregisterAntennaInfoListenerResponse
+	113, // 115: location.ManagerService.UnregisterGnssMeasurementsCallback:output_type -> location.UnregisterGnssMeasurementsCallbackResponse
+	115, // 116: location.ManagerService.UnregisterGnssNavigationMessageCallback:output_type -> location.UnregisterGnssNavigationMessageCallbackResponse
+	117, // 117: location.ManagerService.UnregisterGnssStatusCallback:output_type -> location.UnregisterGnssStatusCallbackResponse
+	59,  // [59:118] is the sub-list for method output_type
+	0,   // [0:59] is the sub-list for method input_type
 	0,   // [0:0] is the sub-list for extension type_name
 	0,   // [0:0] is the sub-list for extension extendee
 	0,   // [0:0] is the sub-list for field type_name
@@ -14410,9 +6058,9 @@ func file_proto_location_location_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_proto_location_location_proto_rawDesc), len(file_proto_location_location_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   302,
+			NumMessages:   118,
 			NumExtensions: 0,
-			NumServices:   3,
+			NumServices:   1,
 		},
 		GoTypes:           file_proto_location_location_proto_goTypes,
 		DependencyIndexes: file_proto_location_location_proto_depIdxs,

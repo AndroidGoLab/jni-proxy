@@ -26,20 +26,53 @@ func main() {
 		log.Fatalf("no spec files found in %s", *specsDir)
 	}
 
-	var entries []grpcgen.CompositeEntry
+	// Accumulate server and client data per package so multiple specs
+	// targeting the same package are merged instead of overwriting.
+	serverByPkg := make(map[string]*grpcgen.ServerData)
+	clientByPkg := make(map[string]*grpcgen.ClientData)
 
 	for _, specPath := range specs {
 		baseName := strings.TrimSuffix(filepath.Base(specPath), ".yaml")
 		overlayPath := filepath.Join(*overlaysDir, baseName+".yaml")
 
-		serverEntries, err := grpcgen.GenerateServer(specPath, overlayPath, *outputDir, *goModule, *jniModule, *protoDir)
+		srvData, err := grpcgen.BuildServerFromSpec(specPath, overlayPath, *goModule, *jniModule, *protoDir)
 		if err != nil {
-			log.Fatalf("generate server %s: %v", baseName, err)
+			log.Fatalf("build server %s: %v", baseName, err)
 		}
-		entries = append(entries, serverEntries...)
+		if srvData != nil {
+			if existing, ok := serverByPkg[srvData.Package]; ok {
+				grpcgen.MergeServerData(existing, srvData)
+			} else {
+				serverByPkg[srvData.Package] = srvData
+			}
+		}
 
-		if err := grpcgen.GenerateClient(specPath, overlayPath, *outputDir, *goModule, *protoDir); err != nil {
-			log.Fatalf("generate client %s: %v", baseName, err)
+		cliData, err := grpcgen.BuildClientFromSpec(specPath, overlayPath, *goModule, *protoDir)
+		if err != nil {
+			log.Fatalf("build client %s: %v", baseName, err)
+		}
+		if cliData != nil {
+			if existing, ok := clientByPkg[cliData.Package]; ok {
+				grpcgen.MergeClientData(existing, cliData)
+			} else {
+				clientByPkg[cliData.Package] = cliData
+			}
+		}
+	}
+
+	// Write accumulated data and collect composite entries.
+	var entries []grpcgen.CompositeEntry
+
+	for _, data := range serverByPkg {
+		if err := grpcgen.WriteServer(data, *outputDir); err != nil {
+			log.Fatalf("write server %s: %v", data.Package, err)
+		}
+		entries = append(entries, grpcgen.EntriesFromServerData(data)...)
+	}
+
+	for _, data := range clientByPkg {
+		if err := grpcgen.WriteClient(data, *outputDir); err != nil {
+			log.Fatalf("write client %s: %v", data.Package, err)
 		}
 	}
 

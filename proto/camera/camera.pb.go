@@ -367,86 +367,6 @@ func (x *GetCameraIdListResponse) GetResult() int64 {
 	return 0
 }
 
-type GetConcurrentCameraIdsRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetConcurrentCameraIdsRequest) Reset() {
-	*x = GetConcurrentCameraIdsRequest{}
-	mi := &file_proto_camera_camera_proto_msgTypes[8]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetConcurrentCameraIdsRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetConcurrentCameraIdsRequest) ProtoMessage() {}
-
-func (x *GetConcurrentCameraIdsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_camera_camera_proto_msgTypes[8]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetConcurrentCameraIdsRequest.ProtoReflect.Descriptor instead.
-func (*GetConcurrentCameraIdsRequest) Descriptor() ([]byte, []int) {
-	return file_proto_camera_camera_proto_rawDescGZIP(), []int{8}
-}
-
-type GetConcurrentCameraIdsResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetConcurrentCameraIdsResponse) Reset() {
-	*x = GetConcurrentCameraIdsResponse{}
-	mi := &file_proto_camera_camera_proto_msgTypes[9]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetConcurrentCameraIdsResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetConcurrentCameraIdsResponse) ProtoMessage() {}
-
-func (x *GetConcurrentCameraIdsResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_camera_camera_proto_msgTypes[9]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetConcurrentCameraIdsResponse.ProtoReflect.Descriptor instead.
-func (*GetConcurrentCameraIdsResponse) Descriptor() ([]byte, []int) {
-	return file_proto_camera_camera_proto_rawDescGZIP(), []int{9}
-}
-
-func (x *GetConcurrentCameraIdsResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
 type GetTorchStrengthLevelRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
@@ -456,7 +376,7 @@ type GetTorchStrengthLevelRequest struct {
 
 func (x *GetTorchStrengthLevelRequest) Reset() {
 	*x = GetTorchStrengthLevelRequest{}
-	mi := &file_proto_camera_camera_proto_msgTypes[10]
+	mi := &file_proto_camera_camera_proto_msgTypes[8]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -468,7 +388,7 @@ func (x *GetTorchStrengthLevelRequest) String() string {
 func (*GetTorchStrengthLevelRequest) ProtoMessage() {}
 
 func (x *GetTorchStrengthLevelRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_camera_camera_proto_msgTypes[10]
+	mi := &file_proto_camera_camera_proto_msgTypes[8]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -481,7 +401,7 @@ func (x *GetTorchStrengthLevelRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetTorchStrengthLevelRequest.ProtoReflect.Descriptor instead.
 func (*GetTorchStrengthLevelRequest) Descriptor() ([]byte, []int) {
-	return file_proto_camera_camera_proto_rawDescGZIP(), []int{10}
+	return file_proto_camera_camera_proto_rawDescGZIP(), []int{8}
 }
 
 func (x *GetTorchStrengthLevelRequest) GetArg0() string {
@@ -500,7 +420,7 @@ type GetTorchStrengthLevelResponse struct {
 
 func (x *GetTorchStrengthLevelResponse) Reset() {
 	*x = GetTorchStrengthLevelResponse{}
-	mi := &file_proto_camera_camera_proto_msgTypes[11]
+	mi := &file_proto_camera_camera_proto_msgTypes[9]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -512,7 +432,7 @@ func (x *GetTorchStrengthLevelResponse) String() string {
 func (*GetTorchStrengthLevelResponse) ProtoMessage() {}
 
 func (x *GetTorchStrengthLevelResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_camera_camera_proto_msgTypes[11]
+	mi := &file_proto_camera_camera_proto_msgTypes[9]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -525,7 +445,7 @@ func (x *GetTorchStrengthLevelResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetTorchStrengthLevelResponse.ProtoReflect.Descriptor instead.
 func (*GetTorchStrengthLevelResponse) Descriptor() ([]byte, []int) {
-	return file_proto_camera_camera_proto_rawDescGZIP(), []int{11}
+	return file_proto_camera_camera_proto_rawDescGZIP(), []int{9}
 }
 
 func (x *GetTorchStrengthLevelResponse) GetResult() int32 {
@@ -544,7 +464,7 @@ type IsCameraDeviceSetupSupportedRequest struct {
 
 func (x *IsCameraDeviceSetupSupportedRequest) Reset() {
 	*x = IsCameraDeviceSetupSupportedRequest{}
-	mi := &file_proto_camera_camera_proto_msgTypes[12]
+	mi := &file_proto_camera_camera_proto_msgTypes[10]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -556,7 +476,7 @@ func (x *IsCameraDeviceSetupSupportedRequest) String() string {
 func (*IsCameraDeviceSetupSupportedRequest) ProtoMessage() {}
 
 func (x *IsCameraDeviceSetupSupportedRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_camera_camera_proto_msgTypes[12]
+	mi := &file_proto_camera_camera_proto_msgTypes[10]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -569,7 +489,7 @@ func (x *IsCameraDeviceSetupSupportedRequest) ProtoReflect() protoreflect.Messag
 
 // Deprecated: Use IsCameraDeviceSetupSupportedRequest.ProtoReflect.Descriptor instead.
 func (*IsCameraDeviceSetupSupportedRequest) Descriptor() ([]byte, []int) {
-	return file_proto_camera_camera_proto_rawDescGZIP(), []int{12}
+	return file_proto_camera_camera_proto_rawDescGZIP(), []int{10}
 }
 
 func (x *IsCameraDeviceSetupSupportedRequest) GetArg0() string {
@@ -588,7 +508,7 @@ type IsCameraDeviceSetupSupportedResponse struct {
 
 func (x *IsCameraDeviceSetupSupportedResponse) Reset() {
 	*x = IsCameraDeviceSetupSupportedResponse{}
-	mi := &file_proto_camera_camera_proto_msgTypes[13]
+	mi := &file_proto_camera_camera_proto_msgTypes[11]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -600,7 +520,7 @@ func (x *IsCameraDeviceSetupSupportedResponse) String() string {
 func (*IsCameraDeviceSetupSupportedResponse) ProtoMessage() {}
 
 func (x *IsCameraDeviceSetupSupportedResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_camera_camera_proto_msgTypes[13]
+	mi := &file_proto_camera_camera_proto_msgTypes[11]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -613,98 +533,10 @@ func (x *IsCameraDeviceSetupSupportedResponse) ProtoReflect() protoreflect.Messa
 
 // Deprecated: Use IsCameraDeviceSetupSupportedResponse.ProtoReflect.Descriptor instead.
 func (*IsCameraDeviceSetupSupportedResponse) Descriptor() ([]byte, []int) {
-	return file_proto_camera_camera_proto_rawDescGZIP(), []int{13}
+	return file_proto_camera_camera_proto_rawDescGZIP(), []int{11}
 }
 
 func (x *IsCameraDeviceSetupSupportedResponse) GetResult() bool {
-	if x != nil {
-		return x.Result
-	}
-	return false
-}
-
-type IsConcurrentSessionConfigurationSupportedRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *IsConcurrentSessionConfigurationSupportedRequest) Reset() {
-	*x = IsConcurrentSessionConfigurationSupportedRequest{}
-	mi := &file_proto_camera_camera_proto_msgTypes[14]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *IsConcurrentSessionConfigurationSupportedRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*IsConcurrentSessionConfigurationSupportedRequest) ProtoMessage() {}
-
-func (x *IsConcurrentSessionConfigurationSupportedRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_camera_camera_proto_msgTypes[14]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use IsConcurrentSessionConfigurationSupportedRequest.ProtoReflect.Descriptor instead.
-func (*IsConcurrentSessionConfigurationSupportedRequest) Descriptor() ([]byte, []int) {
-	return file_proto_camera_camera_proto_rawDescGZIP(), []int{14}
-}
-
-func (x *IsConcurrentSessionConfigurationSupportedRequest) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type IsConcurrentSessionConfigurationSupportedResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *IsConcurrentSessionConfigurationSupportedResponse) Reset() {
-	*x = IsConcurrentSessionConfigurationSupportedResponse{}
-	mi := &file_proto_camera_camera_proto_msgTypes[15]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *IsConcurrentSessionConfigurationSupportedResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*IsConcurrentSessionConfigurationSupportedResponse) ProtoMessage() {}
-
-func (x *IsConcurrentSessionConfigurationSupportedResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_camera_camera_proto_msgTypes[15]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use IsConcurrentSessionConfigurationSupportedResponse.ProtoReflect.Descriptor instead.
-func (*IsConcurrentSessionConfigurationSupportedResponse) Descriptor() ([]byte, []int) {
-	return file_proto_camera_camera_proto_rawDescGZIP(), []int{15}
-}
-
-func (x *IsConcurrentSessionConfigurationSupportedResponse) GetResult() bool {
 	if x != nil {
 		return x.Result
 	}
@@ -722,7 +554,7 @@ type OpenCameraRequest struct {
 
 func (x *OpenCameraRequest) Reset() {
 	*x = OpenCameraRequest{}
-	mi := &file_proto_camera_camera_proto_msgTypes[16]
+	mi := &file_proto_camera_camera_proto_msgTypes[12]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -734,7 +566,7 @@ func (x *OpenCameraRequest) String() string {
 func (*OpenCameraRequest) ProtoMessage() {}
 
 func (x *OpenCameraRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_camera_camera_proto_msgTypes[16]
+	mi := &file_proto_camera_camera_proto_msgTypes[12]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -747,7 +579,7 @@ func (x *OpenCameraRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OpenCameraRequest.ProtoReflect.Descriptor instead.
 func (*OpenCameraRequest) Descriptor() ([]byte, []int) {
-	return file_proto_camera_camera_proto_rawDescGZIP(), []int{16}
+	return file_proto_camera_camera_proto_rawDescGZIP(), []int{12}
 }
 
 func (x *OpenCameraRequest) GetArg0() string {
@@ -779,7 +611,7 @@ type OpenCameraResponse struct {
 
 func (x *OpenCameraResponse) Reset() {
 	*x = OpenCameraResponse{}
-	mi := &file_proto_camera_camera_proto_msgTypes[17]
+	mi := &file_proto_camera_camera_proto_msgTypes[13]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -791,7 +623,7 @@ func (x *OpenCameraResponse) String() string {
 func (*OpenCameraResponse) ProtoMessage() {}
 
 func (x *OpenCameraResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_camera_camera_proto_msgTypes[17]
+	mi := &file_proto_camera_camera_proto_msgTypes[13]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -804,7 +636,7 @@ func (x *OpenCameraResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OpenCameraResponse.ProtoReflect.Descriptor instead.
 func (*OpenCameraResponse) Descriptor() ([]byte, []int) {
-	return file_proto_camera_camera_proto_rawDescGZIP(), []int{17}
+	return file_proto_camera_camera_proto_rawDescGZIP(), []int{13}
 }
 
 type RegisterAvailabilityCallbackRequest struct {
@@ -817,7 +649,7 @@ type RegisterAvailabilityCallbackRequest struct {
 
 func (x *RegisterAvailabilityCallbackRequest) Reset() {
 	*x = RegisterAvailabilityCallbackRequest{}
-	mi := &file_proto_camera_camera_proto_msgTypes[18]
+	mi := &file_proto_camera_camera_proto_msgTypes[14]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -829,7 +661,7 @@ func (x *RegisterAvailabilityCallbackRequest) String() string {
 func (*RegisterAvailabilityCallbackRequest) ProtoMessage() {}
 
 func (x *RegisterAvailabilityCallbackRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_camera_camera_proto_msgTypes[18]
+	mi := &file_proto_camera_camera_proto_msgTypes[14]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -842,7 +674,7 @@ func (x *RegisterAvailabilityCallbackRequest) ProtoReflect() protoreflect.Messag
 
 // Deprecated: Use RegisterAvailabilityCallbackRequest.ProtoReflect.Descriptor instead.
 func (*RegisterAvailabilityCallbackRequest) Descriptor() ([]byte, []int) {
-	return file_proto_camera_camera_proto_rawDescGZIP(), []int{18}
+	return file_proto_camera_camera_proto_rawDescGZIP(), []int{14}
 }
 
 func (x *RegisterAvailabilityCallbackRequest) GetArg0() int64 {
@@ -867,7 +699,7 @@ type RegisterAvailabilityCallbackResponse struct {
 
 func (x *RegisterAvailabilityCallbackResponse) Reset() {
 	*x = RegisterAvailabilityCallbackResponse{}
-	mi := &file_proto_camera_camera_proto_msgTypes[19]
+	mi := &file_proto_camera_camera_proto_msgTypes[15]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -879,7 +711,7 @@ func (x *RegisterAvailabilityCallbackResponse) String() string {
 func (*RegisterAvailabilityCallbackResponse) ProtoMessage() {}
 
 func (x *RegisterAvailabilityCallbackResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_camera_camera_proto_msgTypes[19]
+	mi := &file_proto_camera_camera_proto_msgTypes[15]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -892,7 +724,7 @@ func (x *RegisterAvailabilityCallbackResponse) ProtoReflect() protoreflect.Messa
 
 // Deprecated: Use RegisterAvailabilityCallbackResponse.ProtoReflect.Descriptor instead.
 func (*RegisterAvailabilityCallbackResponse) Descriptor() ([]byte, []int) {
-	return file_proto_camera_camera_proto_rawDescGZIP(), []int{19}
+	return file_proto_camera_camera_proto_rawDescGZIP(), []int{15}
 }
 
 type RegisterTorchCallbackRequest struct {
@@ -905,7 +737,7 @@ type RegisterTorchCallbackRequest struct {
 
 func (x *RegisterTorchCallbackRequest) Reset() {
 	*x = RegisterTorchCallbackRequest{}
-	mi := &file_proto_camera_camera_proto_msgTypes[20]
+	mi := &file_proto_camera_camera_proto_msgTypes[16]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -917,7 +749,7 @@ func (x *RegisterTorchCallbackRequest) String() string {
 func (*RegisterTorchCallbackRequest) ProtoMessage() {}
 
 func (x *RegisterTorchCallbackRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_camera_camera_proto_msgTypes[20]
+	mi := &file_proto_camera_camera_proto_msgTypes[16]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -930,7 +762,7 @@ func (x *RegisterTorchCallbackRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use RegisterTorchCallbackRequest.ProtoReflect.Descriptor instead.
 func (*RegisterTorchCallbackRequest) Descriptor() ([]byte, []int) {
-	return file_proto_camera_camera_proto_rawDescGZIP(), []int{20}
+	return file_proto_camera_camera_proto_rawDescGZIP(), []int{16}
 }
 
 func (x *RegisterTorchCallbackRequest) GetArg0() int64 {
@@ -955,7 +787,7 @@ type RegisterTorchCallbackResponse struct {
 
 func (x *RegisterTorchCallbackResponse) Reset() {
 	*x = RegisterTorchCallbackResponse{}
-	mi := &file_proto_camera_camera_proto_msgTypes[21]
+	mi := &file_proto_camera_camera_proto_msgTypes[17]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -967,7 +799,7 @@ func (x *RegisterTorchCallbackResponse) String() string {
 func (*RegisterTorchCallbackResponse) ProtoMessage() {}
 
 func (x *RegisterTorchCallbackResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_camera_camera_proto_msgTypes[21]
+	mi := &file_proto_camera_camera_proto_msgTypes[17]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -980,7 +812,7 @@ func (x *RegisterTorchCallbackResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use RegisterTorchCallbackResponse.ProtoReflect.Descriptor instead.
 func (*RegisterTorchCallbackResponse) Descriptor() ([]byte, []int) {
-	return file_proto_camera_camera_proto_rawDescGZIP(), []int{21}
+	return file_proto_camera_camera_proto_rawDescGZIP(), []int{17}
 }
 
 type SetTorchModeRequest struct {
@@ -993,7 +825,7 @@ type SetTorchModeRequest struct {
 
 func (x *SetTorchModeRequest) Reset() {
 	*x = SetTorchModeRequest{}
-	mi := &file_proto_camera_camera_proto_msgTypes[22]
+	mi := &file_proto_camera_camera_proto_msgTypes[18]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1005,7 +837,7 @@ func (x *SetTorchModeRequest) String() string {
 func (*SetTorchModeRequest) ProtoMessage() {}
 
 func (x *SetTorchModeRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_camera_camera_proto_msgTypes[22]
+	mi := &file_proto_camera_camera_proto_msgTypes[18]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1018,7 +850,7 @@ func (x *SetTorchModeRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetTorchModeRequest.ProtoReflect.Descriptor instead.
 func (*SetTorchModeRequest) Descriptor() ([]byte, []int) {
-	return file_proto_camera_camera_proto_rawDescGZIP(), []int{22}
+	return file_proto_camera_camera_proto_rawDescGZIP(), []int{18}
 }
 
 func (x *SetTorchModeRequest) GetArg0() string {
@@ -1043,7 +875,7 @@ type SetTorchModeResponse struct {
 
 func (x *SetTorchModeResponse) Reset() {
 	*x = SetTorchModeResponse{}
-	mi := &file_proto_camera_camera_proto_msgTypes[23]
+	mi := &file_proto_camera_camera_proto_msgTypes[19]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1055,7 +887,7 @@ func (x *SetTorchModeResponse) String() string {
 func (*SetTorchModeResponse) ProtoMessage() {}
 
 func (x *SetTorchModeResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_camera_camera_proto_msgTypes[23]
+	mi := &file_proto_camera_camera_proto_msgTypes[19]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1068,7 +900,7 @@ func (x *SetTorchModeResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetTorchModeResponse.ProtoReflect.Descriptor instead.
 func (*SetTorchModeResponse) Descriptor() ([]byte, []int) {
-	return file_proto_camera_camera_proto_rawDescGZIP(), []int{23}
+	return file_proto_camera_camera_proto_rawDescGZIP(), []int{19}
 }
 
 type TurnOnTorchWithStrengthLevelRequest struct {
@@ -1081,7 +913,7 @@ type TurnOnTorchWithStrengthLevelRequest struct {
 
 func (x *TurnOnTorchWithStrengthLevelRequest) Reset() {
 	*x = TurnOnTorchWithStrengthLevelRequest{}
-	mi := &file_proto_camera_camera_proto_msgTypes[24]
+	mi := &file_proto_camera_camera_proto_msgTypes[20]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1093,7 +925,7 @@ func (x *TurnOnTorchWithStrengthLevelRequest) String() string {
 func (*TurnOnTorchWithStrengthLevelRequest) ProtoMessage() {}
 
 func (x *TurnOnTorchWithStrengthLevelRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_camera_camera_proto_msgTypes[24]
+	mi := &file_proto_camera_camera_proto_msgTypes[20]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1106,7 +938,7 @@ func (x *TurnOnTorchWithStrengthLevelRequest) ProtoReflect() protoreflect.Messag
 
 // Deprecated: Use TurnOnTorchWithStrengthLevelRequest.ProtoReflect.Descriptor instead.
 func (*TurnOnTorchWithStrengthLevelRequest) Descriptor() ([]byte, []int) {
-	return file_proto_camera_camera_proto_rawDescGZIP(), []int{24}
+	return file_proto_camera_camera_proto_rawDescGZIP(), []int{20}
 }
 
 func (x *TurnOnTorchWithStrengthLevelRequest) GetArg0() string {
@@ -1131,7 +963,7 @@ type TurnOnTorchWithStrengthLevelResponse struct {
 
 func (x *TurnOnTorchWithStrengthLevelResponse) Reset() {
 	*x = TurnOnTorchWithStrengthLevelResponse{}
-	mi := &file_proto_camera_camera_proto_msgTypes[25]
+	mi := &file_proto_camera_camera_proto_msgTypes[21]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1143,7 +975,7 @@ func (x *TurnOnTorchWithStrengthLevelResponse) String() string {
 func (*TurnOnTorchWithStrengthLevelResponse) ProtoMessage() {}
 
 func (x *TurnOnTorchWithStrengthLevelResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_camera_camera_proto_msgTypes[25]
+	mi := &file_proto_camera_camera_proto_msgTypes[21]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1156,7 +988,7 @@ func (x *TurnOnTorchWithStrengthLevelResponse) ProtoReflect() protoreflect.Messa
 
 // Deprecated: Use TurnOnTorchWithStrengthLevelResponse.ProtoReflect.Descriptor instead.
 func (*TurnOnTorchWithStrengthLevelResponse) Descriptor() ([]byte, []int) {
-	return file_proto_camera_camera_proto_rawDescGZIP(), []int{25}
+	return file_proto_camera_camera_proto_rawDescGZIP(), []int{21}
 }
 
 type UnregisterAvailabilityCallbackRequest struct {
@@ -1168,7 +1000,7 @@ type UnregisterAvailabilityCallbackRequest struct {
 
 func (x *UnregisterAvailabilityCallbackRequest) Reset() {
 	*x = UnregisterAvailabilityCallbackRequest{}
-	mi := &file_proto_camera_camera_proto_msgTypes[26]
+	mi := &file_proto_camera_camera_proto_msgTypes[22]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1180,7 +1012,7 @@ func (x *UnregisterAvailabilityCallbackRequest) String() string {
 func (*UnregisterAvailabilityCallbackRequest) ProtoMessage() {}
 
 func (x *UnregisterAvailabilityCallbackRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_camera_camera_proto_msgTypes[26]
+	mi := &file_proto_camera_camera_proto_msgTypes[22]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1193,7 +1025,7 @@ func (x *UnregisterAvailabilityCallbackRequest) ProtoReflect() protoreflect.Mess
 
 // Deprecated: Use UnregisterAvailabilityCallbackRequest.ProtoReflect.Descriptor instead.
 func (*UnregisterAvailabilityCallbackRequest) Descriptor() ([]byte, []int) {
-	return file_proto_camera_camera_proto_rawDescGZIP(), []int{26}
+	return file_proto_camera_camera_proto_rawDescGZIP(), []int{22}
 }
 
 func (x *UnregisterAvailabilityCallbackRequest) GetArg0() int64 {
@@ -1211,7 +1043,7 @@ type UnregisterAvailabilityCallbackResponse struct {
 
 func (x *UnregisterAvailabilityCallbackResponse) Reset() {
 	*x = UnregisterAvailabilityCallbackResponse{}
-	mi := &file_proto_camera_camera_proto_msgTypes[27]
+	mi := &file_proto_camera_camera_proto_msgTypes[23]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1223,7 +1055,7 @@ func (x *UnregisterAvailabilityCallbackResponse) String() string {
 func (*UnregisterAvailabilityCallbackResponse) ProtoMessage() {}
 
 func (x *UnregisterAvailabilityCallbackResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_camera_camera_proto_msgTypes[27]
+	mi := &file_proto_camera_camera_proto_msgTypes[23]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1236,7 +1068,7 @@ func (x *UnregisterAvailabilityCallbackResponse) ProtoReflect() protoreflect.Mes
 
 // Deprecated: Use UnregisterAvailabilityCallbackResponse.ProtoReflect.Descriptor instead.
 func (*UnregisterAvailabilityCallbackResponse) Descriptor() ([]byte, []int) {
-	return file_proto_camera_camera_proto_rawDescGZIP(), []int{27}
+	return file_proto_camera_camera_proto_rawDescGZIP(), []int{23}
 }
 
 type UnregisterTorchCallbackRequest struct {
@@ -1248,7 +1080,7 @@ type UnregisterTorchCallbackRequest struct {
 
 func (x *UnregisterTorchCallbackRequest) Reset() {
 	*x = UnregisterTorchCallbackRequest{}
-	mi := &file_proto_camera_camera_proto_msgTypes[28]
+	mi := &file_proto_camera_camera_proto_msgTypes[24]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1260,7 +1092,7 @@ func (x *UnregisterTorchCallbackRequest) String() string {
 func (*UnregisterTorchCallbackRequest) ProtoMessage() {}
 
 func (x *UnregisterTorchCallbackRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_camera_camera_proto_msgTypes[28]
+	mi := &file_proto_camera_camera_proto_msgTypes[24]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1273,7 +1105,7 @@ func (x *UnregisterTorchCallbackRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use UnregisterTorchCallbackRequest.ProtoReflect.Descriptor instead.
 func (*UnregisterTorchCallbackRequest) Descriptor() ([]byte, []int) {
-	return file_proto_camera_camera_proto_rawDescGZIP(), []int{28}
+	return file_proto_camera_camera_proto_rawDescGZIP(), []int{24}
 }
 
 func (x *UnregisterTorchCallbackRequest) GetArg0() int64 {
@@ -1291,7 +1123,7 @@ type UnregisterTorchCallbackResponse struct {
 
 func (x *UnregisterTorchCallbackResponse) Reset() {
 	*x = UnregisterTorchCallbackResponse{}
-	mi := &file_proto_camera_camera_proto_msgTypes[29]
+	mi := &file_proto_camera_camera_proto_msgTypes[25]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1303,7 +1135,7 @@ func (x *UnregisterTorchCallbackResponse) String() string {
 func (*UnregisterTorchCallbackResponse) ProtoMessage() {}
 
 func (x *UnregisterTorchCallbackResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_camera_camera_proto_msgTypes[29]
+	mi := &file_proto_camera_camera_proto_msgTypes[25]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1316,7 +1148,7 @@ func (x *UnregisterTorchCallbackResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use UnregisterTorchCallbackResponse.ProtoReflect.Descriptor instead.
 func (*UnregisterTorchCallbackResponse) Descriptor() ([]byte, []int) {
-	return file_proto_camera_camera_proto_rawDescGZIP(), []int{29}
+	return file_proto_camera_camera_proto_rawDescGZIP(), []int{25}
 }
 
 var File_proto_camera_camera_proto protoreflect.FileDescriptor
@@ -1338,9 +1170,6 @@ const file_proto_camera_camera_proto_rawDesc = "" +
 	"\x06result\x18\x01 \x01(\x03R\x06result\"\x18\n" +
 	"\x16GetCameraIdListRequest\"1\n" +
 	"\x17GetCameraIdListResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"\x1f\n" +
-	"\x1dGetConcurrentCameraIdsRequest\"8\n" +
-	"\x1eGetConcurrentCameraIdsResponse\x12\x16\n" +
 	"\x06result\x18\x01 \x01(\x03R\x06result\"2\n" +
 	"\x1cGetTorchStrengthLevelRequest\x12\x12\n" +
 	"\x04arg0\x18\x01 \x01(\tR\x04arg0\"7\n" +
@@ -1349,10 +1178,6 @@ const file_proto_camera_camera_proto_rawDesc = "" +
 	"#IsCameraDeviceSetupSupportedRequest\x12\x12\n" +
 	"\x04arg0\x18\x01 \x01(\tR\x04arg0\">\n" +
 	"$IsCameraDeviceSetupSupportedResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\bR\x06result\"F\n" +
-	"0IsConcurrentSessionConfigurationSupportedRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"K\n" +
-	"1IsConcurrentSessionConfigurationSupportedResponse\x12\x16\n" +
 	"\x06result\x18\x01 \x01(\bR\x06result\"O\n" +
 	"\x11OpenCameraRequest\x12\x12\n" +
 	"\x04arg0\x18\x01 \x01(\tR\x04arg0\x12\x12\n" +
@@ -1380,16 +1205,15 @@ const file_proto_camera_camera_proto_rawDesc = "" +
 	"&UnregisterAvailabilityCallbackResponse\"4\n" +
 	"\x1eUnregisterTorchCallbackRequest\x12\x12\n" +
 	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"!\n" +
-	"\x1fUnregisterTorchCallbackResponse2\x87\r\n" +
+	"\x1fUnregisterTorchCallbackResponse2\xfb\n" +
+	"\n" +
 	"\x0eManagerService\x12m\n" +
 	"\x18GetCameraCharacteristics\x12'.camera.GetCameraCharacteristicsRequest\x1a(.camera.GetCameraCharacteristicsResponse\x12a\n" +
 	"\x14GetCameraDeviceSetup\x12#.camera.GetCameraDeviceSetupRequest\x1a$.camera.GetCameraDeviceSetupResponse\x12\x88\x01\n" +
 	"!GetCameraExtensionCharacteristics\x120.camera.GetCameraExtensionCharacteristicsRequest\x1a1.camera.GetCameraExtensionCharacteristicsResponse\x12R\n" +
-	"\x0fGetCameraIdList\x12\x1e.camera.GetCameraIdListRequest\x1a\x1f.camera.GetCameraIdListResponse\x12g\n" +
-	"\x16GetConcurrentCameraIds\x12%.camera.GetConcurrentCameraIdsRequest\x1a&.camera.GetConcurrentCameraIdsResponse\x12d\n" +
+	"\x0fGetCameraIdList\x12\x1e.camera.GetCameraIdListRequest\x1a\x1f.camera.GetCameraIdListResponse\x12d\n" +
 	"\x15GetTorchStrengthLevel\x12$.camera.GetTorchStrengthLevelRequest\x1a%.camera.GetTorchStrengthLevelResponse\x12y\n" +
-	"\x1cIsCameraDeviceSetupSupported\x12+.camera.IsCameraDeviceSetupSupportedRequest\x1a,.camera.IsCameraDeviceSetupSupportedResponse\x12\xa0\x01\n" +
-	")IsConcurrentSessionConfigurationSupported\x128.camera.IsConcurrentSessionConfigurationSupportedRequest\x1a9.camera.IsConcurrentSessionConfigurationSupportedResponse\x12C\n" +
+	"\x1cIsCameraDeviceSetupSupported\x12+.camera.IsCameraDeviceSetupSupportedRequest\x1a,.camera.IsCameraDeviceSetupSupportedResponse\x12C\n" +
 	"\n" +
 	"OpenCamera\x12\x19.camera.OpenCameraRequest\x1a\x1a.camera.OpenCameraResponse\x12y\n" +
 	"\x1cRegisterAvailabilityCallback\x12+.camera.RegisterAvailabilityCallbackRequest\x1a,.camera.RegisterAvailabilityCallbackResponse\x12d\n" +
@@ -1411,72 +1235,64 @@ func file_proto_camera_camera_proto_rawDescGZIP() []byte {
 	return file_proto_camera_camera_proto_rawDescData
 }
 
-var file_proto_camera_camera_proto_msgTypes = make([]protoimpl.MessageInfo, 30)
+var file_proto_camera_camera_proto_msgTypes = make([]protoimpl.MessageInfo, 26)
 var file_proto_camera_camera_proto_goTypes = []any{
-	(*GetCameraCharacteristicsRequest)(nil),                   // 0: camera.GetCameraCharacteristicsRequest
-	(*GetCameraCharacteristicsResponse)(nil),                  // 1: camera.GetCameraCharacteristicsResponse
-	(*GetCameraDeviceSetupRequest)(nil),                       // 2: camera.GetCameraDeviceSetupRequest
-	(*GetCameraDeviceSetupResponse)(nil),                      // 3: camera.GetCameraDeviceSetupResponse
-	(*GetCameraExtensionCharacteristicsRequest)(nil),          // 4: camera.GetCameraExtensionCharacteristicsRequest
-	(*GetCameraExtensionCharacteristicsResponse)(nil),         // 5: camera.GetCameraExtensionCharacteristicsResponse
-	(*GetCameraIdListRequest)(nil),                            // 6: camera.GetCameraIdListRequest
-	(*GetCameraIdListResponse)(nil),                           // 7: camera.GetCameraIdListResponse
-	(*GetConcurrentCameraIdsRequest)(nil),                     // 8: camera.GetConcurrentCameraIdsRequest
-	(*GetConcurrentCameraIdsResponse)(nil),                    // 9: camera.GetConcurrentCameraIdsResponse
-	(*GetTorchStrengthLevelRequest)(nil),                      // 10: camera.GetTorchStrengthLevelRequest
-	(*GetTorchStrengthLevelResponse)(nil),                     // 11: camera.GetTorchStrengthLevelResponse
-	(*IsCameraDeviceSetupSupportedRequest)(nil),               // 12: camera.IsCameraDeviceSetupSupportedRequest
-	(*IsCameraDeviceSetupSupportedResponse)(nil),              // 13: camera.IsCameraDeviceSetupSupportedResponse
-	(*IsConcurrentSessionConfigurationSupportedRequest)(nil),  // 14: camera.IsConcurrentSessionConfigurationSupportedRequest
-	(*IsConcurrentSessionConfigurationSupportedResponse)(nil), // 15: camera.IsConcurrentSessionConfigurationSupportedResponse
-	(*OpenCameraRequest)(nil),                                 // 16: camera.OpenCameraRequest
-	(*OpenCameraResponse)(nil),                                // 17: camera.OpenCameraResponse
-	(*RegisterAvailabilityCallbackRequest)(nil),               // 18: camera.RegisterAvailabilityCallbackRequest
-	(*RegisterAvailabilityCallbackResponse)(nil),              // 19: camera.RegisterAvailabilityCallbackResponse
-	(*RegisterTorchCallbackRequest)(nil),                      // 20: camera.RegisterTorchCallbackRequest
-	(*RegisterTorchCallbackResponse)(nil),                     // 21: camera.RegisterTorchCallbackResponse
-	(*SetTorchModeRequest)(nil),                               // 22: camera.SetTorchModeRequest
-	(*SetTorchModeResponse)(nil),                              // 23: camera.SetTorchModeResponse
-	(*TurnOnTorchWithStrengthLevelRequest)(nil),               // 24: camera.TurnOnTorchWithStrengthLevelRequest
-	(*TurnOnTorchWithStrengthLevelResponse)(nil),              // 25: camera.TurnOnTorchWithStrengthLevelResponse
-	(*UnregisterAvailabilityCallbackRequest)(nil),             // 26: camera.UnregisterAvailabilityCallbackRequest
-	(*UnregisterAvailabilityCallbackResponse)(nil),            // 27: camera.UnregisterAvailabilityCallbackResponse
-	(*UnregisterTorchCallbackRequest)(nil),                    // 28: camera.UnregisterTorchCallbackRequest
-	(*UnregisterTorchCallbackResponse)(nil),                   // 29: camera.UnregisterTorchCallbackResponse
+	(*GetCameraCharacteristicsRequest)(nil),           // 0: camera.GetCameraCharacteristicsRequest
+	(*GetCameraCharacteristicsResponse)(nil),          // 1: camera.GetCameraCharacteristicsResponse
+	(*GetCameraDeviceSetupRequest)(nil),               // 2: camera.GetCameraDeviceSetupRequest
+	(*GetCameraDeviceSetupResponse)(nil),              // 3: camera.GetCameraDeviceSetupResponse
+	(*GetCameraExtensionCharacteristicsRequest)(nil),  // 4: camera.GetCameraExtensionCharacteristicsRequest
+	(*GetCameraExtensionCharacteristicsResponse)(nil), // 5: camera.GetCameraExtensionCharacteristicsResponse
+	(*GetCameraIdListRequest)(nil),                    // 6: camera.GetCameraIdListRequest
+	(*GetCameraIdListResponse)(nil),                   // 7: camera.GetCameraIdListResponse
+	(*GetTorchStrengthLevelRequest)(nil),              // 8: camera.GetTorchStrengthLevelRequest
+	(*GetTorchStrengthLevelResponse)(nil),             // 9: camera.GetTorchStrengthLevelResponse
+	(*IsCameraDeviceSetupSupportedRequest)(nil),       // 10: camera.IsCameraDeviceSetupSupportedRequest
+	(*IsCameraDeviceSetupSupportedResponse)(nil),      // 11: camera.IsCameraDeviceSetupSupportedResponse
+	(*OpenCameraRequest)(nil),                         // 12: camera.OpenCameraRequest
+	(*OpenCameraResponse)(nil),                        // 13: camera.OpenCameraResponse
+	(*RegisterAvailabilityCallbackRequest)(nil),       // 14: camera.RegisterAvailabilityCallbackRequest
+	(*RegisterAvailabilityCallbackResponse)(nil),      // 15: camera.RegisterAvailabilityCallbackResponse
+	(*RegisterTorchCallbackRequest)(nil),              // 16: camera.RegisterTorchCallbackRequest
+	(*RegisterTorchCallbackResponse)(nil),             // 17: camera.RegisterTorchCallbackResponse
+	(*SetTorchModeRequest)(nil),                       // 18: camera.SetTorchModeRequest
+	(*SetTorchModeResponse)(nil),                      // 19: camera.SetTorchModeResponse
+	(*TurnOnTorchWithStrengthLevelRequest)(nil),       // 20: camera.TurnOnTorchWithStrengthLevelRequest
+	(*TurnOnTorchWithStrengthLevelResponse)(nil),      // 21: camera.TurnOnTorchWithStrengthLevelResponse
+	(*UnregisterAvailabilityCallbackRequest)(nil),     // 22: camera.UnregisterAvailabilityCallbackRequest
+	(*UnregisterAvailabilityCallbackResponse)(nil),    // 23: camera.UnregisterAvailabilityCallbackResponse
+	(*UnregisterTorchCallbackRequest)(nil),            // 24: camera.UnregisterTorchCallbackRequest
+	(*UnregisterTorchCallbackResponse)(nil),           // 25: camera.UnregisterTorchCallbackResponse
 }
 var file_proto_camera_camera_proto_depIdxs = []int32{
 	0,  // 0: camera.ManagerService.GetCameraCharacteristics:input_type -> camera.GetCameraCharacteristicsRequest
 	2,  // 1: camera.ManagerService.GetCameraDeviceSetup:input_type -> camera.GetCameraDeviceSetupRequest
 	4,  // 2: camera.ManagerService.GetCameraExtensionCharacteristics:input_type -> camera.GetCameraExtensionCharacteristicsRequest
 	6,  // 3: camera.ManagerService.GetCameraIdList:input_type -> camera.GetCameraIdListRequest
-	8,  // 4: camera.ManagerService.GetConcurrentCameraIds:input_type -> camera.GetConcurrentCameraIdsRequest
-	10, // 5: camera.ManagerService.GetTorchStrengthLevel:input_type -> camera.GetTorchStrengthLevelRequest
-	12, // 6: camera.ManagerService.IsCameraDeviceSetupSupported:input_type -> camera.IsCameraDeviceSetupSupportedRequest
-	14, // 7: camera.ManagerService.IsConcurrentSessionConfigurationSupported:input_type -> camera.IsConcurrentSessionConfigurationSupportedRequest
-	16, // 8: camera.ManagerService.OpenCamera:input_type -> camera.OpenCameraRequest
-	18, // 9: camera.ManagerService.RegisterAvailabilityCallback:input_type -> camera.RegisterAvailabilityCallbackRequest
-	20, // 10: camera.ManagerService.RegisterTorchCallback:input_type -> camera.RegisterTorchCallbackRequest
-	22, // 11: camera.ManagerService.SetTorchMode:input_type -> camera.SetTorchModeRequest
-	24, // 12: camera.ManagerService.TurnOnTorchWithStrengthLevel:input_type -> camera.TurnOnTorchWithStrengthLevelRequest
-	26, // 13: camera.ManagerService.UnregisterAvailabilityCallback:input_type -> camera.UnregisterAvailabilityCallbackRequest
-	28, // 14: camera.ManagerService.UnregisterTorchCallback:input_type -> camera.UnregisterTorchCallbackRequest
-	1,  // 15: camera.ManagerService.GetCameraCharacteristics:output_type -> camera.GetCameraCharacteristicsResponse
-	3,  // 16: camera.ManagerService.GetCameraDeviceSetup:output_type -> camera.GetCameraDeviceSetupResponse
-	5,  // 17: camera.ManagerService.GetCameraExtensionCharacteristics:output_type -> camera.GetCameraExtensionCharacteristicsResponse
-	7,  // 18: camera.ManagerService.GetCameraIdList:output_type -> camera.GetCameraIdListResponse
-	9,  // 19: camera.ManagerService.GetConcurrentCameraIds:output_type -> camera.GetConcurrentCameraIdsResponse
-	11, // 20: camera.ManagerService.GetTorchStrengthLevel:output_type -> camera.GetTorchStrengthLevelResponse
-	13, // 21: camera.ManagerService.IsCameraDeviceSetupSupported:output_type -> camera.IsCameraDeviceSetupSupportedResponse
-	15, // 22: camera.ManagerService.IsConcurrentSessionConfigurationSupported:output_type -> camera.IsConcurrentSessionConfigurationSupportedResponse
-	17, // 23: camera.ManagerService.OpenCamera:output_type -> camera.OpenCameraResponse
-	19, // 24: camera.ManagerService.RegisterAvailabilityCallback:output_type -> camera.RegisterAvailabilityCallbackResponse
-	21, // 25: camera.ManagerService.RegisterTorchCallback:output_type -> camera.RegisterTorchCallbackResponse
-	23, // 26: camera.ManagerService.SetTorchMode:output_type -> camera.SetTorchModeResponse
-	25, // 27: camera.ManagerService.TurnOnTorchWithStrengthLevel:output_type -> camera.TurnOnTorchWithStrengthLevelResponse
-	27, // 28: camera.ManagerService.UnregisterAvailabilityCallback:output_type -> camera.UnregisterAvailabilityCallbackResponse
-	29, // 29: camera.ManagerService.UnregisterTorchCallback:output_type -> camera.UnregisterTorchCallbackResponse
-	15, // [15:30] is the sub-list for method output_type
-	0,  // [0:15] is the sub-list for method input_type
+	8,  // 4: camera.ManagerService.GetTorchStrengthLevel:input_type -> camera.GetTorchStrengthLevelRequest
+	10, // 5: camera.ManagerService.IsCameraDeviceSetupSupported:input_type -> camera.IsCameraDeviceSetupSupportedRequest
+	12, // 6: camera.ManagerService.OpenCamera:input_type -> camera.OpenCameraRequest
+	14, // 7: camera.ManagerService.RegisterAvailabilityCallback:input_type -> camera.RegisterAvailabilityCallbackRequest
+	16, // 8: camera.ManagerService.RegisterTorchCallback:input_type -> camera.RegisterTorchCallbackRequest
+	18, // 9: camera.ManagerService.SetTorchMode:input_type -> camera.SetTorchModeRequest
+	20, // 10: camera.ManagerService.TurnOnTorchWithStrengthLevel:input_type -> camera.TurnOnTorchWithStrengthLevelRequest
+	22, // 11: camera.ManagerService.UnregisterAvailabilityCallback:input_type -> camera.UnregisterAvailabilityCallbackRequest
+	24, // 12: camera.ManagerService.UnregisterTorchCallback:input_type -> camera.UnregisterTorchCallbackRequest
+	1,  // 13: camera.ManagerService.GetCameraCharacteristics:output_type -> camera.GetCameraCharacteristicsResponse
+	3,  // 14: camera.ManagerService.GetCameraDeviceSetup:output_type -> camera.GetCameraDeviceSetupResponse
+	5,  // 15: camera.ManagerService.GetCameraExtensionCharacteristics:output_type -> camera.GetCameraExtensionCharacteristicsResponse
+	7,  // 16: camera.ManagerService.GetCameraIdList:output_type -> camera.GetCameraIdListResponse
+	9,  // 17: camera.ManagerService.GetTorchStrengthLevel:output_type -> camera.GetTorchStrengthLevelResponse
+	11, // 18: camera.ManagerService.IsCameraDeviceSetupSupported:output_type -> camera.IsCameraDeviceSetupSupportedResponse
+	13, // 19: camera.ManagerService.OpenCamera:output_type -> camera.OpenCameraResponse
+	15, // 20: camera.ManagerService.RegisterAvailabilityCallback:output_type -> camera.RegisterAvailabilityCallbackResponse
+	17, // 21: camera.ManagerService.RegisterTorchCallback:output_type -> camera.RegisterTorchCallbackResponse
+	19, // 22: camera.ManagerService.SetTorchMode:output_type -> camera.SetTorchModeResponse
+	21, // 23: camera.ManagerService.TurnOnTorchWithStrengthLevel:output_type -> camera.TurnOnTorchWithStrengthLevelResponse
+	23, // 24: camera.ManagerService.UnregisterAvailabilityCallback:output_type -> camera.UnregisterAvailabilityCallbackResponse
+	25, // 25: camera.ManagerService.UnregisterTorchCallback:output_type -> camera.UnregisterTorchCallbackResponse
+	13, // [13:26] is the sub-list for method output_type
+	0,  // [0:13] is the sub-list for method input_type
 	0,  // [0:0] is the sub-list for extension type_name
 	0,  // [0:0] is the sub-list for extension extendee
 	0,  // [0:0] is the sub-list for field type_name
@@ -1493,7 +1309,7 @@ func file_proto_camera_camera_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_proto_camera_camera_proto_rawDesc), len(file_proto_camera_camera_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   30,
+			NumMessages:   26,
 			NumExtensions: 0,
 			NumServices:   1,
 		},

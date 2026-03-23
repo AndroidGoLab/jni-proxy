@@ -22,32 +22,18 @@ type AccountManagerServer struct {
 	Handles *handlestore.HandleStore
 }
 
-func (s *AccountManagerServer) AddAccountExplicitly3(_ context.Context, req *pb.AddAccountExplicitly3Request) (*pb.AddAccountExplicitly3Response, error) {
+func (s *AccountManagerServer) AddAccountExplicitly(_ context.Context, req *pb.AddAccountExplicitlyRequest) (*pb.AddAccountExplicitlyResponse, error) {
 	mgr, err := jnipkg.NewAccountManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
 	defer mgr.Close()
 
-	result, err := mgr.AddAccountExplicitly3(s.Handles.Get(req.GetArg0()), req.GetArg1(), s.Handles.Get(req.GetArg2()))
+	result, err := mgr.AddAccountExplicitly(s.Handles.Get(req.GetArg0()), req.GetArg1(), s.Handles.Get(req.GetArg2()))
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "%v", err)
 	}
-	return &pb.AddAccountExplicitly3Response{Result: result}, nil
-}
-
-func (s *AccountManagerServer) AddAccountExplicitly4_1(_ context.Context, req *pb.AddAccountExplicitly4_1Request) (*pb.AddAccountExplicitly4_1Response, error) {
-	mgr, err := jnipkg.NewAccountManager(s.Ctx)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
-	}
-	defer mgr.Close()
-
-	result, err := mgr.AddAccountExplicitly4_1(s.Handles.Get(req.GetArg0()), req.GetArg1(), s.Handles.Get(req.GetArg2()), s.Handles.Get(req.GetArg3()))
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.AddAccountExplicitly4_1Response{Result: result}, nil
+	return &pb.AddAccountExplicitlyResponse{Result: result}, nil
 }
 
 func (s *AccountManagerServer) BlockingGetAuthToken(_ context.Context, req *pb.BlockingGetAuthTokenRequest) (*pb.BlockingGetAuthTokenResponse, error) {
@@ -367,50 +353,4 @@ func (s *AccountManagerServer) Get(_ context.Context, req *pb.GetRequest) (*pb.G
 		}
 	}
 	return &pb.GetResponse{Result: handle}, nil
-}
-
-func (s *AccountManagerServer) NewChooseAccountIntent8(_ context.Context, req *pb.NewChooseAccountIntent8Request) (*pb.NewChooseAccountIntent8Response, error) {
-	mgr, err := jnipkg.NewAccountManager(s.Ctx)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
-	}
-	defer mgr.Close()
-
-	result, err := mgr.NewChooseAccountIntent8(s.Handles.Get(req.GetArg0()), s.Handles.Get(req.GetArg1()), s.Handles.Get(req.GetArg2()), req.GetArg3(), req.GetArg4(), req.GetArg5(), s.Handles.Get(req.GetArg6()), s.Handles.Get(req.GetArg7()))
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	var handle int64
-	if result != nil {
-		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-			handle = s.Handles.Put(env, result)
-			return nil
-		}); doErr != nil {
-			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-		}
-	}
-	return &pb.NewChooseAccountIntent8Response{Result: handle}, nil
-}
-
-func (s *AccountManagerServer) NewChooseAccountIntent7_1(_ context.Context, req *pb.NewChooseAccountIntent7_1Request) (*pb.NewChooseAccountIntent7_1Response, error) {
-	mgr, err := jnipkg.NewAccountManager(s.Ctx)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
-	}
-	defer mgr.Close()
-
-	result, err := mgr.NewChooseAccountIntent7_1(s.Handles.Get(req.GetArg0()), s.Handles.Get(req.GetArg1()), s.Handles.Get(req.GetArg2()), req.GetArg3(), req.GetArg4(), s.Handles.Get(req.GetArg5()), s.Handles.Get(req.GetArg6()))
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	var handle int64
-	if result != nil {
-		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-			handle = s.Handles.Put(env, result)
-			return nil
-		}); doErr != nil {
-			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-		}
-	}
-	return &pb.NewChooseAccountIntent7_1Response{Result: handle}, nil
 }

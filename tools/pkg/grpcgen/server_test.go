@@ -329,48 +329,54 @@ func TestExportName(t *testing.T) {
 	}
 }
 
-func TestHasContextConstructor(t *testing.T) {
+func TestIsServiceEligible(t *testing.T) {
+	oneMethod := []javagen.MergedMethod{{GoName: "Foo"}}
 	tests := []struct {
 		name   string
 		cls    javagen.MergedClass
 		expect bool
 	}{
 		{
-			name:   "system_service",
-			cls:    javagen.MergedClass{Obtain: "system_service"},
+			name:   "system_service with methods",
+			cls:    javagen.MergedClass{Obtain: "system_service", Methods: oneMethod},
 			expect: true,
 		},
 		{
+			name:   "system_service without methods",
+			cls:    javagen.MergedClass{Obtain: "system_service"},
+			expect: false,
+		},
+		{
 			name:   "context_method",
-			cls:    javagen.MergedClass{Obtain: "context_method"},
+			cls:    javagen.MergedClass{Obtain: "context_method", Methods: oneMethod},
 			expect: false,
 		},
 		{
 			name:   "constructor",
-			cls:    javagen.MergedClass{Obtain: "constructor"},
+			cls:    javagen.MergedClass{Obtain: "constructor", Methods: oneMethod},
 			expect: false,
 		},
 		{
 			name:   "no obtain",
-			cls:    javagen.MergedClass{Obtain: ""},
+			cls:    javagen.MergedClass{Obtain: "", Methods: oneMethod},
 			expect: false,
 		},
 		{
 			name:   "data_class",
-			cls:    javagen.MergedClass{Kind: "data_class", Obtain: "system_service"},
+			cls:    javagen.MergedClass{Kind: "data_class", Obtain: "system_service", Methods: oneMethod},
 			expect: false,
 		},
 		{
 			name:   "builder",
-			cls:    javagen.MergedClass{Kind: "builder"},
+			cls:    javagen.MergedClass{Kind: "builder", Methods: oneMethod},
 			expect: false,
 		},
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			got := hasContextConstructor(tt.cls)
+			got := protogen.IsServiceEligible(tt.cls)
 			if got != tt.expect {
-				t.Errorf("hasContextConstructor() = %v, want %v", got, tt.expect)
+				t.Errorf("IsServiceEligible() = %v, want %v", got, tt.expect)
 			}
 		})
 	}

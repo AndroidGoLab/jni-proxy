@@ -6,50 +6,73 @@ package health;
 
 option go_package = "github.com/AndroidGoLab/jni-proxy/proto/health";
 
-message GetOrCreateRawRequest {
-  int64 ctx = 1;
+message GetCpuHeadroomRequest {
+  int64 arg0 = 1;
 }
 
-message GetOrCreateRawResponse {
+message GetCpuHeadroomResponse {
+  float result = 1;
+}
+
+message GetCpuHeadroomMinIntervalMillisRequest {
+}
+
+message GetCpuHeadroomMinIntervalMillisResponse {
   int64 result = 1;
 }
 
-message InsertRecordsRawRequest {
-  int64 records = 1;
+message GetGpuHeadroomRequest {
+  int64 arg0 = 1;
 }
 
-message InsertRecordsRawResponse {
+message GetGpuHeadroomResponse {
+  float result = 1;
+}
+
+message GetGpuHeadroomMinIntervalMillisRequest {
+}
+
+message GetGpuHeadroomMinIntervalMillisResponse {
   int64 result = 1;
 }
 
-message ReadRecordsRawRequest {
-  int64 request = 1;
+message GetMaxCpuHeadroomTidsSizeRequest {
 }
 
-message ReadRecordsRawResponse {
+message GetMaxCpuHeadroomTidsSizeResponse {
+  int32 result = 1;
+}
+
+message TakeMyUidSnapshotRequest {
+}
+
+message TakeMyUidSnapshotResponse {
   int64 result = 1;
 }
 
-message AggregateRawRequest {
-  int64 request = 1;
+message TakeUidSnapshotRequest {
+  int32 arg0 = 1;
 }
 
-message AggregateRawResponse {
+message TakeUidSnapshotResponse {
   int64 result = 1;
 }
 
-message DeleteRecordsRawRequest {
-  int64 record_type = 1;
-  int64 time_range = 2;
+message TakeUidSnapshotsRequest {
+  int64 arg0 = 1;
 }
 
-message DeleteRecordsRawResponse {
+message TakeUidSnapshotsResponse {
+  int64 result = 1;
 }
 
-service ManagerService {
-  rpc GetOrCreateRaw (GetOrCreateRawRequest) returns (GetOrCreateRawResponse);
-  rpc InsertRecordsRaw (InsertRecordsRawRequest) returns (InsertRecordsRawResponse);
-  rpc ReadRecordsRaw (ReadRecordsRawRequest) returns (ReadRecordsRawResponse);
-  rpc AggregateRaw (AggregateRawRequest) returns (AggregateRawResponse);
-  rpc DeleteRecordsRaw (DeleteRecordsRawRequest) returns (DeleteRecordsRawResponse);
+service SystemHealthManagerService {
+  rpc GetCpuHeadroom (GetCpuHeadroomRequest) returns (GetCpuHeadroomResponse);
+  rpc GetCpuHeadroomMinIntervalMillis (GetCpuHeadroomMinIntervalMillisRequest) returns (GetCpuHeadroomMinIntervalMillisResponse);
+  rpc GetGpuHeadroom (GetGpuHeadroomRequest) returns (GetGpuHeadroomResponse);
+  rpc GetGpuHeadroomMinIntervalMillis (GetGpuHeadroomMinIntervalMillisRequest) returns (GetGpuHeadroomMinIntervalMillisResponse);
+  rpc GetMaxCpuHeadroomTidsSize (GetMaxCpuHeadroomTidsSizeRequest) returns (GetMaxCpuHeadroomTidsSizeResponse);
+  rpc TakeMyUidSnapshot (TakeMyUidSnapshotRequest) returns (TakeMyUidSnapshotResponse);
+  rpc TakeUidSnapshot (TakeUidSnapshotRequest) returns (TakeUidSnapshotResponse);
+  rpc TakeUidSnapshots (TakeUidSnapshotsRequest) returns (TakeUidSnapshotsResponse);
 }

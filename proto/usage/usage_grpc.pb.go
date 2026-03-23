@@ -21,534 +21,11 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
-	StatsService_Add_FullMethodName                               = "/usage.StatsService/Add"
-	StatsService_DescribeContents_FullMethodName                  = "/usage.StatsService/DescribeContents"
-	StatsService_GetFirstTimeStamp_FullMethodName                 = "/usage.StatsService/GetFirstTimeStamp"
-	StatsService_GetLastTimeForegroundServiceUsed_FullMethodName  = "/usage.StatsService/GetLastTimeForegroundServiceUsed"
-	StatsService_GetLastTimeStamp_FullMethodName                  = "/usage.StatsService/GetLastTimeStamp"
-	StatsService_GetLastTimeUsed_FullMethodName                   = "/usage.StatsService/GetLastTimeUsed"
-	StatsService_GetLastTimeVisible_FullMethodName                = "/usage.StatsService/GetLastTimeVisible"
-	StatsService_GetPackageName_FullMethodName                    = "/usage.StatsService/GetPackageName"
-	StatsService_GetTotalTimeForegroundServiceUsed_FullMethodName = "/usage.StatsService/GetTotalTimeForegroundServiceUsed"
-	StatsService_GetTotalTimeInForeground_FullMethodName          = "/usage.StatsService/GetTotalTimeInForeground"
-	StatsService_GetTotalTimeVisible_FullMethodName               = "/usage.StatsService/GetTotalTimeVisible"
-	StatsService_WriteToParcel_FullMethodName                     = "/usage.StatsService/WriteToParcel"
-)
-
-// StatsServiceClient is the client API for StatsService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type StatsServiceClient interface {
-	Add(ctx context.Context, in *AddRequest, opts ...grpc.CallOption) (*AddResponse, error)
-	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
-	GetFirstTimeStamp(ctx context.Context, in *GetFirstTimeStampRequest, opts ...grpc.CallOption) (*GetFirstTimeStampResponse, error)
-	GetLastTimeForegroundServiceUsed(ctx context.Context, in *GetLastTimeForegroundServiceUsedRequest, opts ...grpc.CallOption) (*GetLastTimeForegroundServiceUsedResponse, error)
-	GetLastTimeStamp(ctx context.Context, in *GetLastTimeStampRequest, opts ...grpc.CallOption) (*GetLastTimeStampResponse, error)
-	GetLastTimeUsed(ctx context.Context, in *GetLastTimeUsedRequest, opts ...grpc.CallOption) (*GetLastTimeUsedResponse, error)
-	GetLastTimeVisible(ctx context.Context, in *GetLastTimeVisibleRequest, opts ...grpc.CallOption) (*GetLastTimeVisibleResponse, error)
-	GetPackageName(ctx context.Context, in *GetPackageNameRequest, opts ...grpc.CallOption) (*GetPackageNameResponse, error)
-	GetTotalTimeForegroundServiceUsed(ctx context.Context, in *GetTotalTimeForegroundServiceUsedRequest, opts ...grpc.CallOption) (*GetTotalTimeForegroundServiceUsedResponse, error)
-	GetTotalTimeInForeground(ctx context.Context, in *GetTotalTimeInForegroundRequest, opts ...grpc.CallOption) (*GetTotalTimeInForegroundResponse, error)
-	GetTotalTimeVisible(ctx context.Context, in *GetTotalTimeVisibleRequest, opts ...grpc.CallOption) (*GetTotalTimeVisibleResponse, error)
-	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
-}
-
-type statsServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewStatsServiceClient(cc grpc.ClientConnInterface) StatsServiceClient {
-	return &statsServiceClient{cc}
-}
-
-func (c *statsServiceClient) Add(ctx context.Context, in *AddRequest, opts ...grpc.CallOption) (*AddResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(AddResponse)
-	err := c.cc.Invoke(ctx, StatsService_Add_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *statsServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(DescribeContentsResponse)
-	err := c.cc.Invoke(ctx, StatsService_DescribeContents_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *statsServiceClient) GetFirstTimeStamp(ctx context.Context, in *GetFirstTimeStampRequest, opts ...grpc.CallOption) (*GetFirstTimeStampResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetFirstTimeStampResponse)
-	err := c.cc.Invoke(ctx, StatsService_GetFirstTimeStamp_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *statsServiceClient) GetLastTimeForegroundServiceUsed(ctx context.Context, in *GetLastTimeForegroundServiceUsedRequest, opts ...grpc.CallOption) (*GetLastTimeForegroundServiceUsedResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetLastTimeForegroundServiceUsedResponse)
-	err := c.cc.Invoke(ctx, StatsService_GetLastTimeForegroundServiceUsed_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *statsServiceClient) GetLastTimeStamp(ctx context.Context, in *GetLastTimeStampRequest, opts ...grpc.CallOption) (*GetLastTimeStampResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetLastTimeStampResponse)
-	err := c.cc.Invoke(ctx, StatsService_GetLastTimeStamp_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *statsServiceClient) GetLastTimeUsed(ctx context.Context, in *GetLastTimeUsedRequest, opts ...grpc.CallOption) (*GetLastTimeUsedResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetLastTimeUsedResponse)
-	err := c.cc.Invoke(ctx, StatsService_GetLastTimeUsed_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *statsServiceClient) GetLastTimeVisible(ctx context.Context, in *GetLastTimeVisibleRequest, opts ...grpc.CallOption) (*GetLastTimeVisibleResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetLastTimeVisibleResponse)
-	err := c.cc.Invoke(ctx, StatsService_GetLastTimeVisible_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *statsServiceClient) GetPackageName(ctx context.Context, in *GetPackageNameRequest, opts ...grpc.CallOption) (*GetPackageNameResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetPackageNameResponse)
-	err := c.cc.Invoke(ctx, StatsService_GetPackageName_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *statsServiceClient) GetTotalTimeForegroundServiceUsed(ctx context.Context, in *GetTotalTimeForegroundServiceUsedRequest, opts ...grpc.CallOption) (*GetTotalTimeForegroundServiceUsedResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetTotalTimeForegroundServiceUsedResponse)
-	err := c.cc.Invoke(ctx, StatsService_GetTotalTimeForegroundServiceUsed_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *statsServiceClient) GetTotalTimeInForeground(ctx context.Context, in *GetTotalTimeInForegroundRequest, opts ...grpc.CallOption) (*GetTotalTimeInForegroundResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetTotalTimeInForegroundResponse)
-	err := c.cc.Invoke(ctx, StatsService_GetTotalTimeInForeground_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *statsServiceClient) GetTotalTimeVisible(ctx context.Context, in *GetTotalTimeVisibleRequest, opts ...grpc.CallOption) (*GetTotalTimeVisibleResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetTotalTimeVisibleResponse)
-	err := c.cc.Invoke(ctx, StatsService_GetTotalTimeVisible_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *statsServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(WriteToParcelResponse)
-	err := c.cc.Invoke(ctx, StatsService_WriteToParcel_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// StatsServiceServer is the server API for StatsService service.
-// All implementations must embed UnimplementedStatsServiceServer
-// for forward compatibility.
-type StatsServiceServer interface {
-	Add(context.Context, *AddRequest) (*AddResponse, error)
-	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
-	GetFirstTimeStamp(context.Context, *GetFirstTimeStampRequest) (*GetFirstTimeStampResponse, error)
-	GetLastTimeForegroundServiceUsed(context.Context, *GetLastTimeForegroundServiceUsedRequest) (*GetLastTimeForegroundServiceUsedResponse, error)
-	GetLastTimeStamp(context.Context, *GetLastTimeStampRequest) (*GetLastTimeStampResponse, error)
-	GetLastTimeUsed(context.Context, *GetLastTimeUsedRequest) (*GetLastTimeUsedResponse, error)
-	GetLastTimeVisible(context.Context, *GetLastTimeVisibleRequest) (*GetLastTimeVisibleResponse, error)
-	GetPackageName(context.Context, *GetPackageNameRequest) (*GetPackageNameResponse, error)
-	GetTotalTimeForegroundServiceUsed(context.Context, *GetTotalTimeForegroundServiceUsedRequest) (*GetTotalTimeForegroundServiceUsedResponse, error)
-	GetTotalTimeInForeground(context.Context, *GetTotalTimeInForegroundRequest) (*GetTotalTimeInForegroundResponse, error)
-	GetTotalTimeVisible(context.Context, *GetTotalTimeVisibleRequest) (*GetTotalTimeVisibleResponse, error)
-	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
-	mustEmbedUnimplementedStatsServiceServer()
-}
-
-// UnimplementedStatsServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedStatsServiceServer struct{}
-
-func (UnimplementedStatsServiceServer) Add(context.Context, *AddRequest) (*AddResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Add not implemented")
-}
-func (UnimplementedStatsServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
-}
-func (UnimplementedStatsServiceServer) GetFirstTimeStamp(context.Context, *GetFirstTimeStampRequest) (*GetFirstTimeStampResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetFirstTimeStamp not implemented")
-}
-func (UnimplementedStatsServiceServer) GetLastTimeForegroundServiceUsed(context.Context, *GetLastTimeForegroundServiceUsedRequest) (*GetLastTimeForegroundServiceUsedResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetLastTimeForegroundServiceUsed not implemented")
-}
-func (UnimplementedStatsServiceServer) GetLastTimeStamp(context.Context, *GetLastTimeStampRequest) (*GetLastTimeStampResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetLastTimeStamp not implemented")
-}
-func (UnimplementedStatsServiceServer) GetLastTimeUsed(context.Context, *GetLastTimeUsedRequest) (*GetLastTimeUsedResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetLastTimeUsed not implemented")
-}
-func (UnimplementedStatsServiceServer) GetLastTimeVisible(context.Context, *GetLastTimeVisibleRequest) (*GetLastTimeVisibleResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetLastTimeVisible not implemented")
-}
-func (UnimplementedStatsServiceServer) GetPackageName(context.Context, *GetPackageNameRequest) (*GetPackageNameResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetPackageName not implemented")
-}
-func (UnimplementedStatsServiceServer) GetTotalTimeForegroundServiceUsed(context.Context, *GetTotalTimeForegroundServiceUsedRequest) (*GetTotalTimeForegroundServiceUsedResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetTotalTimeForegroundServiceUsed not implemented")
-}
-func (UnimplementedStatsServiceServer) GetTotalTimeInForeground(context.Context, *GetTotalTimeInForegroundRequest) (*GetTotalTimeInForegroundResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetTotalTimeInForeground not implemented")
-}
-func (UnimplementedStatsServiceServer) GetTotalTimeVisible(context.Context, *GetTotalTimeVisibleRequest) (*GetTotalTimeVisibleResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetTotalTimeVisible not implemented")
-}
-func (UnimplementedStatsServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
-}
-func (UnimplementedStatsServiceServer) mustEmbedUnimplementedStatsServiceServer() {}
-func (UnimplementedStatsServiceServer) testEmbeddedByValue()                      {}
-
-// UnsafeStatsServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to StatsServiceServer will
-// result in compilation errors.
-type UnsafeStatsServiceServer interface {
-	mustEmbedUnimplementedStatsServiceServer()
-}
-
-func RegisterStatsServiceServer(s grpc.ServiceRegistrar, srv StatsServiceServer) {
-	// If the following call panics, it indicates UnimplementedStatsServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&StatsService_ServiceDesc, srv)
-}
-
-func _StatsService_Add_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(AddRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(StatsServiceServer).Add(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: StatsService_Add_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(StatsServiceServer).Add(ctx, req.(*AddRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _StatsService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(DescribeContentsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(StatsServiceServer).DescribeContents(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: StatsService_DescribeContents_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(StatsServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _StatsService_GetFirstTimeStamp_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetFirstTimeStampRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(StatsServiceServer).GetFirstTimeStamp(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: StatsService_GetFirstTimeStamp_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(StatsServiceServer).GetFirstTimeStamp(ctx, req.(*GetFirstTimeStampRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _StatsService_GetLastTimeForegroundServiceUsed_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetLastTimeForegroundServiceUsedRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(StatsServiceServer).GetLastTimeForegroundServiceUsed(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: StatsService_GetLastTimeForegroundServiceUsed_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(StatsServiceServer).GetLastTimeForegroundServiceUsed(ctx, req.(*GetLastTimeForegroundServiceUsedRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _StatsService_GetLastTimeStamp_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetLastTimeStampRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(StatsServiceServer).GetLastTimeStamp(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: StatsService_GetLastTimeStamp_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(StatsServiceServer).GetLastTimeStamp(ctx, req.(*GetLastTimeStampRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _StatsService_GetLastTimeUsed_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetLastTimeUsedRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(StatsServiceServer).GetLastTimeUsed(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: StatsService_GetLastTimeUsed_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(StatsServiceServer).GetLastTimeUsed(ctx, req.(*GetLastTimeUsedRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _StatsService_GetLastTimeVisible_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetLastTimeVisibleRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(StatsServiceServer).GetLastTimeVisible(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: StatsService_GetLastTimeVisible_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(StatsServiceServer).GetLastTimeVisible(ctx, req.(*GetLastTimeVisibleRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _StatsService_GetPackageName_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetPackageNameRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(StatsServiceServer).GetPackageName(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: StatsService_GetPackageName_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(StatsServiceServer).GetPackageName(ctx, req.(*GetPackageNameRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _StatsService_GetTotalTimeForegroundServiceUsed_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetTotalTimeForegroundServiceUsedRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(StatsServiceServer).GetTotalTimeForegroundServiceUsed(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: StatsService_GetTotalTimeForegroundServiceUsed_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(StatsServiceServer).GetTotalTimeForegroundServiceUsed(ctx, req.(*GetTotalTimeForegroundServiceUsedRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _StatsService_GetTotalTimeInForeground_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetTotalTimeInForegroundRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(StatsServiceServer).GetTotalTimeInForeground(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: StatsService_GetTotalTimeInForeground_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(StatsServiceServer).GetTotalTimeInForeground(ctx, req.(*GetTotalTimeInForegroundRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _StatsService_GetTotalTimeVisible_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetTotalTimeVisibleRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(StatsServiceServer).GetTotalTimeVisible(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: StatsService_GetTotalTimeVisible_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(StatsServiceServer).GetTotalTimeVisible(ctx, req.(*GetTotalTimeVisibleRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _StatsService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(WriteToParcelRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(StatsServiceServer).WriteToParcel(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: StatsService_WriteToParcel_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(StatsServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// StatsService_ServiceDesc is the grpc.ServiceDesc for StatsService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var StatsService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "usage.StatsService",
-	HandlerType: (*StatsServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "Add",
-			Handler:    _StatsService_Add_Handler,
-		},
-		{
-			MethodName: "DescribeContents",
-			Handler:    _StatsService_DescribeContents_Handler,
-		},
-		{
-			MethodName: "GetFirstTimeStamp",
-			Handler:    _StatsService_GetFirstTimeStamp_Handler,
-		},
-		{
-			MethodName: "GetLastTimeForegroundServiceUsed",
-			Handler:    _StatsService_GetLastTimeForegroundServiceUsed_Handler,
-		},
-		{
-			MethodName: "GetLastTimeStamp",
-			Handler:    _StatsService_GetLastTimeStamp_Handler,
-		},
-		{
-			MethodName: "GetLastTimeUsed",
-			Handler:    _StatsService_GetLastTimeUsed_Handler,
-		},
-		{
-			MethodName: "GetLastTimeVisible",
-			Handler:    _StatsService_GetLastTimeVisible_Handler,
-		},
-		{
-			MethodName: "GetPackageName",
-			Handler:    _StatsService_GetPackageName_Handler,
-		},
-		{
-			MethodName: "GetTotalTimeForegroundServiceUsed",
-			Handler:    _StatsService_GetTotalTimeForegroundServiceUsed_Handler,
-		},
-		{
-			MethodName: "GetTotalTimeInForeground",
-			Handler:    _StatsService_GetTotalTimeInForeground_Handler,
-		},
-		{
-			MethodName: "GetTotalTimeVisible",
-			Handler:    _StatsService_GetTotalTimeVisible_Handler,
-		},
-		{
-			MethodName: "WriteToParcel",
-			Handler:    _StatsService_WriteToParcel_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/usage/usage.proto",
-}
-
-const (
 	StatsManagerService_GetAppStandbyBucket_FullMethodName = "/usage.StatsManagerService/GetAppStandbyBucket"
 	StatsManagerService_IsAppInactive_FullMethodName       = "/usage.StatsManagerService/IsAppInactive"
-	StatsManagerService_QueryConfigurations_FullMethodName = "/usage.StatsManagerService/QueryConfigurations"
-	StatsManagerService_QueryEventStats_FullMethodName     = "/usage.StatsManagerService/QueryEventStats"
 	StatsManagerService_QueryEvents1_FullMethodName        = "/usage.StatsManagerService/QueryEvents1"
 	StatsManagerService_QueryEvents2_1_FullMethodName      = "/usage.StatsManagerService/QueryEvents2_1"
 	StatsManagerService_QueryEventsForSelf_FullMethodName  = "/usage.StatsManagerService/QueryEventsForSelf"
-	StatsManagerService_QueryUsageStats_FullMethodName     = "/usage.StatsManagerService/QueryUsageStats"
 )
 
 // StatsManagerServiceClient is the client API for StatsManagerService service.
@@ -557,12 +34,9 @@ const (
 type StatsManagerServiceClient interface {
 	GetAppStandbyBucket(ctx context.Context, in *GetAppStandbyBucketRequest, opts ...grpc.CallOption) (*GetAppStandbyBucketResponse, error)
 	IsAppInactive(ctx context.Context, in *IsAppInactiveRequest, opts ...grpc.CallOption) (*IsAppInactiveResponse, error)
-	QueryConfigurations(ctx context.Context, in *QueryConfigurationsRequest, opts ...grpc.CallOption) (*QueryConfigurationsResponse, error)
-	QueryEventStats(ctx context.Context, in *QueryEventStatsRequest, opts ...grpc.CallOption) (*QueryEventStatsResponse, error)
 	QueryEvents1(ctx context.Context, in *QueryEvents1Request, opts ...grpc.CallOption) (*QueryEvents1Response, error)
 	QueryEvents2_1(ctx context.Context, in *QueryEvents2_1Request, opts ...grpc.CallOption) (*QueryEvents2_1Response, error)
 	QueryEventsForSelf(ctx context.Context, in *QueryEventsForSelfRequest, opts ...grpc.CallOption) (*QueryEventsForSelfResponse, error)
-	QueryUsageStats(ctx context.Context, in *QueryUsageStatsRequest, opts ...grpc.CallOption) (*QueryUsageStatsResponse, error)
 }
 
 type statsManagerServiceClient struct {
@@ -587,26 +61,6 @@ func (c *statsManagerServiceClient) IsAppInactive(ctx context.Context, in *IsApp
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(IsAppInactiveResponse)
 	err := c.cc.Invoke(ctx, StatsManagerService_IsAppInactive_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *statsManagerServiceClient) QueryConfigurations(ctx context.Context, in *QueryConfigurationsRequest, opts ...grpc.CallOption) (*QueryConfigurationsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(QueryConfigurationsResponse)
-	err := c.cc.Invoke(ctx, StatsManagerService_QueryConfigurations_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *statsManagerServiceClient) QueryEventStats(ctx context.Context, in *QueryEventStatsRequest, opts ...grpc.CallOption) (*QueryEventStatsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(QueryEventStatsResponse)
-	err := c.cc.Invoke(ctx, StatsManagerService_QueryEventStats_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
@@ -643,28 +97,15 @@ func (c *statsManagerServiceClient) QueryEventsForSelf(ctx context.Context, in *
 	return out, nil
 }
 
-func (c *statsManagerServiceClient) QueryUsageStats(ctx context.Context, in *QueryUsageStatsRequest, opts ...grpc.CallOption) (*QueryUsageStatsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(QueryUsageStatsResponse)
-	err := c.cc.Invoke(ctx, StatsManagerService_QueryUsageStats_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
 // StatsManagerServiceServer is the server API for StatsManagerService service.
 // All implementations must embed UnimplementedStatsManagerServiceServer
 // for forward compatibility.
 type StatsManagerServiceServer interface {
 	GetAppStandbyBucket(context.Context, *GetAppStandbyBucketRequest) (*GetAppStandbyBucketResponse, error)
 	IsAppInactive(context.Context, *IsAppInactiveRequest) (*IsAppInactiveResponse, error)
-	QueryConfigurations(context.Context, *QueryConfigurationsRequest) (*QueryConfigurationsResponse, error)
-	QueryEventStats(context.Context, *QueryEventStatsRequest) (*QueryEventStatsResponse, error)
 	QueryEvents1(context.Context, *QueryEvents1Request) (*QueryEvents1Response, error)
 	QueryEvents2_1(context.Context, *QueryEvents2_1Request) (*QueryEvents2_1Response, error)
 	QueryEventsForSelf(context.Context, *QueryEventsForSelfRequest) (*QueryEventsForSelfResponse, error)
-	QueryUsageStats(context.Context, *QueryUsageStatsRequest) (*QueryUsageStatsResponse, error)
 	mustEmbedUnimplementedStatsManagerServiceServer()
 }
 
@@ -681,12 +122,6 @@ func (UnimplementedStatsManagerServiceServer) GetAppStandbyBucket(context.Contex
 func (UnimplementedStatsManagerServiceServer) IsAppInactive(context.Context, *IsAppInactiveRequest) (*IsAppInactiveResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method IsAppInactive not implemented")
 }
-func (UnimplementedStatsManagerServiceServer) QueryConfigurations(context.Context, *QueryConfigurationsRequest) (*QueryConfigurationsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method QueryConfigurations not implemented")
-}
-func (UnimplementedStatsManagerServiceServer) QueryEventStats(context.Context, *QueryEventStatsRequest) (*QueryEventStatsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method QueryEventStats not implemented")
-}
 func (UnimplementedStatsManagerServiceServer) QueryEvents1(context.Context, *QueryEvents1Request) (*QueryEvents1Response, error) {
 	return nil, status.Error(codes.Unimplemented, "method QueryEvents1 not implemented")
 }
@@ -695,9 +130,6 @@ func (UnimplementedStatsManagerServiceServer) QueryEvents2_1(context.Context, *Q
 }
 func (UnimplementedStatsManagerServiceServer) QueryEventsForSelf(context.Context, *QueryEventsForSelfRequest) (*QueryEventsForSelfResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method QueryEventsForSelf not implemented")
-}
-func (UnimplementedStatsManagerServiceServer) QueryUsageStats(context.Context, *QueryUsageStatsRequest) (*QueryUsageStatsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method QueryUsageStats not implemented")
 }
 func (UnimplementedStatsManagerServiceServer) mustEmbedUnimplementedStatsManagerServiceServer() {}
 func (UnimplementedStatsManagerServiceServer) testEmbeddedByValue()                             {}
@@ -756,42 +188,6 @@ func _StatsManagerService_IsAppInactive_Handler(srv interface{}, ctx context.Con
 	return interceptor(ctx, in, info, handler)
 }
 
-func _StatsManagerService_QueryConfigurations_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(QueryConfigurationsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(StatsManagerServiceServer).QueryConfigurations(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: StatsManagerService_QueryConfigurations_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(StatsManagerServiceServer).QueryConfigurations(ctx, req.(*QueryConfigurationsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _StatsManagerService_QueryEventStats_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(QueryEventStatsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(StatsManagerServiceServer).QueryEventStats(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: StatsManagerService_QueryEventStats_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(StatsManagerServiceServer).QueryEventStats(ctx, req.(*QueryEventStatsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
 func _StatsManagerService_QueryEvents1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(QueryEvents1Request)
 	if err := dec(in); err != nil {
@@ -846,24 +242,6 @@ func _StatsManagerService_QueryEventsForSelf_Handler(srv interface{}, ctx contex
 	return interceptor(ctx, in, info, handler)
 }
 
-func _StatsManagerService_QueryUsageStats_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(QueryUsageStatsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(StatsManagerServiceServer).QueryUsageStats(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: StatsManagerService_QueryUsageStats_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(StatsManagerServiceServer).QueryUsageStats(ctx, req.(*QueryUsageStatsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
 // StatsManagerService_ServiceDesc is the grpc.ServiceDesc for StatsManagerService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -880,14 +258,6 @@ var StatsManagerService_ServiceDesc = grpc.ServiceDesc{
 			Handler:    _StatsManagerService_IsAppInactive_Handler,
 		},
 		{
-			MethodName: "QueryConfigurations",
-			Handler:    _StatsManagerService_QueryConfigurations_Handler,
-		},
-		{
-			MethodName: "QueryEventStats",
-			Handler:    _StatsManagerService_QueryEventStats_Handler,
-		},
-		{
 			MethodName: "QueryEvents1",
 			Handler:    _StatsManagerService_QueryEvents1_Handler,
 		},
@@ -899,9 +269,705 @@ var StatsManagerService_ServiceDesc = grpc.ServiceDesc{
 			MethodName: "QueryEventsForSelf",
 			Handler:    _StatsManagerService_QueryEventsForSelf_Handler,
 		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/usage/usage.proto",
+}
+
+const (
+	StorageStatsManagerService_GetFreeBytes_FullMethodName              = "/usage.StorageStatsManagerService/GetFreeBytes"
+	StorageStatsManagerService_GetTotalBytes_FullMethodName             = "/usage.StorageStatsManagerService/GetTotalBytes"
+	StorageStatsManagerService_QueryExternalStatsForUser_FullMethodName = "/usage.StorageStatsManagerService/QueryExternalStatsForUser"
+	StorageStatsManagerService_QueryStatsForPackage_FullMethodName      = "/usage.StorageStatsManagerService/QueryStatsForPackage"
+	StorageStatsManagerService_QueryStatsForUid_FullMethodName          = "/usage.StorageStatsManagerService/QueryStatsForUid"
+	StorageStatsManagerService_QueryStatsForUser_FullMethodName         = "/usage.StorageStatsManagerService/QueryStatsForUser"
+)
+
+// StorageStatsManagerServiceClient is the client API for StorageStatsManagerService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type StorageStatsManagerServiceClient interface {
+	GetFreeBytes(ctx context.Context, in *GetFreeBytesRequest, opts ...grpc.CallOption) (*GetFreeBytesResponse, error)
+	GetTotalBytes(ctx context.Context, in *GetTotalBytesRequest, opts ...grpc.CallOption) (*GetTotalBytesResponse, error)
+	QueryExternalStatsForUser(ctx context.Context, in *QueryExternalStatsForUserRequest, opts ...grpc.CallOption) (*QueryExternalStatsForUserResponse, error)
+	QueryStatsForPackage(ctx context.Context, in *QueryStatsForPackageRequest, opts ...grpc.CallOption) (*QueryStatsForPackageResponse, error)
+	QueryStatsForUid(ctx context.Context, in *QueryStatsForUidRequest, opts ...grpc.CallOption) (*QueryStatsForUidResponse, error)
+	QueryStatsForUser(ctx context.Context, in *QueryStatsForUserRequest, opts ...grpc.CallOption) (*QueryStatsForUserResponse, error)
+}
+
+type storageStatsManagerServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewStorageStatsManagerServiceClient(cc grpc.ClientConnInterface) StorageStatsManagerServiceClient {
+	return &storageStatsManagerServiceClient{cc}
+}
+
+func (c *storageStatsManagerServiceClient) GetFreeBytes(ctx context.Context, in *GetFreeBytesRequest, opts ...grpc.CallOption) (*GetFreeBytesResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetFreeBytesResponse)
+	err := c.cc.Invoke(ctx, StorageStatsManagerService_GetFreeBytes_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *storageStatsManagerServiceClient) GetTotalBytes(ctx context.Context, in *GetTotalBytesRequest, opts ...grpc.CallOption) (*GetTotalBytesResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetTotalBytesResponse)
+	err := c.cc.Invoke(ctx, StorageStatsManagerService_GetTotalBytes_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *storageStatsManagerServiceClient) QueryExternalStatsForUser(ctx context.Context, in *QueryExternalStatsForUserRequest, opts ...grpc.CallOption) (*QueryExternalStatsForUserResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(QueryExternalStatsForUserResponse)
+	err := c.cc.Invoke(ctx, StorageStatsManagerService_QueryExternalStatsForUser_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *storageStatsManagerServiceClient) QueryStatsForPackage(ctx context.Context, in *QueryStatsForPackageRequest, opts ...grpc.CallOption) (*QueryStatsForPackageResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(QueryStatsForPackageResponse)
+	err := c.cc.Invoke(ctx, StorageStatsManagerService_QueryStatsForPackage_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *storageStatsManagerServiceClient) QueryStatsForUid(ctx context.Context, in *QueryStatsForUidRequest, opts ...grpc.CallOption) (*QueryStatsForUidResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(QueryStatsForUidResponse)
+	err := c.cc.Invoke(ctx, StorageStatsManagerService_QueryStatsForUid_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *storageStatsManagerServiceClient) QueryStatsForUser(ctx context.Context, in *QueryStatsForUserRequest, opts ...grpc.CallOption) (*QueryStatsForUserResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(QueryStatsForUserResponse)
+	err := c.cc.Invoke(ctx, StorageStatsManagerService_QueryStatsForUser_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// StorageStatsManagerServiceServer is the server API for StorageStatsManagerService service.
+// All implementations must embed UnimplementedStorageStatsManagerServiceServer
+// for forward compatibility.
+type StorageStatsManagerServiceServer interface {
+	GetFreeBytes(context.Context, *GetFreeBytesRequest) (*GetFreeBytesResponse, error)
+	GetTotalBytes(context.Context, *GetTotalBytesRequest) (*GetTotalBytesResponse, error)
+	QueryExternalStatsForUser(context.Context, *QueryExternalStatsForUserRequest) (*QueryExternalStatsForUserResponse, error)
+	QueryStatsForPackage(context.Context, *QueryStatsForPackageRequest) (*QueryStatsForPackageResponse, error)
+	QueryStatsForUid(context.Context, *QueryStatsForUidRequest) (*QueryStatsForUidResponse, error)
+	QueryStatsForUser(context.Context, *QueryStatsForUserRequest) (*QueryStatsForUserResponse, error)
+	mustEmbedUnimplementedStorageStatsManagerServiceServer()
+}
+
+// UnimplementedStorageStatsManagerServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedStorageStatsManagerServiceServer struct{}
+
+func (UnimplementedStorageStatsManagerServiceServer) GetFreeBytes(context.Context, *GetFreeBytesRequest) (*GetFreeBytesResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetFreeBytes not implemented")
+}
+func (UnimplementedStorageStatsManagerServiceServer) GetTotalBytes(context.Context, *GetTotalBytesRequest) (*GetTotalBytesResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetTotalBytes not implemented")
+}
+func (UnimplementedStorageStatsManagerServiceServer) QueryExternalStatsForUser(context.Context, *QueryExternalStatsForUserRequest) (*QueryExternalStatsForUserResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method QueryExternalStatsForUser not implemented")
+}
+func (UnimplementedStorageStatsManagerServiceServer) QueryStatsForPackage(context.Context, *QueryStatsForPackageRequest) (*QueryStatsForPackageResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method QueryStatsForPackage not implemented")
+}
+func (UnimplementedStorageStatsManagerServiceServer) QueryStatsForUid(context.Context, *QueryStatsForUidRequest) (*QueryStatsForUidResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method QueryStatsForUid not implemented")
+}
+func (UnimplementedStorageStatsManagerServiceServer) QueryStatsForUser(context.Context, *QueryStatsForUserRequest) (*QueryStatsForUserResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method QueryStatsForUser not implemented")
+}
+func (UnimplementedStorageStatsManagerServiceServer) mustEmbedUnimplementedStorageStatsManagerServiceServer() {
+}
+func (UnimplementedStorageStatsManagerServiceServer) testEmbeddedByValue() {}
+
+// UnsafeStorageStatsManagerServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to StorageStatsManagerServiceServer will
+// result in compilation errors.
+type UnsafeStorageStatsManagerServiceServer interface {
+	mustEmbedUnimplementedStorageStatsManagerServiceServer()
+}
+
+func RegisterStorageStatsManagerServiceServer(s grpc.ServiceRegistrar, srv StorageStatsManagerServiceServer) {
+	// If the following call panics, it indicates UnimplementedStorageStatsManagerServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&StorageStatsManagerService_ServiceDesc, srv)
+}
+
+func _StorageStatsManagerService_GetFreeBytes_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetFreeBytesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(StorageStatsManagerServiceServer).GetFreeBytes(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: StorageStatsManagerService_GetFreeBytes_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(StorageStatsManagerServiceServer).GetFreeBytes(ctx, req.(*GetFreeBytesRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _StorageStatsManagerService_GetTotalBytes_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetTotalBytesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(StorageStatsManagerServiceServer).GetTotalBytes(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: StorageStatsManagerService_GetTotalBytes_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(StorageStatsManagerServiceServer).GetTotalBytes(ctx, req.(*GetTotalBytesRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _StorageStatsManagerService_QueryExternalStatsForUser_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(QueryExternalStatsForUserRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(StorageStatsManagerServiceServer).QueryExternalStatsForUser(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: StorageStatsManagerService_QueryExternalStatsForUser_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(StorageStatsManagerServiceServer).QueryExternalStatsForUser(ctx, req.(*QueryExternalStatsForUserRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _StorageStatsManagerService_QueryStatsForPackage_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(QueryStatsForPackageRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(StorageStatsManagerServiceServer).QueryStatsForPackage(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: StorageStatsManagerService_QueryStatsForPackage_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(StorageStatsManagerServiceServer).QueryStatsForPackage(ctx, req.(*QueryStatsForPackageRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _StorageStatsManagerService_QueryStatsForUid_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(QueryStatsForUidRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(StorageStatsManagerServiceServer).QueryStatsForUid(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: StorageStatsManagerService_QueryStatsForUid_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(StorageStatsManagerServiceServer).QueryStatsForUid(ctx, req.(*QueryStatsForUidRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _StorageStatsManagerService_QueryStatsForUser_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(QueryStatsForUserRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(StorageStatsManagerServiceServer).QueryStatsForUser(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: StorageStatsManagerService_QueryStatsForUser_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(StorageStatsManagerServiceServer).QueryStatsForUser(ctx, req.(*QueryStatsForUserRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// StorageStatsManagerService_ServiceDesc is the grpc.ServiceDesc for StorageStatsManagerService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var StorageStatsManagerService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "usage.StorageStatsManagerService",
+	HandlerType: (*StorageStatsManagerServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
 		{
-			MethodName: "QueryUsageStats",
-			Handler:    _StatsManagerService_QueryUsageStats_Handler,
+			MethodName: "GetFreeBytes",
+			Handler:    _StorageStatsManagerService_GetFreeBytes_Handler,
+		},
+		{
+			MethodName: "GetTotalBytes",
+			Handler:    _StorageStatsManagerService_GetTotalBytes_Handler,
+		},
+		{
+			MethodName: "QueryExternalStatsForUser",
+			Handler:    _StorageStatsManagerService_QueryExternalStatsForUser_Handler,
+		},
+		{
+			MethodName: "QueryStatsForPackage",
+			Handler:    _StorageStatsManagerService_QueryStatsForPackage_Handler,
+		},
+		{
+			MethodName: "QueryStatsForUid",
+			Handler:    _StorageStatsManagerService_QueryStatsForUid_Handler,
+		},
+		{
+			MethodName: "QueryStatsForUser",
+			Handler:    _StorageStatsManagerService_QueryStatsForUser_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/usage/usage.proto",
+}
+
+const (
+	NetworkStatsManagerService_QueryDetails_FullMethodName               = "/usage.NetworkStatsManagerService/QueryDetails"
+	NetworkStatsManagerService_QueryDetailsForUid_FullMethodName         = "/usage.NetworkStatsManagerService/QueryDetailsForUid"
+	NetworkStatsManagerService_QueryDetailsForUidTag_FullMethodName      = "/usage.NetworkStatsManagerService/QueryDetailsForUidTag"
+	NetworkStatsManagerService_QueryDetailsForUidTagState_FullMethodName = "/usage.NetworkStatsManagerService/QueryDetailsForUidTagState"
+	NetworkStatsManagerService_QuerySummary_FullMethodName               = "/usage.NetworkStatsManagerService/QuerySummary"
+	NetworkStatsManagerService_QuerySummaryForDevice_FullMethodName      = "/usage.NetworkStatsManagerService/QuerySummaryForDevice"
+	NetworkStatsManagerService_QuerySummaryForUser_FullMethodName        = "/usage.NetworkStatsManagerService/QuerySummaryForUser"
+	NetworkStatsManagerService_RegisterUsageCallback_FullMethodName      = "/usage.NetworkStatsManagerService/RegisterUsageCallback"
+	NetworkStatsManagerService_UnregisterUsageCallback_FullMethodName    = "/usage.NetworkStatsManagerService/UnregisterUsageCallback"
+)
+
+// NetworkStatsManagerServiceClient is the client API for NetworkStatsManagerService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type NetworkStatsManagerServiceClient interface {
+	QueryDetails(ctx context.Context, in *QueryDetailsRequest, opts ...grpc.CallOption) (*QueryDetailsResponse, error)
+	QueryDetailsForUid(ctx context.Context, in *QueryDetailsForUidRequest, opts ...grpc.CallOption) (*QueryDetailsForUidResponse, error)
+	QueryDetailsForUidTag(ctx context.Context, in *QueryDetailsForUidTagRequest, opts ...grpc.CallOption) (*QueryDetailsForUidTagResponse, error)
+	QueryDetailsForUidTagState(ctx context.Context, in *QueryDetailsForUidTagStateRequest, opts ...grpc.CallOption) (*QueryDetailsForUidTagStateResponse, error)
+	QuerySummary(ctx context.Context, in *QuerySummaryRequest, opts ...grpc.CallOption) (*QuerySummaryResponse, error)
+	QuerySummaryForDevice(ctx context.Context, in *QuerySummaryForDeviceRequest, opts ...grpc.CallOption) (*QuerySummaryForDeviceResponse, error)
+	QuerySummaryForUser(ctx context.Context, in *QuerySummaryForUserRequest, opts ...grpc.CallOption) (*QuerySummaryForUserResponse, error)
+	RegisterUsageCallback(ctx context.Context, in *RegisterUsageCallbackRequest, opts ...grpc.CallOption) (*RegisterUsageCallbackResponse, error)
+	UnregisterUsageCallback(ctx context.Context, in *UnregisterUsageCallbackRequest, opts ...grpc.CallOption) (*UnregisterUsageCallbackResponse, error)
+}
+
+type networkStatsManagerServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewNetworkStatsManagerServiceClient(cc grpc.ClientConnInterface) NetworkStatsManagerServiceClient {
+	return &networkStatsManagerServiceClient{cc}
+}
+
+func (c *networkStatsManagerServiceClient) QueryDetails(ctx context.Context, in *QueryDetailsRequest, opts ...grpc.CallOption) (*QueryDetailsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(QueryDetailsResponse)
+	err := c.cc.Invoke(ctx, NetworkStatsManagerService_QueryDetails_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *networkStatsManagerServiceClient) QueryDetailsForUid(ctx context.Context, in *QueryDetailsForUidRequest, opts ...grpc.CallOption) (*QueryDetailsForUidResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(QueryDetailsForUidResponse)
+	err := c.cc.Invoke(ctx, NetworkStatsManagerService_QueryDetailsForUid_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *networkStatsManagerServiceClient) QueryDetailsForUidTag(ctx context.Context, in *QueryDetailsForUidTagRequest, opts ...grpc.CallOption) (*QueryDetailsForUidTagResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(QueryDetailsForUidTagResponse)
+	err := c.cc.Invoke(ctx, NetworkStatsManagerService_QueryDetailsForUidTag_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *networkStatsManagerServiceClient) QueryDetailsForUidTagState(ctx context.Context, in *QueryDetailsForUidTagStateRequest, opts ...grpc.CallOption) (*QueryDetailsForUidTagStateResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(QueryDetailsForUidTagStateResponse)
+	err := c.cc.Invoke(ctx, NetworkStatsManagerService_QueryDetailsForUidTagState_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *networkStatsManagerServiceClient) QuerySummary(ctx context.Context, in *QuerySummaryRequest, opts ...grpc.CallOption) (*QuerySummaryResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(QuerySummaryResponse)
+	err := c.cc.Invoke(ctx, NetworkStatsManagerService_QuerySummary_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *networkStatsManagerServiceClient) QuerySummaryForDevice(ctx context.Context, in *QuerySummaryForDeviceRequest, opts ...grpc.CallOption) (*QuerySummaryForDeviceResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(QuerySummaryForDeviceResponse)
+	err := c.cc.Invoke(ctx, NetworkStatsManagerService_QuerySummaryForDevice_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *networkStatsManagerServiceClient) QuerySummaryForUser(ctx context.Context, in *QuerySummaryForUserRequest, opts ...grpc.CallOption) (*QuerySummaryForUserResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(QuerySummaryForUserResponse)
+	err := c.cc.Invoke(ctx, NetworkStatsManagerService_QuerySummaryForUser_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *networkStatsManagerServiceClient) RegisterUsageCallback(ctx context.Context, in *RegisterUsageCallbackRequest, opts ...grpc.CallOption) (*RegisterUsageCallbackResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(RegisterUsageCallbackResponse)
+	err := c.cc.Invoke(ctx, NetworkStatsManagerService_RegisterUsageCallback_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *networkStatsManagerServiceClient) UnregisterUsageCallback(ctx context.Context, in *UnregisterUsageCallbackRequest, opts ...grpc.CallOption) (*UnregisterUsageCallbackResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(UnregisterUsageCallbackResponse)
+	err := c.cc.Invoke(ctx, NetworkStatsManagerService_UnregisterUsageCallback_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// NetworkStatsManagerServiceServer is the server API for NetworkStatsManagerService service.
+// All implementations must embed UnimplementedNetworkStatsManagerServiceServer
+// for forward compatibility.
+type NetworkStatsManagerServiceServer interface {
+	QueryDetails(context.Context, *QueryDetailsRequest) (*QueryDetailsResponse, error)
+	QueryDetailsForUid(context.Context, *QueryDetailsForUidRequest) (*QueryDetailsForUidResponse, error)
+	QueryDetailsForUidTag(context.Context, *QueryDetailsForUidTagRequest) (*QueryDetailsForUidTagResponse, error)
+	QueryDetailsForUidTagState(context.Context, *QueryDetailsForUidTagStateRequest) (*QueryDetailsForUidTagStateResponse, error)
+	QuerySummary(context.Context, *QuerySummaryRequest) (*QuerySummaryResponse, error)
+	QuerySummaryForDevice(context.Context, *QuerySummaryForDeviceRequest) (*QuerySummaryForDeviceResponse, error)
+	QuerySummaryForUser(context.Context, *QuerySummaryForUserRequest) (*QuerySummaryForUserResponse, error)
+	RegisterUsageCallback(context.Context, *RegisterUsageCallbackRequest) (*RegisterUsageCallbackResponse, error)
+	UnregisterUsageCallback(context.Context, *UnregisterUsageCallbackRequest) (*UnregisterUsageCallbackResponse, error)
+	mustEmbedUnimplementedNetworkStatsManagerServiceServer()
+}
+
+// UnimplementedNetworkStatsManagerServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedNetworkStatsManagerServiceServer struct{}
+
+func (UnimplementedNetworkStatsManagerServiceServer) QueryDetails(context.Context, *QueryDetailsRequest) (*QueryDetailsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method QueryDetails not implemented")
+}
+func (UnimplementedNetworkStatsManagerServiceServer) QueryDetailsForUid(context.Context, *QueryDetailsForUidRequest) (*QueryDetailsForUidResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method QueryDetailsForUid not implemented")
+}
+func (UnimplementedNetworkStatsManagerServiceServer) QueryDetailsForUidTag(context.Context, *QueryDetailsForUidTagRequest) (*QueryDetailsForUidTagResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method QueryDetailsForUidTag not implemented")
+}
+func (UnimplementedNetworkStatsManagerServiceServer) QueryDetailsForUidTagState(context.Context, *QueryDetailsForUidTagStateRequest) (*QueryDetailsForUidTagStateResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method QueryDetailsForUidTagState not implemented")
+}
+func (UnimplementedNetworkStatsManagerServiceServer) QuerySummary(context.Context, *QuerySummaryRequest) (*QuerySummaryResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method QuerySummary not implemented")
+}
+func (UnimplementedNetworkStatsManagerServiceServer) QuerySummaryForDevice(context.Context, *QuerySummaryForDeviceRequest) (*QuerySummaryForDeviceResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method QuerySummaryForDevice not implemented")
+}
+func (UnimplementedNetworkStatsManagerServiceServer) QuerySummaryForUser(context.Context, *QuerySummaryForUserRequest) (*QuerySummaryForUserResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method QuerySummaryForUser not implemented")
+}
+func (UnimplementedNetworkStatsManagerServiceServer) RegisterUsageCallback(context.Context, *RegisterUsageCallbackRequest) (*RegisterUsageCallbackResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method RegisterUsageCallback not implemented")
+}
+func (UnimplementedNetworkStatsManagerServiceServer) UnregisterUsageCallback(context.Context, *UnregisterUsageCallbackRequest) (*UnregisterUsageCallbackResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method UnregisterUsageCallback not implemented")
+}
+func (UnimplementedNetworkStatsManagerServiceServer) mustEmbedUnimplementedNetworkStatsManagerServiceServer() {
+}
+func (UnimplementedNetworkStatsManagerServiceServer) testEmbeddedByValue() {}
+
+// UnsafeNetworkStatsManagerServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to NetworkStatsManagerServiceServer will
+// result in compilation errors.
+type UnsafeNetworkStatsManagerServiceServer interface {
+	mustEmbedUnimplementedNetworkStatsManagerServiceServer()
+}
+
+func RegisterNetworkStatsManagerServiceServer(s grpc.ServiceRegistrar, srv NetworkStatsManagerServiceServer) {
+	// If the following call panics, it indicates UnimplementedNetworkStatsManagerServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&NetworkStatsManagerService_ServiceDesc, srv)
+}
+
+func _NetworkStatsManagerService_QueryDetails_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(QueryDetailsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NetworkStatsManagerServiceServer).QueryDetails(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NetworkStatsManagerService_QueryDetails_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NetworkStatsManagerServiceServer).QueryDetails(ctx, req.(*QueryDetailsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NetworkStatsManagerService_QueryDetailsForUid_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(QueryDetailsForUidRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NetworkStatsManagerServiceServer).QueryDetailsForUid(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NetworkStatsManagerService_QueryDetailsForUid_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NetworkStatsManagerServiceServer).QueryDetailsForUid(ctx, req.(*QueryDetailsForUidRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NetworkStatsManagerService_QueryDetailsForUidTag_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(QueryDetailsForUidTagRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NetworkStatsManagerServiceServer).QueryDetailsForUidTag(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NetworkStatsManagerService_QueryDetailsForUidTag_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NetworkStatsManagerServiceServer).QueryDetailsForUidTag(ctx, req.(*QueryDetailsForUidTagRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NetworkStatsManagerService_QueryDetailsForUidTagState_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(QueryDetailsForUidTagStateRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NetworkStatsManagerServiceServer).QueryDetailsForUidTagState(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NetworkStatsManagerService_QueryDetailsForUidTagState_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NetworkStatsManagerServiceServer).QueryDetailsForUidTagState(ctx, req.(*QueryDetailsForUidTagStateRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NetworkStatsManagerService_QuerySummary_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(QuerySummaryRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NetworkStatsManagerServiceServer).QuerySummary(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NetworkStatsManagerService_QuerySummary_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NetworkStatsManagerServiceServer).QuerySummary(ctx, req.(*QuerySummaryRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NetworkStatsManagerService_QuerySummaryForDevice_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(QuerySummaryForDeviceRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NetworkStatsManagerServiceServer).QuerySummaryForDevice(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NetworkStatsManagerService_QuerySummaryForDevice_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NetworkStatsManagerServiceServer).QuerySummaryForDevice(ctx, req.(*QuerySummaryForDeviceRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NetworkStatsManagerService_QuerySummaryForUser_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(QuerySummaryForUserRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NetworkStatsManagerServiceServer).QuerySummaryForUser(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NetworkStatsManagerService_QuerySummaryForUser_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NetworkStatsManagerServiceServer).QuerySummaryForUser(ctx, req.(*QuerySummaryForUserRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NetworkStatsManagerService_RegisterUsageCallback_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(RegisterUsageCallbackRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NetworkStatsManagerServiceServer).RegisterUsageCallback(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NetworkStatsManagerService_RegisterUsageCallback_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NetworkStatsManagerServiceServer).RegisterUsageCallback(ctx, req.(*RegisterUsageCallbackRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NetworkStatsManagerService_UnregisterUsageCallback_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(UnregisterUsageCallbackRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NetworkStatsManagerServiceServer).UnregisterUsageCallback(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NetworkStatsManagerService_UnregisterUsageCallback_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NetworkStatsManagerServiceServer).UnregisterUsageCallback(ctx, req.(*UnregisterUsageCallbackRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// NetworkStatsManagerService_ServiceDesc is the grpc.ServiceDesc for NetworkStatsManagerService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var NetworkStatsManagerService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "usage.NetworkStatsManagerService",
+	HandlerType: (*NetworkStatsManagerServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "QueryDetails",
+			Handler:    _NetworkStatsManagerService_QueryDetails_Handler,
+		},
+		{
+			MethodName: "QueryDetailsForUid",
+			Handler:    _NetworkStatsManagerService_QueryDetailsForUid_Handler,
+		},
+		{
+			MethodName: "QueryDetailsForUidTag",
+			Handler:    _NetworkStatsManagerService_QueryDetailsForUidTag_Handler,
+		},
+		{
+			MethodName: "QueryDetailsForUidTagState",
+			Handler:    _NetworkStatsManagerService_QueryDetailsForUidTagState_Handler,
+		},
+		{
+			MethodName: "QuerySummary",
+			Handler:    _NetworkStatsManagerService_QuerySummary_Handler,
+		},
+		{
+			MethodName: "QuerySummaryForDevice",
+			Handler:    _NetworkStatsManagerService_QuerySummaryForDevice_Handler,
+		},
+		{
+			MethodName: "QuerySummaryForUser",
+			Handler:    _NetworkStatsManagerService_QuerySummaryForUser_Handler,
+		},
+		{
+			MethodName: "RegisterUsageCallback",
+			Handler:    _NetworkStatsManagerService_RegisterUsageCallback_Handler,
+		},
+		{
+			MethodName: "UnregisterUsageCallback",
+			Handler:    _NetworkStatsManagerService_UnregisterUsageCallback_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

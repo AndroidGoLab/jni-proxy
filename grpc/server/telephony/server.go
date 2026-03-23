@@ -15,6 +15,181 @@ import (
 	"google.golang.org/grpc/status"
 )
 
+// CarrierConfigManagerServer implements pb.CarrierConfigManagerServiceServer.
+type CarrierConfigManagerServer struct {
+	pb.UnimplementedCarrierConfigManagerServiceServer
+	Ctx     *app.Context
+	Handles *handlestore.HandleStore
+}
+
+func (s *CarrierConfigManagerServer) GetConfig0(_ context.Context, req *pb.GetConfig0Request) (*pb.GetConfig0Response, error) {
+	mgr, err := jnipkg.NewCarrierConfigManager(s.Ctx)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
+	}
+	defer mgr.Close()
+
+	result, err := mgr.GetConfig0()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetConfig0Response{Result: handle}, nil
+}
+
+func (s *CarrierConfigManagerServer) GetConfig1_1(_ context.Context, req *pb.GetConfig1_1Request) (*pb.GetConfig1_1Response, error) {
+	mgr, err := jnipkg.NewCarrierConfigManager(s.Ctx)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
+	}
+	defer mgr.Close()
+
+	result, err := mgr.GetConfig1_1(s.Handles.Get(req.GetArg0()))
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetConfig1_1Response{Result: handle}, nil
+}
+
+func (s *CarrierConfigManagerServer) GetConfigByComponentForSubId(_ context.Context, req *pb.GetConfigByComponentForSubIdRequest) (*pb.GetConfigByComponentForSubIdResponse, error) {
+	mgr, err := jnipkg.NewCarrierConfigManager(s.Ctx)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
+	}
+	defer mgr.Close()
+
+	result, err := mgr.GetConfigByComponentForSubId(req.GetArg0(), req.GetArg1())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetConfigByComponentForSubIdResponse{Result: handle}, nil
+}
+
+func (s *CarrierConfigManagerServer) GetConfigForSubId1(_ context.Context, req *pb.GetConfigForSubId1Request) (*pb.GetConfigForSubId1Response, error) {
+	mgr, err := jnipkg.NewCarrierConfigManager(s.Ctx)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
+	}
+	defer mgr.Close()
+
+	result, err := mgr.GetConfigForSubId1(req.GetArg0())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetConfigForSubId1Response{Result: handle}, nil
+}
+
+func (s *CarrierConfigManagerServer) GetConfigForSubId2_1(_ context.Context, req *pb.GetConfigForSubId2_1Request) (*pb.GetConfigForSubId2_1Response, error) {
+	mgr, err := jnipkg.NewCarrierConfigManager(s.Ctx)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
+	}
+	defer mgr.Close()
+
+	result, err := mgr.GetConfigForSubId2_1(req.GetArg0(), s.Handles.Get(req.GetArg1()))
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetConfigForSubId2_1Response{Result: handle}, nil
+}
+
+func (s *CarrierConfigManagerServer) NotifyConfigChangedForSubId(_ context.Context, req *pb.NotifyConfigChangedForSubIdRequest) (*pb.NotifyConfigChangedForSubIdResponse, error) {
+	mgr, err := jnipkg.NewCarrierConfigManager(s.Ctx)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
+	}
+	defer mgr.Close()
+
+	if err := mgr.NotifyConfigChangedForSubId(req.GetArg0()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.NotifyConfigChangedForSubIdResponse{}, nil
+}
+
+func (s *CarrierConfigManagerServer) RegisterCarrierConfigChangeListener(_ context.Context, req *pb.RegisterCarrierConfigChangeListenerRequest) (*pb.RegisterCarrierConfigChangeListenerResponse, error) {
+	mgr, err := jnipkg.NewCarrierConfigManager(s.Ctx)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
+	}
+	defer mgr.Close()
+
+	if err := mgr.RegisterCarrierConfigChangeListener(s.Handles.Get(req.GetArg0()), s.Handles.Get(req.GetArg1())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.RegisterCarrierConfigChangeListenerResponse{}, nil
+}
+
+func (s *CarrierConfigManagerServer) UnregisterCarrierConfigChangeListener(_ context.Context, req *pb.UnregisterCarrierConfigChangeListenerRequest) (*pb.UnregisterCarrierConfigChangeListenerResponse, error) {
+	mgr, err := jnipkg.NewCarrierConfigManager(s.Ctx)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
+	}
+	defer mgr.Close()
+
+	if err := mgr.UnregisterCarrierConfigChangeListener(s.Handles.Get(req.GetArg0())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.UnregisterCarrierConfigChangeListenerResponse{}, nil
+}
+
+func (s *CarrierConfigManagerServer) IsConfigForIdentifiedCarrier(_ context.Context, req *pb.IsConfigForIdentifiedCarrierRequest) (*pb.IsConfigForIdentifiedCarrierResponse, error) {
+	mgr, err := jnipkg.NewCarrierConfigManager(s.Ctx)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
+	}
+	defer mgr.Close()
+
+	result, err := mgr.IsConfigForIdentifiedCarrier(s.Handles.Get(req.GetArg0()))
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.IsConfigForIdentifiedCarrierResponse{Result: result}, nil
+}
+
 // ManagerServer implements pb.ManagerServiceServer.
 type ManagerServer struct {
 	pb.UnimplementedManagerServiceServer
@@ -121,29 +296,6 @@ func (s *ManagerServer) GetActiveModemCount(_ context.Context, req *pb.GetActive
 		return nil, status.Errorf(codes.Internal, "%v", err)
 	}
 	return &pb.GetActiveModemCountResponse{Result: result}, nil
-}
-
-func (s *ManagerServer) GetAllCellInfo(_ context.Context, req *pb.GetAllCellInfoRequest) (*pb.GetAllCellInfoResponse, error) {
-	mgr, err := jnipkg.NewManager(s.Ctx)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
-	}
-	defer mgr.Close()
-
-	result, err := mgr.GetAllCellInfo()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	var handle int64
-	if result != nil {
-		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-			handle = s.Handles.Put(env, result)
-			return nil
-		}); doErr != nil {
-			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-		}
-	}
-	return &pb.GetAllCellInfoResponse{Result: handle}, nil
 }
 
 func (s *ManagerServer) GetAllowedNetworkTypesForReason(_ context.Context, req *pb.GetAllowedNetworkTypesForReasonRequest) (*pb.GetAllowedNetworkTypesForReasonResponse, error) {
@@ -253,19 +405,6 @@ func (s *ManagerServer) GetCarrierIdFromSimMccMnc(_ context.Context, req *pb.Get
 	return &pb.GetCarrierIdFromSimMccMncResponse{Result: result}, nil
 }
 
-func (s *ManagerServer) GetCarrierRestrictionStatus(_ context.Context, req *pb.GetCarrierRestrictionStatusRequest) (*pb.GetCarrierRestrictionStatusResponse, error) {
-	mgr, err := jnipkg.NewManager(s.Ctx)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
-	}
-	defer mgr.Close()
-
-	if err := mgr.GetCarrierRestrictionStatus(s.Handles.Get(req.GetArg0()), s.Handles.Get(req.GetArg1())); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GetCarrierRestrictionStatusResponse{}, nil
-}
-
 func (s *ManagerServer) GetCellLocation(_ context.Context, req *pb.GetCellLocationRequest) (*pb.GetCellLocationResponse, error) {
 	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
@@ -371,29 +510,6 @@ func (s *ManagerServer) GetDeviceSoftwareVersion(_ context.Context, req *pb.GetD
 		return nil, status.Errorf(codes.Internal, "%v", err)
 	}
 	return &pb.GetDeviceSoftwareVersionResponse{Result: result}, nil
-}
-
-func (s *ManagerServer) GetEquivalentHomePlmns(_ context.Context, req *pb.GetEquivalentHomePlmnsRequest) (*pb.GetEquivalentHomePlmnsResponse, error) {
-	mgr, err := jnipkg.NewManager(s.Ctx)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
-	}
-	defer mgr.Close()
-
-	result, err := mgr.GetEquivalentHomePlmns()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	var handle int64
-	if result != nil {
-		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-			handle = s.Handles.Put(env, result)
-			return nil
-		}); doErr != nil {
-			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-		}
-	}
-	return &pb.GetEquivalentHomePlmnsResponse{Result: handle}, nil
 }
 
 func (s *ManagerServer) GetForbiddenPlmns(_ context.Context, req *pb.GetForbiddenPlmnsRequest) (*pb.GetForbiddenPlmnsResponse, error) {
@@ -669,19 +785,6 @@ func (s *ManagerServer) GetNetworkSelectionMode(_ context.Context, req *pb.GetNe
 		return nil, status.Errorf(codes.Internal, "%v", err)
 	}
 	return &pb.GetNetworkSelectionModeResponse{Result: result}, nil
-}
-
-func (s *ManagerServer) GetNetworkSlicingConfiguration(_ context.Context, req *pb.GetNetworkSlicingConfigurationRequest) (*pb.GetNetworkSlicingConfigurationResponse, error) {
-	mgr, err := jnipkg.NewManager(s.Ctx)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
-	}
-	defer mgr.Close()
-
-	if err := mgr.GetNetworkSlicingConfiguration(s.Handles.Get(req.GetArg0()), s.Handles.Get(req.GetArg1())); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GetNetworkSlicingConfigurationResponse{}, nil
 }
 
 func (s *ManagerServer) GetNetworkSpecifier(_ context.Context, req *pb.GetNetworkSpecifierRequest) (*pb.GetNetworkSpecifierResponse, error) {
@@ -1114,29 +1217,6 @@ func (s *ManagerServer) GetTypeAllocationCode1_1(_ context.Context, req *pb.GetT
 		return nil, status.Errorf(codes.Internal, "%v", err)
 	}
 	return &pb.GetTypeAllocationCode1_1Response{Result: result}, nil
-}
-
-func (s *ManagerServer) GetUiccCardsInfo(_ context.Context, req *pb.GetUiccCardsInfoRequest) (*pb.GetUiccCardsInfoResponse, error) {
-	mgr, err := jnipkg.NewManager(s.Ctx)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
-	}
-	defer mgr.Close()
-
-	result, err := mgr.GetUiccCardsInfo()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	var handle int64
-	if result != nil {
-		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-			handle = s.Handles.Put(env, result)
-			return nil
-		}); doErr != nil {
-			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-		}
-	}
-	return &pb.GetUiccCardsInfoResponse{Result: handle}, nil
 }
 
 func (s *ManagerServer) GetVisualVoicemailPackageName(_ context.Context, req *pb.GetVisualVoicemailPackageNameRequest) (*pb.GetVisualVoicemailPackageNameResponse, error) {
@@ -1678,19 +1758,6 @@ func (s *ManagerServer) Listen(_ context.Context, req *pb.ListenRequest) (*pb.Li
 	return &pb.ListenResponse{}, nil
 }
 
-func (s *ManagerServer) PurchasePremiumCapability(_ context.Context, req *pb.PurchasePremiumCapabilityRequest) (*pb.PurchasePremiumCapabilityResponse, error) {
-	mgr, err := jnipkg.NewManager(s.Ctx)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
-	}
-	defer mgr.Close()
-
-	if err := mgr.PurchasePremiumCapability(req.GetArg0(), s.Handles.Get(req.GetArg1()), s.Handles.Get(req.GetArg2())); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.PurchasePremiumCapabilityResponse{}, nil
-}
-
 func (s *ManagerServer) RebootModem(_ context.Context, req *pb.RebootModemRequest) (*pb.RebootModemResponse, error) {
 	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
@@ -1881,20 +1948,6 @@ func (s *ManagerServer) SetDataEnabledForReason(_ context.Context, req *pb.SetDa
 	return &pb.SetDataEnabledForReasonResponse{}, nil
 }
 
-func (s *ManagerServer) SetForbiddenPlmns(_ context.Context, req *pb.SetForbiddenPlmnsRequest) (*pb.SetForbiddenPlmnsResponse, error) {
-	mgr, err := jnipkg.NewManager(s.Ctx)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
-	}
-	defer mgr.Close()
-
-	result, err := mgr.SetForbiddenPlmns(s.Handles.Get(req.GetArg0()))
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.SetForbiddenPlmnsResponse{Result: result}, nil
-}
-
 func (s *ManagerServer) SetLine1NumberForDisplay(_ context.Context, req *pb.SetLine1NumberForDisplayRequest) (*pb.SetLine1NumberForDisplayResponse, error) {
 	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
@@ -1976,19 +2029,6 @@ func (s *ManagerServer) SetPreferredNetworkTypeToGlobal(_ context.Context, req *
 		return nil, status.Errorf(codes.Internal, "%v", err)
 	}
 	return &pb.SetPreferredNetworkTypeToGlobalResponse{Result: result}, nil
-}
-
-func (s *ManagerServer) SetPreferredOpportunisticDataSubscription(_ context.Context, req *pb.SetPreferredOpportunisticDataSubscriptionRequest) (*pb.SetPreferredOpportunisticDataSubscriptionResponse, error) {
-	mgr, err := jnipkg.NewManager(s.Ctx)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
-	}
-	defer mgr.Close()
-
-	if err := mgr.SetPreferredOpportunisticDataSubscription(req.GetArg0(), req.GetArg1(), s.Handles.Get(req.GetArg2()), s.Handles.Get(req.GetArg3())); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.SetPreferredOpportunisticDataSubscriptionResponse{}, nil
 }
 
 func (s *ManagerServer) SetSignalStrengthUpdateRequest(_ context.Context, req *pb.SetSignalStrengthUpdateRequestRequest) (*pb.SetSignalStrengthUpdateRequestResponse, error) {
@@ -2081,45 +2121,6 @@ func (s *ManagerServer) UnregisterTelephonyCallback(_ context.Context, req *pb.U
 		return nil, status.Errorf(codes.Internal, "%v", err)
 	}
 	return &pb.UnregisterTelephonyCallbackResponse{}, nil
-}
-
-func (s *ManagerServer) UpdateAvailableNetworks(_ context.Context, req *pb.UpdateAvailableNetworksRequest) (*pb.UpdateAvailableNetworksResponse, error) {
-	mgr, err := jnipkg.NewManager(s.Ctx)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
-	}
-	defer mgr.Close()
-
-	if err := mgr.UpdateAvailableNetworks(s.Handles.Get(req.GetArg0()), s.Handles.Get(req.GetArg1()), s.Handles.Get(req.GetArg2())); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.UpdateAvailableNetworksResponse{}, nil
-}
-
-func (s *ManagerServer) UploadCallComposerPicture4(_ context.Context, req *pb.UploadCallComposerPicture4Request) (*pb.UploadCallComposerPicture4Response, error) {
-	mgr, err := jnipkg.NewManager(s.Ctx)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
-	}
-	defer mgr.Close()
-
-	if err := mgr.UploadCallComposerPicture4(s.Handles.Get(req.GetArg0()), req.GetArg1(), s.Handles.Get(req.GetArg2()), s.Handles.Get(req.GetArg3())); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.UploadCallComposerPicture4Response{}, nil
-}
-
-func (s *ManagerServer) UploadCallComposerPicture4_1(_ context.Context, req *pb.UploadCallComposerPicture4_1Request) (*pb.UploadCallComposerPicture4_1Response, error) {
-	mgr, err := jnipkg.NewManager(s.Ctx)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
-	}
-	defer mgr.Close()
-
-	if err := mgr.UploadCallComposerPicture4_1(s.Handles.Get(req.GetArg0()), req.GetArg1(), s.Handles.Get(req.GetArg2()), s.Handles.Get(req.GetArg3())); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.UploadCallComposerPicture4_1Response{}, nil
 }
 
 func (s *ManagerServer) GetMaximumCallComposerPictureSize(_ context.Context, req *pb.GetMaximumCallComposerPictureSizeRequest) (*pb.GetMaximumCallComposerPictureSizeResponse, error) {

@@ -548,60 +548,6 @@ var adminDevicePolicyManagerGetAccountTypesWithManagementDisabledCmd = &cobra.Co
 	},
 }
 
-var adminDevicePolicyManagerGetActiveAdminsCmd = &cobra.Command{
-	Use:   "get-active-admins",
-	Short: "GetActiveAdmins RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewDevicePolicyManagerServiceClient(grpcConn)
-		req := &pb.GetActiveAdminsRequest{}
-		resp, err := client.GetActiveAdmins(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var adminDevicePolicyManagerGetAffiliationIdsCmd = &cobra.Command{
-	Use:   "get-affiliation-ids",
-	Short: "GetAffiliationIds RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewDevicePolicyManagerServiceClient(grpcConn)
-		req := &pb.GetAffiliationIdsRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.GetAffiliationIds(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var adminDevicePolicyManagerGetAlwaysOnVpnLockdownWhitelistCmd = &cobra.Command{
-	Use:   "get-always-on-vpn-lockdown-whitelist",
-	Short: "GetAlwaysOnVpnLockdownWhitelist RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewDevicePolicyManagerServiceClient(grpcConn)
-		req := &pb.GetAlwaysOnVpnLockdownWhitelistRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.GetAlwaysOnVpnLockdownWhitelist(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
 var adminDevicePolicyManagerGetAlwaysOnVpnPackageCmd = &cobra.Command{
 	Use:   "get-always-on-vpn-package",
 	Short: "GetAlwaysOnVpnPackage RPC",
@@ -764,25 +710,6 @@ var adminDevicePolicyManagerGetAutoTimeZonePolicyCmd = &cobra.Command{
 	},
 }
 
-var adminDevicePolicyManagerGetBindDeviceAdminTargetUsersCmd = &cobra.Command{
-	Use:   "get-bind-device-admin-target-users",
-	Short: "GetBindDeviceAdminTargetUsers RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewDevicePolicyManagerServiceClient(grpcConn)
-		req := &pb.GetBindDeviceAdminTargetUsersRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.GetBindDeviceAdminTargetUsers(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
 var adminDevicePolicyManagerGetBluetoothContactSharingDisabledCmd = &cobra.Command{
 	Use:   "get-bluetooth-contact-sharing-disabled",
 	Short: "GetBluetoothContactSharingDisabled RPC",
@@ -875,25 +802,6 @@ var adminDevicePolicyManagerGetCredentialManagerPolicyCmd = &cobra.Command{
 	},
 }
 
-var adminDevicePolicyManagerGetCrossProfileCalendarPackagesCmd = &cobra.Command{
-	Use:   "get-cross-profile-calendar-packages",
-	Short: "GetCrossProfileCalendarPackages RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewDevicePolicyManagerServiceClient(grpcConn)
-		req := &pb.GetCrossProfileCalendarPackagesRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.GetCrossProfileCalendarPackages(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
 var adminDevicePolicyManagerGetCrossProfileCallerIdDisabledCmd = &cobra.Command{
 	Use:   "get-cross-profile-caller-id-disabled",
 	Short: "GetCrossProfileCallerIdDisabled RPC",
@@ -932,44 +840,6 @@ var adminDevicePolicyManagerGetCrossProfileContactsSearchDisabledCmd = &cobra.Co
 	},
 }
 
-var adminDevicePolicyManagerGetCrossProfilePackagesCmd = &cobra.Command{
-	Use:   "get-cross-profile-packages",
-	Short: "GetCrossProfilePackages RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewDevicePolicyManagerServiceClient(grpcConn)
-		req := &pb.GetCrossProfilePackagesRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.GetCrossProfilePackages(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var adminDevicePolicyManagerGetCrossProfileWidgetProvidersCmd = &cobra.Command{
-	Use:   "get-cross-profile-widget-providers",
-	Short: "GetCrossProfileWidgetProviders RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewDevicePolicyManagerServiceClient(grpcConn)
-		req := &pb.GetCrossProfileWidgetProvidersRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.GetCrossProfileWidgetProviders(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
 var adminDevicePolicyManagerGetCurrentFailedPasswordAttemptsCmd = &cobra.Command{
 	Use:   "get-current-failed-password-attempts",
 	Short: "GetCurrentFailedPasswordAttempts RPC",
@@ -979,50 +849,6 @@ var adminDevicePolicyManagerGetCurrentFailedPasswordAttemptsCmd = &cobra.Command
 		client := pb.NewDevicePolicyManagerServiceClient(grpcConn)
 		req := &pb.GetCurrentFailedPasswordAttemptsRequest{}
 		resp, err := client.GetCurrentFailedPasswordAttempts(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var adminDevicePolicyManagerGetDelegatePackagesCmd = &cobra.Command{
-	Use:   "get-delegate-packages",
-	Short: "GetDelegatePackages RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewDevicePolicyManagerServiceClient(grpcConn)
-		req := &pb.GetDelegatePackagesRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetString("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.GetDelegatePackages(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var adminDevicePolicyManagerGetDelegatedScopesCmd = &cobra.Command{
-	Use:   "get-delegated-scopes",
-	Short: "GetDelegatedScopes RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewDevicePolicyManagerServiceClient(grpcConn)
-		req := &pb.GetDelegatedScopesRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetString("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.GetDelegatedScopes(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -1147,44 +973,6 @@ var adminDevicePolicyManagerGetGlobalPrivateDnsModeCmd = &cobra.Command{
 			req.Arg0 = v
 		}
 		resp, err := client.GetGlobalPrivateDnsMode(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var adminDevicePolicyManagerGetInstalledCaCertsCmd = &cobra.Command{
-	Use:   "get-installed-ca-certs",
-	Short: "GetInstalledCaCerts RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewDevicePolicyManagerServiceClient(grpcConn)
-		req := &pb.GetInstalledCaCertsRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.GetInstalledCaCerts(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var adminDevicePolicyManagerGetKeepUninstalledPackagesCmd = &cobra.Command{
-	Use:   "get-keep-uninstalled-packages",
-	Short: "GetKeepUninstalledPackages RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewDevicePolicyManagerServiceClient(grpcConn)
-		req := &pb.GetKeepUninstalledPackagesRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.GetKeepUninstalledPackages(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -1373,25 +1161,6 @@ var adminDevicePolicyManagerGetMaximumTimeToLockCmd = &cobra.Command{
 	},
 }
 
-var adminDevicePolicyManagerGetMeteredDataDisabledPackagesCmd = &cobra.Command{
-	Use:   "get-metered-data-disabled-packages",
-	Short: "GetMeteredDataDisabledPackages RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewDevicePolicyManagerServiceClient(grpcConn)
-		req := &pb.GetMeteredDataDisabledPackagesRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.GetMeteredDataDisabledPackages(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
 var adminDevicePolicyManagerGetMinimumRequiredWifiSecurityLevelCmd = &cobra.Command{
 	Use:   "get-minimum-required-wifi-security-level",
 	Short: "GetMinimumRequiredWifiSecurityLevel RPC",
@@ -1487,25 +1256,6 @@ var adminDevicePolicyManagerGetOrganizationNameCmd = &cobra.Command{
 			req.Arg0 = v
 		}
 		resp, err := client.GetOrganizationName(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var adminDevicePolicyManagerGetOverrideApnsCmd = &cobra.Command{
-	Use:   "get-override-apns",
-	Short: "GetOverrideApns RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewDevicePolicyManagerServiceClient(grpcConn)
-		req := &pb.GetOverrideApnsRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.GetOverrideApns(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -1839,63 +1589,6 @@ var adminDevicePolicyManagerGetPermissionPolicyCmd = &cobra.Command{
 	},
 }
 
-var adminDevicePolicyManagerGetPermittedAccessibilityServicesCmd = &cobra.Command{
-	Use:   "get-permitted-accessibility-services",
-	Short: "GetPermittedAccessibilityServices RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewDevicePolicyManagerServiceClient(grpcConn)
-		req := &pb.GetPermittedAccessibilityServicesRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.GetPermittedAccessibilityServices(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var adminDevicePolicyManagerGetPermittedCrossProfileNotificationListenersCmd = &cobra.Command{
-	Use:   "get-permitted-cross-profile-notification-listeners",
-	Short: "GetPermittedCrossProfileNotificationListeners RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewDevicePolicyManagerServiceClient(grpcConn)
-		req := &pb.GetPermittedCrossProfileNotificationListenersRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.GetPermittedCrossProfileNotificationListeners(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var adminDevicePolicyManagerGetPermittedInputMethodsCmd = &cobra.Command{
-	Use:   "get-permitted-input-methods",
-	Short: "GetPermittedInputMethods RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewDevicePolicyManagerServiceClient(grpcConn)
-		req := &pb.GetPermittedInputMethodsRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.GetPermittedInputMethods(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
 var adminDevicePolicyManagerGetPersonalAppsSuspendedReasonsCmd = &cobra.Command{
 	Use:   "get-personal-apps-suspended-reasons",
 	Short: "GetPersonalAppsSuspendedReasons RPC",
@@ -1908,22 +1601,6 @@ var adminDevicePolicyManagerGetPersonalAppsSuspendedReasonsCmd = &cobra.Command{
 			req.Arg0 = v
 		}
 		resp, err := client.GetPersonalAppsSuspendedReasons(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var adminDevicePolicyManagerGetPreferentialNetworkServiceConfigsCmd = &cobra.Command{
-	Use:   "get-preferential-network-service-configs",
-	Short: "GetPreferentialNetworkServiceConfigs RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewDevicePolicyManagerServiceClient(grpcConn)
-		req := &pb.GetPreferentialNetworkServiceConfigsRequest{}
-		resp, err := client.GetPreferentialNetworkServiceConfigs(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -1994,25 +1671,6 @@ var adminDevicePolicyManagerGetScreenCaptureDisabledCmd = &cobra.Command{
 			req.Arg0 = v
 		}
 		resp, err := client.GetScreenCaptureDisabled(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var adminDevicePolicyManagerGetSecondaryUsersCmd = &cobra.Command{
-	Use:   "get-secondary-users",
-	Short: "GetSecondaryUsers RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewDevicePolicyManagerServiceClient(grpcConn)
-		req := &pb.GetSecondaryUsersRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.GetSecondaryUsers(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -2093,22 +1751,6 @@ var adminDevicePolicyManagerGetStorageEncryptionStatusCmd = &cobra.Command{
 	},
 }
 
-var adminDevicePolicyManagerGetSubscriptionIdsCmd = &cobra.Command{
-	Use:   "get-subscription-ids",
-	Short: "GetSubscriptionIds RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewDevicePolicyManagerServiceClient(grpcConn)
-		req := &pb.GetSubscriptionIdsRequest{}
-		resp, err := client.GetSubscriptionIds(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
 var adminDevicePolicyManagerGetSystemUpdatePolicyCmd = &cobra.Command{
 	Use:   "get-system-update-policy",
 	Short: "GetSystemUpdatePolicy RPC",
@@ -2134,47 +1776,6 @@ var adminDevicePolicyManagerGetTransferOwnershipBundleCmd = &cobra.Command{
 		client := pb.NewDevicePolicyManagerServiceClient(grpcConn)
 		req := &pb.GetTransferOwnershipBundleRequest{}
 		resp, err := client.GetTransferOwnershipBundle(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var adminDevicePolicyManagerGetTrustAgentConfigurationCmd = &cobra.Command{
-	Use:   "get-trust-agent-configuration",
-	Short: "GetTrustAgentConfiguration RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewDevicePolicyManagerServiceClient(grpcConn)
-		req := &pb.GetTrustAgentConfigurationRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.GetTrustAgentConfiguration(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var adminDevicePolicyManagerGetUserControlDisabledPackagesCmd = &cobra.Command{
-	Use:   "get-user-control-disabled-packages",
-	Short: "GetUserControlDisabledPackages RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewDevicePolicyManagerServiceClient(grpcConn)
-		req := &pb.GetUserControlDisabledPackagesRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.GetUserControlDisabledPackages(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -3156,22 +2757,6 @@ var adminDevicePolicyManagerIsUsingUnifiedPasswordCmd = &cobra.Command{
 	},
 }
 
-var adminDevicePolicyManagerListForegroundAffiliatedUsersCmd = &cobra.Command{
-	Use:   "list-foreground-affiliated-users",
-	Short: "ListForegroundAffiliatedUsers RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewDevicePolicyManagerServiceClient(grpcConn)
-		req := &pb.ListForegroundAffiliatedUsersRequest{}
-		resp, err := client.ListForegroundAffiliatedUsers(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
 var adminDevicePolicyManagerLockNow0Cmd = &cobra.Command{
 	Use:   "lock-now0",
 	Short: "LockNow0 RPC",
@@ -3421,66 +3006,6 @@ var adminDevicePolicyManagerResetPasswordWithTokenCmd = &cobra.Command{
 	},
 }
 
-var adminDevicePolicyManagerRetrieveNetworkLogsCmd = &cobra.Command{
-	Use:   "retrieve-network-logs",
-	Short: "RetrieveNetworkLogs RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewDevicePolicyManagerServiceClient(grpcConn)
-		req := &pb.RetrieveNetworkLogsRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.RetrieveNetworkLogs(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var adminDevicePolicyManagerRetrievePreRebootSecurityLogsCmd = &cobra.Command{
-	Use:   "retrieve-pre-reboot-security-logs",
-	Short: "RetrievePreRebootSecurityLogs RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewDevicePolicyManagerServiceClient(grpcConn)
-		req := &pb.RetrievePreRebootSecurityLogsRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.RetrievePreRebootSecurityLogs(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var adminDevicePolicyManagerRetrieveSecurityLogsCmd = &cobra.Command{
-	Use:   "retrieve-security-logs",
-	Short: "RetrieveSecurityLogs RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewDevicePolicyManagerServiceClient(grpcConn)
-		req := &pb.RetrieveSecurityLogsRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.RetrieveSecurityLogs(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
 var adminDevicePolicyManagerRevokeKeyPairFromAppCmd = &cobra.Command{
 	Use:   "revoke-key-pair-from-app",
 	Short: "RevokeKeyPairFromApp RPC",
@@ -3550,36 +3075,14 @@ var adminDevicePolicyManagerSetAccountManagementDisabledCmd = &cobra.Command{
 	},
 }
 
-var adminDevicePolicyManagerSetAffiliationIdsCmd = &cobra.Command{
-	Use:   "set-affiliation-ids",
-	Short: "SetAffiliationIds RPC",
+var adminDevicePolicyManagerSetAlwaysOnVpnPackageCmd = &cobra.Command{
+	Use:   "set-always-on-vpn-package",
+	Short: "SetAlwaysOnVpnPackage RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
 		client := pb.NewDevicePolicyManagerServiceClient(grpcConn)
-		req := &pb.SetAffiliationIdsRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.SetAffiliationIds(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var adminDevicePolicyManagerSetAlwaysOnVpnPackage3Cmd = &cobra.Command{
-	Use:   "set-always-on-vpn-package3",
-	Short: "SetAlwaysOnVpnPackage3 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewDevicePolicyManagerServiceClient(grpcConn)
-		req := &pb.SetAlwaysOnVpnPackage3Request{}
+		req := &pb.SetAlwaysOnVpnPackageRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
 		}
@@ -3589,35 +3092,7 @@ var adminDevicePolicyManagerSetAlwaysOnVpnPackage3Cmd = &cobra.Command{
 		if v, err := cmd.Flags().GetBool("arg2"); err == nil {
 			req.Arg2 = v
 		}
-		resp, err := client.SetAlwaysOnVpnPackage3(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var adminDevicePolicyManagerSetAlwaysOnVpnPackage4_1Cmd = &cobra.Command{
-	Use:   "set-always-on-vpn-package4_1",
-	Short: "SetAlwaysOnVpnPackage4_1 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewDevicePolicyManagerServiceClient(grpcConn)
-		req := &pb.SetAlwaysOnVpnPackage4_1Request{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetString("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetBool("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg3"); err == nil {
-			req.Arg3 = v
-		}
-		resp, err := client.SetAlwaysOnVpnPackage4_1(ctx, req)
+		resp, err := client.SetAlwaysOnVpnPackage(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -3993,28 +3468,6 @@ var adminDevicePolicyManagerSetCredentialManagerPolicyCmd = &cobra.Command{
 	},
 }
 
-var adminDevicePolicyManagerSetCrossProfileCalendarPackagesCmd = &cobra.Command{
-	Use:   "set-cross-profile-calendar-packages",
-	Short: "SetCrossProfileCalendarPackages RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewDevicePolicyManagerServiceClient(grpcConn)
-		req := &pb.SetCrossProfileCalendarPackagesRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.SetCrossProfileCalendarPackages(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
 var adminDevicePolicyManagerSetCrossProfileCallerIdDisabledCmd = &cobra.Command{
 	Use:   "set-cross-profile-caller-id-disabled",
 	Short: "SetCrossProfileCallerIdDisabled RPC",
@@ -4059,28 +3512,6 @@ var adminDevicePolicyManagerSetCrossProfileContactsSearchDisabledCmd = &cobra.Co
 	},
 }
 
-var adminDevicePolicyManagerSetCrossProfilePackagesCmd = &cobra.Command{
-	Use:   "set-cross-profile-packages",
-	Short: "SetCrossProfilePackages RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewDevicePolicyManagerServiceClient(grpcConn)
-		req := &pb.SetCrossProfilePackagesRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.SetCrossProfilePackages(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
 var adminDevicePolicyManagerSetDefaultDialerApplicationCmd = &cobra.Command{
 	Use:   "set-default-dialer-application",
 	Short: "SetDefaultDialerApplication RPC",
@@ -4115,31 +3546,6 @@ var adminDevicePolicyManagerSetDefaultSmsApplicationCmd = &cobra.Command{
 			req.Arg1 = v
 		}
 		resp, err := client.SetDefaultSmsApplication(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var adminDevicePolicyManagerSetDelegatedScopesCmd = &cobra.Command{
-	Use:   "set-delegated-scopes",
-	Short: "SetDelegatedScopes RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewDevicePolicyManagerServiceClient(grpcConn)
-		req := &pb.SetDelegatedScopesRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetString("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		resp, err := client.SetDelegatedScopes(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -4272,56 +3678,6 @@ var adminDevicePolicyManagerSetGlobalSettingCmd = &cobra.Command{
 			req.Arg2 = v
 		}
 		resp, err := client.SetGlobalSetting(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var adminDevicePolicyManagerSetKeepUninstalledPackagesCmd = &cobra.Command{
-	Use:   "set-keep-uninstalled-packages",
-	Short: "SetKeepUninstalledPackages RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewDevicePolicyManagerServiceClient(grpcConn)
-		req := &pb.SetKeepUninstalledPackagesRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.SetKeepUninstalledPackages(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var adminDevicePolicyManagerSetKeyPairCertificateCmd = &cobra.Command{
-	Use:   "set-key-pair-certificate",
-	Short: "SetKeyPairCertificate RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewDevicePolicyManagerServiceClient(grpcConn)
-		req := &pb.SetKeyPairCertificateRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetString("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		if v, err := cmd.Flags().GetBool("arg3"); err == nil {
-			req.Arg3 = v
-		}
-		resp, err := client.SetKeyPairCertificate(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -4621,28 +3977,6 @@ var adminDevicePolicyManagerSetMaximumTimeToLockCmd = &cobra.Command{
 			req.Arg1 = v
 		}
 		resp, err := client.SetMaximumTimeToLock(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var adminDevicePolicyManagerSetMeteredDataDisabledPackagesCmd = &cobra.Command{
-	Use:   "set-metered-data-disabled-packages",
-	Short: "SetMeteredDataDisabledPackages RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewDevicePolicyManagerServiceClient(grpcConn)
-		req := &pb.SetMeteredDataDisabledPackagesRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.SetMeteredDataDisabledPackages(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -5128,72 +4462,6 @@ var adminDevicePolicyManagerSetPermissionPolicyCmd = &cobra.Command{
 	},
 }
 
-var adminDevicePolicyManagerSetPermittedAccessibilityServicesCmd = &cobra.Command{
-	Use:   "set-permitted-accessibility-services",
-	Short: "SetPermittedAccessibilityServices RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewDevicePolicyManagerServiceClient(grpcConn)
-		req := &pb.SetPermittedAccessibilityServicesRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.SetPermittedAccessibilityServices(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var adminDevicePolicyManagerSetPermittedCrossProfileNotificationListenersCmd = &cobra.Command{
-	Use:   "set-permitted-cross-profile-notification-listeners",
-	Short: "SetPermittedCrossProfileNotificationListeners RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewDevicePolicyManagerServiceClient(grpcConn)
-		req := &pb.SetPermittedCrossProfileNotificationListenersRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.SetPermittedCrossProfileNotificationListeners(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var adminDevicePolicyManagerSetPermittedInputMethodsCmd = &cobra.Command{
-	Use:   "set-permitted-input-methods",
-	Short: "SetPermittedInputMethods RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewDevicePolicyManagerServiceClient(grpcConn)
-		req := &pb.SetPermittedInputMethodsRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.SetPermittedInputMethods(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
 var adminDevicePolicyManagerSetPersonalAppsSuspendedCmd = &cobra.Command{
 	Use:   "set-personal-apps-suspended",
 	Short: "SetPersonalAppsSuspended RPC",
@@ -5209,25 +4477,6 @@ var adminDevicePolicyManagerSetPersonalAppsSuspendedCmd = &cobra.Command{
 			req.Arg1 = v
 		}
 		resp, err := client.SetPersonalAppsSuspended(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var adminDevicePolicyManagerSetPreferentialNetworkServiceConfigsCmd = &cobra.Command{
-	Use:   "set-preferential-network-service-configs",
-	Short: "SetPreferentialNetworkServiceConfigs RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewDevicePolicyManagerServiceClient(grpcConn)
-		req := &pb.SetPreferentialNetworkServiceConfigsRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetPreferentialNetworkServiceConfigs(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -5719,28 +4968,6 @@ var adminDevicePolicyManagerSetUsbDataSignalingEnabledCmd = &cobra.Command{
 	},
 }
 
-var adminDevicePolicyManagerSetUserControlDisabledPackagesCmd = &cobra.Command{
-	Use:   "set-user-control-disabled-packages",
-	Short: "SetUserControlDisabledPackages RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewDevicePolicyManagerServiceClient(grpcConn)
-		req := &pb.SetUserControlDisabledPackagesRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.SetUserControlDisabledPackages(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
 var adminDevicePolicyManagerSetUserIconCmd = &cobra.Command{
 	Use:   "set-user-icon",
 	Short: "SetUserIcon RPC",
@@ -6089,11 +5316,6 @@ func init() {
 	adminDevicePolicyManagerGenerateKeyPairCmd.Flags().Int32("arg3", 0, "arg3 (int32)")
 	adminDevicePolicyManagerCmd.AddCommand(adminDevicePolicyManagerGenerateKeyPairCmd)
 	adminDevicePolicyManagerCmd.AddCommand(adminDevicePolicyManagerGetAccountTypesWithManagementDisabledCmd)
-	adminDevicePolicyManagerCmd.AddCommand(adminDevicePolicyManagerGetActiveAdminsCmd)
-	adminDevicePolicyManagerGetAffiliationIdsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	adminDevicePolicyManagerCmd.AddCommand(adminDevicePolicyManagerGetAffiliationIdsCmd)
-	adminDevicePolicyManagerGetAlwaysOnVpnLockdownWhitelistCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	adminDevicePolicyManagerCmd.AddCommand(adminDevicePolicyManagerGetAlwaysOnVpnLockdownWhitelistCmd)
 	adminDevicePolicyManagerGetAlwaysOnVpnPackageCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	adminDevicePolicyManagerCmd.AddCommand(adminDevicePolicyManagerGetAlwaysOnVpnPackageCmd)
 	adminDevicePolicyManagerCmd.AddCommand(adminDevicePolicyManagerGetAppFunctionsPolicyCmd)
@@ -6109,8 +5331,6 @@ func init() {
 	adminDevicePolicyManagerGetAutoTimeZoneEnabledCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	adminDevicePolicyManagerCmd.AddCommand(adminDevicePolicyManagerGetAutoTimeZoneEnabledCmd)
 	adminDevicePolicyManagerCmd.AddCommand(adminDevicePolicyManagerGetAutoTimeZonePolicyCmd)
-	adminDevicePolicyManagerGetBindDeviceAdminTargetUsersCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	adminDevicePolicyManagerCmd.AddCommand(adminDevicePolicyManagerGetBindDeviceAdminTargetUsersCmd)
 	adminDevicePolicyManagerGetBluetoothContactSharingDisabledCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	adminDevicePolicyManagerCmd.AddCommand(adminDevicePolicyManagerGetBluetoothContactSharingDisabledCmd)
 	adminDevicePolicyManagerGetCameraDisabledCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
@@ -6120,23 +5340,11 @@ func init() {
 	adminDevicePolicyManagerGetContentProtectionPolicyCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	adminDevicePolicyManagerCmd.AddCommand(adminDevicePolicyManagerGetContentProtectionPolicyCmd)
 	adminDevicePolicyManagerCmd.AddCommand(adminDevicePolicyManagerGetCredentialManagerPolicyCmd)
-	adminDevicePolicyManagerGetCrossProfileCalendarPackagesCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	adminDevicePolicyManagerCmd.AddCommand(adminDevicePolicyManagerGetCrossProfileCalendarPackagesCmd)
 	adminDevicePolicyManagerGetCrossProfileCallerIdDisabledCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	adminDevicePolicyManagerCmd.AddCommand(adminDevicePolicyManagerGetCrossProfileCallerIdDisabledCmd)
 	adminDevicePolicyManagerGetCrossProfileContactsSearchDisabledCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	adminDevicePolicyManagerCmd.AddCommand(adminDevicePolicyManagerGetCrossProfileContactsSearchDisabledCmd)
-	adminDevicePolicyManagerGetCrossProfilePackagesCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	adminDevicePolicyManagerCmd.AddCommand(adminDevicePolicyManagerGetCrossProfilePackagesCmd)
-	adminDevicePolicyManagerGetCrossProfileWidgetProvidersCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	adminDevicePolicyManagerCmd.AddCommand(adminDevicePolicyManagerGetCrossProfileWidgetProvidersCmd)
 	adminDevicePolicyManagerCmd.AddCommand(adminDevicePolicyManagerGetCurrentFailedPasswordAttemptsCmd)
-	adminDevicePolicyManagerGetDelegatePackagesCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	adminDevicePolicyManagerGetDelegatePackagesCmd.Flags().String("arg1", "", "arg1 (string)")
-	adminDevicePolicyManagerCmd.AddCommand(adminDevicePolicyManagerGetDelegatePackagesCmd)
-	adminDevicePolicyManagerGetDelegatedScopesCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	adminDevicePolicyManagerGetDelegatedScopesCmd.Flags().String("arg1", "", "arg1 (string)")
-	adminDevicePolicyManagerCmd.AddCommand(adminDevicePolicyManagerGetDelegatedScopesCmd)
 	adminDevicePolicyManagerCmd.AddCommand(adminDevicePolicyManagerGetDeviceOwnerLockScreenInfoCmd)
 	adminDevicePolicyManagerCmd.AddCommand(adminDevicePolicyManagerGetDevicePolicyManagementRoleHolderPackageCmd)
 	adminDevicePolicyManagerGetEndUserSessionMessageCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
@@ -6148,10 +5356,6 @@ func init() {
 	adminDevicePolicyManagerCmd.AddCommand(adminDevicePolicyManagerGetGlobalPrivateDnsHostCmd)
 	adminDevicePolicyManagerGetGlobalPrivateDnsModeCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	adminDevicePolicyManagerCmd.AddCommand(adminDevicePolicyManagerGetGlobalPrivateDnsModeCmd)
-	adminDevicePolicyManagerGetInstalledCaCertsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	adminDevicePolicyManagerCmd.AddCommand(adminDevicePolicyManagerGetInstalledCaCertsCmd)
-	adminDevicePolicyManagerGetKeepUninstalledPackagesCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	adminDevicePolicyManagerCmd.AddCommand(adminDevicePolicyManagerGetKeepUninstalledPackagesCmd)
 	adminDevicePolicyManagerGetKeyguardDisabledFeaturesCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	adminDevicePolicyManagerCmd.AddCommand(adminDevicePolicyManagerGetKeyguardDisabledFeaturesCmd)
 	adminDevicePolicyManagerGetLockTaskFeaturesCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
@@ -6169,8 +5373,6 @@ func init() {
 	adminDevicePolicyManagerCmd.AddCommand(adminDevicePolicyManagerGetMaximumFailedPasswordsForWipeCmd)
 	adminDevicePolicyManagerGetMaximumTimeToLockCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	adminDevicePolicyManagerCmd.AddCommand(adminDevicePolicyManagerGetMaximumTimeToLockCmd)
-	adminDevicePolicyManagerGetMeteredDataDisabledPackagesCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	adminDevicePolicyManagerCmd.AddCommand(adminDevicePolicyManagerGetMeteredDataDisabledPackagesCmd)
 	adminDevicePolicyManagerCmd.AddCommand(adminDevicePolicyManagerGetMinimumRequiredWifiSecurityLevelCmd)
 	adminDevicePolicyManagerCmd.AddCommand(adminDevicePolicyManagerGetMtePolicyCmd)
 	adminDevicePolicyManagerCmd.AddCommand(adminDevicePolicyManagerGetNearbyAppStreamingPolicyCmd)
@@ -6179,8 +5381,6 @@ func init() {
 	adminDevicePolicyManagerCmd.AddCommand(adminDevicePolicyManagerGetOrganizationColorCmd)
 	adminDevicePolicyManagerGetOrganizationNameCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	adminDevicePolicyManagerCmd.AddCommand(adminDevicePolicyManagerGetOrganizationNameCmd)
-	adminDevicePolicyManagerGetOverrideApnsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	adminDevicePolicyManagerCmd.AddCommand(adminDevicePolicyManagerGetOverrideApnsCmd)
 	adminDevicePolicyManagerGetParentProfileInstanceCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	adminDevicePolicyManagerCmd.AddCommand(adminDevicePolicyManagerGetParentProfileInstanceCmd)
 	adminDevicePolicyManagerCmd.AddCommand(adminDevicePolicyManagerGetPasswordComplexityCmd)
@@ -6216,23 +5416,14 @@ func init() {
 	adminDevicePolicyManagerCmd.AddCommand(adminDevicePolicyManagerGetPermissionGrantStateCmd)
 	adminDevicePolicyManagerGetPermissionPolicyCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	adminDevicePolicyManagerCmd.AddCommand(adminDevicePolicyManagerGetPermissionPolicyCmd)
-	adminDevicePolicyManagerGetPermittedAccessibilityServicesCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	adminDevicePolicyManagerCmd.AddCommand(adminDevicePolicyManagerGetPermittedAccessibilityServicesCmd)
-	adminDevicePolicyManagerGetPermittedCrossProfileNotificationListenersCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	adminDevicePolicyManagerCmd.AddCommand(adminDevicePolicyManagerGetPermittedCrossProfileNotificationListenersCmd)
-	adminDevicePolicyManagerGetPermittedInputMethodsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	adminDevicePolicyManagerCmd.AddCommand(adminDevicePolicyManagerGetPermittedInputMethodsCmd)
 	adminDevicePolicyManagerGetPersonalAppsSuspendedReasonsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	adminDevicePolicyManagerCmd.AddCommand(adminDevicePolicyManagerGetPersonalAppsSuspendedReasonsCmd)
-	adminDevicePolicyManagerCmd.AddCommand(adminDevicePolicyManagerGetPreferentialNetworkServiceConfigsCmd)
 	adminDevicePolicyManagerCmd.AddCommand(adminDevicePolicyManagerGetRequiredPasswordComplexityCmd)
 	adminDevicePolicyManagerGetRequiredStrongAuthTimeoutCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	adminDevicePolicyManagerCmd.AddCommand(adminDevicePolicyManagerGetRequiredStrongAuthTimeoutCmd)
 	adminDevicePolicyManagerCmd.AddCommand(adminDevicePolicyManagerGetResourcesCmd)
 	adminDevicePolicyManagerGetScreenCaptureDisabledCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	adminDevicePolicyManagerCmd.AddCommand(adminDevicePolicyManagerGetScreenCaptureDisabledCmd)
-	adminDevicePolicyManagerGetSecondaryUsersCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	adminDevicePolicyManagerCmd.AddCommand(adminDevicePolicyManagerGetSecondaryUsersCmd)
 	adminDevicePolicyManagerGetShortSupportMessageCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	adminDevicePolicyManagerCmd.AddCommand(adminDevicePolicyManagerGetShortSupportMessageCmd)
 	adminDevicePolicyManagerGetStartUserSessionMessageCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
@@ -6240,14 +5431,8 @@ func init() {
 	adminDevicePolicyManagerGetStorageEncryptionCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	adminDevicePolicyManagerCmd.AddCommand(adminDevicePolicyManagerGetStorageEncryptionCmd)
 	adminDevicePolicyManagerCmd.AddCommand(adminDevicePolicyManagerGetStorageEncryptionStatusCmd)
-	adminDevicePolicyManagerCmd.AddCommand(adminDevicePolicyManagerGetSubscriptionIdsCmd)
 	adminDevicePolicyManagerCmd.AddCommand(adminDevicePolicyManagerGetSystemUpdatePolicyCmd)
 	adminDevicePolicyManagerCmd.AddCommand(adminDevicePolicyManagerGetTransferOwnershipBundleCmd)
-	adminDevicePolicyManagerGetTrustAgentConfigurationCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	adminDevicePolicyManagerGetTrustAgentConfigurationCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	adminDevicePolicyManagerCmd.AddCommand(adminDevicePolicyManagerGetTrustAgentConfigurationCmd)
-	adminDevicePolicyManagerGetUserControlDisabledPackagesCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	adminDevicePolicyManagerCmd.AddCommand(adminDevicePolicyManagerGetUserControlDisabledPackagesCmd)
 	adminDevicePolicyManagerGetUserRestrictionsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	adminDevicePolicyManagerCmd.AddCommand(adminDevicePolicyManagerGetUserRestrictionsCmd)
 	adminDevicePolicyManagerCmd.AddCommand(adminDevicePolicyManagerGetUserRestrictionsGloballyCmd)
@@ -6356,7 +5541,6 @@ func init() {
 	adminDevicePolicyManagerCmd.AddCommand(adminDevicePolicyManagerIsUsbDataSignalingEnabledCmd)
 	adminDevicePolicyManagerIsUsingUnifiedPasswordCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	adminDevicePolicyManagerCmd.AddCommand(adminDevicePolicyManagerIsUsingUnifiedPasswordCmd)
-	adminDevicePolicyManagerCmd.AddCommand(adminDevicePolicyManagerListForegroundAffiliatedUsersCmd)
 	adminDevicePolicyManagerCmd.AddCommand(adminDevicePolicyManagerLockNow0Cmd)
 	adminDevicePolicyManagerLockNow1_1Cmd.Flags().Int32("arg0", 0, "arg0 (int32)")
 	adminDevicePolicyManagerCmd.AddCommand(adminDevicePolicyManagerLockNow1_1Cmd)
@@ -6388,13 +5572,6 @@ func init() {
 	adminDevicePolicyManagerResetPasswordWithTokenCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
 	adminDevicePolicyManagerResetPasswordWithTokenCmd.Flags().Int32("arg3", 0, "arg3 (int32)")
 	adminDevicePolicyManagerCmd.AddCommand(adminDevicePolicyManagerResetPasswordWithTokenCmd)
-	adminDevicePolicyManagerRetrieveNetworkLogsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	adminDevicePolicyManagerRetrieveNetworkLogsCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	adminDevicePolicyManagerCmd.AddCommand(adminDevicePolicyManagerRetrieveNetworkLogsCmd)
-	adminDevicePolicyManagerRetrievePreRebootSecurityLogsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	adminDevicePolicyManagerCmd.AddCommand(adminDevicePolicyManagerRetrievePreRebootSecurityLogsCmd)
-	adminDevicePolicyManagerRetrieveSecurityLogsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	adminDevicePolicyManagerCmd.AddCommand(adminDevicePolicyManagerRetrieveSecurityLogsCmd)
 	adminDevicePolicyManagerRevokeKeyPairFromAppCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	adminDevicePolicyManagerRevokeKeyPairFromAppCmd.Flags().String("arg1", "", "arg1 (string)")
 	adminDevicePolicyManagerRevokeKeyPairFromAppCmd.Flags().String("arg2", "", "arg2 (string)")
@@ -6405,18 +5582,10 @@ func init() {
 	adminDevicePolicyManagerSetAccountManagementDisabledCmd.Flags().String("arg1", "", "arg1 (string)")
 	adminDevicePolicyManagerSetAccountManagementDisabledCmd.Flags().Bool("arg2", false, "arg2 (bool)")
 	adminDevicePolicyManagerCmd.AddCommand(adminDevicePolicyManagerSetAccountManagementDisabledCmd)
-	adminDevicePolicyManagerSetAffiliationIdsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	adminDevicePolicyManagerSetAffiliationIdsCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	adminDevicePolicyManagerCmd.AddCommand(adminDevicePolicyManagerSetAffiliationIdsCmd)
-	adminDevicePolicyManagerSetAlwaysOnVpnPackage3Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	adminDevicePolicyManagerSetAlwaysOnVpnPackage3Cmd.Flags().String("arg1", "", "arg1 (string)")
-	adminDevicePolicyManagerSetAlwaysOnVpnPackage3Cmd.Flags().Bool("arg2", false, "arg2 (bool)")
-	adminDevicePolicyManagerCmd.AddCommand(adminDevicePolicyManagerSetAlwaysOnVpnPackage3Cmd)
-	adminDevicePolicyManagerSetAlwaysOnVpnPackage4_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	adminDevicePolicyManagerSetAlwaysOnVpnPackage4_1Cmd.Flags().String("arg1", "", "arg1 (string)")
-	adminDevicePolicyManagerSetAlwaysOnVpnPackage4_1Cmd.Flags().Bool("arg2", false, "arg2 (bool)")
-	adminDevicePolicyManagerSetAlwaysOnVpnPackage4_1Cmd.Flags().Int64("arg3", 0, "arg3 (int64)")
-	adminDevicePolicyManagerCmd.AddCommand(adminDevicePolicyManagerSetAlwaysOnVpnPackage4_1Cmd)
+	adminDevicePolicyManagerSetAlwaysOnVpnPackageCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	adminDevicePolicyManagerSetAlwaysOnVpnPackageCmd.Flags().String("arg1", "", "arg1 (string)")
+	adminDevicePolicyManagerSetAlwaysOnVpnPackageCmd.Flags().Bool("arg2", false, "arg2 (bool)")
+	adminDevicePolicyManagerCmd.AddCommand(adminDevicePolicyManagerSetAlwaysOnVpnPackageCmd)
 	adminDevicePolicyManagerSetAppFunctionsPolicyCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
 	adminDevicePolicyManagerCmd.AddCommand(adminDevicePolicyManagerSetAppFunctionsPolicyCmd)
 	adminDevicePolicyManagerSetApplicationHiddenCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
@@ -6466,27 +5635,17 @@ func init() {
 	adminDevicePolicyManagerCmd.AddCommand(adminDevicePolicyManagerSetContentProtectionPolicyCmd)
 	adminDevicePolicyManagerSetCredentialManagerPolicyCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	adminDevicePolicyManagerCmd.AddCommand(adminDevicePolicyManagerSetCredentialManagerPolicyCmd)
-	adminDevicePolicyManagerSetCrossProfileCalendarPackagesCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	adminDevicePolicyManagerSetCrossProfileCalendarPackagesCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	adminDevicePolicyManagerCmd.AddCommand(adminDevicePolicyManagerSetCrossProfileCalendarPackagesCmd)
 	adminDevicePolicyManagerSetCrossProfileCallerIdDisabledCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	adminDevicePolicyManagerSetCrossProfileCallerIdDisabledCmd.Flags().Bool("arg1", false, "arg1 (bool)")
 	adminDevicePolicyManagerCmd.AddCommand(adminDevicePolicyManagerSetCrossProfileCallerIdDisabledCmd)
 	adminDevicePolicyManagerSetCrossProfileContactsSearchDisabledCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	adminDevicePolicyManagerSetCrossProfileContactsSearchDisabledCmd.Flags().Bool("arg1", false, "arg1 (bool)")
 	adminDevicePolicyManagerCmd.AddCommand(adminDevicePolicyManagerSetCrossProfileContactsSearchDisabledCmd)
-	adminDevicePolicyManagerSetCrossProfilePackagesCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	adminDevicePolicyManagerSetCrossProfilePackagesCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	adminDevicePolicyManagerCmd.AddCommand(adminDevicePolicyManagerSetCrossProfilePackagesCmd)
 	adminDevicePolicyManagerSetDefaultDialerApplicationCmd.Flags().String("arg0", "", "arg0 (string)")
 	adminDevicePolicyManagerCmd.AddCommand(adminDevicePolicyManagerSetDefaultDialerApplicationCmd)
 	adminDevicePolicyManagerSetDefaultSmsApplicationCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	adminDevicePolicyManagerSetDefaultSmsApplicationCmd.Flags().String("arg1", "", "arg1 (string)")
 	adminDevicePolicyManagerCmd.AddCommand(adminDevicePolicyManagerSetDefaultSmsApplicationCmd)
-	adminDevicePolicyManagerSetDelegatedScopesCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	adminDevicePolicyManagerSetDelegatedScopesCmd.Flags().String("arg1", "", "arg1 (string)")
-	adminDevicePolicyManagerSetDelegatedScopesCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
-	adminDevicePolicyManagerCmd.AddCommand(adminDevicePolicyManagerSetDelegatedScopesCmd)
 	adminDevicePolicyManagerSetDeviceOwnerLockScreenInfoCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	adminDevicePolicyManagerSetDeviceOwnerLockScreenInfoCmd.Flags().String("arg1", "", "arg1 (string)")
 	adminDevicePolicyManagerCmd.AddCommand(adminDevicePolicyManagerSetDeviceOwnerLockScreenInfoCmd)
@@ -6505,14 +5664,6 @@ func init() {
 	adminDevicePolicyManagerSetGlobalSettingCmd.Flags().String("arg1", "", "arg1 (string)")
 	adminDevicePolicyManagerSetGlobalSettingCmd.Flags().String("arg2", "", "arg2 (string)")
 	adminDevicePolicyManagerCmd.AddCommand(adminDevicePolicyManagerSetGlobalSettingCmd)
-	adminDevicePolicyManagerSetKeepUninstalledPackagesCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	adminDevicePolicyManagerSetKeepUninstalledPackagesCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	adminDevicePolicyManagerCmd.AddCommand(adminDevicePolicyManagerSetKeepUninstalledPackagesCmd)
-	adminDevicePolicyManagerSetKeyPairCertificateCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	adminDevicePolicyManagerSetKeyPairCertificateCmd.Flags().String("arg1", "", "arg1 (string)")
-	adminDevicePolicyManagerSetKeyPairCertificateCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
-	adminDevicePolicyManagerSetKeyPairCertificateCmd.Flags().Bool("arg3", false, "arg3 (bool)")
-	adminDevicePolicyManagerCmd.AddCommand(adminDevicePolicyManagerSetKeyPairCertificateCmd)
 	adminDevicePolicyManagerSetKeyguardDisabledCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	adminDevicePolicyManagerSetKeyguardDisabledCmd.Flags().Bool("arg1", false, "arg1 (bool)")
 	adminDevicePolicyManagerCmd.AddCommand(adminDevicePolicyManagerSetKeyguardDisabledCmd)
@@ -6552,9 +5703,6 @@ func init() {
 	adminDevicePolicyManagerSetMaximumTimeToLockCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	adminDevicePolicyManagerSetMaximumTimeToLockCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
 	adminDevicePolicyManagerCmd.AddCommand(adminDevicePolicyManagerSetMaximumTimeToLockCmd)
-	adminDevicePolicyManagerSetMeteredDataDisabledPackagesCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	adminDevicePolicyManagerSetMeteredDataDisabledPackagesCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	adminDevicePolicyManagerCmd.AddCommand(adminDevicePolicyManagerSetMeteredDataDisabledPackagesCmd)
 	adminDevicePolicyManagerSetMinimumRequiredWifiSecurityLevelCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
 	adminDevicePolicyManagerCmd.AddCommand(adminDevicePolicyManagerSetMinimumRequiredWifiSecurityLevelCmd)
 	adminDevicePolicyManagerSetMtePolicyCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
@@ -6619,20 +5767,9 @@ func init() {
 	adminDevicePolicyManagerSetPermissionPolicyCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	adminDevicePolicyManagerSetPermissionPolicyCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
 	adminDevicePolicyManagerCmd.AddCommand(adminDevicePolicyManagerSetPermissionPolicyCmd)
-	adminDevicePolicyManagerSetPermittedAccessibilityServicesCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	adminDevicePolicyManagerSetPermittedAccessibilityServicesCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	adminDevicePolicyManagerCmd.AddCommand(adminDevicePolicyManagerSetPermittedAccessibilityServicesCmd)
-	adminDevicePolicyManagerSetPermittedCrossProfileNotificationListenersCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	adminDevicePolicyManagerSetPermittedCrossProfileNotificationListenersCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	adminDevicePolicyManagerCmd.AddCommand(adminDevicePolicyManagerSetPermittedCrossProfileNotificationListenersCmd)
-	adminDevicePolicyManagerSetPermittedInputMethodsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	adminDevicePolicyManagerSetPermittedInputMethodsCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	adminDevicePolicyManagerCmd.AddCommand(adminDevicePolicyManagerSetPermittedInputMethodsCmd)
 	adminDevicePolicyManagerSetPersonalAppsSuspendedCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	adminDevicePolicyManagerSetPersonalAppsSuspendedCmd.Flags().Bool("arg1", false, "arg1 (bool)")
 	adminDevicePolicyManagerCmd.AddCommand(adminDevicePolicyManagerSetPersonalAppsSuspendedCmd)
-	adminDevicePolicyManagerSetPreferentialNetworkServiceConfigsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	adminDevicePolicyManagerCmd.AddCommand(adminDevicePolicyManagerSetPreferentialNetworkServiceConfigsCmd)
 	adminDevicePolicyManagerSetPreferentialNetworkServiceEnabledCmd.Flags().Bool("arg0", false, "arg0 (bool)")
 	adminDevicePolicyManagerCmd.AddCommand(adminDevicePolicyManagerSetPreferentialNetworkServiceEnabledCmd)
 	adminDevicePolicyManagerSetProfileEnabledCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
@@ -6699,9 +5836,6 @@ func init() {
 	adminDevicePolicyManagerCmd.AddCommand(adminDevicePolicyManagerSetUninstallBlockedCmd)
 	adminDevicePolicyManagerSetUsbDataSignalingEnabledCmd.Flags().Bool("arg0", false, "arg0 (bool)")
 	adminDevicePolicyManagerCmd.AddCommand(adminDevicePolicyManagerSetUsbDataSignalingEnabledCmd)
-	adminDevicePolicyManagerSetUserControlDisabledPackagesCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	adminDevicePolicyManagerSetUserControlDisabledPackagesCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	adminDevicePolicyManagerCmd.AddCommand(adminDevicePolicyManagerSetUserControlDisabledPackagesCmd)
 	adminDevicePolicyManagerSetUserIconCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	adminDevicePolicyManagerSetUserIconCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
 	adminDevicePolicyManagerCmd.AddCommand(adminDevicePolicyManagerSetUserIconCmd)

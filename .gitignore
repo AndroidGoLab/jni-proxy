@@ -6,6 +6,6 @@ cover.out
 examples/test_results/
 go.work
 go.work.sum
-jnicli
-jnimcp
+/jnicli
+/jnimcp
 build/

@@ -18,7 +18,7 @@ func TestServerToolsAndResources(t *testing.T) {
 	conn, err := grpc.NewClient("passthrough:///dummy",
 		grpc.WithTransportCredentials(insecure.NewCredentials()))
 	require.NoError(t, err)
-	defer conn.Close()
+	defer func() { _ = conn.Close() }()
 
 	// Create our MCP server wrapper.
 	log := slog.Default()
@@ -32,14 +32,14 @@ func TestServerToolsAndResources(t *testing.T) {
 	// Connect the MCP server to the server-side transport.
 	serverSession, err := srv.MCPServer().Connect(ctx, serverTransport, nil)
 	require.NoError(t, err)
-	defer serverSession.Close()
+	defer func() { _ = serverSession.Close() }()
 
 	// Create and connect the MCP client to the client-side transport.
 	client := gomcp.NewClient(
 		&gomcp.Implementation{Name: "test-client", Version: "0.0.1"}, nil)
 	clientSession, err := client.Connect(ctx, clientTransport, nil)
 	require.NoError(t, err)
-	defer clientSession.Close()
+	defer func() { _ = clientSession.Close() }()
 
 	// --- List tools ---
 	toolsResult, err := clientSession.ListTools(ctx, nil)

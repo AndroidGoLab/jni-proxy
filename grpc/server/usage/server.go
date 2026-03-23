@@ -50,52 +50,6 @@ func (s *StatsManagerServer) IsAppInactive(_ context.Context, req *pb.IsAppInact
 	return &pb.IsAppInactiveResponse{Result: result}, nil
 }
 
-func (s *StatsManagerServer) QueryConfigurations(_ context.Context, req *pb.QueryConfigurationsRequest) (*pb.QueryConfigurationsResponse, error) {
-	mgr, err := jnipkg.NewStatsManager(s.Ctx)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
-	}
-	defer mgr.Close()
-
-	result, err := mgr.QueryConfigurations(req.GetArg0(), req.GetArg1(), req.GetArg2())
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	var handle int64
-	if result != nil {
-		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-			handle = s.Handles.Put(env, result)
-			return nil
-		}); doErr != nil {
-			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-		}
-	}
-	return &pb.QueryConfigurationsResponse{Result: handle}, nil
-}
-
-func (s *StatsManagerServer) QueryEventStats(_ context.Context, req *pb.QueryEventStatsRequest) (*pb.QueryEventStatsResponse, error) {
-	mgr, err := jnipkg.NewStatsManager(s.Ctx)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
-	}
-	defer mgr.Close()
-
-	result, err := mgr.QueryEventStats(req.GetArg0(), req.GetArg1(), req.GetArg2())
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	var handle int64
-	if result != nil {
-		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-			handle = s.Handles.Put(env, result)
-			return nil
-		}); doErr != nil {
-			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-		}
-	}
-	return &pb.QueryEventStatsResponse{Result: handle}, nil
-}
-
 func (s *StatsManagerServer) QueryEvents1(_ context.Context, req *pb.QueryEvents1Request) (*pb.QueryEvents1Response, error) {
 	mgr, err := jnipkg.NewStatsManager(s.Ctx)
 	if err != nil {
@@ -165,14 +119,49 @@ func (s *StatsManagerServer) QueryEventsForSelf(_ context.Context, req *pb.Query
 	return &pb.QueryEventsForSelfResponse{Result: handle}, nil
 }
 
-func (s *StatsManagerServer) QueryUsageStats(_ context.Context, req *pb.QueryUsageStatsRequest) (*pb.QueryUsageStatsResponse, error) {
-	mgr, err := jnipkg.NewStatsManager(s.Ctx)
+// StorageStatsManagerServer implements pb.StorageStatsManagerServiceServer.
+type StorageStatsManagerServer struct {
+	pb.UnimplementedStorageStatsManagerServiceServer
+	Ctx     *app.Context
+	Handles *handlestore.HandleStore
+}
+
+func (s *StorageStatsManagerServer) GetFreeBytes(_ context.Context, req *pb.GetFreeBytesRequest) (*pb.GetFreeBytesResponse, error) {
+	mgr, err := jnipkg.NewStorageStatsManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
 	defer mgr.Close()
 
-	result, err := mgr.QueryUsageStats(req.GetArg0(), req.GetArg1(), req.GetArg2())
+	result, err := mgr.GetFreeBytes(s.Handles.Get(req.GetArg0()))
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetFreeBytesResponse{Result: result}, nil
+}
+
+func (s *StorageStatsManagerServer) GetTotalBytes(_ context.Context, req *pb.GetTotalBytesRequest) (*pb.GetTotalBytesResponse, error) {
+	mgr, err := jnipkg.NewStorageStatsManager(s.Ctx)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
+	}
+	defer mgr.Close()
+
+	result, err := mgr.GetTotalBytes(s.Handles.Get(req.GetArg0()))
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetTotalBytesResponse{Result: result}, nil
+}
+
+func (s *StorageStatsManagerServer) QueryExternalStatsForUser(_ context.Context, req *pb.QueryExternalStatsForUserRequest) (*pb.QueryExternalStatsForUserResponse, error) {
+	mgr, err := jnipkg.NewStorageStatsManager(s.Ctx)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
+	}
+	defer mgr.Close()
+
+	result, err := mgr.QueryExternalStatsForUser(s.Handles.Get(req.GetArg0()), s.Handles.Get(req.GetArg1()))
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "%v", err)
 	}
@@ -185,5 +174,268 @@ func (s *StatsManagerServer) QueryUsageStats(_ context.Context, req *pb.QueryUsa
 			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
 		}
 	}
-	return &pb.QueryUsageStatsResponse{Result: handle}, nil
+	return &pb.QueryExternalStatsForUserResponse{Result: handle}, nil
+}
+
+func (s *StorageStatsManagerServer) QueryStatsForPackage(_ context.Context, req *pb.QueryStatsForPackageRequest) (*pb.QueryStatsForPackageResponse, error) {
+	mgr, err := jnipkg.NewStorageStatsManager(s.Ctx)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
+	}
+	defer mgr.Close()
+
+	result, err := mgr.QueryStatsForPackage(s.Handles.Get(req.GetArg0()), req.GetArg1(), s.Handles.Get(req.GetArg2()))
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.QueryStatsForPackageResponse{Result: handle}, nil
+}
+
+func (s *StorageStatsManagerServer) QueryStatsForUid(_ context.Context, req *pb.QueryStatsForUidRequest) (*pb.QueryStatsForUidResponse, error) {
+	mgr, err := jnipkg.NewStorageStatsManager(s.Ctx)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
+	}
+	defer mgr.Close()
+
+	result, err := mgr.QueryStatsForUid(s.Handles.Get(req.GetArg0()), req.GetArg1())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.QueryStatsForUidResponse{Result: handle}, nil
+}
+
+func (s *StorageStatsManagerServer) QueryStatsForUser(_ context.Context, req *pb.QueryStatsForUserRequest) (*pb.QueryStatsForUserResponse, error) {
+	mgr, err := jnipkg.NewStorageStatsManager(s.Ctx)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
+	}
+	defer mgr.Close()
+
+	result, err := mgr.QueryStatsForUser(s.Handles.Get(req.GetArg0()), s.Handles.Get(req.GetArg1()))
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.QueryStatsForUserResponse{Result: handle}, nil
+}
+
+// NetworkStatsManagerServer implements pb.NetworkStatsManagerServiceServer.
+type NetworkStatsManagerServer struct {
+	pb.UnimplementedNetworkStatsManagerServiceServer
+	Ctx     *app.Context
+	Handles *handlestore.HandleStore
+}
+
+func (s *NetworkStatsManagerServer) QueryDetails(_ context.Context, req *pb.QueryDetailsRequest) (*pb.QueryDetailsResponse, error) {
+	mgr, err := jnipkg.NewNetworkStatsManager(s.Ctx)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
+	}
+	defer mgr.Close()
+
+	result, err := mgr.QueryDetails(req.GetArg0(), req.GetArg1(), req.GetArg2(), req.GetArg3())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.QueryDetailsResponse{Result: handle}, nil
+}
+
+func (s *NetworkStatsManagerServer) QueryDetailsForUid(_ context.Context, req *pb.QueryDetailsForUidRequest) (*pb.QueryDetailsForUidResponse, error) {
+	mgr, err := jnipkg.NewNetworkStatsManager(s.Ctx)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
+	}
+	defer mgr.Close()
+
+	result, err := mgr.QueryDetailsForUid(req.GetArg0(), req.GetArg1(), req.GetArg2(), req.GetArg3(), req.GetArg4())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.QueryDetailsForUidResponse{Result: handle}, nil
+}
+
+func (s *NetworkStatsManagerServer) QueryDetailsForUidTag(_ context.Context, req *pb.QueryDetailsForUidTagRequest) (*pb.QueryDetailsForUidTagResponse, error) {
+	mgr, err := jnipkg.NewNetworkStatsManager(s.Ctx)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
+	}
+	defer mgr.Close()
+
+	result, err := mgr.QueryDetailsForUidTag(req.GetArg0(), req.GetArg1(), req.GetArg2(), req.GetArg3(), req.GetArg4(), req.GetArg5())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.QueryDetailsForUidTagResponse{Result: handle}, nil
+}
+
+func (s *NetworkStatsManagerServer) QueryDetailsForUidTagState(_ context.Context, req *pb.QueryDetailsForUidTagStateRequest) (*pb.QueryDetailsForUidTagStateResponse, error) {
+	mgr, err := jnipkg.NewNetworkStatsManager(s.Ctx)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
+	}
+	defer mgr.Close()
+
+	result, err := mgr.QueryDetailsForUidTagState(req.GetArg0(), req.GetArg1(), req.GetArg2(), req.GetArg3(), req.GetArg4(), req.GetArg5(), req.GetArg6())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.QueryDetailsForUidTagStateResponse{Result: handle}, nil
+}
+
+func (s *NetworkStatsManagerServer) QuerySummary(_ context.Context, req *pb.QuerySummaryRequest) (*pb.QuerySummaryResponse, error) {
+	mgr, err := jnipkg.NewNetworkStatsManager(s.Ctx)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
+	}
+	defer mgr.Close()
+
+	result, err := mgr.QuerySummary(req.GetArg0(), req.GetArg1(), req.GetArg2(), req.GetArg3())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.QuerySummaryResponse{Result: handle}, nil
+}
+
+func (s *NetworkStatsManagerServer) QuerySummaryForDevice(_ context.Context, req *pb.QuerySummaryForDeviceRequest) (*pb.QuerySummaryForDeviceResponse, error) {
+	mgr, err := jnipkg.NewNetworkStatsManager(s.Ctx)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
+	}
+	defer mgr.Close()
+
+	result, err := mgr.QuerySummaryForDevice(req.GetArg0(), req.GetArg1(), req.GetArg2(), req.GetArg3())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.QuerySummaryForDeviceResponse{Result: handle}, nil
+}
+
+func (s *NetworkStatsManagerServer) QuerySummaryForUser(_ context.Context, req *pb.QuerySummaryForUserRequest) (*pb.QuerySummaryForUserResponse, error) {
+	mgr, err := jnipkg.NewNetworkStatsManager(s.Ctx)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
+	}
+	defer mgr.Close()
+
+	result, err := mgr.QuerySummaryForUser(req.GetArg0(), req.GetArg1(), req.GetArg2(), req.GetArg3())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.QuerySummaryForUserResponse{Result: handle}, nil
+}
+
+func (s *NetworkStatsManagerServer) RegisterUsageCallback(_ context.Context, req *pb.RegisterUsageCallbackRequest) (*pb.RegisterUsageCallbackResponse, error) {
+	mgr, err := jnipkg.NewNetworkStatsManager(s.Ctx)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
+	}
+	defer mgr.Close()
+
+	if err := mgr.RegisterUsageCallback(req.GetArg0(), req.GetArg1(), req.GetArg2(), s.Handles.Get(req.GetArg3())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.RegisterUsageCallbackResponse{}, nil
+}
+
+func (s *NetworkStatsManagerServer) UnregisterUsageCallback(_ context.Context, req *pb.UnregisterUsageCallbackRequest) (*pb.UnregisterUsageCallbackResponse, error) {
+	mgr, err := jnipkg.NewNetworkStatsManager(s.Ctx)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
+	}
+	defer mgr.Close()
+
+	if err := mgr.UnregisterUsageCallback(s.Handles.Get(req.GetArg0())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.UnregisterUsageCallbackResponse{}, nil
 }

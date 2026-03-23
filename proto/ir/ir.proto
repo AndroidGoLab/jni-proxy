@@ -28,27 +28,8 @@ message TransmitRequest {
 message TransmitResponse {
 }
 
-message GetMaxFrequencyRequest {
-}
-
-message GetMaxFrequencyResponse {
-  int32 result = 1;
-}
-
-message GetMinFrequencyRequest {
-}
-
-message GetMinFrequencyResponse {
-  int32 result = 1;
-}
-
 service ConsumerIrManagerService {
   rpc GetCarrierFrequencies (GetCarrierFrequenciesRequest) returns (GetCarrierFrequenciesResponse);
   rpc HasIrEmitter (HasIrEmitterRequest) returns (HasIrEmitterResponse);
   rpc Transmit (TransmitRequest) returns (TransmitResponse);
-}
-
-service ConsumerIrManagerCarrierFrequencyRangeService {
-  rpc GetMaxFrequency (GetMaxFrequencyRequest) returns (GetMaxFrequencyResponse);
-  rpc GetMinFrequency (GetMinFrequencyRequest) returns (GetMinFrequencyResponse);
 }

@@ -150,29 +150,6 @@ func (s *ManagerServer) GetPrimaryStorageVolume(_ context.Context, req *pb.GetPr
 	return &pb.GetPrimaryStorageVolumeResponse{Result: handle}, nil
 }
 
-func (s *ManagerServer) GetRecentStorageVolumes(_ context.Context, req *pb.GetRecentStorageVolumesRequest) (*pb.GetRecentStorageVolumesResponse, error) {
-	mgr, err := jnipkg.NewManager(s.Ctx)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
-	}
-	defer mgr.Close()
-
-	result, err := mgr.GetRecentStorageVolumes()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	var handle int64
-	if result != nil {
-		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-			handle = s.Handles.Put(env, result)
-			return nil
-		}); doErr != nil {
-			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-		}
-	}
-	return &pb.GetRecentStorageVolumesResponse{Result: handle}, nil
-}
-
 func (s *ManagerServer) GetStorageVolume1(_ context.Context, req *pb.GetStorageVolume1Request) (*pb.GetStorageVolume1Response, error) {
 	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
@@ -217,52 +194,6 @@ func (s *ManagerServer) GetStorageVolume1_1(_ context.Context, req *pb.GetStorag
 		}
 	}
 	return &pb.GetStorageVolume1_1Response{Result: handle}, nil
-}
-
-func (s *ManagerServer) GetStorageVolumes(_ context.Context, req *pb.GetStorageVolumesRequest) (*pb.GetStorageVolumesResponse, error) {
-	mgr, err := jnipkg.NewManager(s.Ctx)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
-	}
-	defer mgr.Close()
-
-	result, err := mgr.GetStorageVolumes()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	var handle int64
-	if result != nil {
-		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-			handle = s.Handles.Put(env, result)
-			return nil
-		}); doErr != nil {
-			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-		}
-	}
-	return &pb.GetStorageVolumesResponse{Result: handle}, nil
-}
-
-func (s *ManagerServer) GetStorageVolumesIncludingSharedProfiles(_ context.Context, req *pb.GetStorageVolumesIncludingSharedProfilesRequest) (*pb.GetStorageVolumesIncludingSharedProfilesResponse, error) {
-	mgr, err := jnipkg.NewManager(s.Ctx)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
-	}
-	defer mgr.Close()
-
-	result, err := mgr.GetStorageVolumesIncludingSharedProfiles()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	var handle int64
-	if result != nil {
-		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-			handle = s.Handles.Put(env, result)
-			return nil
-		}); doErr != nil {
-			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-		}
-	}
-	return &pb.GetStorageVolumesIncludingSharedProfilesResponse{Result: handle}, nil
 }
 
 func (s *ManagerServer) GetUuidForPath(_ context.Context, req *pb.GetUuidForPathRequest) (*pb.GetUuidForPathResponse, error) {

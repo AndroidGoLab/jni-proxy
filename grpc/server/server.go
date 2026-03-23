@@ -8,71 +8,145 @@ import (
 	"github.com/AndroidGoLab/jni/app"
 	"google.golang.org/grpc"
 
+	accessibilityserver "github.com/AndroidGoLab/jni-proxy/grpc/server/accessibility"
 	accountsserver "github.com/AndroidGoLab/jni-proxy/grpc/server/accounts"
+	adserver "github.com/AndroidGoLab/jni-proxy/grpc/server/ad"
 	adminserver "github.com/AndroidGoLab/jni-proxy/grpc/server/admin"
+	advancedprotectionserver "github.com/AndroidGoLab/jni-proxy/grpc/server/advancedprotection"
 	alarmserver "github.com/AndroidGoLab/jni-proxy/grpc/server/alarm"
+	appserver "github.com/AndroidGoLab/jni-proxy/grpc/server/app"
+	appwidgetserver "github.com/AndroidGoLab/jni-proxy/grpc/server/appwidget"
 	audiomanagerserver "github.com/AndroidGoLab/jni-proxy/grpc/server/audiomanager"
+	awareserver "github.com/AndroidGoLab/jni-proxy/grpc/server/aware"
 	batteryserver "github.com/AndroidGoLab/jni-proxy/grpc/server/battery"
 	biometricserver "github.com/AndroidGoLab/jni-proxy/grpc/server/biometric"
 	blobserver "github.com/AndroidGoLab/jni-proxy/grpc/server/blob"
+	bluetoothserver "github.com/AndroidGoLab/jni-proxy/grpc/server/bluetooth"
 	cameraserver "github.com/AndroidGoLab/jni-proxy/grpc/server/camera"
 	clipboardserver "github.com/AndroidGoLab/jni-proxy/grpc/server/clipboard"
 	companionserver "github.com/AndroidGoLab/jni-proxy/grpc/server/companion"
+	contentserver "github.com/AndroidGoLab/jni-proxy/grpc/server/content"
+	credentialsserver "github.com/AndroidGoLab/jni-proxy/grpc/server/credentials"
 	displayserver "github.com/AndroidGoLab/jni-proxy/grpc/server/display"
+	displayhashserver "github.com/AndroidGoLab/jni-proxy/grpc/server/displayhash"
+	domainserver "github.com/AndroidGoLab/jni-proxy/grpc/server/domain"
 	downloadserver "github.com/AndroidGoLab/jni-proxy/grpc/server/download"
+	euiccserver "github.com/AndroidGoLab/jni-proxy/grpc/server/euicc"
+	fingerprintserver "github.com/AndroidGoLab/jni-proxy/grpc/server/fingerprint"
+	hardwareserver "github.com/AndroidGoLab/jni-proxy/grpc/server/hardware"
+	healthserver "github.com/AndroidGoLab/jni-proxy/grpc/server/health"
+	health_connectserver "github.com/AndroidGoLab/jni-proxy/grpc/server/health_connect"
+	inputserver "github.com/AndroidGoLab/jni-proxy/grpc/server/input"
 	inputmethodserver "github.com/AndroidGoLab/jni-proxy/grpc/server/inputmethod"
+	interactiveserver "github.com/AndroidGoLab/jni-proxy/grpc/server/interactive"
 	irserver "github.com/AndroidGoLab/jni-proxy/grpc/server/ir"
 	jobserver "github.com/AndroidGoLab/jni-proxy/grpc/server/job"
 	keyguardserver "github.com/AndroidGoLab/jni-proxy/grpc/server/keyguard"
+	keystoreserver "github.com/AndroidGoLab/jni-proxy/grpc/server/keystore"
 	locationserver "github.com/AndroidGoLab/jni-proxy/grpc/server/location"
+	mediaserver "github.com/AndroidGoLab/jni-proxy/grpc/server/media"
+	metricsserver "github.com/AndroidGoLab/jni-proxy/grpc/server/metrics"
+	midiserver "github.com/AndroidGoLab/jni-proxy/grpc/server/midi"
 	netserver "github.com/AndroidGoLab/jni-proxy/grpc/server/net"
+	nfcserver "github.com/AndroidGoLab/jni-proxy/grpc/server/nfc"
 	notificationserver "github.com/AndroidGoLab/jni-proxy/grpc/server/notification"
 	nsdserver "github.com/AndroidGoLab/jni-proxy/grpc/server/nsd"
+	omserver "github.com/AndroidGoLab/jni-proxy/grpc/server/om"
+	osserver "github.com/AndroidGoLab/jni-proxy/grpc/server/os"
+	p2pserver "github.com/AndroidGoLab/jni-proxy/grpc/server/p2p"
+	peopleserver "github.com/AndroidGoLab/jni-proxy/grpc/server/people"
+	persistentdataserver "github.com/AndroidGoLab/jni-proxy/grpc/server/persistentdata"
+	pmserver "github.com/AndroidGoLab/jni-proxy/grpc/server/pm"
 	powerserver "github.com/AndroidGoLab/jni-proxy/grpc/server/power"
 	printserver "github.com/AndroidGoLab/jni-proxy/grpc/server/print"
 	projectionserver "github.com/AndroidGoLab/jni-proxy/grpc/server/projection"
+	qualityserver "github.com/AndroidGoLab/jni-proxy/grpc/server/quality"
 	roleserver "github.com/AndroidGoLab/jni-proxy/grpc/server/role"
+	satelliteserver "github.com/AndroidGoLab/jni-proxy/grpc/server/satellite"
+	securityserver "github.com/AndroidGoLab/jni-proxy/grpc/server/security"
 	sessionserver "github.com/AndroidGoLab/jni-proxy/grpc/server/session"
 	storageserver "github.com/AndroidGoLab/jni-proxy/grpc/server/storage"
 	telecomserver "github.com/AndroidGoLab/jni-proxy/grpc/server/telecom"
 	telephonyserver "github.com/AndroidGoLab/jni-proxy/grpc/server/telephony"
+	textclassifierserver "github.com/AndroidGoLab/jni-proxy/grpc/server/textclassifier"
+	textserviceserver "github.com/AndroidGoLab/jni-proxy/grpc/server/textservice"
+	tvserver "github.com/AndroidGoLab/jni-proxy/grpc/server/tv"
 	usageserver "github.com/AndroidGoLab/jni-proxy/grpc/server/usage"
 	usbserver "github.com/AndroidGoLab/jni-proxy/grpc/server/usb"
 	vibratorserver "github.com/AndroidGoLab/jni-proxy/grpc/server/vibrator"
+	viewserver "github.com/AndroidGoLab/jni-proxy/grpc/server/view"
+	virtualserver "github.com/AndroidGoLab/jni-proxy/grpc/server/virtual"
 	wifiserver "github.com/AndroidGoLab/jni-proxy/grpc/server/wifi"
 	wifi_p2pserver "github.com/AndroidGoLab/jni-proxy/grpc/server/wifi_p2p"
 	wifi_rttserver "github.com/AndroidGoLab/jni-proxy/grpc/server/wifi_rtt"
+	accessibilitypb "github.com/AndroidGoLab/jni-proxy/proto/accessibility"
 	accountspb "github.com/AndroidGoLab/jni-proxy/proto/accounts"
+	adpb "github.com/AndroidGoLab/jni-proxy/proto/ad"
 	adminpb "github.com/AndroidGoLab/jni-proxy/proto/admin"
+	advancedprotectionpb "github.com/AndroidGoLab/jni-proxy/proto/advancedprotection"
 	alarmpb "github.com/AndroidGoLab/jni-proxy/proto/alarm"
+	apppb "github.com/AndroidGoLab/jni-proxy/proto/app"
+	appwidgetpb "github.com/AndroidGoLab/jni-proxy/proto/appwidget"
 	audiomanagerpb "github.com/AndroidGoLab/jni-proxy/proto/audiomanager"
+	awarepb "github.com/AndroidGoLab/jni-proxy/proto/aware"
 	batterypb "github.com/AndroidGoLab/jni-proxy/proto/battery"
 	biometricpb "github.com/AndroidGoLab/jni-proxy/proto/biometric"
 	blobpb "github.com/AndroidGoLab/jni-proxy/proto/blob"
+	bluetoothpb "github.com/AndroidGoLab/jni-proxy/proto/bluetooth"
 	camerapb "github.com/AndroidGoLab/jni-proxy/proto/camera"
 	clipboardpb "github.com/AndroidGoLab/jni-proxy/proto/clipboard"
 	companionpb "github.com/AndroidGoLab/jni-proxy/proto/companion"
+	contentpb "github.com/AndroidGoLab/jni-proxy/proto/content"
+	credentialspb "github.com/AndroidGoLab/jni-proxy/proto/credentials"
 	displaypb "github.com/AndroidGoLab/jni-proxy/proto/display"
+	displayhashpb "github.com/AndroidGoLab/jni-proxy/proto/displayhash"
+	domainpb "github.com/AndroidGoLab/jni-proxy/proto/domain"
 	downloadpb "github.com/AndroidGoLab/jni-proxy/proto/download"
+	euiccpb "github.com/AndroidGoLab/jni-proxy/proto/euicc"
+	fingerprintpb "github.com/AndroidGoLab/jni-proxy/proto/fingerprint"
+	hardwarepb "github.com/AndroidGoLab/jni-proxy/proto/hardware"
+	healthpb "github.com/AndroidGoLab/jni-proxy/proto/health"
+	health_connectpb "github.com/AndroidGoLab/jni-proxy/proto/health_connect"
+	inputpb "github.com/AndroidGoLab/jni-proxy/proto/input"
 	inputmethodpb "github.com/AndroidGoLab/jni-proxy/proto/inputmethod"
+	interactivepb "github.com/AndroidGoLab/jni-proxy/proto/interactive"
 	irpb "github.com/AndroidGoLab/jni-proxy/proto/ir"
 	jobpb "github.com/AndroidGoLab/jni-proxy/proto/job"
 	keyguardpb "github.com/AndroidGoLab/jni-proxy/proto/keyguard"
+	keystorepb "github.com/AndroidGoLab/jni-proxy/proto/keystore"
 	locationpb "github.com/AndroidGoLab/jni-proxy/proto/location"
+	mediapb "github.com/AndroidGoLab/jni-proxy/proto/media"
+	metricspb "github.com/AndroidGoLab/jni-proxy/proto/metrics"
+	midipb "github.com/AndroidGoLab/jni-proxy/proto/midi"
 	netpb "github.com/AndroidGoLab/jni-proxy/proto/net"
+	nfcpb "github.com/AndroidGoLab/jni-proxy/proto/nfc"
 	notificationpb "github.com/AndroidGoLab/jni-proxy/proto/notification"
 	nsdpb "github.com/AndroidGoLab/jni-proxy/proto/nsd"
+	ompb "github.com/AndroidGoLab/jni-proxy/proto/om"
+	ospb "github.com/AndroidGoLab/jni-proxy/proto/os"
+	p2ppb "github.com/AndroidGoLab/jni-proxy/proto/p2p"
+	peoplepb "github.com/AndroidGoLab/jni-proxy/proto/people"
+	persistentdatapb "github.com/AndroidGoLab/jni-proxy/proto/persistentdata"
+	pmpb "github.com/AndroidGoLab/jni-proxy/proto/pm"
 	powerpb "github.com/AndroidGoLab/jni-proxy/proto/power"
 	printpb "github.com/AndroidGoLab/jni-proxy/proto/print"
 	projectionpb "github.com/AndroidGoLab/jni-proxy/proto/projection"
+	qualitypb "github.com/AndroidGoLab/jni-proxy/proto/quality"
 	rolepb "github.com/AndroidGoLab/jni-proxy/proto/role"
+	satellitepb "github.com/AndroidGoLab/jni-proxy/proto/satellite"
+	securitypb "github.com/AndroidGoLab/jni-proxy/proto/security"
 	sessionpb "github.com/AndroidGoLab/jni-proxy/proto/session"
 	storagepb "github.com/AndroidGoLab/jni-proxy/proto/storage"
 	telecompb "github.com/AndroidGoLab/jni-proxy/proto/telecom"
 	telephonypb "github.com/AndroidGoLab/jni-proxy/proto/telephony"
+	textclassifierpb "github.com/AndroidGoLab/jni-proxy/proto/textclassifier"
+	textservicepb "github.com/AndroidGoLab/jni-proxy/proto/textservice"
+	tvpb "github.com/AndroidGoLab/jni-proxy/proto/tv"
 	usagepb "github.com/AndroidGoLab/jni-proxy/proto/usage"
 	usbpb "github.com/AndroidGoLab/jni-proxy/proto/usb"
 	vibratorpb "github.com/AndroidGoLab/jni-proxy/proto/vibrator"
+	viewpb "github.com/AndroidGoLab/jni-proxy/proto/view"
+	virtualpb "github.com/AndroidGoLab/jni-proxy/proto/virtual"
 	wifipb "github.com/AndroidGoLab/jni-proxy/proto/wifi"
 	wifi_p2ppb "github.com/AndroidGoLab/jni-proxy/proto/wifi_p2p"
 	wifi_rttpb "github.com/AndroidGoLab/jni-proxy/proto/wifi_rtt"
@@ -83,37 +157,100 @@ import (
 // that pass JNI object references over gRPC.
 func RegisterAll(s grpc.ServiceRegistrar, ctx *app.Context, handles *handlestore.HandleStore) {
 	handlepb.RegisterHandleStoreServiceServer(s, &handlestore.Server{VM: ctx.VM, Handles: handles})
+	accessibilitypb.RegisterManagerServiceServer(s, &accessibilityserver.ManagerServer{Ctx: ctx, Handles: handles})
+	accessibilitypb.RegisterCaptioningManagerServiceServer(s, &accessibilityserver.CaptioningManagerServer{Ctx: ctx, Handles: handles})
 	accountspb.RegisterAccountManagerServiceServer(s, &accountsserver.AccountManagerServer{Ctx: ctx, Handles: handles})
+	adpb.RegisterTvAdManagerServiceServer(s, &adserver.TvAdManagerServer{Ctx: ctx, Handles: handles})
 	adminpb.RegisterDevicePolicyManagerServiceServer(s, &adminserver.DevicePolicyManagerServer{Ctx: ctx, Handles: handles})
+	advancedprotectionpb.RegisterAdvancedProtectionManagerServiceServer(s, &advancedprotectionserver.AdvancedProtectionManagerServer{Ctx: ctx, Handles: handles})
 	alarmpb.RegisterManagerServiceServer(s, &alarmserver.ManagerServer{Ctx: ctx, Handles: handles})
+	apppb.RegisterStatusBarManagerServiceServer(s, &appserver.StatusBarManagerServer{Ctx: ctx, Handles: handles})
+	apppb.RegisterGameManagerServiceServer(s, &appserver.GameManagerServer{Ctx: ctx, Handles: handles})
+	apppb.RegisterActivityManagerServiceServer(s, &appserver.ActivityManagerServer{Ctx: ctx, Handles: handles})
+	apppb.RegisterSearchManagerServiceServer(s, &appserver.SearchManagerServer{Ctx: ctx, Handles: handles})
+	apppb.RegisterLocaleManagerServiceServer(s, &appserver.LocaleManagerServer{Ctx: ctx, Handles: handles})
+	apppb.RegisterWallpaperManagerServiceServer(s, &appserver.WallpaperManagerServer{Ctx: ctx, Handles: handles})
+	apppb.RegisterOpsManagerServiceServer(s, &appserver.OpsManagerServer{Ctx: ctx, Handles: handles})
+	apppb.RegisterUiModeManagerServiceServer(s, &appserver.UiModeManagerServer{Ctx: ctx, Handles: handles})
+	apppb.RegisterGrammaticalInflectionManagerServiceServer(s, &appserver.GrammaticalInflectionManagerServer{Ctx: ctx})
+	appwidgetpb.RegisterAppWidgetManagerServiceServer(s, &appwidgetserver.AppWidgetManagerServer{Ctx: ctx, Handles: handles})
 	audiomanagerpb.RegisterAudioManagerServiceServer(s, &audiomanagerserver.AudioManagerServer{Ctx: ctx, Handles: handles})
+	awarepb.RegisterWifiAwareManagerServiceServer(s, &awareserver.WifiAwareManagerServer{Ctx: ctx, Handles: handles})
 	batterypb.RegisterManagerServiceServer(s, &batteryserver.ManagerServer{Ctx: ctx})
 	biometricpb.RegisterManagerServiceServer(s, &biometricserver.ManagerServer{Ctx: ctx, Handles: handles})
 	blobpb.RegisterStoreManagerServiceServer(s, &blobserver.StoreManagerServer{Ctx: ctx, Handles: handles})
+	bluetoothpb.RegisterManagerServiceServer(s, &bluetoothserver.ManagerServer{Ctx: ctx, Handles: handles})
 	camerapb.RegisterManagerServiceServer(s, &cameraserver.ManagerServer{Ctx: ctx, Handles: handles})
 	clipboardpb.RegisterManagerServiceServer(s, &clipboardserver.ManagerServer{Ctx: ctx, Handles: handles})
 	companionpb.RegisterDeviceManagerServiceServer(s, &companionserver.DeviceManagerServer{Ctx: ctx, Handles: handles})
+	contentpb.RegisterRestrictionsManagerServiceServer(s, &contentserver.RestrictionsManagerServer{Ctx: ctx, Handles: handles})
+	credentialspb.RegisterCredentialManagerServiceServer(s, &credentialsserver.CredentialManagerServer{Ctx: ctx, Handles: handles})
+	displaypb.RegisterManagerServiceServer(s, &displayserver.ManagerServer{Ctx: ctx, Handles: handles})
 	displaypb.RegisterWindowManagerServiceServer(s, &displayserver.WindowManagerServer{Ctx: ctx, Handles: handles})
+	displayhashpb.RegisterDisplayHashManagerServiceServer(s, &displayhashserver.DisplayHashManagerServer{Ctx: ctx, Handles: handles})
+	domainpb.RegisterVerificationManagerServiceServer(s, &domainserver.VerificationManagerServer{Ctx: ctx, Handles: handles})
 	downloadpb.RegisterManagerServiceServer(s, &downloadserver.ManagerServer{Ctx: ctx, Handles: handles})
+	euiccpb.RegisterManagerServiceServer(s, &euiccserver.ManagerServer{Ctx: ctx, Handles: handles})
+	fingerprintpb.RegisterManagerServiceServer(s, &fingerprintserver.ManagerServer{Ctx: ctx})
+	hardwarepb.RegisterSensorManagerServiceServer(s, &hardwareserver.SensorManagerServer{Ctx: ctx, Handles: handles})
+	healthpb.RegisterSystemHealthManagerServiceServer(s, &healthserver.SystemHealthManagerServer{Ctx: ctx, Handles: handles})
+	health_connectpb.RegisterHealthConnectManagerServiceServer(s, &health_connectserver.HealthConnectManagerServer{Ctx: ctx, Handles: handles})
+	inputpb.RegisterManagerServiceServer(s, &inputserver.ManagerServer{Ctx: ctx, Handles: handles})
 	inputmethodpb.RegisterInputMethodManagerServiceServer(s, &inputmethodserver.InputMethodManagerServer{Ctx: ctx, Handles: handles})
+	interactivepb.RegisterTvInteractiveAppManagerServiceServer(s, &interactiveserver.TvInteractiveAppManagerServer{Ctx: ctx, Handles: handles})
 	irpb.RegisterConsumerIrManagerServiceServer(s, &irserver.ConsumerIrManagerServer{Ctx: ctx, Handles: handles})
 	jobpb.RegisterSchedulerServiceServer(s, &jobserver.SchedulerServer{Ctx: ctx, Handles: handles})
 	keyguardpb.RegisterManagerServiceServer(s, &keyguardserver.ManagerServer{Ctx: ctx, Handles: handles})
+	keystorepb.RegisterKeyStoreManagerServiceServer(s, &keystoreserver.KeyStoreManagerServer{Ctx: ctx, Handles: handles})
 	locationpb.RegisterManagerServiceServer(s, &locationserver.ManagerServer{Ctx: ctx, Handles: handles})
+	mediapb.RegisterRouterServiceServer(s, &mediaserver.RouterServer{Ctx: ctx, Handles: handles})
+	mediapb.RegisterCommunicationManagerServiceServer(s, &mediaserver.CommunicationManagerServer{Ctx: ctx})
+	metricspb.RegisterMediaMetricsManagerServiceServer(s, &metricsserver.MediaMetricsManagerServer{Ctx: ctx, Handles: handles})
+	midipb.RegisterManagerServiceServer(s, &midiserver.ManagerServer{Ctx: ctx, Handles: handles})
+	netpb.RegisterConnectivityDiagnosticsManagerServiceServer(s, &netserver.ConnectivityDiagnosticsManagerServer{Ctx: ctx, Handles: handles})
 	netpb.RegisterConnectivityManagerServiceServer(s, &netserver.ConnectivityManagerServer{Ctx: ctx, Handles: handles})
+	netpb.RegisterIpSecManagerServiceServer(s, &netserver.IpSecManagerServer{Ctx: ctx, Handles: handles})
+	netpb.RegisterTetheringManagerServiceServer(s, &netserver.TetheringManagerServer{Ctx: ctx, Handles: handles})
+	nfcpb.RegisterManagerServiceServer(s, &nfcserver.ManagerServer{Ctx: ctx, Handles: handles})
 	notificationpb.RegisterManagerServiceServer(s, &notificationserver.ManagerServer{Ctx: ctx, Handles: handles})
 	nsdpb.RegisterManagerServiceServer(s, &nsdserver.ManagerServer{Ctx: ctx, Handles: handles})
+	ompb.RegisterOverlayManagerServiceServer(s, &omserver.OverlayManagerServer{Ctx: ctx, Handles: handles})
+	ospb.RegisterDropBoxManagerServiceServer(s, &osserver.DropBoxManagerServer{Ctx: ctx, Handles: handles})
+	ospb.RegisterSecurityStateManagerServiceServer(s, &osserver.SecurityStateManagerServer{Ctx: ctx, Handles: handles})
+	ospb.RegisterUserManagerServiceServer(s, &osserver.UserManagerServer{Ctx: ctx, Handles: handles})
+	ospb.RegisterHardwarePropertiesManagerServiceServer(s, &osserver.HardwarePropertiesManagerServer{Ctx: ctx, Handles: handles})
+	ospb.RegisterVibratorManagerServiceServer(s, &osserver.VibratorManagerServer{Ctx: ctx, Handles: handles})
+	ospb.RegisterBugreportManagerServiceServer(s, &osserver.BugreportManagerServer{Ctx: ctx, Handles: handles})
+	ospb.RegisterPerformanceHintManagerServiceServer(s, &osserver.PerformanceHintManagerServer{Ctx: ctx, Handles: handles})
+	ospb.RegisterProfilingManagerServiceServer(s, &osserver.ProfilingManagerServer{Ctx: ctx, Handles: handles})
+	p2ppb.RegisterWifiP2PManagerServiceServer(s, &p2pserver.WifiP2pManagerServer{Ctx: ctx, Handles: handles})
+	peoplepb.RegisterManagerServiceServer(s, &peopleserver.ManagerServer{Ctx: ctx, Handles: handles})
+	persistentdatapb.RegisterPersistentDataBlockManagerServiceServer(s, &persistentdataserver.PersistentDataBlockManagerServer{Ctx: ctx})
+	pmpb.RegisterCrossProfileAppsServiceServer(s, &pmserver.CrossProfileAppsServer{Ctx: ctx, Handles: handles})
+	pmpb.RegisterShortcutManagerServiceServer(s, &pmserver.ShortcutManagerServer{Ctx: ctx, Handles: handles})
+	pmpb.RegisterLauncherAppsServiceServer(s, &pmserver.LauncherAppsServer{Ctx: ctx, Handles: handles})
 	powerpb.RegisterManagerServiceServer(s, &powerserver.ManagerServer{Ctx: ctx, Handles: handles})
 	printpb.RegisterManagerServiceServer(s, &printserver.ManagerServer{Ctx: ctx, Handles: handles})
 	projectionpb.RegisterMediaProjectionManagerServiceServer(s, &projectionserver.MediaProjectionManagerServer{Ctx: ctx, Handles: handles})
+	qualitypb.RegisterMediaQualityManagerServiceServer(s, &qualityserver.MediaQualityManagerServer{Ctx: ctx, Handles: handles})
 	rolepb.RegisterManagerServiceServer(s, &roleserver.ManagerServer{Ctx: ctx, Handles: handles})
+	satellitepb.RegisterManagerServiceServer(s, &satelliteserver.ManagerServer{Ctx: ctx, Handles: handles})
+	securitypb.RegisterFileIntegrityManagerServiceServer(s, &securityserver.FileIntegrityManagerServer{Ctx: ctx, Handles: handles})
 	sessionpb.RegisterMediaSessionManagerServiceServer(s, &sessionserver.MediaSessionManagerServer{Ctx: ctx, Handles: handles})
 	storagepb.RegisterManagerServiceServer(s, &storageserver.ManagerServer{Ctx: ctx, Handles: handles})
 	telecompb.RegisterManagerServiceServer(s, &telecomserver.ManagerServer{Ctx: ctx, Handles: handles})
+	telephonypb.RegisterCarrierConfigManagerServiceServer(s, &telephonyserver.CarrierConfigManagerServer{Ctx: ctx, Handles: handles})
 	telephonypb.RegisterManagerServiceServer(s, &telephonyserver.ManagerServer{Ctx: ctx, Handles: handles})
+	textclassifierpb.RegisterTextClassificationManagerServiceServer(s, &textclassifierserver.TextClassificationManagerServer{Ctx: ctx, Handles: handles})
+	textservicepb.RegisterTextServicesManagerServiceServer(s, &textserviceserver.TextServicesManagerServer{Ctx: ctx, Handles: handles})
+	tvpb.RegisterInputManagerServiceServer(s, &tvserver.InputManagerServer{Ctx: ctx, Handles: handles})
 	usagepb.RegisterStatsManagerServiceServer(s, &usageserver.StatsManagerServer{Ctx: ctx, Handles: handles})
+	usagepb.RegisterStorageStatsManagerServiceServer(s, &usageserver.StorageStatsManagerServer{Ctx: ctx, Handles: handles})
+	usagepb.RegisterNetworkStatsManagerServiceServer(s, &usageserver.NetworkStatsManagerServer{Ctx: ctx, Handles: handles})
 	usbpb.RegisterManagerServiceServer(s, &usbserver.ManagerServer{Ctx: ctx, Handles: handles})
 	vibratorpb.RegisterVibratorServiceServer(s, &vibratorserver.VibratorServer{Ctx: ctx, Handles: handles})
+	viewpb.RegisterLayoutInflaterServiceServer(s, &viewserver.LayoutInflaterServer{Ctx: ctx, Handles: handles})
+	virtualpb.RegisterDeviceManagerServiceServer(s, &virtualserver.DeviceManagerServer{Ctx: ctx, Handles: handles})
 	wifipb.RegisterManagerServiceServer(s, &wifiserver.ManagerServer{Ctx: ctx, Handles: handles})
 	wifi_p2ppb.RegisterWifiP2PManagerServiceServer(s, &wifi_p2pserver.WifiP2pManagerServer{Ctx: ctx, Handles: handles})
 	wifi_rttpb.RegisterWifiRttManagerServiceServer(s, &wifi_rttserver.WifiRttManagerServer{Ctx: ctx, Handles: handles})

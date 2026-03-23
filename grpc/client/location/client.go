@@ -9,20 +9,20 @@ import (
 	"google.golang.org/grpc"
 )
 
-// Client wraps the gRPC ManagerService client.
-type Client struct {
+// ManagerClient wraps the gRPC ManagerService client.
+type ManagerClient struct {
 	svc pb.ManagerServiceClient
 }
 
-// NewClient creates a new location client.
-func NewClient(cc grpc.ClientConnInterface) *Client {
-	return &Client{
+// NewManagerClient creates a new Manager client.
+func NewManagerClient(cc grpc.ClientConnInterface) *ManagerClient {
+	return &ManagerClient{
 		svc: pb.NewManagerServiceClient(cc),
 	}
 }
 
 // AddGpsStatusListener calls the AddGpsStatusListener RPC.
-func (c *Client) AddGpsStatusListener(ctx context.Context, arg0 int64) (bool, error) {
+func (c *ManagerClient) AddGpsStatusListener(ctx context.Context, arg0 int64) (bool, error) {
 	resp, err := c.svc.AddGpsStatusListener(ctx, &pb.AddGpsStatusListenerRequest{
 		Arg0: arg0,
 	})
@@ -33,7 +33,7 @@ func (c *Client) AddGpsStatusListener(ctx context.Context, arg0 int64) (bool, er
 }
 
 // AddNmeaListener1 calls the AddNmeaListener1 RPC.
-func (c *Client) AddNmeaListener1(ctx context.Context, arg0 int64) (bool, error) {
+func (c *ManagerClient) AddNmeaListener1(ctx context.Context, arg0 int64) (bool, error) {
 	resp, err := c.svc.AddNmeaListener1(ctx, &pb.AddNmeaListener1Request{
 		Arg0: arg0,
 	})
@@ -44,7 +44,7 @@ func (c *Client) AddNmeaListener1(ctx context.Context, arg0 int64) (bool, error)
 }
 
 // AddNmeaListener1_1 calls the AddNmeaListener1_1 RPC.
-func (c *Client) AddNmeaListener1_1(ctx context.Context, arg0 int64) (bool, error) {
+func (c *ManagerClient) AddNmeaListener1_1(ctx context.Context, arg0 int64) (bool, error) {
 	resp, err := c.svc.AddNmeaListener1_1(ctx, &pb.AddNmeaListener1_1Request{
 		Arg0: arg0,
 	})
@@ -55,7 +55,7 @@ func (c *Client) AddNmeaListener1_1(ctx context.Context, arg0 int64) (bool, erro
 }
 
 // AddNmeaListener2_2 calls the AddNmeaListener2_2 RPC.
-func (c *Client) AddNmeaListener2_2(ctx context.Context, arg0 int64, arg1 int64) (bool, error) {
+func (c *ManagerClient) AddNmeaListener2_2(ctx context.Context, arg0 int64, arg1 int64) (bool, error) {
 	resp, err := c.svc.AddNmeaListener2_2(ctx, &pb.AddNmeaListener2_2Request{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -67,7 +67,7 @@ func (c *Client) AddNmeaListener2_2(ctx context.Context, arg0 int64, arg1 int64)
 }
 
 // AddProximityAlert calls the AddProximityAlert RPC.
-func (c *Client) AddProximityAlert(ctx context.Context, arg0 float64, arg1 float64, arg2 float32, arg3 int64, arg4 int64) error {
+func (c *ManagerClient) AddProximityAlert(ctx context.Context, arg0 float64, arg1 float64, arg2 float32, arg3 int64, arg4 int64) error {
 	_, err := c.svc.AddProximityAlert(ctx, &pb.AddProximityAlertRequest{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -79,7 +79,7 @@ func (c *Client) AddProximityAlert(ctx context.Context, arg0 float64, arg1 float
 }
 
 // AddTestProvider2 calls the AddTestProvider2 RPC.
-func (c *Client) AddTestProvider2(ctx context.Context, arg0 string, arg1 int64) error {
+func (c *ManagerClient) AddTestProvider2(ctx context.Context, arg0 string, arg1 int64) error {
 	_, err := c.svc.AddTestProvider2(ctx, &pb.AddTestProvider2Request{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -87,19 +87,9 @@ func (c *Client) AddTestProvider2(ctx context.Context, arg0 string, arg1 int64) 
 	return err
 }
 
-// AddTestProvider3_1 calls the AddTestProvider3_1 RPC.
-func (c *Client) AddTestProvider3_1(ctx context.Context, arg0 string, arg1 int64, arg2 int64) error {
-	_, err := c.svc.AddTestProvider3_1(ctx, &pb.AddTestProvider3_1Request{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-	})
-	return err
-}
-
-// AddTestProvider10_2 calls the AddTestProvider10_2 RPC.
-func (c *Client) AddTestProvider10_2(ctx context.Context, arg0 string, arg1 bool, arg2 bool, arg3 bool, arg4 bool, arg5 bool, arg6 bool, arg7 bool, arg8 int32, arg9 int32) error {
-	_, err := c.svc.AddTestProvider10_2(ctx, &pb.AddTestProvider10_2Request{
+// AddTestProvider10_1 calls the AddTestProvider10_1 RPC.
+func (c *ManagerClient) AddTestProvider10_1(ctx context.Context, arg0 string, arg1 bool, arg2 bool, arg3 bool, arg4 bool, arg5 bool, arg6 bool, arg7 bool, arg8 int32, arg9 int32) error {
+	_, err := c.svc.AddTestProvider10_1(ctx, &pb.AddTestProvider10_1Request{
 		Arg0: arg0,
 		Arg1: arg1,
 		Arg2: arg2,
@@ -115,7 +105,7 @@ func (c *Client) AddTestProvider10_2(ctx context.Context, arg0 string, arg1 bool
 }
 
 // ClearTestProviderEnabled calls the ClearTestProviderEnabled RPC.
-func (c *Client) ClearTestProviderEnabled(ctx context.Context, arg0 string) error {
+func (c *ManagerClient) ClearTestProviderEnabled(ctx context.Context, arg0 string) error {
 	_, err := c.svc.ClearTestProviderEnabled(ctx, &pb.ClearTestProviderEnabledRequest{
 		Arg0: arg0,
 	})
@@ -123,7 +113,7 @@ func (c *Client) ClearTestProviderEnabled(ctx context.Context, arg0 string) erro
 }
 
 // ClearTestProviderLocation calls the ClearTestProviderLocation RPC.
-func (c *Client) ClearTestProviderLocation(ctx context.Context, arg0 string) error {
+func (c *ManagerClient) ClearTestProviderLocation(ctx context.Context, arg0 string) error {
 	_, err := c.svc.ClearTestProviderLocation(ctx, &pb.ClearTestProviderLocationRequest{
 		Arg0: arg0,
 	})
@@ -131,24 +121,15 @@ func (c *Client) ClearTestProviderLocation(ctx context.Context, arg0 string) err
 }
 
 // ClearTestProviderStatus calls the ClearTestProviderStatus RPC.
-func (c *Client) ClearTestProviderStatus(ctx context.Context, arg0 string) error {
+func (c *ManagerClient) ClearTestProviderStatus(ctx context.Context, arg0 string) error {
 	_, err := c.svc.ClearTestProviderStatus(ctx, &pb.ClearTestProviderStatusRequest{
 		Arg0: arg0,
 	})
 	return err
 }
 
-// GetAllProviders calls the GetAllProviders RPC.
-func (c *Client) GetAllProviders(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetAllProviders(ctx, &pb.GetAllProvidersRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
 // GetBestProvider calls the GetBestProvider RPC.
-func (c *Client) GetBestProvider(ctx context.Context, arg0 int64, arg1 bool) (string, error) {
+func (c *ManagerClient) GetBestProvider(ctx context.Context, arg0 int64, arg1 bool) (string, error) {
 	resp, err := c.svc.GetBestProvider(ctx, &pb.GetBestProviderRequest{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -159,40 +140,8 @@ func (c *Client) GetBestProvider(ctx context.Context, arg0 int64, arg1 bool) (st
 	return resp.GetResult(), nil
 }
 
-// GetCurrentLocation5 calls the GetCurrentLocation5 RPC.
-func (c *Client) GetCurrentLocation5(ctx context.Context, arg0 string, arg1 int64, arg2 int64, arg3 int64, arg4 int64) error {
-	_, err := c.svc.GetCurrentLocation5(ctx, &pb.GetCurrentLocation5Request{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
-		Arg4: arg4,
-	})
-	return err
-}
-
-// GetCurrentLocation4_1 calls the GetCurrentLocation4_1 RPC.
-func (c *Client) GetCurrentLocation4_1(ctx context.Context, arg0 string, arg1 int64, arg2 int64, arg3 int64) error {
-	_, err := c.svc.GetCurrentLocation4_1(ctx, &pb.GetCurrentLocation4_1Request{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
-	})
-	return err
-}
-
-// GetGnssAntennaInfos calls the GetGnssAntennaInfos RPC.
-func (c *Client) GetGnssAntennaInfos(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetGnssAntennaInfos(ctx, &pb.GetGnssAntennaInfosRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
 // GetGnssCapabilities calls the GetGnssCapabilities RPC.
-func (c *Client) GetGnssCapabilities(ctx context.Context) (int64, error) {
+func (c *ManagerClient) GetGnssCapabilities(ctx context.Context) (int64, error) {
 	resp, err := c.svc.GetGnssCapabilities(ctx, &pb.GetGnssCapabilitiesRequest{})
 	if err != nil {
 		return 0, err
@@ -201,7 +150,7 @@ func (c *Client) GetGnssCapabilities(ctx context.Context) (int64, error) {
 }
 
 // GetGnssHardwareModelName calls the GetGnssHardwareModelName RPC.
-func (c *Client) GetGnssHardwareModelName(ctx context.Context) (string, error) {
+func (c *ManagerClient) GetGnssHardwareModelName(ctx context.Context) (string, error) {
 	resp, err := c.svc.GetGnssHardwareModelName(ctx, &pb.GetGnssHardwareModelNameRequest{})
 	if err != nil {
 		return "", err
@@ -210,7 +159,7 @@ func (c *Client) GetGnssHardwareModelName(ctx context.Context) (string, error) {
 }
 
 // GetGnssYearOfHardware calls the GetGnssYearOfHardware RPC.
-func (c *Client) GetGnssYearOfHardware(ctx context.Context) (int32, error) {
+func (c *ManagerClient) GetGnssYearOfHardware(ctx context.Context) (int32, error) {
 	resp, err := c.svc.GetGnssYearOfHardware(ctx, &pb.GetGnssYearOfHardwareRequest{})
 	if err != nil {
 		return 0, err
@@ -219,7 +168,7 @@ func (c *Client) GetGnssYearOfHardware(ctx context.Context) (int32, error) {
 }
 
 // GetGpsStatus calls the GetGpsStatus RPC.
-func (c *Client) GetGpsStatus(ctx context.Context, arg0 int64) (int64, error) {
+func (c *ManagerClient) GetGpsStatus(ctx context.Context, arg0 int64) (int64, error) {
 	resp, err := c.svc.GetGpsStatus(ctx, &pb.GetGpsStatusRequest{
 		Arg0: arg0,
 	})
@@ -230,7 +179,7 @@ func (c *Client) GetGpsStatus(ctx context.Context, arg0 int64) (int64, error) {
 }
 
 // GetLastKnownLocation calls the GetLastKnownLocation RPC.
-func (c *Client) GetLastKnownLocation(ctx context.Context, arg0 string) (int64, error) {
+func (c *ManagerClient) GetLastKnownLocation(ctx context.Context, arg0 string) (int64, error) {
 	resp, err := c.svc.GetLastKnownLocation(ctx, &pb.GetLastKnownLocationRequest{
 		Arg0: arg0,
 	})
@@ -241,8 +190,8 @@ func (c *Client) GetLastKnownLocation(ctx context.Context, arg0 string) (int64, 
 }
 
 // GetProvider calls the GetProvider RPC.
-func (c *Client) GetProvider(ctx context.Context, arg0 string) (int64, error) {
-	resp, err := c.svc.GetProvider(ctx, &pb.ManagerGetProviderRequest{
+func (c *ManagerClient) GetProvider(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.GetProvider(ctx, &pb.GetProviderRequest{
 		Arg0: arg0,
 	})
 	if err != nil {
@@ -252,7 +201,7 @@ func (c *Client) GetProvider(ctx context.Context, arg0 string) (int64, error) {
 }
 
 // GetProviderProperties calls the GetProviderProperties RPC.
-func (c *Client) GetProviderProperties(ctx context.Context, arg0 string) (int64, error) {
+func (c *ManagerClient) GetProviderProperties(ctx context.Context, arg0 string) (int64, error) {
 	resp, err := c.svc.GetProviderProperties(ctx, &pb.GetProviderPropertiesRequest{
 		Arg0: arg0,
 	})
@@ -262,31 +211,8 @@ func (c *Client) GetProviderProperties(ctx context.Context, arg0 string) (int64,
 	return resp.GetResult(), nil
 }
 
-// GetProviders2 calls the GetProviders2 RPC.
-func (c *Client) GetProviders2(ctx context.Context, arg0 int64, arg1 bool) (int64, error) {
-	resp, err := c.svc.GetProviders2(ctx, &pb.GetProviders2Request{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetProviders1_1 calls the GetProviders1_1 RPC.
-func (c *Client) GetProviders1_1(ctx context.Context, arg0 bool) (int64, error) {
-	resp, err := c.svc.GetProviders1_1(ctx, &pb.GetProviders1_1Request{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
 // HasProvider calls the HasProvider RPC.
-func (c *Client) HasProvider(ctx context.Context, arg0 string) (bool, error) {
+func (c *ManagerClient) HasProvider(ctx context.Context, arg0 string) (bool, error) {
 	resp, err := c.svc.HasProvider(ctx, &pb.HasProviderRequest{
 		Arg0: arg0,
 	})
@@ -297,7 +223,7 @@ func (c *Client) HasProvider(ctx context.Context, arg0 string) (bool, error) {
 }
 
 // IsLocationEnabled calls the IsLocationEnabled RPC.
-func (c *Client) IsLocationEnabled(ctx context.Context) (bool, error) {
+func (c *ManagerClient) IsLocationEnabled(ctx context.Context) (bool, error) {
 	resp, err := c.svc.IsLocationEnabled(ctx, &pb.IsLocationEnabledRequest{})
 	if err != nil {
 		return false, err
@@ -306,7 +232,7 @@ func (c *Client) IsLocationEnabled(ctx context.Context) (bool, error) {
 }
 
 // IsProviderEnabled calls the IsProviderEnabled RPC.
-func (c *Client) IsProviderEnabled(ctx context.Context, arg0 string) (bool, error) {
+func (c *ManagerClient) IsProviderEnabled(ctx context.Context, arg0 string) (bool, error) {
 	resp, err := c.svc.IsProviderEnabled(ctx, &pb.IsProviderEnabledRequest{
 		Arg0: arg0,
 	})
@@ -317,7 +243,7 @@ func (c *Client) IsProviderEnabled(ctx context.Context, arg0 string) (bool, erro
 }
 
 // RegisterAntennaInfoListener calls the RegisterAntennaInfoListener RPC.
-func (c *Client) RegisterAntennaInfoListener(ctx context.Context, arg0 int64, arg1 int64) (bool, error) {
+func (c *ManagerClient) RegisterAntennaInfoListener(ctx context.Context, arg0 int64, arg1 int64) (bool, error) {
 	resp, err := c.svc.RegisterAntennaInfoListener(ctx, &pb.RegisterAntennaInfoListenerRequest{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -329,7 +255,7 @@ func (c *Client) RegisterAntennaInfoListener(ctx context.Context, arg0 int64, ar
 }
 
 // RegisterGnssMeasurementsCallback3 calls the RegisterGnssMeasurementsCallback3 RPC.
-func (c *Client) RegisterGnssMeasurementsCallback3(ctx context.Context, arg0 int64, arg1 int64, arg2 int64) (bool, error) {
+func (c *ManagerClient) RegisterGnssMeasurementsCallback3(ctx context.Context, arg0 int64, arg1 int64, arg2 int64) (bool, error) {
 	resp, err := c.svc.RegisterGnssMeasurementsCallback3(ctx, &pb.RegisterGnssMeasurementsCallback3Request{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -342,7 +268,7 @@ func (c *Client) RegisterGnssMeasurementsCallback3(ctx context.Context, arg0 int
 }
 
 // RegisterGnssMeasurementsCallback1_1 calls the RegisterGnssMeasurementsCallback1_1 RPC.
-func (c *Client) RegisterGnssMeasurementsCallback1_1(ctx context.Context, arg0 int64) (bool, error) {
+func (c *ManagerClient) RegisterGnssMeasurementsCallback1_1(ctx context.Context, arg0 int64) (bool, error) {
 	resp, err := c.svc.RegisterGnssMeasurementsCallback1_1(ctx, &pb.RegisterGnssMeasurementsCallback1_1Request{
 		Arg0: arg0,
 	})
@@ -353,7 +279,7 @@ func (c *Client) RegisterGnssMeasurementsCallback1_1(ctx context.Context, arg0 i
 }
 
 // RegisterGnssMeasurementsCallback2_2 calls the RegisterGnssMeasurementsCallback2_2 RPC.
-func (c *Client) RegisterGnssMeasurementsCallback2_2(ctx context.Context, arg0 int64, arg1 int64) (bool, error) {
+func (c *ManagerClient) RegisterGnssMeasurementsCallback2_2(ctx context.Context, arg0 int64, arg1 int64) (bool, error) {
 	resp, err := c.svc.RegisterGnssMeasurementsCallback2_2(ctx, &pb.RegisterGnssMeasurementsCallback2_2Request{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -365,7 +291,7 @@ func (c *Client) RegisterGnssMeasurementsCallback2_2(ctx context.Context, arg0 i
 }
 
 // RegisterGnssNavigationMessageCallback1 calls the RegisterGnssNavigationMessageCallback1 RPC.
-func (c *Client) RegisterGnssNavigationMessageCallback1(ctx context.Context, arg0 int64) (bool, error) {
+func (c *ManagerClient) RegisterGnssNavigationMessageCallback1(ctx context.Context, arg0 int64) (bool, error) {
 	resp, err := c.svc.RegisterGnssNavigationMessageCallback1(ctx, &pb.RegisterGnssNavigationMessageCallback1Request{
 		Arg0: arg0,
 	})
@@ -376,7 +302,7 @@ func (c *Client) RegisterGnssNavigationMessageCallback1(ctx context.Context, arg
 }
 
 // RegisterGnssNavigationMessageCallback2_1 calls the RegisterGnssNavigationMessageCallback2_1 RPC.
-func (c *Client) RegisterGnssNavigationMessageCallback2_1(ctx context.Context, arg0 int64, arg1 int64) (bool, error) {
+func (c *ManagerClient) RegisterGnssNavigationMessageCallback2_1(ctx context.Context, arg0 int64, arg1 int64) (bool, error) {
 	resp, err := c.svc.RegisterGnssNavigationMessageCallback2_1(ctx, &pb.RegisterGnssNavigationMessageCallback2_1Request{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -388,7 +314,7 @@ func (c *Client) RegisterGnssNavigationMessageCallback2_1(ctx context.Context, a
 }
 
 // RegisterGnssStatusCallback1 calls the RegisterGnssStatusCallback1 RPC.
-func (c *Client) RegisterGnssStatusCallback1(ctx context.Context, arg0 int64) (bool, error) {
+func (c *ManagerClient) RegisterGnssStatusCallback1(ctx context.Context, arg0 int64) (bool, error) {
 	resp, err := c.svc.RegisterGnssStatusCallback1(ctx, &pb.RegisterGnssStatusCallback1Request{
 		Arg0: arg0,
 	})
@@ -399,7 +325,7 @@ func (c *Client) RegisterGnssStatusCallback1(ctx context.Context, arg0 int64) (b
 }
 
 // RegisterGnssStatusCallback2_1 calls the RegisterGnssStatusCallback2_1 RPC.
-func (c *Client) RegisterGnssStatusCallback2_1(ctx context.Context, arg0 int64, arg1 int64) (bool, error) {
+func (c *ManagerClient) RegisterGnssStatusCallback2_1(ctx context.Context, arg0 int64, arg1 int64) (bool, error) {
 	resp, err := c.svc.RegisterGnssStatusCallback2_1(ctx, &pb.RegisterGnssStatusCallback2_1Request{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -411,7 +337,7 @@ func (c *Client) RegisterGnssStatusCallback2_1(ctx context.Context, arg0 int64, 
 }
 
 // RemoveGpsStatusListener calls the RemoveGpsStatusListener RPC.
-func (c *Client) RemoveGpsStatusListener(ctx context.Context, arg0 int64) error {
+func (c *ManagerClient) RemoveGpsStatusListener(ctx context.Context, arg0 int64) error {
 	_, err := c.svc.RemoveGpsStatusListener(ctx, &pb.RemoveGpsStatusListenerRequest{
 		Arg0: arg0,
 	})
@@ -419,7 +345,7 @@ func (c *Client) RemoveGpsStatusListener(ctx context.Context, arg0 int64) error 
 }
 
 // RemoveNmeaListener1 calls the RemoveNmeaListener1 RPC.
-func (c *Client) RemoveNmeaListener1(ctx context.Context, arg0 int64) error {
+func (c *ManagerClient) RemoveNmeaListener1(ctx context.Context, arg0 int64) error {
 	_, err := c.svc.RemoveNmeaListener1(ctx, &pb.RemoveNmeaListener1Request{
 		Arg0: arg0,
 	})
@@ -427,7 +353,7 @@ func (c *Client) RemoveNmeaListener1(ctx context.Context, arg0 int64) error {
 }
 
 // RemoveNmeaListener1_1 calls the RemoveNmeaListener1_1 RPC.
-func (c *Client) RemoveNmeaListener1_1(ctx context.Context, arg0 int64) error {
+func (c *ManagerClient) RemoveNmeaListener1_1(ctx context.Context, arg0 int64) error {
 	_, err := c.svc.RemoveNmeaListener1_1(ctx, &pb.RemoveNmeaListener1_1Request{
 		Arg0: arg0,
 	})
@@ -435,7 +361,7 @@ func (c *Client) RemoveNmeaListener1_1(ctx context.Context, arg0 int64) error {
 }
 
 // RemoveProximityAlert calls the RemoveProximityAlert RPC.
-func (c *Client) RemoveProximityAlert(ctx context.Context, arg0 int64) error {
+func (c *ManagerClient) RemoveProximityAlert(ctx context.Context, arg0 int64) error {
 	_, err := c.svc.RemoveProximityAlert(ctx, &pb.RemoveProximityAlertRequest{
 		Arg0: arg0,
 	})
@@ -443,7 +369,7 @@ func (c *Client) RemoveProximityAlert(ctx context.Context, arg0 int64) error {
 }
 
 // RemoveTestProvider calls the RemoveTestProvider RPC.
-func (c *Client) RemoveTestProvider(ctx context.Context, arg0 string) error {
+func (c *ManagerClient) RemoveTestProvider(ctx context.Context, arg0 string) error {
 	_, err := c.svc.RemoveTestProvider(ctx, &pb.RemoveTestProviderRequest{
 		Arg0: arg0,
 	})
@@ -451,7 +377,7 @@ func (c *Client) RemoveTestProvider(ctx context.Context, arg0 string) error {
 }
 
 // RemoveUpdates1 calls the RemoveUpdates1 RPC.
-func (c *Client) RemoveUpdates1(ctx context.Context, arg0 int64) error {
+func (c *ManagerClient) RemoveUpdates1(ctx context.Context, arg0 int64) error {
 	_, err := c.svc.RemoveUpdates1(ctx, &pb.RemoveUpdates1Request{
 		Arg0: arg0,
 	})
@@ -459,7 +385,7 @@ func (c *Client) RemoveUpdates1(ctx context.Context, arg0 int64) error {
 }
 
 // RemoveUpdates1_1 calls the RemoveUpdates1_1 RPC.
-func (c *Client) RemoveUpdates1_1(ctx context.Context, arg0 int64) error {
+func (c *ManagerClient) RemoveUpdates1_1(ctx context.Context, arg0 int64) error {
 	_, err := c.svc.RemoveUpdates1_1(ctx, &pb.RemoveUpdates1_1Request{
 		Arg0: arg0,
 	})
@@ -467,7 +393,7 @@ func (c *Client) RemoveUpdates1_1(ctx context.Context, arg0 int64) error {
 }
 
 // RequestFlush3 calls the RequestFlush3 RPC.
-func (c *Client) RequestFlush3(ctx context.Context, arg0 string, arg1 int64, arg2 int32) error {
+func (c *ManagerClient) RequestFlush3(ctx context.Context, arg0 string, arg1 int64, arg2 int32) error {
 	_, err := c.svc.RequestFlush3(ctx, &pb.RequestFlush3Request{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -477,7 +403,7 @@ func (c *Client) RequestFlush3(ctx context.Context, arg0 string, arg1 int64, arg
 }
 
 // RequestFlush3_1 calls the RequestFlush3_1 RPC.
-func (c *Client) RequestFlush3_1(ctx context.Context, arg0 string, arg1 int64, arg2 int32) error {
+func (c *ManagerClient) RequestFlush3_1(ctx context.Context, arg0 string, arg1 int64, arg2 int32) error {
 	_, err := c.svc.RequestFlush3_1(ctx, &pb.RequestFlush3_1Request{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -487,7 +413,7 @@ func (c *Client) RequestFlush3_1(ctx context.Context, arg0 string, arg1 int64, a
 }
 
 // RequestLocationUpdates3 calls the RequestLocationUpdates3 RPC.
-func (c *Client) RequestLocationUpdates3(ctx context.Context, arg0 string, arg1 int64, arg2 int64) error {
+func (c *ManagerClient) RequestLocationUpdates3(ctx context.Context, arg0 string, arg1 int64, arg2 int64) error {
 	_, err := c.svc.RequestLocationUpdates3(ctx, &pb.RequestLocationUpdates3Request{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -497,7 +423,7 @@ func (c *Client) RequestLocationUpdates3(ctx context.Context, arg0 string, arg1 
 }
 
 // RequestLocationUpdates4_1 calls the RequestLocationUpdates4_1 RPC.
-func (c *Client) RequestLocationUpdates4_1(ctx context.Context, arg0 string, arg1 int64, arg2 int64, arg3 int64) error {
+func (c *ManagerClient) RequestLocationUpdates4_1(ctx context.Context, arg0 string, arg1 int64, arg2 int64, arg3 int64) error {
 	_, err := c.svc.RequestLocationUpdates4_1(ctx, &pb.RequestLocationUpdates4_1Request{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -508,7 +434,7 @@ func (c *Client) RequestLocationUpdates4_1(ctx context.Context, arg0 string, arg
 }
 
 // RequestLocationUpdates4_2 calls the RequestLocationUpdates4_2 RPC.
-func (c *Client) RequestLocationUpdates4_2(ctx context.Context, arg0 string, arg1 int64, arg2 float32, arg3 int64) error {
+func (c *ManagerClient) RequestLocationUpdates4_2(ctx context.Context, arg0 string, arg1 int64, arg2 float32, arg3 int64) error {
 	_, err := c.svc.RequestLocationUpdates4_2(ctx, &pb.RequestLocationUpdates4_2Request{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -519,7 +445,7 @@ func (c *Client) RequestLocationUpdates4_2(ctx context.Context, arg0 string, arg
 }
 
 // RequestLocationUpdates4_3 calls the RequestLocationUpdates4_3 RPC.
-func (c *Client) RequestLocationUpdates4_3(ctx context.Context, arg0 string, arg1 int64, arg2 float32, arg3 int64) error {
+func (c *ManagerClient) RequestLocationUpdates4_3(ctx context.Context, arg0 string, arg1 int64, arg2 float32, arg3 int64) error {
 	_, err := c.svc.RequestLocationUpdates4_3(ctx, &pb.RequestLocationUpdates4_3Request{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -530,7 +456,7 @@ func (c *Client) RequestLocationUpdates4_3(ctx context.Context, arg0 string, arg
 }
 
 // RequestLocationUpdates5_4 calls the RequestLocationUpdates5_4 RPC.
-func (c *Client) RequestLocationUpdates5_4(ctx context.Context, arg0 string, arg1 int64, arg2 float32, arg3 int64, arg4 int64) error {
+func (c *ManagerClient) RequestLocationUpdates5_4(ctx context.Context, arg0 string, arg1 int64, arg2 float32, arg3 int64, arg4 int64) error {
 	_, err := c.svc.RequestLocationUpdates5_4(ctx, &pb.RequestLocationUpdates5_4Request{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -542,7 +468,7 @@ func (c *Client) RequestLocationUpdates5_4(ctx context.Context, arg0 string, arg
 }
 
 // RequestLocationUpdates5_5 calls the RequestLocationUpdates5_5 RPC.
-func (c *Client) RequestLocationUpdates5_5(ctx context.Context, arg0 string, arg1 int64, arg2 float32, arg3 int64, arg4 int64) error {
+func (c *ManagerClient) RequestLocationUpdates5_5(ctx context.Context, arg0 string, arg1 int64, arg2 float32, arg3 int64, arg4 int64) error {
 	_, err := c.svc.RequestLocationUpdates5_5(ctx, &pb.RequestLocationUpdates5_5Request{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -554,7 +480,7 @@ func (c *Client) RequestLocationUpdates5_5(ctx context.Context, arg0 string, arg
 }
 
 // RequestLocationUpdates4_6 calls the RequestLocationUpdates4_6 RPC.
-func (c *Client) RequestLocationUpdates4_6(ctx context.Context, arg0 int64, arg1 float32, arg2 int64, arg3 int64) error {
+func (c *ManagerClient) RequestLocationUpdates4_6(ctx context.Context, arg0 int64, arg1 float32, arg2 int64, arg3 int64) error {
 	_, err := c.svc.RequestLocationUpdates4_6(ctx, &pb.RequestLocationUpdates4_6Request{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -565,7 +491,7 @@ func (c *Client) RequestLocationUpdates4_6(ctx context.Context, arg0 int64, arg1
 }
 
 // RequestLocationUpdates5_7 calls the RequestLocationUpdates5_7 RPC.
-func (c *Client) RequestLocationUpdates5_7(ctx context.Context, arg0 int64, arg1 float32, arg2 int64, arg3 int64, arg4 int64) error {
+func (c *ManagerClient) RequestLocationUpdates5_7(ctx context.Context, arg0 int64, arg1 float32, arg2 int64, arg3 int64, arg4 int64) error {
 	_, err := c.svc.RequestLocationUpdates5_7(ctx, &pb.RequestLocationUpdates5_7Request{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -577,7 +503,7 @@ func (c *Client) RequestLocationUpdates5_7(ctx context.Context, arg0 int64, arg1
 }
 
 // RequestLocationUpdates5_8 calls the RequestLocationUpdates5_8 RPC.
-func (c *Client) RequestLocationUpdates5_8(ctx context.Context, arg0 int64, arg1 float32, arg2 int64, arg3 int64, arg4 int64) error {
+func (c *ManagerClient) RequestLocationUpdates5_8(ctx context.Context, arg0 int64, arg1 float32, arg2 int64, arg3 int64, arg4 int64) error {
 	_, err := c.svc.RequestLocationUpdates5_8(ctx, &pb.RequestLocationUpdates5_8Request{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -589,7 +515,7 @@ func (c *Client) RequestLocationUpdates5_8(ctx context.Context, arg0 int64, arg1
 }
 
 // RequestSingleUpdate2 calls the RequestSingleUpdate2 RPC.
-func (c *Client) RequestSingleUpdate2(ctx context.Context, arg0 int64, arg1 int64) error {
+func (c *ManagerClient) RequestSingleUpdate2(ctx context.Context, arg0 int64, arg1 int64) error {
 	_, err := c.svc.RequestSingleUpdate2(ctx, &pb.RequestSingleUpdate2Request{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -598,7 +524,7 @@ func (c *Client) RequestSingleUpdate2(ctx context.Context, arg0 int64, arg1 int6
 }
 
 // RequestSingleUpdate3_1 calls the RequestSingleUpdate3_1 RPC.
-func (c *Client) RequestSingleUpdate3_1(ctx context.Context, arg0 int64, arg1 int64, arg2 int64) error {
+func (c *ManagerClient) RequestSingleUpdate3_1(ctx context.Context, arg0 int64, arg1 int64, arg2 int64) error {
 	_, err := c.svc.RequestSingleUpdate3_1(ctx, &pb.RequestSingleUpdate3_1Request{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -608,7 +534,7 @@ func (c *Client) RequestSingleUpdate3_1(ctx context.Context, arg0 int64, arg1 in
 }
 
 // RequestSingleUpdate2_2 calls the RequestSingleUpdate2_2 RPC.
-func (c *Client) RequestSingleUpdate2_2(ctx context.Context, arg0 string, arg1 int64) error {
+func (c *ManagerClient) RequestSingleUpdate2_2(ctx context.Context, arg0 string, arg1 int64) error {
 	_, err := c.svc.RequestSingleUpdate2_2(ctx, &pb.RequestSingleUpdate2_2Request{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -617,7 +543,7 @@ func (c *Client) RequestSingleUpdate2_2(ctx context.Context, arg0 string, arg1 i
 }
 
 // RequestSingleUpdate3_3 calls the RequestSingleUpdate3_3 RPC.
-func (c *Client) RequestSingleUpdate3_3(ctx context.Context, arg0 string, arg1 int64, arg2 int64) error {
+func (c *ManagerClient) RequestSingleUpdate3_3(ctx context.Context, arg0 string, arg1 int64, arg2 int64) error {
 	_, err := c.svc.RequestSingleUpdate3_3(ctx, &pb.RequestSingleUpdate3_3Request{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -627,7 +553,7 @@ func (c *Client) RequestSingleUpdate3_3(ctx context.Context, arg0 string, arg1 i
 }
 
 // SendExtraCommand calls the SendExtraCommand RPC.
-func (c *Client) SendExtraCommand(ctx context.Context, arg0 string, arg1 string, arg2 int64) (bool, error) {
+func (c *ManagerClient) SendExtraCommand(ctx context.Context, arg0 string, arg1 string, arg2 int64) (bool, error) {
 	resp, err := c.svc.SendExtraCommand(ctx, &pb.SendExtraCommandRequest{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -640,7 +566,7 @@ func (c *Client) SendExtraCommand(ctx context.Context, arg0 string, arg1 string,
 }
 
 // SetTestProviderEnabled calls the SetTestProviderEnabled RPC.
-func (c *Client) SetTestProviderEnabled(ctx context.Context, arg0 string, arg1 bool) error {
+func (c *ManagerClient) SetTestProviderEnabled(ctx context.Context, arg0 string, arg1 bool) error {
 	_, err := c.svc.SetTestProviderEnabled(ctx, &pb.SetTestProviderEnabledRequest{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -649,7 +575,7 @@ func (c *Client) SetTestProviderEnabled(ctx context.Context, arg0 string, arg1 b
 }
 
 // SetTestProviderLocation calls the SetTestProviderLocation RPC.
-func (c *Client) SetTestProviderLocation(ctx context.Context, arg0 string, arg1 int64) error {
+func (c *ManagerClient) SetTestProviderLocation(ctx context.Context, arg0 string, arg1 int64) error {
 	_, err := c.svc.SetTestProviderLocation(ctx, &pb.SetTestProviderLocationRequest{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -658,7 +584,7 @@ func (c *Client) SetTestProviderLocation(ctx context.Context, arg0 string, arg1 
 }
 
 // SetTestProviderStatus calls the SetTestProviderStatus RPC.
-func (c *Client) SetTestProviderStatus(ctx context.Context, arg0 string, arg1 int32, arg2 int64, arg3 int64) error {
+func (c *ManagerClient) SetTestProviderStatus(ctx context.Context, arg0 string, arg1 int32, arg2 int64, arg3 int64) error {
 	_, err := c.svc.SetTestProviderStatus(ctx, &pb.SetTestProviderStatusRequest{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -669,7 +595,7 @@ func (c *Client) SetTestProviderStatus(ctx context.Context, arg0 string, arg1 in
 }
 
 // UnregisterAntennaInfoListener calls the UnregisterAntennaInfoListener RPC.
-func (c *Client) UnregisterAntennaInfoListener(ctx context.Context, arg0 int64) error {
+func (c *ManagerClient) UnregisterAntennaInfoListener(ctx context.Context, arg0 int64) error {
 	_, err := c.svc.UnregisterAntennaInfoListener(ctx, &pb.UnregisterAntennaInfoListenerRequest{
 		Arg0: arg0,
 	})
@@ -677,7 +603,7 @@ func (c *Client) UnregisterAntennaInfoListener(ctx context.Context, arg0 int64) 
 }
 
 // UnregisterGnssMeasurementsCallback calls the UnregisterGnssMeasurementsCallback RPC.
-func (c *Client) UnregisterGnssMeasurementsCallback(ctx context.Context, arg0 int64) error {
+func (c *ManagerClient) UnregisterGnssMeasurementsCallback(ctx context.Context, arg0 int64) error {
 	_, err := c.svc.UnregisterGnssMeasurementsCallback(ctx, &pb.UnregisterGnssMeasurementsCallbackRequest{
 		Arg0: arg0,
 	})
@@ -685,7 +611,7 @@ func (c *Client) UnregisterGnssMeasurementsCallback(ctx context.Context, arg0 in
 }
 
 // UnregisterGnssNavigationMessageCallback calls the UnregisterGnssNavigationMessageCallback RPC.
-func (c *Client) UnregisterGnssNavigationMessageCallback(ctx context.Context, arg0 int64) error {
+func (c *ManagerClient) UnregisterGnssNavigationMessageCallback(ctx context.Context, arg0 int64) error {
 	_, err := c.svc.UnregisterGnssNavigationMessageCallback(ctx, &pb.UnregisterGnssNavigationMessageCallbackRequest{
 		Arg0: arg0,
 	})
@@ -693,7 +619,7 @@ func (c *Client) UnregisterGnssNavigationMessageCallback(ctx context.Context, ar
 }
 
 // UnregisterGnssStatusCallback calls the UnregisterGnssStatusCallback RPC.
-func (c *Client) UnregisterGnssStatusCallback(ctx context.Context, arg0 int64) error {
+func (c *ManagerClient) UnregisterGnssStatusCallback(ctx context.Context, arg0 int64) error {
 	_, err := c.svc.UnregisterGnssStatusCallback(ctx, &pb.UnregisterGnssStatusCallbackRequest{
 		Arg0: arg0,
 	})

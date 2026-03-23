@@ -204,19 +204,6 @@ func (s *WifiP2pManagerServer) DiscoverUsdBasedServices(_ context.Context, req *
 	return &pb.DiscoverUsdBasedServicesResponse{}, nil
 }
 
-func (s *WifiP2pManagerServer) GetListenState(_ context.Context, req *pb.GetListenStateRequest) (*pb.GetListenStateResponse, error) {
-	mgr, err := jnipkg.NewWifiP2pManager(s.Ctx)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
-	}
-	defer mgr.Close()
-
-	if err := mgr.GetListenState(s.Handles.Get(req.GetArg0()), s.Handles.Get(req.GetArg1()), s.Handles.Get(req.GetArg2())); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GetListenStateResponse{}, nil
-}
-
 func (s *WifiP2pManagerServer) Initialize(_ context.Context, req *pb.InitializeRequest) (*pb.InitializeResponse, error) {
 	mgr, err := jnipkg.NewWifiP2pManager(s.Ctx)
 	if err != nil {
@@ -428,19 +415,6 @@ func (s *WifiP2pManagerServer) RequestDeviceInfo(_ context.Context, req *pb.Requ
 	return &pb.RequestDeviceInfoResponse{}, nil
 }
 
-func (s *WifiP2pManagerServer) RequestDirInfo(_ context.Context, req *pb.RequestDirInfoRequest) (*pb.RequestDirInfoResponse, error) {
-	mgr, err := jnipkg.NewWifiP2pManager(s.Ctx)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
-	}
-	defer mgr.Close()
-
-	if err := mgr.RequestDirInfo(s.Handles.Get(req.GetArg0()), s.Handles.Get(req.GetArg1()), s.Handles.Get(req.GetArg2())); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.RequestDirInfoResponse{}, nil
-}
-
 func (s *WifiP2pManagerServer) RequestDiscoveryState(_ context.Context, req *pb.RequestDiscoveryStateRequest) (*pb.RequestDiscoveryStateResponse, error) {
 	mgr, err := jnipkg.NewWifiP2pManager(s.Ctx)
 	if err != nil {
@@ -571,19 +545,6 @@ func (s *WifiP2pManagerServer) SetUpnpServiceResponseListener(_ context.Context,
 	return &pb.SetUpnpServiceResponseListenerResponse{}, nil
 }
 
-func (s *WifiP2pManagerServer) SetVendorElements(_ context.Context, req *pb.SetVendorElementsRequest) (*pb.SetVendorElementsResponse, error) {
-	mgr, err := jnipkg.NewWifiP2pManager(s.Ctx)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
-	}
-	defer mgr.Close()
-
-	if err := mgr.SetVendorElements(s.Handles.Get(req.GetArg0()), s.Handles.Get(req.GetArg1()), s.Handles.Get(req.GetArg2())); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.SetVendorElementsResponse{}, nil
-}
-
 func (s *WifiP2pManagerServer) SetWfdInfo(_ context.Context, req *pb.SetWfdInfoRequest) (*pb.SetWfdInfoResponse, error) {
 	mgr, err := jnipkg.NewWifiP2pManager(s.Ctx)
 	if err != nil {
@@ -673,19 +634,6 @@ func (s *WifiP2pManagerServer) UnregisterWifiP2PListener(_ context.Context, req 
 		return nil, status.Errorf(codes.Internal, "%v", err)
 	}
 	return &pb.UnregisterWifiP2PListenerResponse{}, nil
-}
-
-func (s *WifiP2pManagerServer) ValidateDirInfo(_ context.Context, req *pb.ValidateDirInfoRequest) (*pb.ValidateDirInfoResponse, error) {
-	mgr, err := jnipkg.NewWifiP2pManager(s.Ctx)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
-	}
-	defer mgr.Close()
-
-	if err := mgr.ValidateDirInfo(s.Handles.Get(req.GetArg0()), s.Handles.Get(req.GetArg1()), s.Handles.Get(req.GetArg2()), s.Handles.Get(req.GetArg3())); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.ValidateDirInfoResponse{}, nil
 }
 
 func (s *WifiP2pManagerServer) GetP2PMaxAllowedVendorElementsLengthBytes(_ context.Context, req *pb.GetP2PMaxAllowedVendorElementsLengthBytesRequest) (*pb.GetP2PMaxAllowedVendorElementsLengthBytesResponse, error) {

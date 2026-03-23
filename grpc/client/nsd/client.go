@@ -9,20 +9,20 @@ import (
 	"google.golang.org/grpc"
 )
 
-// Client wraps the gRPC ManagerService client.
-type Client struct {
+// ManagerClient wraps the gRPC ManagerService client.
+type ManagerClient struct {
 	svc pb.ManagerServiceClient
 }
 
-// NewClient creates a new nsd client.
-func NewClient(cc grpc.ClientConnInterface) *Client {
-	return &Client{
+// NewManagerClient creates a new Manager client.
+func NewManagerClient(cc grpc.ClientConnInterface) *ManagerClient {
+	return &ManagerClient{
 		svc: pb.NewManagerServiceClient(cc),
 	}
 }
 
 // DiscoverServices3 calls the DiscoverServices3 RPC.
-func (c *Client) DiscoverServices3(ctx context.Context, arg0 int64, arg1 int64, arg2 int64) error {
+func (c *ManagerClient) DiscoverServices3(ctx context.Context, arg0 int64, arg1 int64, arg2 int64) error {
 	_, err := c.svc.DiscoverServices3(ctx, &pb.DiscoverServices3Request{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -32,7 +32,7 @@ func (c *Client) DiscoverServices3(ctx context.Context, arg0 int64, arg1 int64, 
 }
 
 // DiscoverServices5_1 calls the DiscoverServices5_1 RPC.
-func (c *Client) DiscoverServices5_1(ctx context.Context, arg0 string, arg1 int32, arg2 int64, arg3 int64, arg4 int64) error {
+func (c *ManagerClient) DiscoverServices5_1(ctx context.Context, arg0 string, arg1 int32, arg2 int64, arg3 int64, arg4 int64) error {
 	_, err := c.svc.DiscoverServices5_1(ctx, &pb.DiscoverServices5_1Request{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -44,7 +44,7 @@ func (c *Client) DiscoverServices5_1(ctx context.Context, arg0 string, arg1 int3
 }
 
 // DiscoverServices5_2 calls the DiscoverServices5_2 RPC.
-func (c *Client) DiscoverServices5_2(ctx context.Context, arg0 string, arg1 int32, arg2 int64, arg3 int64, arg4 int64) error {
+func (c *ManagerClient) DiscoverServices5_2(ctx context.Context, arg0 string, arg1 int32, arg2 int64, arg3 int64, arg4 int64) error {
 	_, err := c.svc.DiscoverServices5_2(ctx, &pb.DiscoverServices5_2Request{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -56,7 +56,7 @@ func (c *Client) DiscoverServices5_2(ctx context.Context, arg0 string, arg1 int3
 }
 
 // DiscoverServices3_3 calls the DiscoverServices3_3 RPC.
-func (c *Client) DiscoverServices3_3(ctx context.Context, arg0 string, arg1 int32, arg2 int64) error {
+func (c *ManagerClient) DiscoverServices3_3(ctx context.Context, arg0 string, arg1 int32, arg2 int64) error {
 	_, err := c.svc.DiscoverServices3_3(ctx, &pb.DiscoverServices3_3Request{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -66,7 +66,7 @@ func (c *Client) DiscoverServices3_3(ctx context.Context, arg0 string, arg1 int3
 }
 
 // RegisterService3 calls the RegisterService3 RPC.
-func (c *Client) RegisterService3(ctx context.Context, arg0 int64, arg1 int32, arg2 int64) error {
+func (c *ManagerClient) RegisterService3(ctx context.Context, arg0 int64, arg1 int32, arg2 int64) error {
 	_, err := c.svc.RegisterService3(ctx, &pb.RegisterService3Request{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -76,7 +76,7 @@ func (c *Client) RegisterService3(ctx context.Context, arg0 int64, arg1 int32, a
 }
 
 // RegisterService4_1 calls the RegisterService4_1 RPC.
-func (c *Client) RegisterService4_1(ctx context.Context, arg0 int64, arg1 int32, arg2 int64, arg3 int64) error {
+func (c *ManagerClient) RegisterService4_1(ctx context.Context, arg0 int64, arg1 int32, arg2 int64, arg3 int64) error {
 	_, err := c.svc.RegisterService4_1(ctx, &pb.RegisterService4_1Request{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -87,7 +87,7 @@ func (c *Client) RegisterService4_1(ctx context.Context, arg0 int64, arg1 int32,
 }
 
 // RegisterServiceInfoCallback calls the RegisterServiceInfoCallback RPC.
-func (c *Client) RegisterServiceInfoCallback(ctx context.Context, arg0 int64, arg1 int64, arg2 int64) error {
+func (c *ManagerClient) RegisterServiceInfoCallback(ctx context.Context, arg0 int64, arg1 int64, arg2 int64) error {
 	_, err := c.svc.RegisterServiceInfoCallback(ctx, &pb.RegisterServiceInfoCallbackRequest{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -97,7 +97,7 @@ func (c *Client) RegisterServiceInfoCallback(ctx context.Context, arg0 int64, ar
 }
 
 // ResolveService2 calls the ResolveService2 RPC.
-func (c *Client) ResolveService2(ctx context.Context, arg0 int64, arg1 int64) error {
+func (c *ManagerClient) ResolveService2(ctx context.Context, arg0 int64, arg1 int64) error {
 	_, err := c.svc.ResolveService2(ctx, &pb.ResolveService2Request{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -106,7 +106,7 @@ func (c *Client) ResolveService2(ctx context.Context, arg0 int64, arg1 int64) er
 }
 
 // ResolveService3_1 calls the ResolveService3_1 RPC.
-func (c *Client) ResolveService3_1(ctx context.Context, arg0 int64, arg1 int64, arg2 int64) error {
+func (c *ManagerClient) ResolveService3_1(ctx context.Context, arg0 int64, arg1 int64, arg2 int64) error {
 	_, err := c.svc.ResolveService3_1(ctx, &pb.ResolveService3_1Request{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -116,7 +116,7 @@ func (c *Client) ResolveService3_1(ctx context.Context, arg0 int64, arg1 int64, 
 }
 
 // StopServiceDiscovery calls the StopServiceDiscovery RPC.
-func (c *Client) StopServiceDiscovery(ctx context.Context, arg0 int64) error {
+func (c *ManagerClient) StopServiceDiscovery(ctx context.Context, arg0 int64) error {
 	_, err := c.svc.StopServiceDiscovery(ctx, &pb.StopServiceDiscoveryRequest{
 		Arg0: arg0,
 	})
@@ -124,7 +124,7 @@ func (c *Client) StopServiceDiscovery(ctx context.Context, arg0 int64) error {
 }
 
 // StopServiceResolution calls the StopServiceResolution RPC.
-func (c *Client) StopServiceResolution(ctx context.Context, arg0 int64) error {
+func (c *ManagerClient) StopServiceResolution(ctx context.Context, arg0 int64) error {
 	_, err := c.svc.StopServiceResolution(ctx, &pb.StopServiceResolutionRequest{
 		Arg0: arg0,
 	})
@@ -132,7 +132,7 @@ func (c *Client) StopServiceResolution(ctx context.Context, arg0 int64) error {
 }
 
 // UnregisterService calls the UnregisterService RPC.
-func (c *Client) UnregisterService(ctx context.Context, arg0 int64) error {
+func (c *ManagerClient) UnregisterService(ctx context.Context, arg0 int64) error {
 	_, err := c.svc.UnregisterService(ctx, &pb.UnregisterServiceRequest{
 		Arg0: arg0,
 	})
@@ -140,7 +140,7 @@ func (c *Client) UnregisterService(ctx context.Context, arg0 int64) error {
 }
 
 // UnregisterServiceInfoCallback calls the UnregisterServiceInfoCallback RPC.
-func (c *Client) UnregisterServiceInfoCallback(ctx context.Context, arg0 int64) error {
+func (c *ManagerClient) UnregisterServiceInfoCallback(ctx context.Context, arg0 int64) error {
 	_, err := c.svc.UnregisterServiceInfoCallback(ctx, &pb.UnregisterServiceInfoCallbackRequest{
 		Arg0: arg0,
 	})

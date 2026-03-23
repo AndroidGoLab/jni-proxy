@@ -56,7 +56,7 @@ func AutoEnroll(ctx context.Context, addr, configDir string) (certPath, keyPath,
 	if err != nil {
 		return "", "", "", fmt.Errorf("connecting to jniservice for enrollment: %w", err)
 	}
-	defer conn.Close()
+	defer func() { _ = conn.Close() }()
 
 	// Call Register RPC.
 	client := pb.NewAuthServiceClient(conn)
@@ -64,7 +64,7 @@ func AutoEnroll(ctx context.Context, addr, configDir string) (certPath, keyPath,
 		CsrPem: string(csrPEM),
 	})
 	if err != nil {
-		return "", "", "", fmt.Errorf("Register RPC: %w", err)
+		return "", "", "", fmt.Errorf("register RPC: %w", err)
 	}
 
 	// Save the returned client cert, CA cert, and the generated private key.

@@ -9,20 +9,20 @@ import (
 	"google.golang.org/grpc"
 )
 
-// Client wraps the gRPC MediaProjectionManagerService client.
-type Client struct {
+// MediaProjectionManagerClient wraps the gRPC MediaProjectionManagerService client.
+type MediaProjectionManagerClient struct {
 	svc pb.MediaProjectionManagerServiceClient
 }
 
-// NewClient creates a new projection client.
-func NewClient(cc grpc.ClientConnInterface) *Client {
-	return &Client{
+// NewMediaProjectionManagerClient creates a new MediaProjectionManager client.
+func NewMediaProjectionManagerClient(cc grpc.ClientConnInterface) *MediaProjectionManagerClient {
+	return &MediaProjectionManagerClient{
 		svc: pb.NewMediaProjectionManagerServiceClient(cc),
 	}
 }
 
 // CreateScreenCaptureIntent0 calls the CreateScreenCaptureIntent0 RPC.
-func (c *Client) CreateScreenCaptureIntent0(ctx context.Context) (int64, error) {
+func (c *MediaProjectionManagerClient) CreateScreenCaptureIntent0(ctx context.Context) (int64, error) {
 	resp, err := c.svc.CreateScreenCaptureIntent0(ctx, &pb.CreateScreenCaptureIntent0Request{})
 	if err != nil {
 		return 0, err
@@ -31,7 +31,7 @@ func (c *Client) CreateScreenCaptureIntent0(ctx context.Context) (int64, error) 
 }
 
 // CreateScreenCaptureIntent1_1 calls the CreateScreenCaptureIntent1_1 RPC.
-func (c *Client) CreateScreenCaptureIntent1_1(ctx context.Context, arg0 int64) (int64, error) {
+func (c *MediaProjectionManagerClient) CreateScreenCaptureIntent1_1(ctx context.Context, arg0 int64) (int64, error) {
 	resp, err := c.svc.CreateScreenCaptureIntent1_1(ctx, &pb.CreateScreenCaptureIntent1_1Request{
 		Arg0: arg0,
 	})
@@ -42,7 +42,7 @@ func (c *Client) CreateScreenCaptureIntent1_1(ctx context.Context, arg0 int64) (
 }
 
 // GetMediaProjection calls the GetMediaProjection RPC.
-func (c *Client) GetMediaProjection(ctx context.Context, arg0 int32, arg1 int64) (int64, error) {
+func (c *MediaProjectionManagerClient) GetMediaProjection(ctx context.Context, arg0 int32, arg1 int64) (int64, error) {
 	resp, err := c.svc.GetMediaProjection(ctx, &pb.GetMediaProjectionRequest{
 		Arg0: arg0,
 		Arg1: arg1,

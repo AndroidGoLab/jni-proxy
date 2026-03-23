@@ -21,1366 +21,9 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
-	InfoService_DescribeContents_FullMethodName                 = "/wifi.InfoService/DescribeContents"
-	InfoService_Equals_FullMethodName                           = "/wifi.InfoService/Equals"
-	InfoService_GetAffiliatedMloLinks_FullMethodName            = "/wifi.InfoService/GetAffiliatedMloLinks"
-	InfoService_GetApMldMacAddress_FullMethodName               = "/wifi.InfoService/GetApMldMacAddress"
-	InfoService_GetApMloLinkId_FullMethodName                   = "/wifi.InfoService/GetApMloLinkId"
-	InfoService_GetApplicableRedactions_FullMethodName          = "/wifi.InfoService/GetApplicableRedactions"
-	InfoService_GetAssociatedMloLinks_FullMethodName            = "/wifi.InfoService/GetAssociatedMloLinks"
-	InfoService_GetBSSID_FullMethodName                         = "/wifi.InfoService/GetBSSID"
-	InfoService_GetCurrentSecurityType_FullMethodName           = "/wifi.InfoService/GetCurrentSecurityType"
-	InfoService_GetFrequency_FullMethodName                     = "/wifi.InfoService/GetFrequency"
-	InfoService_GetHiddenSSID_FullMethodName                    = "/wifi.InfoService/GetHiddenSSID"
-	InfoService_GetInformationElements_FullMethodName           = "/wifi.InfoService/GetInformationElements"
-	InfoService_GetIpAddress_FullMethodName                     = "/wifi.InfoService/GetIpAddress"
-	InfoService_GetLinkSpeed_FullMethodName                     = "/wifi.InfoService/GetLinkSpeed"
-	InfoService_GetMacAddress_FullMethodName                    = "/wifi.InfoService/GetMacAddress"
-	InfoService_GetMaxSupportedRxLinkSpeedMbps_FullMethodName   = "/wifi.InfoService/GetMaxSupportedRxLinkSpeedMbps"
-	InfoService_GetMaxSupportedTxLinkSpeedMbps_FullMethodName   = "/wifi.InfoService/GetMaxSupportedTxLinkSpeedMbps"
-	InfoService_GetNetworkId_FullMethodName                     = "/wifi.InfoService/GetNetworkId"
-	InfoService_GetPasspointFqdn_FullMethodName                 = "/wifi.InfoService/GetPasspointFqdn"
-	InfoService_GetPasspointProviderFriendlyName_FullMethodName = "/wifi.InfoService/GetPasspointProviderFriendlyName"
-	InfoService_GetPasspointUniqueId_FullMethodName             = "/wifi.InfoService/GetPasspointUniqueId"
-	InfoService_GetRssi_FullMethodName                          = "/wifi.InfoService/GetRssi"
-	InfoService_GetRxLinkSpeedMbps_FullMethodName               = "/wifi.InfoService/GetRxLinkSpeedMbps"
-	InfoService_GetSSID_FullMethodName                          = "/wifi.InfoService/GetSSID"
-	InfoService_GetSubscriptionId_FullMethodName                = "/wifi.InfoService/GetSubscriptionId"
-	InfoService_GetSupplicantState_FullMethodName               = "/wifi.InfoService/GetSupplicantState"
-	InfoService_GetTxLinkSpeedMbps_FullMethodName               = "/wifi.InfoService/GetTxLinkSpeedMbps"
-	InfoService_GetWifiStandard_FullMethodName                  = "/wifi.InfoService/GetWifiStandard"
-	InfoService_HashCode_FullMethodName                         = "/wifi.InfoService/HashCode"
-	InfoService_IsRestricted_FullMethodName                     = "/wifi.InfoService/IsRestricted"
-	InfoService_MakeCopy_FullMethodName                         = "/wifi.InfoService/MakeCopy"
-	InfoService_ToString_FullMethodName                         = "/wifi.InfoService/ToString"
-	InfoService_WriteToParcel_FullMethodName                    = "/wifi.InfoService/WriteToParcel"
-	InfoService_GetDetailedStateOf_FullMethodName               = "/wifi.InfoService/GetDetailedStateOf"
-)
-
-// InfoServiceClient is the client API for InfoService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type InfoServiceClient interface {
-	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
-	Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
-	GetAffiliatedMloLinks(ctx context.Context, in *GetAffiliatedMloLinksRequest, opts ...grpc.CallOption) (*GetAffiliatedMloLinksResponse, error)
-	GetApMldMacAddress(ctx context.Context, in *GetApMldMacAddressRequest, opts ...grpc.CallOption) (*GetApMldMacAddressResponse, error)
-	GetApMloLinkId(ctx context.Context, in *GetApMloLinkIdRequest, opts ...grpc.CallOption) (*GetApMloLinkIdResponse, error)
-	GetApplicableRedactions(ctx context.Context, in *GetApplicableRedactionsRequest, opts ...grpc.CallOption) (*GetApplicableRedactionsResponse, error)
-	GetAssociatedMloLinks(ctx context.Context, in *GetAssociatedMloLinksRequest, opts ...grpc.CallOption) (*GetAssociatedMloLinksResponse, error)
-	GetBSSID(ctx context.Context, in *GetBSSIDRequest, opts ...grpc.CallOption) (*GetBSSIDResponse, error)
-	GetCurrentSecurityType(ctx context.Context, in *GetCurrentSecurityTypeRequest, opts ...grpc.CallOption) (*GetCurrentSecurityTypeResponse, error)
-	GetFrequency(ctx context.Context, in *GetFrequencyRequest, opts ...grpc.CallOption) (*GetFrequencyResponse, error)
-	GetHiddenSSID(ctx context.Context, in *GetHiddenSSIDRequest, opts ...grpc.CallOption) (*GetHiddenSSIDResponse, error)
-	GetInformationElements(ctx context.Context, in *GetInformationElementsRequest, opts ...grpc.CallOption) (*GetInformationElementsResponse, error)
-	GetIpAddress(ctx context.Context, in *GetIpAddressRequest, opts ...grpc.CallOption) (*GetIpAddressResponse, error)
-	GetLinkSpeed(ctx context.Context, in *GetLinkSpeedRequest, opts ...grpc.CallOption) (*GetLinkSpeedResponse, error)
-	GetMacAddress(ctx context.Context, in *GetMacAddressRequest, opts ...grpc.CallOption) (*GetMacAddressResponse, error)
-	GetMaxSupportedRxLinkSpeedMbps(ctx context.Context, in *GetMaxSupportedRxLinkSpeedMbpsRequest, opts ...grpc.CallOption) (*GetMaxSupportedRxLinkSpeedMbpsResponse, error)
-	GetMaxSupportedTxLinkSpeedMbps(ctx context.Context, in *GetMaxSupportedTxLinkSpeedMbpsRequest, opts ...grpc.CallOption) (*GetMaxSupportedTxLinkSpeedMbpsResponse, error)
-	GetNetworkId(ctx context.Context, in *GetNetworkIdRequest, opts ...grpc.CallOption) (*GetNetworkIdResponse, error)
-	GetPasspointFqdn(ctx context.Context, in *GetPasspointFqdnRequest, opts ...grpc.CallOption) (*GetPasspointFqdnResponse, error)
-	GetPasspointProviderFriendlyName(ctx context.Context, in *GetPasspointProviderFriendlyNameRequest, opts ...grpc.CallOption) (*GetPasspointProviderFriendlyNameResponse, error)
-	GetPasspointUniqueId(ctx context.Context, in *GetPasspointUniqueIdRequest, opts ...grpc.CallOption) (*GetPasspointUniqueIdResponse, error)
-	GetRssi(ctx context.Context, in *GetRssiRequest, opts ...grpc.CallOption) (*GetRssiResponse, error)
-	GetRxLinkSpeedMbps(ctx context.Context, in *GetRxLinkSpeedMbpsRequest, opts ...grpc.CallOption) (*GetRxLinkSpeedMbpsResponse, error)
-	GetSSID(ctx context.Context, in *GetSSIDRequest, opts ...grpc.CallOption) (*GetSSIDResponse, error)
-	GetSubscriptionId(ctx context.Context, in *GetSubscriptionIdRequest, opts ...grpc.CallOption) (*GetSubscriptionIdResponse, error)
-	GetSupplicantState(ctx context.Context, in *GetSupplicantStateRequest, opts ...grpc.CallOption) (*GetSupplicantStateResponse, error)
-	GetTxLinkSpeedMbps(ctx context.Context, in *GetTxLinkSpeedMbpsRequest, opts ...grpc.CallOption) (*GetTxLinkSpeedMbpsResponse, error)
-	GetWifiStandard(ctx context.Context, in *GetWifiStandardRequest, opts ...grpc.CallOption) (*GetWifiStandardResponse, error)
-	HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
-	IsRestricted(ctx context.Context, in *IsRestrictedRequest, opts ...grpc.CallOption) (*IsRestrictedResponse, error)
-	MakeCopy(ctx context.Context, in *MakeCopyRequest, opts ...grpc.CallOption) (*MakeCopyResponse, error)
-	ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
-	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
-	GetDetailedStateOf(ctx context.Context, in *GetDetailedStateOfRequest, opts ...grpc.CallOption) (*GetDetailedStateOfResponse, error)
-}
-
-type infoServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewInfoServiceClient(cc grpc.ClientConnInterface) InfoServiceClient {
-	return &infoServiceClient{cc}
-}
-
-func (c *infoServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(DescribeContentsResponse)
-	err := c.cc.Invoke(ctx, InfoService_DescribeContents_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *infoServiceClient) Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(EqualsResponse)
-	err := c.cc.Invoke(ctx, InfoService_Equals_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *infoServiceClient) GetAffiliatedMloLinks(ctx context.Context, in *GetAffiliatedMloLinksRequest, opts ...grpc.CallOption) (*GetAffiliatedMloLinksResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetAffiliatedMloLinksResponse)
-	err := c.cc.Invoke(ctx, InfoService_GetAffiliatedMloLinks_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *infoServiceClient) GetApMldMacAddress(ctx context.Context, in *GetApMldMacAddressRequest, opts ...grpc.CallOption) (*GetApMldMacAddressResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetApMldMacAddressResponse)
-	err := c.cc.Invoke(ctx, InfoService_GetApMldMacAddress_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *infoServiceClient) GetApMloLinkId(ctx context.Context, in *GetApMloLinkIdRequest, opts ...grpc.CallOption) (*GetApMloLinkIdResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetApMloLinkIdResponse)
-	err := c.cc.Invoke(ctx, InfoService_GetApMloLinkId_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *infoServiceClient) GetApplicableRedactions(ctx context.Context, in *GetApplicableRedactionsRequest, opts ...grpc.CallOption) (*GetApplicableRedactionsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetApplicableRedactionsResponse)
-	err := c.cc.Invoke(ctx, InfoService_GetApplicableRedactions_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *infoServiceClient) GetAssociatedMloLinks(ctx context.Context, in *GetAssociatedMloLinksRequest, opts ...grpc.CallOption) (*GetAssociatedMloLinksResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetAssociatedMloLinksResponse)
-	err := c.cc.Invoke(ctx, InfoService_GetAssociatedMloLinks_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *infoServiceClient) GetBSSID(ctx context.Context, in *GetBSSIDRequest, opts ...grpc.CallOption) (*GetBSSIDResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetBSSIDResponse)
-	err := c.cc.Invoke(ctx, InfoService_GetBSSID_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *infoServiceClient) GetCurrentSecurityType(ctx context.Context, in *GetCurrentSecurityTypeRequest, opts ...grpc.CallOption) (*GetCurrentSecurityTypeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetCurrentSecurityTypeResponse)
-	err := c.cc.Invoke(ctx, InfoService_GetCurrentSecurityType_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *infoServiceClient) GetFrequency(ctx context.Context, in *GetFrequencyRequest, opts ...grpc.CallOption) (*GetFrequencyResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetFrequencyResponse)
-	err := c.cc.Invoke(ctx, InfoService_GetFrequency_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *infoServiceClient) GetHiddenSSID(ctx context.Context, in *GetHiddenSSIDRequest, opts ...grpc.CallOption) (*GetHiddenSSIDResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetHiddenSSIDResponse)
-	err := c.cc.Invoke(ctx, InfoService_GetHiddenSSID_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *infoServiceClient) GetInformationElements(ctx context.Context, in *GetInformationElementsRequest, opts ...grpc.CallOption) (*GetInformationElementsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetInformationElementsResponse)
-	err := c.cc.Invoke(ctx, InfoService_GetInformationElements_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *infoServiceClient) GetIpAddress(ctx context.Context, in *GetIpAddressRequest, opts ...grpc.CallOption) (*GetIpAddressResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetIpAddressResponse)
-	err := c.cc.Invoke(ctx, InfoService_GetIpAddress_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *infoServiceClient) GetLinkSpeed(ctx context.Context, in *GetLinkSpeedRequest, opts ...grpc.CallOption) (*GetLinkSpeedResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetLinkSpeedResponse)
-	err := c.cc.Invoke(ctx, InfoService_GetLinkSpeed_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *infoServiceClient) GetMacAddress(ctx context.Context, in *GetMacAddressRequest, opts ...grpc.CallOption) (*GetMacAddressResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetMacAddressResponse)
-	err := c.cc.Invoke(ctx, InfoService_GetMacAddress_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *infoServiceClient) GetMaxSupportedRxLinkSpeedMbps(ctx context.Context, in *GetMaxSupportedRxLinkSpeedMbpsRequest, opts ...grpc.CallOption) (*GetMaxSupportedRxLinkSpeedMbpsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetMaxSupportedRxLinkSpeedMbpsResponse)
-	err := c.cc.Invoke(ctx, InfoService_GetMaxSupportedRxLinkSpeedMbps_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *infoServiceClient) GetMaxSupportedTxLinkSpeedMbps(ctx context.Context, in *GetMaxSupportedTxLinkSpeedMbpsRequest, opts ...grpc.CallOption) (*GetMaxSupportedTxLinkSpeedMbpsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetMaxSupportedTxLinkSpeedMbpsResponse)
-	err := c.cc.Invoke(ctx, InfoService_GetMaxSupportedTxLinkSpeedMbps_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *infoServiceClient) GetNetworkId(ctx context.Context, in *GetNetworkIdRequest, opts ...grpc.CallOption) (*GetNetworkIdResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetNetworkIdResponse)
-	err := c.cc.Invoke(ctx, InfoService_GetNetworkId_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *infoServiceClient) GetPasspointFqdn(ctx context.Context, in *GetPasspointFqdnRequest, opts ...grpc.CallOption) (*GetPasspointFqdnResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetPasspointFqdnResponse)
-	err := c.cc.Invoke(ctx, InfoService_GetPasspointFqdn_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *infoServiceClient) GetPasspointProviderFriendlyName(ctx context.Context, in *GetPasspointProviderFriendlyNameRequest, opts ...grpc.CallOption) (*GetPasspointProviderFriendlyNameResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetPasspointProviderFriendlyNameResponse)
-	err := c.cc.Invoke(ctx, InfoService_GetPasspointProviderFriendlyName_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *infoServiceClient) GetPasspointUniqueId(ctx context.Context, in *GetPasspointUniqueIdRequest, opts ...grpc.CallOption) (*GetPasspointUniqueIdResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetPasspointUniqueIdResponse)
-	err := c.cc.Invoke(ctx, InfoService_GetPasspointUniqueId_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *infoServiceClient) GetRssi(ctx context.Context, in *GetRssiRequest, opts ...grpc.CallOption) (*GetRssiResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetRssiResponse)
-	err := c.cc.Invoke(ctx, InfoService_GetRssi_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *infoServiceClient) GetRxLinkSpeedMbps(ctx context.Context, in *GetRxLinkSpeedMbpsRequest, opts ...grpc.CallOption) (*GetRxLinkSpeedMbpsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetRxLinkSpeedMbpsResponse)
-	err := c.cc.Invoke(ctx, InfoService_GetRxLinkSpeedMbps_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *infoServiceClient) GetSSID(ctx context.Context, in *GetSSIDRequest, opts ...grpc.CallOption) (*GetSSIDResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetSSIDResponse)
-	err := c.cc.Invoke(ctx, InfoService_GetSSID_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *infoServiceClient) GetSubscriptionId(ctx context.Context, in *GetSubscriptionIdRequest, opts ...grpc.CallOption) (*GetSubscriptionIdResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetSubscriptionIdResponse)
-	err := c.cc.Invoke(ctx, InfoService_GetSubscriptionId_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *infoServiceClient) GetSupplicantState(ctx context.Context, in *GetSupplicantStateRequest, opts ...grpc.CallOption) (*GetSupplicantStateResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetSupplicantStateResponse)
-	err := c.cc.Invoke(ctx, InfoService_GetSupplicantState_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *infoServiceClient) GetTxLinkSpeedMbps(ctx context.Context, in *GetTxLinkSpeedMbpsRequest, opts ...grpc.CallOption) (*GetTxLinkSpeedMbpsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetTxLinkSpeedMbpsResponse)
-	err := c.cc.Invoke(ctx, InfoService_GetTxLinkSpeedMbps_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *infoServiceClient) GetWifiStandard(ctx context.Context, in *GetWifiStandardRequest, opts ...grpc.CallOption) (*GetWifiStandardResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetWifiStandardResponse)
-	err := c.cc.Invoke(ctx, InfoService_GetWifiStandard_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *infoServiceClient) HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(HashCodeResponse)
-	err := c.cc.Invoke(ctx, InfoService_HashCode_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *infoServiceClient) IsRestricted(ctx context.Context, in *IsRestrictedRequest, opts ...grpc.CallOption) (*IsRestrictedResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(IsRestrictedResponse)
-	err := c.cc.Invoke(ctx, InfoService_IsRestricted_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *infoServiceClient) MakeCopy(ctx context.Context, in *MakeCopyRequest, opts ...grpc.CallOption) (*MakeCopyResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(MakeCopyResponse)
-	err := c.cc.Invoke(ctx, InfoService_MakeCopy_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *infoServiceClient) ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ToStringResponse)
-	err := c.cc.Invoke(ctx, InfoService_ToString_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *infoServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(WriteToParcelResponse)
-	err := c.cc.Invoke(ctx, InfoService_WriteToParcel_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *infoServiceClient) GetDetailedStateOf(ctx context.Context, in *GetDetailedStateOfRequest, opts ...grpc.CallOption) (*GetDetailedStateOfResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetDetailedStateOfResponse)
-	err := c.cc.Invoke(ctx, InfoService_GetDetailedStateOf_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// InfoServiceServer is the server API for InfoService service.
-// All implementations must embed UnimplementedInfoServiceServer
-// for forward compatibility.
-type InfoServiceServer interface {
-	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
-	Equals(context.Context, *EqualsRequest) (*EqualsResponse, error)
-	GetAffiliatedMloLinks(context.Context, *GetAffiliatedMloLinksRequest) (*GetAffiliatedMloLinksResponse, error)
-	GetApMldMacAddress(context.Context, *GetApMldMacAddressRequest) (*GetApMldMacAddressResponse, error)
-	GetApMloLinkId(context.Context, *GetApMloLinkIdRequest) (*GetApMloLinkIdResponse, error)
-	GetApplicableRedactions(context.Context, *GetApplicableRedactionsRequest) (*GetApplicableRedactionsResponse, error)
-	GetAssociatedMloLinks(context.Context, *GetAssociatedMloLinksRequest) (*GetAssociatedMloLinksResponse, error)
-	GetBSSID(context.Context, *GetBSSIDRequest) (*GetBSSIDResponse, error)
-	GetCurrentSecurityType(context.Context, *GetCurrentSecurityTypeRequest) (*GetCurrentSecurityTypeResponse, error)
-	GetFrequency(context.Context, *GetFrequencyRequest) (*GetFrequencyResponse, error)
-	GetHiddenSSID(context.Context, *GetHiddenSSIDRequest) (*GetHiddenSSIDResponse, error)
-	GetInformationElements(context.Context, *GetInformationElementsRequest) (*GetInformationElementsResponse, error)
-	GetIpAddress(context.Context, *GetIpAddressRequest) (*GetIpAddressResponse, error)
-	GetLinkSpeed(context.Context, *GetLinkSpeedRequest) (*GetLinkSpeedResponse, error)
-	GetMacAddress(context.Context, *GetMacAddressRequest) (*GetMacAddressResponse, error)
-	GetMaxSupportedRxLinkSpeedMbps(context.Context, *GetMaxSupportedRxLinkSpeedMbpsRequest) (*GetMaxSupportedRxLinkSpeedMbpsResponse, error)
-	GetMaxSupportedTxLinkSpeedMbps(context.Context, *GetMaxSupportedTxLinkSpeedMbpsRequest) (*GetMaxSupportedTxLinkSpeedMbpsResponse, error)
-	GetNetworkId(context.Context, *GetNetworkIdRequest) (*GetNetworkIdResponse, error)
-	GetPasspointFqdn(context.Context, *GetPasspointFqdnRequest) (*GetPasspointFqdnResponse, error)
-	GetPasspointProviderFriendlyName(context.Context, *GetPasspointProviderFriendlyNameRequest) (*GetPasspointProviderFriendlyNameResponse, error)
-	GetPasspointUniqueId(context.Context, *GetPasspointUniqueIdRequest) (*GetPasspointUniqueIdResponse, error)
-	GetRssi(context.Context, *GetRssiRequest) (*GetRssiResponse, error)
-	GetRxLinkSpeedMbps(context.Context, *GetRxLinkSpeedMbpsRequest) (*GetRxLinkSpeedMbpsResponse, error)
-	GetSSID(context.Context, *GetSSIDRequest) (*GetSSIDResponse, error)
-	GetSubscriptionId(context.Context, *GetSubscriptionIdRequest) (*GetSubscriptionIdResponse, error)
-	GetSupplicantState(context.Context, *GetSupplicantStateRequest) (*GetSupplicantStateResponse, error)
-	GetTxLinkSpeedMbps(context.Context, *GetTxLinkSpeedMbpsRequest) (*GetTxLinkSpeedMbpsResponse, error)
-	GetWifiStandard(context.Context, *GetWifiStandardRequest) (*GetWifiStandardResponse, error)
-	HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error)
-	IsRestricted(context.Context, *IsRestrictedRequest) (*IsRestrictedResponse, error)
-	MakeCopy(context.Context, *MakeCopyRequest) (*MakeCopyResponse, error)
-	ToString(context.Context, *ToStringRequest) (*ToStringResponse, error)
-	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
-	GetDetailedStateOf(context.Context, *GetDetailedStateOfRequest) (*GetDetailedStateOfResponse, error)
-	mustEmbedUnimplementedInfoServiceServer()
-}
-
-// UnimplementedInfoServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedInfoServiceServer struct{}
-
-func (UnimplementedInfoServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
-}
-func (UnimplementedInfoServiceServer) Equals(context.Context, *EqualsRequest) (*EqualsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Equals not implemented")
-}
-func (UnimplementedInfoServiceServer) GetAffiliatedMloLinks(context.Context, *GetAffiliatedMloLinksRequest) (*GetAffiliatedMloLinksResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetAffiliatedMloLinks not implemented")
-}
-func (UnimplementedInfoServiceServer) GetApMldMacAddress(context.Context, *GetApMldMacAddressRequest) (*GetApMldMacAddressResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetApMldMacAddress not implemented")
-}
-func (UnimplementedInfoServiceServer) GetApMloLinkId(context.Context, *GetApMloLinkIdRequest) (*GetApMloLinkIdResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetApMloLinkId not implemented")
-}
-func (UnimplementedInfoServiceServer) GetApplicableRedactions(context.Context, *GetApplicableRedactionsRequest) (*GetApplicableRedactionsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetApplicableRedactions not implemented")
-}
-func (UnimplementedInfoServiceServer) GetAssociatedMloLinks(context.Context, *GetAssociatedMloLinksRequest) (*GetAssociatedMloLinksResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetAssociatedMloLinks not implemented")
-}
-func (UnimplementedInfoServiceServer) GetBSSID(context.Context, *GetBSSIDRequest) (*GetBSSIDResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetBSSID not implemented")
-}
-func (UnimplementedInfoServiceServer) GetCurrentSecurityType(context.Context, *GetCurrentSecurityTypeRequest) (*GetCurrentSecurityTypeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetCurrentSecurityType not implemented")
-}
-func (UnimplementedInfoServiceServer) GetFrequency(context.Context, *GetFrequencyRequest) (*GetFrequencyResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetFrequency not implemented")
-}
-func (UnimplementedInfoServiceServer) GetHiddenSSID(context.Context, *GetHiddenSSIDRequest) (*GetHiddenSSIDResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetHiddenSSID not implemented")
-}
-func (UnimplementedInfoServiceServer) GetInformationElements(context.Context, *GetInformationElementsRequest) (*GetInformationElementsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetInformationElements not implemented")
-}
-func (UnimplementedInfoServiceServer) GetIpAddress(context.Context, *GetIpAddressRequest) (*GetIpAddressResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetIpAddress not implemented")
-}
-func (UnimplementedInfoServiceServer) GetLinkSpeed(context.Context, *GetLinkSpeedRequest) (*GetLinkSpeedResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetLinkSpeed not implemented")
-}
-func (UnimplementedInfoServiceServer) GetMacAddress(context.Context, *GetMacAddressRequest) (*GetMacAddressResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetMacAddress not implemented")
-}
-func (UnimplementedInfoServiceServer) GetMaxSupportedRxLinkSpeedMbps(context.Context, *GetMaxSupportedRxLinkSpeedMbpsRequest) (*GetMaxSupportedRxLinkSpeedMbpsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetMaxSupportedRxLinkSpeedMbps not implemented")
-}
-func (UnimplementedInfoServiceServer) GetMaxSupportedTxLinkSpeedMbps(context.Context, *GetMaxSupportedTxLinkSpeedMbpsRequest) (*GetMaxSupportedTxLinkSpeedMbpsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetMaxSupportedTxLinkSpeedMbps not implemented")
-}
-func (UnimplementedInfoServiceServer) GetNetworkId(context.Context, *GetNetworkIdRequest) (*GetNetworkIdResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetNetworkId not implemented")
-}
-func (UnimplementedInfoServiceServer) GetPasspointFqdn(context.Context, *GetPasspointFqdnRequest) (*GetPasspointFqdnResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetPasspointFqdn not implemented")
-}
-func (UnimplementedInfoServiceServer) GetPasspointProviderFriendlyName(context.Context, *GetPasspointProviderFriendlyNameRequest) (*GetPasspointProviderFriendlyNameResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetPasspointProviderFriendlyName not implemented")
-}
-func (UnimplementedInfoServiceServer) GetPasspointUniqueId(context.Context, *GetPasspointUniqueIdRequest) (*GetPasspointUniqueIdResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetPasspointUniqueId not implemented")
-}
-func (UnimplementedInfoServiceServer) GetRssi(context.Context, *GetRssiRequest) (*GetRssiResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetRssi not implemented")
-}
-func (UnimplementedInfoServiceServer) GetRxLinkSpeedMbps(context.Context, *GetRxLinkSpeedMbpsRequest) (*GetRxLinkSpeedMbpsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetRxLinkSpeedMbps not implemented")
-}
-func (UnimplementedInfoServiceServer) GetSSID(context.Context, *GetSSIDRequest) (*GetSSIDResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetSSID not implemented")
-}
-func (UnimplementedInfoServiceServer) GetSubscriptionId(context.Context, *GetSubscriptionIdRequest) (*GetSubscriptionIdResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetSubscriptionId not implemented")
-}
-func (UnimplementedInfoServiceServer) GetSupplicantState(context.Context, *GetSupplicantStateRequest) (*GetSupplicantStateResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetSupplicantState not implemented")
-}
-func (UnimplementedInfoServiceServer) GetTxLinkSpeedMbps(context.Context, *GetTxLinkSpeedMbpsRequest) (*GetTxLinkSpeedMbpsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetTxLinkSpeedMbps not implemented")
-}
-func (UnimplementedInfoServiceServer) GetWifiStandard(context.Context, *GetWifiStandardRequest) (*GetWifiStandardResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetWifiStandard not implemented")
-}
-func (UnimplementedInfoServiceServer) HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method HashCode not implemented")
-}
-func (UnimplementedInfoServiceServer) IsRestricted(context.Context, *IsRestrictedRequest) (*IsRestrictedResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method IsRestricted not implemented")
-}
-func (UnimplementedInfoServiceServer) MakeCopy(context.Context, *MakeCopyRequest) (*MakeCopyResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method MakeCopy not implemented")
-}
-func (UnimplementedInfoServiceServer) ToString(context.Context, *ToStringRequest) (*ToStringResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
-}
-func (UnimplementedInfoServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
-}
-func (UnimplementedInfoServiceServer) GetDetailedStateOf(context.Context, *GetDetailedStateOfRequest) (*GetDetailedStateOfResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetDetailedStateOf not implemented")
-}
-func (UnimplementedInfoServiceServer) mustEmbedUnimplementedInfoServiceServer() {}
-func (UnimplementedInfoServiceServer) testEmbeddedByValue()                     {}
-
-// UnsafeInfoServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to InfoServiceServer will
-// result in compilation errors.
-type UnsafeInfoServiceServer interface {
-	mustEmbedUnimplementedInfoServiceServer()
-}
-
-func RegisterInfoServiceServer(s grpc.ServiceRegistrar, srv InfoServiceServer) {
-	// If the following call panics, it indicates UnimplementedInfoServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&InfoService_ServiceDesc, srv)
-}
-
-func _InfoService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(DescribeContentsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(InfoServiceServer).DescribeContents(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: InfoService_DescribeContents_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(InfoServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _InfoService_Equals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(EqualsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(InfoServiceServer).Equals(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: InfoService_Equals_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(InfoServiceServer).Equals(ctx, req.(*EqualsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _InfoService_GetAffiliatedMloLinks_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetAffiliatedMloLinksRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(InfoServiceServer).GetAffiliatedMloLinks(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: InfoService_GetAffiliatedMloLinks_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(InfoServiceServer).GetAffiliatedMloLinks(ctx, req.(*GetAffiliatedMloLinksRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _InfoService_GetApMldMacAddress_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetApMldMacAddressRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(InfoServiceServer).GetApMldMacAddress(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: InfoService_GetApMldMacAddress_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(InfoServiceServer).GetApMldMacAddress(ctx, req.(*GetApMldMacAddressRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _InfoService_GetApMloLinkId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetApMloLinkIdRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(InfoServiceServer).GetApMloLinkId(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: InfoService_GetApMloLinkId_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(InfoServiceServer).GetApMloLinkId(ctx, req.(*GetApMloLinkIdRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _InfoService_GetApplicableRedactions_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetApplicableRedactionsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(InfoServiceServer).GetApplicableRedactions(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: InfoService_GetApplicableRedactions_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(InfoServiceServer).GetApplicableRedactions(ctx, req.(*GetApplicableRedactionsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _InfoService_GetAssociatedMloLinks_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetAssociatedMloLinksRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(InfoServiceServer).GetAssociatedMloLinks(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: InfoService_GetAssociatedMloLinks_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(InfoServiceServer).GetAssociatedMloLinks(ctx, req.(*GetAssociatedMloLinksRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _InfoService_GetBSSID_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetBSSIDRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(InfoServiceServer).GetBSSID(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: InfoService_GetBSSID_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(InfoServiceServer).GetBSSID(ctx, req.(*GetBSSIDRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _InfoService_GetCurrentSecurityType_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetCurrentSecurityTypeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(InfoServiceServer).GetCurrentSecurityType(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: InfoService_GetCurrentSecurityType_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(InfoServiceServer).GetCurrentSecurityType(ctx, req.(*GetCurrentSecurityTypeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _InfoService_GetFrequency_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetFrequencyRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(InfoServiceServer).GetFrequency(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: InfoService_GetFrequency_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(InfoServiceServer).GetFrequency(ctx, req.(*GetFrequencyRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _InfoService_GetHiddenSSID_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetHiddenSSIDRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(InfoServiceServer).GetHiddenSSID(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: InfoService_GetHiddenSSID_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(InfoServiceServer).GetHiddenSSID(ctx, req.(*GetHiddenSSIDRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _InfoService_GetInformationElements_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetInformationElementsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(InfoServiceServer).GetInformationElements(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: InfoService_GetInformationElements_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(InfoServiceServer).GetInformationElements(ctx, req.(*GetInformationElementsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _InfoService_GetIpAddress_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetIpAddressRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(InfoServiceServer).GetIpAddress(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: InfoService_GetIpAddress_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(InfoServiceServer).GetIpAddress(ctx, req.(*GetIpAddressRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _InfoService_GetLinkSpeed_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetLinkSpeedRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(InfoServiceServer).GetLinkSpeed(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: InfoService_GetLinkSpeed_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(InfoServiceServer).GetLinkSpeed(ctx, req.(*GetLinkSpeedRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _InfoService_GetMacAddress_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetMacAddressRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(InfoServiceServer).GetMacAddress(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: InfoService_GetMacAddress_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(InfoServiceServer).GetMacAddress(ctx, req.(*GetMacAddressRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _InfoService_GetMaxSupportedRxLinkSpeedMbps_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetMaxSupportedRxLinkSpeedMbpsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(InfoServiceServer).GetMaxSupportedRxLinkSpeedMbps(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: InfoService_GetMaxSupportedRxLinkSpeedMbps_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(InfoServiceServer).GetMaxSupportedRxLinkSpeedMbps(ctx, req.(*GetMaxSupportedRxLinkSpeedMbpsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _InfoService_GetMaxSupportedTxLinkSpeedMbps_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetMaxSupportedTxLinkSpeedMbpsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(InfoServiceServer).GetMaxSupportedTxLinkSpeedMbps(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: InfoService_GetMaxSupportedTxLinkSpeedMbps_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(InfoServiceServer).GetMaxSupportedTxLinkSpeedMbps(ctx, req.(*GetMaxSupportedTxLinkSpeedMbpsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _InfoService_GetNetworkId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetNetworkIdRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(InfoServiceServer).GetNetworkId(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: InfoService_GetNetworkId_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(InfoServiceServer).GetNetworkId(ctx, req.(*GetNetworkIdRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _InfoService_GetPasspointFqdn_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetPasspointFqdnRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(InfoServiceServer).GetPasspointFqdn(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: InfoService_GetPasspointFqdn_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(InfoServiceServer).GetPasspointFqdn(ctx, req.(*GetPasspointFqdnRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _InfoService_GetPasspointProviderFriendlyName_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetPasspointProviderFriendlyNameRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(InfoServiceServer).GetPasspointProviderFriendlyName(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: InfoService_GetPasspointProviderFriendlyName_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(InfoServiceServer).GetPasspointProviderFriendlyName(ctx, req.(*GetPasspointProviderFriendlyNameRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _InfoService_GetPasspointUniqueId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetPasspointUniqueIdRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(InfoServiceServer).GetPasspointUniqueId(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: InfoService_GetPasspointUniqueId_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(InfoServiceServer).GetPasspointUniqueId(ctx, req.(*GetPasspointUniqueIdRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _InfoService_GetRssi_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetRssiRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(InfoServiceServer).GetRssi(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: InfoService_GetRssi_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(InfoServiceServer).GetRssi(ctx, req.(*GetRssiRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _InfoService_GetRxLinkSpeedMbps_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetRxLinkSpeedMbpsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(InfoServiceServer).GetRxLinkSpeedMbps(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: InfoService_GetRxLinkSpeedMbps_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(InfoServiceServer).GetRxLinkSpeedMbps(ctx, req.(*GetRxLinkSpeedMbpsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _InfoService_GetSSID_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetSSIDRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(InfoServiceServer).GetSSID(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: InfoService_GetSSID_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(InfoServiceServer).GetSSID(ctx, req.(*GetSSIDRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _InfoService_GetSubscriptionId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetSubscriptionIdRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(InfoServiceServer).GetSubscriptionId(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: InfoService_GetSubscriptionId_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(InfoServiceServer).GetSubscriptionId(ctx, req.(*GetSubscriptionIdRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _InfoService_GetSupplicantState_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetSupplicantStateRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(InfoServiceServer).GetSupplicantState(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: InfoService_GetSupplicantState_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(InfoServiceServer).GetSupplicantState(ctx, req.(*GetSupplicantStateRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _InfoService_GetTxLinkSpeedMbps_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetTxLinkSpeedMbpsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(InfoServiceServer).GetTxLinkSpeedMbps(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: InfoService_GetTxLinkSpeedMbps_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(InfoServiceServer).GetTxLinkSpeedMbps(ctx, req.(*GetTxLinkSpeedMbpsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _InfoService_GetWifiStandard_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetWifiStandardRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(InfoServiceServer).GetWifiStandard(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: InfoService_GetWifiStandard_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(InfoServiceServer).GetWifiStandard(ctx, req.(*GetWifiStandardRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _InfoService_HashCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(HashCodeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(InfoServiceServer).HashCode(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: InfoService_HashCode_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(InfoServiceServer).HashCode(ctx, req.(*HashCodeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _InfoService_IsRestricted_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(IsRestrictedRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(InfoServiceServer).IsRestricted(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: InfoService_IsRestricted_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(InfoServiceServer).IsRestricted(ctx, req.(*IsRestrictedRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _InfoService_MakeCopy_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(MakeCopyRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(InfoServiceServer).MakeCopy(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: InfoService_MakeCopy_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(InfoServiceServer).MakeCopy(ctx, req.(*MakeCopyRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _InfoService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ToStringRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(InfoServiceServer).ToString(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: InfoService_ToString_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(InfoServiceServer).ToString(ctx, req.(*ToStringRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _InfoService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(WriteToParcelRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(InfoServiceServer).WriteToParcel(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: InfoService_WriteToParcel_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(InfoServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _InfoService_GetDetailedStateOf_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetDetailedStateOfRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(InfoServiceServer).GetDetailedStateOf(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: InfoService_GetDetailedStateOf_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(InfoServiceServer).GetDetailedStateOf(ctx, req.(*GetDetailedStateOfRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// InfoService_ServiceDesc is the grpc.ServiceDesc for InfoService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var InfoService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "wifi.InfoService",
-	HandlerType: (*InfoServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "DescribeContents",
-			Handler:    _InfoService_DescribeContents_Handler,
-		},
-		{
-			MethodName: "Equals",
-			Handler:    _InfoService_Equals_Handler,
-		},
-		{
-			MethodName: "GetAffiliatedMloLinks",
-			Handler:    _InfoService_GetAffiliatedMloLinks_Handler,
-		},
-		{
-			MethodName: "GetApMldMacAddress",
-			Handler:    _InfoService_GetApMldMacAddress_Handler,
-		},
-		{
-			MethodName: "GetApMloLinkId",
-			Handler:    _InfoService_GetApMloLinkId_Handler,
-		},
-		{
-			MethodName: "GetApplicableRedactions",
-			Handler:    _InfoService_GetApplicableRedactions_Handler,
-		},
-		{
-			MethodName: "GetAssociatedMloLinks",
-			Handler:    _InfoService_GetAssociatedMloLinks_Handler,
-		},
-		{
-			MethodName: "GetBSSID",
-			Handler:    _InfoService_GetBSSID_Handler,
-		},
-		{
-			MethodName: "GetCurrentSecurityType",
-			Handler:    _InfoService_GetCurrentSecurityType_Handler,
-		},
-		{
-			MethodName: "GetFrequency",
-			Handler:    _InfoService_GetFrequency_Handler,
-		},
-		{
-			MethodName: "GetHiddenSSID",
-			Handler:    _InfoService_GetHiddenSSID_Handler,
-		},
-		{
-			MethodName: "GetInformationElements",
-			Handler:    _InfoService_GetInformationElements_Handler,
-		},
-		{
-			MethodName: "GetIpAddress",
-			Handler:    _InfoService_GetIpAddress_Handler,
-		},
-		{
-			MethodName: "GetLinkSpeed",
-			Handler:    _InfoService_GetLinkSpeed_Handler,
-		},
-		{
-			MethodName: "GetMacAddress",
-			Handler:    _InfoService_GetMacAddress_Handler,
-		},
-		{
-			MethodName: "GetMaxSupportedRxLinkSpeedMbps",
-			Handler:    _InfoService_GetMaxSupportedRxLinkSpeedMbps_Handler,
-		},
-		{
-			MethodName: "GetMaxSupportedTxLinkSpeedMbps",
-			Handler:    _InfoService_GetMaxSupportedTxLinkSpeedMbps_Handler,
-		},
-		{
-			MethodName: "GetNetworkId",
-			Handler:    _InfoService_GetNetworkId_Handler,
-		},
-		{
-			MethodName: "GetPasspointFqdn",
-			Handler:    _InfoService_GetPasspointFqdn_Handler,
-		},
-		{
-			MethodName: "GetPasspointProviderFriendlyName",
-			Handler:    _InfoService_GetPasspointProviderFriendlyName_Handler,
-		},
-		{
-			MethodName: "GetPasspointUniqueId",
-			Handler:    _InfoService_GetPasspointUniqueId_Handler,
-		},
-		{
-			MethodName: "GetRssi",
-			Handler:    _InfoService_GetRssi_Handler,
-		},
-		{
-			MethodName: "GetRxLinkSpeedMbps",
-			Handler:    _InfoService_GetRxLinkSpeedMbps_Handler,
-		},
-		{
-			MethodName: "GetSSID",
-			Handler:    _InfoService_GetSSID_Handler,
-		},
-		{
-			MethodName: "GetSubscriptionId",
-			Handler:    _InfoService_GetSubscriptionId_Handler,
-		},
-		{
-			MethodName: "GetSupplicantState",
-			Handler:    _InfoService_GetSupplicantState_Handler,
-		},
-		{
-			MethodName: "GetTxLinkSpeedMbps",
-			Handler:    _InfoService_GetTxLinkSpeedMbps_Handler,
-		},
-		{
-			MethodName: "GetWifiStandard",
-			Handler:    _InfoService_GetWifiStandard_Handler,
-		},
-		{
-			MethodName: "HashCode",
-			Handler:    _InfoService_HashCode_Handler,
-		},
-		{
-			MethodName: "IsRestricted",
-			Handler:    _InfoService_IsRestricted_Handler,
-		},
-		{
-			MethodName: "MakeCopy",
-			Handler:    _InfoService_MakeCopy_Handler,
-		},
-		{
-			MethodName: "ToString",
-			Handler:    _InfoService_ToString_Handler,
-		},
-		{
-			MethodName: "WriteToParcel",
-			Handler:    _InfoService_WriteToParcel_Handler,
-		},
-		{
-			MethodName: "GetDetailedStateOf",
-			Handler:    _InfoService_GetDetailedStateOf_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/wifi/wifi.proto",
-}
-
-const (
 	ManagerService_AddLocalOnlyConnectionFailureListener_FullMethodName            = "/wifi.ManagerService/AddLocalOnlyConnectionFailureListener"
 	ManagerService_AddNetwork_FullMethodName                                       = "/wifi.ManagerService/AddNetwork"
 	ManagerService_AddNetworkPrivileged_FullMethodName                             = "/wifi.ManagerService/AddNetworkPrivileged"
-	ManagerService_AddNetworkSuggestions_FullMethodName                            = "/wifi.ManagerService/AddNetworkSuggestions"
 	ManagerService_AddOrUpdatePasspointConfiguration_FullMethodName                = "/wifi.ManagerService/AddOrUpdatePasspointConfiguration"
 	ManagerService_AddSuggestionConnectionStatusListener_FullMethodName            = "/wifi.ManagerService/AddSuggestionConnectionStatusListener"
 	ManagerService_AddSuggestionUserApprovalStatusListener_FullMethodName          = "/wifi.ManagerService/AddSuggestionUserApprovalStatusListener"
@@ -1396,23 +39,12 @@ const (
 	ManagerService_Disconnect_FullMethodName                                       = "/wifi.ManagerService/Disconnect"
 	ManagerService_EnableNetwork_FullMethodName                                    = "/wifi.ManagerService/EnableNetwork"
 	ManagerService_FlushPasspointAnqpCache_FullMethodName                          = "/wifi.ManagerService/FlushPasspointAnqpCache"
-	ManagerService_GetAllowedChannels_FullMethodName                               = "/wifi.ManagerService/GetAllowedChannels"
-	ManagerService_GetCallerConfiguredNetworks_FullMethodName                      = "/wifi.ManagerService/GetCallerConfiguredNetworks"
-	ManagerService_GetChannelData_FullMethodName                                   = "/wifi.ManagerService/GetChannelData"
-	ManagerService_GetConfiguredNetworks_FullMethodName                            = "/wifi.ManagerService/GetConfiguredNetworks"
 	ManagerService_GetConnectionInfo_FullMethodName                                = "/wifi.ManagerService/GetConnectionInfo"
 	ManagerService_GetDhcpInfo_FullMethodName                                      = "/wifi.ManagerService/GetDhcpInfo"
 	ManagerService_GetMaxNumberOfChannelsPerNetworkSpecifierRequest_FullMethodName = "/wifi.ManagerService/GetMaxNumberOfChannelsPerNetworkSpecifierRequest"
 	ManagerService_GetMaxNumberOfNetworkSuggestionsPerApp_FullMethodName           = "/wifi.ManagerService/GetMaxNumberOfNetworkSuggestionsPerApp"
 	ManagerService_GetMaxSignalLevel_FullMethodName                                = "/wifi.ManagerService/GetMaxSignalLevel"
-	ManagerService_GetMaxSupportedConcurrentTdlsSessions_FullMethodName            = "/wifi.ManagerService/GetMaxSupportedConcurrentTdlsSessions"
-	ManagerService_GetNetworkSuggestions_FullMethodName                            = "/wifi.ManagerService/GetNetworkSuggestions"
-	ManagerService_GetNumberOfEnabledTdlsSessions_FullMethodName                   = "/wifi.ManagerService/GetNumberOfEnabledTdlsSessions"
-	ManagerService_GetPasspointConfigurations_FullMethodName                       = "/wifi.ManagerService/GetPasspointConfigurations"
-	ManagerService_GetPerSsidRoamingModes_FullMethodName                           = "/wifi.ManagerService/GetPerSsidRoamingModes"
-	ManagerService_GetScanResults_FullMethodName                                   = "/wifi.ManagerService/GetScanResults"
 	ManagerService_GetStaConcurrencyForMultiInternetMode_FullMethodName            = "/wifi.ManagerService/GetStaConcurrencyForMultiInternetMode"
-	ManagerService_GetUsableChannels_FullMethodName                                = "/wifi.ManagerService/GetUsableChannels"
 	ManagerService_GetWifiState_FullMethodName                                     = "/wifi.ManagerService/GetWifiState"
 	ManagerService_Is24GHzBandSupported_FullMethodName                             = "/wifi.ManagerService/Is24GHzBandSupported"
 	ManagerService_Is5GHzBandSupported_FullMethodName                              = "/wifi.ManagerService/Is5GHzBandSupported"
@@ -1441,7 +73,6 @@ const (
 	ManagerService_IsStaBridgedApConcurrencySupported_FullMethodName               = "/wifi.ManagerService/IsStaBridgedApConcurrencySupported"
 	ManagerService_IsStaConcurrencyForLocalOnlyConnectionsSupported_FullMethodName = "/wifi.ManagerService/IsStaConcurrencyForLocalOnlyConnectionsSupported"
 	ManagerService_IsStaConcurrencyForMultiInternetSupported_FullMethodName        = "/wifi.ManagerService/IsStaConcurrencyForMultiInternetSupported"
-	ManagerService_IsTdlsOperationCurrentlyAvailable_FullMethodName                = "/wifi.ManagerService/IsTdlsOperationCurrentlyAvailable"
 	ManagerService_IsTdlsSupported_FullMethodName                                  = "/wifi.ManagerService/IsTdlsSupported"
 	ManagerService_IsTidToLinkMappingNegotiationSupported_FullMethodName           = "/wifi.ManagerService/IsTidToLinkMappingNegotiationSupported"
 	ManagerService_IsTlsMinimumVersionSupported_FullMethodName                     = "/wifi.ManagerService/IsTlsMinimumVersionSupported"
@@ -1459,7 +90,6 @@ const (
 	ManagerService_IsWpa3SuiteBSupported_FullMethodName                            = "/wifi.ManagerService/IsWpa3SuiteBSupported"
 	ManagerService_IsWpaPersonalSupported_FullMethodName                           = "/wifi.ManagerService/IsWpaPersonalSupported"
 	ManagerService_PingSupplicant_FullMethodName                                   = "/wifi.ManagerService/PingSupplicant"
-	ManagerService_QueryAutojoinGlobal_FullMethodName                              = "/wifi.ManagerService/QueryAutojoinGlobal"
 	ManagerService_QuerySendDhcpHostnameRestriction_FullMethodName                 = "/wifi.ManagerService/QuerySendDhcpHostnameRestriction"
 	ManagerService_Reassociate_FullMethodName                                      = "/wifi.ManagerService/Reassociate"
 	ManagerService_Reconnect_FullMethodName                                        = "/wifi.ManagerService/Reconnect"
@@ -1467,22 +97,17 @@ const (
 	ManagerService_RegisterSubsystemRestartTrackingCallback_FullMethodName         = "/wifi.ManagerService/RegisterSubsystemRestartTrackingCallback"
 	ManagerService_RemoveLocalOnlyConnectionFailureListener_FullMethodName         = "/wifi.ManagerService/RemoveLocalOnlyConnectionFailureListener"
 	ManagerService_RemoveNetwork_FullMethodName                                    = "/wifi.ManagerService/RemoveNetwork"
-	ManagerService_RemoveNetworkSuggestions1_FullMethodName                        = "/wifi.ManagerService/RemoveNetworkSuggestions1"
-	ManagerService_RemoveNetworkSuggestions2_1_FullMethodName                      = "/wifi.ManagerService/RemoveNetworkSuggestions2_1"
 	ManagerService_RemoveNonCallerConfiguredNetworks_FullMethodName                = "/wifi.ManagerService/RemoveNonCallerConfiguredNetworks"
 	ManagerService_RemovePasspointConfiguration_FullMethodName                     = "/wifi.ManagerService/RemovePasspointConfiguration"
 	ManagerService_RemovePerSsidRoamingMode_FullMethodName                         = "/wifi.ManagerService/RemovePerSsidRoamingMode"
 	ManagerService_RemoveSuggestionConnectionStatusListener_FullMethodName         = "/wifi.ManagerService/RemoveSuggestionConnectionStatusListener"
 	ManagerService_RemoveSuggestionUserApprovalStatusListener_FullMethodName       = "/wifi.ManagerService/RemoveSuggestionUserApprovalStatusListener"
 	ManagerService_RemoveWifiStateChangedListener_FullMethodName                   = "/wifi.ManagerService/RemoveWifiStateChangedListener"
-	ManagerService_ReportCreateInterfaceImpact_FullMethodName                      = "/wifi.ManagerService/ReportCreateInterfaceImpact"
 	ManagerService_SaveConfiguration_FullMethodName                                = "/wifi.ManagerService/SaveConfiguration"
 	ManagerService_SetPerSsidRoamingMode_FullMethodName                            = "/wifi.ManagerService/SetPerSsidRoamingMode"
 	ManagerService_SetSendDhcpHostnameRestriction_FullMethodName                   = "/wifi.ManagerService/SetSendDhcpHostnameRestriction"
-	ManagerService_SetTdlsEnabled2_FullMethodName                                  = "/wifi.ManagerService/SetTdlsEnabled2"
-	ManagerService_SetTdlsEnabled4_1_FullMethodName                                = "/wifi.ManagerService/SetTdlsEnabled4_1"
-	ManagerService_SetTdlsEnabledWithMacAddress2_FullMethodName                    = "/wifi.ManagerService/SetTdlsEnabledWithMacAddress2"
-	ManagerService_SetTdlsEnabledWithMacAddress4_1_FullMethodName                  = "/wifi.ManagerService/SetTdlsEnabledWithMacAddress4_1"
+	ManagerService_SetTdlsEnabled_FullMethodName                                   = "/wifi.ManagerService/SetTdlsEnabled"
+	ManagerService_SetTdlsEnabledWithMacAddress_FullMethodName                     = "/wifi.ManagerService/SetTdlsEnabledWithMacAddress"
 	ManagerService_SetWifiEnabled_FullMethodName                                   = "/wifi.ManagerService/SetWifiEnabled"
 	ManagerService_StartLocalOnlyHotspotWithConfiguration_FullMethodName           = "/wifi.ManagerService/StartLocalOnlyHotspotWithConfiguration"
 	ManagerService_StartScan_FullMethodName                                        = "/wifi.ManagerService/StartScan"
@@ -1502,7 +127,6 @@ type ManagerServiceClient interface {
 	AddLocalOnlyConnectionFailureListener(ctx context.Context, in *AddLocalOnlyConnectionFailureListenerRequest, opts ...grpc.CallOption) (*AddLocalOnlyConnectionFailureListenerResponse, error)
 	AddNetwork(ctx context.Context, in *AddNetworkRequest, opts ...grpc.CallOption) (*AddNetworkResponse, error)
 	AddNetworkPrivileged(ctx context.Context, in *AddNetworkPrivilegedRequest, opts ...grpc.CallOption) (*AddNetworkPrivilegedResponse, error)
-	AddNetworkSuggestions(ctx context.Context, in *AddNetworkSuggestionsRequest, opts ...grpc.CallOption) (*AddNetworkSuggestionsResponse, error)
 	AddOrUpdatePasspointConfiguration(ctx context.Context, in *AddOrUpdatePasspointConfigurationRequest, opts ...grpc.CallOption) (*AddOrUpdatePasspointConfigurationResponse, error)
 	AddSuggestionConnectionStatusListener(ctx context.Context, in *AddSuggestionConnectionStatusListenerRequest, opts ...grpc.CallOption) (*AddSuggestionConnectionStatusListenerResponse, error)
 	AddSuggestionUserApprovalStatusListener(ctx context.Context, in *AddSuggestionUserApprovalStatusListenerRequest, opts ...grpc.CallOption) (*AddSuggestionUserApprovalStatusListenerResponse, error)
@@ -1518,23 +142,12 @@ type ManagerServiceClient interface {
 	Disconnect(ctx context.Context, in *DisconnectRequest, opts ...grpc.CallOption) (*DisconnectResponse, error)
 	EnableNetwork(ctx context.Context, in *EnableNetworkRequest, opts ...grpc.CallOption) (*EnableNetworkResponse, error)
 	FlushPasspointAnqpCache(ctx context.Context, in *FlushPasspointAnqpCacheRequest, opts ...grpc.CallOption) (*FlushPasspointAnqpCacheResponse, error)
-	GetAllowedChannels(ctx context.Context, in *GetAllowedChannelsRequest, opts ...grpc.CallOption) (*GetAllowedChannelsResponse, error)
-	GetCallerConfiguredNetworks(ctx context.Context, in *GetCallerConfiguredNetworksRequest, opts ...grpc.CallOption) (*GetCallerConfiguredNetworksResponse, error)
-	GetChannelData(ctx context.Context, in *GetChannelDataRequest, opts ...grpc.CallOption) (*GetChannelDataResponse, error)
-	GetConfiguredNetworks(ctx context.Context, in *GetConfiguredNetworksRequest, opts ...grpc.CallOption) (*GetConfiguredNetworksResponse, error)
 	GetConnectionInfo(ctx context.Context, in *GetConnectionInfoRequest, opts ...grpc.CallOption) (*GetConnectionInfoResponse, error)
 	GetDhcpInfo(ctx context.Context, in *GetDhcpInfoRequest, opts ...grpc.CallOption) (*GetDhcpInfoResponse, error)
 	GetMaxNumberOfChannelsPerNetworkSpecifierRequest(ctx context.Context, in *GetMaxNumberOfChannelsPerNetworkSpecifierRequestRequest, opts ...grpc.CallOption) (*GetMaxNumberOfChannelsPerNetworkSpecifierRequestResponse, error)
 	GetMaxNumberOfNetworkSuggestionsPerApp(ctx context.Context, in *GetMaxNumberOfNetworkSuggestionsPerAppRequest, opts ...grpc.CallOption) (*GetMaxNumberOfNetworkSuggestionsPerAppResponse, error)
 	GetMaxSignalLevel(ctx context.Context, in *GetMaxSignalLevelRequest, opts ...grpc.CallOption) (*GetMaxSignalLevelResponse, error)
-	GetMaxSupportedConcurrentTdlsSessions(ctx context.Context, in *GetMaxSupportedConcurrentTdlsSessionsRequest, opts ...grpc.CallOption) (*GetMaxSupportedConcurrentTdlsSessionsResponse, error)
-	GetNetworkSuggestions(ctx context.Context, in *GetNetworkSuggestionsRequest, opts ...grpc.CallOption) (*GetNetworkSuggestionsResponse, error)
-	GetNumberOfEnabledTdlsSessions(ctx context.Context, in *GetNumberOfEnabledTdlsSessionsRequest, opts ...grpc.CallOption) (*GetNumberOfEnabledTdlsSessionsResponse, error)
-	GetPasspointConfigurations(ctx context.Context, in *GetPasspointConfigurationsRequest, opts ...grpc.CallOption) (*GetPasspointConfigurationsResponse, error)
-	GetPerSsidRoamingModes(ctx context.Context, in *GetPerSsidRoamingModesRequest, opts ...grpc.CallOption) (*GetPerSsidRoamingModesResponse, error)
-	GetScanResults(ctx context.Context, in *GetScanResultsRequest, opts ...grpc.CallOption) (*GetScanResultsResponse, error)
 	GetStaConcurrencyForMultiInternetMode(ctx context.Context, in *GetStaConcurrencyForMultiInternetModeRequest, opts ...grpc.CallOption) (*GetStaConcurrencyForMultiInternetModeResponse, error)
-	GetUsableChannels(ctx context.Context, in *GetUsableChannelsRequest, opts ...grpc.CallOption) (*GetUsableChannelsResponse, error)
 	GetWifiState(ctx context.Context, in *GetWifiStateRequest, opts ...grpc.CallOption) (*GetWifiStateResponse, error)
 	Is24GHzBandSupported(ctx context.Context, in *Is24GHzBandSupportedRequest, opts ...grpc.CallOption) (*Is24GHzBandSupportedResponse, error)
 	Is5GHzBandSupported(ctx context.Context, in *Is5GHzBandSupportedRequest, opts ...grpc.CallOption) (*Is5GHzBandSupportedResponse, error)
@@ -1563,7 +176,6 @@ type ManagerServiceClient interface {
 	IsStaBridgedApConcurrencySupported(ctx context.Context, in *IsStaBridgedApConcurrencySupportedRequest, opts ...grpc.CallOption) (*IsStaBridgedApConcurrencySupportedResponse, error)
 	IsStaConcurrencyForLocalOnlyConnectionsSupported(ctx context.Context, in *IsStaConcurrencyForLocalOnlyConnectionsSupportedRequest, opts ...grpc.CallOption) (*IsStaConcurrencyForLocalOnlyConnectionsSupportedResponse, error)
 	IsStaConcurrencyForMultiInternetSupported(ctx context.Context, in *IsStaConcurrencyForMultiInternetSupportedRequest, opts ...grpc.CallOption) (*IsStaConcurrencyForMultiInternetSupportedResponse, error)
-	IsTdlsOperationCurrentlyAvailable(ctx context.Context, in *IsTdlsOperationCurrentlyAvailableRequest, opts ...grpc.CallOption) (*IsTdlsOperationCurrentlyAvailableResponse, error)
 	IsTdlsSupported(ctx context.Context, in *IsTdlsSupportedRequest, opts ...grpc.CallOption) (*IsTdlsSupportedResponse, error)
 	IsTidToLinkMappingNegotiationSupported(ctx context.Context, in *IsTidToLinkMappingNegotiationSupportedRequest, opts ...grpc.CallOption) (*IsTidToLinkMappingNegotiationSupportedResponse, error)
 	IsTlsMinimumVersionSupported(ctx context.Context, in *IsTlsMinimumVersionSupportedRequest, opts ...grpc.CallOption) (*IsTlsMinimumVersionSupportedResponse, error)
@@ -1581,7 +193,6 @@ type ManagerServiceClient interface {
 	IsWpa3SuiteBSupported(ctx context.Context, in *IsWpa3SuiteBSupportedRequest, opts ...grpc.CallOption) (*IsWpa3SuiteBSupportedResponse, error)
 	IsWpaPersonalSupported(ctx context.Context, in *IsWpaPersonalSupportedRequest, opts ...grpc.CallOption) (*IsWpaPersonalSupportedResponse, error)
 	PingSupplicant(ctx context.Context, in *PingSupplicantRequest, opts ...grpc.CallOption) (*PingSupplicantResponse, error)
-	QueryAutojoinGlobal(ctx context.Context, in *QueryAutojoinGlobalRequest, opts ...grpc.CallOption) (*QueryAutojoinGlobalResponse, error)
 	QuerySendDhcpHostnameRestriction(ctx context.Context, in *QuerySendDhcpHostnameRestrictionRequest, opts ...grpc.CallOption) (*QuerySendDhcpHostnameRestrictionResponse, error)
 	Reassociate(ctx context.Context, in *ReassociateRequest, opts ...grpc.CallOption) (*ReassociateResponse, error)
 	Reconnect(ctx context.Context, in *ReconnectRequest, opts ...grpc.CallOption) (*ReconnectResponse, error)
@@ -1589,22 +200,17 @@ type ManagerServiceClient interface {
 	RegisterSubsystemRestartTrackingCallback(ctx context.Context, in *RegisterSubsystemRestartTrackingCallbackRequest, opts ...grpc.CallOption) (*RegisterSubsystemRestartTrackingCallbackResponse, error)
 	RemoveLocalOnlyConnectionFailureListener(ctx context.Context, in *RemoveLocalOnlyConnectionFailureListenerRequest, opts ...grpc.CallOption) (*RemoveLocalOnlyConnectionFailureListenerResponse, error)
 	RemoveNetwork(ctx context.Context, in *RemoveNetworkRequest, opts ...grpc.CallOption) (*RemoveNetworkResponse, error)
-	RemoveNetworkSuggestions1(ctx context.Context, in *RemoveNetworkSuggestions1Request, opts ...grpc.CallOption) (*RemoveNetworkSuggestions1Response, error)
-	RemoveNetworkSuggestions2_1(ctx context.Context, in *RemoveNetworkSuggestions2_1Request, opts ...grpc.CallOption) (*RemoveNetworkSuggestions2_1Response, error)
 	RemoveNonCallerConfiguredNetworks(ctx context.Context, in *RemoveNonCallerConfiguredNetworksRequest, opts ...grpc.CallOption) (*RemoveNonCallerConfiguredNetworksResponse, error)
 	RemovePasspointConfiguration(ctx context.Context, in *RemovePasspointConfigurationRequest, opts ...grpc.CallOption) (*RemovePasspointConfigurationResponse, error)
 	RemovePerSsidRoamingMode(ctx context.Context, in *RemovePerSsidRoamingModeRequest, opts ...grpc.CallOption) (*RemovePerSsidRoamingModeResponse, error)
 	RemoveSuggestionConnectionStatusListener(ctx context.Context, in *RemoveSuggestionConnectionStatusListenerRequest, opts ...grpc.CallOption) (*RemoveSuggestionConnectionStatusListenerResponse, error)
 	RemoveSuggestionUserApprovalStatusListener(ctx context.Context, in *RemoveSuggestionUserApprovalStatusListenerRequest, opts ...grpc.CallOption) (*RemoveSuggestionUserApprovalStatusListenerResponse, error)
 	RemoveWifiStateChangedListener(ctx context.Context, in *RemoveWifiStateChangedListenerRequest, opts ...grpc.CallOption) (*RemoveWifiStateChangedListenerResponse, error)
-	ReportCreateInterfaceImpact(ctx context.Context, in *ReportCreateInterfaceImpactRequest, opts ...grpc.CallOption) (*ReportCreateInterfaceImpactResponse, error)
 	SaveConfiguration(ctx context.Context, in *SaveConfigurationRequest, opts ...grpc.CallOption) (*SaveConfigurationResponse, error)
 	SetPerSsidRoamingMode(ctx context.Context, in *SetPerSsidRoamingModeRequest, opts ...grpc.CallOption) (*SetPerSsidRoamingModeResponse, error)
 	SetSendDhcpHostnameRestriction(ctx context.Context, in *SetSendDhcpHostnameRestrictionRequest, opts ...grpc.CallOption) (*SetSendDhcpHostnameRestrictionResponse, error)
-	SetTdlsEnabled2(ctx context.Context, in *SetTdlsEnabled2Request, opts ...grpc.CallOption) (*SetTdlsEnabled2Response, error)
-	SetTdlsEnabled4_1(ctx context.Context, in *SetTdlsEnabled4_1Request, opts ...grpc.CallOption) (*SetTdlsEnabled4_1Response, error)
-	SetTdlsEnabledWithMacAddress2(ctx context.Context, in *SetTdlsEnabledWithMacAddress2Request, opts ...grpc.CallOption) (*SetTdlsEnabledWithMacAddress2Response, error)
-	SetTdlsEnabledWithMacAddress4_1(ctx context.Context, in *SetTdlsEnabledWithMacAddress4_1Request, opts ...grpc.CallOption) (*SetTdlsEnabledWithMacAddress4_1Response, error)
+	SetTdlsEnabled(ctx context.Context, in *SetTdlsEnabledRequest, opts ...grpc.CallOption) (*SetTdlsEnabledResponse, error)
+	SetTdlsEnabledWithMacAddress(ctx context.Context, in *SetTdlsEnabledWithMacAddressRequest, opts ...grpc.CallOption) (*SetTdlsEnabledWithMacAddressResponse, error)
 	SetWifiEnabled(ctx context.Context, in *SetWifiEnabledRequest, opts ...grpc.CallOption) (*SetWifiEnabledResponse, error)
 	StartLocalOnlyHotspotWithConfiguration(ctx context.Context, in *StartLocalOnlyHotspotWithConfigurationRequest, opts ...grpc.CallOption) (*StartLocalOnlyHotspotWithConfigurationResponse, error)
 	StartScan(ctx context.Context, in *StartScanRequest, opts ...grpc.CallOption) (*StartScanResponse, error)
@@ -1649,16 +255,6 @@ func (c *managerServiceClient) AddNetworkPrivileged(ctx context.Context, in *Add
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(AddNetworkPrivilegedResponse)
 	err := c.cc.Invoke(ctx, ManagerService_AddNetworkPrivileged_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *managerServiceClient) AddNetworkSuggestions(ctx context.Context, in *AddNetworkSuggestionsRequest, opts ...grpc.CallOption) (*AddNetworkSuggestionsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(AddNetworkSuggestionsResponse)
-	err := c.cc.Invoke(ctx, ManagerService_AddNetworkSuggestions_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
@@ -1815,46 +411,6 @@ func (c *managerServiceClient) FlushPasspointAnqpCache(ctx context.Context, in *
 	return out, nil
 }
 
-func (c *managerServiceClient) GetAllowedChannels(ctx context.Context, in *GetAllowedChannelsRequest, opts ...grpc.CallOption) (*GetAllowedChannelsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetAllowedChannelsResponse)
-	err := c.cc.Invoke(ctx, ManagerService_GetAllowedChannels_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *managerServiceClient) GetCallerConfiguredNetworks(ctx context.Context, in *GetCallerConfiguredNetworksRequest, opts ...grpc.CallOption) (*GetCallerConfiguredNetworksResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetCallerConfiguredNetworksResponse)
-	err := c.cc.Invoke(ctx, ManagerService_GetCallerConfiguredNetworks_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *managerServiceClient) GetChannelData(ctx context.Context, in *GetChannelDataRequest, opts ...grpc.CallOption) (*GetChannelDataResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetChannelDataResponse)
-	err := c.cc.Invoke(ctx, ManagerService_GetChannelData_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *managerServiceClient) GetConfiguredNetworks(ctx context.Context, in *GetConfiguredNetworksRequest, opts ...grpc.CallOption) (*GetConfiguredNetworksResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetConfiguredNetworksResponse)
-	err := c.cc.Invoke(ctx, ManagerService_GetConfiguredNetworks_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
 func (c *managerServiceClient) GetConnectionInfo(ctx context.Context, in *GetConnectionInfoRequest, opts ...grpc.CallOption) (*GetConnectionInfoResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(GetConnectionInfoResponse)
@@ -1905,80 +461,10 @@ func (c *managerServiceClient) GetMaxSignalLevel(ctx context.Context, in *GetMax
 	return out, nil
 }
 
-func (c *managerServiceClient) GetMaxSupportedConcurrentTdlsSessions(ctx context.Context, in *GetMaxSupportedConcurrentTdlsSessionsRequest, opts ...grpc.CallOption) (*GetMaxSupportedConcurrentTdlsSessionsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetMaxSupportedConcurrentTdlsSessionsResponse)
-	err := c.cc.Invoke(ctx, ManagerService_GetMaxSupportedConcurrentTdlsSessions_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *managerServiceClient) GetNetworkSuggestions(ctx context.Context, in *GetNetworkSuggestionsRequest, opts ...grpc.CallOption) (*GetNetworkSuggestionsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetNetworkSuggestionsResponse)
-	err := c.cc.Invoke(ctx, ManagerService_GetNetworkSuggestions_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *managerServiceClient) GetNumberOfEnabledTdlsSessions(ctx context.Context, in *GetNumberOfEnabledTdlsSessionsRequest, opts ...grpc.CallOption) (*GetNumberOfEnabledTdlsSessionsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetNumberOfEnabledTdlsSessionsResponse)
-	err := c.cc.Invoke(ctx, ManagerService_GetNumberOfEnabledTdlsSessions_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *managerServiceClient) GetPasspointConfigurations(ctx context.Context, in *GetPasspointConfigurationsRequest, opts ...grpc.CallOption) (*GetPasspointConfigurationsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetPasspointConfigurationsResponse)
-	err := c.cc.Invoke(ctx, ManagerService_GetPasspointConfigurations_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *managerServiceClient) GetPerSsidRoamingModes(ctx context.Context, in *GetPerSsidRoamingModesRequest, opts ...grpc.CallOption) (*GetPerSsidRoamingModesResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetPerSsidRoamingModesResponse)
-	err := c.cc.Invoke(ctx, ManagerService_GetPerSsidRoamingModes_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *managerServiceClient) GetScanResults(ctx context.Context, in *GetScanResultsRequest, opts ...grpc.CallOption) (*GetScanResultsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetScanResultsResponse)
-	err := c.cc.Invoke(ctx, ManagerService_GetScanResults_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
 func (c *managerServiceClient) GetStaConcurrencyForMultiInternetMode(ctx context.Context, in *GetStaConcurrencyForMultiInternetModeRequest, opts ...grpc.CallOption) (*GetStaConcurrencyForMultiInternetModeResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(GetStaConcurrencyForMultiInternetModeResponse)
 	err := c.cc.Invoke(ctx, ManagerService_GetStaConcurrencyForMultiInternetMode_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *managerServiceClient) GetUsableChannels(ctx context.Context, in *GetUsableChannelsRequest, opts ...grpc.CallOption) (*GetUsableChannelsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetUsableChannelsResponse)
-	err := c.cc.Invoke(ctx, ManagerService_GetUsableChannels_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
@@ -2265,16 +751,6 @@ func (c *managerServiceClient) IsStaConcurrencyForMultiInternetSupported(ctx con
 	return out, nil
 }
 
-func (c *managerServiceClient) IsTdlsOperationCurrentlyAvailable(ctx context.Context, in *IsTdlsOperationCurrentlyAvailableRequest, opts ...grpc.CallOption) (*IsTdlsOperationCurrentlyAvailableResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(IsTdlsOperationCurrentlyAvailableResponse)
-	err := c.cc.Invoke(ctx, ManagerService_IsTdlsOperationCurrentlyAvailable_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
 func (c *managerServiceClient) IsTdlsSupported(ctx context.Context, in *IsTdlsSupportedRequest, opts ...grpc.CallOption) (*IsTdlsSupportedResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(IsTdlsSupportedResponse)
@@ -2445,16 +921,6 @@ func (c *managerServiceClient) PingSupplicant(ctx context.Context, in *PingSuppl
 	return out, nil
 }
 
-func (c *managerServiceClient) QueryAutojoinGlobal(ctx context.Context, in *QueryAutojoinGlobalRequest, opts ...grpc.CallOption) (*QueryAutojoinGlobalResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(QueryAutojoinGlobalResponse)
-	err := c.cc.Invoke(ctx, ManagerService_QueryAutojoinGlobal_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
 func (c *managerServiceClient) QuerySendDhcpHostnameRestriction(ctx context.Context, in *QuerySendDhcpHostnameRestrictionRequest, opts ...grpc.CallOption) (*QuerySendDhcpHostnameRestrictionResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(QuerySendDhcpHostnameRestrictionResponse)
@@ -2525,26 +991,6 @@ func (c *managerServiceClient) RemoveNetwork(ctx context.Context, in *RemoveNetw
 	return out, nil
 }
 
-func (c *managerServiceClient) RemoveNetworkSuggestions1(ctx context.Context, in *RemoveNetworkSuggestions1Request, opts ...grpc.CallOption) (*RemoveNetworkSuggestions1Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(RemoveNetworkSuggestions1Response)
-	err := c.cc.Invoke(ctx, ManagerService_RemoveNetworkSuggestions1_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *managerServiceClient) RemoveNetworkSuggestions2_1(ctx context.Context, in *RemoveNetworkSuggestions2_1Request, opts ...grpc.CallOption) (*RemoveNetworkSuggestions2_1Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(RemoveNetworkSuggestions2_1Response)
-	err := c.cc.Invoke(ctx, ManagerService_RemoveNetworkSuggestions2_1_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
 func (c *managerServiceClient) RemoveNonCallerConfiguredNetworks(ctx context.Context, in *RemoveNonCallerConfiguredNetworksRequest, opts ...grpc.CallOption) (*RemoveNonCallerConfiguredNetworksResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(RemoveNonCallerConfiguredNetworksResponse)
@@ -2605,16 +1051,6 @@ func (c *managerServiceClient) RemoveWifiStateChangedListener(ctx context.Contex
 	return out, nil
 }
 
-func (c *managerServiceClient) ReportCreateInterfaceImpact(ctx context.Context, in *ReportCreateInterfaceImpactRequest, opts ...grpc.CallOption) (*ReportCreateInterfaceImpactResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ReportCreateInterfaceImpactResponse)
-	err := c.cc.Invoke(ctx, ManagerService_ReportCreateInterfaceImpact_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
 func (c *managerServiceClient) SaveConfiguration(ctx context.Context, in *SaveConfigurationRequest, opts ...grpc.CallOption) (*SaveConfigurationResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(SaveConfigurationResponse)
@@ -2645,40 +1081,20 @@ func (c *managerServiceClient) SetSendDhcpHostnameRestriction(ctx context.Contex
 	return out, nil
 }
 
-func (c *managerServiceClient) SetTdlsEnabled2(ctx context.Context, in *SetTdlsEnabled2Request, opts ...grpc.CallOption) (*SetTdlsEnabled2Response, error) {
+func (c *managerServiceClient) SetTdlsEnabled(ctx context.Context, in *SetTdlsEnabledRequest, opts ...grpc.CallOption) (*SetTdlsEnabledResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetTdlsEnabled2Response)
-	err := c.cc.Invoke(ctx, ManagerService_SetTdlsEnabled2_FullMethodName, in, out, cOpts...)
+	out := new(SetTdlsEnabledResponse)
+	err := c.cc.Invoke(ctx, ManagerService_SetTdlsEnabled_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *managerServiceClient) SetTdlsEnabled4_1(ctx context.Context, in *SetTdlsEnabled4_1Request, opts ...grpc.CallOption) (*SetTdlsEnabled4_1Response, error) {
+func (c *managerServiceClient) SetTdlsEnabledWithMacAddress(ctx context.Context, in *SetTdlsEnabledWithMacAddressRequest, opts ...grpc.CallOption) (*SetTdlsEnabledWithMacAddressResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetTdlsEnabled4_1Response)
-	err := c.cc.Invoke(ctx, ManagerService_SetTdlsEnabled4_1_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *managerServiceClient) SetTdlsEnabledWithMacAddress2(ctx context.Context, in *SetTdlsEnabledWithMacAddress2Request, opts ...grpc.CallOption) (*SetTdlsEnabledWithMacAddress2Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetTdlsEnabledWithMacAddress2Response)
-	err := c.cc.Invoke(ctx, ManagerService_SetTdlsEnabledWithMacAddress2_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *managerServiceClient) SetTdlsEnabledWithMacAddress4_1(ctx context.Context, in *SetTdlsEnabledWithMacAddress4_1Request, opts ...grpc.CallOption) (*SetTdlsEnabledWithMacAddress4_1Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetTdlsEnabledWithMacAddress4_1Response)
-	err := c.cc.Invoke(ctx, ManagerService_SetTdlsEnabledWithMacAddress4_1_FullMethodName, in, out, cOpts...)
+	out := new(SetTdlsEnabledWithMacAddressResponse)
+	err := c.cc.Invoke(ctx, ManagerService_SetTdlsEnabledWithMacAddress_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
@@ -2792,7 +1208,6 @@ type ManagerServiceServer interface {
 	AddLocalOnlyConnectionFailureListener(context.Context, *AddLocalOnlyConnectionFailureListenerRequest) (*AddLocalOnlyConnectionFailureListenerResponse, error)
 	AddNetwork(context.Context, *AddNetworkRequest) (*AddNetworkResponse, error)
 	AddNetworkPrivileged(context.Context, *AddNetworkPrivilegedRequest) (*AddNetworkPrivilegedResponse, error)
-	AddNetworkSuggestions(context.Context, *AddNetworkSuggestionsRequest) (*AddNetworkSuggestionsResponse, error)
 	AddOrUpdatePasspointConfiguration(context.Context, *AddOrUpdatePasspointConfigurationRequest) (*AddOrUpdatePasspointConfigurationResponse, error)
 	AddSuggestionConnectionStatusListener(context.Context, *AddSuggestionConnectionStatusListenerRequest) (*AddSuggestionConnectionStatusListenerResponse, error)
 	AddSuggestionUserApprovalStatusListener(context.Context, *AddSuggestionUserApprovalStatusListenerRequest) (*AddSuggestionUserApprovalStatusListenerResponse, error)
@@ -2808,23 +1223,12 @@ type ManagerServiceServer interface {
 	Disconnect(context.Context, *DisconnectRequest) (*DisconnectResponse, error)
 	EnableNetwork(context.Context, *EnableNetworkRequest) (*EnableNetworkResponse, error)
 	FlushPasspointAnqpCache(context.Context, *FlushPasspointAnqpCacheRequest) (*FlushPasspointAnqpCacheResponse, error)
-	GetAllowedChannels(context.Context, *GetAllowedChannelsRequest) (*GetAllowedChannelsResponse, error)
-	GetCallerConfiguredNetworks(context.Context, *GetCallerConfiguredNetworksRequest) (*GetCallerConfiguredNetworksResponse, error)
-	GetChannelData(context.Context, *GetChannelDataRequest) (*GetChannelDataResponse, error)
-	GetConfiguredNetworks(context.Context, *GetConfiguredNetworksRequest) (*GetConfiguredNetworksResponse, error)
 	GetConnectionInfo(context.Context, *GetConnectionInfoRequest) (*GetConnectionInfoResponse, error)
 	GetDhcpInfo(context.Context, *GetDhcpInfoRequest) (*GetDhcpInfoResponse, error)
 	GetMaxNumberOfChannelsPerNetworkSpecifierRequest(context.Context, *GetMaxNumberOfChannelsPerNetworkSpecifierRequestRequest) (*GetMaxNumberOfChannelsPerNetworkSpecifierRequestResponse, error)
 	GetMaxNumberOfNetworkSuggestionsPerApp(context.Context, *GetMaxNumberOfNetworkSuggestionsPerAppRequest) (*GetMaxNumberOfNetworkSuggestionsPerAppResponse, error)
 	GetMaxSignalLevel(context.Context, *GetMaxSignalLevelRequest) (*GetMaxSignalLevelResponse, error)
-	GetMaxSupportedConcurrentTdlsSessions(context.Context, *GetMaxSupportedConcurrentTdlsSessionsRequest) (*GetMaxSupportedConcurrentTdlsSessionsResponse, error)
-	GetNetworkSuggestions(context.Context, *GetNetworkSuggestionsRequest) (*GetNetworkSuggestionsResponse, error)
-	GetNumberOfEnabledTdlsSessions(context.Context, *GetNumberOfEnabledTdlsSessionsRequest) (*GetNumberOfEnabledTdlsSessionsResponse, error)
-	GetPasspointConfigurations(context.Context, *GetPasspointConfigurationsRequest) (*GetPasspointConfigurationsResponse, error)
-	GetPerSsidRoamingModes(context.Context, *GetPerSsidRoamingModesRequest) (*GetPerSsidRoamingModesResponse, error)
-	GetScanResults(context.Context, *GetScanResultsRequest) (*GetScanResultsResponse, error)
 	GetStaConcurrencyForMultiInternetMode(context.Context, *GetStaConcurrencyForMultiInternetModeRequest) (*GetStaConcurrencyForMultiInternetModeResponse, error)
-	GetUsableChannels(context.Context, *GetUsableChannelsRequest) (*GetUsableChannelsResponse, error)
 	GetWifiState(context.Context, *GetWifiStateRequest) (*GetWifiStateResponse, error)
 	Is24GHzBandSupported(context.Context, *Is24GHzBandSupportedRequest) (*Is24GHzBandSupportedResponse, error)
 	Is5GHzBandSupported(context.Context, *Is5GHzBandSupportedRequest) (*Is5GHzBandSupportedResponse, error)
@@ -2853,7 +1257,6 @@ type ManagerServiceServer interface {
 	IsStaBridgedApConcurrencySupported(context.Context, *IsStaBridgedApConcurrencySupportedRequest) (*IsStaBridgedApConcurrencySupportedResponse, error)
 	IsStaConcurrencyForLocalOnlyConnectionsSupported(context.Context, *IsStaConcurrencyForLocalOnlyConnectionsSupportedRequest) (*IsStaConcurrencyForLocalOnlyConnectionsSupportedResponse, error)
 	IsStaConcurrencyForMultiInternetSupported(context.Context, *IsStaConcurrencyForMultiInternetSupportedRequest) (*IsStaConcurrencyForMultiInternetSupportedResponse, error)
-	IsTdlsOperationCurrentlyAvailable(context.Context, *IsTdlsOperationCurrentlyAvailableRequest) (*IsTdlsOperationCurrentlyAvailableResponse, error)
 	IsTdlsSupported(context.Context, *IsTdlsSupportedRequest) (*IsTdlsSupportedResponse, error)
 	IsTidToLinkMappingNegotiationSupported(context.Context, *IsTidToLinkMappingNegotiationSupportedRequest) (*IsTidToLinkMappingNegotiationSupportedResponse, error)
 	IsTlsMinimumVersionSupported(context.Context, *IsTlsMinimumVersionSupportedRequest) (*IsTlsMinimumVersionSupportedResponse, error)
@@ -2871,7 +1274,6 @@ type ManagerServiceServer interface {
 	IsWpa3SuiteBSupported(context.Context, *IsWpa3SuiteBSupportedRequest) (*IsWpa3SuiteBSupportedResponse, error)
 	IsWpaPersonalSupported(context.Context, *IsWpaPersonalSupportedRequest) (*IsWpaPersonalSupportedResponse, error)
 	PingSupplicant(context.Context, *PingSupplicantRequest) (*PingSupplicantResponse, error)
-	QueryAutojoinGlobal(context.Context, *QueryAutojoinGlobalRequest) (*QueryAutojoinGlobalResponse, error)
 	QuerySendDhcpHostnameRestriction(context.Context, *QuerySendDhcpHostnameRestrictionRequest) (*QuerySendDhcpHostnameRestrictionResponse, error)
 	Reassociate(context.Context, *ReassociateRequest) (*ReassociateResponse, error)
 	Reconnect(context.Context, *ReconnectRequest) (*ReconnectResponse, error)
@@ -2879,22 +1281,17 @@ type ManagerServiceServer interface {
 	RegisterSubsystemRestartTrackingCallback(context.Context, *RegisterSubsystemRestartTrackingCallbackRequest) (*RegisterSubsystemRestartTrackingCallbackResponse, error)
 	RemoveLocalOnlyConnectionFailureListener(context.Context, *RemoveLocalOnlyConnectionFailureListenerRequest) (*RemoveLocalOnlyConnectionFailureListenerResponse, error)
 	RemoveNetwork(context.Context, *RemoveNetworkRequest) (*RemoveNetworkResponse, error)
-	RemoveNetworkSuggestions1(context.Context, *RemoveNetworkSuggestions1Request) (*RemoveNetworkSuggestions1Response, error)
-	RemoveNetworkSuggestions2_1(context.Context, *RemoveNetworkSuggestions2_1Request) (*RemoveNetworkSuggestions2_1Response, error)
 	RemoveNonCallerConfiguredNetworks(context.Context, *RemoveNonCallerConfiguredNetworksRequest) (*RemoveNonCallerConfiguredNetworksResponse, error)
 	RemovePasspointConfiguration(context.Context, *RemovePasspointConfigurationRequest) (*RemovePasspointConfigurationResponse, error)
 	RemovePerSsidRoamingMode(context.Context, *RemovePerSsidRoamingModeRequest) (*RemovePerSsidRoamingModeResponse, error)
 	RemoveSuggestionConnectionStatusListener(context.Context, *RemoveSuggestionConnectionStatusListenerRequest) (*RemoveSuggestionConnectionStatusListenerResponse, error)
 	RemoveSuggestionUserApprovalStatusListener(context.Context, *RemoveSuggestionUserApprovalStatusListenerRequest) (*RemoveSuggestionUserApprovalStatusListenerResponse, error)
 	RemoveWifiStateChangedListener(context.Context, *RemoveWifiStateChangedListenerRequest) (*RemoveWifiStateChangedListenerResponse, error)
-	ReportCreateInterfaceImpact(context.Context, *ReportCreateInterfaceImpactRequest) (*ReportCreateInterfaceImpactResponse, error)
 	SaveConfiguration(context.Context, *SaveConfigurationRequest) (*SaveConfigurationResponse, error)
 	SetPerSsidRoamingMode(context.Context, *SetPerSsidRoamingModeRequest) (*SetPerSsidRoamingModeResponse, error)
 	SetSendDhcpHostnameRestriction(context.Context, *SetSendDhcpHostnameRestrictionRequest) (*SetSendDhcpHostnameRestrictionResponse, error)
-	SetTdlsEnabled2(context.Context, *SetTdlsEnabled2Request) (*SetTdlsEnabled2Response, error)
-	SetTdlsEnabled4_1(context.Context, *SetTdlsEnabled4_1Request) (*SetTdlsEnabled4_1Response, error)
-	SetTdlsEnabledWithMacAddress2(context.Context, *SetTdlsEnabledWithMacAddress2Request) (*SetTdlsEnabledWithMacAddress2Response, error)
-	SetTdlsEnabledWithMacAddress4_1(context.Context, *SetTdlsEnabledWithMacAddress4_1Request) (*SetTdlsEnabledWithMacAddress4_1Response, error)
+	SetTdlsEnabled(context.Context, *SetTdlsEnabledRequest) (*SetTdlsEnabledResponse, error)
+	SetTdlsEnabledWithMacAddress(context.Context, *SetTdlsEnabledWithMacAddressRequest) (*SetTdlsEnabledWithMacAddressResponse, error)
 	SetWifiEnabled(context.Context, *SetWifiEnabledRequest) (*SetWifiEnabledResponse, error)
 	StartLocalOnlyHotspotWithConfiguration(context.Context, *StartLocalOnlyHotspotWithConfigurationRequest) (*StartLocalOnlyHotspotWithConfigurationResponse, error)
 	StartScan(context.Context, *StartScanRequest) (*StartScanResponse, error)
@@ -2923,9 +1320,6 @@ func (UnimplementedManagerServiceServer) AddNetwork(context.Context, *AddNetwork
 }
 func (UnimplementedManagerServiceServer) AddNetworkPrivileged(context.Context, *AddNetworkPrivilegedRequest) (*AddNetworkPrivilegedResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method AddNetworkPrivileged not implemented")
-}
-func (UnimplementedManagerServiceServer) AddNetworkSuggestions(context.Context, *AddNetworkSuggestionsRequest) (*AddNetworkSuggestionsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method AddNetworkSuggestions not implemented")
 }
 func (UnimplementedManagerServiceServer) AddOrUpdatePasspointConfiguration(context.Context, *AddOrUpdatePasspointConfigurationRequest) (*AddOrUpdatePasspointConfigurationResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method AddOrUpdatePasspointConfiguration not implemented")
@@ -2972,18 +1366,6 @@ func (UnimplementedManagerServiceServer) EnableNetwork(context.Context, *EnableN
 func (UnimplementedManagerServiceServer) FlushPasspointAnqpCache(context.Context, *FlushPasspointAnqpCacheRequest) (*FlushPasspointAnqpCacheResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method FlushPasspointAnqpCache not implemented")
 }
-func (UnimplementedManagerServiceServer) GetAllowedChannels(context.Context, *GetAllowedChannelsRequest) (*GetAllowedChannelsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetAllowedChannels not implemented")
-}
-func (UnimplementedManagerServiceServer) GetCallerConfiguredNetworks(context.Context, *GetCallerConfiguredNetworksRequest) (*GetCallerConfiguredNetworksResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetCallerConfiguredNetworks not implemented")
-}
-func (UnimplementedManagerServiceServer) GetChannelData(context.Context, *GetChannelDataRequest) (*GetChannelDataResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetChannelData not implemented")
-}
-func (UnimplementedManagerServiceServer) GetConfiguredNetworks(context.Context, *GetConfiguredNetworksRequest) (*GetConfiguredNetworksResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetConfiguredNetworks not implemented")
-}
 func (UnimplementedManagerServiceServer) GetConnectionInfo(context.Context, *GetConnectionInfoRequest) (*GetConnectionInfoResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetConnectionInfo not implemented")
 }
@@ -2999,29 +1381,8 @@ func (UnimplementedManagerServiceServer) GetMaxNumberOfNetworkSuggestionsPerApp(
 func (UnimplementedManagerServiceServer) GetMaxSignalLevel(context.Context, *GetMaxSignalLevelRequest) (*GetMaxSignalLevelResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetMaxSignalLevel not implemented")
 }
-func (UnimplementedManagerServiceServer) GetMaxSupportedConcurrentTdlsSessions(context.Context, *GetMaxSupportedConcurrentTdlsSessionsRequest) (*GetMaxSupportedConcurrentTdlsSessionsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetMaxSupportedConcurrentTdlsSessions not implemented")
-}
-func (UnimplementedManagerServiceServer) GetNetworkSuggestions(context.Context, *GetNetworkSuggestionsRequest) (*GetNetworkSuggestionsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetNetworkSuggestions not implemented")
-}
-func (UnimplementedManagerServiceServer) GetNumberOfEnabledTdlsSessions(context.Context, *GetNumberOfEnabledTdlsSessionsRequest) (*GetNumberOfEnabledTdlsSessionsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetNumberOfEnabledTdlsSessions not implemented")
-}
-func (UnimplementedManagerServiceServer) GetPasspointConfigurations(context.Context, *GetPasspointConfigurationsRequest) (*GetPasspointConfigurationsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetPasspointConfigurations not implemented")
-}
-func (UnimplementedManagerServiceServer) GetPerSsidRoamingModes(context.Context, *GetPerSsidRoamingModesRequest) (*GetPerSsidRoamingModesResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetPerSsidRoamingModes not implemented")
-}
-func (UnimplementedManagerServiceServer) GetScanResults(context.Context, *GetScanResultsRequest) (*GetScanResultsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetScanResults not implemented")
-}
 func (UnimplementedManagerServiceServer) GetStaConcurrencyForMultiInternetMode(context.Context, *GetStaConcurrencyForMultiInternetModeRequest) (*GetStaConcurrencyForMultiInternetModeResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetStaConcurrencyForMultiInternetMode not implemented")
-}
-func (UnimplementedManagerServiceServer) GetUsableChannels(context.Context, *GetUsableChannelsRequest) (*GetUsableChannelsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetUsableChannels not implemented")
 }
 func (UnimplementedManagerServiceServer) GetWifiState(context.Context, *GetWifiStateRequest) (*GetWifiStateResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetWifiState not implemented")
@@ -3107,9 +1468,6 @@ func (UnimplementedManagerServiceServer) IsStaConcurrencyForLocalOnlyConnections
 func (UnimplementedManagerServiceServer) IsStaConcurrencyForMultiInternetSupported(context.Context, *IsStaConcurrencyForMultiInternetSupportedRequest) (*IsStaConcurrencyForMultiInternetSupportedResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method IsStaConcurrencyForMultiInternetSupported not implemented")
 }
-func (UnimplementedManagerServiceServer) IsTdlsOperationCurrentlyAvailable(context.Context, *IsTdlsOperationCurrentlyAvailableRequest) (*IsTdlsOperationCurrentlyAvailableResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method IsTdlsOperationCurrentlyAvailable not implemented")
-}
 func (UnimplementedManagerServiceServer) IsTdlsSupported(context.Context, *IsTdlsSupportedRequest) (*IsTdlsSupportedResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method IsTdlsSupported not implemented")
 }
@@ -3161,9 +1519,6 @@ func (UnimplementedManagerServiceServer) IsWpaPersonalSupported(context.Context,
 func (UnimplementedManagerServiceServer) PingSupplicant(context.Context, *PingSupplicantRequest) (*PingSupplicantResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method PingSupplicant not implemented")
 }
-func (UnimplementedManagerServiceServer) QueryAutojoinGlobal(context.Context, *QueryAutojoinGlobalRequest) (*QueryAutojoinGlobalResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method QueryAutojoinGlobal not implemented")
-}
 func (UnimplementedManagerServiceServer) QuerySendDhcpHostnameRestriction(context.Context, *QuerySendDhcpHostnameRestrictionRequest) (*QuerySendDhcpHostnameRestrictionResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method QuerySendDhcpHostnameRestriction not implemented")
 }
@@ -3185,12 +1540,6 @@ func (UnimplementedManagerServiceServer) RemoveLocalOnlyConnectionFailureListene
 func (UnimplementedManagerServiceServer) RemoveNetwork(context.Context, *RemoveNetworkRequest) (*RemoveNetworkResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method RemoveNetwork not implemented")
 }
-func (UnimplementedManagerServiceServer) RemoveNetworkSuggestions1(context.Context, *RemoveNetworkSuggestions1Request) (*RemoveNetworkSuggestions1Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method RemoveNetworkSuggestions1 not implemented")
-}
-func (UnimplementedManagerServiceServer) RemoveNetworkSuggestions2_1(context.Context, *RemoveNetworkSuggestions2_1Request) (*RemoveNetworkSuggestions2_1Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method RemoveNetworkSuggestions2_1 not implemented")
-}
 func (UnimplementedManagerServiceServer) RemoveNonCallerConfiguredNetworks(context.Context, *RemoveNonCallerConfiguredNetworksRequest) (*RemoveNonCallerConfiguredNetworksResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method RemoveNonCallerConfiguredNetworks not implemented")
 }
@@ -3209,9 +1558,6 @@ func (UnimplementedManagerServiceServer) RemoveSuggestionUserApprovalStatusListe
 func (UnimplementedManagerServiceServer) RemoveWifiStateChangedListener(context.Context, *RemoveWifiStateChangedListenerRequest) (*RemoveWifiStateChangedListenerResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method RemoveWifiStateChangedListener not implemented")
 }
-func (UnimplementedManagerServiceServer) ReportCreateInterfaceImpact(context.Context, *ReportCreateInterfaceImpactRequest) (*ReportCreateInterfaceImpactResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method ReportCreateInterfaceImpact not implemented")
-}
 func (UnimplementedManagerServiceServer) SaveConfiguration(context.Context, *SaveConfigurationRequest) (*SaveConfigurationResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method SaveConfiguration not implemented")
 }
@@ -3221,17 +1567,11 @@ func (UnimplementedManagerServiceServer) SetPerSsidRoamingMode(context.Context, 
 func (UnimplementedManagerServiceServer) SetSendDhcpHostnameRestriction(context.Context, *SetSendDhcpHostnameRestrictionRequest) (*SetSendDhcpHostnameRestrictionResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method SetSendDhcpHostnameRestriction not implemented")
 }
-func (UnimplementedManagerServiceServer) SetTdlsEnabled2(context.Context, *SetTdlsEnabled2Request) (*SetTdlsEnabled2Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetTdlsEnabled2 not implemented")
+func (UnimplementedManagerServiceServer) SetTdlsEnabled(context.Context, *SetTdlsEnabledRequest) (*SetTdlsEnabledResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetTdlsEnabled not implemented")
 }
-func (UnimplementedManagerServiceServer) SetTdlsEnabled4_1(context.Context, *SetTdlsEnabled4_1Request) (*SetTdlsEnabled4_1Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetTdlsEnabled4_1 not implemented")
-}
-func (UnimplementedManagerServiceServer) SetTdlsEnabledWithMacAddress2(context.Context, *SetTdlsEnabledWithMacAddress2Request) (*SetTdlsEnabledWithMacAddress2Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetTdlsEnabledWithMacAddress2 not implemented")
-}
-func (UnimplementedManagerServiceServer) SetTdlsEnabledWithMacAddress4_1(context.Context, *SetTdlsEnabledWithMacAddress4_1Request) (*SetTdlsEnabledWithMacAddress4_1Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetTdlsEnabledWithMacAddress4_1 not implemented")
+func (UnimplementedManagerServiceServer) SetTdlsEnabledWithMacAddress(context.Context, *SetTdlsEnabledWithMacAddressRequest) (*SetTdlsEnabledWithMacAddressResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetTdlsEnabledWithMacAddress not implemented")
 }
 func (UnimplementedManagerServiceServer) SetWifiEnabled(context.Context, *SetWifiEnabledRequest) (*SetWifiEnabledResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method SetWifiEnabled not implemented")
@@ -3334,24 +1674,6 @@ func _ManagerService_AddNetworkPrivileged_Handler(srv interface{}, ctx context.C
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(ManagerServiceServer).AddNetworkPrivileged(ctx, req.(*AddNetworkPrivilegedRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ManagerService_AddNetworkSuggestions_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(AddNetworkSuggestionsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ManagerServiceServer).AddNetworkSuggestions(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ManagerService_AddNetworkSuggestions_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ManagerServiceServer).AddNetworkSuggestions(ctx, req.(*AddNetworkSuggestionsRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -3626,78 +1948,6 @@ func _ManagerService_FlushPasspointAnqpCache_Handler(srv interface{}, ctx contex
 	return interceptor(ctx, in, info, handler)
 }
 
-func _ManagerService_GetAllowedChannels_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetAllowedChannelsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ManagerServiceServer).GetAllowedChannels(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ManagerService_GetAllowedChannels_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ManagerServiceServer).GetAllowedChannels(ctx, req.(*GetAllowedChannelsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ManagerService_GetCallerConfiguredNetworks_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetCallerConfiguredNetworksRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ManagerServiceServer).GetCallerConfiguredNetworks(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ManagerService_GetCallerConfiguredNetworks_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ManagerServiceServer).GetCallerConfiguredNetworks(ctx, req.(*GetCallerConfiguredNetworksRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ManagerService_GetChannelData_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetChannelDataRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ManagerServiceServer).GetChannelData(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ManagerService_GetChannelData_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ManagerServiceServer).GetChannelData(ctx, req.(*GetChannelDataRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ManagerService_GetConfiguredNetworks_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetConfiguredNetworksRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ManagerServiceServer).GetConfiguredNetworks(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ManagerService_GetConfiguredNetworks_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ManagerServiceServer).GetConfiguredNetworks(ctx, req.(*GetConfiguredNetworksRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
 func _ManagerService_GetConnectionInfo_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(GetConnectionInfoRequest)
 	if err := dec(in); err != nil {
@@ -3788,114 +2038,6 @@ func _ManagerService_GetMaxSignalLevel_Handler(srv interface{}, ctx context.Cont
 	return interceptor(ctx, in, info, handler)
 }
 
-func _ManagerService_GetMaxSupportedConcurrentTdlsSessions_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetMaxSupportedConcurrentTdlsSessionsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ManagerServiceServer).GetMaxSupportedConcurrentTdlsSessions(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ManagerService_GetMaxSupportedConcurrentTdlsSessions_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ManagerServiceServer).GetMaxSupportedConcurrentTdlsSessions(ctx, req.(*GetMaxSupportedConcurrentTdlsSessionsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ManagerService_GetNetworkSuggestions_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetNetworkSuggestionsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ManagerServiceServer).GetNetworkSuggestions(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ManagerService_GetNetworkSuggestions_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ManagerServiceServer).GetNetworkSuggestions(ctx, req.(*GetNetworkSuggestionsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ManagerService_GetNumberOfEnabledTdlsSessions_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetNumberOfEnabledTdlsSessionsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ManagerServiceServer).GetNumberOfEnabledTdlsSessions(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ManagerService_GetNumberOfEnabledTdlsSessions_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ManagerServiceServer).GetNumberOfEnabledTdlsSessions(ctx, req.(*GetNumberOfEnabledTdlsSessionsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ManagerService_GetPasspointConfigurations_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetPasspointConfigurationsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ManagerServiceServer).GetPasspointConfigurations(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ManagerService_GetPasspointConfigurations_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ManagerServiceServer).GetPasspointConfigurations(ctx, req.(*GetPasspointConfigurationsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ManagerService_GetPerSsidRoamingModes_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetPerSsidRoamingModesRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ManagerServiceServer).GetPerSsidRoamingModes(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ManagerService_GetPerSsidRoamingModes_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ManagerServiceServer).GetPerSsidRoamingModes(ctx, req.(*GetPerSsidRoamingModesRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ManagerService_GetScanResults_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetScanResultsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ManagerServiceServer).GetScanResults(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ManagerService_GetScanResults_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ManagerServiceServer).GetScanResults(ctx, req.(*GetScanResultsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
 func _ManagerService_GetStaConcurrencyForMultiInternetMode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(GetStaConcurrencyForMultiInternetModeRequest)
 	if err := dec(in); err != nil {
@@ -3910,24 +2052,6 @@ func _ManagerService_GetStaConcurrencyForMultiInternetMode_Handler(srv interface
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(ManagerServiceServer).GetStaConcurrencyForMultiInternetMode(ctx, req.(*GetStaConcurrencyForMultiInternetModeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ManagerService_GetUsableChannels_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetUsableChannelsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ManagerServiceServer).GetUsableChannels(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ManagerService_GetUsableChannels_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ManagerServiceServer).GetUsableChannels(ctx, req.(*GetUsableChannelsRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -4436,24 +2560,6 @@ func _ManagerService_IsStaConcurrencyForMultiInternetSupported_Handler(srv inter
 	return interceptor(ctx, in, info, handler)
 }
 
-func _ManagerService_IsTdlsOperationCurrentlyAvailable_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(IsTdlsOperationCurrentlyAvailableRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ManagerServiceServer).IsTdlsOperationCurrentlyAvailable(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ManagerService_IsTdlsOperationCurrentlyAvailable_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ManagerServiceServer).IsTdlsOperationCurrentlyAvailable(ctx, req.(*IsTdlsOperationCurrentlyAvailableRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
 func _ManagerService_IsTdlsSupported_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(IsTdlsSupportedRequest)
 	if err := dec(in); err != nil {
@@ -4760,24 +2866,6 @@ func _ManagerService_PingSupplicant_Handler(srv interface{}, ctx context.Context
 	return interceptor(ctx, in, info, handler)
 }
 
-func _ManagerService_QueryAutojoinGlobal_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(QueryAutojoinGlobalRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ManagerServiceServer).QueryAutojoinGlobal(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ManagerService_QueryAutojoinGlobal_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ManagerServiceServer).QueryAutojoinGlobal(ctx, req.(*QueryAutojoinGlobalRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
 func _ManagerService_QuerySendDhcpHostnameRestriction_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(QuerySendDhcpHostnameRestrictionRequest)
 	if err := dec(in); err != nil {
@@ -4904,42 +2992,6 @@ func _ManagerService_RemoveNetwork_Handler(srv interface{}, ctx context.Context,
 	return interceptor(ctx, in, info, handler)
 }
 
-func _ManagerService_RemoveNetworkSuggestions1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(RemoveNetworkSuggestions1Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ManagerServiceServer).RemoveNetworkSuggestions1(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ManagerService_RemoveNetworkSuggestions1_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ManagerServiceServer).RemoveNetworkSuggestions1(ctx, req.(*RemoveNetworkSuggestions1Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ManagerService_RemoveNetworkSuggestions2_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(RemoveNetworkSuggestions2_1Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ManagerServiceServer).RemoveNetworkSuggestions2_1(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ManagerService_RemoveNetworkSuggestions2_1_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ManagerServiceServer).RemoveNetworkSuggestions2_1(ctx, req.(*RemoveNetworkSuggestions2_1Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
 func _ManagerService_RemoveNonCallerConfiguredNetworks_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(RemoveNonCallerConfiguredNetworksRequest)
 	if err := dec(in); err != nil {
@@ -5048,24 +3100,6 @@ func _ManagerService_RemoveWifiStateChangedListener_Handler(srv interface{}, ctx
 	return interceptor(ctx, in, info, handler)
 }
 
-func _ManagerService_ReportCreateInterfaceImpact_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ReportCreateInterfaceImpactRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ManagerServiceServer).ReportCreateInterfaceImpact(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ManagerService_ReportCreateInterfaceImpact_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ManagerServiceServer).ReportCreateInterfaceImpact(ctx, req.(*ReportCreateInterfaceImpactRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
 func _ManagerService_SaveConfiguration_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(SaveConfigurationRequest)
 	if err := dec(in); err != nil {
@@ -5120,74 +3154,38 @@ func _ManagerService_SetSendDhcpHostnameRestriction_Handler(srv interface{}, ctx
 	return interceptor(ctx, in, info, handler)
 }
 
-func _ManagerService_SetTdlsEnabled2_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetTdlsEnabled2Request)
+func _ManagerService_SetTdlsEnabled_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetTdlsEnabledRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(ManagerServiceServer).SetTdlsEnabled2(ctx, in)
+		return srv.(ManagerServiceServer).SetTdlsEnabled(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: ManagerService_SetTdlsEnabled2_FullMethodName,
+		FullMethod: ManagerService_SetTdlsEnabled_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ManagerServiceServer).SetTdlsEnabled2(ctx, req.(*SetTdlsEnabled2Request))
+		return srv.(ManagerServiceServer).SetTdlsEnabled(ctx, req.(*SetTdlsEnabledRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _ManagerService_SetTdlsEnabled4_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetTdlsEnabled4_1Request)
+func _ManagerService_SetTdlsEnabledWithMacAddress_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetTdlsEnabledWithMacAddressRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(ManagerServiceServer).SetTdlsEnabled4_1(ctx, in)
+		return srv.(ManagerServiceServer).SetTdlsEnabledWithMacAddress(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: ManagerService_SetTdlsEnabled4_1_FullMethodName,
+		FullMethod: ManagerService_SetTdlsEnabledWithMacAddress_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ManagerServiceServer).SetTdlsEnabled4_1(ctx, req.(*SetTdlsEnabled4_1Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ManagerService_SetTdlsEnabledWithMacAddress2_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetTdlsEnabledWithMacAddress2Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ManagerServiceServer).SetTdlsEnabledWithMacAddress2(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ManagerService_SetTdlsEnabledWithMacAddress2_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ManagerServiceServer).SetTdlsEnabledWithMacAddress2(ctx, req.(*SetTdlsEnabledWithMacAddress2Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ManagerService_SetTdlsEnabledWithMacAddress4_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetTdlsEnabledWithMacAddress4_1Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ManagerServiceServer).SetTdlsEnabledWithMacAddress4_1(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ManagerService_SetTdlsEnabledWithMacAddress4_1_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ManagerServiceServer).SetTdlsEnabledWithMacAddress4_1(ctx, req.(*SetTdlsEnabledWithMacAddress4_1Request))
+		return srv.(ManagerServiceServer).SetTdlsEnabledWithMacAddress(ctx, req.(*SetTdlsEnabledWithMacAddressRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -5392,10 +3390,6 @@ var ManagerService_ServiceDesc = grpc.ServiceDesc{
 			Handler:    _ManagerService_AddNetworkPrivileged_Handler,
 		},
 		{
-			MethodName: "AddNetworkSuggestions",
-			Handler:    _ManagerService_AddNetworkSuggestions_Handler,
-		},
-		{
 			MethodName: "AddOrUpdatePasspointConfiguration",
 			Handler:    _ManagerService_AddOrUpdatePasspointConfiguration_Handler,
 		},
@@ -5456,22 +3450,6 @@ var ManagerService_ServiceDesc = grpc.ServiceDesc{
 			Handler:    _ManagerService_FlushPasspointAnqpCache_Handler,
 		},
 		{
-			MethodName: "GetAllowedChannels",
-			Handler:    _ManagerService_GetAllowedChannels_Handler,
-		},
-		{
-			MethodName: "GetCallerConfiguredNetworks",
-			Handler:    _ManagerService_GetCallerConfiguredNetworks_Handler,
-		},
-		{
-			MethodName: "GetChannelData",
-			Handler:    _ManagerService_GetChannelData_Handler,
-		},
-		{
-			MethodName: "GetConfiguredNetworks",
-			Handler:    _ManagerService_GetConfiguredNetworks_Handler,
-		},
-		{
 			MethodName: "GetConnectionInfo",
 			Handler:    _ManagerService_GetConnectionInfo_Handler,
 		},
@@ -5492,36 +3470,8 @@ var ManagerService_ServiceDesc = grpc.ServiceDesc{
 			Handler:    _ManagerService_GetMaxSignalLevel_Handler,
 		},
 		{
-			MethodName: "GetMaxSupportedConcurrentTdlsSessions",
-			Handler:    _ManagerService_GetMaxSupportedConcurrentTdlsSessions_Handler,
-		},
-		{
-			MethodName: "GetNetworkSuggestions",
-			Handler:    _ManagerService_GetNetworkSuggestions_Handler,
-		},
-		{
-			MethodName: "GetNumberOfEnabledTdlsSessions",
-			Handler:    _ManagerService_GetNumberOfEnabledTdlsSessions_Handler,
-		},
-		{
-			MethodName: "GetPasspointConfigurations",
-			Handler:    _ManagerService_GetPasspointConfigurations_Handler,
-		},
-		{
-			MethodName: "GetPerSsidRoamingModes",
-			Handler:    _ManagerService_GetPerSsidRoamingModes_Handler,
-		},
-		{
-			MethodName: "GetScanResults",
-			Handler:    _ManagerService_GetScanResults_Handler,
-		},
-		{
 			MethodName: "GetStaConcurrencyForMultiInternetMode",
 			Handler:    _ManagerService_GetStaConcurrencyForMultiInternetMode_Handler,
-		},
-		{
-			MethodName: "GetUsableChannels",
-			Handler:    _ManagerService_GetUsableChannels_Handler,
 		},
 		{
 			MethodName: "GetWifiState",
@@ -5636,10 +3586,6 @@ var ManagerService_ServiceDesc = grpc.ServiceDesc{
 			Handler:    _ManagerService_IsStaConcurrencyForMultiInternetSupported_Handler,
 		},
 		{
-			MethodName: "IsTdlsOperationCurrentlyAvailable",
-			Handler:    _ManagerService_IsTdlsOperationCurrentlyAvailable_Handler,
-		},
-		{
 			MethodName: "IsTdlsSupported",
 			Handler:    _ManagerService_IsTdlsSupported_Handler,
 		},
@@ -5708,10 +3654,6 @@ var ManagerService_ServiceDesc = grpc.ServiceDesc{
 			Handler:    _ManagerService_PingSupplicant_Handler,
 		},
 		{
-			MethodName: "QueryAutojoinGlobal",
-			Handler:    _ManagerService_QueryAutojoinGlobal_Handler,
-		},
-		{
 			MethodName: "QuerySendDhcpHostnameRestriction",
 			Handler:    _ManagerService_QuerySendDhcpHostnameRestriction_Handler,
 		},
@@ -5740,14 +3682,6 @@ var ManagerService_ServiceDesc = grpc.ServiceDesc{
 			Handler:    _ManagerService_RemoveNetwork_Handler,
 		},
 		{
-			MethodName: "RemoveNetworkSuggestions1",
-			Handler:    _ManagerService_RemoveNetworkSuggestions1_Handler,
-		},
-		{
-			MethodName: "RemoveNetworkSuggestions2_1",
-			Handler:    _ManagerService_RemoveNetworkSuggestions2_1_Handler,
-		},
-		{
 			MethodName: "RemoveNonCallerConfiguredNetworks",
 			Handler:    _ManagerService_RemoveNonCallerConfiguredNetworks_Handler,
 		},
@@ -5772,10 +3706,6 @@ var ManagerService_ServiceDesc = grpc.ServiceDesc{
 			Handler:    _ManagerService_RemoveWifiStateChangedListener_Handler,
 		},
 		{
-			MethodName: "ReportCreateInterfaceImpact",
-			Handler:    _ManagerService_ReportCreateInterfaceImpact_Handler,
-		},
-		{
 			MethodName: "SaveConfiguration",
 			Handler:    _ManagerService_SaveConfiguration_Handler,
 		},
@@ -5788,20 +3718,12 @@ var ManagerService_ServiceDesc = grpc.ServiceDesc{
 			Handler:    _ManagerService_SetSendDhcpHostnameRestriction_Handler,
 		},
 		{
-			MethodName: "SetTdlsEnabled2",
-			Handler:    _ManagerService_SetTdlsEnabled2_Handler,
+			MethodName: "SetTdlsEnabled",
+			Handler:    _ManagerService_SetTdlsEnabled_Handler,
 		},
 		{
-			MethodName: "SetTdlsEnabled4_1",
-			Handler:    _ManagerService_SetTdlsEnabled4_1_Handler,
-		},
-		{
-			MethodName: "SetTdlsEnabledWithMacAddress2",
-			Handler:    _ManagerService_SetTdlsEnabledWithMacAddress2_Handler,
-		},
-		{
-			MethodName: "SetTdlsEnabledWithMacAddress4_1",
-			Handler:    _ManagerService_SetTdlsEnabledWithMacAddress4_1_Handler,
+			MethodName: "SetTdlsEnabledWithMacAddress",
+			Handler:    _ManagerService_SetTdlsEnabledWithMacAddress_Handler,
 		},
 		{
 			MethodName: "SetWifiEnabled",
@@ -5842,754 +3764,6 @@ var ManagerService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "CompareSignalLevel",
 			Handler:    _ManagerService_CompareSignalLevel_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/wifi/wifi.proto",
-}
-
-const (
-	ScanResultService_DescribeContents_FullMethodName                        = "/wifi.ScanResultService/DescribeContents"
-	ScanResultService_GetAffiliatedMloLinks_FullMethodName                   = "/wifi.ScanResultService/GetAffiliatedMloLinks"
-	ScanResultService_GetApMldMacAddress_FullMethodName                      = "/wifi.ScanResultService/GetApMldMacAddress"
-	ScanResultService_GetApMloLinkId_FullMethodName                          = "/wifi.ScanResultService/GetApMloLinkId"
-	ScanResultService_GetInformationElements_FullMethodName                  = "/wifi.ScanResultService/GetInformationElements"
-	ScanResultService_GetSecurityTypes_FullMethodName                        = "/wifi.ScanResultService/GetSecurityTypes"
-	ScanResultService_GetWifiSsid_FullMethodName                             = "/wifi.ScanResultService/GetWifiSsid"
-	ScanResultService_GetWifiStandard_FullMethodName                         = "/wifi.ScanResultService/GetWifiStandard"
-	ScanResultService_Is80211AzNtbResponder_FullMethodName                   = "/wifi.ScanResultService/Is80211azNtbResponder"
-	ScanResultService_Is80211McResponder_FullMethodName                      = "/wifi.ScanResultService/Is80211mcResponder"
-	ScanResultService_IsPasspointNetwork_FullMethodName                      = "/wifi.ScanResultService/IsPasspointNetwork"
-	ScanResultService_IsRangingFrameProtectionRequired_FullMethodName        = "/wifi.ScanResultService/IsRangingFrameProtectionRequired"
-	ScanResultService_IsSecureHeLtfSupported_FullMethodName                  = "/wifi.ScanResultService/IsSecureHeLtfSupported"
-	ScanResultService_IsTwtResponder_FullMethodName                          = "/wifi.ScanResultService/IsTwtResponder"
-	ScanResultService_ToString_FullMethodName                                = "/wifi.ScanResultService/ToString"
-	ScanResultService_WriteToParcel_FullMethodName                           = "/wifi.ScanResultService/WriteToParcel"
-	ScanResultService_ConvertChannelToFrequencyMhzIfSupported_FullMethodName = "/wifi.ScanResultService/ConvertChannelToFrequencyMhzIfSupported"
-	ScanResultService_ConvertFrequencyMhzToChannelIfSupported_FullMethodName = "/wifi.ScanResultService/ConvertFrequencyMhzToChannelIfSupported"
-)
-
-// ScanResultServiceClient is the client API for ScanResultService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type ScanResultServiceClient interface {
-	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
-	GetAffiliatedMloLinks(ctx context.Context, in *GetAffiliatedMloLinksRequest, opts ...grpc.CallOption) (*GetAffiliatedMloLinksResponse, error)
-	GetApMldMacAddress(ctx context.Context, in *GetApMldMacAddressRequest, opts ...grpc.CallOption) (*GetApMldMacAddressResponse, error)
-	GetApMloLinkId(ctx context.Context, in *GetApMloLinkIdRequest, opts ...grpc.CallOption) (*GetApMloLinkIdResponse, error)
-	GetInformationElements(ctx context.Context, in *GetInformationElementsRequest, opts ...grpc.CallOption) (*GetInformationElementsResponse, error)
-	GetSecurityTypes(ctx context.Context, in *GetSecurityTypesRequest, opts ...grpc.CallOption) (*GetSecurityTypesResponse, error)
-	GetWifiSsid(ctx context.Context, in *GetWifiSsidRequest, opts ...grpc.CallOption) (*GetWifiSsidResponse, error)
-	GetWifiStandard(ctx context.Context, in *GetWifiStandardRequest, opts ...grpc.CallOption) (*GetWifiStandardResponse, error)
-	Is80211AzNtbResponder(ctx context.Context, in *Is80211AzNtbResponderRequest, opts ...grpc.CallOption) (*Is80211AzNtbResponderResponse, error)
-	Is80211McResponder(ctx context.Context, in *Is80211McResponderRequest, opts ...grpc.CallOption) (*Is80211McResponderResponse, error)
-	IsPasspointNetwork(ctx context.Context, in *IsPasspointNetworkRequest, opts ...grpc.CallOption) (*IsPasspointNetworkResponse, error)
-	IsRangingFrameProtectionRequired(ctx context.Context, in *IsRangingFrameProtectionRequiredRequest, opts ...grpc.CallOption) (*IsRangingFrameProtectionRequiredResponse, error)
-	IsSecureHeLtfSupported(ctx context.Context, in *IsSecureHeLtfSupportedRequest, opts ...grpc.CallOption) (*IsSecureHeLtfSupportedResponse, error)
-	IsTwtResponder(ctx context.Context, in *IsTwtResponderRequest, opts ...grpc.CallOption) (*IsTwtResponderResponse, error)
-	ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
-	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
-	ConvertChannelToFrequencyMhzIfSupported(ctx context.Context, in *ConvertChannelToFrequencyMhzIfSupportedRequest, opts ...grpc.CallOption) (*ConvertChannelToFrequencyMhzIfSupportedResponse, error)
-	ConvertFrequencyMhzToChannelIfSupported(ctx context.Context, in *ConvertFrequencyMhzToChannelIfSupportedRequest, opts ...grpc.CallOption) (*ConvertFrequencyMhzToChannelIfSupportedResponse, error)
-}
-
-type scanResultServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewScanResultServiceClient(cc grpc.ClientConnInterface) ScanResultServiceClient {
-	return &scanResultServiceClient{cc}
-}
-
-func (c *scanResultServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(DescribeContentsResponse)
-	err := c.cc.Invoke(ctx, ScanResultService_DescribeContents_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *scanResultServiceClient) GetAffiliatedMloLinks(ctx context.Context, in *GetAffiliatedMloLinksRequest, opts ...grpc.CallOption) (*GetAffiliatedMloLinksResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetAffiliatedMloLinksResponse)
-	err := c.cc.Invoke(ctx, ScanResultService_GetAffiliatedMloLinks_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *scanResultServiceClient) GetApMldMacAddress(ctx context.Context, in *GetApMldMacAddressRequest, opts ...grpc.CallOption) (*GetApMldMacAddressResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetApMldMacAddressResponse)
-	err := c.cc.Invoke(ctx, ScanResultService_GetApMldMacAddress_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *scanResultServiceClient) GetApMloLinkId(ctx context.Context, in *GetApMloLinkIdRequest, opts ...grpc.CallOption) (*GetApMloLinkIdResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetApMloLinkIdResponse)
-	err := c.cc.Invoke(ctx, ScanResultService_GetApMloLinkId_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *scanResultServiceClient) GetInformationElements(ctx context.Context, in *GetInformationElementsRequest, opts ...grpc.CallOption) (*GetInformationElementsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetInformationElementsResponse)
-	err := c.cc.Invoke(ctx, ScanResultService_GetInformationElements_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *scanResultServiceClient) GetSecurityTypes(ctx context.Context, in *GetSecurityTypesRequest, opts ...grpc.CallOption) (*GetSecurityTypesResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetSecurityTypesResponse)
-	err := c.cc.Invoke(ctx, ScanResultService_GetSecurityTypes_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *scanResultServiceClient) GetWifiSsid(ctx context.Context, in *GetWifiSsidRequest, opts ...grpc.CallOption) (*GetWifiSsidResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetWifiSsidResponse)
-	err := c.cc.Invoke(ctx, ScanResultService_GetWifiSsid_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *scanResultServiceClient) GetWifiStandard(ctx context.Context, in *GetWifiStandardRequest, opts ...grpc.CallOption) (*GetWifiStandardResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetWifiStandardResponse)
-	err := c.cc.Invoke(ctx, ScanResultService_GetWifiStandard_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *scanResultServiceClient) Is80211AzNtbResponder(ctx context.Context, in *Is80211AzNtbResponderRequest, opts ...grpc.CallOption) (*Is80211AzNtbResponderResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(Is80211AzNtbResponderResponse)
-	err := c.cc.Invoke(ctx, ScanResultService_Is80211AzNtbResponder_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *scanResultServiceClient) Is80211McResponder(ctx context.Context, in *Is80211McResponderRequest, opts ...grpc.CallOption) (*Is80211McResponderResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(Is80211McResponderResponse)
-	err := c.cc.Invoke(ctx, ScanResultService_Is80211McResponder_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *scanResultServiceClient) IsPasspointNetwork(ctx context.Context, in *IsPasspointNetworkRequest, opts ...grpc.CallOption) (*IsPasspointNetworkResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(IsPasspointNetworkResponse)
-	err := c.cc.Invoke(ctx, ScanResultService_IsPasspointNetwork_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *scanResultServiceClient) IsRangingFrameProtectionRequired(ctx context.Context, in *IsRangingFrameProtectionRequiredRequest, opts ...grpc.CallOption) (*IsRangingFrameProtectionRequiredResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(IsRangingFrameProtectionRequiredResponse)
-	err := c.cc.Invoke(ctx, ScanResultService_IsRangingFrameProtectionRequired_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *scanResultServiceClient) IsSecureHeLtfSupported(ctx context.Context, in *IsSecureHeLtfSupportedRequest, opts ...grpc.CallOption) (*IsSecureHeLtfSupportedResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(IsSecureHeLtfSupportedResponse)
-	err := c.cc.Invoke(ctx, ScanResultService_IsSecureHeLtfSupported_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *scanResultServiceClient) IsTwtResponder(ctx context.Context, in *IsTwtResponderRequest, opts ...grpc.CallOption) (*IsTwtResponderResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(IsTwtResponderResponse)
-	err := c.cc.Invoke(ctx, ScanResultService_IsTwtResponder_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *scanResultServiceClient) ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ToStringResponse)
-	err := c.cc.Invoke(ctx, ScanResultService_ToString_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *scanResultServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(WriteToParcelResponse)
-	err := c.cc.Invoke(ctx, ScanResultService_WriteToParcel_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *scanResultServiceClient) ConvertChannelToFrequencyMhzIfSupported(ctx context.Context, in *ConvertChannelToFrequencyMhzIfSupportedRequest, opts ...grpc.CallOption) (*ConvertChannelToFrequencyMhzIfSupportedResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ConvertChannelToFrequencyMhzIfSupportedResponse)
-	err := c.cc.Invoke(ctx, ScanResultService_ConvertChannelToFrequencyMhzIfSupported_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *scanResultServiceClient) ConvertFrequencyMhzToChannelIfSupported(ctx context.Context, in *ConvertFrequencyMhzToChannelIfSupportedRequest, opts ...grpc.CallOption) (*ConvertFrequencyMhzToChannelIfSupportedResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ConvertFrequencyMhzToChannelIfSupportedResponse)
-	err := c.cc.Invoke(ctx, ScanResultService_ConvertFrequencyMhzToChannelIfSupported_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// ScanResultServiceServer is the server API for ScanResultService service.
-// All implementations must embed UnimplementedScanResultServiceServer
-// for forward compatibility.
-type ScanResultServiceServer interface {
-	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
-	GetAffiliatedMloLinks(context.Context, *GetAffiliatedMloLinksRequest) (*GetAffiliatedMloLinksResponse, error)
-	GetApMldMacAddress(context.Context, *GetApMldMacAddressRequest) (*GetApMldMacAddressResponse, error)
-	GetApMloLinkId(context.Context, *GetApMloLinkIdRequest) (*GetApMloLinkIdResponse, error)
-	GetInformationElements(context.Context, *GetInformationElementsRequest) (*GetInformationElementsResponse, error)
-	GetSecurityTypes(context.Context, *GetSecurityTypesRequest) (*GetSecurityTypesResponse, error)
-	GetWifiSsid(context.Context, *GetWifiSsidRequest) (*GetWifiSsidResponse, error)
-	GetWifiStandard(context.Context, *GetWifiStandardRequest) (*GetWifiStandardResponse, error)
-	Is80211AzNtbResponder(context.Context, *Is80211AzNtbResponderRequest) (*Is80211AzNtbResponderResponse, error)
-	Is80211McResponder(context.Context, *Is80211McResponderRequest) (*Is80211McResponderResponse, error)
-	IsPasspointNetwork(context.Context, *IsPasspointNetworkRequest) (*IsPasspointNetworkResponse, error)
-	IsRangingFrameProtectionRequired(context.Context, *IsRangingFrameProtectionRequiredRequest) (*IsRangingFrameProtectionRequiredResponse, error)
-	IsSecureHeLtfSupported(context.Context, *IsSecureHeLtfSupportedRequest) (*IsSecureHeLtfSupportedResponse, error)
-	IsTwtResponder(context.Context, *IsTwtResponderRequest) (*IsTwtResponderResponse, error)
-	ToString(context.Context, *ToStringRequest) (*ToStringResponse, error)
-	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
-	ConvertChannelToFrequencyMhzIfSupported(context.Context, *ConvertChannelToFrequencyMhzIfSupportedRequest) (*ConvertChannelToFrequencyMhzIfSupportedResponse, error)
-	ConvertFrequencyMhzToChannelIfSupported(context.Context, *ConvertFrequencyMhzToChannelIfSupportedRequest) (*ConvertFrequencyMhzToChannelIfSupportedResponse, error)
-	mustEmbedUnimplementedScanResultServiceServer()
-}
-
-// UnimplementedScanResultServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedScanResultServiceServer struct{}
-
-func (UnimplementedScanResultServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
-}
-func (UnimplementedScanResultServiceServer) GetAffiliatedMloLinks(context.Context, *GetAffiliatedMloLinksRequest) (*GetAffiliatedMloLinksResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetAffiliatedMloLinks not implemented")
-}
-func (UnimplementedScanResultServiceServer) GetApMldMacAddress(context.Context, *GetApMldMacAddressRequest) (*GetApMldMacAddressResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetApMldMacAddress not implemented")
-}
-func (UnimplementedScanResultServiceServer) GetApMloLinkId(context.Context, *GetApMloLinkIdRequest) (*GetApMloLinkIdResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetApMloLinkId not implemented")
-}
-func (UnimplementedScanResultServiceServer) GetInformationElements(context.Context, *GetInformationElementsRequest) (*GetInformationElementsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetInformationElements not implemented")
-}
-func (UnimplementedScanResultServiceServer) GetSecurityTypes(context.Context, *GetSecurityTypesRequest) (*GetSecurityTypesResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetSecurityTypes not implemented")
-}
-func (UnimplementedScanResultServiceServer) GetWifiSsid(context.Context, *GetWifiSsidRequest) (*GetWifiSsidResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetWifiSsid not implemented")
-}
-func (UnimplementedScanResultServiceServer) GetWifiStandard(context.Context, *GetWifiStandardRequest) (*GetWifiStandardResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetWifiStandard not implemented")
-}
-func (UnimplementedScanResultServiceServer) Is80211AzNtbResponder(context.Context, *Is80211AzNtbResponderRequest) (*Is80211AzNtbResponderResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Is80211AzNtbResponder not implemented")
-}
-func (UnimplementedScanResultServiceServer) Is80211McResponder(context.Context, *Is80211McResponderRequest) (*Is80211McResponderResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Is80211McResponder not implemented")
-}
-func (UnimplementedScanResultServiceServer) IsPasspointNetwork(context.Context, *IsPasspointNetworkRequest) (*IsPasspointNetworkResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method IsPasspointNetwork not implemented")
-}
-func (UnimplementedScanResultServiceServer) IsRangingFrameProtectionRequired(context.Context, *IsRangingFrameProtectionRequiredRequest) (*IsRangingFrameProtectionRequiredResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method IsRangingFrameProtectionRequired not implemented")
-}
-func (UnimplementedScanResultServiceServer) IsSecureHeLtfSupported(context.Context, *IsSecureHeLtfSupportedRequest) (*IsSecureHeLtfSupportedResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method IsSecureHeLtfSupported not implemented")
-}
-func (UnimplementedScanResultServiceServer) IsTwtResponder(context.Context, *IsTwtResponderRequest) (*IsTwtResponderResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method IsTwtResponder not implemented")
-}
-func (UnimplementedScanResultServiceServer) ToString(context.Context, *ToStringRequest) (*ToStringResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
-}
-func (UnimplementedScanResultServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
-}
-func (UnimplementedScanResultServiceServer) ConvertChannelToFrequencyMhzIfSupported(context.Context, *ConvertChannelToFrequencyMhzIfSupportedRequest) (*ConvertChannelToFrequencyMhzIfSupportedResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method ConvertChannelToFrequencyMhzIfSupported not implemented")
-}
-func (UnimplementedScanResultServiceServer) ConvertFrequencyMhzToChannelIfSupported(context.Context, *ConvertFrequencyMhzToChannelIfSupportedRequest) (*ConvertFrequencyMhzToChannelIfSupportedResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method ConvertFrequencyMhzToChannelIfSupported not implemented")
-}
-func (UnimplementedScanResultServiceServer) mustEmbedUnimplementedScanResultServiceServer() {}
-func (UnimplementedScanResultServiceServer) testEmbeddedByValue()                           {}
-
-// UnsafeScanResultServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to ScanResultServiceServer will
-// result in compilation errors.
-type UnsafeScanResultServiceServer interface {
-	mustEmbedUnimplementedScanResultServiceServer()
-}
-
-func RegisterScanResultServiceServer(s grpc.ServiceRegistrar, srv ScanResultServiceServer) {
-	// If the following call panics, it indicates UnimplementedScanResultServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&ScanResultService_ServiceDesc, srv)
-}
-
-func _ScanResultService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(DescribeContentsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ScanResultServiceServer).DescribeContents(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ScanResultService_DescribeContents_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ScanResultServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ScanResultService_GetAffiliatedMloLinks_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetAffiliatedMloLinksRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ScanResultServiceServer).GetAffiliatedMloLinks(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ScanResultService_GetAffiliatedMloLinks_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ScanResultServiceServer).GetAffiliatedMloLinks(ctx, req.(*GetAffiliatedMloLinksRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ScanResultService_GetApMldMacAddress_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetApMldMacAddressRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ScanResultServiceServer).GetApMldMacAddress(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ScanResultService_GetApMldMacAddress_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ScanResultServiceServer).GetApMldMacAddress(ctx, req.(*GetApMldMacAddressRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ScanResultService_GetApMloLinkId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetApMloLinkIdRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ScanResultServiceServer).GetApMloLinkId(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ScanResultService_GetApMloLinkId_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ScanResultServiceServer).GetApMloLinkId(ctx, req.(*GetApMloLinkIdRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ScanResultService_GetInformationElements_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetInformationElementsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ScanResultServiceServer).GetInformationElements(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ScanResultService_GetInformationElements_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ScanResultServiceServer).GetInformationElements(ctx, req.(*GetInformationElementsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ScanResultService_GetSecurityTypes_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetSecurityTypesRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ScanResultServiceServer).GetSecurityTypes(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ScanResultService_GetSecurityTypes_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ScanResultServiceServer).GetSecurityTypes(ctx, req.(*GetSecurityTypesRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ScanResultService_GetWifiSsid_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetWifiSsidRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ScanResultServiceServer).GetWifiSsid(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ScanResultService_GetWifiSsid_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ScanResultServiceServer).GetWifiSsid(ctx, req.(*GetWifiSsidRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ScanResultService_GetWifiStandard_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetWifiStandardRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ScanResultServiceServer).GetWifiStandard(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ScanResultService_GetWifiStandard_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ScanResultServiceServer).GetWifiStandard(ctx, req.(*GetWifiStandardRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ScanResultService_Is80211AzNtbResponder_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(Is80211AzNtbResponderRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ScanResultServiceServer).Is80211AzNtbResponder(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ScanResultService_Is80211AzNtbResponder_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ScanResultServiceServer).Is80211AzNtbResponder(ctx, req.(*Is80211AzNtbResponderRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ScanResultService_Is80211McResponder_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(Is80211McResponderRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ScanResultServiceServer).Is80211McResponder(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ScanResultService_Is80211McResponder_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ScanResultServiceServer).Is80211McResponder(ctx, req.(*Is80211McResponderRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ScanResultService_IsPasspointNetwork_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(IsPasspointNetworkRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ScanResultServiceServer).IsPasspointNetwork(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ScanResultService_IsPasspointNetwork_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ScanResultServiceServer).IsPasspointNetwork(ctx, req.(*IsPasspointNetworkRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ScanResultService_IsRangingFrameProtectionRequired_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(IsRangingFrameProtectionRequiredRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ScanResultServiceServer).IsRangingFrameProtectionRequired(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ScanResultService_IsRangingFrameProtectionRequired_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ScanResultServiceServer).IsRangingFrameProtectionRequired(ctx, req.(*IsRangingFrameProtectionRequiredRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ScanResultService_IsSecureHeLtfSupported_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(IsSecureHeLtfSupportedRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ScanResultServiceServer).IsSecureHeLtfSupported(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ScanResultService_IsSecureHeLtfSupported_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ScanResultServiceServer).IsSecureHeLtfSupported(ctx, req.(*IsSecureHeLtfSupportedRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ScanResultService_IsTwtResponder_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(IsTwtResponderRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ScanResultServiceServer).IsTwtResponder(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ScanResultService_IsTwtResponder_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ScanResultServiceServer).IsTwtResponder(ctx, req.(*IsTwtResponderRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ScanResultService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ToStringRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ScanResultServiceServer).ToString(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ScanResultService_ToString_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ScanResultServiceServer).ToString(ctx, req.(*ToStringRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ScanResultService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(WriteToParcelRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ScanResultServiceServer).WriteToParcel(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ScanResultService_WriteToParcel_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ScanResultServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ScanResultService_ConvertChannelToFrequencyMhzIfSupported_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ConvertChannelToFrequencyMhzIfSupportedRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ScanResultServiceServer).ConvertChannelToFrequencyMhzIfSupported(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ScanResultService_ConvertChannelToFrequencyMhzIfSupported_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ScanResultServiceServer).ConvertChannelToFrequencyMhzIfSupported(ctx, req.(*ConvertChannelToFrequencyMhzIfSupportedRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ScanResultService_ConvertFrequencyMhzToChannelIfSupported_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ConvertFrequencyMhzToChannelIfSupportedRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ScanResultServiceServer).ConvertFrequencyMhzToChannelIfSupported(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ScanResultService_ConvertFrequencyMhzToChannelIfSupported_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ScanResultServiceServer).ConvertFrequencyMhzToChannelIfSupported(ctx, req.(*ConvertFrequencyMhzToChannelIfSupportedRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// ScanResultService_ServiceDesc is the grpc.ServiceDesc for ScanResultService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var ScanResultService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "wifi.ScanResultService",
-	HandlerType: (*ScanResultServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "DescribeContents",
-			Handler:    _ScanResultService_DescribeContents_Handler,
-		},
-		{
-			MethodName: "GetAffiliatedMloLinks",
-			Handler:    _ScanResultService_GetAffiliatedMloLinks_Handler,
-		},
-		{
-			MethodName: "GetApMldMacAddress",
-			Handler:    _ScanResultService_GetApMldMacAddress_Handler,
-		},
-		{
-			MethodName: "GetApMloLinkId",
-			Handler:    _ScanResultService_GetApMloLinkId_Handler,
-		},
-		{
-			MethodName: "GetInformationElements",
-			Handler:    _ScanResultService_GetInformationElements_Handler,
-		},
-		{
-			MethodName: "GetSecurityTypes",
-			Handler:    _ScanResultService_GetSecurityTypes_Handler,
-		},
-		{
-			MethodName: "GetWifiSsid",
-			Handler:    _ScanResultService_GetWifiSsid_Handler,
-		},
-		{
-			MethodName: "GetWifiStandard",
-			Handler:    _ScanResultService_GetWifiStandard_Handler,
-		},
-		{
-			MethodName: "Is80211azNtbResponder",
-			Handler:    _ScanResultService_Is80211AzNtbResponder_Handler,
-		},
-		{
-			MethodName: "Is80211mcResponder",
-			Handler:    _ScanResultService_Is80211McResponder_Handler,
-		},
-		{
-			MethodName: "IsPasspointNetwork",
-			Handler:    _ScanResultService_IsPasspointNetwork_Handler,
-		},
-		{
-			MethodName: "IsRangingFrameProtectionRequired",
-			Handler:    _ScanResultService_IsRangingFrameProtectionRequired_Handler,
-		},
-		{
-			MethodName: "IsSecureHeLtfSupported",
-			Handler:    _ScanResultService_IsSecureHeLtfSupported_Handler,
-		},
-		{
-			MethodName: "IsTwtResponder",
-			Handler:    _ScanResultService_IsTwtResponder_Handler,
-		},
-		{
-			MethodName: "ToString",
-			Handler:    _ScanResultService_ToString_Handler,
-		},
-		{
-			MethodName: "WriteToParcel",
-			Handler:    _ScanResultService_WriteToParcel_Handler,
-		},
-		{
-			MethodName: "ConvertChannelToFrequencyMhzIfSupported",
-			Handler:    _ScanResultService_ConvertChannelToFrequencyMhzIfSupported_Handler,
-		},
-		{
-			MethodName: "ConvertFrequencyMhzToChannelIfSupported",
-			Handler:    _ScanResultService_ConvertFrequencyMhzToChannelIfSupported_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

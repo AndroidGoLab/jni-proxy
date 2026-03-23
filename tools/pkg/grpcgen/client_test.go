@@ -125,11 +125,11 @@ func TestRenderClientToString_Location(t *testing.T) {
 		{"package", "package location"},
 		{"pb import", `pb "github.com/AndroidGoLab/jni/proto/location"`},
 		{"grpc import", `"google.golang.org/grpc"`},
-		{"client struct", "type Client struct"},
-		{"new client func", "func NewClient(cc grpc.ClientConnInterface)"},
+		{"client struct", "type ManagerClient struct"},
+		{"new client func", "func NewManagerClient(cc grpc.ClientConnInterface)"},
 		{"new service client", "pb.NewManagerServiceClient(cc)"},
-		{"get location method", "func (c *Client) GetLastKnownLocation"},
-		{"is provider enabled", "func (c *Client) IsProviderEnabled"},
+		{"get location method", "func (c *ManagerClient) GetLastKnownLocation"},
+		{"is provider enabled", "func (c *ManagerClient) IsProviderEnabled"},
 		{"request builder", "&pb.GetLastKnownLocationRequest{"},
 		{"response unwrap", "resp.GetResult()"},
 	}
@@ -218,8 +218,8 @@ func TestGenerateClient_AllRealSpecs(t *testing.T) {
 			t.Errorf("%s: missing generated header", baseName)
 			failed = append(failed, baseName)
 		}
-		if !strings.Contains(content, "func NewClient(") {
-			t.Errorf("%s: missing NewClient", baseName)
+		if !strings.Contains(content, "Client struct") {
+			t.Errorf("%s: missing Client struct", baseName)
 			failed = append(failed, baseName)
 		}
 		generated++

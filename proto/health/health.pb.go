@@ -23,27 +23,27 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
-type GetOrCreateRawRequest struct {
+type GetCpuHeadroomRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Ctx           int64                  `protobuf:"varint,1,opt,name=ctx,proto3" json:"ctx,omitempty"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *GetOrCreateRawRequest) Reset() {
-	*x = GetOrCreateRawRequest{}
+func (x *GetCpuHeadroomRequest) Reset() {
+	*x = GetCpuHeadroomRequest{}
 	mi := &file_proto_health_health_proto_msgTypes[0]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *GetOrCreateRawRequest) String() string {
+func (x *GetCpuHeadroomRequest) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*GetOrCreateRawRequest) ProtoMessage() {}
+func (*GetCpuHeadroomRequest) ProtoMessage() {}
 
-func (x *GetOrCreateRawRequest) ProtoReflect() protoreflect.Message {
+func (x *GetCpuHeadroomRequest) ProtoReflect() protoreflect.Message {
 	mi := &file_proto_health_health_proto_msgTypes[0]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -55,39 +55,39 @@ func (x *GetOrCreateRawRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use GetOrCreateRawRequest.ProtoReflect.Descriptor instead.
-func (*GetOrCreateRawRequest) Descriptor() ([]byte, []int) {
+// Deprecated: Use GetCpuHeadroomRequest.ProtoReflect.Descriptor instead.
+func (*GetCpuHeadroomRequest) Descriptor() ([]byte, []int) {
 	return file_proto_health_health_proto_rawDescGZIP(), []int{0}
 }
 
-func (x *GetOrCreateRawRequest) GetCtx() int64 {
+func (x *GetCpuHeadroomRequest) GetArg0() int64 {
 	if x != nil {
-		return x.Ctx
+		return x.Arg0
 	}
 	return 0
 }
 
-type GetOrCreateRawResponse struct {
+type GetCpuHeadroomResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	Result        float32                `protobuf:"fixed32,1,opt,name=result,proto3" json:"result,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *GetOrCreateRawResponse) Reset() {
-	*x = GetOrCreateRawResponse{}
+func (x *GetCpuHeadroomResponse) Reset() {
+	*x = GetCpuHeadroomResponse{}
 	mi := &file_proto_health_health_proto_msgTypes[1]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *GetOrCreateRawResponse) String() string {
+func (x *GetCpuHeadroomResponse) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*GetOrCreateRawResponse) ProtoMessage() {}
+func (*GetCpuHeadroomResponse) ProtoMessage() {}
 
-func (x *GetOrCreateRawResponse) ProtoReflect() protoreflect.Message {
+func (x *GetCpuHeadroomResponse) ProtoReflect() protoreflect.Message {
 	mi := &file_proto_health_health_proto_msgTypes[1]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -99,39 +99,38 @@ func (x *GetOrCreateRawResponse) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use GetOrCreateRawResponse.ProtoReflect.Descriptor instead.
-func (*GetOrCreateRawResponse) Descriptor() ([]byte, []int) {
+// Deprecated: Use GetCpuHeadroomResponse.ProtoReflect.Descriptor instead.
+func (*GetCpuHeadroomResponse) Descriptor() ([]byte, []int) {
 	return file_proto_health_health_proto_rawDescGZIP(), []int{1}
 }
 
-func (x *GetOrCreateRawResponse) GetResult() int64 {
+func (x *GetCpuHeadroomResponse) GetResult() float32 {
 	if x != nil {
 		return x.Result
 	}
 	return 0
 }
 
-type InsertRecordsRawRequest struct {
+type GetCpuHeadroomMinIntervalMillisRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Records       int64                  `protobuf:"varint,1,opt,name=records,proto3" json:"records,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *InsertRecordsRawRequest) Reset() {
-	*x = InsertRecordsRawRequest{}
+func (x *GetCpuHeadroomMinIntervalMillisRequest) Reset() {
+	*x = GetCpuHeadroomMinIntervalMillisRequest{}
 	mi := &file_proto_health_health_proto_msgTypes[2]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *InsertRecordsRawRequest) String() string {
+func (x *GetCpuHeadroomMinIntervalMillisRequest) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*InsertRecordsRawRequest) ProtoMessage() {}
+func (*GetCpuHeadroomMinIntervalMillisRequest) ProtoMessage() {}
 
-func (x *InsertRecordsRawRequest) ProtoReflect() protoreflect.Message {
+func (x *GetCpuHeadroomMinIntervalMillisRequest) ProtoReflect() protoreflect.Message {
 	mi := &file_proto_health_health_proto_msgTypes[2]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -143,39 +142,32 @@ func (x *InsertRecordsRawRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use InsertRecordsRawRequest.ProtoReflect.Descriptor instead.
-func (*InsertRecordsRawRequest) Descriptor() ([]byte, []int) {
+// Deprecated: Use GetCpuHeadroomMinIntervalMillisRequest.ProtoReflect.Descriptor instead.
+func (*GetCpuHeadroomMinIntervalMillisRequest) Descriptor() ([]byte, []int) {
 	return file_proto_health_health_proto_rawDescGZIP(), []int{2}
 }
 
-func (x *InsertRecordsRawRequest) GetRecords() int64 {
-	if x != nil {
-		return x.Records
-	}
-	return 0
-}
-
-type InsertRecordsRawResponse struct {
+type GetCpuHeadroomMinIntervalMillisResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *InsertRecordsRawResponse) Reset() {
-	*x = InsertRecordsRawResponse{}
+func (x *GetCpuHeadroomMinIntervalMillisResponse) Reset() {
+	*x = GetCpuHeadroomMinIntervalMillisResponse{}
 	mi := &file_proto_health_health_proto_msgTypes[3]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *InsertRecordsRawResponse) String() string {
+func (x *GetCpuHeadroomMinIntervalMillisResponse) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*InsertRecordsRawResponse) ProtoMessage() {}
+func (*GetCpuHeadroomMinIntervalMillisResponse) ProtoMessage() {}
 
-func (x *InsertRecordsRawResponse) ProtoReflect() protoreflect.Message {
+func (x *GetCpuHeadroomMinIntervalMillisResponse) ProtoReflect() protoreflect.Message {
 	mi := &file_proto_health_health_proto_msgTypes[3]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -187,39 +179,39 @@ func (x *InsertRecordsRawResponse) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use InsertRecordsRawResponse.ProtoReflect.Descriptor instead.
-func (*InsertRecordsRawResponse) Descriptor() ([]byte, []int) {
+// Deprecated: Use GetCpuHeadroomMinIntervalMillisResponse.ProtoReflect.Descriptor instead.
+func (*GetCpuHeadroomMinIntervalMillisResponse) Descriptor() ([]byte, []int) {
 	return file_proto_health_health_proto_rawDescGZIP(), []int{3}
 }
 
-func (x *InsertRecordsRawResponse) GetResult() int64 {
+func (x *GetCpuHeadroomMinIntervalMillisResponse) GetResult() int64 {
 	if x != nil {
 		return x.Result
 	}
 	return 0
 }
 
-type ReadRecordsRawRequest struct {
+type GetGpuHeadroomRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Request       int64                  `protobuf:"varint,1,opt,name=request,proto3" json:"request,omitempty"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *ReadRecordsRawRequest) Reset() {
-	*x = ReadRecordsRawRequest{}
+func (x *GetGpuHeadroomRequest) Reset() {
+	*x = GetGpuHeadroomRequest{}
 	mi := &file_proto_health_health_proto_msgTypes[4]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *ReadRecordsRawRequest) String() string {
+func (x *GetGpuHeadroomRequest) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*ReadRecordsRawRequest) ProtoMessage() {}
+func (*GetGpuHeadroomRequest) ProtoMessage() {}
 
-func (x *ReadRecordsRawRequest) ProtoReflect() protoreflect.Message {
+func (x *GetGpuHeadroomRequest) ProtoReflect() protoreflect.Message {
 	mi := &file_proto_health_health_proto_msgTypes[4]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -231,39 +223,39 @@ func (x *ReadRecordsRawRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use ReadRecordsRawRequest.ProtoReflect.Descriptor instead.
-func (*ReadRecordsRawRequest) Descriptor() ([]byte, []int) {
+// Deprecated: Use GetGpuHeadroomRequest.ProtoReflect.Descriptor instead.
+func (*GetGpuHeadroomRequest) Descriptor() ([]byte, []int) {
 	return file_proto_health_health_proto_rawDescGZIP(), []int{4}
 }
 
-func (x *ReadRecordsRawRequest) GetRequest() int64 {
+func (x *GetGpuHeadroomRequest) GetArg0() int64 {
 	if x != nil {
-		return x.Request
+		return x.Arg0
 	}
 	return 0
 }
 
-type ReadRecordsRawResponse struct {
+type GetGpuHeadroomResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	Result        float32                `protobuf:"fixed32,1,opt,name=result,proto3" json:"result,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *ReadRecordsRawResponse) Reset() {
-	*x = ReadRecordsRawResponse{}
+func (x *GetGpuHeadroomResponse) Reset() {
+	*x = GetGpuHeadroomResponse{}
 	mi := &file_proto_health_health_proto_msgTypes[5]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *ReadRecordsRawResponse) String() string {
+func (x *GetGpuHeadroomResponse) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*ReadRecordsRawResponse) ProtoMessage() {}
+func (*GetGpuHeadroomResponse) ProtoMessage() {}
 
-func (x *ReadRecordsRawResponse) ProtoReflect() protoreflect.Message {
+func (x *GetGpuHeadroomResponse) ProtoReflect() protoreflect.Message {
 	mi := &file_proto_health_health_proto_msgTypes[5]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -275,39 +267,38 @@ func (x *ReadRecordsRawResponse) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use ReadRecordsRawResponse.ProtoReflect.Descriptor instead.
-func (*ReadRecordsRawResponse) Descriptor() ([]byte, []int) {
+// Deprecated: Use GetGpuHeadroomResponse.ProtoReflect.Descriptor instead.
+func (*GetGpuHeadroomResponse) Descriptor() ([]byte, []int) {
 	return file_proto_health_health_proto_rawDescGZIP(), []int{5}
 }
 
-func (x *ReadRecordsRawResponse) GetResult() int64 {
+func (x *GetGpuHeadroomResponse) GetResult() float32 {
 	if x != nil {
 		return x.Result
 	}
 	return 0
 }
 
-type AggregateRawRequest struct {
+type GetGpuHeadroomMinIntervalMillisRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Request       int64                  `protobuf:"varint,1,opt,name=request,proto3" json:"request,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *AggregateRawRequest) Reset() {
-	*x = AggregateRawRequest{}
+func (x *GetGpuHeadroomMinIntervalMillisRequest) Reset() {
+	*x = GetGpuHeadroomMinIntervalMillisRequest{}
 	mi := &file_proto_health_health_proto_msgTypes[6]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *AggregateRawRequest) String() string {
+func (x *GetGpuHeadroomMinIntervalMillisRequest) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*AggregateRawRequest) ProtoMessage() {}
+func (*GetGpuHeadroomMinIntervalMillisRequest) ProtoMessage() {}
 
-func (x *AggregateRawRequest) ProtoReflect() protoreflect.Message {
+func (x *GetGpuHeadroomMinIntervalMillisRequest) ProtoReflect() protoreflect.Message {
 	mi := &file_proto_health_health_proto_msgTypes[6]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -319,39 +310,32 @@ func (x *AggregateRawRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use AggregateRawRequest.ProtoReflect.Descriptor instead.
-func (*AggregateRawRequest) Descriptor() ([]byte, []int) {
+// Deprecated: Use GetGpuHeadroomMinIntervalMillisRequest.ProtoReflect.Descriptor instead.
+func (*GetGpuHeadroomMinIntervalMillisRequest) Descriptor() ([]byte, []int) {
 	return file_proto_health_health_proto_rawDescGZIP(), []int{6}
 }
 
-func (x *AggregateRawRequest) GetRequest() int64 {
-	if x != nil {
-		return x.Request
-	}
-	return 0
-}
-
-type AggregateRawResponse struct {
+type GetGpuHeadroomMinIntervalMillisResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *AggregateRawResponse) Reset() {
-	*x = AggregateRawResponse{}
+func (x *GetGpuHeadroomMinIntervalMillisResponse) Reset() {
+	*x = GetGpuHeadroomMinIntervalMillisResponse{}
 	mi := &file_proto_health_health_proto_msgTypes[7]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *AggregateRawResponse) String() string {
+func (x *GetGpuHeadroomMinIntervalMillisResponse) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*AggregateRawResponse) ProtoMessage() {}
+func (*GetGpuHeadroomMinIntervalMillisResponse) ProtoMessage() {}
 
-func (x *AggregateRawResponse) ProtoReflect() protoreflect.Message {
+func (x *GetGpuHeadroomMinIntervalMillisResponse) ProtoReflect() protoreflect.Message {
 	mi := &file_proto_health_health_proto_msgTypes[7]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -363,40 +347,38 @@ func (x *AggregateRawResponse) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use AggregateRawResponse.ProtoReflect.Descriptor instead.
-func (*AggregateRawResponse) Descriptor() ([]byte, []int) {
+// Deprecated: Use GetGpuHeadroomMinIntervalMillisResponse.ProtoReflect.Descriptor instead.
+func (*GetGpuHeadroomMinIntervalMillisResponse) Descriptor() ([]byte, []int) {
 	return file_proto_health_health_proto_rawDescGZIP(), []int{7}
 }
 
-func (x *AggregateRawResponse) GetResult() int64 {
+func (x *GetGpuHeadroomMinIntervalMillisResponse) GetResult() int64 {
 	if x != nil {
 		return x.Result
 	}
 	return 0
 }
 
-type DeleteRecordsRawRequest struct {
+type GetMaxCpuHeadroomTidsSizeRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	RecordType    int64                  `protobuf:"varint,1,opt,name=record_type,json=recordType,proto3" json:"record_type,omitempty"`
-	TimeRange     int64                  `protobuf:"varint,2,opt,name=time_range,json=timeRange,proto3" json:"time_range,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *DeleteRecordsRawRequest) Reset() {
-	*x = DeleteRecordsRawRequest{}
+func (x *GetMaxCpuHeadroomTidsSizeRequest) Reset() {
+	*x = GetMaxCpuHeadroomTidsSizeRequest{}
 	mi := &file_proto_health_health_proto_msgTypes[8]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *DeleteRecordsRawRequest) String() string {
+func (x *GetMaxCpuHeadroomTidsSizeRequest) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*DeleteRecordsRawRequest) ProtoMessage() {}
+func (*GetMaxCpuHeadroomTidsSizeRequest) ProtoMessage() {}
 
-func (x *DeleteRecordsRawRequest) ProtoReflect() protoreflect.Message {
+func (x *GetMaxCpuHeadroomTidsSizeRequest) ProtoReflect() protoreflect.Message {
 	mi := &file_proto_health_health_proto_msgTypes[8]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -408,45 +390,32 @@ func (x *DeleteRecordsRawRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use DeleteRecordsRawRequest.ProtoReflect.Descriptor instead.
-func (*DeleteRecordsRawRequest) Descriptor() ([]byte, []int) {
+// Deprecated: Use GetMaxCpuHeadroomTidsSizeRequest.ProtoReflect.Descriptor instead.
+func (*GetMaxCpuHeadroomTidsSizeRequest) Descriptor() ([]byte, []int) {
 	return file_proto_health_health_proto_rawDescGZIP(), []int{8}
 }
 
-func (x *DeleteRecordsRawRequest) GetRecordType() int64 {
-	if x != nil {
-		return x.RecordType
-	}
-	return 0
-}
-
-func (x *DeleteRecordsRawRequest) GetTimeRange() int64 {
-	if x != nil {
-		return x.TimeRange
-	}
-	return 0
-}
-
-type DeleteRecordsRawResponse struct {
+type GetMaxCpuHeadroomTidsSizeResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *DeleteRecordsRawResponse) Reset() {
-	*x = DeleteRecordsRawResponse{}
+func (x *GetMaxCpuHeadroomTidsSizeResponse) Reset() {
+	*x = GetMaxCpuHeadroomTidsSizeResponse{}
 	mi := &file_proto_health_health_proto_msgTypes[9]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *DeleteRecordsRawResponse) String() string {
+func (x *GetMaxCpuHeadroomTidsSizeResponse) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*DeleteRecordsRawResponse) ProtoMessage() {}
+func (*GetMaxCpuHeadroomTidsSizeResponse) ProtoMessage() {}
 
-func (x *DeleteRecordsRawResponse) ProtoReflect() protoreflect.Message {
+func (x *GetMaxCpuHeadroomTidsSizeResponse) ProtoReflect() protoreflect.Message {
 	mi := &file_proto_health_health_proto_msgTypes[9]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -458,44 +427,316 @@ func (x *DeleteRecordsRawResponse) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use DeleteRecordsRawResponse.ProtoReflect.Descriptor instead.
-func (*DeleteRecordsRawResponse) Descriptor() ([]byte, []int) {
+// Deprecated: Use GetMaxCpuHeadroomTidsSizeResponse.ProtoReflect.Descriptor instead.
+func (*GetMaxCpuHeadroomTidsSizeResponse) Descriptor() ([]byte, []int) {
 	return file_proto_health_health_proto_rawDescGZIP(), []int{9}
+}
+
+func (x *GetMaxCpuHeadroomTidsSizeResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type TakeMyUidSnapshotRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *TakeMyUidSnapshotRequest) Reset() {
+	*x = TakeMyUidSnapshotRequest{}
+	mi := &file_proto_health_health_proto_msgTypes[10]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *TakeMyUidSnapshotRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*TakeMyUidSnapshotRequest) ProtoMessage() {}
+
+func (x *TakeMyUidSnapshotRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_health_health_proto_msgTypes[10]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use TakeMyUidSnapshotRequest.ProtoReflect.Descriptor instead.
+func (*TakeMyUidSnapshotRequest) Descriptor() ([]byte, []int) {
+	return file_proto_health_health_proto_rawDescGZIP(), []int{10}
+}
+
+type TakeMyUidSnapshotResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *TakeMyUidSnapshotResponse) Reset() {
+	*x = TakeMyUidSnapshotResponse{}
+	mi := &file_proto_health_health_proto_msgTypes[11]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *TakeMyUidSnapshotResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*TakeMyUidSnapshotResponse) ProtoMessage() {}
+
+func (x *TakeMyUidSnapshotResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_health_health_proto_msgTypes[11]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use TakeMyUidSnapshotResponse.ProtoReflect.Descriptor instead.
+func (*TakeMyUidSnapshotResponse) Descriptor() ([]byte, []int) {
+	return file_proto_health_health_proto_rawDescGZIP(), []int{11}
+}
+
+func (x *TakeMyUidSnapshotResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type TakeUidSnapshotRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *TakeUidSnapshotRequest) Reset() {
+	*x = TakeUidSnapshotRequest{}
+	mi := &file_proto_health_health_proto_msgTypes[12]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *TakeUidSnapshotRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*TakeUidSnapshotRequest) ProtoMessage() {}
+
+func (x *TakeUidSnapshotRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_health_health_proto_msgTypes[12]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use TakeUidSnapshotRequest.ProtoReflect.Descriptor instead.
+func (*TakeUidSnapshotRequest) Descriptor() ([]byte, []int) {
+	return file_proto_health_health_proto_rawDescGZIP(), []int{12}
+}
+
+func (x *TakeUidSnapshotRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type TakeUidSnapshotResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *TakeUidSnapshotResponse) Reset() {
+	*x = TakeUidSnapshotResponse{}
+	mi := &file_proto_health_health_proto_msgTypes[13]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *TakeUidSnapshotResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*TakeUidSnapshotResponse) ProtoMessage() {}
+
+func (x *TakeUidSnapshotResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_health_health_proto_msgTypes[13]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use TakeUidSnapshotResponse.ProtoReflect.Descriptor instead.
+func (*TakeUidSnapshotResponse) Descriptor() ([]byte, []int) {
+	return file_proto_health_health_proto_rawDescGZIP(), []int{13}
+}
+
+func (x *TakeUidSnapshotResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type TakeUidSnapshotsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *TakeUidSnapshotsRequest) Reset() {
+	*x = TakeUidSnapshotsRequest{}
+	mi := &file_proto_health_health_proto_msgTypes[14]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *TakeUidSnapshotsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*TakeUidSnapshotsRequest) ProtoMessage() {}
+
+func (x *TakeUidSnapshotsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_health_health_proto_msgTypes[14]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use TakeUidSnapshotsRequest.ProtoReflect.Descriptor instead.
+func (*TakeUidSnapshotsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_health_health_proto_rawDescGZIP(), []int{14}
+}
+
+func (x *TakeUidSnapshotsRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type TakeUidSnapshotsResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *TakeUidSnapshotsResponse) Reset() {
+	*x = TakeUidSnapshotsResponse{}
+	mi := &file_proto_health_health_proto_msgTypes[15]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *TakeUidSnapshotsResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*TakeUidSnapshotsResponse) ProtoMessage() {}
+
+func (x *TakeUidSnapshotsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_health_health_proto_msgTypes[15]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use TakeUidSnapshotsResponse.ProtoReflect.Descriptor instead.
+func (*TakeUidSnapshotsResponse) Descriptor() ([]byte, []int) {
+	return file_proto_health_health_proto_rawDescGZIP(), []int{15}
+}
+
+func (x *TakeUidSnapshotsResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
 }
 
 var File_proto_health_health_proto protoreflect.FileDescriptor
 
 const file_proto_health_health_proto_rawDesc = "" +
 	"\n" +
-	"\x19proto/health/health.proto\x12\x06health\")\n" +
-	"\x15GetOrCreateRawRequest\x12\x10\n" +
-	"\x03ctx\x18\x01 \x01(\x03R\x03ctx\"0\n" +
-	"\x16GetOrCreateRawResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"3\n" +
-	"\x17InsertRecordsRawRequest\x12\x18\n" +
-	"\arecords\x18\x01 \x01(\x03R\arecords\"2\n" +
-	"\x18InsertRecordsRawResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"1\n" +
-	"\x15ReadRecordsRawRequest\x12\x18\n" +
-	"\arequest\x18\x01 \x01(\x03R\arequest\"0\n" +
-	"\x16ReadRecordsRawResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"/\n" +
-	"\x13AggregateRawRequest\x12\x18\n" +
-	"\arequest\x18\x01 \x01(\x03R\arequest\".\n" +
-	"\x14AggregateRawResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"Y\n" +
-	"\x17DeleteRecordsRawRequest\x12\x1f\n" +
-	"\vrecord_type\x18\x01 \x01(\x03R\n" +
-	"recordType\x12\x1d\n" +
-	"\n" +
-	"time_range\x18\x02 \x01(\x03R\ttimeRange\"\x1a\n" +
-	"\x18DeleteRecordsRawResponse2\xab\x03\n" +
-	"\x0eManagerService\x12O\n" +
-	"\x0eGetOrCreateRaw\x12\x1d.health.GetOrCreateRawRequest\x1a\x1e.health.GetOrCreateRawResponse\x12U\n" +
-	"\x10InsertRecordsRaw\x12\x1f.health.InsertRecordsRawRequest\x1a .health.InsertRecordsRawResponse\x12O\n" +
-	"\x0eReadRecordsRaw\x12\x1d.health.ReadRecordsRawRequest\x1a\x1e.health.ReadRecordsRawResponse\x12I\n" +
-	"\fAggregateRaw\x12\x1b.health.AggregateRawRequest\x1a\x1c.health.AggregateRawResponse\x12U\n" +
-	"\x10DeleteRecordsRaw\x12\x1f.health.DeleteRecordsRawRequest\x1a .health.DeleteRecordsRawResponseB0Z.github.com/AndroidGoLab/jni-proxy/proto/healthb\x06proto3"
+	"\x19proto/health/health.proto\x12\x06health\"+\n" +
+	"\x15GetCpuHeadroomRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"0\n" +
+	"\x16GetCpuHeadroomResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x02R\x06result\"(\n" +
+	"&GetCpuHeadroomMinIntervalMillisRequest\"A\n" +
+	"'GetCpuHeadroomMinIntervalMillisResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"+\n" +
+	"\x15GetGpuHeadroomRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"0\n" +
+	"\x16GetGpuHeadroomResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x02R\x06result\"(\n" +
+	"&GetGpuHeadroomMinIntervalMillisRequest\"A\n" +
+	"'GetGpuHeadroomMinIntervalMillisResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\"\n" +
+	" GetMaxCpuHeadroomTidsSizeRequest\";\n" +
+	"!GetMaxCpuHeadroomTidsSizeResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"\x1a\n" +
+	"\x18TakeMyUidSnapshotRequest\"3\n" +
+	"\x19TakeMyUidSnapshotResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\",\n" +
+	"\x16TakeUidSnapshotRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\"1\n" +
+	"\x17TakeUidSnapshotResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"-\n" +
+	"\x17TakeUidSnapshotsRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"2\n" +
+	"\x18TakeUidSnapshotsResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result2\xbf\x06\n" +
+	"\x1aSystemHealthManagerService\x12O\n" +
+	"\x0eGetCpuHeadroom\x12\x1d.health.GetCpuHeadroomRequest\x1a\x1e.health.GetCpuHeadroomResponse\x12\x82\x01\n" +
+	"\x1fGetCpuHeadroomMinIntervalMillis\x12..health.GetCpuHeadroomMinIntervalMillisRequest\x1a/.health.GetCpuHeadroomMinIntervalMillisResponse\x12O\n" +
+	"\x0eGetGpuHeadroom\x12\x1d.health.GetGpuHeadroomRequest\x1a\x1e.health.GetGpuHeadroomResponse\x12\x82\x01\n" +
+	"\x1fGetGpuHeadroomMinIntervalMillis\x12..health.GetGpuHeadroomMinIntervalMillisRequest\x1a/.health.GetGpuHeadroomMinIntervalMillisResponse\x12p\n" +
+	"\x19GetMaxCpuHeadroomTidsSize\x12(.health.GetMaxCpuHeadroomTidsSizeRequest\x1a).health.GetMaxCpuHeadroomTidsSizeResponse\x12X\n" +
+	"\x11TakeMyUidSnapshot\x12 .health.TakeMyUidSnapshotRequest\x1a!.health.TakeMyUidSnapshotResponse\x12R\n" +
+	"\x0fTakeUidSnapshot\x12\x1e.health.TakeUidSnapshotRequest\x1a\x1f.health.TakeUidSnapshotResponse\x12U\n" +
+	"\x10TakeUidSnapshots\x12\x1f.health.TakeUidSnapshotsRequest\x1a .health.TakeUidSnapshotsResponseB0Z.github.com/AndroidGoLab/jni-proxy/proto/healthb\x06proto3"
 
 var (
 	file_proto_health_health_proto_rawDescOnce sync.Once
@@ -509,35 +750,47 @@ func file_proto_health_health_proto_rawDescGZIP() []byte {
 	return file_proto_health_health_proto_rawDescData
 }
 
-var file_proto_health_health_proto_msgTypes = make([]protoimpl.MessageInfo, 10)
+var file_proto_health_health_proto_msgTypes = make([]protoimpl.MessageInfo, 16)
 var file_proto_health_health_proto_goTypes = []any{
-	(*GetOrCreateRawRequest)(nil),    // 0: health.GetOrCreateRawRequest
-	(*GetOrCreateRawResponse)(nil),   // 1: health.GetOrCreateRawResponse
-	(*InsertRecordsRawRequest)(nil),  // 2: health.InsertRecordsRawRequest
-	(*InsertRecordsRawResponse)(nil), // 3: health.InsertRecordsRawResponse
-	(*ReadRecordsRawRequest)(nil),    // 4: health.ReadRecordsRawRequest
-	(*ReadRecordsRawResponse)(nil),   // 5: health.ReadRecordsRawResponse
-	(*AggregateRawRequest)(nil),      // 6: health.AggregateRawRequest
-	(*AggregateRawResponse)(nil),     // 7: health.AggregateRawResponse
-	(*DeleteRecordsRawRequest)(nil),  // 8: health.DeleteRecordsRawRequest
-	(*DeleteRecordsRawResponse)(nil), // 9: health.DeleteRecordsRawResponse
+	(*GetCpuHeadroomRequest)(nil),                   // 0: health.GetCpuHeadroomRequest
+	(*GetCpuHeadroomResponse)(nil),                  // 1: health.GetCpuHeadroomResponse
+	(*GetCpuHeadroomMinIntervalMillisRequest)(nil),  // 2: health.GetCpuHeadroomMinIntervalMillisRequest
+	(*GetCpuHeadroomMinIntervalMillisResponse)(nil), // 3: health.GetCpuHeadroomMinIntervalMillisResponse
+	(*GetGpuHeadroomRequest)(nil),                   // 4: health.GetGpuHeadroomRequest
+	(*GetGpuHeadroomResponse)(nil),                  // 5: health.GetGpuHeadroomResponse
+	(*GetGpuHeadroomMinIntervalMillisRequest)(nil),  // 6: health.GetGpuHeadroomMinIntervalMillisRequest
+	(*GetGpuHeadroomMinIntervalMillisResponse)(nil), // 7: health.GetGpuHeadroomMinIntervalMillisResponse
+	(*GetMaxCpuHeadroomTidsSizeRequest)(nil),        // 8: health.GetMaxCpuHeadroomTidsSizeRequest
+	(*GetMaxCpuHeadroomTidsSizeResponse)(nil),       // 9: health.GetMaxCpuHeadroomTidsSizeResponse
+	(*TakeMyUidSnapshotRequest)(nil),                // 10: health.TakeMyUidSnapshotRequest
+	(*TakeMyUidSnapshotResponse)(nil),               // 11: health.TakeMyUidSnapshotResponse
+	(*TakeUidSnapshotRequest)(nil),                  // 12: health.TakeUidSnapshotRequest
+	(*TakeUidSnapshotResponse)(nil),                 // 13: health.TakeUidSnapshotResponse
+	(*TakeUidSnapshotsRequest)(nil),                 // 14: health.TakeUidSnapshotsRequest
+	(*TakeUidSnapshotsResponse)(nil),                // 15: health.TakeUidSnapshotsResponse
 }
 var file_proto_health_health_proto_depIdxs = []int32{
-	0, // 0: health.ManagerService.GetOrCreateRaw:input_type -> health.GetOrCreateRawRequest
-	2, // 1: health.ManagerService.InsertRecordsRaw:input_type -> health.InsertRecordsRawRequest
-	4, // 2: health.ManagerService.ReadRecordsRaw:input_type -> health.ReadRecordsRawRequest
-	6, // 3: health.ManagerService.AggregateRaw:input_type -> health.AggregateRawRequest
-	8, // 4: health.ManagerService.DeleteRecordsRaw:input_type -> health.DeleteRecordsRawRequest
-	1, // 5: health.ManagerService.GetOrCreateRaw:output_type -> health.GetOrCreateRawResponse
-	3, // 6: health.ManagerService.InsertRecordsRaw:output_type -> health.InsertRecordsRawResponse
-	5, // 7: health.ManagerService.ReadRecordsRaw:output_type -> health.ReadRecordsRawResponse
-	7, // 8: health.ManagerService.AggregateRaw:output_type -> health.AggregateRawResponse
-	9, // 9: health.ManagerService.DeleteRecordsRaw:output_type -> health.DeleteRecordsRawResponse
-	5, // [5:10] is the sub-list for method output_type
-	0, // [0:5] is the sub-list for method input_type
-	0, // [0:0] is the sub-list for extension type_name
-	0, // [0:0] is the sub-list for extension extendee
-	0, // [0:0] is the sub-list for field type_name
+	0,  // 0: health.SystemHealthManagerService.GetCpuHeadroom:input_type -> health.GetCpuHeadroomRequest
+	2,  // 1: health.SystemHealthManagerService.GetCpuHeadroomMinIntervalMillis:input_type -> health.GetCpuHeadroomMinIntervalMillisRequest
+	4,  // 2: health.SystemHealthManagerService.GetGpuHeadroom:input_type -> health.GetGpuHeadroomRequest
+	6,  // 3: health.SystemHealthManagerService.GetGpuHeadroomMinIntervalMillis:input_type -> health.GetGpuHeadroomMinIntervalMillisRequest
+	8,  // 4: health.SystemHealthManagerService.GetMaxCpuHeadroomTidsSize:input_type -> health.GetMaxCpuHeadroomTidsSizeRequest
+	10, // 5: health.SystemHealthManagerService.TakeMyUidSnapshot:input_type -> health.TakeMyUidSnapshotRequest
+	12, // 6: health.SystemHealthManagerService.TakeUidSnapshot:input_type -> health.TakeUidSnapshotRequest
+	14, // 7: health.SystemHealthManagerService.TakeUidSnapshots:input_type -> health.TakeUidSnapshotsRequest
+	1,  // 8: health.SystemHealthManagerService.GetCpuHeadroom:output_type -> health.GetCpuHeadroomResponse
+	3,  // 9: health.SystemHealthManagerService.GetCpuHeadroomMinIntervalMillis:output_type -> health.GetCpuHeadroomMinIntervalMillisResponse
+	5,  // 10: health.SystemHealthManagerService.GetGpuHeadroom:output_type -> health.GetGpuHeadroomResponse
+	7,  // 11: health.SystemHealthManagerService.GetGpuHeadroomMinIntervalMillis:output_type -> health.GetGpuHeadroomMinIntervalMillisResponse
+	9,  // 12: health.SystemHealthManagerService.GetMaxCpuHeadroomTidsSize:output_type -> health.GetMaxCpuHeadroomTidsSizeResponse
+	11, // 13: health.SystemHealthManagerService.TakeMyUidSnapshot:output_type -> health.TakeMyUidSnapshotResponse
+	13, // 14: health.SystemHealthManagerService.TakeUidSnapshot:output_type -> health.TakeUidSnapshotResponse
+	15, // 15: health.SystemHealthManagerService.TakeUidSnapshots:output_type -> health.TakeUidSnapshotsResponse
+	8,  // [8:16] is the sub-list for method output_type
+	0,  // [0:8] is the sub-list for method input_type
+	0,  // [0:0] is the sub-list for extension type_name
+	0,  // [0:0] is the sub-list for extension extendee
+	0,  // [0:0] is the sub-list for field type_name
 }
 
 func init() { file_proto_health_health_proto_init() }
@@ -551,7 +804,7 @@ func file_proto_health_health_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_proto_health_health_proto_rawDesc), len(file_proto_health_health_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   10,
+			NumMessages:   16,
 			NumExtensions: 0,
 			NumServices:   1,
 		},

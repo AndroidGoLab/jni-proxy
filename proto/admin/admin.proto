@@ -211,29 +211,6 @@ message GetAccountTypesWithManagementDisabledResponse {
   int64 result = 1;
 }
 
-message GetActiveAdminsRequest {
-}
-
-message GetActiveAdminsResponse {
-  int64 result = 1;
-}
-
-message GetAffiliationIdsRequest {
-  int64 arg0 = 1;
-}
-
-message GetAffiliationIdsResponse {
-  int64 result = 1;
-}
-
-message GetAlwaysOnVpnLockdownWhitelistRequest {
-  int64 arg0 = 1;
-}
-
-message GetAlwaysOnVpnLockdownWhitelistResponse {
-  int64 result = 1;
-}
-
 message GetAlwaysOnVpnPackageRequest {
   int64 arg0 = 1;
 }
@@ -303,14 +280,6 @@ message GetAutoTimeZonePolicyResponse {
   int32 result = 1;
 }
 
-message GetBindDeviceAdminTargetUsersRequest {
-  int64 arg0 = 1;
-}
-
-message GetBindDeviceAdminTargetUsersResponse {
-  int64 result = 1;
-}
-
 message GetBluetoothContactSharingDisabledRequest {
   int64 arg0 = 1;
 }
@@ -350,14 +319,6 @@ message GetCredentialManagerPolicyResponse {
   int64 result = 1;
 }
 
-message GetCrossProfileCalendarPackagesRequest {
-  int64 arg0 = 1;
-}
-
-message GetCrossProfileCalendarPackagesResponse {
-  int64 result = 1;
-}
-
 message GetCrossProfileCallerIdDisabledRequest {
   int64 arg0 = 1;
 }
@@ -374,45 +335,11 @@ message GetCrossProfileContactsSearchDisabledResponse {
   bool result = 1;
 }
 
-message GetCrossProfilePackagesRequest {
-  int64 arg0 = 1;
-}
-
-message GetCrossProfilePackagesResponse {
-  int64 result = 1;
-}
-
-message GetCrossProfileWidgetProvidersRequest {
-  int64 arg0 = 1;
-}
-
-message GetCrossProfileWidgetProvidersResponse {
-  int64 result = 1;
-}
-
 message GetCurrentFailedPasswordAttemptsRequest {
 }
 
 message GetCurrentFailedPasswordAttemptsResponse {
   int32 result = 1;
-}
-
-message GetDelegatePackagesRequest {
-  int64 arg0 = 1;
-  string arg1 = 2;
-}
-
-message GetDelegatePackagesResponse {
-  int64 result = 1;
-}
-
-message GetDelegatedScopesRequest {
-  int64 arg0 = 1;
-  string arg1 = 2;
-}
-
-message GetDelegatedScopesResponse {
-  int64 result = 1;
 }
 
 message GetDeviceOwnerLockScreenInfoRequest {
@@ -466,22 +393,6 @@ message GetGlobalPrivateDnsModeRequest {
 
 message GetGlobalPrivateDnsModeResponse {
   int32 result = 1;
-}
-
-message GetInstalledCaCertsRequest {
-  int64 arg0 = 1;
-}
-
-message GetInstalledCaCertsResponse {
-  int64 result = 1;
-}
-
-message GetKeepUninstalledPackagesRequest {
-  int64 arg0 = 1;
-}
-
-message GetKeepUninstalledPackagesResponse {
-  int64 result = 1;
 }
 
 message GetKeyguardDisabledFeaturesRequest {
@@ -561,14 +472,6 @@ message GetMaximumTimeToLockResponse {
   int64 result = 1;
 }
 
-message GetMeteredDataDisabledPackagesRequest {
-  int64 arg0 = 1;
-}
-
-message GetMeteredDataDisabledPackagesResponse {
-  int64 result = 1;
-}
-
 message GetMinimumRequiredWifiSecurityLevelRequest {
 }
 
@@ -610,14 +513,6 @@ message GetOrganizationNameRequest {
 }
 
 message GetOrganizationNameResponse {
-  int64 result = 1;
-}
-
-message GetOverrideApnsRequest {
-  int64 arg0 = 1;
-}
-
-message GetOverrideApnsResponse {
   int64 result = 1;
 }
 
@@ -758,43 +653,12 @@ message GetPermissionPolicyResponse {
   int32 result = 1;
 }
 
-message GetPermittedAccessibilityServicesRequest {
-  int64 arg0 = 1;
-}
-
-message GetPermittedAccessibilityServicesResponse {
-  int64 result = 1;
-}
-
-message GetPermittedCrossProfileNotificationListenersRequest {
-  int64 arg0 = 1;
-}
-
-message GetPermittedCrossProfileNotificationListenersResponse {
-  int64 result = 1;
-}
-
-message GetPermittedInputMethodsRequest {
-  int64 arg0 = 1;
-}
-
-message GetPermittedInputMethodsResponse {
-  int64 result = 1;
-}
-
 message GetPersonalAppsSuspendedReasonsRequest {
   int64 arg0 = 1;
 }
 
 message GetPersonalAppsSuspendedReasonsResponse {
   int32 result = 1;
-}
-
-message GetPreferentialNetworkServiceConfigsRequest {
-}
-
-message GetPreferentialNetworkServiceConfigsResponse {
-  int64 result = 1;
 }
 
 message GetRequiredPasswordComplexityRequest {
@@ -825,14 +689,6 @@ message GetScreenCaptureDisabledRequest {
 
 message GetScreenCaptureDisabledResponse {
   bool result = 1;
-}
-
-message GetSecondaryUsersRequest {
-  int64 arg0 = 1;
-}
-
-message GetSecondaryUsersResponse {
-  int64 result = 1;
 }
 
 message GetShortSupportMessageRequest {
@@ -866,13 +722,6 @@ message GetStorageEncryptionStatusResponse {
   int32 result = 1;
 }
 
-message GetSubscriptionIdsRequest {
-}
-
-message GetSubscriptionIdsResponse {
-  int64 result = 1;
-}
-
 message GetSystemUpdatePolicyRequest {
 }
 
@@ -884,23 +733,6 @@ message GetTransferOwnershipBundleRequest {
 }
 
 message GetTransferOwnershipBundleResponse {
-  int64 result = 1;
-}
-
-message GetTrustAgentConfigurationRequest {
-  int64 arg0 = 1;
-  int64 arg1 = 2;
-}
-
-message GetTrustAgentConfigurationResponse {
-  int64 result = 1;
-}
-
-message GetUserControlDisabledPackagesRequest {
-  int64 arg0 = 1;
-}
-
-message GetUserControlDisabledPackagesResponse {
   int64 result = 1;
 }
 
@@ -1311,13 +1143,6 @@ message IsUsingUnifiedPasswordResponse {
   bool result = 1;
 }
 
-message ListForegroundAffiliatedUsersRequest {
-}
-
-message ListForegroundAffiliatedUsersResponse {
-  int64 result = 1;
-}
-
 message LockNow0Request {
 }
 
@@ -1417,31 +1242,6 @@ message ResetPasswordWithTokenResponse {
   bool result = 1;
 }
 
-message RetrieveNetworkLogsRequest {
-  int64 arg0 = 1;
-  int64 arg1 = 2;
-}
-
-message RetrieveNetworkLogsResponse {
-  int64 result = 1;
-}
-
-message RetrievePreRebootSecurityLogsRequest {
-  int64 arg0 = 1;
-}
-
-message RetrievePreRebootSecurityLogsResponse {
-  int64 result = 1;
-}
-
-message RetrieveSecurityLogsRequest {
-  int64 arg0 = 1;
-}
-
-message RetrieveSecurityLogsResponse {
-  int64 result = 1;
-}
-
 message RevokeKeyPairFromAppRequest {
   int64 arg0 = 1;
   string arg1 = 2;
@@ -1469,31 +1269,13 @@ message SetAccountManagementDisabledRequest {
 message SetAccountManagementDisabledResponse {
 }
 
-message SetAffiliationIdsRequest {
-  int64 arg0 = 1;
-  int64 arg1 = 2;
-}
-
-message SetAffiliationIdsResponse {
-}
-
-message SetAlwaysOnVpnPackage3Request {
+message SetAlwaysOnVpnPackageRequest {
   int64 arg0 = 1;
   string arg1 = 2;
   bool arg2 = 3;
 }
 
-message SetAlwaysOnVpnPackage3Response {
-}
-
-message SetAlwaysOnVpnPackage4_1Request {
-  int64 arg0 = 1;
-  string arg1 = 2;
-  bool arg2 = 3;
-  int64 arg3 = 4;
-}
-
-message SetAlwaysOnVpnPackage4_1Response {
+message SetAlwaysOnVpnPackageResponse {
 }
 
 message SetAppFunctionsPolicyRequest {
@@ -1631,14 +1413,6 @@ message SetCredentialManagerPolicyRequest {
 message SetCredentialManagerPolicyResponse {
 }
 
-message SetCrossProfileCalendarPackagesRequest {
-  int64 arg0 = 1;
-  int64 arg1 = 2;
-}
-
-message SetCrossProfileCalendarPackagesResponse {
-}
-
 message SetCrossProfileCallerIdDisabledRequest {
   int64 arg0 = 1;
   bool arg1 = 2;
@@ -1655,14 +1429,6 @@ message SetCrossProfileContactsSearchDisabledRequest {
 message SetCrossProfileContactsSearchDisabledResponse {
 }
 
-message SetCrossProfilePackagesRequest {
-  int64 arg0 = 1;
-  int64 arg1 = 2;
-}
-
-message SetCrossProfilePackagesResponse {
-}
-
 message SetDefaultDialerApplicationRequest {
   string arg0 = 1;
 }
@@ -1676,15 +1442,6 @@ message SetDefaultSmsApplicationRequest {
 }
 
 message SetDefaultSmsApplicationResponse {
-}
-
-message SetDelegatedScopesRequest {
-  int64 arg0 = 1;
-  string arg1 = 2;
-  int64 arg2 = 3;
-}
-
-message SetDelegatedScopesResponse {
 }
 
 message SetDeviceOwnerLockScreenInfoRequest {
@@ -1735,25 +1492,6 @@ message SetGlobalSettingRequest {
 }
 
 message SetGlobalSettingResponse {
-}
-
-message SetKeepUninstalledPackagesRequest {
-  int64 arg0 = 1;
-  int64 arg1 = 2;
-}
-
-message SetKeepUninstalledPackagesResponse {
-}
-
-message SetKeyPairCertificateRequest {
-  int64 arg0 = 1;
-  string arg1 = 2;
-  int64 arg2 = 3;
-  bool arg3 = 4;
-}
-
-message SetKeyPairCertificateResponse {
-  bool result = 1;
 }
 
 message SetKeyguardDisabledRequest {
@@ -1864,15 +1602,6 @@ message SetMaximumTimeToLockRequest {
 }
 
 message SetMaximumTimeToLockResponse {
-}
-
-message SetMeteredDataDisabledPackagesRequest {
-  int64 arg0 = 1;
-  int64 arg1 = 2;
-}
-
-message SetMeteredDataDisabledPackagesResponse {
-  int64 result = 1;
 }
 
 message SetMinimumRequiredWifiSecurityLevelRequest {
@@ -2051,46 +1780,12 @@ message SetPermissionPolicyRequest {
 message SetPermissionPolicyResponse {
 }
 
-message SetPermittedAccessibilityServicesRequest {
-  int64 arg0 = 1;
-  int64 arg1 = 2;
-}
-
-message SetPermittedAccessibilityServicesResponse {
-  bool result = 1;
-}
-
-message SetPermittedCrossProfileNotificationListenersRequest {
-  int64 arg0 = 1;
-  int64 arg1 = 2;
-}
-
-message SetPermittedCrossProfileNotificationListenersResponse {
-  bool result = 1;
-}
-
-message SetPermittedInputMethodsRequest {
-  int64 arg0 = 1;
-  int64 arg1 = 2;
-}
-
-message SetPermittedInputMethodsResponse {
-  bool result = 1;
-}
-
 message SetPersonalAppsSuspendedRequest {
   int64 arg0 = 1;
   bool arg1 = 2;
 }
 
 message SetPersonalAppsSuspendedResponse {
-}
-
-message SetPreferentialNetworkServiceConfigsRequest {
-  int64 arg0 = 1;
-}
-
-message SetPreferentialNetworkServiceConfigsResponse {
 }
 
 message SetPreferentialNetworkServiceEnabledRequest {
@@ -2274,14 +1969,6 @@ message SetUsbDataSignalingEnabledRequest {
 message SetUsbDataSignalingEnabledResponse {
 }
 
-message SetUserControlDisabledPackagesRequest {
-  int64 arg0 = 1;
-  int64 arg1 = 2;
-}
-
-message SetUserControlDisabledPackagesResponse {
-}
-
 message SetUserIconRequest {
   int64 arg0 = 1;
   int64 arg1 = 2;
@@ -2412,9 +2099,6 @@ service DevicePolicyManagerService {
   rpc EnableSystemApp2_1 (EnableSystemApp2_1Request) returns (EnableSystemApp2_1Response);
   rpc GenerateKeyPair (GenerateKeyPairRequest) returns (GenerateKeyPairResponse);
   rpc GetAccountTypesWithManagementDisabled (GetAccountTypesWithManagementDisabledRequest) returns (GetAccountTypesWithManagementDisabledResponse);
-  rpc GetActiveAdmins (GetActiveAdminsRequest) returns (GetActiveAdminsResponse);
-  rpc GetAffiliationIds (GetAffiliationIdsRequest) returns (GetAffiliationIdsResponse);
-  rpc GetAlwaysOnVpnLockdownWhitelist (GetAlwaysOnVpnLockdownWhitelistRequest) returns (GetAlwaysOnVpnLockdownWhitelistResponse);
   rpc GetAlwaysOnVpnPackage (GetAlwaysOnVpnPackageRequest) returns (GetAlwaysOnVpnPackageResponse);
   rpc GetAppFunctionsPolicy (GetAppFunctionsPolicyRequest) returns (GetAppFunctionsPolicyResponse);
   rpc GetApplicationRestrictions (GetApplicationRestrictionsRequest) returns (GetApplicationRestrictionsResponse);
@@ -2424,20 +2108,14 @@ service DevicePolicyManagerService {
   rpc GetAutoTimeRequired (GetAutoTimeRequiredRequest) returns (GetAutoTimeRequiredResponse);
   rpc GetAutoTimeZoneEnabled (GetAutoTimeZoneEnabledRequest) returns (GetAutoTimeZoneEnabledResponse);
   rpc GetAutoTimeZonePolicy (GetAutoTimeZonePolicyRequest) returns (GetAutoTimeZonePolicyResponse);
-  rpc GetBindDeviceAdminTargetUsers (GetBindDeviceAdminTargetUsersRequest) returns (GetBindDeviceAdminTargetUsersResponse);
   rpc GetBluetoothContactSharingDisabled (GetBluetoothContactSharingDisabledRequest) returns (GetBluetoothContactSharingDisabledResponse);
   rpc GetCameraDisabled (GetCameraDisabledRequest) returns (GetCameraDisabledResponse);
   rpc GetCertInstallerPackage (GetCertInstallerPackageRequest) returns (GetCertInstallerPackageResponse);
   rpc GetContentProtectionPolicy (GetContentProtectionPolicyRequest) returns (GetContentProtectionPolicyResponse);
   rpc GetCredentialManagerPolicy (GetCredentialManagerPolicyRequest) returns (GetCredentialManagerPolicyResponse);
-  rpc GetCrossProfileCalendarPackages (GetCrossProfileCalendarPackagesRequest) returns (GetCrossProfileCalendarPackagesResponse);
   rpc GetCrossProfileCallerIdDisabled (GetCrossProfileCallerIdDisabledRequest) returns (GetCrossProfileCallerIdDisabledResponse);
   rpc GetCrossProfileContactsSearchDisabled (GetCrossProfileContactsSearchDisabledRequest) returns (GetCrossProfileContactsSearchDisabledResponse);
-  rpc GetCrossProfilePackages (GetCrossProfilePackagesRequest) returns (GetCrossProfilePackagesResponse);
-  rpc GetCrossProfileWidgetProviders (GetCrossProfileWidgetProvidersRequest) returns (GetCrossProfileWidgetProvidersResponse);
   rpc GetCurrentFailedPasswordAttempts (GetCurrentFailedPasswordAttemptsRequest) returns (GetCurrentFailedPasswordAttemptsResponse);
-  rpc GetDelegatePackages (GetDelegatePackagesRequest) returns (GetDelegatePackagesResponse);
-  rpc GetDelegatedScopes (GetDelegatedScopesRequest) returns (GetDelegatedScopesResponse);
   rpc GetDeviceOwnerLockScreenInfo (GetDeviceOwnerLockScreenInfoRequest) returns (GetDeviceOwnerLockScreenInfoResponse);
   rpc GetDevicePolicyManagementRoleHolderPackage (GetDevicePolicyManagementRoleHolderPackageRequest) returns (GetDevicePolicyManagementRoleHolderPackageResponse);
   rpc GetEndUserSessionMessage (GetEndUserSessionMessageRequest) returns (GetEndUserSessionMessageResponse);
@@ -2445,8 +2123,6 @@ service DevicePolicyManagerService {
   rpc GetFactoryResetProtectionPolicy (GetFactoryResetProtectionPolicyRequest) returns (GetFactoryResetProtectionPolicyResponse);
   rpc GetGlobalPrivateDnsHost (GetGlobalPrivateDnsHostRequest) returns (GetGlobalPrivateDnsHostResponse);
   rpc GetGlobalPrivateDnsMode (GetGlobalPrivateDnsModeRequest) returns (GetGlobalPrivateDnsModeResponse);
-  rpc GetInstalledCaCerts (GetInstalledCaCertsRequest) returns (GetInstalledCaCertsResponse);
-  rpc GetKeepUninstalledPackages (GetKeepUninstalledPackagesRequest) returns (GetKeepUninstalledPackagesResponse);
   rpc GetKeyguardDisabledFeatures (GetKeyguardDisabledFeaturesRequest) returns (GetKeyguardDisabledFeaturesResponse);
   rpc GetLockTaskFeatures (GetLockTaskFeaturesRequest) returns (GetLockTaskFeaturesResponse);
   rpc GetLockTaskPackages (GetLockTaskPackagesRequest) returns (GetLockTaskPackagesResponse);
@@ -2457,14 +2133,12 @@ service DevicePolicyManagerService {
   rpc GetManagedSubscriptionsPolicy (GetManagedSubscriptionsPolicyRequest) returns (GetManagedSubscriptionsPolicyResponse);
   rpc GetMaximumFailedPasswordsForWipe (GetMaximumFailedPasswordsForWipeRequest) returns (GetMaximumFailedPasswordsForWipeResponse);
   rpc GetMaximumTimeToLock (GetMaximumTimeToLockRequest) returns (GetMaximumTimeToLockResponse);
-  rpc GetMeteredDataDisabledPackages (GetMeteredDataDisabledPackagesRequest) returns (GetMeteredDataDisabledPackagesResponse);
   rpc GetMinimumRequiredWifiSecurityLevel (GetMinimumRequiredWifiSecurityLevelRequest) returns (GetMinimumRequiredWifiSecurityLevelResponse);
   rpc GetMtePolicy (GetMtePolicyRequest) returns (GetMtePolicyResponse);
   rpc GetNearbyAppStreamingPolicy (GetNearbyAppStreamingPolicyRequest) returns (GetNearbyAppStreamingPolicyResponse);
   rpc GetNearbyNotificationStreamingPolicy (GetNearbyNotificationStreamingPolicyRequest) returns (GetNearbyNotificationStreamingPolicyResponse);
   rpc GetOrganizationColor (GetOrganizationColorRequest) returns (GetOrganizationColorResponse);
   rpc GetOrganizationName (GetOrganizationNameRequest) returns (GetOrganizationNameResponse);
-  rpc GetOverrideApns (GetOverrideApnsRequest) returns (GetOverrideApnsResponse);
   rpc GetParentProfileInstance (GetParentProfileInstanceRequest) returns (GetParentProfileInstanceResponse);
   rpc GetPasswordComplexity (GetPasswordComplexityRequest) returns (GetPasswordComplexityResponse);
   rpc GetPasswordExpiration (GetPasswordExpirationRequest) returns (GetPasswordExpirationResponse);
@@ -2482,25 +2156,17 @@ service DevicePolicyManagerService {
   rpc GetPendingSystemUpdate (GetPendingSystemUpdateRequest) returns (GetPendingSystemUpdateResponse);
   rpc GetPermissionGrantState (GetPermissionGrantStateRequest) returns (GetPermissionGrantStateResponse);
   rpc GetPermissionPolicy (GetPermissionPolicyRequest) returns (GetPermissionPolicyResponse);
-  rpc GetPermittedAccessibilityServices (GetPermittedAccessibilityServicesRequest) returns (GetPermittedAccessibilityServicesResponse);
-  rpc GetPermittedCrossProfileNotificationListeners (GetPermittedCrossProfileNotificationListenersRequest) returns (GetPermittedCrossProfileNotificationListenersResponse);
-  rpc GetPermittedInputMethods (GetPermittedInputMethodsRequest) returns (GetPermittedInputMethodsResponse);
   rpc GetPersonalAppsSuspendedReasons (GetPersonalAppsSuspendedReasonsRequest) returns (GetPersonalAppsSuspendedReasonsResponse);
-  rpc GetPreferentialNetworkServiceConfigs (GetPreferentialNetworkServiceConfigsRequest) returns (GetPreferentialNetworkServiceConfigsResponse);
   rpc GetRequiredPasswordComplexity (GetRequiredPasswordComplexityRequest) returns (GetRequiredPasswordComplexityResponse);
   rpc GetRequiredStrongAuthTimeout (GetRequiredStrongAuthTimeoutRequest) returns (GetRequiredStrongAuthTimeoutResponse);
   rpc GetResources (GetResourcesRequest) returns (GetResourcesResponse);
   rpc GetScreenCaptureDisabled (GetScreenCaptureDisabledRequest) returns (GetScreenCaptureDisabledResponse);
-  rpc GetSecondaryUsers (GetSecondaryUsersRequest) returns (GetSecondaryUsersResponse);
   rpc GetShortSupportMessage (GetShortSupportMessageRequest) returns (GetShortSupportMessageResponse);
   rpc GetStartUserSessionMessage (GetStartUserSessionMessageRequest) returns (GetStartUserSessionMessageResponse);
   rpc GetStorageEncryption (GetStorageEncryptionRequest) returns (GetStorageEncryptionResponse);
   rpc GetStorageEncryptionStatus (GetStorageEncryptionStatusRequest) returns (GetStorageEncryptionStatusResponse);
-  rpc GetSubscriptionIds (GetSubscriptionIdsRequest) returns (GetSubscriptionIdsResponse);
   rpc GetSystemUpdatePolicy (GetSystemUpdatePolicyRequest) returns (GetSystemUpdatePolicyResponse);
   rpc GetTransferOwnershipBundle (GetTransferOwnershipBundleRequest) returns (GetTransferOwnershipBundleResponse);
-  rpc GetTrustAgentConfiguration (GetTrustAgentConfigurationRequest) returns (GetTrustAgentConfigurationResponse);
-  rpc GetUserControlDisabledPackages (GetUserControlDisabledPackagesRequest) returns (GetUserControlDisabledPackagesResponse);
   rpc GetUserRestrictions (GetUserRestrictionsRequest) returns (GetUserRestrictionsResponse);
   rpc GetUserRestrictionsGlobally (GetUserRestrictionsGloballyRequest) returns (GetUserRestrictionsGloballyResponse);
   rpc GetWifiMacAddress (GetWifiMacAddressRequest) returns (GetWifiMacAddressResponse);
@@ -2551,7 +2217,6 @@ service DevicePolicyManagerService {
   rpc IsUniqueDeviceAttestationSupported (IsUniqueDeviceAttestationSupportedRequest) returns (IsUniqueDeviceAttestationSupportedResponse);
   rpc IsUsbDataSignalingEnabled (IsUsbDataSignalingEnabledRequest) returns (IsUsbDataSignalingEnabledResponse);
   rpc IsUsingUnifiedPassword (IsUsingUnifiedPasswordRequest) returns (IsUsingUnifiedPasswordResponse);
-  rpc ListForegroundAffiliatedUsers (ListForegroundAffiliatedUsersRequest) returns (ListForegroundAffiliatedUsersResponse);
   rpc LockNow0 (LockNow0Request) returns (LockNow0Response);
   rpc LockNow1_1 (LockNow1_1Request) returns (LockNow1_1Response);
   rpc LogoutUser (LogoutUserRequest) returns (LogoutUserResponse);
@@ -2564,15 +2229,10 @@ service DevicePolicyManagerService {
   rpc RequestBugreport (RequestBugreportRequest) returns (RequestBugreportResponse);
   rpc ResetPassword (ResetPasswordRequest) returns (ResetPasswordResponse);
   rpc ResetPasswordWithToken (ResetPasswordWithTokenRequest) returns (ResetPasswordWithTokenResponse);
-  rpc RetrieveNetworkLogs (RetrieveNetworkLogsRequest) returns (RetrieveNetworkLogsResponse);
-  rpc RetrievePreRebootSecurityLogs (RetrievePreRebootSecurityLogsRequest) returns (RetrievePreRebootSecurityLogsResponse);
-  rpc RetrieveSecurityLogs (RetrieveSecurityLogsRequest) returns (RetrieveSecurityLogsResponse);
   rpc RevokeKeyPairFromApp (RevokeKeyPairFromAppRequest) returns (RevokeKeyPairFromAppResponse);
   rpc RevokeKeyPairFromWifiAuth (RevokeKeyPairFromWifiAuthRequest) returns (RevokeKeyPairFromWifiAuthResponse);
   rpc SetAccountManagementDisabled (SetAccountManagementDisabledRequest) returns (SetAccountManagementDisabledResponse);
-  rpc SetAffiliationIds (SetAffiliationIdsRequest) returns (SetAffiliationIdsResponse);
-  rpc SetAlwaysOnVpnPackage3 (SetAlwaysOnVpnPackage3Request) returns (SetAlwaysOnVpnPackage3Response);
-  rpc SetAlwaysOnVpnPackage4_1 (SetAlwaysOnVpnPackage4_1Request) returns (SetAlwaysOnVpnPackage4_1Response);
+  rpc SetAlwaysOnVpnPackage (SetAlwaysOnVpnPackageRequest) returns (SetAlwaysOnVpnPackageResponse);
   rpc SetAppFunctionsPolicy (SetAppFunctionsPolicyRequest) returns (SetAppFunctionsPolicyResponse);
   rpc SetApplicationHidden (SetApplicationHiddenRequest) returns (SetApplicationHiddenResponse);
   rpc SetApplicationRestrictions (SetApplicationRestrictionsRequest) returns (SetApplicationRestrictionsResponse);
@@ -2590,21 +2250,16 @@ service DevicePolicyManagerService {
   rpc SetConfiguredNetworksLockdownState (SetConfiguredNetworksLockdownStateRequest) returns (SetConfiguredNetworksLockdownStateResponse);
   rpc SetContentProtectionPolicy (SetContentProtectionPolicyRequest) returns (SetContentProtectionPolicyResponse);
   rpc SetCredentialManagerPolicy (SetCredentialManagerPolicyRequest) returns (SetCredentialManagerPolicyResponse);
-  rpc SetCrossProfileCalendarPackages (SetCrossProfileCalendarPackagesRequest) returns (SetCrossProfileCalendarPackagesResponse);
   rpc SetCrossProfileCallerIdDisabled (SetCrossProfileCallerIdDisabledRequest) returns (SetCrossProfileCallerIdDisabledResponse);
   rpc SetCrossProfileContactsSearchDisabled (SetCrossProfileContactsSearchDisabledRequest) returns (SetCrossProfileContactsSearchDisabledResponse);
-  rpc SetCrossProfilePackages (SetCrossProfilePackagesRequest) returns (SetCrossProfilePackagesResponse);
   rpc SetDefaultDialerApplication (SetDefaultDialerApplicationRequest) returns (SetDefaultDialerApplicationResponse);
   rpc SetDefaultSmsApplication (SetDefaultSmsApplicationRequest) returns (SetDefaultSmsApplicationResponse);
-  rpc SetDelegatedScopes (SetDelegatedScopesRequest) returns (SetDelegatedScopesResponse);
   rpc SetDeviceOwnerLockScreenInfo (SetDeviceOwnerLockScreenInfoRequest) returns (SetDeviceOwnerLockScreenInfoResponse);
   rpc SetEndUserSessionMessage (SetEndUserSessionMessageRequest) returns (SetEndUserSessionMessageResponse);
   rpc SetFactoryResetProtectionPolicy (SetFactoryResetProtectionPolicyRequest) returns (SetFactoryResetProtectionPolicyResponse);
   rpc SetGlobalPrivateDnsModeOpportunistic (SetGlobalPrivateDnsModeOpportunisticRequest) returns (SetGlobalPrivateDnsModeOpportunisticResponse);
   rpc SetGlobalPrivateDnsModeSpecifiedHost (SetGlobalPrivateDnsModeSpecifiedHostRequest) returns (SetGlobalPrivateDnsModeSpecifiedHostResponse);
   rpc SetGlobalSetting (SetGlobalSettingRequest) returns (SetGlobalSettingResponse);
-  rpc SetKeepUninstalledPackages (SetKeepUninstalledPackagesRequest) returns (SetKeepUninstalledPackagesResponse);
-  rpc SetKeyPairCertificate (SetKeyPairCertificateRequest) returns (SetKeyPairCertificateResponse);
   rpc SetKeyguardDisabled (SetKeyguardDisabledRequest) returns (SetKeyguardDisabledResponse);
   rpc SetKeyguardDisabledFeatures (SetKeyguardDisabledFeaturesRequest) returns (SetKeyguardDisabledFeaturesResponse);
   rpc SetLocationEnabled (SetLocationEnabledRequest) returns (SetLocationEnabledResponse);
@@ -2619,7 +2274,6 @@ service DevicePolicyManagerService {
   rpc SetMasterVolumeMuted (SetMasterVolumeMutedRequest) returns (SetMasterVolumeMutedResponse);
   rpc SetMaximumFailedPasswordsForWipe (SetMaximumFailedPasswordsForWipeRequest) returns (SetMaximumFailedPasswordsForWipeResponse);
   rpc SetMaximumTimeToLock (SetMaximumTimeToLockRequest) returns (SetMaximumTimeToLockResponse);
-  rpc SetMeteredDataDisabledPackages (SetMeteredDataDisabledPackagesRequest) returns (SetMeteredDataDisabledPackagesResponse);
   rpc SetMinimumRequiredWifiSecurityLevel (SetMinimumRequiredWifiSecurityLevelRequest) returns (SetMinimumRequiredWifiSecurityLevelResponse);
   rpc SetMtePolicy (SetMtePolicyRequest) returns (SetMtePolicyResponse);
   rpc SetNearbyAppStreamingPolicy (SetNearbyAppStreamingPolicyRequest) returns (SetNearbyAppStreamingPolicyResponse);
@@ -2642,11 +2296,7 @@ service DevicePolicyManagerService {
   rpc SetPasswordQuality (SetPasswordQualityRequest) returns (SetPasswordQualityResponse);
   rpc SetPermissionGrantState (SetPermissionGrantStateRequest) returns (SetPermissionGrantStateResponse);
   rpc SetPermissionPolicy (SetPermissionPolicyRequest) returns (SetPermissionPolicyResponse);
-  rpc SetPermittedAccessibilityServices (SetPermittedAccessibilityServicesRequest) returns (SetPermittedAccessibilityServicesResponse);
-  rpc SetPermittedCrossProfileNotificationListeners (SetPermittedCrossProfileNotificationListenersRequest) returns (SetPermittedCrossProfileNotificationListenersResponse);
-  rpc SetPermittedInputMethods (SetPermittedInputMethodsRequest) returns (SetPermittedInputMethodsResponse);
   rpc SetPersonalAppsSuspended (SetPersonalAppsSuspendedRequest) returns (SetPersonalAppsSuspendedResponse);
-  rpc SetPreferentialNetworkServiceConfigs (SetPreferentialNetworkServiceConfigsRequest) returns (SetPreferentialNetworkServiceConfigsResponse);
   rpc SetPreferentialNetworkServiceEnabled (SetPreferentialNetworkServiceEnabledRequest) returns (SetPreferentialNetworkServiceEnabledResponse);
   rpc SetProfileEnabled (SetProfileEnabledRequest) returns (SetProfileEnabledResponse);
   rpc SetProfileName (SetProfileNameRequest) returns (SetProfileNameResponse);
@@ -2669,7 +2319,6 @@ service DevicePolicyManagerService {
   rpc SetTrustAgentConfiguration (SetTrustAgentConfigurationRequest) returns (SetTrustAgentConfigurationResponse);
   rpc SetUninstallBlocked (SetUninstallBlockedRequest) returns (SetUninstallBlockedResponse);
   rpc SetUsbDataSignalingEnabled (SetUsbDataSignalingEnabledRequest) returns (SetUsbDataSignalingEnabledResponse);
-  rpc SetUserControlDisabledPackages (SetUserControlDisabledPackagesRequest) returns (SetUserControlDisabledPackagesResponse);
   rpc SetUserIcon (SetUserIconRequest) returns (SetUserIconResponse);
   rpc SetWifiSsidPolicy (SetWifiSsidPolicyRequest) returns (SetWifiSsidPolicyResponse);
   rpc StartUserInBackground (StartUserInBackgroundRequest) returns (StartUserInBackgroundResponse);

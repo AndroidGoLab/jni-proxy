@@ -50,32 +50,6 @@ func (s *InputMethodManagerServer) AcceptStylusHandwritingDelegation2_1(_ contex
 	return &pb.AcceptStylusHandwritingDelegation2_1Response{Result: result}, nil
 }
 
-func (s *InputMethodManagerServer) AcceptStylusHandwritingDelegation5_2(_ context.Context, req *pb.AcceptStylusHandwritingDelegation5_2Request) (*pb.AcceptStylusHandwritingDelegation5_2Response, error) {
-	mgr, err := jnipkg.NewInputMethodManager(s.Ctx)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
-	}
-	defer mgr.Close()
-
-	if err := mgr.AcceptStylusHandwritingDelegation5_2(s.Handles.Get(req.GetArg0()), req.GetArg1(), req.GetArg2(), s.Handles.Get(req.GetArg3()), s.Handles.Get(req.GetArg4())); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.AcceptStylusHandwritingDelegation5_2Response{}, nil
-}
-
-func (s *InputMethodManagerServer) AcceptStylusHandwritingDelegation4_3(_ context.Context, req *pb.AcceptStylusHandwritingDelegation4_3Request) (*pb.AcceptStylusHandwritingDelegation4_3Response, error) {
-	mgr, err := jnipkg.NewInputMethodManager(s.Ctx)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
-	}
-	defer mgr.Close()
-
-	if err := mgr.AcceptStylusHandwritingDelegation4_3(s.Handles.Get(req.GetArg0()), req.GetArg1(), s.Handles.Get(req.GetArg2()), s.Handles.Get(req.GetArg3())); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.AcceptStylusHandwritingDelegation4_3Response{}, nil
-}
-
 func (s *InputMethodManagerServer) DispatchKeyEventFromInputMethod(_ context.Context, req *pb.DispatchKeyEventFromInputMethodRequest) (*pb.DispatchKeyEventFromInputMethodResponse, error) {
 	mgr, err := jnipkg.NewInputMethodManager(s.Ctx)
 	if err != nil {
@@ -146,75 +120,6 @@ func (s *InputMethodManagerServer) GetCurrentInputMethodSubtype(_ context.Contex
 		}
 	}
 	return &pb.GetCurrentInputMethodSubtypeResponse{Result: handle}, nil
-}
-
-func (s *InputMethodManagerServer) GetEnabledInputMethodList(_ context.Context, req *pb.GetEnabledInputMethodListRequest) (*pb.GetEnabledInputMethodListResponse, error) {
-	mgr, err := jnipkg.NewInputMethodManager(s.Ctx)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
-	}
-	defer mgr.Close()
-
-	result, err := mgr.GetEnabledInputMethodList()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	var handle int64
-	if result != nil {
-		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-			handle = s.Handles.Put(env, result)
-			return nil
-		}); doErr != nil {
-			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-		}
-	}
-	return &pb.GetEnabledInputMethodListResponse{Result: handle}, nil
-}
-
-func (s *InputMethodManagerServer) GetEnabledInputMethodSubtypeList(_ context.Context, req *pb.GetEnabledInputMethodSubtypeListRequest) (*pb.GetEnabledInputMethodSubtypeListResponse, error) {
-	mgr, err := jnipkg.NewInputMethodManager(s.Ctx)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
-	}
-	defer mgr.Close()
-
-	result, err := mgr.GetEnabledInputMethodSubtypeList(s.Handles.Get(req.GetArg0()), req.GetArg1())
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	var handle int64
-	if result != nil {
-		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-			handle = s.Handles.Put(env, result)
-			return nil
-		}); doErr != nil {
-			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-		}
-	}
-	return &pb.GetEnabledInputMethodSubtypeListResponse{Result: handle}, nil
-}
-
-func (s *InputMethodManagerServer) GetInputMethodList(_ context.Context, req *pb.GetInputMethodListRequest) (*pb.GetInputMethodListResponse, error) {
-	mgr, err := jnipkg.NewInputMethodManager(s.Ctx)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
-	}
-	defer mgr.Close()
-
-	result, err := mgr.GetInputMethodList()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	var handle int64
-	if result != nil {
-		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-			handle = s.Handles.Put(env, result)
-			return nil
-		}); doErr != nil {
-			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-		}
-	}
-	return &pb.GetInputMethodListResponse{Result: handle}, nil
 }
 
 func (s *InputMethodManagerServer) GetLastInputMethodSubtype(_ context.Context, req *pb.GetLastInputMethodSubtypeRequest) (*pb.GetLastInputMethodSubtypeResponse, error) {

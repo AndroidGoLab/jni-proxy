@@ -9,20 +9,20 @@ import (
 	"google.golang.org/grpc"
 )
 
-// Client wraps the gRPC MediaSessionManagerService client.
-type Client struct {
+// MediaSessionManagerClient wraps the gRPC MediaSessionManagerService client.
+type MediaSessionManagerClient struct {
 	svc pb.MediaSessionManagerServiceClient
 }
 
-// NewClient creates a new session client.
-func NewClient(cc grpc.ClientConnInterface) *Client {
-	return &Client{
+// NewMediaSessionManagerClient creates a new MediaSessionManager client.
+func NewMediaSessionManagerClient(cc grpc.ClientConnInterface) *MediaSessionManagerClient {
+	return &MediaSessionManagerClient{
 		svc: pb.NewMediaSessionManagerServiceClient(cc),
 	}
 }
 
 // AddOnActiveSessionsChangedListener calls the AddOnActiveSessionsChangedListener RPC.
-func (c *Client) AddOnActiveSessionsChangedListener(ctx context.Context, arg0 int64, arg1 int64) error {
+func (c *MediaSessionManagerClient) AddOnActiveSessionsChangedListener(ctx context.Context, arg0 int64, arg1 int64) error {
 	_, err := c.svc.AddOnActiveSessionsChangedListener(ctx, &pb.AddOnActiveSessionsChangedListenerRequest{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -31,7 +31,7 @@ func (c *Client) AddOnActiveSessionsChangedListener(ctx context.Context, arg0 in
 }
 
 // AddOnMediaKeyEventSessionChangedListener calls the AddOnMediaKeyEventSessionChangedListener RPC.
-func (c *Client) AddOnMediaKeyEventSessionChangedListener(ctx context.Context, arg0 int64, arg1 int64) error {
+func (c *MediaSessionManagerClient) AddOnMediaKeyEventSessionChangedListener(ctx context.Context, arg0 int64, arg1 int64) error {
 	_, err := c.svc.AddOnMediaKeyEventSessionChangedListener(ctx, &pb.AddOnMediaKeyEventSessionChangedListenerRequest{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -40,26 +40,15 @@ func (c *Client) AddOnMediaKeyEventSessionChangedListener(ctx context.Context, a
 }
 
 // AddOnSession2TokensChangedListener calls the AddOnSession2TokensChangedListener RPC.
-func (c *Client) AddOnSession2TokensChangedListener(ctx context.Context, arg0 int64) error {
+func (c *MediaSessionManagerClient) AddOnSession2TokensChangedListener(ctx context.Context, arg0 int64) error {
 	_, err := c.svc.AddOnSession2TokensChangedListener(ctx, &pb.AddOnSession2TokensChangedListenerRequest{
 		Arg0: arg0,
 	})
 	return err
 }
 
-// GetActiveSessions calls the GetActiveSessions RPC.
-func (c *Client) GetActiveSessions(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.GetActiveSessions(ctx, &pb.GetActiveSessionsRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
 // GetMediaKeyEventSession calls the GetMediaKeyEventSession RPC.
-func (c *Client) GetMediaKeyEventSession(ctx context.Context) (int64, error) {
+func (c *MediaSessionManagerClient) GetMediaKeyEventSession(ctx context.Context) (int64, error) {
 	resp, err := c.svc.GetMediaKeyEventSession(ctx, &pb.GetMediaKeyEventSessionRequest{})
 	if err != nil {
 		return 0, err
@@ -68,7 +57,7 @@ func (c *Client) GetMediaKeyEventSession(ctx context.Context) (int64, error) {
 }
 
 // GetMediaKeyEventSessionPackageName calls the GetMediaKeyEventSessionPackageName RPC.
-func (c *Client) GetMediaKeyEventSessionPackageName(ctx context.Context) (string, error) {
+func (c *MediaSessionManagerClient) GetMediaKeyEventSessionPackageName(ctx context.Context) (string, error) {
 	resp, err := c.svc.GetMediaKeyEventSessionPackageName(ctx, &pb.GetMediaKeyEventSessionPackageNameRequest{})
 	if err != nil {
 		return "", err
@@ -76,17 +65,8 @@ func (c *Client) GetMediaKeyEventSessionPackageName(ctx context.Context) (string
 	return resp.GetResult(), nil
 }
 
-// GetSession2Tokens calls the GetSession2Tokens RPC.
-func (c *Client) GetSession2Tokens(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetSession2Tokens(ctx, &pb.GetSession2TokensRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
 // IsTrustedForMediaControl calls the IsTrustedForMediaControl RPC.
-func (c *Client) IsTrustedForMediaControl(ctx context.Context, arg0 int64) (bool, error) {
+func (c *MediaSessionManagerClient) IsTrustedForMediaControl(ctx context.Context, arg0 int64) (bool, error) {
 	resp, err := c.svc.IsTrustedForMediaControl(ctx, &pb.IsTrustedForMediaControlRequest{
 		Arg0: arg0,
 	})
@@ -97,7 +77,7 @@ func (c *Client) IsTrustedForMediaControl(ctx context.Context, arg0 int64) (bool
 }
 
 // NotifySession2Created calls the NotifySession2Created RPC.
-func (c *Client) NotifySession2Created(ctx context.Context, arg0 int64) error {
+func (c *MediaSessionManagerClient) NotifySession2Created(ctx context.Context, arg0 int64) error {
 	_, err := c.svc.NotifySession2Created(ctx, &pb.NotifySession2CreatedRequest{
 		Arg0: arg0,
 	})
@@ -105,7 +85,7 @@ func (c *Client) NotifySession2Created(ctx context.Context, arg0 int64) error {
 }
 
 // RemoveOnActiveSessionsChangedListener calls the RemoveOnActiveSessionsChangedListener RPC.
-func (c *Client) RemoveOnActiveSessionsChangedListener(ctx context.Context, arg0 int64) error {
+func (c *MediaSessionManagerClient) RemoveOnActiveSessionsChangedListener(ctx context.Context, arg0 int64) error {
 	_, err := c.svc.RemoveOnActiveSessionsChangedListener(ctx, &pb.RemoveOnActiveSessionsChangedListenerRequest{
 		Arg0: arg0,
 	})
@@ -113,7 +93,7 @@ func (c *Client) RemoveOnActiveSessionsChangedListener(ctx context.Context, arg0
 }
 
 // RemoveOnMediaKeyEventSessionChangedListener calls the RemoveOnMediaKeyEventSessionChangedListener RPC.
-func (c *Client) RemoveOnMediaKeyEventSessionChangedListener(ctx context.Context, arg0 int64) error {
+func (c *MediaSessionManagerClient) RemoveOnMediaKeyEventSessionChangedListener(ctx context.Context, arg0 int64) error {
 	_, err := c.svc.RemoveOnMediaKeyEventSessionChangedListener(ctx, &pb.RemoveOnMediaKeyEventSessionChangedListenerRequest{
 		Arg0: arg0,
 	})
@@ -121,7 +101,7 @@ func (c *Client) RemoveOnMediaKeyEventSessionChangedListener(ctx context.Context
 }
 
 // RemoveOnSession2TokensChangedListener calls the RemoveOnSession2TokensChangedListener RPC.
-func (c *Client) RemoveOnSession2TokensChangedListener(ctx context.Context, arg0 int64) error {
+func (c *MediaSessionManagerClient) RemoveOnSession2TokensChangedListener(ctx context.Context, arg0 int64) error {
 	_, err := c.svc.RemoveOnSession2TokensChangedListener(ctx, &pb.RemoveOnSession2TokensChangedListenerRequest{
 		Arg0: arg0,
 	})

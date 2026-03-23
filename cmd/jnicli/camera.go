@@ -90,22 +90,6 @@ var cameraManagerGetCameraIdListCmd = &cobra.Command{
 	},
 }
 
-var cameraManagerGetConcurrentCameraIdsCmd = &cobra.Command{
-	Use:   "get-concurrent-camera-ids",
-	Short: "GetConcurrentCameraIds RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewManagerServiceClient(grpcConn)
-		req := &pb.GetConcurrentCameraIdsRequest{}
-		resp, err := client.GetConcurrentCameraIds(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
 var cameraManagerGetTorchStrengthLevelCmd = &cobra.Command{
 	Use:   "get-torch-strength-level",
 	Short: "GetTorchStrengthLevel RPC",
@@ -137,25 +121,6 @@ var cameraManagerIsCameraDeviceSetupSupportedCmd = &cobra.Command{
 			req.Arg0 = v
 		}
 		resp, err := client.IsCameraDeviceSetupSupported(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var cameraManagerIsConcurrentSessionConfigurationSupportedCmd = &cobra.Command{
-	Use:   "is-concurrent-session-configuration-supported",
-	Short: "IsConcurrentSessionConfigurationSupported RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewManagerServiceClient(grpcConn)
-		req := &pb.IsConcurrentSessionConfigurationSupportedRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.IsConcurrentSessionConfigurationSupported(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -322,13 +287,10 @@ func init() {
 	cameraManagerGetCameraExtensionCharacteristicsCmd.Flags().String("arg0", "", "arg0 (string)")
 	cameraManagerCmd.AddCommand(cameraManagerGetCameraExtensionCharacteristicsCmd)
 	cameraManagerCmd.AddCommand(cameraManagerGetCameraIdListCmd)
-	cameraManagerCmd.AddCommand(cameraManagerGetConcurrentCameraIdsCmd)
 	cameraManagerGetTorchStrengthLevelCmd.Flags().String("arg0", "", "arg0 (string)")
 	cameraManagerCmd.AddCommand(cameraManagerGetTorchStrengthLevelCmd)
 	cameraManagerIsCameraDeviceSetupSupportedCmd.Flags().String("arg0", "", "arg0 (string)")
 	cameraManagerCmd.AddCommand(cameraManagerIsCameraDeviceSetupSupportedCmd)
-	cameraManagerIsConcurrentSessionConfigurationSupportedCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	cameraManagerCmd.AddCommand(cameraManagerIsConcurrentSessionConfigurationSupportedCmd)
 	cameraManagerOpenCameraCmd.Flags().String("arg0", "", "arg0 (string)")
 	cameraManagerOpenCameraCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
 	cameraManagerOpenCameraCmd.Flags().Int64("arg2", 0, "arg2 (int64)")

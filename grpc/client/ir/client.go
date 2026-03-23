@@ -9,20 +9,20 @@ import (
 	"google.golang.org/grpc"
 )
 
-// Client wraps the gRPC ConsumerIrManagerService client.
-type Client struct {
+// ConsumerIrManagerClient wraps the gRPC ConsumerIrManagerService client.
+type ConsumerIrManagerClient struct {
 	svc pb.ConsumerIrManagerServiceClient
 }
 
-// NewClient creates a new ir client.
-func NewClient(cc grpc.ClientConnInterface) *Client {
-	return &Client{
+// NewConsumerIrManagerClient creates a new ConsumerIrManager client.
+func NewConsumerIrManagerClient(cc grpc.ClientConnInterface) *ConsumerIrManagerClient {
+	return &ConsumerIrManagerClient{
 		svc: pb.NewConsumerIrManagerServiceClient(cc),
 	}
 }
 
 // GetCarrierFrequencies calls the GetCarrierFrequencies RPC.
-func (c *Client) GetCarrierFrequencies(ctx context.Context) (int64, error) {
+func (c *ConsumerIrManagerClient) GetCarrierFrequencies(ctx context.Context) (int64, error) {
 	resp, err := c.svc.GetCarrierFrequencies(ctx, &pb.GetCarrierFrequenciesRequest{})
 	if err != nil {
 		return 0, err
@@ -31,7 +31,7 @@ func (c *Client) GetCarrierFrequencies(ctx context.Context) (int64, error) {
 }
 
 // HasIrEmitter calls the HasIrEmitter RPC.
-func (c *Client) HasIrEmitter(ctx context.Context) (bool, error) {
+func (c *ConsumerIrManagerClient) HasIrEmitter(ctx context.Context) (bool, error) {
 	resp, err := c.svc.HasIrEmitter(ctx, &pb.HasIrEmitterRequest{})
 	if err != nil {
 		return false, err
@@ -40,7 +40,7 @@ func (c *Client) HasIrEmitter(ctx context.Context) (bool, error) {
 }
 
 // Transmit calls the Transmit RPC.
-func (c *Client) Transmit(ctx context.Context, arg0 int32, arg1 int64) error {
+func (c *ConsumerIrManagerClient) Transmit(ctx context.Context, arg0 int32, arg1 int64) error {
 	_, err := c.svc.Transmit(ctx, &pb.TransmitRequest{
 		Arg0: arg0,
 		Arg1: arg1,

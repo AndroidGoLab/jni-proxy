@@ -6,248 +6,6 @@ package wifi;
 
 option go_package = "github.com/AndroidGoLab/jni-proxy/proto/wifi";
 
-message DescribeContentsRequest {
-}
-
-message DescribeContentsResponse {
-  int32 result = 1;
-}
-
-message EqualsRequest {
-  int64 arg0 = 1;
-}
-
-message EqualsResponse {
-  bool result = 1;
-}
-
-message GetAffiliatedMloLinksRequest {
-}
-
-message GetAffiliatedMloLinksResponse {
-  int64 result = 1;
-}
-
-message GetApMldMacAddressRequest {
-}
-
-message GetApMldMacAddressResponse {
-  int64 result = 1;
-}
-
-message GetApMloLinkIdRequest {
-}
-
-message GetApMloLinkIdResponse {
-  int32 result = 1;
-}
-
-message GetApplicableRedactionsRequest {
-}
-
-message GetApplicableRedactionsResponse {
-  int64 result = 1;
-}
-
-message GetAssociatedMloLinksRequest {
-}
-
-message GetAssociatedMloLinksResponse {
-  int64 result = 1;
-}
-
-message GetBSSIDRequest {
-}
-
-message GetBSSIDResponse {
-  string result = 1;
-}
-
-message GetCurrentSecurityTypeRequest {
-}
-
-message GetCurrentSecurityTypeResponse {
-  int32 result = 1;
-}
-
-message GetFrequencyRequest {
-}
-
-message GetFrequencyResponse {
-  int32 result = 1;
-}
-
-message GetHiddenSSIDRequest {
-}
-
-message GetHiddenSSIDResponse {
-  bool result = 1;
-}
-
-message GetInformationElementsRequest {
-}
-
-message GetInformationElementsResponse {
-  int64 result = 1;
-}
-
-message GetIpAddressRequest {
-}
-
-message GetIpAddressResponse {
-  int32 result = 1;
-}
-
-message GetLinkSpeedRequest {
-}
-
-message GetLinkSpeedResponse {
-  int32 result = 1;
-}
-
-message GetMacAddressRequest {
-}
-
-message GetMacAddressResponse {
-  string result = 1;
-}
-
-message GetMaxSupportedRxLinkSpeedMbpsRequest {
-}
-
-message GetMaxSupportedRxLinkSpeedMbpsResponse {
-  int32 result = 1;
-}
-
-message GetMaxSupportedTxLinkSpeedMbpsRequest {
-}
-
-message GetMaxSupportedTxLinkSpeedMbpsResponse {
-  int32 result = 1;
-}
-
-message GetNetworkIdRequest {
-}
-
-message GetNetworkIdResponse {
-  int32 result = 1;
-}
-
-message GetPasspointFqdnRequest {
-}
-
-message GetPasspointFqdnResponse {
-  string result = 1;
-}
-
-message GetPasspointProviderFriendlyNameRequest {
-}
-
-message GetPasspointProviderFriendlyNameResponse {
-  string result = 1;
-}
-
-message GetPasspointUniqueIdRequest {
-}
-
-message GetPasspointUniqueIdResponse {
-  string result = 1;
-}
-
-message GetRssiRequest {
-}
-
-message GetRssiResponse {
-  int32 result = 1;
-}
-
-message GetRxLinkSpeedMbpsRequest {
-}
-
-message GetRxLinkSpeedMbpsResponse {
-  int32 result = 1;
-}
-
-message GetSSIDRequest {
-}
-
-message GetSSIDResponse {
-  string result = 1;
-}
-
-message GetSubscriptionIdRequest {
-}
-
-message GetSubscriptionIdResponse {
-  int32 result = 1;
-}
-
-message GetSupplicantStateRequest {
-}
-
-message GetSupplicantStateResponse {
-  int64 result = 1;
-}
-
-message GetTxLinkSpeedMbpsRequest {
-}
-
-message GetTxLinkSpeedMbpsResponse {
-  int32 result = 1;
-}
-
-message GetWifiStandardRequest {
-}
-
-message GetWifiStandardResponse {
-  int32 result = 1;
-}
-
-message HashCodeRequest {
-}
-
-message HashCodeResponse {
-  int32 result = 1;
-}
-
-message IsRestrictedRequest {
-}
-
-message IsRestrictedResponse {
-  bool result = 1;
-}
-
-message MakeCopyRequest {
-  int64 arg0 = 1;
-}
-
-message MakeCopyResponse {
-  int64 result = 1;
-}
-
-message ToStringRequest {
-}
-
-message ToStringResponse {
-  string result = 1;
-}
-
-message WriteToParcelRequest {
-  int64 arg0 = 1;
-  int32 arg1 = 2;
-}
-
-message WriteToParcelResponse {
-}
-
-message GetDetailedStateOfRequest {
-  int64 arg0 = 1;
-}
-
-message GetDetailedStateOfResponse {
-  int64 result = 1;
-}
-
 message AddLocalOnlyConnectionFailureListenerRequest {
   int64 arg0 = 1;
   int64 arg1 = 2;
@@ -270,14 +28,6 @@ message AddNetworkPrivilegedRequest {
 
 message AddNetworkPrivilegedResponse {
   int64 result = 1;
-}
-
-message AddNetworkSuggestionsRequest {
-  int64 arg0 = 1;
-}
-
-message AddNetworkSuggestionsResponse {
-  int32 result = 1;
 }
 
 message AddOrUpdatePasspointConfigurationRequest {
@@ -395,37 +145,6 @@ message FlushPasspointAnqpCacheRequest {
 message FlushPasspointAnqpCacheResponse {
 }
 
-message GetAllowedChannelsRequest {
-  int32 arg0 = 1;
-  int32 arg1 = 2;
-}
-
-message GetAllowedChannelsResponse {
-  int64 result = 1;
-}
-
-message GetCallerConfiguredNetworksRequest {
-}
-
-message GetCallerConfiguredNetworksResponse {
-  int64 result = 1;
-}
-
-message GetChannelDataRequest {
-  int64 arg0 = 1;
-  int64 arg1 = 2;
-}
-
-message GetChannelDataResponse {
-}
-
-message GetConfiguredNetworksRequest {
-}
-
-message GetConfiguredNetworksResponse {
-  int64 result = 1;
-}
-
 message GetConnectionInfoRequest {
 }
 
@@ -461,65 +180,11 @@ message GetMaxSignalLevelResponse {
   int32 result = 1;
 }
 
-message GetMaxSupportedConcurrentTdlsSessionsRequest {
-  int64 arg0 = 1;
-  int64 arg1 = 2;
-}
-
-message GetMaxSupportedConcurrentTdlsSessionsResponse {
-}
-
-message GetNetworkSuggestionsRequest {
-}
-
-message GetNetworkSuggestionsResponse {
-  int64 result = 1;
-}
-
-message GetNumberOfEnabledTdlsSessionsRequest {
-  int64 arg0 = 1;
-  int64 arg1 = 2;
-}
-
-message GetNumberOfEnabledTdlsSessionsResponse {
-}
-
-message GetPasspointConfigurationsRequest {
-}
-
-message GetPasspointConfigurationsResponse {
-  int64 result = 1;
-}
-
-message GetPerSsidRoamingModesRequest {
-  int64 arg0 = 1;
-  int64 arg1 = 2;
-}
-
-message GetPerSsidRoamingModesResponse {
-}
-
-message GetScanResultsRequest {
-}
-
-message GetScanResultsResponse {
-  int64 result = 1;
-}
-
 message GetStaConcurrencyForMultiInternetModeRequest {
 }
 
 message GetStaConcurrencyForMultiInternetModeResponse {
   int32 result = 1;
-}
-
-message GetUsableChannelsRequest {
-  int32 arg0 = 1;
-  int32 arg1 = 2;
-}
-
-message GetUsableChannelsResponse {
-  int64 result = 1;
 }
 
 message GetWifiStateRequest {
@@ -720,14 +385,6 @@ message IsStaConcurrencyForMultiInternetSupportedResponse {
   bool result = 1;
 }
 
-message IsTdlsOperationCurrentlyAvailableRequest {
-  int64 arg0 = 1;
-  int64 arg1 = 2;
-}
-
-message IsTdlsOperationCurrentlyAvailableResponse {
-}
-
 message IsTdlsSupportedRequest {
 }
 
@@ -848,14 +505,6 @@ message PingSupplicantResponse {
   bool result = 1;
 }
 
-message QueryAutojoinGlobalRequest {
-  int64 arg0 = 1;
-  int64 arg1 = 2;
-}
-
-message QueryAutojoinGlobalResponse {
-}
-
 message QuerySendDhcpHostnameRestrictionRequest {
   int64 arg0 = 1;
   int64 arg1 = 2;
@@ -909,23 +558,6 @@ message RemoveNetworkResponse {
   bool result = 1;
 }
 
-message RemoveNetworkSuggestions1Request {
-  int64 arg0 = 1;
-}
-
-message RemoveNetworkSuggestions1Response {
-  int32 result = 1;
-}
-
-message RemoveNetworkSuggestions2_1Request {
-  int64 arg0 = 1;
-  int32 arg1 = 2;
-}
-
-message RemoveNetworkSuggestions2_1Response {
-  int32 result = 1;
-}
-
 message RemoveNonCallerConfiguredNetworksRequest {
 }
 
@@ -968,16 +600,6 @@ message RemoveWifiStateChangedListenerRequest {
 message RemoveWifiStateChangedListenerResponse {
 }
 
-message ReportCreateInterfaceImpactRequest {
-  int32 arg0 = 1;
-  bool arg1 = 2;
-  int64 arg2 = 3;
-  int64 arg3 = 4;
-}
-
-message ReportCreateInterfaceImpactResponse {
-}
-
 message SaveConfigurationRequest {
 }
 
@@ -1000,40 +622,20 @@ message SetSendDhcpHostnameRestrictionRequest {
 message SetSendDhcpHostnameRestrictionResponse {
 }
 
-message SetTdlsEnabled2Request {
+message SetTdlsEnabledRequest {
   int64 arg0 = 1;
   bool arg1 = 2;
 }
 
-message SetTdlsEnabled2Response {
+message SetTdlsEnabledResponse {
 }
 
-message SetTdlsEnabled4_1Request {
-  int64 arg0 = 1;
-  bool arg1 = 2;
-  int64 arg2 = 3;
-  int64 arg3 = 4;
-}
-
-message SetTdlsEnabled4_1Response {
-}
-
-message SetTdlsEnabledWithMacAddress2Request {
+message SetTdlsEnabledWithMacAddressRequest {
   string arg0 = 1;
   bool arg1 = 2;
 }
 
-message SetTdlsEnabledWithMacAddress2Response {
-}
-
-message SetTdlsEnabledWithMacAddress4_1Request {
-  string arg0 = 1;
-  bool arg1 = 2;
-  int64 arg2 = 3;
-  int64 arg3 = 4;
-}
-
-message SetTdlsEnabledWithMacAddress4_1Response {
+message SetTdlsEnabledWithMacAddressResponse {
 }
 
 message SetWifiEnabledRequest {
@@ -1116,121 +718,10 @@ message CompareSignalLevelResponse {
   int32 result = 1;
 }
 
-message GetSecurityTypesRequest {
-}
-
-message GetSecurityTypesResponse {
-  int64 result = 1;
-}
-
-message GetWifiSsidRequest {
-}
-
-message GetWifiSsidResponse {
-  int64 result = 1;
-}
-
-message Is80211azNtbResponderRequest {
-}
-
-message Is80211azNtbResponderResponse {
-  bool result = 1;
-}
-
-message Is80211mcResponderRequest {
-}
-
-message Is80211mcResponderResponse {
-  bool result = 1;
-}
-
-message IsPasspointNetworkRequest {
-}
-
-message IsPasspointNetworkResponse {
-  bool result = 1;
-}
-
-message IsRangingFrameProtectionRequiredRequest {
-}
-
-message IsRangingFrameProtectionRequiredResponse {
-  bool result = 1;
-}
-
-message IsSecureHeLtfSupportedRequest {
-}
-
-message IsSecureHeLtfSupportedResponse {
-  bool result = 1;
-}
-
-message IsTwtResponderRequest {
-}
-
-message IsTwtResponderResponse {
-  bool result = 1;
-}
-
-message ConvertChannelToFrequencyMhzIfSupportedRequest {
-  int32 arg0 = 1;
-  int32 arg1 = 2;
-}
-
-message ConvertChannelToFrequencyMhzIfSupportedResponse {
-  int32 result = 1;
-}
-
-message ConvertFrequencyMhzToChannelIfSupportedRequest {
-  int32 arg0 = 1;
-}
-
-message ConvertFrequencyMhzToChannelIfSupportedResponse {
-  int32 result = 1;
-}
-
-service InfoService {
-  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
-  rpc Equals (EqualsRequest) returns (EqualsResponse);
-  rpc GetAffiliatedMloLinks (GetAffiliatedMloLinksRequest) returns (GetAffiliatedMloLinksResponse);
-  rpc GetApMldMacAddress (GetApMldMacAddressRequest) returns (GetApMldMacAddressResponse);
-  rpc GetApMloLinkId (GetApMloLinkIdRequest) returns (GetApMloLinkIdResponse);
-  rpc GetApplicableRedactions (GetApplicableRedactionsRequest) returns (GetApplicableRedactionsResponse);
-  rpc GetAssociatedMloLinks (GetAssociatedMloLinksRequest) returns (GetAssociatedMloLinksResponse);
-  rpc GetBSSID (GetBSSIDRequest) returns (GetBSSIDResponse);
-  rpc GetCurrentSecurityType (GetCurrentSecurityTypeRequest) returns (GetCurrentSecurityTypeResponse);
-  rpc GetFrequency (GetFrequencyRequest) returns (GetFrequencyResponse);
-  rpc GetHiddenSSID (GetHiddenSSIDRequest) returns (GetHiddenSSIDResponse);
-  rpc GetInformationElements (GetInformationElementsRequest) returns (GetInformationElementsResponse);
-  rpc GetIpAddress (GetIpAddressRequest) returns (GetIpAddressResponse);
-  rpc GetLinkSpeed (GetLinkSpeedRequest) returns (GetLinkSpeedResponse);
-  rpc GetMacAddress (GetMacAddressRequest) returns (GetMacAddressResponse);
-  rpc GetMaxSupportedRxLinkSpeedMbps (GetMaxSupportedRxLinkSpeedMbpsRequest) returns (GetMaxSupportedRxLinkSpeedMbpsResponse);
-  rpc GetMaxSupportedTxLinkSpeedMbps (GetMaxSupportedTxLinkSpeedMbpsRequest) returns (GetMaxSupportedTxLinkSpeedMbpsResponse);
-  rpc GetNetworkId (GetNetworkIdRequest) returns (GetNetworkIdResponse);
-  rpc GetPasspointFqdn (GetPasspointFqdnRequest) returns (GetPasspointFqdnResponse);
-  rpc GetPasspointProviderFriendlyName (GetPasspointProviderFriendlyNameRequest) returns (GetPasspointProviderFriendlyNameResponse);
-  rpc GetPasspointUniqueId (GetPasspointUniqueIdRequest) returns (GetPasspointUniqueIdResponse);
-  rpc GetRssi (GetRssiRequest) returns (GetRssiResponse);
-  rpc GetRxLinkSpeedMbps (GetRxLinkSpeedMbpsRequest) returns (GetRxLinkSpeedMbpsResponse);
-  rpc GetSSID (GetSSIDRequest) returns (GetSSIDResponse);
-  rpc GetSubscriptionId (GetSubscriptionIdRequest) returns (GetSubscriptionIdResponse);
-  rpc GetSupplicantState (GetSupplicantStateRequest) returns (GetSupplicantStateResponse);
-  rpc GetTxLinkSpeedMbps (GetTxLinkSpeedMbpsRequest) returns (GetTxLinkSpeedMbpsResponse);
-  rpc GetWifiStandard (GetWifiStandardRequest) returns (GetWifiStandardResponse);
-  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
-  rpc IsRestricted (IsRestrictedRequest) returns (IsRestrictedResponse);
-  rpc MakeCopy (MakeCopyRequest) returns (MakeCopyResponse);
-  rpc ToString (ToStringRequest) returns (ToStringResponse);
-  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
-  rpc GetDetailedStateOf (GetDetailedStateOfRequest) returns (GetDetailedStateOfResponse);
-}
-
 service ManagerService {
   rpc AddLocalOnlyConnectionFailureListener (AddLocalOnlyConnectionFailureListenerRequest) returns (AddLocalOnlyConnectionFailureListenerResponse);
   rpc AddNetwork (AddNetworkRequest) returns (AddNetworkResponse);
   rpc AddNetworkPrivileged (AddNetworkPrivilegedRequest) returns (AddNetworkPrivilegedResponse);
-  rpc AddNetworkSuggestions (AddNetworkSuggestionsRequest) returns (AddNetworkSuggestionsResponse);
   rpc AddOrUpdatePasspointConfiguration (AddOrUpdatePasspointConfigurationRequest) returns (AddOrUpdatePasspointConfigurationResponse);
   rpc AddSuggestionConnectionStatusListener (AddSuggestionConnectionStatusListenerRequest) returns (AddSuggestionConnectionStatusListenerResponse);
   rpc AddSuggestionUserApprovalStatusListener (AddSuggestionUserApprovalStatusListenerRequest) returns (AddSuggestionUserApprovalStatusListenerResponse);
@@ -1246,23 +737,12 @@ service ManagerService {
   rpc Disconnect (DisconnectRequest) returns (DisconnectResponse);
   rpc EnableNetwork (EnableNetworkRequest) returns (EnableNetworkResponse);
   rpc FlushPasspointAnqpCache (FlushPasspointAnqpCacheRequest) returns (FlushPasspointAnqpCacheResponse);
-  rpc GetAllowedChannels (GetAllowedChannelsRequest) returns (GetAllowedChannelsResponse);
-  rpc GetCallerConfiguredNetworks (GetCallerConfiguredNetworksRequest) returns (GetCallerConfiguredNetworksResponse);
-  rpc GetChannelData (GetChannelDataRequest) returns (GetChannelDataResponse);
-  rpc GetConfiguredNetworks (GetConfiguredNetworksRequest) returns (GetConfiguredNetworksResponse);
   rpc GetConnectionInfo (GetConnectionInfoRequest) returns (GetConnectionInfoResponse);
   rpc GetDhcpInfo (GetDhcpInfoRequest) returns (GetDhcpInfoResponse);
   rpc GetMaxNumberOfChannelsPerNetworkSpecifierRequest (GetMaxNumberOfChannelsPerNetworkSpecifierRequestRequest) returns (GetMaxNumberOfChannelsPerNetworkSpecifierRequestResponse);
   rpc GetMaxNumberOfNetworkSuggestionsPerApp (GetMaxNumberOfNetworkSuggestionsPerAppRequest) returns (GetMaxNumberOfNetworkSuggestionsPerAppResponse);
   rpc GetMaxSignalLevel (GetMaxSignalLevelRequest) returns (GetMaxSignalLevelResponse);
-  rpc GetMaxSupportedConcurrentTdlsSessions (GetMaxSupportedConcurrentTdlsSessionsRequest) returns (GetMaxSupportedConcurrentTdlsSessionsResponse);
-  rpc GetNetworkSuggestions (GetNetworkSuggestionsRequest) returns (GetNetworkSuggestionsResponse);
-  rpc GetNumberOfEnabledTdlsSessions (GetNumberOfEnabledTdlsSessionsRequest) returns (GetNumberOfEnabledTdlsSessionsResponse);
-  rpc GetPasspointConfigurations (GetPasspointConfigurationsRequest) returns (GetPasspointConfigurationsResponse);
-  rpc GetPerSsidRoamingModes (GetPerSsidRoamingModesRequest) returns (GetPerSsidRoamingModesResponse);
-  rpc GetScanResults (GetScanResultsRequest) returns (GetScanResultsResponse);
   rpc GetStaConcurrencyForMultiInternetMode (GetStaConcurrencyForMultiInternetModeRequest) returns (GetStaConcurrencyForMultiInternetModeResponse);
-  rpc GetUsableChannels (GetUsableChannelsRequest) returns (GetUsableChannelsResponse);
   rpc GetWifiState (GetWifiStateRequest) returns (GetWifiStateResponse);
   rpc Is24GHzBandSupported (Is24GHzBandSupportedRequest) returns (Is24GHzBandSupportedResponse);
   rpc Is5GHzBandSupported (Is5GHzBandSupportedRequest) returns (Is5GHzBandSupportedResponse);
@@ -1291,7 +771,6 @@ service ManagerService {
   rpc IsStaBridgedApConcurrencySupported (IsStaBridgedApConcurrencySupportedRequest) returns (IsStaBridgedApConcurrencySupportedResponse);
   rpc IsStaConcurrencyForLocalOnlyConnectionsSupported (IsStaConcurrencyForLocalOnlyConnectionsSupportedRequest) returns (IsStaConcurrencyForLocalOnlyConnectionsSupportedResponse);
   rpc IsStaConcurrencyForMultiInternetSupported (IsStaConcurrencyForMultiInternetSupportedRequest) returns (IsStaConcurrencyForMultiInternetSupportedResponse);
-  rpc IsTdlsOperationCurrentlyAvailable (IsTdlsOperationCurrentlyAvailableRequest) returns (IsTdlsOperationCurrentlyAvailableResponse);
   rpc IsTdlsSupported (IsTdlsSupportedRequest) returns (IsTdlsSupportedResponse);
   rpc IsTidToLinkMappingNegotiationSupported (IsTidToLinkMappingNegotiationSupportedRequest) returns (IsTidToLinkMappingNegotiationSupportedResponse);
   rpc IsTlsMinimumVersionSupported (IsTlsMinimumVersionSupportedRequest) returns (IsTlsMinimumVersionSupportedResponse);
@@ -1309,7 +788,6 @@ service ManagerService {
   rpc IsWpa3SuiteBSupported (IsWpa3SuiteBSupportedRequest) returns (IsWpa3SuiteBSupportedResponse);
   rpc IsWpaPersonalSupported (IsWpaPersonalSupportedRequest) returns (IsWpaPersonalSupportedResponse);
   rpc PingSupplicant (PingSupplicantRequest) returns (PingSupplicantResponse);
-  rpc QueryAutojoinGlobal (QueryAutojoinGlobalRequest) returns (QueryAutojoinGlobalResponse);
   rpc QuerySendDhcpHostnameRestriction (QuerySendDhcpHostnameRestrictionRequest) returns (QuerySendDhcpHostnameRestrictionResponse);
   rpc Reassociate (ReassociateRequest) returns (ReassociateResponse);
   rpc Reconnect (ReconnectRequest) returns (ReconnectResponse);
@@ -1317,22 +795,17 @@ service ManagerService {
   rpc RegisterSubsystemRestartTrackingCallback (RegisterSubsystemRestartTrackingCallbackRequest) returns (RegisterSubsystemRestartTrackingCallbackResponse);
   rpc RemoveLocalOnlyConnectionFailureListener (RemoveLocalOnlyConnectionFailureListenerRequest) returns (RemoveLocalOnlyConnectionFailureListenerResponse);
   rpc RemoveNetwork (RemoveNetworkRequest) returns (RemoveNetworkResponse);
-  rpc RemoveNetworkSuggestions1 (RemoveNetworkSuggestions1Request) returns (RemoveNetworkSuggestions1Response);
-  rpc RemoveNetworkSuggestions2_1 (RemoveNetworkSuggestions2_1Request) returns (RemoveNetworkSuggestions2_1Response);
   rpc RemoveNonCallerConfiguredNetworks (RemoveNonCallerConfiguredNetworksRequest) returns (RemoveNonCallerConfiguredNetworksResponse);
   rpc RemovePasspointConfiguration (RemovePasspointConfigurationRequest) returns (RemovePasspointConfigurationResponse);
   rpc RemovePerSsidRoamingMode (RemovePerSsidRoamingModeRequest) returns (RemovePerSsidRoamingModeResponse);
   rpc RemoveSuggestionConnectionStatusListener (RemoveSuggestionConnectionStatusListenerRequest) returns (RemoveSuggestionConnectionStatusListenerResponse);
   rpc RemoveSuggestionUserApprovalStatusListener (RemoveSuggestionUserApprovalStatusListenerRequest) returns (RemoveSuggestionUserApprovalStatusListenerResponse);
   rpc RemoveWifiStateChangedListener (RemoveWifiStateChangedListenerRequest) returns (RemoveWifiStateChangedListenerResponse);
-  rpc ReportCreateInterfaceImpact (ReportCreateInterfaceImpactRequest) returns (ReportCreateInterfaceImpactResponse);
   rpc SaveConfiguration (SaveConfigurationRequest) returns (SaveConfigurationResponse);
   rpc SetPerSsidRoamingMode (SetPerSsidRoamingModeRequest) returns (SetPerSsidRoamingModeResponse);
   rpc SetSendDhcpHostnameRestriction (SetSendDhcpHostnameRestrictionRequest) returns (SetSendDhcpHostnameRestrictionResponse);
-  rpc SetTdlsEnabled2 (SetTdlsEnabled2Request) returns (SetTdlsEnabled2Response);
-  rpc SetTdlsEnabled4_1 (SetTdlsEnabled4_1Request) returns (SetTdlsEnabled4_1Response);
-  rpc SetTdlsEnabledWithMacAddress2 (SetTdlsEnabledWithMacAddress2Request) returns (SetTdlsEnabledWithMacAddress2Response);
-  rpc SetTdlsEnabledWithMacAddress4_1 (SetTdlsEnabledWithMacAddress4_1Request) returns (SetTdlsEnabledWithMacAddress4_1Response);
+  rpc SetTdlsEnabled (SetTdlsEnabledRequest) returns (SetTdlsEnabledResponse);
+  rpc SetTdlsEnabledWithMacAddress (SetTdlsEnabledWithMacAddressRequest) returns (SetTdlsEnabledWithMacAddressResponse);
   rpc SetWifiEnabled (SetWifiEnabledRequest) returns (SetWifiEnabledResponse);
   rpc StartLocalOnlyHotspotWithConfiguration (StartLocalOnlyHotspotWithConfigurationRequest) returns (StartLocalOnlyHotspotWithConfigurationResponse);
   rpc StartScan (StartScanRequest) returns (StartScanResponse);
@@ -1343,25 +816,4 @@ service ManagerService {
   rpc ValidateSoftApConfiguration (ValidateSoftApConfigurationRequest) returns (ValidateSoftApConfigurationResponse);
   rpc CalculateSignalLevel2_1 (CalculateSignalLevel2_1Request) returns (CalculateSignalLevel2_1Response);
   rpc CompareSignalLevel (CompareSignalLevelRequest) returns (CompareSignalLevelResponse);
-}
-
-service ScanResultService {
-  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
-  rpc GetAffiliatedMloLinks (GetAffiliatedMloLinksRequest) returns (GetAffiliatedMloLinksResponse);
-  rpc GetApMldMacAddress (GetApMldMacAddressRequest) returns (GetApMldMacAddressResponse);
-  rpc GetApMloLinkId (GetApMloLinkIdRequest) returns (GetApMloLinkIdResponse);
-  rpc GetInformationElements (GetInformationElementsRequest) returns (GetInformationElementsResponse);
-  rpc GetSecurityTypes (GetSecurityTypesRequest) returns (GetSecurityTypesResponse);
-  rpc GetWifiSsid (GetWifiSsidRequest) returns (GetWifiSsidResponse);
-  rpc GetWifiStandard (GetWifiStandardRequest) returns (GetWifiStandardResponse);
-  rpc Is80211azNtbResponder (Is80211azNtbResponderRequest) returns (Is80211azNtbResponderResponse);
-  rpc Is80211mcResponder (Is80211mcResponderRequest) returns (Is80211mcResponderResponse);
-  rpc IsPasspointNetwork (IsPasspointNetworkRequest) returns (IsPasspointNetworkResponse);
-  rpc IsRangingFrameProtectionRequired (IsRangingFrameProtectionRequiredRequest) returns (IsRangingFrameProtectionRequiredResponse);
-  rpc IsSecureHeLtfSupported (IsSecureHeLtfSupportedRequest) returns (IsSecureHeLtfSupportedResponse);
-  rpc IsTwtResponder (IsTwtResponderRequest) returns (IsTwtResponderResponse);
-  rpc ToString (ToStringRequest) returns (ToStringResponse);
-  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
-  rpc ConvertChannelToFrequencyMhzIfSupported (ConvertChannelToFrequencyMhzIfSupportedRequest) returns (ConvertChannelToFrequencyMhzIfSupportedResponse);
-  rpc ConvertFrequencyMhzToChannelIfSupported (ConvertFrequencyMhzToChannelIfSupportedRequest) returns (ConvertFrequencyMhzToChannelIfSupportedResponse);
 }

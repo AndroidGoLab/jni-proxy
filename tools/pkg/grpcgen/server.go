@@ -23,6 +23,23 @@ func GenerateServer(
 	jniModule string,
 	protoDir string,
 ) ([]CompositeEntry, error) {
+	data, err := BuildServerFromSpec(specPath, overlayPath, goModule, jniModule, protoDir)
+	if err != nil {
+		return nil, err
+	}
+	if data == nil {
+		return nil, nil
+	}
+	entries := EntriesFromServerData(data)
+	if err := WriteServer(data, outputDir); err != nil {
+		return nil, err
+	}
+	return entries, nil
+}
+
+// BuildServerFromSpec loads a spec/overlay pair and returns server data.
+// Returns nil if the spec produces no services.
+func BuildServerFromSpec(specPath, overlayPath, goModule, jniModule, protoDir string) (*ServerData, error) {
 	spec, err := javagen.LoadSpec(specPath)
 	if err != nil {
 		return nil, fmt.Errorf("load spec: %w", err)
@@ -45,17 +62,69 @@ func GenerateServer(
 	if len(data.Services) == 0 {
 		return nil, nil
 	}
+	return data, nil
+}
 
-	pkgDir := filepath.Join(outputDir, "grpc", "server", merged.Package)
-	if err := os.MkdirAll(pkgDir, 0o755); err != nil {
-		return nil, fmt.Errorf("mkdir %s: %w", pkgDir, err)
+// MergeServerData combines two ServerData for the same package.
+func MergeServerData(dst, src *ServerData) {
+	seenSvc := make(map[string]bool, len(dst.Services))
+	for _, s := range dst.Services {
+		seenSvc[s.GoType] = true
+	}
+	for _, s := range src.Services {
+		if seenSvc[s.GoType] {
+			continue
+		}
+		seenSvc[s.GoType] = true
+		dst.Services = append(dst.Services, s)
+		if s.NeedsHandles {
+			dst.NeedsHandles = true
+		}
+	}
+	if src.NeedsJNI {
+		dst.NeedsJNI = true
 	}
 
-	outputPath := filepath.Join(pkgDir, "server.go")
-	if err := renderServer(data, outputPath); err != nil {
-		return nil, fmt.Errorf("render server: %w", err)
+	seenDC := make(map[string]bool, len(dst.DataClasses))
+	for _, dc := range dst.DataClasses {
+		seenDC[dc.GoType] = true
+	}
+	for _, dc := range src.DataClasses {
+		if seenDC[dc.GoType] {
+			continue
+		}
+		seenDC[dc.GoType] = true
+		dst.DataClasses = append(dst.DataClasses, dc)
 	}
 
+	assignImportAliases(dst)
+}
+
+// assignImportAliases assigns unique import aliases to services based on
+// their GoImport paths. When all services share the same path, they all
+// get "jnipkg". When paths differ, each unique path gets a numbered alias.
+func assignImportAliases(data *ServerData) {
+	paths := make(map[string]string) // GoImport → alias
+	counter := 0
+	for i := range data.Services {
+		svc := &data.Services[i]
+		if alias, ok := paths[svc.GoImport]; ok {
+			svc.ImportAlias = alias
+			continue
+		}
+		switch counter {
+		case 0:
+			svc.ImportAlias = "jnipkg"
+		default:
+			svc.ImportAlias = fmt.Sprintf("jnipkg%d", counter+1)
+		}
+		paths[svc.GoImport] = svc.ImportAlias
+		counter++
+	}
+}
+
+// EntriesFromServerData extracts CompositeEntry records from a ServerData.
+func EntriesFromServerData(data *ServerData) []CompositeEntry {
 	var entries []CompositeEntry
 	for _, svc := range data.Services {
 		entries = append(entries, CompositeEntry{
@@ -65,7 +134,18 @@ func GenerateServer(
 			NeedsHandles: svc.NeedsHandles,
 		})
 	}
-	return entries, nil
+	return entries
+}
+
+// WriteServer writes a ServerData to its package directory.
+func WriteServer(data *ServerData, outputDir string) error {
+	pkgDir := filepath.Join(outputDir, "grpc", "server", data.Package)
+	if err := os.MkdirAll(pkgDir, 0o755); err != nil {
+		return fmt.Errorf("mkdir %s: %w", pkgDir, err)
+	}
+
+	outputPath := filepath.Join(pkgDir, "server.go")
+	return renderServer(data, outputPath)
 }
 
 // buildServerData converts a MergedSpec into server template data.
@@ -117,7 +197,6 @@ func buildServerData(
 
 	// Build RPC lookup from protogen data (handles collision renames and
 	// cross-class message name disambiguation).
-	// Key: "ServiceName/lowercaseRPCName" for per-service lookup.
 	protoRPCLookup := make(map[string]rpcInfo)
 	for _, ps := range protoData.Services {
 		for _, rpc := range ps.RPCs {
@@ -135,12 +214,9 @@ func buildServerData(
 		}
 	}
 
-	// Build services from classes that have a NewXxx(ctx *app.Context) constructor.
+	// Build services from eligible classes (same criteria as protogen).
 	for _, cls := range merged.Classes {
-		if !hasContextConstructor(cls) {
-			continue
-		}
-		if len(cls.Methods) == 0 {
+		if !protogen.IsServiceEligible(cls) {
 			continue
 		}
 
@@ -152,6 +228,7 @@ func buildServerData(
 		svc := ServerService{
 			GoType:      cls.GoType,
 			ServiceName: serviceName,
+			GoImport:    merged.GoImport,
 			Obtain:      cls.Obtain,
 			Close:       cls.Close,
 		}
@@ -177,6 +254,7 @@ func buildServerData(
 		data.Services = append(data.Services, svc)
 	}
 
+	assignImportAliases(data)
 	return data
 }
 
@@ -436,17 +514,6 @@ func protoCamelCase(s string) string {
 	return buf.String()
 }
 
-// hasContextConstructor reports whether a class has a NewXxx(ctx *app.Context)
-// constructor, which is required for the per-RPC manager creation pattern.
-// Only system_service classes generate this constructor; context_method classes
-// do not.
-func hasContextConstructor(cls javagen.MergedClass) bool {
-	switch cls.Kind {
-	case "data_class", "iterable_data", "builder":
-		return false
-	}
-	return cls.Obtain == "system_service"
-}
 
 // isExported reports whether a Go name is exported (starts with uppercase).
 func isExported(name string) bool {

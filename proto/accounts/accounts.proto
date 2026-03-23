@@ -6,24 +6,13 @@ package accounts;
 
 option go_package = "github.com/AndroidGoLab/jni-proxy/proto/accounts";
 
-message AddAccountExplicitly3Request {
+message AddAccountExplicitlyRequest {
   int64 arg0 = 1;
   string arg1 = 2;
   int64 arg2 = 3;
 }
 
-message AddAccountExplicitly3Response {
-  bool result = 1;
-}
-
-message AddAccountExplicitly4_1Request {
-  int64 arg0 = 1;
-  string arg1 = 2;
-  int64 arg2 = 3;
-  int64 arg3 = 4;
-}
-
-message AddAccountExplicitly4_1Response {
+message AddAccountExplicitlyResponse {
   bool result = 1;
 }
 
@@ -193,75 +182,8 @@ message GetResponse {
   int64 result = 1;
 }
 
-message NewChooseAccountIntent8Request {
-  int64 arg0 = 1;
-  int64 arg1 = 2;
-  int64 arg2 = 3;
-  bool arg3 = 4;
-  string arg4 = 5;
-  string arg5 = 6;
-  int64 arg6 = 7;
-  int64 arg7 = 8;
-}
-
-message NewChooseAccountIntent8Response {
-  int64 result = 1;
-}
-
-message NewChooseAccountIntent7_1Request {
-  int64 arg0 = 1;
-  int64 arg1 = 2;
-  int64 arg2 = 3;
-  string arg3 = 4;
-  string arg4 = 5;
-  int64 arg5 = 6;
-  int64 arg6 = 7;
-}
-
-message NewChooseAccountIntent7_1Response {
-  int64 result = 1;
-}
-
-message DescribeContentsRequest {
-}
-
-message DescribeContentsResponse {
-  int32 result = 1;
-}
-
-message EqualsRequest {
-  int64 arg0 = 1;
-}
-
-message EqualsResponse {
-  bool result = 1;
-}
-
-message HashCodeRequest {
-}
-
-message HashCodeResponse {
-  int32 result = 1;
-}
-
-message ToStringRequest {
-}
-
-message ToStringResponse {
-  string result = 1;
-}
-
-message WriteToParcelRequest {
-  int64 arg0 = 1;
-  int32 arg1 = 2;
-}
-
-message WriteToParcelResponse {
-}
-
 service AccountManagerService {
-  rpc AddAccountExplicitly3 (AddAccountExplicitly3Request) returns (AddAccountExplicitly3Response);
-  rpc AddAccountExplicitly4_1 (AddAccountExplicitly4_1Request) returns (AddAccountExplicitly4_1Response);
+  rpc AddAccountExplicitly (AddAccountExplicitlyRequest) returns (AddAccountExplicitlyResponse);
   rpc BlockingGetAuthToken (BlockingGetAuthTokenRequest) returns (BlockingGetAuthTokenResponse);
   rpc ClearPassword (ClearPasswordRequest) returns (ClearPasswordResponse);
   rpc GetAccountVisibility (GetAccountVisibilityRequest) returns (GetAccountVisibilityResponse);
@@ -282,14 +204,4 @@ service AccountManagerService {
   rpc SetPassword (SetPasswordRequest) returns (SetPasswordResponse);
   rpc SetUserData (SetUserDataRequest) returns (SetUserDataResponse);
   rpc Get (GetRequest) returns (GetResponse);
-  rpc NewChooseAccountIntent8 (NewChooseAccountIntent8Request) returns (NewChooseAccountIntent8Response);
-  rpc NewChooseAccountIntent7_1 (NewChooseAccountIntent7_1Request) returns (NewChooseAccountIntent7_1Response);
-}
-
-service AccountService {
-  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
-  rpc Equals (EqualsRequest) returns (EqualsResponse);
-  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
-  rpc ToString (ToStringRequest) returns (ToStringResponse);
-  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
 }

@@ -24,12 +24,31 @@ func main() {
 		log.Fatalf("no spec files found in %s", *specsDir)
 	}
 
+	// Multiple spec files can produce the same proto package (e.g.,
+	// notification.yaml and service_notification.yaml both target
+	// package "notification"). Accumulate ProtoData per package so
+	// all services end up in one .proto file.
+	byPackage := make(map[string]*protogen.ProtoData)
+
 	for _, specPath := range specs {
 		baseName := strings.TrimSuffix(filepath.Base(specPath), ".yaml")
 		overlayPath := filepath.Join(*overlaysDir, baseName+".yaml")
 
-		if err := protogen.Generate(specPath, overlayPath, *outputDir, *goModule); err != nil {
+		data, err := protogen.BuildFromSpec(specPath, overlayPath, *goModule)
+		if err != nil {
 			log.Fatalf("generate %s: %v", baseName, err)
+		}
+
+		if existing, ok := byPackage[data.Package]; ok {
+			protogen.MergeProtoData(existing, data)
+		} else {
+			byPackage[data.Package] = data
+		}
+	}
+
+	for _, data := range byPackage {
+		if err := protogen.WriteProto(data, *outputDir); err != nil {
+			log.Fatalf("write %s: %v", data.Package, err)
 		}
 	}
 }

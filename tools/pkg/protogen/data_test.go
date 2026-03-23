@@ -127,6 +127,7 @@ func TestBuildProtoData_ManagerServiceWithMethods(t *testing.T) {
 		Classes: []javagen.MergedClass{
 			{
 				GoType: "Manager",
+				Obtain: "system_service",
 				Methods: []javagen.MergedMethod{
 					{
 						GoName:     "GetLastKnownLocation",
@@ -238,6 +239,7 @@ func TestBuildProtoData_SkipsIterableDataClass(t *testing.T) {
 			{
 				GoType: "Manager",
 				Kind:   "",
+				Obtain: "system_service",
 				Methods: []javagen.MergedMethod{
 					{
 						GoName:     "DoSomething",
@@ -429,6 +431,7 @@ func TestBuildProtoData_CapitalizesNames(t *testing.T) {
 		Classes: []javagen.MergedClass{
 			{
 				GoType: "leScanner",
+				Obtain: "system_service",
 				Methods: []javagen.MergedMethod{
 					{
 						GoName:     "startScan",

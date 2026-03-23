@@ -9,20 +9,20 @@ import (
 	"google.golang.org/grpc"
 )
 
-// Client wraps the gRPC SchedulerService client.
-type Client struct {
+// SchedulerClient wraps the gRPC SchedulerService client.
+type SchedulerClient struct {
 	svc pb.SchedulerServiceClient
 }
 
-// NewClient creates a new job client.
-func NewClient(cc grpc.ClientConnInterface) *Client {
-	return &Client{
+// NewSchedulerClient creates a new Scheduler client.
+func NewSchedulerClient(cc grpc.ClientConnInterface) *SchedulerClient {
+	return &SchedulerClient{
 		svc: pb.NewSchedulerServiceClient(cc),
 	}
 }
 
 // CanRunUserInitiatedJobs calls the CanRunUserInitiatedJobs RPC.
-func (c *Client) CanRunUserInitiatedJobs(ctx context.Context) (bool, error) {
+func (c *SchedulerClient) CanRunUserInitiatedJobs(ctx context.Context) (bool, error) {
 	resp, err := c.svc.CanRunUserInitiatedJobs(ctx, &pb.CanRunUserInitiatedJobsRequest{})
 	if err != nil {
 		return false, err
@@ -31,7 +31,7 @@ func (c *Client) CanRunUserInitiatedJobs(ctx context.Context) (bool, error) {
 }
 
 // Cancel calls the Cancel RPC.
-func (c *Client) Cancel(ctx context.Context, arg0 int32) error {
+func (c *SchedulerClient) Cancel(ctx context.Context, arg0 int32) error {
 	_, err := c.svc.Cancel(ctx, &pb.CancelRequest{
 		Arg0: arg0,
 	})
@@ -39,19 +39,19 @@ func (c *Client) Cancel(ctx context.Context, arg0 int32) error {
 }
 
 // CancelAll calls the CancelAll RPC.
-func (c *Client) CancelAll(ctx context.Context) error {
+func (c *SchedulerClient) CancelAll(ctx context.Context) error {
 	_, err := c.svc.CancelAll(ctx, &pb.CancelAllRequest{})
 	return err
 }
 
 // CancelInAllNamespaces calls the CancelInAllNamespaces RPC.
-func (c *Client) CancelInAllNamespaces(ctx context.Context) error {
+func (c *SchedulerClient) CancelInAllNamespaces(ctx context.Context) error {
 	_, err := c.svc.CancelInAllNamespaces(ctx, &pb.CancelInAllNamespacesRequest{})
 	return err
 }
 
 // Enqueue calls the Enqueue RPC.
-func (c *Client) Enqueue(ctx context.Context, arg0 int64, arg1 int64) (int32, error) {
+func (c *SchedulerClient) Enqueue(ctx context.Context, arg0 int64, arg1 int64) (int32, error) {
 	resp, err := c.svc.Enqueue(ctx, &pb.EnqueueRequest{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -63,7 +63,7 @@ func (c *Client) Enqueue(ctx context.Context, arg0 int64, arg1 int64) (int32, er
 }
 
 // ForNamespace calls the ForNamespace RPC.
-func (c *Client) ForNamespace(ctx context.Context, arg0 string) (int64, error) {
+func (c *SchedulerClient) ForNamespace(ctx context.Context, arg0 string) (int64, error) {
 	resp, err := c.svc.ForNamespace(ctx, &pb.ForNamespaceRequest{
 		Arg0: arg0,
 	})
@@ -73,17 +73,8 @@ func (c *Client) ForNamespace(ctx context.Context, arg0 string) (int64, error) {
 	return resp.GetResult(), nil
 }
 
-// GetAllPendingJobs calls the GetAllPendingJobs RPC.
-func (c *Client) GetAllPendingJobs(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetAllPendingJobs(ctx, &pb.GetAllPendingJobsRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
 // GetNamespace calls the GetNamespace RPC.
-func (c *Client) GetNamespace(ctx context.Context) (string, error) {
+func (c *SchedulerClient) GetNamespace(ctx context.Context) (string, error) {
 	resp, err := c.svc.GetNamespace(ctx, &pb.GetNamespaceRequest{})
 	if err != nil {
 		return "", err
@@ -92,7 +83,7 @@ func (c *Client) GetNamespace(ctx context.Context) (string, error) {
 }
 
 // GetPendingJob calls the GetPendingJob RPC.
-func (c *Client) GetPendingJob(ctx context.Context, arg0 int32) (int64, error) {
+func (c *SchedulerClient) GetPendingJob(ctx context.Context, arg0 int32) (int64, error) {
 	resp, err := c.svc.GetPendingJob(ctx, &pb.GetPendingJobRequest{
 		Arg0: arg0,
 	})
@@ -103,7 +94,7 @@ func (c *Client) GetPendingJob(ctx context.Context, arg0 int32) (int64, error) {
 }
 
 // GetPendingJobReason calls the GetPendingJobReason RPC.
-func (c *Client) GetPendingJobReason(ctx context.Context, arg0 int32) (int32, error) {
+func (c *SchedulerClient) GetPendingJobReason(ctx context.Context, arg0 int32) (int32, error) {
 	resp, err := c.svc.GetPendingJobReason(ctx, &pb.GetPendingJobReasonRequest{
 		Arg0: arg0,
 	})
@@ -114,7 +105,7 @@ func (c *Client) GetPendingJobReason(ctx context.Context, arg0 int32) (int32, er
 }
 
 // GetPendingJobReasons calls the GetPendingJobReasons RPC.
-func (c *Client) GetPendingJobReasons(ctx context.Context, arg0 int32) (int64, error) {
+func (c *SchedulerClient) GetPendingJobReasons(ctx context.Context, arg0 int32) (int64, error) {
 	resp, err := c.svc.GetPendingJobReasons(ctx, &pb.GetPendingJobReasonsRequest{
 		Arg0: arg0,
 	})
@@ -124,19 +115,8 @@ func (c *Client) GetPendingJobReasons(ctx context.Context, arg0 int32) (int64, e
 	return resp.GetResult(), nil
 }
 
-// GetPendingJobReasonsHistory calls the GetPendingJobReasonsHistory RPC.
-func (c *Client) GetPendingJobReasonsHistory(ctx context.Context, arg0 int32) (int64, error) {
-	resp, err := c.svc.GetPendingJobReasonsHistory(ctx, &pb.GetPendingJobReasonsHistoryRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
 // Schedule calls the Schedule RPC.
-func (c *Client) Schedule(ctx context.Context, arg0 int64) (int32, error) {
+func (c *SchedulerClient) Schedule(ctx context.Context, arg0 int64) (int32, error) {
 	resp, err := c.svc.Schedule(ctx, &pb.ScheduleRequest{
 		Arg0: arg0,
 	})

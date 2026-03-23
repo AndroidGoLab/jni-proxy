@@ -382,75 +382,6 @@ func (s *DevicePolicyManagerServer) GetAccountTypesWithManagementDisabled(_ cont
 	return &pb.GetAccountTypesWithManagementDisabledResponse{Result: handle}, nil
 }
 
-func (s *DevicePolicyManagerServer) GetActiveAdmins(_ context.Context, req *pb.GetActiveAdminsRequest) (*pb.GetActiveAdminsResponse, error) {
-	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
-	}
-	defer mgr.Close()
-
-	result, err := mgr.GetActiveAdmins()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	var handle int64
-	if result != nil {
-		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-			handle = s.Handles.Put(env, result)
-			return nil
-		}); doErr != nil {
-			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-		}
-	}
-	return &pb.GetActiveAdminsResponse{Result: handle}, nil
-}
-
-func (s *DevicePolicyManagerServer) GetAffiliationIds(_ context.Context, req *pb.GetAffiliationIdsRequest) (*pb.GetAffiliationIdsResponse, error) {
-	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
-	}
-	defer mgr.Close()
-
-	result, err := mgr.GetAffiliationIds(s.Handles.Get(req.GetArg0()))
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	var handle int64
-	if result != nil {
-		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-			handle = s.Handles.Put(env, result)
-			return nil
-		}); doErr != nil {
-			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-		}
-	}
-	return &pb.GetAffiliationIdsResponse{Result: handle}, nil
-}
-
-func (s *DevicePolicyManagerServer) GetAlwaysOnVpnLockdownWhitelist(_ context.Context, req *pb.GetAlwaysOnVpnLockdownWhitelistRequest) (*pb.GetAlwaysOnVpnLockdownWhitelistResponse, error) {
-	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
-	}
-	defer mgr.Close()
-
-	result, err := mgr.GetAlwaysOnVpnLockdownWhitelist(s.Handles.Get(req.GetArg0()))
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	var handle int64
-	if result != nil {
-		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-			handle = s.Handles.Put(env, result)
-			return nil
-		}); doErr != nil {
-			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-		}
-	}
-	return &pb.GetAlwaysOnVpnLockdownWhitelistResponse{Result: handle}, nil
-}
-
 func (s *DevicePolicyManagerServer) GetAlwaysOnVpnPackage(_ context.Context, req *pb.GetAlwaysOnVpnPackageRequest) (*pb.GetAlwaysOnVpnPackageResponse, error) {
 	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
@@ -586,29 +517,6 @@ func (s *DevicePolicyManagerServer) GetAutoTimeZonePolicy(_ context.Context, req
 	return &pb.GetAutoTimeZonePolicyResponse{Result: result}, nil
 }
 
-func (s *DevicePolicyManagerServer) GetBindDeviceAdminTargetUsers(_ context.Context, req *pb.GetBindDeviceAdminTargetUsersRequest) (*pb.GetBindDeviceAdminTargetUsersResponse, error) {
-	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
-	}
-	defer mgr.Close()
-
-	result, err := mgr.GetBindDeviceAdminTargetUsers(s.Handles.Get(req.GetArg0()))
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	var handle int64
-	if result != nil {
-		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-			handle = s.Handles.Put(env, result)
-			return nil
-		}); doErr != nil {
-			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-		}
-	}
-	return &pb.GetBindDeviceAdminTargetUsersResponse{Result: handle}, nil
-}
-
 func (s *DevicePolicyManagerServer) GetBluetoothContactSharingDisabled(_ context.Context, req *pb.GetBluetoothContactSharingDisabledRequest) (*pb.GetBluetoothContactSharingDisabledResponse, error) {
 	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
@@ -688,29 +596,6 @@ func (s *DevicePolicyManagerServer) GetCredentialManagerPolicy(_ context.Context
 	return &pb.GetCredentialManagerPolicyResponse{Result: handle}, nil
 }
 
-func (s *DevicePolicyManagerServer) GetCrossProfileCalendarPackages(_ context.Context, req *pb.GetCrossProfileCalendarPackagesRequest) (*pb.GetCrossProfileCalendarPackagesResponse, error) {
-	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
-	}
-	defer mgr.Close()
-
-	result, err := mgr.GetCrossProfileCalendarPackages(s.Handles.Get(req.GetArg0()))
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	var handle int64
-	if result != nil {
-		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-			handle = s.Handles.Put(env, result)
-			return nil
-		}); doErr != nil {
-			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-		}
-	}
-	return &pb.GetCrossProfileCalendarPackagesResponse{Result: handle}, nil
-}
-
 func (s *DevicePolicyManagerServer) GetCrossProfileCallerIdDisabled(_ context.Context, req *pb.GetCrossProfileCallerIdDisabledRequest) (*pb.GetCrossProfileCallerIdDisabledResponse, error) {
 	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
@@ -739,52 +624,6 @@ func (s *DevicePolicyManagerServer) GetCrossProfileContactsSearchDisabled(_ cont
 	return &pb.GetCrossProfileContactsSearchDisabledResponse{Result: result}, nil
 }
 
-func (s *DevicePolicyManagerServer) GetCrossProfilePackages(_ context.Context, req *pb.GetCrossProfilePackagesRequest) (*pb.GetCrossProfilePackagesResponse, error) {
-	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
-	}
-	defer mgr.Close()
-
-	result, err := mgr.GetCrossProfilePackages(s.Handles.Get(req.GetArg0()))
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	var handle int64
-	if result != nil {
-		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-			handle = s.Handles.Put(env, result)
-			return nil
-		}); doErr != nil {
-			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-		}
-	}
-	return &pb.GetCrossProfilePackagesResponse{Result: handle}, nil
-}
-
-func (s *DevicePolicyManagerServer) GetCrossProfileWidgetProviders(_ context.Context, req *pb.GetCrossProfileWidgetProvidersRequest) (*pb.GetCrossProfileWidgetProvidersResponse, error) {
-	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
-	}
-	defer mgr.Close()
-
-	result, err := mgr.GetCrossProfileWidgetProviders(s.Handles.Get(req.GetArg0()))
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	var handle int64
-	if result != nil {
-		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-			handle = s.Handles.Put(env, result)
-			return nil
-		}); doErr != nil {
-			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-		}
-	}
-	return &pb.GetCrossProfileWidgetProvidersResponse{Result: handle}, nil
-}
-
 func (s *DevicePolicyManagerServer) GetCurrentFailedPasswordAttempts(_ context.Context, req *pb.GetCurrentFailedPasswordAttemptsRequest) (*pb.GetCurrentFailedPasswordAttemptsResponse, error) {
 	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
@@ -797,52 +636,6 @@ func (s *DevicePolicyManagerServer) GetCurrentFailedPasswordAttempts(_ context.C
 		return nil, status.Errorf(codes.Internal, "%v", err)
 	}
 	return &pb.GetCurrentFailedPasswordAttemptsResponse{Result: result}, nil
-}
-
-func (s *DevicePolicyManagerServer) GetDelegatePackages(_ context.Context, req *pb.GetDelegatePackagesRequest) (*pb.GetDelegatePackagesResponse, error) {
-	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
-	}
-	defer mgr.Close()
-
-	result, err := mgr.GetDelegatePackages(s.Handles.Get(req.GetArg0()), req.GetArg1())
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	var handle int64
-	if result != nil {
-		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-			handle = s.Handles.Put(env, result)
-			return nil
-		}); doErr != nil {
-			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-		}
-	}
-	return &pb.GetDelegatePackagesResponse{Result: handle}, nil
-}
-
-func (s *DevicePolicyManagerServer) GetDelegatedScopes(_ context.Context, req *pb.GetDelegatedScopesRequest) (*pb.GetDelegatedScopesResponse, error) {
-	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
-	}
-	defer mgr.Close()
-
-	result, err := mgr.GetDelegatedScopes(s.Handles.Get(req.GetArg0()), req.GetArg1())
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	var handle int64
-	if result != nil {
-		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-			handle = s.Handles.Put(env, result)
-			return nil
-		}); doErr != nil {
-			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-		}
-	}
-	return &pb.GetDelegatedScopesResponse{Result: handle}, nil
 }
 
 func (s *DevicePolicyManagerServer) GetDeviceOwnerLockScreenInfo(_ context.Context, req *pb.GetDeviceOwnerLockScreenInfoRequest) (*pb.GetDeviceOwnerLockScreenInfoResponse, error) {
@@ -968,52 +761,6 @@ func (s *DevicePolicyManagerServer) GetGlobalPrivateDnsMode(_ context.Context, r
 		return nil, status.Errorf(codes.Internal, "%v", err)
 	}
 	return &pb.GetGlobalPrivateDnsModeResponse{Result: result}, nil
-}
-
-func (s *DevicePolicyManagerServer) GetInstalledCaCerts(_ context.Context, req *pb.GetInstalledCaCertsRequest) (*pb.GetInstalledCaCertsResponse, error) {
-	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
-	}
-	defer mgr.Close()
-
-	result, err := mgr.GetInstalledCaCerts(s.Handles.Get(req.GetArg0()))
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	var handle int64
-	if result != nil {
-		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-			handle = s.Handles.Put(env, result)
-			return nil
-		}); doErr != nil {
-			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-		}
-	}
-	return &pb.GetInstalledCaCertsResponse{Result: handle}, nil
-}
-
-func (s *DevicePolicyManagerServer) GetKeepUninstalledPackages(_ context.Context, req *pb.GetKeepUninstalledPackagesRequest) (*pb.GetKeepUninstalledPackagesResponse, error) {
-	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
-	}
-	defer mgr.Close()
-
-	result, err := mgr.GetKeepUninstalledPackages(s.Handles.Get(req.GetArg0()))
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	var handle int64
-	if result != nil {
-		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-			handle = s.Handles.Put(env, result)
-			return nil
-		}); doErr != nil {
-			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-		}
-	}
-	return &pb.GetKeepUninstalledPackagesResponse{Result: handle}, nil
 }
 
 func (s *DevicePolicyManagerServer) GetKeyguardDisabledFeatures(_ context.Context, req *pb.GetKeyguardDisabledFeaturesRequest) (*pb.GetKeyguardDisabledFeaturesResponse, error) {
@@ -1201,29 +948,6 @@ func (s *DevicePolicyManagerServer) GetMaximumTimeToLock(_ context.Context, req 
 	return &pb.GetMaximumTimeToLockResponse{Result: result}, nil
 }
 
-func (s *DevicePolicyManagerServer) GetMeteredDataDisabledPackages(_ context.Context, req *pb.GetMeteredDataDisabledPackagesRequest) (*pb.GetMeteredDataDisabledPackagesResponse, error) {
-	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
-	}
-	defer mgr.Close()
-
-	result, err := mgr.GetMeteredDataDisabledPackages(s.Handles.Get(req.GetArg0()))
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	var handle int64
-	if result != nil {
-		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-			handle = s.Handles.Put(env, result)
-			return nil
-		}); doErr != nil {
-			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-		}
-	}
-	return &pb.GetMeteredDataDisabledPackagesResponse{Result: handle}, nil
-}
-
 func (s *DevicePolicyManagerServer) GetMinimumRequiredWifiSecurityLevel(_ context.Context, req *pb.GetMinimumRequiredWifiSecurityLevelRequest) (*pb.GetMinimumRequiredWifiSecurityLevelResponse, error) {
 	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
@@ -1315,29 +1039,6 @@ func (s *DevicePolicyManagerServer) GetOrganizationName(_ context.Context, req *
 		}
 	}
 	return &pb.GetOrganizationNameResponse{Result: handle}, nil
-}
-
-func (s *DevicePolicyManagerServer) GetOverrideApns(_ context.Context, req *pb.GetOverrideApnsRequest) (*pb.GetOverrideApnsResponse, error) {
-	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
-	}
-	defer mgr.Close()
-
-	result, err := mgr.GetOverrideApns(s.Handles.Get(req.GetArg0()))
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	var handle int64
-	if result != nil {
-		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-			handle = s.Handles.Put(env, result)
-			return nil
-		}); doErr != nil {
-			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-		}
-	}
-	return &pb.GetOverrideApnsResponse{Result: handle}, nil
 }
 
 func (s *DevicePolicyManagerServer) GetParentProfileInstance(_ context.Context, req *pb.GetParentProfileInstanceRequest) (*pb.GetParentProfileInstanceResponse, error) {
@@ -1596,75 +1297,6 @@ func (s *DevicePolicyManagerServer) GetPermissionPolicy(_ context.Context, req *
 	return &pb.GetPermissionPolicyResponse{Result: result}, nil
 }
 
-func (s *DevicePolicyManagerServer) GetPermittedAccessibilityServices(_ context.Context, req *pb.GetPermittedAccessibilityServicesRequest) (*pb.GetPermittedAccessibilityServicesResponse, error) {
-	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
-	}
-	defer mgr.Close()
-
-	result, err := mgr.GetPermittedAccessibilityServices(s.Handles.Get(req.GetArg0()))
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	var handle int64
-	if result != nil {
-		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-			handle = s.Handles.Put(env, result)
-			return nil
-		}); doErr != nil {
-			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-		}
-	}
-	return &pb.GetPermittedAccessibilityServicesResponse{Result: handle}, nil
-}
-
-func (s *DevicePolicyManagerServer) GetPermittedCrossProfileNotificationListeners(_ context.Context, req *pb.GetPermittedCrossProfileNotificationListenersRequest) (*pb.GetPermittedCrossProfileNotificationListenersResponse, error) {
-	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
-	}
-	defer mgr.Close()
-
-	result, err := mgr.GetPermittedCrossProfileNotificationListeners(s.Handles.Get(req.GetArg0()))
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	var handle int64
-	if result != nil {
-		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-			handle = s.Handles.Put(env, result)
-			return nil
-		}); doErr != nil {
-			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-		}
-	}
-	return &pb.GetPermittedCrossProfileNotificationListenersResponse{Result: handle}, nil
-}
-
-func (s *DevicePolicyManagerServer) GetPermittedInputMethods(_ context.Context, req *pb.GetPermittedInputMethodsRequest) (*pb.GetPermittedInputMethodsResponse, error) {
-	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
-	}
-	defer mgr.Close()
-
-	result, err := mgr.GetPermittedInputMethods(s.Handles.Get(req.GetArg0()))
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	var handle int64
-	if result != nil {
-		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-			handle = s.Handles.Put(env, result)
-			return nil
-		}); doErr != nil {
-			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-		}
-	}
-	return &pb.GetPermittedInputMethodsResponse{Result: handle}, nil
-}
-
 func (s *DevicePolicyManagerServer) GetPersonalAppsSuspendedReasons(_ context.Context, req *pb.GetPersonalAppsSuspendedReasonsRequest) (*pb.GetPersonalAppsSuspendedReasonsResponse, error) {
 	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
@@ -1677,29 +1309,6 @@ func (s *DevicePolicyManagerServer) GetPersonalAppsSuspendedReasons(_ context.Co
 		return nil, status.Errorf(codes.Internal, "%v", err)
 	}
 	return &pb.GetPersonalAppsSuspendedReasonsResponse{Result: result}, nil
-}
-
-func (s *DevicePolicyManagerServer) GetPreferentialNetworkServiceConfigs(_ context.Context, req *pb.GetPreferentialNetworkServiceConfigsRequest) (*pb.GetPreferentialNetworkServiceConfigsResponse, error) {
-	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
-	}
-	defer mgr.Close()
-
-	result, err := mgr.GetPreferentialNetworkServiceConfigs()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	var handle int64
-	if result != nil {
-		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-			handle = s.Handles.Put(env, result)
-			return nil
-		}); doErr != nil {
-			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-		}
-	}
-	return &pb.GetPreferentialNetworkServiceConfigsResponse{Result: handle}, nil
 }
 
 func (s *DevicePolicyManagerServer) GetRequiredPasswordComplexity(_ context.Context, req *pb.GetRequiredPasswordComplexityRequest) (*pb.GetRequiredPasswordComplexityResponse, error) {
@@ -1765,29 +1374,6 @@ func (s *DevicePolicyManagerServer) GetScreenCaptureDisabled(_ context.Context, 
 		return nil, status.Errorf(codes.Internal, "%v", err)
 	}
 	return &pb.GetScreenCaptureDisabledResponse{Result: result}, nil
-}
-
-func (s *DevicePolicyManagerServer) GetSecondaryUsers(_ context.Context, req *pb.GetSecondaryUsersRequest) (*pb.GetSecondaryUsersResponse, error) {
-	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
-	}
-	defer mgr.Close()
-
-	result, err := mgr.GetSecondaryUsers(s.Handles.Get(req.GetArg0()))
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	var handle int64
-	if result != nil {
-		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-			handle = s.Handles.Put(env, result)
-			return nil
-		}); doErr != nil {
-			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-		}
-	}
-	return &pb.GetSecondaryUsersResponse{Result: handle}, nil
 }
 
 func (s *DevicePolicyManagerServer) GetShortSupportMessage(_ context.Context, req *pb.GetShortSupportMessageRequest) (*pb.GetShortSupportMessageResponse, error) {
@@ -1864,29 +1450,6 @@ func (s *DevicePolicyManagerServer) GetStorageEncryptionStatus(_ context.Context
 	return &pb.GetStorageEncryptionStatusResponse{Result: result}, nil
 }
 
-func (s *DevicePolicyManagerServer) GetSubscriptionIds(_ context.Context, req *pb.GetSubscriptionIdsRequest) (*pb.GetSubscriptionIdsResponse, error) {
-	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
-	}
-	defer mgr.Close()
-
-	result, err := mgr.GetSubscriptionIds()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	var handle int64
-	if result != nil {
-		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-			handle = s.Handles.Put(env, result)
-			return nil
-		}); doErr != nil {
-			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-		}
-	}
-	return &pb.GetSubscriptionIdsResponse{Result: handle}, nil
-}
-
 func (s *DevicePolicyManagerServer) GetSystemUpdatePolicy(_ context.Context, req *pb.GetSystemUpdatePolicyRequest) (*pb.GetSystemUpdatePolicyResponse, error) {
 	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
@@ -1931,52 +1494,6 @@ func (s *DevicePolicyManagerServer) GetTransferOwnershipBundle(_ context.Context
 		}
 	}
 	return &pb.GetTransferOwnershipBundleResponse{Result: handle}, nil
-}
-
-func (s *DevicePolicyManagerServer) GetTrustAgentConfiguration(_ context.Context, req *pb.GetTrustAgentConfigurationRequest) (*pb.GetTrustAgentConfigurationResponse, error) {
-	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
-	}
-	defer mgr.Close()
-
-	result, err := mgr.GetTrustAgentConfiguration(s.Handles.Get(req.GetArg0()), s.Handles.Get(req.GetArg1()))
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	var handle int64
-	if result != nil {
-		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-			handle = s.Handles.Put(env, result)
-			return nil
-		}); doErr != nil {
-			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-		}
-	}
-	return &pb.GetTrustAgentConfigurationResponse{Result: handle}, nil
-}
-
-func (s *DevicePolicyManagerServer) GetUserControlDisabledPackages(_ context.Context, req *pb.GetUserControlDisabledPackagesRequest) (*pb.GetUserControlDisabledPackagesResponse, error) {
-	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
-	}
-	defer mgr.Close()
-
-	result, err := mgr.GetUserControlDisabledPackages(s.Handles.Get(req.GetArg0()))
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	var handle int64
-	if result != nil {
-		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-			handle = s.Handles.Put(env, result)
-			return nil
-		}); doErr != nil {
-			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-		}
-	}
-	return &pb.GetUserControlDisabledPackagesResponse{Result: handle}, nil
 }
 
 func (s *DevicePolicyManagerServer) GetUserRestrictions(_ context.Context, req *pb.GetUserRestrictionsRequest) (*pb.GetUserRestrictionsResponse, error) {
@@ -2705,29 +2222,6 @@ func (s *DevicePolicyManagerServer) IsUsingUnifiedPassword(_ context.Context, re
 	return &pb.IsUsingUnifiedPasswordResponse{Result: result}, nil
 }
 
-func (s *DevicePolicyManagerServer) ListForegroundAffiliatedUsers(_ context.Context, req *pb.ListForegroundAffiliatedUsersRequest) (*pb.ListForegroundAffiliatedUsersResponse, error) {
-	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
-	}
-	defer mgr.Close()
-
-	result, err := mgr.ListForegroundAffiliatedUsers()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	var handle int64
-	if result != nil {
-		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-			handle = s.Handles.Put(env, result)
-			return nil
-		}); doErr != nil {
-			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-		}
-	}
-	return &pb.ListForegroundAffiliatedUsersResponse{Result: handle}, nil
-}
-
 func (s *DevicePolicyManagerServer) LockNow0(_ context.Context, req *pb.LockNow0Request) (*pb.LockNow0Response, error) {
 	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
@@ -2892,75 +2386,6 @@ func (s *DevicePolicyManagerServer) ResetPasswordWithToken(_ context.Context, re
 	return &pb.ResetPasswordWithTokenResponse{Result: result}, nil
 }
 
-func (s *DevicePolicyManagerServer) RetrieveNetworkLogs(_ context.Context, req *pb.RetrieveNetworkLogsRequest) (*pb.RetrieveNetworkLogsResponse, error) {
-	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
-	}
-	defer mgr.Close()
-
-	result, err := mgr.RetrieveNetworkLogs(s.Handles.Get(req.GetArg0()), req.GetArg1())
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	var handle int64
-	if result != nil {
-		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-			handle = s.Handles.Put(env, result)
-			return nil
-		}); doErr != nil {
-			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-		}
-	}
-	return &pb.RetrieveNetworkLogsResponse{Result: handle}, nil
-}
-
-func (s *DevicePolicyManagerServer) RetrievePreRebootSecurityLogs(_ context.Context, req *pb.RetrievePreRebootSecurityLogsRequest) (*pb.RetrievePreRebootSecurityLogsResponse, error) {
-	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
-	}
-	defer mgr.Close()
-
-	result, err := mgr.RetrievePreRebootSecurityLogs(s.Handles.Get(req.GetArg0()))
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	var handle int64
-	if result != nil {
-		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-			handle = s.Handles.Put(env, result)
-			return nil
-		}); doErr != nil {
-			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-		}
-	}
-	return &pb.RetrievePreRebootSecurityLogsResponse{Result: handle}, nil
-}
-
-func (s *DevicePolicyManagerServer) RetrieveSecurityLogs(_ context.Context, req *pb.RetrieveSecurityLogsRequest) (*pb.RetrieveSecurityLogsResponse, error) {
-	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
-	}
-	defer mgr.Close()
-
-	result, err := mgr.RetrieveSecurityLogs(s.Handles.Get(req.GetArg0()))
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	var handle int64
-	if result != nil {
-		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-			handle = s.Handles.Put(env, result)
-			return nil
-		}); doErr != nil {
-			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-		}
-	}
-	return &pb.RetrieveSecurityLogsResponse{Result: handle}, nil
-}
-
 func (s *DevicePolicyManagerServer) RevokeKeyPairFromApp(_ context.Context, req *pb.RevokeKeyPairFromAppRequest) (*pb.RevokeKeyPairFromAppResponse, error) {
 	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
@@ -3002,43 +2427,17 @@ func (s *DevicePolicyManagerServer) SetAccountManagementDisabled(_ context.Conte
 	return &pb.SetAccountManagementDisabledResponse{}, nil
 }
 
-func (s *DevicePolicyManagerServer) SetAffiliationIds(_ context.Context, req *pb.SetAffiliationIdsRequest) (*pb.SetAffiliationIdsResponse, error) {
+func (s *DevicePolicyManagerServer) SetAlwaysOnVpnPackage(_ context.Context, req *pb.SetAlwaysOnVpnPackageRequest) (*pb.SetAlwaysOnVpnPackageResponse, error) {
 	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
 	}
 	defer mgr.Close()
 
-	if err := mgr.SetAffiliationIds(s.Handles.Get(req.GetArg0()), s.Handles.Get(req.GetArg1())); err != nil {
+	if err := mgr.SetAlwaysOnVpnPackage(s.Handles.Get(req.GetArg0()), req.GetArg1(), req.GetArg2()); err != nil {
 		return nil, status.Errorf(codes.Internal, "%v", err)
 	}
-	return &pb.SetAffiliationIdsResponse{}, nil
-}
-
-func (s *DevicePolicyManagerServer) SetAlwaysOnVpnPackage3(_ context.Context, req *pb.SetAlwaysOnVpnPackage3Request) (*pb.SetAlwaysOnVpnPackage3Response, error) {
-	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
-	}
-	defer mgr.Close()
-
-	if err := mgr.SetAlwaysOnVpnPackage3(s.Handles.Get(req.GetArg0()), req.GetArg1(), req.GetArg2()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.SetAlwaysOnVpnPackage3Response{}, nil
-}
-
-func (s *DevicePolicyManagerServer) SetAlwaysOnVpnPackage4_1(_ context.Context, req *pb.SetAlwaysOnVpnPackage4_1Request) (*pb.SetAlwaysOnVpnPackage4_1Response, error) {
-	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
-	}
-	defer mgr.Close()
-
-	if err := mgr.SetAlwaysOnVpnPackage4_1(s.Handles.Get(req.GetArg0()), req.GetArg1(), req.GetArg2(), s.Handles.Get(req.GetArg3())); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.SetAlwaysOnVpnPackage4_1Response{}, nil
+	return &pb.SetAlwaysOnVpnPackageResponse{}, nil
 }
 
 func (s *DevicePolicyManagerServer) SetAppFunctionsPolicy(_ context.Context, req *pb.SetAppFunctionsPolicyRequest) (*pb.SetAppFunctionsPolicyResponse, error) {
@@ -3263,19 +2662,6 @@ func (s *DevicePolicyManagerServer) SetCredentialManagerPolicy(_ context.Context
 	return &pb.SetCredentialManagerPolicyResponse{}, nil
 }
 
-func (s *DevicePolicyManagerServer) SetCrossProfileCalendarPackages(_ context.Context, req *pb.SetCrossProfileCalendarPackagesRequest) (*pb.SetCrossProfileCalendarPackagesResponse, error) {
-	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
-	}
-	defer mgr.Close()
-
-	if err := mgr.SetCrossProfileCalendarPackages(s.Handles.Get(req.GetArg0()), s.Handles.Get(req.GetArg1())); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.SetCrossProfileCalendarPackagesResponse{}, nil
-}
-
 func (s *DevicePolicyManagerServer) SetCrossProfileCallerIdDisabled(_ context.Context, req *pb.SetCrossProfileCallerIdDisabledRequest) (*pb.SetCrossProfileCallerIdDisabledResponse, error) {
 	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
@@ -3302,19 +2688,6 @@ func (s *DevicePolicyManagerServer) SetCrossProfileContactsSearchDisabled(_ cont
 	return &pb.SetCrossProfileContactsSearchDisabledResponse{}, nil
 }
 
-func (s *DevicePolicyManagerServer) SetCrossProfilePackages(_ context.Context, req *pb.SetCrossProfilePackagesRequest) (*pb.SetCrossProfilePackagesResponse, error) {
-	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
-	}
-	defer mgr.Close()
-
-	if err := mgr.SetCrossProfilePackages(s.Handles.Get(req.GetArg0()), s.Handles.Get(req.GetArg1())); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.SetCrossProfilePackagesResponse{}, nil
-}
-
 func (s *DevicePolicyManagerServer) SetDefaultDialerApplication(_ context.Context, req *pb.SetDefaultDialerApplicationRequest) (*pb.SetDefaultDialerApplicationResponse, error) {
 	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
@@ -3339,19 +2712,6 @@ func (s *DevicePolicyManagerServer) SetDefaultSmsApplication(_ context.Context, 
 		return nil, status.Errorf(codes.Internal, "%v", err)
 	}
 	return &pb.SetDefaultSmsApplicationResponse{}, nil
-}
-
-func (s *DevicePolicyManagerServer) SetDelegatedScopes(_ context.Context, req *pb.SetDelegatedScopesRequest) (*pb.SetDelegatedScopesResponse, error) {
-	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
-	}
-	defer mgr.Close()
-
-	if err := mgr.SetDelegatedScopes(s.Handles.Get(req.GetArg0()), req.GetArg1(), s.Handles.Get(req.GetArg2())); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.SetDelegatedScopesResponse{}, nil
 }
 
 func (s *DevicePolicyManagerServer) SetDeviceOwnerLockScreenInfo(_ context.Context, req *pb.SetDeviceOwnerLockScreenInfoRequest) (*pb.SetDeviceOwnerLockScreenInfoResponse, error) {
@@ -3432,33 +2792,6 @@ func (s *DevicePolicyManagerServer) SetGlobalSetting(_ context.Context, req *pb.
 		return nil, status.Errorf(codes.Internal, "%v", err)
 	}
 	return &pb.SetGlobalSettingResponse{}, nil
-}
-
-func (s *DevicePolicyManagerServer) SetKeepUninstalledPackages(_ context.Context, req *pb.SetKeepUninstalledPackagesRequest) (*pb.SetKeepUninstalledPackagesResponse, error) {
-	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
-	}
-	defer mgr.Close()
-
-	if err := mgr.SetKeepUninstalledPackages(s.Handles.Get(req.GetArg0()), s.Handles.Get(req.GetArg1())); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.SetKeepUninstalledPackagesResponse{}, nil
-}
-
-func (s *DevicePolicyManagerServer) SetKeyPairCertificate(_ context.Context, req *pb.SetKeyPairCertificateRequest) (*pb.SetKeyPairCertificateResponse, error) {
-	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
-	}
-	defer mgr.Close()
-
-	result, err := mgr.SetKeyPairCertificate(s.Handles.Get(req.GetArg0()), req.GetArg1(), s.Handles.Get(req.GetArg2()), req.GetArg3())
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.SetKeyPairCertificateResponse{Result: result}, nil
 }
 
 func (s *DevicePolicyManagerServer) SetKeyguardDisabled(_ context.Context, req *pb.SetKeyguardDisabledRequest) (*pb.SetKeyguardDisabledResponse, error) {
@@ -3642,29 +2975,6 @@ func (s *DevicePolicyManagerServer) SetMaximumTimeToLock(_ context.Context, req 
 		return nil, status.Errorf(codes.Internal, "%v", err)
 	}
 	return &pb.SetMaximumTimeToLockResponse{}, nil
-}
-
-func (s *DevicePolicyManagerServer) SetMeteredDataDisabledPackages(_ context.Context, req *pb.SetMeteredDataDisabledPackagesRequest) (*pb.SetMeteredDataDisabledPackagesResponse, error) {
-	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
-	}
-	defer mgr.Close()
-
-	result, err := mgr.SetMeteredDataDisabledPackages(s.Handles.Get(req.GetArg0()), s.Handles.Get(req.GetArg1()))
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	var handle int64
-	if result != nil {
-		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-			handle = s.Handles.Put(env, result)
-			return nil
-		}); doErr != nil {
-			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-		}
-	}
-	return &pb.SetMeteredDataDisabledPackagesResponse{Result: handle}, nil
 }
 
 func (s *DevicePolicyManagerServer) SetMinimumRequiredWifiSecurityLevel(_ context.Context, req *pb.SetMinimumRequiredWifiSecurityLevelRequest) (*pb.SetMinimumRequiredWifiSecurityLevelResponse, error) {
@@ -3964,48 +3274,6 @@ func (s *DevicePolicyManagerServer) SetPermissionPolicy(_ context.Context, req *
 	return &pb.SetPermissionPolicyResponse{}, nil
 }
 
-func (s *DevicePolicyManagerServer) SetPermittedAccessibilityServices(_ context.Context, req *pb.SetPermittedAccessibilityServicesRequest) (*pb.SetPermittedAccessibilityServicesResponse, error) {
-	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
-	}
-	defer mgr.Close()
-
-	result, err := mgr.SetPermittedAccessibilityServices(s.Handles.Get(req.GetArg0()), s.Handles.Get(req.GetArg1()))
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.SetPermittedAccessibilityServicesResponse{Result: result}, nil
-}
-
-func (s *DevicePolicyManagerServer) SetPermittedCrossProfileNotificationListeners(_ context.Context, req *pb.SetPermittedCrossProfileNotificationListenersRequest) (*pb.SetPermittedCrossProfileNotificationListenersResponse, error) {
-	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
-	}
-	defer mgr.Close()
-
-	result, err := mgr.SetPermittedCrossProfileNotificationListeners(s.Handles.Get(req.GetArg0()), s.Handles.Get(req.GetArg1()))
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.SetPermittedCrossProfileNotificationListenersResponse{Result: result}, nil
-}
-
-func (s *DevicePolicyManagerServer) SetPermittedInputMethods(_ context.Context, req *pb.SetPermittedInputMethodsRequest) (*pb.SetPermittedInputMethodsResponse, error) {
-	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
-	}
-	defer mgr.Close()
-
-	result, err := mgr.SetPermittedInputMethods(s.Handles.Get(req.GetArg0()), s.Handles.Get(req.GetArg1()))
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.SetPermittedInputMethodsResponse{Result: result}, nil
-}
-
 func (s *DevicePolicyManagerServer) SetPersonalAppsSuspended(_ context.Context, req *pb.SetPersonalAppsSuspendedRequest) (*pb.SetPersonalAppsSuspendedResponse, error) {
 	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
 	if err != nil {
@@ -4017,19 +3285,6 @@ func (s *DevicePolicyManagerServer) SetPersonalAppsSuspended(_ context.Context, 
 		return nil, status.Errorf(codes.Internal, "%v", err)
 	}
 	return &pb.SetPersonalAppsSuspendedResponse{}, nil
-}
-
-func (s *DevicePolicyManagerServer) SetPreferentialNetworkServiceConfigs(_ context.Context, req *pb.SetPreferentialNetworkServiceConfigsRequest) (*pb.SetPreferentialNetworkServiceConfigsResponse, error) {
-	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
-	}
-	defer mgr.Close()
-
-	if err := mgr.SetPreferentialNetworkServiceConfigs(s.Handles.Get(req.GetArg0())); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.SetPreferentialNetworkServiceConfigsResponse{}, nil
 }
 
 func (s *DevicePolicyManagerServer) SetPreferentialNetworkServiceEnabled(_ context.Context, req *pb.SetPreferentialNetworkServiceEnabledRequest) (*pb.SetPreferentialNetworkServiceEnabledResponse, error) {
@@ -4321,19 +3576,6 @@ func (s *DevicePolicyManagerServer) SetUsbDataSignalingEnabled(_ context.Context
 		return nil, status.Errorf(codes.Internal, "%v", err)
 	}
 	return &pb.SetUsbDataSignalingEnabledResponse{}, nil
-}
-
-func (s *DevicePolicyManagerServer) SetUserControlDisabledPackages(_ context.Context, req *pb.SetUserControlDisabledPackagesRequest) (*pb.SetUserControlDisabledPackagesResponse, error) {
-	mgr, err := jnipkg.NewDevicePolicyManager(s.Ctx)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
-	}
-	defer mgr.Close()
-
-	if err := mgr.SetUserControlDisabledPackages(s.Handles.Get(req.GetArg0()), s.Handles.Get(req.GetArg1())); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.SetUserControlDisabledPackagesResponse{}, nil
 }
 
 func (s *DevicePolicyManagerServer) SetUserIcon(_ context.Context, req *pb.SetUserIconRequest) (*pb.SetUserIconResponse, error) {

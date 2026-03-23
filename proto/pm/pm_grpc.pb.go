@@ -21,6105 +21,1013 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
-	PackageManagerService_AddPackageToPreferred_FullMethodName                 = "/pm.PackageManagerService/AddPackageToPreferred"
-	PackageManagerService_AddPermission_FullMethodName                         = "/pm.PackageManagerService/AddPermission"
-	PackageManagerService_AddPermissionAsync_FullMethodName                    = "/pm.PackageManagerService/AddPermissionAsync"
-	PackageManagerService_AddPreferredActivity_FullMethodName                  = "/pm.PackageManagerService/AddPreferredActivity"
-	PackageManagerService_AddWhitelistedRestrictedPermission_FullMethodName    = "/pm.PackageManagerService/AddWhitelistedRestrictedPermission"
-	PackageManagerService_CanPackageQuery2_FullMethodName                      = "/pm.PackageManagerService/CanPackageQuery2"
-	PackageManagerService_CanPackageQuery2_1_FullMethodName                    = "/pm.PackageManagerService/CanPackageQuery2_1"
-	PackageManagerService_CanRequestPackageInstalls_FullMethodName             = "/pm.PackageManagerService/CanRequestPackageInstalls"
-	PackageManagerService_CanonicalToCurrentPackageNames_FullMethodName        = "/pm.PackageManagerService/CanonicalToCurrentPackageNames"
-	PackageManagerService_CheckPermission_FullMethodName                       = "/pm.PackageManagerService/CheckPermission"
-	PackageManagerService_CheckSignatures2_FullMethodName                      = "/pm.PackageManagerService/CheckSignatures2"
-	PackageManagerService_CheckSignatures2_1_FullMethodName                    = "/pm.PackageManagerService/CheckSignatures2_1"
-	PackageManagerService_ClearInstantAppCookie_FullMethodName                 = "/pm.PackageManagerService/ClearInstantAppCookie"
-	PackageManagerService_ClearPackagePreferredActivities_FullMethodName       = "/pm.PackageManagerService/ClearPackagePreferredActivities"
-	PackageManagerService_CurrentToCanonicalPackageNames_FullMethodName        = "/pm.PackageManagerService/CurrentToCanonicalPackageNames"
-	PackageManagerService_ExtendVerificationTimeout_FullMethodName             = "/pm.PackageManagerService/ExtendVerificationTimeout"
-	PackageManagerService_GetActivityBanner1_FullMethodName                    = "/pm.PackageManagerService/GetActivityBanner1"
-	PackageManagerService_GetActivityBanner1_1_FullMethodName                  = "/pm.PackageManagerService/GetActivityBanner1_1"
-	PackageManagerService_GetActivityIcon1_FullMethodName                      = "/pm.PackageManagerService/GetActivityIcon1"
-	PackageManagerService_GetActivityIcon1_1_FullMethodName                    = "/pm.PackageManagerService/GetActivityIcon1_1"
-	PackageManagerService_GetActivityInfo2_FullMethodName                      = "/pm.PackageManagerService/GetActivityInfo2"
-	PackageManagerService_GetActivityInfo2_1_FullMethodName                    = "/pm.PackageManagerService/GetActivityInfo2_1"
-	PackageManagerService_GetActivityLogo1_FullMethodName                      = "/pm.PackageManagerService/GetActivityLogo1"
-	PackageManagerService_GetActivityLogo1_1_FullMethodName                    = "/pm.PackageManagerService/GetActivityLogo1_1"
-	PackageManagerService_GetAllPermissionGroups_FullMethodName                = "/pm.PackageManagerService/GetAllPermissionGroups"
-	PackageManagerService_GetApplicationBanner1_FullMethodName                 = "/pm.PackageManagerService/GetApplicationBanner1"
-	PackageManagerService_GetApplicationBanner1_1_FullMethodName               = "/pm.PackageManagerService/GetApplicationBanner1_1"
-	PackageManagerService_GetApplicationEnabledSetting_FullMethodName          = "/pm.PackageManagerService/GetApplicationEnabledSetting"
-	PackageManagerService_GetApplicationIcon1_FullMethodName                   = "/pm.PackageManagerService/GetApplicationIcon1"
-	PackageManagerService_GetApplicationIcon1_1_FullMethodName                 = "/pm.PackageManagerService/GetApplicationIcon1_1"
-	PackageManagerService_GetApplicationInfo2_FullMethodName                   = "/pm.PackageManagerService/GetApplicationInfo2"
-	PackageManagerService_GetApplicationInfo2_1_FullMethodName                 = "/pm.PackageManagerService/GetApplicationInfo2_1"
-	PackageManagerService_GetApplicationLabel_FullMethodName                   = "/pm.PackageManagerService/GetApplicationLabel"
-	PackageManagerService_GetApplicationLogo1_FullMethodName                   = "/pm.PackageManagerService/GetApplicationLogo1"
-	PackageManagerService_GetApplicationLogo1_1_FullMethodName                 = "/pm.PackageManagerService/GetApplicationLogo1_1"
-	PackageManagerService_GetArchivedPackage_FullMethodName                    = "/pm.PackageManagerService/GetArchivedPackage"
-	PackageManagerService_GetBackgroundPermissionOptionLabel_FullMethodName    = "/pm.PackageManagerService/GetBackgroundPermissionOptionLabel"
-	PackageManagerService_GetChangedPackages_FullMethodName                    = "/pm.PackageManagerService/GetChangedPackages"
-	PackageManagerService_GetComponentEnabledSetting_FullMethodName            = "/pm.PackageManagerService/GetComponentEnabledSetting"
-	PackageManagerService_GetDefaultActivityIcon_FullMethodName                = "/pm.PackageManagerService/GetDefaultActivityIcon"
-	PackageManagerService_GetDrawable_FullMethodName                           = "/pm.PackageManagerService/GetDrawable"
-	PackageManagerService_GetGroupOfPlatformPermission_FullMethodName          = "/pm.PackageManagerService/GetGroupOfPlatformPermission"
-	PackageManagerService_GetInstallSourceInfo_FullMethodName                  = "/pm.PackageManagerService/GetInstallSourceInfo"
-	PackageManagerService_GetInstalledApplications1_FullMethodName             = "/pm.PackageManagerService/GetInstalledApplications1"
-	PackageManagerService_GetInstalledApplications1_1_FullMethodName           = "/pm.PackageManagerService/GetInstalledApplications1_1"
-	PackageManagerService_GetInstalledModules_FullMethodName                   = "/pm.PackageManagerService/GetInstalledModules"
-	PackageManagerService_GetInstalledPackages1_FullMethodName                 = "/pm.PackageManagerService/GetInstalledPackages1"
-	PackageManagerService_GetInstalledPackages1_1_FullMethodName               = "/pm.PackageManagerService/GetInstalledPackages1_1"
-	PackageManagerService_GetInstallerPackageName_FullMethodName               = "/pm.PackageManagerService/GetInstallerPackageName"
-	PackageManagerService_GetInstantAppCookie_FullMethodName                   = "/pm.PackageManagerService/GetInstantAppCookie"
-	PackageManagerService_GetInstantAppCookieMaxBytes_FullMethodName           = "/pm.PackageManagerService/GetInstantAppCookieMaxBytes"
-	PackageManagerService_GetInstrumentationInfo_FullMethodName                = "/pm.PackageManagerService/GetInstrumentationInfo"
-	PackageManagerService_GetLaunchIntentForPackage_FullMethodName             = "/pm.PackageManagerService/GetLaunchIntentForPackage"
-	PackageManagerService_GetLaunchIntentSenderForPackage_FullMethodName       = "/pm.PackageManagerService/GetLaunchIntentSenderForPackage"
-	PackageManagerService_GetLeanbackLaunchIntentForPackage_FullMethodName     = "/pm.PackageManagerService/GetLeanbackLaunchIntentForPackage"
-	PackageManagerService_GetMimeGroup_FullMethodName                          = "/pm.PackageManagerService/GetMimeGroup"
-	PackageManagerService_GetModuleInfo_FullMethodName                         = "/pm.PackageManagerService/GetModuleInfo"
-	PackageManagerService_GetNameForUid_FullMethodName                         = "/pm.PackageManagerService/GetNameForUid"
-	PackageManagerService_GetPackageArchiveInfo2_FullMethodName                = "/pm.PackageManagerService/GetPackageArchiveInfo2"
-	PackageManagerService_GetPackageArchiveInfo2_1_FullMethodName              = "/pm.PackageManagerService/GetPackageArchiveInfo2_1"
-	PackageManagerService_GetPackageGids1_FullMethodName                       = "/pm.PackageManagerService/GetPackageGids1"
-	PackageManagerService_GetPackageGids2_1_FullMethodName                     = "/pm.PackageManagerService/GetPackageGids2_1"
-	PackageManagerService_GetPackageGids2_2_FullMethodName                     = "/pm.PackageManagerService/GetPackageGids2_2"
-	PackageManagerService_GetPackageInfo2_FullMethodName                       = "/pm.PackageManagerService/GetPackageInfo2"
-	PackageManagerService_GetPackageInfo2_1_FullMethodName                     = "/pm.PackageManagerService/GetPackageInfo2_1"
-	PackageManagerService_GetPackageInfo2_2_FullMethodName                     = "/pm.PackageManagerService/GetPackageInfo2_2"
-	PackageManagerService_GetPackageInfo2_3_FullMethodName                     = "/pm.PackageManagerService/GetPackageInfo2_3"
-	PackageManagerService_GetPackageInstaller_FullMethodName                   = "/pm.PackageManagerService/GetPackageInstaller"
-	PackageManagerService_GetPackageUid2_FullMethodName                        = "/pm.PackageManagerService/GetPackageUid2"
-	PackageManagerService_GetPackageUid2_1_FullMethodName                      = "/pm.PackageManagerService/GetPackageUid2_1"
-	PackageManagerService_GetPackagesForUid_FullMethodName                     = "/pm.PackageManagerService/GetPackagesForUid"
-	PackageManagerService_GetPackagesHoldingPermissions2_FullMethodName        = "/pm.PackageManagerService/GetPackagesHoldingPermissions2"
-	PackageManagerService_GetPackagesHoldingPermissions2_1_FullMethodName      = "/pm.PackageManagerService/GetPackagesHoldingPermissions2_1"
-	PackageManagerService_GetPermissionGroupInfo_FullMethodName                = "/pm.PackageManagerService/GetPermissionGroupInfo"
-	PackageManagerService_GetPermissionInfo_FullMethodName                     = "/pm.PackageManagerService/GetPermissionInfo"
-	PackageManagerService_GetPlatformPermissionsForGroup_FullMethodName        = "/pm.PackageManagerService/GetPlatformPermissionsForGroup"
-	PackageManagerService_GetPreferredActivities_FullMethodName                = "/pm.PackageManagerService/GetPreferredActivities"
-	PackageManagerService_GetPreferredPackages_FullMethodName                  = "/pm.PackageManagerService/GetPreferredPackages"
-	PackageManagerService_GetProperty2_FullMethodName                          = "/pm.PackageManagerService/GetProperty2"
-	PackageManagerService_GetProperty2_1_FullMethodName                        = "/pm.PackageManagerService/GetProperty2_1"
-	PackageManagerService_GetProviderInfo2_FullMethodName                      = "/pm.PackageManagerService/GetProviderInfo2"
-	PackageManagerService_GetProviderInfo2_1_FullMethodName                    = "/pm.PackageManagerService/GetProviderInfo2_1"
-	PackageManagerService_GetReceiverInfo2_FullMethodName                      = "/pm.PackageManagerService/GetReceiverInfo2"
-	PackageManagerService_GetReceiverInfo2_1_FullMethodName                    = "/pm.PackageManagerService/GetReceiverInfo2_1"
-	PackageManagerService_GetResourcesForActivity_FullMethodName               = "/pm.PackageManagerService/GetResourcesForActivity"
-	PackageManagerService_GetResourcesForApplication1_FullMethodName           = "/pm.PackageManagerService/GetResourcesForApplication1"
-	PackageManagerService_GetResourcesForApplication2_1_FullMethodName         = "/pm.PackageManagerService/GetResourcesForApplication2_1"
-	PackageManagerService_GetResourcesForApplication1_2_FullMethodName         = "/pm.PackageManagerService/GetResourcesForApplication1_2"
-	PackageManagerService_GetServiceInfo2_FullMethodName                       = "/pm.PackageManagerService/GetServiceInfo2"
-	PackageManagerService_GetServiceInfo2_1_FullMethodName                     = "/pm.PackageManagerService/GetServiceInfo2_1"
-	PackageManagerService_GetSharedLibraries1_FullMethodName                   = "/pm.PackageManagerService/GetSharedLibraries1"
-	PackageManagerService_GetSharedLibraries1_1_FullMethodName                 = "/pm.PackageManagerService/GetSharedLibraries1_1"
-	PackageManagerService_GetSuspendedPackageAppExtras_FullMethodName          = "/pm.PackageManagerService/GetSuspendedPackageAppExtras"
-	PackageManagerService_GetSyntheticAppDetailsActivityEnabled_FullMethodName = "/pm.PackageManagerService/GetSyntheticAppDetailsActivityEnabled"
-	PackageManagerService_GetSystemAvailableFeatures_FullMethodName            = "/pm.PackageManagerService/GetSystemAvailableFeatures"
-	PackageManagerService_GetSystemSharedLibraryNames_FullMethodName           = "/pm.PackageManagerService/GetSystemSharedLibraryNames"
-	PackageManagerService_GetTargetSdkVersion_FullMethodName                   = "/pm.PackageManagerService/GetTargetSdkVersion"
-	PackageManagerService_GetText_FullMethodName                               = "/pm.PackageManagerService/GetText"
-	PackageManagerService_GetUserBadgedDrawableForDensity_FullMethodName       = "/pm.PackageManagerService/GetUserBadgedDrawableForDensity"
-	PackageManagerService_GetUserBadgedIcon_FullMethodName                     = "/pm.PackageManagerService/GetUserBadgedIcon"
-	PackageManagerService_GetUserBadgedLabel_FullMethodName                    = "/pm.PackageManagerService/GetUserBadgedLabel"
-	PackageManagerService_GetWhitelistedRestrictedPermissions_FullMethodName   = "/pm.PackageManagerService/GetWhitelistedRestrictedPermissions"
-	PackageManagerService_GetXml_FullMethodName                                = "/pm.PackageManagerService/GetXml"
-	PackageManagerService_HasSigningCertificate3_FullMethodName                = "/pm.PackageManagerService/HasSigningCertificate3"
-	PackageManagerService_HasSigningCertificate3_1_FullMethodName              = "/pm.PackageManagerService/HasSigningCertificate3_1"
-	PackageManagerService_HasSystemFeature1_FullMethodName                     = "/pm.PackageManagerService/HasSystemFeature1"
-	PackageManagerService_HasSystemFeature2_1_FullMethodName                   = "/pm.PackageManagerService/HasSystemFeature2_1"
-	PackageManagerService_IsAppArchivable_FullMethodName                       = "/pm.PackageManagerService/IsAppArchivable"
-	PackageManagerService_IsAutoRevokeWhitelisted0_FullMethodName              = "/pm.PackageManagerService/IsAutoRevokeWhitelisted0"
-	PackageManagerService_IsAutoRevokeWhitelisted1_1_FullMethodName            = "/pm.PackageManagerService/IsAutoRevokeWhitelisted1_1"
-	PackageManagerService_IsDefaultApplicationIcon_FullMethodName              = "/pm.PackageManagerService/IsDefaultApplicationIcon"
-	PackageManagerService_IsDeviceUpgrading_FullMethodName                     = "/pm.PackageManagerService/IsDeviceUpgrading"
-	PackageManagerService_IsInstantApp0_FullMethodName                         = "/pm.PackageManagerService/IsInstantApp0"
-	PackageManagerService_IsInstantApp1_1_FullMethodName                       = "/pm.PackageManagerService/IsInstantApp1_1"
-	PackageManagerService_IsPackageStopped_FullMethodName                      = "/pm.PackageManagerService/IsPackageStopped"
-	PackageManagerService_IsPackageSuspended0_FullMethodName                   = "/pm.PackageManagerService/IsPackageSuspended0"
-	PackageManagerService_IsPackageSuspended1_1_FullMethodName                 = "/pm.PackageManagerService/IsPackageSuspended1_1"
-	PackageManagerService_IsPermissionRevokedByPolicy_FullMethodName           = "/pm.PackageManagerService/IsPermissionRevokedByPolicy"
-	PackageManagerService_IsSafeMode_FullMethodName                            = "/pm.PackageManagerService/IsSafeMode"
-	PackageManagerService_QueryActivityProperty_FullMethodName                 = "/pm.PackageManagerService/QueryActivityProperty"
-	PackageManagerService_QueryApplicationProperty_FullMethodName              = "/pm.PackageManagerService/QueryApplicationProperty"
-	PackageManagerService_QueryBroadcastReceivers2_FullMethodName              = "/pm.PackageManagerService/QueryBroadcastReceivers2"
-	PackageManagerService_QueryBroadcastReceivers2_1_FullMethodName            = "/pm.PackageManagerService/QueryBroadcastReceivers2_1"
-	PackageManagerService_QueryContentProviders3_FullMethodName                = "/pm.PackageManagerService/QueryContentProviders3"
-	PackageManagerService_QueryContentProviders3_1_FullMethodName              = "/pm.PackageManagerService/QueryContentProviders3_1"
-	PackageManagerService_QueryInstrumentation_FullMethodName                  = "/pm.PackageManagerService/QueryInstrumentation"
-	PackageManagerService_QueryIntentActivities2_FullMethodName                = "/pm.PackageManagerService/QueryIntentActivities2"
-	PackageManagerService_QueryIntentActivities2_1_FullMethodName              = "/pm.PackageManagerService/QueryIntentActivities2_1"
-	PackageManagerService_QueryIntentActivityOptions4_FullMethodName           = "/pm.PackageManagerService/QueryIntentActivityOptions4"
-	PackageManagerService_QueryIntentActivityOptions4_1_FullMethodName         = "/pm.PackageManagerService/QueryIntentActivityOptions4_1"
-	PackageManagerService_QueryIntentContentProviders2_FullMethodName          = "/pm.PackageManagerService/QueryIntentContentProviders2"
-	PackageManagerService_QueryIntentContentProviders2_1_FullMethodName        = "/pm.PackageManagerService/QueryIntentContentProviders2_1"
-	PackageManagerService_QueryIntentServices2_FullMethodName                  = "/pm.PackageManagerService/QueryIntentServices2"
-	PackageManagerService_QueryIntentServices2_1_FullMethodName                = "/pm.PackageManagerService/QueryIntentServices2_1"
-	PackageManagerService_QueryPermissionsByGroup_FullMethodName               = "/pm.PackageManagerService/QueryPermissionsByGroup"
-	PackageManagerService_QueryProviderProperty_FullMethodName                 = "/pm.PackageManagerService/QueryProviderProperty"
-	PackageManagerService_QueryReceiverProperty_FullMethodName                 = "/pm.PackageManagerService/QueryReceiverProperty"
-	PackageManagerService_QueryServiceProperty_FullMethodName                  = "/pm.PackageManagerService/QueryServiceProperty"
-	PackageManagerService_RelinquishUpdateOwnership_FullMethodName             = "/pm.PackageManagerService/RelinquishUpdateOwnership"
-	PackageManagerService_RemovePackageFromPreferred_FullMethodName            = "/pm.PackageManagerService/RemovePackageFromPreferred"
-	PackageManagerService_RemovePermission_FullMethodName                      = "/pm.PackageManagerService/RemovePermission"
-	PackageManagerService_RemoveWhitelistedRestrictedPermission_FullMethodName = "/pm.PackageManagerService/RemoveWhitelistedRestrictedPermission"
-	PackageManagerService_RequestChecksums_FullMethodName                      = "/pm.PackageManagerService/RequestChecksums"
-	PackageManagerService_ResolveActivity2_FullMethodName                      = "/pm.PackageManagerService/ResolveActivity2"
-	PackageManagerService_ResolveActivity2_1_FullMethodName                    = "/pm.PackageManagerService/ResolveActivity2_1"
-	PackageManagerService_ResolveContentProvider2_FullMethodName               = "/pm.PackageManagerService/ResolveContentProvider2"
-	PackageManagerService_ResolveContentProvider2_1_FullMethodName             = "/pm.PackageManagerService/ResolveContentProvider2_1"
-	PackageManagerService_ResolveService2_FullMethodName                       = "/pm.PackageManagerService/ResolveService2"
-	PackageManagerService_ResolveService2_1_FullMethodName                     = "/pm.PackageManagerService/ResolveService2_1"
-	PackageManagerService_SetApplicationCategoryHint_FullMethodName            = "/pm.PackageManagerService/SetApplicationCategoryHint"
-	PackageManagerService_SetApplicationEnabledSetting_FullMethodName          = "/pm.PackageManagerService/SetApplicationEnabledSetting"
-	PackageManagerService_SetAutoRevokeWhitelisted_FullMethodName              = "/pm.PackageManagerService/SetAutoRevokeWhitelisted"
-	PackageManagerService_SetComponentEnabledSetting_FullMethodName            = "/pm.PackageManagerService/SetComponentEnabledSetting"
-	PackageManagerService_SetComponentEnabledSettings_FullMethodName           = "/pm.PackageManagerService/SetComponentEnabledSettings"
-	PackageManagerService_SetInstallerPackageName_FullMethodName               = "/pm.PackageManagerService/SetInstallerPackageName"
-	PackageManagerService_SetMimeGroup_FullMethodName                          = "/pm.PackageManagerService/SetMimeGroup"
-	PackageManagerService_UpdateInstantAppCookie_FullMethodName                = "/pm.PackageManagerService/UpdateInstantAppCookie"
-	PackageManagerService_VerifyPendingInstall_FullMethodName                  = "/pm.PackageManagerService/VerifyPendingInstall"
-	PackageManagerService_GetVerifiedSigningInfo_FullMethodName                = "/pm.PackageManagerService/GetVerifiedSigningInfo"
+	LauncherAppsService_GetAppMarketActivityIntent_FullMethodName                  = "/pm.LauncherAppsService/GetAppMarketActivityIntent"
+	LauncherAppsService_GetApplicationInfo_FullMethodName                          = "/pm.LauncherAppsService/GetApplicationInfo"
+	LauncherAppsService_GetLauncherUserInfo_FullMethodName                         = "/pm.LauncherAppsService/GetLauncherUserInfo"
+	LauncherAppsService_GetPinItemRequest_FullMethodName                           = "/pm.LauncherAppsService/GetPinItemRequest"
+	LauncherAppsService_GetPrivateSpaceSettingsIntent_FullMethodName               = "/pm.LauncherAppsService/GetPrivateSpaceSettingsIntent"
+	LauncherAppsService_GetShortcutBadgedIconDrawable_FullMethodName               = "/pm.LauncherAppsService/GetShortcutBadgedIconDrawable"
+	LauncherAppsService_GetShortcutConfigActivityIntent_FullMethodName             = "/pm.LauncherAppsService/GetShortcutConfigActivityIntent"
+	LauncherAppsService_GetShortcutIconDrawable_FullMethodName                     = "/pm.LauncherAppsService/GetShortcutIconDrawable"
+	LauncherAppsService_GetShortcutIntent_FullMethodName                           = "/pm.LauncherAppsService/GetShortcutIntent"
+	LauncherAppsService_GetSuspendedPackageLauncherExtras_FullMethodName           = "/pm.LauncherAppsService/GetSuspendedPackageLauncherExtras"
+	LauncherAppsService_HasShortcutHostPermission_FullMethodName                   = "/pm.LauncherAppsService/HasShortcutHostPermission"
+	LauncherAppsService_IsActivityEnabled_FullMethodName                           = "/pm.LauncherAppsService/IsActivityEnabled"
+	LauncherAppsService_IsPackageEnabled_FullMethodName                            = "/pm.LauncherAppsService/IsPackageEnabled"
+	LauncherAppsService_RegisterCallback_FullMethodName                            = "/pm.LauncherAppsService/RegisterCallback"
+	LauncherAppsService_RegisterPackageInstallerSessionCallback_FullMethodName     = "/pm.LauncherAppsService/RegisterPackageInstallerSessionCallback"
+	LauncherAppsService_ResolveActivity_FullMethodName                             = "/pm.LauncherAppsService/ResolveActivity"
+	LauncherAppsService_SetArchiveCompatibility_FullMethodName                     = "/pm.LauncherAppsService/SetArchiveCompatibility"
+	LauncherAppsService_ShouldHideFromSuggestions_FullMethodName                   = "/pm.LauncherAppsService/ShouldHideFromSuggestions"
+	LauncherAppsService_StartAppDetailsActivity_FullMethodName                     = "/pm.LauncherAppsService/StartAppDetailsActivity"
+	LauncherAppsService_StartMainActivity_FullMethodName                           = "/pm.LauncherAppsService/StartMainActivity"
+	LauncherAppsService_StartPackageInstallerSessionDetailsActivity_FullMethodName = "/pm.LauncherAppsService/StartPackageInstallerSessionDetailsActivity"
+	LauncherAppsService_StartShortcut3_FullMethodName                              = "/pm.LauncherAppsService/StartShortcut3"
+	LauncherAppsService_StartShortcut5_1_FullMethodName                            = "/pm.LauncherAppsService/StartShortcut5_1"
+	LauncherAppsService_UnregisterCallback_FullMethodName                          = "/pm.LauncherAppsService/UnregisterCallback"
+	LauncherAppsService_UnregisterPackageInstallerSessionCallback_FullMethodName   = "/pm.LauncherAppsService/UnregisterPackageInstallerSessionCallback"
 )
 
-// PackageManagerServiceClient is the client API for PackageManagerService service.
+// LauncherAppsServiceClient is the client API for LauncherAppsService service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type PackageManagerServiceClient interface {
-	AddPackageToPreferred(ctx context.Context, in *AddPackageToPreferredRequest, opts ...grpc.CallOption) (*AddPackageToPreferredResponse, error)
-	AddPermission(ctx context.Context, in *AddPermissionRequest, opts ...grpc.CallOption) (*AddPermissionResponse, error)
-	AddPermissionAsync(ctx context.Context, in *AddPermissionAsyncRequest, opts ...grpc.CallOption) (*AddPermissionAsyncResponse, error)
-	AddPreferredActivity(ctx context.Context, in *AddPreferredActivityRequest, opts ...grpc.CallOption) (*AddPreferredActivityResponse, error)
-	AddWhitelistedRestrictedPermission(ctx context.Context, in *AddWhitelistedRestrictedPermissionRequest, opts ...grpc.CallOption) (*AddWhitelistedRestrictedPermissionResponse, error)
-	CanPackageQuery2(ctx context.Context, in *CanPackageQuery2Request, opts ...grpc.CallOption) (*CanPackageQuery2Response, error)
-	CanPackageQuery2_1(ctx context.Context, in *CanPackageQuery2_1Request, opts ...grpc.CallOption) (*CanPackageQuery2_1Response, error)
-	CanRequestPackageInstalls(ctx context.Context, in *CanRequestPackageInstallsRequest, opts ...grpc.CallOption) (*CanRequestPackageInstallsResponse, error)
-	CanonicalToCurrentPackageNames(ctx context.Context, in *CanonicalToCurrentPackageNamesRequest, opts ...grpc.CallOption) (*CanonicalToCurrentPackageNamesResponse, error)
-	CheckPermission(ctx context.Context, in *CheckPermissionRequest, opts ...grpc.CallOption) (*CheckPermissionResponse, error)
-	CheckSignatures2(ctx context.Context, in *CheckSignatures2Request, opts ...grpc.CallOption) (*CheckSignatures2Response, error)
-	CheckSignatures2_1(ctx context.Context, in *CheckSignatures2_1Request, opts ...grpc.CallOption) (*CheckSignatures2_1Response, error)
-	ClearInstantAppCookie(ctx context.Context, in *ClearInstantAppCookieRequest, opts ...grpc.CallOption) (*ClearInstantAppCookieResponse, error)
-	ClearPackagePreferredActivities(ctx context.Context, in *ClearPackagePreferredActivitiesRequest, opts ...grpc.CallOption) (*ClearPackagePreferredActivitiesResponse, error)
-	CurrentToCanonicalPackageNames(ctx context.Context, in *CurrentToCanonicalPackageNamesRequest, opts ...grpc.CallOption) (*CurrentToCanonicalPackageNamesResponse, error)
-	ExtendVerificationTimeout(ctx context.Context, in *ExtendVerificationTimeoutRequest, opts ...grpc.CallOption) (*ExtendVerificationTimeoutResponse, error)
-	GetActivityBanner1(ctx context.Context, in *GetActivityBanner1Request, opts ...grpc.CallOption) (*GetActivityBanner1Response, error)
-	GetActivityBanner1_1(ctx context.Context, in *GetActivityBanner1_1Request, opts ...grpc.CallOption) (*GetActivityBanner1_1Response, error)
-	GetActivityIcon1(ctx context.Context, in *GetActivityIcon1Request, opts ...grpc.CallOption) (*GetActivityIcon1Response, error)
-	GetActivityIcon1_1(ctx context.Context, in *GetActivityIcon1_1Request, opts ...grpc.CallOption) (*GetActivityIcon1_1Response, error)
-	GetActivityInfo2(ctx context.Context, in *GetActivityInfo2Request, opts ...grpc.CallOption) (*GetActivityInfo2Response, error)
-	GetActivityInfo2_1(ctx context.Context, in *GetActivityInfo2_1Request, opts ...grpc.CallOption) (*GetActivityInfo2_1Response, error)
-	GetActivityLogo1(ctx context.Context, in *GetActivityLogo1Request, opts ...grpc.CallOption) (*GetActivityLogo1Response, error)
-	GetActivityLogo1_1(ctx context.Context, in *GetActivityLogo1_1Request, opts ...grpc.CallOption) (*GetActivityLogo1_1Response, error)
-	GetAllPermissionGroups(ctx context.Context, in *GetAllPermissionGroupsRequest, opts ...grpc.CallOption) (*GetAllPermissionGroupsResponse, error)
-	GetApplicationBanner1(ctx context.Context, in *GetApplicationBanner1Request, opts ...grpc.CallOption) (*GetApplicationBanner1Response, error)
-	GetApplicationBanner1_1(ctx context.Context, in *GetApplicationBanner1_1Request, opts ...grpc.CallOption) (*GetApplicationBanner1_1Response, error)
-	GetApplicationEnabledSetting(ctx context.Context, in *GetApplicationEnabledSettingRequest, opts ...grpc.CallOption) (*GetApplicationEnabledSettingResponse, error)
-	GetApplicationIcon1(ctx context.Context, in *GetApplicationIcon1Request, opts ...grpc.CallOption) (*GetApplicationIcon1Response, error)
-	GetApplicationIcon1_1(ctx context.Context, in *GetApplicationIcon1_1Request, opts ...grpc.CallOption) (*GetApplicationIcon1_1Response, error)
-	GetApplicationInfo2(ctx context.Context, in *GetApplicationInfo2Request, opts ...grpc.CallOption) (*GetApplicationInfo2Response, error)
-	GetApplicationInfo2_1(ctx context.Context, in *GetApplicationInfo2_1Request, opts ...grpc.CallOption) (*GetApplicationInfo2_1Response, error)
-	GetApplicationLabel(ctx context.Context, in *GetApplicationLabelRequest, opts ...grpc.CallOption) (*GetApplicationLabelResponse, error)
-	GetApplicationLogo1(ctx context.Context, in *GetApplicationLogo1Request, opts ...grpc.CallOption) (*GetApplicationLogo1Response, error)
-	GetApplicationLogo1_1(ctx context.Context, in *GetApplicationLogo1_1Request, opts ...grpc.CallOption) (*GetApplicationLogo1_1Response, error)
-	GetArchivedPackage(ctx context.Context, in *GetArchivedPackageRequest, opts ...grpc.CallOption) (*GetArchivedPackageResponse, error)
-	GetBackgroundPermissionOptionLabel(ctx context.Context, in *GetBackgroundPermissionOptionLabelRequest, opts ...grpc.CallOption) (*GetBackgroundPermissionOptionLabelResponse, error)
-	GetChangedPackages(ctx context.Context, in *GetChangedPackagesRequest, opts ...grpc.CallOption) (*GetChangedPackagesResponse, error)
-	GetComponentEnabledSetting(ctx context.Context, in *GetComponentEnabledSettingRequest, opts ...grpc.CallOption) (*GetComponentEnabledSettingResponse, error)
-	GetDefaultActivityIcon(ctx context.Context, in *GetDefaultActivityIconRequest, opts ...grpc.CallOption) (*GetDefaultActivityIconResponse, error)
-	GetDrawable(ctx context.Context, in *GetDrawableRequest, opts ...grpc.CallOption) (*GetDrawableResponse, error)
-	GetGroupOfPlatformPermission(ctx context.Context, in *GetGroupOfPlatformPermissionRequest, opts ...grpc.CallOption) (*GetGroupOfPlatformPermissionResponse, error)
-	GetInstallSourceInfo(ctx context.Context, in *GetInstallSourceInfoRequest, opts ...grpc.CallOption) (*GetInstallSourceInfoResponse, error)
-	GetInstalledApplications1(ctx context.Context, in *GetInstalledApplications1Request, opts ...grpc.CallOption) (*GetInstalledApplications1Response, error)
-	GetInstalledApplications1_1(ctx context.Context, in *GetInstalledApplications1_1Request, opts ...grpc.CallOption) (*GetInstalledApplications1_1Response, error)
-	GetInstalledModules(ctx context.Context, in *GetInstalledModulesRequest, opts ...grpc.CallOption) (*GetInstalledModulesResponse, error)
-	GetInstalledPackages1(ctx context.Context, in *GetInstalledPackages1Request, opts ...grpc.CallOption) (*GetInstalledPackages1Response, error)
-	GetInstalledPackages1_1(ctx context.Context, in *GetInstalledPackages1_1Request, opts ...grpc.CallOption) (*GetInstalledPackages1_1Response, error)
-	GetInstallerPackageName(ctx context.Context, in *GetInstallerPackageNameRequest, opts ...grpc.CallOption) (*GetInstallerPackageNameResponse, error)
-	GetInstantAppCookie(ctx context.Context, in *GetInstantAppCookieRequest, opts ...grpc.CallOption) (*GetInstantAppCookieResponse, error)
-	GetInstantAppCookieMaxBytes(ctx context.Context, in *GetInstantAppCookieMaxBytesRequest, opts ...grpc.CallOption) (*GetInstantAppCookieMaxBytesResponse, error)
-	GetInstrumentationInfo(ctx context.Context, in *GetInstrumentationInfoRequest, opts ...grpc.CallOption) (*GetInstrumentationInfoResponse, error)
-	GetLaunchIntentForPackage(ctx context.Context, in *GetLaunchIntentForPackageRequest, opts ...grpc.CallOption) (*GetLaunchIntentForPackageResponse, error)
-	GetLaunchIntentSenderForPackage(ctx context.Context, in *GetLaunchIntentSenderForPackageRequest, opts ...grpc.CallOption) (*GetLaunchIntentSenderForPackageResponse, error)
-	GetLeanbackLaunchIntentForPackage(ctx context.Context, in *GetLeanbackLaunchIntentForPackageRequest, opts ...grpc.CallOption) (*GetLeanbackLaunchIntentForPackageResponse, error)
-	GetMimeGroup(ctx context.Context, in *GetMimeGroupRequest, opts ...grpc.CallOption) (*GetMimeGroupResponse, error)
-	GetModuleInfo(ctx context.Context, in *GetModuleInfoRequest, opts ...grpc.CallOption) (*GetModuleInfoResponse, error)
-	GetNameForUid(ctx context.Context, in *GetNameForUidRequest, opts ...grpc.CallOption) (*GetNameForUidResponse, error)
-	GetPackageArchiveInfo2(ctx context.Context, in *GetPackageArchiveInfo2Request, opts ...grpc.CallOption) (*GetPackageArchiveInfo2Response, error)
-	GetPackageArchiveInfo2_1(ctx context.Context, in *GetPackageArchiveInfo2_1Request, opts ...grpc.CallOption) (*GetPackageArchiveInfo2_1Response, error)
-	GetPackageGids1(ctx context.Context, in *GetPackageGids1Request, opts ...grpc.CallOption) (*GetPackageGids1Response, error)
-	GetPackageGids2_1(ctx context.Context, in *GetPackageGids2_1Request, opts ...grpc.CallOption) (*GetPackageGids2_1Response, error)
-	GetPackageGids2_2(ctx context.Context, in *GetPackageGids2_2Request, opts ...grpc.CallOption) (*GetPackageGids2_2Response, error)
-	GetPackageInfo2(ctx context.Context, in *GetPackageInfo2Request, opts ...grpc.CallOption) (*GetPackageInfo2Response, error)
-	GetPackageInfo2_1(ctx context.Context, in *GetPackageInfo2_1Request, opts ...grpc.CallOption) (*GetPackageInfo2_1Response, error)
-	GetPackageInfo2_2(ctx context.Context, in *GetPackageInfo2_2Request, opts ...grpc.CallOption) (*GetPackageInfo2_2Response, error)
-	GetPackageInfo2_3(ctx context.Context, in *GetPackageInfo2_3Request, opts ...grpc.CallOption) (*GetPackageInfo2_3Response, error)
-	GetPackageInstaller(ctx context.Context, in *GetPackageInstallerRequest, opts ...grpc.CallOption) (*GetPackageInstallerResponse, error)
-	GetPackageUid2(ctx context.Context, in *GetPackageUid2Request, opts ...grpc.CallOption) (*GetPackageUid2Response, error)
-	GetPackageUid2_1(ctx context.Context, in *GetPackageUid2_1Request, opts ...grpc.CallOption) (*GetPackageUid2_1Response, error)
-	GetPackagesForUid(ctx context.Context, in *GetPackagesForUidRequest, opts ...grpc.CallOption) (*GetPackagesForUidResponse, error)
-	GetPackagesHoldingPermissions2(ctx context.Context, in *GetPackagesHoldingPermissions2Request, opts ...grpc.CallOption) (*GetPackagesHoldingPermissions2Response, error)
-	GetPackagesHoldingPermissions2_1(ctx context.Context, in *GetPackagesHoldingPermissions2_1Request, opts ...grpc.CallOption) (*GetPackagesHoldingPermissions2_1Response, error)
-	GetPermissionGroupInfo(ctx context.Context, in *GetPermissionGroupInfoRequest, opts ...grpc.CallOption) (*GetPermissionGroupInfoResponse, error)
-	GetPermissionInfo(ctx context.Context, in *GetPermissionInfoRequest, opts ...grpc.CallOption) (*GetPermissionInfoResponse, error)
-	GetPlatformPermissionsForGroup(ctx context.Context, in *GetPlatformPermissionsForGroupRequest, opts ...grpc.CallOption) (*GetPlatformPermissionsForGroupResponse, error)
-	GetPreferredActivities(ctx context.Context, in *GetPreferredActivitiesRequest, opts ...grpc.CallOption) (*GetPreferredActivitiesResponse, error)
-	GetPreferredPackages(ctx context.Context, in *GetPreferredPackagesRequest, opts ...grpc.CallOption) (*GetPreferredPackagesResponse, error)
-	GetProperty2(ctx context.Context, in *GetProperty2Request, opts ...grpc.CallOption) (*GetProperty2Response, error)
-	GetProperty2_1(ctx context.Context, in *GetProperty2_1Request, opts ...grpc.CallOption) (*GetProperty2_1Response, error)
-	GetProviderInfo2(ctx context.Context, in *GetProviderInfo2Request, opts ...grpc.CallOption) (*GetProviderInfo2Response, error)
-	GetProviderInfo2_1(ctx context.Context, in *GetProviderInfo2_1Request, opts ...grpc.CallOption) (*GetProviderInfo2_1Response, error)
-	GetReceiverInfo2(ctx context.Context, in *GetReceiverInfo2Request, opts ...grpc.CallOption) (*GetReceiverInfo2Response, error)
-	GetReceiverInfo2_1(ctx context.Context, in *GetReceiverInfo2_1Request, opts ...grpc.CallOption) (*GetReceiverInfo2_1Response, error)
-	GetResourcesForActivity(ctx context.Context, in *GetResourcesForActivityRequest, opts ...grpc.CallOption) (*GetResourcesForActivityResponse, error)
-	GetResourcesForApplication1(ctx context.Context, in *GetResourcesForApplication1Request, opts ...grpc.CallOption) (*GetResourcesForApplication1Response, error)
-	GetResourcesForApplication2_1(ctx context.Context, in *GetResourcesForApplication2_1Request, opts ...grpc.CallOption) (*GetResourcesForApplication2_1Response, error)
-	GetResourcesForApplication1_2(ctx context.Context, in *GetResourcesForApplication1_2Request, opts ...grpc.CallOption) (*GetResourcesForApplication1_2Response, error)
-	GetServiceInfo2(ctx context.Context, in *GetServiceInfo2Request, opts ...grpc.CallOption) (*GetServiceInfo2Response, error)
-	GetServiceInfo2_1(ctx context.Context, in *GetServiceInfo2_1Request, opts ...grpc.CallOption) (*GetServiceInfo2_1Response, error)
-	GetSharedLibraries1(ctx context.Context, in *GetSharedLibraries1Request, opts ...grpc.CallOption) (*GetSharedLibraries1Response, error)
-	GetSharedLibraries1_1(ctx context.Context, in *GetSharedLibraries1_1Request, opts ...grpc.CallOption) (*GetSharedLibraries1_1Response, error)
-	GetSuspendedPackageAppExtras(ctx context.Context, in *GetSuspendedPackageAppExtrasRequest, opts ...grpc.CallOption) (*GetSuspendedPackageAppExtrasResponse, error)
-	GetSyntheticAppDetailsActivityEnabled(ctx context.Context, in *GetSyntheticAppDetailsActivityEnabledRequest, opts ...grpc.CallOption) (*GetSyntheticAppDetailsActivityEnabledResponse, error)
-	GetSystemAvailableFeatures(ctx context.Context, in *GetSystemAvailableFeaturesRequest, opts ...grpc.CallOption) (*GetSystemAvailableFeaturesResponse, error)
-	GetSystemSharedLibraryNames(ctx context.Context, in *GetSystemSharedLibraryNamesRequest, opts ...grpc.CallOption) (*GetSystemSharedLibraryNamesResponse, error)
-	GetTargetSdkVersion(ctx context.Context, in *GetTargetSdkVersionRequest, opts ...grpc.CallOption) (*GetTargetSdkVersionResponse, error)
-	GetText(ctx context.Context, in *GetTextRequest, opts ...grpc.CallOption) (*GetTextResponse, error)
-	GetUserBadgedDrawableForDensity(ctx context.Context, in *GetUserBadgedDrawableForDensityRequest, opts ...grpc.CallOption) (*GetUserBadgedDrawableForDensityResponse, error)
-	GetUserBadgedIcon(ctx context.Context, in *GetUserBadgedIconRequest, opts ...grpc.CallOption) (*GetUserBadgedIconResponse, error)
-	GetUserBadgedLabel(ctx context.Context, in *GetUserBadgedLabelRequest, opts ...grpc.CallOption) (*GetUserBadgedLabelResponse, error)
-	GetWhitelistedRestrictedPermissions(ctx context.Context, in *GetWhitelistedRestrictedPermissionsRequest, opts ...grpc.CallOption) (*GetWhitelistedRestrictedPermissionsResponse, error)
-	GetXml(ctx context.Context, in *GetXmlRequest, opts ...grpc.CallOption) (*GetXmlResponse, error)
-	HasSigningCertificate3(ctx context.Context, in *HasSigningCertificate3Request, opts ...grpc.CallOption) (*HasSigningCertificate3Response, error)
-	HasSigningCertificate3_1(ctx context.Context, in *HasSigningCertificate3_1Request, opts ...grpc.CallOption) (*HasSigningCertificate3_1Response, error)
-	HasSystemFeature1(ctx context.Context, in *HasSystemFeature1Request, opts ...grpc.CallOption) (*HasSystemFeature1Response, error)
-	HasSystemFeature2_1(ctx context.Context, in *HasSystemFeature2_1Request, opts ...grpc.CallOption) (*HasSystemFeature2_1Response, error)
-	IsAppArchivable(ctx context.Context, in *IsAppArchivableRequest, opts ...grpc.CallOption) (*IsAppArchivableResponse, error)
-	IsAutoRevokeWhitelisted0(ctx context.Context, in *IsAutoRevokeWhitelisted0Request, opts ...grpc.CallOption) (*IsAutoRevokeWhitelisted0Response, error)
-	IsAutoRevokeWhitelisted1_1(ctx context.Context, in *IsAutoRevokeWhitelisted1_1Request, opts ...grpc.CallOption) (*IsAutoRevokeWhitelisted1_1Response, error)
-	IsDefaultApplicationIcon(ctx context.Context, in *IsDefaultApplicationIconRequest, opts ...grpc.CallOption) (*IsDefaultApplicationIconResponse, error)
-	IsDeviceUpgrading(ctx context.Context, in *IsDeviceUpgradingRequest, opts ...grpc.CallOption) (*IsDeviceUpgradingResponse, error)
-	IsInstantApp0(ctx context.Context, in *IsInstantApp0Request, opts ...grpc.CallOption) (*IsInstantApp0Response, error)
-	IsInstantApp1_1(ctx context.Context, in *IsInstantApp1_1Request, opts ...grpc.CallOption) (*IsInstantApp1_1Response, error)
-	IsPackageStopped(ctx context.Context, in *IsPackageStoppedRequest, opts ...grpc.CallOption) (*IsPackageStoppedResponse, error)
-	IsPackageSuspended0(ctx context.Context, in *IsPackageSuspended0Request, opts ...grpc.CallOption) (*IsPackageSuspended0Response, error)
-	IsPackageSuspended1_1(ctx context.Context, in *IsPackageSuspended1_1Request, opts ...grpc.CallOption) (*IsPackageSuspended1_1Response, error)
-	IsPermissionRevokedByPolicy(ctx context.Context, in *IsPermissionRevokedByPolicyRequest, opts ...grpc.CallOption) (*IsPermissionRevokedByPolicyResponse, error)
-	IsSafeMode(ctx context.Context, in *IsSafeModeRequest, opts ...grpc.CallOption) (*IsSafeModeResponse, error)
-	QueryActivityProperty(ctx context.Context, in *QueryActivityPropertyRequest, opts ...grpc.CallOption) (*QueryActivityPropertyResponse, error)
-	QueryApplicationProperty(ctx context.Context, in *QueryApplicationPropertyRequest, opts ...grpc.CallOption) (*QueryApplicationPropertyResponse, error)
-	QueryBroadcastReceivers2(ctx context.Context, in *QueryBroadcastReceivers2Request, opts ...grpc.CallOption) (*QueryBroadcastReceivers2Response, error)
-	QueryBroadcastReceivers2_1(ctx context.Context, in *QueryBroadcastReceivers2_1Request, opts ...grpc.CallOption) (*QueryBroadcastReceivers2_1Response, error)
-	QueryContentProviders3(ctx context.Context, in *QueryContentProviders3Request, opts ...grpc.CallOption) (*QueryContentProviders3Response, error)
-	QueryContentProviders3_1(ctx context.Context, in *QueryContentProviders3_1Request, opts ...grpc.CallOption) (*QueryContentProviders3_1Response, error)
-	QueryInstrumentation(ctx context.Context, in *QueryInstrumentationRequest, opts ...grpc.CallOption) (*QueryInstrumentationResponse, error)
-	QueryIntentActivities2(ctx context.Context, in *QueryIntentActivities2Request, opts ...grpc.CallOption) (*QueryIntentActivities2Response, error)
-	QueryIntentActivities2_1(ctx context.Context, in *QueryIntentActivities2_1Request, opts ...grpc.CallOption) (*QueryIntentActivities2_1Response, error)
-	QueryIntentActivityOptions4(ctx context.Context, in *QueryIntentActivityOptions4Request, opts ...grpc.CallOption) (*QueryIntentActivityOptions4Response, error)
-	QueryIntentActivityOptions4_1(ctx context.Context, in *QueryIntentActivityOptions4_1Request, opts ...grpc.CallOption) (*QueryIntentActivityOptions4_1Response, error)
-	QueryIntentContentProviders2(ctx context.Context, in *QueryIntentContentProviders2Request, opts ...grpc.CallOption) (*QueryIntentContentProviders2Response, error)
-	QueryIntentContentProviders2_1(ctx context.Context, in *QueryIntentContentProviders2_1Request, opts ...grpc.CallOption) (*QueryIntentContentProviders2_1Response, error)
-	QueryIntentServices2(ctx context.Context, in *QueryIntentServices2Request, opts ...grpc.CallOption) (*QueryIntentServices2Response, error)
-	QueryIntentServices2_1(ctx context.Context, in *QueryIntentServices2_1Request, opts ...grpc.CallOption) (*QueryIntentServices2_1Response, error)
-	QueryPermissionsByGroup(ctx context.Context, in *QueryPermissionsByGroupRequest, opts ...grpc.CallOption) (*QueryPermissionsByGroupResponse, error)
-	QueryProviderProperty(ctx context.Context, in *QueryProviderPropertyRequest, opts ...grpc.CallOption) (*QueryProviderPropertyResponse, error)
-	QueryReceiverProperty(ctx context.Context, in *QueryReceiverPropertyRequest, opts ...grpc.CallOption) (*QueryReceiverPropertyResponse, error)
-	QueryServiceProperty(ctx context.Context, in *QueryServicePropertyRequest, opts ...grpc.CallOption) (*QueryServicePropertyResponse, error)
-	RelinquishUpdateOwnership(ctx context.Context, in *RelinquishUpdateOwnershipRequest, opts ...grpc.CallOption) (*RelinquishUpdateOwnershipResponse, error)
-	RemovePackageFromPreferred(ctx context.Context, in *RemovePackageFromPreferredRequest, opts ...grpc.CallOption) (*RemovePackageFromPreferredResponse, error)
-	RemovePermission(ctx context.Context, in *RemovePermissionRequest, opts ...grpc.CallOption) (*RemovePermissionResponse, error)
-	RemoveWhitelistedRestrictedPermission(ctx context.Context, in *RemoveWhitelistedRestrictedPermissionRequest, opts ...grpc.CallOption) (*RemoveWhitelistedRestrictedPermissionResponse, error)
-	RequestChecksums(ctx context.Context, in *RequestChecksumsRequest, opts ...grpc.CallOption) (*RequestChecksumsResponse, error)
-	ResolveActivity2(ctx context.Context, in *ResolveActivity2Request, opts ...grpc.CallOption) (*ResolveActivity2Response, error)
-	ResolveActivity2_1(ctx context.Context, in *ResolveActivity2_1Request, opts ...grpc.CallOption) (*ResolveActivity2_1Response, error)
-	ResolveContentProvider2(ctx context.Context, in *ResolveContentProvider2Request, opts ...grpc.CallOption) (*ResolveContentProvider2Response, error)
-	ResolveContentProvider2_1(ctx context.Context, in *ResolveContentProvider2_1Request, opts ...grpc.CallOption) (*ResolveContentProvider2_1Response, error)
-	ResolveService2(ctx context.Context, in *ResolveService2Request, opts ...grpc.CallOption) (*ResolveService2Response, error)
-	ResolveService2_1(ctx context.Context, in *ResolveService2_1Request, opts ...grpc.CallOption) (*ResolveService2_1Response, error)
-	SetApplicationCategoryHint(ctx context.Context, in *SetApplicationCategoryHintRequest, opts ...grpc.CallOption) (*SetApplicationCategoryHintResponse, error)
-	SetApplicationEnabledSetting(ctx context.Context, in *SetApplicationEnabledSettingRequest, opts ...grpc.CallOption) (*SetApplicationEnabledSettingResponse, error)
-	SetAutoRevokeWhitelisted(ctx context.Context, in *SetAutoRevokeWhitelistedRequest, opts ...grpc.CallOption) (*SetAutoRevokeWhitelistedResponse, error)
-	SetComponentEnabledSetting(ctx context.Context, in *SetComponentEnabledSettingRequest, opts ...grpc.CallOption) (*SetComponentEnabledSettingResponse, error)
-	SetComponentEnabledSettings(ctx context.Context, in *SetComponentEnabledSettingsRequest, opts ...grpc.CallOption) (*SetComponentEnabledSettingsResponse, error)
-	SetInstallerPackageName(ctx context.Context, in *SetInstallerPackageNameRequest, opts ...grpc.CallOption) (*SetInstallerPackageNameResponse, error)
-	SetMimeGroup(ctx context.Context, in *SetMimeGroupRequest, opts ...grpc.CallOption) (*SetMimeGroupResponse, error)
-	UpdateInstantAppCookie(ctx context.Context, in *UpdateInstantAppCookieRequest, opts ...grpc.CallOption) (*UpdateInstantAppCookieResponse, error)
-	VerifyPendingInstall(ctx context.Context, in *VerifyPendingInstallRequest, opts ...grpc.CallOption) (*VerifyPendingInstallResponse, error)
-	GetVerifiedSigningInfo(ctx context.Context, in *GetVerifiedSigningInfoRequest, opts ...grpc.CallOption) (*GetVerifiedSigningInfoResponse, error)
+type LauncherAppsServiceClient interface {
+	GetAppMarketActivityIntent(ctx context.Context, in *GetAppMarketActivityIntentRequest, opts ...grpc.CallOption) (*GetAppMarketActivityIntentResponse, error)
+	GetApplicationInfo(ctx context.Context, in *GetApplicationInfoRequest, opts ...grpc.CallOption) (*GetApplicationInfoResponse, error)
+	GetLauncherUserInfo(ctx context.Context, in *GetLauncherUserInfoRequest, opts ...grpc.CallOption) (*GetLauncherUserInfoResponse, error)
+	GetPinItemRequest(ctx context.Context, in *GetPinItemRequestRequest, opts ...grpc.CallOption) (*GetPinItemRequestResponse, error)
+	GetPrivateSpaceSettingsIntent(ctx context.Context, in *GetPrivateSpaceSettingsIntentRequest, opts ...grpc.CallOption) (*GetPrivateSpaceSettingsIntentResponse, error)
+	GetShortcutBadgedIconDrawable(ctx context.Context, in *GetShortcutBadgedIconDrawableRequest, opts ...grpc.CallOption) (*GetShortcutBadgedIconDrawableResponse, error)
+	GetShortcutConfigActivityIntent(ctx context.Context, in *GetShortcutConfigActivityIntentRequest, opts ...grpc.CallOption) (*GetShortcutConfigActivityIntentResponse, error)
+	GetShortcutIconDrawable(ctx context.Context, in *GetShortcutIconDrawableRequest, opts ...grpc.CallOption) (*GetShortcutIconDrawableResponse, error)
+	GetShortcutIntent(ctx context.Context, in *GetShortcutIntentRequest, opts ...grpc.CallOption) (*GetShortcutIntentResponse, error)
+	GetSuspendedPackageLauncherExtras(ctx context.Context, in *GetSuspendedPackageLauncherExtrasRequest, opts ...grpc.CallOption) (*GetSuspendedPackageLauncherExtrasResponse, error)
+	HasShortcutHostPermission(ctx context.Context, in *HasShortcutHostPermissionRequest, opts ...grpc.CallOption) (*HasShortcutHostPermissionResponse, error)
+	IsActivityEnabled(ctx context.Context, in *IsActivityEnabledRequest, opts ...grpc.CallOption) (*IsActivityEnabledResponse, error)
+	IsPackageEnabled(ctx context.Context, in *IsPackageEnabledRequest, opts ...grpc.CallOption) (*IsPackageEnabledResponse, error)
+	RegisterCallback(ctx context.Context, in *RegisterCallbackRequest, opts ...grpc.CallOption) (*RegisterCallbackResponse, error)
+	RegisterPackageInstallerSessionCallback(ctx context.Context, in *RegisterPackageInstallerSessionCallbackRequest, opts ...grpc.CallOption) (*RegisterPackageInstallerSessionCallbackResponse, error)
+	ResolveActivity(ctx context.Context, in *ResolveActivityRequest, opts ...grpc.CallOption) (*ResolveActivityResponse, error)
+	SetArchiveCompatibility(ctx context.Context, in *SetArchiveCompatibilityRequest, opts ...grpc.CallOption) (*SetArchiveCompatibilityResponse, error)
+	ShouldHideFromSuggestions(ctx context.Context, in *ShouldHideFromSuggestionsRequest, opts ...grpc.CallOption) (*ShouldHideFromSuggestionsResponse, error)
+	StartAppDetailsActivity(ctx context.Context, in *StartAppDetailsActivityRequest, opts ...grpc.CallOption) (*StartAppDetailsActivityResponse, error)
+	StartMainActivity(ctx context.Context, in *StartMainActivityRequest, opts ...grpc.CallOption) (*StartMainActivityResponse, error)
+	StartPackageInstallerSessionDetailsActivity(ctx context.Context, in *StartPackageInstallerSessionDetailsActivityRequest, opts ...grpc.CallOption) (*StartPackageInstallerSessionDetailsActivityResponse, error)
+	StartShortcut3(ctx context.Context, in *StartShortcut3Request, opts ...grpc.CallOption) (*StartShortcut3Response, error)
+	StartShortcut5_1(ctx context.Context, in *StartShortcut5_1Request, opts ...grpc.CallOption) (*StartShortcut5_1Response, error)
+	UnregisterCallback(ctx context.Context, in *UnregisterCallbackRequest, opts ...grpc.CallOption) (*UnregisterCallbackResponse, error)
+	UnregisterPackageInstallerSessionCallback(ctx context.Context, in *UnregisterPackageInstallerSessionCallbackRequest, opts ...grpc.CallOption) (*UnregisterPackageInstallerSessionCallbackResponse, error)
 }
 
-type packageManagerServiceClient struct {
+type launcherAppsServiceClient struct {
 	cc grpc.ClientConnInterface
 }
 
-func NewPackageManagerServiceClient(cc grpc.ClientConnInterface) PackageManagerServiceClient {
-	return &packageManagerServiceClient{cc}
+func NewLauncherAppsServiceClient(cc grpc.ClientConnInterface) LauncherAppsServiceClient {
+	return &launcherAppsServiceClient{cc}
 }
 
-func (c *packageManagerServiceClient) AddPackageToPreferred(ctx context.Context, in *AddPackageToPreferredRequest, opts ...grpc.CallOption) (*AddPackageToPreferredResponse, error) {
+func (c *launcherAppsServiceClient) GetAppMarketActivityIntent(ctx context.Context, in *GetAppMarketActivityIntentRequest, opts ...grpc.CallOption) (*GetAppMarketActivityIntentResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(AddPackageToPreferredResponse)
-	err := c.cc.Invoke(ctx, PackageManagerService_AddPackageToPreferred_FullMethodName, in, out, cOpts...)
+	out := new(GetAppMarketActivityIntentResponse)
+	err := c.cc.Invoke(ctx, LauncherAppsService_GetAppMarketActivityIntent_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *packageManagerServiceClient) AddPermission(ctx context.Context, in *AddPermissionRequest, opts ...grpc.CallOption) (*AddPermissionResponse, error) {
+func (c *launcherAppsServiceClient) GetApplicationInfo(ctx context.Context, in *GetApplicationInfoRequest, opts ...grpc.CallOption) (*GetApplicationInfoResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(AddPermissionResponse)
-	err := c.cc.Invoke(ctx, PackageManagerService_AddPermission_FullMethodName, in, out, cOpts...)
+	out := new(GetApplicationInfoResponse)
+	err := c.cc.Invoke(ctx, LauncherAppsService_GetApplicationInfo_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *packageManagerServiceClient) AddPermissionAsync(ctx context.Context, in *AddPermissionAsyncRequest, opts ...grpc.CallOption) (*AddPermissionAsyncResponse, error) {
+func (c *launcherAppsServiceClient) GetLauncherUserInfo(ctx context.Context, in *GetLauncherUserInfoRequest, opts ...grpc.CallOption) (*GetLauncherUserInfoResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(AddPermissionAsyncResponse)
-	err := c.cc.Invoke(ctx, PackageManagerService_AddPermissionAsync_FullMethodName, in, out, cOpts...)
+	out := new(GetLauncherUserInfoResponse)
+	err := c.cc.Invoke(ctx, LauncherAppsService_GetLauncherUserInfo_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *packageManagerServiceClient) AddPreferredActivity(ctx context.Context, in *AddPreferredActivityRequest, opts ...grpc.CallOption) (*AddPreferredActivityResponse, error) {
+func (c *launcherAppsServiceClient) GetPinItemRequest(ctx context.Context, in *GetPinItemRequestRequest, opts ...grpc.CallOption) (*GetPinItemRequestResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(AddPreferredActivityResponse)
-	err := c.cc.Invoke(ctx, PackageManagerService_AddPreferredActivity_FullMethodName, in, out, cOpts...)
+	out := new(GetPinItemRequestResponse)
+	err := c.cc.Invoke(ctx, LauncherAppsService_GetPinItemRequest_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *packageManagerServiceClient) AddWhitelistedRestrictedPermission(ctx context.Context, in *AddWhitelistedRestrictedPermissionRequest, opts ...grpc.CallOption) (*AddWhitelistedRestrictedPermissionResponse, error) {
+func (c *launcherAppsServiceClient) GetPrivateSpaceSettingsIntent(ctx context.Context, in *GetPrivateSpaceSettingsIntentRequest, opts ...grpc.CallOption) (*GetPrivateSpaceSettingsIntentResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(AddWhitelistedRestrictedPermissionResponse)
-	err := c.cc.Invoke(ctx, PackageManagerService_AddWhitelistedRestrictedPermission_FullMethodName, in, out, cOpts...)
+	out := new(GetPrivateSpaceSettingsIntentResponse)
+	err := c.cc.Invoke(ctx, LauncherAppsService_GetPrivateSpaceSettingsIntent_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *packageManagerServiceClient) CanPackageQuery2(ctx context.Context, in *CanPackageQuery2Request, opts ...grpc.CallOption) (*CanPackageQuery2Response, error) {
+func (c *launcherAppsServiceClient) GetShortcutBadgedIconDrawable(ctx context.Context, in *GetShortcutBadgedIconDrawableRequest, opts ...grpc.CallOption) (*GetShortcutBadgedIconDrawableResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(CanPackageQuery2Response)
-	err := c.cc.Invoke(ctx, PackageManagerService_CanPackageQuery2_FullMethodName, in, out, cOpts...)
+	out := new(GetShortcutBadgedIconDrawableResponse)
+	err := c.cc.Invoke(ctx, LauncherAppsService_GetShortcutBadgedIconDrawable_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *packageManagerServiceClient) CanPackageQuery2_1(ctx context.Context, in *CanPackageQuery2_1Request, opts ...grpc.CallOption) (*CanPackageQuery2_1Response, error) {
+func (c *launcherAppsServiceClient) GetShortcutConfigActivityIntent(ctx context.Context, in *GetShortcutConfigActivityIntentRequest, opts ...grpc.CallOption) (*GetShortcutConfigActivityIntentResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(CanPackageQuery2_1Response)
-	err := c.cc.Invoke(ctx, PackageManagerService_CanPackageQuery2_1_FullMethodName, in, out, cOpts...)
+	out := new(GetShortcutConfigActivityIntentResponse)
+	err := c.cc.Invoke(ctx, LauncherAppsService_GetShortcutConfigActivityIntent_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *packageManagerServiceClient) CanRequestPackageInstalls(ctx context.Context, in *CanRequestPackageInstallsRequest, opts ...grpc.CallOption) (*CanRequestPackageInstallsResponse, error) {
+func (c *launcherAppsServiceClient) GetShortcutIconDrawable(ctx context.Context, in *GetShortcutIconDrawableRequest, opts ...grpc.CallOption) (*GetShortcutIconDrawableResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(CanRequestPackageInstallsResponse)
-	err := c.cc.Invoke(ctx, PackageManagerService_CanRequestPackageInstalls_FullMethodName, in, out, cOpts...)
+	out := new(GetShortcutIconDrawableResponse)
+	err := c.cc.Invoke(ctx, LauncherAppsService_GetShortcutIconDrawable_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *packageManagerServiceClient) CanonicalToCurrentPackageNames(ctx context.Context, in *CanonicalToCurrentPackageNamesRequest, opts ...grpc.CallOption) (*CanonicalToCurrentPackageNamesResponse, error) {
+func (c *launcherAppsServiceClient) GetShortcutIntent(ctx context.Context, in *GetShortcutIntentRequest, opts ...grpc.CallOption) (*GetShortcutIntentResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(CanonicalToCurrentPackageNamesResponse)
-	err := c.cc.Invoke(ctx, PackageManagerService_CanonicalToCurrentPackageNames_FullMethodName, in, out, cOpts...)
+	out := new(GetShortcutIntentResponse)
+	err := c.cc.Invoke(ctx, LauncherAppsService_GetShortcutIntent_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *packageManagerServiceClient) CheckPermission(ctx context.Context, in *CheckPermissionRequest, opts ...grpc.CallOption) (*CheckPermissionResponse, error) {
+func (c *launcherAppsServiceClient) GetSuspendedPackageLauncherExtras(ctx context.Context, in *GetSuspendedPackageLauncherExtrasRequest, opts ...grpc.CallOption) (*GetSuspendedPackageLauncherExtrasResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(CheckPermissionResponse)
-	err := c.cc.Invoke(ctx, PackageManagerService_CheckPermission_FullMethodName, in, out, cOpts...)
+	out := new(GetSuspendedPackageLauncherExtrasResponse)
+	err := c.cc.Invoke(ctx, LauncherAppsService_GetSuspendedPackageLauncherExtras_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *packageManagerServiceClient) CheckSignatures2(ctx context.Context, in *CheckSignatures2Request, opts ...grpc.CallOption) (*CheckSignatures2Response, error) {
+func (c *launcherAppsServiceClient) HasShortcutHostPermission(ctx context.Context, in *HasShortcutHostPermissionRequest, opts ...grpc.CallOption) (*HasShortcutHostPermissionResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(CheckSignatures2Response)
-	err := c.cc.Invoke(ctx, PackageManagerService_CheckSignatures2_FullMethodName, in, out, cOpts...)
+	out := new(HasShortcutHostPermissionResponse)
+	err := c.cc.Invoke(ctx, LauncherAppsService_HasShortcutHostPermission_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *packageManagerServiceClient) CheckSignatures2_1(ctx context.Context, in *CheckSignatures2_1Request, opts ...grpc.CallOption) (*CheckSignatures2_1Response, error) {
+func (c *launcherAppsServiceClient) IsActivityEnabled(ctx context.Context, in *IsActivityEnabledRequest, opts ...grpc.CallOption) (*IsActivityEnabledResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(CheckSignatures2_1Response)
-	err := c.cc.Invoke(ctx, PackageManagerService_CheckSignatures2_1_FullMethodName, in, out, cOpts...)
+	out := new(IsActivityEnabledResponse)
+	err := c.cc.Invoke(ctx, LauncherAppsService_IsActivityEnabled_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *packageManagerServiceClient) ClearInstantAppCookie(ctx context.Context, in *ClearInstantAppCookieRequest, opts ...grpc.CallOption) (*ClearInstantAppCookieResponse, error) {
+func (c *launcherAppsServiceClient) IsPackageEnabled(ctx context.Context, in *IsPackageEnabledRequest, opts ...grpc.CallOption) (*IsPackageEnabledResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ClearInstantAppCookieResponse)
-	err := c.cc.Invoke(ctx, PackageManagerService_ClearInstantAppCookie_FullMethodName, in, out, cOpts...)
+	out := new(IsPackageEnabledResponse)
+	err := c.cc.Invoke(ctx, LauncherAppsService_IsPackageEnabled_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *packageManagerServiceClient) ClearPackagePreferredActivities(ctx context.Context, in *ClearPackagePreferredActivitiesRequest, opts ...grpc.CallOption) (*ClearPackagePreferredActivitiesResponse, error) {
+func (c *launcherAppsServiceClient) RegisterCallback(ctx context.Context, in *RegisterCallbackRequest, opts ...grpc.CallOption) (*RegisterCallbackResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ClearPackagePreferredActivitiesResponse)
-	err := c.cc.Invoke(ctx, PackageManagerService_ClearPackagePreferredActivities_FullMethodName, in, out, cOpts...)
+	out := new(RegisterCallbackResponse)
+	err := c.cc.Invoke(ctx, LauncherAppsService_RegisterCallback_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *packageManagerServiceClient) CurrentToCanonicalPackageNames(ctx context.Context, in *CurrentToCanonicalPackageNamesRequest, opts ...grpc.CallOption) (*CurrentToCanonicalPackageNamesResponse, error) {
+func (c *launcherAppsServiceClient) RegisterPackageInstallerSessionCallback(ctx context.Context, in *RegisterPackageInstallerSessionCallbackRequest, opts ...grpc.CallOption) (*RegisterPackageInstallerSessionCallbackResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(CurrentToCanonicalPackageNamesResponse)
-	err := c.cc.Invoke(ctx, PackageManagerService_CurrentToCanonicalPackageNames_FullMethodName, in, out, cOpts...)
+	out := new(RegisterPackageInstallerSessionCallbackResponse)
+	err := c.cc.Invoke(ctx, LauncherAppsService_RegisterPackageInstallerSessionCallback_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *packageManagerServiceClient) ExtendVerificationTimeout(ctx context.Context, in *ExtendVerificationTimeoutRequest, opts ...grpc.CallOption) (*ExtendVerificationTimeoutResponse, error) {
+func (c *launcherAppsServiceClient) ResolveActivity(ctx context.Context, in *ResolveActivityRequest, opts ...grpc.CallOption) (*ResolveActivityResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ExtendVerificationTimeoutResponse)
-	err := c.cc.Invoke(ctx, PackageManagerService_ExtendVerificationTimeout_FullMethodName, in, out, cOpts...)
+	out := new(ResolveActivityResponse)
+	err := c.cc.Invoke(ctx, LauncherAppsService_ResolveActivity_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *packageManagerServiceClient) GetActivityBanner1(ctx context.Context, in *GetActivityBanner1Request, opts ...grpc.CallOption) (*GetActivityBanner1Response, error) {
+func (c *launcherAppsServiceClient) SetArchiveCompatibility(ctx context.Context, in *SetArchiveCompatibilityRequest, opts ...grpc.CallOption) (*SetArchiveCompatibilityResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetActivityBanner1Response)
-	err := c.cc.Invoke(ctx, PackageManagerService_GetActivityBanner1_FullMethodName, in, out, cOpts...)
+	out := new(SetArchiveCompatibilityResponse)
+	err := c.cc.Invoke(ctx, LauncherAppsService_SetArchiveCompatibility_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *packageManagerServiceClient) GetActivityBanner1_1(ctx context.Context, in *GetActivityBanner1_1Request, opts ...grpc.CallOption) (*GetActivityBanner1_1Response, error) {
+func (c *launcherAppsServiceClient) ShouldHideFromSuggestions(ctx context.Context, in *ShouldHideFromSuggestionsRequest, opts ...grpc.CallOption) (*ShouldHideFromSuggestionsResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetActivityBanner1_1Response)
-	err := c.cc.Invoke(ctx, PackageManagerService_GetActivityBanner1_1_FullMethodName, in, out, cOpts...)
+	out := new(ShouldHideFromSuggestionsResponse)
+	err := c.cc.Invoke(ctx, LauncherAppsService_ShouldHideFromSuggestions_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *packageManagerServiceClient) GetActivityIcon1(ctx context.Context, in *GetActivityIcon1Request, opts ...grpc.CallOption) (*GetActivityIcon1Response, error) {
+func (c *launcherAppsServiceClient) StartAppDetailsActivity(ctx context.Context, in *StartAppDetailsActivityRequest, opts ...grpc.CallOption) (*StartAppDetailsActivityResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetActivityIcon1Response)
-	err := c.cc.Invoke(ctx, PackageManagerService_GetActivityIcon1_FullMethodName, in, out, cOpts...)
+	out := new(StartAppDetailsActivityResponse)
+	err := c.cc.Invoke(ctx, LauncherAppsService_StartAppDetailsActivity_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *packageManagerServiceClient) GetActivityIcon1_1(ctx context.Context, in *GetActivityIcon1_1Request, opts ...grpc.CallOption) (*GetActivityIcon1_1Response, error) {
+func (c *launcherAppsServiceClient) StartMainActivity(ctx context.Context, in *StartMainActivityRequest, opts ...grpc.CallOption) (*StartMainActivityResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetActivityIcon1_1Response)
-	err := c.cc.Invoke(ctx, PackageManagerService_GetActivityIcon1_1_FullMethodName, in, out, cOpts...)
+	out := new(StartMainActivityResponse)
+	err := c.cc.Invoke(ctx, LauncherAppsService_StartMainActivity_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *packageManagerServiceClient) GetActivityInfo2(ctx context.Context, in *GetActivityInfo2Request, opts ...grpc.CallOption) (*GetActivityInfo2Response, error) {
+func (c *launcherAppsServiceClient) StartPackageInstallerSessionDetailsActivity(ctx context.Context, in *StartPackageInstallerSessionDetailsActivityRequest, opts ...grpc.CallOption) (*StartPackageInstallerSessionDetailsActivityResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetActivityInfo2Response)
-	err := c.cc.Invoke(ctx, PackageManagerService_GetActivityInfo2_FullMethodName, in, out, cOpts...)
+	out := new(StartPackageInstallerSessionDetailsActivityResponse)
+	err := c.cc.Invoke(ctx, LauncherAppsService_StartPackageInstallerSessionDetailsActivity_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *packageManagerServiceClient) GetActivityInfo2_1(ctx context.Context, in *GetActivityInfo2_1Request, opts ...grpc.CallOption) (*GetActivityInfo2_1Response, error) {
+func (c *launcherAppsServiceClient) StartShortcut3(ctx context.Context, in *StartShortcut3Request, opts ...grpc.CallOption) (*StartShortcut3Response, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetActivityInfo2_1Response)
-	err := c.cc.Invoke(ctx, PackageManagerService_GetActivityInfo2_1_FullMethodName, in, out, cOpts...)
+	out := new(StartShortcut3Response)
+	err := c.cc.Invoke(ctx, LauncherAppsService_StartShortcut3_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *packageManagerServiceClient) GetActivityLogo1(ctx context.Context, in *GetActivityLogo1Request, opts ...grpc.CallOption) (*GetActivityLogo1Response, error) {
+func (c *launcherAppsServiceClient) StartShortcut5_1(ctx context.Context, in *StartShortcut5_1Request, opts ...grpc.CallOption) (*StartShortcut5_1Response, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetActivityLogo1Response)
-	err := c.cc.Invoke(ctx, PackageManagerService_GetActivityLogo1_FullMethodName, in, out, cOpts...)
+	out := new(StartShortcut5_1Response)
+	err := c.cc.Invoke(ctx, LauncherAppsService_StartShortcut5_1_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *packageManagerServiceClient) GetActivityLogo1_1(ctx context.Context, in *GetActivityLogo1_1Request, opts ...grpc.CallOption) (*GetActivityLogo1_1Response, error) {
+func (c *launcherAppsServiceClient) UnregisterCallback(ctx context.Context, in *UnregisterCallbackRequest, opts ...grpc.CallOption) (*UnregisterCallbackResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetActivityLogo1_1Response)
-	err := c.cc.Invoke(ctx, PackageManagerService_GetActivityLogo1_1_FullMethodName, in, out, cOpts...)
+	out := new(UnregisterCallbackResponse)
+	err := c.cc.Invoke(ctx, LauncherAppsService_UnregisterCallback_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *packageManagerServiceClient) GetAllPermissionGroups(ctx context.Context, in *GetAllPermissionGroupsRequest, opts ...grpc.CallOption) (*GetAllPermissionGroupsResponse, error) {
+func (c *launcherAppsServiceClient) UnregisterPackageInstallerSessionCallback(ctx context.Context, in *UnregisterPackageInstallerSessionCallbackRequest, opts ...grpc.CallOption) (*UnregisterPackageInstallerSessionCallbackResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetAllPermissionGroupsResponse)
-	err := c.cc.Invoke(ctx, PackageManagerService_GetAllPermissionGroups_FullMethodName, in, out, cOpts...)
+	out := new(UnregisterPackageInstallerSessionCallbackResponse)
+	err := c.cc.Invoke(ctx, LauncherAppsService_UnregisterPackageInstallerSessionCallback_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *packageManagerServiceClient) GetApplicationBanner1(ctx context.Context, in *GetApplicationBanner1Request, opts ...grpc.CallOption) (*GetApplicationBanner1Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetApplicationBanner1Response)
-	err := c.cc.Invoke(ctx, PackageManagerService_GetApplicationBanner1_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *packageManagerServiceClient) GetApplicationBanner1_1(ctx context.Context, in *GetApplicationBanner1_1Request, opts ...grpc.CallOption) (*GetApplicationBanner1_1Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetApplicationBanner1_1Response)
-	err := c.cc.Invoke(ctx, PackageManagerService_GetApplicationBanner1_1_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *packageManagerServiceClient) GetApplicationEnabledSetting(ctx context.Context, in *GetApplicationEnabledSettingRequest, opts ...grpc.CallOption) (*GetApplicationEnabledSettingResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetApplicationEnabledSettingResponse)
-	err := c.cc.Invoke(ctx, PackageManagerService_GetApplicationEnabledSetting_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *packageManagerServiceClient) GetApplicationIcon1(ctx context.Context, in *GetApplicationIcon1Request, opts ...grpc.CallOption) (*GetApplicationIcon1Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetApplicationIcon1Response)
-	err := c.cc.Invoke(ctx, PackageManagerService_GetApplicationIcon1_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *packageManagerServiceClient) GetApplicationIcon1_1(ctx context.Context, in *GetApplicationIcon1_1Request, opts ...grpc.CallOption) (*GetApplicationIcon1_1Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetApplicationIcon1_1Response)
-	err := c.cc.Invoke(ctx, PackageManagerService_GetApplicationIcon1_1_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *packageManagerServiceClient) GetApplicationInfo2(ctx context.Context, in *GetApplicationInfo2Request, opts ...grpc.CallOption) (*GetApplicationInfo2Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetApplicationInfo2Response)
-	err := c.cc.Invoke(ctx, PackageManagerService_GetApplicationInfo2_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *packageManagerServiceClient) GetApplicationInfo2_1(ctx context.Context, in *GetApplicationInfo2_1Request, opts ...grpc.CallOption) (*GetApplicationInfo2_1Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetApplicationInfo2_1Response)
-	err := c.cc.Invoke(ctx, PackageManagerService_GetApplicationInfo2_1_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *packageManagerServiceClient) GetApplicationLabel(ctx context.Context, in *GetApplicationLabelRequest, opts ...grpc.CallOption) (*GetApplicationLabelResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetApplicationLabelResponse)
-	err := c.cc.Invoke(ctx, PackageManagerService_GetApplicationLabel_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *packageManagerServiceClient) GetApplicationLogo1(ctx context.Context, in *GetApplicationLogo1Request, opts ...grpc.CallOption) (*GetApplicationLogo1Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetApplicationLogo1Response)
-	err := c.cc.Invoke(ctx, PackageManagerService_GetApplicationLogo1_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *packageManagerServiceClient) GetApplicationLogo1_1(ctx context.Context, in *GetApplicationLogo1_1Request, opts ...grpc.CallOption) (*GetApplicationLogo1_1Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetApplicationLogo1_1Response)
-	err := c.cc.Invoke(ctx, PackageManagerService_GetApplicationLogo1_1_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *packageManagerServiceClient) GetArchivedPackage(ctx context.Context, in *GetArchivedPackageRequest, opts ...grpc.CallOption) (*GetArchivedPackageResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetArchivedPackageResponse)
-	err := c.cc.Invoke(ctx, PackageManagerService_GetArchivedPackage_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *packageManagerServiceClient) GetBackgroundPermissionOptionLabel(ctx context.Context, in *GetBackgroundPermissionOptionLabelRequest, opts ...grpc.CallOption) (*GetBackgroundPermissionOptionLabelResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetBackgroundPermissionOptionLabelResponse)
-	err := c.cc.Invoke(ctx, PackageManagerService_GetBackgroundPermissionOptionLabel_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *packageManagerServiceClient) GetChangedPackages(ctx context.Context, in *GetChangedPackagesRequest, opts ...grpc.CallOption) (*GetChangedPackagesResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetChangedPackagesResponse)
-	err := c.cc.Invoke(ctx, PackageManagerService_GetChangedPackages_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *packageManagerServiceClient) GetComponentEnabledSetting(ctx context.Context, in *GetComponentEnabledSettingRequest, opts ...grpc.CallOption) (*GetComponentEnabledSettingResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetComponentEnabledSettingResponse)
-	err := c.cc.Invoke(ctx, PackageManagerService_GetComponentEnabledSetting_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *packageManagerServiceClient) GetDefaultActivityIcon(ctx context.Context, in *GetDefaultActivityIconRequest, opts ...grpc.CallOption) (*GetDefaultActivityIconResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetDefaultActivityIconResponse)
-	err := c.cc.Invoke(ctx, PackageManagerService_GetDefaultActivityIcon_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *packageManagerServiceClient) GetDrawable(ctx context.Context, in *GetDrawableRequest, opts ...grpc.CallOption) (*GetDrawableResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetDrawableResponse)
-	err := c.cc.Invoke(ctx, PackageManagerService_GetDrawable_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *packageManagerServiceClient) GetGroupOfPlatformPermission(ctx context.Context, in *GetGroupOfPlatformPermissionRequest, opts ...grpc.CallOption) (*GetGroupOfPlatformPermissionResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetGroupOfPlatformPermissionResponse)
-	err := c.cc.Invoke(ctx, PackageManagerService_GetGroupOfPlatformPermission_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *packageManagerServiceClient) GetInstallSourceInfo(ctx context.Context, in *GetInstallSourceInfoRequest, opts ...grpc.CallOption) (*GetInstallSourceInfoResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetInstallSourceInfoResponse)
-	err := c.cc.Invoke(ctx, PackageManagerService_GetInstallSourceInfo_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *packageManagerServiceClient) GetInstalledApplications1(ctx context.Context, in *GetInstalledApplications1Request, opts ...grpc.CallOption) (*GetInstalledApplications1Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetInstalledApplications1Response)
-	err := c.cc.Invoke(ctx, PackageManagerService_GetInstalledApplications1_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *packageManagerServiceClient) GetInstalledApplications1_1(ctx context.Context, in *GetInstalledApplications1_1Request, opts ...grpc.CallOption) (*GetInstalledApplications1_1Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetInstalledApplications1_1Response)
-	err := c.cc.Invoke(ctx, PackageManagerService_GetInstalledApplications1_1_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *packageManagerServiceClient) GetInstalledModules(ctx context.Context, in *GetInstalledModulesRequest, opts ...grpc.CallOption) (*GetInstalledModulesResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetInstalledModulesResponse)
-	err := c.cc.Invoke(ctx, PackageManagerService_GetInstalledModules_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *packageManagerServiceClient) GetInstalledPackages1(ctx context.Context, in *GetInstalledPackages1Request, opts ...grpc.CallOption) (*GetInstalledPackages1Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetInstalledPackages1Response)
-	err := c.cc.Invoke(ctx, PackageManagerService_GetInstalledPackages1_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *packageManagerServiceClient) GetInstalledPackages1_1(ctx context.Context, in *GetInstalledPackages1_1Request, opts ...grpc.CallOption) (*GetInstalledPackages1_1Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetInstalledPackages1_1Response)
-	err := c.cc.Invoke(ctx, PackageManagerService_GetInstalledPackages1_1_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *packageManagerServiceClient) GetInstallerPackageName(ctx context.Context, in *GetInstallerPackageNameRequest, opts ...grpc.CallOption) (*GetInstallerPackageNameResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetInstallerPackageNameResponse)
-	err := c.cc.Invoke(ctx, PackageManagerService_GetInstallerPackageName_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *packageManagerServiceClient) GetInstantAppCookie(ctx context.Context, in *GetInstantAppCookieRequest, opts ...grpc.CallOption) (*GetInstantAppCookieResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetInstantAppCookieResponse)
-	err := c.cc.Invoke(ctx, PackageManagerService_GetInstantAppCookie_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *packageManagerServiceClient) GetInstantAppCookieMaxBytes(ctx context.Context, in *GetInstantAppCookieMaxBytesRequest, opts ...grpc.CallOption) (*GetInstantAppCookieMaxBytesResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetInstantAppCookieMaxBytesResponse)
-	err := c.cc.Invoke(ctx, PackageManagerService_GetInstantAppCookieMaxBytes_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *packageManagerServiceClient) GetInstrumentationInfo(ctx context.Context, in *GetInstrumentationInfoRequest, opts ...grpc.CallOption) (*GetInstrumentationInfoResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetInstrumentationInfoResponse)
-	err := c.cc.Invoke(ctx, PackageManagerService_GetInstrumentationInfo_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *packageManagerServiceClient) GetLaunchIntentForPackage(ctx context.Context, in *GetLaunchIntentForPackageRequest, opts ...grpc.CallOption) (*GetLaunchIntentForPackageResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetLaunchIntentForPackageResponse)
-	err := c.cc.Invoke(ctx, PackageManagerService_GetLaunchIntentForPackage_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *packageManagerServiceClient) GetLaunchIntentSenderForPackage(ctx context.Context, in *GetLaunchIntentSenderForPackageRequest, opts ...grpc.CallOption) (*GetLaunchIntentSenderForPackageResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetLaunchIntentSenderForPackageResponse)
-	err := c.cc.Invoke(ctx, PackageManagerService_GetLaunchIntentSenderForPackage_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *packageManagerServiceClient) GetLeanbackLaunchIntentForPackage(ctx context.Context, in *GetLeanbackLaunchIntentForPackageRequest, opts ...grpc.CallOption) (*GetLeanbackLaunchIntentForPackageResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetLeanbackLaunchIntentForPackageResponse)
-	err := c.cc.Invoke(ctx, PackageManagerService_GetLeanbackLaunchIntentForPackage_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *packageManagerServiceClient) GetMimeGroup(ctx context.Context, in *GetMimeGroupRequest, opts ...grpc.CallOption) (*GetMimeGroupResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetMimeGroupResponse)
-	err := c.cc.Invoke(ctx, PackageManagerService_GetMimeGroup_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *packageManagerServiceClient) GetModuleInfo(ctx context.Context, in *GetModuleInfoRequest, opts ...grpc.CallOption) (*GetModuleInfoResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetModuleInfoResponse)
-	err := c.cc.Invoke(ctx, PackageManagerService_GetModuleInfo_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *packageManagerServiceClient) GetNameForUid(ctx context.Context, in *GetNameForUidRequest, opts ...grpc.CallOption) (*GetNameForUidResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetNameForUidResponse)
-	err := c.cc.Invoke(ctx, PackageManagerService_GetNameForUid_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *packageManagerServiceClient) GetPackageArchiveInfo2(ctx context.Context, in *GetPackageArchiveInfo2Request, opts ...grpc.CallOption) (*GetPackageArchiveInfo2Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetPackageArchiveInfo2Response)
-	err := c.cc.Invoke(ctx, PackageManagerService_GetPackageArchiveInfo2_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *packageManagerServiceClient) GetPackageArchiveInfo2_1(ctx context.Context, in *GetPackageArchiveInfo2_1Request, opts ...grpc.CallOption) (*GetPackageArchiveInfo2_1Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetPackageArchiveInfo2_1Response)
-	err := c.cc.Invoke(ctx, PackageManagerService_GetPackageArchiveInfo2_1_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *packageManagerServiceClient) GetPackageGids1(ctx context.Context, in *GetPackageGids1Request, opts ...grpc.CallOption) (*GetPackageGids1Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetPackageGids1Response)
-	err := c.cc.Invoke(ctx, PackageManagerService_GetPackageGids1_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *packageManagerServiceClient) GetPackageGids2_1(ctx context.Context, in *GetPackageGids2_1Request, opts ...grpc.CallOption) (*GetPackageGids2_1Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetPackageGids2_1Response)
-	err := c.cc.Invoke(ctx, PackageManagerService_GetPackageGids2_1_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *packageManagerServiceClient) GetPackageGids2_2(ctx context.Context, in *GetPackageGids2_2Request, opts ...grpc.CallOption) (*GetPackageGids2_2Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetPackageGids2_2Response)
-	err := c.cc.Invoke(ctx, PackageManagerService_GetPackageGids2_2_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *packageManagerServiceClient) GetPackageInfo2(ctx context.Context, in *GetPackageInfo2Request, opts ...grpc.CallOption) (*GetPackageInfo2Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetPackageInfo2Response)
-	err := c.cc.Invoke(ctx, PackageManagerService_GetPackageInfo2_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *packageManagerServiceClient) GetPackageInfo2_1(ctx context.Context, in *GetPackageInfo2_1Request, opts ...grpc.CallOption) (*GetPackageInfo2_1Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetPackageInfo2_1Response)
-	err := c.cc.Invoke(ctx, PackageManagerService_GetPackageInfo2_1_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *packageManagerServiceClient) GetPackageInfo2_2(ctx context.Context, in *GetPackageInfo2_2Request, opts ...grpc.CallOption) (*GetPackageInfo2_2Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetPackageInfo2_2Response)
-	err := c.cc.Invoke(ctx, PackageManagerService_GetPackageInfo2_2_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *packageManagerServiceClient) GetPackageInfo2_3(ctx context.Context, in *GetPackageInfo2_3Request, opts ...grpc.CallOption) (*GetPackageInfo2_3Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetPackageInfo2_3Response)
-	err := c.cc.Invoke(ctx, PackageManagerService_GetPackageInfo2_3_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *packageManagerServiceClient) GetPackageInstaller(ctx context.Context, in *GetPackageInstallerRequest, opts ...grpc.CallOption) (*GetPackageInstallerResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetPackageInstallerResponse)
-	err := c.cc.Invoke(ctx, PackageManagerService_GetPackageInstaller_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *packageManagerServiceClient) GetPackageUid2(ctx context.Context, in *GetPackageUid2Request, opts ...grpc.CallOption) (*GetPackageUid2Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetPackageUid2Response)
-	err := c.cc.Invoke(ctx, PackageManagerService_GetPackageUid2_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *packageManagerServiceClient) GetPackageUid2_1(ctx context.Context, in *GetPackageUid2_1Request, opts ...grpc.CallOption) (*GetPackageUid2_1Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetPackageUid2_1Response)
-	err := c.cc.Invoke(ctx, PackageManagerService_GetPackageUid2_1_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *packageManagerServiceClient) GetPackagesForUid(ctx context.Context, in *GetPackagesForUidRequest, opts ...grpc.CallOption) (*GetPackagesForUidResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetPackagesForUidResponse)
-	err := c.cc.Invoke(ctx, PackageManagerService_GetPackagesForUid_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *packageManagerServiceClient) GetPackagesHoldingPermissions2(ctx context.Context, in *GetPackagesHoldingPermissions2Request, opts ...grpc.CallOption) (*GetPackagesHoldingPermissions2Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetPackagesHoldingPermissions2Response)
-	err := c.cc.Invoke(ctx, PackageManagerService_GetPackagesHoldingPermissions2_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *packageManagerServiceClient) GetPackagesHoldingPermissions2_1(ctx context.Context, in *GetPackagesHoldingPermissions2_1Request, opts ...grpc.CallOption) (*GetPackagesHoldingPermissions2_1Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetPackagesHoldingPermissions2_1Response)
-	err := c.cc.Invoke(ctx, PackageManagerService_GetPackagesHoldingPermissions2_1_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *packageManagerServiceClient) GetPermissionGroupInfo(ctx context.Context, in *GetPermissionGroupInfoRequest, opts ...grpc.CallOption) (*GetPermissionGroupInfoResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetPermissionGroupInfoResponse)
-	err := c.cc.Invoke(ctx, PackageManagerService_GetPermissionGroupInfo_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *packageManagerServiceClient) GetPermissionInfo(ctx context.Context, in *GetPermissionInfoRequest, opts ...grpc.CallOption) (*GetPermissionInfoResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetPermissionInfoResponse)
-	err := c.cc.Invoke(ctx, PackageManagerService_GetPermissionInfo_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *packageManagerServiceClient) GetPlatformPermissionsForGroup(ctx context.Context, in *GetPlatformPermissionsForGroupRequest, opts ...grpc.CallOption) (*GetPlatformPermissionsForGroupResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetPlatformPermissionsForGroupResponse)
-	err := c.cc.Invoke(ctx, PackageManagerService_GetPlatformPermissionsForGroup_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *packageManagerServiceClient) GetPreferredActivities(ctx context.Context, in *GetPreferredActivitiesRequest, opts ...grpc.CallOption) (*GetPreferredActivitiesResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetPreferredActivitiesResponse)
-	err := c.cc.Invoke(ctx, PackageManagerService_GetPreferredActivities_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *packageManagerServiceClient) GetPreferredPackages(ctx context.Context, in *GetPreferredPackagesRequest, opts ...grpc.CallOption) (*GetPreferredPackagesResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetPreferredPackagesResponse)
-	err := c.cc.Invoke(ctx, PackageManagerService_GetPreferredPackages_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *packageManagerServiceClient) GetProperty2(ctx context.Context, in *GetProperty2Request, opts ...grpc.CallOption) (*GetProperty2Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetProperty2Response)
-	err := c.cc.Invoke(ctx, PackageManagerService_GetProperty2_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *packageManagerServiceClient) GetProperty2_1(ctx context.Context, in *GetProperty2_1Request, opts ...grpc.CallOption) (*GetProperty2_1Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetProperty2_1Response)
-	err := c.cc.Invoke(ctx, PackageManagerService_GetProperty2_1_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *packageManagerServiceClient) GetProviderInfo2(ctx context.Context, in *GetProviderInfo2Request, opts ...grpc.CallOption) (*GetProviderInfo2Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetProviderInfo2Response)
-	err := c.cc.Invoke(ctx, PackageManagerService_GetProviderInfo2_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *packageManagerServiceClient) GetProviderInfo2_1(ctx context.Context, in *GetProviderInfo2_1Request, opts ...grpc.CallOption) (*GetProviderInfo2_1Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetProviderInfo2_1Response)
-	err := c.cc.Invoke(ctx, PackageManagerService_GetProviderInfo2_1_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *packageManagerServiceClient) GetReceiverInfo2(ctx context.Context, in *GetReceiverInfo2Request, opts ...grpc.CallOption) (*GetReceiverInfo2Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetReceiverInfo2Response)
-	err := c.cc.Invoke(ctx, PackageManagerService_GetReceiverInfo2_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *packageManagerServiceClient) GetReceiverInfo2_1(ctx context.Context, in *GetReceiverInfo2_1Request, opts ...grpc.CallOption) (*GetReceiverInfo2_1Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetReceiverInfo2_1Response)
-	err := c.cc.Invoke(ctx, PackageManagerService_GetReceiverInfo2_1_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *packageManagerServiceClient) GetResourcesForActivity(ctx context.Context, in *GetResourcesForActivityRequest, opts ...grpc.CallOption) (*GetResourcesForActivityResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetResourcesForActivityResponse)
-	err := c.cc.Invoke(ctx, PackageManagerService_GetResourcesForActivity_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *packageManagerServiceClient) GetResourcesForApplication1(ctx context.Context, in *GetResourcesForApplication1Request, opts ...grpc.CallOption) (*GetResourcesForApplication1Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetResourcesForApplication1Response)
-	err := c.cc.Invoke(ctx, PackageManagerService_GetResourcesForApplication1_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *packageManagerServiceClient) GetResourcesForApplication2_1(ctx context.Context, in *GetResourcesForApplication2_1Request, opts ...grpc.CallOption) (*GetResourcesForApplication2_1Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetResourcesForApplication2_1Response)
-	err := c.cc.Invoke(ctx, PackageManagerService_GetResourcesForApplication2_1_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *packageManagerServiceClient) GetResourcesForApplication1_2(ctx context.Context, in *GetResourcesForApplication1_2Request, opts ...grpc.CallOption) (*GetResourcesForApplication1_2Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetResourcesForApplication1_2Response)
-	err := c.cc.Invoke(ctx, PackageManagerService_GetResourcesForApplication1_2_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *packageManagerServiceClient) GetServiceInfo2(ctx context.Context, in *GetServiceInfo2Request, opts ...grpc.CallOption) (*GetServiceInfo2Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetServiceInfo2Response)
-	err := c.cc.Invoke(ctx, PackageManagerService_GetServiceInfo2_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *packageManagerServiceClient) GetServiceInfo2_1(ctx context.Context, in *GetServiceInfo2_1Request, opts ...grpc.CallOption) (*GetServiceInfo2_1Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetServiceInfo2_1Response)
-	err := c.cc.Invoke(ctx, PackageManagerService_GetServiceInfo2_1_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *packageManagerServiceClient) GetSharedLibraries1(ctx context.Context, in *GetSharedLibraries1Request, opts ...grpc.CallOption) (*GetSharedLibraries1Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetSharedLibraries1Response)
-	err := c.cc.Invoke(ctx, PackageManagerService_GetSharedLibraries1_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *packageManagerServiceClient) GetSharedLibraries1_1(ctx context.Context, in *GetSharedLibraries1_1Request, opts ...grpc.CallOption) (*GetSharedLibraries1_1Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetSharedLibraries1_1Response)
-	err := c.cc.Invoke(ctx, PackageManagerService_GetSharedLibraries1_1_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *packageManagerServiceClient) GetSuspendedPackageAppExtras(ctx context.Context, in *GetSuspendedPackageAppExtrasRequest, opts ...grpc.CallOption) (*GetSuspendedPackageAppExtrasResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetSuspendedPackageAppExtrasResponse)
-	err := c.cc.Invoke(ctx, PackageManagerService_GetSuspendedPackageAppExtras_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *packageManagerServiceClient) GetSyntheticAppDetailsActivityEnabled(ctx context.Context, in *GetSyntheticAppDetailsActivityEnabledRequest, opts ...grpc.CallOption) (*GetSyntheticAppDetailsActivityEnabledResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetSyntheticAppDetailsActivityEnabledResponse)
-	err := c.cc.Invoke(ctx, PackageManagerService_GetSyntheticAppDetailsActivityEnabled_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *packageManagerServiceClient) GetSystemAvailableFeatures(ctx context.Context, in *GetSystemAvailableFeaturesRequest, opts ...grpc.CallOption) (*GetSystemAvailableFeaturesResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetSystemAvailableFeaturesResponse)
-	err := c.cc.Invoke(ctx, PackageManagerService_GetSystemAvailableFeatures_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *packageManagerServiceClient) GetSystemSharedLibraryNames(ctx context.Context, in *GetSystemSharedLibraryNamesRequest, opts ...grpc.CallOption) (*GetSystemSharedLibraryNamesResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetSystemSharedLibraryNamesResponse)
-	err := c.cc.Invoke(ctx, PackageManagerService_GetSystemSharedLibraryNames_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *packageManagerServiceClient) GetTargetSdkVersion(ctx context.Context, in *GetTargetSdkVersionRequest, opts ...grpc.CallOption) (*GetTargetSdkVersionResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetTargetSdkVersionResponse)
-	err := c.cc.Invoke(ctx, PackageManagerService_GetTargetSdkVersion_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *packageManagerServiceClient) GetText(ctx context.Context, in *GetTextRequest, opts ...grpc.CallOption) (*GetTextResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetTextResponse)
-	err := c.cc.Invoke(ctx, PackageManagerService_GetText_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *packageManagerServiceClient) GetUserBadgedDrawableForDensity(ctx context.Context, in *GetUserBadgedDrawableForDensityRequest, opts ...grpc.CallOption) (*GetUserBadgedDrawableForDensityResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetUserBadgedDrawableForDensityResponse)
-	err := c.cc.Invoke(ctx, PackageManagerService_GetUserBadgedDrawableForDensity_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *packageManagerServiceClient) GetUserBadgedIcon(ctx context.Context, in *GetUserBadgedIconRequest, opts ...grpc.CallOption) (*GetUserBadgedIconResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetUserBadgedIconResponse)
-	err := c.cc.Invoke(ctx, PackageManagerService_GetUserBadgedIcon_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *packageManagerServiceClient) GetUserBadgedLabel(ctx context.Context, in *GetUserBadgedLabelRequest, opts ...grpc.CallOption) (*GetUserBadgedLabelResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetUserBadgedLabelResponse)
-	err := c.cc.Invoke(ctx, PackageManagerService_GetUserBadgedLabel_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *packageManagerServiceClient) GetWhitelistedRestrictedPermissions(ctx context.Context, in *GetWhitelistedRestrictedPermissionsRequest, opts ...grpc.CallOption) (*GetWhitelistedRestrictedPermissionsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetWhitelistedRestrictedPermissionsResponse)
-	err := c.cc.Invoke(ctx, PackageManagerService_GetWhitelistedRestrictedPermissions_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *packageManagerServiceClient) GetXml(ctx context.Context, in *GetXmlRequest, opts ...grpc.CallOption) (*GetXmlResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetXmlResponse)
-	err := c.cc.Invoke(ctx, PackageManagerService_GetXml_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *packageManagerServiceClient) HasSigningCertificate3(ctx context.Context, in *HasSigningCertificate3Request, opts ...grpc.CallOption) (*HasSigningCertificate3Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(HasSigningCertificate3Response)
-	err := c.cc.Invoke(ctx, PackageManagerService_HasSigningCertificate3_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *packageManagerServiceClient) HasSigningCertificate3_1(ctx context.Context, in *HasSigningCertificate3_1Request, opts ...grpc.CallOption) (*HasSigningCertificate3_1Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(HasSigningCertificate3_1Response)
-	err := c.cc.Invoke(ctx, PackageManagerService_HasSigningCertificate3_1_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *packageManagerServiceClient) HasSystemFeature1(ctx context.Context, in *HasSystemFeature1Request, opts ...grpc.CallOption) (*HasSystemFeature1Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(HasSystemFeature1Response)
-	err := c.cc.Invoke(ctx, PackageManagerService_HasSystemFeature1_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *packageManagerServiceClient) HasSystemFeature2_1(ctx context.Context, in *HasSystemFeature2_1Request, opts ...grpc.CallOption) (*HasSystemFeature2_1Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(HasSystemFeature2_1Response)
-	err := c.cc.Invoke(ctx, PackageManagerService_HasSystemFeature2_1_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *packageManagerServiceClient) IsAppArchivable(ctx context.Context, in *IsAppArchivableRequest, opts ...grpc.CallOption) (*IsAppArchivableResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(IsAppArchivableResponse)
-	err := c.cc.Invoke(ctx, PackageManagerService_IsAppArchivable_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *packageManagerServiceClient) IsAutoRevokeWhitelisted0(ctx context.Context, in *IsAutoRevokeWhitelisted0Request, opts ...grpc.CallOption) (*IsAutoRevokeWhitelisted0Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(IsAutoRevokeWhitelisted0Response)
-	err := c.cc.Invoke(ctx, PackageManagerService_IsAutoRevokeWhitelisted0_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *packageManagerServiceClient) IsAutoRevokeWhitelisted1_1(ctx context.Context, in *IsAutoRevokeWhitelisted1_1Request, opts ...grpc.CallOption) (*IsAutoRevokeWhitelisted1_1Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(IsAutoRevokeWhitelisted1_1Response)
-	err := c.cc.Invoke(ctx, PackageManagerService_IsAutoRevokeWhitelisted1_1_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *packageManagerServiceClient) IsDefaultApplicationIcon(ctx context.Context, in *IsDefaultApplicationIconRequest, opts ...grpc.CallOption) (*IsDefaultApplicationIconResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(IsDefaultApplicationIconResponse)
-	err := c.cc.Invoke(ctx, PackageManagerService_IsDefaultApplicationIcon_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *packageManagerServiceClient) IsDeviceUpgrading(ctx context.Context, in *IsDeviceUpgradingRequest, opts ...grpc.CallOption) (*IsDeviceUpgradingResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(IsDeviceUpgradingResponse)
-	err := c.cc.Invoke(ctx, PackageManagerService_IsDeviceUpgrading_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *packageManagerServiceClient) IsInstantApp0(ctx context.Context, in *IsInstantApp0Request, opts ...grpc.CallOption) (*IsInstantApp0Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(IsInstantApp0Response)
-	err := c.cc.Invoke(ctx, PackageManagerService_IsInstantApp0_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *packageManagerServiceClient) IsInstantApp1_1(ctx context.Context, in *IsInstantApp1_1Request, opts ...grpc.CallOption) (*IsInstantApp1_1Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(IsInstantApp1_1Response)
-	err := c.cc.Invoke(ctx, PackageManagerService_IsInstantApp1_1_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *packageManagerServiceClient) IsPackageStopped(ctx context.Context, in *IsPackageStoppedRequest, opts ...grpc.CallOption) (*IsPackageStoppedResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(IsPackageStoppedResponse)
-	err := c.cc.Invoke(ctx, PackageManagerService_IsPackageStopped_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *packageManagerServiceClient) IsPackageSuspended0(ctx context.Context, in *IsPackageSuspended0Request, opts ...grpc.CallOption) (*IsPackageSuspended0Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(IsPackageSuspended0Response)
-	err := c.cc.Invoke(ctx, PackageManagerService_IsPackageSuspended0_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *packageManagerServiceClient) IsPackageSuspended1_1(ctx context.Context, in *IsPackageSuspended1_1Request, opts ...grpc.CallOption) (*IsPackageSuspended1_1Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(IsPackageSuspended1_1Response)
-	err := c.cc.Invoke(ctx, PackageManagerService_IsPackageSuspended1_1_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *packageManagerServiceClient) IsPermissionRevokedByPolicy(ctx context.Context, in *IsPermissionRevokedByPolicyRequest, opts ...grpc.CallOption) (*IsPermissionRevokedByPolicyResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(IsPermissionRevokedByPolicyResponse)
-	err := c.cc.Invoke(ctx, PackageManagerService_IsPermissionRevokedByPolicy_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *packageManagerServiceClient) IsSafeMode(ctx context.Context, in *IsSafeModeRequest, opts ...grpc.CallOption) (*IsSafeModeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(IsSafeModeResponse)
-	err := c.cc.Invoke(ctx, PackageManagerService_IsSafeMode_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *packageManagerServiceClient) QueryActivityProperty(ctx context.Context, in *QueryActivityPropertyRequest, opts ...grpc.CallOption) (*QueryActivityPropertyResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(QueryActivityPropertyResponse)
-	err := c.cc.Invoke(ctx, PackageManagerService_QueryActivityProperty_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *packageManagerServiceClient) QueryApplicationProperty(ctx context.Context, in *QueryApplicationPropertyRequest, opts ...grpc.CallOption) (*QueryApplicationPropertyResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(QueryApplicationPropertyResponse)
-	err := c.cc.Invoke(ctx, PackageManagerService_QueryApplicationProperty_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *packageManagerServiceClient) QueryBroadcastReceivers2(ctx context.Context, in *QueryBroadcastReceivers2Request, opts ...grpc.CallOption) (*QueryBroadcastReceivers2Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(QueryBroadcastReceivers2Response)
-	err := c.cc.Invoke(ctx, PackageManagerService_QueryBroadcastReceivers2_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *packageManagerServiceClient) QueryBroadcastReceivers2_1(ctx context.Context, in *QueryBroadcastReceivers2_1Request, opts ...grpc.CallOption) (*QueryBroadcastReceivers2_1Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(QueryBroadcastReceivers2_1Response)
-	err := c.cc.Invoke(ctx, PackageManagerService_QueryBroadcastReceivers2_1_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *packageManagerServiceClient) QueryContentProviders3(ctx context.Context, in *QueryContentProviders3Request, opts ...grpc.CallOption) (*QueryContentProviders3Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(QueryContentProviders3Response)
-	err := c.cc.Invoke(ctx, PackageManagerService_QueryContentProviders3_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *packageManagerServiceClient) QueryContentProviders3_1(ctx context.Context, in *QueryContentProviders3_1Request, opts ...grpc.CallOption) (*QueryContentProviders3_1Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(QueryContentProviders3_1Response)
-	err := c.cc.Invoke(ctx, PackageManagerService_QueryContentProviders3_1_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *packageManagerServiceClient) QueryInstrumentation(ctx context.Context, in *QueryInstrumentationRequest, opts ...grpc.CallOption) (*QueryInstrumentationResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(QueryInstrumentationResponse)
-	err := c.cc.Invoke(ctx, PackageManagerService_QueryInstrumentation_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *packageManagerServiceClient) QueryIntentActivities2(ctx context.Context, in *QueryIntentActivities2Request, opts ...grpc.CallOption) (*QueryIntentActivities2Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(QueryIntentActivities2Response)
-	err := c.cc.Invoke(ctx, PackageManagerService_QueryIntentActivities2_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *packageManagerServiceClient) QueryIntentActivities2_1(ctx context.Context, in *QueryIntentActivities2_1Request, opts ...grpc.CallOption) (*QueryIntentActivities2_1Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(QueryIntentActivities2_1Response)
-	err := c.cc.Invoke(ctx, PackageManagerService_QueryIntentActivities2_1_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *packageManagerServiceClient) QueryIntentActivityOptions4(ctx context.Context, in *QueryIntentActivityOptions4Request, opts ...grpc.CallOption) (*QueryIntentActivityOptions4Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(QueryIntentActivityOptions4Response)
-	err := c.cc.Invoke(ctx, PackageManagerService_QueryIntentActivityOptions4_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *packageManagerServiceClient) QueryIntentActivityOptions4_1(ctx context.Context, in *QueryIntentActivityOptions4_1Request, opts ...grpc.CallOption) (*QueryIntentActivityOptions4_1Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(QueryIntentActivityOptions4_1Response)
-	err := c.cc.Invoke(ctx, PackageManagerService_QueryIntentActivityOptions4_1_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *packageManagerServiceClient) QueryIntentContentProviders2(ctx context.Context, in *QueryIntentContentProviders2Request, opts ...grpc.CallOption) (*QueryIntentContentProviders2Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(QueryIntentContentProviders2Response)
-	err := c.cc.Invoke(ctx, PackageManagerService_QueryIntentContentProviders2_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *packageManagerServiceClient) QueryIntentContentProviders2_1(ctx context.Context, in *QueryIntentContentProviders2_1Request, opts ...grpc.CallOption) (*QueryIntentContentProviders2_1Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(QueryIntentContentProviders2_1Response)
-	err := c.cc.Invoke(ctx, PackageManagerService_QueryIntentContentProviders2_1_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *packageManagerServiceClient) QueryIntentServices2(ctx context.Context, in *QueryIntentServices2Request, opts ...grpc.CallOption) (*QueryIntentServices2Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(QueryIntentServices2Response)
-	err := c.cc.Invoke(ctx, PackageManagerService_QueryIntentServices2_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *packageManagerServiceClient) QueryIntentServices2_1(ctx context.Context, in *QueryIntentServices2_1Request, opts ...grpc.CallOption) (*QueryIntentServices2_1Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(QueryIntentServices2_1Response)
-	err := c.cc.Invoke(ctx, PackageManagerService_QueryIntentServices2_1_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *packageManagerServiceClient) QueryPermissionsByGroup(ctx context.Context, in *QueryPermissionsByGroupRequest, opts ...grpc.CallOption) (*QueryPermissionsByGroupResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(QueryPermissionsByGroupResponse)
-	err := c.cc.Invoke(ctx, PackageManagerService_QueryPermissionsByGroup_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *packageManagerServiceClient) QueryProviderProperty(ctx context.Context, in *QueryProviderPropertyRequest, opts ...grpc.CallOption) (*QueryProviderPropertyResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(QueryProviderPropertyResponse)
-	err := c.cc.Invoke(ctx, PackageManagerService_QueryProviderProperty_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *packageManagerServiceClient) QueryReceiverProperty(ctx context.Context, in *QueryReceiverPropertyRequest, opts ...grpc.CallOption) (*QueryReceiverPropertyResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(QueryReceiverPropertyResponse)
-	err := c.cc.Invoke(ctx, PackageManagerService_QueryReceiverProperty_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *packageManagerServiceClient) QueryServiceProperty(ctx context.Context, in *QueryServicePropertyRequest, opts ...grpc.CallOption) (*QueryServicePropertyResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(QueryServicePropertyResponse)
-	err := c.cc.Invoke(ctx, PackageManagerService_QueryServiceProperty_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *packageManagerServiceClient) RelinquishUpdateOwnership(ctx context.Context, in *RelinquishUpdateOwnershipRequest, opts ...grpc.CallOption) (*RelinquishUpdateOwnershipResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(RelinquishUpdateOwnershipResponse)
-	err := c.cc.Invoke(ctx, PackageManagerService_RelinquishUpdateOwnership_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *packageManagerServiceClient) RemovePackageFromPreferred(ctx context.Context, in *RemovePackageFromPreferredRequest, opts ...grpc.CallOption) (*RemovePackageFromPreferredResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(RemovePackageFromPreferredResponse)
-	err := c.cc.Invoke(ctx, PackageManagerService_RemovePackageFromPreferred_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *packageManagerServiceClient) RemovePermission(ctx context.Context, in *RemovePermissionRequest, opts ...grpc.CallOption) (*RemovePermissionResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(RemovePermissionResponse)
-	err := c.cc.Invoke(ctx, PackageManagerService_RemovePermission_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *packageManagerServiceClient) RemoveWhitelistedRestrictedPermission(ctx context.Context, in *RemoveWhitelistedRestrictedPermissionRequest, opts ...grpc.CallOption) (*RemoveWhitelistedRestrictedPermissionResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(RemoveWhitelistedRestrictedPermissionResponse)
-	err := c.cc.Invoke(ctx, PackageManagerService_RemoveWhitelistedRestrictedPermission_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *packageManagerServiceClient) RequestChecksums(ctx context.Context, in *RequestChecksumsRequest, opts ...grpc.CallOption) (*RequestChecksumsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(RequestChecksumsResponse)
-	err := c.cc.Invoke(ctx, PackageManagerService_RequestChecksums_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *packageManagerServiceClient) ResolveActivity2(ctx context.Context, in *ResolveActivity2Request, opts ...grpc.CallOption) (*ResolveActivity2Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ResolveActivity2Response)
-	err := c.cc.Invoke(ctx, PackageManagerService_ResolveActivity2_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *packageManagerServiceClient) ResolveActivity2_1(ctx context.Context, in *ResolveActivity2_1Request, opts ...grpc.CallOption) (*ResolveActivity2_1Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ResolveActivity2_1Response)
-	err := c.cc.Invoke(ctx, PackageManagerService_ResolveActivity2_1_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *packageManagerServiceClient) ResolveContentProvider2(ctx context.Context, in *ResolveContentProvider2Request, opts ...grpc.CallOption) (*ResolveContentProvider2Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ResolveContentProvider2Response)
-	err := c.cc.Invoke(ctx, PackageManagerService_ResolveContentProvider2_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *packageManagerServiceClient) ResolveContentProvider2_1(ctx context.Context, in *ResolveContentProvider2_1Request, opts ...grpc.CallOption) (*ResolveContentProvider2_1Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ResolveContentProvider2_1Response)
-	err := c.cc.Invoke(ctx, PackageManagerService_ResolveContentProvider2_1_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *packageManagerServiceClient) ResolveService2(ctx context.Context, in *ResolveService2Request, opts ...grpc.CallOption) (*ResolveService2Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ResolveService2Response)
-	err := c.cc.Invoke(ctx, PackageManagerService_ResolveService2_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *packageManagerServiceClient) ResolveService2_1(ctx context.Context, in *ResolveService2_1Request, opts ...grpc.CallOption) (*ResolveService2_1Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ResolveService2_1Response)
-	err := c.cc.Invoke(ctx, PackageManagerService_ResolveService2_1_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *packageManagerServiceClient) SetApplicationCategoryHint(ctx context.Context, in *SetApplicationCategoryHintRequest, opts ...grpc.CallOption) (*SetApplicationCategoryHintResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetApplicationCategoryHintResponse)
-	err := c.cc.Invoke(ctx, PackageManagerService_SetApplicationCategoryHint_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *packageManagerServiceClient) SetApplicationEnabledSetting(ctx context.Context, in *SetApplicationEnabledSettingRequest, opts ...grpc.CallOption) (*SetApplicationEnabledSettingResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetApplicationEnabledSettingResponse)
-	err := c.cc.Invoke(ctx, PackageManagerService_SetApplicationEnabledSetting_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *packageManagerServiceClient) SetAutoRevokeWhitelisted(ctx context.Context, in *SetAutoRevokeWhitelistedRequest, opts ...grpc.CallOption) (*SetAutoRevokeWhitelistedResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetAutoRevokeWhitelistedResponse)
-	err := c.cc.Invoke(ctx, PackageManagerService_SetAutoRevokeWhitelisted_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *packageManagerServiceClient) SetComponentEnabledSetting(ctx context.Context, in *SetComponentEnabledSettingRequest, opts ...grpc.CallOption) (*SetComponentEnabledSettingResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetComponentEnabledSettingResponse)
-	err := c.cc.Invoke(ctx, PackageManagerService_SetComponentEnabledSetting_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *packageManagerServiceClient) SetComponentEnabledSettings(ctx context.Context, in *SetComponentEnabledSettingsRequest, opts ...grpc.CallOption) (*SetComponentEnabledSettingsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetComponentEnabledSettingsResponse)
-	err := c.cc.Invoke(ctx, PackageManagerService_SetComponentEnabledSettings_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *packageManagerServiceClient) SetInstallerPackageName(ctx context.Context, in *SetInstallerPackageNameRequest, opts ...grpc.CallOption) (*SetInstallerPackageNameResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetInstallerPackageNameResponse)
-	err := c.cc.Invoke(ctx, PackageManagerService_SetInstallerPackageName_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *packageManagerServiceClient) SetMimeGroup(ctx context.Context, in *SetMimeGroupRequest, opts ...grpc.CallOption) (*SetMimeGroupResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetMimeGroupResponse)
-	err := c.cc.Invoke(ctx, PackageManagerService_SetMimeGroup_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *packageManagerServiceClient) UpdateInstantAppCookie(ctx context.Context, in *UpdateInstantAppCookieRequest, opts ...grpc.CallOption) (*UpdateInstantAppCookieResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(UpdateInstantAppCookieResponse)
-	err := c.cc.Invoke(ctx, PackageManagerService_UpdateInstantAppCookie_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *packageManagerServiceClient) VerifyPendingInstall(ctx context.Context, in *VerifyPendingInstallRequest, opts ...grpc.CallOption) (*VerifyPendingInstallResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(VerifyPendingInstallResponse)
-	err := c.cc.Invoke(ctx, PackageManagerService_VerifyPendingInstall_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *packageManagerServiceClient) GetVerifiedSigningInfo(ctx context.Context, in *GetVerifiedSigningInfoRequest, opts ...grpc.CallOption) (*GetVerifiedSigningInfoResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetVerifiedSigningInfoResponse)
-	err := c.cc.Invoke(ctx, PackageManagerService_GetVerifiedSigningInfo_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// PackageManagerServiceServer is the server API for PackageManagerService service.
-// All implementations must embed UnimplementedPackageManagerServiceServer
+// LauncherAppsServiceServer is the server API for LauncherAppsService service.
+// All implementations must embed UnimplementedLauncherAppsServiceServer
 // for forward compatibility.
-type PackageManagerServiceServer interface {
-	AddPackageToPreferred(context.Context, *AddPackageToPreferredRequest) (*AddPackageToPreferredResponse, error)
-	AddPermission(context.Context, *AddPermissionRequest) (*AddPermissionResponse, error)
-	AddPermissionAsync(context.Context, *AddPermissionAsyncRequest) (*AddPermissionAsyncResponse, error)
-	AddPreferredActivity(context.Context, *AddPreferredActivityRequest) (*AddPreferredActivityResponse, error)
-	AddWhitelistedRestrictedPermission(context.Context, *AddWhitelistedRestrictedPermissionRequest) (*AddWhitelistedRestrictedPermissionResponse, error)
-	CanPackageQuery2(context.Context, *CanPackageQuery2Request) (*CanPackageQuery2Response, error)
-	CanPackageQuery2_1(context.Context, *CanPackageQuery2_1Request) (*CanPackageQuery2_1Response, error)
-	CanRequestPackageInstalls(context.Context, *CanRequestPackageInstallsRequest) (*CanRequestPackageInstallsResponse, error)
-	CanonicalToCurrentPackageNames(context.Context, *CanonicalToCurrentPackageNamesRequest) (*CanonicalToCurrentPackageNamesResponse, error)
-	CheckPermission(context.Context, *CheckPermissionRequest) (*CheckPermissionResponse, error)
-	CheckSignatures2(context.Context, *CheckSignatures2Request) (*CheckSignatures2Response, error)
-	CheckSignatures2_1(context.Context, *CheckSignatures2_1Request) (*CheckSignatures2_1Response, error)
-	ClearInstantAppCookie(context.Context, *ClearInstantAppCookieRequest) (*ClearInstantAppCookieResponse, error)
-	ClearPackagePreferredActivities(context.Context, *ClearPackagePreferredActivitiesRequest) (*ClearPackagePreferredActivitiesResponse, error)
-	CurrentToCanonicalPackageNames(context.Context, *CurrentToCanonicalPackageNamesRequest) (*CurrentToCanonicalPackageNamesResponse, error)
-	ExtendVerificationTimeout(context.Context, *ExtendVerificationTimeoutRequest) (*ExtendVerificationTimeoutResponse, error)
-	GetActivityBanner1(context.Context, *GetActivityBanner1Request) (*GetActivityBanner1Response, error)
-	GetActivityBanner1_1(context.Context, *GetActivityBanner1_1Request) (*GetActivityBanner1_1Response, error)
-	GetActivityIcon1(context.Context, *GetActivityIcon1Request) (*GetActivityIcon1Response, error)
-	GetActivityIcon1_1(context.Context, *GetActivityIcon1_1Request) (*GetActivityIcon1_1Response, error)
-	GetActivityInfo2(context.Context, *GetActivityInfo2Request) (*GetActivityInfo2Response, error)
-	GetActivityInfo2_1(context.Context, *GetActivityInfo2_1Request) (*GetActivityInfo2_1Response, error)
-	GetActivityLogo1(context.Context, *GetActivityLogo1Request) (*GetActivityLogo1Response, error)
-	GetActivityLogo1_1(context.Context, *GetActivityLogo1_1Request) (*GetActivityLogo1_1Response, error)
-	GetAllPermissionGroups(context.Context, *GetAllPermissionGroupsRequest) (*GetAllPermissionGroupsResponse, error)
-	GetApplicationBanner1(context.Context, *GetApplicationBanner1Request) (*GetApplicationBanner1Response, error)
-	GetApplicationBanner1_1(context.Context, *GetApplicationBanner1_1Request) (*GetApplicationBanner1_1Response, error)
-	GetApplicationEnabledSetting(context.Context, *GetApplicationEnabledSettingRequest) (*GetApplicationEnabledSettingResponse, error)
-	GetApplicationIcon1(context.Context, *GetApplicationIcon1Request) (*GetApplicationIcon1Response, error)
-	GetApplicationIcon1_1(context.Context, *GetApplicationIcon1_1Request) (*GetApplicationIcon1_1Response, error)
-	GetApplicationInfo2(context.Context, *GetApplicationInfo2Request) (*GetApplicationInfo2Response, error)
-	GetApplicationInfo2_1(context.Context, *GetApplicationInfo2_1Request) (*GetApplicationInfo2_1Response, error)
-	GetApplicationLabel(context.Context, *GetApplicationLabelRequest) (*GetApplicationLabelResponse, error)
-	GetApplicationLogo1(context.Context, *GetApplicationLogo1Request) (*GetApplicationLogo1Response, error)
-	GetApplicationLogo1_1(context.Context, *GetApplicationLogo1_1Request) (*GetApplicationLogo1_1Response, error)
-	GetArchivedPackage(context.Context, *GetArchivedPackageRequest) (*GetArchivedPackageResponse, error)
-	GetBackgroundPermissionOptionLabel(context.Context, *GetBackgroundPermissionOptionLabelRequest) (*GetBackgroundPermissionOptionLabelResponse, error)
-	GetChangedPackages(context.Context, *GetChangedPackagesRequest) (*GetChangedPackagesResponse, error)
-	GetComponentEnabledSetting(context.Context, *GetComponentEnabledSettingRequest) (*GetComponentEnabledSettingResponse, error)
-	GetDefaultActivityIcon(context.Context, *GetDefaultActivityIconRequest) (*GetDefaultActivityIconResponse, error)
-	GetDrawable(context.Context, *GetDrawableRequest) (*GetDrawableResponse, error)
-	GetGroupOfPlatformPermission(context.Context, *GetGroupOfPlatformPermissionRequest) (*GetGroupOfPlatformPermissionResponse, error)
-	GetInstallSourceInfo(context.Context, *GetInstallSourceInfoRequest) (*GetInstallSourceInfoResponse, error)
-	GetInstalledApplications1(context.Context, *GetInstalledApplications1Request) (*GetInstalledApplications1Response, error)
-	GetInstalledApplications1_1(context.Context, *GetInstalledApplications1_1Request) (*GetInstalledApplications1_1Response, error)
-	GetInstalledModules(context.Context, *GetInstalledModulesRequest) (*GetInstalledModulesResponse, error)
-	GetInstalledPackages1(context.Context, *GetInstalledPackages1Request) (*GetInstalledPackages1Response, error)
-	GetInstalledPackages1_1(context.Context, *GetInstalledPackages1_1Request) (*GetInstalledPackages1_1Response, error)
-	GetInstallerPackageName(context.Context, *GetInstallerPackageNameRequest) (*GetInstallerPackageNameResponse, error)
-	GetInstantAppCookie(context.Context, *GetInstantAppCookieRequest) (*GetInstantAppCookieResponse, error)
-	GetInstantAppCookieMaxBytes(context.Context, *GetInstantAppCookieMaxBytesRequest) (*GetInstantAppCookieMaxBytesResponse, error)
-	GetInstrumentationInfo(context.Context, *GetInstrumentationInfoRequest) (*GetInstrumentationInfoResponse, error)
-	GetLaunchIntentForPackage(context.Context, *GetLaunchIntentForPackageRequest) (*GetLaunchIntentForPackageResponse, error)
-	GetLaunchIntentSenderForPackage(context.Context, *GetLaunchIntentSenderForPackageRequest) (*GetLaunchIntentSenderForPackageResponse, error)
-	GetLeanbackLaunchIntentForPackage(context.Context, *GetLeanbackLaunchIntentForPackageRequest) (*GetLeanbackLaunchIntentForPackageResponse, error)
-	GetMimeGroup(context.Context, *GetMimeGroupRequest) (*GetMimeGroupResponse, error)
-	GetModuleInfo(context.Context, *GetModuleInfoRequest) (*GetModuleInfoResponse, error)
-	GetNameForUid(context.Context, *GetNameForUidRequest) (*GetNameForUidResponse, error)
-	GetPackageArchiveInfo2(context.Context, *GetPackageArchiveInfo2Request) (*GetPackageArchiveInfo2Response, error)
-	GetPackageArchiveInfo2_1(context.Context, *GetPackageArchiveInfo2_1Request) (*GetPackageArchiveInfo2_1Response, error)
-	GetPackageGids1(context.Context, *GetPackageGids1Request) (*GetPackageGids1Response, error)
-	GetPackageGids2_1(context.Context, *GetPackageGids2_1Request) (*GetPackageGids2_1Response, error)
-	GetPackageGids2_2(context.Context, *GetPackageGids2_2Request) (*GetPackageGids2_2Response, error)
-	GetPackageInfo2(context.Context, *GetPackageInfo2Request) (*GetPackageInfo2Response, error)
-	GetPackageInfo2_1(context.Context, *GetPackageInfo2_1Request) (*GetPackageInfo2_1Response, error)
-	GetPackageInfo2_2(context.Context, *GetPackageInfo2_2Request) (*GetPackageInfo2_2Response, error)
-	GetPackageInfo2_3(context.Context, *GetPackageInfo2_3Request) (*GetPackageInfo2_3Response, error)
-	GetPackageInstaller(context.Context, *GetPackageInstallerRequest) (*GetPackageInstallerResponse, error)
-	GetPackageUid2(context.Context, *GetPackageUid2Request) (*GetPackageUid2Response, error)
-	GetPackageUid2_1(context.Context, *GetPackageUid2_1Request) (*GetPackageUid2_1Response, error)
-	GetPackagesForUid(context.Context, *GetPackagesForUidRequest) (*GetPackagesForUidResponse, error)
-	GetPackagesHoldingPermissions2(context.Context, *GetPackagesHoldingPermissions2Request) (*GetPackagesHoldingPermissions2Response, error)
-	GetPackagesHoldingPermissions2_1(context.Context, *GetPackagesHoldingPermissions2_1Request) (*GetPackagesHoldingPermissions2_1Response, error)
-	GetPermissionGroupInfo(context.Context, *GetPermissionGroupInfoRequest) (*GetPermissionGroupInfoResponse, error)
-	GetPermissionInfo(context.Context, *GetPermissionInfoRequest) (*GetPermissionInfoResponse, error)
-	GetPlatformPermissionsForGroup(context.Context, *GetPlatformPermissionsForGroupRequest) (*GetPlatformPermissionsForGroupResponse, error)
-	GetPreferredActivities(context.Context, *GetPreferredActivitiesRequest) (*GetPreferredActivitiesResponse, error)
-	GetPreferredPackages(context.Context, *GetPreferredPackagesRequest) (*GetPreferredPackagesResponse, error)
-	GetProperty2(context.Context, *GetProperty2Request) (*GetProperty2Response, error)
-	GetProperty2_1(context.Context, *GetProperty2_1Request) (*GetProperty2_1Response, error)
-	GetProviderInfo2(context.Context, *GetProviderInfo2Request) (*GetProviderInfo2Response, error)
-	GetProviderInfo2_1(context.Context, *GetProviderInfo2_1Request) (*GetProviderInfo2_1Response, error)
-	GetReceiverInfo2(context.Context, *GetReceiverInfo2Request) (*GetReceiverInfo2Response, error)
-	GetReceiverInfo2_1(context.Context, *GetReceiverInfo2_1Request) (*GetReceiverInfo2_1Response, error)
-	GetResourcesForActivity(context.Context, *GetResourcesForActivityRequest) (*GetResourcesForActivityResponse, error)
-	GetResourcesForApplication1(context.Context, *GetResourcesForApplication1Request) (*GetResourcesForApplication1Response, error)
-	GetResourcesForApplication2_1(context.Context, *GetResourcesForApplication2_1Request) (*GetResourcesForApplication2_1Response, error)
-	GetResourcesForApplication1_2(context.Context, *GetResourcesForApplication1_2Request) (*GetResourcesForApplication1_2Response, error)
-	GetServiceInfo2(context.Context, *GetServiceInfo2Request) (*GetServiceInfo2Response, error)
-	GetServiceInfo2_1(context.Context, *GetServiceInfo2_1Request) (*GetServiceInfo2_1Response, error)
-	GetSharedLibraries1(context.Context, *GetSharedLibraries1Request) (*GetSharedLibraries1Response, error)
-	GetSharedLibraries1_1(context.Context, *GetSharedLibraries1_1Request) (*GetSharedLibraries1_1Response, error)
-	GetSuspendedPackageAppExtras(context.Context, *GetSuspendedPackageAppExtrasRequest) (*GetSuspendedPackageAppExtrasResponse, error)
-	GetSyntheticAppDetailsActivityEnabled(context.Context, *GetSyntheticAppDetailsActivityEnabledRequest) (*GetSyntheticAppDetailsActivityEnabledResponse, error)
-	GetSystemAvailableFeatures(context.Context, *GetSystemAvailableFeaturesRequest) (*GetSystemAvailableFeaturesResponse, error)
-	GetSystemSharedLibraryNames(context.Context, *GetSystemSharedLibraryNamesRequest) (*GetSystemSharedLibraryNamesResponse, error)
-	GetTargetSdkVersion(context.Context, *GetTargetSdkVersionRequest) (*GetTargetSdkVersionResponse, error)
-	GetText(context.Context, *GetTextRequest) (*GetTextResponse, error)
-	GetUserBadgedDrawableForDensity(context.Context, *GetUserBadgedDrawableForDensityRequest) (*GetUserBadgedDrawableForDensityResponse, error)
-	GetUserBadgedIcon(context.Context, *GetUserBadgedIconRequest) (*GetUserBadgedIconResponse, error)
-	GetUserBadgedLabel(context.Context, *GetUserBadgedLabelRequest) (*GetUserBadgedLabelResponse, error)
-	GetWhitelistedRestrictedPermissions(context.Context, *GetWhitelistedRestrictedPermissionsRequest) (*GetWhitelistedRestrictedPermissionsResponse, error)
-	GetXml(context.Context, *GetXmlRequest) (*GetXmlResponse, error)
-	HasSigningCertificate3(context.Context, *HasSigningCertificate3Request) (*HasSigningCertificate3Response, error)
-	HasSigningCertificate3_1(context.Context, *HasSigningCertificate3_1Request) (*HasSigningCertificate3_1Response, error)
-	HasSystemFeature1(context.Context, *HasSystemFeature1Request) (*HasSystemFeature1Response, error)
-	HasSystemFeature2_1(context.Context, *HasSystemFeature2_1Request) (*HasSystemFeature2_1Response, error)
-	IsAppArchivable(context.Context, *IsAppArchivableRequest) (*IsAppArchivableResponse, error)
-	IsAutoRevokeWhitelisted0(context.Context, *IsAutoRevokeWhitelisted0Request) (*IsAutoRevokeWhitelisted0Response, error)
-	IsAutoRevokeWhitelisted1_1(context.Context, *IsAutoRevokeWhitelisted1_1Request) (*IsAutoRevokeWhitelisted1_1Response, error)
-	IsDefaultApplicationIcon(context.Context, *IsDefaultApplicationIconRequest) (*IsDefaultApplicationIconResponse, error)
-	IsDeviceUpgrading(context.Context, *IsDeviceUpgradingRequest) (*IsDeviceUpgradingResponse, error)
-	IsInstantApp0(context.Context, *IsInstantApp0Request) (*IsInstantApp0Response, error)
-	IsInstantApp1_1(context.Context, *IsInstantApp1_1Request) (*IsInstantApp1_1Response, error)
-	IsPackageStopped(context.Context, *IsPackageStoppedRequest) (*IsPackageStoppedResponse, error)
-	IsPackageSuspended0(context.Context, *IsPackageSuspended0Request) (*IsPackageSuspended0Response, error)
-	IsPackageSuspended1_1(context.Context, *IsPackageSuspended1_1Request) (*IsPackageSuspended1_1Response, error)
-	IsPermissionRevokedByPolicy(context.Context, *IsPermissionRevokedByPolicyRequest) (*IsPermissionRevokedByPolicyResponse, error)
-	IsSafeMode(context.Context, *IsSafeModeRequest) (*IsSafeModeResponse, error)
-	QueryActivityProperty(context.Context, *QueryActivityPropertyRequest) (*QueryActivityPropertyResponse, error)
-	QueryApplicationProperty(context.Context, *QueryApplicationPropertyRequest) (*QueryApplicationPropertyResponse, error)
-	QueryBroadcastReceivers2(context.Context, *QueryBroadcastReceivers2Request) (*QueryBroadcastReceivers2Response, error)
-	QueryBroadcastReceivers2_1(context.Context, *QueryBroadcastReceivers2_1Request) (*QueryBroadcastReceivers2_1Response, error)
-	QueryContentProviders3(context.Context, *QueryContentProviders3Request) (*QueryContentProviders3Response, error)
-	QueryContentProviders3_1(context.Context, *QueryContentProviders3_1Request) (*QueryContentProviders3_1Response, error)
-	QueryInstrumentation(context.Context, *QueryInstrumentationRequest) (*QueryInstrumentationResponse, error)
-	QueryIntentActivities2(context.Context, *QueryIntentActivities2Request) (*QueryIntentActivities2Response, error)
-	QueryIntentActivities2_1(context.Context, *QueryIntentActivities2_1Request) (*QueryIntentActivities2_1Response, error)
-	QueryIntentActivityOptions4(context.Context, *QueryIntentActivityOptions4Request) (*QueryIntentActivityOptions4Response, error)
-	QueryIntentActivityOptions4_1(context.Context, *QueryIntentActivityOptions4_1Request) (*QueryIntentActivityOptions4_1Response, error)
-	QueryIntentContentProviders2(context.Context, *QueryIntentContentProviders2Request) (*QueryIntentContentProviders2Response, error)
-	QueryIntentContentProviders2_1(context.Context, *QueryIntentContentProviders2_1Request) (*QueryIntentContentProviders2_1Response, error)
-	QueryIntentServices2(context.Context, *QueryIntentServices2Request) (*QueryIntentServices2Response, error)
-	QueryIntentServices2_1(context.Context, *QueryIntentServices2_1Request) (*QueryIntentServices2_1Response, error)
-	QueryPermissionsByGroup(context.Context, *QueryPermissionsByGroupRequest) (*QueryPermissionsByGroupResponse, error)
-	QueryProviderProperty(context.Context, *QueryProviderPropertyRequest) (*QueryProviderPropertyResponse, error)
-	QueryReceiverProperty(context.Context, *QueryReceiverPropertyRequest) (*QueryReceiverPropertyResponse, error)
-	QueryServiceProperty(context.Context, *QueryServicePropertyRequest) (*QueryServicePropertyResponse, error)
-	RelinquishUpdateOwnership(context.Context, *RelinquishUpdateOwnershipRequest) (*RelinquishUpdateOwnershipResponse, error)
-	RemovePackageFromPreferred(context.Context, *RemovePackageFromPreferredRequest) (*RemovePackageFromPreferredResponse, error)
-	RemovePermission(context.Context, *RemovePermissionRequest) (*RemovePermissionResponse, error)
-	RemoveWhitelistedRestrictedPermission(context.Context, *RemoveWhitelistedRestrictedPermissionRequest) (*RemoveWhitelistedRestrictedPermissionResponse, error)
-	RequestChecksums(context.Context, *RequestChecksumsRequest) (*RequestChecksumsResponse, error)
-	ResolveActivity2(context.Context, *ResolveActivity2Request) (*ResolveActivity2Response, error)
-	ResolveActivity2_1(context.Context, *ResolveActivity2_1Request) (*ResolveActivity2_1Response, error)
-	ResolveContentProvider2(context.Context, *ResolveContentProvider2Request) (*ResolveContentProvider2Response, error)
-	ResolveContentProvider2_1(context.Context, *ResolveContentProvider2_1Request) (*ResolveContentProvider2_1Response, error)
-	ResolveService2(context.Context, *ResolveService2Request) (*ResolveService2Response, error)
-	ResolveService2_1(context.Context, *ResolveService2_1Request) (*ResolveService2_1Response, error)
-	SetApplicationCategoryHint(context.Context, *SetApplicationCategoryHintRequest) (*SetApplicationCategoryHintResponse, error)
-	SetApplicationEnabledSetting(context.Context, *SetApplicationEnabledSettingRequest) (*SetApplicationEnabledSettingResponse, error)
-	SetAutoRevokeWhitelisted(context.Context, *SetAutoRevokeWhitelistedRequest) (*SetAutoRevokeWhitelistedResponse, error)
-	SetComponentEnabledSetting(context.Context, *SetComponentEnabledSettingRequest) (*SetComponentEnabledSettingResponse, error)
-	SetComponentEnabledSettings(context.Context, *SetComponentEnabledSettingsRequest) (*SetComponentEnabledSettingsResponse, error)
-	SetInstallerPackageName(context.Context, *SetInstallerPackageNameRequest) (*SetInstallerPackageNameResponse, error)
-	SetMimeGroup(context.Context, *SetMimeGroupRequest) (*SetMimeGroupResponse, error)
-	UpdateInstantAppCookie(context.Context, *UpdateInstantAppCookieRequest) (*UpdateInstantAppCookieResponse, error)
-	VerifyPendingInstall(context.Context, *VerifyPendingInstallRequest) (*VerifyPendingInstallResponse, error)
-	GetVerifiedSigningInfo(context.Context, *GetVerifiedSigningInfoRequest) (*GetVerifiedSigningInfoResponse, error)
-	mustEmbedUnimplementedPackageManagerServiceServer()
+type LauncherAppsServiceServer interface {
+	GetAppMarketActivityIntent(context.Context, *GetAppMarketActivityIntentRequest) (*GetAppMarketActivityIntentResponse, error)
+	GetApplicationInfo(context.Context, *GetApplicationInfoRequest) (*GetApplicationInfoResponse, error)
+	GetLauncherUserInfo(context.Context, *GetLauncherUserInfoRequest) (*GetLauncherUserInfoResponse, error)
+	GetPinItemRequest(context.Context, *GetPinItemRequestRequest) (*GetPinItemRequestResponse, error)
+	GetPrivateSpaceSettingsIntent(context.Context, *GetPrivateSpaceSettingsIntentRequest) (*GetPrivateSpaceSettingsIntentResponse, error)
+	GetShortcutBadgedIconDrawable(context.Context, *GetShortcutBadgedIconDrawableRequest) (*GetShortcutBadgedIconDrawableResponse, error)
+	GetShortcutConfigActivityIntent(context.Context, *GetShortcutConfigActivityIntentRequest) (*GetShortcutConfigActivityIntentResponse, error)
+	GetShortcutIconDrawable(context.Context, *GetShortcutIconDrawableRequest) (*GetShortcutIconDrawableResponse, error)
+	GetShortcutIntent(context.Context, *GetShortcutIntentRequest) (*GetShortcutIntentResponse, error)
+	GetSuspendedPackageLauncherExtras(context.Context, *GetSuspendedPackageLauncherExtrasRequest) (*GetSuspendedPackageLauncherExtrasResponse, error)
+	HasShortcutHostPermission(context.Context, *HasShortcutHostPermissionRequest) (*HasShortcutHostPermissionResponse, error)
+	IsActivityEnabled(context.Context, *IsActivityEnabledRequest) (*IsActivityEnabledResponse, error)
+	IsPackageEnabled(context.Context, *IsPackageEnabledRequest) (*IsPackageEnabledResponse, error)
+	RegisterCallback(context.Context, *RegisterCallbackRequest) (*RegisterCallbackResponse, error)
+	RegisterPackageInstallerSessionCallback(context.Context, *RegisterPackageInstallerSessionCallbackRequest) (*RegisterPackageInstallerSessionCallbackResponse, error)
+	ResolveActivity(context.Context, *ResolveActivityRequest) (*ResolveActivityResponse, error)
+	SetArchiveCompatibility(context.Context, *SetArchiveCompatibilityRequest) (*SetArchiveCompatibilityResponse, error)
+	ShouldHideFromSuggestions(context.Context, *ShouldHideFromSuggestionsRequest) (*ShouldHideFromSuggestionsResponse, error)
+	StartAppDetailsActivity(context.Context, *StartAppDetailsActivityRequest) (*StartAppDetailsActivityResponse, error)
+	StartMainActivity(context.Context, *StartMainActivityRequest) (*StartMainActivityResponse, error)
+	StartPackageInstallerSessionDetailsActivity(context.Context, *StartPackageInstallerSessionDetailsActivityRequest) (*StartPackageInstallerSessionDetailsActivityResponse, error)
+	StartShortcut3(context.Context, *StartShortcut3Request) (*StartShortcut3Response, error)
+	StartShortcut5_1(context.Context, *StartShortcut5_1Request) (*StartShortcut5_1Response, error)
+	UnregisterCallback(context.Context, *UnregisterCallbackRequest) (*UnregisterCallbackResponse, error)
+	UnregisterPackageInstallerSessionCallback(context.Context, *UnregisterPackageInstallerSessionCallbackRequest) (*UnregisterPackageInstallerSessionCallbackResponse, error)
+	mustEmbedUnimplementedLauncherAppsServiceServer()
 }
 
-// UnimplementedPackageManagerServiceServer must be embedded to have
+// UnimplementedLauncherAppsServiceServer must be embedded to have
 // forward compatible implementations.
 //
 // NOTE: this should be embedded by value instead of pointer to avoid a nil
 // pointer dereference when methods are called.
-type UnimplementedPackageManagerServiceServer struct{}
+type UnimplementedLauncherAppsServiceServer struct{}
 
-func (UnimplementedPackageManagerServiceServer) AddPackageToPreferred(context.Context, *AddPackageToPreferredRequest) (*AddPackageToPreferredResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method AddPackageToPreferred not implemented")
+func (UnimplementedLauncherAppsServiceServer) GetAppMarketActivityIntent(context.Context, *GetAppMarketActivityIntentRequest) (*GetAppMarketActivityIntentResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetAppMarketActivityIntent not implemented")
 }
-func (UnimplementedPackageManagerServiceServer) AddPermission(context.Context, *AddPermissionRequest) (*AddPermissionResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method AddPermission not implemented")
+func (UnimplementedLauncherAppsServiceServer) GetApplicationInfo(context.Context, *GetApplicationInfoRequest) (*GetApplicationInfoResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetApplicationInfo not implemented")
 }
-func (UnimplementedPackageManagerServiceServer) AddPermissionAsync(context.Context, *AddPermissionAsyncRequest) (*AddPermissionAsyncResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method AddPermissionAsync not implemented")
+func (UnimplementedLauncherAppsServiceServer) GetLauncherUserInfo(context.Context, *GetLauncherUserInfoRequest) (*GetLauncherUserInfoResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetLauncherUserInfo not implemented")
 }
-func (UnimplementedPackageManagerServiceServer) AddPreferredActivity(context.Context, *AddPreferredActivityRequest) (*AddPreferredActivityResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method AddPreferredActivity not implemented")
+func (UnimplementedLauncherAppsServiceServer) GetPinItemRequest(context.Context, *GetPinItemRequestRequest) (*GetPinItemRequestResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetPinItemRequest not implemented")
 }
-func (UnimplementedPackageManagerServiceServer) AddWhitelistedRestrictedPermission(context.Context, *AddWhitelistedRestrictedPermissionRequest) (*AddWhitelistedRestrictedPermissionResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method AddWhitelistedRestrictedPermission not implemented")
+func (UnimplementedLauncherAppsServiceServer) GetPrivateSpaceSettingsIntent(context.Context, *GetPrivateSpaceSettingsIntentRequest) (*GetPrivateSpaceSettingsIntentResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetPrivateSpaceSettingsIntent not implemented")
 }
-func (UnimplementedPackageManagerServiceServer) CanPackageQuery2(context.Context, *CanPackageQuery2Request) (*CanPackageQuery2Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method CanPackageQuery2 not implemented")
+func (UnimplementedLauncherAppsServiceServer) GetShortcutBadgedIconDrawable(context.Context, *GetShortcutBadgedIconDrawableRequest) (*GetShortcutBadgedIconDrawableResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetShortcutBadgedIconDrawable not implemented")
 }
-func (UnimplementedPackageManagerServiceServer) CanPackageQuery2_1(context.Context, *CanPackageQuery2_1Request) (*CanPackageQuery2_1Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method CanPackageQuery2_1 not implemented")
+func (UnimplementedLauncherAppsServiceServer) GetShortcutConfigActivityIntent(context.Context, *GetShortcutConfigActivityIntentRequest) (*GetShortcutConfigActivityIntentResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetShortcutConfigActivityIntent not implemented")
 }
-func (UnimplementedPackageManagerServiceServer) CanRequestPackageInstalls(context.Context, *CanRequestPackageInstallsRequest) (*CanRequestPackageInstallsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method CanRequestPackageInstalls not implemented")
+func (UnimplementedLauncherAppsServiceServer) GetShortcutIconDrawable(context.Context, *GetShortcutIconDrawableRequest) (*GetShortcutIconDrawableResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetShortcutIconDrawable not implemented")
 }
-func (UnimplementedPackageManagerServiceServer) CanonicalToCurrentPackageNames(context.Context, *CanonicalToCurrentPackageNamesRequest) (*CanonicalToCurrentPackageNamesResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method CanonicalToCurrentPackageNames not implemented")
+func (UnimplementedLauncherAppsServiceServer) GetShortcutIntent(context.Context, *GetShortcutIntentRequest) (*GetShortcutIntentResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetShortcutIntent not implemented")
 }
-func (UnimplementedPackageManagerServiceServer) CheckPermission(context.Context, *CheckPermissionRequest) (*CheckPermissionResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method CheckPermission not implemented")
+func (UnimplementedLauncherAppsServiceServer) GetSuspendedPackageLauncherExtras(context.Context, *GetSuspendedPackageLauncherExtrasRequest) (*GetSuspendedPackageLauncherExtrasResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetSuspendedPackageLauncherExtras not implemented")
 }
-func (UnimplementedPackageManagerServiceServer) CheckSignatures2(context.Context, *CheckSignatures2Request) (*CheckSignatures2Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method CheckSignatures2 not implemented")
+func (UnimplementedLauncherAppsServiceServer) HasShortcutHostPermission(context.Context, *HasShortcutHostPermissionRequest) (*HasShortcutHostPermissionResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method HasShortcutHostPermission not implemented")
 }
-func (UnimplementedPackageManagerServiceServer) CheckSignatures2_1(context.Context, *CheckSignatures2_1Request) (*CheckSignatures2_1Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method CheckSignatures2_1 not implemented")
+func (UnimplementedLauncherAppsServiceServer) IsActivityEnabled(context.Context, *IsActivityEnabledRequest) (*IsActivityEnabledResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsActivityEnabled not implemented")
 }
-func (UnimplementedPackageManagerServiceServer) ClearInstantAppCookie(context.Context, *ClearInstantAppCookieRequest) (*ClearInstantAppCookieResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method ClearInstantAppCookie not implemented")
+func (UnimplementedLauncherAppsServiceServer) IsPackageEnabled(context.Context, *IsPackageEnabledRequest) (*IsPackageEnabledResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsPackageEnabled not implemented")
 }
-func (UnimplementedPackageManagerServiceServer) ClearPackagePreferredActivities(context.Context, *ClearPackagePreferredActivitiesRequest) (*ClearPackagePreferredActivitiesResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method ClearPackagePreferredActivities not implemented")
+func (UnimplementedLauncherAppsServiceServer) RegisterCallback(context.Context, *RegisterCallbackRequest) (*RegisterCallbackResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method RegisterCallback not implemented")
 }
-func (UnimplementedPackageManagerServiceServer) CurrentToCanonicalPackageNames(context.Context, *CurrentToCanonicalPackageNamesRequest) (*CurrentToCanonicalPackageNamesResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method CurrentToCanonicalPackageNames not implemented")
+func (UnimplementedLauncherAppsServiceServer) RegisterPackageInstallerSessionCallback(context.Context, *RegisterPackageInstallerSessionCallbackRequest) (*RegisterPackageInstallerSessionCallbackResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method RegisterPackageInstallerSessionCallback not implemented")
 }
-func (UnimplementedPackageManagerServiceServer) ExtendVerificationTimeout(context.Context, *ExtendVerificationTimeoutRequest) (*ExtendVerificationTimeoutResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method ExtendVerificationTimeout not implemented")
+func (UnimplementedLauncherAppsServiceServer) ResolveActivity(context.Context, *ResolveActivityRequest) (*ResolveActivityResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method ResolveActivity not implemented")
 }
-func (UnimplementedPackageManagerServiceServer) GetActivityBanner1(context.Context, *GetActivityBanner1Request) (*GetActivityBanner1Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetActivityBanner1 not implemented")
+func (UnimplementedLauncherAppsServiceServer) SetArchiveCompatibility(context.Context, *SetArchiveCompatibilityRequest) (*SetArchiveCompatibilityResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetArchiveCompatibility not implemented")
 }
-func (UnimplementedPackageManagerServiceServer) GetActivityBanner1_1(context.Context, *GetActivityBanner1_1Request) (*GetActivityBanner1_1Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetActivityBanner1_1 not implemented")
+func (UnimplementedLauncherAppsServiceServer) ShouldHideFromSuggestions(context.Context, *ShouldHideFromSuggestionsRequest) (*ShouldHideFromSuggestionsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method ShouldHideFromSuggestions not implemented")
 }
-func (UnimplementedPackageManagerServiceServer) GetActivityIcon1(context.Context, *GetActivityIcon1Request) (*GetActivityIcon1Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetActivityIcon1 not implemented")
+func (UnimplementedLauncherAppsServiceServer) StartAppDetailsActivity(context.Context, *StartAppDetailsActivityRequest) (*StartAppDetailsActivityResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method StartAppDetailsActivity not implemented")
 }
-func (UnimplementedPackageManagerServiceServer) GetActivityIcon1_1(context.Context, *GetActivityIcon1_1Request) (*GetActivityIcon1_1Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetActivityIcon1_1 not implemented")
+func (UnimplementedLauncherAppsServiceServer) StartMainActivity(context.Context, *StartMainActivityRequest) (*StartMainActivityResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method StartMainActivity not implemented")
 }
-func (UnimplementedPackageManagerServiceServer) GetActivityInfo2(context.Context, *GetActivityInfo2Request) (*GetActivityInfo2Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetActivityInfo2 not implemented")
+func (UnimplementedLauncherAppsServiceServer) StartPackageInstallerSessionDetailsActivity(context.Context, *StartPackageInstallerSessionDetailsActivityRequest) (*StartPackageInstallerSessionDetailsActivityResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method StartPackageInstallerSessionDetailsActivity not implemented")
 }
-func (UnimplementedPackageManagerServiceServer) GetActivityInfo2_1(context.Context, *GetActivityInfo2_1Request) (*GetActivityInfo2_1Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetActivityInfo2_1 not implemented")
+func (UnimplementedLauncherAppsServiceServer) StartShortcut3(context.Context, *StartShortcut3Request) (*StartShortcut3Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method StartShortcut3 not implemented")
 }
-func (UnimplementedPackageManagerServiceServer) GetActivityLogo1(context.Context, *GetActivityLogo1Request) (*GetActivityLogo1Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetActivityLogo1 not implemented")
+func (UnimplementedLauncherAppsServiceServer) StartShortcut5_1(context.Context, *StartShortcut5_1Request) (*StartShortcut5_1Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method StartShortcut5_1 not implemented")
 }
-func (UnimplementedPackageManagerServiceServer) GetActivityLogo1_1(context.Context, *GetActivityLogo1_1Request) (*GetActivityLogo1_1Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetActivityLogo1_1 not implemented")
+func (UnimplementedLauncherAppsServiceServer) UnregisterCallback(context.Context, *UnregisterCallbackRequest) (*UnregisterCallbackResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method UnregisterCallback not implemented")
 }
-func (UnimplementedPackageManagerServiceServer) GetAllPermissionGroups(context.Context, *GetAllPermissionGroupsRequest) (*GetAllPermissionGroupsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetAllPermissionGroups not implemented")
+func (UnimplementedLauncherAppsServiceServer) UnregisterPackageInstallerSessionCallback(context.Context, *UnregisterPackageInstallerSessionCallbackRequest) (*UnregisterPackageInstallerSessionCallbackResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method UnregisterPackageInstallerSessionCallback not implemented")
 }
-func (UnimplementedPackageManagerServiceServer) GetApplicationBanner1(context.Context, *GetApplicationBanner1Request) (*GetApplicationBanner1Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetApplicationBanner1 not implemented")
-}
-func (UnimplementedPackageManagerServiceServer) GetApplicationBanner1_1(context.Context, *GetApplicationBanner1_1Request) (*GetApplicationBanner1_1Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetApplicationBanner1_1 not implemented")
-}
-func (UnimplementedPackageManagerServiceServer) GetApplicationEnabledSetting(context.Context, *GetApplicationEnabledSettingRequest) (*GetApplicationEnabledSettingResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetApplicationEnabledSetting not implemented")
-}
-func (UnimplementedPackageManagerServiceServer) GetApplicationIcon1(context.Context, *GetApplicationIcon1Request) (*GetApplicationIcon1Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetApplicationIcon1 not implemented")
-}
-func (UnimplementedPackageManagerServiceServer) GetApplicationIcon1_1(context.Context, *GetApplicationIcon1_1Request) (*GetApplicationIcon1_1Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetApplicationIcon1_1 not implemented")
-}
-func (UnimplementedPackageManagerServiceServer) GetApplicationInfo2(context.Context, *GetApplicationInfo2Request) (*GetApplicationInfo2Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetApplicationInfo2 not implemented")
-}
-func (UnimplementedPackageManagerServiceServer) GetApplicationInfo2_1(context.Context, *GetApplicationInfo2_1Request) (*GetApplicationInfo2_1Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetApplicationInfo2_1 not implemented")
-}
-func (UnimplementedPackageManagerServiceServer) GetApplicationLabel(context.Context, *GetApplicationLabelRequest) (*GetApplicationLabelResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetApplicationLabel not implemented")
-}
-func (UnimplementedPackageManagerServiceServer) GetApplicationLogo1(context.Context, *GetApplicationLogo1Request) (*GetApplicationLogo1Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetApplicationLogo1 not implemented")
-}
-func (UnimplementedPackageManagerServiceServer) GetApplicationLogo1_1(context.Context, *GetApplicationLogo1_1Request) (*GetApplicationLogo1_1Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetApplicationLogo1_1 not implemented")
-}
-func (UnimplementedPackageManagerServiceServer) GetArchivedPackage(context.Context, *GetArchivedPackageRequest) (*GetArchivedPackageResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetArchivedPackage not implemented")
-}
-func (UnimplementedPackageManagerServiceServer) GetBackgroundPermissionOptionLabel(context.Context, *GetBackgroundPermissionOptionLabelRequest) (*GetBackgroundPermissionOptionLabelResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetBackgroundPermissionOptionLabel not implemented")
-}
-func (UnimplementedPackageManagerServiceServer) GetChangedPackages(context.Context, *GetChangedPackagesRequest) (*GetChangedPackagesResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetChangedPackages not implemented")
-}
-func (UnimplementedPackageManagerServiceServer) GetComponentEnabledSetting(context.Context, *GetComponentEnabledSettingRequest) (*GetComponentEnabledSettingResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetComponentEnabledSetting not implemented")
-}
-func (UnimplementedPackageManagerServiceServer) GetDefaultActivityIcon(context.Context, *GetDefaultActivityIconRequest) (*GetDefaultActivityIconResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetDefaultActivityIcon not implemented")
-}
-func (UnimplementedPackageManagerServiceServer) GetDrawable(context.Context, *GetDrawableRequest) (*GetDrawableResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetDrawable not implemented")
-}
-func (UnimplementedPackageManagerServiceServer) GetGroupOfPlatformPermission(context.Context, *GetGroupOfPlatformPermissionRequest) (*GetGroupOfPlatformPermissionResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetGroupOfPlatformPermission not implemented")
-}
-func (UnimplementedPackageManagerServiceServer) GetInstallSourceInfo(context.Context, *GetInstallSourceInfoRequest) (*GetInstallSourceInfoResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetInstallSourceInfo not implemented")
-}
-func (UnimplementedPackageManagerServiceServer) GetInstalledApplications1(context.Context, *GetInstalledApplications1Request) (*GetInstalledApplications1Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetInstalledApplications1 not implemented")
-}
-func (UnimplementedPackageManagerServiceServer) GetInstalledApplications1_1(context.Context, *GetInstalledApplications1_1Request) (*GetInstalledApplications1_1Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetInstalledApplications1_1 not implemented")
-}
-func (UnimplementedPackageManagerServiceServer) GetInstalledModules(context.Context, *GetInstalledModulesRequest) (*GetInstalledModulesResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetInstalledModules not implemented")
-}
-func (UnimplementedPackageManagerServiceServer) GetInstalledPackages1(context.Context, *GetInstalledPackages1Request) (*GetInstalledPackages1Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetInstalledPackages1 not implemented")
-}
-func (UnimplementedPackageManagerServiceServer) GetInstalledPackages1_1(context.Context, *GetInstalledPackages1_1Request) (*GetInstalledPackages1_1Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetInstalledPackages1_1 not implemented")
-}
-func (UnimplementedPackageManagerServiceServer) GetInstallerPackageName(context.Context, *GetInstallerPackageNameRequest) (*GetInstallerPackageNameResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetInstallerPackageName not implemented")
-}
-func (UnimplementedPackageManagerServiceServer) GetInstantAppCookie(context.Context, *GetInstantAppCookieRequest) (*GetInstantAppCookieResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetInstantAppCookie not implemented")
-}
-func (UnimplementedPackageManagerServiceServer) GetInstantAppCookieMaxBytes(context.Context, *GetInstantAppCookieMaxBytesRequest) (*GetInstantAppCookieMaxBytesResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetInstantAppCookieMaxBytes not implemented")
-}
-func (UnimplementedPackageManagerServiceServer) GetInstrumentationInfo(context.Context, *GetInstrumentationInfoRequest) (*GetInstrumentationInfoResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetInstrumentationInfo not implemented")
-}
-func (UnimplementedPackageManagerServiceServer) GetLaunchIntentForPackage(context.Context, *GetLaunchIntentForPackageRequest) (*GetLaunchIntentForPackageResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetLaunchIntentForPackage not implemented")
-}
-func (UnimplementedPackageManagerServiceServer) GetLaunchIntentSenderForPackage(context.Context, *GetLaunchIntentSenderForPackageRequest) (*GetLaunchIntentSenderForPackageResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetLaunchIntentSenderForPackage not implemented")
-}
-func (UnimplementedPackageManagerServiceServer) GetLeanbackLaunchIntentForPackage(context.Context, *GetLeanbackLaunchIntentForPackageRequest) (*GetLeanbackLaunchIntentForPackageResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetLeanbackLaunchIntentForPackage not implemented")
-}
-func (UnimplementedPackageManagerServiceServer) GetMimeGroup(context.Context, *GetMimeGroupRequest) (*GetMimeGroupResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetMimeGroup not implemented")
-}
-func (UnimplementedPackageManagerServiceServer) GetModuleInfo(context.Context, *GetModuleInfoRequest) (*GetModuleInfoResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetModuleInfo not implemented")
-}
-func (UnimplementedPackageManagerServiceServer) GetNameForUid(context.Context, *GetNameForUidRequest) (*GetNameForUidResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetNameForUid not implemented")
-}
-func (UnimplementedPackageManagerServiceServer) GetPackageArchiveInfo2(context.Context, *GetPackageArchiveInfo2Request) (*GetPackageArchiveInfo2Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetPackageArchiveInfo2 not implemented")
-}
-func (UnimplementedPackageManagerServiceServer) GetPackageArchiveInfo2_1(context.Context, *GetPackageArchiveInfo2_1Request) (*GetPackageArchiveInfo2_1Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetPackageArchiveInfo2_1 not implemented")
-}
-func (UnimplementedPackageManagerServiceServer) GetPackageGids1(context.Context, *GetPackageGids1Request) (*GetPackageGids1Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetPackageGids1 not implemented")
-}
-func (UnimplementedPackageManagerServiceServer) GetPackageGids2_1(context.Context, *GetPackageGids2_1Request) (*GetPackageGids2_1Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetPackageGids2_1 not implemented")
-}
-func (UnimplementedPackageManagerServiceServer) GetPackageGids2_2(context.Context, *GetPackageGids2_2Request) (*GetPackageGids2_2Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetPackageGids2_2 not implemented")
-}
-func (UnimplementedPackageManagerServiceServer) GetPackageInfo2(context.Context, *GetPackageInfo2Request) (*GetPackageInfo2Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetPackageInfo2 not implemented")
-}
-func (UnimplementedPackageManagerServiceServer) GetPackageInfo2_1(context.Context, *GetPackageInfo2_1Request) (*GetPackageInfo2_1Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetPackageInfo2_1 not implemented")
-}
-func (UnimplementedPackageManagerServiceServer) GetPackageInfo2_2(context.Context, *GetPackageInfo2_2Request) (*GetPackageInfo2_2Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetPackageInfo2_2 not implemented")
-}
-func (UnimplementedPackageManagerServiceServer) GetPackageInfo2_3(context.Context, *GetPackageInfo2_3Request) (*GetPackageInfo2_3Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetPackageInfo2_3 not implemented")
-}
-func (UnimplementedPackageManagerServiceServer) GetPackageInstaller(context.Context, *GetPackageInstallerRequest) (*GetPackageInstallerResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetPackageInstaller not implemented")
-}
-func (UnimplementedPackageManagerServiceServer) GetPackageUid2(context.Context, *GetPackageUid2Request) (*GetPackageUid2Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetPackageUid2 not implemented")
-}
-func (UnimplementedPackageManagerServiceServer) GetPackageUid2_1(context.Context, *GetPackageUid2_1Request) (*GetPackageUid2_1Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetPackageUid2_1 not implemented")
-}
-func (UnimplementedPackageManagerServiceServer) GetPackagesForUid(context.Context, *GetPackagesForUidRequest) (*GetPackagesForUidResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetPackagesForUid not implemented")
-}
-func (UnimplementedPackageManagerServiceServer) GetPackagesHoldingPermissions2(context.Context, *GetPackagesHoldingPermissions2Request) (*GetPackagesHoldingPermissions2Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetPackagesHoldingPermissions2 not implemented")
-}
-func (UnimplementedPackageManagerServiceServer) GetPackagesHoldingPermissions2_1(context.Context, *GetPackagesHoldingPermissions2_1Request) (*GetPackagesHoldingPermissions2_1Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetPackagesHoldingPermissions2_1 not implemented")
-}
-func (UnimplementedPackageManagerServiceServer) GetPermissionGroupInfo(context.Context, *GetPermissionGroupInfoRequest) (*GetPermissionGroupInfoResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetPermissionGroupInfo not implemented")
-}
-func (UnimplementedPackageManagerServiceServer) GetPermissionInfo(context.Context, *GetPermissionInfoRequest) (*GetPermissionInfoResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetPermissionInfo not implemented")
-}
-func (UnimplementedPackageManagerServiceServer) GetPlatformPermissionsForGroup(context.Context, *GetPlatformPermissionsForGroupRequest) (*GetPlatformPermissionsForGroupResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetPlatformPermissionsForGroup not implemented")
-}
-func (UnimplementedPackageManagerServiceServer) GetPreferredActivities(context.Context, *GetPreferredActivitiesRequest) (*GetPreferredActivitiesResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetPreferredActivities not implemented")
-}
-func (UnimplementedPackageManagerServiceServer) GetPreferredPackages(context.Context, *GetPreferredPackagesRequest) (*GetPreferredPackagesResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetPreferredPackages not implemented")
-}
-func (UnimplementedPackageManagerServiceServer) GetProperty2(context.Context, *GetProperty2Request) (*GetProperty2Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetProperty2 not implemented")
-}
-func (UnimplementedPackageManagerServiceServer) GetProperty2_1(context.Context, *GetProperty2_1Request) (*GetProperty2_1Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetProperty2_1 not implemented")
-}
-func (UnimplementedPackageManagerServiceServer) GetProviderInfo2(context.Context, *GetProviderInfo2Request) (*GetProviderInfo2Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetProviderInfo2 not implemented")
-}
-func (UnimplementedPackageManagerServiceServer) GetProviderInfo2_1(context.Context, *GetProviderInfo2_1Request) (*GetProviderInfo2_1Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetProviderInfo2_1 not implemented")
-}
-func (UnimplementedPackageManagerServiceServer) GetReceiverInfo2(context.Context, *GetReceiverInfo2Request) (*GetReceiverInfo2Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetReceiverInfo2 not implemented")
-}
-func (UnimplementedPackageManagerServiceServer) GetReceiverInfo2_1(context.Context, *GetReceiverInfo2_1Request) (*GetReceiverInfo2_1Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetReceiverInfo2_1 not implemented")
-}
-func (UnimplementedPackageManagerServiceServer) GetResourcesForActivity(context.Context, *GetResourcesForActivityRequest) (*GetResourcesForActivityResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetResourcesForActivity not implemented")
-}
-func (UnimplementedPackageManagerServiceServer) GetResourcesForApplication1(context.Context, *GetResourcesForApplication1Request) (*GetResourcesForApplication1Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetResourcesForApplication1 not implemented")
-}
-func (UnimplementedPackageManagerServiceServer) GetResourcesForApplication2_1(context.Context, *GetResourcesForApplication2_1Request) (*GetResourcesForApplication2_1Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetResourcesForApplication2_1 not implemented")
-}
-func (UnimplementedPackageManagerServiceServer) GetResourcesForApplication1_2(context.Context, *GetResourcesForApplication1_2Request) (*GetResourcesForApplication1_2Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetResourcesForApplication1_2 not implemented")
-}
-func (UnimplementedPackageManagerServiceServer) GetServiceInfo2(context.Context, *GetServiceInfo2Request) (*GetServiceInfo2Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetServiceInfo2 not implemented")
-}
-func (UnimplementedPackageManagerServiceServer) GetServiceInfo2_1(context.Context, *GetServiceInfo2_1Request) (*GetServiceInfo2_1Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetServiceInfo2_1 not implemented")
-}
-func (UnimplementedPackageManagerServiceServer) GetSharedLibraries1(context.Context, *GetSharedLibraries1Request) (*GetSharedLibraries1Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetSharedLibraries1 not implemented")
-}
-func (UnimplementedPackageManagerServiceServer) GetSharedLibraries1_1(context.Context, *GetSharedLibraries1_1Request) (*GetSharedLibraries1_1Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetSharedLibraries1_1 not implemented")
-}
-func (UnimplementedPackageManagerServiceServer) GetSuspendedPackageAppExtras(context.Context, *GetSuspendedPackageAppExtrasRequest) (*GetSuspendedPackageAppExtrasResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetSuspendedPackageAppExtras not implemented")
-}
-func (UnimplementedPackageManagerServiceServer) GetSyntheticAppDetailsActivityEnabled(context.Context, *GetSyntheticAppDetailsActivityEnabledRequest) (*GetSyntheticAppDetailsActivityEnabledResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetSyntheticAppDetailsActivityEnabled not implemented")
-}
-func (UnimplementedPackageManagerServiceServer) GetSystemAvailableFeatures(context.Context, *GetSystemAvailableFeaturesRequest) (*GetSystemAvailableFeaturesResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetSystemAvailableFeatures not implemented")
-}
-func (UnimplementedPackageManagerServiceServer) GetSystemSharedLibraryNames(context.Context, *GetSystemSharedLibraryNamesRequest) (*GetSystemSharedLibraryNamesResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetSystemSharedLibraryNames not implemented")
-}
-func (UnimplementedPackageManagerServiceServer) GetTargetSdkVersion(context.Context, *GetTargetSdkVersionRequest) (*GetTargetSdkVersionResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetTargetSdkVersion not implemented")
-}
-func (UnimplementedPackageManagerServiceServer) GetText(context.Context, *GetTextRequest) (*GetTextResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetText not implemented")
-}
-func (UnimplementedPackageManagerServiceServer) GetUserBadgedDrawableForDensity(context.Context, *GetUserBadgedDrawableForDensityRequest) (*GetUserBadgedDrawableForDensityResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetUserBadgedDrawableForDensity not implemented")
-}
-func (UnimplementedPackageManagerServiceServer) GetUserBadgedIcon(context.Context, *GetUserBadgedIconRequest) (*GetUserBadgedIconResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetUserBadgedIcon not implemented")
-}
-func (UnimplementedPackageManagerServiceServer) GetUserBadgedLabel(context.Context, *GetUserBadgedLabelRequest) (*GetUserBadgedLabelResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetUserBadgedLabel not implemented")
-}
-func (UnimplementedPackageManagerServiceServer) GetWhitelistedRestrictedPermissions(context.Context, *GetWhitelistedRestrictedPermissionsRequest) (*GetWhitelistedRestrictedPermissionsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetWhitelistedRestrictedPermissions not implemented")
-}
-func (UnimplementedPackageManagerServiceServer) GetXml(context.Context, *GetXmlRequest) (*GetXmlResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetXml not implemented")
-}
-func (UnimplementedPackageManagerServiceServer) HasSigningCertificate3(context.Context, *HasSigningCertificate3Request) (*HasSigningCertificate3Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method HasSigningCertificate3 not implemented")
-}
-func (UnimplementedPackageManagerServiceServer) HasSigningCertificate3_1(context.Context, *HasSigningCertificate3_1Request) (*HasSigningCertificate3_1Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method HasSigningCertificate3_1 not implemented")
-}
-func (UnimplementedPackageManagerServiceServer) HasSystemFeature1(context.Context, *HasSystemFeature1Request) (*HasSystemFeature1Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method HasSystemFeature1 not implemented")
-}
-func (UnimplementedPackageManagerServiceServer) HasSystemFeature2_1(context.Context, *HasSystemFeature2_1Request) (*HasSystemFeature2_1Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method HasSystemFeature2_1 not implemented")
-}
-func (UnimplementedPackageManagerServiceServer) IsAppArchivable(context.Context, *IsAppArchivableRequest) (*IsAppArchivableResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method IsAppArchivable not implemented")
-}
-func (UnimplementedPackageManagerServiceServer) IsAutoRevokeWhitelisted0(context.Context, *IsAutoRevokeWhitelisted0Request) (*IsAutoRevokeWhitelisted0Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method IsAutoRevokeWhitelisted0 not implemented")
-}
-func (UnimplementedPackageManagerServiceServer) IsAutoRevokeWhitelisted1_1(context.Context, *IsAutoRevokeWhitelisted1_1Request) (*IsAutoRevokeWhitelisted1_1Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method IsAutoRevokeWhitelisted1_1 not implemented")
-}
-func (UnimplementedPackageManagerServiceServer) IsDefaultApplicationIcon(context.Context, *IsDefaultApplicationIconRequest) (*IsDefaultApplicationIconResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method IsDefaultApplicationIcon not implemented")
-}
-func (UnimplementedPackageManagerServiceServer) IsDeviceUpgrading(context.Context, *IsDeviceUpgradingRequest) (*IsDeviceUpgradingResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method IsDeviceUpgrading not implemented")
-}
-func (UnimplementedPackageManagerServiceServer) IsInstantApp0(context.Context, *IsInstantApp0Request) (*IsInstantApp0Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method IsInstantApp0 not implemented")
-}
-func (UnimplementedPackageManagerServiceServer) IsInstantApp1_1(context.Context, *IsInstantApp1_1Request) (*IsInstantApp1_1Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method IsInstantApp1_1 not implemented")
-}
-func (UnimplementedPackageManagerServiceServer) IsPackageStopped(context.Context, *IsPackageStoppedRequest) (*IsPackageStoppedResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method IsPackageStopped not implemented")
-}
-func (UnimplementedPackageManagerServiceServer) IsPackageSuspended0(context.Context, *IsPackageSuspended0Request) (*IsPackageSuspended0Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method IsPackageSuspended0 not implemented")
-}
-func (UnimplementedPackageManagerServiceServer) IsPackageSuspended1_1(context.Context, *IsPackageSuspended1_1Request) (*IsPackageSuspended1_1Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method IsPackageSuspended1_1 not implemented")
-}
-func (UnimplementedPackageManagerServiceServer) IsPermissionRevokedByPolicy(context.Context, *IsPermissionRevokedByPolicyRequest) (*IsPermissionRevokedByPolicyResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method IsPermissionRevokedByPolicy not implemented")
-}
-func (UnimplementedPackageManagerServiceServer) IsSafeMode(context.Context, *IsSafeModeRequest) (*IsSafeModeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method IsSafeMode not implemented")
-}
-func (UnimplementedPackageManagerServiceServer) QueryActivityProperty(context.Context, *QueryActivityPropertyRequest) (*QueryActivityPropertyResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method QueryActivityProperty not implemented")
-}
-func (UnimplementedPackageManagerServiceServer) QueryApplicationProperty(context.Context, *QueryApplicationPropertyRequest) (*QueryApplicationPropertyResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method QueryApplicationProperty not implemented")
-}
-func (UnimplementedPackageManagerServiceServer) QueryBroadcastReceivers2(context.Context, *QueryBroadcastReceivers2Request) (*QueryBroadcastReceivers2Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method QueryBroadcastReceivers2 not implemented")
-}
-func (UnimplementedPackageManagerServiceServer) QueryBroadcastReceivers2_1(context.Context, *QueryBroadcastReceivers2_1Request) (*QueryBroadcastReceivers2_1Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method QueryBroadcastReceivers2_1 not implemented")
-}
-func (UnimplementedPackageManagerServiceServer) QueryContentProviders3(context.Context, *QueryContentProviders3Request) (*QueryContentProviders3Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method QueryContentProviders3 not implemented")
-}
-func (UnimplementedPackageManagerServiceServer) QueryContentProviders3_1(context.Context, *QueryContentProviders3_1Request) (*QueryContentProviders3_1Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method QueryContentProviders3_1 not implemented")
-}
-func (UnimplementedPackageManagerServiceServer) QueryInstrumentation(context.Context, *QueryInstrumentationRequest) (*QueryInstrumentationResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method QueryInstrumentation not implemented")
-}
-func (UnimplementedPackageManagerServiceServer) QueryIntentActivities2(context.Context, *QueryIntentActivities2Request) (*QueryIntentActivities2Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method QueryIntentActivities2 not implemented")
-}
-func (UnimplementedPackageManagerServiceServer) QueryIntentActivities2_1(context.Context, *QueryIntentActivities2_1Request) (*QueryIntentActivities2_1Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method QueryIntentActivities2_1 not implemented")
-}
-func (UnimplementedPackageManagerServiceServer) QueryIntentActivityOptions4(context.Context, *QueryIntentActivityOptions4Request) (*QueryIntentActivityOptions4Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method QueryIntentActivityOptions4 not implemented")
-}
-func (UnimplementedPackageManagerServiceServer) QueryIntentActivityOptions4_1(context.Context, *QueryIntentActivityOptions4_1Request) (*QueryIntentActivityOptions4_1Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method QueryIntentActivityOptions4_1 not implemented")
-}
-func (UnimplementedPackageManagerServiceServer) QueryIntentContentProviders2(context.Context, *QueryIntentContentProviders2Request) (*QueryIntentContentProviders2Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method QueryIntentContentProviders2 not implemented")
-}
-func (UnimplementedPackageManagerServiceServer) QueryIntentContentProviders2_1(context.Context, *QueryIntentContentProviders2_1Request) (*QueryIntentContentProviders2_1Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method QueryIntentContentProviders2_1 not implemented")
-}
-func (UnimplementedPackageManagerServiceServer) QueryIntentServices2(context.Context, *QueryIntentServices2Request) (*QueryIntentServices2Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method QueryIntentServices2 not implemented")
-}
-func (UnimplementedPackageManagerServiceServer) QueryIntentServices2_1(context.Context, *QueryIntentServices2_1Request) (*QueryIntentServices2_1Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method QueryIntentServices2_1 not implemented")
-}
-func (UnimplementedPackageManagerServiceServer) QueryPermissionsByGroup(context.Context, *QueryPermissionsByGroupRequest) (*QueryPermissionsByGroupResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method QueryPermissionsByGroup not implemented")
-}
-func (UnimplementedPackageManagerServiceServer) QueryProviderProperty(context.Context, *QueryProviderPropertyRequest) (*QueryProviderPropertyResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method QueryProviderProperty not implemented")
-}
-func (UnimplementedPackageManagerServiceServer) QueryReceiverProperty(context.Context, *QueryReceiverPropertyRequest) (*QueryReceiverPropertyResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method QueryReceiverProperty not implemented")
-}
-func (UnimplementedPackageManagerServiceServer) QueryServiceProperty(context.Context, *QueryServicePropertyRequest) (*QueryServicePropertyResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method QueryServiceProperty not implemented")
-}
-func (UnimplementedPackageManagerServiceServer) RelinquishUpdateOwnership(context.Context, *RelinquishUpdateOwnershipRequest) (*RelinquishUpdateOwnershipResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method RelinquishUpdateOwnership not implemented")
-}
-func (UnimplementedPackageManagerServiceServer) RemovePackageFromPreferred(context.Context, *RemovePackageFromPreferredRequest) (*RemovePackageFromPreferredResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method RemovePackageFromPreferred not implemented")
-}
-func (UnimplementedPackageManagerServiceServer) RemovePermission(context.Context, *RemovePermissionRequest) (*RemovePermissionResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method RemovePermission not implemented")
-}
-func (UnimplementedPackageManagerServiceServer) RemoveWhitelistedRestrictedPermission(context.Context, *RemoveWhitelistedRestrictedPermissionRequest) (*RemoveWhitelistedRestrictedPermissionResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method RemoveWhitelistedRestrictedPermission not implemented")
-}
-func (UnimplementedPackageManagerServiceServer) RequestChecksums(context.Context, *RequestChecksumsRequest) (*RequestChecksumsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method RequestChecksums not implemented")
-}
-func (UnimplementedPackageManagerServiceServer) ResolveActivity2(context.Context, *ResolveActivity2Request) (*ResolveActivity2Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method ResolveActivity2 not implemented")
-}
-func (UnimplementedPackageManagerServiceServer) ResolveActivity2_1(context.Context, *ResolveActivity2_1Request) (*ResolveActivity2_1Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method ResolveActivity2_1 not implemented")
-}
-func (UnimplementedPackageManagerServiceServer) ResolveContentProvider2(context.Context, *ResolveContentProvider2Request) (*ResolveContentProvider2Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method ResolveContentProvider2 not implemented")
-}
-func (UnimplementedPackageManagerServiceServer) ResolveContentProvider2_1(context.Context, *ResolveContentProvider2_1Request) (*ResolveContentProvider2_1Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method ResolveContentProvider2_1 not implemented")
-}
-func (UnimplementedPackageManagerServiceServer) ResolveService2(context.Context, *ResolveService2Request) (*ResolveService2Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method ResolveService2 not implemented")
-}
-func (UnimplementedPackageManagerServiceServer) ResolveService2_1(context.Context, *ResolveService2_1Request) (*ResolveService2_1Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method ResolveService2_1 not implemented")
-}
-func (UnimplementedPackageManagerServiceServer) SetApplicationCategoryHint(context.Context, *SetApplicationCategoryHintRequest) (*SetApplicationCategoryHintResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetApplicationCategoryHint not implemented")
-}
-func (UnimplementedPackageManagerServiceServer) SetApplicationEnabledSetting(context.Context, *SetApplicationEnabledSettingRequest) (*SetApplicationEnabledSettingResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetApplicationEnabledSetting not implemented")
-}
-func (UnimplementedPackageManagerServiceServer) SetAutoRevokeWhitelisted(context.Context, *SetAutoRevokeWhitelistedRequest) (*SetAutoRevokeWhitelistedResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetAutoRevokeWhitelisted not implemented")
-}
-func (UnimplementedPackageManagerServiceServer) SetComponentEnabledSetting(context.Context, *SetComponentEnabledSettingRequest) (*SetComponentEnabledSettingResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetComponentEnabledSetting not implemented")
-}
-func (UnimplementedPackageManagerServiceServer) SetComponentEnabledSettings(context.Context, *SetComponentEnabledSettingsRequest) (*SetComponentEnabledSettingsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetComponentEnabledSettings not implemented")
-}
-func (UnimplementedPackageManagerServiceServer) SetInstallerPackageName(context.Context, *SetInstallerPackageNameRequest) (*SetInstallerPackageNameResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetInstallerPackageName not implemented")
-}
-func (UnimplementedPackageManagerServiceServer) SetMimeGroup(context.Context, *SetMimeGroupRequest) (*SetMimeGroupResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetMimeGroup not implemented")
-}
-func (UnimplementedPackageManagerServiceServer) UpdateInstantAppCookie(context.Context, *UpdateInstantAppCookieRequest) (*UpdateInstantAppCookieResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method UpdateInstantAppCookie not implemented")
-}
-func (UnimplementedPackageManagerServiceServer) VerifyPendingInstall(context.Context, *VerifyPendingInstallRequest) (*VerifyPendingInstallResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method VerifyPendingInstall not implemented")
-}
-func (UnimplementedPackageManagerServiceServer) GetVerifiedSigningInfo(context.Context, *GetVerifiedSigningInfoRequest) (*GetVerifiedSigningInfoResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetVerifiedSigningInfo not implemented")
-}
-func (UnimplementedPackageManagerServiceServer) mustEmbedUnimplementedPackageManagerServiceServer() {}
-func (UnimplementedPackageManagerServiceServer) testEmbeddedByValue()                               {}
+func (UnimplementedLauncherAppsServiceServer) mustEmbedUnimplementedLauncherAppsServiceServer() {}
+func (UnimplementedLauncherAppsServiceServer) testEmbeddedByValue()                             {}
 
-// UnsafePackageManagerServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to PackageManagerServiceServer will
+// UnsafeLauncherAppsServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to LauncherAppsServiceServer will
 // result in compilation errors.
-type UnsafePackageManagerServiceServer interface {
-	mustEmbedUnimplementedPackageManagerServiceServer()
+type UnsafeLauncherAppsServiceServer interface {
+	mustEmbedUnimplementedLauncherAppsServiceServer()
 }
 
-func RegisterPackageManagerServiceServer(s grpc.ServiceRegistrar, srv PackageManagerServiceServer) {
-	// If the following call panics, it indicates UnimplementedPackageManagerServiceServer was
+func RegisterLauncherAppsServiceServer(s grpc.ServiceRegistrar, srv LauncherAppsServiceServer) {
+	// If the following call panics, it indicates UnimplementedLauncherAppsServiceServer was
 	// embedded by pointer and is nil.  This will cause panics if an
 	// unimplemented method is ever invoked, so we test this at initialization
 	// time to prevent it from happening at runtime later due to I/O.
 	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
 		t.testEmbeddedByValue()
 	}
-	s.RegisterService(&PackageManagerService_ServiceDesc, srv)
+	s.RegisterService(&LauncherAppsService_ServiceDesc, srv)
 }
 
-func _PackageManagerService_AddPackageToPreferred_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(AddPackageToPreferredRequest)
+func _LauncherAppsService_GetAppMarketActivityIntent_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetAppMarketActivityIntentRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(PackageManagerServiceServer).AddPackageToPreferred(ctx, in)
+		return srv.(LauncherAppsServiceServer).GetAppMarketActivityIntent(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: PackageManagerService_AddPackageToPreferred_FullMethodName,
+		FullMethod: LauncherAppsService_GetAppMarketActivityIntent_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PackageManagerServiceServer).AddPackageToPreferred(ctx, req.(*AddPackageToPreferredRequest))
+		return srv.(LauncherAppsServiceServer).GetAppMarketActivityIntent(ctx, req.(*GetAppMarketActivityIntentRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _PackageManagerService_AddPermission_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(AddPermissionRequest)
+func _LauncherAppsService_GetApplicationInfo_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetApplicationInfoRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(PackageManagerServiceServer).AddPermission(ctx, in)
+		return srv.(LauncherAppsServiceServer).GetApplicationInfo(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: PackageManagerService_AddPermission_FullMethodName,
+		FullMethod: LauncherAppsService_GetApplicationInfo_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PackageManagerServiceServer).AddPermission(ctx, req.(*AddPermissionRequest))
+		return srv.(LauncherAppsServiceServer).GetApplicationInfo(ctx, req.(*GetApplicationInfoRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _PackageManagerService_AddPermissionAsync_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(AddPermissionAsyncRequest)
+func _LauncherAppsService_GetLauncherUserInfo_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetLauncherUserInfoRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(PackageManagerServiceServer).AddPermissionAsync(ctx, in)
+		return srv.(LauncherAppsServiceServer).GetLauncherUserInfo(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: PackageManagerService_AddPermissionAsync_FullMethodName,
+		FullMethod: LauncherAppsService_GetLauncherUserInfo_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PackageManagerServiceServer).AddPermissionAsync(ctx, req.(*AddPermissionAsyncRequest))
+		return srv.(LauncherAppsServiceServer).GetLauncherUserInfo(ctx, req.(*GetLauncherUserInfoRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _PackageManagerService_AddPreferredActivity_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(AddPreferredActivityRequest)
+func _LauncherAppsService_GetPinItemRequest_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetPinItemRequestRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(PackageManagerServiceServer).AddPreferredActivity(ctx, in)
+		return srv.(LauncherAppsServiceServer).GetPinItemRequest(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: PackageManagerService_AddPreferredActivity_FullMethodName,
+		FullMethod: LauncherAppsService_GetPinItemRequest_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PackageManagerServiceServer).AddPreferredActivity(ctx, req.(*AddPreferredActivityRequest))
+		return srv.(LauncherAppsServiceServer).GetPinItemRequest(ctx, req.(*GetPinItemRequestRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _PackageManagerService_AddWhitelistedRestrictedPermission_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(AddWhitelistedRestrictedPermissionRequest)
+func _LauncherAppsService_GetPrivateSpaceSettingsIntent_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetPrivateSpaceSettingsIntentRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(PackageManagerServiceServer).AddWhitelistedRestrictedPermission(ctx, in)
+		return srv.(LauncherAppsServiceServer).GetPrivateSpaceSettingsIntent(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: PackageManagerService_AddWhitelistedRestrictedPermission_FullMethodName,
+		FullMethod: LauncherAppsService_GetPrivateSpaceSettingsIntent_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PackageManagerServiceServer).AddWhitelistedRestrictedPermission(ctx, req.(*AddWhitelistedRestrictedPermissionRequest))
+		return srv.(LauncherAppsServiceServer).GetPrivateSpaceSettingsIntent(ctx, req.(*GetPrivateSpaceSettingsIntentRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _PackageManagerService_CanPackageQuery2_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(CanPackageQuery2Request)
+func _LauncherAppsService_GetShortcutBadgedIconDrawable_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetShortcutBadgedIconDrawableRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(PackageManagerServiceServer).CanPackageQuery2(ctx, in)
+		return srv.(LauncherAppsServiceServer).GetShortcutBadgedIconDrawable(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: PackageManagerService_CanPackageQuery2_FullMethodName,
+		FullMethod: LauncherAppsService_GetShortcutBadgedIconDrawable_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PackageManagerServiceServer).CanPackageQuery2(ctx, req.(*CanPackageQuery2Request))
+		return srv.(LauncherAppsServiceServer).GetShortcutBadgedIconDrawable(ctx, req.(*GetShortcutBadgedIconDrawableRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _PackageManagerService_CanPackageQuery2_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(CanPackageQuery2_1Request)
+func _LauncherAppsService_GetShortcutConfigActivityIntent_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetShortcutConfigActivityIntentRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(PackageManagerServiceServer).CanPackageQuery2_1(ctx, in)
+		return srv.(LauncherAppsServiceServer).GetShortcutConfigActivityIntent(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: PackageManagerService_CanPackageQuery2_1_FullMethodName,
+		FullMethod: LauncherAppsService_GetShortcutConfigActivityIntent_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PackageManagerServiceServer).CanPackageQuery2_1(ctx, req.(*CanPackageQuery2_1Request))
+		return srv.(LauncherAppsServiceServer).GetShortcutConfigActivityIntent(ctx, req.(*GetShortcutConfigActivityIntentRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _PackageManagerService_CanRequestPackageInstalls_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(CanRequestPackageInstallsRequest)
+func _LauncherAppsService_GetShortcutIconDrawable_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetShortcutIconDrawableRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(PackageManagerServiceServer).CanRequestPackageInstalls(ctx, in)
+		return srv.(LauncherAppsServiceServer).GetShortcutIconDrawable(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: PackageManagerService_CanRequestPackageInstalls_FullMethodName,
+		FullMethod: LauncherAppsService_GetShortcutIconDrawable_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PackageManagerServiceServer).CanRequestPackageInstalls(ctx, req.(*CanRequestPackageInstallsRequest))
+		return srv.(LauncherAppsServiceServer).GetShortcutIconDrawable(ctx, req.(*GetShortcutIconDrawableRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _PackageManagerService_CanonicalToCurrentPackageNames_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(CanonicalToCurrentPackageNamesRequest)
+func _LauncherAppsService_GetShortcutIntent_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetShortcutIntentRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(PackageManagerServiceServer).CanonicalToCurrentPackageNames(ctx, in)
+		return srv.(LauncherAppsServiceServer).GetShortcutIntent(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: PackageManagerService_CanonicalToCurrentPackageNames_FullMethodName,
+		FullMethod: LauncherAppsService_GetShortcutIntent_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PackageManagerServiceServer).CanonicalToCurrentPackageNames(ctx, req.(*CanonicalToCurrentPackageNamesRequest))
+		return srv.(LauncherAppsServiceServer).GetShortcutIntent(ctx, req.(*GetShortcutIntentRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _PackageManagerService_CheckPermission_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(CheckPermissionRequest)
+func _LauncherAppsService_GetSuspendedPackageLauncherExtras_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetSuspendedPackageLauncherExtrasRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(PackageManagerServiceServer).CheckPermission(ctx, in)
+		return srv.(LauncherAppsServiceServer).GetSuspendedPackageLauncherExtras(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: PackageManagerService_CheckPermission_FullMethodName,
+		FullMethod: LauncherAppsService_GetSuspendedPackageLauncherExtras_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PackageManagerServiceServer).CheckPermission(ctx, req.(*CheckPermissionRequest))
+		return srv.(LauncherAppsServiceServer).GetSuspendedPackageLauncherExtras(ctx, req.(*GetSuspendedPackageLauncherExtrasRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _PackageManagerService_CheckSignatures2_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(CheckSignatures2Request)
+func _LauncherAppsService_HasShortcutHostPermission_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(HasShortcutHostPermissionRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(PackageManagerServiceServer).CheckSignatures2(ctx, in)
+		return srv.(LauncherAppsServiceServer).HasShortcutHostPermission(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: PackageManagerService_CheckSignatures2_FullMethodName,
+		FullMethod: LauncherAppsService_HasShortcutHostPermission_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PackageManagerServiceServer).CheckSignatures2(ctx, req.(*CheckSignatures2Request))
+		return srv.(LauncherAppsServiceServer).HasShortcutHostPermission(ctx, req.(*HasShortcutHostPermissionRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _PackageManagerService_CheckSignatures2_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(CheckSignatures2_1Request)
+func _LauncherAppsService_IsActivityEnabled_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsActivityEnabledRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(PackageManagerServiceServer).CheckSignatures2_1(ctx, in)
+		return srv.(LauncherAppsServiceServer).IsActivityEnabled(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: PackageManagerService_CheckSignatures2_1_FullMethodName,
+		FullMethod: LauncherAppsService_IsActivityEnabled_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PackageManagerServiceServer).CheckSignatures2_1(ctx, req.(*CheckSignatures2_1Request))
+		return srv.(LauncherAppsServiceServer).IsActivityEnabled(ctx, req.(*IsActivityEnabledRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _PackageManagerService_ClearInstantAppCookie_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ClearInstantAppCookieRequest)
+func _LauncherAppsService_IsPackageEnabled_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsPackageEnabledRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(PackageManagerServiceServer).ClearInstantAppCookie(ctx, in)
+		return srv.(LauncherAppsServiceServer).IsPackageEnabled(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: PackageManagerService_ClearInstantAppCookie_FullMethodName,
+		FullMethod: LauncherAppsService_IsPackageEnabled_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PackageManagerServiceServer).ClearInstantAppCookie(ctx, req.(*ClearInstantAppCookieRequest))
+		return srv.(LauncherAppsServiceServer).IsPackageEnabled(ctx, req.(*IsPackageEnabledRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _PackageManagerService_ClearPackagePreferredActivities_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ClearPackagePreferredActivitiesRequest)
+func _LauncherAppsService_RegisterCallback_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(RegisterCallbackRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(PackageManagerServiceServer).ClearPackagePreferredActivities(ctx, in)
+		return srv.(LauncherAppsServiceServer).RegisterCallback(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: PackageManagerService_ClearPackagePreferredActivities_FullMethodName,
+		FullMethod: LauncherAppsService_RegisterCallback_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PackageManagerServiceServer).ClearPackagePreferredActivities(ctx, req.(*ClearPackagePreferredActivitiesRequest))
+		return srv.(LauncherAppsServiceServer).RegisterCallback(ctx, req.(*RegisterCallbackRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _PackageManagerService_CurrentToCanonicalPackageNames_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(CurrentToCanonicalPackageNamesRequest)
+func _LauncherAppsService_RegisterPackageInstallerSessionCallback_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(RegisterPackageInstallerSessionCallbackRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(PackageManagerServiceServer).CurrentToCanonicalPackageNames(ctx, in)
+		return srv.(LauncherAppsServiceServer).RegisterPackageInstallerSessionCallback(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: PackageManagerService_CurrentToCanonicalPackageNames_FullMethodName,
+		FullMethod: LauncherAppsService_RegisterPackageInstallerSessionCallback_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PackageManagerServiceServer).CurrentToCanonicalPackageNames(ctx, req.(*CurrentToCanonicalPackageNamesRequest))
+		return srv.(LauncherAppsServiceServer).RegisterPackageInstallerSessionCallback(ctx, req.(*RegisterPackageInstallerSessionCallbackRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _PackageManagerService_ExtendVerificationTimeout_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ExtendVerificationTimeoutRequest)
+func _LauncherAppsService_ResolveActivity_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ResolveActivityRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(PackageManagerServiceServer).ExtendVerificationTimeout(ctx, in)
+		return srv.(LauncherAppsServiceServer).ResolveActivity(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: PackageManagerService_ExtendVerificationTimeout_FullMethodName,
+		FullMethod: LauncherAppsService_ResolveActivity_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PackageManagerServiceServer).ExtendVerificationTimeout(ctx, req.(*ExtendVerificationTimeoutRequest))
+		return srv.(LauncherAppsServiceServer).ResolveActivity(ctx, req.(*ResolveActivityRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _PackageManagerService_GetActivityBanner1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetActivityBanner1Request)
+func _LauncherAppsService_SetArchiveCompatibility_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetArchiveCompatibilityRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(PackageManagerServiceServer).GetActivityBanner1(ctx, in)
+		return srv.(LauncherAppsServiceServer).SetArchiveCompatibility(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: PackageManagerService_GetActivityBanner1_FullMethodName,
+		FullMethod: LauncherAppsService_SetArchiveCompatibility_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PackageManagerServiceServer).GetActivityBanner1(ctx, req.(*GetActivityBanner1Request))
+		return srv.(LauncherAppsServiceServer).SetArchiveCompatibility(ctx, req.(*SetArchiveCompatibilityRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _PackageManagerService_GetActivityBanner1_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetActivityBanner1_1Request)
+func _LauncherAppsService_ShouldHideFromSuggestions_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ShouldHideFromSuggestionsRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(PackageManagerServiceServer).GetActivityBanner1_1(ctx, in)
+		return srv.(LauncherAppsServiceServer).ShouldHideFromSuggestions(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: PackageManagerService_GetActivityBanner1_1_FullMethodName,
+		FullMethod: LauncherAppsService_ShouldHideFromSuggestions_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PackageManagerServiceServer).GetActivityBanner1_1(ctx, req.(*GetActivityBanner1_1Request))
+		return srv.(LauncherAppsServiceServer).ShouldHideFromSuggestions(ctx, req.(*ShouldHideFromSuggestionsRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _PackageManagerService_GetActivityIcon1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetActivityIcon1Request)
+func _LauncherAppsService_StartAppDetailsActivity_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(StartAppDetailsActivityRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(PackageManagerServiceServer).GetActivityIcon1(ctx, in)
+		return srv.(LauncherAppsServiceServer).StartAppDetailsActivity(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: PackageManagerService_GetActivityIcon1_FullMethodName,
+		FullMethod: LauncherAppsService_StartAppDetailsActivity_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PackageManagerServiceServer).GetActivityIcon1(ctx, req.(*GetActivityIcon1Request))
+		return srv.(LauncherAppsServiceServer).StartAppDetailsActivity(ctx, req.(*StartAppDetailsActivityRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _PackageManagerService_GetActivityIcon1_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetActivityIcon1_1Request)
+func _LauncherAppsService_StartMainActivity_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(StartMainActivityRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(PackageManagerServiceServer).GetActivityIcon1_1(ctx, in)
+		return srv.(LauncherAppsServiceServer).StartMainActivity(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: PackageManagerService_GetActivityIcon1_1_FullMethodName,
+		FullMethod: LauncherAppsService_StartMainActivity_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PackageManagerServiceServer).GetActivityIcon1_1(ctx, req.(*GetActivityIcon1_1Request))
+		return srv.(LauncherAppsServiceServer).StartMainActivity(ctx, req.(*StartMainActivityRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _PackageManagerService_GetActivityInfo2_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetActivityInfo2Request)
+func _LauncherAppsService_StartPackageInstallerSessionDetailsActivity_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(StartPackageInstallerSessionDetailsActivityRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(PackageManagerServiceServer).GetActivityInfo2(ctx, in)
+		return srv.(LauncherAppsServiceServer).StartPackageInstallerSessionDetailsActivity(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: PackageManagerService_GetActivityInfo2_FullMethodName,
+		FullMethod: LauncherAppsService_StartPackageInstallerSessionDetailsActivity_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PackageManagerServiceServer).GetActivityInfo2(ctx, req.(*GetActivityInfo2Request))
+		return srv.(LauncherAppsServiceServer).StartPackageInstallerSessionDetailsActivity(ctx, req.(*StartPackageInstallerSessionDetailsActivityRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _PackageManagerService_GetActivityInfo2_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetActivityInfo2_1Request)
+func _LauncherAppsService_StartShortcut3_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(StartShortcut3Request)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(PackageManagerServiceServer).GetActivityInfo2_1(ctx, in)
+		return srv.(LauncherAppsServiceServer).StartShortcut3(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: PackageManagerService_GetActivityInfo2_1_FullMethodName,
+		FullMethod: LauncherAppsService_StartShortcut3_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PackageManagerServiceServer).GetActivityInfo2_1(ctx, req.(*GetActivityInfo2_1Request))
+		return srv.(LauncherAppsServiceServer).StartShortcut3(ctx, req.(*StartShortcut3Request))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _PackageManagerService_GetActivityLogo1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetActivityLogo1Request)
+func _LauncherAppsService_StartShortcut5_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(StartShortcut5_1Request)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(PackageManagerServiceServer).GetActivityLogo1(ctx, in)
+		return srv.(LauncherAppsServiceServer).StartShortcut5_1(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: PackageManagerService_GetActivityLogo1_FullMethodName,
+		FullMethod: LauncherAppsService_StartShortcut5_1_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PackageManagerServiceServer).GetActivityLogo1(ctx, req.(*GetActivityLogo1Request))
+		return srv.(LauncherAppsServiceServer).StartShortcut5_1(ctx, req.(*StartShortcut5_1Request))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _PackageManagerService_GetActivityLogo1_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetActivityLogo1_1Request)
+func _LauncherAppsService_UnregisterCallback_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(UnregisterCallbackRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(PackageManagerServiceServer).GetActivityLogo1_1(ctx, in)
+		return srv.(LauncherAppsServiceServer).UnregisterCallback(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: PackageManagerService_GetActivityLogo1_1_FullMethodName,
+		FullMethod: LauncherAppsService_UnregisterCallback_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PackageManagerServiceServer).GetActivityLogo1_1(ctx, req.(*GetActivityLogo1_1Request))
+		return srv.(LauncherAppsServiceServer).UnregisterCallback(ctx, req.(*UnregisterCallbackRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _PackageManagerService_GetAllPermissionGroups_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetAllPermissionGroupsRequest)
+func _LauncherAppsService_UnregisterPackageInstallerSessionCallback_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(UnregisterPackageInstallerSessionCallbackRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(PackageManagerServiceServer).GetAllPermissionGroups(ctx, in)
+		return srv.(LauncherAppsServiceServer).UnregisterPackageInstallerSessionCallback(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: PackageManagerService_GetAllPermissionGroups_FullMethodName,
+		FullMethod: LauncherAppsService_UnregisterPackageInstallerSessionCallback_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PackageManagerServiceServer).GetAllPermissionGroups(ctx, req.(*GetAllPermissionGroupsRequest))
+		return srv.(LauncherAppsServiceServer).UnregisterPackageInstallerSessionCallback(ctx, req.(*UnregisterPackageInstallerSessionCallbackRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _PackageManagerService_GetApplicationBanner1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetApplicationBanner1Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PackageManagerServiceServer).GetApplicationBanner1(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PackageManagerService_GetApplicationBanner1_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PackageManagerServiceServer).GetApplicationBanner1(ctx, req.(*GetApplicationBanner1Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PackageManagerService_GetApplicationBanner1_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetApplicationBanner1_1Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PackageManagerServiceServer).GetApplicationBanner1_1(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PackageManagerService_GetApplicationBanner1_1_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PackageManagerServiceServer).GetApplicationBanner1_1(ctx, req.(*GetApplicationBanner1_1Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PackageManagerService_GetApplicationEnabledSetting_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetApplicationEnabledSettingRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PackageManagerServiceServer).GetApplicationEnabledSetting(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PackageManagerService_GetApplicationEnabledSetting_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PackageManagerServiceServer).GetApplicationEnabledSetting(ctx, req.(*GetApplicationEnabledSettingRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PackageManagerService_GetApplicationIcon1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetApplicationIcon1Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PackageManagerServiceServer).GetApplicationIcon1(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PackageManagerService_GetApplicationIcon1_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PackageManagerServiceServer).GetApplicationIcon1(ctx, req.(*GetApplicationIcon1Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PackageManagerService_GetApplicationIcon1_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetApplicationIcon1_1Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PackageManagerServiceServer).GetApplicationIcon1_1(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PackageManagerService_GetApplicationIcon1_1_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PackageManagerServiceServer).GetApplicationIcon1_1(ctx, req.(*GetApplicationIcon1_1Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PackageManagerService_GetApplicationInfo2_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetApplicationInfo2Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PackageManagerServiceServer).GetApplicationInfo2(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PackageManagerService_GetApplicationInfo2_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PackageManagerServiceServer).GetApplicationInfo2(ctx, req.(*GetApplicationInfo2Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PackageManagerService_GetApplicationInfo2_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetApplicationInfo2_1Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PackageManagerServiceServer).GetApplicationInfo2_1(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PackageManagerService_GetApplicationInfo2_1_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PackageManagerServiceServer).GetApplicationInfo2_1(ctx, req.(*GetApplicationInfo2_1Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PackageManagerService_GetApplicationLabel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetApplicationLabelRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PackageManagerServiceServer).GetApplicationLabel(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PackageManagerService_GetApplicationLabel_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PackageManagerServiceServer).GetApplicationLabel(ctx, req.(*GetApplicationLabelRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PackageManagerService_GetApplicationLogo1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetApplicationLogo1Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PackageManagerServiceServer).GetApplicationLogo1(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PackageManagerService_GetApplicationLogo1_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PackageManagerServiceServer).GetApplicationLogo1(ctx, req.(*GetApplicationLogo1Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PackageManagerService_GetApplicationLogo1_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetApplicationLogo1_1Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PackageManagerServiceServer).GetApplicationLogo1_1(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PackageManagerService_GetApplicationLogo1_1_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PackageManagerServiceServer).GetApplicationLogo1_1(ctx, req.(*GetApplicationLogo1_1Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PackageManagerService_GetArchivedPackage_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetArchivedPackageRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PackageManagerServiceServer).GetArchivedPackage(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PackageManagerService_GetArchivedPackage_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PackageManagerServiceServer).GetArchivedPackage(ctx, req.(*GetArchivedPackageRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PackageManagerService_GetBackgroundPermissionOptionLabel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetBackgroundPermissionOptionLabelRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PackageManagerServiceServer).GetBackgroundPermissionOptionLabel(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PackageManagerService_GetBackgroundPermissionOptionLabel_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PackageManagerServiceServer).GetBackgroundPermissionOptionLabel(ctx, req.(*GetBackgroundPermissionOptionLabelRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PackageManagerService_GetChangedPackages_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetChangedPackagesRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PackageManagerServiceServer).GetChangedPackages(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PackageManagerService_GetChangedPackages_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PackageManagerServiceServer).GetChangedPackages(ctx, req.(*GetChangedPackagesRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PackageManagerService_GetComponentEnabledSetting_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetComponentEnabledSettingRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PackageManagerServiceServer).GetComponentEnabledSetting(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PackageManagerService_GetComponentEnabledSetting_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PackageManagerServiceServer).GetComponentEnabledSetting(ctx, req.(*GetComponentEnabledSettingRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PackageManagerService_GetDefaultActivityIcon_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetDefaultActivityIconRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PackageManagerServiceServer).GetDefaultActivityIcon(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PackageManagerService_GetDefaultActivityIcon_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PackageManagerServiceServer).GetDefaultActivityIcon(ctx, req.(*GetDefaultActivityIconRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PackageManagerService_GetDrawable_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetDrawableRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PackageManagerServiceServer).GetDrawable(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PackageManagerService_GetDrawable_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PackageManagerServiceServer).GetDrawable(ctx, req.(*GetDrawableRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PackageManagerService_GetGroupOfPlatformPermission_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetGroupOfPlatformPermissionRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PackageManagerServiceServer).GetGroupOfPlatformPermission(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PackageManagerService_GetGroupOfPlatformPermission_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PackageManagerServiceServer).GetGroupOfPlatformPermission(ctx, req.(*GetGroupOfPlatformPermissionRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PackageManagerService_GetInstallSourceInfo_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetInstallSourceInfoRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PackageManagerServiceServer).GetInstallSourceInfo(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PackageManagerService_GetInstallSourceInfo_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PackageManagerServiceServer).GetInstallSourceInfo(ctx, req.(*GetInstallSourceInfoRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PackageManagerService_GetInstalledApplications1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetInstalledApplications1Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PackageManagerServiceServer).GetInstalledApplications1(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PackageManagerService_GetInstalledApplications1_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PackageManagerServiceServer).GetInstalledApplications1(ctx, req.(*GetInstalledApplications1Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PackageManagerService_GetInstalledApplications1_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetInstalledApplications1_1Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PackageManagerServiceServer).GetInstalledApplications1_1(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PackageManagerService_GetInstalledApplications1_1_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PackageManagerServiceServer).GetInstalledApplications1_1(ctx, req.(*GetInstalledApplications1_1Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PackageManagerService_GetInstalledModules_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetInstalledModulesRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PackageManagerServiceServer).GetInstalledModules(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PackageManagerService_GetInstalledModules_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PackageManagerServiceServer).GetInstalledModules(ctx, req.(*GetInstalledModulesRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PackageManagerService_GetInstalledPackages1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetInstalledPackages1Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PackageManagerServiceServer).GetInstalledPackages1(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PackageManagerService_GetInstalledPackages1_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PackageManagerServiceServer).GetInstalledPackages1(ctx, req.(*GetInstalledPackages1Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PackageManagerService_GetInstalledPackages1_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetInstalledPackages1_1Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PackageManagerServiceServer).GetInstalledPackages1_1(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PackageManagerService_GetInstalledPackages1_1_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PackageManagerServiceServer).GetInstalledPackages1_1(ctx, req.(*GetInstalledPackages1_1Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PackageManagerService_GetInstallerPackageName_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetInstallerPackageNameRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PackageManagerServiceServer).GetInstallerPackageName(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PackageManagerService_GetInstallerPackageName_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PackageManagerServiceServer).GetInstallerPackageName(ctx, req.(*GetInstallerPackageNameRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PackageManagerService_GetInstantAppCookie_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetInstantAppCookieRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PackageManagerServiceServer).GetInstantAppCookie(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PackageManagerService_GetInstantAppCookie_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PackageManagerServiceServer).GetInstantAppCookie(ctx, req.(*GetInstantAppCookieRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PackageManagerService_GetInstantAppCookieMaxBytes_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetInstantAppCookieMaxBytesRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PackageManagerServiceServer).GetInstantAppCookieMaxBytes(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PackageManagerService_GetInstantAppCookieMaxBytes_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PackageManagerServiceServer).GetInstantAppCookieMaxBytes(ctx, req.(*GetInstantAppCookieMaxBytesRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PackageManagerService_GetInstrumentationInfo_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetInstrumentationInfoRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PackageManagerServiceServer).GetInstrumentationInfo(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PackageManagerService_GetInstrumentationInfo_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PackageManagerServiceServer).GetInstrumentationInfo(ctx, req.(*GetInstrumentationInfoRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PackageManagerService_GetLaunchIntentForPackage_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetLaunchIntentForPackageRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PackageManagerServiceServer).GetLaunchIntentForPackage(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PackageManagerService_GetLaunchIntentForPackage_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PackageManagerServiceServer).GetLaunchIntentForPackage(ctx, req.(*GetLaunchIntentForPackageRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PackageManagerService_GetLaunchIntentSenderForPackage_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetLaunchIntentSenderForPackageRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PackageManagerServiceServer).GetLaunchIntentSenderForPackage(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PackageManagerService_GetLaunchIntentSenderForPackage_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PackageManagerServiceServer).GetLaunchIntentSenderForPackage(ctx, req.(*GetLaunchIntentSenderForPackageRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PackageManagerService_GetLeanbackLaunchIntentForPackage_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetLeanbackLaunchIntentForPackageRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PackageManagerServiceServer).GetLeanbackLaunchIntentForPackage(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PackageManagerService_GetLeanbackLaunchIntentForPackage_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PackageManagerServiceServer).GetLeanbackLaunchIntentForPackage(ctx, req.(*GetLeanbackLaunchIntentForPackageRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PackageManagerService_GetMimeGroup_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetMimeGroupRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PackageManagerServiceServer).GetMimeGroup(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PackageManagerService_GetMimeGroup_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PackageManagerServiceServer).GetMimeGroup(ctx, req.(*GetMimeGroupRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PackageManagerService_GetModuleInfo_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetModuleInfoRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PackageManagerServiceServer).GetModuleInfo(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PackageManagerService_GetModuleInfo_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PackageManagerServiceServer).GetModuleInfo(ctx, req.(*GetModuleInfoRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PackageManagerService_GetNameForUid_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetNameForUidRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PackageManagerServiceServer).GetNameForUid(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PackageManagerService_GetNameForUid_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PackageManagerServiceServer).GetNameForUid(ctx, req.(*GetNameForUidRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PackageManagerService_GetPackageArchiveInfo2_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetPackageArchiveInfo2Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PackageManagerServiceServer).GetPackageArchiveInfo2(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PackageManagerService_GetPackageArchiveInfo2_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PackageManagerServiceServer).GetPackageArchiveInfo2(ctx, req.(*GetPackageArchiveInfo2Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PackageManagerService_GetPackageArchiveInfo2_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetPackageArchiveInfo2_1Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PackageManagerServiceServer).GetPackageArchiveInfo2_1(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PackageManagerService_GetPackageArchiveInfo2_1_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PackageManagerServiceServer).GetPackageArchiveInfo2_1(ctx, req.(*GetPackageArchiveInfo2_1Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PackageManagerService_GetPackageGids1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetPackageGids1Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PackageManagerServiceServer).GetPackageGids1(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PackageManagerService_GetPackageGids1_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PackageManagerServiceServer).GetPackageGids1(ctx, req.(*GetPackageGids1Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PackageManagerService_GetPackageGids2_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetPackageGids2_1Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PackageManagerServiceServer).GetPackageGids2_1(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PackageManagerService_GetPackageGids2_1_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PackageManagerServiceServer).GetPackageGids2_1(ctx, req.(*GetPackageGids2_1Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PackageManagerService_GetPackageGids2_2_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetPackageGids2_2Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PackageManagerServiceServer).GetPackageGids2_2(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PackageManagerService_GetPackageGids2_2_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PackageManagerServiceServer).GetPackageGids2_2(ctx, req.(*GetPackageGids2_2Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PackageManagerService_GetPackageInfo2_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetPackageInfo2Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PackageManagerServiceServer).GetPackageInfo2(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PackageManagerService_GetPackageInfo2_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PackageManagerServiceServer).GetPackageInfo2(ctx, req.(*GetPackageInfo2Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PackageManagerService_GetPackageInfo2_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetPackageInfo2_1Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PackageManagerServiceServer).GetPackageInfo2_1(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PackageManagerService_GetPackageInfo2_1_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PackageManagerServiceServer).GetPackageInfo2_1(ctx, req.(*GetPackageInfo2_1Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PackageManagerService_GetPackageInfo2_2_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetPackageInfo2_2Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PackageManagerServiceServer).GetPackageInfo2_2(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PackageManagerService_GetPackageInfo2_2_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PackageManagerServiceServer).GetPackageInfo2_2(ctx, req.(*GetPackageInfo2_2Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PackageManagerService_GetPackageInfo2_3_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetPackageInfo2_3Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PackageManagerServiceServer).GetPackageInfo2_3(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PackageManagerService_GetPackageInfo2_3_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PackageManagerServiceServer).GetPackageInfo2_3(ctx, req.(*GetPackageInfo2_3Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PackageManagerService_GetPackageInstaller_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetPackageInstallerRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PackageManagerServiceServer).GetPackageInstaller(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PackageManagerService_GetPackageInstaller_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PackageManagerServiceServer).GetPackageInstaller(ctx, req.(*GetPackageInstallerRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PackageManagerService_GetPackageUid2_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetPackageUid2Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PackageManagerServiceServer).GetPackageUid2(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PackageManagerService_GetPackageUid2_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PackageManagerServiceServer).GetPackageUid2(ctx, req.(*GetPackageUid2Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PackageManagerService_GetPackageUid2_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetPackageUid2_1Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PackageManagerServiceServer).GetPackageUid2_1(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PackageManagerService_GetPackageUid2_1_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PackageManagerServiceServer).GetPackageUid2_1(ctx, req.(*GetPackageUid2_1Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PackageManagerService_GetPackagesForUid_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetPackagesForUidRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PackageManagerServiceServer).GetPackagesForUid(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PackageManagerService_GetPackagesForUid_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PackageManagerServiceServer).GetPackagesForUid(ctx, req.(*GetPackagesForUidRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PackageManagerService_GetPackagesHoldingPermissions2_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetPackagesHoldingPermissions2Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PackageManagerServiceServer).GetPackagesHoldingPermissions2(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PackageManagerService_GetPackagesHoldingPermissions2_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PackageManagerServiceServer).GetPackagesHoldingPermissions2(ctx, req.(*GetPackagesHoldingPermissions2Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PackageManagerService_GetPackagesHoldingPermissions2_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetPackagesHoldingPermissions2_1Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PackageManagerServiceServer).GetPackagesHoldingPermissions2_1(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PackageManagerService_GetPackagesHoldingPermissions2_1_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PackageManagerServiceServer).GetPackagesHoldingPermissions2_1(ctx, req.(*GetPackagesHoldingPermissions2_1Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PackageManagerService_GetPermissionGroupInfo_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetPermissionGroupInfoRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PackageManagerServiceServer).GetPermissionGroupInfo(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PackageManagerService_GetPermissionGroupInfo_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PackageManagerServiceServer).GetPermissionGroupInfo(ctx, req.(*GetPermissionGroupInfoRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PackageManagerService_GetPermissionInfo_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetPermissionInfoRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PackageManagerServiceServer).GetPermissionInfo(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PackageManagerService_GetPermissionInfo_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PackageManagerServiceServer).GetPermissionInfo(ctx, req.(*GetPermissionInfoRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PackageManagerService_GetPlatformPermissionsForGroup_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetPlatformPermissionsForGroupRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PackageManagerServiceServer).GetPlatformPermissionsForGroup(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PackageManagerService_GetPlatformPermissionsForGroup_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PackageManagerServiceServer).GetPlatformPermissionsForGroup(ctx, req.(*GetPlatformPermissionsForGroupRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PackageManagerService_GetPreferredActivities_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetPreferredActivitiesRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PackageManagerServiceServer).GetPreferredActivities(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PackageManagerService_GetPreferredActivities_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PackageManagerServiceServer).GetPreferredActivities(ctx, req.(*GetPreferredActivitiesRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PackageManagerService_GetPreferredPackages_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetPreferredPackagesRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PackageManagerServiceServer).GetPreferredPackages(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PackageManagerService_GetPreferredPackages_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PackageManagerServiceServer).GetPreferredPackages(ctx, req.(*GetPreferredPackagesRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PackageManagerService_GetProperty2_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetProperty2Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PackageManagerServiceServer).GetProperty2(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PackageManagerService_GetProperty2_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PackageManagerServiceServer).GetProperty2(ctx, req.(*GetProperty2Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PackageManagerService_GetProperty2_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetProperty2_1Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PackageManagerServiceServer).GetProperty2_1(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PackageManagerService_GetProperty2_1_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PackageManagerServiceServer).GetProperty2_1(ctx, req.(*GetProperty2_1Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PackageManagerService_GetProviderInfo2_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetProviderInfo2Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PackageManagerServiceServer).GetProviderInfo2(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PackageManagerService_GetProviderInfo2_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PackageManagerServiceServer).GetProviderInfo2(ctx, req.(*GetProviderInfo2Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PackageManagerService_GetProviderInfo2_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetProviderInfo2_1Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PackageManagerServiceServer).GetProviderInfo2_1(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PackageManagerService_GetProviderInfo2_1_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PackageManagerServiceServer).GetProviderInfo2_1(ctx, req.(*GetProviderInfo2_1Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PackageManagerService_GetReceiverInfo2_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetReceiverInfo2Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PackageManagerServiceServer).GetReceiverInfo2(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PackageManagerService_GetReceiverInfo2_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PackageManagerServiceServer).GetReceiverInfo2(ctx, req.(*GetReceiverInfo2Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PackageManagerService_GetReceiverInfo2_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetReceiverInfo2_1Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PackageManagerServiceServer).GetReceiverInfo2_1(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PackageManagerService_GetReceiverInfo2_1_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PackageManagerServiceServer).GetReceiverInfo2_1(ctx, req.(*GetReceiverInfo2_1Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PackageManagerService_GetResourcesForActivity_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetResourcesForActivityRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PackageManagerServiceServer).GetResourcesForActivity(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PackageManagerService_GetResourcesForActivity_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PackageManagerServiceServer).GetResourcesForActivity(ctx, req.(*GetResourcesForActivityRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PackageManagerService_GetResourcesForApplication1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetResourcesForApplication1Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PackageManagerServiceServer).GetResourcesForApplication1(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PackageManagerService_GetResourcesForApplication1_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PackageManagerServiceServer).GetResourcesForApplication1(ctx, req.(*GetResourcesForApplication1Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PackageManagerService_GetResourcesForApplication2_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetResourcesForApplication2_1Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PackageManagerServiceServer).GetResourcesForApplication2_1(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PackageManagerService_GetResourcesForApplication2_1_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PackageManagerServiceServer).GetResourcesForApplication2_1(ctx, req.(*GetResourcesForApplication2_1Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PackageManagerService_GetResourcesForApplication1_2_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetResourcesForApplication1_2Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PackageManagerServiceServer).GetResourcesForApplication1_2(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PackageManagerService_GetResourcesForApplication1_2_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PackageManagerServiceServer).GetResourcesForApplication1_2(ctx, req.(*GetResourcesForApplication1_2Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PackageManagerService_GetServiceInfo2_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetServiceInfo2Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PackageManagerServiceServer).GetServiceInfo2(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PackageManagerService_GetServiceInfo2_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PackageManagerServiceServer).GetServiceInfo2(ctx, req.(*GetServiceInfo2Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PackageManagerService_GetServiceInfo2_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetServiceInfo2_1Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PackageManagerServiceServer).GetServiceInfo2_1(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PackageManagerService_GetServiceInfo2_1_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PackageManagerServiceServer).GetServiceInfo2_1(ctx, req.(*GetServiceInfo2_1Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PackageManagerService_GetSharedLibraries1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetSharedLibraries1Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PackageManagerServiceServer).GetSharedLibraries1(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PackageManagerService_GetSharedLibraries1_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PackageManagerServiceServer).GetSharedLibraries1(ctx, req.(*GetSharedLibraries1Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PackageManagerService_GetSharedLibraries1_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetSharedLibraries1_1Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PackageManagerServiceServer).GetSharedLibraries1_1(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PackageManagerService_GetSharedLibraries1_1_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PackageManagerServiceServer).GetSharedLibraries1_1(ctx, req.(*GetSharedLibraries1_1Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PackageManagerService_GetSuspendedPackageAppExtras_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetSuspendedPackageAppExtrasRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PackageManagerServiceServer).GetSuspendedPackageAppExtras(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PackageManagerService_GetSuspendedPackageAppExtras_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PackageManagerServiceServer).GetSuspendedPackageAppExtras(ctx, req.(*GetSuspendedPackageAppExtrasRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PackageManagerService_GetSyntheticAppDetailsActivityEnabled_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetSyntheticAppDetailsActivityEnabledRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PackageManagerServiceServer).GetSyntheticAppDetailsActivityEnabled(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PackageManagerService_GetSyntheticAppDetailsActivityEnabled_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PackageManagerServiceServer).GetSyntheticAppDetailsActivityEnabled(ctx, req.(*GetSyntheticAppDetailsActivityEnabledRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PackageManagerService_GetSystemAvailableFeatures_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetSystemAvailableFeaturesRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PackageManagerServiceServer).GetSystemAvailableFeatures(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PackageManagerService_GetSystemAvailableFeatures_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PackageManagerServiceServer).GetSystemAvailableFeatures(ctx, req.(*GetSystemAvailableFeaturesRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PackageManagerService_GetSystemSharedLibraryNames_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetSystemSharedLibraryNamesRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PackageManagerServiceServer).GetSystemSharedLibraryNames(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PackageManagerService_GetSystemSharedLibraryNames_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PackageManagerServiceServer).GetSystemSharedLibraryNames(ctx, req.(*GetSystemSharedLibraryNamesRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PackageManagerService_GetTargetSdkVersion_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetTargetSdkVersionRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PackageManagerServiceServer).GetTargetSdkVersion(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PackageManagerService_GetTargetSdkVersion_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PackageManagerServiceServer).GetTargetSdkVersion(ctx, req.(*GetTargetSdkVersionRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PackageManagerService_GetText_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetTextRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PackageManagerServiceServer).GetText(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PackageManagerService_GetText_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PackageManagerServiceServer).GetText(ctx, req.(*GetTextRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PackageManagerService_GetUserBadgedDrawableForDensity_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetUserBadgedDrawableForDensityRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PackageManagerServiceServer).GetUserBadgedDrawableForDensity(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PackageManagerService_GetUserBadgedDrawableForDensity_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PackageManagerServiceServer).GetUserBadgedDrawableForDensity(ctx, req.(*GetUserBadgedDrawableForDensityRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PackageManagerService_GetUserBadgedIcon_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetUserBadgedIconRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PackageManagerServiceServer).GetUserBadgedIcon(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PackageManagerService_GetUserBadgedIcon_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PackageManagerServiceServer).GetUserBadgedIcon(ctx, req.(*GetUserBadgedIconRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PackageManagerService_GetUserBadgedLabel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetUserBadgedLabelRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PackageManagerServiceServer).GetUserBadgedLabel(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PackageManagerService_GetUserBadgedLabel_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PackageManagerServiceServer).GetUserBadgedLabel(ctx, req.(*GetUserBadgedLabelRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PackageManagerService_GetWhitelistedRestrictedPermissions_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetWhitelistedRestrictedPermissionsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PackageManagerServiceServer).GetWhitelistedRestrictedPermissions(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PackageManagerService_GetWhitelistedRestrictedPermissions_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PackageManagerServiceServer).GetWhitelistedRestrictedPermissions(ctx, req.(*GetWhitelistedRestrictedPermissionsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PackageManagerService_GetXml_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetXmlRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PackageManagerServiceServer).GetXml(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PackageManagerService_GetXml_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PackageManagerServiceServer).GetXml(ctx, req.(*GetXmlRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PackageManagerService_HasSigningCertificate3_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(HasSigningCertificate3Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PackageManagerServiceServer).HasSigningCertificate3(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PackageManagerService_HasSigningCertificate3_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PackageManagerServiceServer).HasSigningCertificate3(ctx, req.(*HasSigningCertificate3Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PackageManagerService_HasSigningCertificate3_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(HasSigningCertificate3_1Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PackageManagerServiceServer).HasSigningCertificate3_1(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PackageManagerService_HasSigningCertificate3_1_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PackageManagerServiceServer).HasSigningCertificate3_1(ctx, req.(*HasSigningCertificate3_1Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PackageManagerService_HasSystemFeature1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(HasSystemFeature1Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PackageManagerServiceServer).HasSystemFeature1(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PackageManagerService_HasSystemFeature1_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PackageManagerServiceServer).HasSystemFeature1(ctx, req.(*HasSystemFeature1Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PackageManagerService_HasSystemFeature2_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(HasSystemFeature2_1Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PackageManagerServiceServer).HasSystemFeature2_1(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PackageManagerService_HasSystemFeature2_1_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PackageManagerServiceServer).HasSystemFeature2_1(ctx, req.(*HasSystemFeature2_1Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PackageManagerService_IsAppArchivable_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(IsAppArchivableRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PackageManagerServiceServer).IsAppArchivable(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PackageManagerService_IsAppArchivable_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PackageManagerServiceServer).IsAppArchivable(ctx, req.(*IsAppArchivableRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PackageManagerService_IsAutoRevokeWhitelisted0_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(IsAutoRevokeWhitelisted0Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PackageManagerServiceServer).IsAutoRevokeWhitelisted0(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PackageManagerService_IsAutoRevokeWhitelisted0_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PackageManagerServiceServer).IsAutoRevokeWhitelisted0(ctx, req.(*IsAutoRevokeWhitelisted0Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PackageManagerService_IsAutoRevokeWhitelisted1_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(IsAutoRevokeWhitelisted1_1Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PackageManagerServiceServer).IsAutoRevokeWhitelisted1_1(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PackageManagerService_IsAutoRevokeWhitelisted1_1_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PackageManagerServiceServer).IsAutoRevokeWhitelisted1_1(ctx, req.(*IsAutoRevokeWhitelisted1_1Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PackageManagerService_IsDefaultApplicationIcon_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(IsDefaultApplicationIconRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PackageManagerServiceServer).IsDefaultApplicationIcon(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PackageManagerService_IsDefaultApplicationIcon_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PackageManagerServiceServer).IsDefaultApplicationIcon(ctx, req.(*IsDefaultApplicationIconRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PackageManagerService_IsDeviceUpgrading_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(IsDeviceUpgradingRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PackageManagerServiceServer).IsDeviceUpgrading(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PackageManagerService_IsDeviceUpgrading_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PackageManagerServiceServer).IsDeviceUpgrading(ctx, req.(*IsDeviceUpgradingRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PackageManagerService_IsInstantApp0_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(IsInstantApp0Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PackageManagerServiceServer).IsInstantApp0(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PackageManagerService_IsInstantApp0_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PackageManagerServiceServer).IsInstantApp0(ctx, req.(*IsInstantApp0Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PackageManagerService_IsInstantApp1_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(IsInstantApp1_1Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PackageManagerServiceServer).IsInstantApp1_1(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PackageManagerService_IsInstantApp1_1_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PackageManagerServiceServer).IsInstantApp1_1(ctx, req.(*IsInstantApp1_1Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PackageManagerService_IsPackageStopped_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(IsPackageStoppedRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PackageManagerServiceServer).IsPackageStopped(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PackageManagerService_IsPackageStopped_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PackageManagerServiceServer).IsPackageStopped(ctx, req.(*IsPackageStoppedRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PackageManagerService_IsPackageSuspended0_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(IsPackageSuspended0Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PackageManagerServiceServer).IsPackageSuspended0(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PackageManagerService_IsPackageSuspended0_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PackageManagerServiceServer).IsPackageSuspended0(ctx, req.(*IsPackageSuspended0Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PackageManagerService_IsPackageSuspended1_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(IsPackageSuspended1_1Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PackageManagerServiceServer).IsPackageSuspended1_1(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PackageManagerService_IsPackageSuspended1_1_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PackageManagerServiceServer).IsPackageSuspended1_1(ctx, req.(*IsPackageSuspended1_1Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PackageManagerService_IsPermissionRevokedByPolicy_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(IsPermissionRevokedByPolicyRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PackageManagerServiceServer).IsPermissionRevokedByPolicy(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PackageManagerService_IsPermissionRevokedByPolicy_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PackageManagerServiceServer).IsPermissionRevokedByPolicy(ctx, req.(*IsPermissionRevokedByPolicyRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PackageManagerService_IsSafeMode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(IsSafeModeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PackageManagerServiceServer).IsSafeMode(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PackageManagerService_IsSafeMode_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PackageManagerServiceServer).IsSafeMode(ctx, req.(*IsSafeModeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PackageManagerService_QueryActivityProperty_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(QueryActivityPropertyRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PackageManagerServiceServer).QueryActivityProperty(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PackageManagerService_QueryActivityProperty_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PackageManagerServiceServer).QueryActivityProperty(ctx, req.(*QueryActivityPropertyRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PackageManagerService_QueryApplicationProperty_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(QueryApplicationPropertyRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PackageManagerServiceServer).QueryApplicationProperty(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PackageManagerService_QueryApplicationProperty_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PackageManagerServiceServer).QueryApplicationProperty(ctx, req.(*QueryApplicationPropertyRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PackageManagerService_QueryBroadcastReceivers2_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(QueryBroadcastReceivers2Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PackageManagerServiceServer).QueryBroadcastReceivers2(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PackageManagerService_QueryBroadcastReceivers2_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PackageManagerServiceServer).QueryBroadcastReceivers2(ctx, req.(*QueryBroadcastReceivers2Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PackageManagerService_QueryBroadcastReceivers2_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(QueryBroadcastReceivers2_1Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PackageManagerServiceServer).QueryBroadcastReceivers2_1(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PackageManagerService_QueryBroadcastReceivers2_1_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PackageManagerServiceServer).QueryBroadcastReceivers2_1(ctx, req.(*QueryBroadcastReceivers2_1Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PackageManagerService_QueryContentProviders3_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(QueryContentProviders3Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PackageManagerServiceServer).QueryContentProviders3(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PackageManagerService_QueryContentProviders3_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PackageManagerServiceServer).QueryContentProviders3(ctx, req.(*QueryContentProviders3Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PackageManagerService_QueryContentProviders3_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(QueryContentProviders3_1Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PackageManagerServiceServer).QueryContentProviders3_1(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PackageManagerService_QueryContentProviders3_1_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PackageManagerServiceServer).QueryContentProviders3_1(ctx, req.(*QueryContentProviders3_1Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PackageManagerService_QueryInstrumentation_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(QueryInstrumentationRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PackageManagerServiceServer).QueryInstrumentation(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PackageManagerService_QueryInstrumentation_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PackageManagerServiceServer).QueryInstrumentation(ctx, req.(*QueryInstrumentationRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PackageManagerService_QueryIntentActivities2_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(QueryIntentActivities2Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PackageManagerServiceServer).QueryIntentActivities2(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PackageManagerService_QueryIntentActivities2_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PackageManagerServiceServer).QueryIntentActivities2(ctx, req.(*QueryIntentActivities2Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PackageManagerService_QueryIntentActivities2_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(QueryIntentActivities2_1Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PackageManagerServiceServer).QueryIntentActivities2_1(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PackageManagerService_QueryIntentActivities2_1_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PackageManagerServiceServer).QueryIntentActivities2_1(ctx, req.(*QueryIntentActivities2_1Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PackageManagerService_QueryIntentActivityOptions4_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(QueryIntentActivityOptions4Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PackageManagerServiceServer).QueryIntentActivityOptions4(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PackageManagerService_QueryIntentActivityOptions4_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PackageManagerServiceServer).QueryIntentActivityOptions4(ctx, req.(*QueryIntentActivityOptions4Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PackageManagerService_QueryIntentActivityOptions4_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(QueryIntentActivityOptions4_1Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PackageManagerServiceServer).QueryIntentActivityOptions4_1(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PackageManagerService_QueryIntentActivityOptions4_1_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PackageManagerServiceServer).QueryIntentActivityOptions4_1(ctx, req.(*QueryIntentActivityOptions4_1Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PackageManagerService_QueryIntentContentProviders2_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(QueryIntentContentProviders2Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PackageManagerServiceServer).QueryIntentContentProviders2(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PackageManagerService_QueryIntentContentProviders2_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PackageManagerServiceServer).QueryIntentContentProviders2(ctx, req.(*QueryIntentContentProviders2Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PackageManagerService_QueryIntentContentProviders2_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(QueryIntentContentProviders2_1Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PackageManagerServiceServer).QueryIntentContentProviders2_1(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PackageManagerService_QueryIntentContentProviders2_1_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PackageManagerServiceServer).QueryIntentContentProviders2_1(ctx, req.(*QueryIntentContentProviders2_1Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PackageManagerService_QueryIntentServices2_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(QueryIntentServices2Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PackageManagerServiceServer).QueryIntentServices2(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PackageManagerService_QueryIntentServices2_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PackageManagerServiceServer).QueryIntentServices2(ctx, req.(*QueryIntentServices2Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PackageManagerService_QueryIntentServices2_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(QueryIntentServices2_1Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PackageManagerServiceServer).QueryIntentServices2_1(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PackageManagerService_QueryIntentServices2_1_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PackageManagerServiceServer).QueryIntentServices2_1(ctx, req.(*QueryIntentServices2_1Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PackageManagerService_QueryPermissionsByGroup_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(QueryPermissionsByGroupRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PackageManagerServiceServer).QueryPermissionsByGroup(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PackageManagerService_QueryPermissionsByGroup_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PackageManagerServiceServer).QueryPermissionsByGroup(ctx, req.(*QueryPermissionsByGroupRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PackageManagerService_QueryProviderProperty_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(QueryProviderPropertyRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PackageManagerServiceServer).QueryProviderProperty(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PackageManagerService_QueryProviderProperty_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PackageManagerServiceServer).QueryProviderProperty(ctx, req.(*QueryProviderPropertyRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PackageManagerService_QueryReceiverProperty_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(QueryReceiverPropertyRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PackageManagerServiceServer).QueryReceiverProperty(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PackageManagerService_QueryReceiverProperty_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PackageManagerServiceServer).QueryReceiverProperty(ctx, req.(*QueryReceiverPropertyRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PackageManagerService_QueryServiceProperty_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(QueryServicePropertyRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PackageManagerServiceServer).QueryServiceProperty(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PackageManagerService_QueryServiceProperty_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PackageManagerServiceServer).QueryServiceProperty(ctx, req.(*QueryServicePropertyRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PackageManagerService_RelinquishUpdateOwnership_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(RelinquishUpdateOwnershipRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PackageManagerServiceServer).RelinquishUpdateOwnership(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PackageManagerService_RelinquishUpdateOwnership_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PackageManagerServiceServer).RelinquishUpdateOwnership(ctx, req.(*RelinquishUpdateOwnershipRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PackageManagerService_RemovePackageFromPreferred_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(RemovePackageFromPreferredRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PackageManagerServiceServer).RemovePackageFromPreferred(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PackageManagerService_RemovePackageFromPreferred_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PackageManagerServiceServer).RemovePackageFromPreferred(ctx, req.(*RemovePackageFromPreferredRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PackageManagerService_RemovePermission_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(RemovePermissionRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PackageManagerServiceServer).RemovePermission(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PackageManagerService_RemovePermission_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PackageManagerServiceServer).RemovePermission(ctx, req.(*RemovePermissionRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PackageManagerService_RemoveWhitelistedRestrictedPermission_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(RemoveWhitelistedRestrictedPermissionRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PackageManagerServiceServer).RemoveWhitelistedRestrictedPermission(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PackageManagerService_RemoveWhitelistedRestrictedPermission_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PackageManagerServiceServer).RemoveWhitelistedRestrictedPermission(ctx, req.(*RemoveWhitelistedRestrictedPermissionRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PackageManagerService_RequestChecksums_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(RequestChecksumsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PackageManagerServiceServer).RequestChecksums(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PackageManagerService_RequestChecksums_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PackageManagerServiceServer).RequestChecksums(ctx, req.(*RequestChecksumsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PackageManagerService_ResolveActivity2_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ResolveActivity2Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PackageManagerServiceServer).ResolveActivity2(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PackageManagerService_ResolveActivity2_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PackageManagerServiceServer).ResolveActivity2(ctx, req.(*ResolveActivity2Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PackageManagerService_ResolveActivity2_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ResolveActivity2_1Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PackageManagerServiceServer).ResolveActivity2_1(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PackageManagerService_ResolveActivity2_1_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PackageManagerServiceServer).ResolveActivity2_1(ctx, req.(*ResolveActivity2_1Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PackageManagerService_ResolveContentProvider2_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ResolveContentProvider2Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PackageManagerServiceServer).ResolveContentProvider2(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PackageManagerService_ResolveContentProvider2_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PackageManagerServiceServer).ResolveContentProvider2(ctx, req.(*ResolveContentProvider2Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PackageManagerService_ResolveContentProvider2_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ResolveContentProvider2_1Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PackageManagerServiceServer).ResolveContentProvider2_1(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PackageManagerService_ResolveContentProvider2_1_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PackageManagerServiceServer).ResolveContentProvider2_1(ctx, req.(*ResolveContentProvider2_1Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PackageManagerService_ResolveService2_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ResolveService2Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PackageManagerServiceServer).ResolveService2(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PackageManagerService_ResolveService2_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PackageManagerServiceServer).ResolveService2(ctx, req.(*ResolveService2Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PackageManagerService_ResolveService2_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ResolveService2_1Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PackageManagerServiceServer).ResolveService2_1(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PackageManagerService_ResolveService2_1_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PackageManagerServiceServer).ResolveService2_1(ctx, req.(*ResolveService2_1Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PackageManagerService_SetApplicationCategoryHint_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetApplicationCategoryHintRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PackageManagerServiceServer).SetApplicationCategoryHint(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PackageManagerService_SetApplicationCategoryHint_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PackageManagerServiceServer).SetApplicationCategoryHint(ctx, req.(*SetApplicationCategoryHintRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PackageManagerService_SetApplicationEnabledSetting_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetApplicationEnabledSettingRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PackageManagerServiceServer).SetApplicationEnabledSetting(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PackageManagerService_SetApplicationEnabledSetting_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PackageManagerServiceServer).SetApplicationEnabledSetting(ctx, req.(*SetApplicationEnabledSettingRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PackageManagerService_SetAutoRevokeWhitelisted_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetAutoRevokeWhitelistedRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PackageManagerServiceServer).SetAutoRevokeWhitelisted(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PackageManagerService_SetAutoRevokeWhitelisted_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PackageManagerServiceServer).SetAutoRevokeWhitelisted(ctx, req.(*SetAutoRevokeWhitelistedRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PackageManagerService_SetComponentEnabledSetting_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetComponentEnabledSettingRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PackageManagerServiceServer).SetComponentEnabledSetting(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PackageManagerService_SetComponentEnabledSetting_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PackageManagerServiceServer).SetComponentEnabledSetting(ctx, req.(*SetComponentEnabledSettingRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PackageManagerService_SetComponentEnabledSettings_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetComponentEnabledSettingsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PackageManagerServiceServer).SetComponentEnabledSettings(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PackageManagerService_SetComponentEnabledSettings_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PackageManagerServiceServer).SetComponentEnabledSettings(ctx, req.(*SetComponentEnabledSettingsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PackageManagerService_SetInstallerPackageName_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetInstallerPackageNameRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PackageManagerServiceServer).SetInstallerPackageName(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PackageManagerService_SetInstallerPackageName_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PackageManagerServiceServer).SetInstallerPackageName(ctx, req.(*SetInstallerPackageNameRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PackageManagerService_SetMimeGroup_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetMimeGroupRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PackageManagerServiceServer).SetMimeGroup(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PackageManagerService_SetMimeGroup_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PackageManagerServiceServer).SetMimeGroup(ctx, req.(*SetMimeGroupRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PackageManagerService_UpdateInstantAppCookie_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(UpdateInstantAppCookieRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PackageManagerServiceServer).UpdateInstantAppCookie(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PackageManagerService_UpdateInstantAppCookie_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PackageManagerServiceServer).UpdateInstantAppCookie(ctx, req.(*UpdateInstantAppCookieRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PackageManagerService_VerifyPendingInstall_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(VerifyPendingInstallRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PackageManagerServiceServer).VerifyPendingInstall(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PackageManagerService_VerifyPendingInstall_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PackageManagerServiceServer).VerifyPendingInstall(ctx, req.(*VerifyPendingInstallRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PackageManagerService_GetVerifiedSigningInfo_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetVerifiedSigningInfoRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PackageManagerServiceServer).GetVerifiedSigningInfo(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PackageManagerService_GetVerifiedSigningInfo_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PackageManagerServiceServer).GetVerifiedSigningInfo(ctx, req.(*GetVerifiedSigningInfoRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// PackageManagerService_ServiceDesc is the grpc.ServiceDesc for PackageManagerService service.
+// LauncherAppsService_ServiceDesc is the grpc.ServiceDesc for LauncherAppsService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
-var PackageManagerService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "pm.PackageManagerService",
-	HandlerType: (*PackageManagerServiceServer)(nil),
+var LauncherAppsService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "pm.LauncherAppsService",
+	HandlerType: (*LauncherAppsServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
-			MethodName: "AddPackageToPreferred",
-			Handler:    _PackageManagerService_AddPackageToPreferred_Handler,
+			MethodName: "GetAppMarketActivityIntent",
+			Handler:    _LauncherAppsService_GetAppMarketActivityIntent_Handler,
 		},
 		{
-			MethodName: "AddPermission",
-			Handler:    _PackageManagerService_AddPermission_Handler,
+			MethodName: "GetApplicationInfo",
+			Handler:    _LauncherAppsService_GetApplicationInfo_Handler,
 		},
 		{
-			MethodName: "AddPermissionAsync",
-			Handler:    _PackageManagerService_AddPermissionAsync_Handler,
+			MethodName: "GetLauncherUserInfo",
+			Handler:    _LauncherAppsService_GetLauncherUserInfo_Handler,
 		},
 		{
-			MethodName: "AddPreferredActivity",
-			Handler:    _PackageManagerService_AddPreferredActivity_Handler,
+			MethodName: "GetPinItemRequest",
+			Handler:    _LauncherAppsService_GetPinItemRequest_Handler,
 		},
 		{
-			MethodName: "AddWhitelistedRestrictedPermission",
-			Handler:    _PackageManagerService_AddWhitelistedRestrictedPermission_Handler,
+			MethodName: "GetPrivateSpaceSettingsIntent",
+			Handler:    _LauncherAppsService_GetPrivateSpaceSettingsIntent_Handler,
 		},
 		{
-			MethodName: "CanPackageQuery2",
-			Handler:    _PackageManagerService_CanPackageQuery2_Handler,
+			MethodName: "GetShortcutBadgedIconDrawable",
+			Handler:    _LauncherAppsService_GetShortcutBadgedIconDrawable_Handler,
 		},
 		{
-			MethodName: "CanPackageQuery2_1",
-			Handler:    _PackageManagerService_CanPackageQuery2_1_Handler,
+			MethodName: "GetShortcutConfigActivityIntent",
+			Handler:    _LauncherAppsService_GetShortcutConfigActivityIntent_Handler,
 		},
 		{
-			MethodName: "CanRequestPackageInstalls",
-			Handler:    _PackageManagerService_CanRequestPackageInstalls_Handler,
+			MethodName: "GetShortcutIconDrawable",
+			Handler:    _LauncherAppsService_GetShortcutIconDrawable_Handler,
 		},
 		{
-			MethodName: "CanonicalToCurrentPackageNames",
-			Handler:    _PackageManagerService_CanonicalToCurrentPackageNames_Handler,
+			MethodName: "GetShortcutIntent",
+			Handler:    _LauncherAppsService_GetShortcutIntent_Handler,
 		},
 		{
-			MethodName: "CheckPermission",
-			Handler:    _PackageManagerService_CheckPermission_Handler,
+			MethodName: "GetSuspendedPackageLauncherExtras",
+			Handler:    _LauncherAppsService_GetSuspendedPackageLauncherExtras_Handler,
 		},
 		{
-			MethodName: "CheckSignatures2",
-			Handler:    _PackageManagerService_CheckSignatures2_Handler,
+			MethodName: "HasShortcutHostPermission",
+			Handler:    _LauncherAppsService_HasShortcutHostPermission_Handler,
 		},
 		{
-			MethodName: "CheckSignatures2_1",
-			Handler:    _PackageManagerService_CheckSignatures2_1_Handler,
+			MethodName: "IsActivityEnabled",
+			Handler:    _LauncherAppsService_IsActivityEnabled_Handler,
 		},
 		{
-			MethodName: "ClearInstantAppCookie",
-			Handler:    _PackageManagerService_ClearInstantAppCookie_Handler,
+			MethodName: "IsPackageEnabled",
+			Handler:    _LauncherAppsService_IsPackageEnabled_Handler,
 		},
 		{
-			MethodName: "ClearPackagePreferredActivities",
-			Handler:    _PackageManagerService_ClearPackagePreferredActivities_Handler,
+			MethodName: "RegisterCallback",
+			Handler:    _LauncherAppsService_RegisterCallback_Handler,
 		},
 		{
-			MethodName: "CurrentToCanonicalPackageNames",
-			Handler:    _PackageManagerService_CurrentToCanonicalPackageNames_Handler,
+			MethodName: "RegisterPackageInstallerSessionCallback",
+			Handler:    _LauncherAppsService_RegisterPackageInstallerSessionCallback_Handler,
 		},
 		{
-			MethodName: "ExtendVerificationTimeout",
-			Handler:    _PackageManagerService_ExtendVerificationTimeout_Handler,
+			MethodName: "ResolveActivity",
+			Handler:    _LauncherAppsService_ResolveActivity_Handler,
 		},
 		{
-			MethodName: "GetActivityBanner1",
-			Handler:    _PackageManagerService_GetActivityBanner1_Handler,
+			MethodName: "SetArchiveCompatibility",
+			Handler:    _LauncherAppsService_SetArchiveCompatibility_Handler,
 		},
 		{
-			MethodName: "GetActivityBanner1_1",
-			Handler:    _PackageManagerService_GetActivityBanner1_1_Handler,
+			MethodName: "ShouldHideFromSuggestions",
+			Handler:    _LauncherAppsService_ShouldHideFromSuggestions_Handler,
 		},
 		{
-			MethodName: "GetActivityIcon1",
-			Handler:    _PackageManagerService_GetActivityIcon1_Handler,
+			MethodName: "StartAppDetailsActivity",
+			Handler:    _LauncherAppsService_StartAppDetailsActivity_Handler,
 		},
 		{
-			MethodName: "GetActivityIcon1_1",
-			Handler:    _PackageManagerService_GetActivityIcon1_1_Handler,
+			MethodName: "StartMainActivity",
+			Handler:    _LauncherAppsService_StartMainActivity_Handler,
 		},
 		{
-			MethodName: "GetActivityInfo2",
-			Handler:    _PackageManagerService_GetActivityInfo2_Handler,
+			MethodName: "StartPackageInstallerSessionDetailsActivity",
+			Handler:    _LauncherAppsService_StartPackageInstallerSessionDetailsActivity_Handler,
 		},
 		{
-			MethodName: "GetActivityInfo2_1",
-			Handler:    _PackageManagerService_GetActivityInfo2_1_Handler,
+			MethodName: "StartShortcut3",
+			Handler:    _LauncherAppsService_StartShortcut3_Handler,
 		},
 		{
-			MethodName: "GetActivityLogo1",
-			Handler:    _PackageManagerService_GetActivityLogo1_Handler,
+			MethodName: "StartShortcut5_1",
+			Handler:    _LauncherAppsService_StartShortcut5_1_Handler,
 		},
 		{
-			MethodName: "GetActivityLogo1_1",
-			Handler:    _PackageManagerService_GetActivityLogo1_1_Handler,
+			MethodName: "UnregisterCallback",
+			Handler:    _LauncherAppsService_UnregisterCallback_Handler,
 		},
 		{
-			MethodName: "GetAllPermissionGroups",
-			Handler:    _PackageManagerService_GetAllPermissionGroups_Handler,
-		},
-		{
-			MethodName: "GetApplicationBanner1",
-			Handler:    _PackageManagerService_GetApplicationBanner1_Handler,
-		},
-		{
-			MethodName: "GetApplicationBanner1_1",
-			Handler:    _PackageManagerService_GetApplicationBanner1_1_Handler,
-		},
-		{
-			MethodName: "GetApplicationEnabledSetting",
-			Handler:    _PackageManagerService_GetApplicationEnabledSetting_Handler,
-		},
-		{
-			MethodName: "GetApplicationIcon1",
-			Handler:    _PackageManagerService_GetApplicationIcon1_Handler,
-		},
-		{
-			MethodName: "GetApplicationIcon1_1",
-			Handler:    _PackageManagerService_GetApplicationIcon1_1_Handler,
-		},
-		{
-			MethodName: "GetApplicationInfo2",
-			Handler:    _PackageManagerService_GetApplicationInfo2_Handler,
-		},
-		{
-			MethodName: "GetApplicationInfo2_1",
-			Handler:    _PackageManagerService_GetApplicationInfo2_1_Handler,
-		},
-		{
-			MethodName: "GetApplicationLabel",
-			Handler:    _PackageManagerService_GetApplicationLabel_Handler,
-		},
-		{
-			MethodName: "GetApplicationLogo1",
-			Handler:    _PackageManagerService_GetApplicationLogo1_Handler,
-		},
-		{
-			MethodName: "GetApplicationLogo1_1",
-			Handler:    _PackageManagerService_GetApplicationLogo1_1_Handler,
-		},
-		{
-			MethodName: "GetArchivedPackage",
-			Handler:    _PackageManagerService_GetArchivedPackage_Handler,
-		},
-		{
-			MethodName: "GetBackgroundPermissionOptionLabel",
-			Handler:    _PackageManagerService_GetBackgroundPermissionOptionLabel_Handler,
-		},
-		{
-			MethodName: "GetChangedPackages",
-			Handler:    _PackageManagerService_GetChangedPackages_Handler,
-		},
-		{
-			MethodName: "GetComponentEnabledSetting",
-			Handler:    _PackageManagerService_GetComponentEnabledSetting_Handler,
-		},
-		{
-			MethodName: "GetDefaultActivityIcon",
-			Handler:    _PackageManagerService_GetDefaultActivityIcon_Handler,
-		},
-		{
-			MethodName: "GetDrawable",
-			Handler:    _PackageManagerService_GetDrawable_Handler,
-		},
-		{
-			MethodName: "GetGroupOfPlatformPermission",
-			Handler:    _PackageManagerService_GetGroupOfPlatformPermission_Handler,
-		},
-		{
-			MethodName: "GetInstallSourceInfo",
-			Handler:    _PackageManagerService_GetInstallSourceInfo_Handler,
-		},
-		{
-			MethodName: "GetInstalledApplications1",
-			Handler:    _PackageManagerService_GetInstalledApplications1_Handler,
-		},
-		{
-			MethodName: "GetInstalledApplications1_1",
-			Handler:    _PackageManagerService_GetInstalledApplications1_1_Handler,
-		},
-		{
-			MethodName: "GetInstalledModules",
-			Handler:    _PackageManagerService_GetInstalledModules_Handler,
-		},
-		{
-			MethodName: "GetInstalledPackages1",
-			Handler:    _PackageManagerService_GetInstalledPackages1_Handler,
-		},
-		{
-			MethodName: "GetInstalledPackages1_1",
-			Handler:    _PackageManagerService_GetInstalledPackages1_1_Handler,
-		},
-		{
-			MethodName: "GetInstallerPackageName",
-			Handler:    _PackageManagerService_GetInstallerPackageName_Handler,
-		},
-		{
-			MethodName: "GetInstantAppCookie",
-			Handler:    _PackageManagerService_GetInstantAppCookie_Handler,
-		},
-		{
-			MethodName: "GetInstantAppCookieMaxBytes",
-			Handler:    _PackageManagerService_GetInstantAppCookieMaxBytes_Handler,
-		},
-		{
-			MethodName: "GetInstrumentationInfo",
-			Handler:    _PackageManagerService_GetInstrumentationInfo_Handler,
-		},
-		{
-			MethodName: "GetLaunchIntentForPackage",
-			Handler:    _PackageManagerService_GetLaunchIntentForPackage_Handler,
-		},
-		{
-			MethodName: "GetLaunchIntentSenderForPackage",
-			Handler:    _PackageManagerService_GetLaunchIntentSenderForPackage_Handler,
-		},
-		{
-			MethodName: "GetLeanbackLaunchIntentForPackage",
-			Handler:    _PackageManagerService_GetLeanbackLaunchIntentForPackage_Handler,
-		},
-		{
-			MethodName: "GetMimeGroup",
-			Handler:    _PackageManagerService_GetMimeGroup_Handler,
-		},
-		{
-			MethodName: "GetModuleInfo",
-			Handler:    _PackageManagerService_GetModuleInfo_Handler,
-		},
-		{
-			MethodName: "GetNameForUid",
-			Handler:    _PackageManagerService_GetNameForUid_Handler,
-		},
-		{
-			MethodName: "GetPackageArchiveInfo2",
-			Handler:    _PackageManagerService_GetPackageArchiveInfo2_Handler,
-		},
-		{
-			MethodName: "GetPackageArchiveInfo2_1",
-			Handler:    _PackageManagerService_GetPackageArchiveInfo2_1_Handler,
-		},
-		{
-			MethodName: "GetPackageGids1",
-			Handler:    _PackageManagerService_GetPackageGids1_Handler,
-		},
-		{
-			MethodName: "GetPackageGids2_1",
-			Handler:    _PackageManagerService_GetPackageGids2_1_Handler,
-		},
-		{
-			MethodName: "GetPackageGids2_2",
-			Handler:    _PackageManagerService_GetPackageGids2_2_Handler,
-		},
-		{
-			MethodName: "GetPackageInfo2",
-			Handler:    _PackageManagerService_GetPackageInfo2_Handler,
-		},
-		{
-			MethodName: "GetPackageInfo2_1",
-			Handler:    _PackageManagerService_GetPackageInfo2_1_Handler,
-		},
-		{
-			MethodName: "GetPackageInfo2_2",
-			Handler:    _PackageManagerService_GetPackageInfo2_2_Handler,
-		},
-		{
-			MethodName: "GetPackageInfo2_3",
-			Handler:    _PackageManagerService_GetPackageInfo2_3_Handler,
-		},
-		{
-			MethodName: "GetPackageInstaller",
-			Handler:    _PackageManagerService_GetPackageInstaller_Handler,
-		},
-		{
-			MethodName: "GetPackageUid2",
-			Handler:    _PackageManagerService_GetPackageUid2_Handler,
-		},
-		{
-			MethodName: "GetPackageUid2_1",
-			Handler:    _PackageManagerService_GetPackageUid2_1_Handler,
-		},
-		{
-			MethodName: "GetPackagesForUid",
-			Handler:    _PackageManagerService_GetPackagesForUid_Handler,
-		},
-		{
-			MethodName: "GetPackagesHoldingPermissions2",
-			Handler:    _PackageManagerService_GetPackagesHoldingPermissions2_Handler,
-		},
-		{
-			MethodName: "GetPackagesHoldingPermissions2_1",
-			Handler:    _PackageManagerService_GetPackagesHoldingPermissions2_1_Handler,
-		},
-		{
-			MethodName: "GetPermissionGroupInfo",
-			Handler:    _PackageManagerService_GetPermissionGroupInfo_Handler,
-		},
-		{
-			MethodName: "GetPermissionInfo",
-			Handler:    _PackageManagerService_GetPermissionInfo_Handler,
-		},
-		{
-			MethodName: "GetPlatformPermissionsForGroup",
-			Handler:    _PackageManagerService_GetPlatformPermissionsForGroup_Handler,
-		},
-		{
-			MethodName: "GetPreferredActivities",
-			Handler:    _PackageManagerService_GetPreferredActivities_Handler,
-		},
-		{
-			MethodName: "GetPreferredPackages",
-			Handler:    _PackageManagerService_GetPreferredPackages_Handler,
-		},
-		{
-			MethodName: "GetProperty2",
-			Handler:    _PackageManagerService_GetProperty2_Handler,
-		},
-		{
-			MethodName: "GetProperty2_1",
-			Handler:    _PackageManagerService_GetProperty2_1_Handler,
-		},
-		{
-			MethodName: "GetProviderInfo2",
-			Handler:    _PackageManagerService_GetProviderInfo2_Handler,
-		},
-		{
-			MethodName: "GetProviderInfo2_1",
-			Handler:    _PackageManagerService_GetProviderInfo2_1_Handler,
-		},
-		{
-			MethodName: "GetReceiverInfo2",
-			Handler:    _PackageManagerService_GetReceiverInfo2_Handler,
-		},
-		{
-			MethodName: "GetReceiverInfo2_1",
-			Handler:    _PackageManagerService_GetReceiverInfo2_1_Handler,
-		},
-		{
-			MethodName: "GetResourcesForActivity",
-			Handler:    _PackageManagerService_GetResourcesForActivity_Handler,
-		},
-		{
-			MethodName: "GetResourcesForApplication1",
-			Handler:    _PackageManagerService_GetResourcesForApplication1_Handler,
-		},
-		{
-			MethodName: "GetResourcesForApplication2_1",
-			Handler:    _PackageManagerService_GetResourcesForApplication2_1_Handler,
-		},
-		{
-			MethodName: "GetResourcesForApplication1_2",
-			Handler:    _PackageManagerService_GetResourcesForApplication1_2_Handler,
-		},
-		{
-			MethodName: "GetServiceInfo2",
-			Handler:    _PackageManagerService_GetServiceInfo2_Handler,
-		},
-		{
-			MethodName: "GetServiceInfo2_1",
-			Handler:    _PackageManagerService_GetServiceInfo2_1_Handler,
-		},
-		{
-			MethodName: "GetSharedLibraries1",
-			Handler:    _PackageManagerService_GetSharedLibraries1_Handler,
-		},
-		{
-			MethodName: "GetSharedLibraries1_1",
-			Handler:    _PackageManagerService_GetSharedLibraries1_1_Handler,
-		},
-		{
-			MethodName: "GetSuspendedPackageAppExtras",
-			Handler:    _PackageManagerService_GetSuspendedPackageAppExtras_Handler,
-		},
-		{
-			MethodName: "GetSyntheticAppDetailsActivityEnabled",
-			Handler:    _PackageManagerService_GetSyntheticAppDetailsActivityEnabled_Handler,
-		},
-		{
-			MethodName: "GetSystemAvailableFeatures",
-			Handler:    _PackageManagerService_GetSystemAvailableFeatures_Handler,
-		},
-		{
-			MethodName: "GetSystemSharedLibraryNames",
-			Handler:    _PackageManagerService_GetSystemSharedLibraryNames_Handler,
-		},
-		{
-			MethodName: "GetTargetSdkVersion",
-			Handler:    _PackageManagerService_GetTargetSdkVersion_Handler,
-		},
-		{
-			MethodName: "GetText",
-			Handler:    _PackageManagerService_GetText_Handler,
-		},
-		{
-			MethodName: "GetUserBadgedDrawableForDensity",
-			Handler:    _PackageManagerService_GetUserBadgedDrawableForDensity_Handler,
-		},
-		{
-			MethodName: "GetUserBadgedIcon",
-			Handler:    _PackageManagerService_GetUserBadgedIcon_Handler,
-		},
-		{
-			MethodName: "GetUserBadgedLabel",
-			Handler:    _PackageManagerService_GetUserBadgedLabel_Handler,
-		},
-		{
-			MethodName: "GetWhitelistedRestrictedPermissions",
-			Handler:    _PackageManagerService_GetWhitelistedRestrictedPermissions_Handler,
-		},
-		{
-			MethodName: "GetXml",
-			Handler:    _PackageManagerService_GetXml_Handler,
-		},
-		{
-			MethodName: "HasSigningCertificate3",
-			Handler:    _PackageManagerService_HasSigningCertificate3_Handler,
-		},
-		{
-			MethodName: "HasSigningCertificate3_1",
-			Handler:    _PackageManagerService_HasSigningCertificate3_1_Handler,
-		},
-		{
-			MethodName: "HasSystemFeature1",
-			Handler:    _PackageManagerService_HasSystemFeature1_Handler,
-		},
-		{
-			MethodName: "HasSystemFeature2_1",
-			Handler:    _PackageManagerService_HasSystemFeature2_1_Handler,
-		},
-		{
-			MethodName: "IsAppArchivable",
-			Handler:    _PackageManagerService_IsAppArchivable_Handler,
-		},
-		{
-			MethodName: "IsAutoRevokeWhitelisted0",
-			Handler:    _PackageManagerService_IsAutoRevokeWhitelisted0_Handler,
-		},
-		{
-			MethodName: "IsAutoRevokeWhitelisted1_1",
-			Handler:    _PackageManagerService_IsAutoRevokeWhitelisted1_1_Handler,
-		},
-		{
-			MethodName: "IsDefaultApplicationIcon",
-			Handler:    _PackageManagerService_IsDefaultApplicationIcon_Handler,
-		},
-		{
-			MethodName: "IsDeviceUpgrading",
-			Handler:    _PackageManagerService_IsDeviceUpgrading_Handler,
-		},
-		{
-			MethodName: "IsInstantApp0",
-			Handler:    _PackageManagerService_IsInstantApp0_Handler,
-		},
-		{
-			MethodName: "IsInstantApp1_1",
-			Handler:    _PackageManagerService_IsInstantApp1_1_Handler,
-		},
-		{
-			MethodName: "IsPackageStopped",
-			Handler:    _PackageManagerService_IsPackageStopped_Handler,
-		},
-		{
-			MethodName: "IsPackageSuspended0",
-			Handler:    _PackageManagerService_IsPackageSuspended0_Handler,
-		},
-		{
-			MethodName: "IsPackageSuspended1_1",
-			Handler:    _PackageManagerService_IsPackageSuspended1_1_Handler,
-		},
-		{
-			MethodName: "IsPermissionRevokedByPolicy",
-			Handler:    _PackageManagerService_IsPermissionRevokedByPolicy_Handler,
-		},
-		{
-			MethodName: "IsSafeMode",
-			Handler:    _PackageManagerService_IsSafeMode_Handler,
-		},
-		{
-			MethodName: "QueryActivityProperty",
-			Handler:    _PackageManagerService_QueryActivityProperty_Handler,
-		},
-		{
-			MethodName: "QueryApplicationProperty",
-			Handler:    _PackageManagerService_QueryApplicationProperty_Handler,
-		},
-		{
-			MethodName: "QueryBroadcastReceivers2",
-			Handler:    _PackageManagerService_QueryBroadcastReceivers2_Handler,
-		},
-		{
-			MethodName: "QueryBroadcastReceivers2_1",
-			Handler:    _PackageManagerService_QueryBroadcastReceivers2_1_Handler,
-		},
-		{
-			MethodName: "QueryContentProviders3",
-			Handler:    _PackageManagerService_QueryContentProviders3_Handler,
-		},
-		{
-			MethodName: "QueryContentProviders3_1",
-			Handler:    _PackageManagerService_QueryContentProviders3_1_Handler,
-		},
-		{
-			MethodName: "QueryInstrumentation",
-			Handler:    _PackageManagerService_QueryInstrumentation_Handler,
-		},
-		{
-			MethodName: "QueryIntentActivities2",
-			Handler:    _PackageManagerService_QueryIntentActivities2_Handler,
-		},
-		{
-			MethodName: "QueryIntentActivities2_1",
-			Handler:    _PackageManagerService_QueryIntentActivities2_1_Handler,
-		},
-		{
-			MethodName: "QueryIntentActivityOptions4",
-			Handler:    _PackageManagerService_QueryIntentActivityOptions4_Handler,
-		},
-		{
-			MethodName: "QueryIntentActivityOptions4_1",
-			Handler:    _PackageManagerService_QueryIntentActivityOptions4_1_Handler,
-		},
-		{
-			MethodName: "QueryIntentContentProviders2",
-			Handler:    _PackageManagerService_QueryIntentContentProviders2_Handler,
-		},
-		{
-			MethodName: "QueryIntentContentProviders2_1",
-			Handler:    _PackageManagerService_QueryIntentContentProviders2_1_Handler,
-		},
-		{
-			MethodName: "QueryIntentServices2",
-			Handler:    _PackageManagerService_QueryIntentServices2_Handler,
-		},
-		{
-			MethodName: "QueryIntentServices2_1",
-			Handler:    _PackageManagerService_QueryIntentServices2_1_Handler,
-		},
-		{
-			MethodName: "QueryPermissionsByGroup",
-			Handler:    _PackageManagerService_QueryPermissionsByGroup_Handler,
-		},
-		{
-			MethodName: "QueryProviderProperty",
-			Handler:    _PackageManagerService_QueryProviderProperty_Handler,
-		},
-		{
-			MethodName: "QueryReceiverProperty",
-			Handler:    _PackageManagerService_QueryReceiverProperty_Handler,
-		},
-		{
-			MethodName: "QueryServiceProperty",
-			Handler:    _PackageManagerService_QueryServiceProperty_Handler,
-		},
-		{
-			MethodName: "RelinquishUpdateOwnership",
-			Handler:    _PackageManagerService_RelinquishUpdateOwnership_Handler,
-		},
-		{
-			MethodName: "RemovePackageFromPreferred",
-			Handler:    _PackageManagerService_RemovePackageFromPreferred_Handler,
-		},
-		{
-			MethodName: "RemovePermission",
-			Handler:    _PackageManagerService_RemovePermission_Handler,
-		},
-		{
-			MethodName: "RemoveWhitelistedRestrictedPermission",
-			Handler:    _PackageManagerService_RemoveWhitelistedRestrictedPermission_Handler,
-		},
-		{
-			MethodName: "RequestChecksums",
-			Handler:    _PackageManagerService_RequestChecksums_Handler,
-		},
-		{
-			MethodName: "ResolveActivity2",
-			Handler:    _PackageManagerService_ResolveActivity2_Handler,
-		},
-		{
-			MethodName: "ResolveActivity2_1",
-			Handler:    _PackageManagerService_ResolveActivity2_1_Handler,
-		},
-		{
-			MethodName: "ResolveContentProvider2",
-			Handler:    _PackageManagerService_ResolveContentProvider2_Handler,
-		},
-		{
-			MethodName: "ResolveContentProvider2_1",
-			Handler:    _PackageManagerService_ResolveContentProvider2_1_Handler,
-		},
-		{
-			MethodName: "ResolveService2",
-			Handler:    _PackageManagerService_ResolveService2_Handler,
-		},
-		{
-			MethodName: "ResolveService2_1",
-			Handler:    _PackageManagerService_ResolveService2_1_Handler,
-		},
-		{
-			MethodName: "SetApplicationCategoryHint",
-			Handler:    _PackageManagerService_SetApplicationCategoryHint_Handler,
-		},
-		{
-			MethodName: "SetApplicationEnabledSetting",
-			Handler:    _PackageManagerService_SetApplicationEnabledSetting_Handler,
-		},
-		{
-			MethodName: "SetAutoRevokeWhitelisted",
-			Handler:    _PackageManagerService_SetAutoRevokeWhitelisted_Handler,
-		},
-		{
-			MethodName: "SetComponentEnabledSetting",
-			Handler:    _PackageManagerService_SetComponentEnabledSetting_Handler,
-		},
-		{
-			MethodName: "SetComponentEnabledSettings",
-			Handler:    _PackageManagerService_SetComponentEnabledSettings_Handler,
-		},
-		{
-			MethodName: "SetInstallerPackageName",
-			Handler:    _PackageManagerService_SetInstallerPackageName_Handler,
-		},
-		{
-			MethodName: "SetMimeGroup",
-			Handler:    _PackageManagerService_SetMimeGroup_Handler,
-		},
-		{
-			MethodName: "UpdateInstantAppCookie",
-			Handler:    _PackageManagerService_UpdateInstantAppCookie_Handler,
-		},
-		{
-			MethodName: "VerifyPendingInstall",
-			Handler:    _PackageManagerService_VerifyPendingInstall_Handler,
-		},
-		{
-			MethodName: "GetVerifiedSigningInfo",
-			Handler:    _PackageManagerService_GetVerifiedSigningInfo_Handler,
+			MethodName: "UnregisterPackageInstallerSessionCallback",
+			Handler:    _LauncherAppsService_UnregisterPackageInstallerSessionCallback_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
@@ -6127,329 +1035,927 @@ var PackageManagerService_ServiceDesc = grpc.ServiceDesc{
 }
 
 const (
-	PackageInfoService_DescribeContents_FullMethodName     = "/pm.PackageInfoService/DescribeContents"
-	PackageInfoService_GetApexPackageName_FullMethodName   = "/pm.PackageInfoService/GetApexPackageName"
-	PackageInfoService_GetArchiveTimeMillis_FullMethodName = "/pm.PackageInfoService/GetArchiveTimeMillis"
-	PackageInfoService_GetLongVersionCode_FullMethodName   = "/pm.PackageInfoService/GetLongVersionCode"
-	PackageInfoService_SetLongVersionCode_FullMethodName   = "/pm.PackageInfoService/SetLongVersionCode"
-	PackageInfoService_ToString_FullMethodName             = "/pm.PackageInfoService/ToString"
-	PackageInfoService_WriteToParcel_FullMethodName        = "/pm.PackageInfoService/WriteToParcel"
+	ShortcutManagerService_CreateShortcutResultIntent_FullMethodName     = "/pm.ShortcutManagerService/CreateShortcutResultIntent"
+	ShortcutManagerService_GetIconMaxHeight_FullMethodName               = "/pm.ShortcutManagerService/GetIconMaxHeight"
+	ShortcutManagerService_GetIconMaxWidth_FullMethodName                = "/pm.ShortcutManagerService/GetIconMaxWidth"
+	ShortcutManagerService_GetMaxShortcutCountPerActivity_FullMethodName = "/pm.ShortcutManagerService/GetMaxShortcutCountPerActivity"
+	ShortcutManagerService_IsRateLimitingActive_FullMethodName           = "/pm.ShortcutManagerService/IsRateLimitingActive"
+	ShortcutManagerService_IsRequestPinShortcutSupported_FullMethodName  = "/pm.ShortcutManagerService/IsRequestPinShortcutSupported"
+	ShortcutManagerService_PushDynamicShortcut_FullMethodName            = "/pm.ShortcutManagerService/PushDynamicShortcut"
+	ShortcutManagerService_RemoveAllDynamicShortcuts_FullMethodName      = "/pm.ShortcutManagerService/RemoveAllDynamicShortcuts"
+	ShortcutManagerService_ReportShortcutUsed_FullMethodName             = "/pm.ShortcutManagerService/ReportShortcutUsed"
+	ShortcutManagerService_RequestPinShortcut_FullMethodName             = "/pm.ShortcutManagerService/RequestPinShortcut"
 )
 
-// PackageInfoServiceClient is the client API for PackageInfoService service.
+// ShortcutManagerServiceClient is the client API for ShortcutManagerService service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type PackageInfoServiceClient interface {
-	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
-	GetApexPackageName(ctx context.Context, in *GetApexPackageNameRequest, opts ...grpc.CallOption) (*GetApexPackageNameResponse, error)
-	GetArchiveTimeMillis(ctx context.Context, in *GetArchiveTimeMillisRequest, opts ...grpc.CallOption) (*GetArchiveTimeMillisResponse, error)
-	GetLongVersionCode(ctx context.Context, in *GetLongVersionCodeRequest, opts ...grpc.CallOption) (*GetLongVersionCodeResponse, error)
-	SetLongVersionCode(ctx context.Context, in *SetLongVersionCodeRequest, opts ...grpc.CallOption) (*SetLongVersionCodeResponse, error)
-	ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
-	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
+type ShortcutManagerServiceClient interface {
+	CreateShortcutResultIntent(ctx context.Context, in *CreateShortcutResultIntentRequest, opts ...grpc.CallOption) (*CreateShortcutResultIntentResponse, error)
+	GetIconMaxHeight(ctx context.Context, in *GetIconMaxHeightRequest, opts ...grpc.CallOption) (*GetIconMaxHeightResponse, error)
+	GetIconMaxWidth(ctx context.Context, in *GetIconMaxWidthRequest, opts ...grpc.CallOption) (*GetIconMaxWidthResponse, error)
+	GetMaxShortcutCountPerActivity(ctx context.Context, in *GetMaxShortcutCountPerActivityRequest, opts ...grpc.CallOption) (*GetMaxShortcutCountPerActivityResponse, error)
+	IsRateLimitingActive(ctx context.Context, in *IsRateLimitingActiveRequest, opts ...grpc.CallOption) (*IsRateLimitingActiveResponse, error)
+	IsRequestPinShortcutSupported(ctx context.Context, in *IsRequestPinShortcutSupportedRequest, opts ...grpc.CallOption) (*IsRequestPinShortcutSupportedResponse, error)
+	PushDynamicShortcut(ctx context.Context, in *PushDynamicShortcutRequest, opts ...grpc.CallOption) (*PushDynamicShortcutResponse, error)
+	RemoveAllDynamicShortcuts(ctx context.Context, in *RemoveAllDynamicShortcutsRequest, opts ...grpc.CallOption) (*RemoveAllDynamicShortcutsResponse, error)
+	ReportShortcutUsed(ctx context.Context, in *ReportShortcutUsedRequest, opts ...grpc.CallOption) (*ReportShortcutUsedResponse, error)
+	RequestPinShortcut(ctx context.Context, in *RequestPinShortcutRequest, opts ...grpc.CallOption) (*RequestPinShortcutResponse, error)
 }
 
-type packageInfoServiceClient struct {
+type shortcutManagerServiceClient struct {
 	cc grpc.ClientConnInterface
 }
 
-func NewPackageInfoServiceClient(cc grpc.ClientConnInterface) PackageInfoServiceClient {
-	return &packageInfoServiceClient{cc}
+func NewShortcutManagerServiceClient(cc grpc.ClientConnInterface) ShortcutManagerServiceClient {
+	return &shortcutManagerServiceClient{cc}
 }
 
-func (c *packageInfoServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
+func (c *shortcutManagerServiceClient) CreateShortcutResultIntent(ctx context.Context, in *CreateShortcutResultIntentRequest, opts ...grpc.CallOption) (*CreateShortcutResultIntentResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(DescribeContentsResponse)
-	err := c.cc.Invoke(ctx, PackageInfoService_DescribeContents_FullMethodName, in, out, cOpts...)
+	out := new(CreateShortcutResultIntentResponse)
+	err := c.cc.Invoke(ctx, ShortcutManagerService_CreateShortcutResultIntent_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *packageInfoServiceClient) GetApexPackageName(ctx context.Context, in *GetApexPackageNameRequest, opts ...grpc.CallOption) (*GetApexPackageNameResponse, error) {
+func (c *shortcutManagerServiceClient) GetIconMaxHeight(ctx context.Context, in *GetIconMaxHeightRequest, opts ...grpc.CallOption) (*GetIconMaxHeightResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetApexPackageNameResponse)
-	err := c.cc.Invoke(ctx, PackageInfoService_GetApexPackageName_FullMethodName, in, out, cOpts...)
+	out := new(GetIconMaxHeightResponse)
+	err := c.cc.Invoke(ctx, ShortcutManagerService_GetIconMaxHeight_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *packageInfoServiceClient) GetArchiveTimeMillis(ctx context.Context, in *GetArchiveTimeMillisRequest, opts ...grpc.CallOption) (*GetArchiveTimeMillisResponse, error) {
+func (c *shortcutManagerServiceClient) GetIconMaxWidth(ctx context.Context, in *GetIconMaxWidthRequest, opts ...grpc.CallOption) (*GetIconMaxWidthResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetArchiveTimeMillisResponse)
-	err := c.cc.Invoke(ctx, PackageInfoService_GetArchiveTimeMillis_FullMethodName, in, out, cOpts...)
+	out := new(GetIconMaxWidthResponse)
+	err := c.cc.Invoke(ctx, ShortcutManagerService_GetIconMaxWidth_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *packageInfoServiceClient) GetLongVersionCode(ctx context.Context, in *GetLongVersionCodeRequest, opts ...grpc.CallOption) (*GetLongVersionCodeResponse, error) {
+func (c *shortcutManagerServiceClient) GetMaxShortcutCountPerActivity(ctx context.Context, in *GetMaxShortcutCountPerActivityRequest, opts ...grpc.CallOption) (*GetMaxShortcutCountPerActivityResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetLongVersionCodeResponse)
-	err := c.cc.Invoke(ctx, PackageInfoService_GetLongVersionCode_FullMethodName, in, out, cOpts...)
+	out := new(GetMaxShortcutCountPerActivityResponse)
+	err := c.cc.Invoke(ctx, ShortcutManagerService_GetMaxShortcutCountPerActivity_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *packageInfoServiceClient) SetLongVersionCode(ctx context.Context, in *SetLongVersionCodeRequest, opts ...grpc.CallOption) (*SetLongVersionCodeResponse, error) {
+func (c *shortcutManagerServiceClient) IsRateLimitingActive(ctx context.Context, in *IsRateLimitingActiveRequest, opts ...grpc.CallOption) (*IsRateLimitingActiveResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetLongVersionCodeResponse)
-	err := c.cc.Invoke(ctx, PackageInfoService_SetLongVersionCode_FullMethodName, in, out, cOpts...)
+	out := new(IsRateLimitingActiveResponse)
+	err := c.cc.Invoke(ctx, ShortcutManagerService_IsRateLimitingActive_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *packageInfoServiceClient) ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
+func (c *shortcutManagerServiceClient) IsRequestPinShortcutSupported(ctx context.Context, in *IsRequestPinShortcutSupportedRequest, opts ...grpc.CallOption) (*IsRequestPinShortcutSupportedResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ToStringResponse)
-	err := c.cc.Invoke(ctx, PackageInfoService_ToString_FullMethodName, in, out, cOpts...)
+	out := new(IsRequestPinShortcutSupportedResponse)
+	err := c.cc.Invoke(ctx, ShortcutManagerService_IsRequestPinShortcutSupported_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *packageInfoServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
+func (c *shortcutManagerServiceClient) PushDynamicShortcut(ctx context.Context, in *PushDynamicShortcutRequest, opts ...grpc.CallOption) (*PushDynamicShortcutResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(WriteToParcelResponse)
-	err := c.cc.Invoke(ctx, PackageInfoService_WriteToParcel_FullMethodName, in, out, cOpts...)
+	out := new(PushDynamicShortcutResponse)
+	err := c.cc.Invoke(ctx, ShortcutManagerService_PushDynamicShortcut_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-// PackageInfoServiceServer is the server API for PackageInfoService service.
-// All implementations must embed UnimplementedPackageInfoServiceServer
+func (c *shortcutManagerServiceClient) RemoveAllDynamicShortcuts(ctx context.Context, in *RemoveAllDynamicShortcutsRequest, opts ...grpc.CallOption) (*RemoveAllDynamicShortcutsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(RemoveAllDynamicShortcutsResponse)
+	err := c.cc.Invoke(ctx, ShortcutManagerService_RemoveAllDynamicShortcuts_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *shortcutManagerServiceClient) ReportShortcutUsed(ctx context.Context, in *ReportShortcutUsedRequest, opts ...grpc.CallOption) (*ReportShortcutUsedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ReportShortcutUsedResponse)
+	err := c.cc.Invoke(ctx, ShortcutManagerService_ReportShortcutUsed_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *shortcutManagerServiceClient) RequestPinShortcut(ctx context.Context, in *RequestPinShortcutRequest, opts ...grpc.CallOption) (*RequestPinShortcutResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(RequestPinShortcutResponse)
+	err := c.cc.Invoke(ctx, ShortcutManagerService_RequestPinShortcut_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// ShortcutManagerServiceServer is the server API for ShortcutManagerService service.
+// All implementations must embed UnimplementedShortcutManagerServiceServer
 // for forward compatibility.
-type PackageInfoServiceServer interface {
-	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
-	GetApexPackageName(context.Context, *GetApexPackageNameRequest) (*GetApexPackageNameResponse, error)
-	GetArchiveTimeMillis(context.Context, *GetArchiveTimeMillisRequest) (*GetArchiveTimeMillisResponse, error)
-	GetLongVersionCode(context.Context, *GetLongVersionCodeRequest) (*GetLongVersionCodeResponse, error)
-	SetLongVersionCode(context.Context, *SetLongVersionCodeRequest) (*SetLongVersionCodeResponse, error)
-	ToString(context.Context, *ToStringRequest) (*ToStringResponse, error)
-	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
-	mustEmbedUnimplementedPackageInfoServiceServer()
+type ShortcutManagerServiceServer interface {
+	CreateShortcutResultIntent(context.Context, *CreateShortcutResultIntentRequest) (*CreateShortcutResultIntentResponse, error)
+	GetIconMaxHeight(context.Context, *GetIconMaxHeightRequest) (*GetIconMaxHeightResponse, error)
+	GetIconMaxWidth(context.Context, *GetIconMaxWidthRequest) (*GetIconMaxWidthResponse, error)
+	GetMaxShortcutCountPerActivity(context.Context, *GetMaxShortcutCountPerActivityRequest) (*GetMaxShortcutCountPerActivityResponse, error)
+	IsRateLimitingActive(context.Context, *IsRateLimitingActiveRequest) (*IsRateLimitingActiveResponse, error)
+	IsRequestPinShortcutSupported(context.Context, *IsRequestPinShortcutSupportedRequest) (*IsRequestPinShortcutSupportedResponse, error)
+	PushDynamicShortcut(context.Context, *PushDynamicShortcutRequest) (*PushDynamicShortcutResponse, error)
+	RemoveAllDynamicShortcuts(context.Context, *RemoveAllDynamicShortcutsRequest) (*RemoveAllDynamicShortcutsResponse, error)
+	ReportShortcutUsed(context.Context, *ReportShortcutUsedRequest) (*ReportShortcutUsedResponse, error)
+	RequestPinShortcut(context.Context, *RequestPinShortcutRequest) (*RequestPinShortcutResponse, error)
+	mustEmbedUnimplementedShortcutManagerServiceServer()
 }
 
-// UnimplementedPackageInfoServiceServer must be embedded to have
+// UnimplementedShortcutManagerServiceServer must be embedded to have
 // forward compatible implementations.
 //
 // NOTE: this should be embedded by value instead of pointer to avoid a nil
 // pointer dereference when methods are called.
-type UnimplementedPackageInfoServiceServer struct{}
+type UnimplementedShortcutManagerServiceServer struct{}
 
-func (UnimplementedPackageInfoServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
+func (UnimplementedShortcutManagerServiceServer) CreateShortcutResultIntent(context.Context, *CreateShortcutResultIntentRequest) (*CreateShortcutResultIntentResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method CreateShortcutResultIntent not implemented")
 }
-func (UnimplementedPackageInfoServiceServer) GetApexPackageName(context.Context, *GetApexPackageNameRequest) (*GetApexPackageNameResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetApexPackageName not implemented")
+func (UnimplementedShortcutManagerServiceServer) GetIconMaxHeight(context.Context, *GetIconMaxHeightRequest) (*GetIconMaxHeightResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetIconMaxHeight not implemented")
 }
-func (UnimplementedPackageInfoServiceServer) GetArchiveTimeMillis(context.Context, *GetArchiveTimeMillisRequest) (*GetArchiveTimeMillisResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetArchiveTimeMillis not implemented")
+func (UnimplementedShortcutManagerServiceServer) GetIconMaxWidth(context.Context, *GetIconMaxWidthRequest) (*GetIconMaxWidthResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetIconMaxWidth not implemented")
 }
-func (UnimplementedPackageInfoServiceServer) GetLongVersionCode(context.Context, *GetLongVersionCodeRequest) (*GetLongVersionCodeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetLongVersionCode not implemented")
+func (UnimplementedShortcutManagerServiceServer) GetMaxShortcutCountPerActivity(context.Context, *GetMaxShortcutCountPerActivityRequest) (*GetMaxShortcutCountPerActivityResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetMaxShortcutCountPerActivity not implemented")
 }
-func (UnimplementedPackageInfoServiceServer) SetLongVersionCode(context.Context, *SetLongVersionCodeRequest) (*SetLongVersionCodeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetLongVersionCode not implemented")
+func (UnimplementedShortcutManagerServiceServer) IsRateLimitingActive(context.Context, *IsRateLimitingActiveRequest) (*IsRateLimitingActiveResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsRateLimitingActive not implemented")
 }
-func (UnimplementedPackageInfoServiceServer) ToString(context.Context, *ToStringRequest) (*ToStringResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
+func (UnimplementedShortcutManagerServiceServer) IsRequestPinShortcutSupported(context.Context, *IsRequestPinShortcutSupportedRequest) (*IsRequestPinShortcutSupportedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsRequestPinShortcutSupported not implemented")
 }
-func (UnimplementedPackageInfoServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
+func (UnimplementedShortcutManagerServiceServer) PushDynamicShortcut(context.Context, *PushDynamicShortcutRequest) (*PushDynamicShortcutResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method PushDynamicShortcut not implemented")
 }
-func (UnimplementedPackageInfoServiceServer) mustEmbedUnimplementedPackageInfoServiceServer() {}
-func (UnimplementedPackageInfoServiceServer) testEmbeddedByValue()                            {}
+func (UnimplementedShortcutManagerServiceServer) RemoveAllDynamicShortcuts(context.Context, *RemoveAllDynamicShortcutsRequest) (*RemoveAllDynamicShortcutsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method RemoveAllDynamicShortcuts not implemented")
+}
+func (UnimplementedShortcutManagerServiceServer) ReportShortcutUsed(context.Context, *ReportShortcutUsedRequest) (*ReportShortcutUsedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method ReportShortcutUsed not implemented")
+}
+func (UnimplementedShortcutManagerServiceServer) RequestPinShortcut(context.Context, *RequestPinShortcutRequest) (*RequestPinShortcutResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method RequestPinShortcut not implemented")
+}
+func (UnimplementedShortcutManagerServiceServer) mustEmbedUnimplementedShortcutManagerServiceServer() {
+}
+func (UnimplementedShortcutManagerServiceServer) testEmbeddedByValue() {}
 
-// UnsafePackageInfoServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to PackageInfoServiceServer will
+// UnsafeShortcutManagerServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to ShortcutManagerServiceServer will
 // result in compilation errors.
-type UnsafePackageInfoServiceServer interface {
-	mustEmbedUnimplementedPackageInfoServiceServer()
+type UnsafeShortcutManagerServiceServer interface {
+	mustEmbedUnimplementedShortcutManagerServiceServer()
 }
 
-func RegisterPackageInfoServiceServer(s grpc.ServiceRegistrar, srv PackageInfoServiceServer) {
-	// If the following call panics, it indicates UnimplementedPackageInfoServiceServer was
+func RegisterShortcutManagerServiceServer(s grpc.ServiceRegistrar, srv ShortcutManagerServiceServer) {
+	// If the following call panics, it indicates UnimplementedShortcutManagerServiceServer was
 	// embedded by pointer and is nil.  This will cause panics if an
 	// unimplemented method is ever invoked, so we test this at initialization
 	// time to prevent it from happening at runtime later due to I/O.
 	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
 		t.testEmbeddedByValue()
 	}
-	s.RegisterService(&PackageInfoService_ServiceDesc, srv)
+	s.RegisterService(&ShortcutManagerService_ServiceDesc, srv)
 }
 
-func _PackageInfoService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(DescribeContentsRequest)
+func _ShortcutManagerService_CreateShortcutResultIntent_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CreateShortcutResultIntentRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(PackageInfoServiceServer).DescribeContents(ctx, in)
+		return srv.(ShortcutManagerServiceServer).CreateShortcutResultIntent(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: PackageInfoService_DescribeContents_FullMethodName,
+		FullMethod: ShortcutManagerService_CreateShortcutResultIntent_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PackageInfoServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
+		return srv.(ShortcutManagerServiceServer).CreateShortcutResultIntent(ctx, req.(*CreateShortcutResultIntentRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _PackageInfoService_GetApexPackageName_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetApexPackageNameRequest)
+func _ShortcutManagerService_GetIconMaxHeight_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetIconMaxHeightRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(PackageInfoServiceServer).GetApexPackageName(ctx, in)
+		return srv.(ShortcutManagerServiceServer).GetIconMaxHeight(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: PackageInfoService_GetApexPackageName_FullMethodName,
+		FullMethod: ShortcutManagerService_GetIconMaxHeight_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PackageInfoServiceServer).GetApexPackageName(ctx, req.(*GetApexPackageNameRequest))
+		return srv.(ShortcutManagerServiceServer).GetIconMaxHeight(ctx, req.(*GetIconMaxHeightRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _PackageInfoService_GetArchiveTimeMillis_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetArchiveTimeMillisRequest)
+func _ShortcutManagerService_GetIconMaxWidth_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetIconMaxWidthRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(PackageInfoServiceServer).GetArchiveTimeMillis(ctx, in)
+		return srv.(ShortcutManagerServiceServer).GetIconMaxWidth(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: PackageInfoService_GetArchiveTimeMillis_FullMethodName,
+		FullMethod: ShortcutManagerService_GetIconMaxWidth_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PackageInfoServiceServer).GetArchiveTimeMillis(ctx, req.(*GetArchiveTimeMillisRequest))
+		return srv.(ShortcutManagerServiceServer).GetIconMaxWidth(ctx, req.(*GetIconMaxWidthRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _PackageInfoService_GetLongVersionCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetLongVersionCodeRequest)
+func _ShortcutManagerService_GetMaxShortcutCountPerActivity_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetMaxShortcutCountPerActivityRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(PackageInfoServiceServer).GetLongVersionCode(ctx, in)
+		return srv.(ShortcutManagerServiceServer).GetMaxShortcutCountPerActivity(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: PackageInfoService_GetLongVersionCode_FullMethodName,
+		FullMethod: ShortcutManagerService_GetMaxShortcutCountPerActivity_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PackageInfoServiceServer).GetLongVersionCode(ctx, req.(*GetLongVersionCodeRequest))
+		return srv.(ShortcutManagerServiceServer).GetMaxShortcutCountPerActivity(ctx, req.(*GetMaxShortcutCountPerActivityRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _PackageInfoService_SetLongVersionCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetLongVersionCodeRequest)
+func _ShortcutManagerService_IsRateLimitingActive_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsRateLimitingActiveRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(PackageInfoServiceServer).SetLongVersionCode(ctx, in)
+		return srv.(ShortcutManagerServiceServer).IsRateLimitingActive(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: PackageInfoService_SetLongVersionCode_FullMethodName,
+		FullMethod: ShortcutManagerService_IsRateLimitingActive_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PackageInfoServiceServer).SetLongVersionCode(ctx, req.(*SetLongVersionCodeRequest))
+		return srv.(ShortcutManagerServiceServer).IsRateLimitingActive(ctx, req.(*IsRateLimitingActiveRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _PackageInfoService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ToStringRequest)
+func _ShortcutManagerService_IsRequestPinShortcutSupported_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsRequestPinShortcutSupportedRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(PackageInfoServiceServer).ToString(ctx, in)
+		return srv.(ShortcutManagerServiceServer).IsRequestPinShortcutSupported(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: PackageInfoService_ToString_FullMethodName,
+		FullMethod: ShortcutManagerService_IsRequestPinShortcutSupported_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PackageInfoServiceServer).ToString(ctx, req.(*ToStringRequest))
+		return srv.(ShortcutManagerServiceServer).IsRequestPinShortcutSupported(ctx, req.(*IsRequestPinShortcutSupportedRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _PackageInfoService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(WriteToParcelRequest)
+func _ShortcutManagerService_PushDynamicShortcut_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(PushDynamicShortcutRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(PackageInfoServiceServer).WriteToParcel(ctx, in)
+		return srv.(ShortcutManagerServiceServer).PushDynamicShortcut(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: PackageInfoService_WriteToParcel_FullMethodName,
+		FullMethod: ShortcutManagerService_PushDynamicShortcut_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PackageInfoServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
+		return srv.(ShortcutManagerServiceServer).PushDynamicShortcut(ctx, req.(*PushDynamicShortcutRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-// PackageInfoService_ServiceDesc is the grpc.ServiceDesc for PackageInfoService service.
+func _ShortcutManagerService_RemoveAllDynamicShortcuts_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(RemoveAllDynamicShortcutsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ShortcutManagerServiceServer).RemoveAllDynamicShortcuts(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ShortcutManagerService_RemoveAllDynamicShortcuts_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ShortcutManagerServiceServer).RemoveAllDynamicShortcuts(ctx, req.(*RemoveAllDynamicShortcutsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ShortcutManagerService_ReportShortcutUsed_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ReportShortcutUsedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ShortcutManagerServiceServer).ReportShortcutUsed(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ShortcutManagerService_ReportShortcutUsed_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ShortcutManagerServiceServer).ReportShortcutUsed(ctx, req.(*ReportShortcutUsedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ShortcutManagerService_RequestPinShortcut_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(RequestPinShortcutRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ShortcutManagerServiceServer).RequestPinShortcut(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ShortcutManagerService_RequestPinShortcut_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ShortcutManagerServiceServer).RequestPinShortcut(ctx, req.(*RequestPinShortcutRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// ShortcutManagerService_ServiceDesc is the grpc.ServiceDesc for ShortcutManagerService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
-var PackageInfoService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "pm.PackageInfoService",
-	HandlerType: (*PackageInfoServiceServer)(nil),
+var ShortcutManagerService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "pm.ShortcutManagerService",
+	HandlerType: (*ShortcutManagerServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
-			MethodName: "DescribeContents",
-			Handler:    _PackageInfoService_DescribeContents_Handler,
+			MethodName: "CreateShortcutResultIntent",
+			Handler:    _ShortcutManagerService_CreateShortcutResultIntent_Handler,
 		},
 		{
-			MethodName: "GetApexPackageName",
-			Handler:    _PackageInfoService_GetApexPackageName_Handler,
+			MethodName: "GetIconMaxHeight",
+			Handler:    _ShortcutManagerService_GetIconMaxHeight_Handler,
 		},
 		{
-			MethodName: "GetArchiveTimeMillis",
-			Handler:    _PackageInfoService_GetArchiveTimeMillis_Handler,
+			MethodName: "GetIconMaxWidth",
+			Handler:    _ShortcutManagerService_GetIconMaxWidth_Handler,
 		},
 		{
-			MethodName: "GetLongVersionCode",
-			Handler:    _PackageInfoService_GetLongVersionCode_Handler,
+			MethodName: "GetMaxShortcutCountPerActivity",
+			Handler:    _ShortcutManagerService_GetMaxShortcutCountPerActivity_Handler,
 		},
 		{
-			MethodName: "SetLongVersionCode",
-			Handler:    _PackageInfoService_SetLongVersionCode_Handler,
+			MethodName: "IsRateLimitingActive",
+			Handler:    _ShortcutManagerService_IsRateLimitingActive_Handler,
 		},
 		{
-			MethodName: "ToString",
-			Handler:    _PackageInfoService_ToString_Handler,
+			MethodName: "IsRequestPinShortcutSupported",
+			Handler:    _ShortcutManagerService_IsRequestPinShortcutSupported_Handler,
 		},
 		{
-			MethodName: "WriteToParcel",
-			Handler:    _PackageInfoService_WriteToParcel_Handler,
+			MethodName: "PushDynamicShortcut",
+			Handler:    _ShortcutManagerService_PushDynamicShortcut_Handler,
+		},
+		{
+			MethodName: "RemoveAllDynamicShortcuts",
+			Handler:    _ShortcutManagerService_RemoveAllDynamicShortcuts_Handler,
+		},
+		{
+			MethodName: "ReportShortcutUsed",
+			Handler:    _ShortcutManagerService_ReportShortcutUsed_Handler,
+		},
+		{
+			MethodName: "RequestPinShortcut",
+			Handler:    _ShortcutManagerService_RequestPinShortcut_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/pm/pm.proto",
+}
+
+const (
+	CrossProfileAppsService_CanInteractAcrossProfiles_FullMethodName                 = "/pm.CrossProfileAppsService/CanInteractAcrossProfiles"
+	CrossProfileAppsService_CanRequestInteractAcrossProfiles_FullMethodName          = "/pm.CrossProfileAppsService/CanRequestInteractAcrossProfiles"
+	CrossProfileAppsService_CreateRequestInteractAcrossProfilesIntent_FullMethodName = "/pm.CrossProfileAppsService/CreateRequestInteractAcrossProfilesIntent"
+	CrossProfileAppsService_GetProfileSwitchingIconDrawable_FullMethodName           = "/pm.CrossProfileAppsService/GetProfileSwitchingIconDrawable"
+	CrossProfileAppsService_GetProfileSwitchingLabel_FullMethodName                  = "/pm.CrossProfileAppsService/GetProfileSwitchingLabel"
+	CrossProfileAppsService_IsManagedProfile_FullMethodName                          = "/pm.CrossProfileAppsService/IsManagedProfile"
+	CrossProfileAppsService_IsProfile_FullMethodName                                 = "/pm.CrossProfileAppsService/IsProfile"
+	CrossProfileAppsService_StartActivity3_FullMethodName                            = "/pm.CrossProfileAppsService/StartActivity3"
+	CrossProfileAppsService_StartActivity4_1_FullMethodName                          = "/pm.CrossProfileAppsService/StartActivity4_1"
+	CrossProfileAppsService_StartMainActivity2_FullMethodName                        = "/pm.CrossProfileAppsService/StartMainActivity2"
+	CrossProfileAppsService_StartMainActivity4_1_FullMethodName                      = "/pm.CrossProfileAppsService/StartMainActivity4_1"
+)
+
+// CrossProfileAppsServiceClient is the client API for CrossProfileAppsService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type CrossProfileAppsServiceClient interface {
+	CanInteractAcrossProfiles(ctx context.Context, in *CanInteractAcrossProfilesRequest, opts ...grpc.CallOption) (*CanInteractAcrossProfilesResponse, error)
+	CanRequestInteractAcrossProfiles(ctx context.Context, in *CanRequestInteractAcrossProfilesRequest, opts ...grpc.CallOption) (*CanRequestInteractAcrossProfilesResponse, error)
+	CreateRequestInteractAcrossProfilesIntent(ctx context.Context, in *CreateRequestInteractAcrossProfilesIntentRequest, opts ...grpc.CallOption) (*CreateRequestInteractAcrossProfilesIntentResponse, error)
+	GetProfileSwitchingIconDrawable(ctx context.Context, in *GetProfileSwitchingIconDrawableRequest, opts ...grpc.CallOption) (*GetProfileSwitchingIconDrawableResponse, error)
+	GetProfileSwitchingLabel(ctx context.Context, in *GetProfileSwitchingLabelRequest, opts ...grpc.CallOption) (*GetProfileSwitchingLabelResponse, error)
+	IsManagedProfile(ctx context.Context, in *IsManagedProfileRequest, opts ...grpc.CallOption) (*IsManagedProfileResponse, error)
+	IsProfile(ctx context.Context, in *IsProfileRequest, opts ...grpc.CallOption) (*IsProfileResponse, error)
+	StartActivity3(ctx context.Context, in *StartActivity3Request, opts ...grpc.CallOption) (*StartActivity3Response, error)
+	StartActivity4_1(ctx context.Context, in *StartActivity4_1Request, opts ...grpc.CallOption) (*StartActivity4_1Response, error)
+	StartMainActivity2(ctx context.Context, in *StartMainActivity2Request, opts ...grpc.CallOption) (*StartMainActivity2Response, error)
+	StartMainActivity4_1(ctx context.Context, in *StartMainActivity4_1Request, opts ...grpc.CallOption) (*StartMainActivity4_1Response, error)
+}
+
+type crossProfileAppsServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewCrossProfileAppsServiceClient(cc grpc.ClientConnInterface) CrossProfileAppsServiceClient {
+	return &crossProfileAppsServiceClient{cc}
+}
+
+func (c *crossProfileAppsServiceClient) CanInteractAcrossProfiles(ctx context.Context, in *CanInteractAcrossProfilesRequest, opts ...grpc.CallOption) (*CanInteractAcrossProfilesResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(CanInteractAcrossProfilesResponse)
+	err := c.cc.Invoke(ctx, CrossProfileAppsService_CanInteractAcrossProfiles_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *crossProfileAppsServiceClient) CanRequestInteractAcrossProfiles(ctx context.Context, in *CanRequestInteractAcrossProfilesRequest, opts ...grpc.CallOption) (*CanRequestInteractAcrossProfilesResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(CanRequestInteractAcrossProfilesResponse)
+	err := c.cc.Invoke(ctx, CrossProfileAppsService_CanRequestInteractAcrossProfiles_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *crossProfileAppsServiceClient) CreateRequestInteractAcrossProfilesIntent(ctx context.Context, in *CreateRequestInteractAcrossProfilesIntentRequest, opts ...grpc.CallOption) (*CreateRequestInteractAcrossProfilesIntentResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(CreateRequestInteractAcrossProfilesIntentResponse)
+	err := c.cc.Invoke(ctx, CrossProfileAppsService_CreateRequestInteractAcrossProfilesIntent_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *crossProfileAppsServiceClient) GetProfileSwitchingIconDrawable(ctx context.Context, in *GetProfileSwitchingIconDrawableRequest, opts ...grpc.CallOption) (*GetProfileSwitchingIconDrawableResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetProfileSwitchingIconDrawableResponse)
+	err := c.cc.Invoke(ctx, CrossProfileAppsService_GetProfileSwitchingIconDrawable_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *crossProfileAppsServiceClient) GetProfileSwitchingLabel(ctx context.Context, in *GetProfileSwitchingLabelRequest, opts ...grpc.CallOption) (*GetProfileSwitchingLabelResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetProfileSwitchingLabelResponse)
+	err := c.cc.Invoke(ctx, CrossProfileAppsService_GetProfileSwitchingLabel_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *crossProfileAppsServiceClient) IsManagedProfile(ctx context.Context, in *IsManagedProfileRequest, opts ...grpc.CallOption) (*IsManagedProfileResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IsManagedProfileResponse)
+	err := c.cc.Invoke(ctx, CrossProfileAppsService_IsManagedProfile_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *crossProfileAppsServiceClient) IsProfile(ctx context.Context, in *IsProfileRequest, opts ...grpc.CallOption) (*IsProfileResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IsProfileResponse)
+	err := c.cc.Invoke(ctx, CrossProfileAppsService_IsProfile_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *crossProfileAppsServiceClient) StartActivity3(ctx context.Context, in *StartActivity3Request, opts ...grpc.CallOption) (*StartActivity3Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(StartActivity3Response)
+	err := c.cc.Invoke(ctx, CrossProfileAppsService_StartActivity3_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *crossProfileAppsServiceClient) StartActivity4_1(ctx context.Context, in *StartActivity4_1Request, opts ...grpc.CallOption) (*StartActivity4_1Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(StartActivity4_1Response)
+	err := c.cc.Invoke(ctx, CrossProfileAppsService_StartActivity4_1_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *crossProfileAppsServiceClient) StartMainActivity2(ctx context.Context, in *StartMainActivity2Request, opts ...grpc.CallOption) (*StartMainActivity2Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(StartMainActivity2Response)
+	err := c.cc.Invoke(ctx, CrossProfileAppsService_StartMainActivity2_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *crossProfileAppsServiceClient) StartMainActivity4_1(ctx context.Context, in *StartMainActivity4_1Request, opts ...grpc.CallOption) (*StartMainActivity4_1Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(StartMainActivity4_1Response)
+	err := c.cc.Invoke(ctx, CrossProfileAppsService_StartMainActivity4_1_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// CrossProfileAppsServiceServer is the server API for CrossProfileAppsService service.
+// All implementations must embed UnimplementedCrossProfileAppsServiceServer
+// for forward compatibility.
+type CrossProfileAppsServiceServer interface {
+	CanInteractAcrossProfiles(context.Context, *CanInteractAcrossProfilesRequest) (*CanInteractAcrossProfilesResponse, error)
+	CanRequestInteractAcrossProfiles(context.Context, *CanRequestInteractAcrossProfilesRequest) (*CanRequestInteractAcrossProfilesResponse, error)
+	CreateRequestInteractAcrossProfilesIntent(context.Context, *CreateRequestInteractAcrossProfilesIntentRequest) (*CreateRequestInteractAcrossProfilesIntentResponse, error)
+	GetProfileSwitchingIconDrawable(context.Context, *GetProfileSwitchingIconDrawableRequest) (*GetProfileSwitchingIconDrawableResponse, error)
+	GetProfileSwitchingLabel(context.Context, *GetProfileSwitchingLabelRequest) (*GetProfileSwitchingLabelResponse, error)
+	IsManagedProfile(context.Context, *IsManagedProfileRequest) (*IsManagedProfileResponse, error)
+	IsProfile(context.Context, *IsProfileRequest) (*IsProfileResponse, error)
+	StartActivity3(context.Context, *StartActivity3Request) (*StartActivity3Response, error)
+	StartActivity4_1(context.Context, *StartActivity4_1Request) (*StartActivity4_1Response, error)
+	StartMainActivity2(context.Context, *StartMainActivity2Request) (*StartMainActivity2Response, error)
+	StartMainActivity4_1(context.Context, *StartMainActivity4_1Request) (*StartMainActivity4_1Response, error)
+	mustEmbedUnimplementedCrossProfileAppsServiceServer()
+}
+
+// UnimplementedCrossProfileAppsServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedCrossProfileAppsServiceServer struct{}
+
+func (UnimplementedCrossProfileAppsServiceServer) CanInteractAcrossProfiles(context.Context, *CanInteractAcrossProfilesRequest) (*CanInteractAcrossProfilesResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method CanInteractAcrossProfiles not implemented")
+}
+func (UnimplementedCrossProfileAppsServiceServer) CanRequestInteractAcrossProfiles(context.Context, *CanRequestInteractAcrossProfilesRequest) (*CanRequestInteractAcrossProfilesResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method CanRequestInteractAcrossProfiles not implemented")
+}
+func (UnimplementedCrossProfileAppsServiceServer) CreateRequestInteractAcrossProfilesIntent(context.Context, *CreateRequestInteractAcrossProfilesIntentRequest) (*CreateRequestInteractAcrossProfilesIntentResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method CreateRequestInteractAcrossProfilesIntent not implemented")
+}
+func (UnimplementedCrossProfileAppsServiceServer) GetProfileSwitchingIconDrawable(context.Context, *GetProfileSwitchingIconDrawableRequest) (*GetProfileSwitchingIconDrawableResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetProfileSwitchingIconDrawable not implemented")
+}
+func (UnimplementedCrossProfileAppsServiceServer) GetProfileSwitchingLabel(context.Context, *GetProfileSwitchingLabelRequest) (*GetProfileSwitchingLabelResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetProfileSwitchingLabel not implemented")
+}
+func (UnimplementedCrossProfileAppsServiceServer) IsManagedProfile(context.Context, *IsManagedProfileRequest) (*IsManagedProfileResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsManagedProfile not implemented")
+}
+func (UnimplementedCrossProfileAppsServiceServer) IsProfile(context.Context, *IsProfileRequest) (*IsProfileResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsProfile not implemented")
+}
+func (UnimplementedCrossProfileAppsServiceServer) StartActivity3(context.Context, *StartActivity3Request) (*StartActivity3Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method StartActivity3 not implemented")
+}
+func (UnimplementedCrossProfileAppsServiceServer) StartActivity4_1(context.Context, *StartActivity4_1Request) (*StartActivity4_1Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method StartActivity4_1 not implemented")
+}
+func (UnimplementedCrossProfileAppsServiceServer) StartMainActivity2(context.Context, *StartMainActivity2Request) (*StartMainActivity2Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method StartMainActivity2 not implemented")
+}
+func (UnimplementedCrossProfileAppsServiceServer) StartMainActivity4_1(context.Context, *StartMainActivity4_1Request) (*StartMainActivity4_1Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method StartMainActivity4_1 not implemented")
+}
+func (UnimplementedCrossProfileAppsServiceServer) mustEmbedUnimplementedCrossProfileAppsServiceServer() {
+}
+func (UnimplementedCrossProfileAppsServiceServer) testEmbeddedByValue() {}
+
+// UnsafeCrossProfileAppsServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to CrossProfileAppsServiceServer will
+// result in compilation errors.
+type UnsafeCrossProfileAppsServiceServer interface {
+	mustEmbedUnimplementedCrossProfileAppsServiceServer()
+}
+
+func RegisterCrossProfileAppsServiceServer(s grpc.ServiceRegistrar, srv CrossProfileAppsServiceServer) {
+	// If the following call panics, it indicates UnimplementedCrossProfileAppsServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&CrossProfileAppsService_ServiceDesc, srv)
+}
+
+func _CrossProfileAppsService_CanInteractAcrossProfiles_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CanInteractAcrossProfilesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CrossProfileAppsServiceServer).CanInteractAcrossProfiles(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CrossProfileAppsService_CanInteractAcrossProfiles_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CrossProfileAppsServiceServer).CanInteractAcrossProfiles(ctx, req.(*CanInteractAcrossProfilesRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CrossProfileAppsService_CanRequestInteractAcrossProfiles_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CanRequestInteractAcrossProfilesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CrossProfileAppsServiceServer).CanRequestInteractAcrossProfiles(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CrossProfileAppsService_CanRequestInteractAcrossProfiles_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CrossProfileAppsServiceServer).CanRequestInteractAcrossProfiles(ctx, req.(*CanRequestInteractAcrossProfilesRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CrossProfileAppsService_CreateRequestInteractAcrossProfilesIntent_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CreateRequestInteractAcrossProfilesIntentRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CrossProfileAppsServiceServer).CreateRequestInteractAcrossProfilesIntent(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CrossProfileAppsService_CreateRequestInteractAcrossProfilesIntent_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CrossProfileAppsServiceServer).CreateRequestInteractAcrossProfilesIntent(ctx, req.(*CreateRequestInteractAcrossProfilesIntentRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CrossProfileAppsService_GetProfileSwitchingIconDrawable_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetProfileSwitchingIconDrawableRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CrossProfileAppsServiceServer).GetProfileSwitchingIconDrawable(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CrossProfileAppsService_GetProfileSwitchingIconDrawable_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CrossProfileAppsServiceServer).GetProfileSwitchingIconDrawable(ctx, req.(*GetProfileSwitchingIconDrawableRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CrossProfileAppsService_GetProfileSwitchingLabel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetProfileSwitchingLabelRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CrossProfileAppsServiceServer).GetProfileSwitchingLabel(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CrossProfileAppsService_GetProfileSwitchingLabel_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CrossProfileAppsServiceServer).GetProfileSwitchingLabel(ctx, req.(*GetProfileSwitchingLabelRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CrossProfileAppsService_IsManagedProfile_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsManagedProfileRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CrossProfileAppsServiceServer).IsManagedProfile(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CrossProfileAppsService_IsManagedProfile_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CrossProfileAppsServiceServer).IsManagedProfile(ctx, req.(*IsManagedProfileRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CrossProfileAppsService_IsProfile_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsProfileRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CrossProfileAppsServiceServer).IsProfile(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CrossProfileAppsService_IsProfile_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CrossProfileAppsServiceServer).IsProfile(ctx, req.(*IsProfileRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CrossProfileAppsService_StartActivity3_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(StartActivity3Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CrossProfileAppsServiceServer).StartActivity3(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CrossProfileAppsService_StartActivity3_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CrossProfileAppsServiceServer).StartActivity3(ctx, req.(*StartActivity3Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CrossProfileAppsService_StartActivity4_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(StartActivity4_1Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CrossProfileAppsServiceServer).StartActivity4_1(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CrossProfileAppsService_StartActivity4_1_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CrossProfileAppsServiceServer).StartActivity4_1(ctx, req.(*StartActivity4_1Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CrossProfileAppsService_StartMainActivity2_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(StartMainActivity2Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CrossProfileAppsServiceServer).StartMainActivity2(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CrossProfileAppsService_StartMainActivity2_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CrossProfileAppsServiceServer).StartMainActivity2(ctx, req.(*StartMainActivity2Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CrossProfileAppsService_StartMainActivity4_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(StartMainActivity4_1Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CrossProfileAppsServiceServer).StartMainActivity4_1(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CrossProfileAppsService_StartMainActivity4_1_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CrossProfileAppsServiceServer).StartMainActivity4_1(ctx, req.(*StartMainActivity4_1Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// CrossProfileAppsService_ServiceDesc is the grpc.ServiceDesc for CrossProfileAppsService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var CrossProfileAppsService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "pm.CrossProfileAppsService",
+	HandlerType: (*CrossProfileAppsServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "CanInteractAcrossProfiles",
+			Handler:    _CrossProfileAppsService_CanInteractAcrossProfiles_Handler,
+		},
+		{
+			MethodName: "CanRequestInteractAcrossProfiles",
+			Handler:    _CrossProfileAppsService_CanRequestInteractAcrossProfiles_Handler,
+		},
+		{
+			MethodName: "CreateRequestInteractAcrossProfilesIntent",
+			Handler:    _CrossProfileAppsService_CreateRequestInteractAcrossProfilesIntent_Handler,
+		},
+		{
+			MethodName: "GetProfileSwitchingIconDrawable",
+			Handler:    _CrossProfileAppsService_GetProfileSwitchingIconDrawable_Handler,
+		},
+		{
+			MethodName: "GetProfileSwitchingLabel",
+			Handler:    _CrossProfileAppsService_GetProfileSwitchingLabel_Handler,
+		},
+		{
+			MethodName: "IsManagedProfile",
+			Handler:    _CrossProfileAppsService_IsManagedProfile_Handler,
+		},
+		{
+			MethodName: "IsProfile",
+			Handler:    _CrossProfileAppsService_IsProfile_Handler,
+		},
+		{
+			MethodName: "StartActivity3",
+			Handler:    _CrossProfileAppsService_StartActivity3_Handler,
+		},
+		{
+			MethodName: "StartActivity4_1",
+			Handler:    _CrossProfileAppsService_StartActivity4_1_Handler,
+		},
+		{
+			MethodName: "StartMainActivity2",
+			Handler:    _CrossProfileAppsService_StartMainActivity2_Handler,
+		},
+		{
+			MethodName: "StartMainActivity4_1",
+			Handler:    _CrossProfileAppsService_StartMainActivity4_1_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

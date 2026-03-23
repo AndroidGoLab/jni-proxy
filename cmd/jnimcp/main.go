@@ -89,7 +89,7 @@ func run(cmd *cobra.Command, _ []string) error {
 	if err != nil {
 		return fmt.Errorf("connecting to jniservice: %w", err)
 	}
-	defer conn.Close()
+	defer func() { _ = conn.Close() }()
 
 	srv := mcpserver.NewServer(conn, log)
 

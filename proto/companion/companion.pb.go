@@ -799,166 +799,6 @@ func (*EnableSystemDataSyncForTypesResponse) Descriptor() ([]byte, []int) {
 	return file_proto_companion_companion_proto_rawDescGZIP(), []int{17}
 }
 
-type GetAssociationsRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetAssociationsRequest) Reset() {
-	*x = GetAssociationsRequest{}
-	mi := &file_proto_companion_companion_proto_msgTypes[18]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetAssociationsRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetAssociationsRequest) ProtoMessage() {}
-
-func (x *GetAssociationsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_companion_companion_proto_msgTypes[18]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetAssociationsRequest.ProtoReflect.Descriptor instead.
-func (*GetAssociationsRequest) Descriptor() ([]byte, []int) {
-	return file_proto_companion_companion_proto_rawDescGZIP(), []int{18}
-}
-
-type GetAssociationsResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetAssociationsResponse) Reset() {
-	*x = GetAssociationsResponse{}
-	mi := &file_proto_companion_companion_proto_msgTypes[19]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetAssociationsResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetAssociationsResponse) ProtoMessage() {}
-
-func (x *GetAssociationsResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_companion_companion_proto_msgTypes[19]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetAssociationsResponse.ProtoReflect.Descriptor instead.
-func (*GetAssociationsResponse) Descriptor() ([]byte, []int) {
-	return file_proto_companion_companion_proto_rawDescGZIP(), []int{19}
-}
-
-func (x *GetAssociationsResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type GetMyAssociationsRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetMyAssociationsRequest) Reset() {
-	*x = GetMyAssociationsRequest{}
-	mi := &file_proto_companion_companion_proto_msgTypes[20]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetMyAssociationsRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetMyAssociationsRequest) ProtoMessage() {}
-
-func (x *GetMyAssociationsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_companion_companion_proto_msgTypes[20]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetMyAssociationsRequest.ProtoReflect.Descriptor instead.
-func (*GetMyAssociationsRequest) Descriptor() ([]byte, []int) {
-	return file_proto_companion_companion_proto_rawDescGZIP(), []int{20}
-}
-
-type GetMyAssociationsResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetMyAssociationsResponse) Reset() {
-	*x = GetMyAssociationsResponse{}
-	mi := &file_proto_companion_companion_proto_msgTypes[21]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetMyAssociationsResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetMyAssociationsResponse) ProtoMessage() {}
-
-func (x *GetMyAssociationsResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_companion_companion_proto_msgTypes[21]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetMyAssociationsResponse.ProtoReflect.Descriptor instead.
-func (*GetMyAssociationsResponse) Descriptor() ([]byte, []int) {
-	return file_proto_companion_companion_proto_rawDescGZIP(), []int{21}
-}
-
-func (x *GetMyAssociationsResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
 type HasNotificationAccessRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
@@ -968,7 +808,7 @@ type HasNotificationAccessRequest struct {
 
 func (x *HasNotificationAccessRequest) Reset() {
 	*x = HasNotificationAccessRequest{}
-	mi := &file_proto_companion_companion_proto_msgTypes[22]
+	mi := &file_proto_companion_companion_proto_msgTypes[18]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -980,7 +820,7 @@ func (x *HasNotificationAccessRequest) String() string {
 func (*HasNotificationAccessRequest) ProtoMessage() {}
 
 func (x *HasNotificationAccessRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_companion_companion_proto_msgTypes[22]
+	mi := &file_proto_companion_companion_proto_msgTypes[18]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -993,7 +833,7 @@ func (x *HasNotificationAccessRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use HasNotificationAccessRequest.ProtoReflect.Descriptor instead.
 func (*HasNotificationAccessRequest) Descriptor() ([]byte, []int) {
-	return file_proto_companion_companion_proto_rawDescGZIP(), []int{22}
+	return file_proto_companion_companion_proto_rawDescGZIP(), []int{18}
 }
 
 func (x *HasNotificationAccessRequest) GetArg0() int64 {
@@ -1012,7 +852,7 @@ type HasNotificationAccessResponse struct {
 
 func (x *HasNotificationAccessResponse) Reset() {
 	*x = HasNotificationAccessResponse{}
-	mi := &file_proto_companion_companion_proto_msgTypes[23]
+	mi := &file_proto_companion_companion_proto_msgTypes[19]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1024,7 +864,7 @@ func (x *HasNotificationAccessResponse) String() string {
 func (*HasNotificationAccessResponse) ProtoMessage() {}
 
 func (x *HasNotificationAccessResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_companion_companion_proto_msgTypes[23]
+	mi := &file_proto_companion_companion_proto_msgTypes[19]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1037,7 +877,7 @@ func (x *HasNotificationAccessResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use HasNotificationAccessResponse.ProtoReflect.Descriptor instead.
 func (*HasNotificationAccessResponse) Descriptor() ([]byte, []int) {
-	return file_proto_companion_companion_proto_rawDescGZIP(), []int{23}
+	return file_proto_companion_companion_proto_rawDescGZIP(), []int{19}
 }
 
 func (x *HasNotificationAccessResponse) GetResult() bool {
@@ -1056,7 +896,7 @@ type IsPermissionTransferUserConsentedRequest struct {
 
 func (x *IsPermissionTransferUserConsentedRequest) Reset() {
 	*x = IsPermissionTransferUserConsentedRequest{}
-	mi := &file_proto_companion_companion_proto_msgTypes[24]
+	mi := &file_proto_companion_companion_proto_msgTypes[20]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1068,7 +908,7 @@ func (x *IsPermissionTransferUserConsentedRequest) String() string {
 func (*IsPermissionTransferUserConsentedRequest) ProtoMessage() {}
 
 func (x *IsPermissionTransferUserConsentedRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_companion_companion_proto_msgTypes[24]
+	mi := &file_proto_companion_companion_proto_msgTypes[20]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1081,7 +921,7 @@ func (x *IsPermissionTransferUserConsentedRequest) ProtoReflect() protoreflect.M
 
 // Deprecated: Use IsPermissionTransferUserConsentedRequest.ProtoReflect.Descriptor instead.
 func (*IsPermissionTransferUserConsentedRequest) Descriptor() ([]byte, []int) {
-	return file_proto_companion_companion_proto_rawDescGZIP(), []int{24}
+	return file_proto_companion_companion_proto_rawDescGZIP(), []int{20}
 }
 
 func (x *IsPermissionTransferUserConsentedRequest) GetArg0() int32 {
@@ -1100,7 +940,7 @@ type IsPermissionTransferUserConsentedResponse struct {
 
 func (x *IsPermissionTransferUserConsentedResponse) Reset() {
 	*x = IsPermissionTransferUserConsentedResponse{}
-	mi := &file_proto_companion_companion_proto_msgTypes[25]
+	mi := &file_proto_companion_companion_proto_msgTypes[21]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1112,7 +952,7 @@ func (x *IsPermissionTransferUserConsentedResponse) String() string {
 func (*IsPermissionTransferUserConsentedResponse) ProtoMessage() {}
 
 func (x *IsPermissionTransferUserConsentedResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_companion_companion_proto_msgTypes[25]
+	mi := &file_proto_companion_companion_proto_msgTypes[21]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1125,7 +965,7 @@ func (x *IsPermissionTransferUserConsentedResponse) ProtoReflect() protoreflect.
 
 // Deprecated: Use IsPermissionTransferUserConsentedResponse.ProtoReflect.Descriptor instead.
 func (*IsPermissionTransferUserConsentedResponse) Descriptor() ([]byte, []int) {
-	return file_proto_companion_companion_proto_rawDescGZIP(), []int{25}
+	return file_proto_companion_companion_proto_rawDescGZIP(), []int{21}
 }
 
 func (x *IsPermissionTransferUserConsentedResponse) GetResult() bool {
@@ -1144,7 +984,7 @@ type RemoveBondRequest struct {
 
 func (x *RemoveBondRequest) Reset() {
 	*x = RemoveBondRequest{}
-	mi := &file_proto_companion_companion_proto_msgTypes[26]
+	mi := &file_proto_companion_companion_proto_msgTypes[22]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1156,7 +996,7 @@ func (x *RemoveBondRequest) String() string {
 func (*RemoveBondRequest) ProtoMessage() {}
 
 func (x *RemoveBondRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_companion_companion_proto_msgTypes[26]
+	mi := &file_proto_companion_companion_proto_msgTypes[22]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1169,7 +1009,7 @@ func (x *RemoveBondRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use RemoveBondRequest.ProtoReflect.Descriptor instead.
 func (*RemoveBondRequest) Descriptor() ([]byte, []int) {
-	return file_proto_companion_companion_proto_rawDescGZIP(), []int{26}
+	return file_proto_companion_companion_proto_rawDescGZIP(), []int{22}
 }
 
 func (x *RemoveBondRequest) GetArg0() int32 {
@@ -1188,7 +1028,7 @@ type RemoveBondResponse struct {
 
 func (x *RemoveBondResponse) Reset() {
 	*x = RemoveBondResponse{}
-	mi := &file_proto_companion_companion_proto_msgTypes[27]
+	mi := &file_proto_companion_companion_proto_msgTypes[23]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1200,7 +1040,7 @@ func (x *RemoveBondResponse) String() string {
 func (*RemoveBondResponse) ProtoMessage() {}
 
 func (x *RemoveBondResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_companion_companion_proto_msgTypes[27]
+	mi := &file_proto_companion_companion_proto_msgTypes[23]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1213,7 +1053,7 @@ func (x *RemoveBondResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use RemoveBondResponse.ProtoReflect.Descriptor instead.
 func (*RemoveBondResponse) Descriptor() ([]byte, []int) {
-	return file_proto_companion_companion_proto_rawDescGZIP(), []int{27}
+	return file_proto_companion_companion_proto_rawDescGZIP(), []int{23}
 }
 
 func (x *RemoveBondResponse) GetResult() bool {
@@ -1232,7 +1072,7 @@ type RequestNotificationAccessRequest struct {
 
 func (x *RequestNotificationAccessRequest) Reset() {
 	*x = RequestNotificationAccessRequest{}
-	mi := &file_proto_companion_companion_proto_msgTypes[28]
+	mi := &file_proto_companion_companion_proto_msgTypes[24]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1244,7 +1084,7 @@ func (x *RequestNotificationAccessRequest) String() string {
 func (*RequestNotificationAccessRequest) ProtoMessage() {}
 
 func (x *RequestNotificationAccessRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_companion_companion_proto_msgTypes[28]
+	mi := &file_proto_companion_companion_proto_msgTypes[24]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1257,7 +1097,7 @@ func (x *RequestNotificationAccessRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use RequestNotificationAccessRequest.ProtoReflect.Descriptor instead.
 func (*RequestNotificationAccessRequest) Descriptor() ([]byte, []int) {
-	return file_proto_companion_companion_proto_rawDescGZIP(), []int{28}
+	return file_proto_companion_companion_proto_rawDescGZIP(), []int{24}
 }
 
 func (x *RequestNotificationAccessRequest) GetArg0() int64 {
@@ -1275,7 +1115,7 @@ type RequestNotificationAccessResponse struct {
 
 func (x *RequestNotificationAccessResponse) Reset() {
 	*x = RequestNotificationAccessResponse{}
-	mi := &file_proto_companion_companion_proto_msgTypes[29]
+	mi := &file_proto_companion_companion_proto_msgTypes[25]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1287,7 +1127,7 @@ func (x *RequestNotificationAccessResponse) String() string {
 func (*RequestNotificationAccessResponse) ProtoMessage() {}
 
 func (x *RequestNotificationAccessResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_companion_companion_proto_msgTypes[29]
+	mi := &file_proto_companion_companion_proto_msgTypes[25]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1300,7 +1140,7 @@ func (x *RequestNotificationAccessResponse) ProtoReflect() protoreflect.Message 
 
 // Deprecated: Use RequestNotificationAccessResponse.ProtoReflect.Descriptor instead.
 func (*RequestNotificationAccessResponse) Descriptor() ([]byte, []int) {
-	return file_proto_companion_companion_proto_rawDescGZIP(), []int{29}
+	return file_proto_companion_companion_proto_rawDescGZIP(), []int{25}
 }
 
 type SetDeviceIdRequest struct {
@@ -1313,7 +1153,7 @@ type SetDeviceIdRequest struct {
 
 func (x *SetDeviceIdRequest) Reset() {
 	*x = SetDeviceIdRequest{}
-	mi := &file_proto_companion_companion_proto_msgTypes[30]
+	mi := &file_proto_companion_companion_proto_msgTypes[26]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1325,7 +1165,7 @@ func (x *SetDeviceIdRequest) String() string {
 func (*SetDeviceIdRequest) ProtoMessage() {}
 
 func (x *SetDeviceIdRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_companion_companion_proto_msgTypes[30]
+	mi := &file_proto_companion_companion_proto_msgTypes[26]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1338,7 +1178,7 @@ func (x *SetDeviceIdRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetDeviceIdRequest.ProtoReflect.Descriptor instead.
 func (*SetDeviceIdRequest) Descriptor() ([]byte, []int) {
-	return file_proto_companion_companion_proto_rawDescGZIP(), []int{30}
+	return file_proto_companion_companion_proto_rawDescGZIP(), []int{26}
 }
 
 func (x *SetDeviceIdRequest) GetArg0() int32 {
@@ -1363,7 +1203,7 @@ type SetDeviceIdResponse struct {
 
 func (x *SetDeviceIdResponse) Reset() {
 	*x = SetDeviceIdResponse{}
-	mi := &file_proto_companion_companion_proto_msgTypes[31]
+	mi := &file_proto_companion_companion_proto_msgTypes[27]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1375,7 +1215,7 @@ func (x *SetDeviceIdResponse) String() string {
 func (*SetDeviceIdResponse) ProtoMessage() {}
 
 func (x *SetDeviceIdResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_companion_companion_proto_msgTypes[31]
+	mi := &file_proto_companion_companion_proto_msgTypes[27]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1388,7 +1228,7 @@ func (x *SetDeviceIdResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetDeviceIdResponse.ProtoReflect.Descriptor instead.
 func (*SetDeviceIdResponse) Descriptor() ([]byte, []int) {
-	return file_proto_companion_companion_proto_rawDescGZIP(), []int{31}
+	return file_proto_companion_companion_proto_rawDescGZIP(), []int{27}
 }
 
 type StartObservingDevicePresence1Request struct {
@@ -1400,7 +1240,7 @@ type StartObservingDevicePresence1Request struct {
 
 func (x *StartObservingDevicePresence1Request) Reset() {
 	*x = StartObservingDevicePresence1Request{}
-	mi := &file_proto_companion_companion_proto_msgTypes[32]
+	mi := &file_proto_companion_companion_proto_msgTypes[28]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1412,7 +1252,7 @@ func (x *StartObservingDevicePresence1Request) String() string {
 func (*StartObservingDevicePresence1Request) ProtoMessage() {}
 
 func (x *StartObservingDevicePresence1Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_companion_companion_proto_msgTypes[32]
+	mi := &file_proto_companion_companion_proto_msgTypes[28]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1425,7 +1265,7 @@ func (x *StartObservingDevicePresence1Request) ProtoReflect() protoreflect.Messa
 
 // Deprecated: Use StartObservingDevicePresence1Request.ProtoReflect.Descriptor instead.
 func (*StartObservingDevicePresence1Request) Descriptor() ([]byte, []int) {
-	return file_proto_companion_companion_proto_rawDescGZIP(), []int{32}
+	return file_proto_companion_companion_proto_rawDescGZIP(), []int{28}
 }
 
 func (x *StartObservingDevicePresence1Request) GetArg0() int64 {
@@ -1443,7 +1283,7 @@ type StartObservingDevicePresence1Response struct {
 
 func (x *StartObservingDevicePresence1Response) Reset() {
 	*x = StartObservingDevicePresence1Response{}
-	mi := &file_proto_companion_companion_proto_msgTypes[33]
+	mi := &file_proto_companion_companion_proto_msgTypes[29]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1455,7 +1295,7 @@ func (x *StartObservingDevicePresence1Response) String() string {
 func (*StartObservingDevicePresence1Response) ProtoMessage() {}
 
 func (x *StartObservingDevicePresence1Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_companion_companion_proto_msgTypes[33]
+	mi := &file_proto_companion_companion_proto_msgTypes[29]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1468,7 +1308,7 @@ func (x *StartObservingDevicePresence1Response) ProtoReflect() protoreflect.Mess
 
 // Deprecated: Use StartObservingDevicePresence1Response.ProtoReflect.Descriptor instead.
 func (*StartObservingDevicePresence1Response) Descriptor() ([]byte, []int) {
-	return file_proto_companion_companion_proto_rawDescGZIP(), []int{33}
+	return file_proto_companion_companion_proto_rawDescGZIP(), []int{29}
 }
 
 type StartObservingDevicePresence1_1Request struct {
@@ -1480,7 +1320,7 @@ type StartObservingDevicePresence1_1Request struct {
 
 func (x *StartObservingDevicePresence1_1Request) Reset() {
 	*x = StartObservingDevicePresence1_1Request{}
-	mi := &file_proto_companion_companion_proto_msgTypes[34]
+	mi := &file_proto_companion_companion_proto_msgTypes[30]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1492,7 +1332,7 @@ func (x *StartObservingDevicePresence1_1Request) String() string {
 func (*StartObservingDevicePresence1_1Request) ProtoMessage() {}
 
 func (x *StartObservingDevicePresence1_1Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_companion_companion_proto_msgTypes[34]
+	mi := &file_proto_companion_companion_proto_msgTypes[30]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1505,7 +1345,7 @@ func (x *StartObservingDevicePresence1_1Request) ProtoReflect() protoreflect.Mes
 
 // Deprecated: Use StartObservingDevicePresence1_1Request.ProtoReflect.Descriptor instead.
 func (*StartObservingDevicePresence1_1Request) Descriptor() ([]byte, []int) {
-	return file_proto_companion_companion_proto_rawDescGZIP(), []int{34}
+	return file_proto_companion_companion_proto_rawDescGZIP(), []int{30}
 }
 
 func (x *StartObservingDevicePresence1_1Request) GetArg0() string {
@@ -1523,7 +1363,7 @@ type StartObservingDevicePresence1_1Response struct {
 
 func (x *StartObservingDevicePresence1_1Response) Reset() {
 	*x = StartObservingDevicePresence1_1Response{}
-	mi := &file_proto_companion_companion_proto_msgTypes[35]
+	mi := &file_proto_companion_companion_proto_msgTypes[31]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1535,7 +1375,7 @@ func (x *StartObservingDevicePresence1_1Response) String() string {
 func (*StartObservingDevicePresence1_1Response) ProtoMessage() {}
 
 func (x *StartObservingDevicePresence1_1Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_companion_companion_proto_msgTypes[35]
+	mi := &file_proto_companion_companion_proto_msgTypes[31]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1548,103 +1388,7 @@ func (x *StartObservingDevicePresence1_1Response) ProtoReflect() protoreflect.Me
 
 // Deprecated: Use StartObservingDevicePresence1_1Response.ProtoReflect.Descriptor instead.
 func (*StartObservingDevicePresence1_1Response) Descriptor() ([]byte, []int) {
-	return file_proto_companion_companion_proto_rawDescGZIP(), []int{35}
-}
-
-type StartSystemDataTransferRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
-	Arg2          int64                  `protobuf:"varint,3,opt,name=arg2,proto3" json:"arg2,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *StartSystemDataTransferRequest) Reset() {
-	*x = StartSystemDataTransferRequest{}
-	mi := &file_proto_companion_companion_proto_msgTypes[36]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *StartSystemDataTransferRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*StartSystemDataTransferRequest) ProtoMessage() {}
-
-func (x *StartSystemDataTransferRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_companion_companion_proto_msgTypes[36]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use StartSystemDataTransferRequest.ProtoReflect.Descriptor instead.
-func (*StartSystemDataTransferRequest) Descriptor() ([]byte, []int) {
-	return file_proto_companion_companion_proto_rawDescGZIP(), []int{36}
-}
-
-func (x *StartSystemDataTransferRequest) GetArg0() int32 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-func (x *StartSystemDataTransferRequest) GetArg1() int64 {
-	if x != nil {
-		return x.Arg1
-	}
-	return 0
-}
-
-func (x *StartSystemDataTransferRequest) GetArg2() int64 {
-	if x != nil {
-		return x.Arg2
-	}
-	return 0
-}
-
-type StartSystemDataTransferResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *StartSystemDataTransferResponse) Reset() {
-	*x = StartSystemDataTransferResponse{}
-	mi := &file_proto_companion_companion_proto_msgTypes[37]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *StartSystemDataTransferResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*StartSystemDataTransferResponse) ProtoMessage() {}
-
-func (x *StartSystemDataTransferResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_companion_companion_proto_msgTypes[37]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use StartSystemDataTransferResponse.ProtoReflect.Descriptor instead.
-func (*StartSystemDataTransferResponse) Descriptor() ([]byte, []int) {
-	return file_proto_companion_companion_proto_rawDescGZIP(), []int{37}
+	return file_proto_companion_companion_proto_rawDescGZIP(), []int{31}
 }
 
 type StopObservingDevicePresence1Request struct {
@@ -1656,7 +1400,7 @@ type StopObservingDevicePresence1Request struct {
 
 func (x *StopObservingDevicePresence1Request) Reset() {
 	*x = StopObservingDevicePresence1Request{}
-	mi := &file_proto_companion_companion_proto_msgTypes[38]
+	mi := &file_proto_companion_companion_proto_msgTypes[32]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1668,7 +1412,7 @@ func (x *StopObservingDevicePresence1Request) String() string {
 func (*StopObservingDevicePresence1Request) ProtoMessage() {}
 
 func (x *StopObservingDevicePresence1Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_companion_companion_proto_msgTypes[38]
+	mi := &file_proto_companion_companion_proto_msgTypes[32]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1681,7 +1425,7 @@ func (x *StopObservingDevicePresence1Request) ProtoReflect() protoreflect.Messag
 
 // Deprecated: Use StopObservingDevicePresence1Request.ProtoReflect.Descriptor instead.
 func (*StopObservingDevicePresence1Request) Descriptor() ([]byte, []int) {
-	return file_proto_companion_companion_proto_rawDescGZIP(), []int{38}
+	return file_proto_companion_companion_proto_rawDescGZIP(), []int{32}
 }
 
 func (x *StopObservingDevicePresence1Request) GetArg0() int64 {
@@ -1699,7 +1443,7 @@ type StopObservingDevicePresence1Response struct {
 
 func (x *StopObservingDevicePresence1Response) Reset() {
 	*x = StopObservingDevicePresence1Response{}
-	mi := &file_proto_companion_companion_proto_msgTypes[39]
+	mi := &file_proto_companion_companion_proto_msgTypes[33]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1711,7 +1455,7 @@ func (x *StopObservingDevicePresence1Response) String() string {
 func (*StopObservingDevicePresence1Response) ProtoMessage() {}
 
 func (x *StopObservingDevicePresence1Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_companion_companion_proto_msgTypes[39]
+	mi := &file_proto_companion_companion_proto_msgTypes[33]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1724,7 +1468,7 @@ func (x *StopObservingDevicePresence1Response) ProtoReflect() protoreflect.Messa
 
 // Deprecated: Use StopObservingDevicePresence1Response.ProtoReflect.Descriptor instead.
 func (*StopObservingDevicePresence1Response) Descriptor() ([]byte, []int) {
-	return file_proto_companion_companion_proto_rawDescGZIP(), []int{39}
+	return file_proto_companion_companion_proto_rawDescGZIP(), []int{33}
 }
 
 type StopObservingDevicePresence1_1Request struct {
@@ -1736,7 +1480,7 @@ type StopObservingDevicePresence1_1Request struct {
 
 func (x *StopObservingDevicePresence1_1Request) Reset() {
 	*x = StopObservingDevicePresence1_1Request{}
-	mi := &file_proto_companion_companion_proto_msgTypes[40]
+	mi := &file_proto_companion_companion_proto_msgTypes[34]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1748,7 +1492,7 @@ func (x *StopObservingDevicePresence1_1Request) String() string {
 func (*StopObservingDevicePresence1_1Request) ProtoMessage() {}
 
 func (x *StopObservingDevicePresence1_1Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_companion_companion_proto_msgTypes[40]
+	mi := &file_proto_companion_companion_proto_msgTypes[34]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1761,7 +1505,7 @@ func (x *StopObservingDevicePresence1_1Request) ProtoReflect() protoreflect.Mess
 
 // Deprecated: Use StopObservingDevicePresence1_1Request.ProtoReflect.Descriptor instead.
 func (*StopObservingDevicePresence1_1Request) Descriptor() ([]byte, []int) {
-	return file_proto_companion_companion_proto_rawDescGZIP(), []int{40}
+	return file_proto_companion_companion_proto_rawDescGZIP(), []int{34}
 }
 
 func (x *StopObservingDevicePresence1_1Request) GetArg0() string {
@@ -1779,7 +1523,7 @@ type StopObservingDevicePresence1_1Response struct {
 
 func (x *StopObservingDevicePresence1_1Response) Reset() {
 	*x = StopObservingDevicePresence1_1Response{}
-	mi := &file_proto_companion_companion_proto_msgTypes[41]
+	mi := &file_proto_companion_companion_proto_msgTypes[35]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1791,7 +1535,7 @@ func (x *StopObservingDevicePresence1_1Response) String() string {
 func (*StopObservingDevicePresence1_1Response) ProtoMessage() {}
 
 func (x *StopObservingDevicePresence1_1Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_companion_companion_proto_msgTypes[41]
+	mi := &file_proto_companion_companion_proto_msgTypes[35]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1804,7 +1548,7 @@ func (x *StopObservingDevicePresence1_1Response) ProtoReflect() protoreflect.Mes
 
 // Deprecated: Use StopObservingDevicePresence1_1Response.ProtoReflect.Descriptor instead.
 func (*StopObservingDevicePresence1_1Response) Descriptor() ([]byte, []int) {
-	return file_proto_companion_companion_proto_rawDescGZIP(), []int{41}
+	return file_proto_companion_companion_proto_rawDescGZIP(), []int{35}
 }
 
 var File_proto_companion_companion_proto protoreflect.FileDescriptor
@@ -1845,13 +1589,7 @@ const file_proto_companion_companion_proto_rawDesc = "" +
 	"#EnableSystemDataSyncForTypesRequest\x12\x12\n" +
 	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\x12\x12\n" +
 	"\x04arg1\x18\x02 \x01(\x05R\x04arg1\"&\n" +
-	"$EnableSystemDataSyncForTypesResponse\"\x18\n" +
-	"\x16GetAssociationsRequest\"1\n" +
-	"\x17GetAssociationsResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"\x1a\n" +
-	"\x18GetMyAssociationsRequest\"3\n" +
-	"\x19GetMyAssociationsResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"2\n" +
+	"$EnableSystemDataSyncForTypesResponse\"2\n" +
 	"\x1cHasNotificationAccessRequest\x12\x12\n" +
 	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"7\n" +
 	"\x1dHasNotificationAccessResponse\x12\x16\n" +
@@ -1876,18 +1614,13 @@ const file_proto_companion_companion_proto_rawDesc = "" +
 	"%StartObservingDevicePresence1Response\"<\n" +
 	"&StartObservingDevicePresence1_1Request\x12\x12\n" +
 	"\x04arg0\x18\x01 \x01(\tR\x04arg0\")\n" +
-	"'StartObservingDevicePresence1_1Response\"\\\n" +
-	"\x1eStartSystemDataTransferRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\x12\x12\n" +
-	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\x12\x12\n" +
-	"\x04arg2\x18\x03 \x01(\x03R\x04arg2\"!\n" +
-	"\x1fStartSystemDataTransferResponse\"9\n" +
+	"'StartObservingDevicePresence1_1Response\"9\n" +
 	"#StopObservingDevicePresence1Request\x12\x12\n" +
 	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"&\n" +
 	"$StopObservingDevicePresence1Response\";\n" +
 	"%StopObservingDevicePresence1_1Request\x12\x12\n" +
 	"\x04arg0\x18\x01 \x01(\tR\x04arg0\"(\n" +
-	"&StopObservingDevicePresence1_1Response2\x8f\x13\n" +
+	"&StopObservingDevicePresence1_1Response2\xe3\x10\n" +
 	"\x14DeviceManagerService\x12F\n" +
 	"\tAssociate\x12\x1b.companion.AssociateRequest\x1a\x1c.companion.AssociateResponse\x12v\n" +
 	"\x19AttachSystemDataTransport\x12+.companion.AttachSystemDataTransportRequest\x1a,.companion.AttachSystemDataTransportResponse\x12\x91\x01\n" +
@@ -1897,9 +1630,7 @@ const file_proto_companion_companion_proto_rawDesc = "" +
 	"\x1dDisableSystemDataSyncForTypes\x12/.companion.DisableSystemDataSyncForTypesRequest\x1a0.companion.DisableSystemDataSyncForTypesResponse\x12R\n" +
 	"\rDisassociate1\x12\x1f.companion.Disassociate1Request\x1a .companion.Disassociate1Response\x12X\n" +
 	"\x0fDisassociate1_1\x12!.companion.Disassociate1_1Request\x1a\".companion.Disassociate1_1Response\x12\x7f\n" +
-	"\x1cEnableSystemDataSyncForTypes\x12..companion.EnableSystemDataSyncForTypesRequest\x1a/.companion.EnableSystemDataSyncForTypesResponse\x12X\n" +
-	"\x0fGetAssociations\x12!.companion.GetAssociationsRequest\x1a\".companion.GetAssociationsResponse\x12^\n" +
-	"\x11GetMyAssociations\x12#.companion.GetMyAssociationsRequest\x1a$.companion.GetMyAssociationsResponse\x12j\n" +
+	"\x1cEnableSystemDataSyncForTypes\x12..companion.EnableSystemDataSyncForTypesRequest\x1a/.companion.EnableSystemDataSyncForTypesResponse\x12j\n" +
 	"\x15HasNotificationAccess\x12'.companion.HasNotificationAccessRequest\x1a(.companion.HasNotificationAccessResponse\x12\x8e\x01\n" +
 	"!IsPermissionTransferUserConsented\x123.companion.IsPermissionTransferUserConsentedRequest\x1a4.companion.IsPermissionTransferUserConsentedResponse\x12I\n" +
 	"\n" +
@@ -1907,8 +1638,7 @@ const file_proto_companion_companion_proto_rawDesc = "" +
 	"\x19RequestNotificationAccess\x12+.companion.RequestNotificationAccessRequest\x1a,.companion.RequestNotificationAccessResponse\x12L\n" +
 	"\vSetDeviceId\x12\x1d.companion.SetDeviceIdRequest\x1a\x1e.companion.SetDeviceIdResponse\x12\x82\x01\n" +
 	"\x1dStartObservingDevicePresence1\x12/.companion.StartObservingDevicePresence1Request\x1a0.companion.StartObservingDevicePresence1Response\x12\x88\x01\n" +
-	"\x1fStartObservingDevicePresence1_1\x121.companion.StartObservingDevicePresence1_1Request\x1a2.companion.StartObservingDevicePresence1_1Response\x12p\n" +
-	"\x17StartSystemDataTransfer\x12).companion.StartSystemDataTransferRequest\x1a*.companion.StartSystemDataTransferResponse\x12\x7f\n" +
+	"\x1fStartObservingDevicePresence1_1\x121.companion.StartObservingDevicePresence1_1Request\x1a2.companion.StartObservingDevicePresence1_1Response\x12\x7f\n" +
 	"\x1cStopObservingDevicePresence1\x12..companion.StopObservingDevicePresence1Request\x1a/.companion.StopObservingDevicePresence1Response\x12\x85\x01\n" +
 	"\x1eStopObservingDevicePresence1_1\x120.companion.StopObservingDevicePresence1_1Request\x1a1.companion.StopObservingDevicePresence1_1ResponseB3Z1github.com/AndroidGoLab/jni-proxy/proto/companionb\x06proto3"
 
@@ -1924,7 +1654,7 @@ func file_proto_companion_companion_proto_rawDescGZIP() []byte {
 	return file_proto_companion_companion_proto_rawDescData
 }
 
-var file_proto_companion_companion_proto_msgTypes = make([]protoimpl.MessageInfo, 42)
+var file_proto_companion_companion_proto_msgTypes = make([]protoimpl.MessageInfo, 36)
 var file_proto_companion_companion_proto_goTypes = []any{
 	(*AssociateRequest)(nil),                                 // 0: companion.AssociateRequest
 	(*AssociateResponse)(nil),                                // 1: companion.AssociateResponse
@@ -1944,30 +1674,24 @@ var file_proto_companion_companion_proto_goTypes = []any{
 	(*Disassociate1_1Response)(nil),                          // 15: companion.Disassociate1_1Response
 	(*EnableSystemDataSyncForTypesRequest)(nil),              // 16: companion.EnableSystemDataSyncForTypesRequest
 	(*EnableSystemDataSyncForTypesResponse)(nil),             // 17: companion.EnableSystemDataSyncForTypesResponse
-	(*GetAssociationsRequest)(nil),                           // 18: companion.GetAssociationsRequest
-	(*GetAssociationsResponse)(nil),                          // 19: companion.GetAssociationsResponse
-	(*GetMyAssociationsRequest)(nil),                         // 20: companion.GetMyAssociationsRequest
-	(*GetMyAssociationsResponse)(nil),                        // 21: companion.GetMyAssociationsResponse
-	(*HasNotificationAccessRequest)(nil),                     // 22: companion.HasNotificationAccessRequest
-	(*HasNotificationAccessResponse)(nil),                    // 23: companion.HasNotificationAccessResponse
-	(*IsPermissionTransferUserConsentedRequest)(nil),         // 24: companion.IsPermissionTransferUserConsentedRequest
-	(*IsPermissionTransferUserConsentedResponse)(nil),        // 25: companion.IsPermissionTransferUserConsentedResponse
-	(*RemoveBondRequest)(nil),                                // 26: companion.RemoveBondRequest
-	(*RemoveBondResponse)(nil),                               // 27: companion.RemoveBondResponse
-	(*RequestNotificationAccessRequest)(nil),                 // 28: companion.RequestNotificationAccessRequest
-	(*RequestNotificationAccessResponse)(nil),                // 29: companion.RequestNotificationAccessResponse
-	(*SetDeviceIdRequest)(nil),                               // 30: companion.SetDeviceIdRequest
-	(*SetDeviceIdResponse)(nil),                              // 31: companion.SetDeviceIdResponse
-	(*StartObservingDevicePresence1Request)(nil),             // 32: companion.StartObservingDevicePresence1Request
-	(*StartObservingDevicePresence1Response)(nil),            // 33: companion.StartObservingDevicePresence1Response
-	(*StartObservingDevicePresence1_1Request)(nil),           // 34: companion.StartObservingDevicePresence1_1Request
-	(*StartObservingDevicePresence1_1Response)(nil),          // 35: companion.StartObservingDevicePresence1_1Response
-	(*StartSystemDataTransferRequest)(nil),                   // 36: companion.StartSystemDataTransferRequest
-	(*StartSystemDataTransferResponse)(nil),                  // 37: companion.StartSystemDataTransferResponse
-	(*StopObservingDevicePresence1Request)(nil),              // 38: companion.StopObservingDevicePresence1Request
-	(*StopObservingDevicePresence1Response)(nil),             // 39: companion.StopObservingDevicePresence1Response
-	(*StopObservingDevicePresence1_1Request)(nil),            // 40: companion.StopObservingDevicePresence1_1Request
-	(*StopObservingDevicePresence1_1Response)(nil),           // 41: companion.StopObservingDevicePresence1_1Response
+	(*HasNotificationAccessRequest)(nil),                     // 18: companion.HasNotificationAccessRequest
+	(*HasNotificationAccessResponse)(nil),                    // 19: companion.HasNotificationAccessResponse
+	(*IsPermissionTransferUserConsentedRequest)(nil),         // 20: companion.IsPermissionTransferUserConsentedRequest
+	(*IsPermissionTransferUserConsentedResponse)(nil),        // 21: companion.IsPermissionTransferUserConsentedResponse
+	(*RemoveBondRequest)(nil),                                // 22: companion.RemoveBondRequest
+	(*RemoveBondResponse)(nil),                               // 23: companion.RemoveBondResponse
+	(*RequestNotificationAccessRequest)(nil),                 // 24: companion.RequestNotificationAccessRequest
+	(*RequestNotificationAccessResponse)(nil),                // 25: companion.RequestNotificationAccessResponse
+	(*SetDeviceIdRequest)(nil),                               // 26: companion.SetDeviceIdRequest
+	(*SetDeviceIdResponse)(nil),                              // 27: companion.SetDeviceIdResponse
+	(*StartObservingDevicePresence1Request)(nil),             // 28: companion.StartObservingDevicePresence1Request
+	(*StartObservingDevicePresence1Response)(nil),            // 29: companion.StartObservingDevicePresence1Response
+	(*StartObservingDevicePresence1_1Request)(nil),           // 30: companion.StartObservingDevicePresence1_1Request
+	(*StartObservingDevicePresence1_1Response)(nil),          // 31: companion.StartObservingDevicePresence1_1Response
+	(*StopObservingDevicePresence1Request)(nil),              // 32: companion.StopObservingDevicePresence1Request
+	(*StopObservingDevicePresence1Response)(nil),             // 33: companion.StopObservingDevicePresence1Response
+	(*StopObservingDevicePresence1_1Request)(nil),            // 34: companion.StopObservingDevicePresence1_1Request
+	(*StopObservingDevicePresence1_1Response)(nil),           // 35: companion.StopObservingDevicePresence1_1Response
 }
 var file_proto_companion_companion_proto_depIdxs = []int32{
 	0,  // 0: companion.DeviceManagerService.Associate:input_type -> companion.AssociateRequest
@@ -1979,41 +1703,35 @@ var file_proto_companion_companion_proto_depIdxs = []int32{
 	12, // 6: companion.DeviceManagerService.Disassociate1:input_type -> companion.Disassociate1Request
 	14, // 7: companion.DeviceManagerService.Disassociate1_1:input_type -> companion.Disassociate1_1Request
 	16, // 8: companion.DeviceManagerService.EnableSystemDataSyncForTypes:input_type -> companion.EnableSystemDataSyncForTypesRequest
-	18, // 9: companion.DeviceManagerService.GetAssociations:input_type -> companion.GetAssociationsRequest
-	20, // 10: companion.DeviceManagerService.GetMyAssociations:input_type -> companion.GetMyAssociationsRequest
-	22, // 11: companion.DeviceManagerService.HasNotificationAccess:input_type -> companion.HasNotificationAccessRequest
-	24, // 12: companion.DeviceManagerService.IsPermissionTransferUserConsented:input_type -> companion.IsPermissionTransferUserConsentedRequest
-	26, // 13: companion.DeviceManagerService.RemoveBond:input_type -> companion.RemoveBondRequest
-	28, // 14: companion.DeviceManagerService.RequestNotificationAccess:input_type -> companion.RequestNotificationAccessRequest
-	30, // 15: companion.DeviceManagerService.SetDeviceId:input_type -> companion.SetDeviceIdRequest
-	32, // 16: companion.DeviceManagerService.StartObservingDevicePresence1:input_type -> companion.StartObservingDevicePresence1Request
-	34, // 17: companion.DeviceManagerService.StartObservingDevicePresence1_1:input_type -> companion.StartObservingDevicePresence1_1Request
-	36, // 18: companion.DeviceManagerService.StartSystemDataTransfer:input_type -> companion.StartSystemDataTransferRequest
-	38, // 19: companion.DeviceManagerService.StopObservingDevicePresence1:input_type -> companion.StopObservingDevicePresence1Request
-	40, // 20: companion.DeviceManagerService.StopObservingDevicePresence1_1:input_type -> companion.StopObservingDevicePresence1_1Request
-	1,  // 21: companion.DeviceManagerService.Associate:output_type -> companion.AssociateResponse
-	3,  // 22: companion.DeviceManagerService.AttachSystemDataTransport:output_type -> companion.AttachSystemDataTransportResponse
-	5,  // 23: companion.DeviceManagerService.BuildAssociationCancellationIntent:output_type -> companion.BuildAssociationCancellationIntentResponse
-	7,  // 24: companion.DeviceManagerService.BuildPermissionTransferUserConsentIntent:output_type -> companion.BuildPermissionTransferUserConsentIntentResponse
-	9,  // 25: companion.DeviceManagerService.DetachSystemDataTransport:output_type -> companion.DetachSystemDataTransportResponse
-	11, // 26: companion.DeviceManagerService.DisableSystemDataSyncForTypes:output_type -> companion.DisableSystemDataSyncForTypesResponse
-	13, // 27: companion.DeviceManagerService.Disassociate1:output_type -> companion.Disassociate1Response
-	15, // 28: companion.DeviceManagerService.Disassociate1_1:output_type -> companion.Disassociate1_1Response
-	17, // 29: companion.DeviceManagerService.EnableSystemDataSyncForTypes:output_type -> companion.EnableSystemDataSyncForTypesResponse
-	19, // 30: companion.DeviceManagerService.GetAssociations:output_type -> companion.GetAssociationsResponse
-	21, // 31: companion.DeviceManagerService.GetMyAssociations:output_type -> companion.GetMyAssociationsResponse
-	23, // 32: companion.DeviceManagerService.HasNotificationAccess:output_type -> companion.HasNotificationAccessResponse
-	25, // 33: companion.DeviceManagerService.IsPermissionTransferUserConsented:output_type -> companion.IsPermissionTransferUserConsentedResponse
-	27, // 34: companion.DeviceManagerService.RemoveBond:output_type -> companion.RemoveBondResponse
-	29, // 35: companion.DeviceManagerService.RequestNotificationAccess:output_type -> companion.RequestNotificationAccessResponse
-	31, // 36: companion.DeviceManagerService.SetDeviceId:output_type -> companion.SetDeviceIdResponse
-	33, // 37: companion.DeviceManagerService.StartObservingDevicePresence1:output_type -> companion.StartObservingDevicePresence1Response
-	35, // 38: companion.DeviceManagerService.StartObservingDevicePresence1_1:output_type -> companion.StartObservingDevicePresence1_1Response
-	37, // 39: companion.DeviceManagerService.StartSystemDataTransfer:output_type -> companion.StartSystemDataTransferResponse
-	39, // 40: companion.DeviceManagerService.StopObservingDevicePresence1:output_type -> companion.StopObservingDevicePresence1Response
-	41, // 41: companion.DeviceManagerService.StopObservingDevicePresence1_1:output_type -> companion.StopObservingDevicePresence1_1Response
-	21, // [21:42] is the sub-list for method output_type
-	0,  // [0:21] is the sub-list for method input_type
+	18, // 9: companion.DeviceManagerService.HasNotificationAccess:input_type -> companion.HasNotificationAccessRequest
+	20, // 10: companion.DeviceManagerService.IsPermissionTransferUserConsented:input_type -> companion.IsPermissionTransferUserConsentedRequest
+	22, // 11: companion.DeviceManagerService.RemoveBond:input_type -> companion.RemoveBondRequest
+	24, // 12: companion.DeviceManagerService.RequestNotificationAccess:input_type -> companion.RequestNotificationAccessRequest
+	26, // 13: companion.DeviceManagerService.SetDeviceId:input_type -> companion.SetDeviceIdRequest
+	28, // 14: companion.DeviceManagerService.StartObservingDevicePresence1:input_type -> companion.StartObservingDevicePresence1Request
+	30, // 15: companion.DeviceManagerService.StartObservingDevicePresence1_1:input_type -> companion.StartObservingDevicePresence1_1Request
+	32, // 16: companion.DeviceManagerService.StopObservingDevicePresence1:input_type -> companion.StopObservingDevicePresence1Request
+	34, // 17: companion.DeviceManagerService.StopObservingDevicePresence1_1:input_type -> companion.StopObservingDevicePresence1_1Request
+	1,  // 18: companion.DeviceManagerService.Associate:output_type -> companion.AssociateResponse
+	3,  // 19: companion.DeviceManagerService.AttachSystemDataTransport:output_type -> companion.AttachSystemDataTransportResponse
+	5,  // 20: companion.DeviceManagerService.BuildAssociationCancellationIntent:output_type -> companion.BuildAssociationCancellationIntentResponse
+	7,  // 21: companion.DeviceManagerService.BuildPermissionTransferUserConsentIntent:output_type -> companion.BuildPermissionTransferUserConsentIntentResponse
+	9,  // 22: companion.DeviceManagerService.DetachSystemDataTransport:output_type -> companion.DetachSystemDataTransportResponse
+	11, // 23: companion.DeviceManagerService.DisableSystemDataSyncForTypes:output_type -> companion.DisableSystemDataSyncForTypesResponse
+	13, // 24: companion.DeviceManagerService.Disassociate1:output_type -> companion.Disassociate1Response
+	15, // 25: companion.DeviceManagerService.Disassociate1_1:output_type -> companion.Disassociate1_1Response
+	17, // 26: companion.DeviceManagerService.EnableSystemDataSyncForTypes:output_type -> companion.EnableSystemDataSyncForTypesResponse
+	19, // 27: companion.DeviceManagerService.HasNotificationAccess:output_type -> companion.HasNotificationAccessResponse
+	21, // 28: companion.DeviceManagerService.IsPermissionTransferUserConsented:output_type -> companion.IsPermissionTransferUserConsentedResponse
+	23, // 29: companion.DeviceManagerService.RemoveBond:output_type -> companion.RemoveBondResponse
+	25, // 30: companion.DeviceManagerService.RequestNotificationAccess:output_type -> companion.RequestNotificationAccessResponse
+	27, // 31: companion.DeviceManagerService.SetDeviceId:output_type -> companion.SetDeviceIdResponse
+	29, // 32: companion.DeviceManagerService.StartObservingDevicePresence1:output_type -> companion.StartObservingDevicePresence1Response
+	31, // 33: companion.DeviceManagerService.StartObservingDevicePresence1_1:output_type -> companion.StartObservingDevicePresence1_1Response
+	33, // 34: companion.DeviceManagerService.StopObservingDevicePresence1:output_type -> companion.StopObservingDevicePresence1Response
+	35, // 35: companion.DeviceManagerService.StopObservingDevicePresence1_1:output_type -> companion.StopObservingDevicePresence1_1Response
+	18, // [18:36] is the sub-list for method output_type
+	0,  // [0:18] is the sub-list for method input_type
 	0,  // [0:0] is the sub-list for extension type_name
 	0,  // [0:0] is the sub-list for extension extendee
 	0,  // [0:0] is the sub-list for field type_name
@@ -2030,7 +1748,7 @@ func file_proto_companion_companion_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_proto_companion_companion_proto_rawDesc), len(file_proto_companion_companion_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   42,
+			NumMessages:   36,
 			NumExtensions: 0,
 			NumServices:   1,
 		},

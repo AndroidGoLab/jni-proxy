@@ -9,20 +9,20 @@ import (
 	"google.golang.org/grpc"
 )
 
-// Client wraps the gRPC ManagerService client.
-type Client struct {
+// ManagerClient wraps the gRPC ManagerService client.
+type ManagerClient struct {
 	svc pb.ManagerServiceClient
 }
 
-// NewClient creates a new biometric client.
-func NewClient(cc grpc.ClientConnInterface) *Client {
-	return &Client{
+// NewManagerClient creates a new Manager client.
+func NewManagerClient(cc grpc.ClientConnInterface) *ManagerClient {
+	return &ManagerClient{
 		svc: pb.NewManagerServiceClient(cc),
 	}
 }
 
 // CanAuthenticate0 calls the CanAuthenticate0 RPC.
-func (c *Client) CanAuthenticate0(ctx context.Context) (int32, error) {
+func (c *ManagerClient) CanAuthenticate0(ctx context.Context) (int32, error) {
 	resp, err := c.svc.CanAuthenticate0(ctx, &pb.CanAuthenticate0Request{})
 	if err != nil {
 		return 0, err
@@ -31,7 +31,7 @@ func (c *Client) CanAuthenticate0(ctx context.Context) (int32, error) {
 }
 
 // CanAuthenticate1_1 calls the CanAuthenticate1_1 RPC.
-func (c *Client) CanAuthenticate1_1(ctx context.Context, arg0 int32) (int32, error) {
+func (c *ManagerClient) CanAuthenticate1_1(ctx context.Context, arg0 int32) (int32, error) {
 	resp, err := c.svc.CanAuthenticate1_1(ctx, &pb.CanAuthenticate1_1Request{
 		Arg0: arg0,
 	})
@@ -42,7 +42,7 @@ func (c *Client) CanAuthenticate1_1(ctx context.Context, arg0 int32) (int32, err
 }
 
 // GetLastAuthenticationTime calls the GetLastAuthenticationTime RPC.
-func (c *Client) GetLastAuthenticationTime(ctx context.Context, arg0 int32) (int64, error) {
+func (c *ManagerClient) GetLastAuthenticationTime(ctx context.Context, arg0 int32) (int64, error) {
 	resp, err := c.svc.GetLastAuthenticationTime(ctx, &pb.GetLastAuthenticationTimeRequest{
 		Arg0: arg0,
 	})
@@ -53,7 +53,7 @@ func (c *Client) GetLastAuthenticationTime(ctx context.Context, arg0 int32) (int
 }
 
 // GetStrings calls the GetStrings RPC.
-func (c *Client) GetStrings(ctx context.Context, arg0 int32) (int64, error) {
+func (c *ManagerClient) GetStrings(ctx context.Context, arg0 int32) (int64, error) {
 	resp, err := c.svc.GetStrings(ctx, &pb.GetStringsRequest{
 		Arg0: arg0,
 	})
