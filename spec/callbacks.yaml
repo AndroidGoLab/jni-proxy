@@ -31,6 +31,96 @@ callbacks:
           - type: android.hardware.camera2.CameraCaptureSession
             name: session
 
+  - class: android.bluetooth.le.ScanCallback
+    adapter: ScanCallbackAdapter
+    methods:
+      - name: onScanResult
+        params:
+          - type: int
+            name: callbackType
+          - type: android.bluetooth.le.ScanResult
+            name: result
+      - name: onBatchScanResults
+        params:
+          - type: java.util.List
+            name: results
+      - name: onScanFailed
+        params:
+          - type: int
+            name: errorCode
+
+  - class: android.bluetooth.BluetoothGattCallback
+    adapter: BluetoothGattCallbackAdapter
+    methods:
+      - name: onConnectionStateChange
+        params:
+          - type: android.bluetooth.BluetoothGatt
+            name: gatt
+          - type: int
+            name: status
+          - type: int
+            name: newState
+      - name: onServicesDiscovered
+        params:
+          - type: android.bluetooth.BluetoothGatt
+            name: gatt
+          - type: int
+            name: status
+      - name: onCharacteristicRead
+        params:
+          - type: android.bluetooth.BluetoothGatt
+            name: gatt
+          - type: android.bluetooth.BluetoothGattCharacteristic
+            name: characteristic
+          - type: int
+            name: status
+      - name: onCharacteristicWrite
+        params:
+          - type: android.bluetooth.BluetoothGatt
+            name: gatt
+          - type: android.bluetooth.BluetoothGattCharacteristic
+            name: characteristic
+          - type: int
+            name: status
+      - name: onCharacteristicChanged
+        params:
+          - type: android.bluetooth.BluetoothGatt
+            name: gatt
+          - type: android.bluetooth.BluetoothGattCharacteristic
+            name: characteristic
+      - name: onDescriptorRead
+        params:
+          - type: android.bluetooth.BluetoothGatt
+            name: gatt
+          - type: android.bluetooth.BluetoothGattDescriptor
+            name: descriptor
+          - type: int
+            name: status
+      - name: onDescriptorWrite
+        params:
+          - type: android.bluetooth.BluetoothGatt
+            name: gatt
+          - type: android.bluetooth.BluetoothGattDescriptor
+            name: descriptor
+          - type: int
+            name: status
+      - name: onReadRemoteRssi
+        params:
+          - type: android.bluetooth.BluetoothGatt
+            name: gatt
+          - type: int
+            name: rssi
+          - type: int
+            name: status
+      - name: onMtuChanged
+        params:
+          - type: android.bluetooth.BluetoothGatt
+            name: gatt
+          - type: int
+            name: mtu
+          - type: int
+            name: status
+
   - class: android.media.ImageReader.OnImageAvailableListener
     adapter: ImageReaderOnImageAvailableListenerAdapter
     interface: true
