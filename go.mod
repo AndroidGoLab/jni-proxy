@@ -3,7 +3,7 @@ module github.com/AndroidGoLab/jni-proxy
 go 1.25.0
 
 require (
-	github.com/AndroidGoLab/jni v0.0.5
+	github.com/AndroidGoLab/jni v0.0.7
 	github.com/modelcontextprotocol/go-sdk v1.4.1
 	github.com/spf13/cobra v1.10.2
 	github.com/stretchr/testify v1.11.1
